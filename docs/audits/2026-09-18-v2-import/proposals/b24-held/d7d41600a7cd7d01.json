@@ -1,0 +1,694 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "d7d41600a7cd7d014d25788df3db84e9a45e73bc55590712de2aaba74a0784e4",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-6/mss_fdm_nylon6_1117a.pdf?v=48da60",
+    "pages": 2,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-6/mss_fdm_nylon6_1117a.pdf?v=48da60"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa6"
+    ],
+    "materialId": "M049",
+    "materialName": "PA6",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+      "Publisher": "Stratasys",
+      "Title": "FDM Nylon 6",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-6/mss_fdm_nylon6_1117a.pdf?v=48da60",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d7d41600a7cd7d014d25788df3db84e9a45e73bc55590712de2aaba74a0784e4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FDM Nylon 6"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M049",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "FDM Nylon 6",
+        "Shared formulation key": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FDM Nylon 6"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "9,800 psi",
+        "Raw unit": "psi",
+        "Raw numeric": "9800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.00689476",
+        "Normalized value": "67.568648",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: Tensile Strength, Ultimate (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "\"9,800\" may be a thousands separator or a decimal one; read as 9800 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength, Ultimate (Type 1, 0.125”, 0.2”/min) ASTM D638 9,800 psi 5,300 psi 67.6 MPa 36.5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "323,700 psi",
+        "Raw unit": "psi",
+        "Raw numeric": "323700",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.00000689476",
+        "Normalized value": "2.231833812",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Type 1 0.125” 0.2”/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: Tensile Modulus (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "\"323,700\" may be a thousands separator or a decimal one; read as 323700 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus (Type 1, 0.125”, 0.2”/min) ASTM D638 323,700 psi 263,500 psi 2,232 MPa 1,817 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "38 %",
+        "Raw unit": "%",
+        "Raw numeric": "38",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "38",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Type 1 0.125” 0.2”/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: Elongation at Break (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Break (Type 1, 0.125”, 0.2”/min) ASTM D638 38% 3.2% 38% 3.2%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Type 1 0.125” 0.2”/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: Elongation at Yield (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Yield (Type 1, 0.125”, 0.2”/min) ASTM D638 2.3% 1.7% 2.3% 1.7%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "14,100 psi",
+        "Raw unit": "psi",
+        "Raw numeric": "14100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.00689476",
+        "Normalized value": "97.216116",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Method 1 0.05”/min ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: Flexural Strength (Method 1,0.05”/min) ASTM D790",
+        "Notes": "\"14,100\" may be a thousands separator or a decimal one; read as 14100 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength (Method 1, 0.05”/min) ASTM D790 14,100 psi 11,900 psi 97.2 MPa 82 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "318,500 psi",
+        "Raw unit": "psi",
+        "Raw numeric": "318500",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.00000689476",
+        "Normalized value": "2.19598106",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Method 1 0.05”/min ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: Flexural Modulus (Method 1,0.05”/min) ASTM D790",
+        "Notes": "\"318,500\" may be a thousands separator or a decimal one; read as 318500 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus (Method 1, 0.05”/min) ASTM D790 318,500 psi 272,500 psi 2,196 MPa 1,879 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "106 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "106",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "106",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "Method A 23 °C 2.0 ft-lb/in 0.8 ft-lb/in ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: IZOD impact - notched (Method A, 23 °C) ASTM D256 2.0 ft-lb/in 0.8 ft-lb/in",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "IZOD impact - notched (Method A, 23 °C) ASTM D256 2.0 ft-lb/in 0.8 ft-lb/in 106 J/m 43 J/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "2,873 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "2873",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2873",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "Method A 23 °C 53.8 ft-lb/in 3.6 ft-lb/in ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 1: IZOD impact - unnotched (Method A, 23 °C) ASTM D256 53.8 ft-lb/in 3.6 ft-lb/in",
+        "Notes": "the row says unnotched and the standard it names is the notched designation; the sheet's own word for the row is kept; \"2,873\" may be a thousands separator or a decimal one; read as 2873 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "IZOD impact - unnotched (Method A, 23 °C) ASTM D256 53.8 ft-lb/in 3.6 ft-lb/in 2,873 J/m 192 J/m"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M049",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "93 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "93",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "93",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "HDT 264 psi 199 °F ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-nylon6-1117a",
+        "Locator": "p. 2: Heat Deflection (HDT) @ 264 psi ASTM D648 199 °F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat Deflection (HDT) @ 264 psi ASTM D648 199 °F 93 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FDM Nylon 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "F O R T U S 3 D P R I N T E R S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FDM Nylon 6™ combines strength and toughness superior to other FDM thermoplastics, for applications that require strong, customized",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineered with nylon 6, a popular thermoplastic for manufacturing, this material works with the Fortus 900mc™ to produce durable parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "with a clean finish and high break resistance. FDM Nylon 6 is ideal for product manufacturers and development engineers in automotive,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strenth, Yield (Type 1, 0.125”, 0.2”/min) ASTM D638 7,150 psi 4,200 psi 49.3 MPa 28.9 MPa",
+      "reason": "properties.csv carries no property for \"Tensile Strenth, Yield (Type 1,0.125”, 0.2”/min)\""
+    },
+    {
+      "page": 1,
+      "text": "ASTM D790 No Break No Break No Break No Break",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM Nylon 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "F O R T U S 3 D P R I N T E R S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "of any 3D printing technology. These",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.010 inch (0.254 mm) SR-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 900mc Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.013 inch (0.330 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "*Conditioned = 20 °C and 50% RH for 40 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "conditions, test conditions, etc. Actual values will vary with build conditions. Tested parts were built on Fortus 400mc™ @ 0.010” (0.254",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Advanced FDM 3D Printers boast the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "bigger parts and higher quantities than 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM 3D Printers streamline processes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM 3D Printers are easy to operate",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7665 Commerce Way, Eden Prairie, MN 55344 1 Holtzman St., Science Park, PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 888 480-3548 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 952 937-3000 (Intl) +972 74 745-4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 952 937-0070 (Fax) +972 74 745-5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 9001:2008 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "©2016, 2017 Stratasys Inc. All rights reserved. Stratasys, Stratasys signet, FDM, Fortus and Finishing Touch are registered trademarks of Stratasys Inc. FDM Tec",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "900mc, Insight, Control Center, FDM Nylon 6, Smart Supports, SR-30, SR-100, FDM Nylon 6 and TouchWorks are trademarks of Stratasys, Inc. *ULTEM is a trademark o",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MSS_FDM_Nylon6_EN_1117a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-fable-5-1",
+    "date": "2026-09-21"
+  }
+}

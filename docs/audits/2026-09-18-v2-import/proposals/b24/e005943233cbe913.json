@@ -1,0 +1,2634 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "e005943233cbe9138e2f3cdbd552cf2bfa8c278d8ec8567f04bf564eba8e69ca",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc/mds_fdm_pc_0426a.pdf?v=4995e1",
+    "pages": 14,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc/mds_fdm_pc_0426a.pdf?v=4995e1"
+  },
+  "identity": {
+    "polymer": "PC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polycarbonate",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc"
+    ],
+    "materialId": "M035",
+    "materialName": "PC",
+    "estimateIdentity": "PC",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+      "Publisher": "Stratasys",
+      "Title": "MATERIAL DATA SHEET PC",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc/mds_fdm_pc_0426a.pdf?v=4995e1",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e005943233cbe9138e2f3cdbd552cf2bfa8c278d8ec8567f04bf564eba8e69ca"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATA SHEET PC"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M035",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "PC",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "0.127 mm (0.005 in.) T10 0.30 mm (0.012 in.) HB Fortus 450mc (p. 10, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATA SHEET PC"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "144.0 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "144",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "144",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: PC Physical Properties · Property Test Method · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 6: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "HDT @ 66 psi 144.0 °C (291.2 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "144.3 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "144.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "144.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: PC Physical Properties · Property Test Method · XZ column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 6: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "HDT @ 66 psi 144.3 °C (291.7 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "140.7 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "140.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "140.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: PC Physical Properties · Property Test Method · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 6: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "HDT @ 264 psi 140.7 °C (285.3 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "141.1 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "141.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "141.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: PC Physical Properties · Property Test Method · XZ column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 6: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "HDT @ 264 psi 141.1 °C (286.0 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: PC White Mechanical Properties - F900 - T16 Tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 4.8"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: PC White Mechanical Properties - F900 - T16 Tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 1.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "12 %",
+        "Raw unit": "%",
+        "Raw numeric": "12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: PC White Mechanical Properties - F900 - T16 Tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 12"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: PC White Mechanical Properties - F900 - T16 Tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 1.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: Mechanical Properties of PC Black, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Yield % 5.3 (0.040)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: Mechanical Properties of PC Black, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Yield % 2.4 (0.36)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "6.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: Mechanical Properties of PC Black, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Break % 6.4 (0.58)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: Mechanical Properties of PC Black, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Break % 2.5 (0.39)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 9: Mechanical Properties of PC Red, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Yield % 4.8 (0.2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 9: Mechanical Properties of PC Red, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Yield % 1.9 (0.13)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 9: Mechanical Properties of PC Red, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Break % 4.9 (0.24)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 9: Mechanical Properties of PC Red, Fortus 450mc, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 11: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Break % 1.9 (0.13)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 10: Mechanical Properties of PC Red, F900, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 12: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Yield % 5.5 (0.07)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 10: Mechanical Properties of PC Red, F900, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 12: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Yield % 2.8 (0.41)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "7.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "7.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 10: Mechanical Properties of PC Red, F900, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 12: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Break % 7.6 (0.67)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 10: Mechanical Properties of PC Red, F900, T16 · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-0426a",
+        "Locator": "p. 12: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Break % 2.8 (0.41)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "industrial plastic to 3D printing applications. PC is characterized by its",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "These attributes make it a good choice for 3D printed prototypes, parts",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Overview ................................................................................ 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information ........................................................... 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties ............................................................... 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties.......................................................... 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "UV Aging ............................................................................... 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fire Protection for Devices and Appliances ....................... 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix ................................................................................ 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1: Printer and Support Material Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T10 0.127 mm (0.005 in.) SR-100 T12SR100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12SR100 (SR-100),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12 0.1778 mm (0.007 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12 (PC BASS)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc™ SR-100, PC BASS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12SR100 (SR-100),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T16 0.254 mm (0.010 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T16 (PC BASS)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20 0.3302 mm (0.013 in.) PC BASS T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12SR100 (SR-100),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12 0.1778 mm (0.007 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12 (PC BASS)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900 T16 0.254 mm (0.010 in.) SR-100, PC BASS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12SR100 (SR-100),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T16 (PC BASS)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20 0.3302 mm (0.013 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "N500 0.250 mm (0.010 in.) N410",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3300 SR-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "N750 0.50 mm (0.020 in.) N750",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "PC Red is available on the Fortus 450mc and F900 with the T16 model tip and SR-100 support material.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "PC Black is only available on the Fortus 450mc with the T16 model tip and SR-100 support material.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 660 x 965 mm (0.02 x 26 x 38 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 406 x 470 mm (0.02 x 16 x 18.5 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3300 Low Temperature Build Sheets",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 660 x 711 mm (0.02 x 26 x 28 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "System Requirements1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Standard Fortus 450mc head (white, PC-ISO, and Validated Material colors)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened Fortus 450mc head (Validated Material colors)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Standard F900 head (white, PC-ISO, Validated Material colors)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened F900 head (Validated Material colors)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F3300 Series Extruder Drive",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 2: PC Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-02210 PC, 92.3 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-08210 PC, 184 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fortus 450mc, F900, Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-70060 PC Red, 92 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(S/N L502 and up)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-03210 PC BASS, 92.3 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-03120 SR-100 Soluble Support, 92.3 - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-70061 PC Black, 92 cu in. - Plus Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fortus Plus Xtend 500 Box",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "360-50210 PC, XTEND 500 - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fortus 450mc, F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "360-53210 PC BASS, XTEND 500 - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "310-20100 PC, 92.3 cu in. - Classic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "310-20118 PC, 184 cu in. - Classic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fortus 900mc (S/N prior to L502)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "310-30100 PC BASS, 92.3 cu in. - Classic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "310-31100 SR-100 Soluble Support, 92.3 - Classic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F3000 Series Spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "363-00200 MTRL, F3000 Series, (M), PC, 4100cc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "363-00710 MTRL, F3000 Series, (S), SR-110, 4100cc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10501 T10 tip Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10301 T12 tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10401 T16 tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10701 T20 tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fortus 450mc, F900, Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10100 T12SR100 support tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-00100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.02 x 16 x 18.5 in.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-00300 Low Temperature build sheet, 0.02 x 26 x 38 in. F900, Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F3000 Series",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "FDM, N500 Hot End",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-00500-S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(0.25 mm/0.010 in. layer height)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "FDM, N410 Support Hot End",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-00410-S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(0.25 mm/0.010 in. layer height)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Hot End, FDM, N750",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-00750-S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(0.50 mm/0.020 in. layer height)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F3300 sheet bundle,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "363-30000-S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "standard 0.02 x 26 x 28 in., 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "821725-XXXX Standard Fortus 450mc head (silver handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "380-30300-S OpenAM Standard Fortus 450mc head (silver handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "821726-XXXX Hardened Fortus 450mc head (blue handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Fortus 450mc (Validated Materials only)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "380-30400-S OpenAM Hardened Fortus 450mc head (blue handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "404210-XXXX OpenAM Standard F900 head (formed rod handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "380-63600-S Standard F900 head (formed rod handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "325-63500 Hardened F900 head (folded sheet metal handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "F900 (Validated Materials only)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "380-63500-S OpenAM Hardened F900 head (folded sheet metal handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "F3000 Series",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "533-10000-S F3000 Series Extruder Drive F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Values are measured as molded and printed on the F900 with a T16 tip at 0.25 mm (0.010 in.) layer height.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 3: PC Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM E831 49.19 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 6,
+      "text": "(27.33 μin./[in.*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(-50 °C to 120 °C) -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM E831 51.64 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 6,
+      "text": "(28.69 μin./[in.*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(-50 °C to 30 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM E831 35.79 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 6,
+      "text": "(19.88 μin./[in.*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(30 °C to 75 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM E831 11.51 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 6,
+      "text": "(6.394 μin./[in.*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "(75 °C to 130 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2.66",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2.84",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 6,
+      "text": "2.53",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2.69",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 6,
+      "text": "-0.002",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "-0.002",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 6,
+      "text": "0.003",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.008",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Tg ASTM D7426 Inflection Point 142.5 °C (288.6 °F)",
+      "reason": "properties.csv carries no property for \"Tg\""
+    },
+    {
+      "page": 6,
+      "text": "ASTM E1952 0.2802 W/m*K",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 6,
+      "text": "@0C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.1619 BTU/(hr*ft*F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM E1952 0.2845 W/m*K",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 6,
+      "text": "@30C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.1644 BTU/(hr*ft*F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Volume Resistivity ASTM D257 > 6.78*10^14 Ω*cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"6.78*10^14\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 6,
+      "text": "ASTM E1952 0.2902 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 6,
+      "text": "@60C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.1677 BTU/(hr*ft*F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ASTM E1952 0.2888 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 6,
+      "text": "@90C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.1669 BTU/(hr*ft*F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ASTM E1952 0.189 mm^2/s",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 7,
+      "text": "@0C 2.93*10^-4 in.^2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ASTM E1952 0.171 mm^2/s",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 7,
+      "text": "@30C 2.65*10^-4 in.^2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ASTM E1952 0.159 mm^2/s",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 7,
+      "text": "@60C 2.46*10^-4 in.^2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ASTM E1952 0.146 mm^2/s",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 7,
+      "text": "@90C 2.26*10^-4 in.^2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ASTM D792",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "PC White samples were printed with a 0.25 mm (0.010 in.) layer height on the F900. For the full test procedure please",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Specific Gravity 1.20",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 4: PC White Mechanical Properties - F900 - T16 Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 93.9 (2.15)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 53.1 (4.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 13,600 (310)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 7,690 (600)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 54.1 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 52.6 (4.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 7,850 (1,500)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 7,630 (580)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.94 (0.05)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.88 (0.07)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 426 (7.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 418 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 85.3 (14)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 12,400 (2,100)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 144 (4.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Strength @ 5% Strain",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 20,800 (670)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Strain @ Break % 3.1",
+      "reason": "properties.csv carries no property for \"Strain @ Break\" (%)"
+    },
+    {
+      "page": 8,
+      "text": "GPa 3.43 (0.09)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.80 (0.06)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 498 (13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 405 (9.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 8,
+      "text": "MPa 106 (3.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 106 (3.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 15,400 (480)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 15,400 (440)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.60 (0.04)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.56 (0.03)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 377 (6.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 371 (4.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 45.8 (5.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 30.7 (4.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in. 0.858 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in. 0.575 (0.08)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 1,930 (950)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 143.2 (32)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in. 36.2 (18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in. 2.68 (0.61)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "PC coupons were built on the Stratasys F900 with a 0.25 mm (0.010 in.) layer height using PC White. PC was tested",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "before and after UV exposure. Ten ASTM D638 upright (ZX) dogbones were tested in tensile after UV exposure and",
+      "reason": "properties.csv carries no property for \"before and after UV exposure. Ten\""
+    },
+    {
+      "page": 9,
+      "text": "an additional ten ASTM D638 ZX dogbones were the control (no UV exposure). The UV exposed samples were cycled",
+      "reason": "properties.csv carries no property for \"an additional ten\""
+    },
+    {
+      "page": 9,
+      "text": "in the QUV chamber per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus for Exposure",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "of Nonmetallic Materials) for 1,000 hours, alternating for eight hours at 60 ˚C (140 ˚F) and 4 hours at 50 ˚C (122 ˚F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Table 5: PC UV Exposure Test Results - F900 - T16 Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "No UV Exposure 6,370 43.9 5,940 40.9 3.0 - 258 1.78",
+      "reason": "properties.csv carries no property for \"No UV Exposure\""
+    },
+    {
+      "page": 9,
+      "text": "UV Exposure 4,230 29.2 4,200 29.0 1.6 -29.2% 289 1.99",
+      "reason": "properties.csv carries no property for \"UV Exposure\""
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "PC was printed on the Fortus 450mc and the Fortus 900mc printers with a T10, T12, T16, and T20, model tip using",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "SR-100 support (soluble) and PC-BASS (breakaway). For more information reference file number E345258 on the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Table 6: PC with SR-100 Support UL Blue Card Overview",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.127 mm (0.005 in.) T10 0.30 mm (0.012 in.) HB Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.178 mm (0.007 in.) T12 0.40 mm ( 0.016 in.) HB Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.254 mm (0.010 in.) T16 0.50 mm (0.020 in.) HB Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.330 mm (0.013 in.) T20 0.66 mm (0.023 in.) HB Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.127 mm (0.005 in.) T10 0.30 mm (0.012 in.) HB Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.178 mm (0.007 in.) T12 0.40 mm ( 0.016 in.) HB Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.254 mm (0.010 in.) T16 0.50 mm (0.020 in.) HB Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.330 mm (0.013 in.) T20 0.66 mm (0.023 in.) HB Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Table 7: PC with PC Breakaway Support UL Blue Card Overview",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.178 mm (0.007 in.) T12 0.35 mm (0.014 in.) HB Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Horizontal 0.178 mm (0.007 in.) T12 0.45 mm ( 0.018 in.) HB Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.330 mm (0.013 in.) T20 0.66 mm (0.023 in.) HB Fortus 450mc, Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.178 mm (0.007 in.) T12 0.35 mm (0.014 in.) HB Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Vertical 0.178 mm (0.007 in.) T12 0.45 mm ( 0.018 in.) HB Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.330 mm (0.013 in.) T20 0.66 mm (0.023 in.) HB Fortus 450mc, Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Table 8: Mechanical Properties of PC Black, Fortus 450mc, T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 64.6 (0.44)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 43 (5.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 9,370 (63)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 6,230 (740)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 61.0 (2.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 44.5 (5.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 8,840 (340)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 6,460 (840)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "GPa 1.93 (0.018)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "GPa 2.01 (0.034)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ksi 280 (2.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ksi 291 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Table 9: Mechanical Properties of PC Red, Fortus 450mc, T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 62.5 (0.67)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 37.1 (2.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 9,060 (98)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 5,380 (330)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 61.7 (0.97)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 36.9 (2.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 8,950 (140)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 5,350 (350)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "GPa 1.95 (0.021)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "GPa 2.07 (0.024)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ksi 282 (3.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ksi 301 (3.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Table 10: Mechanical Properties of PC Red, F900, T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 62.3 (0.46)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 45.3 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 9,040 (67)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 6,570 (700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 54.4 (2.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 45.3 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 7,900 (340)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 6,570 (700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 1.92 (0.026)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 1.91 (0.036)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ksi 278 (3.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ksi 277 (5.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Figure 1: 2nd heating scan DSC data for the PC Flat (XY) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "Figure 2: Dimension change data as a function of temperature for the PC Flat (XY) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "Figure 3: Dimension change data as a function of temperature for the PC On Edge (XZ)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Figure 4: Overlay of the dimension change data for the Flat (XY) and On Edge (XZ)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Stratasys Headquarters 1 Holtzman St.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "5995 Opus Parkway,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Rehovot, 7670401",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Minnetonka, MN 55343",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "ISO 9001:2015 +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+1 952 937-3000 (Intl)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "© 2026 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, FDM, F900, and Fortus are registered trademarks of Stratasys",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Inc. Insight, Control Center, GrabCAD Print, GrabCAD Print Pro, GrabCAD Shop, ProtectAM, ABS-ESD7, ABS-M30, ABS-M30i, FDM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Nylon 6, FDM Nylon 12, FDM Nylon 12CF, PC-ISO, Antero 800NA and Antero 840CN03 are trademarks of Stratasys, Inc. 9085, 1010 and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "MDS_FDM_PC_0426a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-fable-5-1",
+    "date": "2026-09-21"
+  }
+}

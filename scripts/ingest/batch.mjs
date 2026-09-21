@@ -69,8 +69,13 @@ const READER_GAPS = [
 const severalValues = (proposal) => (proposal.measurements ?? []).filter((m) => {
   const unit = String(m.row?.['Raw unit'] ?? '').trim();
   if (!unit) return false;
+  // What a row prints inside brackets is the condition it was measured under, not a second result, and a
+  // condition may be in the value's own unit: 3DJake heads a row "Vicat (50 N, 50 °C/h) 98 °C", and the heating
+  // rate held eighteen of its documents for stating two temperatures. readRow already sets a bracketed number
+  // aside; the count here has to as well, or it holds what the reader has already read correctly.
+  const text = String(m.evidence?.text ?? '').replace(/[(（[［][^)）\]］]*[)）\]］]/g, ' ');
   const pattern = new RegExp(String.raw`(?<![-\u2013~\u00b1]\s{0,2})\d+(?:[.,]\d+)?\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'gi');
-  return [...String(m.evidence?.text ?? '').matchAll(pattern)].length > 1;
+  return [...text.matchAll(pattern)].length > 1;
 }).length;
 
 /**
@@ -393,7 +398,12 @@ function split(batch) {
       const hold = holdReason(p, mine);
       if (hold && ['ocr-visual', 'ruling', 'no-name', 'registered', 'no-values', 'reader:several-values'].includes(hold.reason)) {
         moved.set(p.file, hold.reason === 'ocr-visual' ? 'ocr' : 'held');
+        continue;
       }
+      // A document whose every row a reader rejected has been read and refused, and the reason is on its rows;
+      // it is held, not applied, and it was being moved aside by hand in three batches running.
+      const rows = rowsOf(p);
+      if (rows.length && rows.every((r) => r.review?.status === 'rejected')) moved.set(p.file, 'held');
     }
     if (!moved.size) { console.log(`round ${round}: nothing left to move`); break; }
     for (const [file, where] of moved) move(file, where);
@@ -525,6 +535,8 @@ function twins(batch, by) {
     const proposal = JSON.parse(readFileSync(path, 'utf8'));
     const row = byDoc.get(proposal.document?.docKey);
     const found = proposal.twinOf ? { source: proposal.twinOf } : primaryOf(row, ledger);
+    // A document in the held folder for some other reason is not a twin and is not reported as one waiting.
+    if (!found && !proposal.twinOf && !/^held: twin/.test(row?.status_note ?? '')) continue;
     const primary = found?.source;
     if (!primary) { waiting.push(`${row?.provider ?? '?'} "${row?.product_raw ?? proposal.document?.docKey}" — ${found?.how ?? 'nothing records which sheet it repeats'}`); continue; }
     // A copy is not a source (AGENTS). Where the two documents name the same product of the same maker, this is

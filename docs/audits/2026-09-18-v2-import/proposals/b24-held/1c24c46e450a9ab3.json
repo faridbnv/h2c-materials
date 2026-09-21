@@ -1,0 +1,569 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "1c24c46e450a9ab36e51d39f7a96586f603bffc4b01f4b972990e35e26498399",
+    "url": "https://3d.nice-cdn.com/upload/file/bambu_lab_filament-guide.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Bambu Lab",
+    "docKey": "1c24c46e450a9ab3"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "B-PC-bambu-lab-filament-guide",
+      "Publisher": "Bambu Lab",
+      "Title": "best-suited material for needs.For detailed technical information, download filament Technical data sheets (TDS) on product pages Toughness",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Bambu Lab's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/bambu_lab_filament-guide.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1c24c46e450a9ab36e51d39f7a96586f603bffc4b01f4b972990e35e26498399"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "best-suited material for needs.For detailed technical information, download filament Technical data sheets (TDS) on product pages Toughness"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Bambu Lab",
+        "Product name": "Toughness",
+        "Shared formulation key": "B-PC-bambu-lab-filament-guide",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "best-suited material for needs.For detailed technical information, download filament Technical data sheets (TDS) on product pages Toughness"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "26.6 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "26.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "Locator": "p. 1: Impact Strength - XY",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Impact Strength - XY 26.6 kJ/m² 31.5 kJ/m² 39.3 kJ/m² 14.5 kJ/m² 41.0 kJ/m² 34.8 kJ/m² 123.2 kJ/m² 23.2 kJ/m² 41.2 kJ/m² 36.0 kJ/m² 57.5 kJ/m² 40.3 kJ/m² 27.2 kJ/m²"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "76 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "76",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "76",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "Locator": "p. 1: Bending Strength - XY",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending Strength - XY 76 MPa 64 MPa 62 MPa 68 MPa 65 MPa 108 MPa 89 MPa 70 MPa 131 MPa 125 MPa 151 MPa 120 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2750 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2750",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "Locator": "p. 1: Bending Modulus - XY",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Bending Modulus - XY 2750 MPa 2050 MPa 1880 MPa 2860 MPa 1920 MPa 2310 MPa 3950 MPa 2910 MPa 5320 MPa 4230 MPa 5460 MPa 3670 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Impact strength",
+        "Raw value": "13.8 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "13.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "Locator": "p. 1: Impact Strength - Z",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Impact Strength - Z 13.8 kJ/m² 10.6 kJ/m² 7.4 kJ/m² 5.3 kJ/m² 4.9 kJ/m² 9.0 kJ/m² 86.3 kJ/m² 7.8 kJ/m² 10.7 kJ/m² 4.5 kJ/m² 13.3 kJ/m² 15.5 kJ/m² 4.1 kJ/m²"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.43 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.43",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.43",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "Locator": "p. 1: Saturated Water Absorption Rate",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Absorption Rate 0.43% 0.40% 0.65% 0.53% 0.45% 0.25% 1.08% 0.42% 0.30% 0.37% 0.88% 2.35% 2.56%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "25 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "Locator": "p. 1: HDT, 0.45 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "25 ℃, 55% RH"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "190 - 230 ℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "190",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Smooth PEI Plate (60 - 80 °C)",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "/Material",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "B-PC-bambu-lab-filament-guide",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "< 300 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Size/Material All Size/Material All Size/Material All Size/Material 0.4 mm / 0.8 mm All Size/Material All Size/Material 0.4 mm / 0.8 mm 0.4 mm / 0.8 mm 0.4 mm / 0.8 mm 0.4 mm / 0.8 mm"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Size",
+      "raw": "/Material",
+      "fromBelow": false,
+      "line": "Nozzle Size/Material All Size/Material All Size/Material All Size/Material 0.4 mm / 0.8 mm All Size/Material All Size/Material 0.4 mm / 0.8 mm 0.4 mm / 0.8 mm 0.4 mm / 0.8 mm 0.4 mm / 0.8 mm"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Build Plate",
+      "raw": "Smooth PEI Plate (60 - 80 °C)",
+      "fromBelow": false,
+      "line": "Build Plate Smooth PEI Plate (60 - 80 °C) Smooth PEI Plate (90 - 100 °C) Smooth PEI Plate (90 - 100 °C) Smooth PEI Plate (90 - 100 °C) Smooth PEI Plate (90 - 100 °C) Smooth PEI Plate (30 - 45 °C) Smoo"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "< 300 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed < 300 mm/s < 300 mm/s < 300 mm/s < 180 mm/s < 300 mm/s < 300 mm/s < 200 mm/s < 250 mm/s < 200 mm/s < 100 mm/s < 100 mm/s < 100 mm/s < 130 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "190 - 230 ℃",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 190 - 230 ℃ 230 - 260 ℃ 240 - 280 ℃ 240 - 280 ℃ 240 - 280 ℃ 260 - 290 ℃ 220 - 240 ℃ 210 - 240 ℃ 240 - 270 ℃ 260 - 300 ℃ 260 - 300 ℃ 260 - 300 ℃ 260 - 290 ℃"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PLA PETG HF ABS ABS-GF ASA PC TPU 95A HF PLA-CF PETG-CF PET-CF PAHT-CF PA6-CF PA6-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "57 ℃ 69 ℃ 87 ℃ 99 ℃ 100 ℃ 117 ℃ N / A 55 °C 74 °C 205 °C 194 °C 186 ℃ 182 ℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Blast Drying Oven: 55 °C, 8 h Blast Drying Oven: 65 °C, 8 h Blast Drying Oven: 80 °C, 8 h Blast Drying Oven: 80 °C, 8 h Blast Drying Oven: 80 °C, 8 h Blast Dryi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "X1 Series Heatbed: 65 - 75 °C, 12 h X1 Series Heatbed: 75 - 85 ℃, 12 h X1 Series Heatbed: 90 - 100 °C, 12 h X1 Series Heatbed: 90 - 100 ℃, 13 h X1 Series Heatbe",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.6 mm (recommended) / 0.6 mm (recommended) / 0.6 mm (recommended) / 0.6 mm (recommended) / 0.6 mm (recommended) /",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.4 mm / 0.6 mm / 0.8 mm 0.4 mm / 0.6 mm / 0.8 mm 0.4 mm / 0.6 mm / 0.8 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cool Plate (35 - 55 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Smooth PEI Plate (55 - 65 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "& Bed Temperature Textured PEI Plate (60 - 80 °C) Textured PEI Plate (90 - 100 °C) Textured PEI Plate (90 - 100 °C) Textured PEI Plate (90 - 100 °C) Textured PE",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Textured PEI Plate (55 - 65 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Part Cooling Fan 50 - 100% 0 - 80% 0 - 80% 0 - 80% 0 - 80% 0 - 60% 50 - 100% 50 - 100% 0 - 40% 0 - 40% 0 - 40% 0 - 40% 0 - 40%",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Post-printing 50 - 60 ℃, 80 - 90 ℃, 80 - 90 ℃, 80 - 90 ℃, 85 - 100 ℃, 55 - 60 ℃, 65 - 70 ℃, 90 - 130 ℃ 90 - 130 ℃ 90 - 130 ℃ 90 - 130 ℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Processes 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours 6 - 12 hours",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

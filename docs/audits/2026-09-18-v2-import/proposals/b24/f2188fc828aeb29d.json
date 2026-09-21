@@ -1,0 +1,649 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "f2188fc828aeb29de6d9d1475a952e6fd5e119f567c980b3f0d013e1ba4f1fdd",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc-iso/mds_fdm_pciso_0820a.pdf?v=48df85",
+    "pages": 2,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc-iso/mds_fdm_pciso_0820a.pdf?v=48df85"
+  },
+  "identity": {
+    "polymer": "PC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polycarbonate",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc"
+    ],
+    "materialId": "M035",
+    "materialName": "PC",
+    "estimateIdentity": "PC",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-pciso-0820a",
+      "Publisher": "Stratasys",
+      "Title": "1",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc-iso/mds_fdm_pciso_0820a.pdf?v=48df85",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f2188fc828aeb29de6d9d1475a952e6fd5e119f567c980b3f0d013e1ba4f1fdd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "1"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M035",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "PC-ISO",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-pciso-0820a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-pciso-0820a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "1"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "57 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "57",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Type 1 0.125” 0.2”/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pciso-0820a",
+        "Locator": "p. 1: Tensile Strength (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (Type 1, 0.125”, 0.2”/min) ASTM D638 57 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2,000 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Type 1 0.125” 0.2”/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pciso-0820a",
+        "Locator": "p. 1: Tensile Modulus (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "\"2,000\" may be a thousands separator or a decimal one; read as 2000 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus (Type 1, 0.125”, 0.2”/min) ASTM D638 2,000 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "90 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Method 1 0.05”/min ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pciso-0820a",
+        "Locator": "p. 1: Flexural Strength (Method 1,0.05”/min) ASTM D790",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength (Method 1, 0.05”/min) ASTM D790 90 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2,100 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Method 1 0.05”/min ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pciso-0820a",
+        "Locator": "p. 1: Flexural Modulus (Method 1,0.05”/min) ASTM D790",
+        "Notes": "\"2,100\" may be a thousands separator or a decimal one; read as 2100 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus (Method 1, 0.05”/min) ASTM D790 2,100 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M035",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "161 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "161",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "161",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pciso-0820a",
+        "Locator": "p. 1: Glass Transition (Tg) DMA (SSYS)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "161 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PC-ISO (polycarbonate-ISO), an industrial thermoplastic, which in its raw state, is biocompatible (ISO 10993 USP Class VI)* and can be gamma",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer, PC-ISO gives you parts that can be used for conceptual modeling,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength (Type 1, 0.125”, 0.2”/min) ASTM D638 (8,300 psi)",
+      "reason": "the same row again in psi (8,300 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus (Type 1, 0.125”, 0.2”/min) ASTM D638 (289,800 psi)",
+      "reason": "the same row again in psi (289,800 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Elongation (Type 1, 0.125”, 0.2”/min) ASTM D638",
+      "reason": "properties.csv carries no property for \"Tensile Elongation (Type 1,0.125”, 0.2”/min)\""
+    },
+    {
+      "page": 1,
+      "text": "(4%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength (Method 1, 0.05”/min) ASTM D790 (13,100 psi)",
+      "reason": "the same row again in psi (13,100 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus (Method 1, 0.05”/min) ASTM D790 (310,400 psi)",
+      "reason": "the same row again in psi (310,400 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "86 J/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IZOD Impact, notched (Method A, 23 °C) ASTM D256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1.6 ft-lb/in)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "53 J/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IZOD Impact, un-notched (Method A, 23 °C) ASTM D256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1 ft-lb/in)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "133 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(271 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "127 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection (HDT) @ 66 psi ASTM D648",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "(260 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection (HDT) @ 264 psi ASTM D648",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "(322 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "139 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(282 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not Applicable3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vicat Softening ISO 306",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "(Not Applicable3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume Resistivity ASTM D257 1.5x1014 - 8.0x1013 ohm-cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 1,
+      "text": "Dissipation Factor ASTM D150-98 .0009 - .0005",
+      "reason": "the line names Melting temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Dielectric Constant ASTM D150-98 3.0 - 2.8",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 1,
+      "text": "Dielectric Strength ASTM D149-09, Method A 370 - 70 V/mil",
+      "reason": "the line names Dielectric strength and states no value in a unit the database keeps it in (kV/mm)"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Other2 Test Method Value",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 380mc™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.013 inch (0.330 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 400mc™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 450mc™ 0.010 inch (0.254 mm) Breakaway",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.007 inch (0.178 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "F900™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "conditions, test conditions, etc. Actual values will vary with build conditions. Tested parts were built on Fortus 400mc™ @ 0.010” (0.254 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "All Electrical Property values were generated from the average of test plaques built with default part density (solid). Test plaques were 4.0 x 4.0 x",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.1 inches (102 x 102 x 2.5 mm) and were built both in the flat and vertical orientation. The range of values is mostly the result of the difference in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7665 Commerce Way, 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Eden Prairie, MN 55344 PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 800 801 6491 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 952 937-3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 952 937-0070 (Fax) +972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 9001:2015 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "©2020 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, FDM, and Fortus are registered trademarks of Stratasys Inc. Fortus 380mc, Fortus 400",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "900mc, F900 and PC-ISO are trademarks of Stratasys, Inc. All other trademarks are the property of their respective owners, and Stratasys assumes no responsibili",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Data Sheet performance, or use of these non-Stratasys products. Product specifications subject to change without notice. MDS_FDM_PCISO_0820a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Specific Gravity ASTM D792 1.2",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-fable-5-1",
+    "date": "2026-09-21"
+  }
+}

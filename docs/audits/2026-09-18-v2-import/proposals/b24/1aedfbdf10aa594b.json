@@ -1,0 +1,1722 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "1aedfbdf10aa594b5f59342c2ccc801f482e933286815f9e602436a581093e79",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc-abs/pc-abs-redesign/mds_fdm_pc-abs_0823a.pdf?v=48d8a5",
+    "pages": 11,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc-abs/pc-abs-redesign/mds_fdm_pc-abs_0823a.pdf?v=48d8a5"
+  },
+  "identity": {
+    "polymer": "PC-ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polymer Blends",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc-abs"
+    ],
+    "materialId": "M094",
+    "materialName": "PC-ABS",
+    "estimateIdentity": "PC-ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+      "Publisher": "Stratasys",
+      "Title": "PC-ABS Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pc-abs/pc-abs-redesign/mds_fdm_pc-abs_0823a.pdf?v=48d8a5",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1aedfbdf10aa594b5f59342c2ccc801f482e933286815f9e602436a581093e79"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PC-ABS Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M094",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "PC-ABS",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PC-ABS Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "117.9 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "117.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "117.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3. PC-ABS Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 5: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "HDT @ 66 psi 117.9 °C (244.2 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "126.1 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "126.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "126.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3. PC-ABS Physical Properties · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 5: HDT @ 66 psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "HDT @ 66 psi 126.1 °C (259.0 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "Stratasys heads the column XZ/ZX: one value for both upright orientations. It is recorded with the direction the database keeps for an orientation it cannot use as a build direction, and the note says what the sheet printed; it backs no directional headline."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "107.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "107.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "107.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3. PC-ABS Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 5: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "HDT @ 264 psi 107.5 °C (225.5 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "112.0 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "112",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "112",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3. PC-ABS Physical Properties · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 5: HDT @ 264 psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "HDT @ 264 psi 112.0 °C (233.6 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "Stratasys heads the column XZ/ZX: one value for both upright orientations. It is recorded with the direction the database keeps for an orientation it cannot use as a build direction, and the note says what the sheet printed; it backs no directional headline."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 7: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Yield % 3.0 (0.083) No yield"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 7: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Break % 4.7 (0.75) 1.8 (0.22)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6. Mechanical Properties of PC-ABS Red, Fortus 450mc, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 3.2 (0.06)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6. Mechanical Properties of PC-ABS Red, Fortus 450mc, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 2.0 (0.17)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6. Mechanical Properties of PC-ABS Red, Fortus 450mc, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 6.0 (0.99)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6. Mechanical Properties of PC-ABS Red, Fortus 450mc, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 2.0 (0.14)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7. Mechanical Properties of PC-ABS Red, F900, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 3.3 (0.070)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7. Mechanical Properties of PC-ABS Red, F900, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 2.1 (0.030)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "9.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "9.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "9.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7. Mechanical Properties of PC-ABS Red, F900, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 9.8 (1.0)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7. Mechanical Properties of PC-ABS Red, F900, T16",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 2.4 (0.17)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M094",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus fo",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 7: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 7,
+        "text": "chamber per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus for Exposure of Nonmetallic Materials) for"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 7,
+      "field": "enclosure",
+      "topic": "",
+      "label": "chamber",
+      "raw": "per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus fo",
+      "fromBelow": false,
+      "line": "chamber per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus for Exposure of Nonmetallic Materials) for"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "UV Aging . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1. Printer and Support Material Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F370 F123 Head (5, 7, 10, 13 slice) QSR Support (soluble) F123 Head (all slices)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F370 CR F123 Head (5, 7, 10, 13 slice) QSR Support (soluble) F123 Head (all slices)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T10 (5 slice)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12 (7 slice)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc SR-110™ (soluble) T12SR100 (all slices)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T16 (10 slice)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20 (13 slice)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T12 (7 slice)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 900mc /F900 T16 (10 slice) SR-110 (soluble) T12SR20 / 100 (all slices)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20 (13 slice)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "PC-ABS red is only available on the Fortus 450mc and F900 with the T16 model tip and SR-110 support material.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.02 x 26 x 38 in. (0.51 x 660 x 965 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.02 x 16 x 18.5 in. (0.51 x 406 x 470 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F370/F370CR Standard Build Trays",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 2. PC-ABS Filament Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Filament Canisters 1 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-02260 PC-ABS (black), 92.3 cu in - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "310-20500 PC-ABS (black), 92.3 cu in - Classic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "333-90701 PC-ABS (black), 90 cu in - F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "333-60701 PC-ABS (black), 60 cu in - F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "333-60700 PC-ABS (white), 60 cu in - F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-70070 PC-ABS (red), 92.3 cu in - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "310-30500 SR-20 Soluble Support, 92.3 cu in - Classic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "355-03130 SR-110 soluble support, 92.3 cu in - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "333-63500 QSR soluble support, 60 cu in - F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10501 T10 tip, 0.005 (0.127 mm) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10301 T12 tip, 0.007 (0.178 mm) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10401 T16 tip, 0.010 in. (0.254 mm) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10701 T20 tip, 0.013 (0.330 mm) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10901 T12SR20 tip, all layer heights",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10100 T12SR100 tip, all layer heights",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "123-00402-S F123 Standard Head (all layer heights)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-003003 Low Temperature build sheet, 0.02x26x38 in. (0.51x660x965 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-001004 Low Temperature build sheet, 0.02x16x18.5 in (0.51x406x470 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "123-00304 F370 / F370CR Build Tray, Standard",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Classic canisters are compatible with all Fortus 900mc printers prior to s/n L502.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Plus canisters are compatible with all Fortus 450mc, all Stratasys F900, and Fortus 900mc printers s/n L502 and up.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Compatible with Fortus 900mc and F900.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Compatible with Fortus 450mc, Fortus 900mc and F900.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Table 3. PC-ABS Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Molded HDT @ 66 psi 125.0 °C (257.1 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Molded HDT @ 264 psi 102.9 °C (217.2 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Tg 105.3 °C (221.6 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E831 72.96 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 5,
+      "text": "(-50 °C to 95 °C) (40.53 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E831 59.87 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 5,
+      "text": "(-50 °C to 35 °C) (33.26 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E831 0.4816 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 5,
+      "text": "(35 °C to 50 °C) (0.2676 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E831 -61.76 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 5,
+      "text": "(50 °C to 90 °C) (-34.31 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2.62",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2.74",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Volume Resistivity ASTM D257 > 6.84*10^14 Ω*cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"6.84*10^14\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 5,
+      "text": "2.74",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2.88",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 5,
+      "text": "0.001",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0.002",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 5,
+      "text": "0.002",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0.001",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D792",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 5,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Specific Gravity 1.10",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "PC-ABS samples were printed with 0.010 in. (0.254 mm) layer heights on the F900. For the full test procedure please see the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 4. PC-ABS Mechanical Properties (F900 - T16 Tip)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 36.5 (0.73) No yield",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 5300 (110) No yield",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 34.7 (0.83) 25.9 (1.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 5040 (120) 3760 (230)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 1.99 (0.038) 1.87 (0.19)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 288 (5.5) 270 (27)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa No break 46.2 (2.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi No break 6700 (290)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 61.9 (1.2) -",
+      "reason": "the sheet publishes no value for \"MPa\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 7,
+      "text": "Strength @ 5% Strain",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 8970 (170) -",
+      "reason": "the sheet publishes no value for \"psi\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 7,
+      "text": "Strain @ Break % No break 3.51 (0.30)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 1.86 (0.14) 1.68 (0.069)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 269 (20) 244 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 7,
+      "text": "MPa 96.5 (3.6) 172 (13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 14000 (530) 25000 (1900)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.14 (0.19) 1.85 (0.050)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 310 (27) 269 (7.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 241 (40) 34.0 (6.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in. 4.52 (0.75) 0.637 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 655 (127) 101 (23)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in. 12.3 (2.4) 1.89 (0.43)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "PC-ABS was tested before and after UV exposure. Ten ASTM D638 upright (ZX) dogbones were tested in tensile after UV exposure",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 7,
+      "text": "and an additional ten ASTM D638 ZX dogbones were the control (no UV exposure). The UV exposed samples were cycled in the QUV",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 7,
+      "text": "1,000 hours, alternating for eight hours at 60 ˚C (140 ˚F) and 4 hours at 50 ˚C (122 ˚F) with humidity and condensation. The increase in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 5. PC-ABS UV Exposure Test Results",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "No UV Exposure 3880 26.7 3870 26.7 2.4 224 1.54",
+      "reason": "properties.csv carries no property for \"No UV Exposure\""
+    },
+    {
+      "page": 7,
+      "text": "UV Exposure 3710 25.6 3720 25.7 2.1 -3.80% 230 1.59",
+      "reason": "properties.csv carries no property for \"UV Exposure\""
+    },
+    {
+      "page": 7,
+      "text": "PC-ABS coupons were built on the F370 using the F123 head.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 6. Mechanical Properties of PC-ABS Red, Fortus 450mc, T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 37.5 (0.43)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 29.9 (1.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 5440 (62)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 4330 (230)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 35.3 (0.64)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 30.2 (1.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 5120 (93)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 4380 (190)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 1.73 (0.017)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 1.75 (0.015)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 251 (2.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 253 (2.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 7. Mechanical Properties of PC-ABS Red, F900, T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 32.7 (0.46)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 26.9 (0.60)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 4740 (67)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 3900 (87)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 31.0 (0.50)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 26.3 (0.59)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 4500 (72)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 3820 (85)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 1.65 (0.020)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 1.63 (0.035)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 240. (3.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 237 (5.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Figure 1. 2nd heating scan DSC data for the PC-ABS Flat (XY) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Figure 2. Dimension change data as a function of temperature for the PC-ABS Flat (XY) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Figure 3. Dimension change data as a function of temperature for the PC-ABS On Edge (XZ) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Figure 4. Overlay of the dimension change data for the Flat (XY) and On Edge (XZ) PC-ABS samples.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "7665 Commerce Way, 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Eden Prairie, MN 55344 PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "+1 800 801 6491 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "+1 952 937-3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "+1 952 937-0070 (Fax) +972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ISO 9001:2015 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "© 2023 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, FDM, F900, and Fortus are registered trademarks of Stratasys",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Inc. F123 Series, F170, F270, F370, F370CR, Fortus 450mc, Fortus 900mc, SR-20, SR-110 and QSR Support are trademarks of Stratasys,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "PC-ABS Data Sheetperformance, or use of these non-Stratasys products. Product specifications subject to change without notice. MDS_FDM_PC-ABS_0823a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-fable-5-1",
+    "date": "2026-09-21"
+  }
+}

@@ -1,0 +1,561 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "04b78b6d572eba88d88208e741670a28ce4f6d067314dafbab5c3612bf820c7e",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/st-130/mss_fdm_st130_1016a.pdf?v=48e19f",
+    "pages": 2,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/st-130/mss_fdm_st130_1016a.pdf?v=48e19f"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"ST-130\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+      "Publisher": "Stratasys",
+      "Title": "ST-130",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/st-130/mss_fdm_st130_1016a.pdf?v=48e19f",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "04b78b6d572eba88d88208e741670a28ce4f6d067314dafbab5c3612bf820c7e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ST-130"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "ST-130",
+        "Shared formulation key": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ST-130"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Compression strength",
+        "Raw value": "14.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "14.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Peak Stress On Edge 2 106 lbf/in² ASTM D695",
+        "Standards": "ASTM D695",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Locator": "p. 1: Compressive Strength, Peak Stress, On Edge ASTM D695 2,106 lbf/in²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Compressive Strength, Peak Stress, On Edge ASTM D695 2,106 lbf/in² 14.5 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Compression strength",
+        "Raw value": "27.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "27.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "27.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Peak Stress Upright 4 031 lbf/in² ASTM D695",
+        "Standards": "ASTM D695",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Locator": "p. 1: Compressive Strength, Peak Stress, Upright ASTM D695 4,031 lbf/in²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Compressive Strength, Peak Stress, Upright ASTM D695 4,031 lbf/in² 27.8 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "121 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "121",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "121",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "unannealed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "HDT 66 psi 0.125\" unannealed 250°F ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Locator": "p. 1: Heat Deflection (HDT) @ 66 psi, 0.125\" unannealed ASTM D648 250°F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection (HDT) @ 66 psi, 0.125\" unannealed ASTM D648 250°F 121°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "108 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "108",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "108",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "unannealed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "HDT 264 psi 0.125\" unannealed 226°F ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Locator": "p. 1: Heat Deflection (HDT) @ 264 psi, 0.125\" unannealed ASTM D648 226°F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection (HDT) @ 264 psi, 0.125\" unannealed ASTM D648 226°F 108°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "132 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "132",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "132",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "270°F",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Locator": "p. 1: SSYS DSC 270°F Glass Transition Temperature (Tg)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "SSYS DSC 270°F 132°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "121 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "121",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "121",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Tg Temperature 250°F",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-st130-1016a",
+        "Locator": "p. 1: Glass Transition Temperature (Tg) Temperature 250°F (",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Temperature 250°F (121°C) 210°F (98°C) 29 in-Hg (101.3 kPa) 183 in-Hg (620 kPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ST-130",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ST-130 is a model material for sacrificial tooling that simplifies the production of hollow composite parts. Complex tools can be 3D printed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "composite structures. Engineered and tested specifically for sacrificial tooling, ST-130 withstands the heat and pressure of autoclave curing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "And it 3D prints with a permeable triangle fill pattern designed to optimize build speed, conserve material and dissolve quickly.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ST-130 is available on the Fortus 450mc and Fortus 900mc 3D Printers. This solution provides increased ease of use, improved part",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Compressive Strength, Peak Load, On Edge ASTM D695 1,633 lbf 7.3 kN",
+      "reason": "the line names Compression strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Compressive Strength, Peak Load, Upright ASTM D695 3,103 lbf 13.8 kN",
+      "reason": "the line names Compression strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Coefficient of Thermal Expansion (Up to 100°C, xyflow) ASTM E831 59 μin/(in-°F) 107 μm/(m·°C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Coefficient of Thermal Expansion (Up to 100°C, xzflow) ASTM E831 49 μin/(in-°F) 88 μm/(m·°C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Coefficient of Thermal Expansion (100-130°C, xyflow) ASTM E831 98 μin/(in-°F) 177 μm/(m·°C)",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 1,
+      "text": "Coefficient of Thermal Expansion (100-130°C, xzflow) ASTM E831 42 μin/(in-°F) 76 μm/(m·°C)",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 1,
+      "text": "*All values validated using three linked contours and permeable triangular fill with an air gap of 0.25 in (6 mm).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D PRINTER AVAIL ABILIT Y SUPPORT TECHNOLOGY SLICE HEIGHT TIPS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Model: T20B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ST-130_S 0.013” (0.333 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Support: T20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fortus 900mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "THE 3D PRINTING SOLUTIONS COMPANY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ST-130",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 3D Printers are based on FDM (fused deposition modeling) technology.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 3D Printers use a wide range of thermoplastics with advanced",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "You can install a Fortus 3D Printer just about anywhere. No special venting",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 3D Printers are easy to operate and maintain compared to other",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "system in less than 30 minutes.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "the advantages of a Fortus 3D Printer is to have your own part built on a Fortus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Figure 2: The composite material is then wrapped around",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Figure 3: The FDM tool is easily removed, hands free,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7665 Commerce Way, Eden Prairie, MN 55344 2 Holtzman St., Science Park, PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 888 480-3548 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 952 937-3000 (Intl) +972 74 745-4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "E info@stratasys.com / +1 952 937-0070 (Fax) +972 74 745-5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 9001:2008 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "©2016 Stratasys Ltd. All rights reserved. Stratasys, Stratasys signet, FDM, “The 3D Printing Solutions Company”, ST-130, Fortus 450mc and Fortus 900mc are regis",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and/or its subsidiaries or affiliates and may be registered in certain jurisdictions. Product specifications subject to change without notice. MSS_FDM_ST130_101",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

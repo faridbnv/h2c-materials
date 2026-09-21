@@ -679,7 +679,7 @@ Warm environment,Explore with estimates,M137,COC,UNKNOWN,yes,
 Warm environment,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M139,LCP,UNKNOWN,yes,
 Warm environment,Explore with estimates,M140,PBT,UNKNOWN,yes,
-Warm environment,Explore with estimates,M141,PET-LW,UNKNOWN,yes,
+Warm environment,Explore with estimates,M141,PET-LW,UNKNOWN,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M142,nGen-CF,UNKNOWN,yes,
 Warm environment,Explore with estimates,M143,nGen FLEX,UNKNOWN,yes,
 High-stiffness fixture,Strict,M029,ABS-CF,PASS,yes,

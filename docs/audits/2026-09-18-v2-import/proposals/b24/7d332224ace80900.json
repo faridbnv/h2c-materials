@@ -1,0 +1,844 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "7d332224ace80900fd38dd4ffb78fea2bfbea8113d7cb4b65fa05a69a5e9cadc",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/validated-materials/hips/mds_fdm_hips_0823a.pdf?v=4a77b9",
+    "pages": 5,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/validated-materials/hips/mds_fdm_hips_0823a.pdf?v=4a77b9"
+  },
+  "identity": {
+    "polymer": "HIPS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: hips"
+    ],
+    "materialId": "M081",
+    "materialName": "HIPS",
+    "estimateIdentity": "HIPS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+      "Publisher": "Stratasys",
+      "Title": "FDM HIPS Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/validated-materials/hips/mds_fdm_hips_0823a.pdf?v=4a77b9",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "7d332224ace80900fd38dd4ffb78fea2bfbea8113d7cb4b65fa05a69a5e9cadc"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FDM HIPS Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "FDM HIPS",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FDM HIPS Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "102.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "102.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "102.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. HIPS Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 3: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "HDT @ 66 psi 102.8 °C (217.1 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "101.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "101.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "101.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. HIPS Physical Properties · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 3: HDT @ 66 psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "HDT @ 66 psi 101.5 °C (214.7 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "Stratasys heads the column XZ/ZX: one value for both upright orientations. It is recorded with the direction the database keeps for an orientation it cannot use as a build direction, and the note says what the sheet printed; it backs no directional headline."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "102.1 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "102.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "102.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. HIPS Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 3: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "HDT @ 264 psi 102.1 °C (215.8 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "100.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "100.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 2. HIPS Physical Properties · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 3: HDT @ 264 psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "HDT @ 264 psi 100.8 °C (213.5 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "Stratasys heads the column XZ/ZX: one value for both upright orientations. It is recorded with the direction the database keeps for an orientation it cannot use as a build direction, and the note says what the sheet printed; it backs no directional headline."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 4: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Elongation @ Yield % 1.6 (0.030) 1.5 (0.030)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "8.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "8.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 4: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Elongation @ Break % 8.7 (0.69) 2.8 (0.44)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 5: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation @ Yield % 1.5 (0.014) 1.5 (0.036)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "10.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "10",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "10",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+        "Locator": "p. 5: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation @ Break % 10.0 (1.2) 2.2 (0.95)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM HIPS (high-impact polystyrene) is a low-cost, general-use 3D printing thermoplastic. It offers similarities to ABS but has high",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1. HIPS Filament Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-70000 HIPS, 92 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-70080 SUP1500B, 92 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10401 T16 tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10301 T12 tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00300 Low Temperature build sheet, 0.02 x 26 x 38 in. (0.51 x 660 x 965 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00100 Low Temperature build sheet, 0.02 x 16 x 18.5 in. (0.51 x 406 x 470 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 2. HIPS Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Tg 101 °C (214 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "FDM Nylon 12CF Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Samples were printed with 0.010 in. (0.254 mm) layer height on the Fortus 450mc and F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 3. HIPS Mechanical Properties (Fortus 450mc - T16 Tip)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "MPa 26.0 (0.36) 23.5 (0.36)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "psi 3770 (52) 3410 (52)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "MPa 19.6 (0.46) 20.3 (0.69)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "psi 2840 (67) 2950 (100)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "GPa 1.98 (0.013) 1.93 (0.035)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ksi 287 (1.9) 281 (5.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "MPa 50.8 (0.54) 44.0 (1.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "psi 7370 (78) 6380 (170)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Flex Yield Strain % 3.5 (0.18) 3.2 (0.19)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "GPa 2.24 (0.028) 1.85 (0.043)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ksi 325 (4.0) 268 (6.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "J/m 74.7 (3.7) 44.6 (5.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ft*lb/in. 1.40 (0.070) 0.835 (0.10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "J/m 827 (190) 132 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ft*lb/in. 15.5 (3.5) 2.47 (0.20)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "FDM Nylon 12CF Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Table 4. HIPS Mechanical Properties (F900 - T16)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "MPa 25.7 (0.20) 22.7 (0.41)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "psi 3730 (29) 3300 (59)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "MPa 19.1 (0.44) 21.2 (1.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "psi 2770 (63) 3070 (191)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "GPa 1.99 (0.015) 1.93 (0.019)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ksi 289 (2.1) 279 (2.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "MPa 52.2 (0.58) 42.0 (1.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "psi 7570 (84) 6100 (150)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Flex Yield Strain % 4.4 (0.12) 3.1 (0.15)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "GPa 2.17 (0.030) 1.83 (0.042)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ksi 315 (4.4) 265 (6.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "J/m 67.6 (3.2) 39.1 (5.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ft*lb/in. 1.27 (0.059) 0.732 (0.097)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "J/m 374 (97) 102 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ft*lb/in. 7.01 (1.8) 1.91 (0.21)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "7665 Commerce Way, 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Eden Prairie, MN 55344 PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+1 800 801 6491 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+1 952 937-3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+1 952 937-0070 (Fax) +972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 9001:2015 Certified",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 5,
+      "text": "© 2023 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, F900, and FDM are registered trademarks of Stratasys Inc. All other",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "of these non-Stratasys products. Product specifications subject to change without notice. MDS_FDM_HIPS_0823a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-fable-5-1",
+    "date": "2026-09-21"
+  }
+}

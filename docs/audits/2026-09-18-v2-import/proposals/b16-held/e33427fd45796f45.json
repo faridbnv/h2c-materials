@@ -60,10 +60,10 @@
     {
       "key": "main",
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
-        "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "QIDI prints \"10-20\" beside a flexural-modulus label and the reader took it in MPa; a flexural modulus of 10 to 20 MPa is a thousandth of a PLA's and the figure is a setting or a range of something else on the page. Not recorded."
       },
       "row": {
         "MaterialID": "M001",
@@ -134,9 +134,9 @@
       "confidence": 1,
       "review": {
         "status": "rejected",
-        "by": "claude-opus-5",
-        "date": "2026-09-20",
-        "note": "the line is a sentence about the sheet’s own figure — \"the stress range of the Z,X-axis modulus: 10~20MPa\" — and not a row of the table. A flexural modulus of 10 MPa is a thousandth of what a PLA bends at."
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "QIDI prints \"10-20\" beside a flexural-modulus label and the reader took it in MPa; a flexural modulus of 10 to 20 MPa is a thousandth of a PLA's and the figure is a setting or a range of something else on the page. Not recorded."
       }
     }
   ],
@@ -197,10 +197,10 @@
         "text": "Shell thickness: 1.2mm"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
-        "date": "2026-09-20",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "QIDI prints \"10-20\" beside a flexural-modulus label and the reader took it in MPa; a flexural modulus of 10 to 20 MPa is a thousandth of a PLA's and the figure is a setting or a range of something else on the page. Not recorded."
       }
     }
   ],

@@ -1006,6 +1006,13 @@ export function readSetting(line, page = 1, below = '') {
     // tail became an enclosure. What a value never has is a verb saying what the sheet advises, and what it
     // never is, is a run of words with no number in it.
     if (SAYS_SOMETHING.test(raw)) return null;
+    // A setting never cites a standard. A temperature, a speed or a state is what a printing table holds; a
+    // designation belongs to a test. Stratasys describes its UV ageing "in a chamber per ASTM G154 (Standard
+    // Practice for Operating Fluorescent UV Light Apparatus …)", and the digits of the designation were what
+    // let a sentence past the guard that stops a run of words with no number in it.
+    // STANDARD_RE knows the designations a property row cites; a setting is refused on any body's name with a
+    // number after it, because "ASTM G154" is one the property reader never had to know.
+    if (/\b(?:ISO|ASTM|DIN|IEC|UL|GB\/T)\s?[A-Z]?\s?-?\d{2,}\b/i.test(raw)) return null;
     if (!/\d/.test(raw) && (raw.match(/[A-Za-z]{2,}/g) ?? []).length >= SETTING_WORDS) return null;
     // A paragraph the page ran together has no spaces to count, so it is measured instead: a setting that
     // states no number and none of the words a state is written in says nothing in eighty characters that it
@@ -1168,7 +1175,32 @@ export function unreadRowReason(line, registry, held = null) {
 
 // A heading names the orientation and then says so: "XY", "Z-axis", "XZ Orientation", "ZX Orientation1" — the
 // trailing digit is a footnote mark, which Stratasys puts on every one of its column headings.
-const AXIS_CELL = /^\(?\s*(X\s?[-‑–]?\s?Y|Y\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|Z\s?[-‑–]?\s?X|XY|XZ|ZX|Z)\s*\)?(?:[\s-]*(?:axis|axes|direction|orientation|richtung)\s*\d?)?\s*$/i;
+// "XZ/ZX" is one cell Stratasys heads a column with, meaning the one value stands for both orientations. It is
+// kept as the sheet prints it and becomes a direction the database cannot use as a build direction, with a note.
+const AXIS_CELL = /^\(?\s*(X\s?[-‑–]?\s?Y|Y\s?[-‑–]?\s?X|X\s?[-‑–]?\s?Z|Z\s?[-‑–]?\s?X|XZ\s?\/\s?ZX|XY|XZ|ZX|Z)\s*\)?(?:[\s-]*(?:axis|axes|direction|orientation|richtung)\s*\d?)?\s*$/i;
+// A heading cell may name a condition instead of an orientation, or in front of one: QIDI heads its columns
+// "Method | Molded | X-Y Axis | Z Axis" and "3D Printed X-Y | 3D Printed Z", Siraya Tech "Unannealed | Annealed
+// | Method", Stratasys "Non-Annealed | Annealed". Each column then states what every value under it was measured
+// as, as plainly as an orientation heading states a direction, and the row builder reads the word the way it
+// reads the same word in a row's own label.
+const CONDITION_WORD = /^(un-?annealed|non-?annealed|not annealed|as[- ]printed|annealed|injection[- ]mou?lded|compression[- ]mou?lded|mou?lded|3d[- ]?printed|printed|dry|conditioned|typical values?)\b/i;
+const conditionOf = (word) => {
+  const w = String(word ?? '').toLowerCase().replace(/[\s-]+/g, ' ');
+  if (/^(un ?annealed|non ?annealed|not annealed|as printed)$/.test(w)) return 'as printed';
+  if (w === 'annealed') return 'annealed';
+  if (/mou?lded$/.test(w)) return 'moulded';
+  if (/printed$/.test(w)) return 'printed';
+  if (w === 'dry' || w === 'conditioned') return w;
+  return null;                                   // "typical values" heads the block and states nothing
+};
+const cellOf = (text) => {
+  const t = String(text ?? '').trim().replace(/^\(|\)$/g, '').trim();
+  const lead = CONDITION_WORD.exec(t);
+  const rest = lead ? t.slice(lead[0].length).replace(/^[\s:,-]+/, '') : t;
+  const axis = rest ? axisOf(rest) : null;
+  if (lead && rest && !axis) return { axis: null, condition: null };   // a sentence that starts with the word
+  return { axis, condition: lead ? conditionOf(lead[1]) : null, named: Boolean(axis || (lead && !rest)) };
+};
 const axisOf = (text) => {
   const m = AXIS_CELL.exec(String(text ?? '').trim());
   return m ? m[1].replace(/[\s‑–-]/g, '').toUpperCase() : null;
@@ -1185,8 +1217,8 @@ export function axisColumns(line) {
   // name an orientation and nothing else does: Stratasys sets its tables' headings on three lines — "Typical
   // Values", then "Property Test Method", then "XY ZX" — and the line that names the columns names only them.
   // Requiring a third cell lost every Stratasys table, which is 24 documents and 400 values.
-  const allAxes = cells.length === 2 && cells.every((c) => axisOf(c.text) && !/\d/.test(c.text));
-  if (cells.length < 3 && !allAxes) return null;
+  const allNamed = cells.length === 2 && cells.every((c) => cellOf(c.text).named && !/\d/.test(c.text));
+  if (cells.length < 3 && !allNamed) return null;
   // Where one column ends and the next begins is halfway between where the heading before it ends and where it
   // starts, because a maker centres a value under its heading as often as it aligns it: BASF's XY heading
   // stands at 381 and its values start at 354, while Fillamentum sets both at 162. Measuring from the previous
@@ -1204,12 +1236,15 @@ export function axisColumns(line) {
   const edge = cells.map((c, i) => (i ? (Math.min(ends[i - 1], c.x) + c.x) / 2 : null));
   const bounds = cells.map((c, i) => ({
     ...c,
-    axis: axisOf(c.text),
+    ...cellOf(c.text),
     from: edge[i] ?? c.x - ((edge[i + 1] ?? c.x + 1) - c.x),
     to: edge[i + 1] ?? Infinity,
   }));
-  const axes = bounds.filter((c) => c.axis);
+  // Two named columns make a heading: two orientations, an orientation and a condition, or two conditions that
+  // differ ("Unannealed | Annealed"). Two cells that both say "Annealed" are one condition, not two columns.
+  const axes = bounds.filter((c) => c.named);
   if (axes.length < 2) return null;
+  if (!axes.some((c) => c.axis) && new Set(axes.map((c) => c.condition)).size < 2) return null;
   // What the heading says before it names its columns is the condition the whole table was measured under:
   // Stratasys prints a table per layer height and heads each "0.25 mm (0.010 in.) Layer Height | XZ
   // Orientation1 | ZX Orientation1". Without it the three tables are one grade's elongation four times over,
@@ -1231,15 +1266,33 @@ const endsTheTable = (line) => {
  * A page's rows with every row of an orientation table split into one row per orientation, each carrying the
  * direction its column is headed with. A page with no such table comes back exactly as it went in.
  */
+// A table's own caption, within a few lines above its heading: "Table 4: ABS-M30 Black Mechanical Properties -
+// F770 - T14 Standard Head". Stratasys prints one table per printer and per layer height, and without the caption
+// the three are one grade's elongation four times over with nothing on the row saying which table each came
+// from — which is what MEAS-CONDITIONS-INDISTINCT refused, twenty-four times, in b22.
+const A_CAPTION = /^(?:table|tabelle|tableau|tabla)\s+\d+\s*[:.]\s*\S/i;
+const captionAbove = (lines, at) => {
+  for (let i = at - 1; i >= Math.max(0, at - 6); i--) {
+    const text = String(lines[i]?.text ?? '').trim();
+    if (A_CAPTION.test(text)) return text.replace(/\s+/g, ' ');
+  }
+  return null;
+};
+
 export function splitAtAxisColumns(lines) {
   let axes = null;
   const out = [];
-  for (const line of lines) {
+  for (let li = 0; li < lines.length; li++) {
+    const line = lines[li];
     const header = axisColumns(line);
-    if (header) { axes = header; out.push(line); continue; }
+    if (header) { axes = { ...header, caption: captionAbove(lines, li) }; out.push(line); continue; }
     if (endsTheTable(line)) { axes = null; out.push(line); continue; }
     const parts = axes ? axisRows(line, axes) : [];
-    if (parts.length > 1) { for (const part of parts) out.push({ ...part.line, column: part.axis, parameters: axes.heading }); continue; }
+    if (parts.length > 1) {
+      const parameters = [axes.caption, axes.heading].filter(Boolean).join(' \u00b7 ') || null;
+      for (const part of parts) out.push({ ...part.line, column: part.axis, condition: part.condition, parameters });
+      continue;
+    }
     out.push(line);
   }
   return out;
@@ -1255,7 +1308,7 @@ export function axisRows(line, columns) {
     const own = spans.filter((s) => inAxis(s) === a);
     if (!own.length) continue;
     const together = [...context, ...own].sort((x, y) => x.x - y.x);
-    out.push({ axis: a.axis, line: { ...line, spans: together, text: spanText(together), x0: together[0].x, x1: spanRight(together.at(-1)) } });
+    out.push({ axis: a.axis, condition: a.condition, line: { ...line, spans: together, text: spanText(together), x0: together[0].x, x1: spanRight(together.at(-1)) } });
   }
   return out;
 }
@@ -1291,6 +1344,14 @@ export function readSheet(text, registry) {
     // A sheet may print its table twice, once as printed and once annealed, and say which above each block. A row
     // that does not carry the words itself takes them from the block it is in (MEAS-CONDITIONS-INDISTINCT).
     let block = '';
+    // The family a block heading puts its rows in, and the standard it names for them. Stratasys heads a block
+    // "Flexural Properties: ASTM D790, Procedure A" and prints "Strength at Break", "Strain at Break" and
+    // "Modulus" under it with no other word: read by their own labels those were a tensile break strength, a
+    // tensile elongation and a tensile modulus, and a flexural strain of 3.7 % beside a tensile elongation at
+    // yield of 4.4 % was the sheet contradicting itself (MEAS-PHYSICS-ORDER). The heading is the sheet saying
+    // what the rows are, as a column heading says what direction they are in, and it governs them until the
+    // next block heading.
+    let family = null;
     // Which specimen the rows under a heading were cut from, until another heading says otherwise.
     let specimenBlock = null;
     // The page's rows, not the extractor's baselines: a value set a point above its label is part of that label's
@@ -1306,6 +1367,15 @@ export function readSheet(text, registry) {
       const nextRow = lines.slice(li + 1).find((l) => readRow(l.text, registry));
       const blockHeading = headingWord && (!nextRow || Math.abs((line.x0 ?? 0) - (nextRow.x0 ?? 0)) <= BLOCK_COLUMN) ? headingWord : null;
       if (blockHeading) { block = blockHeading[1].toLowerCase().replace('after annealing', 'annealed'); continue; }
+      const familyHeading = line.text.trim().length <= 80 && !readRow(line.text, registry)
+        ? /^(tensile|flexural|compressive|impact|thermal|physical|mechanical|electrical)\s+properties\s*(?::\s*(.+))?$/i.exec(line.text.trim()) : null;
+      if (familyHeading) {
+        const name = familyHeading[1].toLowerCase();
+        family = ['tensile', 'flexural', 'compressive'].includes(name)
+          ? { name, standards: (familyHeading[2] ?? '').replace(/\s+/g, ' ').trim() || null }
+          : null;                                   // "Mechanical Properties" heads the table and names no family
+        continue;
+      }
       // A sheet may publish one table of printed bars and another of moulded ones, and say which above each:
       // colorFabb heads them "TYPICAL MATERIAL PROPERTIES - 3D Printed" and "- Injection molded". Read without
       // the heading, a moulded modulus of 3400 MPa and a printed one of 3286 are one grade contradicting itself,
@@ -1590,8 +1660,11 @@ export function readSheet(text, registry) {
       }
 
       values.push({
-        page: page.page, property: method?.property ?? read.match.Property, methodNote: method?.note ?? null,
-        label: fullLabel, condition: carried ? fullLabel : read.conditions,
+        page: page.page, property: method?.property ?? familyProperty(read.match.Property, family?.name), methodNote: method?.note ?? null,
+        familyStandards: family?.standards ?? null,
+        // The column's own condition joins the row's: a value under an "Annealed" heading was annealed as surely
+        // as one whose label says so, and the state readers below read the word either way.
+        label: fullLabel, condition: [carried ? fullLabel : read.conditions, line.condition ?? ''].filter(Boolean).join(' '),
         // A condition may stand on a line of its own under the row it belongs to. Polymaker's HT-PLA sheets
         // print "Vicat softening temp. ISO 306, GB/T 1633 148.9°C" and then "(as printed)" underneath, and the
         // annealed value with "(annealed)" on the same line as itself; read without the line below, the
@@ -1601,7 +1674,8 @@ export function readSheet(text, registry) {
         direction: read.match.Direction, notch, read, target: read.target,
         line: `${line.text}${/^\s*\([^)]{2,40}\)\s*$/.test(String(lines[li + 1]?.text ?? '')) ? ` ${String(lines[li + 1].text).trim()}` : ''}`,
         footnote: footnoteFor(`${fullLabel} ${line.text}`, footnotes),
-        printedSpecimens, orientation, block, column: line.column ?? null, specimen: specimenBlock,
+        printedSpecimens, orientation, block, column: line.column ?? null,
+        specimen: line.condition === 'moulded' || line.condition === 'printed' ? line.condition : specimenBlock,
         parameters: line.parameters ?? null,
       });
     }
@@ -1618,6 +1692,23 @@ export function readSheet(text, registry) {
 const IZOD = /ISO\s?180|ASTM\s?D\s?256|GB\/T\s?1843/i;
 const CHARPY = /ISO\s?179|GB\/T\s?1043/i;
 const NOTCHED_BY_METHOD = [[/ISO\s?179[-\/\s]?1eA|ISO\s?180[-\/\s]?1A|ASTM\s?D\s?256/i, 'Notched'], [/ISO\s?179[-\/\s]?1eU/i, 'Unnotched']];
+
+/**
+ * The property a generic label names under a family heading. "Strain at Break" under "Flexural Properties" is the
+ * flexural elongation at break, which properties.csv keeps as its own row; "Strength at Break" and "Modulus"
+ * under it are the flexural strength and modulus. Under a tensile heading the generic labels already read as
+ * tensile, so nothing moves; a label that names its own family ("Flexural strength") is left alone whatever
+ * block it stands in, because the row's own word beats the heading's.
+ */
+const FAMILY_PROPERTY = {
+  flexural: {
+    'Elongation at break': 'Flexural elongation at break',
+    'Tensile break strength': 'Flexural strength',
+    'Tensile strength (endpoint unspecified)': 'Flexural strength',
+    'Tensile modulus': 'Flexural modulus',
+  },
+};
+export const familyProperty = (property, family) => FAMILY_PROPERTY[family ?? '']?.[property] ?? property;
 
 export function impactMethod(property, label, standardText) {
   if (!['Izod impact strength', 'Charpy strength', 'Impact strength'].includes(property)) return null;
@@ -1839,7 +1930,10 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // charpy method" is what the sheet calls the test, and the Property column already says it.
   const LABEL_WORD = /\b(charpy|izod|impact|strength|stress|modulus|elongation|strain|temperature|softening|deflection|distortion|transition|density|gravity|hardness|absorption|content|shrinkage|resistance|conductivity|flexural|tensile|bending|melt|flow|index|rate|point|force|vicat|hdt|mfr|mvr)\b/i;
   const leftover = CONDITION_WORD.test(rest) && (/\d/.test(rest) || !LABEL_WORD.test(rest)) ? rest : '';
-  const named = [...new Set([load ? load[1].replace(/\s+/g, ' ').trim() : null, leftover || null, ...v.read.standards].filter(Boolean))];
+  // A row that names no standard of its own takes the one its block heading names: "Flexural Properties: ASTM
+  // D790, Procedure A" is the sheet stating the method for every row under it.
+  const named = [...new Set([load ? load[1].replace(/\s+/g, ' ').trim() : null, leftover || null,
+    ...(v.read.standards.length ? v.read.standards : (v.familyStandards ? [v.familyStandards] : []))].filter(Boolean))];
   const standardText = named.join(' ').trim();
   const standards = readStandards(standardText);
   // What the row says was done to the specimen before it was tested, and how wet it was, in the sheet's own
@@ -1947,7 +2041,7 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     // A table that heads a value column with an orientation has stated the direction of every value in it, as
     // plainly as a row that prints the axis in its own label; what it cannot state is a direction for a property
     // that has none, so a density or a heat deflection under such a header keeps its Not applicable.
-    Direction: stated ?? (v.column && v.direction !== 'Not applicable' ? v.column : null)
+    Direction: stated ?? (v.column && v.direction !== 'Not applicable' ? (/\//.test(v.column) ? 'Stated, not a usable direction' : v.column) : null)
       ?? v.direction ?? (/\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b/i.test(says) ? 'Z' : v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
     'Moisture condition': moisture, 'Moisture state': moistureState ?? 'not-stated',
     'Post-processing': post, 'Post-processing state': postState ?? 'not-stated',
@@ -1958,8 +2052,14 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     'Test load MPa': v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(standardText)) : NA,
     Notch: v.notch || NA,
     // The conditions the table this row stands in was measured under, where its heading names them.
-    'Specimen / print parameters': v.parameters ? asciiPunctuation(v.parameters) : NP,
-    SourceID: sourceId, Locator: `p. ${v.page}: ${String(v.label).replace(/\s+/g, ' ').trim()}`, Notes: [v.methodNote, notchNote, ambiguity].filter(Boolean).join('; ') || NA, 'Parse review': NA,
+    // A property that has no direction may still be printed per orientation column: Stratasys measures HDT on
+    // bars printed flat and on edge and heads the two columns XY and XZ. The row cannot take a direction (the
+    // property has none), so the column it came from goes into the parameters instead, which is what keeps the
+    // two rows apart (MEAS-CONDITIONS-INDISTINCT) without giving a heat deflection a direction it cannot have.
+    'Specimen / print parameters': [v.parameters ? asciiPunctuation(v.parameters) : null,
+      v.column && v.direction === 'Not applicable' ? `${v.column} column` : null].filter(Boolean).join(' \u00b7 ') || NP,
+    SourceID: sourceId, Locator: `p. ${v.page}: ${String(v.label).replace(/\s+/g, ' ').trim()}`,
+    Notes: [v.methodNote, notchNote, ambiguity, v.column && /\//.test(v.column) ? `the sheet heads this column ${v.column}: one value for both orientations` : null].filter(Boolean).join('; ') || NA, 'Parse review': NA,
   };
 }
 
@@ -2748,7 +2848,14 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
     .filter((r) => (held ? (r.status_note ?? '').startsWith(`held: ${held}`) : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))
     // --compare reads the sheets the database already holds, which is exactly what a batch run leaves out.
-    .filter((r) => doc || held || (process.argv.includes('--compare') ? r.registered_source_id : !SKIP.has(r.status) && !r.registered_source_id));
+    // --compare scores a sheet somebody transcribed by hand against what this reader reads off the same bytes.
+    // A document registered because its product already has a grade (registered_by "product") points at a
+    // source that was read from other bytes — the English edition, the maker's own copy — and scoring it counts
+    // that source's values as ones this sheet was expected to yield. It put Spectrum's Polish editions against
+    // its English sources, and the census fell from 96.6 to 90.8 while no maker read a value fewer.
+    .filter((r) => doc || held || (process.argv.includes('--compare')
+      ? r.registered_source_id && r.registered_by !== 'product'
+      : !SKIP.has(r.status) && !r.registered_source_id));
   if (!rows.length) { console.error('nothing read to propose from'); process.exit(2); }
 
   if (process.argv.includes('--compare')) {

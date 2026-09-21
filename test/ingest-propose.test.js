@@ -963,3 +963,95 @@ test('a heading that names only its orientations is still a heading', async () =
   assert.deepEqual(three?.axes.map((a) => a.axis), ['XZ', 'ZX']);
   assert.equal(three?.heading, '0.25 mm Layer Height');
 });
+
+// --- phase B: a table with a column per condition, and the caption that names the table ---------------
+
+test('a heading whose columns are conditions splits a row into one value per condition, each in its state', async () => {
+  const { readSheet, axisColumns } = await import('../scripts/ingest/propose.mjs');
+  const cell = (text, x) => ({ str: text, x, w: text.length * 6 });
+  const line = (...cells) => ({ text: cells.map((c) => c.str).join(' '), x0: cells[0].x, spans: cells });
+  // Siraya Tech heads its table "Mechanical Properties | Unannealed | Annealed | Method" and prints one row per
+  // property with a value under each condition; read as one line the first value was taken and neither said
+  // what state it was in.
+  const heading = axisColumns(line(cell('Mechanical Properties', 50), cell('Unannealed', 300), cell('Annealed', 400), cell('Method', 500)));
+  assert.deepEqual(heading?.axes.map((a) => a.condition), ['as printed', 'annealed']);
+  // Two cells that both say "Annealed" are one condition, not two columns.
+  assert.equal(axisColumns(line(cell('Annealed', 300), cell('Annealed', 400))), null);
+  // A condition in front of an orientation names both: "3D Printed X-Y | 3D Printed Z".
+  const both = axisColumns(line(cell('Property', 50), cell('3D Printed X-Y', 300), cell('3D Printed Z', 420)));
+  assert.deepEqual(both?.axes.map((a) => [a.axis, a.condition]), [['XY', 'printed'], ['Z', 'printed']]);
+  // And a row under the Siraya heading yields two values with their states read from the column.
+  const sheet = { pages: [{ page: 1, lines: [
+    line(cell('Mechanical Properties', 50), cell('Unannealed', 300), cell('Annealed', 400), cell('Method', 500)),
+    line(cell('Tensile Stress at Break X-Y', 50), cell('74 MPa', 300), cell('73 MPa', 400), cell('ASTM D638', 500)),
+  ] }] };
+  const read = readSheet(sheet, registry);
+  assert.deepEqual(read.values.map((v) => [v.read.rawNumber, v.condition.includes('annealed') ? 'annealed' : 'as printed']),
+    [['74', 'as printed'], ['73', 'annealed']]);
+});
+
+test('the caption above a heading is carried onto every row of that table', async () => {
+  const { splitAtAxisColumns } = await import('../scripts/ingest/propose.mjs');
+  const cell = (text, x) => ({ str: text, x, w: text.length * 6 });
+  const line = (...cells) => ({ text: cells.map((c) => c.str).join(' '), x0: cells[0].x, spans: cells });
+  // Stratasys prints one table per printer and layer height, and nothing on a row says which table it is in.
+  const rows = splitAtAxisColumns([
+    line(cell('Table 4: ABS-M30 Mechanical Properties - F770 - T14 Standard Head', 45)),
+    line(cell('Property', 50), cell('Test Method', 200)),
+    line(cell('0.25 mm Layer Height', 50), cell('XZ Orientation', 367), cell('ZX Orientation', 480)),
+    line(cell('Tensile Strength', 50), cell('32 MPa', 367), cell('28 MPa', 480)),
+  ]);
+  const parts = rows.filter((r) => r.column);
+  assert.deepEqual(parts.map((r) => r.column), ['XZ', 'ZX']);
+  assert.ok(parts.every((r) => r.parameters.startsWith('Table 4: ABS-M30 Mechanical Properties') && r.parameters.endsWith('0.25 mm Layer Height')), parts[0].parameters);
+});
+
+test('a column headed with two orientations at once is a direction the database cannot use, and says so', async () => {
+  const { axisColumns, measurementRow } = await import('../scripts/ingest/propose.mjs');
+  const cell = (text, x) => ({ str: text, x, w: text.length * 6 });
+  const line = (...cells) => ({ text: cells.map((c) => c.str).join(' '), x0: cells[0].x, spans: cells });
+  // The gap between the cells has to be wider than three of the line's own characters, or it is a word space.
+  const heading = axisColumns(line(cell('Typical Values XY', 300), cell('Typical Values XZ/ZX', 440)));
+  assert.deepEqual(heading?.axes.map((a) => a.axis), ['XY', 'XZ/ZX']);
+});
+
+test('a block heading names the family and the standard of the rows under it', async () => {
+  const { readSheet } = await import('../scripts/ingest/propose.mjs');
+  const cell = (text, x) => ({ str: text, x, w: text.length * 6 });
+  const line = (...cells) => ({ text: cells.map((c) => c.str).join(' '), x0: cells[0].x, spans: cells });
+  // Stratasys heads a block "Flexural Properties: ASTM D790, Procedure A" and prints "Strain at Break" under it
+  // with no other word. Read by its own label that was a tensile elongation, beside the real one from the
+  // tensile block, and a flexural strain of 3.7 % under a tensile yield of 4.4 % read as the sheet contradicting
+  // itself. The heading is the sheet saying what the rows are, and which standard they were tested to.
+  const sheet = { pages: [{ page: 1, lines: [
+    line(cell('Tensile Properties: ASTM D638', 50)),
+    line(cell('Elongation at Break', 50), cell('4.6 %', 300)),
+    line(cell('Flexural Properties: ASTM D790, Procedure A', 50)),
+    line(cell('Strain at Break', 50), cell('3.7 %', 300)),
+  ] }] };
+  // ("Strength at Break" is not in the fixture: the lexicon has no label for it on its own, and on the sheets that
+  // print it the value stands on the line above the words, which is a stacked label this reader does not read.)
+  const read = readSheet(sheet, registry);
+  assert.deepEqual(read.values.map((v) => [v.property, v.read.rawNumber, v.familyStandards]), [
+    ['Elongation at break', '4.6', 'ASTM D638'],
+    ['Flexural elongation at break', '3.7', 'ASTM D790, Procedure A'],
+  ]);
+  // A row that names its own standard keeps it; a row that names its own family keeps that too.
+  const own = { pages: [{ page: 1, lines: [
+    line(cell('Flexural Properties: ASTM D790', 50)),
+    line(cell('Tensile strength', 50), cell('50 MPa', 300), cell('ISO 527', 420)),
+  ] }] };
+  const kept = readSheet(own, registry).values[0];
+  assert.deepEqual(kept.read.standards, ['ISO 527']);
+});
+
+test('a setting never cites a standard: a sentence with a designation in it is not an enclosure', async () => {
+  const { readSetting } = await import('../scripts/ingest/propose.mjs');
+  const cell = (text, x) => ({ str: text, x, w: text.length * 6 });
+  const line = (...cells) => ({ text: cells.map((c) => c.str).join(' '), x0: cells[0].x, spans: cells });
+  // Stratasys: "… in a UV chamber per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus …)"
+  // wraps so that a line begins with the word chamber, and the digits of the designation let it past the guard.
+  assert.equal(readSetting(line(cell('chamber per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus for Exposure', 45))), null);
+  // A real enclosure statement still reads.
+  assert.ok(readSetting(line(cell('Enclosure', 45), cell('Recommended', 200))));
+});

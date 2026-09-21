@@ -1,0 +1,1553 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "89cf66b778b03c79d10d4d85d7e3cf57eb9f8738b300edcd1aa8a15305f75287",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/abs-cf10/mds-fdm-abs-cf10-a4-0625a.pdf?v=49c052",
+    "pages": 10,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/abs-cf10/mds-fdm-abs-cf10-a4-0625a.pdf?v=49c052"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs",
+      "filler: carbonfiber (from the sheet, not the name)"
+    ],
+    "materialId": "M029",
+    "materialName": "ABS-CF",
+    "estimateIdentity": "ABS",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+      "Publisher": "Stratasys",
+      "Title": "MATERIAL DATA SHEETMaterial",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/abs-cf10/mds-fdm-abs-cf10-a4-0625a.pdf?v=49c052",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "89cf66b778b03c79d10d4d85d7e3cf57eb9f8738b300edcd1aa8a15305f75287"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATA SHEETMaterial"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      },
+      "row": {
+        "MaterialID": "M029",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "MATERIAL DATA SHEETMaterial",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Composition / filler": "styrene) material with 10% chopped carbon fiber by weight. The result is (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATA SHEETMaterial"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "112.2 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "112.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "112.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: ABS-CF10 Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 112.2 °C (234.0 °F)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "113.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "113.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "113.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: ABS-CF10 Physical Properties · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 113.5 °C (236.4 °F)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "111.4 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "111.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: ABS-CF10 Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 111.4 °C (232.6 °F)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "112.9 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "112.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "112.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: ABS-CF10 Physical Properties · XZ/ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "the sheet heads this column XZ/ZX: one value for both orientations",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 112.9 °C (235.2 °F)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: ABS-CF10 Mechanical Properties - F370CR - Hardened Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 1.6 (0.052)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: ABS-CF10 Mechanical Properties - F370CR - Hardened Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 1.1 (0.092)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: ABS-CF10 Mechanical Properties - F370CR - Hardened Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 1.6 (0.06)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: ABS-CF10 Mechanical Properties - F370CR - Hardened Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 1.1 (0.086)"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 7: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Yield % 1.2"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-abs-cf10-a4-0625a",
+        "Locator": "p. 7: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Break % 1.2"
+      },
+      "confidence": 0.85,
+      "review": {
+        "status": "rejected",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the reader names this product \"MATERIAL DATA SHEETMaterial\", which is the sheet's own front matter run together; the page names ABS-CF10 further down and the reader did not reach it. Held for its name, not its values."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ABS-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Stratasys ABS-CF10 combines standard ABS (acrylonitrile butadiene",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "styrene) material with 10% chopped carbon fiber by weight. The result is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "a low moisture-sensitive FDM thermoplastic 50% stiffer and 15%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "stronger than standard ABS 3D printing material.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties ............................................................... 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties.......................................................... 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "UV Aging ................................................................................ 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix ................................................................................ 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1: Printer Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 T14H 0.127 mm (0.005 in.), 0.178 mm (0.007 in.),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F170™ QSR™ Support F123 Head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Hardened Head 0.254 mm (0.010 in.), 0.330 mm (0.013 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 T14H 0.127 mm (0.005 in.), 0.178 mm (0.007 in.),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F190™CR QSR Support F123 Head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Hardened Head 0.254 mm (0.010 in.), 0.330 mm (0.013 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 T14H 0.127 mm (0.005 in.), 0.178 mm (0.007 in.),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F370™ QSR Support F123 Head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Hardened Head 0.254 mm (0.010 in.), 0.330 mm (0.013 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 T14H 0.127 mm (0.005 in.), 0.178 mm (0.007 in.),",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F370 CR QSR Support F123 Head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Hardened Head 0.254 mm (0.010 in.), 0.330 mm (0.013 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F170 build tray",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F190CR build tray",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F370/F370CR build tray",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "System Requirements1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123/F123 CR2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 T14H hardened head F123 ABS-CF10 non Standard F123 head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(light gray cover, 1,500 hour",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(green cover, 700 hour head life) head life of 700 hours)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "head life) 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F170, F190CR, F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Required for Visual Mode; 0.127 mm (0.005 in.) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 2: ABS-CF10 Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 Spools",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "333-90310 ABS-CF10, 90 cu. in.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F170, F190CR, F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "333-63500 QSR Soluble Support, 60 cu. in. - F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00302-S F170 Build Tray, Standard F170",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00303-S F190CR Build Tray, Standard F190CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00304 F370/F370CR Build Tray, Standard F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00603-S ABS-CF10 Hardened Head - Recommended (Light Gray Cover)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00601-S ABS-CF10 Head (Green Cover) F170, F190CR, F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00402-S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 3: ABS-CF10 Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Molded HDT @ 66 psi 100 °C (212 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Molded HDT @ 264 psi 99 °C (210 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tg 104 °C (219 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 19 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 76 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(-50 °C to 100 °C) (11 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(-50 °C to 100 °C) (42 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 4.6 x 10",
+      "reason": "the sheet states Volume resistivity as a power of ten whose exponent did not survive the extraction (\"Volume Resistivity ASTM D257 4.6 x 10\")"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D792",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 ^12 Ω*cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 4,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 4,
+      "text": "Specific Gravity 1.0972",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 2.26",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 11.1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 2.16",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 0.000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor -0.011",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 10.18",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor -0.014",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant -0.001",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ABS-CF10 samples were printed with a 0.254 mm (0.010 in.) layer height on the F370 using the Standard",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 4: ABS-CF10 Mechanical Properties - F370CR - Hardened Head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.254 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "39.4 (0.45)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "19.6 (1.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 5,720 (65)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 2,840 (170)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "39.4 (0.41)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "19.7 (1.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 5,720 (60)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 2,850 (160)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 3.8 (0.049)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.27 (0.039)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 551 (7.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 330 (5.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 74.5 (1.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 27.6 (2.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "10,800 (190)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "4,000 (360)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strain @ Break % 2.4 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strain @ Break % 1.5 (0.13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 4.19 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.85 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "608 (18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "269 (17)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 6,
+      "text": "MPa 68.9 (1.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 102 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 10,000 (220)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 14,800 (200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1.92 (0.027)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 289 (17)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 279 (3.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "49 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "19.6 (4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 0.918 (0.027)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 0.367 (0.074)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 162 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 45.7 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "3.04 (0.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.857 (0.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ABS-CF10 samples were printed with a 0.254 mm (0.010 in.) layer height on the F370CR using the T14H",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Hardened Extrusion Head. The Stratasys typical testing procedure follows our default “45/-45” raster toolpath",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "generation where the first raster layer is 45° in the XY plane and the next layer is perpendicular to that (-45°).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 5: Mechanical Performance of ABS-CF10 with Unidirectional Toolpaths",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0.010 in layer height XY Orientation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 44.9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 6,500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 44.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 6,470",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 5.22",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 756",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 89.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 31.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Strain @ Break % 2.6",
+      "reason": "properties.csv carries no property for \"Strain @ Break\" (%)"
+    },
+    {
+      "page": 7,
+      "text": "GPa 4.96",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 719",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 79.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in 1.48",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Heat Deflection Temperature: ASTM D648, Method B",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 7,
+      "text": "°C 117",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 7,
+      "text": "°F 242",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "HDT @ 66 psi",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 7,
+      "text": "°C 112",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 7,
+      "text": "°F 233",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "HDT @ 264 psi",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ABS-CF10 samples were printed with a 0.254 mm (0.010 in.) layer height on the F370 using the Standard Extrusion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Head. ABS-CF10 was tested before and after UV exposure. Ten ASTM D638 upright (ZX) dogbones were tested in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "tensile after UV exposure and an additional 10 ASTM D638 ZX dogbones were the control (no UV Exposure).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "The UV exposed samples were cycled in the QUV chamber per ASTM G154 (Standard Practice for Operation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Fluorescent Light Apparatus for UV exposure of Nonmetallic Materials) for 1,000 hours, alternating for 8 hours at",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "60°C (140°F) and 4 hours at 50°C (122°F) with humidity and condensation. The increase in stress in break is from",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 6: ABS-CF10 UV Exposure Test Results",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "3,150 21.7 3,140 21.7 1.5 284 1.96",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ABS-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "301 20.8 2,990 20.6 1.3 -4.90 295 2.03",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Figure 1: DSC data for the ABS-CF10 sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Figure 2: Dimension change data as a function of temperature for ABS-CF10 Flat (XY) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Figure 3: Dimension change data as a function of temperature for ABS-CF10 On Edge (XZ) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Stratasys Headquarters 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "7665 Commerce W ay,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Eden Prairie, MN 55344",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "stratasys.com +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ISO 9001:2015",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+1 952 937-3000 (Intl)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "© 2025 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo and FDM are registered trademarks of Stratasys Inc. F170, F370,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "F190CR and F370CR are trademarks of Stratasys, Inc. All other trademarks are the property of their respective owners, and Stratasys assumes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "without notice. MDS_FDM_ABS-CF10_A4_0625a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

@@ -1,0 +1,704 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "f6d753f6e1cd694e48f4601519e8075a221bbbbc36ee30f84dbfa35050a94f4f",
+    "url": "https://www.stratasys.com/contentassets/4a9e5b1984204b84af8c200210dda4aa/mds_fdm_fortusppsf_0618a.pdf?v=4aa41b",
+    "pages": 2,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/contentassets/4a9e5b1984204b84af8c200210dda4aa/mds_fdm_fortusppsf_0618a.pdf?v=4aa41b"
+  },
+  "identity": {
+    "polymer": "PPSU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: ppsf"
+    ],
+    "materialId": "M102",
+    "materialName": "PPSU",
+    "estimateIdentity": "Not applicable",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+      "Publisher": "Stratasys",
+      "Title": "1",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/contentassets/4a9e5b1984204b84af8c200210dda4aa/mds_fdm_fortusppsf_0618a.pdf?v=4aa41b",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f6d753f6e1cd694e48f4601519e8075a221bbbbc36ee30f84dbfa35050a94f4f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "1"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M102",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "PPSF",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "1"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M102",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "55 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Type 1 0.125” 0.2”/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Locator": "p. 1: Tensile Strength (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength (Type 1, 0.125”, 0.2”/min) ASTM D638 55 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M102",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2,100 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Type 1 0.125” 0.2”/min ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Locator": "p. 1: Tensile Modulus (Type 1,0.125”, 0.2”/min) ASTM D638",
+        "Notes": "\"2,100\" may be a thousands separator or a decimal one; read as 2100 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus (Type 1, 0.125”, 0.2”/min) ASTM D638 2,100 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M102",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "110 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "110",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "110",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Method 1 0.05”/min ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Locator": "p. 1: Flexural Strength (Method 1,0.05”/min) ASTM D790",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength (Method 1, 0.05”/min) ASTM D790 110 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M102",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2,200 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Method 1 0.05”/min ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Locator": "p. 1: Flexural Modulus (Method 1,0.05”/min) ASTM D790",
+        "Notes": "\"2,200\" may be a thousands separator or a decimal one; read as 2200 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus (Method 1, 0.05”/min) ASTM D790 2,200 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "the separator is settled by the value itself: one reading is a number this property reaches and the other is a thousand times outside every physics window it has. The raw cell keeps what the sheet printed."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M102",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "230 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "230",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "230",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Locator": "p. 1: Glass Transition Temperature (Tg) DMA (SSYS)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "230 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M102",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "23 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "23",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "23",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "5 24 Hours",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-fortusppsf-0618a",
+        "Locator": "p. 1: Melting Point -------------- Environmental Resistance5 24 Hours @",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Environmental Resistance5 24 Hours @ 23 °C (73 °F) 24 Hours @ 100 °C (212 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "and medical applications. PPSF parts manufactured on Fortus 3D Printers are not only mechanically superior, but also dimensionally accurate,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength (Type 1, 0.125”, 0.2”/min) ASTM D638 (8,000 psi)",
+      "reason": "the same row again in psi (8,000 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus (Type 1, 0.125”, 0.2”/min) ASTM D638 (300,000 psi)",
+      "reason": "the same row again in psi (300,000 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Elongation (Type 1, 0.125”, 0.2”/min) ASTM D638",
+      "reason": "properties.csv carries no property for \"Tensile Elongation (Type 1,0.125”, 0.2”/min)\""
+    },
+    {
+      "page": 1,
+      "text": "(3%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength (Method 1, 0.05”/min) ASTM D790 (15,900 psi)",
+      "reason": "the same row again in psi (15,900 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus (Method 1, 0.05”/min) ASTM D790 (320,000 psi)",
+      "reason": "the same row again in psi (320,000 psi), which is one measurement stated twice"
+    },
+    {
+      "page": 1,
+      "text": "58.7 J/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IZOD Impact, notched (Method A, 23 °C) ASTM D256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1.1 ft-lb/in)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "165.5 J/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IZOD Impact, un-notched (Method A, 23 °C) ASTM D256",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3.1 ft-lb/in)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "189 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(372 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection (HDT) @ 264 psi ASTM D648",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "(446 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.5x10-05 mm/mm/°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(3.1x10-05 in/in/°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not Applicable2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Coefficient of Thermal Expansion ASTM D696",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 1,
+      "text": "(Not Applicable2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume Resistivity ASTM D257 1.5x1014 - 5.0x1013 ohm-cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 1,
+      "text": "Dissipation Factor ASTM D150-98 .0015 - .0011",
+      "reason": "the line names Melting temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Dielectric Constant ASTM D150-98 3.2 - 3.0",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 1,
+      "text": "Dielectric Strength ASTM D149-09, Method A 290 - 80 V/mil",
+      "reason": "the line names Dielectric strength and states no value in a unit the database keeps it in (kV/mm)"
+    },
+    {
+      "page": 1,
+      "text": "Antifreeze (Prestone), 50% Passed Passed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Motor Oil 10W-40 Passed Passed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Windshield Washer Fluid, 50% Passed Not tested",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Other3 Test Method Value",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Specific Gravity ASTM D792 1.28",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "0.013 inch (0.330 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 900mc Breakaway Tan",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.010 inch (0.254 mm)6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fortus 400mc™ @ 0.010” (0.254 mm) slice. Product specifications are subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "All Electrical Property values were generated from the average of test plaques built with default part density (solid). Test plaques were 4.0 x 4.0 x",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.1 inches (102 x 102 x 2.5 mm) and were built both in the flat and vertical orientation. The range of values is mostly the result of the difference in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Test results based on Stress Crack Resistance (24-hour immersion @ 23 °C and @ 100 °C). 60.013 inch (0.330 mm) layer thickness not",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "available on Fortus 900mc.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7665 Commerce Way,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Eden Prairie, MN 55344",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 952 937-3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 9001:2008 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "©2018 Stratasys Ltd. All rights reserved. Stratasys, Stratasys signet, PolyJet, Stratasys J750, Digital ABS Plus, Digital ABS2 Plus, VeroBlack, VeroCyan, VeroMa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Data Sheet trademarks belong to their respective owners. Product specifications subject to change without notice. Printed in the USA. MDS_FDM_FortusPPSF_0618a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Rockwell Hardness ASTM D785 M86",
+      "reason": "the line names Hardness and states no value in a unit the database keeps it in (Shore A; Shore D; Rockwell M; Rockwell R; Shore (scale not specified by source))"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

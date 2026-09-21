@@ -1,0 +1,2025 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "50913e70c42c82027d3bb16977d5f5d30632ff80ca6b739aae7990b1df15de02",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pa666/mds_fdm_pa6-66-gf30-fr_0726a.pdf?v=4a1fd0",
+    "pages": 12,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pa666/mds_fdm_pa6-66-gf30-fr_0726a.pdf?v=4a1fd0"
+  },
+  "identity": {
+    "polymer": "PA6",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa6",
+      "filler: gf30"
+    ],
+    "materialId": "M051",
+    "materialName": "PA6-GF",
+    "estimateIdentity": "PA6",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+      "Publisher": "Stratasys",
+      "Title": "MATERIAL DATA SHEET PA6/66-GF30-FR",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pa666/mds_fdm_pa6-66-gf30-fr_0726a.pdf?v=4a1fd0",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "50913e70c42c82027d3bb16977d5f5d30632ff80ca6b739aae7990b1df15de02"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATA SHEET PA6/66-GF30-FR"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M051",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "PA6/66-GF30-FR",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Composition / filler": "FDM PA6/66-GF30-FR is a 30% by weight glass fiber reinforced, (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATA SHEET PA6/66-GF30-FR"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "161 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "161",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "161",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM PA6/66-GF30-FR Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 161 °C (321.8 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "185 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "185",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "185",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM PA6/66-GF30-FR Physical Properties · XZ column",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 185 °C (365 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "35 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM PA6/66-GF30-FR Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 35 °C (95 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "153 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "153",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "153",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM PA6/66-GF30-FR Physical Properties · XZ column",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 153 °C (307.4 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 6: Elongation at Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation at Yield % 4.4 (0.73)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "4.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 6: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation at Break % 4.6 (0.86)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 6: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation at Break % 1.1 (0.14)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Flexural elongation at break",
+        "Raw value": "3.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790, Procedure A",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 6: Strain at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Strain at Break % 3.7 (0.35)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Flexural elongation at break",
+        "Raw value": "3.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790, Procedure A",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 6: Strain at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Strain at Break % 3.1 (0.72)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 7: Elongation at Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation at Yield % 3.2 (0.7)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 7: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation at Break % 3.3 (0.76)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 7: Elongation at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation at Break % 1.1 (0.22)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Flexural elongation at break",
+        "Raw value": "4.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790, Procedure A",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 7: Strain at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Strain at Break % 4.1 (0.32)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M051",
+        "GradeID": "",
+        "Property": "Flexural elongation at break",
+        "Raw value": "3.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790, Procedure A",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-pa6-66-gf30-fr-0726a",
+        "Locator": "p. 7: Strain at Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Strain at Break % 3.4 (0.85)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PA6/66-GF30-FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM PA6/66-GF30-FR is a 30% by weight glass fiber reinforced,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and Tier suppliers using Fortus 450mc and F900 systems who need",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "EN 45545-2 HL2 (R22/R23) compliance, strong mechanical performance,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unlike PC-FR, which can fall short on strength, or ULTEM™ 9085 resin,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "which often exceeds performance needs and budget, FDM PA6/66-GF30-FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Overview ....................................................................................... 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information ................................................................... 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties ...................................................................... 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties ................................................................ 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix ........................................................................................... 10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1: Printer and Support Material Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc™ T20GT20G 0.25 mm (0.010 in.)0.25 mm (0.010 in.) SUP4050B™ T16T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900 T20GT20G 0.25 mm (0.010 in.)0.25 mm (0.010 in.) SUP4050B T16T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 660 x 965 mm (0.02 x 26 x 38 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 406 x 470 mm (0.02 x 16 x 18.5 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened Fortus 450mc head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• FDM PA6/66-GF30-FR material license (included if new system)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened F900 head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• FDM PA6/66-GF30-FR material license",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 2: FDM PA6/66-GF30-FR Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-02280 FDM PA6/66-GF30-FR, 92.3 cu in - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc, F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-70160 SUP4050B Support, 92.3 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10745 T20G tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10401 T16 tip Fortus 450mc, F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00750-S Nylon build sheet, 0.51 x 406 x 470 mm (0.02 x 16 x 18.5 in.), 20 pack",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00650-S Nylon build sheet, 0.51 x 660 x 965 mm (0.02 x 26 x 38 in.), 10 pack F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "821726-XXXX Hardened Fortus 450mc head (blue handle) Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-63500 Hardened F900 head (folded sheet metal handle) F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Values are measured as molded and printed on the Fortus 450mc with a 0.25 mm (0.010 in.) layer height. XY and XZ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 3: FDM PA6/66-GF30-FR Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 95.44 μm/[m·°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(-20 °C to 5 °C) (53.02 μin/[in·°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 214.2 μm/[m·°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(25 °C to 80 °C) (119 μin/[in·°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 72.67 μm/[m·°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(180 °C to 130 °C) (40.37 μin/[in·°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 156.3 μm/[m·°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(140 °C to 150 °C) (86.83 μin/[in·°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 6.2",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 0.14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 1.3 x 1012 Ω*cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.3221 W/[m*K]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "@20 °C (0.1861 BTU/[hr*ft°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@20 °C -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.3252 W/[m*K]",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@90 °C (0.1879 BTU/[hr*ft°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@90 °C -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.177 mm2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@20 °C (2.74 x 10-4 in2/s)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@20 °C -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.151 mm2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@90 °C (2.34 x 10-4 in2/s)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@90 °C -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tg 51.5 °C (124.7 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D792",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Specific Gravity 1.400",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "FDM PA6/66-GF30-FR samples were printed with a 0.25 mm (0.010 in.) layer height on the F900 and the Fortus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "450mc using a T20G tip. The breakaway support was manually removed before the samples were conditioned",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 4: FDM PA6/66-GF30-FR Mechanical Properties - Fortus 450mc - T20G tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 61.7 (2.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 8,950 (320)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 61.1 (2.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 23.7 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 8,860 (330)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 3,440 (210)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 5.6 (0.31)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 3.05 (0.18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 813 (44)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 443 (27)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 121 (5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 47.4 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 17,500 (720)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 6,880 (1,500)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 6.07 (0.39)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.1 (0.23)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 880 (57)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 305 (34)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 6,
+      "text": "MPa 22.3 (0.98)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 31 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.2% Offset Yield",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 3,230 (140)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 4,490 (200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 30.8 (1.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 45.6 (1.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1.0% Offset Yield",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 4,470 (150)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 6,620 (250)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.6 (0.16)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 1.67 (0.063)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 232 (23)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 243 (9.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 74.6 (3.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 17.2 (2.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 1.4 (0.064)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 0.322 (0.05)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 730 (79)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 83.5 (22)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 13.7 (1.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 1.56 (0.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 5: FDM PA6/66-GF30-FR Mechanical Properties - F900 - T20G tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 62.3 (6.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 9,040 (890)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 60.2 (7.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 24.4 (4.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 8,730 (1,100)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 3,540 (620)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 5.83 (0.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 3.14 (0.16)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 845 (120)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 456 (23)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 114 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 46.2 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 16,500 (1,400)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 6,700 (1,500)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 5.66 (0.52)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 1.96 (0.22)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 820 (75)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 284 (31)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 7,
+      "text": "MPa 33 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 53.7 (8.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0.2% Offset Yield",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 4,790 (1,500)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 7,780 (1,200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 43.1 (12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 72.4 (7.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "1.0% Offset Yield",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 6,250 (1,800)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 10,500 (1,100)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.34 (0.65)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.62 (0.28)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 339 (94)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 381 (41)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 77.1 (7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 22.1 (4.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in 1.44 (0.13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in 0.413 (0.085)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 391 (53)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 95.4 (19)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in 7.32 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in 1.79 (0.35)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "EN 45545-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "These tests were done to show that FDM PA6/66-GF30-FR complies to the tested standard, not to show certification to any specific standard.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "It is suggested that additional testing be conducted if there are any questions about how FDM PA6/66-GF30-FR will perform for a specific part.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "FDM PA6/66-GF30-FR was printed in the XY orientation with a T20G tip on the Stratasys Fortus 450mc and F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "systems using default settings and tested per EN 45545-2 testing standards. Results were given for requirement",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "sets R22 and R23.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 6: FDM PA6/66-GF30-FR EN 45545-2 Fire Safety Classification Matrix - Fortus 450mc",
+      "reason": "properties.csv carries no property for \"Table 6: FDM PA6/66-GF30-FR\""
+    },
+    {
+      "page": 8,
+      "text": "Requirement Set 1 mm 7 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "R22 HL2HL2 HL2HL2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "R23 HL3HL3 HL3HL3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 7: FDM PA6/66-GF30-FR EN 45545-2 Fire Safety Classification Matrix - F900",
+      "reason": "properties.csv carries no property for \"Table 7: FDM PA6/66-GF30-FR\""
+    },
+    {
+      "page": 8,
+      "text": "Requirement Set 1.1 mm 7.3 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "R22 HL2HL2 HL2HL2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "R23 HL3HL3 HL3HL3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 8: FDM PA6/66-GF30-FR Fire Protection of Railway Vehicles Test Results For R22 and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "R23 Requirement Sets - Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Test Standard Results 1 mm XY 7 mm XY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Ds(4) 19.819.8 2.62.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ISO 5659-2 (smoke opacity)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "VOF4 23.623.6 3.63.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "25 kW/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Dm 168.1 172.1",
+      "reason": "properties.csv carries no property for \"Dm\""
+    },
+    {
+      "page": 8,
+      "text": "ITC 4 mins 0.01 0.01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "EN 17084 Method 1 (smoke toxicity)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ITC 8 mins 0.02 0.02",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ISO 4589-2 (limit oxygen index) ILO (%O2) 34.3 38.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 9: FDM PA6/66-GF30-FR Fire Protection of Railway Vehicles Test Results For R22 and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "R23 Requirement Sets - F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Test Standard Results 1.1 mm XY 7.3 mm XY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Ds(4) 70.670.6 46.346.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ISO 5659-2 (smoke opacity)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "VOF4 110.3110.3 47.347.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "25 kW/m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Dm 171.7 209.2",
+      "reason": "properties.csv carries no property for \"Dm\""
+    },
+    {
+      "page": 8,
+      "text": "ITC 4 mins 0.35 0.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "EN 17084 Method 1 (smoke toxicity)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ITC 8 mins 0.35 0.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ISO 4589-2 (limit oxygen index) ILO (%O2) 34.1 36.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "FMVSS 302",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "These tests were done to show that FDM PA6/66-GF30-FR complies to the tested standard, not to show certification to any specific standard. It is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "suggested that additional testing be conducted if there are any questions about how FDM PA6/66-GF30-FR will perform for a specific part.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "FDM PA6/66-GF30-FR was printed in the XY orientation with a T20G tip on the Stratasys F900 system using default",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "settings and tested per FMVSS 302 testing standards. Results show that FDM PA6/66-GF30-FR does not support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "combustion and meets the flammability requirements of FMVSS 302.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Table 10: FDM PA6/66-GF30-FR Fire Protection of Automotive Interior Test Results",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1 1.1 0 0 0 DSC1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "2 1.1 0 0 0 DSC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "3 1.1 0 0 0 DSC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "4 1.1 0 0 0 DSC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "5 1.1 0 0 0 DSC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Average Burn Rate 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Maximum Burn Rate 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Figure 1: DSC at 20 °C 0.4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Figure 2: DSC at 20 °C 3.4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Figure 3: DSC at 90 °C 0.4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Figure 4: DSC at 90 °C 3.4 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Figure 5: TMA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Stratasys Headquarters 1 Holtzman St.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "5995 Opus Parkway,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Rehovot, 7670401",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Minnetonka, MN 55343",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ISO 9001:2015 +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "+1 952 937-3000 (Intl)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "© 2026 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, FDM, and F900 are registered trademarks of Stratasys",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Inc. SUP4050B and Fortus 450mc are trademarks of Stratasys, Inc. All other trademarks are the property of their respective owners,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "specifications subject to change without notice. MDS_FDM_PA6/66-GF30-FR_0726a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-fable-5-1",
+    "date": "2026-09-21"
+  }
+}

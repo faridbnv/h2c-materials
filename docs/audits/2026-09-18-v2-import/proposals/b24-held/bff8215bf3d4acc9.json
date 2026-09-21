@@ -1,0 +1,1093 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "bff8215bf3d4acc95e881664028a1a3ad3920a2077f6cbd398df6dc4a916965d",
+    "url": "https://drive.google.com/file/d/1pV5jG8blQE5CLxda3V22T1Z9Eve2ZZ7C/view?usp=drive_link",
+    "pages": 10,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1pV5jG8blQE5CLxda3V22T1Z9Eve2ZZ7C/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1pV5jG8blQE5CLxda3V22T1Z9Eve2ZZ7C/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "bff8215bf3d4acc95e881664028a1a3ad3920a2077f6cbd398df6dc4a916965d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "PLA MATTE BASIC",
+        "Shared formulation key": "R-QIDI-PLA-MATTE-BASIC",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 2: Water Absorption",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Water Absorption 0.4% 0.42%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.32 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.32",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1320",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 3: Density ISO 1183 Immersion",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Density ISO 1183 Immersion 1.32 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "2-7 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "7",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "7",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "MFR 210℃/2.16kg ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 3: Melt Flow Rate (MFR) ISO 1133 210℃/2.16kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Melt Flow Rate (MFR) ISO 1133 210℃/2.16kg 2-7 g/10 min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "65.4 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "65.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "65.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 4: Glass transition DSC, 10℃/min temperature(° C)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "DSC, 10℃/min 65.4℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "95.4 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "95.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "° C DSC",
+        "Standards": "DSC",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 4: Melting temperature(° C) DSC, 10℃/min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Melting temperature(˚ C) DSC, 10℃/min 95.4℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Crystallization temperature",
+        "Raw value": "150 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "150",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 4: Crystallization DSC, 10℃/min temperature(° C)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "DSC, 10℃/min 150℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "61.1 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "61.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "61.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306 GB/T 1633",
+        "Standards": "ISO 306; GB/T 1633",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 4: Vicat softening ISO 306, GB/T 1633 temperature(° C)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "ISO 306, GB/T 1633 61.1℃ 61.8℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "55 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.8MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 4: Heat deflection ISO 75 1.8MPa temperature(° C)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "ISO 75 1.8MPa 55℃ 53.8℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "55.5 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "55.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Printed specimen",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "Locator": "p. 4: Heat deflection ISO 75 0.45MPa temperature(° C)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "ISO 75 0.45MPa 55.5℃ 56.9℃"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210-230℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "50-60℃",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 7: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Shell / walls",
+          "Text": "Layers 2"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-10%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-50 mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "Layers 2"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "10%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 7,
+        "text": "Nozzle Temperature 210-230℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "220",
+        "Nozzle requirement": "required",
+        "Bed °C": "50-60℃",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-PLA-MATTE-BASIC",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 7: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Shell / walls",
+          "Text": "Layers 2"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-10%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-50 mm/s"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "Layers 2"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "10%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "50 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 7,
+        "text": "Bed Temperature 50-60℃"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-fable-5-1",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 7,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "210-230℃",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 210-230℃"
+    },
+    {
+      "page": 7,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "50-60℃",
+      "fromBelow": false,
+      "line": "Bed Temperature 50-60℃"
+    },
+    {
+      "page": 7,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Wall",
+      "raw": "Layers 2",
+      "fromBelow": false,
+      "line": "Wall Layers 2"
+    },
+    {
+      "page": 7,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "0-10%",
+      "fromBelow": false,
+      "line": "Cooling Fan 0-10%"
+    },
+    {
+      "page": 7,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30-50 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed 30-50 mm/s"
+    },
+    {
+      "page": 7,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "0.4 mm",
+      "fromBelow": false,
+      "line": "Nozzle Diameter 0.4 mm"
+    },
+    {
+      "page": 10,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "220℃",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 220℃"
+    },
+    {
+      "page": 10,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "55℃",
+      "fromBelow": false,
+      "line": "Bed Temperature 55℃"
+    },
+    {
+      "page": 10,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Wall",
+      "raw": "Layers 2",
+      "fromBelow": false,
+      "line": "Wall Layers 2"
+    },
+    {
+      "page": 10,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "10%",
+      "fromBelow": false,
+      "line": "Cooling Fan 10%"
+    },
+    {
+      "page": 10,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "50 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed 50 mm/s"
+    },
+    {
+      "page": 10,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Diameter",
+      "raw": "0.4 mm",
+      "fromBelow": false,
+      "line": "Nozzle Diameter 0.4 mm"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V2.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "50mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Strength(MPa) 35.5 ± 6 32.46 ± 6",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at Break(%) 5.3 ± 3 1.5 ± 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "50mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Modulus (MPa) 2256.3 ± 100 2186.5 ± 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "50mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Strength (MPa) 63.7 ± 4 28.3 ± 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Modulus (MPa) 2566.8 ± 100 2135.6 ± 100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "19.4 ± 2 2.6 ± 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Strength (kJ/m²) 23℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 180",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Charpy Impact ISO 179",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Izod Impact Strength (kJ/m²) 18.8 ± 2 4.3 ± 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "23℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Injection 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 62",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "50% RH, 23℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Water absorption(50%RH*23℃)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "TGA, 20℃/min N/A N/A",
+      "reason": "the sheet publishes no value for \"TGA, 20℃/min\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 4,
+      "text": "Glass-transition temperature (10℃/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Thermal deformation temperature (0.45MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Decomposition temperature (20℃/min)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 6,
+      "text": "Thermal deformation temperature (1.8MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Vika softening temperature (50℃/10N)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "RECOMMENDED 3D PRINGTING PARAMETERS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Top/Bottom Layers 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Infill Density 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Ambient Temperature 25℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "*Based on 0.4 mm nozzle. Printing conditions may vary with different nozzle diameters.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "IS0 527 GB/T1040",
+      "reason": "properties.csv carries no property for \"IS0 527\""
+    },
+    {
+      "page": 8,
+      "text": "170mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "115mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "80mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "4×R15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ISO 178 GB/T9341",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ISO 179 GB/T1043",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "IS0 180 GB/T1843",
+      "reason": "properties.csv carries no property for \"IS0 180\""
+    },
+    {
+      "page": 9,
+      "text": "80mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "3D PRINGTING ACTUAL PARAMETERS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "*Based on the 0.4 mm nozzle. Different nozzle diameters also make printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Top/Bottom Layers 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Infill Density 100%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Ambient Temperature 25℃",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-fable-5-1",
+    "date": "2026-09-21"
+  }
+}
