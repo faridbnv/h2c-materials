@@ -57,7 +57,7 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | 1.3 | Verdicts by witness, batch b30 | 1½ | done 2026-09-21 (b30, m117; R099–R164) |
 | 1.4 | Supports, density-unit misreads, the six unsettled, batch b31 | 1 | done 2026-09-21 in b30 (R076, R098, m114, m116); PEKK/PAEK rows wait with Stratasys's reader gap (1.7); PMMA, SBC, PI and WearX to the owner's list |
 | 1.5 | Batch b27 applied | 1 | |
-| 1.6 | Second read: the findings register, the corrections | 1 | |
+| 1.6 | Second read: the findings register, the corrections | 1 | register and two classes done 2026-09-21 (R165, m118, m119); 79 findings open |
 | 1.7 | The tail: twins, no-values, unreachable, several-values, low-parity makers, `deferred` | 1½ | |
 | 1.8 | The import closed | ½ | |
 | 2.1 | Cross-maker consistency: SQL views, `EST-CONFLICT` | 1 | |
