@@ -2847,8 +2847,11 @@ export function propose(row, text, world) {
   // Siraya Tech's "Fibreheart Family PET-CF PET-GF PETG-CF Pro PPA PPA-CF …" made its unfilled Rebound PEBA a
   // carbon-fibre one. A line that names a family and then several filled grades is the menu, not the product.
   const A_RANGE_MENU = /\bfamily\b(?:.*?\b[A-Z]{2,5}[- ](?:CF|GF|AF)\b){2,}/i;
+  // A company's register line is not prose about the product: FormFutura's footer "Formfutura VOF CoC: 55502105"
+  // is its Chamber of Commerce number, and read as prose it filed ReForm rTitan, an ABS, under COC.
+  const A_COMPANY_REGISTER = /\b(?:CoC|KvK|VAT|IBAN|BIC|Chamber of Commerce)\b\s*(?:nr\.?|no\.?|number)?\s*[:：]/;
   const body = (text.pages[0]?.lines ?? []).map((l) => String(l.text ?? ''))
-    .filter((line) => !A_SHOPS_OWN_FURNITURE.test(line) && !A_RANGE_MENU.test(line)).join(' ').slice(0, 2000);
+    .filter((line) => !A_SHOPS_OWN_FURNITURE.test(line) && !A_RANGE_MENU.test(line) && !A_COMPANY_REGISTER.test(line)).join(' ').slice(0, 2000);
   // What the sheet says its product is made of, in its own row. Fillamentum's Chemical properties table heads
   // its first row "Polymer base" and prints the polymer in words; a statement there is the sheet answering for
   // itself, which is worth more than the same word found somewhere in its prose.
