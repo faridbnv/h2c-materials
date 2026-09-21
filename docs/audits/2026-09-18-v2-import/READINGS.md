@@ -7,10 +7,10 @@ before any of it becomes data. This is that reading, for
 **159 documents**:
 
 - **said** — a line of the sheet names one polymer, and the line is quoted: 25
-- **named** — the product's own name carries the polymer with a word stuck to the front (easyPETG, ecoPLA, ePC): 29
-- **said (product page)** — the sheet names none, and the maker's own product page, fetched and hashed as a second witness, does: 5
+- **named** — the product's own name carries the polymer with a word stuck to the front (easyPETG, ecoPLA, ePC): 27
+- **said (product page)** — the sheet names none, and the maker's own product page, fetched and hashed as a second witness, does: 13
 - **narrowed** — the sheet names none, but its own density and melting point admit one row of `polymers.csv`: 14
-- **unread** — neither, and what the sheet does publish is listed instead: 86
+- **unread** — neither, and what the sheet does publish is listed instead: 80
 
 Strike a row by writing `no` in its Verdict; correct one by writing the polymer it should be. A row left empty
 stays held, which is the same as striking it but says nobody looked.
@@ -23,7 +23,7 @@ document stays held under its ruling with the strike noted.
 
 75 document(s).
 
-### named — 13
+### named — 12
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
@@ -32,7 +32,6 @@ document stays held under its ruling with the strike noted.
 | 3DJAKE mattePLA Silver | 3DJAKE | PLA | PLA / Unfilled / unspecified | the product's own name says it: "mattepla" is "epla" with a word in front of it |
 | AmphoraAM3300 | colorFabb | nGen | nGen / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/colorfabb/ngen-red |
 | eSUN ePC Filament | eSUN | PC | PC / Unfilled / unspecified | the product's own name says it: "epc" is "pc" with a word in front of it |
-| FIBERLOGY FIBERSILK | Fiberlogy | PLA | PLA / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/fiberlogy/pla-fibersilk-metallic-bronze |
 | Polymaker PolyLite CosPLA Version B | Polymaker | PLA | PLA / Unfilled / unspecified | the product's own name says it: "cospla" is "pla" with a word in front of it |
 | purefil BioTEC filament | purefil | ABS | ABS / Unfilled / unspecified | the maker's own link for it names it: https://www.purefil.ch/en/purefil-abs-filament_153_1179/ |
 | FIBERLOGY FIBERSATIN | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's own link for it names it: https://fiberlogy.com/en/product/fibersatin-pla-filament-s2/ |
@@ -41,11 +40,17 @@ document stays held under its ruling with the strike noted.
 | Other | See document / product page | PLA | PLA / Unfilled / unspecified | the maker's own link for it names it: https://filament2print.com/en/pla/2135-pla-pellets-kai-parthy.html |
 | Thermal properties | See document / product page | PA12 | PA12 / Unfilled / unspecified | the maker's own link for it names it: https://filament2print.com/en/polyamide-pa12/3106-monkey-repa12-50-8gb.html |
 
-### said (product page) — 2
+### said (product page) — 8
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
+| ColorFabb StoneFill | colorFabb | PLA | PLA / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "stoneFill Moss Green – Matte PLA Filament with Stone Texture / colorFabb" (https://colorfabb.us/stonefill-moss-green#witness-for=ee3c6 |
+| FIBERLOGY FIBERSILK | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "FiberSilk PLA Filament - S2 - Fiberlogy" (https://fiberlogy.com/en/product/fibersilk-pla-filament-s2/#witness-for=2a6a77ab8e029a02, sh |
+| FIBERLOGY FIBERSMOOTH | Fiberlogy | PVB | PVB / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "FiberSmooth PVB Filament - Fiberlogy" (https://fiberlogy.com/en/product/fibersmooth-pvb-filament-s2/#witness-for=86013ad5bd7f7c1f, sha |
+| PolyCast | Polymaker | PVB | PVB / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "PolyCast™ (PVB) / Polymaker Wiki" (https://wiki.polymaker.com/polymaker-products/polymaker-filaments/specialty-filament/polycast-tm-pv |
+| Polymaker Poly Dissolve S1 | Polymaker | PLA | PLA / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "PolyDissolve™ S1 can support PLA, PVB, TPU and Nylon based materials from our portfolio." (https://wiki.polymaker.com/polymaker-produc |
 | plx | BigRep | PLA | PLA / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "PLX - Next Gen PLA Filament - 80% Faster 3D Printing / BigRep" (https://bigrep.com/filaments/plx/, sha 4ffdcbcb0a9a) |
+| FIBERLOGY FIBERWOOD | Fiberlogy | PLA | PLA / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "FiberWood PLA Filament - Fiberlogy" (https://fiberlogy.com/en/product/fiberwood-pla-filament/#witness-for=6facf3dae24322de, sha 8fc60b |
 | Antero 800NA | Stratasys | PEKK | PEKK / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "Antero 800NA: A PEKK-Based 3D Printing Material" (https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/antero-800na/ |
 
 ### narrowed — 5
@@ -58,24 +63,20 @@ document stays held under its ruling with the strike noted.
 | colorFabb XT CF20 | colorFabb | PET | PET / Carbon fibre | its own numbers admit 3 polymers and this maker makes one of them: density 1400 within 1300–1420 |
 | antero 800na | Stratasys | PPA | PPA / Unfilled / unspecified | its own numbers admit one polymer: melts at 300 against 290 |
 
-### unread — 55
+### unread — 50
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
 | PI Filament Z2 Zymergen 3D4Makers | 3D4Makers | Not read | Not read | density 923-10 g/cm3 — **its density reads 923000 kg/m³, which no filament reaches: the page is misread** — this maker's range: ABS×3, PLA×2, PETG×2, PEI×2, PEEK×2 |
 | AmphoraHT5300 | colorFabb | Not read | Not read | this maker's range: PLA×14, PET×5, TPU×5, nGen×4, ASA×3 |
 | carbon | colorFabb | Not read | Not read | density 1,35 g/cm3; melting 235-255 °C — this maker's range: PLA×14, PET×5, TPU×5, nGen×4, ASA×3 |
-| ColorFabb StoneFill | colorFabb | Not read | Not read | this maker's range: PLA×14, PET×5, TPU×5, nGen×4, ASA×3 |
 | colorFabb Woodfill Fine | colorFabb | Not read | Not read | this maker's range: PLA×14, PET×5, TPU×5, nGen×4, ASA×3 |
 | colorFabb XT Light Blue | colorFabb | Not read | Not read | this maker's range: PLA×14, PET×5, TPU×5, nGen×4, ASA×3 |
 | FIBERLOGY FIBERFLEX 30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 170 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
 | FIBERLOGY FIBERFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
 | FIBERLOGY FIBERFLEX CF | Fiberlogy | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PLA-PHA — density 1.23 g/cm3; vicat 91 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
-| FIBERLOGY FIBERSMOOTH | Fiberlogy | Not read | Not read | density 1.1 g/cm3; vicat 70 °C; glass 70 °C; melting 175 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
 | FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
 | FIBERLOGY MATTFLEX 40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 160 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
-| PolyCast | Polymaker | Not read | Not read | its numbers admit ABS, ASA, PC-ABS, PVB, TPU, TPE, TPC, PPE-PS — density 1.10 g/cm3; glass 70 °C; vicat 67 °C — this maker's range: PLA×20, PC×9, PETG×8, TPU×6, ABS×5 |
-| Polymaker Poly Dissolve S1 | Polymaker | Not read | Not read | polymers the page prints somewhere: PLA×13, PC×10, PETG×9, PA6/66×6, ABS×5, PVA×3 — its numbers admit PET, PPS — density 1.37 g/cm3 — this maker's range: PLA×20, PC×9, PETG×8, TPU×6, ABS×5 |
 | Polymaker PolyCast Natural | Polymaker | Not read | Not read | polymers the page prints somewhere: PLA×5, PETG×2, PC×2, PEI×1, ABS×1, TPU×1 — this maker's range: PLA×20, PC×9, PETG×8, TPU×6, ABS×5 |
 | Polymaker PolyWood | Polymaker | Not read | Not read | polymers the page prints somewhere: PLA×13, PC×9, PETG×8, PA6/66×6, ABS×4, ASA×4 — density 0.8 g/cm3; glass 62 °C; vicat 60 °C; melting 151 °C — this maker's range: PLA×20, PC×9, PETG×8, TPU×6, ABS×5 |
 | PolyWood | Polymaker | Not read | Not read | polymers the page prints somewhere: PLA×1 — density 0.8 g/cm3; glass 62.4 °C; melting 150.8 °C; vicat 60.3 °C — this maker's range: PLA×20, PC×9, PETG×8, TPU×6, ABS×5 |
@@ -94,7 +95,6 @@ document stays held under its ruling with the strike noted.
 | FIBERLOGY FIBERFLEX30D | Fiberlogy | Not read | Not read | density 1.07 g/cm3; melting 174 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
 | FIBERLOGY FIBERFLEX40D | Fiberlogy | Not read | Not read | density 1.16 g/cm3; melting 157 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
 | FIBERLOGY FIBERFLEXCF | Fiberlogy | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PLA-PHA — density 1.23 g/cm3; vicat 91 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
-| FIBERLOGY FIBERWOOD | Fiberlogy | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.30 g/cm3; vicat 65 °C — this maker's range: PLA×3, CPE×2, ABS×2, PETG×1, PP×1 |
 | AddNorth Koltron KG1 | AddNorth | Not read | Not read | this maker's range: PEEK×1, ASA×1, PETG×1 |
 | Electrifi | Electrifi | Not read | Not read | density 2.0-4.0 g/cm³ — this maker's range: PEEK×1, ASA×1, PETG×1 |
 | Iglidur | Iglidur | Not read | Not read | its numbers admit PET, POM — density 1.42 g/cm3 — this maker's range: PEEK×1, ASA×1, PETG×1 |
@@ -221,11 +221,10 @@ document stays held under its ruling with the strike noted.
 | Rebound PEBA Air 70A–95A | Siraya Tech | PEBA | PEBA-CF (new material) | the sheet declares PEBA and Carbon fibre, and no material holds that pair; name: peba |
 | pcl 3d printing filament | SUNLU | PCL | PCL (new material) | the sheet declares PCL and Unfilled / unspecified, and no material holds that pair; name: pcl |
 
-### named — 11
+### named — 10
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
-| PETG Glow In The Dark | SUNLU | PETG | PETG / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/sunlu/petg-glow-in-the-dark-green-1 |
 | SUNLU TPU Silk Light Blue | SUNLU | TPU | TPU / Unfilled / unspecified | a link it was found under names it, and the link is not the maker's: https://www.3djake.com/sunlu/tpu-silk-light-blue |
 | WearX Wear Resistant PA6 | 3DXTECH | PA6 | PA6 / Unfilled / unspecified | the maker's own link for it names it: https://cdn.shopify.com/s/files/1/0625/4185/6821/files/wearx_tds_FW_PA6_Copolymer_v1.0.pdf?v=1728481558 |
 | Other | See document / product page | PCL | PCL / Unfilled / unspecified | the maker's own link for it names it: https://filament2print.com/en/wood-stone-metal/4731-biofil-wood-pcl-formfutura.html |
@@ -237,18 +236,19 @@ document stays held under its ruling with the strike noted.
 | petg glow in the dark | SUNLU | PETG | PETG / Unfilled / unspecified | the maker's own link for it names it: https://www.sunlu.com/products/petg-glow-in-the-dark |
 | silk tpu filament | SUNLU | TPU | TPU / Unfilled / unspecified | the maker's own link for it names it: https://www.sunlu.com/products/silk-tpu-filament |
 
-### said (product page) — 1
+### said (product page) — 3
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
+| PETG Glow In The Dark | SUNLU | PETG | PETG / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "SUNLU PETG Glow in The Dark (Luminous) 3D Printer Filament 1KG / SUNLU Online Store" (https://store.sunlu.com/products/petg-glow-in-th |
+| Spectrum PETG Glitter | Spectrum | PETG | PETG / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "Filament Spectrum PET-G Glitter" (https://spectrumfilaments.com/wp-content/uploads/2021/09/en_msds_petg_glitter.pdf#witness-for=34f55a |
 | ABS RAPIDO METAL | QIDI | ABS | ABS / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "ABS Rapido Metal" (https://ca.qidi3d.com/pages/choose-the-right-filament-3d-filaments-guide-for-qidi-printers?geo_hide_market=true, sh |
 
-### unread — 2
+### unread — 1
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
 | BioFil Wood 1 | FormFutura | Not read | Not read | polymers the page prints somewhere: PLA×1, SAN×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cm3; vicat 50 °C — this maker's range: PLA×19, PETG×7, TPU×5, AB |
-| Spectrum PETG Glitter | Spectrum | Not read | Not read | the maker's page names PET and PETG — polymers the page prints somewhere: PETG×3, PET×1 — its numbers admit PLA, PETG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.27 g/cm3 — this maker's range: PLA×3 |
 
 ## The materials this would create
 

@@ -405,13 +405,17 @@ export function rulingsFromVerdicts(rows, rulings, polymers, { by = 'farid', dat
     const subject = kind === 'new-material' ? r['Material it would join'].replace(' (new material)', '') : r.Product;
     const modifier = /the sheet declares \S+ and (.+?), and no material holds/.exec(r.Evidence ?? '')?.[1] ?? r['Filler the name declares'];
     const value = kind === 'new-material' ? `${polymer} × ${modifier}` : polymer;
-    const prior = have.get(`${kind}|${norm(subject)}`);
-    if (prior && prior.Value !== value) { out.refused.push({ row: r, why: `${prior.Ruling} already rules ${subject} as "${prior.Value}"; the verdict says "${value}"` }); continue; }
+    // A name that could be anybody's is ruled with its maker in front of it ("Extrudr wood"), and that is the same
+    // subject. A new material is permitted by its name, however the permission wrote its value.
+    const prior = have.get(`${kind}|${norm(subject)}`) ?? have.get(`${kind}|${norm(`${r.Brand ?? ''} ${subject}`)}`);
+    if (prior && prior.Value !== value && kind !== 'new-material') { out.refused.push({ row: r, why: `${prior.Ruling} already rules ${subject} as "${prior.Value}"; the verdict says "${value}"` }); continue; }
     if (prior) { out.already.push({ row: r, ruling: prior.Ruling }); continue; }
-    const how = /^yes$/i.test(said) ? `the reading stands` : `read as ${r.Reading}, and the owner says ${polymer}`;
+    // A verdict the owner delegated (R089) is signed by who gave it, and says so rather than speaking for the owner.
+    const whose = /R089/.test(by) ? 'Verdict under R089' : 'Owner verdict';
+    const how = /^yes$/i.test(said) ? `the reading stands` : `read as ${r.Reading}, and the verdict is ${polymer}`;
     const row = {
       Ruling: `R${String(next++).padStart(3, '0')}`, Kind: kind, Subject: subject, Value: value,
-      Reason: `Owner verdict on readings/readings.csv (${r.Provider} ${r.Product}, ${r.Ruling}): ${how}. ${String(r.Evidence ?? '').slice(0, 320)}`,
+      Reason: `${whose} on readings/readings.csv (${r.Provider} ${r.Product}, ${r.Ruling}): ${how}. ${String(r.Evidence ?? '').slice(0, 320)}`,
       By: by, Date: date,
     };
     have.set(`${kind}|${norm(subject)}`, row);
