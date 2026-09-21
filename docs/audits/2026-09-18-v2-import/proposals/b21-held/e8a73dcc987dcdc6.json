@@ -1,0 +1,608 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "e8a73dcc987dcdc6e2fedafc19d58c60dc7099433f999de9018a159403d76f88",
+    "url": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_PI_Filament_Z2_3D4Maker_ver.02.pdf?v=1728463107",
+    "pages": 3,
+    "provider": "3D4Makers",
+    "manufacturer": "3D4Makers",
+    "docKey": "e8a73dcc987dcdc6"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Z\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D4MAKERS-TDS-PI-Filament-Z2-3D4Maker-ver-02",
+      "Publisher": "3D4Makers",
+      "Title": "Technical Data Sheet (TDS) Z",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0762/2839/files/TDS_PI_Filament_Z2_3D4Maker_ver.02.pdf?v=1728463107",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e8a73dcc987dcdc6e2fedafc19d58c60dc7099433f999de9018a159403d76f88"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet (TDS) Z"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D4Makers",
+        "Product name": "Z",
+        "Shared formulation key": "R-3D4MAKERS-TDS-PI-Filament-Z2-3D4Maker-ver-02",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability 0,8mm UL 94 - TBD TBD TBD (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-TDS-PI-Filament-Z2-3D4Maker-ver-02",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet (TDS) Z"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "923-10 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "923",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "10",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "923000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "10000",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-PI-Filament-Z2-3D4Maker-ver-02",
+        "Locator": "p. 3: Density ASTM B",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Density ASTM B923-10 g/cm3 1.51"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "390℃-410℃",
+        "Nozzle state": "range",
+        "Nozzle min °C": "390",
+        "Nozzle max °C": "410",
+        "Nozzle requirement": "required",
+        "Bed °C": "120℃-160℃",
+        "Bed state": "range",
+        "Bed min °C": "120",
+        "Bed max °C": "160",
+        "Bed requirement": "required",
+        "Chamber °C": "80℃-160℃",
+        "Chamber state": "range",
+        "Chamber min °C": "80",
+        "Chamber max °C": "160",
+        "Chamber requirement": "required",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-TDS-PI-Filament-Z2-3D4Maker-ver-02",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 3: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "15-150 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 3,
+        "text": "Nozzle temperature 390℃-410℃"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "390℃-410℃",
+      "fromBelow": false,
+      "line": "Nozzle temperature 390℃-410℃"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "120℃-160℃",
+      "fromBelow": false,
+      "line": "Bed temperature 120℃-160℃"
+    },
+    {
+      "page": 3,
+      "field": "chamber",
+      "topic": "",
+      "label": "Chamber temperature",
+      "raw": "80℃-160℃",
+      "fromBelow": false,
+      "line": "Chamber temperature 80℃-160℃"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "15-150 mm/s",
+      "fromBelow": false,
+      "line": "Print speed 15-150 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Info@3d4makers.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.3d4makers.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "* Print orientation -45º/45º",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength * ISO 527 Type 1BA MPa 83 89",
+      "reason": "the row states 2 values in columns of its own (83, 89) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength * ISO 527 Type 1BA MPa 83 68",
+      "reason": "the row states 2 values in columns of its own (83, 68) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus* ISO 527 Type 1BA GPa 2.73 2.89",
+      "reason": "the row states 2 values in columns of its own (2.73, 2.89) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus* ISO 527 Type 1BA GPa 2.73 2.56",
+      "reason": "the row states 2 values in columns of its own (2.73, 2.56) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break * ISO 527 Type 1BA % 4.8 4.8",
+      "reason": "the row states 2 values in columns of its own (4.8, 4.8) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break * ISO 527 Type 1BA % 4.8 3.5",
+      "reason": "the row states 2 values in columns of its own (4.8, 3.5) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength ** ASTM D638 type V MPa N/A 101",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength ** ASTM D638 type V MPa N/A 59",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus** ASTM D638 type V GPa N/A 2.82",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus** ASTM D638 type V GPa N/A 2.57",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break ** ASTM D638 type V % N/A 4.5",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break ** ASTM D638 type V % N/A 2.7",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength *** ASTM 1708 MPa N/A 96",
+      "reason": "the sheet publishes no value for Tensile strength (endpoint unspecified) in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus*** ASTM 1708 GPa N/A 2.41",
+      "reason": "the sheet publishes no value for Tensile modulus in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break *** ASTM 1708 % N/A 4.7",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus ASTM D 790 GPa TBD TBD",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus ASTM D 790 GPa TBD TBD",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strength @ break ASTM D 790 MPa TBD TBD",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strength @ break ASTM D 790 MPa TBD TBD",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural elongation @ break ASTM D 790 % TBD TBD",
+      "reason": "the line names Flexural elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural elongation @ break ASTM D 790 % TBD TBD",
+      "reason": "the line names Flexural elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength Izod (notched) ** ISO180 KJ/m2 5.3 5.3",
+      "reason": "the row states 2 values in columns of its own (5.3, 5.3) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength Izod (notched) ** ISO180 KJ/m2 5.3 4.3",
+      "reason": "the row states 2 values in columns of its own (5.3, 4.3) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength Izod (unnotched) ** ISO180 KJ/m2 29 28",
+      "reason": "the row states 2 values in columns of its own (29, 28) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Impact Strength Izod (unnotched) ** ISO180 KJ/m2 29 26",
+      "reason": "the row states 2 values in columns of its own (29, 26) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flammability 0,8mm UL 94 - TBD TBD",
+      "reason": "properties.csv carries no property for \"Flammability 0,8mm\""
+    },
+    {
+      "page": 1,
+      "text": "Flammability 0,8mm UL 94 - TBD TBD",
+      "reason": "properties.csv carries no property for \"Flammability 0,8mm\""
+    },
+    {
+      "page": 1,
+      "text": "Flammability 1,6mm UL 94 - TBD TBD",
+      "reason": "properties.csv carries no property for \"Flammability 1,6mm\""
+    },
+    {
+      "page": 1,
+      "text": "Flammability 1,6mm UL 94 - TBD TBD",
+      "reason": "properties.csv carries no property for \"Flammability 1,6mm\""
+    },
+    {
+      "page": 1,
+      "text": "Temp. of deflection under load (1.80 MPa) * ISO 75-1/-2 ∘C 167",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temp. of deflection under load (0.45 MPa) * ISO 75-1/-2 ∘C 175",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CONFIDENTIAL Version 01, February 1, 2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "* Print orientation -45º/45º XY* Flat",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 !!\"#$% 43.05 46.64",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 !!\"#$& 23.92 25.91",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 53.95 58.52",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "CTE (-45/45 infill) -50 ℃ to 60 ℃",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 29.97 32.51",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 62.51 67.74",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "CTE (-45/45 infill) 60℃ to 120 ℃",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 !!\"#$& 34.73 37.63",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 !!\"#$% 50.15 44.68",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "CTE (-45/45 infill) 120 ℃ to 190 ℃",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "CTE (90º XZ infill) -50 ℃ to 60 ℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 !!\"#$& 27.86 24.82",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 61.07 58.30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 33.92 32.38",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 !!\"#$% 68.64 65.23",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 2,
+      "text": "CTE (90º XZ infill) 60℃ to 120 ℃",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "CTE (90º XZ infill) 120 ℃ to 190 ℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM 831 !!\"#$& 38.13 36.23",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tg DMA $% 195",
+      "reason": "properties.csv carries no property for \"Tg\" ($%)"
+    },
+    {
+      "page": 2,
+      "text": "DMA 343",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Td at 1% loss $%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Td DMA 460",
+      "reason": "properties.csv carries no property for \"Td\" (DMA)"
+    },
+    {
+      "page": 2,
+      "text": "** XZ/ZX Bars out of water jetted 3D printed plates (Minifactory Ultra)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "● Tnozzle 405℃, Tbuildplate 160℃, Tchamber 160℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "● Layer thickness 0,2mm (30 mm/s), Beadwidth 0,5mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "CONFIDENTIAL Version 01, February 1, 2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Filament diameter (+/- 0,05mm) - mm 1.75",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Dielectric constant (1GHz) ASTM D150 - 2.87",
+      "reason": "the sheet publishes no value for Relative permittivity in this row: its value column prints \"-\""
+    },
+    {
+      "page": 3,
+      "text": "Dielectric loss (1GHz) ASTM D150 - 0.0094",
+      "reason": "the sheet publishes no value for Relative permittivity in this row: its value column prints \"-\""
+    },
+    {
+      "page": 3,
+      "text": "Dielectric loss (10GHz) ASTM D150 - 0.0083",
+      "reason": "the sheet publishes no value for Relative permittivity in this row: its value column prints \"-\""
+    },
+    {
+      "page": 3,
+      "text": "Breakdown voltage ASTM D149 MV/m 172",
+      "reason": "properties.csv carries no property for \"Breakdown voltage\" (MV/m)"
+    },
+    {
+      "page": 3,
+      "text": "Dielectric constant (10GHz) ASTM D150 - 2.85",
+      "reason": "the sheet publishes no value for Relative permittivity in this row: its value column prints \"-\""
+    },
+    {
+      "page": 3,
+      "text": "'()*+(\"\",(-./0(12(34256765(!26862265",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "All information supplied by or on behalf of 3D4Makers in relation to its products, whether in the nature of data, recommendation",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "or otherwise, is supposed by research and, in good faith, believed reliable, but 3D4Makers assumes no liability and make no",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "CONFIDENTIAL Version 01, February 1, 2022",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

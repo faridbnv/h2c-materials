@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "b7162645c57355b9358e377b78eaa9a0d0fafd333dec665cfbd638818358a588",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3570",
+    "pages": 1,
+    "provider": "Filament2Print",
+    "manufacturer": "Filament2Print",
+    "docKey": "b7162645c57355b9"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-F2P-PETG-ES",
+      "Publisher": "Filament2Print",
+      "Title": "A product by",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3570",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b7162645c57355b9358e377b78eaa9a0d0fafd333dec665cfbd638818358a588"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "A product by"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "PETG",
+        "Shared formulation key": "R-FILAMENT2PRINT-F2P-PETG-ES",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-F2P-PETG-ES",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "A product by"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "La gama PETG by Filament2print está",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "disponible en 18 colores, incluyendo dos tonos",
+      "reason": "properties.csv carries no property for \"disponible\""
+    },
+    {
+      "page": 1,
+      "text": "Diámetro 1.75 mm ± 0.05 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Peso neto 1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Peso bobina 195 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densidad 1,24 g/cm³ ISO 1183,GB/T 1033",
+      "reason": "properties.csv carries no property for \"Densidad\""
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133,GB/T 3682",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2,86 g/10 min 210 °C/2,16kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "12 mm³/s Ensayo interno",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0,12 % ISO 62 23 ºC, 50% RH",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Módulo de elasticidad 358,495 MPa ISO 527, GB/T 9341",
+      "reason": "properties.csv carries no property for \"Módulo de elasticidad\""
+    },
+    {
+      "page": 1,
+      "text": "Límite elástico 52,977 MPA ISO 527, GB/T 1040",
+      "reason": "properties.csv carries no property for \"Límite elástico\""
+    },
+    {
+      "page": 1,
+      "text": "14,647 % ISO 527, GB/T 1040",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Deformación a rotura 18,268 % ISO 527, GB/T 1040",
+      "reason": "properties.csv carries no property for \"Deformación a rotura\""
+    },
+    {
+      "page": 1,
+      "text": "Módulo de flexión 1954,543 MPa ISO 178, GB/T 9341",
+      "reason": "properties.csv carries no property for \"Módulo de flexión\""
+    },
+    {
+      "page": 1,
+      "text": "Resistencia a flexión 75,071 MPa ISO 178, GB/T 9341",
+      "reason": "properties.csv carries no property for \"Resistencia a flexión\""
+    },
+    {
+      "page": 1,
+      "text": "Resistencia a impacto 2,721kJ/m² ISO 179, GB/T 1043",
+      "reason": "properties.csv carries no property for \"Resistencia a impacto\""
+    },
+    {
+      "page": 1,
+      "text": "2,427kJ/m² ISO 179, GB/T 1043",
+      "reason": "properties.csv carries no property for \"2,427kJ/m²\""
+    },
+    {
+      "page": 1,
+      "text": "70°C @ 0,45MPa ISO 75",
+      "reason": "properties.csv carries no property for \"70°C @ 0,45MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Temperatura de impresión 230ºC - 260 ºC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "70 ºC - 90 ºC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prioridad de acabado: recomendado 100 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prioridad de resistencia mecánica: recomendado 30 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30 mm/s - 120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(boquilla 0.4 mm / capa 0.2 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Condiciones de secado 60 ºC durante 6 horas",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament2Print by DATIVIC S.L.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "w w w.filament2print.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Pol. Ind. Porto do Molle 7A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "info@filament2print.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "36350 Nigrán (Pontevedra, España)",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

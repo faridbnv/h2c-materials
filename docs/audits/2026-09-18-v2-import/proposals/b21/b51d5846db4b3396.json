@@ -1,0 +1,515 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "b51d5846db4b33967058547e32db82306a34da6c6b10c1d3dbdec8c0012c9293",
+    "url": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/3542%2FMaterial+data+sheet+SAN+purefil.pdf",
+    "pages": 1,
+    "provider": "Fabru / purefil",
+    "manufacturer": "Fabru / purefil",
+    "docKey": "b51d5846db4b3396"
+  },
+  "identity": {
+    "polymer": "SAN",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: san"
+    ],
+    "materialId": "M136",
+    "materialName": "SAN",
+    "estimateIdentity": "SAN",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+      "Publisher": "Fabru / purefil",
+      "Title": "Styrol-Acrylnitril (SAN)",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/3542%2FMaterial+data+sheet+SAN+purefil.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b51d5846db4b33967058547e32db82306a34da6c6b10c1d3dbdec8c0012c9293"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Styrol-Acrylnitril (SAN)"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: the product and the document are its own; only the values are R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil's."
+      },
+      "row": {
+        "MaterialID": "M136",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "Styrol-Acrylnitril (SAN)",
+        "Shared formulation key": "R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "European Regulation No. 10/2011 on plastic materials for food contact. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Styrol-Acrylnitril (SAN)"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.3-0.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.7",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "0.7",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 294-4",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Locator": "p. 1: Shrinkage (ISO 294-4)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shrinkage (ISO 294-4) 0.3-0.7 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "21 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "21",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "21",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Locator": "p. 1: MFR",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR 21 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "72 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "72",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "72",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Locator": "p. 1: Yield stress (ISO 527-1,2)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Yield stress (ISO 527-1,2) 72 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3800 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Locator": "p. 1: Tensile modulus (ISO 527-1)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (ISO 527-1) 3800 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "101 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "101",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "101",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Locator": "p. 1: Heat deflection temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature 101 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "110 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "110",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "110",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Locator": "p. 1: Vicat softening temperature A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temperature A 110 °C (ISO 306/A120)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M136",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.08 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.08",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1080",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Locator": "p. 1: Density (ISO 1183)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density (ISO 1183) 1.08 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "European Regulation No. 10/2011 on plastic materials for food contact.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "230-260 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "90-110 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at yield (ISO 527-1,2) - %",
+      "reason": "the sheet publishes no value for Elongation at yield in this row: its value column prints \"- %\""
+    },
+    {
+      "page": 1,
+      "text": "80°C",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break (ISO 527-1,2) - %",
+      "reason": "the sheet publishes no value for Elongation at break in this row: its value column prints \"- %\""
+    },
+    {
+      "page": 1,
+      "text": "4-6h",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "1.8 MPa (ISO 75-2)",
+      "reason": "properties.csv carries no property for \"1.8 MPa (\""
+    },
+    {
+      "page": 1,
+      "text": "(ISO 306/A120)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability (IEC 60695-11-10) HB",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 1,
+      "text": "Thermal conductivity 23°C - W/(K*m)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21",
+    "note": "R053: this sheet prints the numbers R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil."
+  }
+}

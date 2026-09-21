@@ -1,0 +1,508 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "b5ec7096606290cdcfff5843993f3f514cb4adc053294593ce198289a5ab8697",
+    "url": "https://s1.raise3d.com/2024/09/Raise3D-Hyper-Core-PPA-CF25_TDS_V2.0.pdf",
+    "pages": 4,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "b5ec7096606290cd"
+  },
+  "identity": {
+    "polymer": "PPA",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "High-Performance Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: ppa",
+      "filler: cf25"
+    ],
+    "materialId": "M070",
+    "materialName": "PPA-CF",
+    "estimateIdentity": "PPA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Hyper-Core-PPA-CF25-TDS-V2-0",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Hyper Core PPA CF25 Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2024/09/Raise3D-Hyper-Core-PPA-CF25_TDS_V2.0.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b5ec7096606290cdcfff5843993f3f514cb4adc053294593ce198289a5ab8697"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Hyper Core PPA CF25 Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: the product and the document are its own; only the values are D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0's."
+      },
+      "row": {
+        "MaterialID": "M070",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Hyper Core PPA CF25",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0",
+        "Composition / filler": "core where most of the carbon fiber (25 wt.%) are well-aligned and distributed. During high speed (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Hyper-Core-PPA-CF25-TDS-V2-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Hyper Core PPA CF25 Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M070",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "320 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "320",
+        "Nozzle max °C": "320",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Hyper-Core-PPA-CF25-TDS-V2-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle temp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temp. = 320 ºC; Bed temp.= 80 ºC; Print speed= 45 mm/s; Infill= 100%; Infill angle= ±45 °."
+      },
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0 already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M070",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "320 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "320",
+        "Nozzle max °C": "320",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-RAISE3D-Raise3D-Hyper-Core-PPA-CF25-TDS-V2-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings: Nozzle temp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle temp.= 320 ºC; Bed temp.= 80 ºC; Print speed= 45 mm/s; Infill= 100 %; Infill angle= ±45 °."
+      },
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0 already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temp",
+      "raw": "320 °C",
+      "fromBelow": false,
+      "line": "Nozzle temp. = 320 ºC; Bed temp.= 80 ºC; Print speed= 45 mm/s; Infill= 100%; Infill angle= ±45 °."
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temp",
+      "raw": "320 °C",
+      "fromBelow": false,
+      "line": "Nozzle temp.= 320 ºC; Bed temp.= 80 ºC; Print speed= 45 mm/s; Infill= 100 %; Infill angle= ±45 °."
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Raise3D Hyper Core PPA CF25_TDS Sep. 2024 Version 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Hyper Core PPA CF25 Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "core where most of the carbon fiber (25 wt.%) are well-",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "printing, Hyper Core PPA CF25 shows superior performance higher strength and rigidity, higher heat",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm³) ISO 1183, GB/T 1033 1.23",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "Diameter (mm) / 1.75",
+      "reason": "the sheet publishes no value for Water absorption in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Net weight (kg) / 1.0",
+      "reason": "the sheet publishes no value for Water absorption in this row: its value column prints \"/\""
+    },
+    {
+      "page": 1,
+      "text": "Water absorption (%) ISO 62: Method 1 1.09",
+      "reason": "the line names Water absorption and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Young’s modulus (MPa) ISO 527 9989 ±228",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength (MPa) ISO 527 118 ± 4",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at break (%) ISO 527 1.62 ± 0.12",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Bending modulus (MPa) ISO 178 9214 ±250",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Bending strength (MPa) ISO 178 184 ± 6",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Charpy impact strength (kJ/m2) ISO 179 7.29 ±0.76",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "All specimens were annealed at 100 ºC for 8h.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Raise3D Hyper Core PPA CF25_TDS Sep. 2024 Version 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Young’s modulus (MPa) ISO 527 8896 ±232 4214 ±97",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "Tensile strength (MPa) ISO 527 110 ± 2 58 ± 2",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at break (%) ISO 527 2.18 ± 0.14 1.64 ± 0.10",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "Bending modulus (MPa) ISO 178 8487 ±246 /",
+      "reason": "the sheet publishes no value for Flexural modulus in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "Bending strength (MPa) ISO 178 176 ± 4 /",
+      "reason": "the sheet publishes no value for Flexural strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "Charpy impact strength (kJ/m²) ISO 179 12.04 ±0.94 /",
+      "reason": "the sheet publishes no value for Charpy strength in this row: its value column prints \"/\""
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Melt flow index (g/10 min) 300 °C, 2.16 kg 4.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heat distortion temperature3 (°C) ISO 75 @0.45 MPa 197",
+      "reason": "the sheet states HDT in MPa, and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "ISO 75 @1.8 MPa 124",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The specimens of HDT test were annealed at 100 ºC for 8h.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Black RAL 7024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1. Abrasion of the brass nozzle happens frequently when printing Hyper Core PPA CF25. Using",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2. Please dry the filament at 80 - 100 ºC for 6-12 hours to restore the printing quality of Raise3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Hyper Core PPA CF25.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3. After drying, we recommend storing the filament into Raise3D Filament Dry Box during the printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4. If this filament is used as the support material for itself, please remove the support structure after",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Raise3D Hyper Core PPA CF25_TDS Sep. 2024 Version 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 1. Tensile testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 2. Flexural testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fig 3. Impact testing specimen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Raise3D Hyper Core PPA CF25_TDS Sep. 2024 Version 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fig 4. Print Orientation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Note: All samples are printed with 100% infill; the lines in the Fig 4. indicate typical directionality of infill and walls",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "disposal/recycling practices of Raise3D materials for the intended application. Raise3D makes no",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Raise3D shall not be made liable for any damage, injury or loss induced from the use of Raise3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "© 2023 by Raise3D. All rights reserved. Specification subject to change without notice.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21",
+    "note": "R053: this sheet prints the numbers D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0 already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0."
+  }
+}

@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "ff676e8c956b7f91b543a289c3f0aeb31d9eeb1cf0122c9f7dfe5efa83dfa2af",
+    "url": "https://prusament.com/wp-content/uploads/2022/03/8_PETG_RECYCLED_Prusament_TDS_2022.pdf",
+    "pages": 3,
+    "provider": "Prusa Research / Prusament",
+    "manufacturer": "Prusa Research",
+    "docKey": "ff676e8c956b7f91"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022",
+      "Publisher": "Prusa Research",
+      "Title": "Technical datasheet Prusament PETG Recycled by Prusa Polymers",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-20",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Prusa Research / Prusament; the sheet is Prusa Research's.",
+      "Citation role": "cited",
+      "URL": "https://prusament.com/wp-content/uploads/2022/03/8_PETG_RECYCLED_Prusament_TDS_2022.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ff676e8c956b7f91b543a289c3f0aeb31d9eeb1cf0122c9f7dfe5efa83dfa2af"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet Prusament PETG Recycled by Prusa Polymers"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: the product and the document are its own; only the values are S-PVB-9f8d2165-tds-prusament-petg-n-en's."
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Prusa Research",
+        "Product name": "Prusament PETG Recycled by Prusa Polymers",
+        "Shared formulation key": "S-PVB-9f8d2165-tds-prusament-petg-n-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet Prusament PETG Recycled by Prusa Polymers"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "74 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "74",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "74",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022",
+        "Locator": "p. 2: Hardness – Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Hardness – Shore D 74 Prusa Polymers"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers S-PVB-9f8d2165-tds-prusament-petg-n-en already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under S-PVB-9f8d2165-tds-prusament-petg-n-en."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "[°C] 250 ± 10",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 80 ± 10",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] up to 200"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Speed [%] 50"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "2"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "200 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature [°C] 250 ± 10"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers S-PVB-9f8d2165-tds-prusament-petg-n-en already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under S-PVB-9f8d2165-tds-prusament-petg-n-en."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 80 ± 10",
+        "Bed state": "range",
+        "Bed min °C": "70",
+        "Bed max °C": "90",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] up to 200"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Speed [%] 50"
+        },
+        {
+          "Topic": "Shell / walls",
+          "Text": "2"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "200 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Heatbed Temperature [°C] 80 ± 10"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "R053: this sheet prints the numbers S-PVB-9f8d2165-tds-prusament-petg-n-en already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under S-PVB-9f8d2165-tds-prusament-petg-n-en."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "[°C] 250 ± 10",
+      "fromBelow": false,
+      "line": "Nozzle Temperature [°C] 250 ± 10"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed Temperature",
+      "raw": "[°C] 80 ± 10",
+      "fromBelow": false,
+      "line": "Heatbed Temperature [°C] 80 ± 10"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "[mm/s] up to 200",
+      "fromBelow": false,
+      "line": "Print Speed [mm/s] up to 200"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "Speed [%] 50",
+      "fromBelow": false,
+      "line": "Cooling Fan Speed [%] 50"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Shell / walls",
+      "label": "Perimeters",
+      "raw": "2",
+      "fromBelow": false,
+      "line": "Perimeters: 2;"
+    },
+    {
+      "page": 3,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "200 mm/s",
+      "fromBelow": false,
+      "line": "Print Speed 200 mm/s;"
+    },
+    {
+      "page": 3,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "250 °C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature 250 °C all layers;"
+    },
+    {
+      "page": 3,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "80 °C",
+      "fromBelow": false,
+      "line": "Bed Temperature 80 °C all layers;"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Last update: 14-03-2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Usage FDM/FFF 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75 ± 0.05 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MFR [g/10 min](1) not applicable ISO 1133",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "MVR [cm3/10 min] not applicable ISO 1133",
+      "reason": "the line names Melt volume-flow rate and states no value in a unit the database keeps it in (cm³/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "Density [g/cm3] 1.27 ISO 1183",
+      "reason": "the sheet states Density in [g/cm3], and the database keeps it in kg/m³"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 24 hours [%](1) 0.07 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 7 days [%](1) 0.10 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Heat Deflection Temperature (0.45 MPa) [°C] 68 ISO 75",
+      "reason": "the sheet states HDT in [°C], and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Heat Deflection Temperature (1.80 MPa) [°C] 68 ISO 75",
+      "reason": "the sheet states HDT in [°C], and the database keeps it in °C"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Yield Strength for Filament [MPa] 45 ± 1 ISO 527",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Interlayer Adhesion [MPa] 15 ± 5 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(1) 24 °C; humidity 22 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Yield Strength [MPa] 43 ± 1.8 48 ± 2.5 ISO 527-1",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Modulus [GPa] 1.5 ± 0.1 1.6 ± 0.1 ISO 527-1",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at Yield Point [%] 4.5 ± 0.2 4.5 ± 0.5 ISO 527-1",
+      "reason": "the line names Elongation at yield and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Strength [MPa] 63 ± 1 70 ± 1 ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Modulus [GPa] 1.8 ± 0.1 1.8 ± 0.2 ISO 178",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "8.8 ± 0.1 9.1 ± 0.3 ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength Charpy [kJ/m2](3) 25 ± 3 38 ± 11 ISO 179-1",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength Charpy Notched [kJ/m2](4) 12 ± 1 15 ± 3 ISO 179-1",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(2) Original Prusa i3 MK3S/S+ 3D printer was used to print testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "specimens. PrusaSlicer-2.3.3 was used to create G-code following",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Solid Layers Top: 0, Bottom: 0;",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "Infill 100% rectilinear;",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "(3) Charpy Unnotched – Edgewise direction of blow according to ISO",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "179-1",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "(4) Charpy Notched – Edgewise direction of blow according to ISO",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "179-1",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21",
+    "note": "R053: this sheet prints the numbers S-PVB-9f8d2165-tds-prusament-petg-n-en already carries. The product is its own and keeps its own grade and its own source; the values are recorded once, under S-PVB-9f8d2165-tds-prusament-petg-n-en."
+  }
+}
