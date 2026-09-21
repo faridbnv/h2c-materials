@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "11df0283bf29e98d16e7112d60de32d0e6f01596a4e874b55c00dad3f4881d15",
+    "url": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/MetalFil/Data%20Sheets%20and%20Declarations/TDS%20-%20MetalFil%20-%20Brass.pdf",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/MetalFil/Data%20Sheets%20and%20Declarations/TDS%20-%20MetalFil%20-%20Brass.pdf"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "finish": "Metal",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "composition: pla",
+      "variant: metalfil (Metal)",
+      "declared dense filler by R078: Its density of 2780 kg/m³ is above what neat PLA reaches (1330), and the sheet declares the load: \"metal‐filled PLA‐based filament with approximately 7\"."
+    ],
+    "materialId": "M011",
+    "materialName": "PLA Metal",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "dense"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-MetalFil-Brass",
+      "Publisher": "FormFutura",
+      "Title": "Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/MetalFil/Data%20Sheets%20and%20Declarations/TDS%20-%20MetalFil%20-%20Brass.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "11df0283bf29e98d16e7112d60de32d0e6f01596a4e874b55c00dad3f4881d15"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M011",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "MetalFil Brass",
+        "Shared formulation key": "S-PET-TDS-MetalFil-Brass",
+        "Composition / filler": "The sheet declares the load: \"metal‐filled PLA‐based filament with approximately 7\". Its density of 2780 kg/m³ is above what neat PLA reaches (1330); recorded as a Variant under D57 (R095).",
+        "Variant": "declared dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95% (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-MetalFil-Brass",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M011",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "2.78 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "2.78",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "2780",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-MetalFil-Brass",
+        "Locator": "p. 1: Specific gravity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity 2.78 g/cc ISO 1183 ‐"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M011",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "± 180 ‐ 195° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "180",
+        "Nozzle max °C": "195",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PET-TDS-MetalFil-Brass",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Print temperature ± 180 ‐ 195° C ‐ ‐"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print temperature",
+      "raw": "± 180 ‐ 195° C",
+      "fromBelow": false,
+      "line": "Print temperature ± 180 ‐ 195° C ‐ ‐"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "MetalFil ‐ Brass is a metal‐filled PLA‐based filament with approximately 70% of gravimetric brass filling. This incredible high filling with brass powders",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "enables every FDM 3D printer user to 3D print brass objects which are almost indistinguishable from genuine brass casted objects.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MetalFil ‐ Brass is easy to print and can be printed on full metal, PEEK, and PFTE hotends and can perfectly be printed with ≥ 0.4mm nozzles with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melting termperature ± 195 ± 10° C ISO 294 ‐",
+      "reason": "properties.csv carries no property for \"Melting termperature\""
+    },
+    {
+      "page": 1,
+      "text": "Viscat softening temp. ± 65° C ISO 306 VST/A/50 (50° C/h, 10N)",
+      "reason": "properties.csv carries no property for \"Viscat softening temp.\""
+    },
+    {
+      "page": 1,
+      "text": "HS Code 39169090 1.75mm ± 0.05mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Formfutura BV • Groenestraat 215 • 6531 HH • Nijmegen • Netherlands • T: +31 (0)85 002 0881 • E: info@formfutura.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dutch Business Registration No: 69099502 • VAT No: NL857733709B01 • EORI No: NL857733709 • D‐U‐N‐S: 490546732",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

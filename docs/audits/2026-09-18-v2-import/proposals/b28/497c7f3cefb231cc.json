@@ -1,0 +1,885 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "497c7f3cefb231cca439a7034c18eb475388bf638a97295ebb6617f99df7c3ff",
+    "url": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/Partner%20Materials/Lehvoss/Luvocom%203F%20PP%20CF%209928%20BK/Data%20sheets%20%26%20declarations/TDS%20-%20LUVOCOM%203F%20PP%20CF%209928%20BK.pdf",
+    "pages": 2,
+    "provider": "FormFutura",
+    "manufacturer": "LEHVOSS",
+    "docKey": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/Partner%20Materials/Lehvoss/Luvocom%203F%20PP%20CF%209928%20BK/Data%20sheets%20%26%20declarations/TDS%20-%20LUVOCOM%203F%20PP%20CF%209928%20BK.pdf"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pp",
+      "filler: cf"
+    ],
+    "materialId": "M083",
+    "materialName": "PP-CF",
+    "estimateIdentity": "PP",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+      "Publisher": "LEHVOSS",
+      "Title": "PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by FormFutura; the sheet is LEHVOSS's.",
+      "Citation role": "cited",
+      "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/Partner%20Materials/Lehvoss/Luvocom%203F%20PP%20CF%209928%20BK/Data%20sheets%20%26%20declarations/TDS%20-%20LUVOCOM%203F%20PP%20CF%209928%20BK.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "497c7f3cefb231cca439a7034c18eb475388bf638a97295ebb6617f99df7c3ff"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M083",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PP CF 9928 BK",
+        "Shared formulation key": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Composition / filler": "with carbon fibers, black (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PRELIMINARY DATASHEET LUVOCOM 3F PP CF 9928 BK"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,00 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183-3",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Specific gravity ISO 1183-3 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity ISO 1183-3 g/cm³ 1,00"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0,3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C / 24h MPTS A ISO 62 ISO 3167",
+        "Standards": "ISO 62; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Water absorption 23°C / 24h ISO 62 MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water absorption 23°C / 24h ISO 62 MPTS ISO 3167 A % <0,3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "54 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "54",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 mm/min MPTS A ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 54"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "1,2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50 mm/min MPTS A ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 1,2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "7 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1 mm/min MPTS A ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 7"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "78 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "78",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "78",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "10 mm/min MPTS A ISO 178 ISO 3167",
+        "Standards": "ISO 178; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Flexural strength dry, @10 mm/min ISO 178 MPTS ISO 3167 A MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural strength dry, @10 mm/min ISO 178 MPTS ISO 3167 A MPa 78"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "6 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "2 mm/min MPTS A ISO 178 ISO 3167",
+        "Standards": "ISO 178; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Flexural modulus dry, @2 mm/min ISO 178 MPTS ISO 3167 A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural modulus dry, @2 mm/min ISO 178 MPTS ISO 3167 A GPa 6"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "35 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1eU 80x10x4mm ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m²",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 35"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "80 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306 ISO 3167",
+        "Standards": "ISO 306; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Vicat softening temp VST A DIN ISO 306 MPTS ISO 3167 A °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp VST A DIN ISO 306 MPTS ISO 3167 A °C 80"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Continuous service temperature",
+        "Raw value": "100 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "20.000 h MPTS A IEC 60216 ISO 3167",
+        "Standards": "IEC 60216; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Continuous service temperature 20.000 h IEC 60216 MPTS ISO 3167 A °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Continuous service temperature 20.000 h IEC 60216 MPTS ISO 3167 A °C 100"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "10⁷ Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "10000000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "10000000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "60x4mm IEC 60093",
+        "Standards": "IEC 60093",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 1: Surface resistance ROB DIN IEC 60093 Ronde 60x4mm Ω",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Surface resistance ROB DIN IEC 60093 Ronde 60x4mm Ω ≤10⁷"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "230-60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "230",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "60",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "230",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "60",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "Locator": "p. 2: Melt temperature °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Melt temperature °C 230 - 60"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220 - 250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle °C 220 - 250"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle",
+      "raw": "220 - 250 °C",
+      "fromBelow": false,
+      "line": "Nozzle °C 220 - 250"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PP CF 9928 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Linear mould shrinkage DIN 16742 MPTS ISO 3167 A % 0,2-0,6",
+      "reason": "properties.csv carries no property for \"Linear mould shrinkage\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural elongation at max. force dry, @10 mm/min ISO 178 MPTS ISO 3167 A % 1,5",
+      "reason": "properties.csv carries no property for \"Flexural elongation at max. force\" (%)"
+    },
+    {
+      "page": 1,
+      "text": "Service temperature during lifetime max. 200h MPTS ISO 3167 A °C 130",
+      "reason": "properties.csv carries no property for \"Service temperature\" (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Insulation resistance strip electrode R25 DIN IEC 60167 MPTS ISO 3167 A Ω 10¹ˉ⁷",
+      "reason": "properties.csv carries no property for \"Insulation resistance strip electrode\"; its value is a power of ten (\"10¹\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2020091917294",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "LUVOCOM 3F PP CF 9928 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Dehumidifying dryer 70 - 95 2 - 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 1 °C 220 - 250",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 2 °C 220 - 250",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 3 °C 230 - 260",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mold °C 40 - 80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unless indicated otherwise, the material is delivered as 3mm long pellets in sealed bags on pallets. Preferably storage should",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "During processing, the moisture content should not exceed 0.2%. Moisture may lead to smearing and in extreme cases to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "09928 30 07 18",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Alsterufer 19 185 South Broad Street Unit 4805, 8 Xingyi Road",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20354 Hamburg Pawcatuck, CT 06379 Changning District, Shanghai 200336",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tel +49 40 44 197-0 Tel +1-855-681-3226 Tel +86 21 62785181",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2020091917294",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

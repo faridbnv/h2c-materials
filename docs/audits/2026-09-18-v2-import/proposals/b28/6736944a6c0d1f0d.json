@@ -1,0 +1,709 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "6736944a6c0d1f0d155f4ab0d97e984113edcfdca70c4944eaed468fe16cabb0",
+    "url": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/EasyFil%20ePLA/Data%20Sheets%20and%20Declarations/TDS%20-%20ePLA.pdf",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/EasyFil%20ePLA/Data%20Sheets%20and%20Declarations/TDS%20-%20ePLA.pdf"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: epla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-ePLA",
+      "Publisher": "FormFutura",
+      "Title": "Technical Data Sheet EasyFil ePLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/EasyFil%20ePLA/Data%20Sheets%20and%20Declarations/TDS%20-%20ePLA.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6736944a6c0d1f0d155f4ab0d97e984113edcfdca70c4944eaed468fe16cabb0"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet EasyFil ePLA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "EasyFil ePLA",
+        "Shared formulation key": "S-PET-TDS-ePLA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet EasyFil ePLA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.24 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.24",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Specific Gravity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Gravity 1.24 g/cm3 ASTM D792"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Standard / load": "210°C 2.16kg D1238",
+        "Standards": "ASTM D1238",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: MFR (210°C, 2.16kg)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MFR (210°C, 2.16kg) 6 g/10min D1238"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "53 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Film specimen (ASTM D882); not a printed or moulded bar",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Tensile Strength at Break",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength at Break 53 MPa ASTM D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "60 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Film specimen (ASTM D882); not a printed or moulded bar",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Tensile Stress at Yield",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress at Yield 60 MPa ASTM D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3.5 Gpa",
+        "Raw unit": "Gpa",
+        "Raw numeric": "3.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Film specimen (ASTM D882); not a printed or moulded bar",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Tensile Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus 3.5 Gpa ASTM D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6,00 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Film specimen (ASTM D882); not a printed or moulded bar",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Tensile Elongation",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation 6,00% ASTM D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "16 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "16",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "16",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Notched Izod Impact",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Notched Izod Impact 16 J/m ASTM D256"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "83 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "83",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "83",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Flexural Strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Strength 83 MPa ASTM D790"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3.8 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.0038",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value (physically implausible)",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D790",
+        "Standards": "ASTM D790",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Flexural Modulus",
+        "Notes": "Flagged physically implausible (D55): the sheet prints a flexural modulus of 3.8 MPa for an unfilled PLA, three orders of magnitude below what the tensile strength and elongation it prints beside it require; the class OPEN-PROBLEMS §2 lists under V002818. The value is the sheet's own and backs nothing.",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus 3.8 MPa ASTM D790"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the sheet prints 3.8 MPa; accepted as published and flagged implausible (D55)"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "55 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "E2092",
+        "Standards": "ASTM E2092",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Heat Distortion Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Distortion Temperature 55°C ASTM E2092"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "55-60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "60",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "60",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D3418",
+        "Standards": "ASTM D3418",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePLA",
+        "Locator": "p. 1: Glass Transition Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temperature 55-60°C ASTM D3418"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Print date: 15-09-2022 Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EasyFil ePLA is our go-to PLA filament, with a retail price of €19,99 for 1kg spools. It is not only a very affordable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA. It is also very easy to 3D print with high accuracy and high aesthetic surface quality. The mechanical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Retail price of €19,99 for 1kg spools. • Functional prototyping.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Available in 0.25kg, 1kg, 2.3kg, 4.5kg and 8kg spools. • 3D printing manufacturing aids.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Very easy to 3D print. • Making detailed concept models.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Forget about E = mc2. Let’s redefine e…",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "e = economically priced, European quality filament, environmentally friendly packaged, easy to 3D print, enjoy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D printing!",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "39169090 Monofilament for 3D Printing European Union",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

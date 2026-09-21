@@ -822,6 +822,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
+| declared dense filler | The maker declares a metal or mineral powder load (copper, bronze, brass, steel, iron, tungsten, magnetite) that makes the filament far denser than its base polymer. It is a grade of the polymer's material with the load quoted in Composition / filler (R095); the physics windows judge it as a dense-filled grade (D80), and the estimate model keeps its values from pulling the family. |
 | lightweight additive | A declared additive (hollow microspheres, a foaming agent) lowers the density well below the base polymer's; stiffness and strength may move with it. |
 | plasticised | A declared plasticiser lowers the density, the modulus and the softening point well below the neat polymer's; a plasticised PVC is a different material from the rigid one and its published values are its own. |
 | undisclosed dense filler | The published density or stiffness is beyond what the unfilled base polymer can reach, so the product contains a filler its maker does not name. |
@@ -858,6 +859,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | BigRep |  |  |
 | Braskem |  |  |
 | colorFabb |  | ColorFabb;Colorfabb |
+| Copper3D | Chilean maker of antibacterial filaments (PLACTIVE, MDflex); FormFutura distributes them as partner materials. | Copper 3D;COPPER3D |
 | Creality | Printer maker (Shenzhen Creality 3D); sells filament under its own name. | CREALITY;creality;Creality 3D |
 | CreatBot | Chinese printer maker (Henan Suwei Electronic Technology); sells filament under its own name. | Creatbot;creatbot |
 | Dow | Resin supplier; the EVOLV3D line is its filament brand. | The Dow Chemical Company;Dow Chemical |
@@ -884,8 +886,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | KCL |  |  |
 | Kimya | Airtech Europe's filament line; Armor Group until 2022. | Kimya / Airtech Europe;Airtech Europe / Kimya;Airtech 3D;Airtech Advanced Materials Group;Kimya (Armor Group);Airtech |
 | Kingroon | Printer maker (Shenzhen Kingroon Technology); sells filament under its own name. | KINGROON;kingroon |
+| LEHVOSS | German compounder (Lehmann & Voss & Co.); its LUVOCOM 3F filaments reach the corpus through FormFutura as partner materials. | Lehvoss;Lehmann & Voss;Lehmann&Voss&Co.;Luvocom |
 | Markforged | US maker of continuous-fibre and composite FFF systems; its Onyx line is a chopped-carbon nylon. | MARKFORGED;markforged |
 | MatterHackers | US shop; its own ranges are sold as PRO Series and MH Build Series, and the sheets it hosts for other makers are theirs (R074). | MatterHackers / PRO Series;PRO Series;MH Build Series;matterhackers |
+| Mitsubishi Chemical | Resin maker; its 3Diakon PMMA filament reaches the corpus through FormFutura as a partner material. | Mitsubishi Chemical Corporation;Mitsubishi Chemical Group;Mistubishi Chemical |
 | Nanovia | French maker; it publishes each grade as a web page rather than a PDF, and the product is named in the page's breadcrumb. | Nanovia SAS;nanovia |
 | nice essentials | 3DJake's budget house brand; the inventory recorded it as "nice". | nice;nice-essentials;niceessentials |
 | NinjaTek | US maker of the NinjaFlex, Cheetah, Armadillo and Chinchilla elastomer lines; a Fenner Drives brand. | Ninjatek;ninjatek;NinjaTek (Fenner Drives);Fenner Drives |
@@ -1264,6 +1268,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 179 | Charpy impact strength. |
 | ISO 180 | Izod impact strength. |
 | ISO 2039 | Hardness by ball indentation. |
+| ISO 2577 | Shrinkage of thermosetting moulding materials; colorFabb cites it for the mould shrinkage of its copperFill. |
 | ISO 2781 | Density by immersion. |
 | ISO 294 | Injection moulding of test specimens, including moulding shrinkage. |
 | ISO 306 | Vicat softening temperature. |

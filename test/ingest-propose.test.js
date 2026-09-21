@@ -1217,3 +1217,36 @@ test('a load the sheet declares, far denser than its polymer, is the grade Varia
   assert.match(p.grades[0].row['Composition / filler'], /^The sheet declares the load: "loaded with copper particles"/);
   assert.equal(p.window.fill, 'dense');
 });
+
+test('an axis printed as the label’s last word is the row’s direction, impact bars included', () => {
+  const properties = readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => r.values);
+  const polymers = readCsv(join(root, 'data/tables/polymers.csv')).records.map((r) => r.values);
+  const materials = readCsv(join(root, 'data/tables/materials.csv')).records.map((r) => r.values);
+  const creatbot = page('Technical Data Sheet：CreatBot PLA-CF', 'Mechanical properties',
+    'Tensile strength XY ISO 527, GB/T 1040 41 MPa', 'Tensile strength Z ISO 527, GB/T 1040 34 MPa',
+    'Impact strength XY ISO 179, GB/T 1043 30.1 kJ/m²', 'Impact strength Z ISO 179, GB/T 1043 16.1 kJ/m²');
+  const p = propose({ doc_key: 'k', sha256: 'x', provider: 'Filament2Print', provider_kind: 'retailer', manufacturer: 'CreatBot', product_raw: 'CreatBot PLA', url: 'https://x.example/creatbot.pdf' },
+    creatbot, { polymers, materials, grades: [], properties, sources: [], headlineDefinitions: [], manufacturers: [{ Value: 'CreatBot' }], rulings: [] });
+  const dir = Object.fromEntries(p.measurements.map((m) => [`${m.row.Property} ${m.row['Raw value']}`, m.row.Direction]));
+  assert.equal(dir['Tensile strength (endpoint unspecified) 41 MPa'], 'XY');
+  assert.equal(dir['Tensile strength (endpoint unspecified) 34 MPa'], 'Z');
+  assert.equal(dir['Charpy strength 30.1 kJ/m²'], 'XY');
+  assert.equal(dir['Charpy strength 16.1 kJ/m²'], 'Z');
+});
+
+test('a load or a method the line prints after its value is the test’s, and so is a method letter in the label', () => {
+  const t = (n) => readCsv(join(root, `data/tables/${n}.csv`)).records.map((r) => r.values);
+  const world = { polymers: t('polymers'), materials: t('materials'), grades: [], properties: t('properties'), sources: [], headlineDefinitions: t('headline_definitions'), manufacturers: [{ Value: 'Fillamentum' }], rulings: [] };
+  const row = (line) => propose({ doc_key: 'k', sha256: 'x', provider: 'Fillamentum', provider_kind: 'manufacturer', manufacturer: 'Fillamentum', product_raw: 'PLA', url: 'https://x.example/y.pdf' },
+    page('Technical Data Sheet', 'PLA Extrafill', 'Thermal properties Typical Value Test Method Test Condition', line), world).measurements[0].row;
+  // Fillamentum prints value, method, condition, in that order.
+  assert.equal(row('Heat distortion temperature 119 °C ISO 75 0.45 MPa')['Test load MPa'], '0.45');
+  // ISO 75 names its methods by their loads: A is 1.80 MPa, B 0.45 (D65).
+  assert.equal(row('Heat distortion temperature (HDT A) ISO 75 °C 60')['Test load MPa'], '1.8');
+  assert.equal(row('HDT/B ISO 75 °C 70')['Test load MPa'], '0.45');
+  // "HDT ASTM E2092" is a method's name, not method A.
+  assert.equal(row('HDT ASTM E2092 °C 55')['Test load MPa'], 'Not published');
+  // LEHVOSS's bars are ISO 3167 multipurpose specimens, which are moulded.
+  assert.equal(row('Heat distortion temperature HDT A ISO 75 molded sample °C 90')['Specimen type'], 'Raw material value');
+  assert.equal(row('Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 110')['Specimen type'], 'Raw material value');
+});

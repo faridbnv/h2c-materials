@@ -15,9 +15,10 @@ in what order, with the reasoning a count cannot carry.
 
 ## 1. Where it stands
 
-On 2026-09-21, after `--holds` was re-run: 1,006 documents applied, 454 settled, **585 open** — 431 `held`, 97
-`gated` (FormFutura 64, INTAMSYS 33), 23 `needs-staging` (iSANMATE), 20 read and waiting for the next batch, 14
-`unreachable`. Batch b27 (the optical pool) is reviewed and not applied.
+On 2026-09-21, after batch b28: 1,054 of 2,047 documents applied, 476 settled, **517 open** — 447 `held`, 33
+`gated` (INTAMSYS, out of V2), 23 `needs-staging` (iSANMATE, its files supplied), 14 `unreachable`. Batch b27 (the
+optical pool) is reviewed and not applied. The database: 148 materials, 948 grades, 9,851 measurements, 1,221
+sources.
 
 Two owner archives sit untracked and ignored beside the repository; the pipeline keeps only their hashed bytes:
 
@@ -51,7 +52,7 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | Step | What | Sessions | State |
 |---|---|---:|---|
 | 0 | Housekeeping: archives ignored, `--holds` re-run, this plan written | ½ | done 2026-09-21 |
-| 1.1 | FormFutura: recursive staging, layout parity, batch b28 | 1½ | |
+| 1.1 | FormFutura: recursive staging, layout parity, batch b28 | 1½ | done 2026-09-21 (b28, m107–m111) |
 | 1.2 | iSANMATE: staging, layout parity, batch b29 | ½ | |
 | 1.3 | Verdicts by witness, batch b30 | 1½ | |
 | 1.4 | Supports, density-unit misreads, the six unsettled, batch b31 | 1 | |
@@ -374,8 +375,10 @@ second thirty-per-cent grade (four findings accepted).
 ## 8. Where to pick this up
 
 1. `npm run ingest:inventory -- --status`, `npm run ingest:blockers`, `npm run ingest:readings`.
-2. The first step in §3 without a date in its State column. On 2026-09-21 that is **1.1**: `--recursive` staging
-   in `scripts/ingest/fetch.mjs`, then FormFutura's layout parity.
+2. The first step in §3 without a date in its State column. After b28 that is **1.2**, iSANMATE: the staging tool
+   is built (`--stage "_temp iSANMATE" --provider iSANMATE`, then `--stage <file> --doc <key>` for the two shared
+   names, `--create --root-url` for `PDS_TDS.pdf`), and what is left is its 2025 layout's parity. What b28 left
+   waiting is in its README's last table.
 3. Before committing: `npm run verify:fast`; `npm run verify` once per batch; `npm run ingest:propose -- --compare
    --all` if the reader changed. A parity drop after a reader fix may be the recorded rows being wrong: it happened
    three times, and each time the migration that corrected them brought the census back.

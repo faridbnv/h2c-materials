@@ -1873,3 +1873,16 @@ P0074,Speed,Up to 300mm/s
 P0078,Speed,Up to 300mm/s
 P0083,Speed,Up to 300mm/s
 P0095,Speed,Up to 250mm/s
+P0929,Speed,<300 mm/s
+P0940,Speed,40 - 60 mm/s
+P0946,Layer height,">0,1mm"
+P0948,Cooling,speed 0-30%
+P0948,Speed,30-120 mm/s
+P0952,Cooling,0 - 80%
+P0952,Speed,< 300 mm/s
+P0952,Retraction,Length 0.8 - 1.4 mm
+P0953,Speed,40 - 60 mm/s
+P0954,Speed,40 - 60 mm/s
+P0956,Speed,40 - 50 MM/S
+P0956,Layer height,≥ 0.1 MM
+P0965,Speed,40 - 60 mm/s

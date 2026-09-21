@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "4ec7dfbb47e82cba60490aebb379a303e68886f6478e4917e1457b5c71302a33",
+    "url": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/Tough%20PLA/Data%20sheet%20and%20declarations/TDS%20-%20Tough%20PLA.pdf",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/Tough%20PLA/Data%20sheet%20and%20declarations/TDS%20-%20Tough%20PLA.pdf"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-Tough-PLA",
+      "Publisher": "FormFutura",
+      "Title": "Technical Data Sheet Tough PLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/Tough%20PLA/Data%20sheet%20and%20declarations/TDS%20-%20Tough%20PLA.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4ec7dfbb47e82cba60490aebb379a303e68886f6478e4917e1457b5c71302a33"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet Tough PLA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "Tough PLA",
+        "Shared formulation key": "S-PET-TDS-Tough-PLA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95% (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-Tough-PLA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet Tough PLA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.21 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.21",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Tough-PLA",
+        "Locator": "p. 1: Specific gravity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity 1.21 g/cc ISO 1183 -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "8.75 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "8.75",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Tough-PLA",
+        "Locator": "p. 1: Melt flow rate",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow rate 8.75 g/10min ISO 1133 210° C/2.16Kg"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "29.8 KJ/m²",
+        "Raw unit": "KJ/m²",
+        "Raw numeric": "29.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "29.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Tough-PLA",
+        "Locator": "p. 1: Impact strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Impact strength 29.8 KJ/m² ISO 179 Charpy Notched @23° C (73° F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "46 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "46",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "46",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Tough-PLA",
+        "Locator": "p. 1: Tensile strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 46 Mpa ISO 527 @ yield"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2750 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "2750",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-Tough-PLA",
+        "Locator": "p. 1: Tensile modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus 2750 Mpa ISO 527 -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "± 215 - 225° C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "215",
+        "Nozzle max °C": "225",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PET-TDS-Tough-PLA",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Print temperature ± 215 - 225° C - -"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print temperature",
+      "raw": "± 215 - 225° C",
+      "fromBelow": false,
+      "line": "Print temperature ± 215 - 225° C - -"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FormFutura Tough PLA is a 3D printer filament that is roughly 750% more impact resistant than regular PLA filaments.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our Tough PLA filament is a performance PLA that combines durability with ABS-like strength properties and yet it is a significantly stiffer 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "material than ABS filaments. Tough PLA exhibits excellent layer adhesion allowing 3D printed objects to achieve similar mechanical strength properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Viscat softening temp. ± 57° C ISO 306 -",
+      "reason": "the sheet publishes no value for \"Viscat softening temp.\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "HS Code 39169090 1.75mm ± 0.05mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REACH compliant Yes 2.85mm ± 0.10mm ≥ 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Formfutura BV • Tarweweg 3 • 6534 AM • Nijmegen • Netherlands • T: +31 (0)85 743 4000 • E: info@formfutura.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dutch Business Registration No: 69099502 • VAT No: NL857733709B01 • EORI No: NL857733709 • D-U-N-S: 490546732",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

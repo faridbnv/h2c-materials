@@ -881,6 +881,9 @@ export function readRow(text, registry, held = null) {
       // comma with three ("13,085 psi" is thirteen thousand, not thirteen).
       rawNumber: String(rawNumber(value)),
       printedUnit: candidate[2], target,
+      // What the line prints after the value, which is where a table with a Test Condition column puts the load
+      // and the method: Fillamentum's "Heat distortion temperature 119 °C ISO 75 0.45 MPa".
+      trailing: line.slice(candidate.index + candidate[0].length).trim(),
       // A sheet may print the method before the value or after it, so the standards are read from the whole line.
       standards: (line.match(new RegExp(STANDARD_RE.source, 'gi')) ?? []).map((m) => m.replace(/\s+/g, ' ').trim()),
       // "from 200 °C" and "min. 5 %" are bounds the sheet states in words, and a bound limits an estimate where a
@@ -1933,7 +1936,11 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // "热变形温度 ISO 75:Method A 83°C (1.8MPa)" and "Determination of temperature 93°C (0.45MPa)", and without
   // the bracket both heat deflections stated no load at all and could screen no heat requirement (D65).
   const A_LOAD = /\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m|N\s?\/\s?mm|psi|kgf?\s?\/\s?cm)/i;
-  const printed = [String(v.condition ?? ''), /anneal|as printed|dry|conditioned|moist|wet|flat|edge|upright/i.test(after) || A_LOAD.test(after) ? after : '', v.block ?? ''].filter(Boolean).join(' ');
+  // What follows the value is the test's condition where it states a load or names a method: without it NonOilen's
+  // heat deflection "119 °C ISO 75 0.45 MPa" stated no load, and its Vicat "150 °C ISO 306 method A, 10 N" no method.
+  const trailing = String(v.read?.trailing ?? '');
+  const tail = A_LOAD.test(trailing) || /\bmethod\s+[A-C]\d{0,3}\b/i.test(trailing) ? trailing : '';
+  const printed = [String(v.condition ?? ''), /anneal|as printed|dry|conditioned|moist|wet|flat|edge|upright/i.test(after) || A_LOAD.test(after) ? after : '', tail, v.block ?? ''].filter(Boolean).join(' ');
   // A designation's own digits do not begin the condition. A table that prints its method before its unit runs
   // them together — "Flexural modulus (E-Modulus) ASTM D790 MPa" — and a cut at the first digit made the
   // condition "790 MPa", which the load pattern then read as a test load of 790 MPa the sheet never printed.
@@ -1998,7 +2005,11 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   const leftover = CONDITION_WORD.test(rest) && (/\d/.test(rest) || !LABEL_WORD.test(rest)) ? rest : '';
   // A row that names no standard of its own takes the one its block heading names: "Flexural Properties: ASTM
   // D790, Procedure A" is the sheet stating the method for every row under it.
-  const named = [...new Set([load ? load[1].replace(/\s+/g, ' ').trim() : null, leftover || null,
+  // ISO 75 names its methods by the load: HDT A is 1.80 MPa, B 0.45, C 8.0 (D65). A sheet that prints the letter in
+  // the property's own label — Spectrum's "Heat distortion temperature (HDT A)", LEHVOSS's "HDT A ISO 75", Extrudr's
+  // "HDT/B" — has stated the load, and the letter goes with the method, where the load parser reads it.
+  const hdtMethod = v.property === 'HDT' && !load ? /\bHDT\s*[/-]?\s*\(?\s*([ABC])\b(?![/.])/.exec(String(v.label ?? '') + ' ' + String(v.line ?? '')) : null;
+  const named = [...new Set([load ? load[1].replace(/\s+/g, ' ').trim() : null, hdtMethod ? `HDT ${hdtMethod[1]}` : null, leftover || null,
     ...(v.read.standards.length ? v.read.standards
       : v.mergedStandards ? [v.mergedStandards]
         : (v.familyStandards ? [v.familyStandards] : []))].filter(Boolean))];
@@ -2009,6 +2020,7 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // "HDT 0.45 MN/m2, annealed" publishes an annealed value, and a row that does not say so reads as as-printed.
   // What the row says about the specimen is its own words and the footnote its mark points at, together.
   const says = [printed, v.label ?? '', v.footnote ?? ''].filter(Boolean).join(' ');
+  const labelAxis = /\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b|\b(?:strength|modulus|break|yield|elongation)\s+z\b/i.test(says) ? 'Z' : null;
   // A sheet may write the axis with the plane's letters apart ("(Z-X)"), as it writes "(X-Y)"; the database keeps
   // ZX and XZ, so a row that states one must not be read as stating none.
   // The bracket may have lost its opening: one SUNLU sheet's text layer begins a row "X-Y) Heat Distortion",
@@ -2109,7 +2121,9 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     // prints NatureWorks' resin data, "Tensile strength 110 Mpa (MD) ASTM D882", machine direction and all. Read as
     // an unstated specimen it is a PLA bar at 110 MPa; 81 tensile rows from 25 sources entered that way (m109).
     'Specimen type': /\bD\s?-?\s?882\b/i.test(standardText) && /^(Tensile|Elongation)/.test(v.property) ? 'Film specimen (ASTM D882); not a printed or moulded bar'
-      : /injection mou?ld/i.test(says) ? 'Raw material value'
+      // LEHVOSS names its bars by the standard that moulds them: "MPTS ISO 3167 A" is ISO's injection-moulded
+      // multipurpose test specimen, and "molded sample" says the same in words.
+      : /injection mou?ld|\bmou?lded (?:sample|specimen|bar|test)|\bMPTS\b|\bISO\s?3167\b/i.test(says) ? 'Raw material value'
       : /\b3d print|printed (specimen|bar|part)/i.test(says) ? 'Printed specimen'
       // The block the row stands in, before anything the sheet says about its specimens as a whole: a sheet that
       // heads one table "3D Printed" and the next "Injection molded" has said which bars each table describes.
@@ -2121,8 +2135,13 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     // A table that heads a value column with an orientation has stated the direction of every value in it, as
     // plainly as a row that prints the axis in its own label; what it cannot state is a direction for a property
     // that has none, so a density or a heat deflection under such a header keeps its Not applicable.
+    // CreatBot prints the axis as the label's last word — "Tensile strength XY", "Tensile strength Z", "Impact
+    // strength Z" — and a Z that stands alone after the property is as plain as "Z axis". An impact bar printed
+    // flat or on edge has a direction too, and the label that states it outranks the lexicon's default for the
+    // property (Not applicable), which is for a sheet that says nothing.
     Direction: stated ?? (v.column && v.direction !== 'Not applicable' ? (/\//.test(v.column) ? 'Stated, not a usable direction' : v.column) : null)
-      ?? v.direction ?? (/\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b/i.test(says) ? 'Z' : v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
+      ?? (labelAxis && v.direction === 'Not applicable' && /impact|charpy|izod/i.test(v.property) ? labelAxis : null)
+      ?? v.direction ?? labelAxis ?? (v.orientation ? v.orientation.toUpperCase() : 'Unstated'),
     'Moisture condition': moisture, 'Moisture state': moistureState ?? 'not-stated',
     'Post-processing': post, 'Post-processing state': postState ?? 'not-stated',
     'Anneal °C': postState === 'annealed' ? (schedule?.tempC == null ? NP : String(schedule.tempC)) : NA,

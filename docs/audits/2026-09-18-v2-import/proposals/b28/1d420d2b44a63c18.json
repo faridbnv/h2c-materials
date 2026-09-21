@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "1d420d2b44a63c18eb88eb26b99951a2e4eee6ca66dcd2db17d2f316e1229dae",
+    "url": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/EasyFil%20ePETG/Data%20Sheets%20and%20Declarations/TDS%20-%20ePETG.pdf",
+    "pages": 1,
+    "provider": "FormFutura",
+    "manufacturer": "FormFutura",
+    "docKey": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/EasyFil%20ePETG/Data%20Sheets%20and%20Declarations/TDS%20-%20ePETG.pdf"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-ePETG",
+      "Publisher": "FormFutura",
+      "Title": "Technical Data Sheet EasyFil ePETG",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/FormFutura%20Filaments/EasyFil%20ePETG/Data%20Sheets%20and%20Declarations/TDS%20-%20ePETG.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1d420d2b44a63c18eb88eb26b99951a2e4eee6ca66dcd2db17d2f316e1229dae"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet EasyFil ePETG"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "FormFutura",
+        "Product name": "EasyFil ePETG",
+        "Shared formulation key": "S-PET-TDS-ePETG",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet EasyFil ePETG"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.29 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.29",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1290",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Specific Gravity",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Gravity 1.29 g/cm3 ASTM D792"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "25 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Tensile Stress at Yield",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Stress at Yield 25 MPa ASTM D638"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4,30 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Elongation at Yield",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Yield 4,30% ASTM D638"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2980 Mpa",
+        "Raw unit": "Mpa",
+        "Raw numeric": "2980",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.98",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Tensile Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus 2980 Mpa ASTM D638"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "4.7 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "4.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Notched Izod Impact",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Notched Izod Impact 4.7 kJ/m2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "111",
+        "Raw unit": "Rockwell R",
+        "Raw numeric": "111",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "111",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Rockwell R",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D785",
+        "Standards": "ASTM D785",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Rockwell Hardness, R Scale",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Rockwell Hardness, R Scale 111 ASTM D785"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "78 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "78",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "78",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Vicat Softening Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature 78°C"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "80 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D3418",
+        "Standards": "ASTM D3418",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-ePETG",
+        "Locator": "p. 1: Glass Transition Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temperature 80°C ASTM D3418"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Print date: 15-09-2022 Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EasyFil ePETG is our go-to PETG filament. It is an easy to print and affordable 3D printer filament. EasyFil",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "as easy as 3D printing with PLA.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• 3D prints with high dimensional accuracy. • Boards and signage.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• A rigid material with good impact resistance. • 3D printing manufacturing aids.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Forget about E = mc2. Let’s redefine e…",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "e = economically priced, European quality filament, environmentally friendly packaged, easy to 3D print, enjoy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D printing!",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "39169090 Monofilament for 3D Printing European Union",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

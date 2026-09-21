@@ -1,4 +1,5 @@
 Value,Meaning
+declared dense filler,"The maker declares a metal or mineral powder load (copper, bronze, brass, steel, iron, tungsten, magnetite) that makes the filament far denser than its base polymer. It is a grade of the polymer's material with the load quoted in Composition / filler (R095); the physics windows judge it as a dense-filled grade (D80), and the estimate model keeps its values from pulling the family."
 lightweight additive,"A declared additive (hollow microspheres, a foaming agent) lowers the density well below the base polymer's; stiffness and strength may move with it."
 plasticised,"A declared plasticiser lowers the density, the modulus and the softening point well below the neat polymer's; a plasticised PVC is a different material from the rigid one and its published values are its own."
 undisclosed dense filler,"The published density or stiffness is beyond what the unfilled base polymer can reach, so the product contains a filler its maker does not name."

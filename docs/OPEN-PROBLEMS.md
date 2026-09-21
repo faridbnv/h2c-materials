@@ -1,7 +1,7 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b26 brought
-145 materials, 901 grades, 9,468 measurement rows and 1,174 sources in. It is here so that nobody has to
+What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b28 brought
+148 materials, 948 grades, 9,851 measurement rows and 1,221 sources in. It is here so that nobody has to
 rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
@@ -287,6 +287,21 @@ the script writes `held: second-read` onto the ledger row. For a document alread
 next `--holds` run undoes, because the product has a grade and `registered` is terminal. Reopening a document
 whose rows are already in the tables is not the same act as holding one that never entered, and the difference
 has not been designed.
+
+---
+
+## 11. Two grades filed under a broader material than their sheets name
+
+The identity census run for batch b28 (every cached document read again, before and after a reader change) found
+two applied 3D4Makers grades whose sheets name a filler their material does not carry: **ABSKevlar**, filed under
+ABS (M027) rather than the aramid-filled ABS material, and **PETGCarbon**, filed under PETG (M020) rather than
+PETG-CF (M024). Their values are the sheets' own; what is wrong is where they sit. Moving a grade is a migration
+that moves its measurements, profiles and headlines with it, and it belongs to the sweep (PLAN-REMAINING §2.3).
+
+```bash
+npm run sql --silent -- "select gradeid, materialid, product_name from grades where manufacturer='3D4Makers'
+  and (product_name like '%Kevlar%' or product_name like '%Carbon%')"
+```
 
 ---
 

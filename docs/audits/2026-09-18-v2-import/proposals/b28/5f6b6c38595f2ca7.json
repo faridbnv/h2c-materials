@@ -1,0 +1,895 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497",
+    "url": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/Partner%20Materials/Lehvoss/Luvocom%203F%20PAHT%209825%20NT/Data%20sheets%20%26%20declarations/TDS%20-%20LUVOCOM%203F%20PAHT%209825%20NT%20-%20Injection%20molded%20specimen.pdf",
+    "pages": 2,
+    "provider": "FormFutura",
+    "manufacturer": "LEHVOSS",
+    "docKey": "url:25f20c0095fb3c63"
+  },
+  "identity": {
+    "polymer": "PAHT",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: paht"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "PAHT",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "newMaterial": {
+    "Original name": "PAHT",
+    "Family": "Nylon / Polyamide",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "PAHT",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PAHT",
+    "Base polymer": "PAHT",
+    "Estimate identity": "PAHT",
+    "Modifier / filler": "Unfilled / unspecified",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen (p. 1): sheet: paht."
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+      "Publisher": "LEHVOSS",
+      "Title": "Preliminary data sheet. HT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by FormFutura; the sheet is LEHVOSS's.",
+      "Citation role": "cited",
+      "URL": "https://formfutura.sharepoint.com/sites/downloads/Shared%20Documents/Downloads%20Server/Materials/Filaments/Partner%20Materials/Lehvoss/Luvocom%203F%20PAHT%209825%20NT/Data%20sheets%20%26%20declarations/TDS%20-%20LUVOCOM%203F%20PAHT%209825%20NT%20-%20Injection%20molded%20specimen.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5f6b6c38595f2ca78147f1200199257ae8d7c64a276dedbc52f1cd6c9eb54497"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Preliminary data sheet. HT"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "LUVOCOM 3F PA 9825 NT",
+        "Shared formulation key": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flamability Behaviour UL 94 1/16“ - (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Preliminary data sheet. HT"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,20 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183 ISO 3167",
+        "Standards": "ISO 1183; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Specific Gravity ISO 1183 MPTS ISO 3167 A g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific Gravity ISO 1183 MPTS ISO 3167 A g/cm³ 1,20"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0,3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23 °C / 24 h MPTS A ISO 3167",
+        "Standards": "ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Water Absorption 23 °C / 24 h MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water Absorption 23 °C / 24 h MPTS ISO 3167 A % <0,3"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "3,60 g/10 Min",
+        "Raw unit": "g/10 Min",
+        "Raw numeric": "3.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Melt Flow Rates MFR ISO 1133 pellet g/10 Min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Flow Rates MFR ISO 1133 pellet g/10 Min 3,60"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "3,47 cm³/10 Min",
+        "Raw unit": "cm³/10 Min",
+        "Raw numeric": "3.47",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.47",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Melt Volume Rate MVR ISO 1133 pellet cm³/10 Min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Volume Rate MVR ISO 1133 pellet cm³/10 Min 3,47"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "85 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "85",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "85",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Tensile Strength zM ISO 527 MPTS ISO 3167 A MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength zM ISO 527 MPTS ISO 3167 A MPa 85"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3,6 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Elongation zM ISO 527 MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation zM ISO 527 MPTS ISO 3167 A % 3,6"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3,4 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "3.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527 ISO 3167",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Modulus of Elasticity Et ISO 527 MPTS ISO 3167 A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of Elasticity Et ISO 527 MPTS ISO 3167 A GPa 3,4"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "90 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 75 ISO 3167",
+        "Standards": "ISO 75; ISO 3167",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Heat Distortion Temp. HDT A ISO 75 MPTS ISO 3167 A °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Distortion Temp. HDT A ISO 75 MPTS ISO 3167 A °C 90"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "160 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "160",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "160",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "Locator": "p. 1: Vicat Softening Temp. VST A Maximum (short term) Use Temp. °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Maximum (short term) Use Temp. °C 160"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "identity read against the sheet: the polymer is the one the sheet states of its own product (EasyFil ePETG and ReForm rPET: PETG; CarbonFil: PETG with carbon fibre; STYX-12: PA12; ApolloX: ASA; FlexiFil: a copolyester elastomer; EasyWood, EasyCork and StoneFil: PLA with wood, cork and stone, filed by their finish under R039), or the one a ruling gives it (ABSpro R090, ABSpro Flame Retardant R091; the LEHVOSS PAHT grades R093 and R094, their maker by R096)"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "270 - 290 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "270",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PET-TDS-LUVOCOM-3F-PAHT-9825-NT-Injection-molded-specimen",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": ">0,1mm"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Nozzle temperature: 270 - 290 °C Print Bed Temperature: > 50 °C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [
+    {
+      "HeadlineKey": "density",
+      "measurement": "m01",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "HeadlineKey": "hdt045",
+      "measurement": "m08",
+      "Use": "value",
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Thickness",
+      "raw": ">0,1mm",
+      "fromBelow": false,
+      "line": "Layer Thickness: >0,1mm"
+    },
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "270 - 290 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature: 270 - 290 °C Print Bed Temperature: > 50 °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F PA 9825 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DIN 16901 MPTS ISO 3167 A %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Linear Mould Shrinkage VSR 3mm || 0,3-0,5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flamability Behaviour UL 94 1/16“ -",
+      "reason": "the sheet publishes no value for \"Flamability Behaviour\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "at 23°C/50% rh",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength bM ISO 178 MPTS ISO 3167 A MPa",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "ISO 178 MPTS ISO 3167 A %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus E3B ISO 178 MPTS ISO 3167 A GPa",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Impact Strength ISO 179 1eU MPTS ISO 3167 A kJ/m² NB",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Impact Strength -30°C ISO 179 1eU MPTS ISO 3167 A kJ/m²",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Impact Strength notched ISO 179 eA MPTS ISO 3167 A kJ/m²",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "ISO 179 eA MPTS ISO 3167 A kJ/m²",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DIN ISO 306 MPTS ISO 3167 A °C",
+      "reason": "the line names Charpy strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 1,
+      "text": "Charpy Impact Strength notched -30°C",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "UL 746B MPTS ISO 3167 A °C",
+      "reason": "the line names Vicat softening temperature and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Continuous Service Temp. 120",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Coefficient of Thermal Expansion DIN 53752 10-5 /K 0,5",
+      "reason": "the sheet states Coefficient of thermal expansion in /K, and the database keeps it in µm/m/K"
+    },
+    {
+      "page": 1,
+      "text": "Insulation Resistance Strip electrode R25 DIN/IEC 60167 MPTS ISO 3167 A 12",
+      "reason": "the sheet states Vicat softening temperature in A, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": " >10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Thermal Conductivity HOT-DISK || 60x60x3 mm W/mK 0,3",
+      "reason": "the sheet states Thermal conductivity in W/mK, and the database keeps it in W/(m·K)"
+    },
+    {
+      "page": 1,
+      "text": "Surface Resistance ROB DIN IEC 60093 Ronde 60x4 mm  >10 12",
+      "reason": "the line names Surface resistivity and states no value in a unit the database keeps it in (Ω)"
+    },
+    {
+      "page": 1,
+      "text": "dynamic 15Hz 21N DIN 51834 MPTS ISO 3167 N/N",
+      "reason": "properties.csv carries no property for \"dynamic\""
+    },
+    {
+      "page": 1,
+      "text": "LuV MPTS ISO 3167 N/N",
+      "reason": "properties.csv carries no property for \"LuV\""
+    },
+    {
+      "page": 1,
+      "text": "Coeff. of Friction  40mm/s 21N",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Application Examples 9825",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Low influence from moisture and temperature to measures and electrical properties, compared with PA66",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "LUVOCOM 3F PA 9825 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "In general LUVOCOM® 3F can be processed on conventional extrusion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Dehumidifying dryer 130 6 to 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Vacuum Dryer 120 4 6",
+      "reason": "properties.csv carries no property for \"Vacuum Dryer\" (Dryer)"
+    },
+    {
+      "page": 2,
+      "text": "Zone 1 °C 260 to 300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 2 °C 260 to 300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Zone 3 °C 260 to 300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "250 290",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "°C optimum 280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unless indicated otherwise, the material is delivered as 3mm-long pellets in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3D Printing parameters may vary from",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Alsterufer 19 185 South Broad Street Unit 4805 Maxdo Centre",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20354 Hamburg Pawcatuck, CT 06379 8 Xingyi Road Changning District,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Germany USA Shanghai 200336",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tel +49 40 44 197-250 Tel +1-855-681-3226 China",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fax +49 40 44 197-487 Fax +1 860 495 2047 Tel +86 21 62785181",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2/2",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}
