@@ -1657,10 +1657,17 @@ wrong in a way nobody would notice.
   source, and with the conditions that decide whether two values may be compared, because leaving those out of the
   convenient view is how a query ends up averaging a dry value with a conditioned one.
   `headlines_compiled` gives what a reader is shown, from `dist/db.json`.
+- **How far a value sits from its neighbours (2026-09-21).** `measurement_z` holds every comparable point value
+  once, grouped by material, property, unit, direction, the two states and whether the specimen was printed or
+  moulded, with the group's median, its median absolute deviation (×1.4826) and the value's robust z. A bound, a
+  retired duplicate and a value physics rules out are left out, and a group of one has no z. `v_property_spread`
+  gives each group's count, grades, ends and the grade at each end; `v_measurement_z` gives each value with its
+  grade, maker and Variant, which is the sweep's working list (`where abs(z) > 3 and variant = 'Not applicable'`).
 - **No dependency.** `node:sqlite` is in the standard library from Node 24, which CI now pins and `engines` requires.
 
 `test/sqlite.test.js` checks every table against `data/manifest.json`, that `_columns` reproduces each CSV header in
-order, that no row carries both a value and a missing state, and that the joined view loses nothing.
+order, that no row carries both a value and a missing state, that the joined view loses nothing, and that
+`measurement_z` holds exactly the comparable values and gives no z to a group of one.
 
 Reversing it brings back the one-off script, and the temptation to read a column of numbers as text.
 

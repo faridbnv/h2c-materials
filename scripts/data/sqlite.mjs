@@ -126,6 +126,57 @@ export function writeSqlite(root = projectRoot, out = join(root, 'dist/h2c.sqlit
     JOIN grades g ON g.gradeid = m.gradeid
     JOIN sources s ON s.sourceid = m.sourceid`);
 
+  // How far each value sits from its material's other values measured the same way (PLAN-REMAINING 2.1): the
+  // working list for the sweep. Grouped by everything that decides whether two values may be compared — material,
+  // property, unit, direction, the two states and whether the specimen was printed or moulded — and robust: the
+  // median and the median absolute deviation, so one wild value cannot hide itself by moving the mean. A value
+  // physics already rules out, a retired duplicate and a bound are left out; a group of one has no spread and no z.
+  const form = (t) => (/^Printed/.test(t ?? '') ? 'printed' : /^Raw material/.test(t ?? '') ? 'moulded' : /^(Film|Filament)/.test(t ?? '') ? 'other' : 'unstated');
+  const rows = db.prepare(`SELECT measurementid, materialid, gradeid, property, unit, value, direction, moisture_state, post_processing_state, specimen_type
+    FROM v_measurements WHERE value IS NOT NULL AND operator = '=' AND data_status NOT LIKE 'Retired%' AND data_status NOT LIKE '%implausible%'`).all();
+  const groups = new Map();
+  for (const r of rows) {
+    const key = [r.materialid, r.property, r.unit, r.direction, r.moisture_state, r.post_processing_state, form(r.specimen_type)].join('|');
+    (groups.get(key) ?? groups.set(key, []).get(key)).push(r);
+  }
+  const median = (xs) => { const a = [...xs].sort((x, y) => x - y); const n = a.length; return n % 2 ? a[(n - 1) / 2] : (a[n / 2 - 1] + a[n / 2]) / 2; };
+  db.exec(`CREATE TABLE measurement_z (measurementid TEXT PRIMARY KEY, materialid TEXT NOT NULL, gradeid TEXT NOT NULL, property TEXT NOT NULL,
+    unit TEXT, direction TEXT, moisture_state TEXT, post_processing_state TEXT, specimen_form TEXT NOT NULL,
+    value REAL NOT NULL, group_n INTEGER NOT NULL, group_grades INTEGER NOT NULL, median REAL NOT NULL, mad REAL, z REAL)`);
+  const insZ = db.prepare('INSERT INTO measurement_z VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+  db.exec('BEGIN');
+  for (const list of groups.values()) {
+    const values = list.map((r) => r.value);
+    const med = median(values);
+    const mad = list.length > 1 ? 1.4826 * median(values.map((v) => Math.abs(v - med))) : null;
+    const grades = new Set(list.map((r) => r.gradeid)).size;
+    for (const r of list) {
+      insZ.run(r.measurementid, r.materialid, r.gradeid, r.property, r.unit, r.direction, r.moisture_state, r.post_processing_state,
+        form(r.specimen_type), r.value, list.length, grades, med, mad, mad ? (r.value - med) / mad : null);
+    }
+  }
+  db.exec('COMMIT');
+  db.exec('CREATE INDEX ix_measurement_z_material ON measurement_z (materialid)');
+  // The spread of one material's values for one property measured one way: how many grades publish it, the middle
+  // and the ends, and which grade sits at each end.
+  db.exec(`CREATE VIEW v_property_spread AS SELECT z.materialid, mat.original_name AS material, z.property, z.unit, z.direction,
+      z.moisture_state, z.post_processing_state, z.specimen_form, COUNT(*) AS n, COUNT(DISTINCT z.gradeid) AS grades,
+      MIN(z.median) AS median, MIN(z.mad) AS mad, MIN(z.value) AS min, MAX(z.value) AS max,
+      (SELECT z2.gradeid FROM measurement_z z2 WHERE z2.materialid = z.materialid AND z2.property = z.property AND z2.unit IS z.unit
+        AND z2.direction IS z.direction AND z2.moisture_state IS z.moisture_state AND z2.post_processing_state IS z.post_processing_state
+        AND z2.specimen_form = z.specimen_form ORDER BY z2.value ASC LIMIT 1) AS grade_at_min,
+      (SELECT z2.gradeid FROM measurement_z z2 WHERE z2.materialid = z.materialid AND z2.property = z.property AND z2.unit IS z.unit
+        AND z2.direction IS z.direction AND z2.moisture_state IS z.moisture_state AND z2.post_processing_state IS z.post_processing_state
+        AND z2.specimen_form = z.specimen_form ORDER BY z2.value DESC LIMIT 1) AS grade_at_max
+    FROM measurement_z z JOIN materials mat ON mat.materialid = z.materialid
+    GROUP BY z.materialid, z.property, z.unit, z.direction, z.moisture_state, z.post_processing_state, z.specimen_form`);
+  // The sweep's list, in the words a reader wants: the value, how far out it sits, and where it came from.
+  db.exec(`CREATE VIEW v_measurement_z AS SELECT z.measurementid, z.materialid, mat.original_name AS material, z.gradeid, g.manufacturer,
+      g.product_name AS grade, g.variant, z.property, z.value, z.unit, z.direction, z.specimen_form, z.group_n, z.group_grades, z.median, z.mad, z.z,
+      m.sourceid, m.locator
+    FROM measurement_z z JOIN materials mat ON mat.materialid = z.materialid JOIN grades g ON g.gradeid = z.gradeid
+    JOIN measurements m ON m.measurementid = z.measurementid`);
+
   // Everything a reader is shown for a material, in one row per material and headline.
   const dbJson = join(root, 'dist/db.json');
   let headlines = 0;

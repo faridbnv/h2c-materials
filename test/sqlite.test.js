@@ -78,3 +78,18 @@ test('the column naming rule keeps units and never collides', () => {
 });
 
 test.after(() => { db.close(); rmSync(dir, { recursive: true, force: true }); });
+
+test('each value knows how far it sits from its material\'s other values measured the same way', () => {
+  // measurement_z holds every comparable point value once; a group of one has no spread and no z, and the spread
+  // view counts exactly the rows the table holds (PLAN-REMAINING 2.1).
+  const [{ n }] = all('SELECT COUNT(*) AS n FROM measurement_z');
+  const [{ eligible }] = all(`SELECT COUNT(*) AS eligible FROM measurements WHERE normalized_value IS NOT NULL AND operator = '='
+    AND data_status NOT LIKE 'Retired%' AND data_status NOT LIKE '%implausible%'`);
+  assert.equal(n, eligible);
+  const [{ lonely }] = all('SELECT COUNT(*) AS lonely FROM measurement_z WHERE group_n = 1 AND z IS NOT NULL');
+  assert.equal(lonely, 0, 'a value alone in its group was given a z');
+  const [{ spread }] = all('SELECT SUM(n) AS spread FROM v_property_spread');
+  assert.equal(spread, n);
+  const [row] = all('SELECT * FROM v_measurement_z WHERE z IS NOT NULL LIMIT 1');
+  for (const c of ['material', 'manufacturer', 'variant', 'median', 'mad', 'z', 'sourceid']) assert.ok(c in row, `v_measurement_z lacks ${c}`);
+});
