@@ -110,6 +110,17 @@ test('one product has one grade, and one formulation key names one product of on
   // A sheet that prints several products gives each its own key.
   assert.deepEqual(run([grade({}), grade({ GradeID: 'G1-02', 'Product name': 'PETG GF' })]), ['GRADE-KEY-PRODUCTS G1-01 | G1-02']);
   assert.deepEqual(run([grade({ 'Shared formulation key': 'S-SHEET#petg-cf' }), grade({ GradeID: 'G1-02', 'Product name': 'PETG GF', 'Shared formulation key': 'S-SHEET#petg-gf' })]), []);
+  // R053's twin: a product whose own sheet prints another sheet's numbers is "a grade each, citing its own
+  // sheet, with the values recorded once". It carries no measurement, so it is not a second product competing
+  // for the key — sharing the key is what says the two are one formulation, which is the ruling's whole point.
+  const withValues = (rows, measurements) => lintData(
+    { grades: { header: Object.keys(rows[0]), rows }, measurements: { header: ['MeasurementID', 'GradeID'], rows: measurements } },
+    { grades: { primaryKey: 'GradeID', fields: [] }, measurements: { primaryKey: 'MeasurementID', fields: [] } },
+  ).map((f) => `${f.code} ${f.record}`);
+  const twin = [grade({}), grade({ GradeID: 'G1-02', 'Product name': 'PETG GF' })];
+  assert.deepEqual(withValues(twin, [{ MeasurementID: 'V1', GradeID: 'G1-01' }]), []);
+  // And the shape the rule exists for is unchanged: two grades that each carry values under one key.
+  assert.deepEqual(withValues(twin, [{ MeasurementID: 'V1', GradeID: 'G1-01' }, { MeasurementID: 'V2', GradeID: 'G1-02' }]), ['GRADE-KEY-PRODUCTS G1-01 | G1-02']);
 });
 
 test('two sources that publish the same sheet are one document registered twice', () => {

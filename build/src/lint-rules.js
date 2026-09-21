@@ -225,6 +225,12 @@ export function lintData(tables, schemas) {
     if (byProduct.has(k)) add('GRADE-PRODUCT-DUPLICATE', 'grades', g.GradeID, 'Product name', `${g.Manufacturer} ${g['Product name']} is already ${byProduct.get(k)}`);
     else byProduct.set(k, g.GradeID);
   }
+  // Which grades carry a measurement of their own. Where the lint is run without the measurements table at all
+  // — a caller checking grades alone — nothing is known about that, and every grade counts, which is what the
+  // rule did before it could ask.
+  const measurementRows = tables.measurements?.rows ?? [];
+  const measured = new Set(measurementRows.map((m) => m.GradeID).filter(Boolean));
+  const knowsValues = measurementRows.length > 0;
   const byFormulation = new Map();
   for (const g of activeGrades) {
     const k = g['Shared formulation key'];
@@ -235,8 +241,14 @@ export function lintData(tables, schemas) {
   for (const [k, gs] of byFormulation) {
     const materials = [...new Set(gs.map((g) => g.MaterialID))];
     if (materials.length > 1) add('FORMULATION-KEY-SPANS-MATERIALS', 'grades', gs.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${materials.join(', ')}`);
-    const products = [...new Set(gs.map((g) => productKey(g['Product name'])))];
-    if (materials.length === 1 && products.length > 1) add('GRADE-KEY-PRODUCTS', 'grades', gs.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${gs.map((g) => g['Product name']).join(', ')}`);
+    // A grade that carries no measurement of its own is not a second product competing for the key: it is R053's
+    // twin, a product whose sheet prints another sheet's numbers, recorded as "a grade each, citing its own
+    // sheet, with the values recorded once". Sharing the key is what says the two are one formulation, and it
+    // is the whole point of the ruling. What the rule guards is the other shape — two grades that each carry
+    // values under one key, where the model would read two products' measurements as one product's.
+    const withValues = knowsValues ? gs.filter((g) => measured.has(g.GradeID)) : gs;
+    const products = [...new Set(withValues.map((g) => productKey(g['Product name'])))];
+    if (materials.length === 1 && products.length > 1) add('GRADE-KEY-PRODUCTS', 'grades', withValues.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${withValues.map((g) => g['Product name']).join(', ')}`);
   }
 
   // A value outside what its polymer can do. The windows are a table, keyed on the property, the unit, how the
