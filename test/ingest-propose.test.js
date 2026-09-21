@@ -1058,12 +1058,15 @@ test('a setting never cites a standard: a sentence with a designation in it is n
 
 test('a maker who says what the filament is loaded with has declared it, and R078 is for the ones who do not', () => {
   // R078 records an undisclosed load as a grade Variant. colorFabb's copperFill discloses it in its first
-  // sentence, and writing "Not declared on the sheet" over that would be a false sentence in the data: what the
-  // sheet names and the vocabulary has no value for is a modifier ruling, as graphene and natural fibre were.
+  // sentence, and writing "Not declared on the sheet" over that would be a false sentence in the data: a
+  // declared load is the Variant "declared dense filler", with the sheet's words for it (R095).
   for (const said of [
     'colorFabb copperFill is a high quality PLA 3D printing filament, loaded with copper particles',
     'ColorFabb CopperFill is a high quality PLA 3D printing filament, loaded with a high amount of copper particles',
     'Prusament PETG Tungsten 75% contains 75 % by weight of tungsten',
+    'Prusament PETG Magnetite 40%',
+    'MetalFil \u2010 Brass is a metal\u2010filled PLA\u2010based filament with approximately 70% of gravimetric brass filling',
+    'Spectrum PLA Metal Copper, enriched with copper',
   ]) assert.ok(A_DECLARED_LOAD.test(said), said);
   // A sheet that says nothing about a load says nothing: those are the ones R078 speaks for.
   for (const silent of [
@@ -1154,4 +1157,63 @@ test('a merged Testing Method cell belongs to the two rows it is drawn across', 
   assert.deepEqual(rows.filter((r) => r.Property === 'Tensile modulus').map((r) => r.Standards), ['ISO 527; GB/T 1040', 'ISO 527; GB/T 1040']);
   // And it reaches no further than the rows it spans: the bending modulus two lines down names no standard.
   assert.equal(rows.find((r) => r.Property === 'Flexural modulus').Standards, 'Not published');
+});
+
+test('a colon written full-width still separates the announcement from the name, and an update date is not a name', () => {
+  // The maker comes off afterwards, as it does for every name (productName).
+  assert.equal(productName(printedTitle(page('Technical Data Sheet：CreatBot PLA-CF', 'Print parameters', 'Project Data', 'Pre-printing drying'), 'CreatBot').product, 'CreatBot'), 'PLA-CF');
+  assert.equal(printedTitle(page('KINGROON Filament Technical Data Sheet V1.0', 'Update Date: 2025/12/1', 'PLA Basic', 'Basic info'), 'KINGROON').product, 'PLA Basic');
+  // A revision date run onto the product's own line leaves the line the name: Yousu prints it that way.
+  assert.match(printedTitle(page('TECHNICAL DATA SHEET', 'PLA 3D FILMAENT Revision Date: 18/12/2020', 'YOUSU 3D Technology Co., Ltd'), 'Yousu').product, /^PLA 3D FILMAENT/);
+});
+
+test('a name that is the page’s furniture gives way to the page’s own line for the listed product, and only then', async () => {
+  const { pageFurniture } = await import('../scripts/ingest/propose.mjs');
+  const polymers = readCsv(join(root, 'data/tables/polymers.csv')).records.map((r) => r.values);
+  const world = { polymers, materials: [], manufacturers: [{ Value: 'FormFutura', Aliases: 'Formfutura' }, { Value: '3DJake', Aliases: '3DJAKE' }] };
+  const ff = { provider: '3DJake / 3DJAKE', manufacturer: '3DJake', product_raw: 'formfutura stonefil', url: 'https://www.3djake.com/files/formfutura-tds-stonefil.pdf' };
+  // A cut-off logo: one word, naming nothing, sharing no word with the listing. The page prints the name further down.
+  assert.equal(pageFurniture('UTURA', ff, page('UTURA', 'Technical Data Sheet', 'Product name: StoneFil', 'StoneFil'), world, ['3DJake']).name, 'StoneFil');
+  // A sponsor's logo over a page whose own line carries the listed name.
+  const copper = { provider: 'FormFutura', manufacturer: 'FormFutura', product_raw: 'PLACTIVE', url: 'https://x.example/TDS%20PLACTIVE.pdf' };
+  assert.equal(pageFurniture('DISCOVER', copper, page('supported by', 'DISCOVER', 'PLACTIVE', 'ANTIBACTERIAL NANOCOMPOSITE'), world, ['FormFutura']).name, 'PLACTIVE');
+  // Where no clean line carries it, the name stands and the document says so; a measurement line is not a name.
+  const none = pageFurniture('UTURA', ff, page('UTURA', 'Melt flow index (190 ºC/10kg) StoneFil 12 g/10 min'), world, ['3DJake']);
+  assert.equal(none.name, 'UTURA');
+  assert.deepEqual(none.unsupported, { read: 'UTURA', listed: 'formfutura stonefil' });
+  // A name that says what the filament is, or shares a word with the listing, or is a product's own multi-word
+  // name, is never questioned.
+  assert.equal(pageFurniture('PETG+CF', { ...ff, product_raw: 'x y' }, page('PETG+CF'), world, []).unsupported, undefined);
+  assert.equal(pageFurniture('ToughPETG-HF', { ...ff, product_raw: 'PETG TOUGH', url: 'https://x.example/view' }, page('QIDI ToughPETG-HF'), world, ['QIDI']).name, 'ToughPETG-HF');
+  assert.equal(pageFurniture('Formi 3D Nordic Birch', { ...ff, product_raw: 'KCL PLA10' }, page('Grade PLA 10'), world, []).name, 'Formi 3D Nordic Birch');
+  // A long number is a product's code and says which product it is.
+  assert.equal(pageFurniture('Fibrolon V 135002 (trial grade)', { ...ff, product_raw: 'colorFabb Woodfill Fine', url: 'https://x.example/TD_wood_V_135002_en.pdf' }, page('filaments. Contains wood fibers.'), world, []).name, 'Fibrolon V 135002 (trial grade)');
+});
+
+test('a sheet that says what its product is based on has named the polymer, whatever else the page mentions', () => {
+  const polymers = readCsv(join(root, 'data/tables/polymers.csv')).records.map((r) => r.values);
+  const materials = readCsv(join(root, 'data/tables/materials.csv')).records.map((r) => r.values);
+  const brass = page('Technical Data Sheet', 'Product name: MetalFil™ ‐ Brass',
+    'MetalFil ‐ Brass is a metal‐filled PLA‐based filament with approximately 70% of gravimetric brass filling.',
+    'MetalFil ‐ Brass is easy to print and can be printed on full metal, PEEK, and PFTE hotends.',
+    'Specific gravity 2.78 g/cc ISO 1183');
+  const p = propose({ doc_key: 'k', sha256: 'x', provider: 'FormFutura', provider_kind: 'manufacturer', manufacturer: 'FormFutura', product_raw: 'MetalFil Brass', url: 'https://x.example/TDS%20-%20MetalFil%20-%20Brass.pdf' },
+    brass, { polymers, materials, grades: [], properties: [], sources: [], headlineDefinitions: [], manufacturers: [{ Value: 'FormFutura' }], rulings: [] });
+  assert.equal(p.identity.polymer, 'PLA');
+  assert.equal(p.identity.finish, 'Metal');
+});
+
+test('a load the sheet declares, far denser than its polymer, is the grade Variant a declared dense filler (R095)', () => {
+  const polymers = readCsv(join(root, 'data/tables/polymers.csv')).records.map((r) => r.values);
+  const materials = readCsv(join(root, 'data/tables/materials.csv')).records.map((r) => r.values);
+  const properties = readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => r.values);
+  const copper = page('Technical Data Sheet', 'Product name: copperFill',
+    'copperFill is a high quality PLA 3D printing filament, loaded with copper particles.',
+    'Density 4.0 g/cm3 ISO 1183');
+  const p = propose({ doc_key: 'k', sha256: 'x', provider: 'colorFabb', provider_kind: 'manufacturer', manufacturer: 'colorFabb', product_raw: 'copperFill', url: 'https://x.example/TDS_copperFill.pdf' },
+    copper, { polymers, materials, grades: [], properties, sources: [], headlineDefinitions: [], manufacturers: [{ Value: 'colorFabb' }], rulings: [] });
+  assert.equal(p.identity.needsRuling, false, p.identity.reasons.join(' | '));
+  assert.equal(p.grades[0].row.Variant, 'declared dense filler');
+  assert.match(p.grades[0].row['Composition / filler'], /^The sheet declares the load: "loaded with copper particles"/);
+  assert.equal(p.window.fill, 'dense');
 });

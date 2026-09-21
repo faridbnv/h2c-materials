@@ -232,10 +232,14 @@ export function numberOnPage(text, page, value) {
   // A power of ten is printed as a power. A resistivity of 10^12 ohm is on its page as "10" and a raised "12",
   // never as a million million, and the guard exists to prove the number was read off the page rather than to
   // insist the page spell it out. Both the mantissa and the exponent have to be there, in that order.
+  // LEHVOSS sets the power in the text itself, as a superscript character ("<10⁹", "<10²"), and a power as small
+  // as a hundred is still written as one there.
+  const SUPERSCRIPT = { 0: '\u2070', 1: '\u00b9', 2: '\u00b2', 3: '\u00b3', 4: '\u2074', 5: '\u2075', 6: '\u2076', 7: '\u2077', 8: '\u2078', 9: '\u2079' };
   const exponent = Math.log10(Math.abs(Number(plain)));
-  if (Number.isFinite(exponent) && Number.isInteger(exponent) && Math.abs(Number(plain)) >= 1000) {
+  if (Number.isFinite(exponent) && Number.isInteger(exponent) && Math.abs(Number(plain)) >= 100) {
     const mantissa = Number(plain) / 10 ** exponent;
-    for (const written of new Set([`10^${exponent}`, `10${exponent}`, `10 ${exponent}`])) {
+    const raised = `10${String(exponent).split('').map((d) => SUPERSCRIPT[d]).join('')}`;
+    for (const written of new Set([`10^${exponent}`, `10${exponent}`, `10 ${exponent}`, raised])) {
       spellings.add(mantissa === 1 ? written : `${mantissa}${written}`);
       spellings.add(written);
     }

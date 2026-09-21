@@ -64,7 +64,11 @@ export const IMPLAUSIBLE_DENSITY = 8000;
 // A sheet declaring what it is loaded with, in the words the sheets use. It is the sentence that matters and not
 // the substance: a substance list would be a vocabulary, and a load the vocabulary already knows never reaches
 // here (its modifier is read from the name or the composition row before the density is weighed at all).
-export const A_DECLARED_LOAD = /\b(?:(?:high(?:ly)?[- ])?(?:loaded|filled|reinforced)\s+with\s+[^.,;]{3,60}|(?:contains|containing)\s+\d{1,2}\s*(?:%|wt%|weight\s*%)[^.,;]{0,40}|\d{1,2}\s*%\s*(?:by\s+weight\s+)?(?:of\s+)?(?:metal|copper|bronze|brass|steel|iron|tungsten|magnetite|stone|marble|ceramic|wood)\b[^.,;]{0,30})/i;
+// FormFutura writes "a metal‐filled PLA‐based filament with approximately 70% of gravimetric brass filling", Prusament
+// names the load and its share in the product's own name ("PETG Tungsten 75%"), and Spectrum's PLA Metal is
+// "enriched with copper": each declares the load as plainly as "loaded with copper particles" does.
+const METAL = '(?:metal|copper|bronze|brass|steel|iron|tungsten|magnetite)';
+export const A_DECLARED_LOAD = new RegExp(String.raw`\b(?:(?:high(?:ly)?[- ])?(?:loaded|filled|reinforced|enriched)\s+with\s+[^.,;]{3,60}|(?:contains|containing)\s+\d{1,2}\s*(?:%|wt%|weight\s*%)[^.,;]{0,40}|\d{1,2}\s*%\s*(?:by\s+weight\s+)?(?:of\s+)?(?:gravimetric\s+|volumetric\s+)?(?:${METAL.slice(3, -1)}|stone|marble|ceramic|wood)\b[^.,;]{0,30}|${METAL}[\s\u2010\u2011-]+filled\b[^.,;]{0,40}|${METAL}\s+\d{1,2}\s*%)`, 'i');
 
 /** The window the build itself would judge this reading by: the most specific one that matches it. */
 export function windowFor(property, unit, { matrix = 'any', fill = 'any', condition = 'any' } = {}) {
@@ -2101,7 +2105,11 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     'Normalized unit': v.target.unit, 'Data status': 'Published value',
     // A sheet that says its bars were injection moulded is not describing a printed part (D55), and one that says
     // they were printed is. Where it says neither, nothing is assumed.
-    'Specimen type': /injection mou?ld/i.test(says) ? 'Raw material value'
+    // ASTM D882 is the tensile test for thin plastic sheeting, and a value measured by it is a film's: FormFutura
+    // prints NatureWorks' resin data, "Tensile strength 110 Mpa (MD) ASTM D882", machine direction and all. Read as
+    // an unstated specimen it is a PLA bar at 110 MPa; 81 tensile rows from 25 sources entered that way (m109).
+    'Specimen type': /\bD\s?-?\s?882\b/i.test(standardText) && /^(Tensile|Elongation)/.test(v.property) ? 'Film specimen (ASTM D882); not a printed or moulded bar'
+      : /injection mou?ld/i.test(says) ? 'Raw material value'
       : /\b3d print|printed (specimen|bar|part)/i.test(says) ? 'Printed specimen'
       // The block the row stands in, before anything the sheet says about its specimens as a whole: a sheet that
       // heads one table "3D Printed" and the next "Injection molded" has said which bars each table describes.
@@ -2488,7 +2496,10 @@ export function printedTitle(text, maker = '') {
     const last = trail.split(/\s*(?:\/|\u203a|>|\u00bb)\s*/).filter(Boolean).at(-1) ?? '';
     return last.split(/\s*[:\u2013\u2014|]\s*/)[0].trim();
   };
-  const A_REVISION_LINE = /\brevised\s*[:.]|\bversion\s*(no|nr|number)\b/i;
+  // Kingroon prints "Update Date: 2025/12/1" between its announcement and its name, and four products were called
+  // it. Only a line that begins with the date is the date: Yousu runs its revision date onto its product's own line
+  // ("PLA 3D FILMAENT Revision Date: 18/12/2020"), and that line is still the name.
+  const A_REVISION_LINE = /\brevised\s*[:.]|\bversion\s*(no|nr|number)\b|^\s*(update[ds]?|revision|issue|release)\s*date\s*[:：]/i;
   // A page that sets its head letter by letter leaves fragments of it behind: the Fiberon sheets print "T M"
   // under their letter-spaced title, which is the trademark sign. What a word is, is what its letters spell.
   const named = (raw) => {
@@ -2540,7 +2551,9 @@ export function printedTitle(text, maker = '') {
   }
   // The name may be on the same line as the words that announce it ("Technical Data Sheet: AmideX PA6-GF30"),
   // or on the line below ("TECHNICAL DATA SHEET" / "PET-G Premium"). Both makers are in this corpus.
-  const sameLine = head[at].replace(new RegExp(`^.*?(?:${ANNOUNCES.source})\\s*[:\\-–—]?\\s*`, 'i'), '').trim();
+  // CreatBot's sheets write the colon full-width ("Technical Data Sheet：CreatBot PLA-CF"), and a separator the
+  // reader did not know left the whole line unread and the name taken from the table below it.
+  const sameLine = head[at].replace(new RegExp(`^.*?(?:${ANNOUNCES.source})\\s*[:：\\-–—]?\\s*`, 'i'), '').trim();
   // Or in front of them. SIDDAMENT heads twenty-one sheets "ABS Carbon Fiber - Technical Datasheet", and a
   // reader that looked only after the announcement and then below it took a sentence out of the Precautions
   // paragraph: "unused filament properly after use". What stands before the words is tried before what stands
@@ -2605,7 +2618,11 @@ export function newMaterialFor(identity, world, { sourceId, page = 1 }) {
     'Representative grade': '${grade:main}',
     'Best uses': NP,
     Limitations: NP,
-    'Full name': `${plain['Full name']} (${identity.modifier})`,
+    // Only an unfilled sibling's full name is the polymer's own. PAHT's one material is PAHT-CF, "Carbon-Fiber-
+    // Reinforced High-Temperature Polyamide", and borrowed for Lehvoss's unfilled and mineral-filled grades it
+    // named both of them carbon-fibre reinforced. Where no unfilled sibling exists the name is the abbreviation,
+    // as it is for a polymer no material stands for yet.
+    'Full name': plain['Modifier / filler'] === 'Unfilled / unspecified' ? `${plain['Full name']} (${identity.modifier})` : name,
     Scope: plain.Scope,
     Abbreviation: name,
     'Base polymer': identity.polymer,
@@ -2648,6 +2665,65 @@ export function headlinesFor(measurements, definitions) {
 }
 
 /** A document as a proposal: the source, its grade, its values, and everything left out with the reason. */
+/**
+ * A name the page gives that is the page's furniture rather than its product's name.
+ *
+ * The title reader takes the likeliest line at the head of a page, and on some pages that line is a logo or a
+ * sponsor: 3DJake's scans of FormFutura sheets read "UTURA", the tail of the maker's logo, eighteen times; Copper3D
+ * heads its sheets "supported by / DISCOVER"; a Lehvoss sheet's first word is the "HT" of its logo. Such a name
+ * says nothing about a filament — no polymer, filler, finish or support — and shares no word with the name the
+ * document is listed under. Where both are true, the page is asked for a line that carries the listed name, and
+ * what that line names is the product: the name is still what the page prints, never the listing's. Where no line
+ * carries it, the name stands and the document says so (`reader:name-not-a-name`), because a name is not a
+ * thing to guess at. A name that says what the filament is, however unlike the listing, is left alone: the
+ * catalogue's "paht" is weaker evidence than a sheet titled "CarbonX Carbon Fiber High Temp Nylon".
+ */
+export function pageFurniture(name, row, text, world, makers = []) {
+  const squash = (w) => String(w ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const makerNames = new Set([...makers, row.provider, row.manufacturer, row.brand,
+    ...(world.manufacturers ?? []).flatMap((m) => [m.Value, ...String(m.Aliases ?? '').split(';')])]
+    .flatMap((n) => [squash(n), ...String(n ?? '').split(/[^A-Za-z0-9]+/).map(squash)]).filter((w) => w.length >= 3));
+  // A short number is a version or a count; a long one is a product's code ("Fibrolon V 135002"), and says which.
+  const GENERIC = /^(v?\d{1,3}|tds|pds|sds|msds|extendedtds|technical|data|datasheet|sheet|filament|filaments|pdf|en|de|fr|es|it|jp|the|and|for|of|view|index|php)$/;
+  const words = (s) => String(s ?? '').normalize('NFKC').split(/[^A-Za-z0-9]+/).map(squash)
+    .filter((w) => w.length >= 2 && !GENERIC.test(w) && !makerNames.has(w));
+  const fileName = (() => { try { return decodeURIComponent(new URL(row.url).pathname.split('/').pop() ?? '').replace(/\.pdf$/i, ''); } catch { return ''; } })();
+  const listed = [...new Set([...words(row.product_raw), ...words(fileName)])];
+  // A listed word stands in the name whole, or inside a word the name runs together: "ToughPETG-HF" carries the
+  // listing's "tough" and "petg", and "Ultra PA" is the listing's "UltraPA". Only that way round: a fragment of
+  // a listed word is exactly what a cut-off logo is ("UTURA" out of "FormFutura").
+  const carries = (candidate, w) => words(candidate).includes(w) || (w.length >= 4 && squash(candidate).includes(w));
+  if (!name || !listed.length || listed.some((w) => carries(name, w))) return { name };
+  // Only a name that looks like the page's furniture is questioned: one word, words of a letter or two, or words
+  // that are a date, a revision, an address or the sheet announcing itself. Any other name stands, because a
+  // product's own name need not be the catalogue's ("Formi 3D Nordic Birch" is listed as KCL's PLA10).
+  const FURNITURE = /\b(run by|supported by|update[ds]?|revised|revision|revisi[oó]n|actualizaci[oó]n|version|date|information|drying|family of)\b|data\s*sheet|\d{1,2}[./-]\d{1,2}[./-]\d{2,4}|\+\d{2}\s?\d/i;
+  const tokens = String(name).match(/[A-Za-z0-9]+/g) ?? [];
+  if (!(tokens.length <= 1 || tokens.every((t) => t.length <= 2) || FURNITURE.test(name))) return { name };
+  const says = classifyProduct(name, {}, world);
+  if (says.polymer || says.family || says.variantClass || says.finish || says.support || (says.modifier && says.modifier !== 'Unfilled / unspecified')) return { name };
+  // The page's own line for the listed product: a short line at the head of the page that is mostly the listed
+  // name, with the announcement and a section number taken off its front. A sentence, a measurement or a line in
+  // another script is not a name, whatever words it shares with one.
+  const need = Math.max(1, Math.ceil(words(row.product_raw).length / 2));
+  const lines = (text.pages?.[0]?.lines ?? []).slice(0, 30).map((l) => String(l.text ?? '').trim()).filter(Boolean);
+  for (const line of lines) {
+    const bare = line.replace(new RegExp(`^.*?(?:${ANNOUNCES.source})\\s*[:：\\-–—]?\\s*`, 'i'), '').replace(/^\d+(?:\.\d+)*[.)]?\s+/, '').trim();
+    if (!bare || (bare.match(/[A-Za-z]{2,}/g) ?? []).length > 6) continue;
+    if (/[^\u0000-\u024F\u2010-\u2122]/.test(bare) || /[a-z]\.\s|[.;]\s*$/.test(bare)) continue;
+    if (/^(?:https?:\/\/|www\.)|\.(?:com|net|org|de|eu|fr|es|it|pl|cn)\b/i.test(bare)) continue;
+    if (/\d\s*(?:\u2103|°|º|%|kg\b|g\/|mpa|gpa|mm\b|kj)/i.test(bare) || labelFor(bare) || new RegExp(STANDARD_RE.source, 'i').test(bare)) continue;
+    const own = words(bare);
+    const hits = listed.filter((w) => carries(bare, w));
+    if (hits.length < need || hits.length * 2 < own.length) continue;
+    const product = makers.reduce((n, who) => productName(n, who), bare);
+    if (product && product.length < 60 && !notAProduct(product, makers.join(' '))) return { name: product, from: line };
+  }
+  // Nothing on the page carries the listed name, and the name the page gave looks like its furniture: it stands,
+  // and the document says so.
+  return { name, unsupported: { read: name, listed: row.product_raw } };
+}
+
 export function propose(row, text, world) {
   // The sheet says what the name often does not: which polymer, and what is in it. The first page's words are
   // enough, and they are the maker's own description rather than a catalogue title.
@@ -2666,8 +2742,15 @@ export function propose(row, text, world) {
   // its first row "Polymer base" and prints the polymer in words; a statement there is the sheet answering for
   // itself, which is worth more than the same word found somewhere in its prose.
   const COMPOSITION = /^(polymer base|base polymer|material base|composition|chemical base)\b\s*[:：]?\s*(.+)$/i;
-  const compositionRow = (text.pages ?? []).flatMap((p) => p.lines ?? [])
-    .map((l) => COMPOSITION.exec(repair(String(l.text ?? '')).trim())?.[2]).filter(Boolean).join('; ');
+  // A sheet also says it in a sentence about itself: FormFutura's "MetalFil ‐ Brass is a metal‐filled PLA‐based
+  // filament", Lehvoss's line "Polyamide based material". Read word by word, the same page's "can be printed on
+  // full metal, PEEK, and PFTE hotends" made the brass-filled PLA a PEEK. What the product is said to be based on,
+  // in a sentence whose subject is the product or on a line of its own, is the composition row's statement.
+  const BASED_ON = /\b(?:is|are)\s+(?:a|an)\b[^.;:]{0,80}?\b([A-Za-z][A-Za-z0-9/]{1,14})\s?[-\u2010\u2011]\s?based\b|^([A-Za-z][A-Za-z0-9/]{1,14}(?:\s[A-Za-z0-9]{1,6})?)\s+based\s+(?:material|compound|filament)\b/i;
+  const basedOn = (text.pages?.[0]?.lines ?? []).map((l) => BASED_ON.exec(repair(String(l.text ?? '')).trim()))
+    .filter(Boolean).map((m) => m[1] ?? m[2]);
+  const compositionRow = [...(text.pages ?? []).flatMap((p) => p.lines ?? [])
+    .map((l) => COMPOSITION.exec(repair(String(l.text ?? '')).trim())?.[2]).filter(Boolean), ...new Set(basedOn)].join('; ');
   // Whose sheet it is, in the ledger's own words: the manufacturer where the ledger knows one, and the provider
   // where a retailer is all it has. The maker's own name is not its product's, here or in the title.
   // Who made it, by R074 where a shop is hosting the sheet: the shop's own brand is the shop's, and anything
@@ -2689,8 +2772,10 @@ export function propose(row, text, world) {
   // The name the sheet prints is the product's own; the catalogue name a link carries is a copy of it, and the
   // two disagree ("paht" for a sheet whose own title says CarbonX Carbon Fiber High Temp Nylon). Two revisions of
   // one sheet must classify alike, so the sheet's own name is what is read, and the catalogue's is kept beside it.
-  const named = asWritten.reduce((name, who) => productName(name, who),
+  const read = asWritten.reduce((name, who) => productName(name, who),
     head.product && !notAProduct(head.product, asWritten.join(' ')) ? head.product : row.product_raw);
+  const furniture = pageFurniture(read, row, text, world, asWritten);
+  const named = furniture.name;
   const identity = classifyProduct(named || row.product_raw, { manufacturer: made?.maker ?? row.manufacturer, catalogue: row.product_raw, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow }, world);
   // A ruling that names this product by name has answered for it: the owner's verdict on the reading says what
   // the product is, and with it that the name it was read under stands for the product (R075, R077).
@@ -2821,7 +2906,10 @@ export function propose(row, text, world) {
   const polymer = (world.polymers ?? []).find((p) => p.PolymerID === identity.polymer);
   const density = measurements.find((m) => m.row.Property === 'Density');
   const neat = [Number(polymer?.['Neat density min kg/m³']), Number(polymer?.['Neat density max kg/m³'])];
-  if (density && identity.modifier === 'Unfilled / unspecified' && !identity.variantClass && Number.isFinite(neat[0]) && Number.isFinite(neat[1])) {
+  // A finish material (PLA Metal, PLA Wood) says particle-filled and no more: Bambu's PLA Metal weighs 1.25 and
+  // Spectrum's 2.36, so the grade that weighs what its metal makes it weigh says so itself, as any other does.
+  const finish = identity.variantClass === 'particle-filled';
+  if (density && identity.modifier === 'Unfilled / unspecified' && (!identity.variantClass || finish) && Number.isFinite(neat[0]) && Number.isFinite(neat[1])) {
     const value = Number(density.row['Normalized value']);
     // R078 and D57: a filament denser than its own polymer can be carries a load its maker does not declare, and
     // a lighter one is foamed. Neither is a new material — the polymer is the one the name states — and neither
@@ -2831,33 +2919,35 @@ export function propose(row, text, world) {
     // A density no filament reaches is none of that. Tungsten-filled PLA, the densest thing in this corpus, is
     // about 4000 kg/m³; six sheets in this queue read 11115, 23000 or 923000, which is the page misread and not
     // a heavy filler. Declaring a Variant for one would record a load that is not there, so it stays a question.
-    const declare = (variant, why) => {
+    const declare = (variant, why, composition) => {
       grade.row.Variant = variant;
-      grade.row['Composition / filler'] = `${why} Not declared on the sheet; recorded as a Variant under D57 (R078).`;
+      grade.row['Composition / filler'] = composition ?? `${why} Not declared on the sheet; recorded as a Variant under D57 (R078).`;
       identity.signals.push(`${variant} by R078: ${why}`);
       // A grade that declares a filler is not an unfilled material, and the windows a reviewer weighs its rows
       // against must stop saying it is. Without this, the very density that declared the Variant is then held
       // back for being outside what an unfilled polymer reaches — which is what it was read to mean. The class
       // is the one the lint will judge it by, so the reader and the build weigh the row against one window (D80).
-      window.fill = variant === 'undisclosed dense filler' ? 'dense' : 'light';
+      window.fill = /dense filler$/.test(variant) ? 'dense' : 'light';
     };
     if (value >= IMPLAUSIBLE_DENSITY) {
       identity.reasons.push(`its density reads ${value} kg/m³, which no filament reaches: the page is misread, and a load that is not there may not be declared`);
       identity.needsRuling = true;
     } else if (value > neat[1] * 1.05) {
       // R078 is for the load a maker does not declare. A maker who does declare one — colorFabb's copperFill is
-      // "a high quality PLA 3D printing filament, loaded with copper particles" — has named a filler the
-      // vocabulary has no value for, and that is the question R080 answered for graphene and a natural fibre:
-      // a modifier value enters with the data that cites it. Writing "Not declared on the sheet" over a sheet
-      // that declares it would put a false sentence in the data and hide the vocabulary gap behind a variant.
-      const declared = A_DECLARED_LOAD.exec(`${row.product_raw ?? ''} ${text.pages[0]?.lines?.map((l) => String(l.text ?? '')).join(' ') ?? ''}`);
+      // "a high quality PLA 3D printing filament, loaded with copper particles" — has said what the load is, and
+      // "Not declared on the sheet" would put a false sentence in the data. R095: it is the same kind of product
+      // as the undisclosed one, a dense powder in the named polymer, so it is the same kind of record — a Variant
+      // of the polymer's material, declared, with the sheet's words in Composition — and not a material per
+      // metal: a copper-filled PETG is a PETG with a load, which is what D57 made Variant for.
+      const declared = A_DECLARED_LOAD.exec(`${row.product_raw ?? ''} ${named ?? ''} ${text.pages[0]?.lines?.map((l) => String(l.text ?? '')).join(' ') ?? ''}`);
       if (declared) {
-        identity.reasons.push(`its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}) and the sheet declares the load — "${declared[0].trim().slice(0, 80)}" — which no value of schema/vocab/modifiers.csv covers: a modifier value is a ruling, as graphene and natural fibre were (R080)`);
-        identity.needsRuling = true;
-      } else {
+        const said = declared[0].trim().slice(0, 80);
+        declare('declared dense filler', `Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), and the sheet declares the load: "${said}".`,
+          `The sheet declares the load: "${said}". Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}); recorded as a Variant under D57 (R095).`);
+      } else if (!finish) {
         declare('undisclosed dense filler', `Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), so the product carries a filler its name does not declare.`);
       }
-    } else if (value < neat[0] * 0.95) {
+    } else if (value < neat[0] * 0.95 && !finish) {
       // R078 answers the heavy case and only that one: "a filament denser than its named polymer reaches". A
       // lighter one has two explanations and the sheet has to say which. Fabru's "Cyclo-Olefin-Copolymer
       // flexibel" is 940 against COC's 1010 because it is the soft grade, not because anything was foamed, and
@@ -2871,6 +2961,7 @@ export function propose(row, text, world) {
     version: 1,
     generated: { tool: 'propose.mjs', date: new Date().toISOString().slice(0, 10) },
     document: { sha256: row.sha256, url: row.url, pages: text.pages.length, provider: row.provider, manufacturer: row.manufacturer, docKey: row.doc_key },
+    ...(furniture.unsupported ? { nameUnsupported: furniture.unsupported } : {}),
     identity,
     // The physics window this reading was judged against, carried so a reviewer is judged against the same one.
     // Without it every row would be weighed at "any", which is the widest window there is and catches nothing.
@@ -2878,7 +2969,8 @@ export function propose(row, text, world) {
     ...(newMaterial ? { newMaterial } : {}),
     source: {
       row: {
-        SourceID: sourceId, Publisher: row.manufacturer || row.provider, Title: title || row.product_raw,
+        // A title keeps the publisher's words and not its typesetting: CreatBot's full-width colon is a colon (TEXT-FULLWIDTH).
+        SourceID: sourceId, Publisher: row.manufacturer || row.provider, Title: asciiPunctuation(title || row.product_raw),
         Revision: NP, 'Publication date': NP, 'Access date': row.updated || new Date().toISOString().slice(0, 10),
         // A copy is not a source, but where a retailer's is the only copy it is the one that was read. The
         // publisher stays the maker, whose sheet it is, and the note says where the bytes came from, because

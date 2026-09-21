@@ -15,11 +15,15 @@
 //   npm run ingest:fetch -- ... --refetch            fetch again even where a digest is recorded
 //   npm run ingest:fetch -- --stage <file> --doc <doc_key>    a document the owner saved from a browser (R084)
 //   npm run ingest:fetch -- --stage <folder> --provider X     a folder of them, each matched to its row by file name
+//   npm run ingest:fetch -- --stage <folder> --provider X --recursive     a maker's whole library, subfolders and
+//                                                            all: its data sheets are staged and the rest counted
+//   ... --recursive --create --root-url <url of the folder>  and a data sheet no row carries gets a row of its own
 //
 // Writes .cache/sources/by-sha/<sha>.<ext> and updates the ledger. Nothing here touches data/.
 
 import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { basename, dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
+import { basename, dirname, join, relative, sep } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { sha256, cacheDir } from '../lib/pdf-text.mjs';
@@ -127,11 +131,48 @@ export function stageDocument(row, bytes, name, { digests, date = new Date().toI
 /** The statuses a staged file may stand in for: nothing fetched, or fetched and found unreadable. */
 const STAGEABLE = new Set(['needs-staging', 'gated', 'unreachable', 'inventoried', 'unreadable']);
 
-/** The ledger row a staged file belongs to: named outright, or the one row whose URL carries the file's name. */
-export function rowForStagedFile(name, candidates) {
-  const squash = (s) => String(s ?? '').toLowerCase().replace(/\.pdf$/, '').replace(/[^a-z0-9]+/g, '');
-  const fileNameOf = (url) => { try { return decodeURIComponent(new URL(url).pathname.split('/').pop() ?? ''); } catch { return ''; } };
+/**
+ * What a file in a maker's library is, by its name. A library holds far more than data sheets — safety sheets in
+ * three languages, declarations, case studies, leaflets, spool drawings, the text of a web page — and only a data
+ * sheet is staged. The rest is counted by kind so the report says what was passed over, and nothing is guessed:
+ * a name that says neither is "other", and staying out is what "other" does.
+ */
+export function stageKind(name) {
+  const n = String(name).normalize('NFKC');
+  if (/(^|[\s_(.-])m?sds([\s_).-]|$)|safety[\s_-]*data|safety data sheet/i.test(n)) return 'safety-sheet';
+  if (/(^|[\s_-])tds([\s_.-]|$)|technical[\s_-]*data|data[\s_-]?sheet/i.test(n)) return 'data-sheet';
+  if (/statement|declaration|conformity|compliance|^ul94/i.test(n)) return 'declaration';
+  if (/case[\s_-]*stud|\bCS\b|study report|et al\.?|biomechanics|prosthes|exoskeleton|antimicrobial|inactivator/i.test(n)) return 'case-study';
+  if (/website text/i.test(n)) return 'website-text';
+  if (/spool/i.test(n)) return 'spool';
+  if (/leaflet|flyer|overview|brochure/i.test(n)) return 'leaflet';
+  return 'other';
+}
+
+/**
+ * The ledger row a staged file belongs to: named outright, or the one row whose URL carries the file's name.
+ *
+ * A file in a library also has a place in it. Where the caller passes the file's path inside the folder it
+ * staged, the row whose URL ends in the most of that path is the file's: FormFutura files a "TDS - High Gloss
+ * PLA.pdf" under High Gloss PLA and another under High Gloss PLA - ColorMorph, and the name alone cannot say
+ * which row either is. Two rows that share as much of the path as each other are two rows, and a question.
+ */
+export function rowForStagedFile(name, candidates, { path } = {}) {
+  const squash = (s) => String(s ?? '').normalize('NFKC').toLowerCase().replace(/\.pdf$/, '').replace(/[^a-z0-9]+/g, '');
+  const segmentsOf = (url) => { try { return new URL(url).pathname.split('/').map((s) => decodeURIComponent(s)); } catch { return []; } };
+  const fileNameOf = (url) => segmentsOf(url).pop() ?? '';
   const byUrl = candidates.filter((r) => squash(fileNameOf(r.url)) && squash(fileNameOf(r.url)) === squash(name));
+  if (byUrl.length > 1 && path?.length > 1) {
+    const shared = (r) => {
+      const url = segmentsOf(r.url).map(squash), mine = path.map(squash);
+      let n = 0;
+      while (n < mine.length && n < url.length && mine[mine.length - 1 - n] === url[url.length - 1 - n]) n++;
+      return n;
+    };
+    const best = Math.max(...byUrl.map(shared));
+    const deepest = byUrl.filter((r) => shared(r) === best);
+    if (deepest.length === 1 && best > 1) return { row: deepest[0], how: `the last ${best} parts of the path its URL carries` };
+  }
   if (byUrl.length === 1) return { row: byUrl[0], how: 'the file name its URL carries' };
   if (byUrl.length > 1) return { why: `${byUrl.length} rows carry this file name in their URL` };
   // The longest product name the file name contains is the product: "ABSpro Flame Retardant" contains "ABSpro",
@@ -141,6 +182,39 @@ export function rowForStagedFile(name, candidates) {
   const longest = byProduct.filter((r) => squash(r.product_raw).length === squash(byProduct[0]?.product_raw).length);
   if (longest.length === 1) return { row: longest[0], how: `the product name "${longest[0].product_raw}" in the file name` };
   return { why: byProduct.length ? `${longest.length} products' names fit the file name alike: ${longest.map((r) => r.product_raw).join(', ')}` : 'no row carries this file name in its URL, and no product name fits it' };
+}
+
+/**
+ * A row for a data sheet the owner's copy of a library holds and the inventory never listed. It is built as
+ * `harvest.mjs` builds the rows an index lists: keyed by its URL, which is the library's own address for the file
+ * (the folder's URL and the file's path inside it), with where it was found as its discovery. The maker, the
+ * brand and the language are the sibling rows' — the same library — and the product is the folder it is filed
+ * under, which is how the library names it. Nothing here decides what the product is made of; the reader does.
+ */
+export function rowForUnlistedFile(path, { rootUrl, sibling, date }) {
+  const url = `${rootUrl.replace(/\/+$/, '')}/${path.map((s) => encodeURIComponent(s)).join('/')}`;
+  const folders = path.slice(0, -1).filter((f) => !/^(data\s*sheets?|datasheets?|declarations?|documents?)\b/i.test(f.trim()));
+  const product = folders.at(-1) ?? path.at(-1).replace(/\.pdf$/i, '');
+  return {
+    doc_key: `url:${createHash('sha1').update(url).digest('hex').slice(0, 16)}`, sha256: '',
+    provider: sibling.provider, provider_kind: sibling.provider_kind, brand: sibling.brand, manufacturer: sibling.manufacturer,
+    product_raw: product, url, source_page_url: rootUrl, format: 'PDF', access_status: 'supplied by the owner from the maker’s library',
+    language: sibling.language, mechanical_evidence: '', variants: '',
+    discovery: `staged ${date} from the owner's copy of the maker's library (R084); the inventory did not list it`,
+    registered_source_id: '', registered_by: '', duplicate_of: '', duplicate_kind: '', primary: 'TRUE',
+    batch: '', status: 'inventoried', status_note: '', checked: date, updated: date,
+  };
+}
+
+/** Every file under a folder, with its path inside it, skipping what a file system leaves behind. */
+function filesUnder(root) {
+  const out = [];
+  for (const entry of readdirSync(root, { withFileTypes: true, recursive: true })) {
+    if (!entry.isFile() || entry.name.startsWith('.')) continue;
+    const full = join(entry.parentPath ?? entry.path, entry.name);
+    out.push({ full, path: relative(root, full).split(sep) });
+  }
+  return out.sort((a, b) => a.full.localeCompare(b.full));
 }
 
 /** Run with at most `PER_HOST` requests in flight per host, spaced, and any number of hosts at once. */
@@ -175,28 +249,62 @@ if (process.argv[1]?.endsWith('fetch.mjs') && arg('stage')) {
   const rows = readCsv(LEDGER).records.map((r) => r.values);
   const staged = arg('stage'), doc = arg('doc'), provider = arg('provider');
   const folder = statSync(staged).isDirectory();
-  if (!folder && !doc) { console.error('one file is staged against one row: --stage <file> --doc <doc_key>'); process.exit(2); }
+  const recursive = flag('recursive'), create = flag('create'), rootUrl = arg('root-url');
+  if (!folder && !doc && !create) { console.error('one file is staged against one row: --stage <file> --doc <doc_key>'); process.exit(2); }
   if (folder && doc) { console.error('--doc names one row; a folder is matched by file name (--provider narrows it)'); process.exit(2); }
-  const files = folder ? readdirSync(staged).filter((f) => !f.startsWith('.') && statSync(join(staged, f)).isFile()).map((f) => join(staged, f)) : [staged];
+  if (create && (!provider || !rootUrl)) { console.error('--create needs --provider and --root-url: a new row is the maker\'s, at the address the library gives the file'); process.exit(2); }
+  // A folder staged recursively is a library, and only its data sheets are documents to stage; a flat folder or a
+  // single file is what the owner chose to save, and every file in it is staged as before.
+  const files = !folder ? [{ full: staged, path: [basename(staged)] }]
+    : recursive ? filesUnder(staged)
+      : readdirSync(staged).filter((f) => !f.startsWith('.') && statSync(join(staged, f)).isFile()).map((f) => ({ full: join(staged, f), path: [f] }));
   const candidates = rows.filter((r) => (doc ? r.doc_key === doc : (!provider || r.provider === provider || r.manufacturer === provider) && !r.sha256 && STAGEABLE.has(r.status)));
   if (doc && !candidates.length) { console.error(`no ledger row is keyed ${doc}`); process.exit(2); }
   if (doc && candidates[0].sha256) { console.error(`${doc} is already hashed as ${candidates[0].sha256.slice(0, 12)} (${candidates[0].status}); a staged copy replaces nothing`); process.exit(2); }
+  const sibling = provider && rows.find((r) => r.provider === provider);
   const digests = new Map(rows.filter((r) => r.sha256).map((r) => [r.sha256, r.doc_key]));
   const date = new Date().toISOString().slice(0, 10);
-  const done = [], unmatched = [];
-  for (const file of files) {
-    const name = basename(file);
-    const found = doc ? { row: candidates[0], how: '--doc' } : rowForStagedFile(name, candidates);
-    if (!found.row) { unmatched.push(`${name}: ${found.why}`); continue; }
-    const result = stageDocument(found.row, readFileSync(file), name, { digests, date });
+  const done = [], unmatched = [], known = [], passed = new Map(), created = [];
+  const taken = new Set();
+  for (const { full, path } of files) {
+    const name = basename(full);
+    if (recursive) {
+      const kind = stageKind(name);
+      if (kind !== 'data-sheet') { passed.set(kind, (passed.get(kind) ?? 0) + 1); continue; }
+    }
+    const bytes = readFileSync(full);
+    // A file whose bytes the ledger already holds is that document: a second copy in another folder, or a
+    // browser's second download, is not a second document and matches nothing.
+    const already = digests.get(sha256(bytes));
+    const pool = candidates.filter((r) => !taken.has(r.doc_key));
+    let found = doc ? { row: candidates[0], how: '--doc' } : rowForStagedFile(name, pool, { path });
+    // A row the file's own URL names is still that row's, even when the bytes turn out to repeat another document
+    // (stageDocument then records it as a duplicate). A row found only by a product name is a weaker claim than
+    // the bytes, and loses to them.
+    const byItsUrl = found.row && /--doc|its URL carries/.test(found.how);
+    if (already && !byItsUrl) { known.push(`${path.join('/')}: the same bytes as ${already}`); continue; }
+    if (!found.row && create && !/rows carry|names fit/.test(found.why ?? '')) {
+      const row = rowForUnlistedFile(path, { rootUrl, sibling, date });
+      if (rows.some((r) => r.doc_key === row.doc_key)) { unmatched.push(`${path.join('/')}: a row keyed ${row.doc_key} exists and is not stageable`); continue; }
+      rows.push(row);
+      created.push(row.doc_key);
+      found = { row, how: 'a new row: the inventory did not list it' };
+    }
+    if (!found.row) { unmatched.push(`${path.join('/')}: ${found.why}`); continue; }
+    taken.add(found.row.doc_key);
+    const result = stageDocument(found.row, bytes, path.join('/'), { digests, date });
     Object.assign(found.row, { sha256: result.sha256, status: result.status, status_note: result.note, updated: date,
       ...(result.duplicate_of ? { duplicate_of: result.duplicate_of, duplicate_kind: result.duplicate_kind } : {}) });
     done.push(`${found.row.doc_key}  ${found.row.provider} ${found.row.product_raw}  ->  ${result.status} (${found.how})`);
   }
   if (done.length) writeFileSync(LEDGER, csvText(HEADER, rows));
-  console.log(`${done.length} document(s) staged, ${unmatched.length} file(s) matched no row`);
+  console.log(`${done.length} document(s) staged (${created.length} of them new rows), ${known.length} file(s) already in the ledger, ${unmatched.length} file(s) matched no row`);
+  if (passed.size) console.log(`not staged, not data sheets: ${[...passed].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(', ')}`);
   for (const line of done) console.log(`  ${line}`);
+  for (const line of known) console.log(`  = ${line}`);
   for (const line of unmatched) console.log(`  ? ${line}`);
+  const left = candidates.filter((r) => !taken.has(r.doc_key));
+  if (folder && provider && left.length) console.log(`${left.length} row(s) of ${provider} waiting for bytes had no file here:\n${left.map((r) => `  - ${r.doc_key}  ${r.product_raw}`).join('\n')}`);
   console.log(done.length ? 'next: npm run ingest:extract -- --provider <maker>, then ingest:batch -- --propose' : '');
 } else if (process.argv[1]?.endsWith('fetch.mjs')) {
   const rows = readCsv(LEDGER).records.map((r) => r.values);

@@ -56,6 +56,11 @@ test('the squeezed page answers whether a number is printed on it, however the l
   assert.equal(numberOnPage(text, 1, '1.24'), true);     // printed with a decimal comma
   assert.equal(numberOnPage(text, 1, '99'), false);
   assert.equal(numberOnPage(text, 9, '52'), false);      // no such page
+  // A power of ten set as a superscript character, as LEHVOSS prints a resistivity ("Ω <10⁹", "<10²").
+  const lehvoss = { pages: [{ page: 1, squeezed: 'SurfaceresistanceROBDINIEC60093Ronde60x4mmΩ<10⁹Ω<10²' }] };
+  assert.equal(numberOnPage(lehvoss, 1, '1000000000'), true);
+  assert.equal(numberOnPage(lehvoss, 1, '100'), true);
+  assert.equal(numberOnPage(lehvoss, 1, '1000000'), false);
 });
 
 test('a rate and a humidity are conditions, not results', () => {

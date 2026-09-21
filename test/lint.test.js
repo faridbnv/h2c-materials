@@ -212,6 +212,8 @@ test('a grade that declares its load is judged by the window for that load, not 
   assert.match(run([density({})], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'Not applicable' }])[0] ?? '', /impossible/);
   // Judged by what its own grade declares, it is a densely filled PLA, which is what it is.
   assert.deepEqual(run([density({})], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'undisclosed dense filler' }]), []);
+  // A load the maker declares is the same load, and the same class (R095): copperFill says "loaded with copper".
+  assert.deepEqual(run([density({})], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'declared dense filler' }]), []);
   // The class says what the filler does, so a lightened grade is not judged by a dense one's floor.
   assert.deepEqual(run([density({ 'Normalized value': '750' })], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'lightweight additive' }]), []);
   assert.match(run([density({ 'Normalized value': '750' })], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'undisclosed dense filler' }])[0] ?? '', /impossible/);

@@ -48,11 +48,30 @@ export const REASONS = ['ruling', 'no-name', 'no-values', 'ocr-visual', 'twin', 
 const READER_GAPS = [
   { gap: 'condition-table', when: (row) => row.provider === 'Stratasys',
     why: "a table per layer height, each with a value column per orientation, and the layer height on a line of its own. The columns are read now — 24 documents yield 379 values, 280 of them stating a direction — and what is still missing is the caption: nine of eleven sheets then hold the same property in the same direction two or three times over, one row per table, with nothing on the row saying which table it came from. Carrying \"Table 5: … with Unidirectional Toolpaths\" and \"0.010 in layer height\" onto each row is what frees them, and until then MEAS-CONDITIONS-INDISTINCT is right to refuse" },
-  { gap: 'name-not-a-name', when: (row, proposal) => /^(precautions?|material status mass production)$/i.test(proposal?.grades?.[0]?.row?.['Product name'] ?? ''),
-    why: 'the reader took a section heading for the product name; the page names no product this reader can use' },
+  { gap: 'name-not-a-name', when: (row, proposal) => Boolean(proposal?.nameUnsupported) || /^(precautions?|material status mass production)$/i.test(proposal?.grades?.[0]?.row?.['Product name'] ?? ''),
+    why: 'the name the page gives says nothing about a filament and shares no word with the name the document is listed under, and no line at the head of the page carries that name (pageFurniture in propose.mjs); a person reads the page for the name it prints' },
+  // A text layer that draws each glyph twice — a bold face faked by printing it over itself — reads "180180 °C" for
+  // 180 and "1,751,75" for 1.75. Every number on the page is two of it, and one the windows cannot catch (a melt
+  // volume rate of "3434") is accepted as it reads. Nothing on such a page can be read from its text layer.
+  { gap: 'doubled-glyphs', when: (row) => doubledGlyphs(row.sha256),
+    why: 'the text layer draws each glyph twice ("180180 °C", "1,751,75"): every number on the page reads as two of itself, and the page image is where it can be read' },
   { gap: 'bilingual-columns', when: (row) => row.provider === 'QIDI',
     why: "a bilingual table whose label, standard, value and English label sit on four baselines the page orders by height rather than by row; the label under a value line is read now, but a label that lands between two values still takes the wrong one's, and that needs the columns read by position" },
 ];
+
+/** A page whose numbers are mostly each a number printed twice over: "180180", "3232", "1,061,06". */
+export function doubledGlyphs(sha) {
+  const text = sha ? cachedText(sha) : null;
+  return text ? printsEveryNumberTwice(text) : false;
+}
+
+export function printsEveryNumberTwice(text) {
+  const numbers = (text.pages ?? []).flatMap((p) => p.lines ?? []).flatMap((l) => String(l.text ?? '').match(/\b\d[\d.,]*\d\b/g) ?? []);
+  // A year is not a doubled number, and neither is a run of one digit ("00" in "1.00", "55" in "55 °C").
+  const doubled = numbers.filter((n) => n.length >= 4 && /^(\d+(?:[.,]\d+)?)\1$/.test(n)
+    && !/^(19|20)\d\d$/.test(n) && !/^(\d)\1+$/.test(n.replace(/[.,]/g, '')));
+  return doubled.length >= 4 && doubled.length >= numbers.length * 0.2;
+}
 
 /**
  * Why this document is waiting, from the proposal and from what the applier says about it. Returns null where
@@ -205,8 +224,28 @@ export function holds() {
 function recordedAlready(world) {
   const flat = (v) => String(v ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const key = (maker, name) => `${flat(maker)}|${flat(productName(name ?? '', maker ?? ''))}`;
+  // A maker's own brand words stand in some of its names and not others: the grade says "FIBERON PPS CF10" and the
+  // reader, which takes the maker's words off a name, reads the 3DJake copy of the same sheet as "PPS CF10". Seven
+  // Fiberon documents were about to enter a second time for it. So each name is also asked with every word of the
+  // maker's own names and aliases (schema/vocab/manufacturers.csv) taken off it, on both sides alike.
+  const brandWords = new Map();
+  for (const { values: m } of readCsv(join(projectRoot, 'schema/vocab/manufacturers.csv')).records) {
+    brandWords.set(flat(m.Value), new Set([m.Value, ...String(m.Aliases ?? '').split(';')]
+      .flatMap((n) => String(n).split(/[^A-Za-z0-9]+/)).map(flat).filter((w) => w.length >= 3)));
+  }
+  const bare = (maker, name) => {
+    const drop = brandWords.get(flat(maker)) ?? new Set();
+    const words = String(name ?? '').split(/[^A-Za-z0-9]+/).map(flat).filter((w) => w && !drop.has(w));
+    return words.length ? `${flat(maker)}|${words.join('')}` : null;
+  };
   const have = new Map();
-  for (const g of world.grades ?? []) if (g.Status === 'active') have.set(key(g.Manufacturer, g['Product name']), g);
+  for (const g of world.grades ?? []) {
+    if (g.Status !== 'active') continue;
+    have.set(key(g.Manufacturer, g['Product name']), g);
+    const b = bare(g.Manufacturer, g['Product name']);
+    if (b && !have.has(`bare:${b}`)) have.set(`bare:${b}`, g);
+  }
+  const find = (maker, name) => have.get(key(maker, name)) ?? (bare(maker, name) ? have.get(`bare:${bare(maker, name)}`) : undefined);
   // Two names for one product: the catalogue's, which the ledger carries, and the sheet's own, which the reader
   // reads and a proposal's grade holds. AzureFilm's ABS sits in the ledger as 3DJake's "ABS P" and in the tables
   // as AzureFilm's "ABS", and asked only by the first the lookup said the product was not recorded — while the
@@ -214,11 +253,11 @@ function recordedAlready(world) {
   return (row, proposal) => {
     const grade = proposal?.grades?.[0]?.row;
     if (grade?.Manufacturer && grade['Product name']) {
-      const bySheet = have.get(key(grade.Manufacturer, grade['Product name']));
+      const bySheet = find(grade.Manufacturer, grade['Product name']);
       if (bySheet) return bySheet;
     }
     if (!flat(row.product_raw)) return null;
-    return have.get(key(row.manufacturer || row.brand || row.provider, row.product_raw)) ?? null;
+    return find(row.manufacturer || row.brand || row.provider, row.product_raw) ?? null;
   };
 }
 
@@ -442,11 +481,16 @@ function split(batch) {
   const world = worldOf();
   for (const suffix of ['ocr', 'held']) mkdirSync(join(PROPOSALS, `${batch}-${suffix}`), { recursive: true });
   const move = (file, where) => renameSync(join(PROPOSALS, batch, file), join(PROPOSALS, `${batch}-${where}`, file));
+  // `registered` is terminal by every route, and the ledger is where --holds wrote it: a product the grade lookup
+  // found under another name has no guard code to say so, and five Fiberon repeats went on to be queued as twins
+  // and shaped into second grades of products the tables already hold.
+  const registered = new Set(readLedger().filter((r) => r.status === 'registered').map((r) => r.doc_key));
   for (let round = 1; round <= 4; round++) {
     const proposals = proposalsOf(batch);
     const problems = guard(proposals, world);
     const moved = new Map();
     for (const p of proposals) {
+      if (registered.has(p.document?.docKey)) { moved.set(p.file, 'held'); continue; }
       const mine = problems.filter((x) => String(x.where ?? '').startsWith(p.file));
       const hold = holdReason(p, mine);
       if (hold && ['ocr-visual', 'ruling', 'no-name', 'registered', 'no-values', 'reader:several-values'].includes(hold.reason)) {
@@ -510,7 +554,7 @@ function split(batch) {
     let told = 0;
     for (const row of rows) {
       const file = [...queued.keys()].find((f) => byFile.get(f) === row.doc_key);
-      if (!file) continue;
+      if (!file || row.status === 'registered') continue;
       row.status = 'held';
       row.status_note = `held: twin — it prints the numbers ${queued.get(file)} already holds, and R053 says what a pair like this becomes: a grade each, citing its own sheet, with the values recorded once`;
       row.updated = new Date().toISOString().slice(0, 10);

@@ -274,7 +274,8 @@ export function lintData(tables, schemas) {
     const grades = new Map((tables.grades?.rows ?? []).map((g) => [g.GradeID, g]));
     const fillOf = (m, grade) => {
       const variant = grade?.Variant;
-      if (variant === 'undisclosed dense filler') return 'dense';
+      // A dense powder load, declared by the maker or read from a density the polymer cannot reach (D80, R095).
+      if (/dense filler$/.test(variant ?? '')) return 'dense';
       if (variant === 'lightweight additive') return 'light';
       if (m?.['Modifier / filler'] === 'Foaming') return 'light';
       if (['Carbon fibre', 'Glass fibre'].includes(m?.['Modifier / filler'])) return 'fibre';
