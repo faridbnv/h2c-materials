@@ -38,8 +38,8 @@
       "name": "Fill class",
       "type": "string",
       "role": "canonical",
-      "description": "Whether the material is reinforced: unfilled, fibre, or any. A compound whose maker does not disclose its filler reads as `any`, so it is flagged rather than refused.",
-      "constraints": { "required": true, "enum": ["unfilled", "fibre", "any"] }
+      "description": "How the filler acts on this property: unfilled, fibre, dense, light, or any. `dense` is a particle load a maker declares but does not name (D57, R078): metal or mineral powder, which raises density far more than stiffness. `light` is a foaming agent or a declared lightweight additive, whose density and stiffness both fall with how much the printer foams it. A compound whose maker discloses nothing at all reads as `any`, so it is flagged rather than refused (D80).",
+      "constraints": { "required": true, "enum": ["unfilled", "fibre", "dense", "light", "any"] }
     },
     {
       "name": "Condition",

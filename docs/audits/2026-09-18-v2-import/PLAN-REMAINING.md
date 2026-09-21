@@ -52,15 +52,17 @@ of two sheets, not a rule.
 ## 2. Two durable fixes this programme has named and not made
 
 Both were tried, measured and put down with the measurement, so neither is a thing to rediscover. Both are phase
-F of the completion plan.
+F of the completion plan; the first is done.
 
-**A fill class per grade Variant.** A grade that declares an undisclosed dense filler (D57, R078) is judged by
-the physics windows as an unfilled polymer, because `fillOf` in `lint-rules.js` reads the material's Modifier
-and not the grade's Variant. Every metal-filled grade therefore produces a permanent accepted finding — thirteen
-of b20's twenty-four. The obvious fix is wrong: mapping a Variant to the fill class `any` was tried and made two
-existing rows worse, because the `any` windows assume a possible fibre load and so have a **higher floor**, not
-a wider range. What it needs is its own fill classes (`dense`, `light`) with windows of their own, a DECISIONS
-entry saying why the data cannot carry it otherwise, and a back-test row that shows it helps.
+**A fill class per grade Variant — done on 2026-09-21, D80.** A grade that declares an undisclosed dense filler
+(D57, R078) was judged by the physics windows as an unfilled polymer, because `fillOf` read the material's
+Modifier and not the grade's Variant, and every metal-filled grade produced a permanent accepted finding. The
+obvious fix was wrong and the measurement is in D80: `any` has a higher floor, not a wider range. Two fill
+classes of its own — `dense` and `light` — with 26 windows drawn from physics and from what these grades
+publish; `fillOf` reads the grade's Variant first and `windowFor` in the reader takes the same class, so the row
+that is proposed and the row that is judged are weighed against one window. The back-test is that nothing moved:
+`build:diff` reports 0 differences in the compiled database, 24 accepted findings stopped occurring and were
+removed, and no new finding appeared.
 
 **Two high-temperature fibre windows drawn before a 30 wt% grade existed.** W0024 tops tensile strength at
 160 MPa and W0080 modulus at 16 GPa, both from observation. Ensinger's TECAFIL PEEK EV CF30 reaches 170 to 200
@@ -69,11 +71,13 @@ is the thing to widen once a second such grade arrives, which is the evidence it
 
 ## 3. What the pipeline still does not do
 
-- **Corrections to a document already registered.** OPEN-PROBLEMS §1 (74 rows) and §9 (15 setups) are pre-
-  pipeline transcription damage. `edits[]` through `source-edits.mjs` was the plan's way to close them and it was
-  measured: a re-read corrects 8 of 96 and overwrites good hand transcriptions with worse output. It stays
-  unbuilt. The rows are closed by hand, each re-read from its cached source, in one migration through
-  `correct()` (the m62 shape) — completion plan, phase F3.
+- **Corrections to a document already registered.** OPEN-PROBLEMS §1 and §9 were pre-pipeline transcription
+  damage and are **closed** (m101, m102, 2026-09-21): 70 measurements now name the method their sheet prints and
+  130 cells of 31 print setups hold what their own cell prints. `edits[]` through `source-edits.mjs` was the
+  plan's way to close them and it was measured — a re-read corrects 8 of 96 and overwrites good hand
+  transcriptions with worse output — so it stays unbuilt, and the rows were closed by hand through `correct()`.
+  Twenty rows were read and left: a sheet that prints "N/A", "Prusa Polymers" or a bare "ISO" as its method is
+  being vague, which is not transcription damage.
 - **Staging a document the owner supplies.** iSANMATE's first 18 entered as `retrieved-copy` by hand; there is no
   `ingest:fetch --stage` yet. Phase D builds it, for FormFutura's and iSANMATE's remaining 87.
 - **Evidence rows.** `propose` reads properties, print settings and certification claims, but proposes no

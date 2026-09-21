@@ -266,8 +266,20 @@ export function lintData(tables, schemas) {
     // glass transition surprisingly low. Where nothing says, nothing is assumed and only an "any" window applies.
     const classOf = (m) => morphology.get(m?.['Estimate identity'])
       ?? (/High-Temperature/i.test(m?.Family ?? '') ? 'high-temp' : 'any');
-    const fillOf = (m) => (['Carbon fibre', 'Glass fibre'].includes(m?.['Modifier / filler']) ? 'fibre'
-      : m?.['Modifier / filler'] === 'Unfilled / unspecified' ? 'unfilled' : 'any');
+    // What the filler does to this property, which is not always what the material's Modifier says. A grade may
+    // declare a load its material does not carry: a bronze-filled PLA is a grade of PLA whose Variant says so
+    // (D57, R078), and judged by its material alone it was an unfilled PLA at 3.9 g/cm³ and a flexural modulus
+    // of 9 GPa — every one of them a permanent accepted finding. The grade's own declaration comes first, and
+    // only where it declares nothing does the material's modifier answer (D80).
+    const grades = new Map((tables.grades?.rows ?? []).map((g) => [g.GradeID, g]));
+    const fillOf = (m, grade) => {
+      const variant = grade?.Variant;
+      if (variant === 'undisclosed dense filler') return 'dense';
+      if (variant === 'lightweight additive') return 'light';
+      if (m?.['Modifier / filler'] === 'Foaming') return 'light';
+      if (['Carbon fibre', 'Glass fibre'].includes(m?.['Modifier / filler'])) return 'fibre';
+      return m?.['Modifier / filler'] === 'Unfilled / unspecified' ? 'unfilled' : 'any';
+    };
     const fits = (window, want, field) => window[field] === want[field] || window[field] === 'any';
     for (const r of measurements) {
       // A value the database already flags physically implausible has been dealt with, with its reason recorded.
@@ -276,7 +288,7 @@ export function lintData(tables, schemas) {
       if (!Number.isFinite(value)) continue;
       const material = materials.get(r.MaterialID);
       const want = {
-        'Matrix class': classOf(material), 'Fill class': fillOf(material),
+        'Matrix class': classOf(material), 'Fill class': fillOf(material, grades.get(r.GradeID)),
         Condition: ['Notched', 'Unnotched'].includes(r.Notch) ? r.Notch : 'any',
       };
       const matching = windows.filter((w) => w.Property === r.Property && w['Normalized unit'] === r['Normalized unit']
@@ -287,7 +299,8 @@ export function lintData(tables, schemas) {
       // A film or a filament strand is not a printed bar and is far stronger; D55 already keeps both out of every
       // headline and estimate, so neither is judged against a printed part's window.
       if (/^(Film|Filament)/.test(r['Specimen type'] ?? '')) continue;
-      const where = `${r.Property} ${value} ${r['Normalized unit']} on a ${want['Matrix class']} ${want['Fill class'] === 'any' ? 'compound' : want['Fill class']} material`;
+      const named = { any: 'compound', dense: 'densely filled', light: 'foamed or lightened' };
+      const where = `${r.Property} ${value} ${r['Normalized unit']} on a ${want['Matrix class']} ${named[want['Fill class']] ?? want['Fill class']} material`;
       if (window['Always flag'] === 'TRUE') { add('MEAS-PHYSICS-WINDOW', 'measurements', r.MeasurementID, 'Normalized value', `${where}: ${basisHead(window.Basis)}`); continue; }
       const [hardLow, rawSoftLow, softHigh, hardHigh] = ['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => number(window[f]));
       // A part printed across its layers is weakest there: a Z value is legitimately a third to a half of the same

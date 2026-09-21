@@ -2669,7 +2669,8 @@ export function propose(row, text, world) {
   const window = {
     matrix: morphology ?? 'high-temp',
     fill: ['Carbon fibre', 'Glass fibre', 'Aramid fibre'].includes(identity.modifier) ? 'fibre'
-      : identity.modifier === 'Unfilled / unspecified' ? 'unfilled' : 'any',
+      : identity.modifier === 'Foaming' ? 'light'
+        : identity.modifier === 'Unfilled / unspecified' ? 'unfilled' : 'any',
   };
   const sheet = readSheet(text, registry);
   const sourceId = row.registered_source_id || sourceIdFor(row, world.sources ?? []);
@@ -2769,8 +2770,9 @@ export function propose(row, text, world) {
       identity.signals.push(`${variant} by R078: ${why}`);
       // A grade that declares a filler is not an unfilled material, and the windows a reviewer weighs its rows
       // against must stop saying it is. Without this, the very density that declared the Variant is then held
-      // back for being outside what an unfilled polymer reaches — which is what it was read to mean.
-      window.fill = 'any';
+      // back for being outside what an unfilled polymer reaches — which is what it was read to mean. The class
+      // is the one the lint will judge it by, so the reader and the build weigh the row against one window (D80).
+      window.fill = variant === 'undisclosed dense filler' ? 'dense' : 'light';
     };
     if (value >= IMPLAUSIBLE_DENSITY) {
       identity.reasons.push(`its density reads ${value} kg/m³, which no filament reaches: the page is misread, and a load that is not there may not be declared`);

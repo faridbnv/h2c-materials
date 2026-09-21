@@ -184,6 +184,45 @@ test('a value outside what its polymer can do is a finding, and a Z value is not
   assert.match(run([row({ MaterialID: 'M1', Property: 'HDT', 'Normalized unit': '°C', 'Normalized value': '74', Direction: 'Not applicable' })])[0] ?? '', /no heat deflection temperature/);
 });
 
+// D80: a grade may declare a load its material does not carry, and a window chosen by the material alone judges a
+// bronze-filled PLA as an unfilled one. What the filler does is the class, and the grade declares it first.
+test('a grade that declares its load is judged by the window for that load, not by its material\'s', () => {
+  const windows = [
+    { WindowID: 'W0001', Property: 'Density', 'Normalized unit': 'kg/m³', 'Matrix class': 'amorphous', 'Fill class': 'unfilled', Condition: 'any',
+      'Hard low': '700', 'Soft low': '950', 'Soft high': '1450', 'Hard high': '1800', 'Always flag': 'FALSE', Basis: 'physics' },
+    { WindowID: 'W0002', Property: 'Density', 'Normalized unit': 'kg/m³', 'Matrix class': 'amorphous', 'Fill class': 'dense', Condition: 'any',
+      'Hard low': '900', 'Soft low': '1100', 'Soft high': '4000', 'Hard high': '8000', 'Always flag': 'FALSE', Basis: 'the filler decides the density' },
+    { WindowID: 'W0003', Property: 'Density', 'Normalized unit': 'kg/m³', 'Matrix class': 'amorphous', 'Fill class': 'light', Condition: 'any',
+      'Hard low': '300', 'Soft low': '400', 'Soft high': '1250', 'Hard high': '1450', 'Always flag': 'FALSE', Basis: 'a foam is as dense as it is foamed' },
+  ];
+  const tables = (rows, grades) => ({
+    measurements: { header: Object.keys(rows[0]), rows },
+    grades: { header: ['GradeID', 'MaterialID', 'Variant'], rows: grades },
+    materials: { header: ['MaterialID', 'Estimate identity', 'Modifier / filler'], rows: [
+      { MaterialID: 'M1', 'Estimate identity': 'PLA', 'Modifier / filler': 'Unfilled / unspecified' },
+      { MaterialID: 'M2', 'Estimate identity': 'PLA', 'Modifier / filler': 'Foaming' },
+    ] },
+    polymers: { header: ['PolymerID', 'Morphology'], rows: [{ PolymerID: 'PLA', Morphology: 'amorphous' }] },
+    plausibility_windows: { header: Object.keys(windows[0]), rows: windows },
+  });
+  const density = (o) => row({ MaterialID: 'M1', GradeID: 'G1', Property: 'Density', 'Normalized unit': 'kg/m³', 'Normalized value': '3900', Direction: 'Not applicable', ...o });
+  const run = (rows, grades) => lintData(tables(rows, grades), schemas).filter((f) => f.code === 'MEAS-PHYSICS-WINDOW').map((f) => f.message);
+
+  // colorFabb's BronzeFill is a grade of PLA at 3.9 g/cm³. Judged by its material it is an impossible PLA.
+  assert.match(run([density({})], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'Not applicable' }])[0] ?? '', /impossible/);
+  // Judged by what its own grade declares, it is a densely filled PLA, which is what it is.
+  assert.deepEqual(run([density({})], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'undisclosed dense filler' }]), []);
+  // The class says what the filler does, so a lightened grade is not judged by a dense one's floor.
+  assert.deepEqual(run([density({ 'Normalized value': '750' })], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'lightweight additive' }]), []);
+  assert.match(run([density({ 'Normalized value': '750' })], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'undisclosed dense filler' }])[0] ?? '', /impossible/);
+  assert.match(run([density({ 'Normalized value': '1050' })], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'undisclosed dense filler' }])[0] ?? '', /surprising/);
+  // A foaming material declares it for every grade, and a grade that declares nothing takes its material's word.
+  assert.deepEqual(run([density({ MaterialID: 'M2', 'Normalized value': '420' })], [{ GradeID: 'G1', MaterialID: 'M2', Variant: 'Not applicable' }]), []);
+  assert.match(run([density({ 'Normalized value': '420' })], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'Not applicable' }])[0] ?? '', /impossible/);
+  // And the message names the class it was judged by, so a reader can see which window spoke.
+  assert.match(run([density({ 'Normalized value': '8100' })], [{ GradeID: 'G1', MaterialID: 'M1', Variant: 'undisclosed dense filler' }])[0] ?? '', /densely filled/);
+});
+
 test('two values a sheet orders the wrong way round are a swapped line, unless they are merely close', () => {
   const thermal = (id, property, value) => row({ MeasurementID: id, Property: property, 'Normalized value': String(value),
     'Normalized unit': '°C', Direction: 'Not applicable', Locator: `p. 1: ${property}` });

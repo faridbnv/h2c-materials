@@ -86,6 +86,7 @@ break if it were reversed, because that is the part that gets lost.
 | D77 | The spread search sees a sample; the model still sees everything | In force |
 | D78 | A limit a material's own grades publish is a floor for its shown range | In force |
 | D79 | The kernel is solved by block, and the estimates are the dense solve's | In force |
+| D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | In force |
 
 <!-- end index -->
 
@@ -1813,3 +1814,50 @@ The alternative was to raise the budget again, which buys a factor of one and a 
 batch. This buys a factor of nine and buys it in the shape of the problem: what it is cubic in is the largest
 chemical group rather than the corpus, and a maker's new PLA grades grow that group while a new polymer adds a
 block. `npm run scale` still has something to say, which is the point of keeping it.
+
+## D80. A grade's declared load is a fill class of its own, and the grade declares it before the material does
+
+D57 and R078 say what to do with a filament denser than its named polymer can reach: keep it under that polymer
+and declare the load as a grade `Variant`, so its values stay its own and a bronze-filled PLA cannot pull ordinary
+PLA's estimates. The estimate model has read that Variant since it was written. The physics windows did not.
+
+`fillOf` in `build/src/lint-rules.js` chose a window by the **material's** `Modifier / filler`, and a material
+whose grades carry an undisclosed load is an unfilled material: colorFabb's BronzeFill is a grade of PLA, and PLA
+is `Unfilled / unspecified`. So a published density of 3.9 g/cm³ was judged against a window drawn for unfilled
+amorphous polymers and came out impossible, as did a flexural modulus of 9 GPa, a tensile modulus of 0.72 GPa and
+sixteen others. Every one of them was a permanent accepted finding: a reviewer wrote the same sentence nineteen
+times, and would write it again for every metal-filled grade the corpus still holds.
+
+**The obvious fix is wrong, and it was measured.** Mapping such a grade to the existing `any` fill class was
+tried on 2026-09-20 and made two rows worse. `any` is the window for a compound whose filler is not disclosed at
+all, and it is drawn upward — its soft low assumes a possible fibre load, so it has a **higher floor** than the
+unfilled window, not a wider range. A particle-filled grade's problem is the floor: powder interrupts a matrix
+rather than reinforcing it, and Eryone's PLA-Lite at 0.72 GPa and Fiberlogy's mineral-filled PP at 14 MPa are
+below what any window in the table admitted.
+
+So the fill class says what the filler **does**, and two classes join `unfilled`, `fibre` and `any`:
+
+- **`dense`** — a particle load the maker declares and does not name (grade `Variant` "undisclosed dense filler").
+  At the loadings these filaments carry, 60 to 70 wt% for a metal fill, the filler decides the density and the
+  matrix barely shows, so the density window is drawn from the filler: 0.9 to 4.0 g/cm³ soft, 8.0 hard, which is
+  where a reading stops being a filament at all. The stiffness and strength windows are drawn the other way:
+  floors below the unfilled polymer's, because that is what a particle load does.
+- **`light`** — a foaming agent (material `Modifier / filler` "Foaming") or a declared lightweight additive
+  (grade `Variant`). Its density is set by how much the printer foams it and its maker publishes a range rather
+  than a value: colorFabb's LW-ASA prints 0.40 to 1.07 g/cm³ on one line. Stiffness falls with the square of
+  relative density and strength roughly with it, so both windows fall with the density.
+
+**The grade declares before the material does.** `fillOf` reads the grade's `Variant` first and the material's
+modifier only where the grade declares nothing, which is the one thing that made the old reading wrong.
+`windowFor` in `scripts/ingest/propose.mjs` takes the same class, so the reader that proposes a row and the lint
+that judges it weigh it against one window.
+
+**The back-test is that nothing moved.** The windows feed the lint and the reader and nothing else — no estimate,
+no headline, no gate reads them — and `npm run build:diff` over the whole change reports **0 differences** in the
+compiled database. What changed is the review queue: 24 accepted findings stopped occurring and were removed, and
+no new finding appeared. Two rows that the `any` window would have flagged (a mineral-filled PP at 14 MPa, a
+flexural strength of 18 MPa) are inside the dense windows, which is what those windows are for.
+
+What this does not do is name the filler. A maker who declares the load in words — "loaded with copper particles"
+— has named a filler `schema/vocab/modifiers.csv` has no value for, and that is a ruling and a modifier value, as
+graphene and natural fibre were (R080). `dense` is for the load a maker declares and does not name.
