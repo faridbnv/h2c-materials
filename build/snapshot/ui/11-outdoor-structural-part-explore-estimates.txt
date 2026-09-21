@@ -143,7 +143,7 @@ Polyolefins
  PASS 1,100 6.15 ~78.0–82.9† 1.5 124 — ☆
 PP-GF
 Polyolefins
- PASS 1,120 6.75 ~65.0–70.8† 1.7 139 — ☆
+ PASS 1,120 6.75 ~65.0–70.7† 1.7 139 — ☆
 PPA-CF
 High-Performance Engineering
  PASS 1,250 11.8 168 3.2 227 255↗ ☆

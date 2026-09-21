@@ -238,7 +238,7 @@ Polyolefins
  UNKNOWN 1,100 6.15 ~78.0–82.9† 1.5 124 — ☆
 PP-GF
 Polyolefins
- UNKNOWN 1,120 6.75 ~65.0–70.8† 1.7 139 — ☆
+ UNKNOWN 1,120 6.75 ~65.0–70.7† 1.7 139 — ☆
 PPA
 High-Performance Engineering
  UNKNOWN 1,140 2.86 76 3.4 103 — ☆
