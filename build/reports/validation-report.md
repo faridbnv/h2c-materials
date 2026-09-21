@@ -157,6 +157,18 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 - Unstated-load bracket, semi-filled: top at the published value + 126 °C (28 grades publish both loads; at 90% confidence at most 10% of grades show a gap larger than 126 °C, the largest gap observed).
 - Unstated-load bracket, elastomer: its top cannot screen (only 0 grades publish both loads; 22 are needed to show at 90% confidence that at most 10% of gaps are larger).
 
+Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.
+
+| Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
+|---|---:|---:|---:|---:|---:|---|
+| density | 759 | 1.46 | 2.27 | 0.798 | 0.951 | yes |
+| tensileModulusXY | 236 | 1.05 | 1.26 | 0.797 | 0.949 | yes |
+| tensileStrengthXY | 258 | 1.06 | 1.07 | 0.795 | 0.946 | yes |
+| elongationXY | 305 | 1.06 | 1.17 | 0.79 | 0.948 | yes |
+| hdt045 | 382 | 1.83 | 3 | 0.785 | 0.937 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
+
+EST-GRADE-OUTLIER, 33 grades: PLA 7, PLA Metal 5, PLA Aero 3, PA6-CF 3, TPU 3, PA12-CF 3, PLA Wood 2, PP 1, ABS 1, ABS-GF 1, PA6/66 1, PET-GF 1, PPA-CF 1, PPA-GF 1.
+
 Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 232 observations):
 
 By material: PLA 39, PA12-CF 14, TPU 12, PLA Aero 9, PPA-CF 8, PLA Wood 7, PETG 7, ABS 7, PLA Metal 6, PA6-CF 6, PA6 5, PA12 5, PLA-CF 4, PLA-NF 4, PLA Silk 4, PAHT-CF 4, PA6-GF 4, ABS-GF 4, PC 4, PET-GF 4, PPA-GF 4, nGen FLEX 3, ABS-CF 3, ASA 3, PA6/66 3, PPA 3, PVA 2, PP 2, PP-CF 2, CPE-CF 2, PLA-EC 2, PAHT-CE 2, PETG-CF 2, PET 2, PPS-CF 2, HIPS 2, PEBA 2, OBC 2, TPC-ESD 2, PBAT 2, CPE-LW 2, TPU-LW 2, BVOH 2, PLA-GF 2, PA12-GF 2, PET-CF 2, Support for PA/PET 2, PC-PBT 2, PE-GF 2, PLA Sparkle 1, POM / Acetal 1, TPC / TPEE 1, PCL 1, TPU for AMS 1, TPU-CF 1, ASA-CF 1, PC FR 1, CPE 1, PC-PBT-CF 1.

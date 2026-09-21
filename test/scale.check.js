@@ -49,6 +49,10 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     //   2026-09-20   the same data        compile+validate 150.5 s at 2x on a rerun, and the check failed
     //   2026-09-20   the same data        compile+validate  16 s at 2x   (the kernel is solved by block,
     //                                     DECISIONS D79; the estimate stage is 5.7 s at 1x, down from 36)
+    //   2026-09-21  11,096 measurements   compile+validate  41 s at 2x   (the import closed, b27 to b33)
+    //   2026-09-21   the same data        compile+validate  59 s at 2x   (grade estimates, D81: every grade
+    //                                     predicted and calibrated at grade level, +3 s at 1x; the downdate in
+    //                                     predict() is dense, and making it sparse is the lever if this grows)
     //
     // The budget was raised once, from 90 s to 150 s, with the measurement written beside it. When it was
     // breached a second time it was not raised again: a budget raised the second time it is breached has stopped

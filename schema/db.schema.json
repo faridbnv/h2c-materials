@@ -163,6 +163,117 @@
               "string",
               "null"
             ]
+          },
+          "estimate": {
+            "type": "object",
+            "description": "The grade's own estimate per headline (D81): added by the estimate stage, absent from the core build. It decides nothing.",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "strength",
+                "precision",
+                "unit",
+                "centre",
+                "lo",
+                "hi",
+                "plausible",
+                "ownShare",
+                "evidence",
+                "basis"
+              ],
+              "properties": {
+                "strength": {
+                  "enum": [
+                    "this-grade",
+                    "this-material",
+                    "family"
+                  ]
+                },
+                "precision": {
+                  "enum": [
+                    "good",
+                    "fair",
+                    "poor"
+                  ]
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "centre": {
+                  "type": "number"
+                },
+                "lo": {
+                  "type": "number"
+                },
+                "hi": {
+                  "type": "number"
+                },
+                "plausible": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "lo",
+                    "hi"
+                  ],
+                  "properties": {
+                    "lo": {
+                      "type": "number"
+                    },
+                    "hi": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "ownShare": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "measurementIds",
+                      "converted",
+                      "conflict"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "type": "string"
+                      },
+                      "measurementIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "converted": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "conflict": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "basis": {
+                  "type": "string"
+                },
+                "sharedWith": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           }
         }
       }

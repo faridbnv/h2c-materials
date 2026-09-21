@@ -39,6 +39,7 @@ import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.js';
 import { makeRangeFor } from './bounds.js';
 import { attachLoadBrackets, backTest, screenDecision } from './screening.js';
 import { attachPrintEstimates } from './print.js';
+import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta } from './grades.js';
 
 export { ESTIMATE_MODEL, estimateKeys, identityOf } from './model.js';
 
@@ -51,7 +52,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
   const S = snapshot(materials, grades, measurements, model);
   const { likely, plausible } = model.levels;
   const zLikely = normalQuantile(0.5 + likely / 2), zPlausible = normalQuantile(0.5 + plausible / 2);
-  const diagnostics = { levels: model.levels, properties: {}, rejected: [], bounds: [], conflicts: [], outliers: [] };
+  const diagnostics = { levels: model.levels, properties: {}, rejected: [], bounds: [], conflicts: [], outliers: [], gradeOutliers: [], gradeEstimates: gradeEstimateMeta(model) };
 
   for (const key of ESTIMATE_KEYS) {
     const inv = untransform(key, model);
@@ -87,6 +88,23 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
     const certification = backTest({ key, model, S, obs, tmMean, rangeFor, holdOut });
     diagnostics.properties[key].screening = certification;
+
+    // Every grade's own estimate, with ranges calibrated at grade level (grades.js, D81). It is added beside the
+    // material's and moves nothing the material shows.
+    const gradeCal = calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible });
+    diagnostics.properties[key].gradeCalibration = gradeCal.calibration;
+    const named = new Set(outliers.map((o) => `${o.materialId}|${o.key}`));
+    diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.gradeId === o.gradeId)));
+    // A headline whose grade scales reach the clamp is one the model cannot calibrate at grade level, and it ships
+    // no grade estimate rather than a range that claims coverage it does not have (D81's stop rule).
+    const clamped = gradeCal.calLikely >= model.calibration.likelyScale[1] || gradeCal.calPlausible >= model.calibration.plausibleScale[1];
+    diagnostics.properties[key].gradeCalibration.shipped = !clamped;
+    if (clamped) {
+      diagnostics.properties[key].gradeCalibration.why = 'its grade scales reach the calibration clamp: a product\'s published value scatters about its material more than the model can say, so no grade range is shown';
+    } else {
+      const gradeRangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely: gradeCal.calLikely, calPlausible: gradeCal.calPlausible });
+      attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, rangeFor: gradeRangeFor, ownerOfF });
+    }
 
     for (const m of S.pool) {
       const h = m.headline[key];

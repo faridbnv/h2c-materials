@@ -72,6 +72,18 @@ export function validateEstimates(db) {
     if (Math.abs(c.likelyCoverage - LEVELS.likely) > cal.likelyTolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The likely range contains ${Math.round(c.likelyCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.likely * 100)}%`));
     if (c.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) issues.push(err('EST-CALIBRATION', `estimate model ${key}`, `The plausible range contains ${Math.round(c.plausibleCoverage * 100)}% of hidden headlines, not ${Math.round(LEVELS.plausible * 100)}%`));
   }
+  // The grade ranges carry their own calibration (D81) and are held to the same tolerances where they are shipped.
+  for (const [key, p] of Object.entries(model.properties)) {
+    const g = p.gradeCalibration;
+    if (!g?.shipped) continue;
+    const cal = ESTIMATE_MODEL.calibration;
+    if (g.held < cal.minHeld) continue;
+    if (Math.abs(g.likelyCoverage - LEVELS.likely) > cal.likelyTolerance) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade likely range contains ${Math.round(g.likelyCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.likely * 100)}%`));
+    if (g.plausibleCoverage < LEVELS.plausible - cal.plausibleShortfall) issues.push(err('EST-CALIBRATION', `estimate model ${key} grades`, `The grade plausible range contains ${Math.round(g.plausibleCoverage * 100)}% of hidden grade values, not ${Math.round(LEVELS.plausible * 100)}%`));
+  }
+  if (model.gradeOutliers?.length) {
+    issues.push(warn('EST-GRADE-OUTLIER', 'grades', `${model.gradeOutliers.length} grades publish a value far outside what the model predicts for them from everything else: ${model.gradeOutliers.map((o) => `${o.gradeId} ${o.material} ${o.key} ${o.kind} z ${o.z}${o.measurementIds.length ? ` (${o.measurementIds.join(', ')})` : ''}`).join('; ')}`, { records: model.gradeOutliers.map((o) => `${o.gradeId} ${o.key}`) }));
+  }
   db.meta.estimateTally = tally;
   issues.push(warn('EST-SUMMARY', 'materials', `Missing headlines: ${tally['this-grade']} estimated from the grade's own related measurements, ${tally['this-material']} from the material's other grades, ${tally.family} from the family model alone (${tally.poor} of all estimates imprecise), ${tally.notApplicable} not applicable. ${tally.screen} estimates may screen a material out in Explore; none can pass one.`));
   if (model.rejected.length) {
@@ -185,6 +197,24 @@ export function estimateReportLines(db) {
   }
   L.push('');
   screeningLines();
+  const gradeRows = Object.entries(mdl.properties ?? {}).filter(([, p]) => p.gradeCalibration);
+  if (gradeRows.length) {
+    L.push('Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.');
+    L.push('');
+    L.push('| Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |');
+    L.push('|---|---:|---:|---:|---:|---:|---|');
+    for (const [key, p] of gradeRows) {
+      const g = p.gradeCalibration;
+      L.push(`| ${key} | ${g.held} | ${g.likelyScale} | ${g.plausibleScale} | ${g.likelyCoverage} | ${g.plausibleCoverage} | ${g.shipped ? 'yes' : `no: ${g.why}`} |`);
+    }
+    L.push('');
+    if (mdl.gradeOutliers?.length) {
+      const by = new Map();
+      for (const o of mdl.gradeOutliers) by.set(o.material, (by.get(o.material) ?? 0) + 1);
+      L.push(`EST-GRADE-OUTLIER, ${mdl.gradeOutliers.length} grades: ${[...by].sort((a, b) => b[1] - a[1]).map(([m, n]) => `${m} ${n}`).join(', ')}.`);
+      L.push('');
+    }
+  }
   if (mdl.conflicts?.length) {
     L.push(`Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, ${mdl.conflicts.length} observations):`);
     L.push('');

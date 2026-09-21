@@ -13,7 +13,9 @@ import { HEAD, transform } from './model.js';
  */
 export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible }) {
   const { likely, plausible } = model.levels;
-  return (m, subject, p, unit, { ownBounds = true } = {}) => {
+  // `formulation` predicts one grade rather than the material: the density limit then asks whether that grade is
+  // a declared variant, not whether the representative one is (D81). Material calls pass none, so nothing moves.
+  return (m, subject, p, unit, { ownBounds = true, formulation } = {}) => {
     const h = { unit };
     const bounds = [];
     // Physical limits bound every estimate softly (estimate-model.json bounds): the property's outer
@@ -31,7 +33,9 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
     // For strength and elongation a printed part is strongest in XY, so a lower bound in an unstated direction
     // bounds the XY value too; an upper bound does only with the headline's own semantics.
     const limits = (b) => b.kind === HEAD[key] || (b.side === 'lower' && key !== 'hdt045' && key !== 'density' && b.kind === HEAD[key].replace(' XY', ' unk'));
-    for (const b of ownBounds ? oneSided.filter((b) => b.materialId === subject.id && limits(b)) : []) {
+    // A grade's range (formulation given) takes the bounds its own sheets publish, not its siblings'.
+    const mineOnly = (b) => formulation === undefined || S.fkey(b.gradeId) === formulation;
+    for (const b of ownBounds ? oneSided.filter((b) => b.materialId === subject.id && limits(b) && mineOnly(b)) : []) {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       bounds.push({ side: b.side, own: b.value, value: toModel(b.value), sd: model.bounds.oneSided.sd[scaleName], why: `${b.side === 'lower' ? 'above' : 'below'} ${b.value} ${h.unit}, published for ${b.gradeId} (${b.measurementId})` });
     }
@@ -39,7 +43,10 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
     // the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa) limits its
     // estimate from below, as a published one-sided bound does. PA6's plausible HDT reached down to 72 °C though
     // its own 1.8 MPa value is 90 °C (audit 2026-09-15, B-16).
-    if (ownBounds) {
+    // What the material's own printed measurements prove is its representative grade's: another grade's range does
+    // not take it.
+    const representative = formulation === undefined || (m.representativeGrade && S.fkey(m.representativeGrade) === formulation);
+    if (ownBounds && representative) {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       for (const b of m.headline[key]?.impliedBounds ?? []) {
         if (!(b.lo > 0) && scaleName === 'log') continue;
@@ -53,7 +60,9 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       const { lift, sd, why } = model.bounds.ownVicat;
       bounds.push({ side: 'upper', value: S.vicatOf(m) + lift, sd, why: `its own Vicat ${S.vicatOf(m)} °C + ${lift} °C: ${why}` });
     }
-    if (key === 'density' && S.info(m).density && !S.variantOf(m.representativeGrade && S.fkey(m.representativeGrade)) && !S.grades.get(m.representativeGrade)?.variant) {
+    const variantHere = formulation !== undefined ? S.variantOf(formulation)
+      : S.variantOf(m.representativeGrade && S.fkey(m.representativeGrade)) || S.grades.get(m.representativeGrade)?.variant;
+    if (key === 'density' && S.info(m).density && !variantHere) {
       const [dlo, dhi] = S.info(m).density, cfg = model.bounds.density;
       const r = S.reinforcement(m), rf = cfg.fibreDensity[r];
       const hi = rf ? 1 / ((1 - cfg.maxFibreWeight) / dhi + cfg.maxFibreWeight / rf) : dhi;

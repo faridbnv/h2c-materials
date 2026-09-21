@@ -46,9 +46,13 @@ export function makeHoldOut({ key, raw, model, conv, obs, S, hp: fullSpreads }) 
   const productsOf = new Map();
   for (const o of raw) { if (!productsOf.has(o.m.id)) productsOf.set(o.m.id, new Set()); productsOf.get(o.m.id).add(`${o.m.id}|${o.f}`); }
   const refitted = new Map();
-  return (m, f, manufacturer, hide, { wholeMaterial = false } = {}) => {
+  // `refitConversions: false` keeps the conversion offsets fitted on all data: the grade calibration (grades.js)
+  // hides one product at a time, whose pairs move an offset by a hair, and refitting them per product was most of
+  // its cost (D81).
+  return (m, f, manufacturer, hide, { wholeMaterial = false, refitConversions = true } = {}) => {
     const { P, hp } = fitFor(foldOf.get(m.id));
     const p = predict(P, hp, m, f, manufacturer, hide);
+    if (!refitConversions) return p;
     const groups = wholeMaterial ? new Set([...(productsOf.get(m.id) ?? []), `${m.id}|${f}`]) : new Set([`${m.id}|${f}`]);
     const cacheKey = [...groups].sort().join(' ');
     if (!refitted.has(cacheKey)) {

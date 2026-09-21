@@ -291,6 +291,12 @@ deflection estimate and no yield-to-ultimate conversion; an unknown direction ne
 documented offset; a material's only evidence is never down-weighted as a conflict; and what its own printed data
 prove (implied bounds) limits its range from below (D55). A physically implausible value informs nothing.
 
+**Every grade has its own estimate too (D81).** The same model predicted at the grade's own row — its formulation
+and its maker — gives `db.grades[].estimate[key]`: a centre, likely and plausible ranges calibrated at grade level,
+how much of it rests on the grade's own values, and the values themselves. It decides nothing (screening reads the
+material's), heat deflection ships none because its grade calibration does not hold, and the snapshot's
+`grades.csv` shows every one.
+
 **One model per headline, over every observation.** The natural log of density, stiffness, strength
 and elongation, and heat deflection in °C, are each modelled as
 

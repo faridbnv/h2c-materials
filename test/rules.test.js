@@ -60,7 +60,8 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   //
   // EST-CONFLICT appeared with PLAN-REMAINING 2.1: the observations the model had always down-weighted, and only
   // listed in the report, are a finding now, one per material, headline and kind, informational until the sweep.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
+  // EST-GRADE-OUTLIER arrived with the grade estimates (D81): a grade's own value, hidden, far from its prediction.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {

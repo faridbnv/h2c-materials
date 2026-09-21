@@ -8,6 +8,7 @@
 //   build/snapshot/templates.csv   each application template's candidates in Strict, Explore, and Explore with estimates
 //   build/snapshot/warnings.csv    every build warning, one row per record
 //   build/snapshot/screening.csv   for every headline, evidence class and end, whether it may screen and where (D59)
+//   build/snapshot/grades.csv      every grade's own estimate per headline (D81): strength, precision, the ranges
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -80,12 +81,22 @@ for (const [matrix, s] of Object.entries(db.meta.estimateModel.bracketScreening)
   screening.push({ Headline: 'hdt045 unstated-load bracket', Class: matrix, End: 'top', Held: s.held, BeyondPlausible: '', Rank: s.rank ?? '', Quantile: s.topGap == null ? '' : `gap ${s.topGap}`, Screens: s.certified ? 'yes' : 'no' });
 }
 
+// Every grade's own estimate (D81), so a range that moves shows in the diff of the change that moved it.
+const gradeRows = [];
+for (const g of [...db.grades].sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }))) {
+  for (const [key, e] of Object.entries(g.estimate ?? {})) {
+    gradeRows.push({ GradeID: g.id, MaterialID: g.materialId, Product: g.product, Headline: key, Strength: e.strength, Precision: e.precision,
+      Centre: e.centre, Likely: `${e.lo}-${e.hi}`, Plausible: `${e.plausible.lo}-${e.plausible.hi}`, Unit: e.unit, Own: e.ownShare });
+  }
+}
+
 const files = {
   'headlines.csv': csvText(Object.keys(headlines[0]), headlines),
   'gates.csv': csvText([...new Set(gates.flatMap((g) => Object.keys(g)))], gates),
   'templates.csv': csvText(Object.keys(templates[0]), templates),
   'warnings.csv': csvText(['Code', 'Record'], warnings),
   'screening.csv': csvText(Object.keys(screening[0]), screening),
+  'grades.csv': csvText(['GradeID', 'MaterialID', 'Product', 'Headline', 'Strength', 'Precision', 'Centre', 'Likely', 'Plausible', 'Unit', 'Own'], gradeRows),
 };
 
 if (process.argv.includes('--check')) {
@@ -95,5 +106,5 @@ if (process.argv.includes('--check')) {
 } else {
   mkdirSync(dir, { recursive: true });
   for (const [f, text] of Object.entries(files)) writeFileSync(join(dir, f), text);
-  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends`);
+  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates`);
 }

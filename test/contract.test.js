@@ -29,7 +29,31 @@ test('the core database without the estimate stage validates and meets the contr
   const reference = compileReference(referenceRows, [], referenceWhere, db.registry);
   assert.deepEqual(contractIssues({ db, reference }), []);
   assert.ok(db.materials.every((m) => Object.values(m.headline).every((h) => !h.estimate && !h.loadBracket)));
+  assert.ok(db.grades.every((g) => g.estimate === undefined), 'a grade carries an estimate in the core build');
   assert.equal(db.meta.estimateModel, undefined);
+});
+
+// A grade estimate is the material's model predicted at the grade's own row (D81). Where a material's headline is
+// itself an estimate from its representative grade's row, the two describe one product and must agree: the grade's
+// centre inside the material's plausible range. And a grade estimate is never shown where the calibration said no.
+test('a grade estimate agrees with its material\'s, and exists only where its calibration holds', () => {
+  const db = read('db.json');
+  const grades = new Map(db.grades.map((g) => [g.id, g]));
+  let compared = 0;
+  for (const m of db.materials) {
+    for (const [key, h] of Object.entries(m.headline)) {
+      const g = grades.get(m.representativeGrade)?.estimate?.[key];
+      if (!h.estimate || !g || h.estimate.sharedWith) continue;
+      assert.ok(g.centre >= h.estimate.plausible.lo && g.centre <= h.estimate.plausible.hi,
+        `${m.name} ${key}: the representative grade's centre ${g.centre} lies outside the material's plausible ${h.estimate.plausible.lo}-${h.estimate.plausible.hi}`);
+      compared++;
+    }
+  }
+  assert.ok(compared > 100, `only ${compared} representative-grade estimates compared`);
+  for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
+    if (p.gradeCalibration.shipped) continue;
+    assert.ok(db.grades.every((g) => !g.estimate?.[key]), `${key}: grade estimates shipped where the calibration said no`);
+  }
 });
 
 test('a renamed, dropped, retyped or unexpected field is reported at its path', () => {

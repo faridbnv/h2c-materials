@@ -87,6 +87,7 @@ break if it were reversed, because that is the part that gets lost.
 | D78 | A limit a material's own grades publish is a floor for its shown range | In force |
 | D79 | The kernel is solved by block, and the estimates are the dense solve's | In force |
 | D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | In force |
+| D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | In force |
 
 <!-- end index -->
 
@@ -1868,3 +1869,40 @@ flexural strength of 18 MPa) are inside the dense windows, which is what those w
 What this does not do is name the filler. A maker who declares the load in words — "loaded with copper particles"
 — has named a filler `schema/vocab/modifiers.csv` has no value for, and that is a ruling and a modifier value, as
 graphene and natural fibre were (R080). `dense` is for the load a maker declares and does not name.
+
+## D81. Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing
+
+*Asked for by the owner on 2026-09-21: "hierarchical: polymer group, material, grade, all measurements".*
+
+The model already was that hierarchy (D43, D79): a chemical group, an identity pulled towards it, the material's own
+deviation and the product's own deviation, fitted to every observation of every grade converted to the headline.
+What it published was one estimate per material, predicted at its representative grade's row. A material with a
+hundred grades showed the reader one of them.
+
+- **A grade's estimate is the same prediction at the grade's own row**: its formulation and its maker as test house
+  (`build/src/estimate/grades.js`). There is no new hierarchy and no refit. A grade that publishes the headline pulls
+  its posterior towards what it published; one that publishes nothing gets its material's latent and the spread
+  between products. Grades that share a formulation share one posterior and name each other (`sharedWith`).
+- **Calibrated at grade level.** A product scatters about its material more than a material about its family's
+  prediction, so the material's scales do not hold for grades (strength covered 94 % where 80 % was claimed). Each
+  grade that publishes the headline has those values hidden and predicted from the rest, through the material
+  calibration's hold-out, with the observation's own noise in the denominator; the likely and plausible scales are
+  set from where they fell, and checked with the material's tolerances (`EST-CALIBRATION`, "... grades").
+- **The stop rule holds today for heat deflection.** A headline whose grade scales reach the calibration clamp ships
+  no grade estimate: heat deflection's plausible scale reaches 3, because a product's own value scatters with its
+  load, its annealing and its crystallinity more than the model can say. The report says so, and the snapshot shows
+  none.
+- **Bounds.** The representative grade takes exactly the material's bounds, so the two agree
+  (`test/contract.test.js`); any other grade takes the physical limits and the bounds its own sheets publish, never a
+  sibling's, and a variant grade is not held to its polymer's neat density.
+- **It decides nothing.** Screening and the headlines read the material's estimate (D48, D59); `constraints.js`
+  never reads a grade. `db.grades[].estimate[key]` is added by the estimate stage and absent from the core build.
+- **EST-GRADE-OUTLIER** (informational until the sweep) names a grade whose own value, hidden, sits beyond three
+  calibrated plausible deviations of its prediction; not where EST-OUTLIER already names the material's headline, and
+  never for a grade that is its material's only evidence.
+
+On the day it was built: density 759 hidden grade values (likely 80 %, plausible 95 %), modulus 236, strength 258,
+elongation 305; heat deflection 382, not shipped. 1,050 grades carry an estimate, 1.8 MB of `db.json`. `npm run
+build:diff` showed the addition and nothing under `db.materials`. The estimate stage costs 3 s more at 1x and the
+2x check reads 59 s against a 150 s budget; the downdate in `predict()` is dense, and making it sparse is the lever
+if that grows. Reversing it removes the grade cards and nothing else.
