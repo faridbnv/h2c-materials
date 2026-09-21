@@ -241,4 +241,12 @@ test('two values a sheet orders the wrong way round are a swapped line, unless t
   assert.deepEqual(run([thermal('V1', 'Crystallization temperature', 240), thermal('V2', 'Melting temperature', 180)]), ['V1']);
   // Rows of different grades are not a pair.
   assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 145), { ...thermal('V2', 'Vicat softening temperature', 119), GradeID: 'G2-01' }]), []);
+  // Nor are a film and a bar: FormFutura prints Ingeo's film tensile strength beside its own bars' flexural one.
+  const strength = (id, property, value, specimen) => row({ MeasurementID: id, Property: property, 'Normalized value': String(value),
+    'Normalized unit': 'MPa', Direction: 'Unstated', Locator: `p. 1: ${property}`, 'Specimen type': specimen });
+  const film = 'Film specimen (ASTM D882); not a printed or moulded bar';
+  const bar = 'Not published (do not assume printed)';
+  assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, film)]), []);
+  // The same two values measured on one kind of specimen are still one of them on the wrong line.
+  assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, bar)]), ['V1']);
 });

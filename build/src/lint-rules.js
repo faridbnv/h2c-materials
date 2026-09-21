@@ -335,11 +335,17 @@ export function lintData(tables, schemas) {
   // inversion is only evidence of a swapped line when it is larger than that, so the margin is a tenth.
   const ORDER_MARGIN = 0.1;
   const elastomers = new Set((tables.materials?.rows ?? []).filter((m) => elastomerIdentities.has(m['Estimate identity'])).map((m) => m.MaterialID));
+  // Physics orders two values of one specimen. A film or a filament strand is not the bar the sheet's other rows
+  // were measured on — FormFutura prints Ingeo's film tensile strength (110 MPa, ASTM D882) beside its own printed
+  // bars' flexural strength (55) — so a pair across two specimen forms is two claims about two things, not one of
+  // them on the wrong line. The window check already leaves those forms out (below) for the same reason.
+  const unlikeBar = (r) => /^(Film|Filament)/.test(r['Specimen type'] ?? '');
+  const sameSpecimen = (a, b) => unlikeBar(a) === unlikeBar(b);
   for (const rows of groups.values()) {
     const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
     for (const [lower, higher, why] of ORDERED) {
       for (const a of of(lower)) {
-        for (const b of of(higher, (r) => r['Normalized unit'] === a['Normalized unit'] && r.Direction === a.Direction)) {
+        for (const b of of(higher, (r) => r['Normalized unit'] === a['Normalized unit'] && r.Direction === a.Direction && sameSpecimen(a, r))) {
           if (num(a) > num(b) * (1 + ORDER_MARGIN)) add('MEAS-PHYSICS-ORDER', 'measurements', a.MeasurementID, 'Normalized value', `${lower} ${num(a)} above ${higher} ${num(b)} (${b.MeasurementID}): ${why}`);
         }
       }
@@ -348,7 +354,7 @@ export function lintData(tables, schemas) {
     // tensile strength of the same specimen is one of the two on the wrong line. An elastomer is left out: it
     // never reaches the conventional deflection, so what its sheet calls a flexural strength is another quantity.
     for (const flexural of of('Flexural strength', (r) => !elastomers.has(r.MaterialID))) {
-      for (const tensile of of('Tensile strength (endpoint unspecified)', (r) => r['Normalized unit'] === flexural['Normalized unit'] && r.Direction === flexural.Direction)) {
+      for (const tensile of of('Tensile strength (endpoint unspecified)', (r) => r['Normalized unit'] === flexural['Normalized unit'] && r.Direction === flexural.Direction && sameSpecimen(flexural, r))) {
         if (num(flexural) < num(tensile) * (1 - ORDER_MARGIN)) add('MEAS-PHYSICS-ORDER', 'measurements', flexural.MeasurementID, 'Normalized value', `Flexural strength ${num(flexural)} below tensile strength ${num(tensile)} (${tensile.MeasurementID}): a bar bends harder than it pulls, because its outer fibre carries the load`);
       }
     }
