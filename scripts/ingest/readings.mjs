@@ -365,6 +365,50 @@ export function readings(only = null) {
   return rows;
 }
 
+/**
+ * The owner's verdicts, written as rulings. A verdict is one word in readings.csv: `yes` takes the reading, a
+ * polymer's ID corrects it, `no` strikes it. Each `yes` or polymer becomes a row of rulings.csv the reader applies
+ * like every other ruling: Kind `identity` for a product whose name says no polymer or only a family (R075, R077),
+ * naming the product as the catalogue lists it; Kind `new-material` where the sheet declares a pair no material
+ * holds (R083), which is the permission apply.mjs asks for before it creates one. A verdict that corrects an R083
+ * reading is an identity ruling first — the proposal is re-read under it, and the material it then names comes
+ * back here for its own permission. Nothing is written for `no`, for a polymer with no row (R081 writes the row
+ * first), or for a subject the register already rules on; a verdict that disagrees with the register is reported
+ * and left to the owner, because two rulings on one product would be a contradiction the reader cannot apply.
+ */
+export function rulingsFromVerdicts(rows, rulings, polymers, { by = 'farid', date = new Date().toISOString().slice(0, 10) } = {}) {
+  const norm = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9/+]+/g, ' ').trim();
+  const have = new Map(rulings.map((r) => [`${r.Kind}|${norm(r.Subject)}`, r]));
+  const held = new Set(polymers.map((p) => p.PolymerID));
+  let next = Math.max(0, ...rulings.map((r) => Number(String(r.Ruling).replace(/\D/g, '')) || 0)) + 1;
+  const out = { written: [], refused: [], struck: [], already: [] };
+  for (const r of rows) {
+    const said = String(r.Verdict ?? '').trim();
+    if (!said) continue;
+    if (/^no$/i.test(said)) { out.struck.push(r); continue; }
+    const polymer = /^yes$/i.test(said) ? r.Reading : said;
+    if (!polymer || polymer === 'Not read') { out.refused.push({ row: r, why: 'the reading is empty: a verdict of yes takes nothing, so name the polymer' }); continue; }
+    if (!held.has(polymer)) { out.refused.push({ row: r, why: `"${polymer}" has no row in polymers.csv (R081: the row is written from a producer's reference first)` }); continue; }
+    const creates = /\(new material\)$/.test(r['Material it would join'] ?? '');
+    const kind = r.Ruling === 'R083' && creates && polymer === r.Reading ? 'new-material' : 'identity';
+    const subject = kind === 'new-material' ? r['Material it would join'].replace(' (new material)', '') : r.Product;
+    const modifier = /the sheet declares \S+ and (.+?), and no material holds/.exec(r.Evidence ?? '')?.[1] ?? r['Filler the name declares'];
+    const value = kind === 'new-material' ? `${polymer} × ${modifier}` : polymer;
+    const prior = have.get(`${kind}|${norm(subject)}`);
+    if (prior && prior.Value !== value) { out.refused.push({ row: r, why: `${prior.Ruling} already rules ${subject} as "${prior.Value}"; the verdict says "${value}"` }); continue; }
+    if (prior) { out.already.push({ row: r, ruling: prior.Ruling }); continue; }
+    const how = /^yes$/i.test(said) ? `the reading stands` : `read as ${r.Reading}, and the owner says ${polymer}`;
+    const row = {
+      Ruling: `R${String(next++).padStart(3, '0')}`, Kind: kind, Subject: subject, Value: value,
+      Reason: `Owner verdict on readings/readings.csv (${r.Provider} ${r.Product}, ${r.Ruling}): ${how}. ${String(r.Evidence ?? '').slice(0, 320)}`,
+      By: by, Date: date,
+    };
+    have.set(`${kind}|${norm(subject)}`, row);
+    out.written.push(row);
+  }
+  return out;
+}
+
 const HEADER = ['Ruling', 'Doc key', 'Provider', 'Brand', 'Product', 'Reading', 'Filler the name declares',
   'Material it would join', 'Polymer has a row', 'Strength', 'Evidence', 'Verdict', 'URL'];
 
@@ -381,7 +425,10 @@ function document(rows) {
     `- **narrowed** — the sheet names none, but its own density and melting point admit one row of \`polymers.csv\`: ${strengths.get('narrowed') ?? 0}`,
     `- **unread** — neither, and what the sheet does publish is listed instead: ${strengths.get('unread') ?? 0}`, '',
     'Strike a row by writing `no` in its Verdict; correct one by writing the polymer it should be. A row left empty',
-    'stays held, which is the same as striking it but says nobody looked.', ''];
+    'stays held, which is the same as striking it but says nobody looked.', '',
+    'A verdict becomes a ruling with `npm run ingest:readings -- --rulings`: `yes` and a polymer name each write a row of',
+    '`rulings/rulings.csv` that the reader applies on the next `ingest:batch -- --propose`; `no` writes nothing, and the',
+    'document stays held under its ruling with the strike noted.', ''];
 
   for (const [id, , what] of RULING_OF) {
     const mine = rows.filter((r) => r.Ruling === id);
@@ -420,7 +467,17 @@ function document(rows) {
   return out.join('\n');
 }
 
-if (process.argv[1]?.endsWith('readings.mjs')) {
+if (process.argv[1]?.endsWith('readings.mjs') && process.argv.includes('--rulings')) {
+  const rows = readCsv(join(OUT, 'readings.csv')).records.map((r) => r.values);
+  const rulingsPath = join(AUDIT, 'rulings/rulings.csv');
+  const rulings = readCsv(rulingsPath).records.map((r) => r.values);
+  const result = rulingsFromVerdicts(rows, rulings, table('polymers'), { by: arg('by') ?? 'farid' });
+  if (result.written.length) writeFileSync(rulingsPath, csvText(Object.keys(rulings[0]), [...rulings, ...result.written]));
+  console.log(`${rows.filter((r) => String(r.Verdict ?? '').trim()).length} verdict(s): ${result.written.length} ruling(s) written, ${result.already.length} already on the register, ${result.struck.length} struck, ${result.refused.length} refused`);
+  for (const r of result.written) console.log(`  ${r.Ruling}  ${r.Kind.padEnd(12)} ${r.Subject} -> ${r.Value}`);
+  for (const { row, why } of result.refused) console.log(`  ?  ${row.Provider} ${row.Product}: ${why}`);
+  if (result.written.length) console.log('next: npm run ingest:batch -- --propose --held ruling');
+} else if (process.argv[1]?.endsWith('readings.mjs')) {
   const rows = readings(arg('class'));
   mkdirSync(OUT, { recursive: true });
   const path = join(OUT, 'readings.csv');

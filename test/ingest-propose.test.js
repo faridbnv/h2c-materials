@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { documentText } from '../scripts/lib/pdf-text.mjs';
-import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged } from '../scripts/ingest/propose.mjs';
+import { propose, measurementRow, pageGutters, splitAtGutters, shareMergedLabels, axisColumns, splitAtAxisColumns, readRow, readSheet, targetUnit, impactMethod, notchOf, readSetting, settingValue, profileFor, profilesFor, splitAtNeighbour, unreadRowReason, pageRows, labelHeads, labelFor, productName, printedTitle, looksDamaged, A_DECLARED_LOAD } from '../scripts/ingest/propose.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const registry = new Map(readCsv(join(root, 'data/tables/properties.csv')).records.map((r) => [r.values.Property, r.values]));
@@ -1054,4 +1054,21 @@ test('a setting never cites a standard: a sentence with a designation in it is n
   assert.equal(readSetting(line(cell('chamber per ASTM G154 (Standard Practice for Operating Fluorescent UV Light Apparatus for Exposure', 45))), null);
   // A real enclosure statement still reads.
   assert.ok(readSetting(line(cell('Enclosure', 45), cell('Recommended', 200))));
+});
+
+test('a maker who says what the filament is loaded with has declared it, and R078 is for the ones who do not', () => {
+  // R078 records an undisclosed load as a grade Variant. colorFabb's copperFill discloses it in its first
+  // sentence, and writing "Not declared on the sheet" over that would be a false sentence in the data: what the
+  // sheet names and the vocabulary has no value for is a modifier ruling, as graphene and natural fibre were.
+  for (const said of [
+    'colorFabb copperFill is a high quality PLA 3D printing filament, loaded with copper particles',
+    'ColorFabb CopperFill is a high quality PLA 3D printing filament, loaded with a high amount of copper particles',
+    'Prusament PETG Tungsten 75% contains 75 % by weight of tungsten',
+  ]) assert.ok(A_DECLARED_LOAD.test(said), said);
+  // A sheet that says nothing about a load says nothing: those are the ones R078 speaks for.
+  for (const silent of [
+    'Nanovia ISTROFLEX : Biodegradable flexible 3D printing filament',
+    'A general purpose PLA for everyday printing',
+    'HDPE filament for chemical resistance',
+  ]) assert.ok(!A_DECLARED_LOAD.test(silent), silent);
 });

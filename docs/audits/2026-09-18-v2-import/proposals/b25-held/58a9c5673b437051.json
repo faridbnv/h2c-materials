@@ -1,0 +1,698 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "58a9c5673b437051db279513a2720ef02cda9f76cd50d9e6976db79efd32ac71",
+    "url": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/CompositesMaterialDatasheet.pdf",
+    "pages": 2,
+    "provider": "Markforged",
+    "manufacturer": "Markforged",
+    "docKey": "58a9c5673b437051"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: nylon"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 0.8,
+    "needsRuling": true,
+    "reasons": [
+      "\"nylon\" names a family, not a polymer: which nylon is a ruling: PA is a family entry and owns no product (D44)"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+      "Publisher": "Markforged",
+      "Title": "MATERIAL DATASHEET Composites",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/CompositesMaterialDatasheet.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "58a9c5673b437051db279513a2720ef02cda9f76cd50d9e6976db79efd32ac71"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATASHEET Composites"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Markforged",
+        "Product name": "Composites",
+        "Shared formulation key": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Composition / filler": "Kevlar® composites) performance. Fiber test plaques are fully filled with unidirectional infringement; and assumes no liability in connection with the (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "2. Onyx FR is UL 94 V-0 Blue Card certified (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATASHEET Composites"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "71 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "71",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "71",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Locator": "p. 2: Flexural Strength:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural Strength: 71 MPa Flexural Strength: 540 MPa"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "71 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "71",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "71",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Locator": "p. 2: Flexural Strength:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural Strength: 71 MPa Flexural Strength: 200 MPa"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "83 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "83",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "83",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Locator": "p. 2: Flexural Strength:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural Strength: 83 MPa"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "240 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "240",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "240",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Locator": "p. 2: Flexural Strength:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural Strength: 240 MPa"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "50 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Locator": "p. 2: Flexural Strength:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural Strength: 50 MPa"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "420 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "420",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "420",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MARKFORGED-CompositesMaterialDatasheet",
+        "Locator": "p. 2: Flexural Strength:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural Strength: 420 MPa"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Tensile Modulus (GPa) D638 2.4 3.0 4.2 1.7",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Stress at Yield (MPa) D638 40 41 52 51",
+      "reason": "the row states 4 values in columns of its own (40, 41, 52, 51) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "• Tensile: ASTM D638 type I or IV beams",
+      "reason": "properties.csv carries no property for \"• Tensile:\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Stress at Break (MPa) D638 37 40 50 36",
+      "reason": "the row states 4 values in columns of its own (37, 40, 50, 36) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "• Flexural: 3-pt. Bending, 4.5 in (L) x 0.4 in",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(W) x 0.12 in (H)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Heat-deflection temperature at 0.45",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strain at Break (%) D638 25 18 25 150",
+      "reason": "the row states 4 values in columns of its own (25, 18, 25, 150) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "MPa, 66 psi (ASTM D648-07 Method B)",
+      "reason": "properties.csv carries no property for \"MPa, 66 psi (\""
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength (MPa) D7901 71 71 83 50 1. Measured by a method similar to ASTM",
+      "reason": "the row states 4 values in columns of its own (71, 71, 83, 50) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "D790. Composite Base -only parts do not",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Onyx FR is UL 94 V-0 Blue Card certified",
+      "reason": "properties.csv carries no property for \"2. Onyx FR is\""
+    },
+    {
+      "page": 1,
+      "text": "o down to a thickness of 3mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus (GPa) D7901 3.0 3.6 3.7 1.4",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "3. Surface resistance measured on multiple",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flame Resistance UL94 — V-02 — —",
+      "reason": "the sheet publishes no value for \"Flame Resistance\" in this row: its value column prints \"—\""
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temp ( C) D648 B 145 145 138 41",
+      "reason": "the sheet states HDT in B, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact - notched (J/m) D256-10 A 330 — 44 110",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm3) — 1.2 1.2 1.2 1.1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength (MPa) D3039 800 760 610 590 600",
+      "reason": "the row states 5 values in columns of its own (800, 760, 610, 590, 600) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus (GPa) D3039 60 57 27 21 21",
+      "reason": "the row states 5 values in columns of its own (60, 57, 27, 21, 21) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strain at Break (%) D3039 1.5 1.6 2.7 3.8 3.9",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength (MPa) D7901 540 540 240 200 420",
+      "reason": "the row states 5 values in columns of its own (540, 540, 240, 200, 420) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus (GPa) D7901 51 50 26 22 21",
+      "reason": "the row states 5 values in columns of its own (51, 50, 26, 22, 21) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strain at Break (%) D7901 1.2 1.6 2.1 1.1 2.2",
+      "reason": "the line names Flexural elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Compressive Strength (MPa) D6641 420 300 130 180 216",
+      "reason": "the row states 5 values in columns of its own (420, 300, 130, 180, 216) and the sheet says in its heading what each column is; which of them is this material's is a ruling, not a reading"
+    },
+    {
+      "page": 1,
+      "text": "Compressive Modulus (GPa) D6641 62 59 25 24 21",
+      "reason": "properties.csv carries no property for \"Compressive Modulus (GPa)\" ((GPa))"
+    },
+    {
+      "page": 1,
+      "text": "D6641 0.7 0.5 1.5 — 0.8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temp ( C) D648 B 105 105 105 105 150",
+      "reason": "the sheet states HDT in B, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact - notched (J/m) D256-10 A 960 810 2000 2600 3100",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Temperature data were provided by an accredited 3rd party test",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "unidirectionally (0° Plies) represent typical values.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Tensile test specimens: 9.8 in (L) x 0.5 in (H) x 0.048 in (W)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(CF composites), 9.8 in (L) x 0.5 in (H) x 0.08 in (W) (GF and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Compressive test specimens: 5.5 in (L) x 0.5 in (H) x 0.085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "in (W) (CF composites), 5.5 in (L) x 0.5 in (H) x 0.12 in (W)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Flexural test specimens: 3-pt. Bending, 4.5 in (L) x 0.4 in (W)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "x 0.12 in (H) to customer’s specifications.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Heat-deflection temperature at 0.45 MPa, 66 psi (ASTM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "D648-07 Method B)",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "markforged.com REV 5.3 - 10/10/2023 © 2023 Markforged, Inc. All rights reserved.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm3) — 1.4 1.4 1.2 1.5 1.5",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "600",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "500",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "80",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Al 6061-T6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Onyx 400",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "40 Kevlar®",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "200",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.01 0.02 0.03 0.04 0.05 0 0.01 0.02 0.03 0.04",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Onyx is a micro carbon fiber filled nylon. It’s 1.4 times stronger and stiffer than",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Onyx FR is a Blue Card certified UL94 V-0 material that possesses similar",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "accessible price. 2.5 times stronger and eight times stiffer than Onyx, Fiberglass",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "markforged.com REV 5.3 - 10/10/2023 © 2023 Markforged, Inc. All rights reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

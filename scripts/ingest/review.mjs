@@ -146,6 +146,14 @@ if (process.argv[1]?.endsWith('review.mjs')) {
   const batch = arg('batch'), doc = arg('doc'), by = arg('by');
   const found = find({ batch, doc });
   if (!found.length) { console.error('no proposals match'); process.exit(2); }
+  // A document is proposed again in every batch that re-reads it, and the older copies stay in their batch
+  // folders as the record of what that batch saw. A review names one of them. Without this, "--doc <key>
+  // --accept m01" wrote today's decision into ten batches' worth of history, eight of them long applied.
+  if (!batch && new Set(found.map((f) => f.path.split('/proposals/')[1].split('/')[0])).size > 1) {
+    const where = [...new Set(found.map((f) => f.path.split('/proposals/')[1].split('/')[0]))];
+    console.error(`${doc ?? 'that'} is proposed in ${where.length} batches (${where.join(', ')}); name the one you are reviewing with --batch`);
+    process.exit(2);
+  }
 
   const decide = (status, list, note) => {
     if (!by) { console.error('--by <name>: a review records who made it'); process.exit(2); }

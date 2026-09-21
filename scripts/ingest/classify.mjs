@@ -140,7 +140,9 @@ const SUPPORT = /\b(support|breakaway|dissolv|soluble|polysupport|sr-?30|rapidri
  */
 function identityRuling(product, context, world, seen = null) {
   const norm = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9/+]+/g, ' ').trim();
-  const names = new Set([norm(product), norm(`${context.manufacturer ?? ''} ${product}`)].filter(Boolean));
+  // The product as the sheet prints it, and as the catalogue lists it: a verdict is given on the reading, whose
+  // row carries the catalogue's name, while the reader classifies by the sheet's own; either names the product.
+  const names = new Set([product, context.catalogue].filter(Boolean).flatMap((n) => [norm(n), norm(`${context.manufacturer ?? ''} ${n}`)]).filter(Boolean));
   const polymers = new Set((world.polymers ?? []).map((p) => p.PolymerID));
   for (const r of world.rulings ?? []) {
     if (r.Kind !== 'identity' || !names.has(norm(r.Subject)) || !polymers.has(r.Value)) continue;
@@ -195,12 +197,25 @@ export function classifyProduct(product, context = {}, world = {}) {
   // Dimafix Pen, PVA glue" is one line naming the filament, the surface and the glue.
   const MADE_OF_IT = /(?:glue|tape|adhesive|spray|stick|lacquer|primer|solvent|cleaner)/i;
   const A_SURFACE = /(?:build\s+(?:surface|plate|sheet)|surface\s+treatment|print\s+surface|bed\s+surface|magigoo|dimafix|3dlac)/i;
+  // The third thing a sheet names that is not the filament: another of the maker's own products. A shop page
+  // shows its siblings and a maker's sheet shows what else it prints — Nanovia's ISTROFLEX page carries a photo
+  // captioned "3D printed flexible support made using Nanovia PLA Flax", and read word by word a Shore D 44
+  // elastomer at 1550 kg/m³ became a PLA. The maker's own name in front of a polymer names one of the maker's
+  // products, and this sheet's product is named at its head, not in a caption. Where this product's own name
+  // carries the polymer, "Nanovia PLA" is this product and the mention is about the filament; where it does
+  // not, it is a sibling, and the filament's polymer has to come from somewhere that answers for it.
+  const maker = String(context.manufacturer ?? '').trim();
+  const quoted = (t) => String(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const aboutTheFilament = (token) => {
     const word = token.replace(/[^a-z0-9]/gi, '').split('').join('[^a-z0-9]?');
     const re = new RegExp(`\\b${word}\\b`, 'gi');
     const hits = [...bodyText.matchAll(re)];
     if (!hits.length) return true;
-    const elsewhere = new RegExp(`\\b${word}\\b[\\s,;(]*${MADE_OF_IT.source}\\b|${A_SURFACE.source}(?:\\s+\\w+)?[\\s,;(]*\\b${word}\\b`, 'gi');
+    const ownName = tokenise(product).includes(token);
+    const sibling = maker && !ownName ? `|\\b${quoted(maker)}\\b[\\s,:.\u2013-]*(?:\\w+[\\s,:.\u2013-]+){0,1}\\b${word}\\b` : '';
+    // A surface is named a word or two before the polymer, and the sheets punctuate it as they like:
+    // "Bed surface / Textured PEI" is the bed AzureFilm printed on, not what LumberLay is made of.
+    const elsewhere = new RegExp(`\\b${word}\\b[\\s,;(]*${MADE_OF_IT.source}\\b|${A_SURFACE.source}[\\s/:,;.-]*(?:\\w+[\\s/:,;.-]+){0,2}\\b${word}\\b${sibling}`, 'gi');
     const named = [...bodyText.matchAll(elsewhere)];
     return hits.some((m) => !named.some((g) => m.index >= g.index && m.index < g.index + g[0].length));
   };
@@ -217,7 +232,18 @@ export function classifyProduct(product, context = {}, world = {}) {
     .map((row) => row.Polymer || `family:${row.Family}`))];
   const fromComposition = saysPolymers.length === 1 ? findToken(stated, POLYMER_ORDER, 'Polymer') : null;
   const blended = saysPolymers.length > 1;
-  const fromSheet = fromComposition ?? (blended ? null : findToken(plain, POLYMER_ORDER, 'Polymer'));
+  // Two polymers named as one thing are a blend, and a blend is its own row of polymers.csv, named for both
+  // (PC-ABS, PLA-PHA): where that row exists the sheet has named it, and where it does not the sheet has named a
+  // material the database has no polymer for, which is a ruling (R082). The row is the data that settles it; no
+  // list of blends lives here.
+  const blendOf = (ids) => {
+    if (ids.length !== 2 || ids.some((id) => !id || /^family:/.test(id))) return null;
+    const have = new Set((world.polymers ?? []).map((p) => p.PolymerID));
+    return [`${ids[0]}-${ids[1]}`, `${ids[1]}-${ids[0]}`].find((id) => have.has(id)) ?? null;
+  };
+  const asBlend = (ids, id) => ({ token: ids.join('/').toLowerCase(), value: id, note: `a blend the sheet names both parts of, and polymers.csv holds as ${id}`, Family: 'Polymer Blends' });
+  const blendStated = blended ? blendOf(saysPolymers) : null;
+  const fromSheet = fromComposition ?? (blendStated ? asBlend(saysPolymers, blendStated) : blended ? null : findToken(plain, POLYMER_ORDER, 'Polymer'));
 
   let polymer = findToken(tokens, POLYMER_ORDER, 'Polymer');
   let where = 'name';
@@ -230,7 +256,7 @@ export function classifyProduct(product, context = {}, world = {}) {
     const family = (token) => POLYMER_ORDER.find((row) => row.Token === token)?.Family ?? '';
     if (family(fromSheet.token) && family(fromSheet.token) === family(polymer.token)) { polymer = fromSheet; where = fromComposition ? 'composition' : 'sheet'; }
   }
-  if (!polymer && !blended) { polymer = fromSheet; if (polymer) where = fromComposition ? 'composition' : 'sheet'; }
+  if (!polymer && (!blended || blendStated)) { polymer = fromSheet; if (polymer) where = fromComposition ? 'composition' : blendStated ? 'composition (blend)' : 'sheet'; }
   // A polymer found loose in the prose is weaker evidence than the product's own name; one the sheet states in
   // its composition row is not. "Polymer base polyamide 12" is the maker answering for the product, and holding
   // every row of such a sheet back for a person to confirm asks them to read what the sheet already says.
@@ -302,6 +328,7 @@ export function classifyProduct(product, context = {}, world = {}) {
   // thing. SUNLU's Easy PA sheet says only "PA", which names a family; SUNLU's own store calls it a PA6/66
   // copolymer, and the ruling carries that answer here so the reader does not have to guess it twice.
   const namedByRuling = identityRuling(product, context, world, polymer?.token ?? null);
+  const namedByARuling = Boolean(namedByRuling);
   if (namedByRuling) {
     polymer = { token: namedByRuling.token, value: namedByRuling.value, note: namedByRuling.note };
     signals.push(`ruling ${namedByRuling.ruling}: ${namedByRuling.value}`);
@@ -330,9 +357,18 @@ export function classifyProduct(product, context = {}, world = {}) {
   const pieces = new Set([chosen, ...chosen.split('-'), chosen.replace(/-/g, '')]);
   const named = [...new Set(POLYMER_ORDER.filter((p) => p.Polymer && tokens.includes(p.Token) && !pieces.has(p.Token)).map((p) => p.Polymer))];
   if (polymer?.value) named.unshift(polymer.value);
-  if (new Set(named.filter(Boolean)).size > 1) {
+  const distinct = [...new Set(named.filter(Boolean))];
+  const blendNamed = distinct.length > 1 ? blendOf(distinct) : null;
+  if (blendNamed) {
+    // "PLA/PHA" names both parts of a blend the database holds a row for, which is the blend naming itself.
+    polymer = asBlend(distinct, blendNamed);
+    signals.push(`name: ${distinct.join('/')} is the blend ${blendNamed}`);
+  } else if (distinct.length > 1 && !namedByARuling) {
+    // A ruling that names this product has already read the name: Siraya Tech's "Fibreheart PAHT CF (PPA based)"
+    // names one polymer twice — PAHT is the trade descriptor and PPA the polymer it says it is based on — and
+    // R086 says so. Asking the same question again of a product a ruling answers for would hold it forever.
     confidence -= 0.5;
-    reasons.push(`"${product}" names more than one polymer (${[...new Set(named.filter(Boolean))].join(', ')}); which it is comes from the sheet`);
+    reasons.push(`"${product}" names more than one polymer (${distinct.join(', ')}); which it is comes from the sheet`);
   }
 
   const identity = {
@@ -343,7 +379,7 @@ export function classifyProduct(product, context = {}, world = {}) {
     family: polymer?.Family ?? POLYMERS.find((p) => p.Token === polymer?.token)?.Family ?? '',
     hardness, support, signals,
   };
-  identity.family = POLYMERS.find((p) => p.Token === polymer?.token)?.Family ?? '';
+  identity.family = polymer?.Family ?? POLYMERS.find((p) => p.Token === polymer?.token)?.Family ?? '';
 
   // "AmideX PA6 Copolymer" is a copolymer of nylon 6 and 6,6, which is PA6/66 and not PA6; the 2026-09-13
   // duplicate-products audit found exactly that sheet filed under three materials. A copolymer word beside a

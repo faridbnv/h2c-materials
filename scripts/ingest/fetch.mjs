@@ -13,11 +13,13 @@
 //   npm run ingest:fetch -- --doc <doc_key>          one document
 //   npm run ingest:fetch -- --provider X --limit 5   the first few, to see what a library serves
 //   npm run ingest:fetch -- ... --refetch            fetch again even where a digest is recorded
+//   npm run ingest:fetch -- --stage <file> --doc <doc_key>    a document the owner saved from a browser (R084)
+//   npm run ingest:fetch -- --stage <folder> --provider X     a folder of them, each matched to its row by file name
 //
 // Writes .cache/sources/by-sha/<sha>.<ext> and updates the ledger. Nothing here touches data/.
 
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { basename, dirname, join } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { sha256, cacheDir } from '../lib/pdf-text.mjs';
@@ -100,6 +102,47 @@ export async function fetchDocument(row, { digests, refetch = false }) {
   return { sha256: sha, status: isPdf ? 'fetched' : 'fetched-page', note: isPdf ? '' : `served ${got.type || 'a page'}; it is hashed as what was read` };
 }
 
+/**
+ * A document the owner supplies is a document like any other: its bytes are hashed and cached where a fetched
+ * one's are, the row gets the digest, and the note says the copy was staged, which is what the source row's
+ * Access state (retrieved-copy) is later written from. What the pipeline never does is take anyone's word for
+ * which document a file is: one file is staged against one named row, and a folder is matched by the file name
+ * the maker's own URL carries (or, where that fails, by a product name that one row alone carries). A file that
+ * matches nothing is listed, not guessed at. Everything downstream reads the bytes, so a staged document travels
+ * the pipeline exactly as a fetched one does.
+ */
+export function stageDocument(row, bytes, name, { digests, date = new Date().toISOString().slice(0, 10) }) {
+  const isPdf = bytes.subarray(0, 5).toString('latin1') === '%PDF-';
+  const sha = sha256(bytes);
+  const path = cacheDir('sources/by-sha', `${sha}.${isPdf ? 'pdf' : 'html'}`);
+  if (!existsSync(path)) { mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, bytes); }
+  const twin = digests.get(sha);
+  if (twin && twin !== row.doc_key) {
+    return { sha256: sha, status: 'duplicate-of', duplicate_of: twin, duplicate_kind: 'identical-sha', note: `staged copy: ${name}, hashed ${date}; the same bytes as ${twin}` };
+  }
+  digests.set(sha, row.doc_key);
+  return { sha256: sha, status: isPdf ? 'fetched' : 'fetched-page', note: `staged copy: ${name}, hashed ${date} (R084)${isPdf ? '' : '; served as a page, hashed as what was read'}` };
+}
+
+/** The statuses a staged file may stand in for: nothing fetched, or fetched and found unreadable. */
+const STAGEABLE = new Set(['needs-staging', 'gated', 'unreachable', 'inventoried', 'unreadable']);
+
+/** The ledger row a staged file belongs to: named outright, or the one row whose URL carries the file's name. */
+export function rowForStagedFile(name, candidates) {
+  const squash = (s) => String(s ?? '').toLowerCase().replace(/\.pdf$/, '').replace(/[^a-z0-9]+/g, '');
+  const fileNameOf = (url) => { try { return decodeURIComponent(new URL(url).pathname.split('/').pop() ?? ''); } catch { return ''; } };
+  const byUrl = candidates.filter((r) => squash(fileNameOf(r.url)) && squash(fileNameOf(r.url)) === squash(name));
+  if (byUrl.length === 1) return { row: byUrl[0], how: 'the file name its URL carries' };
+  if (byUrl.length > 1) return { why: `${byUrl.length} rows carry this file name in their URL` };
+  // The longest product name the file name contains is the product: "ABSpro Flame Retardant" contains "ABSpro",
+  // and a file named for the first is not the second. Two names of one length are two products, and a question.
+  const byProduct = candidates.filter((r) => squash(r.product_raw).length >= 4 && squash(name).includes(squash(r.product_raw)))
+    .sort((a, b) => squash(b.product_raw).length - squash(a.product_raw).length);
+  const longest = byProduct.filter((r) => squash(r.product_raw).length === squash(byProduct[0]?.product_raw).length);
+  if (longest.length === 1) return { row: longest[0], how: `the product name "${longest[0].product_raw}" in the file name` };
+  return { why: byProduct.length ? `${longest.length} products' names fit the file name alike: ${longest.map((r) => r.product_raw).join(', ')}` : 'no row carries this file name in its URL, and no product name fits it' };
+}
+
 /** Run with at most `PER_HOST` requests in flight per host, spaced, and any number of hosts at once. */
 async function run(rows, digests, refetch) {
   const byHost = new Map();
@@ -128,7 +171,34 @@ async function run(rows, digests, refetch) {
   return done;
 }
 
-if (process.argv[1]?.endsWith('fetch.mjs')) {
+if (process.argv[1]?.endsWith('fetch.mjs') && arg('stage')) {
+  const rows = readCsv(LEDGER).records.map((r) => r.values);
+  const staged = arg('stage'), doc = arg('doc'), provider = arg('provider');
+  const folder = statSync(staged).isDirectory();
+  if (!folder && !doc) { console.error('one file is staged against one row: --stage <file> --doc <doc_key>'); process.exit(2); }
+  if (folder && doc) { console.error('--doc names one row; a folder is matched by file name (--provider narrows it)'); process.exit(2); }
+  const files = folder ? readdirSync(staged).filter((f) => !f.startsWith('.') && statSync(join(staged, f)).isFile()).map((f) => join(staged, f)) : [staged];
+  const candidates = rows.filter((r) => (doc ? r.doc_key === doc : (!provider || r.provider === provider || r.manufacturer === provider) && !r.sha256 && STAGEABLE.has(r.status)));
+  if (doc && !candidates.length) { console.error(`no ledger row is keyed ${doc}`); process.exit(2); }
+  if (doc && candidates[0].sha256) { console.error(`${doc} is already hashed as ${candidates[0].sha256.slice(0, 12)} (${candidates[0].status}); a staged copy replaces nothing`); process.exit(2); }
+  const digests = new Map(rows.filter((r) => r.sha256).map((r) => [r.sha256, r.doc_key]));
+  const date = new Date().toISOString().slice(0, 10);
+  const done = [], unmatched = [];
+  for (const file of files) {
+    const name = basename(file);
+    const found = doc ? { row: candidates[0], how: '--doc' } : rowForStagedFile(name, candidates);
+    if (!found.row) { unmatched.push(`${name}: ${found.why}`); continue; }
+    const result = stageDocument(found.row, readFileSync(file), name, { digests, date });
+    Object.assign(found.row, { sha256: result.sha256, status: result.status, status_note: result.note, updated: date,
+      ...(result.duplicate_of ? { duplicate_of: result.duplicate_of, duplicate_kind: result.duplicate_kind } : {}) });
+    done.push(`${found.row.doc_key}  ${found.row.provider} ${found.row.product_raw}  ->  ${result.status} (${found.how})`);
+  }
+  if (done.length) writeFileSync(LEDGER, csvText(HEADER, rows));
+  console.log(`${done.length} document(s) staged, ${unmatched.length} file(s) matched no row`);
+  for (const line of done) console.log(`  ${line}`);
+  for (const line of unmatched) console.log(`  ? ${line}`);
+  console.log(done.length ? 'next: npm run ingest:extract -- --provider <maker>, then ingest:batch -- --propose' : '');
+} else if (process.argv[1]?.endsWith('fetch.mjs')) {
   const rows = readCsv(LEDGER).records.map((r) => r.values);
   const provider = arg('provider'), batch = arg('batch'), doc = arg('doc'), limit = Number(arg('limit', '0'));
   const wanted = rows.filter((r) => (doc ? r.doc_key === doc : true)

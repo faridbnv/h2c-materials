@@ -9,6 +9,7 @@
 //   npm run ingest:batch -- --holds                          why each document that has a proposal is waiting
 //   npm run ingest:batch -- --batch b14 --propose --provider "QIDI" --provider "Siraya Tech"
 //   npm run ingest:batch -- --batch b14 --propose --held ruling        (re-propose what a ruling has now settled)
+//   npm run ingest:batch -- --batch b14 --propose --held any           (... or everything held, whatever its reason)
 //   npm run ingest:batch -- --batch b14 --accept --by "<name>"
 //   npm run ingest:batch -- --batch b14 --split                        (aside: optical, twin, already registered)
 //   npm run ingest:batch -- --batch b14 --twins --by "<name>"          (R053: a grade each, the values once)
@@ -88,6 +89,9 @@ const verdicts = () => {
   return new Map(readCsv(path).records.map((r) => [r.values['Doc key'], String(r.values.Verdict ?? '').trim()]));
 };
 let VERDICTS = null;
+/** The materials the register already permits (Kind new-material): a second permission is not asked for. */
+const permitted = () => new Set(readCsv(join(AUDIT, 'rulings/rulings.csv')).records.map((r) => r.values).filter((r) => r.Kind === 'new-material').map((r) => r.Subject));
+let PERMITTED = null;
 
 /**
  * What a page the reader found nothing on actually holds, asked of the cached text: how many lines name a
@@ -122,14 +126,21 @@ export function holdReason(proposal, problems = []) {
   const reasons = proposal.identity?.reasons ?? [];
   const noName = reasons.find((r) => /^no product name could be read/.test(r));
   if (noName) return { reason: 'no-name', detail: noName };
-  if (proposal.identity?.needsRuling) return { reason: 'ruling', detail: reasons[0] ?? 'the identity is unsettled' };
+  if (proposal.identity?.needsRuling) {
+    // A reading the owner struck (Verdict `no` in readings/readings.csv) stays under its ruling and says so: the
+    // sheet enters only under a ruling that names its product, which the owner writes as the verdict instead.
+    VERDICTS ??= verdicts();
+    const struck = /^no$/i.test(VERDICTS.get(proposal.document?.docKey) ?? '');
+    return { reason: 'ruling', detail: `${reasons[0] ?? 'the identity is unsettled'}${struck ? '; the owner struck the reading, so it enters only under a ruling that names it' : ''}` };
+  }
   // R083: where a sheet declares a polymer and a filler no material holds, the material is created — and the
   // list goes to the owner before any of it is written. A reader that settles the identity has not been given
   // permission to create the material, so a proposal carrying one waits for a verdict in readings/readings.csv.
   if (proposal.newMaterial) {
     VERDICTS ??= verdicts();
+    PERMITTED ??= permitted();
     const said = VERDICTS.get(proposal.document?.docKey);
-    if (!said) {
+    if (!said && !PERMITTED.has(proposal.newMaterial['Original name'])) {
       return { reason: 'ruling', detail: `it would create the material ${proposal.newMaterial['Original name']} (${proposal.identity?.polymer} / ${proposal.identity?.modifier}), and R083 says that list goes to the owner before any of it is written` };
     }
     if (/^no$/i.test(said)) return { reason: 'ruling', detail: `the owner struck the reading that would have created ${proposal.newMaterial['Original name']}` };
@@ -208,7 +219,7 @@ function writeHolds() {
   // grade lookup above can say again what it said before.
   const carried = (row) => CARRIED.has(row.status) || (row.status === 'inventoried' && row.sha256 && cachedText(row.sha256));
   const byReason = new Map();
-  let touched = 0;
+  let touched = 0, released = 0;
   for (const row of rows) {
     if (!carried(row)) continue;
     // A twin stays a twin, and it is asked first. The splitter ran the applier over the pair and saw what the
@@ -243,9 +254,22 @@ function writeHolds() {
       // A document nobody has proposed from still says one thing about itself: whether its text was read from the
       // page or from a picture of it. An optical reading waits for a person either way (D35, APPLY-OCR-UNVERIFIED).
       ?? (row.sha256 && cachedText(row.sha256)?.ocr ? { reason: 'ocr-visual', detail: 'read optically; every value from it needs a person against the page image' } : null);
-    if (!hold) continue;
-    // "also listed by" is where the document was found, not why it waits; it survives the hold beside it.
-    const listed = (row.status_note ?? '').match(/also listed by [^;]+/)?.[0];
+    // "also listed by" is where the document was found, and "staged copy" is where its bytes came from (R084):
+    // neither is why it waits, and both survive the hold beside it.
+    const listed = ((row.status_note ?? '').match(/(?:also listed by|staged copy: )[^;]+/g) ?? []).map((f) => f.trim()).join('; ') || undefined;
+    // A hold that is gone releases the document. A ruling answered, a polymer row written, a reader rule built:
+    // whatever freed it, the queue must say so, because a row that keeps the note of a hold it no longer has is
+    // a document nobody will look at again. Three sat like that after one ruling — colorFabb's and NinjaTek's
+    // PLA/PHA and Siraya's PAHT CF — proposed, settled, and still saying they were waiting on the owner.
+    if (!hold) {
+      if (row.status !== 'held') continue;
+      if (!seen) continue;  // nothing read it this run, so nothing here knows whether it still waits
+      row.status = 'extracted';
+      row.status_note = listed ?? '';
+      row.updated = new Date().toISOString().slice(0, 10);
+      released++;
+      continue;
+    }
     // Two of the shapes a no-values page can have are not holds. A brochure is a document that is not a data
     // sheet, which is a terminal state the ledger already has; a page whose text layer is a header over an image
     // is a scan, and the optical pipeline is where it goes. Both were sitting in the queue as a reader gap.
@@ -286,7 +310,7 @@ function writeHolds() {
   }
   writeFileSync(LEDGER, csvText(HEADER, rows));
   const total = (m) => [...m.values()].reduce((a, b) => a + b, 0);
-  console.log(`${touched} document(s) now say why they are waiting`);
+  console.log(`${touched} document(s) now say why they are waiting${released ? `, and ${released} no longer wait: what held them is settled` : ''}`);
   for (const [reason, providers] of [...byReason].sort((a, b) => total(b[1]) - total(a[1]))) {
     console.log(`  ${String(total(providers)).padStart(4)}  ${reason.padEnd(22)} ${[...providers].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([p, n]) => `${p} ${n}`).join(', ')}`);
   }

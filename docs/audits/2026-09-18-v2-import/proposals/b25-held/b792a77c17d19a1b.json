@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "b792a77c17d19a1b6686df328dfc485148d8f6bfeb971b2b1c79100dac46db70",
+    "url": "https://s1.raise3d.com/2021/12/Raise3D-Industrial-PPA-Support_TDS.pdf",
+    "pages": 2,
+    "provider": "Raise3D",
+    "manufacturer": "Raise3D",
+    "docKey": "b792a77c17d19a1b"
+  },
+  "identity": {
+    "polymer": "PPA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "High-Performance Engineering",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "name: ppa"
+    ],
+    "materialId": "M069",
+    "materialName": "PPA",
+    "estimateIdentity": "PPA",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"Industrial PPA Support\" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports"
+    ]
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-Support-TDS",
+      "Publisher": "Raise3D",
+      "Title": "Raise3D Industrial PPA Support Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s1.raise3d.com/2021/12/Raise3D-Industrial-PPA-Support_TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b792a77c17d19a1b6686df328dfc485148d8f6bfeb971b2b1c79100dac46db70"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Raise3D Industrial PPA Support Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M069",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Raise3D",
+        "Product name": "Industrial PPA Support",
+        "Shared formulation key": "D-RAISE3D-Raise3D-Industrial-PPA-Support-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-RAISE3D-Raise3D-Industrial-PPA-Support-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Raise3D Industrial PPA Support Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PPA Support_TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nov.2021 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PPA Support Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Raise3D Industrial PPA Support Filament is a break-away support material specially developed for PPA filament.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "During FFF 3D printing process, it creates a stable support structure, provides proper adhesion to interface with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density (g/cm3 at 21.5°C) ISO 1183 1.26",
+      "reason": "the sheet states Density in 21.5°C), and the database keeps it in kg/m³"
+    },
+    {
+      "page": 1,
+      "text": "1. It is recommended to use hardening steel nozzle and above grade nozzles.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. PPA Support is sensitive to moisture and should always be stored and used under dry conditions (relative",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "humidity below 15%).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Dry PPA support in the oven at 80-100°C for 6 hours before printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt index (g/10 min) 280°C, 2.16 kg 17.5",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "Raise3D Industrial PPA Support_TDS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Nov.2021 Version 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "practices of Raise3D materials for the intended application. Raise3D makes no warranty of any kind, unless",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "announced separately, to the fitness for any particular use or application. Raise3D shall not be made liable for any",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "damage, injury or loss induced from the use of Raise3D materials in any particular application.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "WWW.RAISE3D.COM",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

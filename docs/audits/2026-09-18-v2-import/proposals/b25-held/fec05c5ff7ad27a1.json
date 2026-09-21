@@ -1,0 +1,358 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "fec05c5ff7ad27a1cdea80703bacbeb030dd06d4b5d145e35daa120993b412ff",
+    "url": "https://support.stratasys.com/-/preview-pdf/public1/materials/fdm/antero-800na/antero-800na---en-fdm-material-best-practice.pdf",
+    "pages": 5,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "fec05c5ff7ad27a1"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Antero 800NA\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-antero-800na-en-fdm-material-best-practice",
+      "Publisher": "Stratasys",
+      "Title": "1",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://support.stratasys.com/-/preview-pdf/public1/materials/fdm/antero-800na/antero-800na---en-fdm-material-best-practice.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "fec05c5ff7ad27a1cdea80703bacbeb030dd06d4b5d145e35daa120993b412ff"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "1"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "Antero 800NA",
+        "Shared formulation key": "R-STRATASYS-antero-800na-en-fdm-material-best-practice",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "1. Set the oven to 392 °F (200 °C) and allow the oven to reach this temperature while completing the (p. 4, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-antero-800na-en-fdm-material-best-practice",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "1"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Antero 800NA is a high-performance polymer with strong mechanical properties along with exceptional",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "prototypes that need to withstand more intemperate conditions. Antero 800NA’s primary advantages over",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stratasys’ high-performance materials – ULTEM™ 9085 resin, ULTEM™ 1010 resin and PPSF – are its high",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Antero 800NA is available on the Fortus 450mc and Stratasys F900 with a 0.010 inch (0.254mm) slice",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "height. It uses a new support material, SUP8000B™, which is a breakaway support system similar to the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "than the other breakaway support systems. Antero 800NA will require the hardened system upgrade and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "will utilize a custom T20F tip for the model material, an existing T16 tip for the support material, and a new",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "purge ledge specific to Antero 800NA.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Note: The Fortus 450mc and F900 each use a different purge ledge. Fortus 450mc: Purge Ledge",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "511-00800-S. F900: Purge Ledge 511-00601",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Antero 800NA and SUP8000B are available in standard 92.3 cubic inch, Fortus Plus canisters and the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Part performance and quality are similar to ULTEM™ 9085 resin with the advantage of increased",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Designing parts for Antero 800NA follows much of the same process for designing other FDM parts and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unique to Antero 800NA and other high-performance FDM materials, is the breakaway support system",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "used to support the model material in areas of overhang to prevent sagging. Although SUP8000B is one",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "the part. Self-supporting angles (angles greater than 45 degrees from the build platen) should be used",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Multiple Antero 800NA parts can be packed together in the same build. This often reduces build time (due",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "performed when switching from another material to Antero 800NA, when replacing the tip at the end of its",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "The tip life of the T20F Antero 800NA tip is four canisters of material. The user will receive a warning after",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Antero 800NA can be sanded, painted, media blasted, bonded, machined, drilled, receive inserts, etc.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Note: See the Antero 800NA and Antero 800NA Annealed data sheets for unannealed vs. annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Figure 1: Annealing can be completed in standard industrial ovens.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1. Set the oven to 392 °F (200 °C) and allow the oven to reach this temperature while completing the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "of 392 °F (200 °C) was determined through testing to be a good set point for annealing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2. Arrange specimens to be annealed in a half full container of fine sand. Salt can alternatively be used",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Figure 2: Specimens should be placed in a sand bath to prevent deformation while being annealed.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "3. Place sand bath containers in the oven for three hours and allow the oven to reach the set point",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "temperature of 392 °F (200 °C) after inserting the samples before starting the countdown to removal.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4. Once removed from oven, allow the specimens to cool to ambient temperature before removing them",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5. After cooling, remove the samples from the sand. Clean off as much sand as possible into the container",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Figure 5: Un-annealed (top) vs. annealed (bottom) Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Figure 4: In oven",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "7665 Commerce Way, 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Eden Prairie, MN 55344 PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+1 800 801 6491 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+1 952 937-3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "+1 952 937-0070 (Fax) +972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ISO 9001:2008 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "© 2023 Stratasys Ltd. All rights reserved. Stratasys, Stratasys signet, FDM, Fortus, Fortus 450mc, Fortus Plus, SUP8000B and Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "9085, 1010 and ULTEM™ are trademarks of SABIC, its affiliates or subsidiaries. All other trademarks belong to their respective owners. Product",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Best Practicespecifications subject to change without notice. Printed in the USA. BP_FDM_Antero_0123a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

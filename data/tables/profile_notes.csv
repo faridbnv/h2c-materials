@@ -1861,3 +1861,10 @@ P0914,Layer height,"0,3 mm"
 P0920,Shell / walls,2
 P0920,Speed,50 mm/s
 P0920,Layer height,"0,2 mm"
+P0925,Speed,30-120 mm/s
+P0925,Retraction,1800-3600 mm/min
+P0926,Speed,30 – 50 mm/s
+P0927,Cooling,0 – 100 %
+P0927,Speed,40 – 100 mm/s
+P0928,Cooling,0-100%
+P0928,Speed,40-100 mm/s

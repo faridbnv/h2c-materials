@@ -1,0 +1,330 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "1a5c31bd0b54a8f2d54a1d4bfc108a33b61adedd38786f11c79f94d95d56f1f9",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3679",
+    "pages": 1,
+    "provider": "Filament2Print",
+    "manufacturer": "Filament2Print",
+    "docKey": "1a5c31bd0b54a8f2"
+  },
+  "identity": {
+    "polymer": "PESU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pes"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 0.8,
+    "needsRuling": true,
+    "reasons": [
+      "\"PESU\" has no row in polymers.csv, so a material of it cannot be created"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Eco-Coffee",
+      "Publisher": "Filament2Print",
+      "Title": "VERSIÓN 1.2",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=3679",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1a5c31bd0b54a8f2d54a1d4bfc108a33b61adedd38786f11c79f94d95d56f1f9"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "VERSIÓN 1.2"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "REVISIÓN: 23/10/2025",
+        "Shared formulation key": "R-FILAMENT2PRINT-Eco-Coffee",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Eco-Coffee",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VERSIÓN 1.2"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "56 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "56",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "56",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "50N ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Eco-Coffee",
+        "Locator": "p. 1: VICAT B (50N 50°C /h)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "VICAT B (50N 50˚C /h) 56 ˚C ISO 306"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "58 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "58",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "58",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0,45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Eco-Coffee",
+        "Locator": "p. 1: HDT B (0,45 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT B (0,45 MPa) 58 °C ISO 75"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "VERSIÓN 1.2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "REVISIÓN: 23/10/2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filamento para impresión 3D biodegradable y compostable de alta",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densidad 1,05 g/cm3 ISO 1183",
+      "reason": "properties.csv carries no property for \"Densidad\""
+    },
+    {
+      "page": 1,
+      "text": "Resistencia a la tracción 23,5 - MPa ISO 527",
+      "reason": "properties.csv carries no property for \"Resistencia a la tracción\""
+    },
+    {
+      "page": 1,
+      "text": "Módulo de tracción 3330,6 - MPa ISO 527",
+      "reason": "properties.csv carries no property for \"Módulo de tracción\""
+    },
+    {
+      "page": 1,
+      "text": "Resistencia a la flexión 49,2 - MPa ISO 178",
+      "reason": "properties.csv carries no property for \"Resistencia a la flexión\""
+    },
+    {
+      "page": 1,
+      "text": "Módulo de flexión 2326,7 - MPa ISO 178",
+      "reason": "properties.csv carries no property for \"Módulo de flexión\""
+    },
+    {
+      "page": 1,
+      "text": "Alargamiento al esfuerzo máximo 1,4 - % ISO 527",
+      "reason": "properties.csv carries no property for \"Alargamiento al esfuerzo máximo\""
+    },
+    {
+      "page": 1,
+      "text": "Alargamiento por tracción a la rotura 13,4 - % ISO 527",
+      "reason": "properties.csv carries no property for \"Alargamiento por tracción a la rotura\""
+    },
+    {
+      "page": 1,
+      "text": "Alargamiento por flexión a la rotura 9,8 - % ISO 178",
+      "reason": "properties.csv carries no property for \"Alargamiento por flexión a la rotura\""
+    },
+    {
+      "page": 1,
+      "text": "kJ/m2 ISO 179",
+      "reason": "properties.csv carries no property for \"kJ/m2\""
+    },
+    {
+      "page": 1,
+      "text": "Dureza - Shore D ISO 7619 – 1",
+      "reason": "properties.csv carries no property for \"Dureza\""
+    },
+    {
+      "page": 1,
+      "text": "(1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Valores obtenidos en especímenes impresos, boquilla 0,6 mm, relleno 100% rectilíneo, altura de capa 0,2 mm para obtener más información, contáctenos por correo",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "electrónico a info@smartmaterials.com o visite nuestro sitio web www.smartmaterials3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura de transición vítrea (Tg) 59 °C ISO 11357",
+      "reason": "properties.csv carries no property for \"Temperatura de transición vítrea (Tg)\""
+    },
+    {
+      "page": 1,
+      "text": "Temperatura de impresión 200 – 230 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperatura de la cama 40 – 60 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ventilador de capa 100 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Velocidad de impresión 25 – 50 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flujo de material 100 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Altura de la cubierta ≥ 0,2 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recomendaciones de boquillas ≥ 0,6 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "M 750 g 1065 g 1,75 mm/2,85 mm Natural",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "@ www.smartmaterials3d.com info@smartmaterials3d.com +34 953 041 993",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

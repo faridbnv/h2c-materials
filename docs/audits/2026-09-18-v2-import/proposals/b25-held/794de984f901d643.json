@@ -1,0 +1,1959 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "794de984f901d643dacd8c81917b0d7c3c6c81dd78d287b740f130ce49398b58",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/victrex-am-200-peek/mds_fdm_victrex-am200_0424a.pdf?v=48d824",
+    "pages": 10,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/victrex-am-200-peek/mds_fdm_victrex-am200_0424a.pdf?v=48d824"
+  },
+  "identity": {
+    "polymer": "PAEK",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: paek"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 0.8,
+    "needsRuling": true,
+    "reasons": [
+      "\"PAEK\" has no row in polymers.csv, so a material of it cannot be created"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+      "Publisher": "Stratasys",
+      "Title": "MATERIAL DATA SHEET VICTREX AM™ 200",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/victrex-am-200-peek/mds_fdm_victrex-am200_0424a.pdf?v=48d824",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "794de984f901d643dacd8c81917b0d7c3c6c81dd78d287b740f130ce49398b58"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATA SHEET VICTREX AM™ 200"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "VICTREX AM 200",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATA SHEET VICTREX AM™ 200"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "303 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "303",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "303",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 4: Melting Point ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Melting Point ISO 11357 303 ˚C (577 ˚F)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "151 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "151",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "151",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 4: Glass Transition (Tg) - Onset ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Glass Transition (Tg) - Onset ISO 11357 151 ˚C (304 ˚F)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "154 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "154",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "154",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 4: Glass Transition (Tg) - Midpoint ISO 11357",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Glass Transition (Tg) - Midpoint ISO 11357 154 ˚C (309 ˚F)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 5: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation @ Yield % 4.9 (0.071) 3.3 (0.9)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "55 %",
+        "Raw unit": "%",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 5: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 5,
+        "text": "Elongation @ Break % 55 (39) 3.2 (0.94)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 4.8 (0.086) 2.68 (0.83)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "8.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "8.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 8.3 (1.9) 3 (0.86)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5 %",
+        "Raw unit": "%",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 7: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Yield % 5 (0.055) 3.4 (0.35)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "48 %",
+        "Raw unit": "%",
+        "Raw numeric": "48",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 7: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Break % 48 (29) 3.3 (0.38)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 5.3 (0.045) 3.1 (0.27)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "84 %",
+        "Raw unit": "%",
+        "Raw numeric": "84",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "84",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 84 (3.2) 3 (0.29)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 9: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Yield % 5.5 (0.11) 1.7 (0.18)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "15 %",
+        "Raw unit": "%",
+        "Raw numeric": "15",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "15",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 9: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Break % 15 (8.6) 1.8 (0.18)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 9: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Yield % 5.1 (0.1) 1.4 (0.37)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "8.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "8.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 9: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Break % 8.6 (1.5) 1.5 (0.35)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 10: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Yield % 5.5 (0.098) 1.5 (0.12)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "73 %",
+        "Raw unit": "%",
+        "Raw numeric": "73",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "73",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 10: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Break % 73 (27) 1.5 (0.12)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "5.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 10: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Yield % 5.3 (0.099) 1.3 (0.12)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "25 %",
+        "Raw unit": "%",
+        "Raw numeric": "25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-victrex-am200-0424a",
+        "Locator": "p. 10: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Break % 25 (4.2) 1.2 (0.14)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "VICTREX AM™ 200",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "VICTREX AM™ 200 is based on LMPAEK™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "addressing challenges associated during 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEKK. VICTREX AM 200 is formulated to provide",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1. Printer and Support Material Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SR-100 (soluble) T12SR100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc™ T20F 0.254 mm (0.010 in)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SUP8000B (breakaway) T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SR-100 (soluble) T12SR100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900 T20F 0.254 mm (0.010 in)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SUP8000B (breakaway) T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 406 x 470 mm (0.02 x 16 x 18.5 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 660 x 965 mm (0.02 x 26 x 38 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "System Requirements1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened Fortus 450mc head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F900 – purchased F900 or upgrade from Gen 1 or Gen 2 system to F900 (Gen 3).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened F900 head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 2. VICTREX AM 200 Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-70030 VICTREX AM™ 200 model material, 92.3 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-03120 SR-100 Soluble Support, 92.3 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-03260 SUP8000B, 92.3 cu in. – Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10740-S T20F tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10100 T12SR100 tip (SR-100 support)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10401 T16 tip (SUP8000B support)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00275-S High temperature build sheet, 0.02 x 16 x 18.5 in. (0.51 x 406 x 470 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00475-S High temperature build sheet, 0.02 x 26 x 38 in. (0.51 x 660 x 965 mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "821726-XXXX Hardened Fortus 450mc head2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-63500 Hardened F900 head3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "The hardened Fortus 450mc head is easily identified by a blue handle.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "The hardened F900 head is easily identified by a folded sheet metal handle.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 3. VICTREX AM 200 Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Crystallization Point ISO 11357 249 ˚C (480 ˚F)",
+      "reason": "properties.csv carries no property for \"Crystallization Point\""
+    },
+    {
+      "page": 4,
+      "text": "VICTREX AM 200 samples were printed with a 0.254 mm (0.010 in.) layer height on the Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "and F900 with a T20F tip. For the full test procedure please see the Stratasys Materials Test Procedure.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Table 4. VICTREX AM 200 Mechanical Properties – F900 w/SR-100 Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "MPa 64.8 (1.1) 54.3 (6.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "psi 9400 (160) 7870 (960)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "MPa 36.8 (6.7) 52.4 (6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Strength @ Break2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "psi 5330 (970) 7590 (870)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "GPa 2.29 (0.015) 2.26 (0.042)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ksi 332 (2.1) 327 (6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "MPa 98.7 (3) 83.8 (6.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "psi 14300 (440) 12200 (970)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Strain @ Break % No break 3.7 (0.83)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "GPa 2.49 (0.066) 2.15 (0.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ksi 361 (9.5) 311 (15)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "J/m 1500 (680) 61.8 (17)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ft*lb/in 28.1 (13) 1.16 (0.31)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "J/m 4490 (1200) 189 (39)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ft*lb/in 84.2 (22) 3.53 (0.72)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "on page 4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 5. VICTREX AM 200 Mechanical Properties – F900 w/SUP8000B Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 60.7 (2.1) 48.9 (7.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 8800 (310) 7090 (1100)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 41.9 (4.5) 48.5 (6.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strength @ Break2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 6070 (650) 7040 (940)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.16 (0.051) 2.18 (0.033)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 313 (7.4) 316 (4.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 96 (0.71) 65.3 (17)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 13900 (100) 9470 (2400)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strain @ Break % No break 2.3 (0.22)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.4 (0.022) 2.11 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 347 (3.2) 306 (18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 1380 (580) 45.4 (6.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 25.8 (11) 0.851 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 3970 (580) 520 (66)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 74.4 (11) 9.75 (1.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "on page 4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 6. VICTREX AM 200 Mechanical Properties – Fortus 450mc w/SR-100 Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 67.5 (0.3) 50.4 (2.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 9800 (43) 7300 (420)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 17 (8.9) 49 (2.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Strength @ Break2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 2460 (1300) 7110 (360)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.29 (0.015) 2.06 (0.023)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 332 (2.1) 299 (3.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 99.3 (0.46) 69.8 (8.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 14400 (67) 10100 (1300)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Strain @ Break % No break 3.8 (1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.42 (0.017) 1.93 (0.14)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 351 (2.5) 279 (20)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 1530 (910) 30.2 (5.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in 28.7 (17) 0.567 (0.097)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 4740 (670) 86.8 (24)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in 88.9 (13) 1.63 (0.44)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "page 4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 7. VICTREX AM 200 Mechanical Properties – Fortus 450mc w/SUP8000B Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 68.7 (0.71) 48.6 (2.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 9970 (100) 7050 (320)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 15.1 (1) 47.3 (2.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Strength @ Break2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 2190 (150) 6860 (410)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.29 (0.02) 2.1 (0.023)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 332 (2.9) 305 (3.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 98.8 (0.86) 71.5 (6.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 14300 (130) 10400 (940)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Strain @ Break % No break 3.9 (1.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.44 (0.025) 1.92 (0.15)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 354 (3.7) 278 (22)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 1730 (850) 49.8 (17)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in 32.3 (16) 0.933 (0.31)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 4250 (520) 84.6 (23)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in 79.7 (9.7) 1.58 (0.43)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "page 4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Samples were printed with a 0.254 mm (0.010 in.) layer height on the Fortus 450mc and F900 with a T20F tip.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Samples were then annealed in sand for two hours at 170 ˚C (338 ˚F) and allowed to cool naturally to room",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Table 8. Annealed VICTREX AM 200 Mechanical Properties – F900 w/SR-100 Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 78 (1.2) 39.7 (3.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 11300 (180) 5760 (530)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 58.6 (7.2) 41.4 (3.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 8500 (1000) 6000 (540)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 2.67 (0.045) 2.62 (0.072)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 388 (6.5) 379 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Table 9. Annealed VICTREX AM 200 Mechanical Properties – F900 w/SUP8000B Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 76.7 (1.5) 33.2 (8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 11100 (220) 4810 (1200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 66.7 (2.3) 33.6 (7.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 9670 (330) 4880 (1100)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 2.62 (0.044) 2.57 (0.069)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 380 (6.4) 373 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Table 10. Annealed VICTREX AM 200 Mechanical Properties – Fortus 450mc w/SR-100 Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 74.7 (1.5) 32.6 (1.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 10800 (220) 4720 (280)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 28 (9.6) 32.5 (1.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Strength @ Break2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 4070 (1400) 4710 (250)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "GPa 2.57 (0.066) 2.5 (0.051)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ksi 373 (9.6) 362 (7.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "page 4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Table 11. Annealed VICTREX AM 200 Mechanical Properties – Fortus 450mc w/SUP8000B Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 75.1 (0.6) 26.9 (2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 10900 (88) 3900 (290)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 17.1 (11) 26 (2.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Strength @ Break2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 2480 (1600) 3770 (430)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "GPa 2.68 (0.089) 2.36 (0.084)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ksi 389 (13) 343 (12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "page 4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "7665 Commerce Way,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Eden Prairie, MN 55344",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+1 952 937-3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ISO 9001:2015 Certified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "© 2024 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo F900 and FDM are registered trademarks of Stratasys",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MATERIAL DATA SHEET Inc. VICTREX AM™ 200 is a trademark of Victrex Manufacturing Ltd. All other trademarks are the property of their respective",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "products. Product specifications subject to change without notice. MDS_FDM_Victrex AM200_0424a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

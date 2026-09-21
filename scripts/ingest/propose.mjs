@@ -61,6 +61,11 @@ export function mayBeNegative(property, unit) {
 // heavy. Tungsten-filled PLA, the densest thing in this corpus, is about 4000 kg/m³.
 export const IMPLAUSIBLE_DENSITY = 8000;
 
+// A sheet declaring what it is loaded with, in the words the sheets use. It is the sentence that matters and not
+// the substance: a substance list would be a vocabulary, and a load the vocabulary already knows never reaches
+// here (its modifier is read from the name or the composition row before the density is weighed at all).
+export const A_DECLARED_LOAD = /\b(?:(?:high(?:ly)?[- ])?(?:loaded|filled|reinforced)\s+with\s+[^.,;]{3,60}|(?:contains|containing)\s+\d{1,2}\s*(?:%|wt%|weight\s*%)[^.,;]{0,40}|\d{1,2}\s*%\s*(?:by\s+weight\s+)?(?:of\s+)?(?:metal|copper|bronze|brass|steel|iron|tungsten|magnetite|stone|marble|ceramic|wood)\b[^.,;]{0,30})/i;
+
 /** The window the build itself would judge this reading by: the most specific one that matches it. */
 export function windowFor(property, unit, { matrix = 'any', fill = 'any', condition = 'any' } = {}) {
   const fits = (w, field, want) => w[field] === want || w[field] === 'any';
@@ -2619,7 +2624,10 @@ export function propose(row, text, world) {
   // one sheet must classify alike, so the sheet's own name is what is read, and the catalogue's is kept beside it.
   const named = asWritten.reduce((name, who) => productName(name, who),
     head.product && !notAProduct(head.product, asWritten.join(' ')) ? head.product : row.product_raw);
-  const identity = classifyProduct(named || row.product_raw, { manufacturer: made?.maker ?? row.manufacturer, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow }, world);
+  const identity = classifyProduct(named || row.product_raw, { manufacturer: made?.maker ?? row.manufacturer, catalogue: row.product_raw, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow }, world);
+  // A ruling that names this product by name has answered for it: the owner's verdict on the reading says what
+  // the product is, and with it that the name it was read under stands for the product (R075, R077).
+  const ruledByName = (identity.signals ?? []).some((s) => /^ruling R\d+/.test(s));
   // What the page says about its own name, where what it says is not a product's name. Neither is decided here:
   // a name is the reader's to read and a ruling is the owner's to make, so each says what the page shows.
   //
@@ -2632,7 +2640,7 @@ export function propose(row, text, world) {
   const NAMES_THE_STOCK = /\b(3d polymer|resins?|compounds?|granulate|pellets?|masterbatch|trial grade|base grade)\b/i;
   // "Prusament PETG by Prusa Polymers" says who made it, not what it is made of; the attribution is not the
   // subject's own designation and is taken off before the question is asked.
-  if (named && NAMES_THE_STOCK.test(named.replace(/\s+(by|von|par|da)\s+.*$/i, ''))) {
+  if (named && !ruledByName && NAMES_THE_STOCK.test(named.replace(/\s+(by|von|par|da)\s+.*$/i, ''))) {
     identity.reasons.push(`the sheet's own title is "${named}", which names the polymer the filament is made from rather than ${maker || 'the maker'}'s product; the product's own name is not printed on the sheet`);
     identity.needsRuling = true;
   }
@@ -2650,7 +2658,7 @@ export function propose(row, text, world) {
   // the shop's own brand, otherwise the maker the sheet or the URL names, and held where neither does. That is
   // `makerOfRecord` above; what is left here is the third of those three, because a grade whose Manufacturer is
   // the shop says the shop made the filament, and "Filament2Print BEDROCK 3D PPSU" would say it wrongly.
-  if (row.provider_kind === 'retailer' && !made) {
+  if (row.provider_kind === 'retailer' && !made && !ruledByName) {
     identity.reasons.push(`the sheet is hosted by ${row.provider} and names no maker of its own, and neither does its URL: R074 holds it until one of them does`);
     identity.needsRuling = true;
   }
@@ -2768,7 +2776,18 @@ export function propose(row, text, world) {
       identity.reasons.push(`its density reads ${value} kg/m³, which no filament reaches: the page is misread, and a load that is not there may not be declared`);
       identity.needsRuling = true;
     } else if (value > neat[1] * 1.05) {
-      declare('undisclosed dense filler', `Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), so the product carries a filler its name does not declare.`);
+      // R078 is for the load a maker does not declare. A maker who does declare one — colorFabb's copperFill is
+      // "a high quality PLA 3D printing filament, loaded with copper particles" — has named a filler the
+      // vocabulary has no value for, and that is the question R080 answered for graphene and a natural fibre:
+      // a modifier value enters with the data that cites it. Writing "Not declared on the sheet" over a sheet
+      // that declares it would put a false sentence in the data and hide the vocabulary gap behind a variant.
+      const declared = A_DECLARED_LOAD.exec(`${row.product_raw ?? ''} ${text.pages[0]?.lines?.map((l) => String(l.text ?? '')).join(' ') ?? ''}`);
+      if (declared) {
+        identity.reasons.push(`its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}) and the sheet declares the load — "${declared[0].trim().slice(0, 80)}" — which no value of schema/vocab/modifiers.csv covers: a modifier value is a ruling, as graphene and natural fibre were (R080)`);
+        identity.needsRuling = true;
+      } else {
+        declare('undisclosed dense filler', `Its density of ${value} kg/m³ is above what neat ${identity.polymer} reaches (${neat[1]}), so the product carries a filler its name does not declare.`);
+      }
     } else if (value < neat[0] * 0.95) {
       // R078 answers the heavy case and only that one: "a filament denser than its named polymer reaches". A
       // lighter one has two explanations and the sheet has to say which. Fabru's "Cyclo-Olefin-Copolymer
@@ -2801,7 +2820,11 @@ export function propose(row, text, world) {
           ? `Hosted by ${row.provider}; the sheet is ${row.manufacturer}'s.` : NA,
         'Citation role': 'cited', URL: row.url,
         Locator: 'Document / product page', 'Applicable grades': '${grade:main}',
-        'Access state': 'retrieved', 'Access note': NA, SHA256: row.sha256,
+        // A copy the owner staged (ingest:fetch --stage, R084) is read exactly as a fetched one, and says so.
+        'Access state': /staged copy: /.test(row.status_note ?? '') ? 'retrieved-copy' : 'retrieved',
+        'Access note': /staged copy: /.test(row.status_note ?? '')
+          ? `Owner-supplied copy (${/staged copy: [^;]+/.exec(row.status_note)[0]}); the pipeline hashed the file it was given and read every value from that file (R084).` : NA,
+        SHA256: row.sha256,
       },
       evidence: { page: 1, text: title },
       review: { status: 'proposed' },
@@ -2845,7 +2868,12 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   const rows = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values)
     .filter((r) => (doc ? r.doc_key === doc : true) && (provider ? r.provider === provider || r.manufacturer === provider : true))
     .filter((r) => (process.argv.includes('--ready') ? r.status === 'extracted' : true))
-    .filter((r) => (held ? (r.status_note ?? '').startsWith(`held: ${held}`) : true))
+    // --held <reason> takes what that reason was waiting on; --held any takes every held document whatever its
+    // reason. A reason is what the last --holds run wrote, so a document whose reason has changed since then is
+    // one a named reason misses — NonOilen was held as a reader gap, freed by a polymer row, and sat out two
+    // batches because the note still said the old thing. Proposing reads and writes nothing, so "any" is the
+    // safe选择 when a batch has moved several kinds of blocker at once.
+    .filter((r) => (held ? (held === 'any' ? /^held: /.test(r.status_note ?? '') : (r.status_note ?? '').startsWith(`held: ${held}`)) : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))
     // --compare reads the sheets the database already holds, which is exactly what a batch run leaves out.
     // --compare scores a sheet somebody transcribed by hand against what this reader reads off the same bytes.

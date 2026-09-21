@@ -5,7 +5,7 @@
 // The one thing each test guards is a way this reading could become a guess with a citation on it.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { admits, gluedToTheName, fromTheUrl } from '../scripts/ingest/readings.mjs';
+import { admits, gluedToTheName, fromTheUrl, rulingsFromVerdicts } from '../scripts/ingest/readings.mjs';
 import { IMPLAUSIBLE_DENSITY } from '../scripts/ingest/propose.mjs';
 
 const aliases = [
@@ -82,4 +82,34 @@ test("a maker's page is a witness only where a line names this product and one p
   // And the polymer has to stand in the same clause as the name.
   assert.equal(witnessReading(['PLA is somewhat stronger and resistant to impact, while PRO HT is less brittle'], 'proht', polymerOf), null);
   assert.equal(witnessReading(['PLX - Next Gen PLA Filament - 80% Faster 3D Printing'], 'plx', polymerOf)?.polymer, 'PLA');
+});
+
+test('a verdict becomes the one ruling the reader can apply, and never a second ruling on a product the register has', () => {
+  const polymers = [{ PolymerID: 'PLA' }, { PolymerID: 'PA12' }, { PolymerID: 'PETG' }];
+  const rulings = [{ Ruling: 'R010', Kind: 'identity', Subject: 'Old Product', Value: 'PETG', Reason: '', By: 'farid', Date: '2026-09-18' }];
+  const row = (over) => ({ Ruling: 'R075', 'Doc key': 'k', Provider: 'Maker', Brand: 'Maker', Product: 'Thing', Reading: 'PLA', 'Filler the name declares': 'Unfilled / unspecified', 'Material it would join': 'PLA / Unfilled / unspecified', 'Polymer has a row': 'yes', Strength: 'said', Evidence: 'the sheet says so', Verdict: '', ...over });
+  const out = rulingsFromVerdicts([
+    row({ Verdict: 'yes' }),                                                            // the reading stands
+    row({ Product: 'Other', Verdict: 'PA12' }),                                         // corrected to a polymer with a row
+    row({ Product: 'Struck', Verdict: 'no' }),                                          // nothing written
+    row({ Product: 'Later', Verdict: 'PA11' }),                                         // no row yet: R081 first
+    row({ Product: 'Old Product', Verdict: 'PLA' }),                                    // the register already rules it, differently
+    row({ Product: 'Old Product', Verdict: 'PETG' }),                                   // ... and the same way
+    row({ Ruling: 'R083', Product: 'Hemp thing', Reading: 'PLA', 'Material it would join': 'PLA-NF (new material)', Evidence: 'the sheet declares PLA and Natural fibre, and no material holds that pair', Verdict: 'yes' }),
+    row({ Ruling: 'R083', Product: 'Hemp other', Reading: 'PLA', 'Material it would join': 'PLA-NF (new material)', Evidence: 'the sheet declares PLA and Natural fibre, and no material holds that pair', Verdict: 'PA12' }),
+    row({ Product: 'Nobody looked' }),
+  ], rulings, polymers, { by: 'farid', date: '2026-09-21' });
+  assert.deepEqual(out.written.map((r) => [r.Ruling, r.Kind, r.Subject, r.Value]), [
+    ['R011', 'identity', 'Thing', 'PLA'],
+    ['R012', 'identity', 'Other', 'PA12'],
+    ['R013', 'new-material', 'PLA-NF', 'PLA × Natural fibre'],
+    // A corrected R083 reading is an identity ruling first; the material it then names comes back for its own permission.
+    ['R014', 'identity', 'Hemp other', 'PA12'],
+  ]);
+  assert.equal(out.struck.length, 1);
+  assert.equal(out.already.length, 1);
+  assert.deepEqual(out.refused.map((r) => r.row.Product), ['Later', 'Old Product']);
+  assert.match(out.refused[0].why, /no row in polymers\.csv/);
+  assert.match(out.refused[1].why, /R010 already rules/);
+  assert.ok(out.written.every((r) => r.By === 'farid' && r.Date === '2026-09-21' && /Owner verdict/.test(r.Reason)));
 });

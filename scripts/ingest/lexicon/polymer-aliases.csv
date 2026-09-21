@@ -4,7 +4,7 @@ apla,PLA,PLA,3D-Fuel's annealable PLA
 arnitel,TPC,Flexible Elastomers,DSM's copolyester elastomer line
 asa,ASA,ASA,
 bvoh,BVOH,Support / Soluble,
-coc,COC,PVB / Specialty Polymers,no polymers.csv row yet
+coc,COC,PVB / Specialty Polymers,
 copa,PA6/66,Nylon / Polyamide,"a copolymer of nylon 6 and 6,6; CoPA is an alias of PA6/66 (D44)"
 cope,CoPE,Copolyesters,
 cpe,CPE,Copolyesters,
@@ -17,13 +17,13 @@ hdpla,PLA,PLA,
 hips,HIPS,Styrenics,
 htn,PPA,High-Performance Engineering,a semi-aromatic polyamide sold as HTN
 htpla,PLA,PLA,a high-temperature PLA is still PLA
-lcp,LCP,High-Performance Engineering,no polymers.csv row yet
+lcp,LCP,High-Performance Engineering,
 mabs,ABS,ABS,transparent ABS
 ngen,nGen,Copolyesters,
 nylon,,Nylon / Polyamide,which nylon is a ruling: PA is a family entry and owns no product (D44)
 obc,OBC,Flexible Elastomers,
 pa,,Nylon / Polyamide,as above
-pa11,PA11,Nylon / Polyamide,no polymers.csv row yet: needs one before a grade cites it
+pa11,PA11,Nylon / Polyamide,
 pa12,PA12,Nylon / Polyamide,
 pa6,PA6,Nylon / Polyamide,
 pa6-66,PA6/66,Nylon / Polyamide,"the slash form cannot survive tokenisation, because a slash separates tokens"
@@ -32,14 +32,14 @@ pa612,PA612,Nylon / Polyamide,
 pa66,PA66,Nylon / Polyamide,
 paek,PAEK,Industrial High-Temperature - Outside H2C Practical Envelope,no polymers.csv row yet
 paht,PAHT,Nylon / Polyamide,
-pbat,PBAT,PVB / Specialty Polymers,no polymers.csv row yet
-pbt,PBT,Polymer Blends,no polymers.csv row yet
+pbat,PBAT,PVB / Specialty Polymers,
+pbt,PBT,Polymer Blends,
 pc,PC,Polycarbonate,
 pc-abs,PC-ABS,Polymer Blends,
 pc-asa,PC-ASA,Polymer Blends,"a polycarbonate and ASA blend; the estimate model identifies a blend by its own name, and there is no polymers.csv row for this one (ruling R017)"
 pc-pbt,PC-PBT,Polymer Blends,
 pcabs,PC-ABS,Polymer Blends,
-pcl,PCL,PVB / Specialty Polymers,no polymers.csv row yet
+pcl,PCL,PVB / Specialty Polymers,
 pctg,PCTG,Copolyesters,
 pe,PE,Polyolefins,
 peba,PEBA,Flexible Elastomers,
@@ -69,12 +69,12 @@ ppsu,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
 psu,PSU,Industrial High-Temperature - Outside H2C Practical Envelope,
 pva,PVA,Support / Soluble,
 pvb,PVB,PVB / Specialty Polymers,
-pvc,PVC,PVB / Specialty Polymers,no polymers.csv row yet
+pvc,PVC,PVB / Specialty Polymers,
 pvdf,PVDF,Fluoropolymers,
 rpetg,PETG,PETG,
 rpla,PLA,PLA,recycled PLA
-san,SAN,Styrenics,no polymers.csv row yet
-sebs,SEBS,Flexible Elastomers,no polymers.csv row yet
+san,SAN,Styrenics,
+sebs,SEBS,Flexible Elastomers,
 sflex,TPU,Flexible Elastomers,"Spectrum's flexible line: S-Flex 85A and 98A state a thermoplastic polyether polyurethane, and 90A and Carbon carry the same name (ruling R014)"
 tarfuse,POM,Acetals,Grupa Azoty's acetal line
 tpc,TPC,Flexible Elastomers,

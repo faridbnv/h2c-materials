@@ -311,6 +311,21 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       note(`headline ${recorded.MaterialID} ${h.HeadlineKey}`);
     }
 
+    // A material's printing guidance is the profile it cites, and a material that cites none shows "Not
+    // published" however many profiles its grades have: the build quotes the first `printing` link and nothing
+    // else (compile.js, GUIDANCE-MISMATCH). Every material written by hand cites one; nothing wrote it for a
+    // material the pipeline created, so thirty-six of them had a print profile and published no guidance. The
+    // link is the representative grade's own profile, which is what the hand-written ones cite.
+    if (createdHere && proposal.newMaterial?.MaterialID) {
+      const material = t.find('materials', proposal.newMaterial.MaterialID);
+      const profile = t.rows('profiles').find((x) => x.GradeID === material?.['Representative grade']);
+      const cites = (id) => t.rows('material_links').some((x) => x.MaterialID === material.MaterialID && x.Link === 'printing' && x.RecordID === id);
+      if (profile && !cites(profile.ProfileID)) {
+        t.append('material_links', { MaterialID: material.MaterialID, Link: 'printing', RecordID: profile.ProfileID });
+        note(`link ${material.MaterialID} printing ${profile.ProfileID}`);
+      }
+    }
+
     // A finding the reviewer accepted, now that the record it is about has an identifier. It is written into the
     // batch's own acceptance rows so the lint that runs on the result sees the same baseline a commit will.
     for (const a of proposal.acceptances ?? []) {
@@ -426,8 +441,9 @@ function markApplied(proposals, t) {
     row.registered_by = 'sha';
     row.status = 'applied';
     // A document that has entered waits for nothing, so the reason it was waiting goes with the status. Where
-    // the document was found is not a reason and stays: "also listed by" outlives the hold beside it.
-    const listed = (row.status_note ?? '').match(/also listed by [^\u2014;]+/)?.[0]?.trim();
+    // the document was found is not a reason and stays: "also listed by" outlives the hold beside it, and so
+    // does "staged copy", which is the retrieval record the source row's Access state was written from (R084).
+    const listed = ((row.status_note ?? '').match(/(?:also listed by|staged copy: )[^\u2014;]+/g) ?? []).map((f) => f.trim()).join('; ') || undefined;
     if (/^held: /.test(row.status_note ?? '')) row.status_note = listed ?? '';
     row.updated = new Date().toISOString().slice(0, 10);
     n++;

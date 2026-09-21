@@ -111,7 +111,8 @@ test('a short alias does not eat a longer name', () => {
 });
 
 test('a name that holds two polymers is a question, not a lower score', () => {
-  const blend = classify('colorFabb PLA/PHA', 'colorFabb');
+  // Two polymers with no row of polymers.csv named for both (PLA/PHA has one since m98; PETG/ASA does not).
+  const blend = classify('Nobody PETG/ASA', 'Nobody');
   assert.equal(blend.needsRuling, true);
   assert.match(blend.reasons.join(' '), /more than one polymer/);
   // A support product is never filed under the material it supports.
@@ -243,10 +244,13 @@ test('the sheet answers what the product name leaves open, and says when it cann
   const sheet = (composition, body = '') => ({ manufacturer: 'Fillamentum', title: '', body, composition });
   assert.equal(classifyProduct('Nylon AF80 Aramid', sheet('polyamide 12'), world).polymer, 'PA12');
   assert.equal(classifyProduct('Fishy Filaments\u2019 0rCA', sheet('Polyamide 6 + carbon fibres'), world).polymer, 'PA6');
-  // Two polymers in that row is a blend, and a blend is identified by its own name, never by the first of them.
+  // Two polymers in that row is a blend, and a blend is identified by its own name, never by the first of them:
+  // the row of polymers.csv named for both where there is one (NonOilen's PLA-PHB, m98), a question where not.
   const nonOilen = classifyProduct('NonOilen', sheet('polylactic acid and polyhydroxy butyrate compound'), world);
-  assert.equal(nonOilen.polymer, '');
-  assert.ok(nonOilen.needsRuling);
+  assert.equal(nonOilen.polymer, 'PLA-PHB');
+  const unnamed = classifyProduct('Mystery', sheet('polyamide 12 and polypropylene blend'), world);
+  assert.equal(unnamed.polymer, '');
+  assert.ok(unnamed.needsRuling);
   // A family word in that row settles nothing either: which polyolefin a polyolefin elastomer is, is a ruling.
   assert.ok(classifyProduct('Flexfill TPE 90A', sheet('polyolefin'), world).needsRuling);
   // And a polymer the sheet names for something else is not the filament. Its printing table names most of
@@ -254,4 +258,36 @@ test('the sheet answers what the product name leaves open, and says when it cann
   // made of it names that thing, and a named surface in front of a polymer names what the part was printed on.
   assert.equal(classifyProduct('Fluorodur', sheet('', 'Polymer base PVDF Bed adhesive Dimafix Pen, PVA glue'), world).polymer, 'PVDF');
   assert.equal(classifyProduct('PolySmooth', sheet('', 'Build surface treatment PC and Texture PEI (Glue when needed)'), world).polymer, '');
+});
+
+test('two polymers named as one thing are the blend polymers.csv holds a row for, and a question where it holds none', () => {
+  // colorFabb's PLA/PHA names both parts of the blend m98 wrote a row for (R082): the name is the blend naming itself.
+  const blend = classify('PLA/PHA', 'colorFabb');
+  assert.equal(blend.polymer, 'PLA-PHA', blend.reasons.join('; '));
+  assert.equal(blend.needsRuling, false, blend.reasons.join('; '));
+  assert.equal(blend.family, 'Polymer Blends');
+  // A composition line that names both parts reads the same way, whatever the product is called.
+  const stated = classifyProduct('NonOilen', { manufacturer: 'Fillamentum', composition: 'Polymer base polylactic acid and polyhydroxy butyrate compound' }, world);
+  assert.equal(stated.polymer, 'PLA-PHB', stated.reasons.join('; '));
+  // Two polymers with no row named for both are still a question for the sheet, never the first of the two.
+  const open = classify('PETG/ASA', 'Nobody');
+  assert.equal(open.needsRuling, true);
+  assert.match(open.reasons.join('; '), /names more than one polymer/);
+});
+
+test('a polymer the sheet names for something else is not the filament: a bed, or another of the maker\'s products', () => {
+  const sheet = (body, maker = 'AzureFilm') => ({ manufacturer: maker, title: '', body });
+  // AzureFilm's LumberLay says what it is in a sentence and names a PEI bed in its printing table. The bed is
+  // punctuated as the sheet likes: "Bed surface / Textured PEI /".
+  const lumberLay = classifyProduct('LumberLay', sheet('LumberLay combines 40% of recycled wood and 60% of PLA filament. Bed surface / Textured PEI / Printing temp. >220 °C'), world);
+  assert.equal(lumberLay.polymer, 'PLA', lumberLay.signals.join('; '));
+  // Nanovia's ISTROFLEX page shows a photo of a different product of theirs. A Shore D 44 elastomer is not a PLA.
+  const istroflex = classifyProduct('ISTROFLEX', sheet('Nanovia ISTROFLEX : Biodegradable flexible 3D printing filament. 3D printed flexible support made using Nanovia PLA Flax – created by Innovatech 3D', 'Nanovia'), world);
+  assert.equal(istroflex.polymer, '');
+  assert.ok(istroflex.needsRuling);
+  // The guard never reaches this product's own name: a maker talking about the filament the sheet is for.
+  const own = classifyProduct('Nanovia PLA', sheet('Nanovia PLA is an easy-printing biopolymer', 'Nanovia'), world);
+  assert.equal(own.polymer, 'PLA');
+  const alsoOwn = classifyProduct('ecoPLA', sheet('3DJAKE ecoPLA is made from PLA', '3DJake'), world);
+  assert.equal(alsoOwn.polymer, 'PLA');
 });
