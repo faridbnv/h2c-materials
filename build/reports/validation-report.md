@@ -120,9 +120,9 @@ passes a material; in Explore it may screen one out only when its plausible rang
 |---|---:|---:|---:|---:|---:|---:|
 | density | 858 | 112 | 80% | 96% | ×1.13 | 0.0255 (14899 pairs) |
 | tensileModulusXY | 1151 | 78 | 81% | 96% | ×1.51 | 0.321 (850 pairs) |
-| tensileStrengthXY | 1449 | 56 | 80% | 96% | ×1.61 | 0.242 (1850 pairs) |
+| tensileStrengthXY | 1448 | 56 | 80% | 96% | ×1.61 | 0.242 (1850 pairs) |
 | elongationXY | 921 | 78 | 80% | 96% | ×3.26 | 0.716 (1804 pairs) |
-| hdt045 | 1247 | 71 | 80% | 96% | 16.6 °C | 4.19 (4011 pairs) |
+| hdt045 | 1246 | 71 | 80% | 96% | 16.6 °C | 4.19 (4011 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -169,9 +169,9 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 
 EST-GRADE-OUTLIER, 33 grades: PLA 7, PLA Metal 5, PLA Aero 3, PA6-CF 3, TPU 3, PA12-CF 3, PLA Wood 2, PP 1, ABS 1, ABS-GF 1, PA6/66 1, PET-GF 1, PPA-CF 1, PPA-GF 1.
 
-Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 232 observations):
+Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 230 observations):
 
-By material: PLA 39, PA12-CF 14, TPU 12, PLA Aero 9, PPA-CF 8, PLA Wood 7, PETG 7, ABS 7, PLA Metal 6, PA6-CF 6, PA6 5, PA12 5, PLA-CF 4, PLA-NF 4, PLA Silk 4, PAHT-CF 4, PA6-GF 4, ABS-GF 4, PC 4, PET-GF 4, PPA-GF 4, nGen FLEX 3, ABS-CF 3, ASA 3, PA6/66 3, PPA 3, PVA 2, PP 2, PP-CF 2, CPE-CF 2, PLA-EC 2, PAHT-CE 2, PETG-CF 2, PET 2, PPS-CF 2, HIPS 2, PEBA 2, OBC 2, TPC-ESD 2, PBAT 2, CPE-LW 2, TPU-LW 2, BVOH 2, PLA-GF 2, PA12-GF 2, PET-CF 2, Support for PA/PET 2, PC-PBT 2, PE-GF 2, PLA Sparkle 1, POM / Acetal 1, TPC / TPEE 1, PCL 1, TPU for AMS 1, TPU-CF 1, ASA-CF 1, PC FR 1, CPE 1, PC-PBT-CF 1.
+By material: PLA 37, PA12-CF 14, TPU 12, PLA Aero 9, PPA-CF 8, PLA Wood 7, PETG 7, ABS 7, PLA Metal 6, PA6-CF 6, PA6 5, PA12 5, PLA-CF 4, PLA-NF 4, PLA Silk 4, PAHT-CF 4, PA6-GF 4, ABS-GF 4, PC 4, PET-GF 4, PPA-GF 4, nGen FLEX 3, ABS-CF 3, ASA 3, PA6/66 3, PPA 3, PVA 2, PP 2, PP-CF 2, CPE-CF 2, PLA-EC 2, PAHT-CE 2, PETG-CF 2, PET 2, PPS-CF 2, HIPS 2, PEBA 2, OBC 2, TPC-ESD 2, PBAT 2, CPE-LW 2, TPU-LW 2, BVOH 2, PLA-GF 2, PA12-GF 2, PET-CF 2, Support for PA/PET 2, PC-PBT 2, PE-GF 2, PLA Sparkle 1, POM / Acetal 1, TPC / TPEE 1, PCL 1, TPU for AMS 1, TPU-CF 1, ASA-CF 1, PC FR 1, CPE 1, PC-PBT-CF 1.
 
 - PLA, density: density 1360 (V004368)
 - PLA, density: density 1390 (V006192)
@@ -304,8 +304,6 @@ By material: PLA 39, PA12-CF 14, TPU 12, PLA Aero 9, PPA-CF 8, PLA Wood 7, PETG 
 - PLA, hdt045: HDT 0.45 61.4, 69.9 (V003530, V003574)
 - PLA, hdt045: Tg amorphous 59.15 (V003899)
 - PLA, hdt045: Vicat amorphous 148.3 (V003900)
-- PLA, hdt045: HDT 0.45 57 (V004933)
-- PLA, hdt045: Tg amorphous 160 (V004934)
 - PLA, hdt045: HDT 0.45 135 (V005853)
 - PLA, hdt045: Vicat amorphous 160 (V006191)
 - PLA, hdt045: HDT 0.45 80 (V007474)

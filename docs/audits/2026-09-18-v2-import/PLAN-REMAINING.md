@@ -64,7 +64,7 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | 1.8 | The import closed | ½ | done 2026-09-21 (STATUS.md reconciles the inventory) |
 | 2.1 | Cross-maker consistency: SQL views, `EST-CONFLICT` | 1 | done 2026-09-21 (measurement_z, v_property_spread, EST-CONFLICT at info) |
 | 2.2 | Grade posteriors, `EST-GRADE-OUTLIER`, D81 | 2 | done 2026-09-21 (D81; heat deflection not shipped by the stop rule; both codes at info) |
-| 2.3 | The sweep | 1½ | |
+| 2.3 | The sweep | 1½ | begun 2026-09-21 (m126: two joined numbers found and searched for across the table; 453 values beyond z 3 remain, the list in v_measurement_z) |
 | 2.4 | Representative grades and headlines after the import | ½ | |
 | 2.5 | Query layer, OPEN-PROBLEMS | ½ | |
 | 3.1 | Family → polymer facet | 1 | |
