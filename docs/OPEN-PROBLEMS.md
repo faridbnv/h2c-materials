@@ -220,6 +220,58 @@ npm run sql --silent -- "select profileid, sourceid, substr(nozzle_c,1,44), subs
 
 ---
 
+## 10. What the second read found and nobody has fixed
+
+R085's second read of b03 to b26 — a separate reader against a seeded sample, 564 rows, `ingest:second-read` —
+disagreed with **145 of 564 rows (26 %)**. No row failed its first check: every sampled value is printed on the
+document its Locator names, so there is no repeat of the wrong-revision collision the b01/b02 read found. What
+the rest are is conditions and methods the sheet states and the record does not.
+
+Three classes were fixed the same day, each counted across the whole table and fixed in the reader too: seven
+resistivities that were a piece of a power of ten, thirty heat deflections tested at "0.45 °C", sixty-one density
+methods beginning with the 3 of their own g/cm³ (m104); 481 standards a merged Testing Method cell names (m105);
+104 methods a thermal table names (m106). **117 rows of the sample are still open**, and the verdicts and quoted
+notes are in `batches/<batch>/second-read-sample.csv`.
+
+| What | Sample rows | Where |
+|---|---:|---|
+| A condition the sheet states and the row does not | 84 | notch (22), build direction (18), dry/wet/annealed (15), specimen form (12), melt-flow condition (8), test load (6), other (7) |
+| A standard the sheet prints, still unrecorded | 26 | mostly QIDI's bilingual tables, whose columns this reader cannot pair |
+| A value that is not what the page prints | 7 | below |
+
+The seven values, each with what the page says:
+
+| Row | What the record holds | What the document prints |
+|---|---|---|
+| `V004139` | Hardness 85 Shore A, a point | Extrudr prints "Shore 85A - 88A": a range with no upper bound recorded |
+| `V006953` | Impact strength 399 kJ/m² | a *tensile* impact strength (ASTM D1822), filed with notched-bar values of 2 to 50 |
+| `V006708` | Density 1.05 g/cm³ | the prose above the table says 1.05 is the regular ABS and this grade is 1.037 |
+| `V007346` | Mould shrinkage 0.70 % | 3D4Makers prints "0.40 to 0.70 %", and "0.40 to" is stranded in Standard / load |
+| `V007775` | Vicat softening temperature 100 °C | Fillamentum prints "Vicat softening temperature **-** ISO 306"; 100 °C is the row below, "Temperature resistance" |
+| `V009317` | Decomposition temperature 380, Operator `=` | Raise3D prints "> 380 °C" |
+| `V009341` | Elongation at break 3,3 % | AzureFilm prints "Strain at break (Flexural)", so its grade holds two elongations |
+
+Two conventions the reader raised rather than flagged, because they are uniform across a maker and are the
+owner's to rule on rather than a per-row error:
+
+- **QIDI's specimen type.** All 149 QIDI rows read "Not published (do not assume printed)" although every QIDI
+  sheet prints "Specimens printed under the following conditions: Nozzle size 0.4 mm, Nozzle temp …".
+- **Extrudr's specimen type is split across batches.** b07 applied the R-EXTRUDR-AIS ruling (every row "Raw
+  material value"); b11 and b18 did not (`V006441 V006212 V008574 V008573 V008568 V008387 V008383 V008559`).
+  Nothing in those documents contradicts either reading.
+
+```bash
+npm run ingest:second-read -- --batch b12 --tally     # the rate, and what it would reopen
+```
+
+**What `--tally` does needs a decision before it is run.** R085 says one disagreement reopens its document, and
+the script writes `held: second-read` onto the ledger row. For a document already applied that is a status the
+next `--holds` run undoes, because the product has a grade and `registered` is terminal. Reopening a document
+whose rows are already in the tables is not the same act as holding one that never entered, and the difference
+has not been designed.
+
+---
+
 ## Coverage, in one number
 
 Of 705 coverage rows, 281 record a gap, 93 a comparability limitation, 32 a reviewed limitation and 13 a partial

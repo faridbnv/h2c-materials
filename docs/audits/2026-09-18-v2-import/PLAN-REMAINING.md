@@ -25,17 +25,24 @@ Three jobs, and BLOCKERS.md opens with the command that turns each into data.
 | **Rulings** | 6 | a row in `rulings/rulings.csv` per item under `ruling:unsettled`. Four of the six are one question: copper, magnetite and tungsten are loads no modifier value covers, and one metal value would take them all |
 | **Documents nobody can fetch** | 120 | FormFutura 64, INTAMSYS 33, iSANMATE 23. Saved from a browser, `ingest:fetch --stage` hashes them against their rows by the file name their URL carries, and they travel the pipeline as fetched documents do, Access state `retrieved-copy` (R084) |
 
-## 2. What waits on a reader who did not decide it
+## 2. What two readers who did not decide these rows found
 
-Both are briefed and both are somebody else's, because a reader who already decided a row cannot see it fresh
-(R085) and a machine's guess about a picture is not a transcription (D35).
+Both reads are done, both are committed, and what each found is recorded where it belongs.
 
-- [BRIEF-optical-review.md](BRIEF-optical-review.md) — batch b27, **139 documents and 1,211 rows**, every one read
-  from a scan, every one with its page images rendered. `APPLY-OCR-UNVERIFIED` refuses any of them that nobody has
-  checked against the image. A row the image does not print is rejected, never corrected.
-- [BRIEF-second-read.md](BRIEF-second-read.md) — **564 rows across b03 to b26**, drawn by
-  `ingest:second-read -- --all` (mulberry32 from a named seed, grouped by property, taken round-robin so no one
-  property eats the sample). `--tally` reads the verdicts back and reopens every document with a disagreement.
+**The optical review of b27** (`claude-optical`): all 139 proposals opened, 678 rows accepted against the page
+image, 151 rejected, 87 documents signed off. **40 documents were left**: 11 whose identity is unsettled, and 29
+whose product name is page furniture — 18 FormFutura sheets read as "UTURA", which is the logo in the header, 8
+BASF ones named from a logo or a footer, a Fiberlogy sheet that took "TARDE NAME:" into the name. Those 40 need
+a name the sheet prints before their rows are worth anything; the batch is not applied.
+
+**The second read of b03 to b26** (`claude-second-read`, R085): 564 rows, 145 disagreeing. Three classes were
+fixed the same day and in the reader too (m104, m105, m106 — 698 rows); **117 are still open** and are
+OPEN-PROBLEMS §10, with the verdicts and quoted notes in `batches/<batch>/second-read-sample.csv`.
+
+`--tally` has not been run, and what it should do needs deciding first: R085 says one disagreement reopens its
+document, and for a document already applied that is a status the next `--holds` run undoes, because the product
+has a grade and `registered` is terminal. Reopening a document whose rows are in the tables is not the same act
+as holding one that never entered.
 
 ## 3. What frees each kind of held document
 
