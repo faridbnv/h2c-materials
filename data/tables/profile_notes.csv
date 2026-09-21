@@ -1900,3 +1900,11 @@ P0973,Speed,300 mm/s
 P0973,Retraction,0-5 mm
 P0974,Speed,50-600
 P0974,Retraction,0-5 mm
+P0975,Speed,30-120 mm/s
+P0975,Retraction,s 1800-3600 mm/min
+P0976,Speed,30-80mm/s
+P0976,Adhesion / release,"Start slower (e.g., 15-20mm/s) and slightly hotter (e.g., +5°C on nozzle) for be"
+P0976,Retraction,1-2mm
+P0977,Cooling,Speed 100
+P0977,Speed,30
+P0977,Retraction,Off Recommended

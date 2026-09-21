@@ -58,3 +58,71 @@ export function retireGrade(t, gradeId) {
   for (const s of t.rows('sources').filter((s) => String(s['Applicable grades'] ?? '').includes(gradeId))) todo.push({ table: 'sources', record: s.SourceID, action: `update Applicable grades, which names ${gradeId}` });
   return todo;
 }
+
+/**
+ * Re-file a grade under the material its sheet says it is, the way m25 re-filed HyperLite PP (D72: nothing is
+ * deleted, and an ID is never reused). A GradeID carries its material's number, so the grade itself cannot move:
+ * the old grade is retired and a copy takes the next ID under the new material; each of its measurements is copied
+ * under the new grade and the original retired as a duplicate naming its twin; each of its print profiles and their
+ * notes are copied; a source that names the old grade names both. It refuses where a headline or a material's
+ * representative grade rests on the grade, because moving those is a decision about the old material, not a copy.
+ * A re-run is a no-op: a retired grade has been re-filed already.
+ */
+export function refileGrade(t, gradeId, materialId, { migration, date, why }) {
+  const old = t.get('grades', gradeId);
+  if (old.Status === 'retired') return null;
+  const measurements = t.rows('measurements').filter((m) => m.GradeID === gradeId && m['Data status'] !== 'Retired duplicate record');
+  const ids = new Set(measurements.map((m) => m.MeasurementID));
+  const leaning = [
+    ...t.rows('headlines').filter((h) => ids.has(h.MeasurementID)).map((h) => `headline ${h.MaterialID} ${h.HeadlineKey}`),
+    ...t.rows('materials').filter((m) => m['Representative grade'] === gradeId).map((m) => `representative grade of ${m.MaterialID}`),
+    ...t.rows('evidence').filter((e) => e.GradeID === gradeId).map((e) => `evidence ${e.EvidenceID}`),
+    ...t.rows('prices').filter((p) => p.GradeID === gradeId).map((p) => `price ${p.PriceID}`),
+  ];
+  if (leaning.length) throw new Error(`${migration}: ${gradeId} carries ${leaning.join(', ')}; move those by hand before re-filing it`);
+  const note = (text, sentence) => (/^(Not applicable|Not published|)$/.test(text ?? '') ? sentence : `${text} ${sentence}`);
+  const grade = nextId('grades', t.rows('grades').map((g) => g.GradeID), { materialId });
+  t.append('grades', { ...old, GradeID: grade, MaterialID: materialId });
+  retireGrade(t, gradeId);
+  t.set('grades', gradeId, 'Selected-grade rationale', `Retired ${date} (${migration}): re-filed as ${grade}. ${why}`, { expect: old['Selected-grade rationale'] });
+  for (const m of measurements) {
+    const id = nextId('measurements', t.rows('measurements').map((x) => x.MeasurementID));
+    t.append('measurements', { ...m, MeasurementID: id, MaterialID: materialId, GradeID: grade, Notes: note(m.Notes, `Re-filed ${date} (${migration}) from ${m.MeasurementID}: ${why}`) });
+    t.set('measurements', m.MeasurementID, 'Data status', 'Retired duplicate record', { expect: m['Data status'] });
+    t.set('measurements', m.MeasurementID, 'Notes', note(m.Notes, `Retired ${date} (${migration}): re-filed under ${grade} as ${id}.`), { expect: m.Notes });
+  }
+  for (const p of t.rows('profiles').filter((x) => x.GradeID === gradeId)) {
+    const id = nextId('profiles', t.rows('profiles').map((x) => x.ProfileID));
+    t.append('profiles', { ...p, ProfileID: id, MaterialID: materialId, GradeID: grade });
+    for (const n of t.rows('profile_notes').filter((x) => x.ProfileID === p.ProfileID)) t.append('profile_notes', { ...n, ProfileID: id });
+  }
+  for (const s of t.rows('sources').filter((x) => String(x['Applicable grades'] ?? '').split(/;\s*/).includes(gradeId))) {
+    t.set('sources', s.SourceID, 'Applicable grades', `${s['Applicable grades']}; ${grade}`, { expect: s['Applicable grades'] });
+  }
+  return grade;
+}
+
+/**
+ * A material's stored Grades coverage row, recounted after its grades changed. The manufacturer count is a column,
+ * and a row that no longer states the truth is superseded rather than edited (D72's rule for coverage, the m37
+ * pattern); the new row says why it was recounted. Returns the new row's ID, or null where the count still holds.
+ */
+export function recountGrades(t, materialId, { migration, date, because }) {
+  const names = new Set(t.rows('grades').filter((g) => g.MaterialID === materialId && g.Role === 'procurement' && g.Status === 'active').map((g) => g.Manufacturer));
+  const count = names.size;
+  let made = null;
+  for (const old of t.rows('coverage').filter((c) => c.MaterialID === materialId && c.Domain === 'Grades' && c.Status !== 'Superseded')) {
+    if (old['Manufacturer count'] === 'Not applicable' || Number(old['Manufacturer count']) === count) continue;
+    const newId = nextId('coverage', t.rows('coverage').map((c) => c.CoverageID));
+    t.append('coverage', {
+      CoverageID: newId, MaterialID: materialId, Domain: 'Grades', Status: count >= 3 ? 'Resolved' : 'Gap',
+      'Manufacturer count': String(count),
+      Finding: `${count} distinct manufacturer(s) documented against target 3: ${[...names].sort().join(', ')}. Recounted ${date} (${migration}) ${because}.`,
+    });
+    t.set('coverage', old.CoverageID, 'Finding', `Superseded by ${newId} (${date}; was "${old.Status}"): ${old.Finding}`, { expect: old.Finding });
+    t.set('coverage', old.CoverageID, 'Status', 'Superseded', { expect: old.Status });
+    t.set('coverage', old.CoverageID, 'Manufacturer count', 'Not applicable', { expect: old['Manufacturer count'] });
+    made = newId;
+  }
+  return made;
+}

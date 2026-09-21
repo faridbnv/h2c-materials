@@ -31,28 +31,28 @@ n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 COC
 PVB / Specialty Polymers
- UNKNOWN 1,020 ~1.3–2.9† ~30–76† ~8–51† ~135–159† — ☆
+ UNKNOWN 1,020 ~1.3–2.8† ~31–76† ~8–51† ~135–159† — ☆
 CoPE
 Copolyesters
  UNKNOWN 1,300 2.52 51.6 ~10–87† ~50–70† — ☆
 CPE
 Copolyesters
- UNKNOWN 1,250 ~0.7–2.1† ~34–59† ~60–210† 80 — ☆
+ UNKNOWN 1,250 ~0.7–2.0† ~34–59† ~60–210† 80 — ☆
 CPE-LW
 Copolyesters
- UNKNOWN 1,160 ~0.13–0.40† ~14–44† ~170–530† 70 — ☆
+ UNKNOWN 1,160 ~0.14–0.41† ~15–45† ~170–530† 70 — ☆
 nGen FLEX
 Copolyesters
- UNKNOWN 1,160 ~0.19–0.40† ~18–32† ~100–300† 100 — ☆
+ UNKNOWN 1,160 ~0.19–0.39† ~18–32† ~100–300† 100 — ☆
 OBC
 Polyolefins
- UNKNOWN 905 ~0.005–0.36† ~15–32† ~730–1,250† n/a — ☆
+ UNKNOWN 905 ~0.005–0.33† ~15–32† ~730–1,250† n/a — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~980–1,050† ~0.9–3.1† ~51–87† ~150–270† ~90–115† — ☆
+ UNKNOWN ~980–1,050† ~0.9–3.2† ~51–87† ~150–270† ~90–115† — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.2–4.4† ~36–80† ~4–21† ~142–172† 163↗ ☆
+ UNKNOWN 1,250 ~2.2–4.5† ~37–81† ~4–21† ~142–172† 163↗ ☆
 PBAT
 PVB / Specialty Polymers
  PASS 1,250 0.006 27 400 90 — ☆
@@ -64,34 +64,34 @@ Polyolefins
  PASS 954 0.752 18.5 208 66 — ☆
 PEBA
 Flexible Elastomers
- PASS 1,010 ~0.026–0.110† ~17.4–26.5† 520 n/a — ☆
+ PASS 1,010 ~0.026–0.108† ~17.3–26.5† 520 n/a — ☆
 PET
 PET Engineering
- UNKNOWN 1,340 ~1.7–3.4† ~41–69† ~4.1–12.0† ~59–72† — ☆
+ UNKNOWN 1,340 ~1.7–3.5† ~41–69† ~4.1–12.0† ~59–72† — ☆
 PET-LW
 PET Engineering
- UNKNOWN ~1,240–1,390† ~0.7–6.8† ~17–101† ~2–31† ~51–72† — ☆
+ UNKNOWN ~1,240–1,390† ~0.8–3.8† ~19–86† ~2–31† ~51–72† — ☆
 PP
 Polyolefins
- UNKNOWN 890 ~0.35–0.92† ~19.0–22.9† ~850–1,140† 92? — ☆
+ UNKNOWN 890 ~0.36–0.95† ~19.0–22.8† ~850–1,140† 92? — ☆
 PVB
 PVB / Specialty Polymers
- UNKNOWN 1,100 ~1.2–2.7† ~52–72† ~15–44† 63 — ☆
+ UNKNOWN 1,100 ~1.2–2.6† ~52–72† ~15–44† 63 — ☆
 PVC
 PVB / Specialty Polymers
  UNKNOWN 1,269 ~0.1–11† ~24–59† ~110–370† ~54–78† — ☆
 SAN
 Styrenics
- UNKNOWN 1,080 ~2.3–4.8† ~37–85† ~6–57† ~90–113† — ☆
+ UNKNOWN 1,080 ~2.3–4.7† ~37–85† ~6–57† ~90–113† — ☆
 TPC
 also called TPEE · Flexible Elastomers
- UNKNOWN 1,150 ~0.009–0.057† ~19–60† ~530–1,000† n/a — ☆
+ UNKNOWN 1,150 ~0.010–0.059† ~20–116† ~530–1,000† n/a — ☆
 TPC-ESD
 Flexible Elastomers
  UNKNOWN 1,280 1.4 70 ~120–710† 50 — ☆
 TPU
 Flexible Elastomers
- PASS 1,200 0.029 ~31.3–37.8† 330 n/a — ☆
+ PASS 1,200 0.029 ~31.3–37.9† 330 n/a — ☆
 TPU 85A
 Flexible Elastomers
  PASS 1,180 0.0068 12 700 n/a no price↗ ☆
@@ -103,10 +103,10 @@ Flexible Elastomers
  PASS 1,220 0.0098 27.3 650 n/a 54↗ ☆
 TPU for AMS
 Flexible Elastomers
- PASS 1,260 ~0.02–0.18† 22.4 650 n/a 47.5↗ ☆
+ PASS 1,260 ~0.03–0.19† 22.4 650 n/a 47.5↗ ☆
 TPU-CF
 Flexible Elastomers
- UNKNOWN 1,230 ~1.0–2.5† ~25–72† ~130–580† n/a — ☆
+ UNKNOWN 1,230 ~1.1–2.5† ~27–81† ~130–580† n/a — ☆
 TPU-ESD
 Flexible Elastomers
- UNKNOWN 1,180 ~0.007–0.51† 12 ~170–760† n/a — ☆
+ UNKNOWN 1,180 ~0.006–0.34† 12 ~170–760† n/a — ☆

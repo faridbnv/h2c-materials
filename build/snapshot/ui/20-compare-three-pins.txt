@@ -38,9 +38,9 @@ ASA-CF
 4.2
 ASA-EC
 ~1.9–4.0†
-0.00203
+0.00189
 log scale
-23.9
+24.1
 all 144 candidates
 ASA-CF: XY · Printed specimen
 Strength MPa
@@ -50,7 +50,7 @@ ASA-CF
 34
 ASA-EC
 ~28–51†
-10.2
+10.3
 282
 all 144 candidates
 ASA-CF: XY · Printed specimen

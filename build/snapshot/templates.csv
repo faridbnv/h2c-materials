@@ -843,7 +843,7 @@ High-stiffness fixture,Explore with estimates,M143,nGen FLEX,UNKNOWN,screened,te
 High-stiffness fixture,Explore with estimates,M144,PCTG-CF,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M145,PLA-PHA,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M146,PLA-PHB,UNKNOWN,screened,tensileModulusXY >= 5
-High-stiffness fixture,Explore with estimates,M147,PAHT,UNKNOWN,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M147,PAHT,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M148,PAHT-CE,UNKNOWN,yes,
 High-stiffness fixture,Explore with estimates,M149,PCL,UNKNOWN,yes,
 Flexible component,Strict,M039,TPU,PASS,yes,

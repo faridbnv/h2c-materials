@@ -34,6 +34,7 @@ import { buildDatabase } from '../../build/src/pipeline.js';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
 import { sha256, numberOnPage, cachedText } from '../lib/pdf-text.mjs';
 import { documentPath } from './extract.mjs';
+import { recountGrades } from '../data/records.mjs';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const SEP = String.fromCharCode(0);
@@ -346,21 +347,8 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
   // What a new grade does to a material's coverage: the manufacturer count is a column, and a row that no longer
   // states the truth is superseded rather than edited (D72's rule for coverage, the m37 pattern).
   for (const materialId of [...touchedMaterials]) {
-    const names = new Set(t.rows('grades').filter((g) => g.MaterialID === materialId && g.Role === 'procurement' && g.Status === 'active').map((g) => g.Manufacturer));
-    const count = names.size;
-    for (const old of t.rows('coverage').filter((c) => c.MaterialID === materialId && c.Domain === 'Grades' && c.Status !== 'Superseded')) {
-      if (old['Manufacturer count'] === 'Not applicable' || Number(old['Manufacturer count']) === count) continue;
-      const newId = nextId('coverage', t.rows('coverage').map((c) => c.CoverageID));
-      t.append('coverage', {
-        CoverageID: newId, MaterialID: materialId, Domain: 'Grades', Status: count >= 3 ? 'Resolved' : 'Gap',
-        'Manufacturer count': String(count),
-        Finding: `${count} distinct manufacturer(s) documented against target 3: ${[...names].sort().join(', ')}. Recounted ${date} (${migration}) after the grades this batch added.`,
-      });
-      t.set('coverage', old.CoverageID, 'Finding', `Superseded by ${newId} (${date}; was "${old.Status}"): ${old.Finding}`, { expect: old.Finding });
-      t.set('coverage', old.CoverageID, 'Status', 'Superseded', { expect: old.Status });
-      t.set('coverage', old.CoverageID, 'Manufacturer count', 'Not applicable', { expect: old['Manufacturer count'] });
-      note(`coverage ${newId} (supersedes ${old.CoverageID})`);
-    }
+    const made = recountGrades(t, materialId, { migration, date, because: 'after the grades this batch added' });
+    if (made) note(`coverage ${made} (recounted ${materialId})`);
   }
 
   if (accepting.length) {

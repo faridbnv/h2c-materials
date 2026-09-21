@@ -8,11 +8,11 @@ can go stale without the command that made it saying so.
 | Table | Rows |
 |---|---:|
 | materials | 149 |
-| grades | 966 |
-| measurements | 9,981 |
+| grades | 970 |
+| measurements | 9,999 |
 | sources | 1,240 |
-| profiles | 974 |
-| profile notes | 1,901 |
+| profiles | 977 |
+| profile notes | 1,909 |
 | headlines | 483 |
 
 ## The corpus
@@ -128,6 +128,7 @@ npm run ingest:propose -- --compare --all
 | [b26](batches/b26/README.md) | b26: what a browser had to draw first | m103-batch-b26, 2026-09-21 |
 | [b27](batches/b27/README.md) | b27: the optical pool, read and not applied | not recorded |
 | [b28](batches/b28/README.md) | b28: FormFutura's own library, and what reading it showed up | m110-batch-b28, 2026-09-21 |
+| [b29](batches/b29/README.md) | b29: iSANMATE's current sheets | m112-batch-b29, 2026-09-21 |
 
 ## By provider
 

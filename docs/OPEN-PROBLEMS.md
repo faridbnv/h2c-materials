@@ -290,21 +290,6 @@ has not been designed.
 
 ---
 
-## 11. Two grades filed under a broader material than their sheets name
-
-The identity census run for batch b28 (every cached document read again, before and after a reader change) found
-two applied 3D4Makers grades whose sheets name a filler their material does not carry: **ABSKevlar**, filed under
-ABS (M027) rather than the aramid-filled ABS material, and **PETGCarbon**, filed under PETG (M020) rather than
-PETG-CF (M024). Their values are the sheets' own; what is wrong is where they sit. Moving a grade is a migration
-that moves its measurements, profiles and headlines with it, and it belongs to the sweep (PLAN-REMAINING §2.3).
-
-```bash
-npm run sql --silent -- "select gradeid, materialid, product_name from grades where manufacturer='3D4Makers'
-  and (product_name like '%Kevlar%' or product_name like '%Carbon%')"
-```
-
----
-
 ## Coverage, in one number
 
 Of 761 coverage rows, 272 record a gap, 93 a comparability limitation, 32 a reviewed limitation and 13 a partial

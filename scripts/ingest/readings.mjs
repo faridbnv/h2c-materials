@@ -286,13 +286,16 @@ export function readings(only = null) {
     // product the sentence is beside — BigRep's index said "BigRep PLA is a bioplastic based on …" under four
     // products that are not PLA. So the witness is read only where a line names this product, by the name the
     // sheet gives it, and that line names exactly one polymer. Anything else on the page is about something else.
-    const witness = ledger.find((w) => w.duplicate_kind === 'product-page' && w.duplicate_of === row.doc_key && w.sha256) ?? null;
-    const witnessText = witness ? cachedText(witness.sha256) : null;
+    // A product may have several witnesses — the page the ledger named and a document a search found (R089) — and
+    // the first that names the product beside one polymer is the one that speaks.
     const squash = (t) => String(t ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '');
     const ownName = squash([row.manufacturer, row.provider, row.brand].filter(Boolean).reduce((n, who) => productName(n, who), row.product_raw ?? ''));
-    const fromWitness = witnessText
-      ? witnessReading([String(witnessText.title ?? ''), ...(witnessText.pages ?? []).flatMap((p) => (p.lines ?? []).map((l) => String(l.text ?? '')))], ownName, polymerOf)
-      : null;
+    let witness = null, fromWitness = null;
+    for (const w of ledger.filter((x) => x.duplicate_kind === 'product-page' && x.duplicate_of === row.doc_key && x.sha256)) {
+      const t = cachedText(w.sha256);
+      const r = t ? witnessReading([String(t.title ?? ''), ...(t.pages ?? []).flatMap((p) => (p.lines ?? []).map((l) => String(l.text ?? '')))], ownName, polymerOf) : null;
+      if (r) { witness = w; fromWitness = r; break; }
+    }
     const witnessNamed = fromWitness ? [fromWitness.polymer] : [];
     const witnessLine = fromWitness?.line ?? null;
     const name = row.product_raw || row.doc_key;

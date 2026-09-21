@@ -99,5 +99,5 @@ Under it:
   re-read from its source. Headline heat deflections with an unstated load fall from 13 of 91 to 8 of 89, and
   the two LEHVOSS materials' moulded 1.8 MPa values leave their headlines for context (D55).
 
-Two applied grades were found filed too broadly by the identity census and are left for the sweep (PLAN-REMAINING
-§2.3): 3D4Makers' ABSKevlar under ABS rather than ABS-AF, and its PETGCarbon under PETG rather than PETG-CF.
+The identity census also showed the reader reading 3D4Makers' ABSKevlar and PETGCarbon as plain ABS and PETG
+before these fixes; the grades themselves were always under ABS-AF and PETG-CF, so only the reader was wrong.

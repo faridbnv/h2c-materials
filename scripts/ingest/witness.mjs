@@ -3,6 +3,8 @@
 //
 //   npm run ingest:witness                 fetch the product page of every reading still marked unread
 //   npm run ingest:witness -- --doc <key>  one product's page
+//   npm run ingest:witness -- --doc <key> --url <url>   a document the maker published that a search found (R089):
+//                                          a product page or a PDF, fetched and hashed as a witness like any other
 //
 // R075 and R077 said the sheet answers what the name does not, and for two documents in three it does not: the
 // sheet prints the numbers and never the polymer. The owner chose, for those, the maker's own product page — the
@@ -60,29 +62,37 @@ async function get(url) {
   return { error: 'unreachable' };
 }
 
-async function witness({ row, page }) {
+async function witness({ row, page, found = false }) {
   const got = await get(page);
   const today = new Date().toISOString().slice(0, 10);
   const base = {
-    doc_key: page, provider: row.provider, provider_kind: row.provider_kind, brand: row.brand, manufacturer: row.manufacturer,
+    // A page the ledger already names is keyed by itself, as before. One a search found may witness several
+    // products of one maker (a range page), so it is keyed by the product it witnesses as well.
+    doc_key: found ? `${page}#witness-for=${row.doc_key}` : page, provider: row.provider, provider_kind: row.provider_kind, brand: row.brand, manufacturer: row.manufacturer,
     product_raw: row.product_raw, url: page, source_page_url: page, format: 'HTML', language: row.language ?? 'Not stated',
-    mechanical_evidence: 'Not applicable', variants: '', discovery: 'product page, fetched as a second witness (completion plan, phase C)',
+    mechanical_evidence: 'Not applicable', variants: '',
+    discovery: found ? 'a document the maker published, found by a search and fetched as a witness (R089)' : 'product page, fetched as a second witness (completion plan, phase C)',
     registered_source_id: '', registered_by: '', duplicate_of: row.doc_key, duplicate_kind: 'product-page', primary: 'FALSE', batch: '',
     checked: today, updated: today,
   };
   if (got.error) return { ...base, sha256: '', access_status: got.error, status: 'unreachable', status_note: `the product page could not be fetched: ${got.error}` };
   const sha = sha256(got.bytes);
-  const path = cacheDir('sources/by-sha', `${sha}.html`);
+  const isPdf = got.bytes.subarray(0, 5).toString('latin1') === '%PDF-';
+  const path = cacheDir('sources/by-sha', `${sha}.${isPdf ? 'pdf' : 'html'}`);
   if (!existsSync(path)) { mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, got.bytes); }
   const text = await documentText(got.bytes, { sha });
   const lines = (text.pages ?? []).reduce((n, p) => n + (p.lines ?? []).length, 0);
-  return { ...base, sha256: sha, access_status: `page fetched (${got.type || 'text/html'})`, status: 'duplicate-of',
+  return { ...base, sha256: sha, format: isPdf ? 'PDF' : 'HTML', access_status: `${isPdf ? 'document' : 'page'} fetched (${got.type || 'text/html'})`, status: 'duplicate-of',
     status_note: `the maker's product page for ${row.doc_key}, ${lines} line(s) of text; a witness for what the sheet does not say` };
 }
 
 if (process.argv[1]?.endsWith('witness.mjs')) {
   const ledger = readLedger();
-  const todo = wanting(ledger, arg('doc'));
+  const explicit = arg('url');
+  if (explicit && !arg('doc')) { console.error('--url witnesses one product: --doc <key> --url <url>'); process.exit(2); }
+  const target = explicit ? ledger.find((r) => r.doc_key === arg('doc')) : null;
+  if (explicit && !target) { console.error(`no ledger row is keyed ${arg('doc')}`); process.exit(2); }
+  const todo = explicit ? [{ row: target, page: explicit, found: true }] : wanting(ledger, arg('doc'));
   if (!todo.length) { console.log('every unread reading with a product page already has its witness'); process.exit(0); }
   const byHost = new Map();
   for (const t of todo) { let host = ''; try { host = new URL(t.page).hostname; } catch { host = '?'; } (byHost.get(host) ?? byHost.set(host, []).get(host)).push(t); }

@@ -2828,8 +2828,12 @@ export function propose(row, text, world) {
   // else's. A line that is a breadcrumb, a price, a stock code or a list of categories is the site talking about
   // itself; every line about the filament survives.
   const A_SHOPS_OWN_FURNITURE = /(?:^|\s)(?:home|accueil|start(?:seite)?|inicio)\s*[/\u203a>\u00bb]|\bcategor(?:y|ies|ías|ie[ns]?)\s*:|\bSKU\b|\bstarting at\b|\b(?:add to|view)\s+(?:cart|basket)\b|\bmy account\b|\b(?:quantity|menge|quantité)\s*$|[\u20ac\u00a3\u00a5]\s*\d|\b\d+[.,]\d{2}\s*(?:\u20ac|EUR|USD|GBP)\b/i;
+  // A maker's site lists its whole range in its navigation, and a captured page carries it on every product:
+  // Siraya Tech's "Fibreheart Family PET-CF PET-GF PETG-CF Pro PPA PPA-CF …" made its unfilled Rebound PEBA a
+  // carbon-fibre one. A line that names a family and then several filled grades is the menu, not the product.
+  const A_RANGE_MENU = /\bfamily\b(?:.*?\b[A-Z]{2,5}[- ](?:CF|GF|AF)\b){2,}/i;
   const body = (text.pages[0]?.lines ?? []).map((l) => String(l.text ?? ''))
-    .filter((line) => !A_SHOPS_OWN_FURNITURE.test(line)).join(' ').slice(0, 2000);
+    .filter((line) => !A_SHOPS_OWN_FURNITURE.test(line) && !A_RANGE_MENU.test(line)).join(' ').slice(0, 2000);
   // What the sheet says its product is made of, in its own row. Fillamentum's Chemical properties table heads
   // its first row "Polymer base" and prints the polymer in words; a statement there is the sheet answering for
   // itself, which is worth more than the same word found somewhere in its prose.

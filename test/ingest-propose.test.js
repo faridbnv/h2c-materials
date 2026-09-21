@@ -1279,3 +1279,13 @@ test('an axis in brackets after the label is the row’s direction, and methods 
   assert.deepEqual([modulus.Property, modulus['Normalized value'], modulus.Direction], ['Tensile modulus', '8.62', 'XY']);
   assert.deepEqual([strength['Normalized value'], strength.Direction], ['37.9', 'Z']);
 });
+
+test('a maker’s range menu on a product page names other products, not this one’s filler', () => {
+  const t = (n) => readCsv(join(root, `data/tables/${n}.csv`)).records.map((r) => r.values);
+  const world = { polymers: t('polymers'), materials: t('materials'), grades: [], properties: t('properties'), sources: [], headlineDefinitions: t('headline_definitions'), manufacturers: [{ Value: 'Siraya Tech' }], rulings: [] };
+  const p = propose({ doc_key: 'k', sha256: 'x', provider: 'Siraya Tech', provider_kind: 'manufacturer', manufacturer: 'Siraya Tech', product_raw: 'Flex TPU 95A', url: 'https://siraya.tech/pages/flex-tpu-95a-tds' },
+    page('Flex TPU 95A', 'Flex Family TPU-GF TPU 85A TPU 95A TPU 64D TPU Air 65A to 82A PEBA Air 70A to 95A',
+      'Fibreheart Family PET-CF PET-GF PETG-CF Pro PPA PPA-CF PPA-CF Core PPA-GF ABS-GF ASA-GF ABS-CF', 'Shore hardness 95A'), world);
+  assert.equal(p.identity.polymer, 'TPU');
+  assert.equal(p.identity.modifier, 'Unfilled / unspecified');
+});
