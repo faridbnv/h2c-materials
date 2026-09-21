@@ -33,6 +33,7 @@
     "ingest:apply": "node scripts/ingest/apply.mjs",
     "ingest:batch": "node scripts/ingest/batch.mjs",
     "ingest:readings": "node scripts/ingest/readings.mjs",
+    "ingest:witness": "node scripts/ingest/witness.mjs",
     "ingest:blockers": "node scripts/ingest/blockers.mjs",
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",

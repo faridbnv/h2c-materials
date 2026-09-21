@@ -37,6 +37,13 @@ the reader was tried against every maker with hand-transcribed sheets and **cost
 holds**, because a sheet prints two results on one line for good reasons as often as bad ones. Reading the columns
 by position is what frees them, and it is the one reader rule left worth building (completion plan, phase B).
 
+**The maker's product page is a second witness, and a weak one.** For a sheet that names no polymer, `npm run
+ingest:witness` fetches the maker's own page for the product, hashed and cached like any document (a ledger row of
+kind `product-page`), and `ingest:readings` reads the polymer from a line that names the product and one polymer in
+the same clause. Of 72 pages fetched, 33 name the product in their title at all — most are a maker's datasheet index
+— and 5 readings resolved (Antero 800NA → PEKK, PLX → PLA, ULTRA PA CF25 → PPA, Obsidian PA6+CF → PA6, ABS Rapido
+Metal → ABS). The rest stay `unread`, both witnesses cited, for the owner's verdict.
+
 **A twin is only a twin once its primary is applied.** Of the 50 still held, 7 have nothing recording which sheet
 they repeat, and 41 read as a different material from the sheet that carries their values — AzureFilm's one table
 for its PLA and its Silk PLA is the shape — which one formulation key cannot span (D12, D44). Those are a reading

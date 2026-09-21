@@ -63,3 +63,23 @@ test("a maker's own product path names the polymer; the host and the query do no
   assert.deepEqual([...seen.keys()], ['PLA']);
   assert.equal(fromTheUrl({ url: 'https://pla.example.com/sheet.pdf' }, aliases, known).size, 0);
 });
+
+test("a maker's page is a witness only where a line names this product and one polymer, and is not a comparison or a menu", async () => {
+  const { witnessReading } = await import('../scripts/ingest/readings.mjs');
+  const polymerOf = new Map([['pekk', 'PEKK'], ['pla', 'PLA'], ['hips', 'HIPS'], ['pa12', 'PA12']]);
+  // Stratasys's page: the line names the product and one polymer, and is about the product.
+  assert.equal(witnessReading(['Antero 800NA: A PEKK-Based 3D Printing Material'], 'antero800na', polymerOf)?.polymer, 'PEKK');
+  // A comparison names the product beside a polymer it is not: BigRep's "Printing with PRO HT vs. PLA".
+  assert.equal(witnessReading(['Printing with PRO HT vs. PLA, which is better?'], 'proht', polymerOf), null);
+  // A menu lists everything beside the product: Fiberlogy's breadcrumb put a HIPS next to FiberFlex+CF.
+  assert.equal(witnessReading(['Home Flex FiberFlex+CF FiberFlex+CF Filament – S2 HIPS – Sale'], 'fiberflexcf', polymerOf), null);
+  // Two polymers on the product's lines settle nothing.
+  assert.equal(witnessReading(['NylonG is a PA12', 'NylonG prints like PLA'], 'nylong', polymerOf), null);
+  // A line that does not name the product is about something else, whatever it says.
+  assert.equal(witnessReading(['Our PLA is a bioplastic'], 'proht', polymerOf), null);
+  // A longer product that begins with this one's name is another product: BigRep's HI-TEMP CF is not its HI-TEMP.
+  assert.equal(witnessReading(['HI-TEMP CF PA12 CF'], 'hitemp', polymerOf), null);
+  // And the polymer has to stand in the same clause as the name.
+  assert.equal(witnessReading(['PLA is somewhat stronger and resistant to impact, while PRO HT is less brittle'], 'proht', polymerOf), null);
+  assert.equal(witnessReading(['PLX - Next Gen PLA Filament - 80% Faster 3D Printing'], 'plx', polymerOf)?.polymer, 'PLA');
+});

@@ -31,6 +31,7 @@ import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
 import { tokenise } from './classify.mjs';
+import { productName } from './propose.mjs';
 import { IMPLAUSIBLE_DENSITY } from './propose.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 
@@ -226,6 +227,32 @@ function makersRange(grades, materials) {
   return range;
 }
 
+// A line about this product that also names one polymer, on the maker's own page. Two kinds of line name the
+// product and a polymer and say nothing about what the product is made of: a comparison ("Printing with PRO HT
+// vs. PLA, which is better?") and a shop's menu or breadcrumb ("Home Flex FiberFlex+CF … S2 HIPS …"), which
+// lists everything beside it. Both took three products to the wrong polymer before they were refused here.
+const A_CONTRAST = /\b(vs\.?|versus|compared (?:to|with)|than|unlike|instead of|rather than|alternative to|or)\b/i;
+const A_MENU = /^\s*(?:home|accueil|start(?:seite)?|inicio)\b|\b(?:sale|deals?|% off|add to (?:cart|basket)|categories|all filaments|shop all)\b|\u2013.*\u2013.*\u2013/i;
+export function witnessReading(lines, ownName, polymerOf) {
+  if (!ownName || ownName.length < 3) return null;
+  // The name as the page may print it — with any punctuation or spacing between its characters — and not run on
+  // into a longer product's name: BigRep's "HI-TEMP CF" begins with its "HI-TEMP", and a line about the first is
+  // not about the second. A filler or variant word straight after the name is the longer product.
+  const namePattern = new RegExp(`${[...ownName].map((c) => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[^a-z0-9]*')}(?![a-z0-9])(?![^a-z0-9]{0,2}(?:cf|gf|af|hs|lw|pro|plus|max|lite|\\+)(?![a-z0-9]))`, 'i');
+  // The polymer has to stand in the same clause as the name. "PLA is somewhat stronger, while PRO HT is less
+  // brittle" names both in one sentence and says the two are different things.
+  const clauses = (l) => String(l).split(/[,;.!?]|\b(?:while|whereas|but|although)\b/i);
+  const about = [];
+  for (const l of lines) {
+    if (l.length > 300 || A_MENU.test(l) || A_CONTRAST.test(l)) continue;
+    const clause = clauses(l).find((c) => namePattern.test(c));
+    if (clause) about.push({ line: l, clause });
+  }
+  const named = [...new Set(about.flatMap((a) => tokenise(a.clause).map((t) => polymerOf.get(t)).filter(Boolean)))];
+  if (named.length !== 1) return null;
+  return { polymer: named[0], line: about.find((a) => tokenise(a.clause).some((t) => polymerOf.get(t) === named[0])).line };
+}
+
 export function readings(only = null) {
   const ledger = readCsv(join(AUDIT, 'ledger.csv')).records.map((r) => r.values);
   const polymers = table('polymers'), materials = table('materials'), grades = table('grades');
@@ -250,6 +277,24 @@ export function readings(only = null) {
     const said = saidLines(lines, polymerOf, byLength);
     const printed = polymerWords(lines, polymerOf, byLength);
     const urlSays = fromTheUrl(row, byLength, knownTokens);
+    // The second witness: the maker's own product page, fetched and hashed (ingest:witness), read with the same
+    // rules as the sheet. A composition line on it, or a polymer glued into its own title, is the maker naming the
+    // polymer on a page it wrote about this product; a polymer word anywhere else on it is not, because a shop
+    // page names everything it sells.
+    // Fetched, the pages turned out to be mostly the makers' datasheet indexes and shop listings, not product
+    // pages: 33 of 72 titles name the product at all, and a "based on" sentence on such a page is about whatever
+    // product the sentence is beside — BigRep's index said "BigRep PLA is a bioplastic based on …" under four
+    // products that are not PLA. So the witness is read only where a line names this product, by the name the
+    // sheet gives it, and that line names exactly one polymer. Anything else on the page is about something else.
+    const witness = ledger.find((w) => w.duplicate_kind === 'product-page' && w.duplicate_of === row.doc_key && w.sha256) ?? null;
+    const witnessText = witness ? cachedText(witness.sha256) : null;
+    const squash = (t) => String(t ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+    const ownName = squash([row.manufacturer, row.provider, row.brand].filter(Boolean).reduce((n, who) => productName(n, who), row.product_raw ?? ''));
+    const fromWitness = witnessText
+      ? witnessReading([String(witnessText.title ?? ''), ...(witnessText.pages ?? []).flatMap((p) => (p.lines ?? []).map((l) => String(l.text ?? '')))], ownName, polymerOf)
+      : null;
+    const witnessNamed = fromWitness ? [fromWitness.polymer] : [];
+    const witnessLine = fromWitness?.line ?? null;
     const name = row.product_raw || row.doc_key;
     const glued = gluedToTheName(`${row.brand ?? ''} ${name}`, byLength, knownTokens);
     const tokens = tokenise(`${row.brand ?? ''} ${name}`);
@@ -268,6 +313,9 @@ export function readings(only = null) {
     } else if (glued) {
       reading = glued.polymer; strength = 'named';
       why = `the product's own name says it: "${glued.token}" is "${glued.alias}" with a word in front of it`;
+    } else if (witnessLine) {
+      reading = witnessNamed[0]; strength = 'said (product page)';
+      why = `the maker's page names this product and one polymer on one line: "${witnessLine.trim().slice(0, 160)}" (${witness.doc_key}, sha ${witness.sha256.slice(0, 12)})`;
     } else if (urlSays.size === 1) {
       reading = [...urlSays.keys()][0]; strength = 'named';
       why = `the maker's own page for it says so: ${[row.source_page_url, row.url].find(Boolean)}`;
@@ -329,6 +377,7 @@ function document(rows) {
     'before any of it becomes data. This is that reading, for', `**${rows.length} documents**:`, '',
     `- **said** — a line of the sheet names one polymer, and the line is quoted: ${strengths.get('said') ?? 0}`,
     `- **named** — the product's own name carries the polymer with a word stuck to the front (easyPETG, ecoPLA, ePC): ${strengths.get('named') ?? 0}`,
+    `- **said (product page)** — the sheet names none, and the maker's own product page, fetched and hashed as a second witness, does: ${strengths.get('said (product page)') ?? 0}`,
     `- **narrowed** — the sheet names none, but its own density and melting point admit one row of \`polymers.csv\`: ${strengths.get('narrowed') ?? 0}`,
     `- **unread** — neither, and what the sheet does publish is listed instead: ${strengths.get('unread') ?? 0}`, '',
     'Strike a row by writing `no` in its Verdict; correct one by writing the polymer it should be. A row left empty',
@@ -338,7 +387,7 @@ function document(rows) {
     const mine = rows.filter((r) => r.Ruling === id);
     if (!mine.length) continue;
     out.push(`## ${id}: ${what}`, '', `${mine.length} document(s).`, '');
-    for (const strength of ['said', 'named', 'narrowed', 'unread']) {
+    for (const strength of ['said', 'named', 'said (product page)', 'narrowed', 'unread']) {
       const set = mine.filter((r) => r.Strength === strength);
       if (!set.length) continue;
       out.push(`### ${strength} — ${set.length}`, '', '| Product | Maker | Reading | It would join | Read from |', '|---|---|---|---|---|');
@@ -387,6 +436,6 @@ if (process.argv[1]?.endsWith('readings.mjs')) {
   console.log(`${rows.length} document(s) read -> readings/readings.csv and READINGS.md${answered ? `, ${answered} already answered` : ''}`);
   for (const [id] of RULING_OF) {
     const mine = rows.filter((r) => r.Ruling === id);
-    if (mine.length) console.log(`  ${id}  ${String(mine.length).padStart(3)}   ${['said', 'named', 'narrowed', 'unread'].map((s) => `${s} ${mine.filter((r) => r.Strength === s).length}`).join(', ')}`);
+    if (mine.length) console.log(`  ${id}  ${String(mine.length).padStart(3)}   ${['said', 'named', 'said (product page)', 'narrowed', 'unread'].map((s) => `${s} ${mine.filter((r) => r.Strength === s).length}`).join(', ')}`);
   }
 }

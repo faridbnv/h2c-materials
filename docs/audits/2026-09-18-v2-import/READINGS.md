@@ -8,8 +8,9 @@ before any of it becomes data. This is that reading, for
 
 - **said** — a line of the sheet names one polymer, and the line is quoted: 27
 - **named** — the product's own name carries the polymer with a word stuck to the front (easyPETG, ecoPLA, ePC): 26
+- **said (product page)** — the sheet names none, and the maker's own product page, fetched and hashed as a second witness, does: 5
 - **narrowed** — the sheet names none, but its own density and melting point admit one row of `polymers.csv`: 15
-- **unread** — neither, and what the sheet does publish is listed instead: 79
+- **unread** — neither, and what the sheet does publish is listed instead: 74
 
 Strike a row by writing `no` in its Verdict; correct one by writing the polymer it should be. A row left empty
 stays held, which is the same as striking it but says nobody looked.
@@ -34,6 +35,13 @@ stays held, which is the same as striking it but says nobody looked.
 | BR rPET | See document / product page | PET | PET / Unfilled / unspecified | the product's own name says it: "rpet" is "pet" with a word in front of it |
 | Other | See document / product page | PLA | PLA / Unfilled / unspecified | the maker's own page for it says so: https://filament2print.com/en/pla/2135-pla-pellets-kai-parthy.html |
 
+### said (product page) — 2
+
+| Product | Maker | Reading | It would join | Read from |
+|---|---|---|---|---|
+| plx | BigRep | PLA | PLA / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "PLX - Next Gen PLA Filament - 80% Faster 3D Printing / BigRep" (https://bigrep.com/filaments/plx/, sha 4ffdcbcb0a9a) |
+| Antero 800NA | Stratasys | PEKK | PEKK / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "Antero 800NA: A PEKK-Based 3D Printing Material" (https://www.stratasys.com/en/materials/materials-catalog/fdm-materials/antero-800na/ |
+
 ### narrowed — 4
 
 | Product | Maker | Reading | It would join | Read from |
@@ -43,7 +51,7 @@ stays held, which is the same as striking it but says nobody looked.
 | colorFabb XT CF20 | colorFabb | PET | PET / Carbon fibre | its own numbers admit 3 polymers and this maker makes one of them: density 1400 within 1300–1420 |
 | antero 800na | Stratasys | PPA | PPA / Unfilled / unspecified | its own numbers admit one polymer: melts at 300 against 290 |
 
-### unread — 48
+### unread — 46
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
@@ -62,7 +70,6 @@ stays held, which is the same as striking it but says nobody looked.
 | ultrafuse 17 4 ph | Ultrafuse | Not read | Not read | the sheet publishes no number and names no polymer this reader can map |
 | hi temp | BigRep | Not read | Not read | this maker's range: BVOH×1, ASA×1, ABS×1, PETG×1, TPU×1 |
 | hi temp cf | BigRep | Not read | Not read | density 1.36 g/cm3; vicat 165 °C; melting 180 °C — this maker's range: BVOH×1, ASA×1, ABS×1, PETG×1, TPU×1 |
-| plx | BigRep | Not read | Not read | density 1.24 g/cm³; glass 63 °C; melting 170 °C — this maker's range: BVOH×1, ASA×1, ABS×1, PETG×1, TPU×1 |
 | pro ht | BigRep | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.3 g/cm³ — this maker's range: BVOH×1, ASA×1, ABS×1, PETG×1, TPU×1 |
 | ColorFabb HT | colorFabb | Not read | Not read | its numbers admit PLA, PCTG, CPE, PC, PC-ABS, PC-PBT, PAHT, PPA, PVA, BVOH, TPU, TPE, TPC — density 1.2 g/cm3 — this maker's range: PLA×13, PET×5, TPU×5, nGen×4, ASA×2 |
 | ColorFabb XT 2 | colorFabb | Not read | Not read | its numbers admit PLA, PETG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.27 g/cm3 — this maker's range: PLA×13, PET×5, TPU×5, nGen×4, ASA×2 |
@@ -92,7 +99,6 @@ stays held, which is the same as striking it but says nobody looked.
 | S WHITE | QIDI | Not read | Not read | polymers the page prints somewhere: PET×4, ABS×2, PETG×2, PLA×1 — density 1.16 g/cm³; melting 168 ℃ — this maker's range: PETG×4, ASA×3, ABS×2, TPU×1, PLA×1 |
 | Ultrafuse Stainless Steel 316L | Ultrafuse / Forward AM | Not read | Not read | the sheet publishes no number and names no polymer this reader can map |
 | spectrum greeny pro | Spectrum | Not read | Not read | its numbers admit PET, PPS, PVA — density 1.34 g/cm3; vicat 160 °C — this maker's range: PLA×33, PETG×12, ASA×9, PA6×8, TPU×7 |
-| Antero 800NA | Stratasys | Not read | Not read | polymers the page prints somewhere: SAN×8, PPSU×1 — this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 | Composite Molding Material | Stratasys | Not read | Not read | glass 132 °C — this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 | diran410mf07 | Stratasys | Not read | Not read | this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 
@@ -108,6 +114,13 @@ stays held, which is the same as striking it but says nobody looked.
 | purefil GreenTEC filament | purefil | ABS | ABS / Unfilled / unspecified | the maker's own page for it says so: https://www.purefil.ch/en/purefil-abs-filament_159_1241/ |
 | purefil TPS 40D Filament | purefil | TPS | TPS / Unfilled / unspecified (new) | the maker's own page for it says so: https://www.purefil.ch/en/brands/purefil/purefil-tps-40d-filament_1249_9948/ |
 | purefil TPS 40D Filament | purefil | TPS | TPS / Unfilled / unspecified (new) | the maker's own page for it says so: https://www.purefil.ch/en/brands/purefil/purefil-tps-40d-filament_1230_9946/ |
+
+### said (product page) — 2
+
+| Product | Maker | Reading | It would join | Read from |
+|---|---|---|---|---|
+| Obsidian PA6+CF [Markforged ONYX Alternative] | 3DXTECH | PA6 | PA6 / Carbon fibre | the maker's page names this product and one polymer on one line: "Obsidian™ PA6+CF [Markforged ONYX Alternative]      INTERMEDIATE" (https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets,  |
+| ULTRA PA CF25 | QIDI | PPA | PPA / Carbon fibre | the maker's page names this product and one polymer on one line: "Filaments Industrial Grade Composites 🔥UltraPA-CF25(PPA-CF25)" (https://ca.qidi3d.com/pages/choose-the-right-filament-3d-filaments-gu |
 
 ### narrowed — 11
 
@@ -125,12 +138,11 @@ stays held, which is the same as striking it but says nobody looked.
 | PA CF Low Warp | colorFabb | PET | PET / Carbon fibre | its own numbers admit 3 polymers and this maker makes one of them: density 1400 within 1300–1420 |
 | Nylon | Yousu | PVA | PVA / Unfilled / unspecified | its own numbers admit 6 polymers and this maker makes one of them: melts at 224 against 220 |
 
-### unread — 27
+### unread — 25
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
 | colorFabbPABlueMetalDetectable | colorFabb | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PBAT — density 1,25 g/cm3 — this maker's range: PLA×13, PET×5, TPU×5, nGen×4, ASA×2 |
-| Obsidian PA6+CF [Markforged ONYX Alternative] | 3DXTECH | Not read | Not read | its numbers admit PLA, PCTG, CPE, PC, PC-ABS, PC-PBT, PAHT, PPA, PVA, BVOH, TPU, TPE, TPC — density 1.2 g/cc — this maker's range: PEI×7, PC×6, PLA×4, PETG×4, ABS×4 |
 | ultrafuse pa | Ultrafuse | Not read | Not read | polymers the page prints somewhere: PVA×1 — its numbers admit PA, PA6/66, CoPA, BVOH — density 11115 kg/m3; vicat 160 °C; glass 49 °C; melting 195-197 °C — **its density reads 11115 kg/m³, which no fi |
 | colorFabb PA NEAT | colorFabb | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PBAT — density 1.25 g/cm3 — this maker's range: PLA×13, PET×5, TPU×5, nGen×4, ASA×2 |
 | PA Blue Metal Detectable | colorFabb | Not read | Not read | its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, BVOH, TPU, TPE, TPC, PBAT — density 1.25 g/cm3 — this maker's range: PLA×13, PET×5, TPU×5, nGen×4, ASA×2 |
@@ -151,7 +163,6 @@ stays held, which is the same as striking it but says nobody looked.
 | PRO Series Carbon Fiber Nylon | MatterHackers | Not read | Not read | this maker's range: PETG×5, PLA×4, TPU×2, ABS×2, ASA×1 |
 | PA Food Industry | Nanovia | Not read | Not read | polymers the page prints somewhere: PLA×3, PC×2, PEKK×2, ABS×1, ASA×1, HIPS×1 — its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1,30 g/cm3 — this maker's range: PC×5, PLA×4, ABS×4, |
 | TPE 22D | Nanovia | Not read | Not read | polymers the page prints somewhere: ABS×3, PEI×3, PLA×2, ASA×1, HIPS×1, PC×1 — this maker's range: PC×5, PLA×4, ABS×4, PETG×4, PA6×3 |
-| ULTRA PA CF25 | QIDI | Not read | Not read | polymers the page prints somewhere: PEI×2, PET×1, PAHT×1 — this maker's range: PETG×4, ASA×3, ABS×2, TPU×1, PLA×1 |
 | spectrum thermatech pa | Spectrum | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.30 g/cm3 — this maker's range: PLA×33, PETG×12, ASA×9, PA6×8, TPU×7 |
 | nylon 12cf | Stratasys | Not read | Not read | polymers the page prints somewhere: PA12×2 — this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 | nylon cf10 | Stratasys | Not read | Not read | this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
@@ -209,14 +220,19 @@ stays held, which is the same as striking it but says nobody looked.
 | petg glow in the dark | SUNLU | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://www.sunlu.com/products/petg-glow-in-the-dark |
 | silk tpu filament | SUNLU | TPU | TPU / Unfilled / unspecified | the maker's own page for it says so: https://www.sunlu.com/products/silk-tpu-filament |
 
-### unread — 4
+### said (product page) — 1
+
+| Product | Maker | Reading | It would join | Read from |
+|---|---|---|---|---|
+| ABS RAPIDO METAL | QIDI | ABS | ABS / Unfilled / unspecified | the maker's page names this product and one polymer on one line: "ABS Rapido Metal" (https://ca.qidi3d.com/pages/choose-the-right-filament-3d-filaments-guide-for-qidi-printers?geo_hide_market=true, sh |
+
+### unread — 3
 
 | Product | Maker | Reading | It would join | Read from |
 |---|---|---|---|---|
 | BioFil Wood 1 | FormFutura | Not read | Not read | polymers the page prints somewhere: PLA×1, SAN×1 — its numbers admit PLA, PETG, PCTG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.26 g/cm3; vicat 50 °C — this maker's range: TPU×5, PA6×3, PLA×3, PETG |
 | LumberLay | AzureFilm | Not read | Not read | polymers the page prints somewhere: PLA×1, PEI×1 — its numbers admit PA, CoPA — density 0.97 g/cc; melting 210 °C — this maker's range: PLA×2, ASA×2, ABS×2, PETG×1 |
 | Spectrum PETG Glitter | Spectrum | Not read | Not read | the maker's page names PET and PETG — polymers the page prints somewhere: PETG×3, PET×1 — its numbers admit PLA, PETG, CPE, PC-PBT, PVA, TPU, TPC, PBAT — density 1.27 g/cm3 — this maker's range: PLA×3 |
-| ABS RAPIDO METAL | QIDI | Not read | Not read | polymers the page prints somewhere: ABS×3 — vicat 91 °C — this maker's range: PETG×4, ASA×3, ABS×2, TPU×1, PLA×1 |
 
 ## The materials this would create
 
@@ -244,3 +260,4 @@ before any of it is written. **15 material(s)** across 27 document(s):
 ## Polymers these readings need and `polymers.csv` does not hold
 
 - **TPS** — 3 document(s); R081 says the row is written from a producer's reference first
+- **PEKK** — 1 document(s); R081 says the row is written from a producer's reference first
