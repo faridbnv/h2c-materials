@@ -195,16 +195,46 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
 in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.
 
+**Read these three first; all are generated, and between them they say where everything stands.**
+
 ```bash
-npm run ingest:inventory                          # the research workbooks -> the ledger; never loses a status
-npm run ingest:fetch -- --provider "SUNLU"        # the bytes, by digest, two at a time per host
-npm run ingest:extract -- --provider "SUNLU"      # the text, cached by digest, and the sheets that are one sheet twice
-npm run ingest:propose -- --provider "SUNLU" --compare    # score the reader on that maker's sheets already transcribed
-npm run ingest:propose -- --provider "SUNLU" --batch bNN  # then the rest: candidate rows, with the page each came from
-# review each row: accepted or rejected, by name
-npm run ingest:apply -- --batch bNN --dry-run
-npm run ingest:apply -- --batch bNN
+npm run ingest:inventory -- --status   # STATUS.md: the database, the corpus by status, the parity census
+npm run ingest:blockers                # BLOCKERS.md: every open document, what it needs, who it waits on
+npm run ingest:readings                # READINGS.md: the identity each held sheet gives its product
 ```
+
+`docs/audits/2026-09-18-v2-import/PLAN-REMAINING.md` is the one written document: what is decided, what is left,
+and the reasoning a count cannot carry. Start there, not here.
+
+**Getting the bytes.** Each step writes the ledger and nothing else; `.cache/sources/by-sha/<sha>` is the document.
+
+```bash
+npm run ingest:fetch -- --provider "SUNLU"                  # two at a time per host, by digest
+npm run ingest:fetch -- --stage <file|folder> --doc <key>   # a document the owner saved from a browser (R084)
+npm run ingest:capture -- --provider "BASF Forward AM / Ultrafuse"   # a page whose numbers a script draws
+npm run ingest:harvest -- --provider "BASF Forward AM / Ultrafuse"   # a page that is an index of documents
+npm run ingest:extract -- --provider "SUNLU"                # the text, cached by digest, and the twins
+npm run ingest:ocr -- --all                                 # a scan: an optical reading, and its page images
+npm run ingest:witness                                      # the maker's product page, for a sheet naming no polymer
+```
+
+**Running a batch.** `scripts/ingest/batch.mjs` is the program; the steps are in the order they must happen.
+
+```bash
+npm run ingest:batch -- --holds                              # why each document waits, written into the ledger
+npm run ingest:batch -- --batch bNN --propose --ready        # ... then propose what nothing holds
+npm run ingest:batch -- --batch bNN --propose --held ruling  # ... or what a named hold was waiting on (--held any: all)
+npm run ingest:batch -- --batch bNN --twins --by "<name>"    # R053: a grade each, the values recorded once
+npm run ingest:batch -- --batch bNN --accept --by "<name>"   # every row the reviewer's own rule allows
+npm run ingest:review -- --batch bNN --doc <key> --accept m01 --by "<name>" --note "..."   # the rest, one at a time
+npm run ingest:batch -- --batch bNN --split                  # aside: optical, twin, held, already registered
+npm run ingest:apply -- --batch bNN --dry-run                # then a migration mNN-batch-bNN calls applyBatch
+npm run ingest:batch -- --batch bNN --finish                 # generated docs and the snapshot, then verify
+```
+
+`npm run ingest:propose -- --compare --all` is the parity census: run it before a batch commits, and before and
+after any change to the reader. `npm run ingest:second-read -- --all` draws R085's sample for a reader who did
+not decide the rows.
 
 The rules that differ from editing a table by hand:
 
@@ -220,6 +250,14 @@ The rules that differ from editing a table by hand:
   sheet that says the same thing. "Nylon" names a family, and a family owns no product (D44).
 - **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals and calls `applyBatch`, so
   the migration sequence stays the one history of how the data got here, and a re-run is a no-op.
+- **`--holds` before `--propose`.** A hold reason is what the last `--holds` run wrote, so a document whose
+  blocker has changed since is one a named reason misses. `--propose --held any` takes every held document.
+- **A review names its batch.** A document is proposed again in every batch that re-reads it, and the older
+  copies stay in their folders as the record of what that batch saw; `--doc` without `--batch` writes into all of
+  them, and it refuses rather than doing so.
+- **A reading of a page nobody else has read is signed.** An optically-read row needs `--visual` and a name, or
+  `APPLY-OCR-UNVERIFIED` refuses the batch (D35). A row the page image does not print is rejected, never
+  corrected: a reading a person edits is a transcription nobody made from a document nobody read.
 
 ## Checking your work
 
