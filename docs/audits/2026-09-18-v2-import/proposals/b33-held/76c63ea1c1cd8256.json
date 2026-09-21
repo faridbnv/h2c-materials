@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "76c63ea1c1cd8256b91d8d97f7a1978f1839d9a88a621d246d185ca1a191c4c5",
+    "url": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_PETG_MATTE.pdf",
+    "pages": 1,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "3DJake",
+    "docKey": "76c63ea1c1cd8256"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-TDS-3DJAKE-PETG-MATTE",
+      "Publisher": "3DJake",
+      "Title": "Technical Data Sheet 3DJAKE PETG Matte",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is 3DJake's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/TDS_3DJAKE_PETG_MATTE.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "76c63ea1c1cd8256b91d8d97f7a1978f1839d9a88a621d246d185ca1a191c4c5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet 3DJAKE PETG Matte"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "PETG Matte",
+        "Shared formulation key": "R-3DJAKE-TDS-3DJAKE-PETG-MATTE",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "3,2 V-2 UL94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-TDS-3DJAKE-PETG-MATTE",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet 3DJAKE PETG Matte"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "es 3DJAKE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Product name: 3DJAKE PETG Matte",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date: 05.03.2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1,75 mm +0,05mm > 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2,85 mm +0,1O0mm > 95%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1,41 g/m? — ISO 1183-1/A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3100 + 46 MPa = 1SO527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "53 + 0,2 MPa —1SO527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3,5+0,] % ISO 527-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "53 + 0,2 MPa = 1SO527",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7,6 £1,1 % ISO 527-2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1,7+0,4 KJ/m? —- ISO.180",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "78 +6 kKJ/m? — 1SO.180",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "85 ic ISO 306",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3,2 V-2 UL94",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "76 ShoreD 1SO.868/D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "210 - 240 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "60-90 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "20 - 200 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "20 - 50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "12mm*/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat Deflection Temperature |fey/ °C ISO 15075",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "Additional info: Storage: Cool and dry (15-25 °C) and away from UV light. This",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Web: www.3djake.com niceshops GmbH",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Mail: office@3djake.com Saaz 99, Paldau",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

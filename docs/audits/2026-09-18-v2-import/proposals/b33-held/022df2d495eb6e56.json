@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "022df2d495eb6e56f561a69cff9c907ff4de69f36a6071436d47ba47fb023d30",
+    "url": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/ULTEM%E2%84%A2_9085_Filament_Material_Datasheet.pdf",
+    "pages": 2,
+    "provider": "Markforged",
+    "manufacturer": "Markforged",
+    "docKey": "022df2d495eb6e56"
+  },
+  "identity": {
+    "polymer": "PEI",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: ultem",
+      "filler: carbonfiber (from the sheet, not the name)"
+    ],
+    "materialId": "M118",
+    "materialName": "PEI-CF",
+    "estimateIdentity": "Not applicable",
+    "confidence": 0.85,
+    "needsRuling": true,
+    "reasons": [
+      "p. 1 prints \"ULTEM™ 9085 Filament\", an unfilled PEI, and the proposal files it under PEI-CF (M118): the carbon fibre products on that page are separate continuous-fibre products (claude-optical, b27 round two)"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MARKFORGED-ULTEM-9085-Filament-Material-Datasheet",
+      "Publisher": "Markforged",
+      "Title": "Zz Markforged",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://s3.amazonaws.com/mf.product.doc.images/Datasheets/Material+Datasheets/ULTEM%E2%84%A2_9085_Filament_Material_Datasheet.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "022df2d495eb6e56f561a69cff9c907ff4de69f36a6071436d47ba47fb023d30"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Zz Markforged"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M118",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Markforged",
+        "Product name": "ULTEM 9085",
+        "Shared formulation key": "R-MARKFORGED-ULTEM-9085-Filament-Material-Datasheet",
+        "Composition / filler": "Carbon Fiber HT and Carbon Fiber HT-A are specialized (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MARKFORGED-ULTEM-9085-Filament-Material-Datasheet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Zz Markforged"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "ULTEMTM 9085 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ULTEMTM 9085 Filament is a high performance thermoplastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "available in Markforged’s new 3200cc XL spool — four times",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ULTEMTM 9085 Filament, Carbon Fiber HT, and Carbon Fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HT-A are only printed on the Markforged FX20TM. ULTEMTM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "9085 Filament parts are compatible with Support for ULTEMTM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Test Carbon Fiber HT-A (CFR) 22",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength MPa (ksi) D638 76.5 + 5.0 (11.1 + 0.72) D3039 800 (116) 800 (116)",
+      "reason": "the line names Tensile strength (endpoint unspecified) and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile modulus GPa (ksi) D638 2.5 + 0.1 (366.9 + 8.7) D3039 69 (10,005) 69 (10,005)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile strain at break % D638 5.7+1.0 D3039 1.6 1.6",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strength MPa (ksi) D790 134.5 + 3.5 (19.5 + 0.5) D790 439.5 (63.7) 529.7 (76.8)",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural modulus GPa (ksi) D790 2.6 + 0.1 (369.8 +10.2) D790 50.3 (7,291.1) 53.3 (7,730.5)",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural strain at break % D790 7.9+0.2 D790 1.0 11",
+      "reason": "the line names Flexural elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Compressive strength MPa (ksi) D695 _ D695 300 (43.5) 300 (43.5)",
+      "reason": "the line names Compression strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Compressive modulus GPa (ksi) D695 — D695 59 (8,557) 59 (8,557)",
+      "reason": "properties.csv carries no property for \"Compressive modulus\""
+    },
+    {
+      "page": 1,
+      "text": "Izod Impact - notched J/m (ft*lb/in) D256-10A 70 (1.3) D256-10A 810 (15.2) 810 (15.2)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Density g/cm*3 _— 1.12 + 0.02 _— 1.20 1.20",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "HDT (66 psi) deg C (deg F) D648 B 175 (347) D648 B 190 (374) 190 (374)",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "HDT (264 psi) deg C (deg F) D648 B 175 (347) D648 B 190 (374) 190 (374)",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "1 Data provided is based on 250um layer height, which is the default print setting and the only layer height compatible with CFR.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 CF-HT and CF-HT-A values are derived from pure fiber test specimens. Actual part strength will depend on the amount and pathing of fiber in the part.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 CF-HT-A is recommend for material and system qualification.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "markforged.com REV 2A - 1/30/2026 © 2025 Markforged, Inc. All rights reserved.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ULTEMTM 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ULTEMTM 9085 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Available for use on the FX20 and compatible with Support for ULTEMTM Filament.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Available for use on the FX20.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Only compatible as a reinforcement for ULTEMTM 9085 Filament and VegaTM.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ULTEMTM 9085 Filament, Carbon Fiber HT, and Carbon Fiber HT-A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Directional Mechanical Properties of ULTEMTM 9085 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "The mechanical properties of 3D printed materials may vary with print orientation. In tension, most parts are strongest when the print",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "orientation 125 um layer height 250 um layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "XY 71.24 8.7 56.2441",
+      "reason": "properties.csv carries no property for \"XY\""
+    },
+    {
+      "page": 2,
+      "text": "Z Tensile strength (MPa) XZ 92.04 1.7 76.5 + 5.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "= 47.6 +5.2 42.5411",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ZX 47.6 +5.2 42.5411",
+      "reason": "properties.csv carries no property for \"ZX\""
+    },
+    {
+      "page": 2,
+      "text": "= x 25+0.2 2.0 +01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "XY 25+0.2 2.0 +01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "XY ZX 2.5+0.1 2.1401",
+      "reason": "properties.csv carries no property for \"XY\""
+    },
+    {
+      "page": 2,
+      "text": "XY 5.6+1.2 74+0.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile modulus (GPa) XZ 2.9+0.1 2.5+0.1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "ZX 2.4411 2.3 +0.8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "*The ULTEMTM and 9085 trademarks are used under license from SABIC, its affiliates or subsidiaries.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "4XY and XZ specimens were printed with default solid fill settings. ZX specimens were printed with solid fill settings with 6 walls and 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at break (%) XZ 6.5+0.4 5.7+1.0",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}
