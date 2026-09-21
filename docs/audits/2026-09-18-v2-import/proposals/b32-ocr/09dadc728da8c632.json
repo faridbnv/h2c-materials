@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "09dadc728da8c63242cb1a8584722a7e5c730cc2580db44c142b5990b32f244b",
+    "url": "https://3d.nice-cdn.com/upload/file/FIBERLOGY_PETG_CF-description.pdf",
+    "pages": 4,
+    "provider": "3DJake / 3DJAKE",
+    "manufacturer": "Fiberlogy",
+    "docKey": "09dadc728da8c632"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg",
+      "filler: cf"
+    ],
+    "materialId": "M024",
+    "materialName": "PETG-CF",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FIBERLOGY-FIBERLOGY-PETG-CF-description",
+      "Publisher": "Fiberlogy",
+      "Title": "PRODUCT INFORMATION",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is Fiberlogy's.",
+      "Citation role": "cited",
+      "URL": "https://3d.nice-cdn.com/upload/file/FIBERLOGY_PETG_CF-description.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "09dadc728da8c63242cb1a8584722a7e5c730cc2580db44c142b5990b32f244b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PRODUCT INFORMATION"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M024",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "PETG+CF",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-PETG-CF-description",
+        "Composition / filler": "10% carbon fiber, resulting in significantly higher stiffness and resistance to (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-PETG-CF-description",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PRODUCT INFORMATION"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "10% carbon fiber, resulting in significantly higher stiffness and resistance to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberlab S.A., Brzezie 387, 32-014 Brzezie, Poland VAT EU PL6772384498 office@fiberlogy.com +48 731 400 201",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "dodatkiem 10% wtokien weglowych, co przektada sie na klassischen PETG mit dem dZusatz von 10 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Fiberlab S.A., Brzezie 387, 32-014 Brzezie, Poland VAT EU PL6772384498 office@fiberlogy.com +48 731 400 201",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10% de fibres de carbone, ce qui se traduit par une plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "() 'aggiunta del 10% di Fibra di carbonio, in modo da ottenere",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fiberlab S.A., Brzezie 387, 32-014 Brzezie, Poland VAT EU PL6772384498 office@fiberlogy.com +48 731 400 201",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "oo Matepvan PETG+CF couetaetT B ce6e mpou4Hoctb",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "con la adicion de un 10 % de fibra de carbono, lo que se Knaccuyeckoro PETG c mobaBneHvem 10% yrnepofHbix",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "BONIOKOH, UTO O6ecneyUuBaeT 3HAYUTENbHO HONE BbICOKYIO *KECTKOCTb",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "VM yCTOWVYUBOCTb K MeXaHWU4eCKUM Harpy3KaM. Bnarogapa 3TOMy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Mogenu, BbINOMHEHHbIe C NOMOLbIO Fiberlogy PETG+CF, 6onee",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "feTanen MalwWH MU 3/@MEHTOB, KOTOPbIe MOMKHbI COOTBETCTBOBAaTb",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "OCTaeTCA NPOCTbIM B NeYaTU, a 3HANMT, HE TpebyeT CneuMaNnbHOrO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "o6opygoBaHua (KpomMe yCUNeHHOrO conNa) WIM CNO)KHbIX HaCTpOeK.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Matepuvan He CKpy4YvBaeTcA BO BpeMA NeyaTU, YTO FrapaHTupye}rT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "MPeEBOCXOAHbIeE pe3ybTaTbl WU CTAaBVNbHOCTb pa3mMepoB fake Np",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "e baja contraccion e kap60HoBaa OTLeNKa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "e facil de imprimir e HV3Kasn yCagKka",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fiberlab S.A., Brzezie 387, 32-014 Brzezie, Poland VAT EU PL6772384498 office@fiberlogy.com +48 731 400 201",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

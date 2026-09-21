@@ -1,0 +1,1064 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "052b9640e2b2870e43b0d1e9ff9ca7ca5e9cb788780de4770231989edc484c55",
+    "url": "https://drive.google.com/file/d/1VkwOQ-4fkKurAb8CHYyDo75Wq201eOIM/view?usp=drive_link",
+    "pages": 5,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1VkwOQ-4fkKurAb8CHYyDo75Wq201eOIM/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polycarbonate",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pc"
+    ],
+    "materialId": "M036",
+    "materialName": "PC FR",
+    "estimateIdentity": "PC",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PC-ABS-FR",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI PC-FR",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1VkwOQ-4fkKurAb8CHYyDo75Wq201eOIM/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "052b9640e2b2870e43b0d1e9ff9ca7ca5e9cb788780de4770231989edc484c55"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI PC-FR"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M036",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "PC-FR",
+        "Shared formulation key": "R-QIDI-PC-ABS-FR",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "UL94 V-0 2mm QIDI (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI PC-FR"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.19 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.19",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1190",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: Property Test Method Typical Value ISO 1183 Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "IS0 1183 1.19g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "25 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "25",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "25",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: Melt index",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "25g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "88 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "88",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "88",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45MPa",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: Heat deflection temperature (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat deflection temperature (X-Y) 88°C (0.45MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "52.51 ± 0.28 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "52.51",
+        "Raw uncertainty ±": "0.28",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "52.51",
+        "Normalized uncertainty ±": "0.28",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: X-Y Tensile yield strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "52.51 ± 0.28 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3.38 ± 0.02 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.38",
+        "Raw uncertainty ±": "0.02",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.38",
+        "Normalized uncertainty ±": "0.02",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: X-Y Elongation at Yield (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "3.38 ± 0.02 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2588.73 ± 64.81 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2588.73",
+        "Raw uncertainty ±": "64.81",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.58873",
+        "Normalized uncertainty ±": "0.06481",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: X-Y ISO 527 Young’s modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ISO 527 2588.73 ± 64.81 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "48.99 ± 1.20 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "48.99",
+        "Raw uncertainty ±": "1.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48.99",
+        "Normalized uncertainty ±": "1.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: X-Y Tensile breaking strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "48.99 ± 1.20 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "5.55 ± 0.99 %",
+        "Raw unit": "%",
+        "Raw numeric": "5.55",
+        "Raw uncertainty ±": "0.99",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.55",
+        "Normalized uncertainty ±": "0.99",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: X-Y Elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "5.55 ± 0.99 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "34.26 ± 0.84 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "34.26",
+        "Raw uncertainty ±": "0.84",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "34.26",
+        "Normalized uncertainty ±": "0.84",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: Z Tensile breaking strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "34.26 ± 0.84 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2302.81 ± 46.92 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2302.81",
+        "Raw uncertainty ±": "46.92",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.30281",
+        "Normalized uncertainty ±": "0.04692",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: Z ISO 527 Young’s modulus (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ISO 527 2302.81 ± 46.92 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.88 ± 0.11 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.88",
+        "Raw uncertainty ±": "0.11",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.88",
+        "Normalized uncertainty ±": "0.11",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: Z Elongation at break (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "1.88 ± 0.11 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "85.95 ± 0.83 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "85.95",
+        "Raw uncertainty ±": "0.83",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "85.95",
+        "Normalized uncertainty ±": "0.83",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: X-Y Bending strength (Z)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "85.95 ± 0.83 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M036",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2504.55 ± 22.88 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2504.55",
+        "Raw uncertainty ±": "22.88",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.50455",
+        "Normalized uncertainty ±": "0.02288",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PC-ABS-FR",
+        "Locator": "p. 2: X-Y Bending modulus (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "2504.55 ± 22.88 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data / Revised: 08.2023",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PC/ABS 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flame Retardant PC/ABS alloy 3D Printing Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UL94 V-0 2mm QIDI",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "flame-retardant grade can reach UL94 V-0 level (2mm). Compared with materials with halogen",
+      "reason": "properties.csv carries no property for \"flame-retardant grade can reach\""
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Net Weight 500g 1kg 2.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "v1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "IS0 11357 105℃",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 2,
+      "text": "250℃ 2.16kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "X-Y ISO 75 Method A 83°C (1.8MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 75 Method B",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 2,
+      "text": "ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 179 8.39 ± 0.46 kJ/",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2mm thickness",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "UL94",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.5mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "5VB",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2.5mm thickness",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.4mm 250°C 110°C 55℃ 45mm/s 100% ±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "90℃ 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Specimens printed under the following conditions: Nozzle size 0.4mm, Nozzle temp 250°C, Bed temp 110°C, Chamber temp 55°C, Printing speed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "45mm/s, Infill 100%, Infill angle ±45°.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "240-270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "≥0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "100-110°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "40-70°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.18-0.2 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0-20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "30-300 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1-3 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1. PC/ABS-FR 15%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "75℃ 4-6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2. PC/ABS-FR 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "below 15%. If the filament has absorbed moisture already, dry the filament in an oven at 75°C for 4-6 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "35",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "27.9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "(N) 15.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "8.9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4.45",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "8mm³/s 16mm³/s 24mm³/s 32mm³/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "12mm BMG Phaetus 0.4mm 0.2mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Test parameters: 12mm length brass heat block, BMG extruder, Phaetus Hardened Steel Nozzle, Nozzle size 0.4mm, Layer Height 0.2mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "www.qidi3d.com",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

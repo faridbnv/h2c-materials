@@ -1,0 +1,308 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "259c52f1acdb2a845847f55a71fb8f913d2d036ee2beb156112cc9c8f02cde1f",
+    "url": "https://drive.google.com/file/d/1G0abxl1KXNfNebRZfMXdErdo-OlmVdEe/view",
+    "pages": 1,
+    "provider": "Recreus / Filaflex",
+    "manufacturer": "Recreus",
+    "docKey": "https://drive.google.com/file/d/1G0abxl1KXNfNebRZfMXdErdo-OlmVdEe/view"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Foaming",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: plalw",
+      "filler: lw"
+    ],
+    "materialId": "M017",
+    "materialName": "PLA Aero",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "light"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-PLA-LW",
+      "Publisher": "Recreus",
+      "Title": "TECHNICAL DATA SHEET PLA-LW",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Recreus / Filaflex; the sheet is Recreus's.",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1G0abxl1KXNfNebRZfMXdErdo-OlmVdEe/view",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "259c52f1acdb2a845847f55a71fb8f913d2d036ee2beb156112cc9c8f02cde1f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET PLA-LW"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M017",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "PLA-LW",
+        "Shared formulation key": "R-RECREUS-PLA-LW",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-PLA-LW",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET PLA-LW"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,10-0.65 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "0.65",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "650",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-RECREUS-PLA-LW",
+        "Locator": "p. 1: Material density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Material density 1,10-0.65 g/cm3 ISO 1183"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M017",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240-260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-PLA-LW",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20-40 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "0-20%"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "s 2-3 mm (speed 40 - 60mm/s)"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printing temperatures 240-260°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperatures",
+      "raw": "240-260°C",
+      "fromBelow": false,
+      "line": "Printing temperatures 240-260°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "20-40 mm/s",
+      "fromBelow": false,
+      "line": "Printing speed 20-40 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan speed",
+      "raw": "0-20%",
+      "fromBelow": false,
+      "line": "Fan speed 0-20%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction",
+      "raw": "s 2-3 mm (speed 40 - 60mm/s)",
+      "fromBelow": false,
+      "line": "Retractions 2-3 mm (speed 40 - 60mm/s)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "density with which you will be able to reduce the weight of your printed parts by up to 50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flow 40-60%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hot-bed temperature 0-40°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES §.L. VAT: ESB54876479 (0034) 865 777 966",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "C/El Envelope, F13-F14, Pol. Ind. Finca Lacy info@recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "03600, Elda (Alicante) - SPAIN www.recreus.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Date/ Revised: 04.05.2022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RECREUS INDUSTRIES S.L. Safety Data Sheet according to Regulation (EC) No. 1907/2006 as amended from time to time.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

@@ -8,10 +8,10 @@ can go stale without the command that made it saying so.
 | Table | Rows |
 |---|---:|
 | materials | 158 |
-| grades | 1,106 |
-| measurements | 11,039 |
-| sources | 1,408 |
-| profiles | 1,091 |
+| grades | 1,114 |
+| measurements | 11,046 |
+| sources | 1,416 |
+| profiles | 1,092 |
 | profile notes | 2,021 |
 | headlines | 493 |
 
@@ -21,10 +21,10 @@ can go stale without the command that made it saying so.
 
 | Status | Documents |
 |---|---:|
-| applied | 1,249 |
+| applied | 1,257 |
 | duplicate-of | 303 |
-| held | 235 |
-| registered | 168 |
+| held | 224 |
+| registered | 171 |
 | safety-data-sheet | 49 |
 | not-a-data-sheet | 35 |
 | gated | 33 |
@@ -38,16 +38,16 @@ and each says what would free it (`scripts/ingest/batch.mjs`).
 
 | Reason | Documents | Where |
 |---|---:|---|
-| `ruling` | 106 | 3DJake / 3DJAKE 20, Filament2Print 10, Nanovia 9, Stratasys 6, Fabru / purefil 5 |
-| `reader:several-values` | 40 | BASF Forward AM / Ultrafuse 16, QIDI 6, Siraya Tech 6, Filament2Print 5, Stratasys 3 |
-| `twin` | 26 | 3DJake / 3DJAKE 12, BASF Forward AM / Ultrafuse 5, Spectrum 3, 3D4Makers 2, Flashforge 2 |
-| `no-values:layout` | 18 | Essentium / Nexa3D 8, 3DJake / 3DJAKE 2, Fabru / purefil 2, Filament2Print 2, Raise3D 2 |
+| `ruling` | 103 | 3DJake / 3DJAKE 19, Filament2Print 10, Nanovia 9, Stratasys 6, Fabru / purefil 5 |
+| `reader:several-values` | 34 | BASF Forward AM / Ultrafuse 11, QIDI 6, Siraya Tech 6, Filament2Print 5, Stratasys 3 |
+| `ocr-visual` | 24 | QIDI 6, BASF Forward AM / Ultrafuse 5, 3DJake / 3DJAKE 4, Fiberlogy 3, 3D-Fuel 1 |
+| `twin` | 17 | BASF Forward AM / Ultrafuse 5, 3DJake / 3DJAKE 4, 3D4Makers 2, Flashforge 2, Spectrum 2 |
+| `no-values:layout` | 16 | Essentium / Nexa3D 8, Fabru / purefil 2, Raise3D 2, 3D-Fuel 1, 3DJake / 3DJAKE 1 |
 | `no-values:language` | 15 | 3DJake / 3DJAKE 3, Recreus / Filaflex 3, BASF Forward AM / Ultrafuse 3, 3D-Fuel 1, Filament2Print 1 |
-| `reader:bilingual-columns` | 12 | QIDI 12 |
-| `ocr-visual` | 9 | 3DJake / 3DJAKE 3, Fiberlogy 3, 3D-Fuel 1, QIDI 1, Recreus / Filaflex 1 |
+| `reader:bilingual-columns` | 7 | QIDI 7 |
 | `reader:condition-table` | 4 | Stratasys 4 |
-| `no-values:prose` | 2 | Essentium / Nexa3D 1, UltiMaker / MakerBot 1 |
 | `reader:bracketed-units` | 2 | Prusa Research / Prusament 2 |
+| `no-values:prose` | 1 | Essentium / Nexa3D 1 |
 | `reader:doubled-glyphs` | 1 | Filament2Print 1 |
 
 ## The reader
@@ -131,13 +131,14 @@ npm run ingest:propose -- --compare --all
 | [b28](batches/b28/README.md) | b28: FormFutura's own library, and what reading it showed up | m110-batch-b28, 2026-09-21 |
 | [b29](batches/b29/README.md) | b29: iSANMATE's current sheets | m112-batch-b29, 2026-09-21 |
 | [b30](batches/b30/README.md) | b30: verdicts by witness, and four small reader rules | m117-batch-b30, 2026-09-21 |
+| [b31](batches/b31/README.md) | b31: the twins | m122-batch-b31, 2026-09-21 |
 
 ## By provider
 
 | Provider | Documents | applied | duplicate-of | gated | held | not-a-data-sheet | registered | safety-data-sheet | skipped | unreachable |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 3DJake / 3DJAKE | 493 | 301 | 71 |  | 41 | 1 | 71 | 7 |  | 1 |
-| Spectrum | 152 | 92 | 19 |  | 8 |  | 33 |  |  |  |
+| 3DJake / 3DJAKE | 493 | 308 | 71 |  | 32 | 1 | 73 | 7 |  | 1 |
+| Spectrum | 152 | 93 | 19 |  | 7 |  | 33 |  |  |  |
 | Extrudr | 150 | 45 | 79 |  | 3 |  | 21 |  | 2 |  |
 | 3DXTECH | 75 | 68 | 5 |  | 2 |  |  |  |  |  |
 | Nanovia | 73 | 29 | 33 |  | 9 |  | 2 |  |  |  |
@@ -148,7 +149,7 @@ npm run ingest:propose -- --compare --all
 | SUNLU | 53 | 46 |  |  | 2 |  | 5 |  |  |  |
 | Fiberlogy | 51 | 36 | 8 |  | 5 |  | 2 |  |  |  |
 | colorFabb | 47 | 39 | 5 |  | 3 |  |  |  |  |  |
-| Filament2Print | 44 | 16 | 6 |  | 19 | 1 | 2 |  |  |  |
+| Filament2Print | 44 | 16 | 6 |  | 18 | 1 | 3 |  |  |  |
 | Bambu Lab | 42 | 42 |  |  |  |  |  |  |  |  |
 | Flashforge | 42 | 35 | 1 |  | 6 |  |  |  |  |  |
 | Eryone | 39 | 36 |  |  |  |  | 1 |  |  | 2 |

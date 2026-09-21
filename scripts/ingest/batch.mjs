@@ -630,6 +630,13 @@ function twins(batch, by) {
     if (g['Shared formulation key']) materialOfKey.set(g['Shared formulation key'], g.MaterialID);
     if (g.SourceID && g.Status === 'active') materialOfSource.set(g.SourceID, g.MaterialID);
   }
+  // A source a grade does not name as its own still says which grades it applies to.
+  const gradeMaterial = new Map((world.grades ?? []).filter((g) => g.Status === 'active').map((g) => [g.GradeID, g.MaterialID]));
+  for (const src of world.sources ?? []) {
+    if (materialOfSource.has(src.SourceID)) continue;
+    const first = String(src['Applicable grades'] ?? '').match(/G\d{3}-\d+/g)?.map((id) => gradeMaterial.get(id)).find(Boolean);
+    if (first) materialOfSource.set(src.SourceID, first);
+  }
   const date = new Date().toISOString().slice(0, 10);
   // A product's own name, with the maker's off it, so "ColorFabb SteelFill" and colorFabb's "steelFill" are one
   // product and "Facilan Ortho" and "Facilan PCL100" are two.

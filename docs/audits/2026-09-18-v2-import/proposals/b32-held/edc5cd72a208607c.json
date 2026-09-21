@@ -1,0 +1,798 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "edc5cd72a208607c3cb2cf31c896ed6d1ee89f36c0e0eec4d91dcd01631022c4",
+    "url": "https://drive.google.com/file/d/1Hm5XNZWWscKAprV8egaVCO8gze6_a2IG/view?usp=drive_link",
+    "pages": 4,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1Hm5XNZWWscKAprV8egaVCO8gze6_a2IG/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "filler: gf"
+    ],
+    "materialId": "M151",
+    "materialName": "TPU-GF",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-TPU-GF",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI TPU-GF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1Hm5XNZWWscKAprV8egaVCO8gze6_a2IG/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "edc5cd72a208607c3cb2cf31c896ed6d1ee89f36c0e0eec4d91dcd01631022c4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI TPU-GF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M151",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "TPU-GF",
+        "Shared formulation key": "R-QIDI-TPU-GF",
+        "Composition / filler": "QIDI TPU-GF is a semi-rigid TPU 3D printing material filled with 15% chopped glass fibers, (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI TPU-GF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.32 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.32",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1320",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 1: 密度 ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "密度 ISO 1183 1.32 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "67 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "67",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "67",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 7619",
+        "Standards": "ISO 7619",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 1: 硬度 ISO 7619 Hardness",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ISO 7619 67 Shore D"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "22 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "230°C",
+        "Standard / load": "230°C,2.16kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 2: 熔融指数 230°C,2.16kg",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "熔融指数 230°C，2.16kg 22 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "157.3 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "157.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "157.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 2: Melt index 维卡软温度 ISO 306 Vicat softening temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "维卡软温度 ISO 306 157.3 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "30.92 ± 0.33 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "30.92",
+        "Raw uncertainty ±": "0.33",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "30.92",
+        "Normalized uncertainty ±": "0.33",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 2: 拉伸断裂强度 (X-Y) Tensile breaking strength (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "30.92±0.33 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "429.80 ± 15.82 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "429.8",
+        "Raw uncertainty ±": "15.82",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.4298",
+        "Normalized uncertainty ±": "0.01582",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 2: 杨氏模量(X-Y) ISO 527 Young's Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "ISO 527 429.80±15.82 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "74.80 ± 7.80 %",
+        "Raw unit": "%",
+        "Raw numeric": "74.8",
+        "Raw uncertainty ±": "7.8",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "74.8",
+        "Normalized uncertainty ±": "7.8",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 2: 断裂伸长率(X-Y) elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "74.80±7.80 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "14.47 ± 0.36 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "14.47",
+        "Raw uncertainty ±": "0.36",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "14.47",
+        "Normalized uncertainty ±": "0.36",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 2: 弯曲强度(X-Y) Bending strength",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "14.47±0.36 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "395.89 ± 44.44 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "395.89",
+        "Raw uncertainty ±": "44.44",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.39589",
+        "Normalized uncertainty ±": "0.04444",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "Locator": "p. 2: 弯曲模量(X-Y) Bending Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "395.89±44.44 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-QIDI-TPU-GF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0%"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "50%"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 2,
+        "text": "Cooling Fan 0% 63.21±5.89 KN/m"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "0%",
+      "fromBelow": false,
+      "line": "Cooling Fan 0% 63.21±5.89 KN/m"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "50%",
+      "fromBelow": false,
+      "line": "Cooling Fan 50% 56.28±3.07 KN/m"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Data / Revised: 11.2025 Version No: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15%短切玻璃纤维增强 TPU",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A high toughness and 78D shore hardness flexible 3D printing material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI TPU -GF 是一款 15%短切玻璃纤维填充的半硬质 TPU 3D 打印材料，在保证一定柔韧性的同时",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI TPU-GF is a semi-rigid TPU 3D printing material filled with 15% chopped glass fibers,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "线径 Diameter：1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "净重 Net Wet：1KG",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "ISO179",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ISO 34-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "试样打印参数：喷嘴大小 0.4mm，喷嘴温度 260°C，底板加热 30°C，打印速度 120mm/s，填充率 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Specimens printed under the following conditions: Nozzle size 0.4mm，Nozzle temp 260°C, Bed temp 30°C, Print speed 120mm/s, Infill 100%, Infill",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "angle ±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "240-270 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "≥0.4mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "40-60°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.18-0.22mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "20-50%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.8-1.0 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1. 如果想实现高速打印，推荐使用近程挤出机，例如：BMG 挤出机、Titan 挤出机、Hemera 挤出机，并适当",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2. TPU 材料暴露在空气中容易吸收水分，吸湿后打印会出现拉丝，挤出有气泡，打印表面粗糙等现象，降低",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "打印质量。建议您打开 QIDI TPU-GF 真空铝箔袋包装后立即将线材放入干燥盒内（湿度控制在 15%以",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "recommended that put the filament into a dry box (humidity below 15%) immediately after opening the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3. 材料受潮后会出现打印拉丝增多，挤出有气泡，打印表面质量粗糙等现象。请将线材放入 70-80°C 烘箱内",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "干燥 4-6h，即可恢复 QIDI TPU-GF 的打印质量。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "surface. Please dry the filament in an oven at 70-80°C for 4-6h to restore the printing quality of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "QIDI 3D 打印耗材适用于通用打印用途，已在标准条件下进行测试。然而，打印成品的性能与安全性受多种因素影响，包括打印参数、模型设计、使用环",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "QIDI 3D printing filaments are suitable for general printing applications and have been tested under standard conditions. However, the performance",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

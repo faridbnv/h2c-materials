@@ -1,0 +1,3235 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "f4c60f4ba053024bb966e06a0a5a216d73352908f7040495917ffb5aef53e535",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-12cf/mds_fdm_nylon-12cf_0925a.pdf?v=4ab50f",
+    "pages": 15,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-12cf/mds_fdm_nylon-12cf_0925a.pdf?v=4ab50f"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: nylon",
+      "ruling R162: PA12"
+    ],
+    "materialId": "M052",
+    "materialName": "PA12",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+      "Publisher": "Stratasys",
+      "Title": "MATERIAL DATA SHEET FDM Nylon 12CF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/nylon-12cf/mds_fdm_nylon-12cf_0925a.pdf?v=4ab50f",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f4c60f4ba053024bb966e06a0a5a216d73352908f7040495917ffb5aef53e535"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATA SHEET FDM Nylon 12CF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M052",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "FDM Nylon 12CF",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Composition / filler": "reinforced with chopped carbon fiber, 35% by weight. It has the highest (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATA SHEET FDM Nylon 12CF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "160 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "160",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "160",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM Nylon 12CF Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 160 °C (320 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "168 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "168",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "168",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM Nylon 12CF Physical Properties · ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 168 °C (334 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "130 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "130",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM Nylon 12CF Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 130 °C (266 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "154 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "154",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "154",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: FDM Nylon 12CF Physical Properties · ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 154 °C (309 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM Nylon 12CF Mechanical Properties - F900 - T20C tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 2.4 (0.29)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM Nylon 12CF Mechanical Properties - F900 - T20C tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 1.2 (0.27)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Nylon 12CF Mechanical Properties - F900 - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 7: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Yield % 1.9 (0.2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Nylon 12CF Mechanical Properties - F900 - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 7: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Yield % 2.9 (0.4)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Nylon 12CF Mechanical Properties - F900 - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 7: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Break % 1.9 (0.2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.9 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Nylon 12CF Mechanical Properties - F900 - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 7: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Break % 2.9 (0.4)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: Nylon 12CF Mechanical Properties - F3300 - N500H Hot End · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 2.6 (0.18)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: Nylon 12CF Mechanical Properties - F3300 - N500H Hot End · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 8: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Yield % 2.1 (0.17)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: Nylon 12CF Mechanical Properties - F3300 - N500H Hot End · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 2.6 (0.19)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: Nylon 12CF Mechanical Properties - F3300 - N500H Hot End · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 8: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Elongation @ Break % 2.1 (0.17)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "3.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T20C tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 9: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Yield % 3.1 (0.2)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T20C tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 9: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Yield % 2.2 (0.17)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "3.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T20C tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 9: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Break % 3.2 (0.28)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T20C tip · 0.25 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 9: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Break % 2.2 (0.16)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2 %",
+        "Raw unit": "%",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 10: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Yield % 2 (0.21)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 10: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Yield % 2.7 (0.34)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m21",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2 %",
+        "Raw unit": "%",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 10: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Break % 2 (0.18)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m22",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Modified ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 8: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T40C tip · 0.50 mm (0.020 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 10: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 10,
+        "text": "Elongation @ Break % 2.7 (0.35)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m23",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M052",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-nylon-12cf-0925a",
+        "Locator": "p. 11: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "Elongation @ Break % 1.6 (0.08)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FDM Nylon 12CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM Nylon 12CF™ is a PA12 (polyamide 12) thermoplastic filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "reinforced with chopped carbon fiber, 35% by weight. It has the highest",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Overview .............................................................................. 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information ......................................................... 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties ............................................................ 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties ....................................................... 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "UV Aging ............................................................................. 12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Performance at Temperature ............................................ 12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix ............................................................................. 13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1: Printer and Support Material Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20C 0.254 mm (0.010 in.) T12SR100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc™ SR-110™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T40C 0.508 mm (0.020 in.) T20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20C 0.254 mm (0.010 in.) T12SR100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900 SR-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T40C 0.508 mm (0.020 in.) T20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "N500H 0.25 mm (0.010 in.) N410",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3300™ SR-110",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "N750H 0.50 mm (0.020 in.) N750",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 660 x 965 mm (0.02 x 26 x 38 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 406 x 470 mm (0.02 x 16 x 18.5 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3300 Nylon Build Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 660 x 711 mm (0.02 x 26 x 28 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "System Requirements1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened Fortus 450mc head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Nylon 12CF material license (included if new system)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Fortus FDC™ (enables use of XTEND™ 250 Fortus Plus spool)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened F900 head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Nylon 12CF material license",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Fortus FDC (enables use of XTEND™ 250 Fortus Plus spool)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F3000 Series Extruder Drive",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 2: FDM Nylon 12CF Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-02411 FDM Nylon 12CF, 92.3 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc, F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-03130 SR-110 Soluble Support, 92.3 cu in. - Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc and F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "361-00300 XTEND™ 250 Fortus Plus Nylon 12CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3000 Series Spools",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "363-00300 MTRL, F3000 Series, (M), Nylon 12CF, 4100cc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "363-00710 MTRL, F3000 Series, (S), SR-110, 4100cc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10720 TIP, FDM, T20C, 0.010 in. (0.254 mm) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10100 TIP, FDM, T12SR100, 0.010 in. (0.254 mm) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10760 TIP, FDM, T40C, 0.020 in. (0.508 mm) layer height Fortus 450mc, F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "511-10701 TIP, FDM, T202, 0.020 in. (0.508 mm) layer height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-00750-S Nylon build sheet, 0.02 x 16 x 18.5 in. (0.51 x 406 x 470 mm), 20 pack",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-00650-S Nylon build sheet, 0.02 x 26 x 38 in. (0.51 x 660 x 965 mm), 10 pack F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F3000 Series",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-00505-S Hardened Hot End, FDM, N500H (0.25 mm/0.010 in. layer height)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-00410-S Hot End, FDM, N410 Support (0.25 mm/0.010 in. layer height)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-00755-S Hardened HOT END, FDM, N750H (0.50 mm/0.020 in. layer height) F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-00750-S Hot End, FDM, N750 Support (0.50 mm/0.020 in. layer height)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "363-30100-S F3300 sheet bundle, Nylon 0.02 x 26 x 28 in., 10 pack",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "821726-XXXX Hardened Fortus 450mc head (blue handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "380-30400-S OpenAM Hardened Fortus 450mc head (blue handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-63500 Hardened F900 head (folded sheet metal handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "325-63500-S OpenAM Hardened F900 head (folded sheet metal handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "F3000 Series",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "533-10000-S F3000 Series Extruder Drive F3300",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "The T20 tip is for 0.508 mm (0.020 in.) support material and should not be confused with the T20C 0.254 mm (0.010 in.) model material tip.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 3: FDM Nylon 12CF Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Unidirectional Toolpaths HDT @ 66 psi ASTM D648 175 °C (347 °F)",
+      "reason": "properties.csv carries no property for \"Unidirectional Toolpaths HDT @ 66 psi\""
+    },
+    {
+      "page": 4,
+      "text": "Unidirectional Toolpaths HDT @ 66 psi ASTM D648 -",
+      "reason": "the sheet publishes no value for \"Unidirectional Toolpaths HDT @ 66 psi\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 4,
+      "text": "Unidirectional Toolpaths HDT @ 264 psi ASTM D648 157 °C (315 °F)",
+      "reason": "properties.csv carries no property for \"Unidirectional Toolpaths HDT @ 264 psi\""
+    },
+    {
+      "page": 4,
+      "text": "Unidirectional Toolpaths HDT @ 264 psi ASTM D648 -",
+      "reason": "the sheet publishes no value for \"Unidirectional Toolpaths HDT @ 264 psi\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 4,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tg 37.5 °C (99.5 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 115.7 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 37.31 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(-50 °C to 20 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(67.28 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(20.73 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 180.5 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(20 °C to 60 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(100.3 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 195.8 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(60 °C to 115 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(108.8 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 296.5 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(115 °C to 150 °C) (164.7 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 46.15 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(20 °C to 105 °C) (25.64 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 58.43 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(105 °C to 150 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(32.46 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 2.84*10",
+      "reason": "the sheet states Volume resistivity as a power of ten whose exponent did not survive the extraction (\"Volume Resistivity ASTM D257 2.84*10\")"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 ^7 Ω*cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Dielectric Constant 11.4",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 5,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 5,
+      "text": "Dissipation Factor 0.100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Dissipation Factor 0.000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "2 MHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.5884 W/m*K",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 5,
+      "text": "Dielectric Constant 10.0",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "@0 °C 0.3400 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.5988 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@30 °C 0.3460 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.5800 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@60 °C 0.3352 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.6153 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@90 °C 0.3556 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.363 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@0 °C 5.63*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "@0 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.324 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@30 °C 5.02*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "@30 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.266 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@60 °C 4.12*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "@60 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 0.255 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@90 °C 3.95*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "@90 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "ASTM D257",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 5,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "FDM Nylon 12CF samples were printed with 0.25 mm (0.010 in.) and 0.50 mm (0.020 in.) layer heights on the F900,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Fortus 450mc, and F3300. For the full test procedure please see the Stratasys Materials Test Procedure.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Specific Gravity 1.190",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 4: FDM Nylon 12CF Mechanical Properties - F900 - T20C tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 83.5 (1.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 32.7 (3.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 12,100 (250)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 4,750 (510)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 9.46 (0.46)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 3.00 (0.43)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 1,370 (67)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 434 (63)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 153 (2.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 62.4 (3.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 22,200 (310)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 9,080 (490)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strain @ Break % 2.65 (0.086)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strain @ Break % 3.10 (0.26)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 11.1 (0.28)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.34 (0.085)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 1,610 (40)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 339 (12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 6,
+      "text": "MPa 110 (3.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 141 (2.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 16,000 (440)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 20,400 (380)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 6.78 (0.55)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 3.67 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 984 (79)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 532 (16)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 106 (6.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 24 (3.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 1.99 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 0.45 (0.060)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 346 (40)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 121 (18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 6.48 (0.74)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in 2.27 (0.33)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "T40C Tensile Part Processing: XZ tensile coupon printed dimensions were 165 x 22 x 5 mm (6.500 x 0.875 x",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0.200 in.). ZX tensile coupons were precision-cut via water jet machining from larger printed plaques to produce",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "final coupon dimensions of 165 x 22 x 5 mm (6.500 x 0.875 x 0.200 in.). XZ and ZX tensile coupons were then",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "tested using the standard D638 procedure, including coupon conditioning and pulling.",
+      "reason": "properties.csv carries no property for \"tested using the standard\""
+    },
+    {
+      "page": 7,
+      "text": "T40C Flexural Part Processing: XZ flexural coupon printed dimensions were 165 x 12.7 x 5 mm (6.500 x 0.500 x",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0.200 in.). ZX flexural test coupons were precision-cut via water jet machining from larger printed plaques to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "produce final coupon dimensions of 165 x 12.7 x 5 mm (6.500 x 0.500 x 0.20 in.). XZ and ZX flexural coupons",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "were then tested using the standard D790 procedure, including coupon conditioning.",
+      "reason": "properties.csv carries no property for \"were then tested using the standard\""
+    },
+    {
+      "page": 7,
+      "text": "Table 5: Nylon 12CF Mechanical Properties - F900 - T40C tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0.50 mm (0.020 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 107.9 (5.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 36.2 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 15,600 (800)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 5,200 (200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 106.7 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 36.0 (1.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 15,500 (700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 5,200 (200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 12.7 (0.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.13 (0.07)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 1,840 (80)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 310 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 187.4 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 64.7 (2.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 27,200 (700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 9,400 (300)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Strain @ Break % 2.4 (0.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Strain @ Break % 4.0 (0.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 12.5 (0.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.30 (0.07)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 1,820 (40)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 330 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 6: Nylon 12CF Mechanical Properties - F3300 - N500H Hot End",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 107 (2.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 36.6 (2.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 15,500 (370)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 5,310 (320)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 107 (2.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 36.7 (2.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 15,500 (380)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 5,330 (310)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 12.1 (0.36)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.6 (0.073)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 1,760 (53)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 377 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 197 (4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 72.7 (4.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 28,500 (580)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 10,500 (680)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Strain @ Break % 2.8 (0.085)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Strain @ Break % 3.9 (0.35)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 13.4 (0.57)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.26 (0.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 1,940 (83)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 328 (15)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 8,
+      "text": "MPa 109 (12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "MPa 129 (4.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 15,700 (1,700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "psi 18,700 (620)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 3.37 (0.21)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "GPa 2.63 (0.13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 489 (30)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ksi 382 (18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 138 (7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 45.5 (73)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in 2.58 (0.13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in 0.852 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 1,030 (93)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "J/m 139 (23)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in 19.3 (1.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ft*lb/in 2.61 (0.43)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Table 7: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T20C tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "0.25 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 77.5 (2.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 38.3 (1.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 11,200 (350)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 5,500 (230)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 76.5 (3.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 38.4 (1.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 11,100 (500)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 5,570 (220)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 7.91 (0.31)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 2.64 (0.078)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 1,150 (45)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 384 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 152 (3.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 67.4 (3.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 22,100 (550)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 9,770 (510)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Strain @ Break % 2.7 (0.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Strain @ Break % 3.6 (0.23)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 11 (0.26)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 2.18 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 1,600 (38)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 317 (16)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 9,
+      "text": "MPa 105 (5.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 135 (3.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 15,200 (780)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 19,600 (510)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 2.73 (0.33)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 2.44 (0.13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 397 (48)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 354 (19)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "J/m 102 (3.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "J/m 22.4 (2.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ft*lb/in 1.91 (0.071)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ft*lb/in 0.42 (0.041)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "J/m 619 (58)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "J/m 125 (12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ft*lb/in 11.6 (1.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ft*lb/in 2.35 (0.22)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "T40C Tensile Part Processing: XZ tensile coupon printed dimensions were 165 x 22 x 5 mm (6.500 x 0.875 x",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.200 in.). ZX tensile coupons were precision-cut via water jet machining from larger printed plaques to produce",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "final coupon dimensions of 165 x 22 x 5 mm (6.500 x 0.875 x 0.200 in.). XZ and ZX tensile coupons were then",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "tested using the standard D638 procedure, including coupon conditioning and pulling.",
+      "reason": "properties.csv carries no property for \"tested using the standard\""
+    },
+    {
+      "page": 10,
+      "text": "T40C Flexural Part Processing: XZ flexural coupon printed dimensions were 165 x 12.7 x 5 mm (6.500 x 0.500 x",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.200 in.). ZX flexural test coupons were precision-cut via water jet machining from larger printed plaques to",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "produce final coupon dimensions of 165 x 12.7 x 5 mm (6.500 x 0.500 x 0.20 in.). XZ and ZX flexural coupons",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "were then tested using the standard D790 procedure, including coupon conditioning.",
+      "reason": "properties.csv carries no property for \"were then tested using the standard\""
+    },
+    {
+      "page": 10,
+      "text": "Table 8: FDM Nylon 12CF Mechanical Properties - Fortus 450mc - T40C tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "0.50 mm (0.020 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 124 (8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 38.3 (2.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 17,900 (1,200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 5,550 (310)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 124 (6.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 38.1 (2.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 18,000 (960)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 5,530 (330)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "GPa 15.4 (1.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "GPa 2.38 (0.069)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ksi 2,230 (190)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ksi 345 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 200 (9.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "MPa 61.1 (2.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 28,900 (1,400)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "psi 8,860 (410)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Strain @ Break % 2.7 (0.17)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Strain @ Break % 3.5 (0.32)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "GPa 13.5 (1.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "GPa 2.25 (0.039)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ksi 1,950 (170)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "ksi 327 (5.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "The Stratasys typical testing procedure follows our default “45/-45” raster toolpath generation where the first raster",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "layer is 45° in the XY plane and the next layer is perpendicular to that (-45°). The data in this section has",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Table 9: FDM Nylon 12CF Mechanical Properties with Unidirectional Toolpaths - F900 - T20C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "0.25 mm (0.010 in.) Layer Height XY Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 111 (1.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 16,100 (240)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "GPa 15.1 (0.15)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ksi 2,180 (21)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "MPa 183 (2.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "psi 26,600 (320)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Strain @ Break % 2.4 (0.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "GPa 11.9 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ft*lb/in 2.28 (0.058)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Nylon 12CF coupons were built on the F900 using the T20C tip with 0.254 mm (0.010 in.) layer height. The coupons",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "were then tested before and after UV exposure. Ten ASTM D638 upright (ZX) coupons were tested in tensile after UV",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "exposure and an additional 10 ASTM D638 ZX coupons were the control (no UV exposure). The UV exposed samples",
+      "reason": "properties.csv carries no property for \"exposure and an additional 10\""
+    },
+    {
+      "page": 12,
+      "text": "were cycled in the QUV chamber per ASTM G154 (Standard Practice for Operation Fluorescent UV Light Apparatus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "for Exposure of Nonmetallic Materials) for 1,000 hours, alternating for eight hours at 60 ˚C (140 ˚F) and four hours at",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "50 ˚C (122 ˚F) with humidity and condensation. The increase in stress at break is from the control samples. For more",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "information see the Impact of UV Exposure on FDM 3D Printing Materials white paper.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Table 10: Nylon 12CF UV Exposure Test Results - F900 - T20C tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "No UV Exposure 4,760 32.8 4,720 32.5 1.7 - 361 2.49",
+      "reason": "properties.csv carries no property for \"No UV Exposure\""
+    },
+    {
+      "page": 12,
+      "text": "Nylon 12CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "UV Exposure 6,500 44.8 6,460 44.5 2.2 36.80 421 2.9",
+      "reason": "properties.csv carries no property for \"UV Exposure\""
+    },
+    {
+      "page": 12,
+      "text": "Nylon 12CF coupons were built on the F900 using the T20C tip with 0.254 mm (0.010 in.) layer height and tested",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "at various temperatures. Ten ASTM D638 upright (ZX) coupons were tested in tensile. The percent change from the",
+      "reason": "properties.csv carries no property for \"at various temperatures. Ten\""
+    },
+    {
+      "page": 12,
+      "text": "Table 11: Performance of FDM Nylon 12CF at Temperature - F900 - T20C tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "-65 -54 176% 60% 126%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "-40 -40 160% 57% 128%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "110 43 95% 77% 80%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Nylon 12CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "180 82 66% 173% 41%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "220 104 50% 223% 30%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "270 132 34% 257% 21%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "Figure 1: 2nd heating scan DSC data for the Nylon 12CF Flat (XY) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Figure 2: Dimension change data as a function of temperature for the Nylon 12CF Flat (XY) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Figure 3: Dimension change data as a function of temperature for the Nylon 12CF On Edge (XZ) sample.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "Figure 4: Overlay of the dimension change data for the Flat (XY) and On Edge (XZ)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "Nylon 12CF samples.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "Stratasys Headquarters 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "5995 Opus Parkway,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "Minnetonka, MN 55343",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "stratasys.com +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "ISO 9001:2015",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "+1 952 937-3000 (Intl)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "© 2025 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, FDM, F900, XTEND, and Fortus are registered trademarks of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "Stratasys Inc. FDM Nylon 12CF, SR-110, Fortus 450mc and Fortus 900mc are trademarks of Stratasys, Inc. All other trademarks are the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 15,
+      "text": "non-Stratasys products. Product specifications subject to change without notice. MDS_FDM_Nylon 12CF_0925a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

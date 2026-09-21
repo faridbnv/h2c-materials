@@ -1,0 +1,2214 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "51d0b104d6262bfa0c01686f616f53de131cb3bb1bbbf541d310579cab6886f6",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/tpu-92a/fdm-tpu92a-materialdata-sheet-0625a.pdf?v=49e944",
+    "pages": 9,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/tpu-92a/fdm-tpu92a-materialdata-sheet-0625a.pdf?v=49e944"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": "92A",
+    "support": false,
+    "signals": [
+      "name: tpu",
+      "hardness: 92A"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+      "Publisher": "Stratasys",
+      "Title": "MATERIAL DATA SHEET TPU 92A",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/tpu-92a/fdm-tpu92a-materialdata-sheet-0625a.pdf?v=49e944",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "51d0b104d6262bfa0c01686f616f53de131cb3bb1bbbf541d310579cab6886f6"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATA SHEET TPU 92A"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "TPU 92A",
+        "Shared formulation key": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATA SHEET TPU 92A"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "92 Shore A",
+        "Raw unit": "Shore A",
+        "Raw numeric": "92",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "92",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "molded ASTM D2240",
+        "Standards": "ASTM D2240",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 4: Shore Hardness (molded) ASTM D2240",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Shore Hardness (molded) ASTM D2240 92 Shore A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "38 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "38",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "38",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi molded ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 4: HDT @ 66 psi (molded)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi (molded) 38 °C (100.4 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "56 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "56",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "56",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "15 psi molded ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 4: HDT @ 15 psi (molded)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 15 psi (molded) 56 °C (132.8 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "95 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "95",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 4: Vicat Softening Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Vicat Softening Temperature 95 °C (203 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "466 %",
+        "Raw unit": "%",
+        "Raw numeric": "466",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "466",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 466"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "385 %",
+        "Raw unit": "%",
+        "Raw numeric": "385",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "385",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 385"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "552 %",
+        "Raw unit": "%",
+        "Raw numeric": "552",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "552",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 552"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "482 %",
+        "Raw unit": "%",
+        "Raw numeric": "482",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "482",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 482"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "6.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "6.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Tensile Stress MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Tensile Stress MPa 6.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "7.6 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "7.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "7.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Tensile Stress MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Tensile Stress MPa 7.6"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "11.0 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "11",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "11",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Tensile Stress MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Tensile Stress MPa 11.0"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "11.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "11.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "11.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 6: Tensile Stress MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Tensile Stress MPa 11.9"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "92 Shore A",
+        "Raw unit": "Shore A",
+        "Raw numeric": "92",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "92",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore A",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "molded ASTM D2240",
+        "Standards": "ASTM D2240",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 8: Shore Hardness (molded) ASTM D2240",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Shore Hardness (molded) ASTM D2240 92 Shore A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "29.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "29.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "29.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi printed ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: FDM TPU 92A Red Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 8: HDT @ 66 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "HDT @ 66 psi (printed) 29.8 °C (84 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "31.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "31.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "31.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi printed",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: FDM TPU 92A Red Physical Properties · XZ column",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 8: HDT @ 66 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "HDT @ 66 psi (printed) 31.8 °C (89.2 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "45.1 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "45.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "45.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "15 psi printed ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: FDM TPU 92A Red Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 8: HDT @ 15 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "HDT @ 15 psi (printed) 45.1 °C (113.2 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "48.9 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "48.9",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48.9",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "15 psi printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 6: FDM TPU 92A Red Physical Properties · XZ column",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 8: HDT @ 15 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "HDT @ 15 psi (printed) 48.9 °C (120 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "97.8 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "97.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "97.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 8: Vicat Softening Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 8,
+        "text": "Vicat Softening Temperature 97.8 °C (208 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "16 %",
+        "Raw unit": "%",
+        "Raw numeric": "16",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "16",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Yield % 16 (0.61)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "560 %",
+        "Raw unit": "%",
+        "Raw numeric": "560",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "560",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Yield % 560 (39)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m21",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "560 %",
+        "Raw unit": "%",
+        "Raw numeric": "560",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "560",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Break % 560 (27)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m22",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "570 %",
+        "Raw unit": "%",
+        "Raw numeric": "570",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "570",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Elongation @ Break % 570 (43)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m23",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "8.088 MPa (TDS prints \"8,088\" with European decimal separator)",
+        "Raw unit": "MPa",
+        "Raw numeric": "8.088",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.088",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Tensile Stress MPa",
+        "Notes": "\"8,088\" may be a thousands separator or a decimal one; read as 8.088 because 8088 MPa is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Tensile Stress MPa 8,088"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m24",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "8.343 MPa (TDS prints \"8,343\" with European decimal separator)",
+        "Raw unit": "MPa",
+        "Raw numeric": "8.343",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8.343",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Tensile Stress MPa",
+        "Notes": "\"8,343\" may be a thousands separator or a decimal one; read as 8.343 because 8343 MPa is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Tensile Stress MPa 8,343"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m25",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "12.60 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "12.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Tensile Stress MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Tensile Stress MPa 12.60"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m26",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M039",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "12.58 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "12.58",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12.58",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-fdm-tpu92a-materialdata-sheet-0625a",
+        "Locator": "p. 9: Tensile Stress MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 9,
+        "text": "Tensile Stress MPa 12.58"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "TPU 92A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM TPU 92A is a thermoplastic polyurethane with a Shore A value of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "92. The material exhibits high elongation, superior toughness, durability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and abrasion resistance. FDM TPU 92A brings the benefits of elastomers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "to the F123 and F123CR Series FDM 3D printers and offers the capability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties ............................................................... 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties.......................................................... 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "UV Aging ................................................................................ 7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix ................................................................................ 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1: Printer and Support Material Capability",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 Series Elastomer 0.178 mm (0.007 in.)1 F123 Standard Head (black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F170™ QSR™ Support (soluble)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.254 mm (0.010 in.) cover)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 Series Elastomer 0.178 mm (0.007 in.)1 F123 Standard Head (black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F190™CR QSR™ Support (soluble)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.254 mm (0.010 in.) cover)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 Series Elastomer 0.178 mm (0.007 in.)1 F123 Standard Head (black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F370™ QSR™ Support (soluble)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.254 mm (0.010 in.) cover)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 Series Elastomer 0.178 mm (0.007 in.)1 F123 Standard Head (black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F370 CR QSR™ Support (soluble)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "0.254 mm (0.010 in.) cover)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F170 build tray",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F190CR build tray",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F370/F370CR build tray",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "System Requirements2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123/F123CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F123 Series Elastomer Extrusion Head (blue cover, 750 hour head life)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• F123 Series Standard Head (black cover, used for support, 1,500 hour head life)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 2: FDM TPU 92A Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123/F123CR Series Spools",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "333-60201 F123 TPU 92A Black, 60 cu. in.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "333-70001 F123 TPU 92A Red, 60 cu. in. F170, F190CR, F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "333-63500 QSR Soluble Support, 60 cu. in. - F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123/F123CR Series",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00302-S F170 Build Tray, Standard F170",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00303-S F190CR Build Tray, Standard F190CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00304 F370/F370CR Build Tray, Standard F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123/F123CR Series",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00321-S F123 Elastomer Extrusion Head (blue cover)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F170, F190CR, F370, F370CR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "123-00402-S Standard Extrusion Head (black cover)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Only available with TPU 92A Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 3: FDM TPU 92A Black Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tg -42 °C (-43.6 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "7.72*10^-5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "CTE (X-direction) ASTM E831 139 μm/(m*°C)",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 4,
+      "text": "8.83*10^-5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "CTE (Y-direction) ASTM E831 159 μm/(m*°C)",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 4,
+      "text": "9.78*10^-5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "CTE (Z-direction) ASTM E831 176 μm/(m*°C)",
+      "reason": "the line names Coefficient of thermal expansion and states no value in a unit the database keeps it in (µm/m/K)"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 6.09*1010 Ω*cm",
+      "reason": "the sheet states Volume resistivity as a power of ten whose exponent did not survive the extraction (\"Volume Resistivity ASTM D257 6.09*1010 Ω*cm\")"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D1525",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 7.17*10^13 Ω*cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"7.17*10^13\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 4,
+      "text": "Rate B/50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D257",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Specific Gravity 1.135",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "FDM TPU 92A Black samples were printed with a 0.254 mm (0.010 in.) layer height on the F370 using the F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 4: FDM TPU 92A Black Mechanical Properties - F370 - Elastomer Head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.254 mm (0.010 in.) Layer Height XY Orientation XZ Orientation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 15.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 16.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 2,265",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 2,332",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 16.8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 17.4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 2,432",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 2,519",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 15.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 20.7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 2,212",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 3,000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "@ 100% Elongation psi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "999",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1,096",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "@ 300% Elongation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 1,598",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 1,722",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Tear Properties: ASTM D624-C",
+      "reason": "properties.csv carries no property for \"Tear Properties:\""
+    },
+    {
+      "page": 6,
+      "text": "N/mm 84.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "lbf/in 483",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Compression Properties: ASTM D395",
+      "reason": "the line names Tear strength and states no value in a unit the database keeps it in (kN/m)"
+    },
+    {
+      "page": 6,
+      "text": "- 21%",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 6,
+      "text": "22 Hours @ 23C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "- 44%",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 6,
+      "text": "22 Hours @ 70C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "FDM TPU 92A Black samples were printed on the F370 using the F123 Elastomer Extrusion Head with the 0.254 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "(0.010 in.) layer height. FDM TPU 92A Black was tested before and after UV exposure. Ten ASTM D638 upright (XY)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "dogbones were tested in tensile after UV exposure and an additional 10 ASTM D638 XY dogbones were the control",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "(No UV Exposure). The UV exposed samples were cycled in the QUV chamber per ASTM G154 (Standard Practice for",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Operation Fluorescent Light Apparatus for UV exposure of Nonmetallic Materials) for 1000 hours, alternating for",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "8 hours at 60 °C (140 °F) and 4 hours at 50 °C (122 °F) with humidity and condensation. The increase in ultimate",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 5: UV Aging of FDM TPU92A Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "No UV Exposure 2,730 18.5 2,740 18.9 512 - 3.23 0.0223",
+      "reason": "properties.csv carries no property for \"No UV Exposure\""
+    },
+    {
+      "page": 7,
+      "text": "TPU 92A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "UV Exposure 2,330 16.0 2,330 16.0 470 -15.30 3.16 0.0218",
+      "reason": "properties.csv carries no property for \"UV Exposure\""
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 6: FDM TPU 92A Red Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Tg -43 °C (-45.4 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ASTM D1525",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Rate B/50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "ASTM D257",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Specific Gravity 1.141",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "FDM TPU 92A Red samples were printed with a 0.254 mm (0.010 in.) layer height on the F370 using the F123",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Table 7: FDM TPU 92A Red Mechanical Properties - F370 - Elastomer Head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "0.254 mm (0.010 in.) Layer Height XY Orientation1 XZ Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "19.2 (0.37)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "18.8 (0.78)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "2,780 (54)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "2,730 (110)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 19.2 (0.37)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "MPa 18.7 (0.86)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 2,780 (54)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 2,710 (120)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 0.02 (0.00053)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "GPa 0.0184 (0.0014)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 2.9 (0.077)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ksi 2.66 (0.21)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "@ 100% Elongation psi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1,173",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1,210",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "@ 300% Elongation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 1,827",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "psi 1,825",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Tear Properties: ASTM D624-C",
+      "reason": "properties.csv carries no property for \"Tear Properties:\""
+    },
+    {
+      "page": 9,
+      "text": "N/mm 99.59 (2.13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "568.7 (12.17)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Compression Properties: ASTM D395",
+      "reason": "the line names Tear strength and states no value in a unit the database keeps it in (kN/m)"
+    },
+    {
+      "page": 9,
+      "text": "- 19%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "- 18%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "22 Hours @ 23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "- 57%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "- 60%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "22 Hours @ 70 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Stratasys Headquarters 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "5995 Opus Parkway,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Minnetonka, MN 55343",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "stratasys.com +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "ISO 9001:2015",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+1 952 937-3000 (Intl)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "© 2025 Stratasys Ltd. All rights reserved. Stratasys, Stratasys signet, FDM, F123 and QSR Support are trademarks or registered trademarks of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "owners. Product specifications subject to change without notice. Printed in the USA. MDS_FDM_TPU92a_0625a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

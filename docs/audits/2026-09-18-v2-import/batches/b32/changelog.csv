@@ -1,0 +1,30 @@
+table,record,action,field,before,after
+coverage,C01321,Edited,Status,Resolved,Superseded
+coverage,C01321,Edited,Manufacturer count,7,Not applicable
+coverage,C01321,Edited,Finding,"7 distinct manufacturer(s) documented against target 3: 3D-Fuel, 3DXTECH, Extrudr, Fiberlogy, FormFutura, Nobufil, Spectrum. Recounted 2026-09-21 (m121-batch-b27) after the grades this batch added.","Superseded by C01335 (2026-09-21; was ""Resolved""): 7 distinct manufacturer(s) documented against target 3: 3D-Fuel, 3DXTECH, Extrudr, Fiberlogy, FormFutura, Nobufil, Spectrum. Recounted 2026-09-21 (m121-batch-b27) after the grades this batch added."
+coverage,C01334,Edited,Finding,"Reviewed 2026-09-21 (ruling R166, m123-kingroon-reprints-bambu). Kingroon PETG Basic (R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0) reprints the table B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet carries on G023-01 (M023, PETG Translucent). The product and its sheet are registered; the numbers are Bambu's and are not repeated here.","Reviewed 2026-09-21 (ruling R166, m123-kingroon-reprints-bambu). Kingroon PETG Basic (R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0) reprints the table B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet carries on G023-01 (M023, PETG Translucent); Spectrum PET-G FX120 (S-SPECTRUM-en-tds-spectrum-petg-fx120) reprints the table R-COLORFABB-colorFabb-nGen-Flex-Filament-TDS carries under M143 (m124-batch-b32). The product and its sheet are registered; the numbers are Bambu's and are not repeated here."
+coverage,C01335,Added,,,
+grades,G031-43,Added,,,
+grades,G001-196,Added,,,
+grades,G033-18,Added,,,
+grades,G088-08,Added,,,
+grades,G001-197,Added,,,
+grades,G001-198,Added,,,
+grades,G020-73,Added,,,
+grades,G020-74,Added,,,
+measurements,V011040,Added,,,
+measurements,V011041,Added,,,
+measurements,V011042,Added,,,
+measurements,V011043,Added,,,
+measurements,V011044,Added,,,
+measurements,V011045,Added,,,
+measurements,V011046,Added,,,
+profiles,P1092,Added,,,
+sources,R-3DJAKE-EN-TDS-The-Filament-ASA,Added,,,
+sources,R-3DJAKE-EN-TDS-The-Filament-HT-PLA,Added,,,
+sources,R-3DJAKE-EN-TDS-The-Filament-ASA-CF,Added,,,
+sources,R-3DJAKE-Technical-Data-Sheet-PCTG-V2,Added,,,
+sources,R-3DJAKE-EN-TDS-The-Filament-PLA-Matte,Added,,,
+sources,R-3DJAKE-EN-TDS-The-Filament-PLA-Lite,Added,,,
+sources,R-3DJAKE-EN-TDS-The-Filament-PETG-Lite,Added,,,
+sources,S-SPECTRUM-en-tds-spectrum-petg-fx120,Added,,,

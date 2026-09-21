@@ -1,0 +1,1225 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "45e76897bb62a9a90307b90d2046d9be10633fbd98ea050a361d671ee91aef0f",
+    "url": "https://drive.google.com/file/d/1XhEJWU8RdDIwFbbN9-Wk6l61StsjTttA/view?usp=drive_link",
+    "pages": 6,
+    "provider": "QIDI",
+    "manufacturer": "QIDI",
+    "docKey": "https://drive.google.com/file/d/1XhEJWU8RdDIwFbbN9-Wk6l61StsjTttA/view?usp=drive_link"
+  },
+  "identity": {
+    "polymer": "PAHT",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: paht",
+      "filler: cf"
+    ],
+    "materialId": "M048",
+    "materialName": "PAHT-CF",
+    "estimateIdentity": "PAHT",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-QIDI-PAHT-CF",
+      "Publisher": "QIDI",
+      "Title": "Technical Data Sheet QIDI PAHT-CF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://drive.google.com/file/d/1XhEJWU8RdDIwFbbN9-Wk6l61StsjTttA/view?usp=drive_link",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "45e76897bb62a9a90307b90d2046d9be10633fbd98ea050a361d671ee91aef0f"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet QIDI PAHT-CF"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M048",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "QIDI",
+        "Product name": "PAHT-CF",
+        "Shared formulation key": "R-QIDI-PAHT-CF",
+        "Composition / filler": "High temperature Polyamide based with 15% chopped carbon fiber reinforced FDM material. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet QIDI PAHT-CF"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.20 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: 密度 ISO 1183",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "密度 ISO 1183 1.20 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "237 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "237",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "237",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 11357",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: 熔点 ISO 11357 Melting Temperature",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "熔点 ISO 11357 237 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "3.4 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "3.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "300°C",
+        "Standard / load": "300°C 2.16kg",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Melting Temperature 熔融指数 300°C, 2.16kg Melt index",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "熔融指数 300°C, 2.16kg 3.4 g/10min"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "82.0 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "82",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "82",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: 热变形温度",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "热变形温度 82.0°C 101.5°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "117.5 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "117.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "117.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "1.80 MPa",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: 热变形温度",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "热变形温度 117.5°C 101.5°C (1.80 MPa)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "95.53 ± 3.62 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "95.53",
+        "Raw uncertainty ±": "3.62",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "95.53",
+        "Normalized uncertainty ±": "3.62",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "2.15 MPa 94.51±",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Tensile strength(X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "95.53±3.62 MPa 94.51±2.15 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "8114.10 ± 539.02 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "8114.1",
+        "Raw uncertainty ±": "539.02",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "8.1141",
+        "Normalized uncertainty ±": "0.53902",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "682.72 MPa 7269.74±",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Young’s modulus(X-Y) MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "8114.10±539.02 MPa 7269.74±682.72 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.52 ± 0.11 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.52",
+        "Raw uncertainty ±": "0.11",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.52",
+        "Normalized uncertainty ±": "0.11",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "annealed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Elongation at break (X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "1.52±0.11 % 2.33±0.20 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "144.00 ± 1.87 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "144",
+        "Raw uncertainty ±": "1.87",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "144",
+        "Normalized uncertainty ±": "1.87",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "5.78 MPa 157.53±",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: 弯曲强度(X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "弯曲强度（X-Y） 144.00±1.87 MPa 157.53±5.78 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "141.82 ± 4.34 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "141.82",
+        "Raw uncertainty ±": "4.34",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "141.82",
+        "Normalized uncertainty ±": "4.34",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "5.78 MPa 157.53±",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: 弯曲强度(X-Y)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "弯曲强度（X-Y） 141.82±4.34 MPa 157.53±5.78 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "7098.40 ± 440.49 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "7098.4",
+        "Raw uncertainty ±": "440.49",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "7.0984",
+        "Normalized uncertainty ±": "0.44049",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "474.51 MPa 6983.35±",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Bending modulus (X-Y) MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "7098.40±440.49 MPa 6983.35±474.51 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "10.37 ± 0.27 KJ/㎡",
+        "Raw unit": "KJ/㎡",
+        "Raw numeric": "10.37",
+        "Raw uncertainty ±": "0.27",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "10.37",
+        "Normalized uncertainty ±": "0.27",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Charpy impact strength ISO 179",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Charpy impact strength ISO 179 10.37±0.27 KJ/㎡ 8.61±1.64 KJ/㎡"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "5.62 ± 0.67 KJ/㎡",
+        "Raw unit": "KJ/㎡",
+        "Raw numeric": "5.62",
+        "Raw uncertainty ±": "0.67",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5.62",
+        "Normalized uncertainty ±": "0.67",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "annealed",
+        "Post-processing state": "annealed",
+        "Anneal °C": "Not published",
+        "Anneal h": "Not published",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not published",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Charpy impact strength ISO 179",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Charpy impact strength ISO 179 5.62±0.67 KJ/㎡ 8.61±1.64 KJ/㎡"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3869.82 ± 174.36 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3869.82",
+        "Raw uncertainty ±": "174.36",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.86982",
+        "Normalized uncertainty ±": "0.17436",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "as printed ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: 拉伸模量(Z) ISO 527",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "拉伸模量（Z） ISO 527 3869.82±174.36 MPa /"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M048",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.56 ± 0.07 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.56",
+        "Raw uncertainty ±": "0.07",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.56",
+        "Normalized uncertainty ±": "0.07",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Z",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "As printed",
+        "Post-processing state": "as-printed",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "as printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-QIDI-PAHT-CF",
+        "Locator": "p. 3: Young’s modulus (Z) 断裂伸长率(Z) 断裂伸长率(Z) / /",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "断裂伸长率（Z） 1.56±0.07 % /"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "QIDI FDM 3D Printing Material",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Data / Revised: 02.2025",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15%短切碳纤维增强特种高温尼龙 3D 打印材料。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High temperature Polyamide based with 15% chopped carbon fiber reinforced FDM material.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "QIDI PAHT-CF 基材使用半芳香族尼龙，饱和吸湿率仅为普通 PA6 的十分之一，彻底解决尼龙材料",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "absorption rate is only one tenth of ordinary PA6, completely solving the defects of the mechanical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "线径 Diameter ：1.75mm/ 2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "净重 Net Weight：500g ，1kg ， ，3kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Version No: 5.1 2.5kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI PAHT-CF 专为 FDM 3D 打印工艺开发，基材选用半芳香族尼龙，具有低吸湿，高强度，高耐磨",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "QIDI PAHT-CF is specially developed for FDM 3D printing process, and its substrate material is",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "物性表（v2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 62:",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 3,
+      "text": "1.37 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Water absorption Method 1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "ISO 75: Method A",
+      "reason": "the line names Melt mass-flow rate and states no value in a unit the database keeps it in (g/10 min)"
+    },
+    {
+      "page": 3,
+      "text": "(1.80 MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 75: Method B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "84.8°C 194.5°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "190.7°C 194.5°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(0.45MPa)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "93.15±1.64 MPa 94.51±2.15 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "拉伸模量（X-Y） ISO 527 7492.51±329.13",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "1.92±0.10 % 2.33±0.20 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 3,
+      "text": "弯曲模量 （X-Y） 6727.22±382.20",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "51.03±2.18 MPa /",
+      "reason": "the sheet publishes no value for \"51.03±2.18 MPa\" in this row: its value column prints \"/\""
+    },
+    {
+      "page": 3,
+      "text": "拉伸模量（Z） ISO 527 / /",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 3,
+      "text": "试样打印参数：喷嘴温度 320℃，底板加热 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "80℃，打印速度 45mm/s ，填充率 100%，填充角度±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "退火条件：100℃退火 8 小时",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Specimens printed under the following conditions: Nozzle temp 320 ℃ , Bed temp 80℃ , Print speed 45mm/s, Infill 100%, Infill angle ±45°",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Post-processing: 100°C Annealing 8 hours",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "300-320°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.4-1.0 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "70-90°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "0.12-0.16 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1-3 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1800-3600 mm/min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1. 尼龙材料非常容易吸收环境内的水分，吸湿后打印会出现拉丝，挤出有气泡等现象，降低打印质量。建议",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "您打开 QIDI PAHT-CF 真空铝箔袋包装后立即将线材放入干燥盒内（湿度控制在 15%以下）进行打",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2. 材料受潮后会出现打印拉丝增多，挤出有气泡，打印表面质量粗糙等现象。请将线材放入 80-100°C 烘箱",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "内干燥 4-6h ，即可恢复 QIDI PAHT-CF 的打印质量。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3. 建议选用 硬化钢及以上等级喷嘴，可以有效提高打印质量，建议加热块厚度不小于 12mm。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4. 打印完成后可以对打印件进行退火处理，可以进一步提高 QIDI PAHT-CF 打印件的强度，退火条",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "件：80-100°C 温度下放置 4-8 小时后取出即可。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "quality. It is recommended that put the filament into a dry box (humidity below 15%) immediately after",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "surface. Please dry the filament in an oven at 80-100°C for 4-6h to restore the printing quality of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "3.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "the print quality. Besides, it is recommended that the thickness of the heating block is longer 12mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "4. After the printing is completed, the QIDI",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "improve the strength of print part. Annealing conditions: leave printing part in an oven at 80-100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "for 4 to 8 hours and cool to room temperature naturally.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "15% Carbon Fiber Reinforced PAHT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "25 25.07",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "力 15 15.36",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "320",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "11.81",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "9.02",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "6.69",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "8mm³/s 12mm³/s 16mm³/s 20mm³/s 24mm³/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "测试参数：20mm 长度铜制加热块，BMG 挤出机，Phaetus 硬化钢喷头，喷嘴大小 0.4mm ，层高 0.2mm 。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Test parameters: 20mm length brass heat block, BMG extruder, Phaetus Hardened Steel Nozzle, Nozzle size 0.4mm, Layer Height 0.2mm.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "QIDI 3D 打印耗材适用于通用打印用途，已在标准条件下进行测试。然而，打印成品的性能与安全性受多种因素影响，包括打印参数、模型设计、使用环",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "QIDI 3D printing filaments are suitable for general printing applications and have been tested under standard conditions. However, the performance",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

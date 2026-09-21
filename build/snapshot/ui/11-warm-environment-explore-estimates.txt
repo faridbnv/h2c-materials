@@ -34,50 +34,50 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS 1,050 2.2 33 10.5 87 26↗ ☆
-ABS-AF UNKNOWN ~1,040–1,060† ~1.6–3.4† ~26–51† ~3.3–10.0† ~87.9–88.1† — ☆
+ABS-AF UNKNOWN ~1,040–1,060† ~1.6–3.4† ~26–51† ~3.3–10.1† ~87.9–88.1† — ☆
 ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆
 ASA PASS 1,050 2.45 37 9.2 100 39↗ ☆
 ASA Aero PASS 990 2.01 32 1.6 85 64↗ ☆
-ASA-AF UNKNOWN ~1,060–1,080† ~1.4–2.9† ~24–44† ~1.3–6.5† ~80–97† — ☆
+ASA-AF UNKNOWN ~1,060–1,080† ~1.4–2.9† ~24–44† ~1.3–6.6† ~80–97† — ☆
 ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
-ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.1† ~27–51† ~1.0–5.0† ~89–105† — ☆
+ASA-EC UNKNOWN ~1,160–1,180† ~2.0–4.1† ~27–51† ~0.9–5.1† ~89–105† — ☆
 ASA-GF PASS 1,110 2.76 39 5.8 98 — ☆
 COC
 PVB / Specialty Polymers
- UNKNOWN 1,020 ~1.1–2.5† ~28–75† ~8–62† ~136–159† — ☆
+ UNKNOWN 1,020 ~1.1–2.5† ~28–75† ~8–63† ~136–159† — ☆
 CPE
 Copolyesters
  PASS 1,250 ~0.7–2.0† ~55–69† ~110–230† 80 — ☆
 CPE-CF
 Copolyesters
- UNKNOWN 1,160 ~1.6–3.4† ~57–80† ~5.0–14.8† ~56–84† no price↗ ☆
+ UNKNOWN 1,160 ~1.6–3.4† ~57–80† ~4–15† ~56–84† no price↗ ☆
 HIPS
 Styrenics
- PASS 1,040 1.35 ~40.0–45.1† 18 80 43↗ ☆
+ PASS 1,040 1.35 ~40.0–45.0† 18 80 43↗ ☆
 LCP
 High-Performance Engineering
- UNKNOWN 1,400 ~7.4–16.1† ~80–230† ~2.2–7.7† 193? — ☆
+ UNKNOWN 1,400 ~7.4–16.1† ~80–230† ~2.2–7.8† 193? — ☆
 nGen
 also called Amphora · Copolyesters
  UNKNOWN ~1,170–1,220† 1.7 54 11 ~62–79† — ☆
 nGen FLEX
 Copolyesters
- UNKNOWN ~1,120–1,140† ~0.17–0.36† ~20–32† ~320–480† ~75–138† — ☆
+ UNKNOWN ~1,120–1,140† ~0.18–0.36† ~20–32† ~320–490† ~75–138† — ☆
 PA-ESD
 Nylon / Polyamide
- UNKNOWN 1,140 ~4.1–8.4† ~39–73† ~2.5–8.0† 142 — ☆
+ UNKNOWN 1,140 ~4.1–8.3† ~39–73† ~2.5–8.1† 142 — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~970–1,050† ~0.8–2.8† ~51–90† ~200–340† ~104–126† — ☆
+ UNKNOWN ~970–1,050† ~0.8–2.7† ~51–90† ~200–350† ~104–126† — ☆
 PA12-AF
 Nylon / Polyamide
- UNKNOWN ~960–1,060† ~0.50–1.01† ~37–86† ~4.1–12.7† ~70–160† — ☆
+ UNKNOWN ~960–1,060† ~0.50–1.01† ~37–86† ~4.0–12.9† ~70–160† — ☆
 PA12-CF
 Nylon / Polyamide
  PASS 1,160 8 ~86.0–91.5† 2.1 150 — ☆
 PA6
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.3–4.5† ~34–75† ~5–24† ~147–175† 163↗ ☆
+ UNKNOWN 1,250 ~2.3–4.5† ~34–75† ~4–24† ~147–175† 163↗ ☆
 PA6-CE
 Nylon / Polyamide
  UNKNOWN ~1,480–1,500† ~3.6–7.3† ~39–90† ~2–13† ~96–184† — ☆
@@ -89,16 +89,16 @@ Nylon / Polyamide
  PASS 1,140 2.85 75 3.9 182 77↗ ☆
 PA6-GS
 Nylon / Polyamide
- UNKNOWN ~1,000–1,020† ~2.7–5.6† ~48–109† ~3–17† ~96–184† — ☆
+ UNKNOWN ~1,000–1,020† ~2.7–5.6† ~48–109† ~3–18† ~96–184† — ☆
 PA6/66
 Nylon / Polyamide
  PASS 1,120 2.22 66.2 9.9 111 — ☆
 PA6/66-CF
 Nylon / Polyamide
- UNKNOWN 1,240 ~2.3–6.8† ~67–120† ~4.6–13.8† 155 — ☆
+ UNKNOWN 1,240 ~2.3–6.8† ~67–120† ~4.5–14.0† 155 — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.3–3.1† ~42–70† ~10–29† ~85–166† — ☆
+ UNKNOWN ~990–1,070† ~1.3–3.1† ~42–70† ~10–30† ~85–166† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS 1,030 5.14 91.9 2.6 175 — ☆
@@ -107,19 +107,19 @@ Nylon / Polyamide
  PASS 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,280† ~2.4–7.1† ~59–104† ~2.1–6.5† ~150–214† — ☆
+ UNKNOWN ~1,050–1,280† ~2.4–7.1† ~59–104† ~2.0–6.6† ~150–214† — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,070–1,170† ~1.4–3.5† ~39–72† ~10–28† ~97–188† — ☆
+ UNKNOWN ~1,070–1,170† ~1.4–3.5† ~39–72† ~9–29† ~97–188† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,080–1,280† ~3.1–9.5† ~64–119† ~2.4–7.2† ~159–249† — ☆
+ UNKNOWN ~1,080–1,280† ~3.1–9.4† ~64–119† ~2.4–7.3† ~159–249† — ☆
 PAHT
 Nylon / Polyamide
- UNKNOWN ~1,170–1,210† ~2.0–4.2† ~45–94† ~1.6–8.5† ~104–160† — ☆
+ UNKNOWN ~1,170–1,210† ~2.0–4.2† ~45–94† ~1.6–8.7† ~104–160† — ☆
 PAHT-CE
 Nylon / Polyamide
- UNKNOWN 1,250 ~2.2–4.6† ~47–100† ~1–18† ~130–260† — ☆
+ UNKNOWN 1,250 ~2.2–4.5† ~47–100† ~1–19† ~130–260† — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS 1,060 3.86 92 8.4 194 124↗ ☆
@@ -128,7 +128,7 @@ PVB / Specialty Polymers
  UNKNOWN 1,250 0.006 27 400 90 — ☆
 PBT
 Polymer Blends
- UNKNOWN 1,310 ~1.8–3.9† ~39–91† ~15–47† ~57–145† — ☆
+ UNKNOWN 1,310 ~1.8–3.8† ~39–91† ~14–47† ~57–145† — ☆
 PBT-GF
 Polymer Blends
  UNKNOWN 1,320 3.7 65 2 175 — ☆
@@ -158,10 +158,10 @@ Polymer Blends
  UNKNOWN ~1,190–1,210† ~3.0–4.9† ~44–69† ~35–54† ~114–116† — ☆
 PCTG-GF
 Copolyesters
- UNKNOWN ~1,300–1,320† ~1.5–6.1† ~31–61† ~4.7–14.2† ~77.9–78.1† — ☆
+ UNKNOWN ~1,300–1,320† ~1.5–6.1† ~31–61† ~4.7–14.5† ~77.9–78.1† — ☆
 PE-GF
 Polyolefins
- UNKNOWN 1,080 ~1.9–4.0† ~18–42† ~6–20† ~64–133† — ☆
+ UNKNOWN 1,080 ~1.9–3.9† ~18–42† ~6–20† ~64–133† — ☆
 PET-CF
 PET Engineering
  PASS 1,290 4.73 74 4.5 205 116↗ ☆
@@ -169,20 +169,20 @@ PET-GF
 PET Engineering
  PASS 1,430 4.14 59.9 4 81.6 — ☆
 PETG-GF UNKNOWN 1,330 2.33 53.6 1.9 ~79.9–80.1† — ☆
-PETG-GR UNKNOWN ~1,180–1,300† ~0.95–1.88† ~31–68† ~4.0–12.2† ~51–116† — ☆
+PETG-GR UNKNOWN ~1,180–1,300† ~0.95–1.88† ~31–68† ~4.0–12.6† ~51–116† — ☆
 PLA UNKNOWN 1,240 2.87 ~70.9–77.0† 8 ~54–67† — ☆
-PLA-EC UNKNOWN ~1,340–1,360† ~1.1–2.3† ~20–38† ~1.9–9.3† ~50–110† — ☆
-PLA-GR UNKNOWN ~1,160–1,320† ~1.9–3.8† ~33–72† ~2.7–8.0† ~50–107† — ☆
-PLA-NF UNKNOWN 1,450 ~1.4–4.0† ~19–35† ~8–26† ~42–58† — ☆
+PLA-EC UNKNOWN ~1,340–1,360† ~1.1–2.3† ~20–38† ~1.8–9.4† ~50–110† — ☆
+PLA-GR UNKNOWN ~1,160–1,320† ~1.9–3.9† ~33–72† ~2.7–8.2† ~49–107† — ☆
+PLA-NF UNKNOWN 1,450 ~1.4–4.0† ~19–35† ~8–27† ~42–58† — ☆
 PLA-PHA
 Polymer Blends
- UNKNOWN 1,240 ~2.0–4.3† ~58–73† ~6.7–15.4† ~46–64† — ☆
+ UNKNOWN 1,240 ~2.0–4.3† ~58–73† ~6.7–15.8† ~46–64† — ☆
 PLA-PHB
 Polymer Blends
- UNKNOWN 1,200 ~1.3–2.8† ~27–63† ~5–17† 119 — ☆
+ UNKNOWN 1,200 ~1.3–2.8† ~27–63† ~5–18† 119 — ☆
 PP
 Polyolefins
- UNKNOWN 890 ~0.34–0.89† ~19.0–22.6† ~850–1,150† 92? — ☆
+ UNKNOWN 890 ~0.34–0.88† ~19.0–22.6† ~850–1,160† 92? — ☆
 PP Lightweight
 Polyolefins
  UNKNOWN 810 1.65 ~38.0–41.0† 13 94 — ☆
@@ -218,7 +218,7 @@ High-Performance Engineering
  PASS 1,360 5.76 72 1.6 241 — ☆
 PVC
 PVB / Specialty Polymers
- UNKNOWN 1,269 ~0.1–11† ~23–59† ~110–360† ~54–78† — ☆
+ UNKNOWN 1,269 ~0.1–11† ~23–59† ~110–370† ~54–78† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN 1,710 2.45 ~51.0–55.0† 25 158 — ☆
@@ -227,4 +227,4 @@ Fluoropolymers
  UNKNOWN 1,840 2.63 55 10 177 — ☆
 SAN
 Styrenics
- UNKNOWN 1,080 ~2.3–4.8† ~37–85† ~6–49† ~91–113† — ☆
+ UNKNOWN 1,080 ~2.3–4.8† ~37–85† ~5–51† ~91–113† — ☆

@@ -1,0 +1,1064 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "aa8d840cbf25f2f1033ebcff7d934fcdd3dbc6e2e9b6ce9e2c19d3f97e7ca538",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pla/mss_fdm_pla_0118a.pdf?v=48df1c",
+    "pages": 3,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pla/mss_fdm_pla_0118a.pdf?v=48df1c"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+      "Publisher": "Stratasys",
+      "Title": "PLA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/pla/mss_fdm_pla_0118a.pdf?v=48df1c",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "aa8d840cbf25f2f1033ebcff7d934fcdd3dbc6e2e9b6ce9e2c19d3f97e7ca538"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "PLA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M001",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "PLA",
+        "Shared formulation key": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "PLA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Elongation ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation ASTM D638 2.5% 2.5% 1.0%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Elongation ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation ASTM D638 1.0% 2.5% 1.0%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.5 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Elongation ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation ASTM D638 1.5% 1.5% 1.0%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Elongation ASTM D638",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Elongation ASTM D638 1.0% 1.5% 1.0%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "27 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "27",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "27",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.5 ft-lb/in ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "XZ column",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: IZOD impact - ASTM D256 0.5 ft-lb/in",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "IZOD impact - ASTM D256 0.5 ft-lb/in 27 J/m N/A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "27 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "27",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "27",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "ZX column",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: IZOD impact - ASTM D256 N/A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "IZOD impact - ASTM D256 N/A 27 J/m N/A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "192 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "192",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "192",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "3.6 ft-lb/in ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "XZ column",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: IZOD impact - ASTM D256 3.6 ft-lb/in",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "IZOD impact - ASTM D256 3.6 ft-lb/in 192 J/m N/A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "192 J/m",
+        "Raw unit": "J/m",
+        "Raw numeric": "192",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "192",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "J/m",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D256",
+        "Standards": "ASTM D256",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "ZX column",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: IZOD impact - ASTM D256 N/A",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "IZOD impact - ASTM D256 N/A 192 J/m N/A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "53 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "53",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "53",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "HDT 127 °F ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Heat Deflection (HDT) ASTM D648 127 °F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat Deflection (HDT) ASTM D648 127 °F 53 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "51 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "51",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "51",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "HDT 124 °F ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Heat Deflection (HDT) ASTM D648 124 °F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat Deflection (HDT) ASTM D648 124 °F 51 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "54 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "54",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "129 °F ASTM D1525",
+        "Standards": "ASTM D1525",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Vicat Softening ASTM D1525 129 °F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Vicat Softening ASTM D1525 129 °F 54 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "63 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "63",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "63",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DMA SSYS 145 °F",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 2: Glass Transition DMA (SSYS) 145 °F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Glass Transition DMA (SSYS) 145 °F 63 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.264 g/cc",
+        "Raw unit": "g/cc",
+        "Raw numeric": "1.264",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1264",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mss-fdm-pla-0118a",
+        "Locator": "p. 3: Specific Gravity ASTM D792",
+        "Notes": "\"1.264\" may be a thousands separator or a decimal one; read as 1.264 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Specific Gravity ASTM D792 1.264 g/cc"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "F 1 2 3 S E R I E S P R I N T E R S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Available on the office-friendly Stratasys F123™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Series 3D printers, PLA offers a higher stiffness than",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "draft mode on the Stratasys F123 Series, for quick",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "E C O N O M Y T H E R M O P L A S T I C F O R S T R ATA S Y S F 1 2 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PROPERTIES1 METHOD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D638 6,580 psi 45 MPa 26 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D638 3,790 psi 45 MPa 26 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Type 1, 0.125”,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.2”/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D638 6,990 psi 48 MPa 26 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D638 3,830 psi 48 MPa 26 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Type 1, 0.125”,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.2”/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D638 440,730 psi 3,039 MPa 2,539 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D638 368,200 psi 3,039 MPa 2,539 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Type 1, 0.125”,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "0.2”/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Meet production demands (Type 1, 0.125”,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM systems are as versatile and 0.2”/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Advanced FDM 3D Printers boast the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Type 1, 0.125”,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "largest build envelopes and material 0.2”/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D790 12,190 psi 84 MPa 45 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D790 6,570 psi 84 MPa 45 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Method 1,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "bigger parts and higher quantities than 0.05”/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D790 425,010 psi 2,930 MPa 2,470 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D790 358,290 psi 2,930 MPa 2,470 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Method 1,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and utilization rates. 0.05”/min)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D790 4.1% 4.1% 1.9%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM D790 1.9% 4.1% 1.9%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM 3D Printers streamline processes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Method A, 23 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(Method A, 23 °C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "@ 66 psi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "FDM 3D Printers are easy to operate",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "@ 264 psi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Temperature (Rate B/50)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "-06 -06",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM E831 56x10 μin/(in∙°F) 101x10 μm/(m∙°C)",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 2,
+      "text": "-06 -06",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ASTM E831 57x10 μin/(in∙°F) 102x10 μm/(m∙°C)",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 3,
+      "text": "F 1 2 3 S E R I E S P R I N T E R S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Volume Resistivity ASTM D257 2.9E+15 ohm-cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"2.9E+15\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 3,
+      "text": "Volume Resistivity ASTM D257 3.24E+15 ohm-cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"3.24E+15\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 3,
+      "text": "Dielectric Constant ASTM D150-98 1.51",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 3,
+      "text": "ASTM D150-98 0.003",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 3,
+      "text": "ASTM D150-98 0.005",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 3,
+      "text": "Dielectric Constant ASTM D150-98 2.33",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 3,
+      "text": "Dielectric Strength ASTM D149-09, 154 V/mil",
+      "reason": "the line names Dielectric strength and states no value in a unit the database keeps it in (kV/mm)"
+    },
+    {
+      "page": 3,
+      "text": "Dielectric Strength ASTM D149-09, 293 V/mil",
+      "reason": "the line names Dielectric strength and states no value in a unit the database keeps it in (kV/mm)"
+    },
+    {
+      "page": 3,
+      "text": "0.010 in. (0.254 mm) Breakaway",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F123 Series Black",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "7665 Commerce Way, 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Eden Prairie, MN 55344 PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "+1 800 801 6491 (US Toll Free) Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "STRATASYS.COM +1 952 937 3000 (Intl) +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "ISO 9001:2008 Certified +1 952 937 0070 (Fax) +972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "©2017, 2018 Stratasys Ltd. All rights reserved. Stratasys, Stratasys signet, Stratasys F123 and PolyJet are trademarks or registered trademarks of Stratasys Ltd",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "jurisdictions. All other trademarks belong to their respective owners. Product specifications subject to change without notice. Printed in the USA. MSS_FDM_PLA_",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "e217895632b087707e21efe835b29f89c63be6d9c8badf3360c8b9bd84eeb4d9",
+    "url": "https://after-support.flashforge.jp/uploads/datasheet/tds/SMP_TDS_JP.pdf",
+    "pages": 1,
+    "provider": "Flashforge",
+    "manufacturer": "Flashforge",
+    "docKey": "e217895632b08770"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu"
+    ],
+    "materialId": "M039",
+    "materialName": "TPU",
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-FLASH-SMP-TDS-JP",
+      "Publisher": "Flashforge",
+      "Title": "FIA-~AWF—-—AY—t",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/SMP_TDS_JP.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e217895632b087707e21efe835b29f89c63be6d9c8badf3360c8b9bd84eeb4d9"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FIA-~AWF—-—AY—t"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M039",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "FARRARBD TU VY 2 — RABBI AKacle RU DL AY",
+        "Shared formulation key": "D-FLASH-SMP-TDS-JP",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "3DTU V2—OieERPE AER MONKSORA CADE C hE e LT CHEE. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-SMP-TDS-JP",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "FIA-~AWF—-—AY—t"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FARRARBD TU VY 2 — RABBI AKacle RU DL AY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SMP55 7+47XAY FE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TADAY FARE 1.75 +/-0.05mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TtarXy bss 300g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "T1IAVbES 100m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "JIS K 7210",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "may ME (190°C 2.16Ka) g/10 min. 1",
+      "reason": "properties.csv carries no property for \"may ME\" (min.)"
+    },
+    {
+      "page": 1,
+      "text": "a [aR Ese Cima)5 MPa 570",
+      "reason": "properties.csv carries no property for \"a [aR Ese\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "5 | SR REARS (50mm/4)) MPa 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "JIS K 7161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 | ART Se FSAT SS (60mm/43) MPa 16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "JIS K 7161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PE 0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 | aie AR TERS (50mm/)) Y% 31",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "paZa aig JIS K 7171",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AAI a = (oomm/5)) MPa 26",
+      "reason": "properties.csv carries no property for \"AAI a =\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "sK7110 KJ /m? 21",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "bps Durometer Y a7 ieE D 57",
+      "reason": "properties.csv carries no property for \"bps\" (D)"
+    },
+    {
+      "page": 1,
+      "text": "3D 7) YS —Ick SEERCHIE LIGRIEIE CT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "J AIDE °C 190- 210",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "_—_ ¥ Y=—-=- ° oe ain ~ A5°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TJ 7 VBE C *55°C S58",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "jaAZAE— F mm/# 10 - 30",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DTU V2—OieERPE AER MONKSORA CADE C hE e LT CHEE.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LAY—P77 AescrRB4t",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "T 651-1516 RieALK AMS 1-2-33 T 136-0072 RRABLRXAE 2-31-8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TEL:078-986-0701 FAX:078-986-0702 TEL:03-5858-2551 FAX:03-5858-2552",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "186c18eb928231212d2e1d23c72d2f06c11aafb72486755a9c27e6a67a0c44c1",
+    "url": "https://nexa3d.com/wp-content/uploads/2024/08/TDS-Essentium-Altitude.pdf",
+    "pages": 1,
+    "provider": "Essentium / Nexa3D",
+    "manufacturer": "Essentium / Nexa3D",
+    "docKey": "186c18eb92823121"
+  },
+  "identity": {
+    "polymer": "PC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polycarbonate",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: polycarbonate"
+    ],
+    "materialId": "M035",
+    "materialName": "PC",
+    "estimateIdentity": "PC",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ESSENTIUM-TDS-Essentium-Altitude",
+      "Publisher": "Essentium / Nexa3D",
+      "Title": "TECHNICAL DATA SHEET",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nexa3d.com/wp-content/uploads/2024/08/TDS-Essentium-Altitude.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "186c18eb928231212d2e1d23c72d2f06c11aafb72486755a9c27e6a67a0c44c1"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M035",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Essentium",
+        "Product name": "Altitude",
+        "Shared formulation key": "R-ESSENTIUM-TDS-Essentium-Altitude",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ESSENTIUM-TDS-Essentium-Altitude",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "non-brominated flame-retardant agents and UV stabilizers. The base resin meets UL 94V-0 flame testing at 1.5 millimeters.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This unique formulation allows this material to withstand temperatures of down to negative 60 C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.4 mm nozzle 0.8 mm Nozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XY 45/45 ZX XY 45/45 ZX",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 37 58.14 45.88 45.7 33.10",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 37 45.88 34.24 45.7 33.10",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 37 45.88 45.50 45.7 33.10",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 37 3.74 1.9 2.11 --",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 37 1.9 1.8 2.11 --",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, GPa ISO 37 1.9 1.37 2.11 --",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 37 2.25 3.5 4.72 3.45",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 37 3.5 2.4 4.72 3.45",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 37 3.5 18.10 4.72 3.45",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 34.557 30.845 30.744 --",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 30.845 -- 30.744 --",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 30.845 39.59 30.744 --",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 37 93.14 81.99 88.63 --",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 37 81.99 -- 88.63 --",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength, MPa ISO 37 81.99 92.7 88.63 --",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 37 1.96 1.66 1.82 --",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 37 1.66 -- 1.82 --",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Modulus, GPa ISO 37 1.66 1.9 1.82 --",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Density, g/cm3 ISO 1183 1.1546",
+      "reason": "the sheet states Density in g/cm3, and the database keeps it in kg/m³"
+    },
+    {
+      "page": 1,
+      "text": "HDT @ 0.45 MPa, ̊ C ISO 75 120.2",
+      "reason": "the sheet states HDT in C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Tg (Onset) 1.44.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tg (Mid) 147.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "@Essentium3D @Essentium3D| Essentium.com@Essentium3D | Essentium.com| Sales@Essentium.com | Essentium.com | Sales@Essentium | Sa",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

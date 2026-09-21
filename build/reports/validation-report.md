@@ -13,15 +13,15 @@ Database snapshot 2026-09-16 · build 2026-09-21
 | familyEntries | 5 |
 | retiredDuplicates | [object Object] |
 | excluded | 14 |
-| grades | 1106 |
-| measurements | 10840 |
-| numericMeasurements | 10679 |
+| grades | 1114 |
+| measurements | 10847 |
+| numericMeasurements | 10686 |
 | quarantined | 4 |
-| profiles | 1091 |
+| profiles | 1092 |
 | evidence | 481 |
 | prices | 104 |
-| sources | 1408 |
-| coverage | 792 |
+| sources | 1416 |
+| coverage | 794 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 355 |
 | coverageDerived | 700 |
@@ -119,17 +119,17 @@ passes a material; in Explore it may screen one out only when its plausible rang
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
 | density | 854 | 112 | 80% | 96% | ×1.13 | 0.0255 (14875 pairs) |
-| tensileModulusXY | 1146 | 78 | 81% | 96% | ×1.51 | 0.321 (850 pairs) |
-| tensileStrengthXY | 1440 | 56 | 80% | 96% | ×1.62 | 0.242 (1850 pairs) |
-| elongationXY | 916 | 78 | 81% | 96% | ×3.16 | 0.716 (1804 pairs) |
-| hdt045 | 1238 | 71 | 80% | 96% | 16.8 °C | 4.19 (4003 pairs) |
+| tensileModulusXY | 1147 | 78 | 81% | 96% | ×1.5 | 0.321 (850 pairs) |
+| tensileStrengthXY | 1443 | 56 | 80% | 96% | ×1.62 | 0.242 (1850 pairs) |
+| elongationXY | 917 | 78 | 81% | 95% | ×3.27 | 0.716 (1804 pairs) |
+| hdt045 | 1239 | 71 | 80% | 96% | 16.8 °C | 4.19 (4003 pairs) |
 
 | Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | density | 26 | 14 | 4 | 8 | 0 | 0 | 26 |
 | tensileModulusXY | 60 | 41 | 11 | 4 | 4 | 0 | 56 |
 | tensileStrengthXY | 74 | 60 | 6 | 4 | 4 | 0 | 58 |
-| elongationXY | 60 | 39 | 9 | 8 | 4 | 0 | 56 |
+| elongationXY | 60 | 39 | 9 | 8 | 4 | 0 | 55 |
 | hdt045 | 61 | 28 | 9 | 8 | 16 | 0 | 39 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
@@ -146,7 +146,7 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileStrengthXY | this-material | 37 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileStrengthXY | family | 56 | 0 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-grade | 51 | 0 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 53 | 1 | 97.5% point | 3 | 2.2% point |
+| elongationXY | this-material | 53 | 2 | 97.5% point | 2 | 2.5% point |
 | elongationXY | family | 78 | 1 | 97.5% point | 2 | 2.5% point |
 | hdt045 | this-grade | 56 | 2 | 97.5% point | 0 | 2.5% point |
 | hdt045 | this-material | 46 | 2 | 98.29% point | 1 | 2.5% point |

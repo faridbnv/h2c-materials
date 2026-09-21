@@ -1,0 +1,569 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "9c392054d2bd2b8cf3b6eaa5975c1e8634e41e0477131321c2585cad1ed5232a",
+    "url": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2025/01/7cdc9586-technical-data-sheet-2.pdf",
+    "pages": 3,
+    "provider": "Prusa Research / Prusament",
+    "manufacturer": "Prusa Research",
+    "docKey": "9c392054d2bd2b8c"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg",
+      "filler: magnetite"
+    ],
+    "materialId": "M020",
+    "materialName": "PETG",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"magnetite\" has no value in schema/vocab/modifiers.csv: an iron-oxide load: a ruling"
+    ]
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-PVB-7cdc9586-technical-data-sheet-2",
+      "Publisher": "Prusa Research",
+      "Title": "Technical datasheet Prusament PETG Magnetite 40% by Prusa Polymers",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by Prusa Research / Prusament; the sheet is Prusa Research's.",
+      "Citation role": "cited",
+      "URL": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2025/01/7cdc9586-technical-data-sheet-2.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9c392054d2bd2b8cf3b6eaa5975c1e8634e41e0477131321c2585cad1ed5232a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical datasheet Prusament PETG Magnetite 40% by Prusa Polymers"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M020",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Prusa Research",
+        "Product name": "Prusament PETG Magnetite 40% by Prusa Polymers",
+        "Shared formulation key": "S-PVB-7cdc9586-technical-data-sheet-2",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PVB-7cdc9586-technical-data-sheet-2",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical datasheet Prusament PETG Magnetite 40% by Prusa Polymers"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "93",
+        "Raw unit": "°C",
+        "Raw numeric": "93",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "93",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-7cdc9586-technical-data-sheet-2",
+        "Locator": "p. 2: Heat Deflection Temperature (0.45 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat Deflection Temperature (0.45 MPa) [°C] 93 ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "90",
+        "Raw unit": "°C",
+        "Raw numeric": "90",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "90",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "1.80 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-7cdc9586-technical-data-sheet-2",
+        "Locator": "p. 2: Heat Deflection Temperature (1.80 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Heat Deflection Temperature (1.80 MPa) [°C] 90 ISO 75"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "82 ± 0.4 Shore D",
+        "Raw unit": "Shore D",
+        "Raw numeric": "82",
+        "Raw uncertainty ±": "0.4",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "82",
+        "Normalized uncertainty ±": "0.4",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PVB-7cdc9586-technical-data-sheet-2",
+        "Locator": "p. 2: Hardness – Shore D",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Hardness – Shore D 82 ± 0.4 Prusa Polymers"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M020",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "[°C] 270 ± 5",
+        "Nozzle state": "range",
+        "Nozzle min °C": "265",
+        "Nozzle max °C": "275",
+        "Nozzle requirement": "required",
+        "Bed °C": "[°C] 100 ± 10",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PVB-7cdc9586-technical-data-sheet-2",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "[mm/s] up to 100"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "Speed [%] 10 – 20"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature [°C] 270 ± 5"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "[°C] 270 ± 5",
+      "fromBelow": false,
+      "line": "Nozzle Temperature [°C] 270 ± 5"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Heatbed Temperature",
+      "raw": "[°C] 100 ± 10",
+      "fromBelow": false,
+      "line": "Heatbed Temperature [°C] 100 ± 10"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "[mm/s] up to 100",
+      "fromBelow": false,
+      "line": "Print Speed [mm/s] up to 100"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling Fan",
+      "raw": "Speed [%] 10 – 20",
+      "fromBelow": false,
+      "line": "Cooling Fan Speed [%] 10 – 20"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Version: 1.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Last update: 11-12-2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Prusament PETG Magnetite 40% by Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Trade Name Prusament PETG Magnetite 40%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Usage FDM/FFF 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75 ± 0.03 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "MFR [g/10 min](1) N/A ISO 1133",
+      "reason": "the sheet publishes no value for Melt mass-flow rate in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 2,
+      "text": "MVR cm3/10 min N/A ISO 1133",
+      "reason": "the sheet publishes no value for Melt volume-flow rate in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 2,
+      "text": "Density [g/cm3] 1.82 ISO 1183",
+      "reason": "the sheet states Density in [g/cm3], and the database keeps it in kg/m³"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 24 hours [%](2) 0.11 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Moisture Absorption in 7 days [%](2) 0.13 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Yield Strength for Filament [MPa] 47.6 ± 0.3 ISO 527",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Interlayer Adhesion [MPa] 13.8 ± 0.6 Prusa Polymers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(1) –",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(2) 25 °C; humidity 30 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Yield Strength [MPa] 45.9 ± 0.6 43.3 ± 0.6 ISO 527-1",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Tensile Modulus [GPa] 2.0 ± 0.03 2.0 ± 0.02 ISO 527-1",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "Elongation at Yield Point [%] 3.9 ± 0.1 3.8 ± 0.1 ISO 527-1",
+      "reason": "the line names Elongation at yield and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Strength [MPa] 72.8 ± 2.4 70.3 ± 0.4 ISO 178",
+      "reason": "the line names Flexural strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 2,
+      "text": "Flexural Modulus [GPa] 2.8 ± 0.7 2.5 ± 0.2 ISO 178",
+      "reason": "the line names Flexural modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 2,
+      "text": "7.1 ± 0.1 7.2 ± 0.1 ISO 178",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength Charpy [kJ/m2](4) 49 ± 4 60.2 ± 12 ISO 179-1",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "Impact Strength Charpy Notched [kJ/m2] 4.8 ± 0.2 3.6 ± 0.3 ISO 179-1",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(3) Original Prusa i3 MK4S printer was used to make testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "specimens. Prusa Slicer 2.8.1 was used to create G-codes with the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Prusament PETG Magnetite 40% Filament;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Print Settings 0.20 mm FAST (layers 0.20 mm);",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened steel nozzle 0.4 mm;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Solid Layers: Top: 0, Bottom: 0;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Perimeters: 2;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Infill: 100% rectilinear;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Infill Print Speed: 172 mm/s;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Nozzle Temperature: 265 °C first layer, 270 °C other layers;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Bed Temperature: 100 °C all layers;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Extrusion multiplier: 1.05;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Cooling: 40 – 60 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Infill Overlap: 28%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(4) Charpy Unnotched – Edgewise direction of blow according to ISO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "179-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "(5) Charpy notched – Edgewise direction of blow according to ISO",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "179-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

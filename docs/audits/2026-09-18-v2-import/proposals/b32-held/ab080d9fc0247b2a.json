@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "ab080d9fc0247b2a3c463314b19259162a40608279d234a4f0db401324412afa",
+    "url": "https://nexa3d.com/wp-content/uploads/2024/08/TDS-Duratem.pdf",
+    "pages": 1,
+    "provider": "Essentium / Nexa3D",
+    "manufacturer": "Essentium / Nexa3D",
+    "docKey": "ab080d9fc0247b2a"
+  },
+  "identity": {
+    "polymer": "PC",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polycarbonate",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: polycarbonate"
+    ],
+    "materialId": "M035",
+    "materialName": "PC",
+    "estimateIdentity": "PC",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ESSENTIUM-TDS-Duratem",
+      "Publisher": "Essentium / Nexa3D",
+      "Title": "TECHNICAL DATA SHEET",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nexa3d.com/wp-content/uploads/2024/08/TDS-Duratem.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ab080d9fc0247b2a3c463314b19259162a40608279d234a4f0db401324412afa"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "TECHNICAL DATA SHEET"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M035",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Essentium",
+        "Product name": "Duratem",
+        "Shared formulation key": "R-ESSENTIUM-TDS-Duratem",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ESSENTIUM-TDS-Duratem",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "TECHNICAL DATA SHEET"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "perature materials on the market, Duratem has an impact strength of about 30 kilojoules per square meter, making it five",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "times as strong as PEI 9085 and nine times as strong as PEKK. The base resin of Duratem meets UL 94V-0 flame testing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "standards at 1.6 millimeters and passes FAR 25.853 testing for flammability, heat release, smoke density, and toxicity. It also",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.4 mm Nozzle 0.8 mm Nozzle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 37 40.0 (0.8)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 37 23.3 (0.9)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 37 41.4 (1.1)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Ultimate Tensile Strength, MPa ISO 37 25.8 (0.6)",
+      "reason": "properties.csv carries no property for \"Ultimate Tensile Strength, MPa\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, MPa ISO 37 465 (10)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, MPa ISO 37 339 (14)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, MPa ISO 37 501 (14)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, MPa ISO 37 368 (9)",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 37 129 (15)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 37 18.6 (2.6)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 37 111 (24)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Strain at Break, % ISO 37 19.1 (1.7)",
+      "reason": "the line names Elongation at break and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength, kJ/m2 ISO 180/A 30.6 (1.1)",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "Density, g/cm3 ISO 1183 1.20",
+      "reason": "the sheet states Density in g/cm3, and the database keeps it in kg/m³"
+    },
+    {
+      "page": 1,
+      "text": "HDT @ 0.45 MPa, ̊ C ISO 75 145",
+      "reason": "the sheet states HDT in C, and the database keeps it in °C"
+    },
+    {
+      "page": 1,
+      "text": "Moist. Absorption (23°C / 50% RH/24 hr), % ISO 62 0.58",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "OSU Total Heat Release (2 min.), kW-min/m2 FAR 25.853 49.2 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "OSU Peak Heat Release (5 min.), kW/m2 FAR 25.853 103.5 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "@Essentium3D @Essentium3D| Essentium.com@Essentium3D | Essentium.com| Sales@Essentium.com | Essentium.com | Sales@Essentium | Sa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Oxygen Index (LOI), % ASTM D 2863 48",
+      "reason": "the sheet states Oxygen index in %, and the database keeps it in %"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "55c5008885043716005cf75e94d7bd83d240d132d86bf2416bf89248eadd271e",
+    "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4044",
+    "pages": 4,
+    "provider": "Filament2Print",
+    "manufacturer": "Filament2Print",
+    "docKey": "55c5008885043716"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Ingeo Biopolmer 4032D\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FILAMENT2PRINT-Other-55c500",
+      "Publisher": "Filament2Print",
+      "Title": "Ingeo™ Biopolmer 4032D Technical Data Sheet",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4044",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "55c5008885043716005cf75e94d7bd83d240d132d86bf2416bf89248eadd271e"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Ingeo™ Biopolmer 4032D Technical Data Sheet"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Filament2Print",
+        "Product name": "Ingeo Biopolmer 4032D",
+        "Shared formulation key": "R-FILAMENT2PRINT-Other-55c500",
+        "Composition / filler": "packaging and packaging waste heavy metal content as (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILAMENT2PRINT-Other-55c500",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Ingeo™ Biopolmer 4032D Technical Data Sheet"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.0 %",
+        "Raw unit": "%",
+        "Raw numeric": "6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Film specimen (ASTM D882); not a printed or moulded bar",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "D882",
+        "Standards": "ASTM D882",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Other-55c500",
+        "Locator": "p. 1: Tensile Elongation, %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Elongation, % 6.0 D882"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "155-170 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "155",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "170",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "155",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "170",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Other-55c500",
+        "Locator": "p. 1: Melting Point",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting Point(°C) 155 - 170"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Moisture content",
+        "Raw value": "0.025 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.025",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.025",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Other-55c500",
+        "Locator": "p. 1: moisture content of less than",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "moisture content of less than 0.025%"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "210 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "210",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "210",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "410°F",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FILAMENT2PRINT-Other-55c500",
+        "Locator": "p. 1: Melt Temperature 410°F",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt Temperature 410ºF 210ºC"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Ingeo™ Biopolmer 4032D Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ingeo biopolymer 4032D, a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Specific Gravity 1.24 D792",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 1,
+      "text": "Melt Density (g/cc) 1.08 at 230°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4032D is a general purpose extrusion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MFR, g/10 min (210°C, 2.16kg) 7 D1238",
+      "reason": "the sheet states Melt mass-flow rate in 2.16kg), and the database keeps it in g/10 min"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength @ Break, psi (MPa) 7,700 (53) D882",
+      "reason": "the line names Tensile break strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Yield Strength, psi (MPa) 8,700 (60) D882",
+      "reason": "the line names Tensile yield strength and states no value in a unit the database keeps it in (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Modulus, kpsi (GPa) 500 (3.5) D882",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact, ft-lb/in (J/m) 0.3 (16) D256",
+      "reason": "the line names Izod impact strength and states no value in a unit the database keeps it in (kJ/m²; J/m)"
+    },
+    {
+      "page": 1,
+      "text": "(1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5:1 to 3:1. Smooth barrels are",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(250 ppm) is recommended to prevent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ingeo biopolymer 4032D is not",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 hours at 195ºF (90ºC) or to a dew",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "biopolymer 4032D include:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "point of -40ºF (-40ºC), airflow rate of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "greater than 0.5 cfm/lbs per hour of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Profiles 1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ingeo biopolymer 4032D is easily",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "the molten state, provided that the 3.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "conditions used in Step 1.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "processing requirements are found in 4.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Feed Throat 113ºF 45ºC",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Feed Temperature 355ºF 180ºC",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "375ºF 190ºC",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Metering Section 390ºF 200ºC",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Adapter 390ºF 200ºC",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Ingeo biopolymer 4032D will process",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Die 375ºF 190ºC",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Screw Speed 20-100 rpm",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "(1)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "24:1 to 32:1 and compression ratio of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 1 of 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NW4032DGEN_051815V1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ingeo Biopolymer 4032D Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "On January 3, 2002 FCN 000178 submitted by NatureWorks",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and there may be excess instrument air (-30°F dew point)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "component of such materials pursuant to section 201(s) of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "the Federal, Drug, and Cosmetic Act, and Parts 182, 184,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "estimate is 10 scfm for a 20,000 lb/hr rate resin usage.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "and 186 of the Food Additive Regulations. All additives and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Regulation 10/2011 as amended. No SML’s for the above",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "referenced grade exist in Plastics Regulation 10/2011 as",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "10/2011, which applies to all EU-Member States, includes a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "limit of 10 mg/dm2 of the overall migration from finished",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Regulation 10/2011 the migration should be measured on",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Regulation 10/2011.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Council Directive 94/62/EC of 20 December 1994 on",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "described in Article 11.",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 2,
+      "text": "Page 2 of 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ingeo and the Ingeo logo are trademarks or registered trademarks of NatureWorks in the USA and other countries. NW4032DGEN_051815V1",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 3,
+      "text": "Ingeo Biopolymer 4032D Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "periods, e.g., in excess of 24 hours at 175°C, although this",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "temperature (typically 175ºC), polymer can release fumes,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Page 3 of 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Ingeo and the Ingeo logo are trademarks or registered trademarks of NatureWorks in the USA and other countries. NW4032DGEN_051815V1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Ingeo Biopolymer 4032D Technical Data Sheet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "15305 Minnetonka Blvd., Minnetonka, MN 55345",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Page 4 of 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Ingeo and the Ingeo logo are trademarks or registered trademarks of NatureWorks in the USA and other countries. NW4032DGEN_051815V1",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

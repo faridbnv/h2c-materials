@@ -1,0 +1,3495 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "893aa52753128a6faed685c450fcbbcb03089483e3e9c98f1bfd01fd6a022577",
+    "url": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/antero-800na/mds_fdm_antero-800na_0825a.pdf?v=4a4973",
+    "pages": 14,
+    "provider": "Stratasys",
+    "manufacturer": "Stratasys",
+    "docKey": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/antero-800na/mds_fdm_antero-800na_0825a.pdf?v=4a4973"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Antero 800NA\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+      "Publisher": "Stratasys",
+      "Title": "MATERIAL DATA SHEET Antero 800NA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/antero-800na/mds_fdm_antero-800na_0825a.pdf?v=4a4973",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "893aa52753128a6faed685c450fcbbcb03089483e3e9c98f1bfd01fd6a022577"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MATERIAL DATA SHEET Antero 800NA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "Antero 800NA",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MATERIAL DATA SHEET Antero 800NA"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "158 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "158",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "158",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: Antero 800NA Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 158 °C (316 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "158 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "158",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "158",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: Antero 800NA Physical Properties · ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 4: HDT @ 66 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 66 psi 158 °C (316 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "157 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "157",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "157",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: Antero 800NA Physical Properties · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 157 °C (315 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "156 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "156",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "156",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "264 psi",
+        "Standards": "Not published",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 3: Antero 800NA Physical Properties · ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 4: HDT @ 264 psi",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "HDT @ 264 psi 156 °C (313 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "300 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "300",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "300",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D7426",
+        "Standards": "ASTM D7426",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 4: Melt Point",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 4,
+        "text": "Melt Point 300 °C (572 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: Antero 800NA Mechanical Properties - F900 - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 4.7"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: Antero 800NA Mechanical Properties - F900 - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 6: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Yield % 2.3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.1 %",
+        "Raw unit": "%",
+        "Raw numeric": "6.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: Antero 800NA Mechanical Properties - F900 - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 6.1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 4: Antero 800NA Mechanical Properties - F900 - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 6: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 6,
+        "text": "Elongation @ Break % 2.3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "4.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "4.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "4.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Antero 800NA Mechanical Properties - Fortus 450mc - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 7: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Yield % 4.8"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "1.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Antero 800NA Mechanical Properties - Fortus 450mc - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 7: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Yield % 1.8"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "6.4 %",
+        "Raw unit": "%",
+        "Raw numeric": "6.4",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "6.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Antero 800NA Mechanical Properties - Fortus 450mc - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 7: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Break % 6.4"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "1.8 %",
+        "Raw unit": "%",
+        "Raw numeric": "1.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "1.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 5: Antero 800NA Mechanical Properties - Fortus 450mc - T20F Tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 7: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 7,
+        "text": "Elongation @ Break % 1.8"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "177 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "177",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "177",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi printed ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 11: Antero 800NA Annealed Physical Properties - Fortus 450mc - T20D · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 11: HDT @ 66 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "HDT @ 66 psi (printed) 177 °C (350.6 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "170 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "170",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "170",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi printed",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 11: Antero 800NA Annealed Physical Properties - Fortus 450mc - T20D · XZ column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 11: HDT @ 66 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "HDT @ 66 psi (printed) 170 °C (354.2 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "176 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "176",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "176",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "66 psi printed",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 11: Antero 800NA Annealed Physical Properties - Fortus 450mc - T20D · ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 11: HDT @ 66 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "HDT @ 66 psi (printed) 176 °C (348.8 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "159 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "159",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "159",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "266 psi printed ASTM D648",
+        "Standards": "ASTM D648",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 11: Antero 800NA Annealed Physical Properties - Fortus 450mc - T20D · XY column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 11: HDT @ 266 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "HDT @ 266 psi (printed) 159 °C (318.2 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "159 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "159",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "159",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "266 psi printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 11: Antero 800NA Annealed Physical Properties - Fortus 450mc - T20D · XZ column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 11: HDT @ 266 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "HDT @ 266 psi (printed) 159 °C (318.2 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "155 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "155",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "155",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "266 psi printed",
+        "Standards": "Not published",
+        "Test load MPa": "Not published",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 11: Antero 800NA Annealed Physical Properties - Fortus 450mc - T20D · ZX column",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 11: HDT @ 266 psi (printed)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 11,
+        "text": "HDT @ 266 psi (printed) 155 °C (311 °F)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "2.7 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.7",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.7",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 12: Antero 800NA Annealed Mechanical Properties - Fortus 450mc - T20D tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 12: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Yield % 2.7 (0.64)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m21",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "0.75 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.75",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.75",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 12: Antero 800NA Annealed Mechanical Properties - Fortus 450mc - T20D tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 12: Elongation @ Yield %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Yield % 0.75 (0.27)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m22",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2.6 %",
+        "Raw unit": "%",
+        "Raw numeric": "2.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XZ",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 12: Antero 800NA Annealed Mechanical Properties - Fortus 450mc - T20D tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 12: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Break % 2.6 (0.65)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m23",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "0.83 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.83",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.83",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "ZX",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Table 12: Antero 800NA Annealed Mechanical Properties - Fortus 450mc - T20D tip · 0.254 mm (0.010 in.) Layer Height",
+        "SourceID": "R-STRATASYS-mds-fdm-antero-800na-0825a",
+        "Locator": "p. 12: Elongation @ Break %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 12,
+        "text": "Elongation @ Break % 0.83 (0.28)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Antero 800NA is a PEKK-based FDM thermoplastic with excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "3D printing with Antero 800NA FDM filament avoids the waste associated",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ordering Information ......................................................... 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Physical Properties ............................................................ 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Mechanical Properties ....................................................... 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Chemical Resistance ......................................................... 9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Outgassing ......................................................................... 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Antero 800NA Annealed .................................................... 11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Appendix ............................................................................. 13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 1: Printer and Support Material Compatibility",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc™ 0.254 mm (0.010 in.) SUP8000B™ (breakaway) T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20F1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900 0.254 mm (0.010 in.) SUP8000B (breakaway) T16",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "T20F1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "The T20F improves mechanical performance and is the recommended tip.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 660 x 965 mm (0.02 x 26 x 38 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• 0.51 x 406 x 470 mm (0.02 x 16 x 18.5 in.)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened Fortus 450mc head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Antero 800NA material license (included if new system)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Hardened F900 head",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "• Antero 800NA material license",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Table 2: Antero 800NA Ordering Information",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-02500 Antero 800NA, 92.3 cu. in. – Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc, F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "355-03260 SUP8000B, 92.3 cu. in. – Plus",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10730-S T20D tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10740-S T20F tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc, F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "511-10401 T16 tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00275-S High Temperature build sheet, 0.02 x 16 x 18.5 in. (0.51 x 406 x 470 mm), 20 pack",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-00475-S High Temperature build sheet, 0.02 x 26 x 38 in. (0.51 x 660 x 965 mm), 10 pack F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "821726-XXXX Hardened Fortus 450mc head (blue handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Fortus 450mc",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "380-30400-S OpenAM Hardened Fortus 450mc head (blue handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "325-63500 Hardened F900 head (folded sheet metal handle)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "F900",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "380-63500-S OpenAM Hardened F900 head (folded sheet metal handle, additional sticker)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Table 3: Antero 800NA Physical Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Molded HDT @ 66 psi 151 °C (304 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Molded HDT @ 264 psi 147 °C (297 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Tg 156 °C (313 °F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D7426",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 36.11 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "ASTM E831 50.20 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"ASTM\""
+    },
+    {
+      "page": 4,
+      "text": "(40 °C to 140 °C) (20.06 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(40 °C to 140 °C) (27.89 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 > 1.4*10",
+      "reason": "the sheet states Volume resistivity as a power of ten whose exponent did not survive the extraction (\"Volume Resistivity ASTM D257 > 1.4*10\")"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Volume Resistivity ASTM D257 ^14 Ω*cm",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D150",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dissipation Factor 0.003",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.2988 W/m*K",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 4,
+      "text": "Dielectric Constant 3.32",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 4,
+      "text": "@0 °C 0.1727 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.3011 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@30 °C 0.1740 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.3054 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@60 °C 0.1765 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.3088 W/m*K",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@90 °C 0.1785 BTU/(hr*ft°F)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.193 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@0 °C 2.99*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@0 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.174 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@30 °C 2.70*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@30 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.162 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@60 °C 2.51*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@60 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 0.152 mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "ASTM E1952 2/s",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@90 °C 2.36*10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "@90 °C -4 in2/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ASTM D792",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 4,
+      "text": "@23 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Specific Gravity 1.28",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 5,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 5,
+      "text": "Samples were printed with a 0.254 mm (0.010 in.) layer height on the Fortus 450mc and F900 with a T20F tip.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Table 4: Antero 800NA Mechanical Properties - F900 - T20F Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "0.254 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 86.7 (5.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 59.4 (5.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 12,300 (720)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 8,600 (850)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 73.0 (4.7)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 59.7 (5.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 10,600 (680)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 8,650 (800)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.64 (0.05)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.77 (0.04)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 383 (6.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 402 (5.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 106 (13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 15,400 (1,900)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 136 (2.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strength @ 5% Strain",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 19,800 (340)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Strain @ Break % 4.1",
+      "reason": "properties.csv carries no property for \"Strain @ Break\" (%)"
+    },
+    {
+      "page": 6,
+      "text": "GPa 3.20 (0.04)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.65 (0.03)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 463 (6.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 385 (40)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 6,
+      "text": "MPa 95.8 (5.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "MPa 95.4 (4.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 13,800 (0.85)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "psi 13,800 (0.58)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.26 (0.25)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "GPa 2.30 (0.18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 327 (36)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ksi 333 (25)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 41.1 (6.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 33.3 (4.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in. 0.770 (0.13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in. 0.623 (0.08)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 1,730 (680)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "J/m 203 (35)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in. 32.5 (13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "ft*lb/in. 3.80 (0.65)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 6,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "7",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Table 5: Antero 800NA Mechanical Properties - Fortus 450mc - T20F Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "0.254 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 90.0 (5.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 50.1 (3.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 13,000 (760)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 7,270 (530)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 73.0 (13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 49.4 (3.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 10,600 (1,900)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 7,170 (550)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.71 (0.05)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.89 (0.05)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 393 (7.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 419 (7.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 96.6 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 14,000 (1,700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 137 (1.85)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Strength @ 5% Strain",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 19,900 (260)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Strain @ Break % 3.6",
+      "reason": "properties.csv carries no property for \"Strain @ Break\" (%)"
+    },
+    {
+      "page": 7,
+      "text": "GPa 3.20 (0.02)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 3.84 (0.07)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 464 (5.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 411 (11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 7,
+      "text": "MPa 98.4 (4.8)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "MPa 102 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 14,300 (700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "psi 14,800 (210)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.46 (0.03)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "GPa 2.34 (0.15)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 357 (4.5)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ksi 340 (21)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 40.0 (6.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 30.1 (6.0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in. 0.749 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in. 0.564 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 2,730 (1,400)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "J/m 119 (44)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in. 51.2 (26)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "ft*lb/in. 2.23 (0.82)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 7,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Antero 800NA coupons were built on the F900 using the T20F tip with 0.254 mm (0.010 in.) layer height. Antero",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "800NA was tested before and after UV exposure. Ten ASTM D638 upright (ZX) coupons were tested in tensile after",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "UV exposure and an additional 10 ASTM D638 ZX coupons were the control (no UV Exposure). The UV exposed",
+      "reason": "properties.csv carries no property for \"UV exposure and an additional 10\""
+    },
+    {
+      "page": 8,
+      "text": "samples were cycled in the QUV chamber per ASTM G154 (Standard Practice for Operating Fluorescent Ultraviolet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "(UV) Lamp Apparatus for Exposure of Non-Metallic Materials) for 1,000 hours, alternating for 8 hours at 60 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "(140 °F) and 4 hours at 50 °C (122 °F) with humidity and condensation. The increase in stress at break is from the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 6: UV Aging of Antero 800NA - F900 - T20F Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "No UV Exposure 8,320 57.4 8,360 57.6 2.4 - 392 2.7",
+      "reason": "properties.csv carries no property for \"No UV Exposure\""
+    },
+    {
+      "page": 8,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "UV Exposure 8,310 57.3 8,670 59.7 2.4 3.60 399 2.75",
+      "reason": "properties.csv carries no property for \"UV Exposure\""
+    },
+    {
+      "page": 8,
+      "text": "Antero 800NA coupons were built on the F900 using the T20F tip with 0.254 mm (0.010 in.) layer height.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Antero 800NA was tested at various temperatures. Ten ASTM D638 upright (ZX) coupons were tested in tensile.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Table 7: Performance of Antero 800NA at Temperatures - F900 - T20F Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "-65 -54 113% 100% 124%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "-40 -40 118% 109% 119%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "120 49 110% 122% 108%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "180 82 103% 139% 110%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "220 104 82% 148% 104%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 8,
+      "text": "270 132 63% 148% 101%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Antero 800NA coupons were built on the Fortus 450mc using the T20D tip with 0.254 mm (0.010 in.) layer height.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Antero 800NA was tested for resistance to chemical exposure per ASTM D543. Chemicals tested and percent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "change from control is listed below. The samples were annealed at 200 °C (392 °F) for three hours. For further",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "details read the Antero 800NA Chemical Resistance White Paper.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Table 8: Antero 800NA Chemical Resistance Results - Fortus 450mc - T20D Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Change in Tensile Properties – 168 Hour Chemical Exposure (ASTM D543)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -88%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -81%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -15%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane 1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -20%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -19%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -14%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A 11%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -17%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -16%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Skydrol -5%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Skydrol 16%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Skydrol 19%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Skydrol -9%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Toluene -17%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Toluene -11%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Toluene -14%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid -8%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid 6%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid 7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH -5%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane 1,135%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane 2,264%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -11%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate 9%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate 3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -5%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A 25%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A 45%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone 21%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone 16%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Skydrol 24%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Skydrol 26%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Skydrol 48%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Skydrol -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Toluene 8%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Toluene -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Toluene 12%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Toluene -7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid -10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid 8%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid -12%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid 7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid -3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 9%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH -10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 8%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia -9%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 12%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 11%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -92%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -93%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Dichloromethane -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Ethyl Acetate -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Jet A -3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -6%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Methyl Ethyl Ketone -4%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Strength Toluene -9%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Skydrol -3%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Skydrol -4%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Skydrol -1%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Skydrol -4%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Toluene -1%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Toluene -4%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Toluene -3%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid -6%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid -2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Nitric Acid 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid 2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "30% Sulfuric Acid -2%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 7%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 3%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "60% NaOH 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia -1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 10%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia 0%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Concentrated Ammonia -8%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 9,
+      "text": "Tensile Modulus Toluene -3%",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 10,
+      "text": "10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA was printed with a T20D tip on the Stratasys F900 and tested per 14 CFR 25.853, BSS 7238 and 7239,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "and AITM 2.0007B and 3.0005. The",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "• 60s and 12s Vertical Burn",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "• 15s Horizontal Burn",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Table 9: Antero 800NA Flame, Smoke, and Toxicity Test Results - F900 - T20D Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "12 Second Vertical Ignition per 14 CFR 25.853(a), Appendix F, Part I, Paragraph (a)(1)(ii)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY <1 1.23 3.12 0 (no drips)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX <1 1.11 2.82 0 (no drips)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "60 Second Vertical Ignition per 14 CFR 25.853(a), Appendix F, Part I, Paragraph (a)(1)(i)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY 1.1 2.45 6.22 0 (no drips)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX 1.1 2.86 7.26 0 (no drips)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY 0 0 0 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX 0 0 0 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Test Mode Average Ds (maximum) within 4 minutes, (4Dmax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Smoke Density per BSS 7238, Rev. C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY Flaming 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX Flaming 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Smoke Density per AITM 2.0007B, Issue 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY Flaming 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX Flaming 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY Non-flaming 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX Non-flaming 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "CO SO2 NOx HCN HCl HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Toxic Gas Emission per BSS 7239, Rev. A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY 0 1.3 0.5 1 0.2 64",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX 0 1.4 0.5 0 0.2 86",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Toxic Gas Emission per AITM 3.0005, Issue 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY Flaming 60 0 0.9 0.4 0 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX Non-flaming 1 0 0 0 0 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY Flaming 50 0 1.3 0 0 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX Non-flaming 1 0 0 0 0 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Peak HRR 2 Minute Total HRR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "(kW/m2) (seconds) (kW-min/m2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Heat Release Rate of Cabin Materials per 14 CFR 25.853(d), Appendix F, Part IV",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Flat Build XY 48.4 150 15.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 10,
+      "text": "Antero 800NA - Vertical - ZX 49.4 92 38.6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "11",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Table 10: Antero 800NA Outgassing (ASTM E595) - F900 - T20D Tip",
+      "reason": "properties.csv carries no property for \"Table 10: Antero 800NA Outgassing (ASTM\""
+    },
+    {
+      "page": 11,
+      "text": "Antero 800NA 0.347 0.004 0.267",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Antero 800NA Annealed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Samples were printed with 0.254 mm (0.010 in.) layer heights on the Fortus 450mc with a T20D tip. Samples were then",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "annealed at 200 °C (392 °F) for three hours in a sand medium. For the full test procedure please see Stratasys Materials",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Test Procedure. For further annealing details, read the Antero 800NA Chemical Resistance White Paper.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Table 11: Antero 800NA Annealed Physical Properties - Fortus 450mc - T20D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ASTM D648",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Tg ASTM D7426-08 151 °C (303.8 °F)",
+      "reason": "properties.csv carries no property for \"Tg\""
+    },
+    {
+      "page": 11,
+      "text": "Mean CTE (X) ASTM E831 48.89 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"Mean CTE (X)\""
+    },
+    {
+      "page": 11,
+      "text": "(27.16 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Mean CTE (Y) ASTM E831 46.61 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"Mean CTE (Y)\""
+    },
+    {
+      "page": 11,
+      "text": "(25.89 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Mean CTE (Z) ASTM E831 52.54 μm/[m*°C]",
+      "reason": "properties.csv carries no property for \"Mean CTE (Z)\""
+    },
+    {
+      "page": 11,
+      "text": "(29.19 μin/[in*°F])",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Volume Resistivity ASTM D257 > 1.4 x 10^14 Ω",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"1.4 x 10^14\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 11,
+      "text": "ASTM D150-98",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Dielectric Constant 3.23",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 11,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "ASTM D150-98",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 11,
+      "text": "Dissipation Factor 0.004",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Dissipation Factor 0.003",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "1 kHz test condition",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Dielectric Constant 3.32",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 11,
+      "text": "MIL-STD-810G",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Method 504.1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 11,
+      "text": "Specific Gravity ASTM D792 1.31",
+      "reason": "the line names Density and states no value in a unit the database keeps it in (kg/m³)"
+    },
+    {
+      "page": 12,
+      "text": "12",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Table 12: Antero 800NA Annealed Mechanical Properties - Fortus 450mc - T20D tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "0.254 mm (0.010 in.) Layer Height XZ Orientation1 ZX Orientation1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 88.8 (12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 36.7 (4.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 12,900 (1,700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 5,330 (650)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 3.87 (0.34)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 4.03 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ksi 561 (50)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ksi 585 (200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 173 (4.9)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 53.6 (8.2)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 25,100 (700)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 7,780 (1,200)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Strain @ Break % 1.8 (1.4)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 40.3 (0.11)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 2.96 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ksi 5,840 (16)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ksi 429 (18)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Compression Properties: ASTM D695",
+      "reason": "properties.csv carries no property for \"Compression Properties:\""
+    },
+    {
+      "page": 12,
+      "text": "MPa 108 (13)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "MPa 106 (4.6)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 15,700 (1,900)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "psi 15,300 (670)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 2.6 (0.22)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "GPa 2.38 (0.046)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ft*lb/in 0.51 (0.1)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ft*lb/in 0.31 (0.12)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "J/m 625 (120)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "J/m 48.1 (10)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ft*lb/in 11.7 (2.3)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ft*lb/in 0.9 (0.19)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Table 13: Antero 800NA Annealed Outgassing - Fortus 450mc - T20D Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Annealed Antero 800NA 0.27 0.006 0.152",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Table 14: Antero 800NA Annealed Flammability Testing - Fortus 450mc - T20D Tip",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Horizontal Burn (15 sec) 14 CFR/FAR 25.853 Passed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Horizontal Burn (60 sec) 14 CFR/FAR 25.853 Passed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Vertical Burn (12 sec) 14 CFR/FAR 25.853 Passed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "45° Ignition 14 CFR/FAR 25.853 Passed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "Heat Release 14 CFR/FAR 25.853 Passed",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 12,
+      "text": "ASTM F814/E662 Passed",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 12,
+      "text": "ASTM F814/E662 Passed",
+      "reason": "the line names Impact strength and states no value in a unit the database keeps it in (kJ/m²)"
+    },
+    {
+      "page": 13,
+      "text": "13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "Figure 1: 2nd Heating Scan, DSC, for Antero 800NA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 13,
+      "text": "Figure 2: CTE for Antero 800NA Through the Layers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "14",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Figure 3: CTE for Antero 800NA in Plane to the Layers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Stratasys Headquarters 1 Holtzman St., Science Park,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "PO Box 2496",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "5995 Opus Parkway,",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Rehovot 76124, Israel",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Minnetonka, MN 55343",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "stratasys.com +972 74 745 4000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+1 800 801 6491 (US Toll Free)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "ISO 9001:2015",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+972 74 745 5000 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+1 952 937-3000 (Intl)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "+1 952 937-0070 (Fax)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "© 2025 Stratasys. All rights reserved. Stratasys, the Stratasys Signet logo, FDM, Fortus, Antero, and F900 are registered trademarks of",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Stratasys Inc. Fortus 450mc, and SUP8000B are trademarks of Stratasys, Inc. All other trademarks are the property of their respective",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 14,
+      "text": "Product specifications subject to change without notice. MDS_FDM_Antero 800NA_0825a",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

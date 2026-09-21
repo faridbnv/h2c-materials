@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "d95895bbe06a44a562407f0b29bd7636412488d6b7eb78413148c2cf2db09d6d",
+    "url": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-ASA.pdf?v=1600971750",
+    "pages": 1,
+    "provider": "3D-Fuel",
+    "manufacturer": "3D-Fuel",
+    "docKey": "d95895bbe06a44a5"
+  },
+  "identity": {
+    "polymer": "ASA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ASA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: asa"
+    ],
+    "materialId": "M031",
+    "materialName": "ASA",
+    "estimateIdentity": "ASA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D-TDS-3DFuel-ASA",
+      "Publisher": "3D-Fuel",
+      "Title": "Technical Data Sheet 3D-Fuel ASA",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://cdn.shopify.com/s/files/1/0027/5339/6848/files/TDS-3DFuel-ASA.pdf?v=1600971750",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "d95895bbe06a44a562407f0b29bd7636412488d6b7eb78413148c2cf2db09d6d"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Technical Data Sheet 3D-Fuel ASA"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D-Fuel",
+        "Product name": "3D-Fuel ASA",
+        "Shared formulation key": "R-3D-TDS-3DFuel-ASA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D-TDS-3DFuel-ASA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Technical Data Sheet 3D-Fuel ASA"
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "www.3D-Fuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3D-Fuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1-844-333-3616",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D-Fuel ASA",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D-Fuel Workday ASA is the ideal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "specifically for 3D printing applications.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Available in 1.75mm and 2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Print Temperature: 230°C - 260°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• Bed Temp: 110°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "• 1 Kg Spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "www.3D-Fuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "sales@3D-Fuel.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1-844-333-3616",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

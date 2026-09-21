@@ -84,7 +84,7 @@ document stays held under its ruling with the strike noted.
 | NinjaFlex Edge | NinjaTek | Not read | Not read | this maker's range: TPU×3 |
 | S WHITE | QIDI | Not read | Not read | polymers the page prints somewhere: PET×4, ABS×2, PETG×2, PLA×1 — density 1.16 g/cm³; melting 168 ℃ — this maker's range: PETG×4, ASA×3, ABS×2, TPU×1, PLA×1 |
 | Ultrafuse Stainless Steel 316L | Ultrafuse / Forward AM | Not read | Not read | the sheet publishes no number and names no polymer this reader can map |
-| spectrum greeny pro | Spectrum | Not read | Not read | its numbers admit PET, PPS, PVA — density 1.34 g/cm3; vicat 160 °C — this maker's range: PLA×35, PETG×12, ASA×9, PA6×8, TPU×7 |
+| spectrum greeny pro | Spectrum | Not read | Not read | its numbers admit PET, PPS, PVA — density 1.34 g/cm3; vicat 160 °C — this maker's range: PLA×35, PETG×13, ASA×9, PA6×8, TPU×7 |
 | Composite Molding Material | Stratasys | Not read | Not read | glass 132 °C — this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 | diran410mf07 | Stratasys | Not read | Not read | this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 
@@ -141,7 +141,7 @@ document stays held under its ruling with the strike noted.
 | MatterHackers PRO Series Nylon | MatterHackers | Not read | Not read | polymers the page prints somewhere: PEI×1 — this maker's range: PETG×5, PLA×4, TPU×2, ABS×2, PA12×2 |
 | PA Food Industry | Nanovia | Not read | Not read | polymers the page prints somewhere: PLA×3, PC×2, PEKK×2, ABS×1, ASA×1, HIPS×1 — its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1,30 g/cm3 — this maker's range: PLA×5, PC×5, ABS×4, |
 | TPE 22D | Nanovia | Not read | Not read | polymers the page prints somewhere: ABS×3, PEI×3, PLA×2, ASA×1, HIPS×1, PC×1 — this maker's range: PLA×5, PC×5, ABS×4, PETG×4, PA6×3 |
-| spectrum thermatech pa | Spectrum | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.30 g/cm3 — this maker's range: PLA×35, PETG×12, ASA×9, PA6×8, TPU×7 |
+| spectrum thermatech pa | Spectrum | Not read | Not read | its numbers admit PLA, PETG, CPE, PET, PPS, PVA, TPU, PBT — density 1.30 g/cm3 — this maker's range: PLA×35, PETG×13, ASA×9, PA6×8, TPU×7 |
 | nylon cf10 | Stratasys | Not read | Not read | this maker's range: PC×5, ABS×3, ASA×2, PA12×1, PA6×1 |
 | MakerBot Specialty Nylon | MakerBot | Not read | Not read | polymers the page prints somewhere: PVA×1, ABS×1 |
 | MakerBot Specialty Nylon | MakerBot | Not read | Not read | polymers the page prints somewhere: PLA×3, ABS×3, PC-ABS×3, PET×2, PETG×1, ASA×1 |
