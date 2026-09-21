@@ -277,10 +277,13 @@ test('mis-filed products moved to the material they are, with everything recorde
   // PA-ESD keeps its own product, and the print window it gets is that product's.
   assert.deepEqual(byName('PA-ESD').gradeIds, ['G064-01']);
   assert.deepEqual([byName('PA-ESD').print.nozzleC.min, byName('PA-ESD').print.nozzleC.max], [265, 285]);
-  // 155 since audit 2026-09-15 (m25), when HyperLite PP's eight measurements were re-filed under PP
-  // Lightweight; 175 since m80, which retired the twenty values Fiberon's PET-GF15 v2.0 sheet republishes
-  // unchanged from the v1.0 the database already holds.
-  assert.deepEqual(db.meta.counts.retiredDuplicates, { measurements: 175, evidence: 16 });
+  // Every re-filing and every republished sheet adds retired duplicates (m25's eight, m80's twenty, m113's
+  // eighteen), so a fixed number measured the history rather than the rule. The rule is that the build counts
+  // what the tables hold, and that nothing retired is lost: the count never falls below the 175 of 2026-09-20.
+  const retiredIn = (table) => readFileSync(join(root, `data/tables/${table}.csv`), 'utf8').split('\n').filter((l) => /,Retired duplicate record,/.test(l)).length;
+  assert.equal(db.meta.counts.retiredDuplicates.measurements, retiredIn('measurements'));
+  assert.ok(db.meta.counts.retiredDuplicates.measurements >= 175);
+  assert.equal(db.meta.counts.retiredDuplicates.evidence, 16);
 });
 
 test('an unstated-load heat headline carries a bracket from its matrix\'s load gap', () => {
