@@ -143,3 +143,41 @@ recorded why it was held, and parity re-run after every lexicon row instead of o
 - **A check that pins the corpus's contents is rewritten to assert the rule**, in its own commit, with the reason
   (PET-GF's outlier, the rejected-values list, the shared-key rule, the scaffold's missing polymer). A check is
   never weakened to pass.
+
+## 7. A blocker nobody has seen before
+
+The policy the completion plan carried, kept here because the plan file is retired and this is the part of it
+that outlives the phases. It has held for twenty-six batches.
+
+| What turned up | What to do |
+|---|---|
+| a data question | a ruling row, and the document held until it is answered |
+| a layout the reader cannot read | build the rule if it frees about twenty documents or a whole maker; otherwise name the gap on the row |
+| a check breaching its budget | measure, fix the cause, and never raise the budget twice |
+| a fetch failure | one retry, then the dated state |
+| a wrong value in the tables | count the class with SQL first, correct it in one migration through `correct()`, and add a window or a lint so it cannot re-enter |
+| a vocabulary value the data needs | the same commit as the data that cites it |
+| anything else | BLOCKERS.md names it, and the batch continues without it |
+
+Two more the work since has earned:
+
+- **A check that pins the corpus's contents is rewritten to assert the rule**, in its own commit, with the
+  reason. Four have been: PET-GF's outlier, the rejected-values list, the shared-key rule, and the scaffold's
+  missing polymer, which began failing the day a producer's reference gave PA11 its row.
+- **A bulk decision must match every reason a row is held for**, never one of them. Nine rows entered a batch
+  through a `--decide` that matched one of two reasons; all nine were in documents that were still held.
+
+## 8. Where to pick this up
+
+1. `npm run ingest:inventory -- --status`, `npm run ingest:blockers`, `npm run ingest:readings` — three commands,
+   three documents, and the queue is a query rather than a memory.
+2. Read §1 above for what waits on the owner and §3 for what frees each held document.
+3. The nearest piece of work that needs nobody else: **the 31 documents whose rows really do state several
+   results**, which is the one reader rule left worth building (a table's value columns read by position). The
+   53 that were held for it are down to 31 because the hold was counting conditions; the rest are Bambu's
+   twelve-product impact row and QIDI's moulded-and-printed columns.
+4. The nearest piece that needs a reader: **batch b27's 40 documents** whose product name is the sheet's own
+   furniture. Their rows are reviewed and signed; what they lack is a name the page prints.
+5. Before committing anything: `npm run verify`, and `npm run ingest:propose -- --compare --all` if the reader
+   changed. A parity drop that follows a reader fix may be the recorded rows being wrong — that happened three
+   times this week, and each time the migration that corrected them brought the census back.
