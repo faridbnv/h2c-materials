@@ -1,7 +1,7 @@
 COUNT 8 shown PASS
-STATUS ☑ PASS 8 | ☐ UNKNOWN 45 | ☐ FAIL 90
-8 of the 143 materials in this database meet these requirements
-45 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+STATUS ☑ PASS 8 | ☐ UNKNOWN 46 | ☐ FAIL 90
+8 of the 144 materials in this database meet these requirements
+46 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.

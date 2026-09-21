@@ -228,7 +228,7 @@ document stays held under its ruling with the strike noted.
 | PETG Glow In The Dark | SUNLU | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://www.3djake.com/sunlu/petg-glow-in-the-dark-green-1 |
 | SUNLU TPU Silk Light Blue | SUNLU | TPU | TPU / Unfilled / unspecified | the maker's own page for it says so: https://www.3djake.com/sunlu/tpu-silk-light-blue |
 | WearX Wear Resistant PA6 | 3DXTECH | PA6 | PA6 / Unfilled / unspecified | the maker's own page for it says so: https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets |
-| Other | See document / product page | PCL | PCL / Unfilled / unspecified (new) | the maker's own page for it says so: https://filament2print.com/en/wood-stone-metal/4731-biofil-wood-pcl-formfutura.html |
+| Other | See document / product page | PCL | PCL / Unfilled / unspecified | the maker's own page for it says so: https://filament2print.com/en/wood-stone-metal/4731-biofil-wood-pcl-formfutura.html |
 | Prusament PETG Ultraglow Green | Prusament | PETG | PETG / Unfilled / unspecified | the maker's own page for it says so: https://prusament.com/materials/prusament-petg-ultraglow/ |
 | ABS Marble | SIDDAMENT | ABS | ABS / Unfilled / unspecified | the maker's own page for it says so: https://siddament.com.au/pages/tds |
 | ABS Wood | SIDDAMENT | ABS | ABS / Unfilled / unspecified | the maker's own page for it says so: https://siddament.com.au/pages/tds |

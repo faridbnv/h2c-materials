@@ -1250,3 +1250,32 @@ test('a load or a method the line prints after its value is the test’s, and so
   assert.equal(row('Heat distortion temperature HDT A ISO 75 molded sample °C 90')['Specimen type'], 'Raw material value');
   assert.equal(row('Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 110')['Specimen type'], 'Raw material value');
 });
+
+test('a unit column between the label and the method is read, and a row it does not fit is left alone', () => {
+  const t = (n) => readCsv(join(root, `data/tables/${n}.csv`)).records.map((r) => r.values);
+  const world = { polymers: t('polymers'), materials: t('materials'), grades: [], properties: t('properties'), sources: [], headlineDefinitions: t('headline_definitions'), manufacturers: [{ Value: 'iSANMATE' }], rulings: [] };
+  const rows = propose({ doc_key: 'k', sha256: 'x', provider: 'iSANMATE', provider_kind: 'manufacturer', manufacturer: 'iSANMATE', product_raw: 'ABS GF', url: 'https://x.example/y.pdf' },
+    page('ABS Glass Fiber Technical Data Sheet', 'Performance Unit Test Standard Typical Value', 'Density g/cm3 ASTM D-792 1.10-1.13',
+      'Melting point ℃ DSC 180-200', 'Tensile Strength MPa ASTM D-638 51', 'Water absorption % ASTM D-570 <1', 'Impact strength KJ/m² ISO 179 3.282',
+      'Bending strength (MPa) ISO 72'), world).measurements.map((m) => m.row);
+  const of = (property) => rows.find((r) => r.Property === property);
+  assert.equal(of('Density')['Normalized value'], '1100');
+  assert.equal(of('Density')['Normalized upper bound'], '1130');
+  assert.equal(of('Melting temperature')['Standards'], 'DSC');
+  assert.equal(of('Tensile strength (endpoint unspecified)')['Raw value'], '51 MPa');
+  assert.equal(of('Water absorption').Operator, '<');
+  // "ISO 72" cannot be told from a standard (ISO 75 is one), so the row that prints its value there is not read.
+  assert.equal(of('Flexural strength'), undefined);
+});
+
+test('an axis in brackets after the label is the row’s direction, and methods separated by a comma are one method column', () => {
+  const t = (n) => readCsv(join(root, `data/tables/${n}.csv`)).records.map((r) => r.values);
+  const world = { polymers: t('polymers'), materials: t('materials'), grades: [], properties: t('properties'), sources: [], headlineDefinitions: t('headline_definitions'), manufacturers: [{ Value: 'iSANMATE' }], rulings: [] };
+  const rows = propose({ doc_key: 'k', sha256: 'x', provider: 'iSANMATE', provider_kind: 'manufacturer', manufacturer: 'iSANMATE', product_raw: 'PAHT CF', url: 'https://x.example/PAHT-CF_TDS.pdf' },
+    page('Product Description:', 'iSANMATE PAHT CF offers quasi-metal strength', 'Elastic modulus(XY) MPa ISO 527,GB/T 1040 8620', 'Tensile Strength(Z) MPa ISO 527,GB/T 1040 37.9'), world);
+  // A section heading is not the product's name; the listing's is, where the page prints nothing better.
+  assert.equal(rows.grades[0].row['Product name'], 'PAHT CF');
+  const [modulus, strength] = rows.measurements.map((m) => m.row);
+  assert.deepEqual([modulus.Property, modulus['Normalized value'], modulus.Direction], ['Tensile modulus', '8.62', 'XY']);
+  assert.deepEqual([strength['Normalized value'], strength.Direction], ['37.9', 'Z']);
+});

@@ -931,7 +931,65 @@ export function readRow(text, registry, held = null) {
       uncertainty: null, upper: null, target,
       standards: (line.match(STANDARD_RE) ?? []).map((m) => m.replace(/\s+/g, ' ').trim()), operator: '=', range: false };
   };
-  return asHardness() ?? asLabelUnit();
+  /**
+   * A row whose unit column stands between its label and its method: iSANMATE prints "Tensile Strength MPa ASTM
+   * D-638 51", "Density g/cm3 ASTM D-792 1.10-1.13" and "Melting point ℃ DSC 180-200" on every one of its thirty
+   * sheets, and a reader that looks for a number with its unit after it finds "D-638 51" instead. The unit is the
+   * first word after the label and a unit of the row's property; the method comes off; what is left must be one
+   * number or one range, or the row is not this layout.
+   */
+  const asUnitBeforeMethod = () => {
+    const label = match.re ? new RegExp(match.re.source, 'i').exec(line) : null;
+    if (!label) return null;
+    // Vicat's method may stand between the label and the unit: "Vicat softening point A/120 ℃ ASTM D-648 88".
+    const vicat = /^\s*([AB]\s?\/\s?\d{2,3})\b/.exec(line.slice(label.index + label[0].length));
+    // And a test condition in its own brackets: "Melt Index（170℃, 2160g） g/10min ASTM D-1238 10".
+    // An axis in brackets is the row's direction, which is read from the label: "Elastic modulus(XY) MPa ISO 527".
+    const axisBracket = /^\s*([(（]\s*(?:X-?Y|Z|X-?Z|Z-?X|XY|XZ|ZX)\s*[)）])/i.exec(line.slice(label.index + label[0].length + (vicat ? vicat[0].length : 0)));
+    const after = line.slice(label.index + label[0].length + (vicat ? vicat[0].length : 0) + (axisBracket ? axisBracket[0].length : 0));
+    const bracket = /^\s*([(（][^)）]{2,30}[)）])/.exec(after);
+    const rest = bracket && /\d/.test(bracket[1]) ? after.slice(bracket[0].length) : after;
+    const unit = /^\s*[(（]?\s*([A-Za-z%°℃µμΩ][A-Za-z0-9%°℃/·²³.\s]{0,11}?)\s*[)）]?(?=\s+(?:ISO|ASTM|DIN|GB|DSC|TGA|IEC|UL|EN|D\s?-?\d)|\s+[<>≤≥]?\d)/.exec(rest);
+    if (!unit) return null;
+    // The unit is kept as printed, but with its exponent on the line: "KJ/m²" is the "KJ/M2" the other layouts
+    // already read, and a raised digit is typesetting, not a different unit.
+    const printedUnit = unit[1].replace(/\s+/g, '').replace(/[³]/g, '3').replace(/[²]/g, '2');
+    const target = targetUnit(match.Property, printedUnit, registry);
+    if (!target) return null;
+    const tail = rest.slice(unit.index + unit[0].length)
+      .replace(new RegExp(STANDARD_RE.source, 'gi'), ' ').replace(/\b(?:DSC|TGA|DMA|TMA)\b/gi, ' ')
+      .replace(/[(（][^)）]*[)）]/g, ' ')
+      // What separated two methods ("ISO 527,GB/T 1040") is left behind them; a comma inside a number is not.
+      .replace(/(?<!\d)[,;]|[,;](?!\d)/g, ' ').trim();
+    const window = /^([<>≤≥]?)\s*(\d+(?:[.,]\d+)?)\s*(?:[-~–]{1,2}\s*(\d+(?:[.,]\d+)?))?$/.exec(tail);
+    if (!window) return null;
+    const [, operator, value, upper] = window;
+    const labelText = `${line.slice(0, label.index + label[0].length).trim()}${axisBracket ? ` ${axisBracket[1].trim()}` : ''}`;
+    return { match, label: labelText, conditions: `${labelText}${vicat ? ` ${vicat[1]}` : ''}${bracket && /\d/.test(bracket[1]) ? ` ${bracket[1]}` : ''}`,
+      raw: `${upper ? `${value}-${upper}` : `${operator}${value}`} ${printedUnit}`, rawNumber: String(rawNumber(value)), printedUnit,
+      uncertainty: null, upper: upper ? String(rawNumber(upper)) : null, target, trailing: '',
+      // A thermal method is a method here as it is in every other layout (readStandards records DSC).
+      standards: [...(line.match(new RegExp(STANDARD_RE.source, 'gi')) ?? []), ...(line.match(/\b(?:DSC|TGA|DMA|TMA)\b/g) ?? [])].map((m) => m.replace(/\s+/g, ' ').trim()),
+      // A window's low end is the value and its high end the upper bound, as the other layouts read one.
+      operator: operator === '<' || operator === '≤' ? '<' : operator === '>' || operator === '≥' ? '>' : '=', range: false };
+  };
+  /** A value line under a label that stated its unit beside it (`heldUnit`, set by readSheet): method and value. */
+  const asHeldUnit = () => {
+    if (!held?.heldUnit || labelFor(line)) return null;
+    const target = targetUnit(match.Property, held.heldUnit, registry);
+    if (!target) return null;
+    const tail = line.replace(new RegExp(STANDARD_RE.source, 'gi'), ' ').replace(/\b(?:DSC|TGA|DMA|TMA)\b/gi, ' ')
+      .replace(/[(（][^)）]*[)）]/g, ' ').replace(/(?<!\d)[,;]|[,;](?!\d)/g, ' ').trim();
+    const window = /^([<>≤≥]?)\s*(\d+(?:[.,]\d+)?)\s*(?:[-~–]{1,2}\s*(\d+(?:[.,]\d+)?))?$/.exec(tail);
+    if (!window) return null;
+    const [, operator, value, upper] = window;
+    return { match, label: '', conditions: '', raw: `${upper ? `${value}-${upper}` : `${operator}${value}`} ${held.heldUnit}`,
+      rawNumber: String(rawNumber(value)), printedUnit: held.heldUnit, uncertainty: null, upper: upper ? String(rawNumber(upper)) : null,
+      target, trailing: '',
+      standards: [...(line.match(new RegExp(STANDARD_RE.source, 'gi')) ?? []), ...(line.match(/\b(?:DSC|TGA|DMA|TMA)\b/g) ?? [])].map((m) => m.replace(/\s+/g, ' ').trim()),
+      operator: operator === '<' || operator === '≤' ? '<' : operator === '>' || operator === '≥' ? '>' : '=', range: false };
+  };
+  return asHardness() ?? asLabelUnit() ?? asUnitBeforeMethod() ?? asHeldUnit();
 }
 
 // A printing setting is read by its own label, wherever on the page it sits. Reading it by the section it falls
@@ -1530,7 +1588,15 @@ export function readSheet(text, registry) {
           pendingHeld = { page: page.page, text: line.text.slice(0, 160),
             reason: unreadRowReason(rowLine, registry) ?? 'a label the lexicon knows, with a number its property is not kept in and no row below that stated one' };
         }
-        held = bare; heldLabel = plain; heldFor = 0; heldX = line.x0 ?? 0; heldMethods = methodsOf(plain);
+        // A label that prints its unit beside it and its value on the line below carries the unit down with it:
+        // iSANMATE sets "Tensile strength MPa" on one line and "ISO 527 43.8" under it.
+        const heldUnit = (() => {
+          const at = new RegExp(bare.re.source, 'i').exec(plain);
+          const rest = at ? plain.slice(at.index + at[0].length).trim() : '';
+          const unit = rest.replace(/\s+/g, '').replace(/[³]/g, '3').replace(/[²]/g, '2');
+          return unit && !/\d{2}/.test(unit) && targetUnit(bare.Property, unit, registry) ? unit : null;
+        })();
+        held = heldUnit ? { ...bare, heldUnit } : bare; heldLabel = plain; heldFor = 0; heldX = line.x0 ?? 0; heldMethods = methodsOf(plain);
         if (!/\d/.test(plain)) { prefix = plain; prefixX = line.x0 ?? 0; }
         continue;
       }
@@ -2020,7 +2086,8 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // "HDT 0.45 MN/m2, annealed" publishes an annealed value, and a row that does not say so reads as as-printed.
   // What the row says about the specimen is its own words and the footnote its mark points at, together.
   const says = [printed, v.label ?? '', v.footnote ?? ''].filter(Boolean).join(' ');
-  const labelAxis = /\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b|\b(?:strength|modulus|break|yield|elongation)\s+z\b/i.test(says) ? 'Z' : null;
+  // The axis may also stand in brackets after the property: iSANMATE's CF PEEK prints "Flexural Strength [Z]".
+  const labelAxis = /\bxy\b/i.test(says) ? 'XY' : /\bz[ -]?axis\b|\b(?:strength|modulus|break|yield|elongation)\s*[[(（]?\s*z\s*[\])）]?(?![a-z])/i.test(says) ? 'Z' : null;
   // A sheet may write the axis with the plane's letters apart ("(Z-X)"), as it writes "(X-Y)"; the database keeps
   // ZX and XZ, so a row that states one must not be read as stating none.
   // The bracket may have lost its opening: one SUNLU sheet's text layer begins a row "X-Y) Heat Distortion",
@@ -2501,7 +2568,7 @@ export function printedTitle(text, maker = '') {
   // A sheet's own sections are not its product: Nanovia heads every one of its twenty-three with "Distribution"
   // and Filament2Print prints "Print parameters" above its table. And a revision line is not a name however it
   // begins: QIDI prints "Data / Revised: 01.2024 Version No: 5.1" where its product's name should be.
-  const A_SECTION_OF_A_SHEET = /^(distribution|vertrieb|precautions?|print(ing)? parameters?|material status( mass production)?|mass production|thermoplastic specialties|specialties|properties|applications?|packaging|storage|news|nouveaut(e|\u00e9)s|profile|colou?rs?|panier|project data|technical data|shop all\s.*|all filaments)\b[\s:.]*$/i;
+  const A_SECTION_OF_A_SHEET = /^(distribution|vertrieb|precautions?|print(ing)? parameters?|material status( mass production)?|mass production|thermoplastic specialties|specialties|properties|applications?|typical applications?|product description|features|packaging|storage|news|nouveaut(e|\u00e9)s|profile|colou?rs?|panier|project data|technical data|shop all\s.*|all filaments)\b[\s:.]*$/i;
   // A captured web page begins with the shop's navigation, which is a column of one-word links and not the page's
   // subject: Nanovia's twenty-three pages open "Store / Distribution / News / Contact / Profile / Cart", and read
   // from the head of the page all twenty-three were products called Distribution, then News. What such a page
@@ -2566,7 +2633,13 @@ export function printedTitle(text, maker = '') {
     // puts it; a sheet that announces itself in a language this reader does not read ("KARTA TECHNICZNA",
     // "SCHEDA TECNICA") announces itself on that first line, so it is tried second and not first.
     const order = [head[1], head[0], ...head.slice(2)].filter(Boolean);
-    return { title: head[0] ?? '', product: labelled || order.find(named) || '' };
+    // Unless the title already is the name, more fully: iSANMATE heads a sheet "iSANMATE PLA CF" and prints "PLA"
+    // under it, and read from the second line a carbon-fibre PLA was an ordinary one. Where the first line's words
+    // include every word of the second's and more, the first is the product.
+    const words = (x) => productName(x ?? '', maker).toLowerCase().split(/[^a-z0-9+]+/).filter(Boolean);
+    const fuller = head[0] && head[1] && named(head[0]) && named(head[1])
+      && words(head[1]).length && words(head[1]).every((w) => words(head[0]).includes(w)) && words(head[0]).length > words(head[1]).length;
+    return { title: head[0] ?? '', product: labelled || (fuller ? head[0] : order.find(named)) || '' };
   }
   // The name may be on the same line as the words that announce it ("Technical Data Sheet: AmideX PA6-GF30"),
   // or on the line below ("TECHNICAL DATA SHEET" / "PET-G Premium"). Both makers are in this corpus.

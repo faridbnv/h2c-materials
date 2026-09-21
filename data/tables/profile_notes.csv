@@ -1886,3 +1886,17 @@ P0954,Speed,40 - 60 mm/s
 P0956,Speed,40 - 50 MM/S
 P0956,Layer height,≥ 0.1 MM
 P0965,Speed,40 - 60 mm/s
+P0969,Speed,50-200 mm/s
+P0969,Cooling,0- 100%
+P0970,Speed,30-70 mm/s
+P0970,Cooling,0-50%
+P0971,Speed,45mm/s
+P0971,Adhesion / release,separation distance 0.2mm
+P0971,Retraction,0 mm
+P0971,Cooling,100%
+P0972,Speed,30-50 mm/s
+P0972,Cooling,0-30%
+P0973,Speed,300 mm/s
+P0973,Retraction,0-5 mm
+P0974,Speed,50-600
+P0974,Retraction,0-5 mm

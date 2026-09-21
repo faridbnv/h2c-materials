@@ -1,4 +1,4 @@
-COUNT 143 materials no requirements set
+COUNT 144 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,8 +25,8 @@ High-stiffness fixture
 A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
-143 materials, 129 of them in H2C scope
-9676 measurements, each traceable to a source
+144 materials, 130 of them in H2C scope
+9806 measurements, each traceable to a source
 123 have a density, 91 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
@@ -192,6 +192,9 @@ Polymer Blends
 PC-PTFE
 Polycarbonate
  not tested 1,320* 2.2* 55* 8* 140* — ☆
+PCL
+PVB / Specialty Polymers
+ not tested — — — 800* — — ☆
 PCTG
 Copolyesters
  not tested 1,230 1.75 45* 24 76 48↗ ☆

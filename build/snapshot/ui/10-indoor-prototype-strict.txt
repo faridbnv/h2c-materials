@@ -1,7 +1,7 @@
 COUNT 20 shown PASS
-STATUS ☑ PASS 20 | ☐ UNKNOWN 88 | ☐ FAIL 35
-20 of the 143 materials in this database meet these requirements
-88 more could not be checked for missing data, and are left out under Confirmed only. From the Indoor prototype template. Click any criterion to remove it.
+STATUS ☑ PASS 20 | ☐ UNKNOWN 89 | ☐ FAIL 35
+20 of the 144 materials in this database meet these requirements
+89 more could not be checked for missing data, and are left out under Confirmed only. From the Indoor prototype template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Ease of printing is not rated: no source publishes it. Materials with no sampled Canadian price are held out.

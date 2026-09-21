@@ -1,0 +1,404 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "8d4d5c0a661d0111ba63cd174aa9ff7a0e2c113b3349d2e764f71761372fae1a",
+    "url": "https://www.isanmate.com/wp-content/uploads/2024/09/ABS-GF_TDS.pdf",
+    "pages": 2,
+    "provider": "iSANMATE",
+    "manufacturer": "iSANMATE",
+    "docKey": "8d4d5c0a661d0111"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "I-PLA-ABS-GF-TDS",
+      "Publisher": "iSANMATE",
+      "Title": "ABS玻纤原料物性表",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.isanmate.com/wp-content/uploads/2024/09/ABS-GF_TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "8d4d5c0a661d0111ba63cd174aa9ff7a0e2c113b3349d2e764f71761372fae1a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "ABS玻纤原料物性表"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "M027",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "ABS玻纤原料物性表",
+        "Shared formulation key": "I-PLA-ABS-GF-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-PLA-ABS-GF-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "ABS玻纤原料物性表"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.10-1.13 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.13",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1130",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D-792",
+        "Standards": "ASTM D792",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "I-PLA-ABS-GF-TDS",
+        "Locator": "p. 1: 密度",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "密度 g/cm3 ASTM D-792 1.10-1.13"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "180-200 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "180",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "200",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "180",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "200",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "DSC",
+        "Standards": "DSC",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "I-PLA-ABS-GF-TDS",
+        "Locator": "p. 1: 熔点",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "熔点 ℃ DSC 180-200"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "12 %",
+        "Raw unit": "%",
+        "Raw numeric": "12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D-638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "I-PLA-ABS-GF-TDS",
+        "Locator": "p. 1: 断裂伸长率",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "断裂伸长率 % ASTM D-638 12"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M027",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "<1 %",
+        "Raw unit": "%",
+        "Raw numeric": "1",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ASTM D-570",
+        "Standards": "ASTM D570",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "I-PLA-ABS-GF-TDS",
+        "Locator": "p. 1: 吸水率",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "吸水率 % ASTM D-570 <1"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "的，主要用在3D打印领域。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "典型应用： 3D打印",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "形式： 粒料，25公斤/袋",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "g/10min ASTM D-1238 18-22",
+      "reason": "properties.csv carries no property for \"g/10min\""
+    },
+    {
+      "page": 1,
+      "text": "熔指（220℃,10000g）",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASTM D-648 88",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "维卡软化点 A/120 ℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MPa ASTM D-638 51",
+      "reason": "properties.csv carries no property for \"MPa\" (MPa)"
+    },
+    {
+      "page": 1,
+      "text": "缺口冲击强度 KJ/M2 ISO 180-A 27",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "弯曲强度 （MPa) ISO 72",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "储存 在运输和存储时，温度不要超过85°C.。该产品要存储在干燥、通风良",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "境温度23°C.下，该产品保质期2年。",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "建议在加工之前要测试该树脂的水分含量，如果水分超过0.3%就需",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "要预干燥，典型干燥条件：4-6小时，80摄氏度.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "如果温度过低，温度可按每次增加5摄氏度调整",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "喂料段 180-200℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "压缩段 200-220℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "计量段 210-240℃",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "口模 210-230℃",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

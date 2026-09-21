@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "10357923a48251bdb8ec4fe152757b0a1d09ee13f89fe0c010cced61e7df9d39",
+    "url": "https://www.isanmate.com/wp-content/uploads/2024/09/PCL_TDS.pdf",
+    "pages": 1,
+    "provider": "iSANMATE",
+    "manufacturer": "iSANMATE",
+    "docKey": "10357923a48251bd"
+  },
+  "identity": {
+    "polymer": "PCL",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pcl"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "PCL",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "newMaterial": {
+    "Original name": "PCL",
+    "Family": "PVB / Specialty Polymers",
+    "H2C status": "Theoretical",
+    "Representative grade": "${grade:main}",
+    "Best uses": "Not published",
+    "Limitations": "Not published",
+    "Full name": "PCL",
+    "Scope": "H2C-relevant",
+    "Abbreviation": "PCL",
+    "Base polymer": "PCL",
+    "Estimate identity": "PCL",
+    "Modifier / filler": "Unfilled / unspecified",
+    "Variant class": "Not applicable",
+    "Role": "Structural / functional / appearance",
+    "Identity notes": "Identity read from I-PLA-PCL-TDS (p. 1): title: pcl."
+  },
+  "source": {
+    "row": {
+      "SourceID": "I-PLA-PCL-TDS",
+      "Publisher": "iSANMATE",
+      "Title": "Professional 3D Filament Manufacturer",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://www.isanmate.com/wp-content/uploads/2024/09/PCL_TDS.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "10357923a48251bdb8ec4fe152757b0a1d09ee13f89fe0c010cced61e7df9d39"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Professional 3D Filament Manufacturer"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "Capa 6500 Polycaprolactone",
+        "Shared formulation key": "I-PLA-PCL-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-PLA-PCL-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Professional 3D Filament Manufacturer"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "800 %",
+        "Raw unit": "%",
+        "Raw numeric": "800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "800",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "I-PLA-PCL-TDS",
+        "Locator": "p. 1: Tensile strain (break)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strain (break) 800 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "accepted",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "60.0 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "58.0 to",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "I-PLA-PCL-TDS",
+        "Locator": "p. 1: Melting temperature 58.0 to",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting temperature 58.0 to 60.0 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "claude-opus-5",
+        "date": "2026-09-21",
+        "note": "the page prints \"Melting temperature 58.0 to 60.0 °C\", a range; the row holds its upper end as the value. The reader does not read a range written with \"to\" (PLAN-REMAINING 1.6), and a row the page does not print as read is rejected, not corrected"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Professional 3D Filament Manufacturer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Capa™ 6500 Polycaprolactone",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Product Description: Capa™ 6500 is a high molecular weight thermoplastic linear polyester",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "It is supplied in granular form, approx. 3 mm pellets.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Capa™ 6500 is used in a variety of adhesive applications.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5.9 to 7.9 g/10 min",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(160°C/2.16 kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Molecular weight 50000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt flow rate (melt flow rate) 1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Solubility 9.34 to 9.43",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(cal/cm³)^0.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Pellet Size 3.00 mm",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "claude-opus-5",
+    "date": "2026-09-21"
+  }
+}

@@ -1,7 +1,7 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b28 brought
-148 materials, 948 grades, 9,851 measurement rows and 1,221 sources in. It is here so that nobody has to
+What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b29 brought
+149 materials, 966 grades, 9,981 measurement rows and 1,240 sources in. It is here so that nobody has to
 rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
