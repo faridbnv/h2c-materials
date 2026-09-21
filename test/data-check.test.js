@@ -238,12 +238,16 @@ test('retiring a grade sets both fields and lists every record left to resolve',
 test('the material scaffold writes a material and its grade, and names what it cannot write', () => {
   const dir = copy();
   try {
-    const run = (extra) => spawnSync(process.execPath, [join(root, 'scripts/data/new-material.mjs'), '--root', dir, '--name', 'PA11', '--polymer', 'PA11',
+    // The polymer here is one no producer publishes and no material claims, because the rule being asserted is
+    // what the scaffold does about a polymer `polymers.csv` has no row for — and naming a real one pinned this
+    // test to the corpus instead. It was written with PA11, and it began failing the day a producer's reference
+    // gave PA11 its row (m98): the scaffold was right and the test was out of date.
+    const run = (extra) => spawnSync(process.execPath, [join(root, 'scripts/data/new-material.mjs'), '--root', dir, '--name', 'PXX', '--polymer', 'PXX',
       '--family', 'Nylon / Polyamide', '--manufacturer', 'Arkema', '--product', 'Rilsan PA11', '--source', 'H2C-MANUAL', ...extra], { encoding: 'utf8' });
     const refused = run([]);
     assert.equal(refused.status, 1);
     assert.match(refused.stderr, /--set "Modifier \/ filler=\.\.\."/);
-    assert.match(refused.stdout, /"PA11" has no row in polymers.csv/);
+    assert.match(refused.stdout, /"PXX" has no row in polymers.csv/);
     const prose = ['Best uses', 'Identity notes', 'Shared formulation key', 'Composition / filler', 'Colour caveat', 'Availability',
       'Certification claims', 'Selected-grade rationale', 'Source locator', 'Diameter compatibility'].flatMap((c) => ['--set', `${c}=recorded by the test`]);
     // The columns a vocabulary or a reference governs take a real value, as any row does.
@@ -262,7 +266,8 @@ test('the material scaffold writes a material and its grade, and names what it c
     assert.equal(written.status, 0, written.stderr);
     const t = openTables(dir);
     const material = t.rows('materials').at(-1);
-    assert.equal(material['Original name'], 'PA11');
+    assert.equal(material['Original name'], 'PXX');
+    // No row in polymers.csv, so the estimate model does not identify it and it shows only what its sheets publish.
     assert.equal(material['Estimate identity'], 'Not applicable');
     assert.equal(t.rows('grades').at(-1).GradeID, material['Representative grade']);
     assert.deepEqual(check(dir), []);
