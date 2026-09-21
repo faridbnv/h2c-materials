@@ -107,7 +107,9 @@ const BLOCKERS = [
     needs: 'a batch: nothing holds it', uncertain: '' },
 ];
 
-const DONE = new Set(['applied', 'duplicate-of', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'registered', 'rejected']);
+// `deferred` is terminal for V2 and never written by a rule: a person names the gap the pipeline will not close in
+// this version, and the document is listed below with it rather than counted as waiting.
+const DONE = new Set(['applied', 'duplicate-of', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'registered', 'rejected', 'deferred']);
 
 export function blockers() {
   const rows = readLedger();
@@ -162,6 +164,15 @@ if (process.argv[1]?.endsWith('blockers.mjs')) {
     }
   }
 
+  const deferred = rows.filter((r) => r.status === 'deferred');
+  if (deferred.length) {
+    const byGap = new Map();
+    for (const r of deferred) { const gap = /^deferred: ([^—]+?)\s*—/.exec(r.status_note ?? '')?.[1] ?? 'unnamed'; (byGap.get(gap) ?? byGap.set(gap, []).get(gap)).push(r); }
+    doc.push(`## Deferred past V2 — ${deferred.length} document(s)`, '',
+      'Each names the gap the pipeline will not close in this version, written by a person with `npm run ingest:batch -- --defer`.', '',
+      '| Gap | Documents | Where |', '|---|---:|---|',
+      ...[...byGap].sort((a, b) => b[1].length - a[1].length).map(([gap, list]) => `| ${gap} | ${list.length} | ${[...new Set(list.map((r) => r.provider))].slice(0, 6).join(', ')} |`), '');
+  }
   writeFileSync(join(AUDIT, 'BLOCKERS.md'), doc.join('\n'));
   const HEADER = ['Blocker', 'Waits on', 'Documents', 'Needs', 'Uncertain', 'Where'];
   writeFileSync(join(AUDIT, 'census/blockers.csv'), csvText(HEADER, out.map((b) => ({

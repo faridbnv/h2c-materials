@@ -14,6 +14,7 @@
 //   npm run ingest:batch -- --batch b14 --split                        (aside: optical, twin, already registered)
 //   npm run ingest:batch -- --batch b14 --twins --by "<name>"          (R053: a grade each, the values once)
 //   npm run ingest:batch -- --batch b14 --finish                       (generated docs, then verify)
+//   npm run ingest:batch -- --defer <key> --gap "<name>" --why "..." --by "<name>"   (past V2, by hand)
 //
 // Nothing here decides anything a person has to: --accept takes only the rows review.mjs's holdsBack allows, and
 // everything it holds back is left for a reader. What this removes is the typing, not the reading.
@@ -755,9 +756,35 @@ function finish(batch) {
   console.log('now run: npm run verify');
 }
 
+/**
+ * `deferred`: a document the pipeline will not bring in during V2, for a gap a person names. Terminal like
+ * `registered`, never written by a rule, and listed in BLOCKERS.md by its gap so the gap stays visible. Only a
+ * document still waiting (held, extracted, twin-check, unreadable, needs-ocr) may be deferred.
+ *   npm run ingest:batch -- --defer <doc_key> [--defer <doc_key> ...] --gap "<short name>" --why "<what would free it>" --by "<name>"
+ */
+function defer(keys, gap, why, by) {
+  if (!keys.length || !gap || !why || !by) { console.error('usage: --defer <doc_key> --gap "<short name>" --why "<what would free it>" --by <name>'); process.exit(2); }
+  const ledger = readLedger();
+  const today = new Date().toISOString().slice(0, 10);
+  let n = 0;
+  for (const key of keys) {
+    const row = ledger.find((r) => r.doc_key === key);
+    if (!row) { console.error(`no ledger row is keyed ${key}`); process.exitCode = 1; continue; }
+    if (!['held', 'extracted', 'twin-check', 'unreadable', 'needs-ocr'].includes(row.status)) { console.error(`${key} is ${row.status}; only a waiting document is deferred`); process.exitCode = 1; continue; }
+    const was = String(row.status_note ?? '').replace(/^held: /, '').slice(0, 200);
+    row.status = 'deferred';
+    row.status_note = `deferred: ${gap} — ${why} (${by}, ${today}; it waited on: ${was || row.status})`;
+    row.updated = today;
+    n++;
+  }
+  writeFileSync(LEDGER, csvText(HEADER, ledger));
+  console.log(`${n} document(s) deferred past V2: ${gap}`);
+}
+
 if (process.argv[1]?.endsWith('batch.mjs')) {
   const batch = arg('batch');
   if (flag('holds')) writeHolds();
+  else if (arg('defer')) defer(args('defer'), arg('gap'), arg('why'), arg('by'));
   else if (!batch) { console.error('--batch <name> names the batch to work on, or --holds to say why documents wait'); process.exit(2); }
   else if (flag('propose')) propose(batch);
   else if (flag('accept')) { const by = arg('by'); if (!by) { console.error('--by <name>: a review records who made it'); process.exit(2); } accept(batch, by); }

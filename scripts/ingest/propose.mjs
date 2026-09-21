@@ -3170,7 +3170,7 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
   const world = { materials: table('materials'), polymers: table('polymers'), grades: table('grades'), properties: table('properties'), sources: table('sources'), headlineDefinitions: table('headline_definitions'), manufacturers: readCsv(join(projectRoot, 'schema/vocab/manufacturers.csv')).records.map((r) => r.values), rulings: readCsv(join(AUDIT, 'rulings/rulings.csv')).records.map((r) => r.values) };
   // A batch is the documents that are a sheet in their own right: not a copy of one already read, not one the
   // register already holds, and not one still waiting on a question about whether it is a copy at all.
-  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'rejected']);
+  const SKIP = new Set(['duplicate-of', 'twin-check', 'registered', 'applied', 'unreachable', 'needs-ocr', 'gated', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'rejected', 'deferred']);
   // A batch is chosen by what the ledger says about a document, not by the maker who published it: --ready takes
   // every document nothing is holding, and --held <reason> takes the ones a named hold was waiting on, which is
   // how a ruling the owner has answered or a reader rule just built gets its documents back (ingest:batch --holds).
