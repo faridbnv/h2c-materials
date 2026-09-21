@@ -138,9 +138,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/5bcb4cc48530cd4c/p-1.png (colorFabb PLA High Speed PRO, v1.0 November 1 2024): the 3D-printed table prints Youngs Modulus 2630 MPa, Tensile Strength 43.7 MPa, Elongation at break 5.7 % (all Tensile ISO 527-1A), Flexural Modulus 2290 MPa and Flexural Strength 71.0 MPa (Flexural ISO 178); Density ISO 1183 1.24 g/cm3 and Glass Transition Temp DSC ISO 11357 60 C stand in the injection-moulded and supplier tables, which the rows record as raw material values",
+        "visual": true
       }
     },
     {
@@ -188,9 +189,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/5bcb4cc48530cd4c/p-1.png (colorFabb PLA High Speed PRO, v1.0 November 1 2024): the 3D-printed table prints Youngs Modulus 2630 MPa, Tensile Strength 43.7 MPa, Elongation at break 5.7 % (all Tensile ISO 527-1A), Flexural Modulus 2290 MPa and Flexural Strength 71.0 MPa (Flexural ISO 178); Density ISO 1183 1.24 g/cm3 and Glass Transition Temp DSC ISO 11357 60 C stand in the injection-moulded and supplier tables, which the rows record as raw material values",
+        "visual": true
       }
     },
     {
@@ -238,9 +240,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/5bcb4cc48530cd4c/p-1.png (colorFabb PLA High Speed PRO, v1.0 November 1 2024): the 3D-printed table prints Youngs Modulus 2630 MPa, Tensile Strength 43.7 MPa, Elongation at break 5.7 % (all Tensile ISO 527-1A), Flexural Modulus 2290 MPa and Flexural Strength 71.0 MPa (Flexural ISO 178); Density ISO 1183 1.24 g/cm3 and Glass Transition Temp DSC ISO 11357 60 C stand in the injection-moulded and supplier tables, which the rows record as raw material values",
+        "visual": true
       }
     },
     {
@@ -288,9 +291,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/5bcb4cc48530cd4c/p-1.png (colorFabb PLA High Speed PRO, v1.0 November 1 2024): the 3D-printed table prints Youngs Modulus 2630 MPa, Tensile Strength 43.7 MPa, Elongation at break 5.7 % (all Tensile ISO 527-1A), Flexural Modulus 2290 MPa and Flexural Strength 71.0 MPa (Flexural ISO 178); Density ISO 1183 1.24 g/cm3 and Glass Transition Temp DSC ISO 11357 60 C stand in the injection-moulded and supplier tables, which the rows record as raw material values",
+        "visual": true
       }
     },
     {
@@ -338,9 +342,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/5bcb4cc48530cd4c/p-1.png (colorFabb PLA High Speed PRO, v1.0 November 1 2024): the 3D-printed table prints Youngs Modulus 2630 MPa, Tensile Strength 43.7 MPa, Elongation at break 5.7 % (all Tensile ISO 527-1A), Flexural Modulus 2290 MPa and Flexural Strength 71.0 MPa (Flexural ISO 178); Density ISO 1183 1.24 g/cm3 and Glass Transition Temp DSC ISO 11357 60 C stand in the injection-moulded and supplier tables, which the rows record as raw material values",
+        "visual": true
       }
     },
     {
@@ -387,10 +392,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Impact Strength, Charpy Notch ISO 179, value 27.9 kJ/m2; the row holds 179 kJ/m2 with 27.9 as its uncertainty - the method number read as the value - and records the method as \"!1SO\""
       }
     },
     {
@@ -438,9 +443,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/5bcb4cc48530cd4c/p-1.png (colorFabb PLA High Speed PRO, v1.0 November 1 2024): the 3D-printed table prints Youngs Modulus 2630 MPa, Tensile Strength 43.7 MPa, Elongation at break 5.7 % (all Tensile ISO 527-1A), Flexural Modulus 2290 MPa and Flexural Strength 71.0 MPa (Flexural ISO 178); Density ISO 1183 1.24 g/cm3 and Glass Transition Temp DSC ISO 11357 60 C stand in the injection-moulded and supplier tables, which the rows record as raw material values",
+        "visual": true
       }
     },
     {
@@ -488,9 +494,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/5bcb4cc48530cd4c/p-1.png (colorFabb PLA High Speed PRO, v1.0 November 1 2024): the 3D-printed table prints Youngs Modulus 2630 MPa, Tensile Strength 43.7 MPa, Elongation at break 5.7 % (all Tensile ISO 527-1A), Flexural Modulus 2290 MPa and Flexural Strength 71.0 MPa (Flexural ISO 178); Density ISO 1183 1.24 g/cm3 and Glass Transition Temp DSC ISO 11357 60 C stand in the injection-moulded and supplier tables, which the rows record as raw material values",
+        "visual": true
       }
     },
     {
@@ -537,10 +544,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Melt Flow Index MFI, (210C/2.16 kg), ISO 1133-A, 23 g/10min; the row drops ISO 1133-A and records Standards as Not published"
       }
     },
     {
@@ -587,10 +594,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Melt Flow Index MFI, (190C/1,16 kg), ISO 1133-A, 10 g/10 min; the row reads the load as \"1 16 kg\" and records Standards as Not published"
       }
     }
   ],
@@ -651,10 +658,10 @@
         "text": "Active cooling fan 100"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 2 prints a Guideline for print settings: Nozzle Temp 215-225 C, Bed Temp 50-60 C, Active cooling fan 100 %, advised volumetric print speed 12-21 mm3/s; the profile row records every field as Not published"
       }
     }
   ],
@@ -856,7 +863,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "eleven rows read against p-1.png and p-2.png"
   }
 }

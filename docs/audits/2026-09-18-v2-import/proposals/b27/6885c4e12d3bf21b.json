@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Gravity ISO 1183 g/cm3 1.07; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -438,9 +443,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -488,9 +494,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -538,9 +545,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -588,9 +596,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -638,9 +647,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -688,9 +698,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -738,9 +749,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -788,9 +800,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -847,9 +860,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6885c4e12d3bf21b/p-1.png (Fiberlogy ASA, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 45 MPa, Tensile Modulus 2200 MPa, Elongation @ Yield 5 % and @ Break 30 %, Flexural Strength ISO 178 80 MPa, Flexural Modulus 1900 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, HDT @ 0.45 MPa 92 C and @ 1.8 MPa 86 C ISO 75, Vicat ISO 306 100 C, Tg DSC 105 C, Continuous Use Temperature UL 746 50 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -910,7 +924,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "fifteen rows read against p-1.png"
   }
 }

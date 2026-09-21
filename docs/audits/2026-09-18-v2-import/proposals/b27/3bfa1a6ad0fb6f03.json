@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ASTM D792 g/cm3 1.29; the value is right but the row's Standard / load is \"3 ASTM D792\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -438,9 +443,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -488,9 +494,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     }
   ],
@@ -547,9 +554,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3bfa1a6ad0fb6f03/p-1.png (Fiberlogy MATTE PET-G, updated May 29 2025): Tensile Strength @ Yield ISO 527 44 MPa, Elongation @ Yield 7 %, Flexular Strength ISO 178 45 MPa, Izod (Notched) @ 23C ISO 180 2 kJ/m2, HDT @ 1.8 MPa ISO 75 62 C, Vicat ISO 306 78 C, Tg ASTM D3418 80 C; Print Temperature 250-270 C, Bed Temperature 90 C",
+        "visual": true
       }
     }
   ],
@@ -620,7 +628,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "nine rows read against p-1.png"
   }
 }

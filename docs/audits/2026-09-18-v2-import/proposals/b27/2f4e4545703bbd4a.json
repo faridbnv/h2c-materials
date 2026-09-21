@@ -138,10 +138,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Density ISO 1183 g/cm3 1.3~1.31; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -189,9 +189,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2f4e4545703bbd4a/p-1.png: the table prints MFR(190C/2.16Kg) ISO 1133 3~6 g/10min, Tensile strength (X-Y) ISO 527 75~85 Mpa, Flexural Modulus (X-Y) ISO 527 4500~5000 Mpa, Flexural Strength (X-Y) ISO178 140~150 Mpa",
+        "visual": true
       }
     },
     {
@@ -239,9 +240,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2f4e4545703bbd4a/p-1.png: the table prints MFR(190C/2.16Kg) ISO 1133 3~6 g/10min, Tensile strength (X-Y) ISO 527 75~85 Mpa, Flexural Modulus (X-Y) ISO 527 4500~5000 Mpa, Flexural Strength (X-Y) ISO178 140~150 Mpa",
+        "visual": true
       }
     },
     {
@@ -289,9 +291,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2f4e4545703bbd4a/p-1.png: the table prints MFR(190C/2.16Kg) ISO 1133 3~6 g/10min, Tensile strength (X-Y) ISO 527 75~85 Mpa, Flexural Modulus (X-Y) ISO 527 4500~5000 Mpa, Flexural Strength (X-Y) ISO178 140~150 Mpa",
+        "visual": true
       }
     },
     {
@@ -338,10 +341,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Flexural Modulus (X-Z) ISO 527 Mpa 2000~2500; the row reads the direction as X-2, records Direction as Unstated and carries \"X-2\" into Standard / load"
       }
     },
     {
@@ -389,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2f4e4545703bbd4a/p-1.png: the table prints MFR(190C/2.16Kg) ISO 1133 3~6 g/10min, Tensile strength (X-Y) ISO 527 75~85 Mpa, Flexural Modulus (X-Y) ISO 527 4500~5000 Mpa, Flexural Strength (X-Y) ISO178 140~150 Mpa",
+        "visual": true
       }
     },
     {
@@ -438,7 +442,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "the page prints Impact Strength (X-Y) ISO180 KJ/m2 25~30; the row holds 150180 kJ/m2, the method name glued to the 150 of the row above"
       }
     }
   ],
@@ -550,6 +557,9 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "seven rows read against p-1.png"
   }
 }

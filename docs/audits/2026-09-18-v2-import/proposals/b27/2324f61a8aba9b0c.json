@@ -138,9 +138,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2324f61a8aba9b0c/p-2.png and p-3.png (TDS of Bambu PLA Pure V1.0): Density ISO 1183 1.24 g/cm3, Melt Index 210 C 2.16 kg 11.76 +/- 1.6 g/10 min, Tensile Strength (X-Y) ISO 527 GB/T 1040 51.5 +/- 2 MPa, Bending Modulus (X-Y) 2880 +/- 100 and (Z) 2599 +/- 71 MPa, Bending Strength (X-Y) 75 +/- 2 MPa (ISO 178 GB/T 9341), Impact Strength (X-Y) ISO 179 GB/T 1043 20.6 +/- 0.7 kJ/m2",
+        "visual": true
       }
     },
     {
@@ -188,9 +189,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2324f61a8aba9b0c/p-2.png and p-3.png (TDS of Bambu PLA Pure V1.0): Density ISO 1183 1.24 g/cm3, Melt Index 210 C 2.16 kg 11.76 +/- 1.6 g/10 min, Tensile Strength (X-Y) ISO 527 GB/T 1040 51.5 +/- 2 MPa, Bending Modulus (X-Y) 2880 +/- 100 and (Z) 2599 +/- 71 MPa, Bending Strength (X-Y) 75 +/- 2 MPa (ISO 178 GB/T 9341), Impact Strength (X-Y) ISO 179 GB/T 1043 20.6 +/- 0.7 kJ/m2",
+        "visual": true
       }
     },
     {
@@ -237,10 +239,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 2 prints Glass Transition Temperature DSC 10 C/min 55 C; the row holds 99 C, a number that is nowhere in the thermal table, and its Standard / load reads \"0 0.253 Temperature DSC\""
       }
     },
     {
@@ -287,10 +289,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the 63 C the row carries is the page's Vicat Softening Temperature (ISO 306, GB/T 1633), not a glass transition temperature; the row records it under Glass transition temperature and spells the label \"Micat\""
       }
     },
     {
@@ -337,10 +339,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 3 prints Young's Modulus (X-Y) ISO 527, GB/T 1040 2481 +/- 20 MPa; the row records the method as ISO 927 (a 5 read as a 9)"
       }
     },
     {
@@ -387,10 +389,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 3 prints Young's Modulus (Z) ISO 527, GB/T 1040 2196 +/- 25 MPa; the row records the method as ISO 927"
       }
     },
     {
@@ -438,9 +440,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2324f61a8aba9b0c/p-2.png and p-3.png (TDS of Bambu PLA Pure V1.0): Density ISO 1183 1.24 g/cm3, Melt Index 210 C 2.16 kg 11.76 +/- 1.6 g/10 min, Tensile Strength (X-Y) ISO 527 GB/T 1040 51.5 +/- 2 MPa, Bending Modulus (X-Y) 2880 +/- 100 and (Z) 2599 +/- 71 MPa, Bending Strength (X-Y) 75 +/- 2 MPa (ISO 178 GB/T 9341), Impact Strength (X-Y) ISO 179 GB/T 1043 20.6 +/- 0.7 kJ/m2",
+        "visual": true
       }
     },
     {
@@ -487,10 +490,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 3 prints Tensile Strength (Z) 30.0 +/- 3 MPa; the row holds 50.0 +/- 3 MPa and records the method as ISO 927"
       }
     },
     {
@@ -537,10 +540,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 3 prints Breaking Elongation Rate (X-Y) 5.6 +/- 1.0 %; the row holds 56 +/- 10 %, the decimal points read as nothing"
       }
     },
     {
@@ -587,10 +590,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 3 prints Breaking Elongation Rate (Z) 2.8 +/- 0.5 %; the row holds 28 +/- 05 %"
       }
     },
     {
@@ -638,9 +641,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2324f61a8aba9b0c/p-2.png and p-3.png (TDS of Bambu PLA Pure V1.0): Density ISO 1183 1.24 g/cm3, Melt Index 210 C 2.16 kg 11.76 +/- 1.6 g/10 min, Tensile Strength (X-Y) ISO 527 GB/T 1040 51.5 +/- 2 MPa, Bending Modulus (X-Y) 2880 +/- 100 and (Z) 2599 +/- 71 MPa, Bending Strength (X-Y) 75 +/- 2 MPa (ISO 178 GB/T 9341), Impact Strength (X-Y) ISO 179 GB/T 1043 20.6 +/- 0.7 kJ/m2",
+        "visual": true
       }
     },
     {
@@ -688,9 +692,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2324f61a8aba9b0c/p-2.png and p-3.png (TDS of Bambu PLA Pure V1.0): Density ISO 1183 1.24 g/cm3, Melt Index 210 C 2.16 kg 11.76 +/- 1.6 g/10 min, Tensile Strength (X-Y) ISO 527 GB/T 1040 51.5 +/- 2 MPa, Bending Modulus (X-Y) 2880 +/- 100 and (Z) 2599 +/- 71 MPa, Bending Strength (X-Y) 75 +/- 2 MPa (ISO 178 GB/T 9341), Impact Strength (X-Y) ISO 179 GB/T 1043 20.6 +/- 0.7 kJ/m2",
+        "visual": true
       }
     },
     {
@@ -738,9 +743,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2324f61a8aba9b0c/p-2.png and p-3.png (TDS of Bambu PLA Pure V1.0): Density ISO 1183 1.24 g/cm3, Melt Index 210 C 2.16 kg 11.76 +/- 1.6 g/10 min, Tensile Strength (X-Y) ISO 527 GB/T 1040 51.5 +/- 2 MPa, Bending Modulus (X-Y) 2880 +/- 100 and (Z) 2599 +/- 71 MPa, Bending Strength (X-Y) 75 +/- 2 MPa (ISO 178 GB/T 9341), Impact Strength (X-Y) ISO 179 GB/T 1043 20.6 +/- 0.7 kJ/m2",
+        "visual": true
       }
     },
     {
@@ -787,10 +793,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 3 prints Bending Strength (Z) 55 +/- 5 MPa; the row holds 90 +/- 5 MPa"
       }
     },
     {
@@ -838,9 +844,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/2324f61a8aba9b0c/p-2.png and p-3.png (TDS of Bambu PLA Pure V1.0): Density ISO 1183 1.24 g/cm3, Melt Index 210 C 2.16 kg 11.76 +/- 1.6 g/10 min, Tensile Strength (X-Y) ISO 527 GB/T 1040 51.5 +/- 2 MPa, Bending Modulus (X-Y) 2880 +/- 100 and (Z) 2599 +/- 71 MPa, Bending Strength (X-Y) 75 +/- 2 MPa (ISO 178 GB/T 9341), Impact Strength (X-Y) ISO 179 GB/T 1043 20.6 +/- 0.7 kJ/m2",
+        "visual": true
       }
     },
     {
@@ -887,10 +894,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 3 prints Impact Strength (Z) 10.0 +/- 0.7 kJ/m2; the row holds 0.7 kJ/m2, the uncertainty read as the value, with \"Z 10.0 + QO\" left in Standard / load"
       }
     }
   ],
@@ -959,10 +966,10 @@
         "text": "Drying Settings before Printing"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 1 prints Bed Temperature 35-65 C, Chamber Temperature 25-40 C and Nozzle Size 0.2, 0.4, 0.6, 0.8 mm; the profile row holds bed 55-69 C, chamber 29-40 C and a single nozzle diameter 0.2, and its drying field reads \"before Printing\" rather than the sheet's drying schedule"
       }
     }
   ],
@@ -1516,7 +1523,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "seventeen rows read against p-1.png, p-2.png and p-3.png"
   }
 }

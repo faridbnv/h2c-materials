@@ -139,9 +139,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6e69a23751505d38/p-1.png: the table prints MFR(250C/2.16Kg) ISO 1133 4~7 g/10min, Tensile strength ISO 527 39~42 Mpa, Flexural Modulus ISO 527 850~900 Mpa, Flexural Strength ISO178 80~82.5 Mpa",
+        "visual": true
       }
     },
     {
@@ -189,9 +190,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6e69a23751505d38/p-1.png: the table prints MFR(250C/2.16Kg) ISO 1133 4~7 g/10min, Tensile strength ISO 527 39~42 Mpa, Flexural Modulus ISO 527 850~900 Mpa, Flexural Strength ISO178 80~82.5 Mpa",
+        "visual": true
       }
     },
     {
@@ -239,9 +241,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6e69a23751505d38/p-1.png: the table prints MFR(250C/2.16Kg) ISO 1133 4~7 g/10min, Tensile strength ISO 527 39~42 Mpa, Flexural Modulus ISO 527 850~900 Mpa, Flexural Strength ISO178 80~82.5 Mpa",
+        "visual": true
       }
     },
     {
@@ -289,9 +292,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/6e69a23751505d38/p-1.png: the table prints MFR(250C/2.16Kg) ISO 1133 4~7 g/10min, Tensile strength ISO 527 39~42 Mpa, Flexural Modulus ISO 527 850~900 Mpa, Flexural Strength ISO178 80~82.5 Mpa",
+        "visual": true
       }
     }
   ],
@@ -389,7 +393,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "four rows read against p-1.png"
   }
 }

@@ -138,9 +138,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3e0e3d8f87373088/p-1.png (Triton 3D Ultem 9085): Density ISO 1183 1.34 g/cc, Tensile Elongation Break ISO 527 3 %, Flexural Strength ISO 178 91 MPa, Flexural Modulus ISO 178 2170 MPa, Tg DSC 186 C",
+        "visual": true
       }
     },
     {
@@ -187,10 +188,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Tensile Modulus ISO 527 MPa 2200; the row holds 0900 MPa / 0.9 GPa"
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3e0e3d8f87373088/p-1.png (Triton 3D Ultem 9085): Density ISO 1183 1.34 g/cc, Tensile Elongation Break ISO 527 3 %, Flexural Strength ISO 178 91 MPa, Flexural Modulus ISO 178 2170 MPa, Tg DSC 186 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3e0e3d8f87373088/p-1.png (Triton 3D Ultem 9085): Density ISO 1183 1.34 g/cc, Tensile Elongation Break ISO 527 3 %, Flexural Strength ISO 178 91 MPa, Flexural Modulus ISO 178 2170 MPa, Tg DSC 186 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3e0e3d8f87373088/p-1.png (Triton 3D Ultem 9085): Density ISO 1183 1.34 g/cc, Tensile Elongation Break ISO 527 3 %, Flexural Strength ISO 178 91 MPa, Flexural Modulus ISO 178 2170 MPa, Tg DSC 186 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3e0e3d8f87373088/p-1.png (Triton 3D Ultem 9085): Density ISO 1183 1.34 g/cc, Tensile Elongation Break ISO 527 3 %, Flexural Strength ISO 178 91 MPa, Flexural Modulus ISO 178 2170 MPa, Tg DSC 186 C",
+        "visual": true
       }
     }
   ],
@@ -451,10 +456,10 @@
         "text": "Layer Height: 0.013°/0.33mm"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints no recommended printing settings at all: its only settings block is Specimen Conditions. The profile row's locator names a section the page does not have and the row publishes nothing"
       }
     }
   ],
@@ -526,7 +531,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "seven rows read against p-1.png"
   }
 }

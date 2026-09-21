@@ -138,10 +138,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Melt flow rate (MFR) 7~12g/10min ISO 1133 with footnote 1: T=190C, m=2.16kg; the row records Test temperature Not published and carries none of that load"
       }
     },
     {
@@ -188,10 +188,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints HDT 57C ISO 75 with footnote 2: 0.45MPa; 120C/h; the row records Test load MPa as Not published"
       }
     },
     {
@@ -238,10 +238,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints VST 58C ISO 306 with footnote 3: 10N; 120C/h; the row carries no load at all"
       }
     },
     {
@@ -288,10 +288,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "p. 2 prints Elongation at break (%) 8~10; the row holds 100 %, which is the Infill 100% line above it"
       }
     }
   ],
@@ -373,9 +373,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/8e71ffd2595b0785/p-1.png: GUIDELINE FOR PRINT SETTINGS prints Nozzle temperature 190~220C and Bed temperature 30~60C",
+        "visual": true
       }
     },
     {
@@ -454,10 +455,10 @@
         "text": "Bed temperature 30~60°C"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the 210C printing temperature is the tensile specimens' condition on p. 2, not guidance on p. 1 as the locator says, and the row pairs it with the p. 1 bed range"
       }
     }
   ],
@@ -735,7 +736,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "six rows read against p-1.png and p-2.png"
   }
 }

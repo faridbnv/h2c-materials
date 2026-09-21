@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ISO 1183 g/cm3 1.24; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/abd278451b3a1e3b/p-1.png (Fiberlogy HS PLA CLEAR): Tensile Strength ISO 527 50 MPa, Tensile Modulus 3500 MPa, Elongation @ Break <5 %, Charpy (Notched) @ 23C ISO 179 <5 kJ/m2, Glass transition temperature DSC 60 C; Print Temperature 220-250 C, Bed Temperature 60 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/abd278451b3a1e3b/p-1.png (Fiberlogy HS PLA CLEAR): Tensile Strength ISO 527 50 MPa, Tensile Modulus 3500 MPa, Elongation @ Break <5 %, Charpy (Notched) @ 23C ISO 179 <5 kJ/m2, Glass transition temperature DSC 60 C; Print Temperature 220-250 C, Bed Temperature 60 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/abd278451b3a1e3b/p-1.png (Fiberlogy HS PLA CLEAR): Tensile Strength ISO 527 50 MPa, Tensile Modulus 3500 MPa, Elongation @ Break <5 %, Charpy (Notched) @ 23C ISO 179 <5 kJ/m2, Glass transition temperature DSC 60 C; Print Temperature 220-250 C, Bed Temperature 60 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/abd278451b3a1e3b/p-1.png (Fiberlogy HS PLA CLEAR): Tensile Strength ISO 527 50 MPa, Tensile Modulus 3500 MPa, Elongation @ Break <5 %, Charpy (Notched) @ 23C ISO 179 <5 kJ/m2, Glass transition temperature DSC 60 C; Print Temperature 220-250 C, Bed Temperature 60 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/abd278451b3a1e3b/p-1.png (Fiberlogy HS PLA CLEAR): Tensile Strength ISO 527 50 MPa, Tensile Modulus 3500 MPa, Elongation @ Break <5 %, Charpy (Notched) @ 23C ISO 179 <5 kJ/m2, Glass transition temperature DSC 60 C; Print Temperature 220-250 C, Bed Temperature 60 C",
+        "visual": true
       }
     }
   ],
@@ -447,9 +452,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/abd278451b3a1e3b/p-1.png (Fiberlogy HS PLA CLEAR): Tensile Strength ISO 527 50 MPa, Tensile Modulus 3500 MPa, Elongation @ Break <5 %, Charpy (Notched) @ 23C ISO 179 <5 kJ/m2, Glass transition temperature DSC 60 C; Print Temperature 220-250 C, Bed Temperature 60 C",
+        "visual": true
       }
     }
   ],
@@ -520,7 +526,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "seven rows read against p-1.png"
   }
 }

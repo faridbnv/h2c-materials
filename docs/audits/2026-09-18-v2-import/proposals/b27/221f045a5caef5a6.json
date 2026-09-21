@@ -138,10 +138,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ISO 1183 g/cm3 1.32; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -189,9 +189,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -239,9 +240,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -289,9 +291,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -339,9 +342,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -389,9 +393,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -439,9 +444,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -489,9 +495,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     },
     {
@@ -539,9 +546,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     }
   ],
@@ -600,9 +608,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/221f045a5caef5a6/p-1.png (Fiberlogy PETG+CF): Tensile Strength @ Break ISO 527 105 MPa, Tensile Modulus ISO 527 9000 MPa, Elongation @ Break 4 %, Charpy Unnotched 45 and Notched 6.5 kJ/m2 @ 23C ISO 179, HDT @ 0.45 MPa 72 C and @ 1.8 MPa 69 C ISO 75, Vicat ISO 306 77 C; Print Temperature 230-260 C, Bed Temperature 90 C",
+        "visual": true
       }
     }
   ],
@@ -668,7 +677,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "ten rows read against p-1.png"
   }
 }

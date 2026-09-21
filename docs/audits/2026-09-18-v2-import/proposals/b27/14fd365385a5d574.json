@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ISO 1183 g/cm3 1.05; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -438,9 +443,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -487,10 +493,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Heat Distortion Temperature @ 1.8 MPa ISO 75 C 100* and, under the table, the footnote \"* - annealing\"; the row records the 100 C as if it were as-printed, with Post-processing not-stated"
       }
     },
     {
@@ -538,9 +544,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -597,9 +604,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/14fd365385a5d574/p-1.png (Fiberlogy ABS): Tensile Strength @ Yield ISO 527 45 MPa, Tensile Modulus ISO 527 2300 MPa, Elongation @ Yield 2.5 %, Flexular Strength ISO 178 68 MPa, Flexular Modulus ISO 178 2300 MPa, Charpy (Notched) @ 23C ISO 179 18 kJ/m2, Vicat ISO 306 97 C; Print Temperature 250-265 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -665,7 +673,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "ten rows read against p-1.png"
   }
 }

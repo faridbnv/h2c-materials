@@ -138,10 +138,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ISO 1183 g/cm3 1.05; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -189,9 +189,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -239,9 +240,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -289,9 +291,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -339,9 +342,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -389,9 +393,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -439,9 +444,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -489,9 +495,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -539,9 +546,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -589,9 +597,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -639,9 +648,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     },
     {
@@ -689,9 +699,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/89134ee21dcf4614/p-1.png (Fiberlogy R PP, updated March 17 2022): Tensile Strength @ Break ISO 527 21 MPa, Tensile Modulus 1100 MPa, Elongation @ Yield >30 % and @ Break 250 %, Flexural Strength ISO 178 18 MPa, Flexural Modulus 1200 MPa, HDT @ 0.45 MPa 80 C and @ 1.8 MPa 65 C ISO 75, Vicat ISO 306 135 C, Tm DSC 163 C, Continuous Use Temperature UL 746 65 C",
+        "visual": true
       }
     }
   ],
@@ -747,10 +758,10 @@
         "text": "Print Temperature: 220°C - 250°C"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Bed Temperature: \"Not required when using a packing tape\" over two lines; the profile row holds \"Not required when using a packing\", cut at the line break"
       }
     }
   ],
@@ -826,7 +837,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "thirteen rows read against p-1.png"
   }
 }

@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Gravity ISO 1183 g/cm3 1.18; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -438,9 +443,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -487,7 +493,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "the page prints Heat Distortion Temperature @ 0.45 MPa ISO 75 C as \"75 - 85 (annealing)\"; the row holds a single 285 C and buries the word annealing in Standard / load instead of recording the post-processing"
       }
     },
     {
@@ -535,9 +544,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -585,9 +595,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     }
   ],
@@ -644,9 +655,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/13872e732560faf2/p-1.png (Fiberlogy IMPACT PLA, updated December 1 2021): Tensile Strength @ Break ISO 527 40 MPa, Tensile Modulus 2350 MPa, Elongation @ Break 10 %, Flexural Strength ISO 178 70 MPa, Flexural Modulus 2400 MPa, Izod (Notched) @ 23C ISO 180 18 kJ/m2, Tg DSC 55-60 C, Tm DSC 165-180 C; Print Temperature 220-245 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     }
   ],
@@ -726,6 +738,9 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "eleven rows read against p-1.png"
   }
 }

@@ -138,9 +138,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e980879280717c29/p-1.png (Triton ABS): Density 1.05 g/cc, Flexural Strength 54 MPa, Flexural Modulus 1910 MPa, Tg 104 C",
+        "visual": true
       }
     },
     {
@@ -187,10 +188,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Tensile Modulus ISO 527 MPa 2205; the row holds 0908 MPa / 0.908 GPa"
       }
     },
     {
@@ -237,10 +238,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Tensile Elongation, Break ISO 527 % 4.5; the row holds 45 %, the decimal point read as nothing"
       }
     },
     {
@@ -288,9 +289,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e980879280717c29/p-1.png (Triton ABS): Density 1.05 g/cc, Flexural Strength 54 MPa, Flexural Modulus 1910 MPa, Tg 104 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +340,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e980879280717c29/p-1.png (Triton ABS): Density 1.05 g/cc, Flexural Strength 54 MPa, Flexural Modulus 1910 MPa, Tg 104 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +391,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e980879280717c29/p-1.png (Triton ABS): Density 1.05 g/cc, Flexural Strength 54 MPa, Flexural Modulus 1910 MPa, Tg 104 C",
+        "visual": true
       }
     }
   ],
@@ -451,10 +455,10 @@
         "text": "Layer Height: 0.013°/0.33mm"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints no recommended printing settings: its only settings block is Specimen Conditions. The profile row's locator names a section the page does not have and the row publishes nothing"
       }
     }
   ],
@@ -521,7 +525,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "seven rows read against p-1.png"
   }
 }

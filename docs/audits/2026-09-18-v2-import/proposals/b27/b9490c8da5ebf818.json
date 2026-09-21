@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ASTM D792 g/cm3 1.24; the value is right but the row's Standard / load is \"3 ASTM D792\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/b9490c8da5ebf818/p-1.png (Fiberlogy MATTE PLA): Tensile Strength @ Yield ASTM D882 41 MPa, Elongation @ Yield ASTM D882 4 %, Flexular Strength ASTM D790 48 MPa, Melting Temperature Tm ASTM D3418 145-160 C; TECHNICAL INFORMATION prints Print Temperature 200-230 C and Bed Temperature 60 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/b9490c8da5ebf818/p-1.png (Fiberlogy MATTE PLA): Tensile Strength @ Yield ASTM D882 41 MPa, Elongation @ Yield ASTM D882 4 %, Flexular Strength ASTM D790 48 MPa, Melting Temperature Tm ASTM D3418 145-160 C; TECHNICAL INFORMATION prints Print Temperature 200-230 C and Bed Temperature 60 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/b9490c8da5ebf818/p-1.png (Fiberlogy MATTE PLA): Tensile Strength @ Yield ASTM D882 41 MPa, Elongation @ Yield ASTM D882 4 %, Flexular Strength ASTM D790 48 MPa, Melting Temperature Tm ASTM D3418 145-160 C; TECHNICAL INFORMATION prints Print Temperature 200-230 C and Bed Temperature 60 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/b9490c8da5ebf818/p-1.png (Fiberlogy MATTE PLA): Tensile Strength @ Yield ASTM D882 41 MPa, Elongation @ Yield ASTM D882 4 %, Flexular Strength ASTM D790 48 MPa, Melting Temperature Tm ASTM D3418 145-160 C; TECHNICAL INFORMATION prints Print Temperature 200-230 C and Bed Temperature 60 C",
+        "visual": true
       }
     }
   ],
@@ -397,9 +401,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/b9490c8da5ebf818/p-1.png (Fiberlogy MATTE PLA): Tensile Strength @ Yield ASTM D882 41 MPa, Elongation @ Yield ASTM D882 4 %, Flexular Strength ASTM D790 48 MPa, Melting Temperature Tm ASTM D3418 145-160 C; TECHNICAL INFORMATION prints Print Temperature 200-230 C and Bed Temperature 60 C",
+        "visual": true
       }
     }
   ],
@@ -475,7 +480,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "six rows read against p-1.png"
   }
 }

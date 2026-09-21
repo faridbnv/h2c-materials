@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Gravity ISO 1183 g/cm3 1.01; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -438,9 +443,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -488,9 +494,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -538,9 +545,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -588,9 +596,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -638,9 +647,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     },
     {
@@ -688,9 +698,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     }
   ],
@@ -747,9 +758,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/c32884a4768675e0/p-1.png (Fiberlogy Nylon PA12, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 51 MPa, Tensile Modulus 1400 MPa, Elongation @ Yield 5 % and @ Break >200 %, Flexural Modulus ISO 178 1150 MPa, HDT @ 0.45 MPa 135 C and @ 1.8 MPa 55 C ISO 75, Vicat ISO 306 145 C, Tm DSC 178 C, Continuous Use Temperature UL 746 65 C; Print Temperature 255-270 C, Bed Temperature 100 C",
+        "visual": true
       }
     }
   ],
@@ -830,7 +842,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "thirteen rows read against p-1.png"
   }
 }

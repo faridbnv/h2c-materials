@@ -155,10 +155,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Gravity ISO 1183 g/cm3 1.38; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -206,9 +206,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -256,9 +257,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -306,9 +308,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -356,9 +359,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -406,9 +410,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -456,9 +461,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -506,9 +512,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -556,9 +563,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -606,9 +614,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     },
     {
@@ -656,9 +665,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     }
   ],
@@ -715,9 +725,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/3c423c94890afd3a/p-1.png (Fiberlogy PLA MINERAL, updated December 1 2021): Tensile Strength @ Yield ISO 527 45 MPa, @ Break 30 MPa, Tensile Modulus 3500 MPa, Elongation @ Yield 3 % and @ Break 23 %, Izod (Notched) @ 23C ISO 180 5 kJ/m2, HDT @ 0.45 MPa 55 C and @ 1.8 MPa 50 C ISO 75, Tg DSC 55-60 C, Tm DSC 155-160 C; Print Temperature 190-210 C, Bed Temperature 50-70 C",
+        "visual": true
       }
     }
   ],
@@ -810,7 +821,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "twelve rows read against p-1.png"
   }
 }

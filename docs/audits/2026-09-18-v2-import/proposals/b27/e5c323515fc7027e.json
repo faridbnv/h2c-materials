@@ -137,10 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ASTM D792 g/cm3 1.07; the value is right but the row's Standard / load is \"3 ASTM D792\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -188,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -238,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -288,9 +290,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -338,9 +341,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -388,9 +392,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -438,9 +443,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -488,9 +494,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -538,9 +545,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -597,9 +605,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/e5c323515fc7027e/p-1.png (Fiberlogy MATTE ASA): Tensile Strength @ Yield ISO 527 43 MPa, Tensile Modulus 2300 MPa, Elongation @ Yield 3 % and @ Break 19 %, Izod (Notched) @ 23C ISO 180 8 kJ/m2, HDT @ 0.45 MPa 96 C and @ 1.8 MPa 87 C ASTM D648, Vicat ASTM D1525 96 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -665,7 +674,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "ten rows read against p-1.png"
   }
 }

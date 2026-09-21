@@ -138,10 +138,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Specific Density ISO 1183 g/cm3 1.13; the value is right but the row's Standard / load is \"3 ISO 1183\", a 3 carried in from the g/cm3 column"
       }
     },
     {
@@ -189,9 +189,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -239,9 +240,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -289,9 +291,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -339,9 +342,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -389,9 +393,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -439,9 +444,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -489,9 +495,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     },
     {
@@ -539,9 +546,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -600,9 +608,10 @@
       },
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/d177f6a37f0897dd/p-1.png (Fiberlogy Nylon PA12+GF15, updated January 21 2022): Tensile Modulus ISO 527 3100 MPa, Elongation @ Break 8 %, Flexural Modulus ISO 178 3000 MPa, HDT @ 0.45 MPa 172 C and @ 1.8 MPa 155 C ISO 75, Vicat ISO 306 170 C, Tm DSC 178 C, Continuous Use Temperature (UL Yellow Card) UL 746 100 C; Print Temperature 255-270 C, Bed Temperature 90-110 C",
+        "visual": true
       }
     }
   ],
@@ -698,7 +707,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "ten rows read against p-1.png"
   }
 }

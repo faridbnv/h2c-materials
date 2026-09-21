@@ -139,9 +139,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/67403ed3650f48e9/p-1.png: the table prints Moisture Absorption(23C/24h) ISO 62 <0.3 %, Tensile strength ISO 527 60~65 Mpa, Elongation at break ISO 527 6~6.5 %, Flexural Modulus ISO 527 4900~5000 Mpa",
+        "visual": true
       }
     },
     {
@@ -189,9 +190,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/67403ed3650f48e9/p-1.png: the table prints Moisture Absorption(23C/24h) ISO 62 <0.3 %, Tensile strength ISO 527 60~65 Mpa, Elongation at break ISO 527 6~6.5 %, Flexural Modulus ISO 527 4900~5000 Mpa",
+        "visual": true
       }
     },
     {
@@ -239,9 +241,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/67403ed3650f48e9/p-1.png: the table prints Moisture Absorption(23C/24h) ISO 62 <0.3 %, Tensile strength ISO 527 60~65 Mpa, Elongation at break ISO 527 6~6.5 %, Flexural Modulus ISO 527 4900~5000 Mpa",
+        "visual": true
       }
     },
     {
@@ -289,9 +292,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/67403ed3650f48e9/p-1.png: the table prints Moisture Absorption(23C/24h) ISO 62 <0.3 %, Tensile strength ISO 527 60~65 Mpa, Elongation at break ISO 527 6~6.5 %, Flexural Modulus ISO 527 4900~5000 Mpa",
+        "visual": true
       }
     },
     {
@@ -338,10 +342,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints Flexural Strength ISO178 Mpa with a bare / in the value cell: this sheet publishes no flexural strength at all; the row holds 178 MPa, read off the method name"
       }
     }
   ],
@@ -469,7 +473,8 @@
   ],
   "review": {
     "status": "reviewed",
-    "by": "claude-opus-5",
-    "date": "2026-09-21"
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "five rows read against p-1.png"
   }
 }

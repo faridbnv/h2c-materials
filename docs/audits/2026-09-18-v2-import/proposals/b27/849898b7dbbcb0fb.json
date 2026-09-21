@@ -139,9 +139,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/849898b7dbbcb0fb/p-1.png (Triton TriStat ESD-PC): Density 1.22 g/cc, Tensile Elongation Break 3 %, Flexural Strength 84 MPa, Flexural Modulus 2430 MPa, Tg 160 C",
+        "visual": true
       }
     },
     {
@@ -188,7 +189,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "the page prints Tensile Modulus ISO 527 MPa 2010; the row holds 0010 MPa / 0.01 GPa"
       }
     },
     {
@@ -236,9 +240,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/849898b7dbbcb0fb/p-1.png (Triton TriStat ESD-PC): Density 1.22 g/cc, Tensile Elongation Break 3 %, Flexural Strength 84 MPa, Flexural Modulus 2430 MPa, Tg 160 C",
+        "visual": true
       }
     },
     {
@@ -286,9 +291,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/849898b7dbbcb0fb/p-1.png (Triton TriStat ESD-PC): Density 1.22 g/cc, Tensile Elongation Break 3 %, Flexural Strength 84 MPa, Flexural Modulus 2430 MPa, Tg 160 C",
+        "visual": true
       }
     },
     {
@@ -336,9 +342,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/849898b7dbbcb0fb/p-1.png (Triton TriStat ESD-PC): Density 1.22 g/cc, Tensile Elongation Break 3 %, Flexural Strength 84 MPa, Flexural Modulus 2430 MPa, Tg 160 C",
+        "visual": true
       }
     },
     {
@@ -386,9 +393,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/849898b7dbbcb0fb/p-1.png (Triton TriStat ESD-PC): Density 1.22 g/cc, Tensile Elongation Break 3 %, Flexural Strength 84 MPa, Flexural Modulus 2430 MPa, Tg 160 C",
+        "visual": true
       }
     }
   ],
@@ -449,10 +457,10 @@
         "text": "Layer Height: 0.013°/0.33mm"
       },
       "review": {
-        "status": "accepted",
-        "by": "claude-opus-5",
+        "status": "rejected",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "the page prints no recommended printing settings: its only settings block is Specimen Conditions. The profile row's locator names a section the page does not have and the row publishes nothing"
       }
     }
   ],
@@ -518,6 +526,9 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "seven rows read against p-1.png"
   }
 }

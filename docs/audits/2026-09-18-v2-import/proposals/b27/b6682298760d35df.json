@@ -137,7 +137,10 @@
       },
       "confidence": 1,
       "review": {
-        "status": "proposed"
+        "status": "rejected",
+        "by": "claude-optical",
+        "date": "2026-09-21",
+        "note": "the page prints Tensile Modulus 1.750 MPa (the same table printing 0.43 and 1.01 with a point); the row holds 1 750 MPa / 1.75 GPa, a separator the reader decided rather than the page"
       }
     },
     {
@@ -185,9 +188,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/b6682298760d35df/p-1.png: the page prints Tensile Strength 48 MPa and Elongation at Break 14 %, both DIN EN ISO 527",
+        "visual": true
       }
     },
     {
@@ -235,9 +239,10 @@
       "confidence": 1,
       "review": {
         "status": "accepted",
-        "by": "claude-opus-5",
+        "by": "claude-optical",
         "date": "2026-09-21",
-        "note": "read against the page: the row states its property, its method, its condition and its unit as the sheet prints them, and the identity is the one the sheet itself names"
+        "note": "read against .cache/pages/b6682298760d35df/p-1.png: the page prints Tensile Strength 48 MPa and Elongation at Break 14 %, both DIN EN ISO 527",
+        "visual": true
       }
     }
   ],
@@ -294,6 +299,9 @@
     }
   ],
   "review": {
-    "status": "proposed"
+    "status": "reviewed",
+    "by": "claude-optical",
+    "date": "2026-09-21",
+    "note": "three rows read against p-1.png"
   }
 }
