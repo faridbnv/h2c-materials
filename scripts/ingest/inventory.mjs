@@ -214,6 +214,24 @@ function statusReport(rows) {
           return [`\`${reason}\``, n(c), [...mine].sort((a, b) => b[1] - a[1]).slice(0, 5).map(([p, k]) => `${p} ${k}`).join(', ')];
         })), '');
   }
+  // The research inventory, reconciled: what became of every document it listed (the rows the pipeline added later
+  // — witnesses, harvested and staged documents — are not the inventory's). Each document ends in one of four
+  // places, and the fourth says on whom it waits.
+  const later = /^(product page, fetched|a document the maker published|harvested |staged )/;
+  const listed = rows.filter((r) => !later.test(r.discovery ?? ''));
+  const place = (r) => (r.status === 'applied' ? 'applied'
+    : ['duplicate-of', 'registered', 'safety-data-sheet', 'not-a-data-sheet', 'skipped', 'rejected'].includes(r.status) ? 'settled: a copy, a product already recorded, or not a data sheet'
+      : r.status === 'deferred' ? 'deferred past V2, the gap named'
+        : r.status === 'gated' ? 'open: gated (the owner)'
+          : r.status === 'unreachable' ? 'open: unreachable, retried at the Wayback Machine'
+            : /^held: ruling/.test(r.status_note ?? '') ? 'open: an identity question for the owner'
+              : `open: ${r.status}${/^held: (\S+)/.test(r.status_note ?? '') ? ` (${r.status_note.match(/^held: (\S+)/)[1]})` : ''}`);
+  const places = count(listed, place);
+  out.push('## The research inventory, reconciled', '',
+    `${n(listed.length)} of the ledger's documents came from the research inventory; the rest are witnesses, harvested and`,
+    'staged documents the pipeline added. Where each of the inventory\'s ended:', '',
+    ...table(['Where', 'Documents'], [...places].sort((a, b) => b[1] - a[1]).map(([k, c]) => [k, n(c)])), '');
+
   const ready = rows.filter((r) => r.status === 'extracted');
   if (ready.length) {
     const mine = count(ready, (r) => r.provider);

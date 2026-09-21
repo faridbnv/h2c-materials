@@ -15,10 +15,12 @@ in what order, with the reasoning a count cannot carry.
 
 ## 1. Where it stands
 
-On 2026-09-21, after batch b30: 1,146 of 2,088 ledger rows applied, 534 settled, **408 open** — 358 `held`, 33
-`gated` (INTAMSYS, out of V2), 17 `unreachable`. The ledger grew by 40 witness rows (R089), which are settled as
-`duplicate-of` their documents. Batch b27 (the optical pool) is reviewed and not applied. The database: 157
-materials, 1,031 grades, 10,440 measurements, 1,307 sources (row counts, retired records included).
+On 2026-09-21, after batch b33 the import is closed for V2: of 2,089 ledger rows, 1,264 are applied, 560 settled
+(a copy, a product already recorded, not a data sheet), 104 deferred past V2 with the reader gap named, and 161
+open — 105 identity questions for the owner, 33 `gated` (INTAMSYS, out of V2), 15 `unreachable` (retried at the
+Wayback Machine) and 8 twins of sheets still held. STATUS.md reconciles the research inventory's 1,936 documents
+the same way. The database: 158 materials, 1,119 grades, 11,096 measurements, 1,422 sources (row counts, retired
+records included).
 
 Two owner archives sit untracked and ignored beside the repository; the pipeline keeps only their hashed bytes:
 
@@ -56,11 +58,11 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | 1.2 | iSANMATE: staging, layout parity, batch b29 | ½ | done 2026-09-21 (b29, m112; parity 61 %, completeness measured) |
 | 1.3 | Verdicts by witness, batch b30 | 1½ | done 2026-09-21 (b30, m117; R099–R164) |
 | 1.4 | Supports, density-unit misreads, the six unsettled, batch b31 | 1 | done 2026-09-21 in b30 (R076, R098, m114, m116); PEKK/PAEK rows wait with Stratasys's reader gap (1.7); PMMA, SBC, PI and WearX to the owner's list |
-| 1.5 | Batch b27 applied | 1 | |
+| 1.5 | Batch b27 applied | 1 | done 2026-09-21 (b27, m121; three optical rounds) |
 | 1.6 | Second read: the findings register, the corrections | 1 | register and two classes done 2026-09-21 (R165, m118, m119); 79 findings open |
-| 1.7 | The tail: twins, no-values, unreachable, several-values, low-parity makers, `deferred` | 1½ | |
-| 1.8 | The import closed | ½ | |
-| 2.1 | Cross-maker consistency: SQL views, `EST-CONFLICT` | 1 | |
+| 1.7 | The tail: twins, no-values, unreachable, several-values, low-parity makers, `deferred` | 1½ | done 2026-09-21 (b31–b33, m120–m125, R166; 104 deferred) |
+| 1.8 | The import closed | ½ | done 2026-09-21 (STATUS.md reconciles the inventory) |
+| 2.1 | Cross-maker consistency: SQL views, `EST-CONFLICT` | 1 | done 2026-09-21 (measurement_z, v_property_spread, EST-CONFLICT at info) |
 | 2.2 | Grade posteriors, `EST-GRADE-OUTLIER`, D81 | 2 | |
 | 2.3 | The sweep | 1½ | |
 | 2.4 | Representative grades and headlines after the import | ½ | |
@@ -375,11 +377,11 @@ second thirty-per-cent grade (four findings accepted).
 ## 8. Where to pick this up
 
 1. `npm run ingest:inventory -- --status`, `npm run ingest:blockers`, `npm run ingest:readings`.
-2. The first step in §3 without a date in its State column. After b30 that is **1.5**, batch b27. What b28 to
-   b30 left waiting is in their READMEs' last sections; b30's is the owner's list: family-only names, contradicting
-   maker documents, resin makers' sheets, TPS under R056, and single sheets whose polymer has no row (PMMA, SBC, PI).
-   A polymer row for PEKK and PAEK is worth writing only with Stratasys's condition-table rule, which holds both
-   sheets anyway (1.7).
+2. The first step in §3 without a date in its State column: after the import's close that is **2.2**, grade
+   posteriors (the design is in the approved plan). The owner's part of the import is one list, in BLOCKERS.md
+   (`ruling:*`) and batches/b30/README.md "What waits": names that state only a family (about 40, which the
+   recommendation is to defer), maker documents that contradict each other (Fiberlogy FiberFlex TPU vs TPC,
+   Extrudr GreenTEC), resin makers' sheets (scope), TPS under R056, and single sheets whose polymer has no row.
 3. Before committing: `npm run verify:fast`; `npm run verify` once per batch; `npm run ingest:propose -- --compare
    --all` if the reader changed. A parity drop after a reader fix may be the recorded rows being wrong: it happened
    three times, and each time the migration that corrected them brought the census back.

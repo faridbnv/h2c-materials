@@ -42,6 +42,21 @@ and each says what would free it (`scripts/ingest/batch.mjs`).
 | `ruling` | 105 | 3DJake / 3DJAKE 19, Filament2Print 10, Nanovia 9, Stratasys 6, Fabru / purefil 5 |
 | `twin` | 8 | 3DJake / 3DJAKE 3, 3D4Makers 2, Spectrum 2, Prusa Research / Prusament 1 |
 
+## The research inventory, reconciled
+
+1,936 of the ledger's documents came from the research inventory; the rest are witnesses, harvested and
+staged documents the pipeline added. Where each of the inventory's ended:
+
+| Where | Documents |
+|---|---:|
+| applied | 1,256 |
+| settled: a copy, a product already recorded, or not a data sheet | 440 |
+| open: an identity question for the owner | 104 |
+| deferred past V2, the gap named | 80 |
+| open: gated (the owner) | 33 |
+| open: unreachable, retried at the Wayback Machine | 15 |
+| open: held (twin) | 8 |
+
 ## The reader
 
 Every value somebody transcribed by hand before this programme, read again by the reader and compared. A
@@ -125,6 +140,7 @@ npm run ingest:propose -- --compare --all
 | [b30](batches/b30/README.md) | b30: verdicts by witness, and four small reader rules | m117-batch-b30, 2026-09-21 |
 | [b31](batches/b31/README.md) | b31: the twins | m122-batch-b31, 2026-09-21 |
 | [b32](batches/b32/README.md) | b32: every held document, once more | m124-batch-b32, 2026-09-21 |
+| [b33](batches/b33/README.md) | b33: the optical readings a reader could still sign | m125-batch-b33, 2026-09-21 |
 
 ## By provider
 
