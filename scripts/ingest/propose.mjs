@@ -1945,8 +1945,15 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   const unit = String(v.read.printedUnit ?? '').trim();
   const unitSpans = unit ? [...withoutAxis.matchAll(new RegExp(unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'))].map((m) => [m.index, m.index + m[0].length]) : [];
   const spans = [...[...withoutAxis.matchAll(new RegExp(STANDARD_RE.source, 'gi'))].map((m) => [m.index, m.index + m[0].length]), ...unitSpans];
-  const at0 = [...withoutAxis.matchAll(/[,(@]|\d/g)].map((m) => m.index)
+  // A thermal method is where the method column begins. "Melting temperature DSC, 10°C/min 150 °C" was cut at
+  // the comma after DSC, so the method the sheet names was left behind with the label and the row recorded no
+  // method at all — thirty-seven rows of Polymaker's and 3DXTECH's thermal tables, on sheets that name DSC or
+  // TGA and nothing else. `readStandards` has recorded DSC as a method since the build was written; the reader
+  // has to hand it the word.
+  const method = /\b(?:DSC|TGA|DMTA|DMA|TMA)\b/i.exec(withoutAxis);
+  const firstNumber = [...withoutAxis.matchAll(/[,(@]|\d/g)].map((m) => m.index)
     .find((i) => !spans.some(([from, to]) => i >= from && i < to)) ?? -1;
+  const at0 = method && (firstNumber < 0 || method.index < firstNumber) ? method.index : firstNumber;
   const condition = (at0 > 0 ? withoutAxis.slice(at0) : withoutAxis.replace(v.read.match.re, ' '))
     // The opening bracket and the punctuation before a condition are not part of it; a minus sign in front of a
     // number is. Stripping it turned "Charpy Notched Impact Strength (-30°C)" into a test run at +30 °C.
@@ -1971,9 +1978,10 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     .replace(new RegExp(STANDARD_RE.source, 'gi'), ' ')
     .replace(/([<>≤≥]?\s*\d+(?:[.,]\d+)?\s*(?:MPa|MN\s?\/\s?m\s?2|N\s?\/\s?mm\s?2))/gi, ' ')
     .replace(/\b(un-?notched|notched)\b/gi, ' ').replace(/\b3d\s*print\w*\b/gi, ' ')
-    // The unit column has a column of its own too. A table that prints its unit before its value leaves it at the
-    // end of the row's words ("23℃ g/cm3"), and keeping it wrote the unit twice.
-    .replace(new RegExp(`${String(v.read.printedUnit ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*[${BOUNDS}]?\\s*$`), ' ')
+    // The unit column has a column of its own too. A table that prints its unit before its value leaves it among
+    // the row's words — at the end ("23℃ g/cm3"), or between the method and a label fragment ("DSC °C Tg") —
+    // and keeping it wrote the unit twice.
+    .replace(new RegExp(`\\s*${String(v.read.printedUnit ?? '\u0000').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*[${BOUNDS}]?`, 'g'), ' ')
     .replace(/[,@()*<>≤≥]/g, ' ').replace(/\s+/g, ' ').trim();
   // What is left of the row's words once the standard, the load and the notch are in their own columns is either
   // a condition of the test or a piece of the property's own name that the label pattern did not reach

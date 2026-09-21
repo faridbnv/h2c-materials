@@ -1288,6 +1288,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 8302 | Thermal conductivity by the guarded hot plate. |
 | ISO 845 | Apparent density of cellular plastics and rubbers; the test a foaming filament's sheet cites for the density its print reaches. |
 | ISO 868 | Indentation hardness by durometer (Shore). |
+| TGA | Thermogravimetric analysis, where the source names the method but no standard; a decomposition temperature is measured this way and several sheets print "TGA, 20 °C/min" where a standard would go, as they print "DSC" for a melting point. |
 
 <a id="vocab-stock"></a>
 ### stock

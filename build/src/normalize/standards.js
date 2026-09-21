@@ -48,8 +48,10 @@ export function readStandards(raw) {
       if (!at.has(name)) { at.set(name, m.index); found.push(name); }
     }
   }
-  // DSC is a method, not a standard, and several sheets name it where a standard would go. It is recorded only
-  // where no standard is named beside it: ISO 11357 and ASTM D3418 are DSC, and saying both adds nothing.
+  // DSC and TGA are methods, not standards, and several sheets name one where a standard would go: a melting
+  // point "DSC, 10 °C/min" and a decomposition temperature "TGA, 20 °C/min". Each is recorded only where no
+  // standard is named beside it — ISO 11357 and ASTM D3418 are DSC, and saying both adds nothing.
   if (!found.length && /\bDSC\b/i.test(text)) found.push('DSC');
+  if (!found.length && /\bTGA\b/i.test(text)) found.push('TGA');
   return found.sort((a, b) => at.get(a) - at.get(b) || a.localeCompare(b));
 }
