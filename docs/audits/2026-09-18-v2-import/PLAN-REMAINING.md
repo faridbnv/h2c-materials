@@ -10,15 +10,20 @@ decided or built.
 
 ## 1. What holds each document, and what frees it
 
+**[BLOCKERS.md](BLOCKERS.md) is the register, and it is generated** (`npm run ingest:blockers`): every document
+that is not applied, what would have to happen to it, who it waits on, and what is uncertain about it. Read that
+first; this section is the reasoning behind it.
+
 `npm run ingest:batch -- --holds` asks every proposal why it is waiting and writes the answer into the ledger, so
-the queue is a query rather than a memory. Every document now has a reason, and **what waits on the owner is a
+the queue is a query rather than a memory. It asks one thing before the proposal: whether the maker already has
+an active grade for the product. Eighty-four documents were waiting in four different queues for that fact. Every document now has a reason, and **what waits on the owner is a
 document of its own**: `npm run ingest:batch -- --decisions` writes [DECISIONS-PENDING.md](DECISIONS-PENDING.md),
 grouped by question, with how many documents each answer frees and what the pipeline would do by default.
 
 | Reason | What frees it | Whose |
 |---|---|---|
 | `ruling` | an answer to one of the nine questions in DECISIONS-PENDING.md | the owner's |
-| `twin` | R053 applied by the pipeline: a grade each, citing its own sheet, the values recorded once. **The largest mechanical unblock left and the one nothing in `apply.mjs` can do yet**: the splitter finds the pairs and writes which source each repeats, and what is missing is the write | the pipeline's |
+| `twin` | R053, built and applied (b21, m93). What is left waits on the sheet it repeats being applied, or on a reading of the two sheets: "one sheet served twice, or two products tested once?" is what the extract stage asks and R053 answers only the second | the pipeline's |
 | `no-values` | the reader learning the layout, or the document being what it looks like — a brochure | the pipeline's |
 | `ocr-visual` | `ingest:review --visual`, a person against the page image; nothing else may pass it (D35) | a reader's |
 | `reader:condition-table` | a table per condition, under headings that repeat (Stratasys) | the pipeline's |
