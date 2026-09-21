@@ -1334,3 +1334,12 @@ test('a metal the lexicon holds no modifier for is answered by the density and t
   // No density, no answer: a tungsten-filled PETG is never filed as plain PETG.
   assert.equal(sheet('Tensile strength 35 MPa ISO 527').identity.needsRuling, true);
 });
+
+test('a revision date is the document’s, not the product’s name', () => {
+  // Yousu heads every sheet "PLA 3D FILMAENT Revision Date: 18/12/2020" (m116).
+  assert.equal(productName('PETG 3D FILMAENT Revision Date: 18/12/2020', 'Yousu'), 'PETG');
+  assert.equal(productName('Modified ABS 3D FILMAENT Revision Date: 21/12/2020', 'Yousu'), 'Modified ABS');
+  assert.equal(productName('YOUSU POM 3D Filament', 'Yousu'), 'POM');
+  // A revision that is part of the name stays: only a labelled date or revision clause comes off.
+  assert.equal(productName('PLA Revision 2', 'Nobody'), 'PLA Revision 2');
+});

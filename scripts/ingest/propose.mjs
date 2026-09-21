@@ -2429,7 +2429,11 @@ export function productName(printed, maker = '') {
     // Fabrial R. Only after a word of four letters or more, and only where the name goes on without them.
     .replace(/(?<=[A-Za-z]{4})TM\b/g, '')
     .replace(/\s*\[[^\]]*\]\s*/g, ' ')
-    .replace(/\b3d\s*(print(ing|er)?\s*)?filament\b/gi, '')
+    // A revision is the document's, not the product's: Yousu heads every sheet "PLA 3D FILMAENT Revision Date:
+    // 18/12/2020", and six grades carried the date in their name.
+    .replace(/\s*\b(?:latest\s+)?(?:revision|update[ds]?|issue|release)(?:\s*date)?\s*[:：].*$/i, '')
+    // Yousu spells the category word "FILMAENT", which is the category word all the same.
+    .replace(/\b3d\s*(print(ing|er)?\s*)?fil(?:a?ment|maent)\b/gi, '')
     .replace(/\b3d\s*$/i, '')
     .replace(/\bfilament\b\s*$/i, '')
     // The extractor may leave the category word hard against the name ("ABSESDFilament", "PEKK-AFilament").
