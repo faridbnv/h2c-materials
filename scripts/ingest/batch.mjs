@@ -25,7 +25,7 @@ import { projectRoot } from '../data/table-io.mjs';
 import { applyBatch, guard, proposalsOf, worldOf } from './apply.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { holdsBack, rowsOf } from './review.mjs';
-import { productName } from './propose.mjs';
+import { productName, labelFor } from './propose.mjs';
 import { HEADER, readLedger } from './inventory.mjs';
 
 
@@ -84,6 +84,33 @@ const verdicts = () => {
 };
 let VERDICTS = null;
 
+/**
+ * What a page the reader found nothing on actually holds, asked of the cached text: how many lines name a
+ * property the lexicon knows, how many put a number beside a unit, and how many lines there are at all. Thirty-
+ * seven documents were held as one thing, "no-values", and they were four: a brochure with neither (Essentium's
+ * TPU 58D), a scan whose text layer is a header and nothing else (SIDDAMENT's NATURE3D pages, ten to eighteen
+ * lines), a sheet in a language the lexicon has no labels for (Spectrum's Polish, F2P's Spanish), and a layout
+ * that has both and the reader still cannot pair. Each is a different next step, so each is named.
+ */
+const UNIT_BESIDE_NUMBER = /\d\s*(MPa|GPa|%|°C|℃|g\/cm|kg\/m|kJ\/m|J\/m|Shore)/i;
+export function noValuesShape(sha) {
+  const text = sha ? cachedText(sha) : null;
+  if (!text) return {};
+  const lines = (text.pages ?? []).flatMap((p) => (p.lines ?? []).map((l) => String(l.text ?? '')));
+  const labels = lines.filter((l) => labelFor(l)).length;
+  const units = lines.filter((l) => UNIT_BESIDE_NUMBER.test(l)).length;
+  // A data sheet has more than twenty lines of text. A page with fewer is a header over an image, whatever the
+  // few lines say: SIDDAMENT's NATURE3D pages carry ten to eighteen lines, a couple of them with a number beside
+  // a unit, and the table itself is a picture.
+  if (lines.length < 20) return { shape: 'scan', detail: `the text layer is ${lines.length} line(s) over what is otherwise an image: the page needs ingest:ocr` };
+  if (!labels && !units) {
+    return { shape: 'brochure', detail: `${lines.length} line(s), none naming a property the lexicon knows and none putting a number beside a unit: a brochure, not a data sheet` };
+  }
+  if (!labels && units) return { shape: 'language', detail: `${units} line(s) put a number beside a unit and none names a property the lexicon knows: the labels are in a language it has none for` };
+  if (labels && !units) return { shape: 'prose', detail: `${labels} line(s) name a property and none puts a number beside a unit: the values are in prose or in a layout the reader cannot pair` };
+  return { shape: 'layout', detail: `${labels} label line(s) and ${units} value line(s) the reader could not pair: a layout gap` };
+}
+
 export function holdReason(proposal, problems = []) {
   const codes = new Set(problems.map((p) => p.code));
   const first = (code) => problems.find((p) => p.code === code)?.message ?? '';
@@ -106,7 +133,7 @@ export function holdReason(proposal, problems = []) {
   if (codes.has('APPLY-OCR-UNVERIFIED')) return { reason: 'ocr-visual', detail: 'read optically; every value needs a person against the page image' };
   if (!(proposal.measurements ?? []).length) {
     const unread = (proposal.skipped ?? []).length;
-    return { reason: 'no-values', detail: `the reader found no value on the page${unread ? `, and left ${unread} line(s) it recognised as statements unread` : ''}` };
+    return { reason: 'no-values', detail: `the reader found no value on the page${unread ? `, and left ${unread} line(s) it recognised as statements unread` : ''}`, ...noValuesShape(proposal.document?.sha256) };
   }
   for (const code of ['APPLY-PRODUCT-DUPLICATE', 'APPLY-SHA-DUPLICATE', 'APPLY-URL-DUPLICATE', 'APPLY-SOURCE-COLLISION', 'APPLY-KEY']) {
     if (codes.has(code)) return { reason: 'registered', detail: first(code) };
@@ -171,10 +198,14 @@ function writeHolds() {
   // Only a document the pipeline is carrying can be held: a fetch state (unreachable, gated, needs-staging,
   // unreadable, needs-ocr) says where the document is, not why its values are waiting, and is not overwritten.
   const CARRIED = new Set(['extracted', 'twin-check', 'held']);
+  // An "inventoried" row with a cached text was extracted; only the word was reset, by a rebuild of the inventory
+  // that once treated a pipeline-set "registered" as its own to overwrite. It is carried like the rest, so the
+  // grade lookup above can say again what it said before.
+  const carried = (row) => CARRIED.has(row.status) || (row.status === 'inventoried' && row.sha256 && cachedText(row.sha256));
   const byReason = new Map();
   let touched = 0;
   for (const row of rows) {
-    if (!CARRIED.has(row.status)) continue;
+    if (!carried(row)) continue;
     // A twin stays a twin, and it is asked first. The splitter ran the applier over the pair and saw what the
     // proposal alone cannot — which source this document repeats — so a proposal left over from an earlier batch
     // must not speak over it. Seven documents had their twin note replaced by a question the ruling behind it
@@ -182,9 +213,14 @@ function writeHolds() {
     // Asked before anything else, because it is the one answer that makes the rest of the question moot.
     const grade = recorded(row);
     if (grade) {
+      // A product the database holds is a terminal state, not a hold: nothing is waiting, and a queue that lists
+      // it beside the documents that wait is a queue that overstates itself by a hundred. The note keeps the
+      // grade it is recorded under, which is what a reader following the document needs.
       const hold = { reason: 'registered', detail: `${grade.Manufacturer} ${grade['Product name']} is already ${grade.GradeID}: the product is in the database, and a second sheet for one product is a revision or a copy whose rows belong on the grade that is there` };
-      row.status = 'held';
-      row.status_note = `held: ${hold.reason} \u2014 ${hold.detail}`.slice(0, 400);
+      row.status = 'registered';
+      row.registered_source_id = row.registered_source_id || grade.SourceID || '';
+      row.registered_by = row.registered_by || 'product';
+      row.status_note = hold.detail.slice(0, 400);
       row.updated = new Date().toISOString().slice(0, 10);
       touched++;
       if (!byReason.has(hold.reason)) byReason.set(hold.reason, new Map());
@@ -205,11 +241,41 @@ function writeHolds() {
     if (!hold) continue;
     // "also listed by" is where the document was found, not why it waits; it survives the hold beside it.
     const listed = (row.status_note ?? '').match(/also listed by [^;]+/)?.[0];
+    // Two of the shapes a no-values page can have are not holds. A brochure is a document that is not a data
+    // sheet, which is a terminal state the ledger already has; a page whose text layer is a header over an image
+    // is a scan, and the optical pipeline is where it goes. Both were sitting in the queue as a reader gap.
+    if (hold.reason === 'no-values' && hold.shape === 'brochure') {
+      row.status = 'not-a-data-sheet';
+      row.status_note = [hold.detail, listed].filter(Boolean).join(' \u2014 ').slice(0, 400);
+      row.updated = new Date().toISOString().slice(0, 10);
+      touched++;
+      continue;
+    }
+    if (hold.reason === 'no-values' && hold.shape === 'scan') {
+      row.status = 'needs-ocr';
+      row.status_note = [hold.detail, listed].filter(Boolean).join(' \u2014 ').slice(0, 400);
+      row.updated = new Date().toISOString().slice(0, 10);
+      touched++;
+      continue;
+    }
+    // "registered" is terminal whichever route found it: the grade lookup above, the applier's own duplicate
+    // check, or the twin step finding the product already has a grade. Thirteen rows were still "held" for it.
+    if (hold.reason === 'registered') {
+      row.status = 'registered';
+      row.registered_by = row.registered_by || 'product';
+      row.status_note = [hold.detail, listed].filter(Boolean).join(' \u2014 ').slice(0, 400);
+      row.updated = new Date().toISOString().slice(0, 10);
+      touched++;
+      if (!byReason.has('registered')) byReason.set('registered', new Map());
+      byReason.get('registered').set(row.provider, (byReason.get('registered').get(row.provider) ?? 0) + 1);
+      continue;
+    }
     row.status = 'held';
-    row.status_note = [`held: ${hold.reason}`, hold.detail, listed].filter(Boolean).join(' \u2014 ').slice(0, 400);
+    const reason = hold.reason === 'no-values' && hold.shape ? `no-values:${hold.shape}` : hold.reason;
+    row.status_note = [`held: ${reason}`, hold.detail, listed].filter(Boolean).join(' \u2014 ').slice(0, 400);
     row.updated = new Date().toISOString().slice(0, 10);
     touched++;
-    const k = hold.reason;
+    const k = reason;
     if (!byReason.has(k)) byReason.set(k, new Map());
     byReason.get(k).set(row.provider, (byReason.get(k).get(row.provider) ?? 0) + 1);
   }
@@ -555,90 +621,6 @@ function twins(batch, by) {
   if (missing) console.log(`  ${missing} left in ${batch}-held`);
 }
 
-/**
- * What waits on the owner, as one document. Generated from the ledger's held rows and rulings/pending.csv, so
- * it says what is true when it is run rather than what was true when somebody wrote it down.
- *
- * Each question carries how many documents its answer frees and what the pipeline would do by default, because a
- * question with neither is a question nobody can weigh.
- */
-const QUESTIONS = [
-  { id: 'retailer', match: /hosted by/, question: 'Is a shop that hosts a sheet naming no maker the brand, or only the shop?',
-    fallback: "3DJake sells its own house brands beside other makers' filament, and a sheet it hosts that names no maker could be either. The pipeline will not guess, because a grade whose Manufacturer is the shop says the shop made it.",
-    options: ['the shop is the brand where the product name is its own (3DJAKE easyPETG, Bulk PLA) and the maker otherwise', 'treat every such sheet as the shop\u2019s own brand', 'hold them all until each is asked of the shop'] },
-  { id: 'no-polymer', match: /no base polymer in/, question: 'What polymer is a product whose name says none?',
-    fallback: 'A name like Facilan C8, easyPETG Pastel Pink or ReForm rTitan says nothing this reader can map to a row of polymers.csv, and D44 says a family owns no product.',
-    options: ['a ruling per product', 'a ruling per maker where the maker\u2019s range is one polymer', 'hold until the maker states it'] },
-  { id: 'support', match: /support or soluble/, question: 'Which material holds a support or soluble filament?',
-    fallback: 'PVA, HIPS, PolySupport, AquaPrint and the rest are support products, and the database records a support material as its own thing. Forty documents wait on which.',
-    options: ['a material per support chemistry (PVA, HIPS, BVOH, the rest)', 'one Support material with the chemistry in Composition / filler', 'a ruling per product'] },
-  { id: 'family-word', match: /names a family, not a polymer/, question: 'What polymer is a sheet that says only "PA", "TPE" or "nylon"?',
-    fallback: 'A family owns no product (D44), so a sheet that names only the family cannot become a grade. Forty documents.',
-    options: ['a ruling per product from what else its sheet publishes', 'hold until the maker states the polymer', 'create a material for the family\u2019s unspecified member'] },
-  { id: 'dense', match: /density of/, question: 'What is in a filament whose density its polymer does not reach?',
-    fallback: 'bronzeFill, copperFill and ReForm rTitan publish densities far above their named polymer, which D57 says is an undisclosed dense filler declared as a Variant. Thirty-five documents.',
-    options: ['a Variant of the named polymer with the load in Composition / filler (D57)', 'a material per metal-filled combination', 'hold until the maker declares the load'] },
-  { id: 'second', match: /would be a second/, question: 'Does a finish variant get its own material or a grade under the existing one?',
-    fallback: 'PETG Glow In The Dark, PETG Glitter and BioFil Wood would each be a second material for an identity the database already holds. R039 settled one such case by filing the finish under the finish material that exists.',
-    options: ['a grade under the existing material, as R039 did', 'a material per finish where the finish changes measured properties', 'a ruling per product'] },
-  { id: 'filler', match: /has no value in schema\/vocab\/modifiers/, question: 'Do graphene and hemp become modifier values?',
-    fallback: 'Eight documents declare a filler schema/vocab/modifiers.csv has no value for. A new vocabulary value is a schema change and goes in with the data that uses it.',
-    options: ['add Graphene and Natural fibre as modifier values', 'file both under the nearest existing value', 'hold'] },
-  { id: 'polymer-row', match: /has no row in polymers\.csv/, question: 'Do PA11, PCL and the rest get polymer rows?',
-    fallback: 'A material needs a row of polymers.csv with its group, morphology, how it solidifies, water uptake and neat density, each from a producer\u2019s reference that was fetched and hashed. Five documents.',
-    options: ['write the rows from producers\u2019 references, as m70 did for six polymers', 'hold the products until somebody needs them'] },
-  { id: 'blend', match: /names more than one polymer/, question: 'What holds a blend the sheet names by both its polymers?',
-    fallback: 'PLA/PHA names two. A blend is identified by its own name, not by the first of its polymers.',
-    options: ['a material named for the blend', 'file under the first-named polymer', 'hold until the sheet states the proportions'] },
-];
-
-function decisions() {
-  const rows = readLedger();
-  const ruling = rows.filter((r) => r.status === 'held' && /^held: ruling/.test(r.status_note ?? ''));
-  const taken = new Set();
-  const out = ['# What waits on the owner', '',
-    `Generated by \`npm run ingest:batch -- --decisions\` on ${new Date().toISOString().slice(0, 10)}. Nothing here is acted on until it is answered.`, '',
-    `**${ruling.length} documents wait on an identity**, and every one of them has been fetched, hashed and read; what is missing is a decision, not a source.`,
-    'Each question below says how many documents its answer frees and what the pipeline would do by default.', ''];
-
-  for (const q of QUESTIONS) {
-    const mine = ruling.filter((r) => q.match.test(r.status_note) && !taken.has(r.doc_key));
-    for (const r of mine) taken.add(r.doc_key);
-    if (!mine.length) continue;
-    const makers = new Map();
-    for (const r of mine) makers.set(r.provider, (makers.get(r.provider) ?? 0) + 1);
-    out.push(`## ${q.question}`, '', `**${mine.length} document(s)**: ${[...makers].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([m, n]) => `${m} ${n}`).join(', ')}.`, '',
-      q.fallback, '',
-      ...q.options.map((o, i) => `${i + 1}. ${o}`), '',
-      `Examples: ${mine.slice(0, 6).map((r) => r.product_raw || r.doc_key).join(', ')}.`, '');
-  }
-  const rest = ruling.filter((r) => !taken.has(r.doc_key));
-  if (rest.length) {
-    out.push('## The rest, one at a time', '', `**${rest.length} document(s)** whose question is its own:`, '',
-      ...rest.slice(0, 40).map((r) => `- **${r.provider} ${r.product_raw || r.doc_key}** — ${String(r.status_note).replace(/^held: ruling — /, '').slice(0, 180)}`), '');
-  }
-
-  const pending = join(AUDIT, 'rulings/pending.csv');
-  if (existsSync(pending)) {
-    const questions = readCsv(pending).records.map((r) => r.values);
-    out.push('## Written down earlier, still unanswered', '',
-      ...questions.map((q) => `- **${q.Subject}** — ${q.Question} *(${q.Options})*`), '');
-  }
-
-  const other = new Map();
-  for (const r of rows.filter((x) => x.status === 'held' && !/^held: ruling/.test(x.status_note ?? ''))) {
-    const k = (String(r.status_note).match(/^held: (\S+)/) ?? [])[1] ?? '?';
-    other.set(k, (other.get(k) ?? 0) + 1);
-  }
-  const gated = rows.filter((r) => ['gated', 'needs-staging'].includes(r.status));
-  out.push('## What else is waiting, and on whom', '',
-    ...[...other].sort((a, b) => b[1] - a[1]).map(([k, n]) => `- \`${k}\` — ${n} document(s), and it is the pipeline's to fix, not the owner's`),
-    `- **${gated.length} document(s) need credentials or a browser the pipeline does not have**: ${[...new Set(gated.map((r) => r.provider))].join(', ')}`, '');
-  const path = join(AUDIT, 'DECISIONS-PENDING.md');
-  writeFileSync(path, out.join('\n'));
-  console.log(`${ruling.length} ruling(s) -> ${path.replace(projectRoot + '/', '')}`);
-}
-
 /** Everything generated, then the gate. The three verifies this programme lost to a stale document were each this. */
 function finish(batch) {
   for (const [what, script, rest] of [['data', 'scripts/data/fmt.mjs', []], ['rules', 'scripts/docs-rules.mjs', []],
@@ -657,7 +639,6 @@ function finish(batch) {
 if (process.argv[1]?.endsWith('batch.mjs')) {
   const batch = arg('batch');
   if (flag('holds')) writeHolds();
-  else if (flag('decisions')) decisions();
   else if (!batch) { console.error('--batch <name> names the batch to work on, or --holds to say why documents wait'); process.exit(2); }
   else if (flag('propose')) propose(batch);
   else if (flag('accept')) { const by = arg('by'); if (!by) { console.error('--by <name>: a review records who made it'); process.exit(2); } accept(batch, by); }
@@ -665,5 +646,5 @@ if (process.argv[1]?.endsWith('batch.mjs')) {
   else if (flag('split')) split(batch);
   else if (flag('twins')) { const by = arg('by'); if (!by) { console.error('--by <name>: a review records who made it'); process.exit(2); } twins(batch, by); }
   else if (flag('finish')) finish(batch);
-  else { console.error('one of --propose, --accept, --decide, --split, --twins, --finish, --holds, --decisions'); process.exit(2); }
+  else { console.error('one of --propose, --accept, --decide, --split, --twins, --finish, --holds'); process.exit(2); }
 }

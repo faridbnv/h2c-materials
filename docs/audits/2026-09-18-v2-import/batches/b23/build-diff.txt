@@ -1,0 +1,6 @@
+     5  db.grades[]
+     5  db.sources[]
+     2  db.materials[].gradeIds.length
+     1  db.meta.counts.grades
+     1  db.meta.counts.sources
+14 difference(s) between HEAD and the working tree

@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-21"
+  },
+  "document": {
+    "sha256": "37b44fe0ebfdf53654890b2ccc2f867d9e6b6cdefb0d5ee50e66fd4a4812f36b",
+    "url": "https://nanovia.tech/ref/pei/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/ref/pei/"
+  },
+  "identity": {
+    "polymer": "PEI",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Industrial High-Temperature - Outside H2C Practical Envelope",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: ultem"
+    ],
+    "materialId": "M099",
+    "materialName": "PEI / ULTEM",
+    "estimateIdentity": "Not applicable",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-PEI-Ultem-1010-37b44f",
+      "Publisher": "Nanovia",
+      "Title": "Boutique",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-21",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Not applicable",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/ref/pei/",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "37b44fe0ebfdf53654890b2ccc2f867d9e6b6cdefb0d5ee50e66fd4a4812f36b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Boutique"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M099",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PEI Ultem 1010",
+        "Shared formulation key": "R-NANOVIA-PEI-Ultem-1010-37b44f",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Inflamabilité V0 1,5 mm UL-94 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PEI-Ultem-1010-37b44f",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Boutique"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "5 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 180/1A",
+        "Standards": "ISO 180",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PEI-Ultem-1010-37b44f",
+        "Locator": "p. 1: Impact Izod (entaillé) Propriétés thermiques",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Izod (entaillé)  5  kJ/m 2  ISO 180/1A"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M099",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "200 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "0,45 MPa ISO 75/Be",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-PEI-Ultem-1010-37b44f",
+        "Locator": "p. 1: HDT B (0,45 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "HDT B (0,45 MPa)  200  °C  ISO 75/Be"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Accueil / Produits / Filaments impression 3D / Matière / PEI / Nanovia PEI Ultem 1010 : Haute résistance thermique Filaments impression 3D Polymère ABS ASA HIPS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diamètre  1,75 mm 2,85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Poids  500 g 2000 g échantillon Effacer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "quantité de Nanovia PEI Ultem 1010 : Haute résistance thermique",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Remise / Bobine d'un même format : petite bobine (500/750g) ou grosse bobine (2kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 - 5  5%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6 +  10%  -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UGS : ND Catégories : Filaments impression 3D , Matière , PEI Étiquette : Résistance chimique",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Température d’extrusion  370 – 390  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Température de plateau  120 – 160  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Température d’enceinte  > 120  °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vitesse d’impression  20 – 60  mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diamètre  1,75 & 2,85  mm  +/- 50µm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Densité  1,27  g/cm 3  ISO 1183",
+      "reason": "properties.csv carries no property for \"Densité\""
+    },
+    {
+      "page": 1,
+      "text": "Dureté H358/30  140  MPa  ISO 2039-1",
+      "reason": "properties.csv carries no property for \"Dureté H358/30\""
+    },
+    {
+      "page": 1,
+      "text": "Absorption d’eau (24h)  1,25  %  ISO 62",
+      "reason": "properties.csv carries no property for \"Absorption d’eau (24h) 1,25\""
+    },
+    {
+      "page": 1,
+      "text": "Module de Young  3200  MPa  ISO 527 1 mm/min",
+      "reason": "properties.csv carries no property for \"Module de Young\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance maximale  105  MPa  ISO 527 50 mm/min",
+      "reason": "properties.csv carries no property for \"Résistance maximale\""
+    },
+    {
+      "page": 1,
+      "text": "Élongation à la rupture  60  %  ISO 527 50 mm/min",
+      "reason": "properties.csv carries no property for \"Élongation à la rupture 60\""
+    },
+    {
+      "page": 1,
+      "text": "Module de Young  3300  MPa  ISO 527 1 mm/min",
+      "reason": "properties.csv carries no property for \"Module de Young\""
+    },
+    {
+      "page": 1,
+      "text": "Résistance maximale  160  MPa  ISO 527 2 mm/min",
+      "reason": "properties.csv carries no property for \"Résistance maximale\""
+    },
+    {
+      "page": 1,
+      "text": "Tg  209.37  °C  ASTM D7426 Inflection Point",
+      "reason": "properties.csv carries no property for \"Tg\""
+    },
+    {
+      "page": 1,
+      "text": "Inflamabilité  V0  1,5 mm  UL-94",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 1,
+      "text": "Résistivité électrique  1.E+15  Ohm-cm  IEC 60093",
+      "reason": "properties.csv carries no property for \"Résistivité électrique 1.E+15\""
+    },
+    {
+      "page": 1,
+      "text": "Rigidité diélectrique  33  kV/mm (huile, 0,8 mm)  IEC 60243-1",
+      "reason": "properties.csv carries no property for \"Rigidité diélectrique 33\""
+    },
+    {
+      "page": 1,
+      "text": "Permittivité du vide  2,9  (1 MHz)  IEC 60250",
+      "reason": "properties.csv carries no property for \"Permittivité du vide\""
+    },
+    {
+      "page": 1,
+      "text": "2.9  (50/60 Hz)  IEC 60250",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facteur de perte  0.0005  (50/60 Hz)  IEC 60250",
+      "reason": "properties.csv carries no property for \"Facteur de perte\""
+    },
+    {
+      "page": 1,
+      "text": "0.006  (1 MHz)  IEC 60250",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.0025  (2450 MHz)  IEC 60250",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "dernière mise à jour : 25/04/2024",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Le filament Nanovia PEI, en Ultem1010, est résistant aux solvants, aux produits chimiques, aux chocs et permet l’impression de pièces fonctionnelles soumises à ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Température opérationnelle jusqu’à 200 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Etuver pendant 6 h à 100 °C avant impression si exposition prolongée à l’air libre.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bobine  L1  L2  D1  D2  D3  Poids",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "500g  53  46  200  90  52  182 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2kg  92  89  300  175  52  668 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max temperature  220 °C, 150 °C, 120 °C, 100 °C, 80 °C, 55 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diamètre  1,75 mm, 2,85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Poids  500 g, 2000 g, échantillon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ISTROFLEX : Flexible biodégradable À partir de : 70,75 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia ASA : Résistant aux intempéries À partir de : 35,23 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia PLA XRS : Blindage aux rayons X À partir de : 104,83 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia TPE 22D : Flexible absorption de chocs À partir de : 61,75 &euro; HT / kg Choix des options",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nos Coordonnées NANOVIA ZA de Saint Paul 22540 LOUARGAT FRANCE +33 (0) 296 43 36 90 contact@nanovia.tech",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Conductivité thermique  0,21  W/m-°C  ISO 8302",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}

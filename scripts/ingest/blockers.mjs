@@ -27,18 +27,46 @@ const BLOCKERS = [
     match: (r) => /^held: ruling/.test(r.status_note) && /no base polymer in|names a family, not a polymer|would create the material|no material is not a material/.test(r.status_note),
     needs: 'a verdict in readings/readings.csv. The reading is done and cited; what is missing is permission',
     uncertain: 'for 76 of the 117 read so far the sheet itself names no polymer, so the answer is the maker’s and not the page’s' },
-  { id: 'ruling:unsettled', whose: 'the owner',
+  // Rulings the owner has already given, whose documents still wait because the pipeline has not built what the
+  // ruling asks for. Listing them under "the owner" asked the owner the same question twice.
+  { id: 'ruling:R076-supports', whose: 'the pipeline',
+    match: (r) => /^held: ruling/.test(r.status_note) && /is a support or soluble product/.test(r.status_note),
+    needs: 'R076 built: the support chemistry read from the sheet (PVA, BVOH, HIPS, or a breakaway named for what it supports) and the grade filed under that material',
+    uncertain: 'a breakaway support that names no chemistry is filed by what it supports (M077 to M080), which its sheet does state' },
+  { id: 'ruling:R081-polymer-row', whose: 'the pipeline',
+    match: (r) => /^held: ruling/.test(r.status_note) && /"(PA11|SEBS|PCL)" has no row in polymers\.csv/.test(r.status_note),
+    needs: 'R081 built: a polymers.csv row from the resin producer\u2019s reference, fetched and hashed (Arkema for PA11, Kraton for SEBS), as m70 did',
+    uncertain: '' },
+  { id: 'ruling:R082-blend', whose: 'the pipeline',
+    match: (r) => /^held: ruling/.test(r.status_note) && /names more than one polymer/.test(r.status_note),
+    needs: 'R082 built: a material named for the blend, with its own polymers.csv row (PLA-PHA as PC-ABS is)',
+    uncertain: 'Siraya\u2019s "PAHT CF (PPA based)" names one polymer twice, not two; that one is a reader question' },
+  { id: 'ruling:misread', whose: 'the pipeline',
+    match: (r) => /^held: ruling/.test(r.status_note) && /"PESU" has no row|which no filament reaches|is below what neat|above what neat (HIPS|PE)\b/.test(r.status_note),
+    needs: 'a reading of the page: the reader took a polymer or a density off the sheet that the sheet does not state that way',
+    uncertain: 'the two PESU are Filament2Print\u2019s Eco Coffee and Flex 77A, which are not polyethersulfone; ISTROFLEX is a Shore D 44 elastomer the reader files under HIPS' },
+  { id: 'ruling:unsettled', whose: 'the owner', list: true,
     match: (r) => /^held: ruling/.test(r.status_note),
-    needs: 'a ruling of its own: each of these says something no policy so far covers',
-    uncertain: 'two are a magnetite and a tungsten load, which R080 named neither; two are a PESU the reader took off a Filament2Print sheet' },
+    needs: 'a ruling of its own: each of these says something no policy so far covers, and each is listed below with what the reader saw',
+    uncertain: 'magnetite and tungsten are loads R080 named neither of; a Metal value in modifiers.csv would take both' },
   { id: 'twin:not-yet-applied', whose: 'the pipeline',
     match: (r) => /^held: twin/.test(r.status_note),
     needs: 'the sheet it repeats to be applied first, or a reading of the two sheets',
     uncertain: '"one sheet served twice, or two products tested once?" — the extract stage pairs them and says the question is open. The product name with the maker’s off it decides the clear ends and not the middle' },
+  { id: 'no-values:language', whose: 'the pipeline',
+    match: (r) => /^held: no-values:language/.test(r.status_note),
+    needs: 'property labels in the sheet’s language in scripts/ingest/lexicon/property-labels.csv, as the fifteen Chinese ones entered in b15',
+    uncertain: 'nothing; below the twenty-document line for a rule until more sheets in that language arrive' },
+  { id: 'no-values:prose', whose: 'the pipeline, or nobody',
+    match: (r) => /^held: no-values:prose/.test(r.status_note),
+    needs: 'a reading of the page: the values are in sentences, or in a layout the reader cannot pair with its labels',
+    uncertain: 'whether a sentence-stated value should enter at all is a data question; a table is a claim and a sentence is marketing' },
+  { id: 'no-values:layout', whose: 'the pipeline',
+    match: (r) => /^held: no-values:layout/.test(r.status_note),
+    needs: 'the layout named per document; it has labels and values and the reader pairs none', uncertain: '' },
   { id: 'no-values', whose: 'the pipeline, or nobody',
     match: (r) => /^held: no-values/.test(r.status_note),
-    needs: 'a reader rule, or the finding that the document is a brochure and carries no values at all',
-    uncertain: 'which of the two it is has not been asked per document; Spectrum’s 27 are one shape and would answer together' },
+    needs: 'a reader rule, or the finding that the document is a brochure', uncertain: '' },
   { id: 'ocr-visual', whose: 'a reader',
     match: (r) => /^held: ocr-visual/.test(r.status_note),
     needs: 'a person against the page image, row by row (ingest:review --visual)',
@@ -92,7 +120,7 @@ export function blockers() {
     if (!mine.length) continue;
     const makers = new Map();
     for (const r of mine) makers.set(r.provider, (makers.get(r.provider) ?? 0) + 1);
-    out.push({ ...b, n: mine.length, makers: [...makers].sort((a, b2) => b2[1] - a[1]) });
+    out.push({ ...b, n: mine.length, makers: [...makers].sort((a, b2) => b2[1] - a[1]), rows: b.list ? mine : [] });
   }
   return { rows, open, out };
 }
@@ -108,6 +136,8 @@ if (process.argv[1]?.endsWith('blockers.mjs')) {
     `Generated by \`npm run ingest:blockers\` on ${new Date().toISOString().slice(0, 10)}.`, '',
     `**${applied} of ${rows.length} documents are applied**, and ${settled - applied} more are settled as a duplicate, a safety sheet or out of scope.`,
     `That leaves **${open.length}**, and this is what stands in front of each of them.`, '',
+    'What waits on the owner is here too: the verdicts in [READINGS.md](READINGS.md), the one-off rulings listed',
+    'under `ruling:unsettled`, and the gated documents. There is no separate decisions document any more.', '',
     '## Who they wait on', '', '| | Documents |', '|---|---:|',
     ...[...byWhose].sort((a, b) => b[1] - a[1]).map(([who, n]) => `| ${who} | ${n} |`), '',
     '## Each blocker, what it needs, and what is uncertain about it', ''];
@@ -117,6 +147,11 @@ if (process.argv[1]?.endsWith('blockers.mjs')) {
       `**Waits on:** ${b.whose}. **Needs:** ${b.needs}.`, '',
       b.uncertain ? `**Uncertain:** ${b.uncertain}.` : '_Nothing uncertain about it._', '',
       `Where: ${b.makers.slice(0, 8).map(([m, n]) => `${m} ${n}`).join(', ')}${b.makers.length > 8 ? `, and ${b.makers.length - 8} more` : ''}.`, '');
+    // The owner's one-offs are the decisions pack now, one line each, with what the reader saw. The pack that
+    // used to be its own document asked nine questions and every one of them has been answered (R074 to R083).
+    if (b.rows.length) {
+      doc.push(...b.rows.map((r) => `- **${r.provider} ${r.product_raw || r.doc_key}** \u2014 ${String(r.status_note).replace(/^held: ruling \u2014 /, '').slice(0, 200)}`), '');
+    }
   }
 
   writeFileSync(join(AUDIT, 'BLOCKERS.md'), doc.join('\n'));

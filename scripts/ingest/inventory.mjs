@@ -126,8 +126,13 @@ export function buildLedger() {
 /** The ledger as it stands, so a rebuild never loses what happened to a document. */
 export const readLedger = () => (existsSync(LEDGER) ? readCsv(LEDGER).records.map((r) => r.values) : []);
 
-const KEEP = ['sha256', 'manufacturer', 'duplicate_of', 'duplicate_kind', 'batch', 'status', 'status_note', 'updated'];
-const PROGRESS = ['inventoried', 'registered'];   // a status the workbooks may overwrite; anything later is ours
+const KEEP = ['sha256', 'manufacturer', 'duplicate_of', 'duplicate_kind', 'batch', 'status', 'status_note', 'updated', 'registered_source_id', 'registered_by'];
+// A status the workbooks may overwrite: "inventoried" is where a document starts, and a rebuild that finds its
+// URL in the source register moves it on. Anything the pipeline wrote is the pipeline's. That includes a
+// "registered" the pipeline set itself — by digest, or because the maker's product already has a grade — which
+// a workbook that knows nothing about the tables must not reset: it did, once, and put seventy-seven documents
+// back into the queue they had just left.
+const PROGRESS = ['inventoried'];
 
 export function merge(fresh, existing) {
   const before = new Map(existing.map((r) => [r.doc_key, r]));
@@ -136,8 +141,11 @@ export function merge(fresh, existing) {
     if (!was) return row;
     const kept = Object.fromEntries(KEEP.filter((f) => was[f]).map((f) => [f, was[f]]));
     // A document the register has picked up since the last rebuild moves on from "inventoried"; one the pipeline
-    // has carried further keeps where it got to.
-    if (PROGRESS.includes(was.status)) delete kept.status;
+    // has carried further keeps where it got to. A "registered" the workbook itself set (registered_by "url")
+    // may still be refreshed by the workbook.
+    if (PROGRESS.includes(was.status) || (was.status === 'registered' && was.registered_by === 'url')) {
+      delete kept.status; delete kept.registered_source_id; delete kept.registered_by;
+    }
     return { ...row, ...kept };
   });
 }
@@ -240,11 +248,19 @@ function statusReport(rows) {
 }
 
 if (process.argv[1]?.endsWith('inventory.mjs')) {
-  const rows = merge(buildLedger(), readLedger());
-  writeFileSync(LEDGER, csvText(HEADER, rows));
-  writeFileSync(join(AUDIT, 'STATUS.md'), statusReport(rows));
-  const registered = rows.filter((r) => r.registered_source_id).length;
-  console.log(`${rows.length} documents -> ${LEDGER.replace(projectRoot + '/', '')}`);
-  console.log(`  ${registered} already in the source register, ${rows.length - registered} not`);
-  if (process.argv.includes('--status')) console.log(`\n${statusReport(rows)}`);
+  // --status reports; it does not rebuild. A report that rewrote the ledger on the way to printing it was how
+  // the inventory came to reset what the pipeline had decided, and a session that only wanted a figure got a
+  // changed queue for it.
+  if (process.argv.includes('--status')) {
+    const rows = readLedger();
+    writeFileSync(join(AUDIT, 'STATUS.md'), statusReport(rows));
+    console.log(statusReport(rows));
+  } else {
+    const rows = merge(buildLedger(), readLedger());
+    writeFileSync(LEDGER, csvText(HEADER, rows));
+    writeFileSync(join(AUDIT, 'STATUS.md'), statusReport(rows));
+    const registered = rows.filter((r) => r.registered_source_id).length;
+    console.log(`${rows.length} documents -> ${LEDGER.replace(projectRoot + '/', '')}`);
+    console.log(`  ${registered} already in the source register, ${rows.length - registered} not`);
+  }
 }
