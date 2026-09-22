@@ -166,3 +166,21 @@ verdicts on READINGS.md, a ruling per item under `ruling:unsettled`, and the doc
 
 The rulings the agent made rather than the owner, and which the owner can overturn, are named in
 [rulings/rulings.csv](rulings/rulings.csv) with the reason and the date for each.
+
+## V2 close (2026-09-21)
+
+What shipped, against the owner's request of 2026-09-21 (family filtering, a tidier drawer, estimates where they
+help, decision helpers, the data refactored and swept):
+
+- **The database**: 158 materials, 1,119 grades, 11,096 measurements, 1,422 sources; every ledger row terminal
+  (1,264 applied, 178 deferred with the gap named, 33 gated INTAMSYS, 15 unreachable). The sweep read the 200 most
+  outlying values and fixed each class it found across the whole table (m126 to m135, `sweep/README.md`); six more
+  properties have physics windows (D82); every implausible flag carries its reason.
+- **The estimator**: a robust z-score per measurement and `EST-CONFLICT` (2.1); an estimate per grade from the same
+  model at its own row, calibrated at grade level (D81).
+- **The interface**: family → polymer as the rail's first group; the drawer's long tabs grouped by maker and by
+  property with a search box, and each grade's estimate lines; the rail counting what estimates stand in for; the
+  index card ranking the ten best by the chosen index.
+- **Set aside** for V2.1, listed in PLAN-REMAINING §8, with what would free each.
+
+`npm run verify` passes; `v2` is ahead of `main` and merges when the owner asks.

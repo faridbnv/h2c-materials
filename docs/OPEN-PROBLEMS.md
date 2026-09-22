@@ -1,7 +1,7 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b29 brought
-149 materials, 966 grades, 9,981 measurement rows and 1,240 sources in. It is here so that nobody has to
+What is known to be wrong or missing in this database, as of 2026-09-21, after batches b01 to b33 brought
+158 materials, 1,119 grades, 11,096 measurement rows and 1,422 sources in. It is here so that nobody has to
 rediscover it, and so that a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
@@ -49,7 +49,7 @@ Twenty-five batches of imported sheets have added none of this damage: `scripts/
 standard by its own designation and writes the sheet's words, and `PARSE-MISMATCH` fails a row whose typed
 `Standards` and raw text disagree.
 
-## 2. Forty-one published values that physics rules out
+## 2. Eighty-one published values that physics rules out
 
 Kept, flagged, and backing nothing: no headline, estimate, conversion, implied bound or plot point (D55). Each is
 what the source really prints, with the reason in its Notes.
@@ -83,10 +83,10 @@ Each now carries its reason in Notes, with the numbers its own sheet prints besi
 above the sheet's own Vicat, a yield equal to the break); their reasons are in their rows.
 
 These need the manufacturer to be asked, not more reading. They are the values the database refuses to use. A
-larger set — 264 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
-says the rule, not the number, is what does not fit: 182 `MEAS-PHYSICS-WINDOW`, 30 `MEAS-PHYSICS-STRAIN` (brittle
+larger set — 267 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
+says the rule, not the number, is what does not fit: 182 `MEAS-PHYSICS-WINDOW`, 31 `MEAS-PHYSICS-STRAIN` (brittle
 bars whose strain at break sits 10 to 60 % below stress over modulus, systematically across several manufacturers,
-which reads as a difference in how modulus was measured rather than a transcription error), 45
+which reads as a difference in how modulus was measured rather than a transcription error), 47
 `MEAS-PHYSICS-ORDER` and 7 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for the list above if a re-read finds
 the sheet really does print what cannot be.
 
@@ -151,19 +151,19 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | Code | Rows | What it means |
 |---|---|---|
 | `MEAS-PHYSICS-WINDOW` | 182 | See item 2. |
-| `MEAS-PHYSICS-ORDER` | 45 | See item 2. |
-| `MEAS-PHYSICS-STRAIN` | 30 | See item 2. |
-| `HDT-LOAD-UNSTATED` | 10 | The source names the test but not the load. Flagged, and screens no heat requirement until re-read. Five are the high-temperature 3DXTECH sheets (PEEK, PEKK, PEI / ULTEM, PSU, PPSU); two are PLA Lite and PP; three arrived with b09 — Flashforge's PBAT, purefil's LCP and colorFabb's nGen. |
+| `MEAS-PHYSICS-ORDER` | 47 | See item 2. |
+| `MEAS-PHYSICS-STRAIN` | 31 | See item 2. |
+| `HDT-LOAD-UNSTATED` | 2 | The source names the test but not the load. Flagged, and screens no heat requirement until re-read. The 3DXTECH, purefil and other rows the earlier count held were resolved by m105, m106 and m132, which read the load off the line; two remain. |
 | `COVERAGE-SUPERSEDED` | 9 | A coverage finding a later row replaces. |
 | `MEAS-CROSS-SOURCE-TWIN` | 5 | Two sources publishing the same numbers: two revisions of one Polymaker sheet each, republished without remeasuring. |
-| `EST-OUTLIER` | 3 | A measured headline far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; TPU's elongation; and a Flashforge Flexible sheet whose modulus of 6 to 7 MPa sits beside a strength of 27 to 28 MPa. PLA Aero's density stopped being one when D80 gave the lightweight grades a window of their own. |
+| `EST-OUTLIER` | 2 | A measured headline far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; and TPU's elongation, PolyFlex TPU95 at 330 % beside siblings near 580. PET-GF's heat deflection stopped being one when m132 read the loads its sheet states. |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
 | `MEAS-PHYSICS-Z-ABOVE-XY` | 7 | Polymaker prints a Z stiffness 15 to 26 % above XY, and one b09 sheet a Z strength above its own X-Y one. Unusual at 100 % infill but not impossible; whether the sheet swapped its labels cannot be settled from the table. |
 | `EST-FAMILY-ORDER` | 2 | PLA-CF is estimated below unfilled PLA, because the two sheets are different products and no conversion makes them comparable; ASA-AF's one modulus is an injection-moulded bar. |
 | `MEAS-LOCATOR-DIRECTION` | 2 | HDT is recorded without a direction by convention; the sheet's "XY" names the bar's build orientation, not a test axis. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
 
-301 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
+296 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
 that no longer occurs, so this list cannot go stale unnoticed.
 
 Estimates that are merely wide because the evidence is thin are `EST-THIN`, informational, and need no reviewer:
@@ -241,56 +241,18 @@ npm run sql --silent -- "select profileid, sourceid, substr(nozzle_c,1,44), subs
 
 ---
 
-## 10. What the second read found and nobody has fixed
+## 10. What the second read found, and where each finding stands
 
-R085's second read of b03 to b26 — a separate reader against a seeded sample, 564 rows, `ingest:second-read` —
-disagreed with **145 of 564 rows (26 %)**. No row failed its first check: every sampled value is printed on the
-document its Locator names, so there is no repeat of the wrong-revision collision the b01/b02 read found. What
-the rest are is conditions and methods the sheet states and the record does not.
-
-Three classes were fixed the same day, each counted across the whole table and fixed in the reader too: seven
-resistivities that were a piece of a power of ten, thirty heat deflections tested at "0.45 °C", sixty-one density
-methods beginning with the 3 of their own g/cm³ (m104); 481 standards a merged Testing Method cell names (m105);
-104 methods a thermal table names (m106). **117 rows of the sample are still open**, and the verdicts and quoted
-notes are in `batches/<batch>/second-read-sample.csv`.
-
-| What | Sample rows | Where |
-|---|---:|---|
-| A condition the sheet states and the row does not | 84 | notch (22), build direction (18), dry/wet/annealed (15), specimen form (12), melt-flow condition (8), test load (6), other (7) |
-| A standard the sheet prints, still unrecorded | 26 | mostly QIDI's bilingual tables, whose columns this reader cannot pair |
-| A value that is not what the page prints | 7 | below |
-
-The seven values, each with what the page says:
-
-| Row | What the record holds | What the document prints |
-|---|---|---|
-| `V004139` | Hardness 85 Shore A, a point | Extrudr prints "Shore 85A - 88A": a range with no upper bound recorded |
-| `V006953` | Impact strength 399 kJ/m² | a *tensile* impact strength (ASTM D1822), filed with notched-bar values of 2 to 50 |
-| `V006708` | Density 1.05 g/cm³ | the prose above the table says 1.05 is the regular ABS and this grade is 1.037 |
-| `V007346` | Mould shrinkage 0.70 % | 3D4Makers prints "0.40 to 0.70 %", and "0.40 to" is stranded in Standard / load |
-| `V007775` | Vicat softening temperature 100 °C | Fillamentum prints "Vicat softening temperature **-** ISO 306"; 100 °C is the row below, "Temperature resistance" |
-| `V009317` | Decomposition temperature 380, Operator `=` | Raise3D prints "> 380 °C" |
-| `V009341` | Elongation at break 3,3 % | AzureFilm prints "Strain at break (Flexural)", so its grade holds two elongations |
-
-Two conventions the reader raised rather than flagged, because they are uniform across a maker and are the
-owner's to rule on rather than a per-row error:
-
-- ~~**QIDI's specimen type.**~~ Fixed by m128 with every other sheet that states its specimens once for its table
-  (1,107 rows: Flashforge, Polymaker, QIDI, iSANMATE, eSUN, SUNLU and Eryone printed; eSUN's "injection molding
-  spline test" and Nobufil's Injection column moulded).
-- **Extrudr's specimen type is split across batches.** b07 applied the R-EXTRUDR-AIS ruling (every row "Raw
-  material value"); b11 and b18 did not (`V006441 V006212 V008574 V008573 V008568 V008387 V008383 V008559`).
-  Nothing in those documents contradicts either reading.
+R085's second read of b03 to b26 (564 rows, a separate reader against a seeded sample) disagreed with **145 rows
+(26 %)**; none failed its first check, so every sampled value is printed on the document its Locator names. The
+register is `docs/audits/2026-09-18-v2-import/second-read/findings.csv` (R165): 76 findings are resolved, by the
+class migrations (m104 to m106, m118, m119, m128 to m132) or by the row's later state, and 69 are deferred to V2.1
+with the reason in their Resolution: conditions and standards the sheet states that the reader could not pair
+(QIDI's bilingual columns, per-line notches and loads on documents the sweep did not reach). None is open.
 
 ```bash
-npm run ingest:second-read -- --batch b12 --tally     # the rate, and what it would reopen
+npm run ingest:second-read -- --open     # the register, and what is still open (nothing)
 ```
-
-**What `--tally` does needs a decision before it is run.** R085 says one disagreement reopens its document, and
-the script writes `held: second-read` onto the ledger row. For a document already applied that is a status the
-next `--holds` run undoes, because the product has a grade and `registered` is terminal. Reopening a document
-whose rows are already in the tables is not the same act as holding one that never entered, and the difference
-has not been designed.
 
 ---
 
@@ -333,7 +295,7 @@ select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;
 
 ## Coverage, in one number
 
-Of 761 coverage rows, 272 record a gap, 93 a comparability limitation, 32 a reviewed limitation and 13 a partial
+Of 795 coverage rows, 267 record a gap, 93 a comparability limitation, 41 a reviewed limitation and 13 a partial
 resolution. Those are not defects; they are the database saying what it does not know. The headline gaps, against
 145 materials:
 

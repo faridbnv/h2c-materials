@@ -6,6 +6,7 @@
 //   npm run ingest:second-read -- --all                             every batch that has none
 //   npm run ingest:second-read -- --tally                           the findings register, second-read/findings.csv
 //   npm run ingest:second-read -- --open                            ... and the findings still open
+//   npm run ingest:second-read -- --defer --why "..." --by "<name>"  every open finding deferred to V2.1, with the reason
 //
 // b01 and b02 were read a second time and it found a source collision (m55 repairs it); b03 onward were not,
 // which is some three thousand accepted rows. R085: a separate agent re-reads a seeded sample of each batch
@@ -114,10 +115,10 @@ if (process.argv[1]?.endsWith('second-read.mjs')) {
   // corrected or added a value is not a batch: its rows were read by a person in the first place, and m13 to
   // m17 name the value each one replaces. Naming one with --batch still draws it.
   const batches = flag('all') ? [...new Set(rows.map((r) => r.batch))].filter((b) => /^b\d/.test(b)).sort() : [arg('batch')].filter(Boolean);
-  if (!batches.length && !flag('tally') && !flag('open')) { console.error('name a batch: --batch b19, or --all'); process.exit(2); }
+  if (!batches.length && !flag('tally') && !flag('open') && !flag('defer')) { console.error('name a batch: --batch b19, or --all'); process.exit(2); }
   const seed = Number(arg('seed', '20260921'));
 
-  if (flag('tally') || flag('open')) {
+  if (flag('tally') || flag('open') || flag('defer')) {
     // R165 (amends R085): a disagreement about a document already applied questions its rows; it does not reopen
     // the document. The ledger is not touched — an applied document is terminal — and each finding is a row of the
     // register, second-read/findings.csv, until a migration corrects the row or a reason closes it. The register
@@ -147,6 +148,16 @@ if (process.argv[1]?.endsWith('second-read.mjs')) {
         const resolution = derived || (hand && hand !== 'open' ? hand : 'open');
         findings.push({ Batch: batch, MeasurementID: w.MeasurementID, SourceID: w.SourceID, Property: w.Property, Verdict: w.Verdict, Note: w.Note, By: w.By, Resolution: resolution });
       }
+    }
+    // A finding the version will not act on is closed by a written deferral, never by silence: the row keeps its
+    // verdict and note, and the Resolution says who deferred it and why (plan of 2026-09-21, Phase B2).
+    if (flag('defer')) {
+      const why = arg('why'), by = arg('by');
+      if (!why || !by) { console.error('usage: --defer --why "<reason>" --by <name>'); process.exit(2); }
+      const date = new Date().toISOString().slice(0, 10);
+      let n = 0;
+      for (const f of findings) if (f.Resolution === 'open') { f.Resolution = `deferred to V2.1: ${why} (${by}, ${date})`; n++; }
+      console.log(`${n} open finding(s) deferred to V2.1`);
     }
     mkdirSync(dirname(REGISTER), { recursive: true });
     writeFileSync(REGISTER, csvText(RFIELDS, findings));

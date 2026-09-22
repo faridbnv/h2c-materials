@@ -66,19 +66,19 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | 2.2 | Grade posteriors, `EST-GRADE-OUTLIER`, D81 | 2 | done 2026-09-21 (D81; heat deflection not shipped by the stop rule; both codes at info) |
 | 2.3 | The sweep | 1½ | done 2026-09-21 (sweep/README.md: 200 read, m126–m135; D82 windows for six properties, W0024/W0080 redrawn; SUNLU's HA/HD scale is not published, so its acceptances stand) |
 | 2.4 | Representative grades and headlines after the import | ½ | report ready 2026-09-21 (representative-grades.md: 18 to decide, 15 printed alternatives, 4 with none); waits on the owner |
-| 2.5 | Query layer, OPEN-PROBLEMS | ½ | |
+| 2.5 | Query layer, OPEN-PROBLEMS | ½ | counts refreshed and §10 closed 2026-09-21; `grades_compiled` and the rewrite moved to V2.1 |
 | 3.1 | Family → polymer facet | 1 | done 2026-09-21 (4c522ea; polymer named within its family; chart colours from the constraint) |
-| 3.2 | The drawer by maker → grade | 2 | |
-| 3.3 | Estimates in the interface | 1 | |
-| 3.4 | Decision helpers | 1 | |
-| 3.5 | Reference layer clean-up | ½ | |
-| 3.6 | Size and boot, measured | ½ | |
+| 3.2 | The drawer by maker → grade | 2 | done 2026-09-21 (689d866: makers and properties as collapsed groups, a search box, grade estimate lines) |
+| 3.3 | Estimates in the interface | 1 | done 2026-09-21 (grade estimate lines in the drawer; the rail counts estimated materials); the Parallel-lens estimate centre moved to V2.1 |
+| 3.4 | Decision helpers | 1 | done 2026-09-21 (top ten by index in the index card; the price caveat counts); nearest-miss moved to V2.1 |
+| 3.5 | Reference layer clean-up | ½ | verified off by default and Ashby-only; the misspellings and `offset` moved to V2.1 |
+| 3.6 | Size and boot, measured | ½ | sizes recorded 2026-09-21 (db.json 19.7 MB raw, the page 6.3 MB self-contained); boot time on the laptop not measured, V2.1 |
 | 4 | Release | 1 | |
 
 **Done for V2 means:** every ledger row terminal (`applied`, `duplicate-of`, `registered`, `safety-data-sheet`,
 `not-a-data-sheet`, `skipped`, `unreachable` dated, `gated` named, or `deferred` — a named reader gap V2 will not
 close, dated); zero `held`; every maker in `census/parity.csv` at 95 % or with a measured reason; every second-read
-finding closed; every accepted finding current; grade posteriors back-tested; the interface reworked; `npm run
+finding closed by a resolution or a written deferral; every accepted finding current; grade posteriors back-tested; the interface reworked; `npm run
 verify` and CI green; `main` merged only when the owner asks.
 
 ### 1.1 FormFutura (b28)
@@ -374,16 +374,26 @@ second thirty-per-cent grade (four findings accepted).
 | a vocabulary value the data needs | the same commit as the data that cites it |
 | anything else | BLOCKERS.md names it, and the batch continues without it |
 
-## 8. Where to pick this up
+## 8. Where V2 stands, and where to pick it up
 
-1. `npm run ingest:inventory -- --status`, `npm run ingest:blockers`, `npm run ingest:readings`.
-2. The first step in §3 without a date in its State column: the sweep (2.3) and the family facet (3.1) are done,
-   so next is **2.4**, representative grades, which needs the owner's thirty minutes, and while that waits **2.5**
-   (the query layer and the OPEN-PROBLEMS rewrite) and **3.2**, the drawer. The owner's part of the import is one list, in BLOCKERS.md
-   (`ruling:*`) and batches/b30/README.md "What waits": names that state only a family (about 40, which the
-   recommendation is to defer), maker documents that contradict each other (Fiberlogy FiberFlex TPU vs TPC,
-   Extrudr GreenTEC), resin makers' sheets (scope), TPS under R056, and single sheets whose polymer has no row.
-3. Before committing: `npm run verify:fast`; `npm run verify` once per batch; `npm run ingest:propose -- --compare
-   --all` if the reader changed. A parity drop after a reader fix may be the recorded rows being wrong: it happened
-   three times, and each time the migration that corrected them brought the census back.
-4. When a step finishes, date it in §3 and move §8's pointer.
+**V2 closed on 2026-09-21** on the plan of that afternoon ("demo first, then close"): the import, the sweep and the
+estimator done; the drawer, the family filter, the estimate lines and the index ranking in the interface; the data
+loose ends closed by written deferrals, not by silence. Its close report is RESPONSE.md, "V2 close".
+
+Waiting on the owner, and each answered by one command or one migration:
+
+1. **Representative grades** (2.4): tick `representative-grades.md`; `m136-representative-grades` makes the moves.
+2. **Identity rulings**: 24 documents are `deferred: identity: owner ruling pending` in the ledger (FiberFlex TPU or
+   TPC, GreenTEC, WearX, TPS under R056, PI and PEKK without a polymer row, the metal and ceramic filaments'
+   scope). A ruling in `rulings.csv` and `ingest:batch --propose --held ruling` bring each back.
+3. **INTAMSYS** (33, `gated`) and the 15 `unreachable` stay as they are.
+
+**V2.1** is the list this plan set aside, in the order it would pay: the second-read classes (69 findings deferred
+in `second-read/findings.csv`); the 50 family-only names (`deferred: identity: names only a family`, D44); a
+property for stresses at a stated elongation; Nobufil's two-column rows and BASF's per-column directions
+(OPEN-PROBLEMS §11); the Parallel-lens estimate centres; nearest-miss in Why-excluded; the reference layer's three
+misspelled names and its dead `offset` (D67); `grades_compiled` in the SQLite file; iSANMATE's reader parity (61 %,
+the 2025 glass-fibre layout); boot time measured on the laptop.
+
+Before any commit: `npm run verify:fast` while working, `npm run verify` before a commit that touches data or a
+view, `npm run ingest:propose -- --compare --all` if the reader changed. When a step finishes, date it in §3.

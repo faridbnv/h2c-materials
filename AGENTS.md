@@ -234,7 +234,8 @@ npm run ingest:batch -- --batch bNN --finish                 # generated docs an
 
 `npm run ingest:propose -- --compare --all` is the parity census: run it before a batch commits, and before and
 after any change to the reader. `npm run ingest:second-read -- --all` draws R085's sample for a reader who did
-not decide the rows.
+not decide the rows; `-- --tally` writes the findings register, and `-- --defer --why "..." --by "<name>"` closes
+what is still open with a written deferral (R165), never by silence.
 
 The rules that differ from editing a table by hand:
 
