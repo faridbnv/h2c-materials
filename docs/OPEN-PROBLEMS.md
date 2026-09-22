@@ -290,6 +290,24 @@ has not been designed.
 
 ---
 
+## 11. What the sweep found and is not yet fixed
+
+The sweep (PLAN-REMAINING 2.3) read the 200 values furthest from their material's others against their sheets:
+`docs/audits/2026-09-18-v2-import/sweep/sweep-200.csv`, each verdict with the line quoted. m127 acted on the
+values and properties (a wrong cell, 30 endpoints named on their own line, two stresses at conventional deflection,
+14 numbers that are not the property, 24 flagged implausible). Still open:
+
+- **Stresses at a stated elongation have no property.** An elastomer sheet's "Tensile stress at 100 % / 200 % /
+  300 %" (and FiberFlex Aero's "@ 5 % / 10 % Strain") are filed as tensile strength (endpoint unspecified): 18 rows,
+  none a headline. They need a property that carries its elongation, which is a design decision, not a re-read.
+
+```sql
+select MeasurementID, Property, "Raw value", Locator from measurements
+where Property like 'Tensile%' and (Locator like '%stress at %0\%%' escape '\' or Locator like '%@ %\% Strain%' escape '\');
+```
+
+---
+
 ## Coverage, in one number
 
 Of 761 coverage rows, 272 record a gap, 93 a comparability limitation, 32 a reviewed limitation and 13 a partial

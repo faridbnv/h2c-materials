@@ -19,7 +19,7 @@
     },
     "measurements": {
       "rows": 11096,
-      "sha256": "6380482c0338d6091962f222bdef5bd798ddb922246a0b7aa1b61a7f113ff23b"
+      "sha256": "ad1ed2fa2c13e2e777c104c899cabbad28ac06fd4fbad135134805e7b74a57dd"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -78,8 +78,8 @@
       "sha256": "29b1899634c836645c40602bc6c89c765093e6396511ce83a94ff4b287351156"
     },
     "plausibility_windows": {
-      "rows": 110,
-      "sha256": "be5d4fa39a18b976e27b7f88ea138dcad800cbd871d90ad422f4316a686e32e6"
+      "rows": 111,
+      "sha256": "6752be58befcd7c6d0c47438f940abc05b1581b066704f5b14525f98592934ab"
     },
     "chamber_bands": {
       "rows": 44,

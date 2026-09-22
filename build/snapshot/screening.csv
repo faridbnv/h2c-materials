@@ -25,9 +25,9 @@ elongationXY,family,top,78,1,5,0.975,yes
 elongationXY,family,bottom,78,3,5,0.025,yes
 hdt045,this-grade,top,56,2,3,0.975,yes
 hdt045,this-grade,bottom,56,0,3,0.025,yes
-hdt045,this-material,top,46,2,2,0.982836,yes
-hdt045,this-material,bottom,46,1,2,0.025,yes
-hdt045,family,top,71,4,4,0.981726,yes
+hdt045,this-material,top,46,2,2,0.982939,yes
+hdt045,this-material,bottom,46,0,2,0.025,yes
+hdt045,family,top,71,4,4,0.978078,yes
 hdt045,family,bottom,71,0,4,0.025,yes
 hdt045 unstated-load bracket,amorphous,top,119,,8,gap 15.1,yes
 hdt045 unstated-load bracket,semi-unfilled,top,8,,,,no
