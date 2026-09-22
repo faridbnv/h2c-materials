@@ -418,6 +418,23 @@ table.grid td.name { font-weight: 600; }
 .src-head { font-size: var(--t-small); color: var(--ink-3); margin: 14px 0 6px; }
 .src-block:first-child .src-head { margin-top: 0; }
 .src-block.target > .src-title { border-left: 3px solid var(--accent); padding-left: 8px; }
+/* The drawer's collapsed groups: a maker's grades, sources or profiles, and a property's values. */
+.maker-block, .prop-block { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 8px; }
+.maker-block > summary, .prop-block > summary { display: flex; align-items: baseline; gap: 10px; padding: 9px 12px; cursor: pointer; font-weight: 600; font-size: var(--t-body); list-style: none; }
+.maker-block > summary::-webkit-details-marker, .prop-block > summary::-webkit-details-marker { display: none; }
+.maker-block > summary::before, .prop-block > summary::before { content: '▸'; color: var(--ink-3); font-size: 11px; }
+.maker-block[open] > summary::before, .prop-block[open] > summary::before { content: '▾'; }
+.maker-block > summary .n, .prop-block > summary .n { margin-left: auto; color: var(--ink-3); font-weight: 400; font-size: var(--t-label); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.maker-body { padding: 4px 12px 12px; border-top: 1px solid var(--border); }
+.maker-body .grade-block:first-child .block-title, .maker-body .profile-block:first-child .block-title, .maker-body > div:first-child .src-title { margin-top: 8px; }
+.index-rank { margin-top: 10px; }
+.index-rank-head { font-size: var(--t-label); color: var(--ink-3); margin-bottom: 4px; }
+.index-rank ol { margin: 0; padding-left: 22px; font-size: var(--t-small); line-height: 1.7; }
+.drawer-search-row { margin: 0 0 12px; }
+.drawer-search { width: 100%; box-sizing: border-box; padding: 8px 10px; font: inherit; font-size: var(--t-body); border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--ink); }
+.grade-ests { margin: 10px 0 4px; }
+.grade-est { font-size: var(--t-small); margin: 3px 0; }
+.grade-est .fine { color: var(--ink-3); font-size: var(--t-label); }
 .meas-foot .link-btn, .src-head .link-btn { text-align: left; }
 .meas-foot .link-btn { color: var(--accent); }
 /* Conditions every measurement from one source shares, said once above them. */

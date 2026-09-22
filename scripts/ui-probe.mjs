@@ -283,6 +283,21 @@ try {
   await sleep(300);
   results['20-compare-three-pins'] = await view();
 
+  // The drawer of the largest material, in Explore with estimates: Grades by maker and Mechanical by property, each
+  // group one collapsed line, so the text is the summaries and the open maker's grades with their estimate lines.
+  await open(pageUrl);
+  await click('#mode-explore');
+  await evaluate(`(() => { const c = document.getElementById('use-estimates'); if (!c.checked) { c.checked = true; c.dispatchEvent(new Event('change')); } return true; })()`);
+  await click('#lens tr[data-material="M001"]');
+  await until(`!!document.querySelector('.drawer')`, 'the PLA drawer');
+  const drawerText = () => evaluate(`(document.querySelector('.drawer-body')?.innerText ?? 'NO DRAWER').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 80).join('\\n')`);
+  await click('.drawer [data-tab="Grades"]');
+  await sleep(200);
+  results['13-drawer-pla-grades'] = await drawerText();
+  await click('.drawer [data-tab="Mechanical"]');
+  await sleep(200);
+  results['13-drawer-pla-mechanical'] = await drawerText();
+
   // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
   // counts are the only ones in the rail that follow the other requirements.
   const rail = () => evaluate(`(document.querySelector('.family-facet')?.innerText ?? 'NO FAMILY RAIL').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim()`);

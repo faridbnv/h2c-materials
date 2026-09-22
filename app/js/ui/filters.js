@@ -50,8 +50,8 @@ const openGroups = new Map();
 const draftOps = new Map();
 const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'family', 'polymer', 'env', 'buy', 'evidence', 'buildMaterial', 'clear'];
 
-function availLine(a, extra) {
-  let s = `<div class="avail">${a.withData} of ${a.total} have data`;
+function availLine(a, extra, estimated = 0) {
+  let s = `<div class="avail">${a.withData} of ${a.total} have data${estimated ? `, ${estimated} more estimated` : ''}`;
   if (extra) s += `<span class="caveat">${esc(extra)}</span>`;
   return s + '</div>';
 }
@@ -101,6 +101,8 @@ export function renderFilters(host, state, actions) {
 
 function body(group, materials, cs, db, ctx = {}) {
   const out = [];
+  // With estimates on, the availability line also counts the materials an estimate stands in for.
+  const estimatedFor = (key) => (ctx.showEstimates ? materials.filter((m) => { const h = m.headline?.[key]; return h && !h.known && !h.notApplicable?.rule && h.estimate; }).length : 0);
 
   if (group === 'Material family') {
     // Counted over the candidates every other requirement leaves, so a chip says how many a click would show; the
@@ -200,7 +202,7 @@ function body(group, materials, cs, db, ctx = {}) {
     out.push(`<div class="control" data-active="${!!c}">
       <label title="${esc(P.technical)}">${esc(P.plain)}</label>
       <div class="sub-label">${esc(P.hint)}</div>
-      ${availLine(a, extra)}
+      ${availLine(a, extra, estimatedFor(f.key))}
       <div class="row">
         <select class="op" data-op-for="${f.key}" aria-label="${esc(P.plain)} comparison">
           ${['>=', '<=', '>', '<'].map((o) => `<option value="${o}" ${(c?.operator ?? draftOps.get(f.key) ?? f.op) === o ? 'selected' : ''}>${esc(OP_WORD[o])}</option>`).join('')}

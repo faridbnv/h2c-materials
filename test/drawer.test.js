@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { resolvePointers } from '../app/js/ui/detail.js';
+import { resolvePointers, groupByMaker } from '../app/js/ui/detail.js';
 
 const db = JSON.parse(readFileSync(new URL('../dist/db.json', import.meta.url), 'utf8'));
 const evidenceById = new Map(db.evidence.map((e) => [e.id, e]));
@@ -42,4 +42,14 @@ test('every prose field in the database that points at evidence resolves, and sa
     const r = resolvePointers(db.materials.find((m) => m.name === name).bestUses, evidenceById);
     assert.ok(r.records.length > 0 && !r.records.some((x) => /^best uses$/i.test(x.topic)), name);
   }
+});
+
+test('grades group by maker, the representative grade\'s maker first, and none is lost', () => {
+  const pla = db.materials.find((m) => m.id === 'M001');
+  const grades = db.grades.filter((g) => g.materialId === 'M001' && !g.retired);
+  const groups = groupByMaker(grades, pla.representativeGrade);
+  assert.equal(groups.reduce((n, [, list]) => n + list.length, 0), grades.length);
+  assert.ok(groups.length > 10, `PLA has ${groups.length} makers`);
+  assert.equal(groups[0][0], grades.find((g) => g.id === pla.representativeGrade).manufacturer);
+  for (const [maker, list] of groups) assert.ok(list.every((g) => g.manufacturer === maker), maker);
 });

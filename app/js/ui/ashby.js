@@ -9,7 +9,7 @@
 //  - reference materials are a drawing layer, never candidates;
 //  - two axes, two categorical encodings, at most one size encoding.
 
-import { INDICES, indexById, indexValue, selectionLine, countAbove } from '../engine/indices.js';
+import { INDICES, indexById, indexValue, selectionLine, countAbove, rankByIndex, PRICE_CAVEAT, priceCaveat } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, FAMILY_LABEL, esc, fmtNumber, fmtRange } from './format.js';
 import { AXIS_DEFS, axisByKey, measurementMatches, pairable } from './axes.js';
@@ -1045,6 +1045,8 @@ function renderIndexCard(host, state, pts, actions) {
   const unique = [...new Map(pts.map((q) => [q.id, q.material])).values()];
   const above = countAbove(unique, index, M);
   const evaluable = unique.filter((m) => indexValue(m, index) !== null).length;
+  // The ten best by the index, from headline values only: a ranking, not a verdict, and the caveats sit under it.
+  const ranked = rankByIndex(unique, index).slice(0, 10);
 
   host.innerHTML = `
     <div class="index-card">
@@ -1074,11 +1076,14 @@ function renderIndexCard(host, state, pts, actions) {
         ? `<div class="index-fix"><span class="warn-chip">A cost-form index needs price combined with density on one axis, so it is not drawn on this chart. The caveats still apply.</span></div>`
         : `<div class="index-fix"><span class="warn-chip">This line needs Density across and ${esc(prop(index.numerator).plain)} up.</span>
           <button class="btn btn-sm" data-index-axes data-focus="index-axes">Set those axes, on Log scales</button></div>`}
-      <ul>${index.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+      <ul>${index.caveats.map((c) => `<li>${esc(c === PRICE_CAVEAT ? priceCaveat(unique) : c)}</li>`).join('')}</ul>
+      ${ranked.length ? `<div class="index-rank"><div class="index-rank-head">Top ${ranked.length} of ${evaluable} by this index, from headline values</div>
+        <ol>${ranked.map(({ material, value }) => `<li><button type="button" class="link-btn" data-rank-open="${esc(material.id)}" title="Open ${esc(material.name)}">${esc(material.name)}</button> <span class="formula">M = ${value.toPrecision(3)}</span></li>`).join('')}</ol></div>` : ''}
     </div>`;
 
   host.querySelector('[data-index-clear]')?.addEventListener('click', () =>
     actions.setPlot({ index: null, indexM: null, indexSlider: 50 }));
+  host.querySelectorAll('[data-rank-open]').forEach((b) => b.addEventListener('click', () => actions.openMaterial(b.dataset.rankOpen)));
   host.querySelector('[data-index-loglog]')?.addEventListener('click', () =>
     actions.setPlot({ xLog: true, yLog: true }));
   host.querySelector('[data-index-axes]')?.addEventListener('click', () =>

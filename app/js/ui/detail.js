@@ -85,13 +85,13 @@ const TAB_HELP = {
   Overview: (n, c) => (c.tested
     ? 'How this material fares against your requirements, whether the H2C can print it, and its key numbers.'
     : 'What this material is, its key numbers, and whether the H2C can print it.'),
-  Mechanical: (n) => (n ? `${plural(n, 'mechanical measurement')} on record, grouped by the source that published them.` : 'No mechanical measurement is on record for this material.'),
-  Thermal: (n) => (n ? `${plural(n, 'thermal measurement')} on record, grouped by the source that published them.` : 'No thermal measurement is on record for this material.'),
-  Printing: (n) => (n ? `${plural(n, 'print profile')}: the temperatures, nozzle, drying and feed each source gives.` : 'No print profile is on record for this material.'),
+  Mechanical: (n) => (n ? `${plural(n, 'mechanical measurement')} on record, by property; each value names its grade and source.` : 'No mechanical measurement is on record for this material.'),
+  Thermal: (n) => (n ? `${plural(n, 'thermal measurement')} on record, by property; each value names its grade and source.` : 'No thermal measurement is on record for this material.'),
+  Printing: (n) => (n ? `${plural(n, 'print profile')}, by maker: the temperatures, nozzle, drying and feed each source gives.` : 'No print profile is on record for this material.'),
   Environment: (n, c) => (n ? `${plural(n, 'record')} of how it behaves in chemicals, moisture and other exposure, by category${c.poly?.length ? `, ${c.poly.length} of them the base polymer's published behaviour` : ''}.` : 'No record of chemical, moisture or other exposure is on file for this material.'),
-  Grades: (n) => (n ? `${plural(n, 'commercial grade')} recorded under this material.` : 'No commercial grade is recorded under this material.'),
+  Grades: (n) => (n ? `${plural(n, 'commercial grade')} recorded under this material, by maker.` : 'No commercial grade is recorded under this material.'),
   Price: (n) => (n ? `${plural(n, 'Canadian price observation')} from the sampled retailers.` : 'No sampled Canadian retailer listed this material.'),
-  Evidence: (n, c) => (n ? `${plural(n, 'source')} behind this material's ${plural(c.ms.length, 'measurement')}, each with what it published and a link to the original.` : 'No source has published a measurement of this material.'),
+  Evidence: (n, c) => (n ? `${plural(n, 'source')} behind this material's ${plural(c.ms.length, 'measurement')}, by publisher, each with what it published and a link to the original.` : 'No source has published a measurement of this material.'),
   Coverage: (n) => (n ? `${plural(n, 'coverage record')}: what the database holds for this material and what it does not, by domain.` : 'No coverage record is on file for this material.'),
 };
 
@@ -140,7 +140,7 @@ const isNamedOnly = (x) => !x.numeric && !x.qualitative && /^not published$/i.te
 /** A property name inside a sentence: "glass transition temperature", but "HDT" stays as it is. */
 const inSentence = (name) => (/^[A-Z][a-z]/.test(name) ? name.charAt(0).toLowerCase() + name.slice(1) : name);
 
-function measurementRow(x, c, { shared = new Map(), inSources = false } = {}) {
+function measurementRow(x, c, { shared = new Map(), inSources = false, compact = false } = {}) {
   const cond = [
     x.direction !== 'not-applicable' ? x.direction : null,
     x.specimenType?.startsWith('Not published') ? 'specimen not stated' : x.specimenType,
@@ -151,7 +151,8 @@ function measurementRow(x, c, { shared = new Map(), inSources = false } = {}) {
   // The conditions that decide whether a number applies to your part: annealed or as printed, at what temperature,
   // printed how. A condition most measurements from this source share is said once, above them (sourceBlock); this one
   // says its own only where it differs, and says it states none where the others do.
-  const more = CONDITION_FIELDS.flatMap(([k, f]) => {
+  // Under a property heading the row leads with its grade and keeps only the two short conditions.
+  const more = (compact ? CONDITION_FIELDS.slice(0, 2) : CONDITION_FIELDS).flatMap(([k, f]) => {
     if (!shared.has(f)) return stated(x[f]) ? [[k, x[f]]] : [];
     if (!stated(x[f])) return [[k, 'Not stated for this measurement']];
     return String(x[f]).trim() === shared.get(f) ? [] : [[k, x[f]]];
@@ -170,13 +171,13 @@ function measurementRow(x, c, { shared = new Map(), inSources = false } = {}) {
     ? (x.locator ? ` · on the source: ${esc(x.locator)}` : '')
     : ` · source: <button type="button" class="link-btn" data-open-source="${esc(x.sourceId)}" title="Opens this source in the Sources tab">${esc(sourceName(s, x.sourceId))}</button>${x.locator ? `, ${esc(x.locator)}` : ''}`;
   return `<div class="evidence-row${c.highlight === x.id ? ' target' : ''}" data-mid="${esc(x.id)}">
-    <div><strong>${esc(x.property)}</strong> — ${op}${v}
+    <div><strong>${compact ? esc(gradeName(c.gradeById.get(x.gradeId)) || x.gradeId) : esc(x.property)}</strong> — ${op}${v}
       ${x.corrected ? '<span class="chip chip-neutral" style="font-size:10px">transcription corrected</span>' : ''}
       ${x.quarantined ? '<span class="chip chip-FAIL" style="font-size:10px">quarantined</span>' : ''}
       ${x.implausible ? explainButton('physically implausible', 'The source publishes this number, but physics rules it out; see Notes. It decides nothing.', { cls: 'chip chip-FAIL chip-small', head: 'Physically implausible' }) : ''}</div>
     ${cond ? `<div class="cond">${esc(cond)}</div>` : ''}
     ${more.length ? `<dl class="kv small cond-more">${more.map(([k, t]) => `<dt>${esc(k)}</dt><dd>${longText(t)}</dd>`).join('')}</dl>` : ''}
-    <div class="cond meas-foot">Measurement ${esc(x.id)} · grade ${esc(x.gradeId)}${source}</div>
+    <div class="cond meas-foot">Measurement ${esc(x.id)}${compact ? '' : ` · grade ${esc(x.gradeId)}`}${source}</div>
   </div>`;
 }
 
@@ -188,6 +189,66 @@ function groupBySource(list) {
     groups.get(x.sourceId).push(x);
   }
   return [...groups];
+}
+
+/** Items grouped by a key in first-appearance order, the group of `first` moved to the front. */
+function groupBy(list, keyOf, first = null) {
+  const groups = new Map();
+  for (const x of list) {
+    const k = keyOf(x) ?? 'Not recorded';
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(x);
+  }
+  const out = [...groups];
+  if (first != null && groups.has(first)) out.sort((a, b) => (a[0] === first ? -1 : b[0] === first ? 1 : 0));
+  return out;
+}
+
+/**
+ * Grades by maker, the representative grade's maker first. PLA has 198 grades from sixty-odd makers, and a flat list
+ * of them was a page a reader scrolled past; a maker is one collapsed line until opened.
+ */
+export function groupByMaker(grades, representativeId = null) {
+  const rep = grades.find((g) => g.id === representativeId);
+  return groupBy(grades, (g) => g.manufacturer, rep?.manufacturer ?? null);
+}
+
+/** A collapsed block per maker or property: the summary counts what is inside, the body shows once opened. */
+function makerBlock(name, n, noun, body, { open = false, cls = 'maker-block' } = {}) {
+  return `<details class="${cls}" data-search-group${open ? ' open' : ''}>
+    <summary><span class="maker-name">${esc(name)}</span><span class="n" data-all="${esc(plural(n, noun))}">${esc(plural(n, noun))}</span></summary>
+    <div class="maker-body">${body}</div>
+  </details>`;
+}
+
+// The search box above a long tab. Its text is kept while the same material is open, because the drawer is rebuilt
+// on every change of tab or shortlist, and a query that vanished on a tab change read as a broken box.
+let drawerQuery = '';
+let drawerQueryFor = null;
+const searchBox = (what) => `<div class="drawer-search-row"><input type="search" class="drawer-search" data-search placeholder="Find ${esc(what)}…" aria-label="Find ${esc(what)}" value="${esc(drawerQuery)}"></div>`;
+
+/** Hide what the query does not name, open the groups that still have something to show, and count what is left. */
+function applySearch(host) {
+  const q = drawerQuery.trim().toLowerCase();
+  for (const item of host.querySelectorAll('[data-search-item]')) item.hidden = !!q && !item.dataset.searchItem.toLowerCase().includes(q);
+  for (const group of host.querySelectorAll('[data-search-group]')) {
+    const shown = [...group.querySelectorAll('[data-search-item]')].filter((i) => !i.hidden).length;
+    group.hidden = !!q && shown === 0;
+    if (q && shown) group.open = true;
+    const n = group.querySelector('summary .n');
+    if (n?.dataset.all) n.textContent = q ? `${shown} of ${n.dataset.all}` : n.dataset.all;
+  }
+}
+
+/** One line per headline of what the model says of this grade (D81), only with estimates on. It decides nothing. */
+function gradeEstimateLines(g, c) {
+  if (!c.showEstimates || !g.estimate) return '';
+  const lines = REGISTRY.headlines.filter((h) => g.estimate[h.key]).map((h) => {
+    const e = g.estimate[h.key];
+    return `<div class="grade-est"><b>${esc(h.labels.plain)}</b> <span class="est est-${esc(e.precision)}">~${fmtNumber(e.lo)}–${fmtNumber(e.hi)} ${esc(e.unit)}<span class="est-mark">†</span></span>
+      <span class="fine">centred on ${fmtNumber(e.centre)} · ${esc(e.precision)} precision · ${esc(ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength)}</span></div>`;
+  });
+  return lines.length ? `<div class="grade-ests"><div class="shared-head">Estimated for this grade</div>${lines.join('')}</div>` : '';
 }
 
 /**
@@ -478,6 +539,7 @@ export function renderDrawer(host, state, actions) {
   const m = db.materials.find((x) => x.id === selectedMaterialId);
   if (!m) { host.innerHTML = ''; return; }
   if (m.familyEntry) return renderFamilyEntry(host, m, actions);
+  if (drawerQueryFor !== m.id) { drawerQuery = ''; drawerQueryFor = m.id; }
 
   const ms = ctx.measurementsByMaterial.get(m.id) ?? [];
   const ev = ctx.evidenceByMaterial.get(m.id) ?? [];
@@ -571,6 +633,11 @@ export function renderDrawer(host, state, actions) {
   host.querySelectorAll('[data-tab-link]').forEach((b) => b.addEventListener('click', () => actions.setDrawerTab(b.dataset.tabLink)));
   host.querySelectorAll('[data-open-source]').forEach((b) => b.addEventListener('click', () => actions.openSource(b.dataset.openSource)));
   wireEvidence(host, actions);
+  const search = host.querySelector('[data-search]');
+  if (search) {
+    search.addEventListener('input', () => { drawerQuery = search.value; applySearch(host); });
+    applySearch(host);
+  }
 }
 
 function tabBody(tab, c) {
@@ -701,12 +768,24 @@ function tabBody(tab, c) {
   }
 
   if (tab === 'Mechanical' || tab === 'Thermal') {
+    // The property first, then every value of it with its grade and source, largest first. Grouped by source, PLA's
+    // 700 values were sixty blocks to read through for one property; no range is drawn across them (D46).
     const list = tabProperties(tab, m);
-    const rows = ms.filter((x) => list.includes(x.property));
-    const present = new Set(rows.map((r) => r.property));
+    const all = ms.filter((x) => list.includes(x.property));
+    const rows = all.filter((x) => !isNamedOnly(x));
+    const named = all.filter(isNamedOnly);
+    const present = new Set(all.map((r) => r.property));
     const absent = list.filter((p) => !present.has(p));
+    const byValue = (a, b) => (b.numeric - a.numeric) || ((b.value ?? 0) - (a.value ?? 0));
+    const blocks = list.filter((p) => rows.some((x) => x.property === p)).map((p) => {
+      const group = rows.filter((x) => x.property === p).sort(byValue);
+      return makerBlock(p, group.length, 'value', group.map((x) => measurementRow(x, c, { compact: true })).join(''), { cls: 'prop-block' });
+    });
+    const namedHtml = named.length
+      ? `<div class="np-line">Named on a sheet, not published: ${named.map((x) => `<span class="np-item${c.highlight === x.id ? ' target' : ''}" data-mid="${esc(x.id)}" title="Measurement ${esc(x.id)}">${esc(inSentence(x.property))} (${esc(gradeName(c.gradeById.get(x.gradeId)) || x.gradeId)})</span>`).join(', ')}.</div>`
+      : '';
     return `
-      ${rows.length ? groupBySource(rows).map(([sid, group]) => sourceBlock(sid, group, c, { inSources: false })).join('') : empty(tab)}
+      ${rows.length ? blocks.join('') + namedHtml : empty(tab)}
       ${absent.length ? `<h3 class="sec">Not measured for this material</h3>
         <div class="gap">${absent.map(esc).join(' · ')}<br><br>
         Absent from the sampled sources. Not zero, and not a low value.</div>` : ''}
@@ -717,9 +796,10 @@ function tabBody(tab, c) {
 
   if (tab === 'Printing') {
     if (!profiles.length) return empty('Printing');
-    return profiles.map((p) => {
+    const repMaker = c.gradeById.get(m.representativeGrade)?.manufacturer ?? null;
+    const profileBlock = (p) => {
       const g = c.gradeById.get(p.gradeId);
-      return `<div class="profile-block">
+      return `<div class="profile-block" data-search-item="${esc([gradeName(g), g?.manufacturer, p.profile, p.id].filter(stated).join(' '))}">
       <h3 class="block-title">${esc(gradeName(g) || p.gradeId)} · ${esc(stated(p.profile) ? p.profile : 'print profile')} ${tag(p.id, 'Profile')} ${tag(p.gradeId, 'Grade')}</h3>
       <dl class="kv">
         <dt>Nozzle</dt><dd>${esc(p.nozzle.text)} ${gateChip(p.gates.nozzle, 'Nozzle')}</dd>
@@ -748,7 +828,9 @@ function tabBody(tab, c) {
         <dt>AMS published</dt><dd>${esc(p.routing.amsPublished ?? '')}</dd>
         <dt>Sources</dt><dd>${[p.sourceId, p.h2cSourceId].filter(stated).map((sid) => `${esc(sourceName(c.sourceById.get(sid), sid))} ${tag(sid, 'Source')}`).join('; ')}</dd>
       </dl></div>`;
-    }).join('');
+    };
+    return searchBox('a grade or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not recorded', repMaker)
+      .map(([maker, group]) => makerBlock(maker, group.length, 'print profile', group.map(profileBlock).join(''), { open: maker === repMaker })).join('');
   }
 
   if (tab === 'Environment') {
@@ -775,6 +857,7 @@ function tabBody(tab, c) {
 
   if (tab === 'Grades') {
     if (!grades.length) return empty('Grades');
+    const repMaker = c.gradeById.get(m.representativeGrade)?.manufacturer ?? null;
     // Colour. The field was collected on every grade, but it does not hold what a buyer wants: on 132 of 144 grades it
     // is the same sentence saying properties may vary by colour, and on the others it names the colour of the specimen
     // that was tested. So the caveat is said once, above the grades, and a grade shows its colour only where the tested
@@ -783,8 +866,8 @@ function tabBody(tab, c) {
     return `<div class="note">Which colours a grade is sold in is not part of this database: check the retailer listing.
       Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
       Where that colour is recorded, the grade below says so.</div>`
-      + grades.map((g) => `<div class="grade-block">
-      <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Grade')}</h3>
+      + searchBox('a grade or maker') + groupByMaker(grades, m.representativeGrade).map(([maker, group]) => makerBlock(maker, group.length, 'grade', group.map((g) => `<div class="grade-block" data-search-item="${esc([gradeName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
+      <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Grade')}${g.id === m.representativeGrade ? ' <span class="chip chip-neutral chip-small">stands for this material</span>' : ''}</h3>
       <dl class="kv">
         <dt>Manufacturer</dt><dd>${esc(g.manufacturer ?? '')}</dd>
         <dt>Product</dt><dd>${esc(g.product ?? '')}</dd>
@@ -795,7 +878,7 @@ function tabBody(tab, c) {
         ${SPEC_COLOUR.test((g.colourCaveat ?? '').trim()) ? `<dt>Colour tested</dt><dd>Measured on the <b>${esc(g.colourCaveat.trim())}</b> version. Other colours may differ.</dd>` : ''}
         <dt>Why this grade</dt><dd>${esc(g.rationale ?? '')}</dd>
         <dt>Source</dt><dd>${esc(sourceName(c.sourceById.get(g.sourceId), g.sourceId))} ${tag(g.sourceId, 'Source')}</dd>
-      </dl></div>`).join('');
+      </dl>${gradeEstimateLines(g, c)}</div>`).join(''), { open: maker === repMaker })).join('');
   }
 
   if (tab === 'Price') {
@@ -825,7 +908,11 @@ function tabBody(tab, c) {
 
   if (tab === 'Evidence') {
     if (!ms.length) return empty('Evidence');
-    return groupBySource(ms).map(([sid, group]) => sourceBlock(sid, group, c, { inSources: true })).join('');
+    const repMaker = c.gradeById.get(m.representativeGrade)?.manufacturer ?? null;
+    const publisher = ([sid]) => c.sourceById.get(sid)?.publisher ?? 'Publisher not recorded';
+    return searchBox('a source or publisher') + groupBy(groupBySource(ms), publisher, repMaker).map(([maker, group]) => makerBlock(maker, group.length, 'source',
+      group.map(([sid, list]) => `<div data-search-item="${esc([sourceName(c.sourceById.get(sid), sid), maker, sid].join(' '))}">${sourceBlock(sid, list, c, { inSources: true })}</div>`).join(''),
+      { open: maker === repMaker || group.some(([sid]) => sid === c.highlightSource) })).join('');
   }
 
   if (tab === 'Coverage') {

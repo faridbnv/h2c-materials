@@ -31,6 +31,12 @@ export const ANISOTROPY_CAVEAT =
  * @property {boolean} costForm    divide by price x density instead of density
  * @property {number} slope        slope of the selection line on log-log P vs rho axes
  */
+// The price caveat counts the materials it is shown for: it once read "40 of 102" from the day it was written.
+export const PRICE_CAVEAT = 'Price is available for {n} of {total} materials.';
+export const priceCaveat = (materials) => PRICE_CAVEAT
+  .replace('{n}', materials.filter((m) => m.headline?.priceCADkg?.known).length)
+  .replace('{total}', materials.length);
+
 export const INDICES = [
   {
     id: 'tie-stiffness',
@@ -77,17 +83,18 @@ export const INDICES = [
     designCase: 'Beam, minimum material cost, stiffness prescribed',
     formula: 'E^(1/2) / (Cm x rho)', numerator: 'tensileModulusXY', exponent: 0.5, costForm: true, slope: 2,
     note: 'Material cost only. Shaping, joining and finishing are not included.',
-    caveats: [ANISOTROPY_CAVEAT, 'Price is available for 40 of 102 materials.'],
+    caveats: [ANISOTROPY_CAVEAT, PRICE_CAVEAT],
   },
   {
     id: 'tie-strength-cost',
     designCase: 'Tie, minimum material cost, strength prescribed',
     formula: 'sigma / (Cm x rho)', numerator: 'tensileStrengthXY', exponent: 1, costForm: true, slope: 1,
-    caveats: [STRENGTH_CAVEAT, ANISOTROPY_CAVEAT, 'Price is available for 40 of 102 materials.'],
+    caveats: [STRENGTH_CAVEAT, ANISOTROPY_CAVEAT, PRICE_CAVEAT],
   },
 ];
 
 export const indexById = (id) => INDICES.find((i) => i.id === id) ?? null;
+
 
 /** Compute M for one material. Returns null when any needed headline is missing. */
 export function indexValue(material, index) {

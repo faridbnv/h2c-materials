@@ -1,0 +1,80 @@
+Which colours a grade is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in. Where that colour is recorded, the grade below says so.
+3DXTECH
+3 grades
+3DXTECH ECOMAX PLA G001-01 stands for this material
+Manufacturer
+3DXTECH
+Product
+ECOMAX PLA
+Composition
+Not published
+Availability
+Current official product listing retrieved
+Certifications
+Not published
+Why this grade
+Documented commercial formulation; traceable manufacturer evidence
+Source
+3DXTECH, ECOMAX PLA X-ECOMAX-PLA-TDS-v3
+ESTIMATED FOR THIS GRADE
+Density ~1,230–1,250 kg/m³† centred on 1,240 · good precision · from this grade's related measurements
+Stiffness ~2.86–2.87 GPa† centred on 2.87 · good precision · from this grade's related measurements
+Strength ~70.9–74.5 MPa† centred on 72.1 · good precision · from this grade's related measurements
+Stretch before breaking ~10–10 %† centred on 10 · good precision · from this grade's related measurements
+3DXTECH ECOMAX Tough PLA G001-18
+Manufacturer
+3DXTECH
+Product
+ECOMAX Tough PLA
+Composition
+Not published
+Availability
+Not published
+Certifications
+Not published
+Why this grade
+Documented commercial formulation; traceable manufacturer evidence
+Source
+3DXTECH, Technical Data Sheet: ECOMAX® Tough PLA 3D Printing Filament X-ECOMAX-ECOMAX-Tough-PLA-TDS-v1
+ESTIMATED FOR THIS GRADE
+Density ~1,210–1,230 kg/m³† centred on 1,220 · good precision · from this grade's related measurements
+Stiffness ~2.27–2.28 GPa† centred on 2.27 · good precision · from this grade's related measurements
+Strength ~42.5–52.3 MPa† centred on 47.1 · good precision · from this grade's related measurements
+Stretch before breaking ~64.9–65.1 %† centred on 65 · good precision · from this grade's related measurements
+3DXTECH SimuBone Bone Simulation G001-178
+Manufacturer
+3DXTECH
+Product
+SimuBone Bone Simulation
+Composition
+Its density of 1340 kg/m³ is above what neat PLA reaches (1330), so the product carries a filler its name does not declare. Not declared on the sheet; recorded as a Variant under D57 (R078, m131-grades-the-sweep-found).
+Variant
+undisclosed dense filler: its numbers describe this product, not the polymer in general
+Availability
+Not published
+Certifications
+Not published
+Why this grade
+Documented commercial formulation; traceable manufacturer evidence
+Source
+3DXTECH, Technical Data Sheet: SimuBone™ Bone Simulation Filament X-ECOMAX-SimuBone-TDS-v1
+ESTIMATED FOR THIS GRADE
+Density ~1,330–1,350 kg/m³† centred on 1,340 · good precision · from this grade's related measurements
+Stiffness ~3.4–3.42 GPa† centred on 3.41 · good precision · from this grade's related measurements
+Strength ~50–61.7 MPa† centred on 55.5 · good precision · from this grade's related measurements
+Stretch before breaking ~3.99–4.01 %† centred on 4 · good precision · from this grade's related measurements
+Polymaker
+16 grades
+iSANMATE
+6 grades
+Spectrum
+20 grades
+Extrudr
+7 grades
+SUNLU
+13 grades
+Eryone
+8 grades
+Flashforge
+6 grades
+Fiberlogy

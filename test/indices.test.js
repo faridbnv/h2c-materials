@@ -8,7 +8,7 @@
 // rather than treated as zero, which would put it on the frontier by accident.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { INDICES, indexById, indexValue, selectionLine, countAbove, rankByIndex } from '../app/js/engine/indices.js';
+import { INDICES, indexById, indexValue, selectionLine, countAbove, rankByIndex, PRICE_CAVEAT, priceCaveat } from '../app/js/engine/indices.js';
 import { paretoFront, sortFront } from '../app/js/engine/pareto.js';
 
 const mat = (id, E, rho, sigma, price) => ({
@@ -86,4 +86,10 @@ test('points missing either coordinate are excluded from the front, not treated 
 test('the front sorts for drawing', () => {
   const pts = [{ x: 3, y: 1 }, { x: 1, y: 5 }, { x: 2, y: 3 }];
   assert.deepEqual(sortFront(pts, 'min').map((p) => p.x), [1, 2, 3]);
+});
+
+test('the price caveat counts the materials it is shown for', () => {
+  const ms = [mat('a', 3, 1200, 50, 40), mat('b', 3, 1200, 50, null), mat('c', 3, 1200, 50, 30)];
+  assert.equal(priceCaveat(ms), 'Price is available for 2 of 3 materials.');
+  assert.ok(INDICES.filter((i) => i.costForm).every((i) => i.caveats.includes(PRICE_CAVEAT)));
 });

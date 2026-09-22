@@ -704,3 +704,15 @@ A scenario assumption stands in for a missing value only: never for one that doe
 every reason, drawn faint on the chart and never on its front. Loading a file restores the lens,
 columns, baseline and estimates switch as well as the requirements, through the same function the
 page uses at startup.
+
+## The drawer at 1,119 grades
+
+PLA has 198 grades and 700 measurements, and the drawer listed both flat. Its long tabs are now groups that open one
+at a time. **Grades**, **Printing** and **Sources** group by maker (by publisher, for sources): each maker is one
+collapsed line saying how many grades, profiles or sources it holds, the representative grade's maker open, and a
+search box above filters by grade, product, maker or source and opens what it finds. The representative grade is
+marked "stands for this material". **Mechanical** and **Thermal** lead with the property: each is a collapsed line
+with its count, and inside it every value with its grade and source, largest first, keeping the two short conditions
+(post-processing, test temperature) and leaving the print-parameter paragraphs to the Sources tab. No range is drawn
+across a property's values (D46). With estimates on, each grade block ends with what the model says of that grade,
+one line per headline (D81); in Confirmed only it shows nothing, as the layout probe asserts.
