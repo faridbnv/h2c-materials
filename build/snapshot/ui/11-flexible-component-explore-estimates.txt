@@ -49,7 +49,7 @@ Polyolefins
  UNKNOWN 905 ~0.006–0.43† ~15–32† ~730–1,230† n/a — ☆
 PA12
 Nylon / Polyamide
- UNKNOWN ~978–1,050† ~0.8–2.6† ~51–95† ~200–320† ~102–131† — ☆
+ UNKNOWN ~970–1,050† ~0.8–2.6† ~51–95† ~200–320† ~102–131† — ☆
 PA6
 Nylon / Polyamide
  UNKNOWN 1,250 ~2.3–4.6† ~37–79† ~4–21† ~144–178† 163↗ ☆
@@ -58,7 +58,7 @@ PVB / Specialty Polymers
  PASS 1,250 0.006 27 400 90 — ☆
 PCL
 PVB / Specialty Polymers
- UNKNOWN ~1,070–1,190† ~0.2–1.3† ~13–76† ~820–1,310† ~44–62† — ☆
+ UNKNOWN ~1,060–1,190† ~0.2–1.3† ~13–76† ~820–1,310† ~44–63† — ☆
 PE
 Polyolefins
  PASS 954 0.752 18.5 208 66 — ☆

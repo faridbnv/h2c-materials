@@ -118,7 +118,7 @@ passes a material; in Explore it may screen one out only when its plausible rang
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 857 | 112 | 80% | 96% | ×1.12 | 0.0255 (14857 pairs) |
+| density | 857 | 112 | 80% | 96% | ×1.13 | 0.0255 (14857 pairs) |
 | tensileModulusXY | 1148 | 78 | 81% | 96% | ×1.51 | 0.32 (861 pairs) |
 | tensileStrengthXY | 1272 | 56 | 80% | 96% | ×1.63 | 0.243 (1880 pairs) |
 | elongationXY | 916 | 78 | 81% | 96% | ×3.06 | 0.727 (1785 pairs) |
@@ -136,9 +136,9 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 
 | Headline | Class | Held | Top: beyond plausible | Top taken at | Bottom: beyond plausible | Bottom taken at |
 |---|---|---:|---:|---:|---:|---:|
-| density | this-grade | 1 | 1 | cannot screen | 0 | cannot screen |
+| density | this-grade | 1 | 0 | cannot screen | 0 | cannot screen |
 | density | this-material | 73 | 3 | 97.5% point | 1 | 2.5% point |
-| density | family | 112 | 5 | 97.5% point | 0 | 2.5% point |
+| density | family | 112 | 4 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-grade | 73 | 2 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | this-material | 53 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | family | 78 | 0 | 97.5% point | 1 | 2.5% point |
@@ -161,19 +161,18 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 
 | Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
 |---|---:|---:|---:|---:|---:|---|
-| density | 758 | 1.46 | 2.32 | 0.798 | 0.951 | yes |
+| density | 758 | 1.45 | 2.17 | 0.797 | 0.951 | yes |
 | tensileModulusXY | 234 | 1.03 | 1.24 | 0.799 | 0.949 | yes |
 | tensileStrengthXY | 257 | 1.05 | 1.11 | 0.794 | 0.946 | yes |
 | elongationXY | 303 | 1.09 | 1.28 | 0.795 | 0.947 | yes |
-| hdt045 | 376 | 1.71 | 3 | 0.79 | 0.944 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
+| hdt045 | 376 | 1.71 | 3 | 0.793 | 0.944 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
 EST-GRADE-OUTLIER, 25 grades: PLA 7, PLA Metal 5, PLA Aero 3, PA12-CF 2, PLA Wood 1, PP 1, ABS 1, PA6-CF 1, TPU 1, PET-GF 1, PPA-CF 1, PPA-GF 1.
 
-Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 217 observations):
+Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 212 observations):
 
-By material: PLA 39, PA12-CF 12, TPU 11, PPA-CF 10, PLA Aero 9, PLA Wood 7, PAHT-CF 7, PLA Metal 6, PA6-CF 6, PA12 6, PLA-CF 5, ABS 5, PA6-GF 5, PPA-GF 5, PETG 4, PA6 4, PLA-NF 4, PLA Silk 3, nGen FLEX 3, ABS-GF 3, ABS-CF 3, PET-GF 3, PPA 3, PP-CF 2, CPE-CF 2, PLA-EC 2, PAHT-CE 2, PPS-CF 2, PEBA 2, TPC / TPEE 2, OBC 2, TPC-ESD 2, PBAT 2, CPE-LW 2, PCL 2, BVOH 2, TPU-CF 2, PLA-GF 2, PC 2, PA12-GF 2, PET-CF 2, Support for PA/PET 2, PC-PBT 2, COC 2, PLA Sparkle 1, ASA 1, PVA 1, PP 1, POM / Acetal 1, PETG-CF 1, ASA-GF 1, TPU for AMS 1, PC FR 1, PET 1, HIPS 1, PC-PBT-CF 1.
+By material: PLA 37, PA12-CF 12, TPU 11, PPA-CF 10, PLA Aero 9, PAHT-CF 7, PLA Metal 6, PA6-CF 6, PA12 6, PLA-CF 5, ABS 5, PA6-GF 5, PPA-GF 5, PLA Wood 4, PETG 4, PA6 4, PLA-NF 4, PLA Silk 3, nGen FLEX 3, ABS-GF 3, ABS-CF 3, PET-GF 3, PPA 3, PP-CF 2, CPE-CF 2, PLA-EC 2, PAHT-CE 2, PPS-CF 2, PEBA 2, TPC / TPEE 2, OBC 2, TPC-ESD 2, PBAT 2, CPE-LW 2, PCL 2, BVOH 2, TPU-CF 2, PLA-GF 2, PC 2, PA12-GF 2, PET-CF 2, Support for PA/PET 2, PC-PBT 2, COC 2, PLA Sparkle 1, ASA 1, PVA 1, PP 1, POM / Acetal 1, PETG-CF 1, ASA-GF 1, TPU for AMS 1, PC FR 1, PET 1, HIPS 1, PC-PBT-CF 1.
 
-- PLA, density: density 1329 (V006557)
 - PLA, density: density 1240 (V008736)
 - PLA, density: density 1240 (V009024)
 - PLA, density: density 1200 (V009118)
@@ -181,7 +180,6 @@ By material: PLA 39, PA12-CF 12, TPU 11, PPA-CF 10, PLA Aero 9, PLA Wood 7, PAHT
 - PLA, density: density 1660 (V009217)
 - PLA, density: density 1850 (V009267)
 - PLA, density: density 2300 (V009282)
-- PLA, density: density 800, 800 (V010164, V010344)
 - PLA, density: density 1340 (V010204)
 - PLA Metal, density: density 1250 (V000184)
 - PLA Metal, density: density 2360, 2360 (V004044, V004066)
@@ -190,10 +188,7 @@ By material: PLA 39, PA12-CF 12, TPU 11, PPA-CF 10, PLA Aero 9, PLA Wood 7, PAHT
 - PLA Metal, density: density 1225 (V007387)
 - PLA Metal, density: density 1200 (V009065)
 - PLA Sparkle, density: density 1410 (V009182)
-- PLA Wood, density: density 1210 (V000244)
 - PLA Wood, density: density 1020 (V005557)
-- PLA Wood, density: density 1254 (V006967)
-- PLA Wood, density: density 1250 (V008254)
 - PLA Wood, density: density 700 (V009165)
 - PLA Wood, density: density 970 (V010031)
 - PLA Wood, density: density 1300 (V011067)
@@ -393,7 +388,7 @@ By material: PLA 39, PA12-CF 12, TPU 11, PPA-CF 10, PLA Aero 9, PLA Wood 7, PAHT
 
 Measured headlines far outside their prediction (worth a second look at the source and the grade):
 
-- PLA Metal, density: 1250 kg/m³, expected about 1740
+- PLA Metal, density: 1250 kg/m³, expected about 1730
 - TPU, elongationXY: 330.1 %, expected about 500
 
 ## Consistency
@@ -421,5 +416,5 @@ interface can say so rather than implying a certainty it does not have.
 - `HDT-LOAD-UNSTATED` **materials** — 2 of 88 HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 8 values are physically impossible for their property and were kept out of the estimate model: V009231 PLA Density 3900 kg/m³; V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009275 PLA Density 3130 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
-- `EST-OUTLIER` **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PLA Metal density 1250 (expected about 1740); TPU elongationXY 330.1 (expected about 500)
+- `EST-OUTLIER` **materials** — 2 measured headlines sit far outside what every other observation predicts; check the source and the grade: PLA Metal density 1250 (expected about 1730); TPU elongationXY 330.1 (expected about 500)
 - `EST-FAMILY-ORDER` **materials** — 3 reinforced materials sit below their unfilled sibling: PLA-CF tensileModulusXY 2.79 < PLA 2.865; ASA-AF tensileModulusXY 2.01 (estimate) < ASA 2.45; PLA-NF tensileModulusXY 2.41 (estimate) < PLA 2.865
