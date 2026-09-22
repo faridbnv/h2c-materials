@@ -128,7 +128,7 @@ Outdoor structural part,Explore with estimates,M131,PC-PBT-CF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M132,PBT-GF,PASS,yes,
 Outdoor structural part,Explore with estimates,M135,PVC,UNKNOWN,screened,hdt045 >= 100
 Outdoor structural part,Explore with estimates,M136,SAN,UNKNOWN,yes,
-Outdoor structural part,Explore with estimates,M137,COC,UNKNOWN,yes,
+Outdoor structural part,Explore with estimates,M137,COC,UNKNOWN,screened,tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M138,PE-GF,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M139,LCP,UNKNOWN,yes,
 Outdoor structural part,Explore with estimates,M140,PBT,UNKNOWN,yes,

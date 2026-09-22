@@ -80,7 +80,7 @@ Styrenics
  not tested 1,040 1.35 40* 18 80 43↗ ☆
 LCP
 High-Performance Engineering
- not tested 1,400 11.7* 200* 3.1* 193? — ☆
+ not tested 1,400 11.7* 200* 3.1* 193* — ☆
 nGen
 also called Amphora · Copolyesters
  not tested 1,200* 1.7 54 11 71* — ☆
