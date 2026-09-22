@@ -128,7 +128,7 @@ Nylon / Polyamide
  not tested 1,120 2.22 66.2 9.9 111 — ☆
 PA6/66-CF
 Nylon / Polyamide
- not tested 1,240 — 140* 10.6* 155 — ☆
+ not tested 1,240 — 140* 10.6* 155* — ☆
 PA612
 Nylon / Polyamide
  not tested 1,060* 2.4* 62* 100* 135* — ☆

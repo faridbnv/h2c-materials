@@ -272,8 +272,9 @@ The seven values, each with what the page says:
 Two conventions the reader raised rather than flagged, because they are uniform across a maker and are the
 owner's to rule on rather than a per-row error:
 
-- **QIDI's specimen type.** All 149 QIDI rows read "Not published (do not assume printed)" although every QIDI
-  sheet prints "Specimens printed under the following conditions: Nozzle size 0.4 mm, Nozzle temp …".
+- ~~**QIDI's specimen type.**~~ Fixed by m128 with every other sheet that states its specimens once for its table
+  (1,107 rows: Flashforge, Polymaker, QIDI, iSANMATE, eSUN, SUNLU and Eryone printed; eSUN's "injection molding
+  spline test" and Nobufil's Injection column moulded).
 - **Extrudr's specimen type is split across batches.** b07 applied the R-EXTRUDR-AIS ruling (every row "Raw
   material value"); b11 and b18 did not (`V006441 V006212 V008574 V008573 V008568 V008387 V008383 V008559`).
   Nothing in those documents contradicts either reading.
@@ -304,6 +305,16 @@ values and properties (a wrong cell, 30 endpoints named on their own line, two s
 ```sql
 select MeasurementID, Property, "Raw value", Locator from measurements
 where Property like 'Tensile%' and (Locator like '%stress at %0\%%' escape '\' or Locator like '%@ %\% Strain%' escape '\');
+```
+
+- **Nobufil's printed column was never transcribed.** Thirteen Nobufil sheets (3DJake copies) print one table with
+  two value columns, "FDM H" and "Injection". The reader took only the rows with one value, which stand in the
+  Injection column (m128 marks them moulded); the tensile, elongation and Izod rows that carry both a printed and a
+  moulded value were never read, so the printed values these sheets exist to give are missing. It is a
+  several-values layout (a transcription of both columns per row), not a correction.
+
+```bash
+grep -l "FDM H" .cache/text/*.json | wc -l     # the sheets; their rows: select * from measurements where SourceID like 'R-3DJAKE-3DJAKE-%'
 ```
 
 ---
