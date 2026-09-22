@@ -65,7 +65,7 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | 2.1 | Cross-maker consistency: SQL views, `EST-CONFLICT` | 1 | done 2026-09-21 (measurement_z, v_property_spread, EST-CONFLICT at info) |
 | 2.2 | Grade posteriors, `EST-GRADE-OUTLIER`, D81 | 2 | done 2026-09-21 (D81; heat deflection not shipped by the stop rule; both codes at info) |
 | 2.3 | The sweep | 1½ | done 2026-09-21 (sweep/README.md: 200 read, m126–m135; D82 windows for six properties, W0024/W0080 redrawn; SUNLU's HA/HD scale is not published, so its acceptances stand) |
-| 2.4 | Representative grades and headlines after the import | ½ | |
+| 2.4 | Representative grades and headlines after the import | ½ | report ready 2026-09-21 (representative-grades.md: 18 to decide, 15 printed alternatives, 4 with none); waits on the owner |
 | 2.5 | Query layer, OPEN-PROBLEMS | ½ | |
 | 3.1 | Family → polymer facet | 1 | done 2026-09-21 (4c522ea; polymer named within its family; chart colours from the constraint) |
 | 3.2 | The drawer by maker → grade | 2 | |

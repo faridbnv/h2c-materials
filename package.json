@@ -41,6 +41,7 @@
     "data:new": "node scripts/data/new.mjs",
     "data:new-material": "node scripts/data/new-material.mjs",
     "data:retire": "node scripts/data/retire.mjs",
+    "data:representative": "node scripts/data/representative.mjs",
     "docs:dictionary": "node scripts/docs-dictionary.mjs",
     "docs:decisions": "node scripts/docs-decisions.mjs",
     "snapshot": "node scripts/snapshot.mjs",
