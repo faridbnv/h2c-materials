@@ -78,8 +78,9 @@ Fifteen more entered with b11 to b22, all of classes the table already names:
 | V007863, V007866 | an unfilled PA6 pulling at 170 MPa and bending at 245 |
 | V006262 | a carbon-fibre PC drawing to 100 %, as V000729 |
 
-Eleven of the fifteen carry only the batch's standard note and not the reason the flag was set; the class above is
-the reason, and the sweep in PLAN-REMAINING §2.3 writes it into each row.
+Each now carries its reason in Notes, with the numbers its own sheet prints beside it (m134). The sweep (§11) flagged
+24 more, of the same classes and a few new ones (a notched impact above the polymer's unnotched, a glass transition
+above the sheet's own Vicat, a yield equal to the break); their reasons are in their rows.
 
 These need the manufacturer to be asked, not more reading. They are the values the database refuses to use. A
 larger set — 264 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
@@ -92,8 +93,10 @@ the sheet really does print what cannot be.
 The window findings are not mostly flexible grades, which is what this page used to say. By family they are PLA 59,
 flexible elastomers 25, PETG 16, copolyesters 14, polyamides 13; by property tensile modulus 33, hardness 31, Izod
 23, elongation 21, density 17. **Thirty are one defect, not thirty**: SUNLU's hardness column names both Shore
-scales ("HA/HD"), so a Shore D value is judged as Shore A or the other way round. That is a unit to read off each
-sheet, and PLAN-REMAINING §2.3 does it.
+scales ("HA/HD"). Where the value itself says which ("80D", "90A±2") the row records it; the thirty print a bare
+number under the double heading, so the scale is not published and the rows say so ("Shore (scale not specified by
+source)"). A rigid thermoplastic at 55 to 87 can only be Shore D, but that is physics, not the sheet (D35), and the
+acceptances stand.
 
 ```bash
 npm run sql --silent -- "select measurementid, materialid, property, normalized_value, notes from measurements
@@ -294,9 +297,8 @@ has not been designed.
 ## 11. What the sweep found and is not yet fixed
 
 The sweep (PLAN-REMAINING 2.3) read the 200 values furthest from their material's others against their sheets:
-`docs/audits/2026-09-18-v2-import/sweep/sweep-200.csv`, each verdict with the line quoted. m127 acted on the
-values and properties (a wrong cell, 30 endpoints named on their own line, two stresses at conventional deflection,
-14 numbers that are not the property, 24 flagged implausible). Still open:
+`docs/audits/2026-09-18-v2-import/sweep/sweep-200.csv`, each verdict with the line quoted, and m126 to m133 fixed
+each class it named across the whole table (the record: `sweep/README.md`). Still open:
 
 - **Stresses at a stated elongation have no property.** An elastomer sheet's "Tensile stress at 100 % / 200 % /
   300 %" (and FiberFlex Aero's "@ 5 % / 10 % Strain") are filed as tensile strength (endpoint unspecified): 18 rows,
@@ -315,6 +317,16 @@ where Property like 'Tensile%' and (Locator like '%stress at %0\%%' escape '\' o
 
 ```bash
 grep -l "FDM H" .cache/text/*.json | wc -l     # the sheets; their rows: select * from measurements where SourceID like 'R-3DJAKE-3DJAKE-%'
+```
+
+- **BASF's extended sheets print a value per print direction, by column.** The applied rows (V010063's class) record
+  neither the direction the column names nor the printed specimen the table describes. It needs each page image read
+  per column, not a rule.
+- **The values beyond |z| 3 the 200 did not reach** (453) stay in `v_measurement_z`; EST-GRADE-OUTLIER raises the
+  worst of them at grade level.
+
+```sql
+select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;
 ```
 
 ---

@@ -64,10 +64,10 @@ and the reference clean-up (3.5) need no data, and are the work for any wait on 
 | 1.8 | The import closed | ½ | done 2026-09-21 (STATUS.md reconciles the inventory) |
 | 2.1 | Cross-maker consistency: SQL views, `EST-CONFLICT` | 1 | done 2026-09-21 (measurement_z, v_property_spread, EST-CONFLICT at info) |
 | 2.2 | Grade posteriors, `EST-GRADE-OUTLIER`, D81 | 2 | done 2026-09-21 (D81; heat deflection not shipped by the stop rule; both codes at info) |
-| 2.3 | The sweep | 1½ | begun 2026-09-21 (m126: two joined numbers found and searched for across the table; 453 values beyond z 3 remain, the list in v_measurement_z) |
+| 2.3 | The sweep | 1½ | done 2026-09-21 (sweep/README.md: 200 read, m126–m135; D82 windows for six properties, W0024/W0080 redrawn; SUNLU's HA/HD scale is not published, so its acceptances stand) |
 | 2.4 | Representative grades and headlines after the import | ½ | |
 | 2.5 | Query layer, OPEN-PROBLEMS | ½ | |
-| 3.1 | Family → polymer facet | 1 | |
+| 3.1 | Family → polymer facet | 1 | done 2026-09-21 (4c522ea; polymer named within its family; chart colours from the constraint) |
 | 3.2 | The drawer by maker → grade | 2 | |
 | 3.3 | Estimates in the interface | 1 | |
 | 3.4 | Decision helpers | 1 | |
@@ -377,9 +377,9 @@ second thirty-per-cent grade (four findings accepted).
 ## 8. Where to pick this up
 
 1. `npm run ingest:inventory -- --status`, `npm run ingest:blockers`, `npm run ingest:readings`.
-2. The first step in §3 without a date in its State column: after the import's close that is **2.2**, grade
-   posteriors, which is done (D81). Next is **2.3**, the sweep: `npm run sql -- "select * from v_measurement_z where
-   abs(z) > 3 and variant is null order by abs(z) desc"`, EST-CONFLICT's 233 and EST-GRADE-OUTLIER's 34. The owner's part of the import is one list, in BLOCKERS.md
+2. The first step in §3 without a date in its State column: the sweep (2.3) and the family facet (3.1) are done,
+   so next is **2.4**, representative grades, which needs the owner's thirty minutes, and while that waits **2.5**
+   (the query layer and the OPEN-PROBLEMS rewrite) and **3.2**, the drawer. The owner's part of the import is one list, in BLOCKERS.md
    (`ruling:*`) and batches/b30/README.md "What waits": names that state only a family (about 40, which the
    recommendation is to defer), maker documents that contradict each other (Fiberlogy FiberFlex TPU vs TPC,
    Extrudr GreenTEC), resin makers' sheets (scope), TPS under R056, and single sheets whose polymer has no row.

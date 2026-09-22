@@ -88,6 +88,7 @@ break if it were reversed, because that is the part that gets lost.
 | D79 | The kernel is solved by block, and the estimates are the dense solve's | In force |
 | D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | In force |
 | D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | In force |
+| D82 | A property with thirty values has a window, drawn from physics and checked against the rows | In force |
 
 <!-- end index -->
 
@@ -1906,3 +1907,31 @@ elongation 305; heat deflection 382, not shipped. 1,050 grades carry an estimate
 build:diff` showed the addition and nothing under `db.materials`. The estimate stage costs 3 s more at 1x and the
 2x check reads 59 s against a 150 s budget; the downdate in `predict()` is dense, and making it sparse is the lever
 if that grows. Reversing it removes the grade cards and nothing else.
+
+## D82. A property with thirty values has a window, drawn from physics and checked against the rows
+
+*Extends D55 and D80.*
+
+The physics windows (`plausibility_windows.csv`) are what turns a value no reader has questioned into a finding
+somebody reads. Eighteen properties had them; six with thirty measurements or more did not, so a Raise3D
+polycarbonate "decomposing" at 129 °C, below the temperature its own sheet melt-indexes it at, sat in the tables
+unremarked. The sweep (PLAN-REMAINING 2.3) gave them windows: elongation at yield, mould shrinkage, continuous
+service temperature, decomposition and crystallisation temperature, and tensile strain at strength (m135).
+
+- **Physics draws the window; the rows check it.** Each bound is what the polymer class can do (a glassy polymer
+  yields at 2 to 5 %, a thermoplastic that decomposed below 150 °C would decompose in the nozzle), written in the
+  row's Basis with the range the data shows. The rows then tell whether the physics was drawn too tight: every
+  value outside a soft bound was read against its sheet, two were flagged (D55) and four accepted with what makes
+  each credible. A window that raised dozens would have been the window's fault, and none did.
+- **The hard bound covers the softest grade of the class, not the typical one.** An elastomer-modified COC yields at
+  150 % where a rigid one cannot pass 10. The window for a class holds every grade filed under it, so its hard
+  high is the declared softer grade's; the soft high still catches the soft grade for a reader.
+- **A window drawn from observation is redrawn when the observation changes.** W0024 and W0080 were drawn before a
+  thirty-per-cent carbon PEEK was in the corpus, and their acceptances said so. With two such grades in, a fibre
+  high-temperature polymer has its own tensile strength window (W0128) and the fibre modulus window reaches 22 GPa;
+  the four accepted findings stopped occurring. Redrawing is not weakening: the bound moves to what physics allows,
+  with the grade that showed it named in the Basis.
+
+Properties with fewer than thirty values (fatigue life, compression, tear strength, abrasion, dielectric strength)
+have none yet: a window drawn from nine rows is a guess about the next one. Reversing this removes seventeen windows
+and W0080's redrawing, and the findings they raise; the two flags would need their own reasons to stand.
