@@ -297,15 +297,16 @@ select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;
 
 Of 795 coverage rows, 267 record a gap, 93 a comparability limitation, 41 a reviewed limitation and 13 a partial
 resolution. Those are not defects; they are the database saying what it does not know. The headline gaps, against
-145 materials:
+the 153 candidate materials (the five family entries own no value):
 
 | Headline | Measured on |
 |---|---|
-| Density | 121 of 145 materials |
-| Stiffness, XY | 91 |
-| Elongation, XY | 91 |
+| Density | 127 of 153 materials |
+| Stiffness, XY | 92 |
+| Elongation, XY | 92 |
 | Heat deflection at 0.45 MPa | 88 |
-| Strength, XY | 77 |
+| Strength, XY | 78 |
+| Price (CAD/kg) | 38 |
 
 The rest are estimated, and every estimate says how far to trust it.
 

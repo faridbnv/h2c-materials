@@ -259,7 +259,7 @@ and only the first is evidence.
 
 ### Related evidence
 
-31 materials have a tensile-strength measurement on record that never became the headline, because
+67 materials have a tensile-strength measurement on record that never became the headline, because
 the source stated no direction, or measured a different endpoint. A blank cell hid that and implied
 nothing was known.
 
@@ -315,7 +315,7 @@ semantics with an offset and a spread:
 | Evidence | Converted as (headline minus evidence) |
 |---|---|
 | Break or yield strength, XY | about +5% and +2%, spread 0.1 and 0.08 |
-| Flexural modulus, XY | about equal, spread 0.2 (learned from 70 grades publishing both) |
+| Flexural modulus, XY | about equal, spread 0.2 (learned from the grades publishing both; the validation report has the count) |
 | Tensile value in Z | XY about 1.4 times Z for stiffness, 1.6 times for strength, spread 0.35 |
 | Direction not stated, or only the source's own label | centred, spread 0.3 to 0.9; data may lower the offset, never raise it above the documented value |
 | Measured after conditioning | dry equals conditioned plus a wet offset by water uptake: high (PA6, PA66, PA6/66, PPA; modulus ×2) or low (PA12, PA612, PAHT); other polymers read as dry |
@@ -364,7 +364,7 @@ product is filed under another material (both then show one estimate), `canScree
 
 **Unstated heat loads.** A heat deflection headline whose source names no load was measured at
 0.45 MPa or at 1.8 MPa, so its 0.45 MPa value lies between the value and the value plus the largest
-(95%) gap between the two loads its matrix shows: about 10 °C for an amorphous polymer (38 grades), 37 °C
+(95%) gap between the two loads its matrix shows: about 10 °C for an amorphous polymer, 37 °C
 for a fibre-filled semicrystalline one. `hdt045.loadBracket` carries it. It never passes a requirement;
 in Explore with estimates on, a requirement its `screenRange` wholly fails screens the material out. The bottom of that
 range is the published value, which physics guarantees; its top is set from the gaps grades publishing both loads show,
@@ -592,8 +592,8 @@ they can buy wants. In Explore the unsampled ones stay visible and flagged.
 
 Carried as warnings in `build/reports/validation-report.md`, and surfaced in the interface:
 
-- 7 of 67 HDT headlines cite a source naming the standard but not the load: PLA Lite, PP, and PEEK, PEKK, PEI, PSU
-  and PPSU, whose 3DXTECH sheets were not re-read because they are outside the estimate model.
+- 2 of 88 HDT headlines cite a source naming the standard but not the load: PLA Lite and PP. The 3DXTECH
+  high-temperature sheets that were among them had their loads read off the line (m105, m106, m132).
 - 10 impact measurements are in J/m and cannot share an axis with the kJ/m² rows without specimen
   geometry the sources never published. Izod results are one property, "Izod impact strength", since m22.
 - 2 materials have no property measurements at all: PA66-CF and PA612-GF. Neither has a defensible exact commercial

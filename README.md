@@ -18,7 +18,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 npm install --prefix build     # once
 npm run hooks                  # once per clone: the pre-commit data check
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
-npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about 25 s)
+npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about four minutes; the test suite is most of it)
 npm run verify                 # before a commit: verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
 npm run build:diff             # what a change did to the compiled database, against HEAD
 npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
@@ -33,9 +33,9 @@ Changing data? Read [AGENTS.md](AGENTS.md) first, and
 [docs/WALKTHROUGH-ADD-A-MATERIAL.md](docs/WALKTHROUGH-ADD-A-MATERIAL.md) if you are starting from a data sheet.
 
 **What is known to be wrong:** [docs/OPEN-PROBLEMS.md](docs/OPEN-PROBLEMS.md). The database records its own defects
-rather than hiding them, so that page is where they are listed: 133 measurements whose test standard was captured
-from the wrong column, ten published values physics rules out, six unresolved source conflicts, and the materials
-nothing has been published about.
+rather than hiding them, so that page is where they are listed, each with the query that re-derives its count:
+the published values physics rules out, the source conflicts nobody has been able to settle, the conditions the
+reader could not pair, and the materials nothing has been published about.
 
 Open the file in `dist/` in any current browser. Nothing else is required.
 
@@ -52,7 +52,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 | Address | What |
 |---|---|
 | [`/h2c-materials/`](https://pdynamics.ca/h2c-materials/) | The tool |
-| `/h2c-materials/H2C_Material_Selector_2026-09-16.html` | The same build, pinned to its database snapshot |
+| `/h2c-materials/H2C_Material_Selector_<snapshot>.html` | The same build, pinned to its database snapshot date (the `Scope / Snapshot` row of `method.csv`, `2026-09-21` today) |
 | `/h2c-materials/validation-report.md` | What the compiled database cannot support |
 | `/h2c-materials/manifest.json` | The commit, input hashes and output hashes the page was built from |
 

@@ -6,7 +6,7 @@ Two readers share one screen: someone who wants a shortlist, and an engineer who
 behind it. Progressive disclosure answers that.
 
 This dataset adds a harder problem. It is sparse, and deliberately honest about being sparse.
-Tensile strength exists for 58 of 98 candidate materials, price for 38, and most process fields for almost
+Tensile strength exists for 78 of 153 candidate materials, price for 38, and most process fields for almost
 none. A conventional filter interface renders that as a tool that looks broken. **Making absence
 legible and useful, rather than invisible, is the design problem.** Most of what follows is
 downstream of it.
@@ -17,7 +17,7 @@ downstream of it.
 1 Set requirements  ›  2 Read the candidates  ›  3 Compare trade-offs  ›  4 Check the evidence
 ```
 
-Named on the opening panel, because opening on 102 rows of everything gave no entry point.
+Named on the opening panel, because opening on every row of everything (153 today) gave no entry point.
 
 The panel offers six application templates. A template **populates controls and then gets out of the
 way**: every value it sets stays editable, and the header afterwards says which template was used and
@@ -32,9 +32,9 @@ Once a requirement is set, the panel gives way to a statement of what is being a
 drop a criterion on click. The previous build simply removed the panel, so using the tool left a
 bare table and no statement of the query.
 
-The heading above the pills adds up to the rows under it. It counts against the 98 materials, the same denominator
+The heading above the pills adds up to the rows under it. It counts against the 153 materials, the same denominator
 the start panel and the rail use (the five family names are never candidates, so none of them counts). Under
-**Confirmed only** it reads "15 of the 98 materials in this database meet these requirements" and says how many more
+**Confirmed only** it reads "15 of the 153 materials in this database meet these requirements" and says how many more
 could not be checked and are left out. Under **Include uncertain** those materials are listed, so the heading counts
 them too ("… and 16 more could not be checked for missing data"), and the sentence under it says how many an
 estimate screened out of the list. "15 meet these requirements" above 23 rows had read as a contradiction.
@@ -138,9 +138,9 @@ chart, so a family asked about is never in the grey "other families".
 **Every numeric control states its own data availability before it is touched.**
 
 ```
-HDT at 0.45 MPa                          67 of 98 have data
+HDT at 0.45 MPa                          88 of 153 have data
 [>=] [ 100 ] °C
-     7 of those 67 cite a source that states the standard but not the load
+     2 of those 88 cite a source that states the standard but not the load
 ```
 
 This single pattern does most of the work. It says what a criterion can and cannot decide before
@@ -151,7 +151,7 @@ support filter is called **Bambu support level**, as its requirement pill is, an
 the H2C limit of 350 °C": "baseline" means the reference row in the table and nothing else.
 
 **A field that cannot discriminate is not built as a filter.** H2C routing and AMS read "verify the
-exact grade" on 140 of 167 profiles, and printing difficulty is unpublished on all 167. They appear
+exact grade" on 1,051 of 1,077 profiles, and printing difficulty is unpublished on all 1,077. They appear
 in a material's Printing tab as evidence. A filter that passes everything teaches the reader to
 trust something that checked nothing.
 
@@ -183,7 +183,7 @@ used to say "Printable on an H2C", a promise about temperatures and feed paths i
 Environment criteria split by what the data can answer. Six categories carry reducible verdicts and
 are offered as filters. Six others have records but no reducible verdict among them, UV and outdoor
 being the sharpest at seven records and zero verdicts; offering those as constraints would return
-UNKNOWN for all 98 candidate materials while looking like a working filter. Among the six that are offered,
+UNKNOWN for all 153 candidate materials while looking like a working filter. Among the six that are offered,
 only an unqualified record passes: "limited resistance" is unresolved, never a PASS.
 
 A material's Environment tab counts every record it lists, and its first line says how many of them are in
@@ -396,7 +396,7 @@ converted. What every estimate shares, that the ranges are calibrated, that an e
 screen, is said once under the group. Six lines of prose per estimate, with those two sentences in each, had pushed "Can
 the H2C print it?" off the screen. Under Confirmed only there are no estimates in the drawer at all, as before.
 
-**Good for and family guidance.** For 47 materials the materials table's Best uses cell holds pointers rather than prose,
+**Good for and family guidance.** For 50 materials the materials table's Best uses cell holds pointers rather than prose,
 "Family context in Q00282, Q00283, Q00284, Q00285": evidence records filed under the family's own material. The data is
 left as it is and the drawer resolves them. A record whose topic is Best uses becomes the **Good for** text, with a line
 saying whose guidance it is and its source; the others are listed under **Family guidance**, each as topic and finding
@@ -406,7 +406,7 @@ resolves to no record is listed as not found, never dropped, and Watch out for i
 printed in the Overview.
 
 **Tabs.** Nine tabs, each with a count and one line under the strip saying what the open tab lists and what its count
-counts: "13 mechanical measurements on record, grouped by the source that published them", "1 source behind this
+counts: "13 mechanical measurements on record, by property; each value names its grade and source", "1 source behind this
 material's 22 measurements". The source-grouped tab is **Sources** and counts sources; as "Evidence 22" it had counted the
 measurements Mechanical and Thermal already count, under a name that did not say how it differed. Its internal key is
 still Evidence, which a measured value's button, links and saved scenarios use. A tab with nothing in it says "Nothing

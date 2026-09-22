@@ -1,5 +1,5 @@
 Section,Topic,Definition / rule
-Scope,Snapshot,2026-09-16. 98 candidate materials: 92 in H2C scope and six excluded; five family entries. Manufacturer source audit and missing-data research implemented; the 2026-09-16 source re-read and polymer-level references added; no ranking or weighted selection score.
+Scope,Snapshot,"2026-09-21. The V2 import (batches b01 to b33, docs/audits/2026-09-18-v2-import), the sweep of outlying values against their sheets, and an estimate per grade from the same model (D81). Family entries own no product; no ranking or weighted selection score."
 Scope,Protected references,"Materials Wiki, the legacy XLSM and synced project sources are read-only references. No workbook macros were executed or imported."
 Identity,Aliases,"CPE/CoPE, TPC/TPEE and umbrella nylon records remain separate canonical rows. Shared formulation keys identify repeated commercial evidence, not independent tests."
 Identity,Grade sample,Up to three technical grade samples per generic entry. Exact Bambu entries use their own TDS. Supplemental study grades carry R1 suffixes and are not procurement grades. Manufacturer-count shortfalls are explicit.

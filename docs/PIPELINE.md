@@ -275,7 +275,7 @@ output. Pages publishes it beside the page.
 ```bash
 npm run verify                   # verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
 npm run build:diff               # what the change did to dist/db.json
-open dist/H2C_Material_Selector_2026-09-16.html
+open dist/H2C_Material_Selector_*.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
 
@@ -334,5 +334,7 @@ full precision in `measurements.csv`, so the raw-value reconciliation reads exac
 ## Scale
 
 `test/scale.test.js` doubles the data (every material and its records cloned under new IDs) and runs the
-gate, compile and validate: about 0.3 s and 10 s at 199 materials and 3,979 measurements, against 0.2 s
-and 2 s today. The estimate model dominates, because its Gaussian process is cubic in observations.
+gate, compile and validate. Today's build is 0.07 s to compile, 13.5 s for the estimate stage and 0.06 s to
+validate at 158 materials and 11,096 measurements; doubled, the estimate stage takes about 59 s against a budget
+of 150 s (`test/scale.check.js` keeps the history). The estimate model dominates, because its Gaussian process is
+cubic in observations (D77, D79).

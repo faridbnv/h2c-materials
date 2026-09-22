@@ -17,14 +17,14 @@ acceptance.
 generated and never edited, and the retired Excel workbooks are history. Before committing, run:
 
 ```bash
-npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 25 s)
+npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about four minutes; the test suite is most of it)
 npm run verify        # verify:fast, then audit, review snapshot, interface views, 300 rendered scenarios: before a commit
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
 `verify` fails on a new lint finding, on an unreviewed build finding, on a stale `docs/RULES.md` or
 `docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
-engine over 300 random scenarios (about 1 minute more than `verify:fast`). CI runs `verify` on every push and 2,000
+engine over 300 random scenarios (about twenty minutes more than `verify:fast`: the interface views and the rendered scenarios drive a headless browser). CI runs `verify` on every push and 2,000
 scenarios on a new seed every night (`npm run ui:fuzz:full` locally). After a data or rule change, run `npm run snapshot`
 (and `npm run ui:check -- --write` when a view changed), read the diff, and commit it with the change: it is the change's
 downstream effect. A change meant to move nothing (code moved, a table split, a column retyped) shows `0 difference(s)`
