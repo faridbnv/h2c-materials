@@ -64,7 +64,8 @@ export function parseAnnealSchedule(text, state) {
     const amount = Number(String(brief[1]).replace(',', '.'));
     return { tempC: Number(String(brief[3]).replace(',', '.')), hours: /^min/i.test(brief[2]) ? Number((amount / 60).toFixed(4)) : amount };
   }
-  const m = /anneal\w*(?:\s+and\s+dried)?\s+at\s+(\d+(?:\.\d+)?)\s*[°˚]\s*C(?:\s+for\s+(\d+(?:\.\d+)?)\s*(hours?|h\s+ours|h|min)\b)?/i.exec(text ?? '');
+  // Spectrum prints the schedule with a slash ("annealed at 110°C/20 min"), Raise3D a masculine ordinal ("100 ºC").
+  const m = /anneal\w*(?:\s+and\s+dried)?\s+at\s+(\d+(?:\.\d+)?)\s*[°º˚]\s*C(?:(?:\s+for\s+|\s*\/\s*)(\d+(?:\.\d+)?)\s*(hours?|h\s+ours|h|min)\b)?/i.exec(text ?? '');
   if (!m) return { tempC: null, hours: null };
   const amount = m[2] == null ? null : Number(m[2]);
   return { tempC: Number(m[1]), hours: amount == null ? null : /^min/i.test(m[3]) ? Number((amount / 60).toFixed(4)) : amount };

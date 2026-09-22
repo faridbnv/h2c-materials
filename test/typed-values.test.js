@@ -55,6 +55,8 @@ test('the annealing schedule is a typed pair the wording checks: three spellings
   assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 80˚C for 30min and dried for 48h prior to testing', 'annealed'), { tempC: 80, hours: 0.5 });
   assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 100 °C for 16 h, and immersed in water at 60 °C for 48 h prior to testing (average moisture content 2.57%)', 'annealed'), { tempC: 100, hours: 16 });
   assert.deepEqual(parseAnnealSchedule('HDT specimens annealed at 130 °C', 'annealed'), { tempC: 130, hours: null });
+  assert.deepEqual(parseAnnealSchedule('* 3D printed at 100% infill and annealed at 110°C/20 min, XY axis', 'annealed'), { tempC: 110, hours: 0.3333 });
+  assert.deepEqual(parseAnnealSchedule('All specimens were annealed at 100 ºC for 8h', 'annealed'), { tempC: 100, hours: 8 });
   assert.deepEqual(parseAnnealSchedule('Annealed (schedule not stated)', 'annealed'), { tempC: null, hours: null });
   // A sheet may state the same schedule the short way round, the time first and the temperature after an at
   // sign: Spectrum prints "annealed (4h @ 90°C)" beside its heat deflection rows, and read left to right the
