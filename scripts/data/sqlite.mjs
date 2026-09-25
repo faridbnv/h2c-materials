@@ -196,6 +196,29 @@ export function writeSqlite(root = projectRoot, out = join(root, 'dist/h2c.sqlit
         headlines++;
       }
     }
+    // Every product's own value per headline, by rule (build/src/products.js), and every material's spread across its
+    // products: "which PLA products state an XY modulus above 2.5 GPa" is one query.
+    db.exec(`CREATE TABLE products_compiled (gradeid TEXT NOT NULL, materialid TEXT NOT NULL, manufacturer TEXT, product TEXT,
+      variant TEXT, headline_key TEXT NOT NULL, value REAL NOT NULL, level TEXT NOT NULL, caveat TEXT, measurementid TEXT,
+      anneal_c REAL, anneal_h REAL, pinned INTEGER NOT NULL, PRIMARY KEY (gradeid, headline_key))`);
+    db.exec(`CREATE TABLE summaries_compiled (materialid TEXT NOT NULL, material TEXT NOT NULL, headline_key TEXT NOT NULL,
+      products INTEGER NOT NULL, n INTEGER NOT NULL, min REAL, q1 REAL, median REAL, q3 REAL, max REAL, typical TEXT,
+      as_published_n INTEGER, as_published_min REAL, as_published_max REAL, variants_n INTEGER, variants_min REAL, variants_max REAL,
+      PRIMARY KEY (materialid, headline_key))`);
+    const insP = db.prepare('INSERT INTO products_compiled VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    const insS = db.prepare('INSERT INTO summaries_compiled VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    for (const g of compiled.grades) {
+      for (const [key, v] of Object.entries(g.headline ?? {})) {
+        insP.run(g.id, g.materialId, g.manufacturer, g.product, g.variant ?? null, key, v.value, v.level, v.caveat ?? null,
+          v.measurementId ?? null, v.anneal?.tempC ?? null, v.anneal?.hours ?? null, v.pinned ? 1 : 0);
+      }
+    }
+    for (const m of compiled.materials) {
+      for (const [key, s] of Object.entries(m.summary ?? {})) {
+        insS.run(m.id, m.name, key, s.products, s.n, s.min ?? null, s.q1 ?? null, s.median ?? null, s.q3 ?? null, s.max ?? null, s.typical ?? null,
+          s.asPublished?.n ?? null, s.asPublished?.min ?? null, s.asPublished?.max ?? null, s.variants?.n ?? null, s.variants?.min ?? null, s.variants?.max ?? null);
+      }
+    }
     db.exec('COMMIT');
   }
 

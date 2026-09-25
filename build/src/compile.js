@@ -5,7 +5,7 @@
 // the measurement must be the material's own, on its representative grade, with the headline's
 // property, unit and direction. A selection that fails any of these is a build error.
 
-import { parseValue, parseOperator, parseBoolean, toInterval, median, DATA_STATUS, RETIRED_AVAILABILITY } from './normalize/values.js';
+import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS, RETIRED_AVAILABILITY } from './normalize/values.js';
 import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
 import { specimenForm, postProcessingState, isPartSpecimen, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';
@@ -20,6 +20,8 @@ import { compileRegistry, measurementHeadlines, applies } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
+import { aggregateGate } from './gates.js';
+import { attachProducts } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
@@ -157,47 +159,6 @@ function compileProfiles(rows, noteRows, issues) {
       locator: r.Locator,
     };
   });
-}
-
-/**
- * Material-level gate across a material's print profiles.
- *
- * Precedence: within > partial > exceeds-recommended > exceeds > unknown.
- *
- * "within" wins because a printable grade existing is what the question asks. The part that needs
- * care is that a known exceedance must outrank an unknown: PEEK carries two profiles demanding a
- * 390-430 and a 400-480 C nozzle against the H2C's 350 C, plus one profile that publishes nothing.
- * Letting the silent profile decide would report PEEK as "unknown" and throw away the evidence that
- * it is out of envelope. Silence is not counter-evidence.
- *
- * "partial" (chamber only) sits just below "within": part of a published window is reachable,
- * which is better than a window the printer misses entirely.
- */
-const GATE_PRECEDENCE = ['within', 'partial', 'exceeds-recommended', 'exceeds', 'unknown'];
-
-function aggregateGate(profiles, axis) {
-  if (!profiles.length) return { verdict: 'unknown', reason: 'No print profile recorded' };
-  const vs = profiles.map((p) => p.gates[axis]);
-
-  for (const verdict of GATE_PRECEDENCE) {
-    const matches = vs.filter((v) => v.verdict === verdict);
-    if (!matches.length) continue;
-    // Among several exceedances, report the smallest overshoot: it is the closest to printable.
-    // Among unknowns, a source that said something in words ("recommended", "-") explains more
-    // than one that said nothing, so it supplies the reason.
-    const chosen = verdict === 'exceeds' || verdict === 'partial'
-      ? matches.reduce((a, b) => ((a.over ?? Infinity) <= (b.over ?? Infinity) ? a : b))
-      : verdict === 'unknown' ? (matches.find((v) => v.categorical) ?? matches[0])
-      : matches[0];
-    const silent = vs.filter((v) => v.verdict === 'unknown').length;
-    return {
-      ...chosen,
-      profiles: vs.length,
-      ...(vs.length > 1 ? { basis: `${matches.length} of ${vs.length} profiles` } : {}),
-      ...(silent && verdict !== 'unknown' ? { unpublishedProfiles: silent } : {}),
-    };
-  }
-  return { verdict: 'unknown', reason: 'No print profile recorded' };
 }
 
 /**
@@ -471,8 +432,6 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
   };
 }
 
-// Half up to the cent, on the decimal value: 124.485 is 124.49, not binary floating point's 124.48.
-const cents = (x) => Math.round(Number((x * 100).toPrecision(12))) / 100;
 const NOT_IN_MARKET = parseValue('Not available in sampled Canadian market');
 
 /**
@@ -772,6 +731,10 @@ export function compile(wb, { snapshot, build }) {
   });
 
   resolveFamilyEntries(familyEntries, materials, grades, issues);
+
+  // Every product's own values and print recipe, and every material's spread across its products (products.js). They
+  // decide nothing yet: the headline above does, until the engine reads the products (re-center phase 2).
+  attachProducts({ grades, materials, materialRows: wb.Materials.rows, measurements, profiles, prices, registry, selections: headlineSelections });
 
   // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
   // are not compiled here: the estimate stage (build/src/estimate/) adds them to the finished database.

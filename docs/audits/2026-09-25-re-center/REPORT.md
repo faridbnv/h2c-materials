@@ -37,10 +37,12 @@ engineering decisions**. Three things show it:
 **PLA shows the first two.**
 - The page judges all 198 PLA products by one of them (3DXTECH ECOMAX PLA, 2.87 GPa), so PLA "fails" a
   3 GPa stiffness requirement.
-- 27 PLA products publish a stiffness measured in the print direction. They span 0.95–3.4 GPa, with a typical value
-  of 2.3, and one reaches 3 GPa.
-- Another 49 publish a stiffness without saying how the bar was made or oriented, and 32 of those exceed 3 GPa.
+- 27 PLA products publish a stiffness measured in the print direction. They span 0.95–2.95 GPa, with a typical value
+  of 2.3, and none reaches 3 GPa.
+- Another 46 publish a stiffness without saying how the bar was made or oriented, and 30 of those exceed 3 GPa.
   They are probably moulded bars, which read stiffer than printed parts.
+- (Figures as the phase 1 build computes them, variants such as metal-filled PLA left out; the first draft of this
+  report, from a looser query, said 0.95–3.4 GPa and 49.)
 - The truthful answer is "almost no PLA printed part reaches 3 GPa, and here are the exceptions". Today the tool
   can give neither the answer nor the exceptions.
 
@@ -429,7 +431,7 @@ say.*
   Findings are logged. Boot time is measured in a browser.
 - **Gate:**
   - the views are reviewed and `npm run ui:fuzz:full` passes;
-  - PLA reads "27 comparable products, 0.95–3.4 GPa, typical 2.3, +49 whose sheets do not state the direction";
+  - PLA reads "27 comparable products, 0.95–2.95 GPa, typical 2.3, +46 whose sheets do not state the direction";
   - PPS-CF shows each product's own nozzle window;
   - the team test is written up.
 
@@ -637,7 +639,7 @@ hashed and cached. New fetching waits for a gap that needs it.*
   | Share of live values that feed a verdict | 20 % | reported; expected to rise several-fold |
   | UNKNOWN among materials not ruled out, six scenarios | 78 % | reported, counting only products that could be decided |
   | FAIL→SOME flips on properties | – | 14 (outdoor 1, indoor 0, lightweight 4, warm 2, stiffness 6, flexible 1) |
-  | PLA reads correctly | – | 27 comparable products, 0.95–3.4 GPa, typical 2.3, +49 without a stated direction |
+  | PLA reads correctly | – | 27 comparable products, 0.95–2.95 GPa, typical 2.3, +46 without a stated direction |
   | Products with their own nozzle / bed / chamber / drying recipe | 762 / 668 / 140 / 181 of 1,098 | reported after lane 2; chamber and drying the priority |
   | Products with at least one maker statement | 87, mostly chemical | reported after lane 3 |
   | Skipped facts searchable in the database | 0 of 39,468 | all, after lane 1 |

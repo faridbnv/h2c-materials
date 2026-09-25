@@ -9,6 +9,10 @@
 //   build/snapshot/warnings.csv    every build warning, one row per record
 //   build/snapshot/screening.csv   for every headline, evidence class and end, whether it may screen and where (D59)
 //   build/snapshot/grades.csv      every grade's own estimate per headline (D81): strength, precision, the ranges
+//   build/snapshot/products.csv    every product's own value per headline, by rule: the measurement, its evidence level,
+//                                   what qualifies it, and whether headlines.csv pins it (re-center phase 1)
+//   build/snapshot/summaries.csv   every material's spread per headline across its products: n, range, quartiles,
+//                                   the typical product, the values published without direction or load, the variants
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -90,6 +94,25 @@ for (const g of [...db.grades].sort((a, b) => a.id.localeCompare(b.id, 'en', { n
   }
 }
 
+// Every product's own values (products.js), so a rule or a data change that moves one shows which.
+const productRows = [];
+const summaryRows = [];
+for (const g of [...db.grades].sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }))) {
+  for (const [key, v] of Object.entries(g.headline ?? {})) {
+    productRows.push({ GradeID: g.id, MaterialID: g.materialId, Product: g.product, Headline: key, Value: v.value, Level: v.level,
+      Caveat: v.caveat ?? '', Measurement: v.measurementId ?? (v.priceIds ?? []).join('; '),
+      Annealed: v.anneal ? `${v.anneal.tempC ?? '?'} °C ${v.anneal.hours ?? '?'} h` : '', Pinned: v.pinned ? 'yes' : '', Variant: g.variant ?? '' });
+  }
+}
+for (const m of db.materials) {
+  for (const [key, s] of Object.entries(m.summary ?? {})) {
+    summaryRows.push({ MaterialID: m.id, Material: m.name, Headline: key, Products: s.products, Comparable: s.n,
+      Min: s.min ?? '', Q1: s.q1 ?? '', Median: s.median ?? '', Q3: s.q3 ?? '', Max: s.max ?? '', Typical: s.typical ?? '',
+      AsPublished: s.asPublished ? `${s.asPublished.n}: ${s.asPublished.min}-${s.asPublished.max}` : '',
+      Variants: s.variants ? `${s.variants.n}: ${s.variants.min}-${s.variants.max}` : '' });
+  }
+}
+
 const files = {
   'headlines.csv': csvText(Object.keys(headlines[0]), headlines),
   'gates.csv': csvText([...new Set(gates.flatMap((g) => Object.keys(g)))], gates),
@@ -97,6 +120,8 @@ const files = {
   'warnings.csv': csvText(['Code', 'Record'], warnings),
   'screening.csv': csvText(Object.keys(screening[0]), screening),
   'grades.csv': csvText(['GradeID', 'MaterialID', 'Product', 'Headline', 'Strength', 'Precision', 'Centre', 'Likely', 'Plausible', 'Unit', 'Own'], gradeRows),
+  'products.csv': csvText(Object.keys(productRows[0]), productRows),
+  'summaries.csv': csvText(Object.keys(summaryRows[0]), summaryRows),
 };
 
 if (process.argv.includes('--check')) {
@@ -106,5 +131,5 @@ if (process.argv.includes('--check')) {
 } else {
   mkdirSync(dir, { recursive: true });
   for (const [f, text] of Object.entries(files)) writeFileSync(join(dir, f), text);
-  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates`);
+  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates, ${productRows.length} product values, ${summaryRows.length} material summaries`);
 }

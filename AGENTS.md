@@ -134,6 +134,12 @@ published where they name none); the parser checks that too. Never write a stand
 also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 
+**A product's own values need no row.** Since re-center phase 1 the build chooses every product's value per headline
+by rule from its own measurements (`build/src/products.js`, `docs/DATA-MODEL.md`), and summarises each material from
+its products; a measurement recorded on the right grade with its conditions is all it takes. They decide nothing until
+phase 2. On 2026-09-25 the rule alone reproduced all 477 hand picks below (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`),
+so a new pick is needed only where the rule chooses wrongly, and phase 4 retires the rest.
+
 **Make a measurement a headline.** A row in `headlines.csv`: MaterialID, HeadlineKey, MeasurementID,
 Use `value`. The measurement must be the material's own, on its representative grade, with the
 headline's property, unit and direction, a printed or unstated specimen, not conditioned, not flagged implausible,

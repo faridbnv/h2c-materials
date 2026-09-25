@@ -38,3 +38,41 @@ commit per phase step; `main` stays at V1 until the re-centered V2 passes its ph
 
 **Waiting on the owner:** the taxonomy decision in phase 5 (Bambu's product lines as products of their material, an
 "other / unspecified" home per family).
+
+## Phase 1: every product's own values and print recipe, by rule (2026-09-25)
+
+`build/src/products.js` adds, beside each material's headline and deciding nothing yet:
+
+- **`grades[].headline[key]`**: each product's own value per headline, chosen by rule from its own measurements, at
+  one of two levels (D84 as decided): comparable, or as published where the source leaves the direction or the load
+  unstated. A `headlines.csv` value row pins its product's value.
+- **`grades[].print`**: each product's own recipe from its own profiles: the gate and window per axis, enclosure,
+  hardened nozzle, drying, and the annealing its sheets state. Never a union across the material.
+- **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
+  variants: products, n comparable, range, quartiles, median, the typical product, and the as-published values and
+  variants counted apart.
+
+`aggregateGate` moved to `build/src/gates.js` and `cents` to `normalize/values.js`, unchanged, so a product and a
+material share them. The contract (`schema/db.schema.json`) describes the three additions; the snapshot gains
+`products.csv` and `summaries.csv`, and `npm run sql` gains `products_compiled` and `summaries_compiled`.
+
+**Gate.**
+
+| | Result |
+|---|---|
+| `npm run build:diff` | only `db.grades[].headline` (1,098), `db.grades[].print` (1,098) and `db.materials[].summary` (153): nothing that existed moved |
+| The rule against the 477 hand picks | **all 477 agree** (471 the same measurement, 6 the same value): [rule-vs-hand-picks.md](rule-vs-hand-picks.md). The picks are redundant, which phase 4 acts on |
+| Headlines the hand left empty that the rule fills on the representative grade | 122, listed in the same report (PLA's strength among them: a printed XY break strength of 56 MPa nobody selected) |
+| Product values | 3,356 on 3,318 distinct measurements, against 2,166 measurements on representative grades before: density 843; modulus 254 comparable + 307 as published; strength 335 + 393; elongation 328 + 361; heat deflection 415 + 82; price 38 |
+| PLA, stiffness | 27 comparable products, 0.95–2.95 GPa, median 2.27, none at 3 GPa; 46 as published, 1.44–4.78 GPa, 30 of them at 3 GPa or more; 11 variants apart. The report's first figures (0.95–3.4, 49) came from a looser query and are corrected there |
+| Tests | 9 new (`test/products.test.js`), each a rule over every product; 283 pass in `npm test` |
+| `verify:fast` / `verify` | 71 s cold / 3 min 1 s, passing |
+| `db.json` / page | 20.1 → 20.8 MiB / 6.03 → 6.14 MiB |
+
+Where the hand picks sat matters for phase 2: the report lists, per material, the share of its products at or below
+the picked value. 87 picks sit at an extreme (0 % or 100 %) of their material; PA12-CF's stiffness, for one, was 8 GPa
+against a median of 3.3 across its four comparable products.
+
+Not built in this step, and why: a print summary per material (the engine will need the products' recipes, not a
+summary of them; the table's print columns come in phase 3), and D83/D84 in DECISIONS.md (they are entered with the
+phase 2 change that makes them decide).

@@ -274,6 +274,16 @@
                 }
               }
             }
+          },
+          "headline": {
+            "type": "object",
+            "description": "The product's own value per headline, by rule (re-center phase 1); absent for a retired grade.",
+            "additionalProperties": {
+              "$ref": "#/$defs/productValue"
+            }
+          },
+          "print": {
+            "$ref": "#/$defs/productPrint"
           }
         }
       }
@@ -1988,6 +1998,13 @@
               }
             }
           }
+        },
+        "summary": {
+          "type": "object",
+          "description": "The material's spread per headline across its products (re-center phase 1); absent for a family entry.",
+          "additionalProperties": {
+            "$ref": "#/$defs/headlineSummary"
+          }
         }
       }
     },
@@ -2059,6 +2076,389 @@
           }
         }
       ]
+    },
+    "productValue": {
+      "description": "A product's own value for one headline, chosen by rule (build/src/products.js, re-center phase 1): the measurement, its evidence level (comparable, or as published where the source leaves the direction or the load unstated), and what qualifies it. The source and conditions are the measurement's. A price is the median of the product's own sample listings. It decides nothing until the engine reads products (phase 2).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "level"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "level": {
+          "enum": [
+            "comparable",
+            "as-published"
+          ]
+        },
+        "measurementId": {
+          "type": "string",
+          "pattern": "^V\\d{6}$"
+        },
+        "caveat": {
+          "enum": [
+            "unstated-direction",
+            "load-not-stated"
+          ]
+        },
+        "direction": {
+          "type": "string"
+        },
+        "interval": {
+          "$ref": "#/$defs/interval"
+        },
+        "uncertainty": {
+          "type": "number"
+        },
+        "anneal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "tempC",
+            "hours"
+          ],
+          "properties": {
+            "tempC": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "hours": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "pinned": {
+          "const": true
+        },
+        "observations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "priceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productPrint": {
+      "description": "A product's own print recipe (build/src/products.js): the gate across its own profiles for each axis and the window of the profile that decided it, whether it wants an enclosure, a hardened nozzle and drying, and the annealing its sheets state for values measured on annealed parts. Never a union across a material's products.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "profileIds",
+        "nozzle",
+        "bed",
+        "chamber",
+        "enclosure",
+        "hardenedNozzle",
+        "drying",
+        "anneal"
+      ],
+      "properties": {
+        "profileIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nozzle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "verdict",
+            "state",
+            "min",
+            "max",
+            "profileId"
+          ],
+          "properties": {
+            "verdict": {
+              "enum": [
+                "within",
+                "partial",
+                "exceeds-recommended",
+                "exceeds",
+                "unknown"
+              ]
+            },
+            "state": {
+              "type": "string"
+            },
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "profileId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "bed": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "verdict",
+            "state",
+            "min",
+            "max",
+            "profileId"
+          ],
+          "properties": {
+            "verdict": {
+              "enum": [
+                "within",
+                "partial",
+                "exceeds-recommended",
+                "exceeds",
+                "unknown"
+              ]
+            },
+            "state": {
+              "type": "string"
+            },
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "profileId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "chamber": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "verdict",
+            "state",
+            "min",
+            "max",
+            "profileId"
+          ],
+          "properties": {
+            "verdict": {
+              "enum": [
+                "within",
+                "partial",
+                "exceeds-recommended",
+                "exceeds",
+                "unknown"
+              ]
+            },
+            "state": {
+              "type": "string"
+            },
+            "min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "profileId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "enclosure": {
+          "enum": [
+            "recommended",
+            "not-needed",
+            "unknown"
+          ]
+        },
+        "hardenedNozzle": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "drying": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "tempC",
+                "hours",
+                "profileId"
+              ],
+              "properties": {
+                "tempC": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "hours": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "profileId": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "anneal": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tempC",
+              "hours",
+              "measurementId"
+            ],
+            "properties": {
+              "tempC": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "hours": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "measurementId": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "headlineSummary": {
+      "description": "A material's spread for one headline across its procurement products that are not declared variants (build/src/products.js, D83 decided): how many products, how many publish a comparable value, their range, quartiles (from four values) and the typical product (nearest the median); values published without the direction or load, and variants, counted apart. The spread of products, never uncertainty about one.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "products",
+        "n"
+      ],
+      "properties": {
+        "products": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "median": {
+          "type": "number"
+        },
+        "q1": {
+          "type": "number"
+        },
+        "q3": {
+          "type": "number"
+        },
+        "typical": {
+          "type": "string"
+        },
+        "asPublished": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "n",
+            "min",
+            "max"
+          ],
+          "properties": {
+            "n": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            }
+          }
+        },
+        "variants": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "n",
+            "min",
+            "max"
+          ],
+          "properties": {
+            "n": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            }
+          }
+        }
+      }
     }
   }
 }

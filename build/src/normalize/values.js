@@ -25,6 +25,9 @@ const MISSING_TEXT = new Map([
 /** The middle value, or null for nothing. One definition: the price median, the estimate model and the print windows share it. */
 export const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
 
+// Half up to the cent, on the decimal value: 124.485 is 124.49, not binary floating point's 124.48.
+export const cents = (x) => Math.round(Number((x * 100).toPrecision(12))) / 100;
+
 // Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an active grade. Its
 // Availability conventionally reads this phrase; the validator flags any active grade whose Availability still talks
 // about retirement, because that is a half-finished retirement.

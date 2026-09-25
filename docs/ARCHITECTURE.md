@@ -89,6 +89,8 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database. Each headline is the measurement `headlines.csv` selects, checked against its definition and its state (printed, dry, as printed, not flagged implausible); implied bounds come from printed values only (D55). |
+| `products.js` | Every product's own value per headline and its print recipe, chosen by rule, and every material's spread across its products (re-center phase 1; docs/GOALS.md). Decides nothing until the engine reads products. |
+| `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
 | `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (conversions, limits, the fit's judgements) and the tables it reads (`polymers.csv`, a material's Estimate identity and Variant class, Shore hardness measurements; D43, D53, D60), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `calibration.js`, `bounds.js` ranges and their limits, `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. `grades.js` predicts every active grade at its own row and calibrates those ranges at grade level (D81); a grade estimate decides nothing. |
@@ -235,7 +237,7 @@ say. Then add a case to `describeConstraint` in `ui/labels.js`: that function is
 explain panel, the why list, the excluded-search group and the CSV export all use, and a missing
 case is how an internal key reaches the screen.
 
-**A new gate verdict.** Add it to `GATE_PRECEDENCE` in `build/src/compile.js`, to the switch in
+**A new gate verdict.** Add it to `GATE_PRECEDENCE` in `build/src/gates.js`, to the switch in
 `evaluateGate` in `app/js/engine/constraints.js`, and to `GATE_VERDICT` in `ui/labels.js`, which is
 where the table, drawer and Compare read its chip and its words. `partial` was the last one added, and
 three screens each had their own copy of that table until then.

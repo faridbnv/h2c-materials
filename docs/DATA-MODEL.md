@@ -178,6 +178,8 @@ registry           { properties, headlines }: what every property and headline m
   familyEntry,                   // null, or { kind: 'family' | 'alias', members: [{ id, name }], why }
   representativeGrade, gradeIds: [],
   headline: { density, tensileModulusXY, tensileStrengthXY, elongationXY, hdt045, priceCADkg },
+  summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, asPublished, variants } },
+                                 // the spread across its products (below); decides nothing until phase 2
   headlineBasis,                 // the data's own statement of what the headline is
   measurementConditions,         // how the headline numbers were measured
   facets: { reinforcement, esd, flexible, supportMaterial, flameRetardant },
@@ -209,6 +211,33 @@ someone can act on a result, and they are never used to rank or to satisfy a pro
 `facets` are partly derived. Each carries `origin: 'source' | 'derived'` and, when derived, what it
 was derived from. Flame retardancy is the weakest: there is no such field in the data, so it is
 inferred from the name and marked accordingly.
+
+### A product's own values, and a material as the spread of its products
+
+Added in re-center phase 1 (docs/GOALS.md, D83 and D84 decided 2026-09-25; `build/src/products.js`). They sit beside
+the material headline above and decide nothing yet: the engine still reads the headline until phase 2.
+
+- **`grades[].headline[key]`**: the product's own value for each headline, chosen by rule from its own measurements.
+  The rule accepts what a headline selection accepts, less the representative grade: a printed or unstated specimen,
+  the headline's direction, not conditioned, not implausible, not annealed where the product publishes it as printed,
+  at the headline's load. A value is `comparable`, or `as-published` with a `caveat` where the source leaves the
+  direction (`unstated-direction`) or the load (`load-not-stated`) unstated. Several candidates are ordered: comparable,
+  printed, as printed, dry, the product's own data sheet, the headline's first value property, a point, then the
+  lowest ID. A `value` row of `headlines.csv` on the product pins it (`pinned`); on 2026-09-25 the rule alone
+  reproduced all 477 picks (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`). A value measured on an
+  annealed part carries the schedule (`anneal`). `priceCADkg` is the median of the product's own sample listings.
+- **`grades[].print`**: the product's own recipe from its own profiles, never a union across a material: per axis the
+  gate against the H2C and the window of the profile that decided it, the enclosure, whether it wants a hardened
+  nozzle, drying, and the annealing its sheets state. Null for a product with neither a profile nor an annealing
+  schedule.
+- **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
+  variants. `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
+  values) and `typical` product (nearest the median) these are. Values published without the direction or load
+  (`asPublished`) and variants (`variants`) are counted apart. It is the spread of different products, never
+  uncertainty about one; PEBA's 7.5, 25 and 30 MPa are three products.
+
+`build/snapshot/products.csv` and `summaries.csv` hold every value; `npm run sql` has `products_compiled` and
+`summaries_compiled`.
 
 ### A headline value
 
