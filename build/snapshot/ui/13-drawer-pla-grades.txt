@@ -21,7 +21,7 @@ Nozzle wear: 9 of 39 makers (35 products)
 Odour and emissions: 13 of 39 makers (21 products)
 Supports and removal: 8 of 39 makers (33 products)
 Printing advice: 12 of 39 makers (20 products)
-Of the products whose documents were read, 149 give no chamber or enclosure need, 150 no drying schedule and 189 no annealing schedule.
+Of the products whose documents were read, 147 give no chamber or enclosure need, 150 no drying schedule and 189 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
 3DXTECH
 3 products

@@ -298,6 +298,13 @@ select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;
 Found by re-center lane 2 (m136, 2026-09-25), which filled what the products' own cached sheets state and the parsers
 read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". Still open:
 
+- **Thirty-three products state a recipe part only in words.** Lane 3's statements give 26 products a chamber or
+  enclosure need (Siraya Tech's "An enclosure is crucial…", Bambu's "No enclosure, or heated chamber needed") and 7 a
+  drying schedule (Raise3D's "Dry PA12 CF at 80°C for 12 hours before printing") that their print profiles do not hold.
+  The panel quotes them and the know-how state counts them, but the chamber and drying gates read the profiles, so
+  those products stay unknown on them. Query: products whose `knowHow.recipe.chamber` or `.drying` is `collected` while
+  `print.chamber.state` and `print.enclosure`, or `print.drying`, are unknown.
+
 - **Seventy-five products have no recipe of their own by rule.** The import recorded them as another product's twin
   (R053) or reprint (R166): a grade each, the values once, on the other product. Their printing tables went with the
   values, so under D83 they are unknown on every print gate although their own sheets print a recipe. A ruling: record

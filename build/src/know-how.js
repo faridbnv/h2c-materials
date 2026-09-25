@@ -20,7 +20,10 @@
 //   no-document-read   none of its documents was read, because none is cached, or none was read yet.
 // The same states are given for the three parts of the print recipe a sheet may leave out: the chamber (or the
 // enclosure), drying before printing, and annealing the part after it. A recipe part is collected when the product's
-// own profiles state it (lane 2, m136) or, for annealing, its measurements or an annealing statement give a schedule.
+// own profiles state it (lane 2, m136), or when the maker's own words do: an annealing schedule in its measurements or
+// statements, a drying schedule (a drying word and a temperature) or a chamber or enclosure need among its know-how.
+// Words not yet in its print settings are the settings' gap, not the sheet's: the sheet said it (lane 2 left sheets
+// that describe two products to a ruling, and Raise3D's say "Dry PA12 CF at 80°C for 12 hours").
 
 import { readCsv } from './csv.js';
 import { fileURLToPath } from 'node:url';
@@ -46,6 +49,10 @@ const STATES = [STATE.COLLECTED, STATE.SEARCHED, STATE.SILENT, STATE.UNREAD];
 export const RECIPE_PARTS = ['chamber', 'drying', 'annealing'];
 const SCOPE = { DOCUMENT: 'document', SITE: 'maker site' };
 const NA = 'Not applicable';
+
+// A maker's words that state a chamber or enclosure need (or that none is needed), and a drying schedule.
+const CHAMBER_STATED = /\b(enclosure|enclosed|heated chamber|closed chamber|chamber temperature)\b/i;
+const DRYING_STATED = /\b(dry|dried|drying|dehydrate)\w*\b.{0,60}?\d{2,3}\s*(°|º|℃)|\d{2,3}\s*(°|º|℃)\s*C?.{0,50}\b(dry|drying|dried)\b/i;
 
 const tally = (keys) => Object.fromEntries(keys.map((k) => [k, 0]));
 const latest = (dates) => (dates.length ? [...dates].sort().at(-1) : null);
@@ -94,6 +101,7 @@ export function attachKnowHow(db, wb, issues) {
   for (const k of db.knowHow) (byGrade.get(k.gradeId) ?? byGrade.set(k.gradeId, []).get(k.gradeId)).push(k);
   // An annealing schedule the product's own records state: lane 2's statements (Post-processing, m136).
   const annealStated = new Set(db.evidence.filter((e) => e.category === 'post-processing' && /anneal/i.test(`${e.finding} ${e.exposure}`)).map((e) => e.gradeId));
+  const says = (own, pattern) => own.some((k) => pattern.test(k.text));
 
   for (const g of db.grades) {
     if (g.retired) continue;
@@ -113,8 +121,8 @@ export function attachKnowHow(db, wb, issues) {
       readOn: reads.readOn,
       searchedOn: reads.searchedOn,
       recipe: {
-        chamber: stateOf(!!p && (p.chamber.state !== 'unknown' || p.enclosure !== 'unknown'), reads),
-        drying: stateOf(!!p?.drying, reads),
+        chamber: stateOf((!!p && (p.chamber.state !== 'unknown' || p.enclosure !== 'unknown')) || says(own, CHAMBER_STATED), reads),
+        drying: stateOf(!!p?.drying || says(own, DRYING_STATED), reads),
         annealing: stateOf(!!p?.anneal?.length || annealStated.has(g.id), reads),
       },
     };

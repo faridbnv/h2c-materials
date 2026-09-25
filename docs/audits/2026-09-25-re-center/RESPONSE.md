@@ -507,8 +507,8 @@ statement of either kind.**
 |---|---:|---:|---:|---:|---:|
 | Procurement products | 887 | 198 | 0 | 6 | 1,091 |
 | Materials | 128 | 20 | 0 | 5 | 153 |
-| Print recipe, active products: chamber | 341 | 747 | 0 | 10 | 1,098 |
-| … drying | 405 | 682 | 0 | 11 | 1,098 |
+| Print recipe, active products: chamber | 367 | 721 | 0 | 10 | 1,098 |
+| … drying | 412 | 675 | 0 | 11 | 1,098 |
 | … annealing | 85 | 1,001 | 0 | 12 | 1,098 |
 
 The five materials with no document read are PLA Lite (its one product, eSUN PLA-Lite, has no cached text) and four
@@ -562,4 +562,14 @@ narrower templates were kept or dropped by each reader's judgement.
 | `verify:fast` | 72 s on the first run after the data changed (the build cache cold for the new tables; load average 3.5 to 4.5, another session working), 36 s warm (load average 8) |
 | `npm run verify` | Passes, in 6 min 52 s at a load average of 10 to 21 (another session working): `npm test` (309), `test:ingest` (164), the scale check within its budget, the audit, the snapshot current, the 66 views, the 300 fuzzed scenarios. `dist/db.json` 21.1 → 22.5 MB, the page 6.19 → 6.45 MB |
 | Views | `ui:check -- --write`: two views change (PLA's and PA12-CF's Products tab) and one is new |
+
+**Merged onto phase 4 (2026-09-25).** The three commits applied onto `v2` after phase 4 with one conflict (the status
+line in `docs/GOALS.md`, both kept); m137 and m140 re-run as no-ops, and the snapshot, the worklist and the 66 views
+came out unchanged. One correction on review: a recipe part was "sheet silent" whenever the product's print settings
+lacked it, and the panel then said "it gives no drying schedule" beside the product's own "Dry PA12 CF at 80°C for 12
+hours before printing" (Raise3D, whose two-product sheets lane 2 left to a ruling), and "no chamber or enclosure need"
+beside Siraya Tech's "An enclosure is crucial for maintaining consistent printing temperatures". A drying schedule or a
+chamber or enclosure need in the maker's own statements now counts as collected, as an annealing statement already did:
+chamber 341 became 367, drying 405 became 412, and the table above is the corrected one. Those 33 products' settings
+still lack what their words say, so their gates stay unknown; that is lane 2's to type (OPEN-PROBLEMS §12).
 
