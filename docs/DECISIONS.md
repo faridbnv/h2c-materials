@@ -2093,3 +2093,24 @@ back inside the proposal files, and the team again chooses what to verify withou
 properties are chosen from this table. Or they are brought to the decision standard, which is the per-fact cost that
 made the reader skip them.
 
+**Makers' know-how: the planned exception, built in lane 3 (m140, 2026-09-25).** A maker's statements about printing
+and using its product are the one part of the record the page shows, in the product panel, and they are stored where a
+reader can edit them, in `evidence.csv` (Domain "Makers' know-how", a topic in the non-filterable `know-how` category),
+rather than derived into the SQLite file, because each one is a reading somebody chose to keep.
+- **Shown, never screening, by construction.** `build/src/know-how.js` moves them out of `db.evidence` into
+  `db.knowHow`, so no criterion, polymer-level precedence (D64), coverage domain or count can see one (the compiler's
+  own environment and category tallies take only filterable categories), and a scenario cannot name their category. A test runs the six templates with them put back
+  beside the evidence and requires every answer unchanged.
+- **The maker's words, on the page named.** Spaces normalised and full-width punctuation written in ASCII, nothing
+  else; the migration re-reads each on its cached, hash-checked page. A maker's product page counts, labelled by its
+  source class as marketing text.
+- **A silent sheet is a state, not a hole.** Collected, sheet silent (maker site not yet searched), searched with
+  nothing published (dated), or no document read, per product and per material, with the same states for the recipe's
+  chamber, drying and annealing: derived (D74) from the statements and from `know_how_reads.csv`, the one thing that
+  is not derivable, which documents were read. A generated worklist queues the silent ones for a maker-site search.
+- **Light, like the rest of the tier.** Agents read the candidates and chose what to keep; no per-row signed review;
+  a sample of 50 read against the page.
+
+Reversing it puts the statements back among the evidence, where a later category change could let one decide, or
+drops the reads table, and a silent sheet and an unread one look the same again.
+

@@ -324,6 +324,42 @@ npm run sql --silent -- "select gradeid, product_name from grades where status =
 
 ---
 
+## 13. Makers' know-how: what the reading left, and where it may be wrong
+
+Found by re-center lane 3 (m140, 2026-09-25), which recorded 4,502 statements in the makers' words on 888 products
+from 1,262 documents read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 3". Every statement
+was chosen by an agent and none by a person; a sample of 50 was read against the page. Still open:
+
+- **The makers' sites are not searched.** 198 procurement products and 20 materials are "sheet silent"; the list, with
+  the sites the data holds, is `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md` (`npm run audit:know-how`).
+  Six procurement products have no document read at all (no cached text): eSUN PLA-Lite, 3DXTECH 3DXPRO LG PETG and
+  AMIDEX Nylon 12, purefil POM, Kimya PEBA-S, DSM Arnitel ID 2045.
+- **eSUN says its numbers are moulded, not printed.** 52 cached eSUN documents (48 sources, 47 active products) print
+  "The physical properties, mechanical properties, thermal properties, and electrical properties of the filament are
+  obtained based on the injection molding spline test." Their measurements are recorded as printed or unstated
+  specimens and can decide (D84). A decision-tier re-read for lane 4: Specimen type "Raw material value" where the
+  sheet says so.
+- **A document that covers two products speaks for the one the tables link.** Raise3D's PA12 CF sheet also describes
+  PA12 CF+, and three CF+ statements sit on Raise3D Industrial PA12 CF (G053-09). The Panchroma TDS that covers Silk PLA
+  and CoPE was left out whole.
+- **Some statements are several bullets or table cells run together**, because the text was rebuilt from the page
+  without its bullet marks: Prusa's ABS feature list, Ensinger's target industries. Readable, not clean.
+- **Template sentences.** A maker's sentence with only the product's name changed, printed on at least four materials
+  and half the maker's range, was dropped: Raise3D's brass-nozzle abrasion sentence (11 rows) and Nanovia's
+  air-extraction sentence (19 rows). Narrower templates were kept or dropped by each reader's judgement (Polymaker's and
+  QIDI's dry-box sentences kept, SIDDAMENT's support and oven sentences dropped).
+- **Not read for know-how:** non-English text, retailers' pages fetched as witnesses (3DJake, filament2print,
+  shop3d), and the makers' safety data sheets. The nozzle-wear statements now show in the panel, but the typed
+  Hardened nozzle column that gates a product (§12) is still unread.
+
+```bash
+npm run sql --silent -- "select topic, count(*) from evidence where domain = 'Makers'' know-how' group by 1 order by 2 desc"
+npm run sql --silent -- "select count(distinct sourceid) from documents_fts where documents_fts match '\"injection molding spline\"'"
+npm run sql --silent -- "select evidenceid, gradeid, finding from evidence where domain = 'Makers'' know-how' and finding like '%CF+%'"
+```
+
+---
+
 ## Coverage, in one number
 
 Of 795 coverage rows, 267 record a gap, 93 a comparability limitation, 41 a reviewed limitation and 13 a partial

@@ -16,7 +16,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
-| `evidence.csv` | Chemical, environmental and application evidence |
+| `evidence.csv` | Chemical, environmental and application evidence; and makers' know-how, a maker's statements about printing and using its product in its own words (Domain "Makers' know-how"), which the build keeps out of everything that screens (below, "Makers' know-how") |
+| `know_how_reads.csv` | Which sources were read for makers' know-how, how (a document held, or the maker's site searched), when and by whom: the one fact about know-how the build cannot derive |
 | `prices.csv` | Canadian price observations |
 | `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71) |
 | `coverage.csv` | Gaps, conflicts, judgements and unresolved items; a replaced finding is Superseded, not deleted. The build adds a row of its own for each domain a material's records prove and no stored row speaks for (D74) |
@@ -162,7 +163,9 @@ grades             materials 1 -- N grades
 measurements       materials 1 -- N, grades 1 -- N, sources N -- 1 (retired duplicates excluded;
                    quarantined and physically implausible values flagged)
 profiles           print setup, with parsed temperatures, enclosure wording and gate verdicts
-evidence           use and durability, classified (retired duplicates excluded)
+evidence           use and durability, classified (retired duplicates and makers' know-how excluded)
+knowHow            makers' know-how: each statement in the maker's words, by product and topic, shown in the
+                   panel and read by nothing that screens; grades[].knowHow and materials[].knowHow carry the state
 prices             quarantined observations kept as an audit trail, backing nothing
 sources
 coverage           terminal: reports gaps, never feeds selection
@@ -561,6 +564,42 @@ following counts. Application, safety and other non-environment records are outs
 | Creep | indicator | 2 | 0 | 2 |
 | Fatigue | indicator | 5 | 0 | 5 |
 | Hydrolysis | indicator | 4 | 0 | 4 |
+
+## Makers' know-how
+
+What a maker writes about printing and using its product beyond the numbers is recorded in `evidence.csv`, one
+statement per row, in the maker's own words (spaces normalised, full-width punctuation written in ASCII, nothing else
+changed), with its source and page (Locator `p. N`) and the exact product it was printed for. Domain is "Makers'
+know-how"; Topic is one of twelve know-how topics in `schema/vocab/environment-topics.csv` (Good for, Benefits, Pitfalls
+and limitations, Warping and shrinkage, Precision and tolerance, Surface finish, Adhesion between layers, Moisture
+sensitivity, Nozzle wear, Odour and emissions, Supports and removal, Printing advice), all mapped to the category
+`know-how`, which is not filterable. A statement from the maker's own product page is labelled by its source's class
+("Manufacturer product page or guide") as the maker's marketing text, apart from a data sheet's.
+
+They are the record tier (D85) made visible, and never decide anything. `build/src/know-how.js` moves them out of
+`db.evidence` into `db.knowHow`, so the engine's evidence, the environment criteria, the polymer-level layer (D64),
+coverage and the evidence counts are what they were without them; a scenario cannot name the category, because only
+filterable categories reach `meta.environmentCategories`. `test/know-how.test.js` runs the six templates with the
+statements put back beside the evidence and finds every answer unchanged.
+
+**Where a product's documents are silent, the gap is a state, derived by the build** (D74), in `grades[].knowHow`:
+
+| State | Means |
+|---|---|
+| `collected` | at least one statement is recorded on the product |
+| `sheet-silent` | its documents were read (a `know_how_reads.csv` row, Scope `document`) and gave none; the maker's site not yet searched |
+| `searched-nothing` | the maker's site was searched for it (Scope `maker site`, dated) and gave nothing |
+| `no-document-read` | none of its documents was read: none is cached, or none was read yet |
+
+A product's documents are the sources the tables already link to it: its own source, its profiles' and its
+measurements', and a source naming it in Applicable grades. Which of them were read is not derivable (a document with
+no statement may be silent, or unread), so it is recorded in `know_how_reads.csv`. The same states are given for three
+parts of the print recipe a sheet may leave out, `recipe.chamber` (a chamber state or an enclosure need), `recipe.drying`
+and `recipe.annealing` (a schedule from the product's measurements or an annealing statement). `materials[].knowHow` counts
+its procurement products by state and, per topic, how many makers and products have a statement ("7 of 12 makers mention
+warping"); a material is collected when any product is. The Products tab shows both, and a silent product says so in
+place of an empty section, naming its maker. `npm run audit:know-how` writes the maker-site search worklist,
+`docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md`, from the same states.
 
 ## Missing data is information
 

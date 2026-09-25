@@ -434,3 +434,132 @@ now the Bambu product's own) went in its own commit before the data, and holds o
 `verify` passes, the scale check included (60 s at twice the data, against its 150 s budget; it had failed in the
 lanes only under a load average of 10 to 36).
 
+## Phase 6, lane 3: makers' know-how (2026-09-25)
+
+GOALS step 5 (drill down) and scorecard line C10 (makers' know-how, in the panel, gaps visible). Migration
+`m140-makers-know-how` records what makers write about printing and using their products beyond the numbers, in their
+own words, from the documents already cached; the build derives a know-how state for every product and material
+(`build/src/know-how.js`); the Products tab shows both; `npm run audit:know-how` writes the maker-site search worklist
+([KNOW-HOW-WORKLIST.md](KNOW-HOW-WORKLIST.md)). D85 gains its last part, the planned exception. Every reading and review
+in this lane is an agent's (Claude Opus 5.5): no person has read the statements.
+
+**How the statements were found.** Every cached document of every active product (1,249, the ones the tables link to a
+product: its own source, a profile's, a measurement's, or Applicable grades) and 24 makers' product pages already
+fetched as witnesses were taken apart page by page: the PDF text rebuilt in reading order from the hash-checked bytes
+into sentences and bullets, and the cached lines as the page lays them out, for table rows ("Odor Odorless", "Surface
+finish semi-matte"). That gave 158,589 units. A broad filter kept those that could be know-how (topic words, sentence
+shape, English, no legal, contact, shop or safety-data-sheet boilerplate, no property or settings row), and they were
+grouped by maker: 9,676 distinct candidates, each with how many of the maker's documents and materials print it. Fourteen
+agents read them in 44 batches under one set of written rules, kept 3,633 and chose a topic for each: the text exactly
+as the candidate holds it, or an exact part of it (a leading heading dropped). The rules left out table labels, lone
+fragments, disclaimers, test notes, numbers the tables hold (property values, chemical-resistance rows, print settings,
+drying and annealing schedules, water absorption), and a sentence a maker prints on the sheets of many different
+materials, unless it is a short rating row, which is each product's own. Shrinkage figures are not held, and were kept.
+
+The kept statements were then placed on every product and page that prints them (5,497), and a script dropped: a
+statement another of the same product's statements holds whole (58), a shrinkage figure the product already has as a
+Mould shrinkage measurement from that source (30), two template sentences with only the product's name changed printed
+across most of a maker's range (30: Raise3D's "Abrasion of the brass nozzle happens frequently when printing …",
+Nanovia's air-extraction sentence), two with words the extraction glued together, and three occurrences of Spectrum's
+"Ruby or hardened nozzle recommended" on The Filament TPU sheets, where it is the row's label and the value beside it
+is "No". The lane's agent added four Polymaker shrinkage figures the first batch had rejected before the shrinkage rule
+was written. Full-width punctuation is written in ASCII (TEXT-FULLWIDTH), as m136 did; nothing else is changed.
+
+**What m140 wrote.** Every statement is pinned in `scripts/migrate/m140-makers-know-how.csv` (product, source, page,
+topic, words) and re-read on its cached, hash-checked page before anything is written: its characters, spaces aside,
+stand in the page's text in reading order, or it stands in one line of the page as laid out. All 4,502 do.
+- 4,502 rows in `evidence.csv` (Q00559 to Q05060): Domain "Makers' know-how", one of twelve topics, Evidence type
+  Manufacturer statement, Locator `p. N`, on the exact product; none at material level.
+- 13 makers' product pages registered as sources (`…-sources.csv`), Source class "Manufacturer product page or guide",
+  so the panel labels their 65 statements (12 products) as the maker's marketing text: Fiberlogy (6), MatterHackers
+  NylonG, BigRep PLX, colorFabb stoneFill and XT, Recreus Filaflex 95 Foamy, Polymaker's wiki for PolyCast and
+  PolyDissolve S1, Fillamentum Nylon CF15. The other 11 witness pages gave nothing new or are retailers' or index pages.
+- 1,262 rows in the new table `know_how_reads.csv` (Scope `document`, read on 2026-09-25, by the agent): which sources
+  were read, the one fact about know-how the build cannot derive (`…-reads.csv`).
+- Vocabulary: the non-filterable category `know-how`, twelve topics mapped to it, the evidence domain "Makers'
+  know-how", and the scopes `document` and `maker site`. No new check code.
+
+| Topic | Statements | Products | Makers |
+|---|---:|---:|---:|
+| Good for | 585 | 371 | 43 |
+| Benefits | 1,325 | 641 | 48 |
+| Pitfalls and limitations | 129 | 90 | 23 |
+| Warping and shrinkage | 311 | 237 | 38 |
+| Precision and tolerance | 45 | 45 | 19 |
+| Surface finish | 385 | 285 | 35 |
+| Adhesion between layers | 126 | 111 | 24 |
+| Moisture sensitivity | 353 | 257 | 32 |
+| Nozzle wear | 334 | 244 | 30 |
+| Odour and emissions | 161 | 146 | 27 |
+| Supports and removal | 327 | 217 | 22 |
+| Printing advice | 421 | 215 | 33 |
+| **All** | **4,502** | **888** | **52** |
+
+**Gate: products with at least one statement, before and after.** The plan's 87 re-counts as 82: the active products
+with an evidence record before lane 2 (chemical exposure 57, flammability 41, support and solubility 40,
+post-processing 32; 86 if records since retired as duplicates are counted). At the start of this lane, after lane 2's
+annealing statements, 108. After it, **888 of the 1,098 active products carry a know-how statement, and 902 carry a
+statement of either kind.**
+
+**Gate: every material carries a state.** Derived by the build from the statements and the reads (D74):
+
+| | Collected | Sheet silent, site not yet searched | Searched, nothing published | No document read | All |
+|---|---:|---:|---:|---:|---:|
+| Procurement products | 887 | 198 | 0 | 6 | 1,091 |
+| Materials | 128 | 20 | 0 | 5 | 153 |
+| Print recipe, active products: chamber | 341 | 747 | 0 | 10 | 1,098 |
+| … drying | 405 | 682 | 0 | 11 | 1,098 |
+| … annealing | 85 | 1,001 | 0 | 12 | 1,098 |
+
+The five materials with no document read are PLA Lite (its one product, eSUN PLA-Lite, has no cached text) and four
+with no procurement product (PA66, PA66-CF, PA612, PA612-GF). "Searched, nothing published" exists and is empty: it is
+what a `maker site` row makes of a silent product, dated (a test builds it). The worklist lists the 20 silent materials
+and the silent products of every other, the six templates' Strict candidates first, with the sites the data holds for
+each maker: 22 makers, 3DXTECH (68 products) and Fiberlogy (42) the most.
+
+**Gate: the sample check.** 50 of the 4,502 statements drawn with a fixed seed (20260925; `mulberry32`, a shuffle of the
+evidence rows in the know-how domain) and each read by the lane's agent against its page's text, around the statement:
+**50 stand on the page their Locator names, in those words**, none on a different page only, all on the product's own
+document. None has the wrong product or the wrong topic. Three are weaker than the rest: two are bullet lists or table
+cells run together without their bullets (Prusa's ABS features, Ensinger's target industries), and one is a generic PLA
+sentence Bambu prints on its PLA sheets ("PLA is the most common material in 3D printing as it's easy to print and
+inexpensive."). Two products in the sample carry a grade name that is a sentence fragment ("colors.",
+"betterperformance to your 3D printing projects."), already in OPEN-PROBLEMS §12.
+
+**Never used for selection, confirmed by reading the engine.** `evaluateEnvironment` (`app/js/engine/constraints.js`)
+answers only the category a constraint names; `validateScenario` drops a constraint whose category is not in
+`meta.environmentCategories`, which `countUsableByCategory` fills with filterable categories only; the polymer-level
+layer may use a filterable category only (D64), and its precedence reads `db.evidence`; coverage reads the environment
+categories only. On top of that, the build moves the statements out of `db.evidence` altogether (`db.knowHow`), so the
+drawer's Environment tab, the evidence counts and the engine's context are what they were. `test/know-how.test.js`
+checks the category, the split, the states, the worklist, and runs the six templates in Strict and Explore with the
+statements put back beside the evidence: every answer is unchanged.
+
+**The panel.** In the Products tab, each product's "What the maker says" lists its statements by topic in the maker's
+words with the source and page ("data sheet, p. 2", or "the maker's product page (marketing text), p. 1"), then one
+sentence for what is missing: "Polymaker's data sheet says nothing about its benefits, pitfalls, warping, precision,
+surface finish, layer adhesion, odour or printing advice; it gives no drying schedule; its website has not been searched
+yet." A silent product has that sentence alone ("3DXTECH's data sheet says nothing about printing or using it beyond its
+numbers; …"). The product's other evidence records are under "Its other published records". The profile notes the old
+section quoted (for example "Detail / tolerance: No special concerns") stay in the Printing tab, where every profile's
+notes are listed. Above the products, "What makers say" counts each topic ("Nozzle wear: 7 of 15 makers (8 products)"
+for PA12-CF) and the recipe gaps. Two new CSS classes (`maker-quotes`, `maker-src`); a new view,
+`15-drawer-pa12cf-maker-says`.
+
+**Found, not changed** (now OPEN-PROBLEMS §13): eSUN prints on 52 cached documents (47 active products) that its
+properties "are obtained based on the injection molding spline test", while their measurements are recorded as printed
+or unstated specimens that decide (D84), a re-read for lane 4; a document covering two products speaks for the one the
+tables link (three PA12 CF+ statements on Raise3D Industrial PA12 CF); some statements are bullets run together;
+narrower templates were kept or dropped by each reader's judgement.
+
+| | Result |
+|---|---|
+| `npm run data:check` / `data:lint` | 0 issues / 287 findings, all accepted, 0 new |
+| `npm run build` | 0 errors, the same 5 warnings |
+| `npm run build:diff` | 1,268 differences: `db.grades[].knowHow` (1,098), `db.materials[].knowHow` (153), `db.sources[]` (13 product pages), `db.meta.counts.sources`, `db.meta.counts.knowHow`, `db.meta.knowHow`, `db.knowHow`. `db.evidence` and everything that decides do not change |
+| Decision diff | `npm run snapshot`: `templates.csv`, `screening.csv`, `products.csv` and every other CSV unchanged; only the views change |
+| Tests | 309 pass in `npm test`, 6 of them new in `test/know-how.test.js` |
+| `verify:fast` | 72 s on the first run after the data changed (the build cache cold for the new tables; load average 3.5 to 4.5, another session working), 36 s warm (load average 8) |
+| `npm run verify` | Passes, in 6 min 52 s at a load average of 10 to 21 (another session working): `npm test` (309), `test:ingest` (164), the scale check within its budget, the audit, the snapshot current, the 66 views, the 300 fuzzed scenarios. `dist/db.json` 21.1 → 22.5 MB, the page 6.19 → 6.45 MB |
+| Views | `ui:check -- --write`: two views change (PLA's and PA12-CF's Products tab) and one is new |
+
