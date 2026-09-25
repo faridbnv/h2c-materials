@@ -493,12 +493,18 @@ test('the snapshot comes from the Method sheet', () => {
 
 // The chamber row in every Bambu data sheet is the first row after a page break, and none was
 // transcribed. The re-fetched files match the recorded SHA-256, so these are omissions, not new
-// evidence. PC FR and PAHT-CF reach their whole window.
+// evidence. PC FR and PAHT-CF reach their whole window. The window is the Bambu product's own (D83): the material's
+// union widens when another maker's product publishes a wider one, as Polymaker's PolyMax PC-FR (90-100 °C) did in m136.
 test('chamber windows recovered from the cited Bambu data sheets are compiled', () => {
   const byName = (n) => db.materials.find((m) => m.name === n);
   for (const [name, min, max] of [['PLA Basic', 25, 45], ['PETG HF', 35, 50], ['PC FR', 45, 60], ['PAHT-CF', 45, 60], ['Support for PA/PET', 45, 60]]) {
-    assert.deepEqual([byName(name).print.chamberC?.min, byName(name).print.chamberC?.max], [min, max], name);
-    assert.equal(byName(name).gates.chamber.verdict, 'within', name);
+    const m = byName(name);
+    const bambu = db.grades.filter((g) => g.materialId === m.id && !g.retired && g.manufacturer === 'Bambu Lab');
+    assert.equal(bambu.length, 1, name);
+    assert.deepEqual([bambu[0].print?.chamber?.min, bambu[0].print?.chamber?.max], [min, max], name);
+    assert.equal(bambu[0].print.chamber.verdict, 'within', name);
+    assert.equal(m.print.chamberC?.min, min, name);
+    assert.equal(m.gates.chamber.verdict, 'within', name);
   }
 });
 
