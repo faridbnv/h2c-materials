@@ -87,3 +87,15 @@ Filled grades,,limitations,Not applicable,Not applicable
 Support conflict,,limitations,Not applicable,Not applicable
 Contamination,,limitations,Not applicable,Not applicable
 Abrasive wear,,limitations,Not applicable,Not applicable
+Good for,"Makers' know-how: what the maker says the product is good for, its applications and intended uses. Shown in the product panel in the maker's words, never filtered on.",know-how,Not applicable,Not applicable
+Benefits,"Makers' know-how: what the maker says the product does well. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Pitfalls and limitations,"Makers' know-how: what the maker warns about, or says the product is not for. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Warping and shrinkage,"Makers' know-how: what the maker says about warping, shrinkage and dimensional stability while printing. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Precision and tolerance,"Makers' know-how: what the maker says about the printed part's accuracy, tolerance and fine detail, not the filament's diameter. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Surface finish,"Makers' know-how: what the maker says about the printed surface (finish, gloss, texture, layer lines) and finishing it. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Adhesion between layers,"Makers' know-how: what the maker says about bonding between layers and strength across them. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Moisture sensitivity,"Makers' know-how: what the maker says about how the filament takes up moisture and what that does, beyond a drying schedule. Shown, never filtered on; the filterable moisture category is a different one.",know-how,Not applicable,Not applicable
+Nozzle wear,"Makers' know-how: what the maker says about abrasion, nozzle wear and the nozzle it calls for. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Odour and emissions,"Makers' know-how: what the maker says about odour, fumes and ventilation while printing. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Supports and removal,"Makers' know-how: what the maker says about support material and removing it. Shown, never filtered on.",know-how,Not applicable,Not applicable
+Printing advice,"Makers' know-how: practical advice the maker gives that no topic above holds (slicer, cooling, bed adhesion, stringing). Shown, never filtered on.",know-how,Not applicable,Not applicable

@@ -9,6 +9,7 @@ Environmental,
 Fatigue,
 Flammability,
 Limitations,
+Makers' know-how,"What a maker says about printing and using its product beyond the numbers, in its own words (Topic: a know-how topic). The build keeps these out of the evidence the engine reads (build/src/know-how.js); the product panel shows them."
 Mechanical,
 Post-processing,
 Print quality,

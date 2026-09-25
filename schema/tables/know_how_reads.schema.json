@@ -1,0 +1,13 @@
+{
+  "$comment": "Contract for data/tables/know_how_reads.csv. Checked by build/src/schema.js.",
+  "title": "Know-how reads",
+  "description": "Which sources were read for makers' know-how, how, when and by whom: one row per source and scope. It is the one fact about know-how the build cannot derive, because a document with no statement recorded from it may have been read and found silent, or never read. The build reads it with the statements (evidence.csv, Domain \"Makers' know-how\") to give every product and material its know-how state: collected, sheet silent (maker site not yet searched), searched with nothing published, or no document read (build/src/know-how.js, DATA-MODEL.md).",
+  "primaryKey": null,
+  "uniqueKeys": [["SourceID", "Scope"]],
+  "fields": [
+    { "name": "SourceID", "type": "string", "role": "canonical", "description": "The source read. The products it speaks for are the ones the tables already link to it: a grade's own source, a profile's or a measurement's, or its Applicable grades.", "reference": { "table": "sources", "field": "SourceID" }, "constraints": { "required": true } },
+    { "name": "Scope", "type": "string", "role": "canonical", "description": "How it was read: a document already held, read in full, or the maker's site searched.", "vocabulary": "know-how-scopes", "constraints": { "required": true } },
+    { "name": "Read on", "type": "date", "role": "raw", "description": "The date it was read (YYYY-MM-DD). A maker-site search that found nothing is dated by this.", "constraints": { "required": true } },
+    { "name": "Read by", "type": "string", "role": "editorial", "description": "Who read it, and in which migration: a person, or an agent named as one.", "constraints": { "required": true } }
+  ]
+}

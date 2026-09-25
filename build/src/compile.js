@@ -23,6 +23,7 @@ import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estima
 import { aggregateGate } from './gates.js';
 import { attachProducts } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
+import { attachKnowHow } from './know-how.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 
@@ -701,6 +702,7 @@ export function compile(wb, { snapshot, build }) {
       // export from this, so a registry row reaches the interface with no code change.
       registry,
   };
+  attachKnowHow(db, wb, issues); // makers' know-how leaves db.evidence for db.knowHow: nothing that screens sees it
   attachPolymerEnvironment(db, polymerEnvironment);
   // Derived after the materials are whole: the proof reads a material's compiled headline, profiles and citations.
   const derived = derivedCoverage(db);

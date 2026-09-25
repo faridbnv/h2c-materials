@@ -12,6 +12,7 @@
     "measurements",
     "profiles",
     "evidence",
+    "knowHow",
     "prices",
     "sources",
     "coverage",
@@ -81,6 +82,20 @@
         },
         "estimateTally": {
           "type": "object"
+        },
+        "knowHow": {
+          "type": "object",
+          "description": "Makers' know-how, counted (build/src/know-how.js): the topics in panel order, the statements, products and materials by know-how state, and how many sources were read or searched.",
+          "additionalProperties": false,
+          "required": ["topics", "statements", "products", "materials", "documentsRead", "sitesSearched"],
+          "properties": {
+            "topics": { "type": "array", "items": { "type": "string" } },
+            "statements": { "type": "integer", "minimum": 0 },
+            "products": { "$ref": "#/$defs/knowHowStateCounts" },
+            "materials": { "$ref": "#/$defs/knowHowStateCounts" },
+            "documentsRead": { "type": "integer", "minimum": 0 },
+            "sitesSearched": { "type": "integer", "minimum": 0 }
+          }
         }
       },
       "description": "estimateCoverage, estimateModel, printEstimates and estimateTally are written by the estimate stage and absent from a core build (--no-estimates)."
@@ -284,7 +299,48 @@
           },
           "print": {
             "$ref": "#/$defs/productPrint"
+          },
+          "knowHow": {
+            "type": "object",
+            "description": "What the product's maker says beyond the numbers, as a state (build/src/know-how.js): collected, searched with nothing published, sheet silent, or no document read; its statements per topic (db.knowHow holds them); when its documents were read and its maker's site searched; and the same states for the chamber, drying and annealing parts of its print recipe. Absent for a retired grade.",
+            "additionalProperties": false,
+            "required": ["state", "statements", "topics", "readOn", "searchedOn", "recipe"],
+            "properties": {
+              "state": { "$ref": "#/$defs/knowHowState" },
+              "statements": { "type": "integer", "minimum": 0 },
+              "topics": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 1 } },
+              "readOn": { "type": ["string", "null"] },
+              "searchedOn": { "type": ["string", "null"] },
+              "recipe": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["chamber", "drying", "annealing"],
+                "properties": {
+                  "chamber": { "$ref": "#/$defs/knowHowState" },
+                  "drying": { "$ref": "#/$defs/knowHowState" },
+                  "annealing": { "$ref": "#/$defs/knowHowState" }
+                }
+              }
+            }
           }
+        }
+      }
+    },
+    "knowHow": {
+      "type": "array",
+      "description": "Makers' know-how: each statement a maker's document prints about printing and using its product beyond the numbers, in its own words, from evidence.csv rows whose topic is in the know-how category. Kept out of db.evidence, so no criterion, screen or count reads one; the product panel shows them.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "materialId", "gradeId", "topic", "text", "sourceId", "locator"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^Q\\d{5}$" },
+          "materialId": { "type": "string" },
+          "gradeId": { "type": "string" },
+          "topic": { "type": "string" },
+          "text": { "type": "string", "minLength": 1 },
+          "sourceId": { "type": "string" },
+          "locator": { "type": "string" }
         }
       }
     },
@@ -1234,6 +1290,21 @@
     }
   },
   "$defs": {
+    "knowHowState": {
+      "description": "collected: at least one statement (or, for a recipe part, a stated value); searched-nothing: the maker's site was searched and gave nothing; sheet-silent: the product's documents were read and gave nothing, the site not yet searched; no-document-read: none of its documents was read.",
+      "enum": ["collected", "searched-nothing", "sheet-silent", "no-document-read"]
+    },
+    "knowHowStateCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["collected", "searched-nothing", "sheet-silent", "no-document-read"],
+      "properties": {
+        "collected": { "type": "integer", "minimum": 0 },
+        "searched-nothing": { "type": "integer", "minimum": 0 },
+        "sheet-silent": { "type": "integer", "minimum": 0 },
+        "no-document-read": { "type": "integer", "minimum": 0 }
+      }
+    },
     "rule": {
       "anyOf": [
         {
@@ -2027,6 +2098,35 @@
           "description": "The material's spread per headline across its products (re-center phase 1); absent for a family entry.",
           "additionalProperties": {
             "$ref": "#/$defs/headlineSummary"
+          }
+        },
+        "knowHow": {
+          "type": "object",
+          "description": "Makers' know-how across the material's products (build/src/know-how.js): its state (collected if any product has a statement), its products by state, how many makers make them, per topic how many makers and products have a statement, statements on the material itself, and its products by state for each part of the print recipe. Absent for a family entry.",
+          "additionalProperties": false,
+          "required": ["state", "products", "makers", "topics", "materialStatements", "recipe"],
+          "properties": {
+            "state": { "$ref": "#/$defs/knowHowState" },
+            "products": { "$ref": "#/$defs/knowHowStateCounts" },
+            "makers": { "type": "integer", "minimum": 0 },
+            "topics": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object", "additionalProperties": false, "required": ["makers", "products"],
+                "properties": { "makers": { "type": "integer", "minimum": 1 }, "products": { "type": "integer", "minimum": 1 } }
+              }
+            },
+            "materialStatements": { "type": "integer", "minimum": 0 },
+            "recipe": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["chamber", "drying", "annealing"],
+              "properties": {
+                "chamber": { "$ref": "#/$defs/knowHowStateCounts" },
+                "drying": { "$ref": "#/$defs/knowHowStateCounts" },
+                "annealing": { "$ref": "#/$defs/knowHowStateCounts" }
+              }
+            }
           }
         }
       }

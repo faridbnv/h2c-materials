@@ -20,6 +20,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [grades](#grades) | GradeID | One row per exact commercial, study or resin-reference grade. A grade belongs to exactly one material. |
 | [headline_definitions](#headline_definitions) | HeadlineKey | One row per headline the selector compares materials on. The build and the app read everything about a headline from here: which measurements may back it, its unit, direction and load, its labels, filter, chart axis, table column and export header. A new headline is a new row plus its selections in headlines.csv. |
 | [headlines](#headlines) | MaterialID + HeadlineKey + MeasurementID | Pins one product's value for one headline where the rule would choose another measurement (build/src/products.js). A product's value is otherwise chosen by rule from its own measurements, and a material's headline is its products' spread (D83), so this table is normally empty: the 493 hand picks it held until m137 are archived in docs/audits/2026-09-25-re-center/retired-representative-picks.csv. The number lives only in the measurement. |
+| [know_how_reads](#know_how_reads) | SourceID + Scope | Which sources were read for makers' know-how, how, when and by whom: one row per source and scope. It is the one fact about know-how the build cannot derive, because a document with no statement recorded from it may have been read and found silent, or never read. The build reads it with the statements (evidence.csv, Domain "Makers' know-how") to give every product and material its know-how state: collected, sheet silent (maker site not yet searched), searched with nothing published, or no document read (build/src/know-how.js, DATA-MODEL.md). |
 | [material_links](#material_links) | MaterialID + Link + RecordID | Records a material cites, one per row, in citation order. printing cites print profiles or evidence records (the first profile supplies the material's nozzle, bed and chamber guidance); h2c-status cites sources for its H2C status; use, durability and safety cite evidence records, which may be family context from another material. Environmental evidence is not listed: it is always the material's own environmental records. |
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
@@ -183,6 +184,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | HeadlineKey | editorial | string | yes |  | → headline_definitions.HeadlineKey | Headline whose value is pinned; defined in headline_definitions.csv. |
 | MeasurementID | editorial | string | yes |  | → measurements.MeasurementID | The measurement that is the product's value: one of that product's own, able to be the headline's value (property, unit, direction or load, specimen, moisture; checked by the build, HEADLINE-SELECTION-INVALID). One pin per product and headline. |
 | Reason | editorial | string | yes |  |  | Why the rule's own choice is wrong for this product, in a sentence a reviewer can check against the source. |
+
+### know_how_reads
+
+`data/tables/know_how_reads.csv` (Know-how reads). Which sources were read for makers' know-how, how, when and by whom: one row per source and scope. It is the one fact about know-how the build cannot derive, because a document with no statement recorded from it may have been read and found silent, or never read. The build reads it with the statements (evidence.csv, Domain "Makers' know-how") to give every product and material its know-how state: collected, sheet silent (maker site not yet searched), searched with nothing published, or no document read (build/src/know-how.js, DATA-MODEL.md).
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| SourceID | canonical | string | yes |  | → sources.SourceID | The source read. The products it speaks for are the ones the tables already link to it: a grade's own source, a profile's or a measurement's, or its Applicable grades. |
+| Scope | canonical | string | yes |  | [know-how-scopes](#vocab-know-how-scopes) | How it was read: a document already held, read in full, or the maker's site searched. |
+| Read on | raw | date | yes |  |  | The date it was read (YYYY-MM-DD). A maker-site search that found nothing is dated by this. |
+| Read by | editorial | string | yes |  |  | Who read it, and in which migration: a person, or an agent named as one. |
 
 ### material_links
 
@@ -618,6 +630,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | safety | Safety | Not applicable | FALSE |
 | circularity | Disposal and circularity | Not applicable | FALSE |
 | limitations | Stated limitations | Not applicable | FALSE |
+| know-how | Makers' know-how | Not applicable | FALSE |
 
 <a id="vocab-environment-topics"></a>
 ### environment-topics
@@ -714,6 +727,18 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Support conflict |  | limitations | Not applicable | Not applicable |
 | Contamination |  | limitations | Not applicable | Not applicable |
 | Abrasive wear |  | limitations | Not applicable | Not applicable |
+| Good for | Makers' know-how: what the maker says the product is good for, its applications and intended uses. Shown in the product panel in the maker's words, never filtered on. | know-how | Not applicable | Not applicable |
+| Benefits | Makers' know-how: what the maker says the product does well. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Pitfalls and limitations | Makers' know-how: what the maker warns about, or says the product is not for. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Warping and shrinkage | Makers' know-how: what the maker says about warping, shrinkage and dimensional stability while printing. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Precision and tolerance | Makers' know-how: what the maker says about the printed part's accuracy, tolerance and fine detail, not the filament's diameter. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Surface finish | Makers' know-how: what the maker says about the printed surface (finish, gloss, texture, layer lines) and finishing it. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Adhesion between layers | Makers' know-how: what the maker says about bonding between layers and strength across them. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Moisture sensitivity | Makers' know-how: what the maker says about how the filament takes up moisture and what that does, beyond a drying schedule. Shown, never filtered on; the filterable moisture category is a different one. | know-how | Not applicable | Not applicable |
+| Nozzle wear | Makers' know-how: what the maker says about abrasion, nozzle wear and the nozzle it calls for. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Odour and emissions | Makers' know-how: what the maker says about odour, fumes and ventilation while printing. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Supports and removal | Makers' know-how: what the maker says about support material and removing it. Shown, never filtered on. | know-how | Not applicable | Not applicable |
+| Printing advice | Makers' know-how: practical advice the maker gives that no topic above holds (slicer, cooling, bed adhesion, stringing). Shown, never filtered on. | know-how | Not applicable | Not applicable |
 
 <a id="vocab-evidence-domains"></a>
 ### evidence-domains
@@ -732,6 +757,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Fatigue |  |
 | Flammability |  |
 | Limitations |  |
+| Makers' know-how | What a maker says about printing and using its product beyond the numbers, in its own words (Topic: a know-how topic). The build keeps these out of the evidence the engine reads (build/src/know-how.js); the product panel shows them. |
 | Mechanical |  |
 | Post-processing |  |
 | Print quality |  |
@@ -839,6 +865,16 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Official Bambu product |  |
 | Officially listed family |  |
 | Theoretical |  |
+
+<a id="vocab-know-how-scopes"></a>
+### know-how-scopes
+
+`schema/vocab/know-how-scopes.csv`, used by know_how_reads.Scope.
+
+| Value | Meaning |
+|---|---|
+| document | A document already held, its bytes hashed and its text cached, every page of it taken apart into sentences and table rows and the candidates read for what the maker says beyond its numbers. A product whose documents were read this way and gave no statement is "sheet silent, maker site not yet searched". |
+| maker site | The maker's own website searched for the product: its product page, FAQ and printing guide, registered as a source whether or not it said anything. A product whose search found nothing is "searched, nothing published" from this row's date. |
 
 <a id="vocab-manufacturers"></a>
 ### manufacturers
