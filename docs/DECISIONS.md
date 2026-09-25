@@ -91,6 +91,7 @@ break if it were reversed, because that is the part that gets lost.
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | In force |
 | D83 | A material is the spread of its products, and passes when one of its products meets every requirement | In force |
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | In force |
+| D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | In force |
 
 <!-- end index -->
 
@@ -2002,4 +2003,56 @@ products, 27 state an XY stiffness and none reaches 3 GPa, while 30 of the 46 th
 
 Reversing it either mixes moulded-looking values into printed ones, or hides them; both were tried, in effect, by the
 representative grade, which took whichever one somebody picked.
+
+## D85. The record tier: what a source publishes is kept as printed, in the database only, and decides nothing
+
+*Decided by the owner on 2026-09-25 (docs/GOALS.md); replaces R002 and R003's "transcribe everything, to the decision
+standard" with "record everything, verify what decides". Built in re-center phase 6, lane 1.*
+
+R003 asked for everything a sheet publishes, and every fact that entered went through the decision tier's checks:
+typed columns, a plausibility window, a signed review, a ruling where the product's identity was unsettled. At that
+cost per fact the reader kept only what fitted a known number slot. It skipped 39,468 distinct lines on 1,499
+documents (a linear shrinkage, an insulation resistance, storage notes), and the values it did read on the 74
+documents deferred for their identity alone were never used. All of it sat in 75 MB of proposal files, once per batch
+that re-read a document, and the cached text of every fetched document sat in `.cache/`: nobody could ask which
+sheets mention annealing.
+
+- **Two tiers.** The decision tier holds the values that pass or fail a product and its print requirements, and
+  keeps every strict check. The record tier holds everything else a source publishes, as printed, with its page. It
+  attaches to the source, and to the product when the source's product is settled. It needs no ruling and no per-row
+  review.
+- **Where it lives: `dist/h2c.sqlite` (D75), derived when the file is written** (`scripts/data/record-tier.mjs`).
+  Nothing is stored under `data/tables`, because every row is computed from committed files.
+  - `source_facts` has one row per distinct line (document, page, text) the reader read without it becoming data.
+    `skipped` lines carry the reader's reason. `unapplied` lines are rows the reader made on a document the database
+    cites no source for: deferred, held, or a copy. Each fact carries the document's digest and ledger key, the
+    source the ledger registered it as, that source's active grades, and the known property the line names.
+    That property is found by a heuristic, and the row says which rule found it: the reader's own naming, or a
+    `properties.csv` name found in the words.
+  - `documents` has every document the ledger, a proposal or `sources.csv` names by digest.
+  - `documents_fts` is an FTS5 index of the cached text, one row per page. It is built only where `.cache/text` is
+    present and is never committed, because the text is the makers'.
+- **What it is not.** It never enters a verdict, an estimate, a headline or a bound. The build does not read it, the
+  page does not ship it, and writing it leaves `dist/db.json` unchanged. A fact is not a measurement: it has no typed
+  column, no window and no review. If one turns out to decide a verdict, it is re-read and entered in the decision
+  tier the normal way. A row a reviewer rejected is left out, because a rejection can mean the page does not print what
+  was read. The one planned exception to "database only" is makers' know-how, shown in the panel (lane 3).
+- **Light checks.** `test/sqlite.test.js` checks that:
+  - each line is held once;
+  - every skipped line is a fact, and every fact is a line its proposal read on that page;
+  - a registered document's facts carry its source and grades;
+  - a named property is one the registry keeps;
+  - the report's own example is found by its words and page;
+  - `dist/db.json` is unchanged;
+  - where the cache is present, the index holds every cached page.
+
+  The only other check is the plan's sample: a person reads 30 to 50 rows per lane against the page image (REPORT,
+  phase 6).
+
+On the day it was built it held 42,016 facts: 39,382 skipped lines and 2,634 unapplied rows. They sit on 1,499
+documents, 1,117 sources and 951 active grades of 124 materials, and every one of the 74 documents deferred for
+identity is among them. The index held 4,482 pages of 2,036 documents. Reversing it has two outcomes. The facts can go
+back inside the proposal files, and the team again chooses what to verify without knowing what exists; lane 4's new
+properties are chosen from this table. Or they are brought to the decision standard, which is the per-fact cost that
+made the reader skip them.
 

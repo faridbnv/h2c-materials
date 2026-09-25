@@ -17,6 +17,9 @@
 //   - Every column name is recoverable. _columns maps each SQL name back to the CSV header it came from, with its
 //     position, declared type and role, so nothing is guessed from a mangled identifier.
 //
+// The record tier (D85) goes in with it: source_facts, documents and, where the text cache is present, the full-text
+// index documents_fts (scripts/data/record-tier.mjs).
+//
 // Requires node:sqlite (Node 24 or newer), which is in the standard library: no dependency is added for this.
 import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync, rmSync, existsSync, readFileSync } from 'node:fs';
@@ -25,6 +28,7 @@ import { fileURLToPath } from 'node:url';
 import { readCsv } from '../../build/src/csv.js';
 import { loadSchemas } from '../../build/src/schema.js';
 import { projectRoot } from './table-io.mjs';
+import { writeRecordTier } from './record-tier.mjs';
 
 const NODE_MAJOR = Number(process.versions.node.split('.')[0]);
 if (NODE_MAJOR < 24) {
@@ -106,8 +110,8 @@ export function writeSqlite(root = projectRoot, out = join(root, 'dist/h2c.sqlit
 
   // Indexes on the identifiers every join uses. Without them a question over measurements takes seconds.
   for (const [table, column] of [['measurements', 'materialid'], ['measurements', 'gradeid'], ['measurements', 'sourceid'],
-    ['grades', 'materialid'], ['profiles', 'materialid'], ['evidence', 'materialid'], ['prices', 'materialid'],
-    ['coverage', 'materialid'], ['profile_notes', 'profileid'], ['reference_envelopes', 'name']]) {
+    ['grades', 'materialid'], ['grades', 'sourceid'], ['sources', 'sourceid'], ['profiles', 'materialid'],
+    ['evidence', 'materialid'], ['prices', 'materialid'], ['coverage', 'materialid'], ['profile_notes', 'profileid'], ['reference_envelopes', 'name']]) {
     if (counts[table]) db.exec(`CREATE INDEX ${quote(`ix_${table}_${column}`)} ON ${quote(table)} (${quote(column)})`);
   }
 
@@ -222,8 +226,13 @@ export function writeSqlite(root = projectRoot, out = join(root, 'dist/h2c.sqlit
     db.exec('COMMIT');
   }
 
+  // The record tier (D85): documents, the lines the import reader read without them becoming data, and the full-text
+  // index of the cached documents (scripts/data/record-tier.mjs). It is computed from the committed files, not from
+  // the tables above, and nothing reads it back.
+  const record = writeRecordTier(db, root);
+
   db.close();
-  return { out, tables: counts, headlines };
+  return { out, tables: counts, headlines, record };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
@@ -233,6 +242,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const r = writeSqlite(projectRoot, out);
     const rows = Object.values(r.tables).reduce((a, b) => a + b, 0);
     console.error(`${out.slice(projectRoot.length + 1)}: ${Object.keys(r.tables).length} tables, ${rows} rows, ${r.headlines} compiled headlines`);
+    const t = r.record;
+    console.error(`record tier: ${t.facts} source_facts (${Object.entries(t.kinds).map(([k, n]) => `${n} ${k}`).join(', ')}) on ${t.factDocuments} documents, `
+      + (t.fulltext ? `documents_fts: ${t.fulltext.pages} pages of ${t.fulltext.documents} documents` : 'documents_fts not built: no text cache (.cache/text)')
+      + ` (${(t.ms / 1000).toFixed(1)} s)`);
   }
   if (!query) process.exit(0);
   const db = new DatabaseSync(out, { readOnly: true });

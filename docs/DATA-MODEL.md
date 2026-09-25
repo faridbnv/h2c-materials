@@ -169,6 +169,14 @@ method             the rules, verbatim
 registry           { properties, headlines }: what every property and headline means
 ```
 
+`dist/h2c.sqlite` (`npm run sql`, D75) holds the same tables for queries. It also holds the **record tier** (D85),
+which `db.json` never does. `source_facts` has every line the import reader read without it becoming data: the text as
+printed, its page, the reader's reason, the document's source and grades, and the known property it names.
+`documents_fts` is a full-text index of every cached document's text, one row per page, built only where
+`.cache/text` is present. For example:
+`select sourceid, page, text from source_facts where text like '%shrinkage%'`, or
+`select doc_key, sourceid, page from documents_fts where documents_fts match 'anneal*'`.
+
 ### A material
 
 ```js

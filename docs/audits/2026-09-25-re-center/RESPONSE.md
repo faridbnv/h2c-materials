@@ -174,3 +174,77 @@ The page now judges every material by its products and shows it as their spread.
   the passing products first, and the table's rows stay one per material, which is what the fuzzer and the views
   check.
 - The team test needs two of the team's engineers: its script is [team-test.md](team-test.md).
+
+## Phase 6, lane 1: the record (2026-09-25)
+
+Scorecard line C11 (the record), working rule 2. `npm run sql` / `npm run db:sqlite` now writes the record tier into
+`dist/h2c.sqlite` (`scripts/data/record-tier.mjs`, called by `writeSqlite`). Nothing is stored under `data/tables`:
+every row is derived from the committed proposals, the ledger and the tables, and the index from the text cache.
+D85 is entered in DECISIONS.md.
+
+- **`source_facts`** has one row per distinct line (document, page, text) that the import reader read without it
+  becoming data, deduplicated across the batch folders that re-read a document.
+  - `skipped` lines carry the reader's reason. `unapplied` lines are rows it made on a document the database cites no
+    source for (deferred, held, a copy); the report calls these "the rows the build never used".
+  - Each row carries the document's digest and ledger key, the source the ledger registered it as, that source's active
+    grades, and the known property the line names. That property comes from the reader's own naming, or else from a
+    `properties.csv` name found in the words, and `property_by` says which.
+  - A row a reviewer rejected is left out.
+- **`documents`** has every document the ledger, a proposal or `sources.csv` names by digest.
+- **`documents_fts`** is an FTS5 index of every cached document's text, one row per page. It is built only where
+  `.cache/text` is present, so CI and a fresh clone have none; `dist/` is not committed.
+
+| | Result |
+|---|---|
+| Skipped lines in the proposals | 82,848 occurrences in 2,957 proposal files; 39,468 distinct on 1,499 documents |
+| `source_facts` | **42,016**, from two kinds:<br>• 39,382 skipped lines: the 39,468 less 86 that a later batch made a row of on an unregistered document<br>• 2,634 unapplied rows: 1,758 measurement lines on 181 documents and 876 print-setting lines |
+| Reached | 1,499 documents and 1,117 sources (29,201 facts); 951 active grades of 124 materials (25,452 facts) |
+| Deferred for identity alone | all 74 documents: 3,164 facts, 681 of them the values they were deferred with |
+| A known property named | 5,965 facts: 4,916 by the reader's naming, 1,049 by a registry name in the words |
+| `documents` / `documents_fts` | 2,178 documents (2,009 in the ledger, 169 cited only in `sources.csv`); the index holds 4,482 pages of the 2,036 whose text is cached, 13.8 MB of the 55 MB file |
+| Time | the record tier 0.9 to 1.3 s; `npm run sql -- --rebuild` 1.7 s in all |
+| Tests | 7 new in `test/sqlite.test.js` (listed in D85); 300 pass in `npm test` |
+| `verify:fast` | 30 s with the build cache warm, against 26 s before, with another session loading the machine (load average 10). One run took 107 s, because the shared `.cache/build` had just been emptied |
+| `npm run verify` | Every step passed except the scale check's time budget: `test:ingest` (164), the audit, the snapshot, the 63 views and the 300 fuzzed scenarios. The scale check builds the tables at twice their size, which this change does not touch. Its compile budget is 150 s, and it took 297 s, then 475 s, while a concurrent session held the load average at 10 to 36. It is to be re-run on a quiet machine |
+| `npm run build:diff` | 0 differences: `dist/db.json` does not change |
+
+**Gate: a query finds a given skipped fact by its words and page; nothing in `db.json` changes.** The line is the
+one the report quotes:
+
+```
+$ npm run sql -- "select kind, sourceid, gradeids, page, text, reason from source_facts where text like '%linear) shrinkage%' and page = 1"
+kind     sourceid                       gradeids  page  text                                            reason
+-------  -----------------------------  --------  ----  ----------------------------------------------  -----------------------------------------------
+skipped  S-SPECTRUM-en-tds-spectrum-pp  G082-03   1     • low processing (linear) shrinkage up to 0.3%  no property and value this line states together
+```
+
+The report's own questions, over the cached text:
+
+```
+$ npm run sql -- "select count(distinct sha256) as documents, count(*) as pages from documents_fts where documents_fts match 'anneal*'"
+documents  pages
+---------  -----
+194        254
+```
+
+The same count for `'"UL 94"'` is 278 documents, and for `'"insulation resistance"'` it is 96.
+`test/sqlite.test.js` pins the gate query. `npm run build:diff` shows 0 differences, and a test checks that writing the
+SQLite file leaves `dist/db.json` byte-identical.
+
+**Found, not changed:**
+- **Lines stay `skipped` after a later row.** 143 lines were skipped by one batch and made a row of by another, on
+  documents that are registered, and they stay `skipped`. For 110 of them a measurement with the same property and
+  raw value is now in the database. The other 18 measurement rows are not, and 17 of them were read only in held
+  batches (`bNN-held`, `held-research`); they are candidates for lane 4's re-read. The remaining 15 lines became print
+  settings.
+- **Reasons differ between batches.** 294 lines have a different skip reason in different batches; the latest
+  batch's reason is kept.
+- **Copies share a source.** Several digests can share one registered source, because the ledger registered a copy
+  under another document's source (`S-SPECTRUM-en-tds-spectrum-pla-premium` has 5). Their facts carry that source,
+  and `sha256` still names the document read.
+- **Ledger keys are not always digest prefixes.** Some ledger `doc_key`s are URLs or `url:` keys from the early
+  batches.
+- **The property heuristic has blind spots.** It misses synonyms: "heat deflection" is not matched to HDT, and "Tg"
+  is not matched. It also takes false friends: "Infill Density" is matched to Density.
+- **The sample check is still to do.** GOALS.md asks for a person to read 30 to 50 rows per lane against the page
+  image, and that has not been done.

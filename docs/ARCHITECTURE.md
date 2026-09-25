@@ -47,7 +47,8 @@ A SQLite file is generated beside it, for reading only: `npm run db:sqlite` writ
 from the same tables and the same schema, with numbers typed, missing states in a sibling column and
 every CSV header recoverable from `_columns` (DECISIONS D75). `npm run sql -- "select ..."` queries it.
 Nothing reads it back, and it is gitignored with the rest of `dist/`, so data still changes in one
-place; it exists because a question that spans records is a join, not a script.
+place; it exists because a question that spans records is a join, not a script. It also carries the record tier
+(D85): what the sources publish that no row holds, and a full-text index of the cached documents.
 
 ## Why a build step, rather than reading the tables in the browser
 
@@ -133,6 +134,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `migrate/` | The source corrections and table changes, m10 onwards; each names the value it replaces through `source-edits.mjs`, so a re-run is a no-op. The 2026-09-14 workbook conversion (m01 to m09, its ledger and replay) is in `archive/workbook-conversion/`, which no longer runs: the workbooks were deleted with the cutover. |
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
 | `data/sqlite.mjs` | `npm run db:sqlite`, `npm run sql -- "..."`: the compiled database as a SQLite file with the schema's types, the compiled headlines, and a robust z-score per measurement against its material's others (`v_measurement_z`, D75). |
+| `data/record-tier.mjs` | The record tier in the same file (D85): `source_facts`, the lines the import reader read without them becoming data, and `documents_fts`, a full-text index of the cached documents (built only where `.cache/text` is present). |
 | `data/representative.mjs` | `npm run data:representative`: per material, the headlines its representative grade publishes against the best-documented procurement grade, for the owner's review (PLAN-REMAINING 2.4). |
 | `ingest/` | The import pipeline (`docs/audits/2026-09-18-v2-import/`): a ledger of every document, fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). The rules are in `AGENTS.md`, "Importing a batch of data sheets". |
 

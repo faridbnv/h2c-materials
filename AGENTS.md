@@ -286,6 +286,8 @@ The rules that differ from editing a table by hand:
 ```bash
 npm run trace -- M020                  # every headline of a material, back to its source
 npm run sql -- "select ..."             # ask a question across records (dist/h2c.sqlite, D75)
+npm run sql -- "select sourceid, page, text, reason from source_facts where text like '%shrinkage%'"   # what a sheet printed that no row holds (D85)
+npm run sql -- "select doc_key, sourceid, page from documents_fts where documents_fts match 'anneal*'" # every cached sheet's text, page by page (D85)
 npm run trace -- V000384               # a measurement, and the headlines that cite it
 npm run build && open dist/H2C_Material_Selector_*.html
 git diff build/snapshot                  # what the change did to headlines, estimates, gates, templates, warnings
