@@ -53,8 +53,7 @@ export function retireGrade(t, gradeId) {
   for (const r of onGrade('prices').filter((p) => p.Quarantined !== 'TRUE')) todo.push({ table: 'prices', record: r.PriceID, action: 'quarantine the offer (Regular price basis "Quarantined: ...") or move it to the active grade' });
   for (const r of onGrade('evidence')) todo.push({ table: 'evidence', record: r.EvidenceID ?? r[t.schemas.evidence.primaryKey], action: 'move the record to the active grade or quarantine it' });
   const measurementIds = new Set(onGrade('measurements').map((r) => r.MeasurementID));
-  for (const h of t.rows('headlines').filter((h) => measurementIds.has(h.MeasurementID))) todo.push({ table: 'headlines', record: `${h.MaterialID} ${h.HeadlineKey}`, action: `select a measurement of the representative grade instead of ${h.MeasurementID}` });
-  for (const m of t.rows('materials').filter((m) => m['Representative grade'] === gradeId)) todo.push({ table: 'materials', record: m.MaterialID, action: 'choose another representative grade' });
+  for (const h of t.rows('headlines').filter((h) => measurementIds.has(h.MeasurementID))) todo.push({ table: 'headlines', record: `${h.MaterialID} ${h.HeadlineKey} ${h.MeasurementID}`, action: 'remove the pin, which a retired product no longer needs (D72: a removal names its migration)' });
   for (const s of t.rows('sources').filter((s) => String(s['Applicable grades'] ?? '').includes(gradeId))) todo.push({ table: 'sources', record: s.SourceID, action: `update Applicable grades, which names ${gradeId}` });
   return todo;
 }
@@ -64,8 +63,8 @@ export function retireGrade(t, gradeId) {
  * deleted, and an ID is never reused). A GradeID carries its material's number, so the grade itself cannot move:
  * the old grade is retired and a copy takes the next ID under the new material; each of its measurements is copied
  * under the new grade and the original retired as a duplicate naming its twin; each of its print profiles and their
- * notes are copied; a source that names the old grade names both. It refuses where a headline or a material's
- * representative grade rests on the grade, because moving those is a decision about the old material, not a copy.
+ * notes are copied; a source that names the old grade names both. It refuses where a pinned headline value rests on
+ * the grade, because moving it is a decision about the old material, not a copy.
  * A re-run is a no-op: a retired grade has been re-filed already.
  */
 export function refileGrade(t, gradeId, materialId, { migration, date, why }) {
@@ -74,8 +73,7 @@ export function refileGrade(t, gradeId, materialId, { migration, date, why }) {
   const measurements = t.rows('measurements').filter((m) => m.GradeID === gradeId && m['Data status'] !== 'Retired duplicate record');
   const ids = new Set(measurements.map((m) => m.MeasurementID));
   const leaning = [
-    ...t.rows('headlines').filter((h) => ids.has(h.MeasurementID)).map((h) => `headline ${h.MaterialID} ${h.HeadlineKey}`),
-    ...t.rows('materials').filter((m) => m['Representative grade'] === gradeId).map((m) => `representative grade of ${m.MaterialID}`),
+    ...t.rows('headlines').filter((h) => ids.has(h.MeasurementID)).map((h) => `pinned headline ${h.MaterialID} ${h.HeadlineKey}`),
     ...t.rows('evidence').filter((e) => e.GradeID === gradeId).map((e) => `evidence ${e.EvidenceID}`),
     ...t.rows('prices').filter((p) => p.GradeID === gradeId).map((p) => `price ${p.PriceID}`),
   ];

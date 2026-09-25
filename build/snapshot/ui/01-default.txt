@@ -27,7 +27,7 @@ Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 153 materials, 139 of them in H2C scope
 10879 measurements, each traceable to a source
-127 have a density, 92 a modulus, 38 a Canadian price
+142 have a density, 98 a modulus, 38 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -466,7 +466,7 @@ PE-GF
 Polyolefins
  not tested 1,080
 1,020–1,080 · 3
- 2.6* 17* 9* 85 — ☆
+ 2.6* 30* 9* 85 — ☆
 PEBA
 Flexible Elastomers
  not tested 1,010
@@ -686,7 +686,7 @@ PLA Glow not tested 1,255
  54
 53–55 · 2
  32↗ ☆
-PLA Lite not tested 1,230 — 53 3.89 53? — ☆
+PLA Lite not tested 1,230 — 53 3.89 53* — ☆
 PLA Marble not tested 1,250
 1,220–1,260 · 5
  2.03
@@ -784,7 +784,7 @@ Polyolefins
  — ☆
 PP Lightweight
 Polyolefins
- not tested 810 1.65 38* 13 94 — ☆
+ not tested 810 1.65 38 13 94 — ☆
 PP-CF
 Polyolefins
  not tested 1,000
@@ -936,7 +936,7 @@ also called TPEE · Flexible Elastomers
  0.067 17.7 500 n/a — ☆
 TPC-ESD
 Flexible Elastomers
- not tested 1,280 1.4 70 — 50 — ☆
+ not tested 1,280 1.4 70 — n/a — ☆
 TPI
 Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,300 2.95 74 6 237 — ☆

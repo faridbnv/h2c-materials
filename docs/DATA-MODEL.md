@@ -11,7 +11,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 
 | Table | What it holds |
 |---|---|
-| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, representative grade, and the prose that is true of this material alone |
+| `materials.csv` | Canonical identities: name, family, base polymer, modifier, role, scope, H2C status, and the prose that is true of this material alone |
 | `grades.csv` | Exact commercial, study and resin-reference grades, each with a Role and a Status |
 | `profiles.csv` | Processing guidance and H2C routing, per grade: the typed temperature axes, drying, enclosure, abrasion |
 | `profile_notes.csv` | What a source says about a qualitative side of printing a grade, one row per profile and topic (D69) |
@@ -28,7 +28,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 
 | Table | What it holds |
 |---|---|
-| `headlines.csv` | Which measurement each headline shows (Use `value`), and measurements cited for a headline without being its value (Use `context`) |
+| `headlines.csv` | Pins one product's value for one headline where the rule chooses wrongly, with its Reason; empty since m137 retired the 493 hand picks |
 | `material_links.csv` | A material's citations, in order: printing (profiles, evidence), h2c-status (sources), use, durability, safety (evidence) |
 
 **Registry**
@@ -60,10 +60,11 @@ the manifest disagree, so a count change is always visible in the commit that ma
 
 ### One fact, one home
 
-Nothing a table can derive is stored. A headline value lives only in its measurement; the price
-headline is the median of the flagged observations, and the sentence describing that sample counts it;
-per-kg prices are list price over net mass; a material's grade list is its active procurement grades; what
-its headline values represent follows from its Scope and representative grade (D70); its environmental
+Nothing a table can derive is stored. A product's value lives only in its measurement, chosen by rule, and a
+material's headline is its products' spread; a product's price is the median of its flagged observations, and a
+material's the median of its products'; per-kg prices are list price over net mass; a material's grade list is its
+active procurement grades; what its headline values represent follows from its Scope and whether its products publish
+(D70); its environmental
 evidence is its own exposure records; its nozzle, bed and chamber guidance is its first cited profile. No table holds a
 list of identifiers inside a cell, except a profile's `H2C SourceID`, whose items are checked like
 any reference; `sources.csv` "Applicable grades" is prose, and every grade ID it mentions is checked.
@@ -115,7 +116,7 @@ difference. A vocabulary can carry what the build needs about a wording: each Mo
 - **Replaced properties** (`properties.csv` Replaced by): two names that are one test. The replaced record stays, names
   its current replacement, and no measurement or headline may use it (D57).
 - **Reviewed build findings** (`data/review/accepted-findings.csv`): lint findings and the per-record build findings
-  (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS), each with its reason (D57). An
+  (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS), each with its reason (D57). An
   estimate that is wide only because the evidence is thin is EST-THIN, informational, and needs no reviewer (D73).
 
 ### Properties that apply to some filaments only
@@ -184,10 +185,10 @@ printed, its page, the reader's reason, the document's source and grades, and th
   id, name, fullName, abbreviation, normalizedName,
   family, basePolymer, modifier, role, scope, h2cStatus, excluded,
   familyEntry,                   // null, or { kind: 'family' | 'alias', members: [{ id, name }], why }
-  representativeGrade, gradeIds: [],
+  gradeIds: [],
   headline: { density, tensileModulusXY, tensileStrengthXY, elongationXY, hdt045, priceCADkg },
+                                 // its products' spread where they publish comparably (below); decides nothing
   summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, asPublished, variants } },
-                                 // the spread across its products (below); decides nothing until phase 2
   headlineBasis,                 // the data's own statement of what the headline is
   measurementConditions,         // how the headline numbers were measured
   facets: { reinforcement, esd, flexible, supportMaterial, flameRetardant },
@@ -222,24 +223,25 @@ inferred from the name and marked accordingly.
 
 ### A product's own values, and a material as the spread of its products
 
-Added in re-center phase 1 (docs/GOALS.md, D83 and D84 decided 2026-09-25; `build/src/products.js`). They sit beside
-the material headline above and decide nothing yet: the engine still reads the headline until phase 2.
+Added in re-center phase 1 (docs/GOALS.md, D83 and D84 decided 2026-09-25; `build/src/products.js`). Since phase 2 the
+engine judges each product on its own values and recipe, and a material by how many of its products pass; since phase 4
+a material's headline is derived from them, and no product stands for a material.
 
 - **`grades[].headline[key]`**: the product's own value for each headline, chosen by rule from its own measurements.
-  The rule accepts what a headline selection accepts, less the representative grade: a printed or unstated specimen,
+  The rule accepts a printed or unstated specimen,
   the headline's direction, not conditioned, not implausible, not annealed where the product publishes it as printed,
   at the headline's load. A value is `comparable`, or `as-published` with a `caveat` where the source leaves the
   direction (`unstated-direction`) or the load (`load-not-stated`) unstated. Several candidates are ordered: comparable,
   printed, as printed, dry, the product's own data sheet, the headline's first value property, a point, then the
-  lowest ID. A `value` row of `headlines.csv` on the product pins it (`pinned`); on 2026-09-25 the rule alone
-  reproduced all 477 picks (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`). A value measured on an
+  lowest ID. A row of `headlines.csv` on the product pins it (`pinned`), with its Reason; on 2026-09-25 the rule alone
+  reproduced all 477 hand picks (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`), which m137 retired. A value measured on an
   annealed part carries the schedule (`anneal`). `priceCADkg` is the median of the product's own sample listings.
 - **`grades[].print`**: the product's own recipe from its own profiles, never a union across a material: per axis the
   gate against the H2C and the window of the profile that decided it, the enclosure, whether it wants a hardened
   nozzle, drying, and the annealing its sheets state. Null for a product with neither a profile nor an annealing
   schedule.
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
-  variants. `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
+  variants (a material whose every product is a variant, PP Lightweight, is its variants). `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
   values) and `typical` product (nearest the median) these are. Values published without the direction or load
   (`asPublished`) and variants (`variants`) are counted apart. It is the spread of different products, never
   uncertainty about one; PEBA's 7.5, 25 and 30 MPa are three products.
@@ -253,13 +255,18 @@ Measured:
 
 ```js
 {
-  known: true, value: 1090, unit: 'kg/m³',
-  origin: 'source', verified: true,        // verified against the citation below
-  measurementId: 'V000922', gradeId: 'G050-01', sourceId: 'B-pa6-cf-TDS',
-  direction: 'not-applicable', specimenType: '…', moisture: '…', postProcessing: '…',
-  interval: { lo: 1090, hi: 1090, kind: 'point' }, uncertainty: null
+  known: true, value: 2.27, unit: 'GPa', origin: 'products', verified: true,
+  interval: { lo: 2.27, hi: 2.27, kind: 'point' },
+  spread:  { n: 27, products: 198, min: 0.95, max: 2.95, q1, q3,     // its products' comparable values
+             asPublished: { n: 46, min, max } | null,                // counted apart (D84)
+             variants: { n, min, max } | null },                     // declared variants, apart
+  typical: { gradeId, measurementId, value },                        // the product nearest the median
+  measurementId, gradeId                                             // one product only: its value is the material's
 }
 ```
+
+A product's own value (`grades[].headline[key]`) is `{ value, level, measurementId, caveat?, direction?, interval?,
+uncertainty?, anneal?, pinned? }`; the engine judges each product through it (app/js/engine/products.js).
 
 Not measured:
 
@@ -276,9 +283,9 @@ Not measured:
 An unbounded end is `null`, never `Infinity`. A value with a published uncertainty is judged on the value, and the
 interval says whether a threshold lies within its spread (D54).
 
-A measured headline is always a printed or unstated specimen, dry or unstated, and as printed where the grade
-publishes both states; a moulded, film, filament, conditioned, annealed-beside-as-printed or physically implausible
-measurement is refused as a headline at build time (D55, D56).
+A product value is always a printed or unstated specimen, dry or unstated, and as printed where the product publishes
+both states; a moulded, film, filament, conditioned, annealed-beside-as-printed or physically implausible measurement is
+never one, and a pin on it stops the build (D55, D56).
 
 ---
 
@@ -289,8 +296,8 @@ and only the first is evidence.
 
 | | What it is | Table | May satisfy a requirement? |
 |---|---|---|---|
-| **Measured** | A verified headline, traceable to one measurement, grade and source | `4.43` | yes |
-| **Related** | A real measurement of the same property that was never promoted to a headline | `46*` | no |
+| **Measured** | Its products' comparable values: the median, with their range and count, each traceable to one measurement, grade and source | `4.43` | yes, product by product |
+| **Related** | A real measurement of the same property that is not a comparable value | `46*` | no |
 | **Estimated** | The likely (80%) range of a calibrated model of every observation | `~71.3–92.5†` | **no; in Explore it may screen a material out** |
 | **Not applicable** | A property that does not apply, such as heat deflection of an elastomer | `n/a` | no; in Explore it may screen a material out |
 
@@ -389,16 +396,14 @@ with their reasons.
 **What each estimate carries.** `centre`, `lo`/`hi` (likely), `plausible.lo`/`plausible.hi`,
 `strength` (`this-grade`, `this-material` or `family`: what it rests on), `precision` (`good`, `fair`
 or `poor`, by per-property width thresholds), every piece of its own evidence with the converted value
-and the reason for the conversion, the soft limits applied, `sharedWith` where its representative
-product is filed under another material (both then show one estimate), `canScreen`, and where it may screen, `screenRange` (the range that decides, either end of which may be open: `null` screens nothing on that side), `screenBasis` (why each end screens) and `screenLimit` (why an end cannot).
+and the reason for the conversion, the soft limits applied, `sharedWith` where its product is filed under another
+material (both then show one estimate), `canScreen`, and where it may screen, `screenRange` (the range that decides, either end of which may be open: `null` screens nothing on that side), `screenBasis` (why each end screens) and `screenLimit` (why an end cannot).
 
-**Unstated heat loads.** A heat deflection headline whose source names no load was measured at
-0.45 MPa or at 1.8 MPa, so its 0.45 MPa value lies between the value and the value plus the largest
-(95%) gap between the two loads its matrix shows: about 10 °C for an amorphous polymer, 37 °C
-for a fibre-filled semicrystalline one. `hdt045.loadBracket` carries it. It never passes a requirement;
-in Explore with estimates on, a requirement its `screenRange` wholly fails screens the material out. The bottom of that
-range is the published value, which physics guarantees; its top is set from the gaps grades publishing both loads show,
-like an estimate's end (below), and is open for a matrix with too few of them.
+**Unstated heat loads.** A heat deflection whose source names no load is its product's value only as published
+(caveat `load-not-stated`, D84): counted apart, shown, and deciding only when the reader includes such values. Until
+phase 4 a material headline in that state carried a bracket from its matrix's load gap (`hdt045.loadBracket`); no
+material headline is in that state since a material's value is its products' comparable ones, and the bracket is gone.
+Heat deflection does not apply to an elastomer at all (headline_definitions.csv Applies to, Morphology; D56).
 
 **Nothing blank.** Every in-scope headline carries a value, an estimate or `notApplicable` with a
 reason. Heat deflection of an elastomer is not applicable and never estimated (ISO 75 ends at 0.2 % outer-fibre
@@ -513,13 +518,13 @@ if a member is not an in-scope material; a test fails if any data sheet is filed
 
 A valid identifier is not enough to establish ownership. Every measurement, print profile, price
 observation and use record names both a `MaterialID` and a `GradeID`; the grade must belong to that
-same material. Every measured headline must cite its material's **representative grade**, because a
-single Materials row cannot present several formulations' values as if they described one product.
+same material. Every product value cites that product's own measurement, and a material's range is its products',
+never one product's values presented as if they described the material (D83).
 
 A material's grade list (`gradeIds`) is its procurement list: every grade with Role `procurement` and
 Status `active`. Study and resin-reference grades (Role `study` or `reference`, and an `-R#` ID suffix
 the build keeps in agreement with the role) deliberately stay outside it: they can provide clearly
-labelled context, but they are not products a reader can procure or use as the representative grade.
+labelled context, but they are not products a reader can procure, and no material's value comes from them.
 
 The evidence lists do not have identical ownership rules:
 
@@ -661,6 +666,6 @@ G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only 
 
 `build/src/measurement-rules.js` independently checks all 1,913 numeric observations against raw
 values and unit conversions, including each uncertainty and upper bound. Decimal commas are retained, thousands-separated cycle counts remain
-integers, and qualitative outcomes use their own status. Headline verification also enforces property,
-unit, value, direction and representative-grade ownership. An unstated HDT load is indeterminate
-for both apparent passes and apparent failures of a load-specific criterion.
+integers, and qualitative outcomes use their own status. Product values are checked for property, unit, value,
+direction and ownership (MEAS-HEADLINE-TYPE, HEADLINE-CITATION, HEADLINE-DIRECTION). An unstated HDT load decides
+nothing unless the reader includes values published that way (D84).

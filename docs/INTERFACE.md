@@ -731,9 +731,9 @@ from a cached file, with a 104 MB heap, well inside the 1.5 s at which measureme
 
 PLA has 198 grades and 700 measurements, and the drawer listed both flat. Its long tabs are now groups that open one
 at a time. **Grades**, **Printing** and **Sources** group by maker (by publisher, for sources): each maker is one
-collapsed line saying how many grades, profiles or sources it holds, the representative grade's maker open, and a
-search box above filters by grade, product, maker or source and opens what it finds. The representative grade is
-marked "stands for this material". **Mechanical** and **Thermal** lead with the property: each is a collapsed line
+collapsed line saying how many grades, profiles or sources it holds, the maker of the material's typical product
+open, and a search box above filters by grade, product, maker or source and opens what it finds. (Until phase 4 a
+"representative grade" was marked "stands for this material"; since D83 no product stands for it.) **Mechanical** and **Thermal** lead with the property: each is a collapsed line
 with its count, and inside it every value with its grade and source, largest first, keeping the two short conditions
 (post-processing, test temperature) and leaving the print-parameter paragraphs to the Sources tab. No range is drawn
 across a property's values (D46). With estimates on, each grade block ends with what the model says of that grade,

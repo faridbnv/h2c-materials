@@ -48,8 +48,8 @@ for (const m of db.materials) {
       Kind: h.known ? 'value' : h.notApplicable ? 'not applicable' : e ? 'estimate' : 'none',
       Value: h.known ? h.value : e?.centre ?? '', Unit: h.unit ?? '',
       Likely: e ? `${e.lo}-${e.hi}` : '', Plausible: e ? `${e.plausible.lo}-${e.plausible.hi}` : '',
-      Screens: e ? (e.canScreen ? span(e.screenRange) : 'no') : h.loadBracket ? (h.loadBracket.screenRange ? `bracket ${span(h.loadBracket.screenRange)}` : 'no') : '',
-      Strength: e?.strength ?? '', Measurement: h.measurementId ?? '', LoadStated: h.loadStated === false ? 'no' : '',
+      Screens: e ? (e.canScreen ? span(e.screenRange) : 'no') : '',
+      Strength: e?.strength ?? '', Products: h.spread?.n ?? '', Typical: h.typical?.gradeId ?? '', Measurement: h.typical?.measurementId ?? h.measurementId ?? '',
     });
   }
 }
@@ -84,9 +84,6 @@ for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
       screening.push({ Headline: key, Class: cls, End: side, Held: s.held, BeyondPlausible: s.beyondPlausible, Rank: s.rank ?? '', Quantile: s.quantile ?? '', Screens: s.certified ? 'yes' : 'no' });
     }
   }
-}
-for (const [matrix, s] of Object.entries(db.meta.estimateModel.bracketScreening)) {
-  screening.push({ Headline: 'hdt045 unstated-load bracket', Class: matrix, End: 'top', Held: s.held, BeyondPlausible: '', Rank: s.rank ?? '', Quantile: s.topGap == null ? '' : `gap ${s.topGap}`, Screens: s.certified ? 'yes' : 'no' });
 }
 
 // Every grade's own estimate (D81), so a range that moves shows in the diff of the change that moved it.

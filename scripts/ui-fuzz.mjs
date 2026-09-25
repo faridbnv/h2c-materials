@@ -49,13 +49,12 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const { runSelection, compareInterval, STATUS, UNKNOWN_POLICY } = await import(pathToFileURL(join(root, 'app/js/engine/constraints.js')).href);
 const { matchesQuery } = await import(pathToFileURL(join(root, 'app/js/engine/search.js')).href);
-const { productsByMaterial, displayMaterials } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
+const { productsByMaterial } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
 const { applyAssumptions, toHash, validateScenario } = await import(pathToFileURL(join(root, 'app/js/engine/scenario.js')).href);
 const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
 
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
-// As the page does at boot: a material shown as the spread of its products, and judged by them (D83).
-db.materials = displayMaterials(db);
+// As the page does: a material is judged by its products (D83); the build gives its headline as their spread.
 const productsOf = productsByMaterial(db);
 // The current snapshot's page, never whichever older page sorts first in dist/ (see ui-probe.mjs).
 const html = readdirSync(join(root, 'dist')).find((f) => f === `H2C_Material_Selector_${db.meta.snapshot}.html`);
@@ -83,7 +82,7 @@ const edges = Object.fromEntries(KEYS.map((k) => {
   const add = (v) => { if (Number.isFinite(v)) s.add(v); };
   for (const m of candidates) {
     const h = m.headline[k]; if (!h) continue;
-    add(h.value); add(h.interval?.lo); add(h.interval?.hi); add(h.loadBracket?.lo); add(h.loadBracket?.hi); add(h.loadBracket?.screenRange?.hi);
+    add(h.value); add(h.interval?.lo); add(h.interval?.hi);
     const e = h.estimate; if (e) { add(e.lo); add(e.hi); add(e.plausible?.lo); add(e.plausible?.hi); add(e.screenRange?.lo); add(e.screenRange?.hi); }
     for (const b of h.impliedBounds ?? []) add(b.lo);
   }

@@ -177,9 +177,8 @@ export function rawObservations(key, S, model) {
       }
     }
   }
-  // A formulation cited by several materials is owned by the material it represents, else the first.
+  // A formulation cited by several materials is owned by the first that cites it.
   const ownerOfF = new Map(), out = [];
-  for (const m of S.pool) { const f = m.representativeGrade && S.fkey(m.representativeGrade); if (f && !ownerOfF.has(f)) ownerOfF.set(f, m.id); }
   for (const e of groups.values()) {
     if (!ownerOfF.has(e.f)) ownerOfF.set(e.f, e.m.id);
     if (ownerOfF.get(e.f) !== e.m.id) continue;

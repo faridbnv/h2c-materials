@@ -4,7 +4,7 @@
 //
 //   npm run trace -- M020                    every headline of a material
 //   npm run trace -- PETG tensileModulusXY   one headline; a material name works too
-//   npm run trace -- V000384                 one measurement, and the headlines that cite it
+//   npm run trace -- V000384                 one measurement, and the product value it is
 //
 // Chain: headline -> measurement (raw, unit, factor, normalized, status, conditions)
 //        -> grade (owner, availability) -> source (URL, locator, access, SHA-256).
@@ -73,8 +73,11 @@ function headline(depth, m, k) {
         line(depth + 2, `${id}  (${at(row)})  ${p.retailer} · ${p.variant} · ${p.listPrice} CAD / ${p.netMassKg} kg = ${p.regularPerKg} CAD/kg · ${p.stock} · accessed ${p.accessDate}`);
         line(depth + 3, p.url);
       }
+    } else if (h.spread) {
+      // The spread of its products (D83): the median of n comparable values, and the product nearest it.
+      line(depth + 1, `median of ${h.spread.n} product(s) publishing it comparably, ${h.spread.min}–${h.spread.max}${h.spread.asPublished ? `; ${h.spread.asPublished.n} more as published` : ''}; typical product ${h.typical.gradeId}`);
+      if (h.typical.measurementId) measurement(depth + 1, h.typical.measurementId);
     } else {
-      if (h.loadStated === false) line(depth + 1, 'test load not stated by the source');
       measurement(depth + 1, h.measurementId);
     }
   } else {
@@ -88,12 +91,15 @@ function headline(depth, m, k) {
 const material = db.materials.find((m) => m.id === query || m.name.toLowerCase() === query.toLowerCase() || m.abbreviation?.toLowerCase() === query.toLowerCase());
 if (material) {
   const row = wb.Materials.rows.find((r) => r.MaterialID === material.id);
-  line(0, `${material.id} ${material.name}  (${at(row)})  scope ${material.scope} · family ${material.family} · representative grade ${material.representativeGrade ?? 'none'}`);
+  line(0, `${material.id} ${material.name}  (${at(row)})  scope ${material.scope} · family ${material.family} · ${material.gradeIds.length} product(s)`);
   for (const k of key ? [key] : Object.keys(material.headline)) headline(1, material, k);
 } else if (measurementRows.has(query)) {
   measurement(0, query);
-  const citing = db.materials.filter((m) => Object.values(m.headline).some((h) => h.measurementId === query));
-  line(0, citing.length ? `cited as headline by: ${citing.map((m) => `${m.id} ${m.name} (${Object.entries(m.headline).filter(([, h]) => h.measurementId === query).map(([k]) => k).join(', ')})`).join('; ')}` : 'not cited by any headline');
+  const product = db.grades.find((g) => Object.values(g.headline ?? {}).some((v) => v.measurementId === query));
+  const keys = product ? Object.entries(product.headline).filter(([, v]) => v.measurementId === query).map(([k, v]) => `${k}, ${v.level}`) : [];
+  line(0, product ? `the value of ${product.id} ${product.manufacturer} ${product.product} for ${keys.join('; ')}` : 'no product\'s value for any headline');
+  const typicalOf = db.materials.filter((m) => Object.values(m.headline).some((h) => h.typical?.measurementId === query));
+  if (typicalOf.length) line(0, `typical product's value of: ${typicalOf.map((m) => `${m.id} ${m.name} (${Object.entries(m.headline).filter(([, h]) => h.typical?.measurementId === query).map(([k]) => k).join(', ')})`).join('; ')}`);
 } else {
   console.error(`"${query}" is not a MaterialID, material name, abbreviation or MeasurementID`);
   process.exit(2);

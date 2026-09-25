@@ -175,6 +175,75 @@ The page now judges every material by its products and shows it as their spread.
   check.
 - The team test needs two of the team's engineers: its script is [team-test.md](team-test.md).
 
+## Phase 4: the representative grade retires (2026-09-25)
+
+*In plain words: nobody chooses a material's number any more. The build works it out from the material's products, and
+the machinery that held the old one-product shape together is gone.*
+
+**What changed.**
+- **A material's headline is derived by the build** (`build/src/products.js`): its products' median, range and count,
+  and the typical product nearest the median. The page shows what the build gives; the transform it ran at boot in
+  phase 3 is gone. A material whose every product is a declared variant (PP Lightweight) is its variants.
+- **m137 retires the representative grade.** `materials.csv` loses the column; `headlines.csv` loses its 477 value rows
+  and 16 context rows, and keeps its shape as the place to pin one product's value, now with a Reason. Everything
+  removed is archived word for word in [retired-representative-picks.csv](retired-representative-picks.csv) (519 rows:
+  every pick, and every material's representative grade) and named in `data/review/removed-records.csv` (D72).
+  `rule-vs-hand-picks.md` regenerates from the archive and is unchanged: 477 of 477 agree.
+- **The estimate stage lost its representative-grade special cases** (`estimate/index.js`, `bounds.js`, `grades.js`,
+  `observations.js`, `calibration.js`, `screening.js`, `validate.js`). Calibration and the screening back-test hide each
+  material's typical product. A material estimate exists only where no product publishes comparably: 255 became 184,
+  and 71 materials' values that were estimates are now their products' medians (477 measured values became 548). With
+  one product the estimate is that product's; with several it predicts an unmeasured one. The first attempt predicted
+  at the material's mean, which the model's kernel gives no product term, so it read narrower than any single product;
+  the fix is a formulation of its own, which carries the spread between products. A grade estimate is attached only
+  to a product without a comparable value of its own (4,200 became 2,543). The unstated-load bracket went: D84 counts
+  such values apart, and no material headline has an unstated load.
+- **Heat deflection does not apply to an elastomer, by its definition.** `headline_definitions.csv` hdt045 Applies to
+  is now `Morphology: amorphous | semicrystalline | not modelled`, the polymer's morphology from `polymers.csv` (a new
+  field the Applies-to grammar may test). Before, the estimate stage held out only the elastomers whose representative
+  grade happened to publish none; TPC-ESD's hand pick decided, and without the rule TPU would have passed Warm
+  environment on Flashforge TPU95A's 95 °C, a value the physics lint flags (W0059, accepted as published). Now every
+  elastomer's HDT is shown as its sheet's measurement and decides nothing (D56 amended).
+- **Checks.** REP-GRADE-NOT-OWN, HDT-LOAD-WRONG and HDT-LOAD-UNSTATED are gone (112 rules became 109); HEADLINE-CITATION,
+  HEADLINE-DIRECTION, MEAS-HEADLINE-TYPE and QUARANTINE-NUMERIC now check product values, which is where a value can
+  decide; HEADLINE-SELECTION-INVALID and -MULTIPLE check pins (one per product and headline, and one that could be
+  the value). `scripts/data/representative.mjs` is retired. A reason names a caveat when a value published without its
+  load or direction decides because the reader included such values.
+- **Tests** that asserted the old shape now assert the rule over every product, or the product the record was about:
+  `test/headlines.test.js` tests pins; nine record tests in `database.test.js` read the product that was the
+  representative grade; the bracket tests are one test of an as-published value's reason.
+
+**The decision diff** (`build/snapshot/templates.csv`, six templates):
+
+| Mode | Answers moved | What |
+|---|---:|---|
+| Strict | 0 | |
+| Explore | 1 | TPC-ESD enters Warm environment as unknown: its hand-picked HDT had failed it, and an elastomer's HDT no longer decides |
+| Explore with estimates | 19 | 13 screens lifted, because an estimate that stands in for every product of a material is wider than one describing one product: PA66, PA612, PET, PBT, PC-PTFE, PE-GF, PLA-GR, PLA-EC, ABS-AF and ASA-AF at 5 GPa, PLA-EC at 3 GPa, PETG-PTFE and PET-LW at 80 °C. 4 added: PP at 2.5 and 5 GPa, SAN and PE-GF at 100 % elongation. TPC-ESD is screened by not applicable, and TPU-CF gains a second reason |
+
+Seven build findings moved with the medians and were reviewed one by one: three acceptances no longer occur and are
+removed (PLA-CF and PLA-NF below PLA, TPU's elongation outlier); four are new and accepted with their reasons (PLA-EC's
+density, ASA-GF and ABS-AF below their unfilled siblings, PA12-AF's estimated HDT below PA12's median). The page counts
+142 materials with a density where it said 127, because the count is now the build's and the build now knows what the
+page showed.
+
+**Not done in this phase.**
+- The stored copies (Availability's "Retired mapping" beside Status, H2C status "Excluded" beside Scope) stay, with
+  the checks that keep each pair in step: removing a column there is hygiene that moves no answer, and it waits for
+  phase 5.
+- A material's print summary and gates (`materials[].print`, `.gates`) are still the union across its products. The
+  engine reads them only for the four materials with no product, and the drawer shows the union as "a guide rather
+  than one recipe" beside each product's own. Phase 5 decides whether it stays.
+- The record tests that pin one product's number stay until phase 5 turns them into rules.
+
+| | Result |
+|---|---|
+| `npm run data:check` / `data:lint` | 0 issues / 287 findings, all accepted, 0 new |
+| `npm run build` | 0 errors, 4 warnings; `db.json` 21.0 MB became 19.8 MB |
+| `npm run build:diff` | 11,963 differences: every material headline (its shape and, where it had several products, its value), `representativeGrade` and `headlineEvidence` gone, `pinned` gone from 476 product values (the 477th, TPC-ESD's HDT, is no longer a value), the elastomers' HDT product values and summaries (8 and 14), 1,657 grade estimates, the material estimates' ranges, `meta.estimateModel` (calibration, screening, outliers, `bracketScreening` gone), `meta.consistency`, and one material's closest related value, chosen without the representative grade's weight |
+| Tests | 301 pass |
+| `verify:fast` | 28.5 s with the build cached |
+
 ## Phase 6, lane 1: the record (2026-09-25)
 
 Scorecard line C11 (the record), working rule 2. `npm run sql` / `npm run db:sqlite` now writes the record tier into

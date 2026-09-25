@@ -56,8 +56,8 @@ record is a lint finding (MEAS-LOCATOR-DIRECTION): 18 Z results coded unknown on
 **Thermal** (`thermal.js`). About twenty spellings of HDT standard and load, including full-width
 commas from Chinese-language datasheets, 1.81 and 1.820 MPa, MN/m², a decimal comma beside the unit, and
 ISO 75-2's method letters (A 1.80 MPa, B 0.45 MPa), ASTM D648's psi (66, 264) and kgf/cm² (4.6, 18.5). A text naming
-both loads states neither. A load that was never stated stays unstated, and every HDT headline in that position carries
-`loadStated: false` (HDT-LOAD-UNSTATED lists them, each reviewed).
+both loads states neither. A load that was never stated stays unstated: the product's value is as published, with
+caveat `load-not-stated`, counted apart and deciding only when the reader asks (D84).
 
 **Standards** (`standards.js`). The standards a measurement's Standard / load text names, at family level and one
 spelling each: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the specimen speed are conditions of
@@ -107,13 +107,16 @@ weak from strong said more than one that did not.
 
 Assembles the relational runtime database, and does the one thing that matters most:
 
-> **A headline is a selected measurement, never a number typed a second time.**
+> **A number is read from its measurement, never typed a second time, and nobody selects it.**
 
-`headlines.csv` names the MeasurementID behind each headline; the value is read from that
-measurement. The build checks the selection against the headline's definition in
-`headline_definitions.csv`: an active numeric measurement of this material, on its representative
-grade, of an allowed property, in the headline's unit and direction, from a printed or unstated specimen, not
-conditioned, not flagged physically implausible, and not annealed where the grade publishes the property as printed.
+Each product's value for a headline is chosen by rule from its own measurements (`products.js`): an active numeric
+measurement of an allowed property, in the headline's unit, from a printed or unstated specimen, not conditioned, not
+flagged physically implausible, not annealed where the product publishes the property as printed, and in the
+headline's direction and at its load ("comparable"), or with either unstated ("as published", D84). A material's
+headline is its products' spread: the median of their comparable values, their range and count, and the typical
+product (D83). `headlines.csv` only pins one product's value where the rule chooses wrongly, and the build checks a pin
+against the same definition. Until m137 the table held 477 hand picks on each material's "representative grade"; the
+rule reproduced every one, and they are archived in `docs/audits/2026-09-25-re-center/`.
 A selection that fails any of these is a build error naming the material and the reason (HEADLINE-SELECTION-INVALID). A headline limited by "Applies to" is not
 applicable, with its reason, for every other material.
 
@@ -141,8 +144,8 @@ Compile also derives, each tagged with its origin so the interface can tell them
   A moulded, film, filament or unstated specimen, an annealed twin and a conditioned elongation bound nothing.
 - **Facets** the Materials table does not carry directly, marked `derived`.
 - **What a material's headline values represent**, and the sentence describing its price sample. Both were columns
-  of `materials.csv` until m45: the first is three sentences chosen by Scope and Representative grade, the second
-  counts the observations compile already counts (D70).
+  of `materials.csv` until m45: the first is now one of three sentences chosen by Scope and whether any of its
+  products publishes a comparable value, the second counts the observations compile already counts (D70).
 - **Coverage rows for the domains a material's own records prove**, one per (material, domain) pair no stored row
   speaks for, marked `derived` and naming what proves it: the measurement count, the profile IDs, the price
   observations. A stored row is somebody's judgement and always wins. 541 templated rows that only restated the
@@ -201,7 +204,7 @@ see `docs/DATA-MODEL.md` under "Chamber evidence".
 Errors stop the build. Warnings do not: they record what the compiled database cannot support, so
 the interface can say so rather than implying a certainty it does not have. Every issue carries a code from
 `rules.js` (`docs/RULES.md`), and warnings name their records, which the review snapshot commits (D50, D53). A
-per-record warning (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) must be fixed or
+per-record warning (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS) must be fixed or
 accepted with a reason in `data/review/accepted-findings.csv`; `npm run audit:data` fails otherwise (D57). Summaries
 that only describe the snapshot (EST-SUMMARY, FAMILY-ENTRIES, IMPACT-UNITS, EST-CALIBRATION-FEW) are level info.
 
@@ -209,11 +212,11 @@ Checked: identifier uniqueness; referential integrity across every table; every 
 registered property that no other property replaces, in one of its units, of a material the property applies to;
 raw value, uncertainty and upper bound each reconciled with the conversion factor; quarantined measurements
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
-kJ/m² without specimen geometry; scope and H2C status agreeing about exclusion; HDT loads either stated at 0.45 MPa or flagged; every in-scope headline carrying a value,
+kJ/m² without specimen geometry; scope and H2C status agreeing about exclusion; a product value that decides as XY being an XY measurement; every in-scope headline carrying a value,
 an estimate or a not-applicable reason; every estimate nesting its likely range inside its plausible
-range and citing only its own material's or representative product's measurements; each headline's
-likely range holding 80% (±10 points) and its plausible range at least 90% of hidden measured
-headlines; a retirement finished on both Status and Availability; grade roles agreeing with the -R#
+range and citing only its own material's or its products' measurements; each headline's
+likely range holding 80% (±10 points) and its plausible range at least 90% of the hidden values of materials'
+typical products; a retirement finished on both Status and Availability; grade roles agreeing with the -R#
 ID suffix; every chamber band naming a real, in-scope material
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
@@ -228,7 +231,8 @@ It also checks **cross-record consistency**, not just whether referenced identif
 - every measurement, profile, price and use record is filed under the material its grade belongs to;
 - a material's grade list is its active procurement grades; study and resin-reference grades (Role,
   and an `-R#` suffix) remain outside it;
-- every measured headline belongs to its material and its representative grade;
+- every product value cites a measurement of that product, not quarantined, and a material's typical product is one of
+  its own;
 - each cited record exists and belongs to the material, except deliberately labelled family context
   in use, durability and safety notes;
 - each material link cites the right kind of record: a profile or evidence for printing, a source

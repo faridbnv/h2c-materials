@@ -67,13 +67,14 @@ test('missing data is UNKNOWN and never zero', () => {
   assert.equal(r.observed, undefined, 'no value is invented for a missing measurement');
 });
 
-test('an HDT headline with an unstated load cannot assert a load-specific pass', () => {
+test('a value published without its load decides only as published, and says so', () => {
+  // A product view carries such a value only when the reader includes values published that way (D84, products.js).
   const m = { id: 'M1', headline: { hdt045: {
-    known: true, value: 186, unit: '°C', loadStated: false, interval: point(186), measurementId: 'V2',
+    known: true, value: 186, unit: '°C', caveat: 'load-not-stated', level: 'as-published', interval: point(186), measurementId: 'V2',
   } } };
   const r = evaluateConstraint(m, { kind: 'numeric', property: 'hdt045', operator: '>=', value: 100 });
-  assert.equal(r.status, STATUS.INDETERMINATE);
-  assert.equal(r.caveat, 'load-not-stated');
+  assert.equal(r.status, STATUS.PASS);
+  assert.match(r.reason, /^Published 186 °C, its test load not stated/);
 });
 
 test('a chamber recommendation does not fail a candidate', () => {
@@ -243,23 +244,6 @@ test('the plausible range decides a screen, not the narrower likely range the re
   assert.equal(evaluateMaterial(m, [elongation(70)], explore).screened, true);
 });
 
-// Regression: PLA Lite (53 °C, load not stated) stayed a candidate for "heat resistance at least 100 °C",
-// because a value at an unstated load was treated as bounded below only.
-test('an unstated-load heat value is bracketed: a requirement above the bracket screens, never fails', () => {
-  const pla = { id: 'L', excluded: false, gates: {}, headline: { hdt045: { known: true, value: 53, unit: '°C',
-    interval: { lo: 53, hi: 53, kind: 'point' }, loadStated: false, loadBracket: { lo: 53, hi: 62.7, unit: '°C' } } } };
-  const hdt = (value, operator = '>=') => ({ kind: 'numeric', property: 'hdt045', operator, value });
-  const far = evaluateMaterial(pla, [hdt(100)], explore);
-  assert.equal(far.verdict, STATUS.UNKNOWN, 'inference never becomes a FAIL');
-  assert.equal(far.screened, true);
-  assert.match(far.results[0].reason, /53 to 62\.7 °C, which cannot meet this requirement/);
-  // Inside the bracket it stays unresolved and visible; without estimates nothing is screened.
-  assert.equal(evaluateMaterial(pla, [hdt(60)], explore).screened, false);
-  assert.equal(evaluateMaterial(pla, [hdt(100)], { unknownPolicy: UNKNOWN_POLICY.EXPLORATION }).screened, false);
-  // It never passes, even below its own value.
-  assert.equal(evaluateConstraint(pla, hdt(50), explore).status, STATUS.INDETERMINATE);
-});
-
 test('not applicable holds a material out of Explore and never passes, and is silent without estimates', () => {
   const tpu = { id: 'T', excluded: false, gates: {}, headline: { hdt045: { known: false, missing: 'not-published', unit: '°C',
     notApplicable: { reason: 'Heat deflection is a rigid-bar test' } } } };
@@ -360,11 +344,6 @@ test('a build-material screen removes support materials', () => {
 });
 
 // SD-08: an unstated test load cannot determine a result at a specific load in either direction.
-test('unstated HDT load cannot confirm either a pass or a failure', () => {
-  const material={headline:{hdt045:{known:true,value:60,unit:'°C',loadStated:false}}};
-  for(const value of [50,100]) assert.equal(evaluateConstraint(material,{kind:'numeric',property:'hdt045',operator:'>=',value}).status,STATUS.INDETERMINATE);
-});
-
 test('strict published bounds are evaluated correctly at the endpoint', () => {
   const lower={lo:650,hi:null,openLow:true}, upper={lo:null,hi:.8,openHigh:true};
   for(const op of ['>','>=']) assert.equal(compareInterval(lower,op,650),STATUS.PASS);

@@ -28,7 +28,7 @@ test('the core database without the estimate stage validates and meets the contr
   const { referenceRows, referenceWhere } = readSource(root);
   const reference = compileReference(referenceRows, [], referenceWhere, db.registry);
   assert.deepEqual(contractIssues({ db, reference }), []);
-  assert.ok(db.materials.every((m) => Object.values(m.headline).every((h) => !h.estimate && !h.loadBracket)));
+  assert.ok(db.materials.every((m) => Object.values(m.headline).every((h) => !h.estimate)));
   assert.ok(db.grades.every((g) => g.estimate === undefined), 'a grade carries an estimate in the core build');
   assert.equal(db.meta.estimateModel, undefined);
 });
@@ -39,17 +39,30 @@ test('the core database without the estimate stage validates and meets the contr
 test('a grade estimate agrees with its material\'s, and exists only where its calibration holds', () => {
   const db = read('db.json');
   const grades = new Map(db.grades.map((g) => [g.id, g]));
-  let compared = 0;
+  let compared = 0, outside = 0;
+  // A material's estimate stands in for each of its products (D83), so each product's own estimate lies inside it.
   for (const m of db.materials) {
     for (const [key, h] of Object.entries(m.headline)) {
-      const g = grades.get(m.representativeGrade)?.estimate?.[key];
-      if (!h.estimate || !g || h.estimate.sharedWith) continue;
-      assert.ok(g.centre >= h.estimate.plausible.lo && g.centre <= h.estimate.plausible.hi,
-        `${m.name} ${key}: the representative grade's centre ${g.centre} lies outside the material's plausible ${h.estimate.plausible.lo}-${h.estimate.plausible.hi}`);
-      compared++;
+      if (!h.estimate || h.estimate.sharedWith) continue;
+      for (const id of m.gradeIds) {
+        const g = grades.get(id)?.estimate?.[key];
+        if (!g) continue;
+        // A limit one of its products publishes holds the material's range (D78) and not another product's, and a
+        // product's own related evidence may pull it outside what the material says of any product: either may put a
+        // product beyond the material's range, and nothing else may.
+        const held = (side) => h.estimate.bounds.some((b) => b.own != null && b.side === side);
+        const inside = (g.centre >= h.estimate.plausible.lo || held('lower')) && (g.centre <= h.estimate.plausible.hi || held('upper'));
+        assert.ok(inside || g.strength === 'this-grade',
+          `${m.name} ${key}: ${id}'s centre ${g.centre} lies outside the material's plausible ${h.estimate.plausible.lo}-${h.estimate.plausible.hi} with no evidence of its own`);
+        if (!inside) outside++;
+        compared++;
+      }
     }
   }
-  assert.ok(compared > 100, `only ${compared} representative-grade estimates compared`);
+  assert.ok(compared > 100, `only ${compared} product estimates compared`);
+  assert.ok(outside <= compared * 0.05, `${outside} of ${compared} product estimates lie outside their material's`);
+  // A product with a comparable value of its own carries no estimate beside it.
+  for (const g of db.grades) for (const [key, v] of Object.entries(g.headline ?? {})) assert.ok(!(v.level === 'comparable' && g.estimate?.[key]), `${g.id} ${key}`);
   for (const [key, p] of Object.entries(db.meta.estimateModel.properties)) {
     if (p.gradeCalibration.shipped) continue;
     assert.ok(db.grades.every((g) => !g.estimate?.[key]), `${key}: grade estimates shipped where the calibration said no`);

@@ -1,9 +1,9 @@
 // Grade posteriors (DECISIONS D81): what the model says of each product, not only of each material.
 //
 // The model is already hierarchical — chemical group, identity, the material's own deviation, the product's own
-// deviation (gaussian.js) — and a material's estimate is the prediction at its representative product's row. A
-// grade's estimate is the same prediction at the grade's own row: its formulation, its maker as test house. No new
-// hierarchy and no refit. A grade that publishes the headline pulls its own posterior towards what it published;
+// deviation (gaussian.js) — and a material's estimate is the prediction at the material (or, where it has one product,
+// at that product's row). A grade's estimate is the same prediction at the grade's own row: its formulation, its maker
+// as test house. No new hierarchy and no refit. A grade that publishes the headline pulls its own posterior towards what it published;
 // one that publishes nothing gets its material's latent and the spread between products.
 //
 // The material's calibration does not hold at grade level (a product's value scatters about its material more than
@@ -12,8 +12,8 @@
 // material calibration uses, and the likely and plausible scales are set from where the hidden values fell. The
 // material's ranges are untouched.
 //
-// A grade estimate decides nothing. It is shown beside the grade; screening and the headlines read the material's
-// (D48, D59), and constraints.js never reads a grade.
+// A grade estimate decides nothing. It is attached only to a product without a comparable value of its own, and shown
+// beside it; screening reads the material's (D48, D59), and constraints.js never reads a grade's.
 
 import { quantile } from './numerics.js';
 import { HEAD, identityOf, sig3 } from './model.js';
@@ -94,10 +94,8 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
     const manufacturer = g0.manufacturer ?? null;
     const p = predict(P, hp, subject, f, manufacturer);
     p.mu += tmMean(subject);
-    // The representative grade is the product the material's own estimate describes, and takes the same bounds;
-    // every other grade takes the bounds its own sheets publish (bounds.js).
-    const representative = m.representativeGrade && S.fkey(m.representativeGrade) === f;
-    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, representative ? {} : { formulation: f });
+    // Every grade takes the bounds its own sheets publish (bounds.js).
+    const { centre, range, wide } = rangeFor(m, subject, p, h.unit, { formulation: f });
     const own = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.f === f && (o.m.id === m.id || o.m.id === subject.id));
     const mine = obs.some((o) => o.m.id === m.id);
     const strength = own.length ? 'this-grade' : mine ? 'this-material' : 'family';
@@ -117,6 +115,8 @@ export function attachGradeEstimates({ key, model, S, obs, P, hp, tmMean, inv, r
           : `the family model only (${identityOf(m)})`,
     };
     for (const g of grades) {
+      // A product with a comparable value of its own shows that value; an estimate would only sit beside it (D83).
+      if (g.headline?.[key]?.level === 'comparable') continue;
       g.estimate ??= {};
       g.estimate[key] = grades.length > 1 ? { ...estimate, sharedWith: grades.filter((x) => x !== g).map((x) => x.id) } : estimate;
       attached++;

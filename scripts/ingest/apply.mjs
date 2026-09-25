@@ -228,7 +228,10 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       const id = existing?.MaterialID ?? nextId('materials', t.rows('materials').map((m) => m.MaterialID));
       if (!existing) {
         proposal.newMaterial.MaterialID = id;
-        t.append('materials', proposal.newMaterial);
+        // A proposal names the grade the material stood for; since m137 no material stands for a grade (D83), and the
+        // name is kept only to find the new material's first product below.
+        const { 'Representative grade': _main, ...row } = proposal.newMaterial;
+        t.append('materials', t.header('materials').includes('Representative grade') ? proposal.newMaterial : row);
         note(`material ${id} ${proposal.newMaterial['Original name']}`);
       }
       for (const grade of proposal.grades ?? []) grade.row.MaterialID = grade.row.MaterialID || id;
@@ -252,9 +255,10 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
     }
     const resolve = (value) => String(value ?? '').replace(/\$\{grade:([^}]+)\}/g, (_, key) => gradeIds[key] ?? `\${grade:${key}}`);
 
-    // A new material stands for its first grade, and that grade's identifier is only known once it is written.
-    if (proposal.newMaterial?.MaterialID) {
-      const representative = resolve(proposal.newMaterial['Representative grade']);
+    // A new material stood for its first grade until m137, and that grade's identifier is only known once it is written.
+    const firstGrade = proposal.newMaterial ? resolve(proposal.newMaterial['Representative grade']) : null;
+    if (proposal.newMaterial?.MaterialID && t.header('materials').includes('Representative grade')) {
+      const representative = firstGrade;
       if (!representative.includes('${')) {
         t.set('materials', proposal.newMaterial.MaterialID, 'Representative grade', representative, { expect: proposal.newMaterial['Representative grade'] });
         note(`material ${proposal.newMaterial.MaterialID} stands for ${representative}`);
@@ -298,9 +302,11 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       note(`evidence ${id} ${e.row.Topic}`);
     }
 
-    // A material's headlines are its representative grade's. Where this proposal's material was created by an
-    // earlier document of the same batch, that grade is not this one's and the selections are already made.
-    for (const h of createdHere ? proposal.headlines ?? [] : []) {
+    // A material's headlines were its representative grade's until m137. Where this proposal's material was created by
+    // an earlier document of the same batch, that grade is not this one's and the selections are already made. Since
+    // m137 the build chooses every product's value by rule and headlines.csv only pins one, so none is written.
+    const selects = t.header('headlines').includes('Use');
+    for (const h of createdHere && selects ? proposal.headlines ?? [] : []) {
       // A selection a reviewer turned down is not made: a maker whose sheets are all injection-moulded bars
       // publishes nothing a headline may show, and the build says so rather than the batch writing it anyway.
       if (h.review?.status === 'rejected') continue;
@@ -316,10 +322,10 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
     // published" however many profiles its grades have: the build quotes the first `printing` link and nothing
     // else (compile.js, GUIDANCE-MISMATCH). Every material written by hand cites one; nothing wrote it for a
     // material the pipeline created, so thirty-six of them had a print profile and published no guidance. The
-    // link is the representative grade's own profile, which is what the hand-written ones cite.
+    // link is the new material's first product's own profile, which is what the hand-written ones cite.
     if (createdHere && proposal.newMaterial?.MaterialID) {
       const material = t.find('materials', proposal.newMaterial.MaterialID);
-      const profile = t.rows('profiles').find((x) => x.GradeID === material?.['Representative grade']);
+      const profile = t.rows('profiles').find((x) => x.GradeID === firstGrade);
       const cites = (id) => t.rows('material_links').some((x) => x.MaterialID === material.MaterialID && x.Link === 'printing' && x.RecordID === id);
       if (profile && !cites(profile.ProfileID)) {
         t.append('material_links', { MaterialID: material.MaterialID, Link: 'printing', RecordID: profile.ProfileID });

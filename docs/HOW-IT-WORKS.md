@@ -77,7 +77,7 @@ flowchart TB
     end
     ASSM --> OBSV
 
-    VALD{{"6 · Validate<br/>every record filed under the material its grade belongs to<br/>headlines on the representative grade, printed, dry, as printed<br/>quarantined values in no summary · XY never merged with Z<br/>coverage agrees with the records · calibration still holds"}}
+    VALD{{"6 · Validate<br/>every record filed under the material its grade belongs to<br/>each product value its own grade's, printed, dry, as printed<br/>quarantined values in no summary · XY never merged with Z<br/>coverage agrees with the records · calibration still holds"}}
     ASSM --> VALD
     SCRN --> VALD
     VALD -- "any error" --> STOP2(["Build stops"])
@@ -186,7 +186,6 @@ erDiagram
         string MaterialID "PLA, PA6-CF, PC FR"
         string Family "how the tool groups it"
         string EstimateIdentity "which polymers row it is modelled as"
-        string RepresentativeGrade "the product its headline values come from"
         string Scope "in scope, excluded, or a family entry"
     }
     GRADES {
@@ -233,7 +232,7 @@ every ID points at a row that exists, every categorical value is in a closed lis
 line, record and field in about a tenth of a second.
 
 The build then assembles the database and checks what a schema cannot: that a measurement is filed under the
-material its grade belongs to, that a headline cites the material's own representative grade, that a value marked
+material its grade belongs to, that a product's value cites that product's own measurement, that a value marked
 "quarantined" reaches no summary, that the nozzle text "255-275 °C" and the typed numbers beside it agree. Any error
 stops the build, so a database that has drifted can never reach the page. Warnings (an imprecise estimate, a heat
 value whose load the sheet never stated) are listed per record and each has to be reviewed and accepted with a

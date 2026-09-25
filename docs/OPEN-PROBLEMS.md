@@ -133,14 +133,14 @@ Quarantined: kept with the reason, never a number (D31).
 npm run sql --silent -- "select coverageid, materialid, domain, finding from coverage where status in ('Conflict','Quarantined')"
 ```
 
-## 5. Materials with nothing, or with no grade to stand for them
+## 5. Materials with nothing, or with no product that publishes
 
 - **PA66-CF (M056)** and **PA612-GF (M060)** have no measurement of any kind. Their estimates are family-only and
   say so. No filament data sheet with published properties was found in the sampled manufacturers. **PA-GF (M063)**
   has none either, and needs none: it is a family entry, and a family owns no product (D44).
-- **Nine materials have no representative grade**, so nothing can be a headline for them even where a study or a
-  resin reference publishes a number: TPE (M044), PA (M047), PA66 (M055), PA66-CF (M056), PA612 (M058), PA612-GF
-  (M060), CoPA (M061), PA-CF (M062), PA-GF (M063). For the family entries among them that is correct.
+- **Four in-scope materials have no product**, so nothing can be their value even where a study grade or a resin
+  reference publishes a number: PA66 (M055), PA66-CF (M056), PA612 (M058), PA612-GF (M060). Their values are
+  estimates, and say so. The family entries (PA, CoPA, PA-CF, PA-GF and the rest) own no product by design (D44).
 
 Both are evidence gaps, not defects. Only a manufacturer publishing a sheet fixes them.
 
@@ -153,17 +153,16 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `MEAS-PHYSICS-WINDOW` | 182 | See item 2. |
 | `MEAS-PHYSICS-ORDER` | 47 | See item 2. |
 | `MEAS-PHYSICS-STRAIN` | 31 | See item 2. |
-| `HDT-LOAD-UNSTATED` | 2 | The source names the test but not the load. Flagged, and screens no heat requirement until re-read. The 3DXTECH, purefil and other rows the earlier count held were resolved by m105, m106 and m132, which read the load off the line; two remain. |
 | `COVERAGE-SUPERSEDED` | 9 | A coverage finding a later row replaces. |
 | `MEAS-CROSS-SOURCE-TWIN` | 5 | Two sources publishing the same numbers: two revisions of one Polymaker sheet each, republished without remeasuring. |
-| `EST-OUTLIER` | 2 | A measured headline far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; and TPU's elongation, PolyFlex TPU95 at 330 % beside siblings near 580. PET-GF's heat deflection stopped being one when m132 read the loads its sheet states. |
+| `EST-OUTLIER` | 2 | A material's typical product far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; and PLA-EC's, whose two conductive PLAs publish 1.24 and 1.35 where the model expects about 1.52. TPU's elongation stopped being one when phase 4 made TPU's value the median of its products (m137). |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
 | `MEAS-PHYSICS-Z-ABOVE-XY` | 7 | Polymaker prints a Z stiffness 15 to 26 % above XY, and one b09 sheet a Z strength above its own X-Y one. Unusual at 100 % infill but not impossible; whether the sheet swapped its labels cannot be settled from the table. |
-| `EST-FAMILY-ORDER` | 2 | PLA-CF is estimated below unfilled PLA, because the two sheets are different products and no conversion makes them comparable; ASA-AF's one modulus is an injection-moulded bar. |
+| `EST-FAMILY-ORDER` | 4 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ASA-GF's median is of two sheets 0.9 GPa apart; ABS-AF's two sheets state no direction, so it is estimated below the numbers they print; PA12-AF has no heat deflection of its own. PLA-CF and PLA-NF stopped being ones when their values became their products' medians (m137). |
 | `MEAS-LOCATOR-DIRECTION` | 2 | HDT is recorded without a direction by convention; the sheet's "XY" names the bar's build orientation, not a test axis. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
 
-296 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
+295 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
 that no longer occurs, so this list cannot go stale unnoticed.
 
 Estimates that are merely wide because the evidence is thin are `EST-THIN`, informational, and need no reviewer:

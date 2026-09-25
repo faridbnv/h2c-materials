@@ -97,7 +97,7 @@ Rules the tooling enforces:
   removes a record. The one exception is a record the build now derives instead: it needs a row in
   `data/review/removed-records.csv` naming the migration and where it went, in the same commit, and
   every other removal still fails (D72).
-- **No lists inside cells.** A relationship is a row: `headlines.csv` for headline selections,
+- **No lists inside cells.** A relationship is a row: `headlines.csv` for a pinned product value,
   `material_links.csv` for a material's citations.
 - **Nothing derivable is stored, and no constant is repeated per row.** Headline values, price medians
   and their basis sentence, per-kg prices, a material's grade list, what its headlines represent,
@@ -134,17 +134,18 @@ published where they name none); the parser checks that too. Never write a stand
 also needs its loading row in `fatigue_tests.csv`. A bound ("> 500 %") uses Operator `>`; it limits the estimate, never becomes a point. The property must be in
 `properties.csv` and the normalized unit one of its units. It appears in the drawer at once.
 
-**A product's own values need no row.** Since re-center phase 1 the build chooses every product's value per headline
-by rule from its own measurements (`build/src/products.js`, `docs/DATA-MODEL.md`), and summarises each material from
-its products; a measurement recorded on the right grade with its conditions is all it takes. They decide nothing until
-phase 2. On 2026-09-25 the rule alone reproduced all 477 hand picks below (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`),
-so a new pick is needed only where the rule chooses wrongly, and phase 4 retires the rest.
+**A product's own values need no row.** The build chooses every product's value per headline by rule from its own
+measurements (`build/src/products.js`, `docs/DATA-MODEL.md`), and a material's headline is its products' spread: the
+median of their comparable values, their range and the typical product (D83). A measurement recorded on the right grade
+with its conditions is all it takes. Nobody selects a material's number: the representative grade and its 477 hand picks
+retired in m137 (archived in `docs/audits/2026-09-25-re-center/retired-representative-picks.csv`), after the rule alone
+reproduced every one of them (`rule-vs-hand-picks.md` beside it).
 
-**Make a measurement a headline.** A row in `headlines.csv`: MaterialID, HeadlineKey, MeasurementID,
-Use `value`. The measurement must be the material's own, on its representative grade, with the
-headline's property, unit and direction, a printed or unstated specimen, not conditioned, not flagged implausible,
-and not annealed where the grade publishes the as-printed value; the build says which if not. Replace the old value row; do
-not add a second one. Use `context` for a measurement cited for a headline that is not its value.
+**Pin a product's value.** Only where the rule chooses the wrong measurement for one product: a row in `headlines.csv`
+with MaterialID, HeadlineKey, MeasurementID and a Reason a reviewer can check against the source. The measurement must
+be that product's own and able to be the headline's value (property, unit, direction or load, a printed or unstated
+specimen, not conditioned, not flagged implausible, not annealed where the product publishes the as-printed value); the
+build refuses it otherwise (HEADLINE-SELECTION-INVALID), and refuses a second pin on the same product and headline.
 
 **Add a grade.** A row in `grades.csv` with Role `procurement` (or `study` / `reference` with an `-R#`
 ID) and Status `active`. It joins its material's grade list with no other edit. If the product is a variant
@@ -155,7 +156,7 @@ pulling the family.
 **Add a material.** `npm run data:new-material -- --name "PA11" --polymer PA11 --family "Nylon / Polyamide"
 --manufacturer Arkema --product "Rilsan PA11" --source S-...` writes the material and its first grade, refuses to
 invent the prose a reader is told (pass each as `--set "Column=..."`), and lists what is still needed: its
-measurements, headline selections, profiles, `material_links.csv` citations, and a `coverage.csv` row per gap or
+measurements, profiles, `material_links.csv` citations, and a `coverage.csv` row per gap or
 judgement (the build reports the domains its own records prove, D74). To be estimated it names its Estimate identity, a row
 of `polymers.csv` (its base polymer, or for a blend its own name); a new polymer is a new row there with its group,
 morphology, how it solidifies in a print, water uptake and neat density, and where those come from. A commercial
@@ -175,14 +176,13 @@ setting Quarantined `TRUE` and saying why in its Regular price basis. A coverage
 
 **Flag a value physics rules out.** When a sheet publishes what cannot be (HDT at 0.45 MPa below HDT at 1.8 MPa, a
 modulus its own hardness and elongation contradict), keep the number: Data status "Published value (physically
-implausible)" and the reason in Notes, through a migration (m24). It then backs no headline, estimate or bound; move a
-headline that selected it to Use `context`. The physics lint (MEAS-PHYSICS-*) finds some of these; accept the rest
-with a reason.
+implausible)" and the reason in Notes, through a migration (m24). It then backs no product value, estimate or bound,
+and a pin on it stops the build. The physics lint (MEAS-PHYSICS-*) finds some of these; accept the rest with a reason.
 
 **Replace a property name.** When two property names are one test, set "Replaced by" on the one that goes, and move
 its rows to the other with a migration (m22). The replaced record stays; the build refuses any use of it.
 
-**Accept a build finding.** Outliers, family-order breaks, unstated loads, materials without measurements and an
+**Accept a build finding.** Outliers, family-order breaks, materials without measurements and an
 estimate left imprecise beside a usable published value are reviewed per record: fix them, or `npm run data:lint --
 --accept EST-OUTLIER "reason"`. An estimate that is wide because the material publishes nothing is EST-THIN, which is
 informational: more data narrows it, not a reviewer (D73). `npm run
@@ -201,8 +201,8 @@ verdict. A grade-level record always wins, so nothing here is a reason to leave 
 and units. If it only means something for some filaments, set "Applies to", for example
 `Family: Flexible Elastomers`, and a Not applicable reason. Then add measurements. No code changes.
 
-**Add a selectable headline.** A row in `headline_definitions.csv` (the schema describes every column),
-then value rows in `headlines.csv`. The filter rail, charts, table, export and drawer pick it up. Leave
+**Add a selectable headline.** A row in `headline_definitions.csv` (the schema describes every column); each
+product's value is chosen from its measurements by rule. The filter rail, charts, table, export and drawer pick it up. Leave
 Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise.
 
 ## Importing a batch of data sheets

@@ -52,14 +52,14 @@ export function validateEstimates(db) {
       if (!(e.plausible.lo <= e.lo && e.hi <= e.plausible.hi)) issues.push(err('EST-INVALID', where, `The likely range ${e.lo}-${e.hi} is not inside the plausible range ${e.plausible.lo}-${e.plausible.hi}`));
       if (e.strength === 'family' && e.evidence.length) issues.push(err('EST-INVALID', where, 'A family-only estimate lists evidence of its own'));
       if (e.strength !== 'family' && !e.evidence.length) issues.push(err('EST-INVALID', where, 'Claims evidence of its own but lists none'));
-      const repF = gradeById.get(mat.representativeGrade)?.formulationKey ?? mat.representativeGrade;
+      const productF = new Set(mat.gradeIds.map((id) => gradeById.get(id)?.formulationKey ?? id));
       for (const ev of e.evidence) {
         for (const item of ev.items) {
           if (!item.measurementId) continue;
           const x = measurementById.get(item.measurementId);
           const f = x && (gradeById.get(x.gradeId)?.formulationKey ?? x.gradeId);
           if (!x) issues.push(err('EST-INVALID', where, `Cites ${item.measurementId}, which does not exist`));
-          else if (x.materialId !== mat.id && f !== repF) issues.push(err('EST-INVALID', where, `Cites ${item.measurementId}, which is neither this material's nor its representative product's`));
+          else if (x.materialId !== mat.id && !productF.has(f)) issues.push(err('EST-INVALID', where, `Cites ${item.measurementId}, which is neither this material's nor one of its products'`));
         }
       }
     }
@@ -116,12 +116,12 @@ export function validateEstimates(db) {
     if (!byMaterial.has(m.materialId)) byMaterial.set(m.materialId, []);
     byMaterial.get(m.materialId).push(m);
   }
-  /** A published value of this material that the headline could have shown: its own representative grade, the
+  /** A published value of this material that the headline could nearly have shown: one of its products, the
    * headline's property, direction, a printed or unstated specimen, unconditioned, and a usable number. */
   const publishesUsableValue = (mat, key) => {
     const def = headlineDefs.get(key);
     if (!def) return false;
-    return (byMaterial.get(mat.id) ?? []).some((x) => x.gradeId === mat.representativeGrade
+    return (byMaterial.get(mat.id) ?? []).some((x) => mat.gradeIds.includes(x.gradeId)
       && def.valueProperties.includes(x.property) && x.numeric && !x.quarantined && !x.implausible
       && ['printed', 'not-stated'].includes(x.specimenForm) && x.moistureState !== 'conditioned'
       && (def.direction === 'Not applicable' ? x.direction === 'not-applicable' : x.direction === def.direction));
@@ -169,16 +169,15 @@ export function estimateReportLines(db) {
       for (const [cls, c] of Object.entries(p.screening ?? {})) L.push(`| ${k} | ${cls} | ${c.held} | ${c.above.beyondPlausible} | ${at(c.above)} | ${c.below.beyondPlausible} | ${at(c.below)} |`);
     }
     L.push('');
-    for (const [matrix, s] of Object.entries(db.meta.estimateModel?.bracketScreening ?? {})) L.push(`- Unstated-load bracket, ${matrix}: ${s.certified ? `top at the published value + ${s.topGap} °C` : 'its top cannot screen'} (${s.why}).`);
-    L.push('');
   };
   L.push('## Estimates');
   L.push('');
-  L.push('A missing headline carries an estimate from one Gaussian model per property that takes every observation');
-  L.push('in the snapshot, each converted to the headline\'s semantics (build/mappings/estimate-model.json, DECISIONS');
-  L.push(`D43). The likely range is ${Math.round(ESTIMATE_MODEL.levels.likely * 100)}% and the plausible range ${Math.round(ESTIMATE_MODEL.levels.plausible * 100)}%. Both are calibrated by hiding each measured`);
-  L.push('headline and predicting it from everything else; the build fails if that coverage drifts. An estimate never');
-  L.push('passes a material; in Explore it may screen one out only when its plausible range wholly fails.');
+  L.push('A headline none of a material\'s products publishes comparably carries an estimate from one Gaussian model per');
+  L.push('property that takes every observation in the snapshot, each converted to the headline\'s semantics');
+  L.push(`(build/mappings/estimate-model.json, DECISIONS D43). The likely range is ${Math.round(ESTIMATE_MODEL.levels.likely * 100)}% and the plausible range ${Math.round(ESTIMATE_MODEL.levels.plausible * 100)}%. Both are`);
+  L.push('calibrated by hiding each material\'s typical product\'s value and predicting it from everything else; the build');
+  L.push('fails if that coverage drifts. An estimate never passes a material; in Explore it may screen one out only when');
+  L.push('its plausible range wholly fails.');
   L.push('');
   L.push('| Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |');
   L.push('|---|---:|---:|---:|---:|---:|---:|');
@@ -190,7 +189,7 @@ export function estimateReportLines(db) {
     L.push(`| ${k} | ${v.observations} | ${c.held} | ${Math.round((c.likelyCoverage ?? 0) * 100)}% | ${Math.round((c.plausibleCoverage ?? 0) * 100)}% | ${width} | ${between} |`);
   }
   L.push('');
-  L.push('| Headline | Missing | From its own grade | From its other grades | Family model only | Not applicable | None | May screen |');
+  L.push('| Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |');
   L.push('|---|---:|---:|---:|---:|---:|---:|---:|');
   for (const [k, v] of Object.entries(db.meta.estimateCoverage ?? {})) {
     L.push(`| ${k} | ${v.missing} | ${v['this-grade']} | ${v['this-material']} | ${v.family} | ${v.notApplicable} | ${v.none} | ${v.canScreen} |`);

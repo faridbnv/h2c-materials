@@ -5,7 +5,7 @@
 
 import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constraints.js';
 import { matchesQuery } from './engine/search.js';
-import { productsByMaterial, displayMaterials } from './engine/products.js';
+import { productsByMaterial } from './engine/products.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, productsCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
@@ -835,8 +835,6 @@ function renderScenario(host) {
   try { const t = localStorage.getItem('h2c-theme'); if (t) document.documentElement.dataset.theme = t; } catch { /* ignore */ }
 
   const { db, reference } = await loadData();
-  // A material is shown as the spread of its products (D83): its headlines become their typical values, with the range.
-  db.materials = displayMaterials(db);
   state.db = db;
   state.reference = reference;
   state.ctx = buildContext(db);

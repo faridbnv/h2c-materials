@@ -61,12 +61,13 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // EST-CONFLICT appeared with PLAN-REMAINING 2.1: the observations the model had always down-weighted, and only
   // listed in the report, are a finding now, one per material, headline and kind, informational until the sweep.
   // EST-GRADE-OUTLIER arrived with the grade estimates (D81): a grade's own value, hidden, far from its prediction.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HDT-LOAD-UNSTATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {
   const wb = loadTables(join(root, 'data'));
-  wb.Headlines.rows.find((r) => r.MaterialID === 'M020' && r.HeadlineKey === 'density').MeasurementID = 'V000384';
+  // A pin of a tensile modulus as a density.
+  wb.Headlines.rows.push({ MaterialID: 'M020', HeadlineKey: 'density', MeasurementID: 'V000384', Reason: 'test' });
   wb.Grades.rows.find((g) => g.GradeID === 'G020-01').Role = 'study';
   // The core database: both codes are the compiler's, which the estimate stage cannot remove.
   const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates: false });

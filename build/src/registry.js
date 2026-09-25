@@ -11,8 +11,10 @@
 //
 //   Family: Flexible Elastomers
 //   Modifier / filler: Carbon fibre | Glass fibre; Role: Structural / functional / appearance
+//   Morphology: amorphous | semicrystalline | not modelled
 //
-// Clauses are separated by ";" and must all hold; values within a clause are alternatives.
+// Clauses are separated by ";" and must all hold; values within a clause are alternatives. Morphology is the material's
+// polymer's (polymers.csv, through its Estimate identity), "not modelled" where it names none.
 
 const NA = 'Not applicable';
 
@@ -24,7 +26,16 @@ export const APPLICABILITY_FIELDS = {
   'Role': 'role',
   'Scope': 'scope',
   'H2C status': 'h2cStatus',
+  'Morphology': 'morphology',
 };
+
+export const NOT_MODELLED = 'not modelled';
+
+/** The materials table's rows, each with the Morphology of its polymer, which an applicability rule may test. */
+export function materialRowsOf(wb) {
+  const morphology = new Map((wb.Polymers?.rows ?? []).map((p) => [p.PolymerID, p.Morphology]));
+  return wb.Materials.rows.map((r) => ({ ...r, Morphology: morphology.get(r['Estimate identity']) ?? NOT_MODELLED }));
+}
 
 const list = (cell) => (cell == null || cell === NA ? [] : String(cell).split(';').map((s) => s.trim()).filter(Boolean));
 const bool = (cell) => cell === 'TRUE';
@@ -56,7 +67,7 @@ export function applies(rule, material) {
 }
 
 export function compileRegistry(wb, issues) {
-  const materialRows = wb.Materials.rows;
+  const materialRows = materialRowsOf(wb);
   const err = (code, where, message) => issues.push({ level: 'error', code, where, message });
 
   const properties = wb['Property registry'].rows.map((r) => {

@@ -44,7 +44,7 @@
         }
       }
     },
-    "notApplicable": { "type": "object", "additionalProperties": false, "required": ["elastomerHdt", "support"], "properties": { "elastomerHdt": { "type": "string" }, "support": { "type": "string" } } },
+    "notApplicable": { "type": "object", "additionalProperties": false, "required": ["support"], "properties": { "support": { "type": "string" } } },
     "fitting": {
       "type": "object", "additionalProperties": false, "patternProperties": { "^_|Why$": { "type": ["string", "array"] } },
       "required": ["documentedPairs", "minPairsForSpread", "keepKindsWithinSpread", "minBetweenProductPairs", "conflictZ", "conflictNoiseFactor", "conflictPasses"],

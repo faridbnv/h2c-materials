@@ -1,11 +1,13 @@
 // The estimate stage: inference for headlines no source publishes, applied to a compiled database as an overlay.
 //
-// The core build (compile.js) produces a complete, valid database in which a missing headline is `known: false` with
-// its missing state, related evidence and implied bounds. This stage adds, and only adds:
+// The core build (compile.js) produces a complete, valid database in which a material's headline is its products'
+// spread, and missing (`known: false`, with related evidence and implied bounds) where none of its products publishes a
+// comparable value (D83). This stage adds, and only adds:
 //
-//   headline.estimate        a calibrated range with its evidence, precision and the range it may screen on
+//   headline.estimate        where no product publishes: a calibrated range with its evidence, precision and the range
+//                            it may screen on; it stands in for each of the material's products (engine/products.js)
 //   headline.notApplicable   where the model knows the property does not apply (an elastomer's heat deflection)
-//   hdt045.loadBracket       the 0.45 MPa range of a heat deflection whose load the source never stated
+//   grades[].estimate        a product's own estimate, shown beside a product without a value of its own; decides nothing
 //   print.nozzleEstimate, print.bedEstimate   windows inferred from peers where none is published; they decide nothing
 //   meta.estimateCoverage, meta.estimateModel, meta.printEstimates   diagnostics and calibration
 //
@@ -17,9 +19,9 @@
 //                        + this material's deviation + this product's deviation
 //
 // on the natural-log scale for density, stiffness, strength and elongation and in °C for heat deflection. Every
-// observation of a material enters it converted to the headline's semantics (conversions.js). Each measured headline
-// is then hidden and predicted to calibrate the ranges (calibration.js), and each evidence class is back-tested to
-// decide whether it may screen (screening.js). An estimate never passes a material; what it may do is decided in
+// observation of a material enters it converted to the headline's semantics (conversions.js). Each material's typical
+// product's value is then hidden and predicted to calibrate the ranges (calibration.js), and each evidence class is
+// back-tested to decide whether it may screen (screening.js). An estimate never passes a material; what it may do is decided in
 // app/js/engine/constraints.js.
 //
 // A case the model cannot express is a not-applicable reason or a reviewed finding that says more data is needed,
@@ -37,7 +39,7 @@ import { conversions, convert, betweenProductSpread } from './conversions.js';
 import { meltingPoint, hyperparameters, spreadObservations, predict } from './gaussian.js';
 import { fitWithConflicts, calibrate, makeHoldOut } from './calibration.js';
 import { makeRangeFor } from './bounds.js';
-import { attachLoadBrackets, backTest, screenDecision } from './screening.js';
+import { backTest, screenDecision } from './screening.js';
 import { attachPrintEstimates } from './print.js';
 import { calibrateGrades, attachGradeEstimates, gradeEstimateMeta } from './grades.js';
 
@@ -83,8 +85,6 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       conversions: Object.fromEntries(Object.entries(conv).filter(([k]) => k !== HEAD[key]).map(([k, c]) => [k, { offset: r3(c.offset), sd: r3(c.sd), pairs: c.pairs }])),
     };
 
-    if (key === 'hdt045') diagnostics.bracketScreening = attachLoadBrackets({ raw, conv, S, model, zPlausible });
-
     const rangeFor = makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible });
     const certification = backTest({ key, model, S, obs, tmMean, rangeFor, holdOut });
     diagnostics.properties[key].screening = certification;
@@ -94,7 +94,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     const gradeCal = calibrateGrades({ key, model, S, obs, holdOut, zLikely, zPlausible });
     diagnostics.properties[key].gradeCalibration = gradeCal.calibration;
     const named = new Set(outliers.map((o) => `${o.materialId}|${o.key}`));
-    diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.gradeId === o.gradeId)));
+    diagnostics.gradeOutliers.push(...gradeCal.outliers.filter((o) => !(named.has(`${o.materialId}|${key}`) && S.inPool.get(o.materialId)?.headline[key]?.typical?.gradeId === o.gradeId)));
     // A headline whose grade scales reach the clamp is one the model cannot calibrate at grade level, and it ships
     // no grade estimate rather than a range that claims coverage it does not have (D81's stop rule).
     const clamped = gradeCal.calLikely >= model.calibration.likelyScale[1] || gradeCal.calPlausible >= model.calibration.plausibleScale[1];
@@ -109,21 +109,27 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
     for (const m of S.pool) {
       const h = m.headline[key];
       if (!h || h.known || h.notApplicable) continue;
-      const rep = m.representativeGrade && S.grades.has(m.representativeGrade) ? m.representativeGrade : null;
-      const f = rep ? S.fkey(rep) : null;
-      // Its own measurements, and those of its representative product filed under another material.
+      // The estimate stands in for each of the material's products, none of which publishes a comparable value. With one
+      // product it is that product's, predicted at its row and its maker; with several it is the material's, at none.
+      const only = m.gradeIds?.length === 1 && S.grades.has(m.gradeIds[0]) ? m.gradeIds[0] : null;
+      const f = only ? S.fkey(only) : null;
+      // With several it is any one of them, not yet measured: a formulation of its own carries the spread between
+      // products (gaussian.js), which the material's mean alone would leave out and so read narrower than any product.
+      const row = f ?? `unmeasured:${m.id}`;
+      // Its own measurements, and those of its product filed under another material.
       const mine = obs.map((o, i) => ({ o, i })).filter(({ o }) => o.m.id === m.id || (f && o.f === f));
-      const support = m.facets.supportMaterial?.value === true;
-      if ((!mine.length && support) || (key === 'hdt045' && S.info(m).morphology === 'elastomer')) {
-        h.notApplicable = { reason: support ? model.notApplicable.support : model.notApplicable.elastomerHdt };
+      // An elastomer's heat deflection is not applicable by its definition (headline_definitions.csv Applies to), so it
+      // never reaches here; a support product with nothing of its own is not characterised as a structural material.
+      if (!mine.length && m.facets.supportMaterial?.value === true) {
+        h.notApplicable = { reason: model.notApplicable.support };
         continue;
       }
-      const manufacturer = rep ? S.grades.get(rep).manufacturer ?? null : null;
-      // One product has one value: a representative product filed under another material is predicted
-      // as that material's, so PA-CF and PA12-CF cannot disagree about CarbonX CF PA12.
+      const manufacturer = only ? S.grades.get(only).manufacturer ?? null : null;
+      // One product has one value: a product filed under two materials is predicted as its owner's (observations.js),
+      // so PA-CF and PA12-CF cannot disagree about CarbonX CF PA12.
       const owner = f && ownerOfF.get(f) && ownerOfF.get(f) !== m.id ? S.inPool.get(ownerOfF.get(f)) : null;
       const subject = owner ?? m;
-      const p = predict(P, hp, subject, f, manufacturer);
+      const p = predict(P, hp, subject, row, manufacturer);
       p.mu += tmMean(subject);
 
       const { bounds, centre, range, wide, at } = rangeFor(m, subject, p, h.unit);
@@ -141,7 +147,7 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
       let familyRange = null;
       const familyAt = (q) => {
         if (!familyRange) {
-          const pf = predict(P, hp, subject, f, manufacturer, mine.map(({ i }) => i));
+          const pf = predict(P, hp, subject, row, manufacturer, mine.map(({ i }) => i));
           pf.mu += tmMean(subject);
           familyRange = rangeFor(m, subject, pf, h.unit, { ownBounds: false });
         }
@@ -163,8 +169,8 @@ export function buildEstimates(materials, { grades = [], measurements = [], regi
         plausible: { lo: sig3(wide[0], -1), hi: sig3(wide[1], 1) },
         levels: model.levels, ownShare: Math.round(ownShare * 100) / 100,
         evidence, family, bounds,
-        basis: strength === 'this-grade' ? "this grade's related measurements, with the family model"
-          : strength === 'this-material' ? "this material's other grades, with the family model"
+        basis: strength === 'this-grade' ? "its product's related measurements, with the family model"
+          : strength === 'this-material' ? "its products' related measurements, with the family model"
           : `the family model only: ${family}`,
         method: `Gaussian model of every observation in the snapshot, each converted to this headline; ${Math.round(likely * 100)}% and ${Math.round(plausible * 100)}% ranges calibrated by predicting ${loo.length} hidden measured headlines`,
         ...screen,

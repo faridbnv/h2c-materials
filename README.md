@@ -122,9 +122,9 @@ docs/audits/<date>-<subject>/           one folder per audit: the report as deli
 These come from the database's own Method table, the architecture brief and the audits. They are not stylistic
 preferences: changing one changes what the tool asserts.
 
-1. **A headline is a selected measurement, never a copied number.** `headlines.csv` names the measurement
-   behind each headline and the value is read from it; the build checks the selection, and a bad one
-   fails the build.
+1. **A number is read from its measurement, never copied, and nobody selects it.** Each product's value is chosen
+   by rule from its own measurements, and a material is shown as the spread of its products (D83); `headlines.csv`
+   only pins a product's value where the rule chooses wrongly, and a bad pin fails the build.
 2. **Missing data is information.** Not published, not comparable, not applicable and quarantined
    are four different answers and stay distinct. Nothing becomes zero.
 3. **Four constraint states.** A published range straddling a threshold is INDETERMINATE, not a lucky PASS. A
@@ -136,13 +136,13 @@ preferences: changing one changes what the tool asserts.
 6. **Impact in J/m is never converted to kJ/m²** without specimen geometry.
 7. **Quarantined measurements stay out of every numeric summary**, and a value physics rules out is kept, flagged
    "physically implausible", and backs no headline, estimate or bound (D55).
-8. **A load that was never stated is never assumed.** An HDT headline whose source names no load says so,
-   and the build lists every one (HDT-LOAD-UNSTATED).
+8. **A load or direction that was never stated is never assumed.** A value whose source names no load or direction
+   is counted apart, as published, and decides only when the reader asks (D84).
 9. **Evidence outranks silence.** A material whose profiles demonstrably exceed the printer's
    envelope reports as exceeding, even when another profile publishes nothing.
 10. **Generic reference materials are a drawing layer**, never candidates.
 11. **An estimate never passes a material, and screens only on an end the back-test has shown.** Every build
-    hides each measured headline as far as an evidence class requires, predicts it honestly, and sets each end of the
+    hides each material's typical product's value as far as an evidence class requires, predicts it honestly, and sets each end of the
     class's screening range where a new true value lies beyond it at most 10 % of the time with 90 % confidence
     (D48, D59). In Explore it may screen a material out when that range wholly fails, never on an end the material's
     own evidence lies beyond, and never when its own printed measurement bounds the headline and meets the requirement.

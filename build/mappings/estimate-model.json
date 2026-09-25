@@ -471,7 +471,6 @@
   },
   "_precisionComment": "How a likely range is described, per property: its high-to-low ratio on a log scale, its width in °C for heat deflection. Good: narrow enough to decide on. Fair: indicative. Poor: an order of magnitude only. Elongation of printed parts varies far more than stiffness, so its thresholds are wider.",
   "notApplicable": {
-    "elastomerHdt": "Heat deflection is a rigid-bar test and is not meaningful for an elastomer: ISO 75 ends at 0.2 % outer-fibre strain, which a bar reaches where its modulus falls to about 225 MPa at 0.45 MPa. Manufacturers list it as N/A (Bambu Lab, TPU for AMS). Never estimated; a value an elastomer's own source publishes is shown only as that source's measurement.",
     "support": "A support product is not characterised as a structural material. Its values are shown only where its own sources publish them."
   },
   "fitting": {

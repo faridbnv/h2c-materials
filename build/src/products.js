@@ -1,12 +1,14 @@
 // Products: each product's own values and print recipe, derived by rule, and each material summarised from its
-// products (docs/GOALS.md: D83 and D84, decided 2026-09-25; re-center phase 1).
-//
-// Nothing here decides a verdict yet. A material's headline is still one measurement of its representative grade
-// (compile.js), and the engine reads only that. This adds, beside it, what the engine will read instead:
+// products (docs/GOALS.md: D83 and D84, decided 2026-09-25; re-center phases 1 and 4).
 //
 //   grades[].headline[key]     the product's own value for each measurement headline, chosen by rule, and its price
 //   grades[].print             the product's own print recipe from its own profiles, never a union across a material
 //   materials[].summary[key]   the spread across the material's products: how many, quartiles, the typical product
+//   materials[].headline[key]  where its products publish comparably: their median, spread and typical product
+//
+// The engine judges each product on its own values (app/js/engine/products.js), and a material by how many of its
+// products pass. A material's headline is what the table, the chart and the export show for it; it decides nothing,
+// and no one chooses it: until phase 4 it was one hand-picked measurement of a "representative grade".
 //
 // Two evidence levels (D84). A value is "comparable" when it is what the headline says it is: a printed or unstated
 // specimen, the headline's direction, dry or unstated, at the headline's load. It is "as published" when the source
@@ -28,13 +30,13 @@ export const LEVEL = { COMPARABLE: 'comparable', AS_PUBLISHED: 'as-published' };
 
 // A direction the source leaves open is not a direction the source states otherwise: it may be the headline's.
 const UNSTATED_DIRECTIONS = new Set(['unknown', 'not-applicable']);
-// ASTM D648's low load is 66 psi, 0.455 MPa, and ISO 75 method B's 0.45 MPa: one test (validate.js, HDT-LOAD-WRONG).
+// ASTM D648's low load is 66 psi, 0.455 MPa, and ISO 75 method B's 0.45 MPa: one test (estimate/observations.js reads
+// 0.44 to 0.46 MPa as it too).
 const LOAD_TOLERANCE_MPA = 0.01;
 
 /**
  * Whether a measurement can be a product's value for a headline, and at which level. Returns { excluded } with the
- * reason when it cannot, else { level, caveat }. The same tests as a material headline's selection (compile.js),
- * less the representative grade, which a product value does not need.
+ * reason when it cannot, else { level, caveat }.
  */
 export function assess(m, def, gradeMeasurements) {
   if (!m.numeric) return { excluded: `no usable numeric value (${m.dataStatus})` };
@@ -98,7 +100,7 @@ function productValue(m, a, def, pinned) {
 }
 
 /**
- * A product's own value for one headline: a pinned measurement (a `value` row of headlines.csv on this product) if it
+ * A product's own value for one headline: a pinned measurement (a row of headlines.csv on this product) if it
  * qualifies, else the most preferred candidate. Null when the product publishes nothing that qualifies.
  */
 function chooseValue(grade, def, gradeMeasurements, pinnedIds) {
@@ -201,10 +203,65 @@ function summarise(entries, products) {
 }
 
 /**
- * Attach every product's own values and print recipe, and every material's summary. `materialRows` are the materials
- * table's rows (a headline's Applies to tests them); `selections` its headlines.csv rows by MaterialID.
+ * A material's headline where its products publish comparably: their median, with the spread and the typical product
+ * (the one nearest the median) it came from. One product's value is that product's, and cites its measurement as a
+ * single value always did. It is what the table, the chart, Compare and the export show; it decides nothing (D83).
  */
-export function attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections }) {
+function productsHeadline(unit, s, gradeById, key) {
+  const typical = gradeById.get(s.typical)?.headline?.[key];
+  const h = {
+    known: true, value: s.median, unit, origin: 'products', verified: true,
+    interval: { lo: s.median, hi: s.median, kind: 'point' },
+    spread: { n: s.n, products: s.products, min: s.min, max: s.max, q1: s.q1 ?? null, q3: s.q3 ?? null,
+      asPublished: s.asPublished ?? null, variants: s.variants ?? null },
+    typical: { gradeId: s.typical, measurementId: typical?.measurementId ?? null, value: typical?.value ?? null },
+  };
+  if (s.n === 1) Object.assign(h, { measurementId: typical?.measurementId ?? null, gradeId: s.typical });
+  if (key === 'priceCADkg') h.observations = s.n;
+  return h;
+}
+
+/**
+ * A row of headlines.csv pins one product's value for one headline to a measurement the rule would not choose.
+ * It must be a measurement of an active product of that material that can be the headline's value at all (assess), and
+ * a product has one pin per headline. Returns the pinned measurement IDs; a pin that fails is a build error, never
+ * silently ignored.
+ */
+function checkPins(selections, { defs, measurementById, measurementsByGrade, gradeById, rowById, issues }) {
+  const pinned = new Set();
+  const seen = new Map();
+  for (const [materialId, list] of selections) {
+    const where = `headlines ${materialId}`;
+    for (const s of list) {
+      const def = defs.find((d) => d.key === s.HeadlineKey);
+      if (!def) { issues.push({ level: 'error', code: 'HEADLINE-KEY-UNKNOWN', where, message: `Headline key "${s.HeadlineKey}" is not a measurement headline in headline_definitions.csv` }); continue; }
+      const row = rowById.get(materialId);
+      if (row && !applies(def.appliesTo, row)) { issues.push({ level: 'error', code: 'HEADLINE-NOT-APPLICABLE', where, message: `${def.key} does not apply to this material (${def.appliesToText}) but pins ${s.MeasurementID}` }); continue; }
+      const m = measurementById.get(s.MeasurementID);
+      const g = m && gradeById.get(m.gradeId);
+      const own = m ? (measurementsByGrade.get(m.gradeId) ?? []) : [];
+      const a = m && assess(m, def, own);
+      const problem = !m ? `${s.MeasurementID} is not an active measurement (missing or a retired duplicate)`
+        : m.materialId !== materialId ? `${m.id} is a measurement of ${m.materialId}`
+        : !g || g.retired ? `${m.id} is on ${m.gradeId}, which is not an active product`
+        : a.excluded ? `${m.id} cannot be ${def.key}: ${a.excluded}`
+        : null;
+      if (problem) { issues.push({ level: 'error', code: 'HEADLINE-SELECTION-INVALID', where, message: `The pin for ${def.key} is refused: ${problem}` }); continue; }
+      const k = `${m.gradeId}|${def.key}`;
+      if (seen.has(k)) issues.push({ level: 'error', code: 'HEADLINE-SELECTION-MULTIPLE', where, message: `${m.gradeId} ${def.key} is pinned twice (${seen.get(k)}, ${m.id}); a product has one value` });
+      seen.set(k, m.id);
+      pinned.add(m.id);
+    }
+  }
+  return pinned;
+}
+
+/**
+ * Attach every product's own values and print recipe, every material's summary, and the headline its products give
+ * it. `materialRows` are the materials table's rows (a headline's Applies to tests them); `selections` its
+ * headlines.csv rows by MaterialID, which pin a product's value where the rule would choose another.
+ */
+export function attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections, issues = [] }) {
   const defs = measurementHeadlines(registry);
   const byGrade = (list) => {
     const out = new Map();
@@ -218,8 +275,8 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
   const profilesByGrade = byGrade(profiles.filter((p) => !p.retired));
   const pricesByGrade = byGrade(prices);
   const rowById = new Map(materialRows.map((r) => [r.MaterialID, r]));
-  const pinnedIds = new Set();
-  for (const list of selections.values()) for (const s of list) if (s.Use === 'value') pinnedIds.add(s.MeasurementID);
+  const gradeById = new Map(grades.map((g) => [g.id, g]));
+  const pinnedIds = checkPins(selections, { defs, measurementById: new Map(measurements.map((m) => [m.id, m])), measurementsByGrade, gradeById, rowById, issues });
 
   for (const g of grades) {
     if (g.retired) continue;
@@ -238,17 +295,23 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     g.print = productPrint(profilesByGrade.get(g.id) ?? [], own);
   }
 
-  const gradeById = new Map(grades.map((g) => [g.id, g]));
   const keys = [...defs.map((d) => d.key), 'priceCADkg'];
   for (const m of materials) {
     if (m.familyEntry) continue;
     const products = m.gradeIds.map((id) => gradeById.get(id)).filter((g) => g && !g.retired);
+    // A material whose every product is a declared variant (PP Lightweight) is its variants: they are its range.
     const plain = products.filter((g) => !g.variant).length;
+    const variantOnly = products.length > 0 && plain === 0;
     const summary = {};
     for (const key of keys) {
       if (m.headline[key]?.notApplicable) continue;
-      const entries = products.filter((g) => g.headline?.[key]).map((g) => ({ gradeId: g.id, variant: !!g.variant, v: g.headline[key] }));
-      summary[key] = summarise(entries, plain);
+      const entries = products.filter((g) => g.headline?.[key]).map((g) => ({ gradeId: g.id, variant: !variantOnly && !!g.variant, v: g.headline[key] }));
+      summary[key] = summarise(entries, variantOnly ? products.length : plain);
+      if (summary[key].n > 0) {
+        m.headline[key] = productsHeadline(m.headline[key].unit, summary[key], gradeById, key);
+        // The listings behind the products the median is of: a variant's are its own, and apart (unless it is all there is).
+        if (key === 'priceCADkg') m.headline[key].priceIds = products.filter((g) => variantOnly || !g.variant).flatMap((g) => g.headline?.priceCADkg?.priceIds ?? []);
+      }
     }
     m.summary = summary;
   }

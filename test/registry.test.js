@@ -58,7 +58,7 @@ test('an applicability rule is checked against real fields and values', () => {
   assert.ok(applies(rule, { Family: 'Flexible Elastomers', Scope: 'H2C-relevant' }), 'a Materials row works too');
   parseAppliesTo('Colour: Black; Family: Flexibles; nonsense', 'properties Hardness', issues, base.Materials.rows);
   assert.deepEqual(issues.map((i) => i.message), [
-    'Applies to tests "Colour"; it may test Family, Base polymer, Modifier / filler, Role, Scope, H2C status',
+    'Applies to tests "Colour"; it may test Family, Base polymer, Modifier / filler, Role, Scope, H2C status, Morphology',
     'Applies to names Family "Flexibles", which no material has',
     'Applies to "nonsense" is not "Field: value | value"',
   ]);
@@ -90,8 +90,8 @@ test('a headline limited to some materials is not applicable, with its reason, e
     assert.equal(m.headline.elongationXY.missing, 'not-applicable');
     assert.deepEqual(m.headline.elongationXY.notApplicable, { reason: 'test rule', rule: 'Scope: H2C-relevant' });
   }
-  const selected = base.Headlines.rows.filter((r) => r.HeadlineKey === 'elongationXY' && r.Use === 'value' && excluded.some((m) => m.id === r.MaterialID));
-  for (const r of selected) assert.ok(errors.some((e) => e.includes(`elongationXY does not apply to this material (Scope: H2C-relevant) but selects ${r.MeasurementID}`)), errors.join(' | '));
+  const selected = base.Headlines.rows.filter((r) => r.HeadlineKey === 'elongationXY' && excluded.some((m) => m.id === r.MaterialID));
+  for (const r of selected) assert.ok(errors.some((e) => e.includes(`elongationXY does not apply to this material (Scope: H2C-relevant) but pins ${r.MeasurementID}`)), errors.join(' | '));
 });
 
 test('a registry row cannot switch on estimation for a headline the model does not know', () => {

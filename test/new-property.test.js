@@ -42,9 +42,12 @@ function withShoreA({ misfile = false } = {}) {
     'Filter example': 'e.g. 90 for a soft grip', 'Non-negative': 'TRUE', 'Table column': 'FALSE', Estimated: 'FALSE', 'Reference property': NA,
     'Applies to': 'Family: Flexible Elastomers', 'Not applicable reason': 'Shore A hardness describes elastomers',
   });
-  // 3. Record a measurement for an elastomer's representative grade, and select it.
-  const elastomer = t.rows('materials').find((m) => m.Family === 'Flexible Elastomers' && /^G\d/.test(m['Representative grade']));
-  const template = t.rows('measurements').find((r) => r.GradeID === elastomer['Representative grade']);
+  // 3. Record a measurement for the one product of an elastomer that has one. Nothing selects it: the product's value is
+  // chosen by rule, and the material's headline is its products' spread (D83).
+  const products = (materialId) => t.rows('grades').filter((g) => g.MaterialID === materialId && g.Role === 'procurement' && g.Status === 'active');
+  const elastomer = t.rows('materials').find((m) => m.Family === 'Flexible Elastomers' && products(m.MaterialID).length === 1
+    && t.rows('measurements').some((r) => r.GradeID === products(m.MaterialID)[0].GradeID));
+  const template = t.rows('measurements').find((r) => r.GradeID === products(elastomer.MaterialID)[0].GradeID);
   const id = t.nextId('measurements');
   t.append('measurements', {
     ...template, MeasurementID: id, Property: 'Shore A hardness', 'Raw value': '95A', 'Raw unit': 'Shore A', 'Raw numeric': '95',
@@ -52,11 +55,10 @@ function withShoreA({ misfile = false } = {}) {
     'Normalized uncertainty ±': NA, 'Normalized upper bound': NA, 'Normalized unit': 'Shore A', 'Data status': 'Published value',
     Direction: NA, Notch: NA, 'Standard / load': 'ISO 868', Standards: 'ISO 868', Locator: 'test fixture', Notes: NA,
   });
-  t.append('headlines', { MaterialID: elastomer.MaterialID, HeadlineKey: 'shoreA', MeasurementID: id, Use: 'value' });
   let misfiledId = null;
   if (misfile) {
     const pla = t.rows('materials').find((m) => m['Original name'] === 'PLA');
-    const plaRow = t.rows('measurements').find((r) => r.GradeID === pla['Representative grade']);
+    const plaRow = t.rows('measurements').find((r) => r.GradeID === products(pla.MaterialID)[0].GradeID);
     misfiledId = t.nextId('measurements');
     t.append('measurements', { ...t.find('measurements', id), MeasurementID: misfiledId, MaterialID: pla.MaterialID, GradeID: plaRow.GradeID, SourceID: plaRow.SourceID });
   }

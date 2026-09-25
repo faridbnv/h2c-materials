@@ -54,7 +54,7 @@ break if it were reversed, because that is the part that gets lost.
 | D45 | The source of truth is CSV tables under a declared schema | In force |
 | D46 | A property is a registry row, and may apply to some filaments only | In force |
 | D47 | What can be calculated is not stored | In force |
-| D48 | Evidence screens only where a back-test shows it screens reliably | Amended by D55, D59 |
+| D48 | Evidence screens only where a back-test shows it screens reliably | Amended by D55, D59, D83 |
 | D49 | The values the build decides on are typed columns; raw text stays, and the parsers check it | In force |
 | D50 | Every check has a code, and quality findings are fixed or accepted with a reason | In force |
 | D51 | Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on | In force |
@@ -62,7 +62,7 @@ break if it were reversed, because that is the part that gets lost.
 | D53 | The estimate model reads declared states, not wording; and every change shows its downstream effect | In force |
 | D54 | A published mean ± band is judged on its mean; the band flags a result close to the limit | In force |
 | D55 | A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline | In force |
-| D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | In force |
+| D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | Amended by D83 |
 | D57 | Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed | In force |
 | D58 | Estimates are an overlay on a complete core, and grow by data, not by special cases | In force |
 | D59 | A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence | In force |
@@ -87,7 +87,7 @@ break if it were reversed, because that is the part that gets lost.
 | D78 | A limit a material's own grades publish is a floor for its shown range | In force |
 | D79 | The kernel is solved by block, and the estimates are the dense solve's | In force |
 | D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | In force |
-| D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | In force |
+| D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Amended by D83 |
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | In force |
 | D83 | A material is the spread of its products, and passes when one of its products meets every requirement | In force |
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | In force |
@@ -500,7 +500,8 @@ not make a PA12 product available and cannot become the representative grade.
 
 *Amended by D83 (2026-09-25):* the concern stands and is now met by judging each product on every requirement at once:
 no verdict rests on density from one product and strength from another. A material's row shows the spread of its
-products, labelled as such, beside how many of them pass.
+products, labelled as such, beside how many of them pass. In phase 4 (m137) the representative grade itself retired;
+the second half stands: a study or reference grade is no procurement product, and no material's value comes from it.
 
 ## D38. Environmental evidence is owned by the material; family evidence stays context
 
@@ -874,6 +875,9 @@ range is a distribution-free tolerance limit of honest hold-outs (at most 10% be
 at least), an end the material's own evidence lies beyond never screens, and the unstated-load bracket's top is set
 the same way.
 
+*Amended by D83 (phase 4, 2026-09-25):* the unstated-load bracket is gone. A heat deflection whose load the sheet
+leaves unstated is its product's value only as published (D84), and no material headline is in that state.
+
 ## D49. The values the build decides on are typed columns; raw text stays, and the parsers check it
 
 The build read decisions out of free text on every run: a nozzle window from "Classic: 190 - 210 °C", an HDT
@@ -1042,6 +1046,11 @@ Reversing it lets a sheet's impossible number decide a requirement, and a strong
 a material in searches its printed parts fail.
 
 ## D56. The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have
+
+*Amended by D83 (phase 4, 2026-09-25):* heat deflection of an elastomer is not applicable by its headline definition
+(`headline_definitions.csv` Applies to, on the polymer's Morphology), for its products as for its estimate. A value an
+elastomer's own sheet publishes stays that sheet's measurement, shown and never deciding; before, only the elastomers
+whose representative grade happened to publish none were held out.
 
 The owner asked for any correction that makes the estimates more reliable for engineering decisions (audit
 2026-09-15). Each is a declared, documented piece of `build/mappings/estimate-model.json`:
@@ -1884,6 +1893,9 @@ graphene and natural fibre were (R080). `dense` is for the load a maker declares
 
 ## D81. Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing
 
+*Amended by D83 (phase 4, 2026-09-25):* a grade estimate is attached only to a product without a comparable value of
+its own; beside its own value it said less than the value and read as a second answer.
+
 *Asked for by the owner on 2026-09-21: "hierarchical: polymer group, material, grade, all measurements".*
 
 The model already was that hierarchy (D43, D79): a chemical group, an identity pulled towards it, the material's own
@@ -1981,9 +1993,34 @@ which products are that; so does this now.
 
 What it did, across the six templates in Include uncertain: 13 materials went from FAIL to PASS (one of their
 products meets every requirement the representative did not), 8 from UNKNOWN to PASS, and 36 from UNKNOWN to FAIL
-(the representative grade was silent and every product that publishes fails); no PASS was lost
-(`build/snapshot/templates-products.csv`). Reversing it returns the representative grade as the only answer, and the
-data the import brought in stops reaching a verdict again.
+(the representative grade was silent and every product that publishes fails); no PASS was lost (the phase 2
+comparison, since folded into `build/snapshot/templates.csv`). Reversing it returns the representative grade as the only
+answer, and the data the import brought in stops reaching a verdict again.
+
+**Phase 4 (m137, 2026-09-25): the representative grade retires.** Nothing selects a material's number any more.
+
+- The build derives a material's headline from its products: their median, range and count, and the typical product
+  nearest the median; one product's value is the material's and cites its measurement. A material whose every product
+  is a declared variant (PP Lightweight) is its variants. The page shows what the build gives, with no transform at
+  boot.
+- `materials.csv` has no Representative grade column, and `headlines.csv` only pins one product's value where the rule
+  chooses wrongly, with a Reason. It holds none: its 477 value rows (every one the rule's own choice) and 16 context
+  rows are archived, with each material's representative grade, in
+  `docs/audits/2026-09-25-re-center/retired-representative-picks.csv`, and named in `data/review/removed-records.csv`.
+- The estimate stage follows. Calibration and the screening back-test hide each material's typical product's value.
+  A material's estimate exists only where no product publishes comparably; with one product it is that product's, and
+  with several it predicts an unmeasured one of them, which carries the spread between products that a prediction at
+  the material's mean left out. A grade estimate is attached only to a product without a comparable value of its own.
+  The unstated-load bracket went: no material headline has an unstated load, and D84 counts such values apart.
+- Heat deflection does not apply to an elastomer by its headline definition (D56), so no elastomer product's HDT
+  decides; TPC-ESD's hand-picked 50 °C had.
+
+What it did, across the six templates: Strict moved nothing; Explore moved one answer (TPC-ESD, in Warm environment,
+from FAIL to unknown); Explore with estimates moved nineteen. Thirteen screens lifted, because an estimate that stands
+in for every product of a material is wider than one describing a single product (PA66, PA612, PET, PBT, PC-PTFE,
+PE-GF, PLA-GR, PLA-EC, ABS-AF and ASA-AF for a 5 GPa stiffness; PLA-EC for 3 GPa; PETG-PTFE and PET-LW for 80 °C);
+four were added (PP for 2.5 and 5 GPa, SAN and PE-GF for 100 % elongation); TPC-ESD is screened by not applicable; and
+TPU-CF gained a second reason.
 
 ## D84. Two evidence levels: comparable decides; a value published without its direction or load is counted apart
 

@@ -109,26 +109,22 @@ export function validate(db, wb) {
       if (gradeById.get(id)?.retired) issues.push(err('GRADES-LIST', where, `GradeIDs lists retired mapping ${id}`));
       if (gradeById.get(id) && gradeById.get(id).materialId !== mat.id) issues.push(err('GRADES-LIST', where, `GradeIDs lists ${id}, a grade of ${gradeById.get(id).materialId}`));
     }
-    const rep = mat.representativeGrade;
-    const hasRep = rep && !isMissingText(rep) && !/^insufficient/i.test(rep);
-    if (hasRep && !grades.some((g) => g.id === rep)) issues.push(err('REP-GRADE-NOT-OWN', where, `Representative grade ${rep} is not one of its grades`));
-
-    // Headlines. Method, Comparison / Headlines: labelled single-grade observations, which in this
-    // database means the representative grade. A headline from another grade would put two
-    // formulations' numbers side by side in one row as if they were one product.
-    for (const [key, h] of Object.entries(mat.headline)) {
-      if (!h?.known || !h.measurementId) continue;
-      const m = measurementById.get(h.measurementId);
-      if (!m) { issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites missing measurement ${h.measurementId}`)); continue; }
-      if (gradeById.get(m.gradeId)?.retired) issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites retired grade ${m.gradeId}`));
-      if (m.materialId !== mat.id) issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites ${m.id}, a measurement of ${m.materialId}`));
-      else if (hasRep && m.gradeId !== rep) issues.push(err('HEADLINE-CITATION', where, `Headline ${key} cites ${m.id} on grade ${m.gradeId}, not the representative grade ${rep}`));
-      citationsChecked++;
+    // Product values (D83). Each is one measurement of that product, chosen by rule (products.js): a value citing
+    // another product's measurement would put two formulations' numbers in one row as if they were one product.
+    for (const g of grades) {
+      if (g.retired) continue;
+      for (const [key, v] of Object.entries(g.headline ?? {})) {
+        if (!v.measurementId) continue;
+        const m = measurementById.get(v.measurementId);
+        if (!m) { issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} cites missing measurement ${v.measurementId}`)); continue; }
+        if (m.gradeId !== g.id) issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} cites ${m.id}, a measurement of ${m.gradeId}`));
+        if (m.quarantined) issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} cites quarantined measurement ${m.id}`));
+        citationsChecked++;
+      }
     }
-    for (const id of [...mat.headlineEvidence.mechanical, ...mat.headlineEvidence.thermal]) {
-      const m = measurementById.get(id);
-      if (!m) issues.push(err('LINK-CITATION', where, `Headline evidence cites ${id}, which does not exist`));
-      else if (m.materialId !== mat.id) issues.push(err('LINK-CITATION', where, `Headline evidence cites ${id}, a measurement of ${m.materialId}`));
+    // The material's headline is its products' spread; the product it names must be one of them.
+    for (const [key, h] of Object.entries(mat.headline)) {
+      if (h?.typical && !mat.gradeIds.includes(h.typical.gradeId)) issues.push(err('HEADLINE-CITATION', where, `Headline ${key} names ${h.typical.gradeId} as its typical product, which is not one of its products`));
     }
 
     // H2C status is cited to sources.
@@ -201,23 +197,15 @@ export function validate(db, wb) {
       issues.push(err('QUARANTINE-NUMERIC', `measurements ${m.id}`, 'Quarantined measurement carries a numeric value'));
     }
   }
-  const quarantinedIds = new Set(db.measurements.filter((m) => m.quarantined).map((m) => m.id));
-  for (const mat of db.materials) {
-    for (const [key, h] of Object.entries(mat.headline)) {
-      if (h?.measurementId && quarantinedIds.has(h.measurementId)) {
-        issues.push(err('QUARANTINE-NUMERIC', `materials ${mat.id}`, `Headline ${key} cites quarantined measurement ${h.measurementId}`));
-      }
-    }
-  }
 
   // -- XY and Z never merge ---------------------------------------------------
-  // Method sheet, Comparison / Directions. A headline labelled XY must cite an XY measurement,
-  // and "unknown direction is not XY".
-  for (const mat of db.materials) {
-    for (const key of measurementHeadlines(db.registry).filter((h) => h.direction === DIRECTION.XY).map((h) => h.key)) {
-      const h = mat.headline[key];
-      if (h?.known && h.verified && h.direction !== DIRECTION.XY) {
-        issues.push(err('HEADLINE-DIRECTION', `materials ${mat.id}`, `Headline ${key} cites a measurement whose direction is ${h.direction}`));
+  // Method sheet, Comparison / Directions. A product value that decides as an XY value is an XY measurement, and
+  // "unknown direction is not XY": it may only be as published (D84).
+  for (const g of db.grades) {
+    for (const def of measurementHeadlines(db.registry).filter((h) => h.direction === DIRECTION.XY)) {
+      const v = g.headline?.[def.key];
+      if (v?.level === 'comparable' && v.direction !== DIRECTION.XY) {
+        issues.push(err('HEADLINE-DIRECTION', `grades ${g.id}`, `${def.key} decides as comparable but its measurement's direction is ${v.direction}`));
       }
     }
   }
@@ -239,20 +227,6 @@ export function validate(db, wb) {
   }
   for (const m of excluded) {
     if (m.gates.scope !== 'excluded') issues.push(err('EXCLUSION', `materials ${m.id}`, 'Excluded material does not carry the excluded scope gate'));
-  }
-
-  // -- HDT load labelling -----------------------------------------------------
-  const hdt = db.materials.filter((m) => m.headline.hdt045?.known && m.headline.hdt045.verified);
-  const unstated = hdt.filter((m) => !m.headline.hdt045.loadStated);
-  // ASTM D648 states its low load as 66 psi, 0.455 MPa; ISO 75 method B as 0.45 MPa. They are the same test, and the
-  // estimate stage already reads 0.44 to 0.46 MPa as it (estimate/observations.js). Exact equality refused Braskem
-  // FL300PE's "0.455 MPa" as a headline while the estimate pinned PE to that very value: one test, two answers.
-  const wrongLoad = hdt.filter((m) => m.headline.hdt045.loadStated && Math.abs(m.headline.hdt045.loadMPa - 0.45) > 0.01);
-  for (const m of wrongLoad) {
-    issues.push(err('HDT-LOAD-WRONG', `materials ${m.id}`, `Column is HDT at 0.45 MPa but the cited source states ${m.headline.hdt045.loadMPa} MPa`));
-  }
-  if (unstated.length) {
-    issues.push(warn('HDT-LOAD-UNSTATED', 'materials', `${unstated.length} of ${hdt.length} HDT headlines cite a source that names the standard but not the load. They carry loadStated:false and must not be presented as confirmed 0.45 MPa values.`, { records: unstated.map((m) => `${m.id} hdt045`) }));
   }
 
   // -- unparsed free text -----------------------------------------------------
@@ -383,8 +357,8 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
   L.push(`Every one of the ${db.materials.length} materials was checked, and any failure below stops the build:`);
   L.push('');
   L.push('- each measurement, profile, price and use record sits under the material its grade belongs to;');
-  L.push('- GradeIDs lists every procurement grade, and the representative grade is one of them;');
-  L.push(`- every headline cites a measurement of its own material and of the representative grade (${db.meta.consistency?.headlineCitations ?? 0} checked);`);
+  L.push('- GradeIDs lists every procurement grade;');
+  L.push(`- every product value cites a measurement of that product that is not quarantined (${db.meta.consistency?.headlineCitations ?? 0} checked), and a material's typical product is one of its own;`);
   L.push('- every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;');
   L.push('- nozzle, bed and chamber guidance quote the profile the row cites;');
   L.push('- Environmental evidence cites exactly the material\'s own exposure, solubility and moisture records;');

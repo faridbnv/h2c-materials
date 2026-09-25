@@ -44,12 +44,13 @@ test('every prose field in the database that points at evidence resolves, and sa
   }
 });
 
-test('grades group by maker, the representative grade\'s maker first, and none is lost', () => {
+test('grades group by maker, the named maker first, and none is lost', () => {
   const pla = db.materials.find((m) => m.id === 'M001');
   const grades = db.grades.filter((g) => g.materialId === 'M001' && !g.retired);
-  const groups = groupByMaker(grades, pla.representativeGrade);
+  const typical = grades.find((g) => g.id === pla.headline.tensileModulusXY.typical.gradeId);
+  const groups = groupByMaker(grades, typical.manufacturer);
   assert.equal(groups.reduce((n, [, list]) => n + list.length, 0), grades.length);
   assert.ok(groups.length > 10, `PLA has ${groups.length} makers`);
-  assert.equal(groups[0][0], grades.find((g) => g.id === pla.representativeGrade).manufacturer);
+  assert.equal(groups[0][0], typical.manufacturer);
   for (const [maker, list] of groups) assert.ok(list.every((g) => g.manufacturer === maker), maker);
 });

@@ -57,7 +57,6 @@ try {
       set: { ...set.grades, Manufacturer: manufacturer, 'Product name': opt('product') ?? name, SourceID: opt('source'), Role: 'procurement', Status: 'active' },
     });
     rows.push(['grades', grade]);
-    material.row['Representative grade'] = grade.row.GradeID;
   }
   if (!known) console.log(`\nNote: "${polymer}" has no row in polymers.csv, so this material is not estimated. Add one (group, morphology, and the rest) to estimate it.`);
   for (const [table, r] of rows) {
@@ -81,7 +80,6 @@ try {
     !grade && `a grade: npm run data:new -- grades --material ${id} --set Manufacturer=... --set "Product name=..." --set SourceID=...`,
     `its source, if new: npm run data:new -- sources --set SourceID=... --set Publisher=... --set URL=... --set SHA256=...`,
     `measurements, from the source: npm run data:new -- measurements --like <a row of the same source> --set Property=... --set "Raw value=..."`,
-    `headline selections: a row in data/tables/headlines.csv per headline the measurements support (MaterialID, HeadlineKey, MeasurementID, Use value)`,
     `a print profile: npm run data:new -- profiles --material ${id} --set GradeID=... --set SourceID=...`,
     `citations: rows in data/tables/material_links.csv (printing, h2c-status, use, durability, safety)`,
     `coverage: a row in data/tables/coverage.csv per gap, conflict or judgement; the build reports the domains its own records prove (D74)`,

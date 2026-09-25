@@ -46,22 +46,6 @@
       }
     },
     {
-      "name": "Representative grade",
-      "type": "string",
-      "role": "editorial",
-      "description": "The exact commercial grade whose measurements back the headlines.",
-      "missing": [
-        "Not published"
-      ],
-      "reference": {
-        "table": "grades",
-        "field": "GradeID"
-      },
-      "constraints": {
-        "required": true
-      }
-    },
-    {
       "name": "Best uses",
       "type": "string",
       "role": "prose",

@@ -28,23 +28,29 @@ const HEADLINE_PROPERTY = {
   hdt045: ['HDT'],
 };
 
-test('every numeric headline equals the measurement it cites', () => {
+test('every product value equals its measurement, and a material\'s headline is its products\' median', () => {
   const byId = new Map(db.measurements.map((m) => [m.id, m]));
+  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
   let checked = 0;
+  for (const g of db.grades) {
+    for (const key of Object.keys(HEADLINE_PROPERTY)) {
+      const v = g.headline?.[key];
+      if (!v) continue;
+      assert.equal(byId.get(v.measurementId).value, v.value, `${g.id} ${key}`);
+      assert.equal(byId.get(v.measurementId).gradeId, g.id, `${g.id} ${key}`);
+      checked++;
+    }
+  }
   for (const mat of db.materials) {
     for (const key of Object.keys(HEADLINE_PROPERTY)) {
       const h = mat.headline[key];
       if (!h?.known) continue;
-      assert.ok(h.verified, `${mat.name} ${key} is not verified against a citation`);
-      assert.equal(byId.get(h.measurementId).value, h.value, `${mat.name} ${key}`);
-      checked++;
+      assert.equal(h.value, mat.summary[key].median, `${mat.name} ${key}`);
+      assert.equal(gradeById.get(h.typical.gradeId).headline[key].value, h.typical.value, `${mat.name} ${key}`);
     }
   }
-  // The count follows the data: one per value selection in data/tables/headlines.csv. A headline the compiler dropped,
-  // or one it invented, fails here; adding a headline row does not. What each build selects is in build/snapshot/.
-  const selections = readFileSync(join(root, 'data/tables/headlines.csv'), 'utf8').split('\n').filter((l) => l.endsWith(',value')).length;
-  assert.equal(checked, selections);
-  assert.ok(checked >= 359, 'headlines have gone missing since the 2026-09-15 audit flagged physically implausible values');
+  // What each build derives is in build/snapshot/products.csv; this guards against values going missing wholesale.
+  assert.ok(checked >= 3000, `only ${checked} product values`);
 });
 
 test('a derived coverage row speaks only where no stored row does, and only for what the records prove', () => {
@@ -162,14 +168,16 @@ test('a material with one fitting grade is printable even when another grade is 
   assert.equal(ppsgf.gates.nozzle.verdict, 'within');
 });
 
-test('every HDT headline is either a stated 0.45 MPa or flagged as unstated', () => {
-  for (const m of db.materials) {
-    const h = m.headline.hdt045;
-    if (!h?.known) continue;
+test('every product HDT is a stated 0.45 MPa value, or as published with its load unstated', () => {
+  const byId = new Map(db.measurements.map((m) => [m.id, m]));
+  for (const g of db.grades) {
+    const v = g.headline?.hdt045;
+    if (!v) continue;
+    const t = byId.get(v.measurementId).thermal;
     // ASTM D648's 66 psi is 0.455 MPa: the same test as ISO 75's 0.45 MPa, read as such by the estimate stage and the
-    // headline check alike (PE's Braskem sheet states 0.455).
-    if (h.loadStated) assert.ok(Math.abs(h.loadMPa - 0.45) <= 0.01, `${m.name} cites a ${h.loadMPa} MPa load`);
-    else assert.equal(h.caveat, 'load-not-stated', `${m.name} has no caveat`);
+    // product rule alike (PE's Braskem sheet states 0.455).
+    if (t?.loadStated) assert.ok(v.level === 'comparable' && Math.abs(t.loadMPa - 0.45) <= 0.01, `${g.id} cites a ${t.loadMPa} MPa load`);
+    else assert.deepEqual([v.level, v.caveat], ['as-published', 'load-not-stated'], g.id);
   }
 });
 
@@ -223,10 +231,9 @@ test('the likely and plausible ranges hold hidden measured headlines as often as
     assert.ok(c.plausibleCoverage >= 0.93, `${key}: plausible range holds ${c.plausibleCoverage}`);
   }
   // The complaint that started the model: PA-CF strength 38-204 MPa. The product behind that number,
-  // CarbonX CF PA12, now lives only under PA12-CF.
-  const cf = byName('PA12-CF').headline.tensileStrengthXY.estimate;
-  assert.equal(cf.strength, 'this-grade');
-  assert.ok(cf.hi / cf.lo < 1.6 && cf.lo > 60 && cf.hi < 110, `PA12-CF strength ${cf.lo}-${cf.hi}`);
+  // CarbonX CF PA12, now lives only under PA12-CF, whose products publish their own strengths.
+  const cf = byName('PA12-CF').headline.tensileStrengthXY;
+  assert.ok(cf.known && cf.spread.min > 40 && cf.spread.max < 130, `PA12-CF strength ${cf.spread?.min}-${cf.spread?.max}`);
 });
 
 // --- 2026-09-13 duplicate products: docs/audits/2026-09-13-duplicate-products/ ------------------
@@ -286,13 +293,14 @@ test('mis-filed products moved to the material they are, with everything recorde
   assert.equal(db.meta.counts.retiredDuplicates.evidence, 16);
 });
 
-test('an unstated-load heat headline carries a bracket from its matrix\'s load gap', () => {
-  const b = byName('PLA Lite').headline.hdt045.loadBracket;
-  assert.equal(b.lo, 53);
-  assert.ok(b.hi > 55 && b.hi < 75, `PLA Lite bracket ${b.lo}-${b.hi}`);
-  for (const m of db.materials.filter((x) => !x.excluded && !x.familyEntry && x.headline.hdt045?.known)) {
-    assert.equal(!!m.headline.hdt045.loadBracket, m.headline.hdt045.loadStated === false, m.name);
-  }
+test('a heat deflection whose load the sheet leaves unstated is as published, and its material is estimated', () => {
+  // eSUN PLA-Lite's 53 °C names ISO 75 but no load. It is counted apart (D84) and decides only when the reader asks;
+  // the material's heat deflection is estimated, with that value among its evidence.
+  const lite = byName('PLA Lite');
+  assert.deepEqual([lite.summary.hdt045.n, lite.summary.hdt045.asPublished.n], [0, 1]);
+  assert.equal(db.grades.find((g) => g.id === 'G004-01').headline.hdt045.caveat, 'load-not-stated');
+  const e = lite.headline.hdt045.estimate;
+  assert.ok(!lite.headline.hdt045.known && e && e.evidence.some((ev) => ev.items.some((i) => i.measurementId === 'V001902')), 'PLA Lite HDT estimate');
 });
 
 // Regression: Zytel 101L's moulded 3.1 GPa vetoed screening PA66 out of "stiffness at least 3 GPa".
@@ -331,16 +339,17 @@ test('estimates follow the physics of printing: slow crystallisers deflect near 
   assert.ok(est('PET', 'hdt045').plausible.hi < 90, `PET plausible to ${est('PET', 'hdt045').plausible.hi}`);
   // BVOH's own Vicat is 90 °C.
   assert.ok(est('BVOH', 'hdt045').plausible.hi <= 100, `BVOH plausible to ${est('BVOH', 'hdt045').plausible.hi}`);
-  // PA12's own reference grade publishes 1010 kg/m³; neat PA12 is 990-1040.
-  const pa12 = est('PA12', 'density');
-  assert.ok(pa12.lo <= 1010 && pa12.plausible.hi <= 1100, `PA12 density ${pa12.lo}-${pa12.hi}`);
+  // Neat PA12 is 990-1040 kg/m³, and its products publish their own.
+  const pa12 = byName('PA12').headline.density;
+  assert.ok(pa12.known && pa12.value >= 990 && pa12.value <= 1100, `PA12 density ${pa12.value}`);
   // Carbon fibre cannot make PA66 lighter than PA66.
   assert.ok(est('PA66-CF', 'density').centre >= est('PA66', 'density').centre, 'PA66-CF lighter than PA66');
 });
 
 test('polyamide estimates follow the physics: melting point orders heat resistance, fibre raises stiffness', () => {
+  // PA66 and PA612 have no products, so both are estimates; PA12's products publish their own.
   const hdt = (n) => valueOf(byName(n), 'hdt045');
-  assert.ok(hdt('PA66') > hdt('PA612') && hdt('PA612') > hdt('PA12'), `PA66 ${hdt('PA66')}, PA612 ${hdt('PA612')}, PA12 ${hdt('PA12')}`);
+  assert.ok(hdt('PA66') > hdt('PA612'), `PA66 ${hdt('PA66')}, PA612 ${hdt('PA612')}`);
   assert.ok(hdt('PA66-CF') > hdt('PA66') + 50 && hdt('PA612-GF') > hdt('PA612') + 40);
   assert.ok(hdt('PA66-CF') < 262 && hdt('PA612-GF') < 218, 'a semicrystalline bar cannot hold above its melting point');
   const stiff = (n) => valueOf(byName(n), 'tensileModulusXY');
@@ -393,10 +402,10 @@ test('values the registered sources publish are recorded as published', () => {
   // PLA's 3DXTECH value (V000008, 80 °C) states its load but is flagged physically implausible (m24): PLA's heat
   // deflection is estimated.
   assert.equal(x('V000008').implausible, true);
-  // HyperLite PP's 3DXTECH value belongs to PP Lightweight since m25; PP's heat deflection is iSANMATE's, load unstated.
+  // HyperLite PP's 3DXTECH value belongs to PP Lightweight since m25.
   for (const n of ['PP Lightweight', 'PP-GF', 'PA12-CF', 'PVDF', 'PC-ABS']) {
-    const h = byName(n).headline.hdt045;
-    assert.ok(h.loadStated && h.loadMPa === 0.45, `${n}: 3DXTECH prints "at 0.45 MPa (66psi)"`);
+    const t = db.measurements.find((m) => m.id === byName(n).headline.hdt045.typical.measurementId).thermal;
+    assert.ok(t.loadStated && Math.abs(t.loadMPa - 0.45) <= 0.01, `${n}: its typical product states 0.45 MPa`);
   }
   // A value the estimate model keeps out is not necessarily a wrong one. A bronze-filled PLA weighs 3.9 g/cm³
   // and that is a true fact about the product, which belongs in the database and on the page; what the model has
@@ -414,14 +423,11 @@ test('values the registered sources publish are recorded as published', () => {
   }
 });
 
-test('PETG-GF, ASA-GF and POM carry printed headlines from their new representative grades', () => {
-  const g = (n) => byName(n).representativeGrade;
-  assert.equal(g('PETG-GF'), 'G025-02');
-  assert.deepEqual(ESTIMATED.slice(0, 4).map((k) => byName('PETG-GF').headline[k].value), [1330, 2.3345, 53.6, 1.9]);
-  assert.equal(g('ASA-GF'), 'G034-03');
-  assert.deepEqual(ESTIMATED.map((k) => byName('ASA-GF').headline[k].value), [1110, 2.758, 39, 5.8, 98]);
-  assert.equal(g('POM / Acetal'), 'G087-02');
-  assert.deepEqual(ESTIMATED.slice(0, 4).map((k) => byName('POM / Acetal').headline[k].value), [1420, 1.87, 50, 11]);
+test('PETG-GF, ASA-GF and POM products carry the printed values their sheets publish', () => {
+  const values = (id) => ESTIMATED.map((k) => db.grades.find((g) => g.id === id).headline?.[k]?.value);
+  assert.deepEqual(values('G025-02').slice(0, 4), [1330, 2.3345, 53.6, 1.9]);
+  assert.deepEqual(values('G034-03'), [1110, 2.758, 39, 5.8, 98]);
+  assert.deepEqual(values('G087-02').slice(0, 4), [1420, 1.87, 50, 11]);
 });
 
 test('resin references are study grades whose moulded values never become headlines', () => {
@@ -547,11 +553,11 @@ test('enclosure guidance clears the chamber only when it says an enclosure is no
 test('CoPE is its own grade, no longer a copy of CPE', () => {
   const cope = db.materials.find((m) => m.name === 'CoPE');
   const cpe = db.materials.find((m) => m.name === 'CPE');
-  assert.equal(cope.representativeGrade, 'G091-02');
+  assert.deepEqual(cope.gradeIds, ['G091-02']);
   for (const key of ['density', 'tensileModulusXY', 'tensileStrengthXY']) {
-    assert.equal(cope.headline[key].gradeId, 'G091-02', key);
+    assert.equal(cope.headline[key].typical.gradeId, 'G091-02', key);
   }
-  assert.notEqual(cope.headline.density.gradeId, cpe.headline.density.gradeId);
+  assert.ok(!cpe.gradeIds.some((id) => cope.gradeIds.includes(id)), 'CoPE and CPE share a product');
 });
 
 // The Fiberon page headlines 133.7 °C. That figure is annealed; as printed it is 81.6 °C. Both are
@@ -607,44 +613,42 @@ test('a physically implausible value is kept and flagged, and backs no headline,
 });
 
 test('HyperLite PP is its own material, PP describes unfilled polypropylene, and PC-GF headlines printed dry data', () => {
-  const pp = byName('PP'), light = byName('PP Lightweight'), pcgf = byName('PC-GF');
-  assert.equal(pp.representativeGrade, 'G082-02');
-  assert.equal(pp.headline.density.value, 890);
+  const pp = byName('PP'), light = byName('PP Lightweight');
+  assert.ok(pp.headline.density.spread.max < 1000, `unfilled PP products publish up to ${pp.headline.density.spread.max} kg/m³`);
   assert.ok(pp.headline.tensileModulusXY.estimate.plausible.hi < 2.5, 'unfilled PP stiffness estimate');
+  // PP Lightweight's one product is a declared variant, and so the material's own range.
   assert.equal(light.headline.density.value, 810);
   assert.ok(!db.measurements.some((m) => m.gradeId === 'G082-01'), 'the retired HyperLite grade still holds active measurements');
+  const pcgf = db.grades.find((g) => g.id === 'G038-02');
   assert.deepEqual(['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045'].map((k) => pcgf.headline[k].value), [1176, 2.665, 36.1, 2.4, 134]);
 });
 
-test('PPA headlines its as-printed heat deflection, and its annealed value stays evidence', () => {
+test('PPA\'s value is its as-printed heat deflection, and its annealed value stays evidence', () => {
   // IPCON PPA prints "103 °C; 131 °C (annealed)"; only 131 °C was transcribed and it was the headline (B-05, m21).
-  const ppa = db.materials.find((m) => m.name === 'PPA');
-  assert.equal(ppa.headline.hdt045.value, 103);
-  assert.equal(ppa.headline.hdt045.postProcessing, 'As printed');
+  const v = db.grades.find((g) => g.id === 'G069-01').headline.hdt045;
+  assert.equal(v.value, 103);
+  assert.equal(db.measurements.find((m) => m.id === v.measurementId).postProcessing, 'As printed');
   const annealed = db.measurements.find((m) => m.id === 'V001289');
   assert.equal([annealed.value, annealed.postProcessingState].join(' '), '131 annealed');
 });
 
-test('PET-GF15 keeps its as-printed and annealed HDT apart, and headlines the as-printed one', () => {
-  const petgf = db.materials.find((m) => m.name === 'PET-GF');
-  assert.equal(petgf.representativeGrade, 'G068-02');
-  assert.equal(petgf.headline.hdt045.value, 81.6);
+test('PET-GF15 keeps its as-printed and annealed HDT apart, and its value is the as-printed one', () => {
+  assert.equal(db.grades.find((g) => g.id === 'G068-02').headline.hdt045.value, 81.6);
   const hdt = db.measurements.filter((m) => m.gradeId === 'G068-02' && m.property === 'HDT' && m.thermal.loadMPa === 0.45);
   assert.deepEqual(hdt.map((m) => [m.value, m.postProcessing.split(' ')[0]]).sort(), [[133.7, 'Annealed'], [81.6, 'As']]);
 });
 
 // The nGen TDS footnotes its density and HDT as raw-material supplier data. The printed XY values
 // are headlines; the supplier values are related evidence and say why.
-test('raw-material supplier values never become headlines', () => {
-  const ngen = db.materials.find((m) => m.name === 'nGen / Amphora');
-  assert.equal(ngen.headline.tensileModulusXY.value, 1.7);
-  for (const key of ['density', 'hdt045']) {
-    assert.equal(ngen.headline[key].known, false, key);
-    assert.match(ngen.headline[key].related.best.why, /raw-material/, key);
-  }
-  for (const mat of db.materials) {
-    for (const [key, h] of Object.entries(mat.headline)) {
-      if (h?.known && h.specimenType) assert.ok(!h.specimenType.startsWith('Raw material'), `${mat.name} ${key}`);
+test('raw-material supplier values never become a product\'s value', () => {
+  // nGen's resin sheet (G092-01) prints a moulded density and heat deflection; they stay evidence.
+  const g = db.grades.find((x) => x.id === 'G092-01');
+  assert.equal(g.headline.tensileModulusXY.value, 1.7);
+  assert.ok(!g.headline.density && !g.headline.hdt045, 'a moulded value became G092-01\'s');
+  const byId = new Map(db.measurements.map((m) => [m.id, m]));
+  for (const x of db.grades) {
+    for (const [key, v] of Object.entries(x.headline ?? {})) {
+      if (v.measurementId) assert.ok(!['moulded', 'film', 'filament'].includes(byId.get(v.measurementId).specimenForm), `${x.id} ${key}`);
     }
   }
 });
@@ -701,11 +705,12 @@ test('the consolidated snapshot passes every consistency check', () => {
   assert.deepEqual(errorsFor(() => {}), []);
 });
 
-test('a headline citing another material, or another grade, is an error', () => {
-  assert.ok(errorsFor((c) => { mat(c, 'PC FR').headline.density.measurementId = mat(c, 'PLA Basic').headline.density.measurementId; })
-    .some((e) => /Headline density cites .* a measurement of/.test(e)));
-  assert.ok(errorsFor((c) => { mat(c, 'PET-GF').representativeGrade = 'G068-01'; })
-    .some((e) => /not the representative grade G068-01/.test(e)));
+test('a product value citing another product, or a material naming another\'s typical product, is an error', () => {
+  const grade = (c, id) => c.grades.find((g) => g.id === id);
+  assert.ok(errorsFor((c) => { grade(c, 'G068-02').headline.hdt045.measurementId = grade(c, 'G025-02').headline.density.measurementId; })
+    .some((e) => /G068-02 hdt045 cites V\d+, a measurement of G025-02/.test(e)));
+  assert.ok(errorsFor((c) => { mat(c, 'PET-GF').headline.hdt045.typical.gradeId = 'G025-02'; })
+    .some((e) => /names G025-02 as its typical product/.test(e)));
 });
 
 test('a record filed under the wrong material is an error', () => {
@@ -879,7 +884,7 @@ test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z val
 test('the validator rejects a blank headline, a range that does not nest, and evidence from another material', () => {
   assert.ok(errorsFor((c) => { delete mat(c, 'PA66').headline.tensileModulusXY.estimate; }).some((e) => /no value, no estimate/.test(e)));
   assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.lo = 99; }).some((e) => /outside the likely range/.test(e)));
-  assert.ok(errorsFor((c) => { mat(c, 'PA12-CF').headline.tensileStrengthXY.estimate.plausible.hi = 70; }).some((e) => /not inside the plausible range/.test(e)));
+  assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileStrengthXY.estimate.plausible.hi = 1; }).some((e) => /not inside the plausible range/.test(e)));
   const foreign = db.measurements.find((m) => m.materialId === byName('PLA').id).id;
   assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.evidence[0].items[0].measurementId = foreign; }).some((e) => /neither this material/.test(e)));
   assert.ok(errorsFor((c) => { c.meta.estimateModel.properties.density.calibration.likelyCoverage = 0.5; }).some((e) => /likely range contains 50%/.test(e)));

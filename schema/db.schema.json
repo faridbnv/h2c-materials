@@ -1533,7 +1533,8 @@
         }
       }
     },
-    "headlineMeasured": {
+    "headlineProducts": {
+      "description": "A material's headline where its products publish comparably (D83): their median, spread and typical product (build/src/products.js). Decides nothing; the engine judges the products.",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -1542,15 +1543,9 @@
         "unit",
         "origin",
         "verified",
-        "measurementId",
-        "gradeId",
-        "sourceId",
-        "direction",
-        "specimenType",
-        "moisture",
-        "postProcessing",
         "interval",
-        "uncertainty"
+        "spread",
+        "typical"
       ],
       "properties": {
         "known": {
@@ -1563,65 +1558,120 @@
           "type": "string"
         },
         "origin": {
-          "type": "string"
+          "const": "products"
         },
         "verified": {
           "type": "boolean"
         },
-        "measurementId": {
-          "type": "string",
-          "pattern": "^V\\d{6}$"
-        },
-        "gradeId": {
-          "type": "string"
-        },
-        "sourceId": {
-          "type": "string"
-        },
-        "direction": {
-          "type": "string"
-        },
-        "specimenType": {
-          "type": "string"
-        },
-        "moisture": {
-          "type": "string"
-        },
-        "postProcessing": {
-          "type": "string"
-        },
         "interval": {
           "$ref": "#/$defs/interval"
         },
-        "uncertainty": {
-          "type": [
-            "number",
-            "null"
-          ]
+        "spread": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "n",
+            "products",
+            "min",
+            "max",
+            "q1",
+            "q3",
+            "asPublished",
+            "variants"
+          ],
+          "properties": {
+            "n": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "products": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "q1": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "q3": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "asPublished": {
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "variants": {
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
         },
-        "loadStated": {
-          "type": "boolean"
+        "typical": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "gradeId",
+            "measurementId",
+            "value"
+          ],
+          "properties": {
+            "gradeId": {
+              "type": "string"
+            },
+            "measurementId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
         },
-        "loadMPa": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "standard": {
+        "measurementId": {
           "type": [
             "string",
             "null"
           ]
         },
-        "caveat": {
+        "gradeId": {
           "type": "string"
         },
-        "caveatText": {
-          "type": "string"
+        "observations": {
+          "type": "integer",
+          "minimum": 1
         },
-        "loadBracket": {
-          "type": "object"
+        "priceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -1735,7 +1785,7 @@
     "headline": {
       "oneOf": [
         {
-          "$ref": "#/$defs/headlineMeasured"
+          "$ref": "#/$defs/headlineProducts"
         },
         {
           "$ref": "#/$defs/headlinePrice"
@@ -1763,7 +1813,6 @@
         "h2cStatus",
         "excluded",
         "familyEntry",
-        "representativeGrade",
         "gradeIds",
         "headline",
         "headlineBasis",
@@ -1774,7 +1823,6 @@
         "gates",
         "profileIds",
         "printingEvidence",
-        "headlineEvidence",
         "bestUses",
         "limitations",
         "identity",
@@ -1838,9 +1886,6 @@
               "type": "null"
             }
           ]
-        },
-        "representativeGrade": {
-          "type": "string"
         },
         "gradeIds": {
           "type": "array",
@@ -1907,28 +1952,6 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
-        },
-        "headlineEvidence": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "mechanical",
-            "thermal"
-          ],
-          "properties": {
-            "mechanical": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "thermal": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
           }
         },
         "bestUses": {

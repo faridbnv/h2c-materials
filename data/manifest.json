@@ -3,7 +3,7 @@
   "tables": {
     "materials": {
       "rows": 158,
-      "sha256": "93cab401900164b62f8f177568e38a6da3b370e76ade03945a9e79d07e4cf29d"
+      "sha256": "c8cda56c23869709fcaebbec2e49d3b898de044ab1cac36682734a8b5d271f92"
     },
     "grades": {
       "rows": 1119,
@@ -47,7 +47,7 @@
     },
     "method": {
       "rows": 50,
-      "sha256": "3a3ea8d6ebbbb82ffc8018beca00a20ba7fc270c7932bff29ffd2c58b098b8bf"
+      "sha256": "8b1d3f249a5ff09074f0fac286920e8278da6a8298ecdd60508e78c72a5251ba"
     },
     "reference": {
       "rows": 114,
@@ -58,8 +58,8 @@
       "sha256": "f189d525924e1b3d0f0510406bf42d1e417bfeaea72cf0888dde020236251406"
     },
     "headlines": {
-      "rows": 493,
-      "sha256": "9a2e0680940aa7bc87abf7659840a1645412eb19ca3a88df59dfac4a31dc877e"
+      "rows": 0,
+      "sha256": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b"
     },
     "material_links": {
       "rows": 752,
@@ -71,7 +71,7 @@
     },
     "headline_definitions": {
       "rows": 6,
-      "sha256": "957896bfe282dbfddce2b2c26514e146aca31cc7b4b37ead050e31052be76d09"
+      "sha256": "c5d6a84aa6213b31ba72f29169efbcc3f12dc5679c364c03aca1688087ad3059"
     },
     "polymers": {
       "rows": 48,

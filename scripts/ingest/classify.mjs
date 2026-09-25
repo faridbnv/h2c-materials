@@ -494,10 +494,10 @@ export function matchMaterial(identity, materials, context = {}) {
   // A material's name may carry its alias beside it ("nGen / Amphora", "POM / Acetal", "PEI / ULTEM"), so each
   // part of a slash name is a name it answers to.
   const names = (m) => String(m['Original name'] ?? '').split('/').map((n) => n.trim()).filter(Boolean);
-  const ownerOf = new Map(grades.map((g) => [g.GradeID, g.Manufacturer]));
   // A product-level row answers only for the maker whose product it is, and only when the maker is known. Nearly
-  // four in ten documents in the corpus name no maker, and without that test any of them took Bambu's PLA Basic.
-  const mayAnswer = (m) => !ownProduct(m) || (maker && ownerOf.get(m['Representative grade']) === maker);
+  // four in ten documents in the corpus name no maker, and without that test any of them took Bambu's PLA Basic. Its
+  // maker is the one maker of its products (ownProduct allows no more); until m137 it was its representative grade's.
+  const mayAnswer = (m) => !ownProduct(m) || (maker && [...(makersOf.get(m.MaterialID) ?? [])][0] === maker);
   if (context.product) {
     const byName = open.find((m) => mayAnswer(m) && names(m).some((n) => named(n, context.product)));
     if (byName) return byName;

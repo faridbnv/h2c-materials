@@ -89,8 +89,8 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament) and State of each Post-processing wording (as-printed, annealed, not-stated), and whether an annealed value has an as-printed twin (D56). |
 | `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
-| `compile.js` | Assemble the relational runtime database. Each headline is the measurement `headlines.csv` selects, checked against its definition and its state (printed, dry, as printed, not flagged implausible); implied bounds come from printed values only (D55). |
-| `products.js` | Every product's own value per headline and its print recipe, chosen by rule, and every material's spread across its products (re-center phase 1; docs/GOALS.md). Decides nothing until the engine reads products. |
+| `compile.js` | Assemble the relational runtime database. A material's headline starts missing, with its related evidence and implied bounds (from printed values only, D55); products.js fills each one its products publish comparably. |
+| `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Checks the pins in `headlines.csv`. The engine judges the products. |
 | `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
@@ -121,7 +121,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision and whether it still holds. |
 | `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed. |
 | `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
-| `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, HDT-LOAD-UNSTATED, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
+| `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
 | `build-diff.mjs` | `npm run build:diff`: builds HEAD (or `--ref`) in a temporary worktree and the working tree, and prints every difference in `dist/db.json`. |
 | `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views. |
@@ -135,7 +135,6 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
 | `data/sqlite.mjs` | `npm run db:sqlite`, `npm run sql -- "..."`: the compiled database as a SQLite file with the schema's types, the compiled headlines, and a robust z-score per measurement against its material's others (`v_measurement_z`, D75). |
 | `data/record-tier.mjs` | The record tier in the same file (D85): `source_facts`, the lines the import reader read without them becoming data, and `documents_fts`, a full-text index of the cached documents (built only where `.cache/text` is present). |
-| `data/representative.mjs` | `npm run data:representative`: per material, the headlines its representative grade publishes against the best-documented procurement grade, for the owner's review (PLAN-REMAINING 2.4). |
 | `ingest/` | The import pipeline (`docs/audits/2026-09-18-v2-import/`): a ledger of every document, fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). The rules are in `AGENTS.md`, "Importing a batch of data sheets". |
 
 `npm run verify:fast` runs format, schema, lint, generated docs, build and tests while you work: about 75 seconds after a
@@ -225,8 +224,8 @@ a measured value.
 if it only means something for some filaments), then its measurements. It appears in the drawer's
 tab for its domain, counts as coverage evidence, and is checked for unit and applicability. No code.
 
-**A new selectable property (headline).** A row in `data/tables/headline_definitions.csv`, then a
-value row in `headlines.csv` for each material that has one. The filter rail, charts, table, export,
+**A new selectable property (headline).** A row in `data/tables/headline_definitions.csv`; each product's
+value is then chosen from its measurements by rule, and each material shows its products' spread. The filter rail, charts, table, export,
 drawer and engine pick it up from the registry; materials outside "Applies to" show it as not
 applicable with the reason. `test/new-property.test.js` does exactly this for an elastomer-only
 Shore A hardness. Only estimation needs code: mark it Estimated only after adding `HEAD` (`estimate/model.js`) and `kindOf`

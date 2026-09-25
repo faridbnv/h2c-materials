@@ -4,8 +4,8 @@
 // the end of the range the requirement tests: above the top for a minimum ("at least 3 GPa"), below the bottom for a
 // maximum. So each end is set, and judged, on its own:
 //
-//   Every build hides every measured headline as far as an evidence class requires (this grade, this material, the
-//   family model), predicts it honestly (calibration.js makeHoldOut), and records where the true value fell in the
+//   Every build hides every material's typical product's value as far as an evidence class requires (this grade, this
+//   material, the family model), predicts it honestly (calibration.js makeHoldOut), and records where the true value fell in the
 //   prediction. Each end of the class's screening ranges is placed at a distribution-free tolerance limit of those
 //   positions: the r-th most extreme, with r the largest count for which a new true value lies beyond the end at most
 //   screening.maxWrongRate of the time with screening.confidence (Wilks). The end is never inside the plausible range
@@ -14,16 +14,13 @@
 //   An end its class cannot set screens only where the family model's end agrees: their union.
 //   An end the material's own evidence lies beyond never screens: the model may not overrule the material's own sheet.
 //
-// The unstated-load bracket of a heat deflection headline is set the same way, from the gaps between the two loads
-// grades publishing both show; its lower end is the published value itself, which physics guarantees.
-//
 // What the guarantee assumes: a material whose headline is missing is like the measured ones its class was back-tested on
 // (exchangeable), and the positions come from calibrated hold-out ranges without the material's own published bounds,
 // while an estimate's own range uses them. It holds per end at 90% confidence, so of the thirty or so ends a build sets,
 // about three may be expected to exceed 10%.
 
 import { binomialTail } from './numerics.js';
-import { HEAD, sig3 } from './model.js';
+import { HEAD, sig3, measuredHeadline } from './model.js';
 
 const pct = (x) => `${Math.round(x * 1000) / 10}%`;
 const ordinal = (r) => ['largest', 'second largest', 'third largest'][r - 1] ?? `${r}th largest`;
@@ -75,56 +72,6 @@ export function certifyScreening(cases, cfg, nominal) {
 }
 
 /**
- * A heat deflection value whose load the source never stated was measured at 0.45 MPa or at 1.8 MPa. At 0.45 MPa it is
- * the value; at 1.8 MPa the 0.45 MPa value lies above it by the gap this matrix shows between the two loads. So the
- * 0.45 MPa value is bracketed, not merely bounded below: PLA Lite's 53 °C means 53 to about 63 °C, not "53 or anything
- * above". Treated as unbounded, it kept a PLA among candidates for "heat resistance at least 100 °C".
- *
- * Attaches loadBracket to every unstated-load heat deflection headline and returns the per-matrix tolerance of the gap.
- */
-export function attachLoadBrackets({ raw, conv, S, model, zPlausible }) {
-  const { plausible } = model.levels;
-  const cfg = model.screening;
-  // The gaps between the two loads, on every formulation publishing both, per matrix: an amorphous bar a few degrees,
-  // an unfilled semicrystalline one up to 120 °C.
-  const byF = new Map();
-  for (const o of raw) { if (!byF.has(o.f)) byF.set(o.f, { m: o.m, kinds: new Map() }); byF.get(o.f).kinds.set(o.kind, o.yRaw); }
-  const gaps = new Map();
-  for (const { m, kinds } of byF.values()) {
-    const matrix = S.matrix(m);
-    const y = kinds.get('HDT 0.45'), v = kinds.get(`HDT 1.8 ${matrix}`);
-    if (y == null || v == null || !conv[`HDT 1.8 ${matrix}`]) continue;
-    if (!gaps.has(matrix)) gaps.set(matrix, []);
-    gaps.get(matrix).push(y - v);
-  }
-  const bracketScreening = Object.fromEntries(['amorphous', 'semi-unfilled', 'semi-filled', 'elastomer'].map((matrix) => {
-    const g = [...(gaps.get(matrix) ?? [])].sort((a, b) => b - a), n = g.length, c = conv[`HDT 1.8 ${matrix}`];
-    const plausibleGap = c ? c.offset + zPlausible * c.sd : null;
-    const r = toleranceRank(n, cfg);
-    const conf = Math.round(cfg.confidence * 100);
-    if (!r || plausibleGap == null) return [matrix, { held: n, rank: null, topGap: null, certified: false, why: `only ${n} grades publish both loads; ${minimumCases(cfg)} are needed to show at ${conf}% confidence that at most ${pct(cfg.maxWrongRate)} of gaps are larger` }];
-    const topGap = Math.max(plausibleGap, g[r - 1]);
-    return [matrix, { held: n, rank: r, topGap: sig3(topGap, 1), certified: true, why: `${n} grades publish both loads; at ${conf}% confidence at most ${pct(cfg.maxWrongRate)} of grades show a gap larger than ${sig3(topGap, 1)} °C, the ${g[r - 1] >= plausibleGap ? `${ordinal(r)} gap observed` : `${Math.round(plausible * 100)}% gap, which is larger than the ${ordinal(r)} observed`}` }];
-  }));
-  for (const m of S.pool) {
-    const h = m.headline.hdt045;
-    const c = conv[`HDT 1.8 ${S.matrix(m)}`];
-    if (!h?.known || h.loadStated !== false || !c) continue;
-    const top = bracketScreening[S.matrix(m)];
-    h.loadBracket = {
-      lo: h.value, hi: sig3(h.value + c.offset + zPlausible * c.sd, 1), unit: h.unit,
-      why: `at 0.45 MPa the value itself; at 1.8 MPa up to ${sig3(c.offset + zPlausible * c.sd, 1)} °C lower than the 0.45 MPa value, the ${Math.round(plausible * 100)}% gap ${c.pairs} ${S.matrix(m)} grades publishing both loads show`,
-      // The bottom is the published value, which bounds the 0.45 MPa value by physics; the top screens only where the
-      // gaps grades publish show how far above it the 0.45 MPa value can lie.
-      screenRange: { lo: h.value, hi: top.certified ? sig3(h.value + top.topGap, 1) : null },
-      canScreen: true,
-      screenLimit: top.certified ? null : `the top of the unstated-load bracket for ${S.matrix(m)} matrices cannot screen a minimum requirement: ${top.why}`,
-    };
-  }
-  return bracketScreening;
-}
-
-/**
  * The screening back-test: hide what each evidence class lacks from every measured headline, predict it honestly, and
  * set each end of the class's screening ranges from where the true values fell.
  */
@@ -132,19 +79,19 @@ export function backTest({ key, model, S, obs, tmMean, rangeFor, holdOut }) {
   const nominal = 0.5 + model.levels.plausible / 2;
   const classCases = { 'this-grade': [], 'this-material': [], family: [] };
   for (const m of S.pool) {
-    const h = m.headline[key];
-    if (!h?.known || (key === 'hdt045' && !(h.loadStated && h.loadMPa === 0.45))) continue;
-    const f = S.fkey(h.gradeId);
+    const t = measuredHeadline(m, key);
+    if (!t) continue;
+    const f = S.fkey(t.gradeId);
     const headline = obs.map((o, i) => (o.m.id === m.id && o.f === f && o.kind === HEAD[key] ? i : -1)).filter((i) => i >= 0);
     if (!headline.length) continue;
     const rest = obs.map((o, i) => ((o.m.id === m.id || o.f === f) && !headline.includes(i) ? i : -1)).filter((i) => i >= 0);
-    const manufacturer = S.grades.get(h.gradeId)?.manufacturer;
+    const manufacturer = S.grades.get(t.gradeId)?.manufacturer;
     const held = (hide, wholeMaterial = false) => {
       const p = holdOut(m, f, manufacturer, hide, { wholeMaterial });
       p.mu += tmMean(m);
       // Own published bounds are left out: in the back-test they would be the hidden evidence itself.
-      const { wide, cdf } = rangeFor(m, m, p, h.unit, { ownBounds: false });
-      return { materialId: m.id, u: cdf(h.value), beyond: { above: h.value > wide[1], below: h.value < wide[0] } };
+      const { wide, cdf } = rangeFor(m, m, p, t.unit, { ownBounds: false, formulation: f });
+      return { materialId: m.id, u: cdf(t.value), beyond: { above: t.value > wide[1], below: t.value < wide[0] } };
     };
     // This grade: its other published kinds remain. This material: the whole grade is hidden, its other grades
     // remain. Family: everything of the material and its product is hidden.

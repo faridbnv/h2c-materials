@@ -19,7 +19,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [fatigue_tests](#fatigue_tests) | MeasurementID | The loading of a fatigue life measurement: one row per Fatigue life measurement in measurements.csv, which holds its cycles, source and conditions. A property family with its own test parameters is a child table like this one, not a block of columns every measurement carries. |
 | [grades](#grades) | GradeID | One row per exact commercial, study or resin-reference grade. A grade belongs to exactly one material. |
 | [headline_definitions](#headline_definitions) | HeadlineKey | One row per headline the selector compares materials on. The build and the app read everything about a headline from here: which measurements may back it, its unit, direction and load, its labels, filter, chart axis, table column and export header. A new headline is a new row plus its selections in headlines.csv. |
-| [headlines](#headlines) | MaterialID + HeadlineKey + MeasurementID | Which measurement each material's headline shows. One row per citation: Use value selects the measurement whose value is the headline; Use context keeps a measurement cited for that headline without being its value. No value row means the headline is Not published. The number lives only in the measurement. |
+| [headlines](#headlines) | MaterialID + HeadlineKey + MeasurementID | Pins one product's value for one headline where the rule would choose another measurement (build/src/products.js). A product's value is otherwise chosen by rule from its own measurements, and a material's headline is its products' spread (D83), so this table is normally empty: the 493 hand picks it held until m137 are archived in docs/audits/2026-09-25-re-center/retired-representative-picks.csv. The number lives only in the measurement. |
 | [material_links](#material_links) | MaterialID + Link + RecordID | Records a material cites, one per row, in citation order. printing cites print profiles or evidence records (the first profile supplies the material's nozzle, bed and chamber guidance); h2c-status cites sources for its H2C status; use, durability and safety cite evidence records, which may be family context from another material. Environmental evidence is not listed: it is always the material's own environmental records. |
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
@@ -175,14 +175,14 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 ### headlines
 
-`data/tables/headlines.csv` (Headlines). Which measurement each material's headline shows. One row per citation: Use value selects the measurement whose value is the headline; Use context keeps a measurement cited for that headline without being its value. No value row means the headline is Not published. The number lives only in the measurement.
+`data/tables/headlines.csv` (Headlines (product value pins)). Pins one product's value for one headline where the rule would choose another measurement (build/src/products.js). A product's value is otherwise chosen by rule from its own measurements, and a material's headline is its products' spread (D83), so this table is normally empty: the 493 hand picks it held until m137 are archived in docs/audits/2026-09-25-re-center/retired-representative-picks.csv. The number lives only in the measurement.
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
-| MaterialID | editorial | string | yes |  | → materials.MaterialID | Material whose headline this is. |
-| HeadlineKey | editorial | string | yes |  | → headline_definitions.HeadlineKey | Headline the measurement serves; defined in headline_definitions.csv. |
-| MeasurementID | editorial | string | yes |  | → measurements.MeasurementID | The cited measurement. It must be this material's, on its representative grade for a value row, with the headline's property, unit and direction (checked by the build). |
-| Use | editorial | string | yes |  | value, context | value: this measurement is the headline. context: cited for the headline, not its value. |
+| MaterialID | editorial | string | yes |  | → materials.MaterialID | Material of the pinned product. |
+| HeadlineKey | editorial | string | yes |  | → headline_definitions.HeadlineKey | Headline whose value is pinned; defined in headline_definitions.csv. |
+| MeasurementID | editorial | string | yes |  | → measurements.MeasurementID | The measurement that is the product's value: one of that product's own, able to be the headline's value (property, unit, direction or load, specimen, moisture; checked by the build, HEADLINE-SELECTION-INVALID). One pin per product and headline. |
+| Reason | editorial | string | yes |  |  | Why the rule's own choice is wrong for this product, in a sentence a reviewer can check against the source. |
 
 ### material_links
 
@@ -204,7 +204,6 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Original name | canonical | string | yes |  |  | Name as it appears in the canonical master list. |
 | Family | canonical | string | yes |  | [families](#vocab-families) | Navigation family. |
 | H2C status | canonical | string | yes |  | [h2c-status](#vocab-h2c-status) | How the material relates to the Bambu Lab H2C. |
-| Representative grade | editorial | string | yes | Not published | → grades.GradeID | The exact commercial grade whose measurements back the headlines. |
 | Best uses | prose | string | yes |  |  | Documented best uses. |
 | Limitations | prose | string | yes | Not published |  | What is true of this material alone. The general caveat that holds for every material here is a Method rule (Scope / Transferable allowables), shown on each; Not published where the material adds nothing to it. |
 | Full name | canonical | string | yes |  |  | Expanded polymer name. |

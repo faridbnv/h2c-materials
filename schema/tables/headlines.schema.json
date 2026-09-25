@@ -1,16 +1,12 @@
 {
   "$comment": "Contract for data/tables/headlines.csv. Checked by build/src/schema.js.",
-  "title": "Headlines",
-  "description": "Which measurement each material's headline shows. One row per citation: Use value selects the measurement whose value is the headline; Use context keeps a measurement cited for that headline without being its value. No value row means the headline is Not published. The number lives only in the measurement.",
+  "title": "Headlines (product value pins)",
+  "description": "Pins one product's value for one headline where the rule would choose another measurement (build/src/products.js). A product's value is otherwise chosen by rule from its own measurements, and a material's headline is its products' spread (D83), so this table is normally empty: the 493 hand picks it held until m137 are archived in docs/audits/2026-09-25-re-center/retired-representative-picks.csv. The number lives only in the measurement.",
   "primaryKey": null,
   "identity": [
     "MaterialID",
     "HeadlineKey",
-    "Use"
-  ],
-  "replacedWithin": [
-    "MaterialID",
-    "HeadlineKey"
+    "MeasurementID"
   ],
   "uniqueKeys": [
     [
@@ -24,7 +20,7 @@
       "name": "MaterialID",
       "type": "string",
       "role": "editorial",
-      "description": "Material whose headline this is.",
+      "description": "Material of the pinned product.",
       "reference": {
         "table": "materials",
         "field": "MaterialID"
@@ -37,7 +33,7 @@
       "name": "HeadlineKey",
       "type": "string",
       "role": "editorial",
-      "description": "Headline the measurement serves; defined in headline_definitions.csv.",
+      "description": "Headline whose value is pinned; defined in headline_definitions.csv.",
       "constraints": {
         "required": true
       },
@@ -50,7 +46,7 @@
       "name": "MeasurementID",
       "type": "string",
       "role": "editorial",
-      "description": "The cited measurement. It must be this material's, on its representative grade for a value row, with the headline's property, unit and direction (checked by the build).",
+      "description": "The measurement that is the product's value: one of that product's own, able to be the headline's value (property, unit, direction or load, specimen, moisture; checked by the build, HEADLINE-SELECTION-INVALID). One pin per product and headline.",
       "reference": {
         "table": "measurements",
         "field": "MeasurementID"
@@ -61,16 +57,12 @@
       }
     },
     {
-      "name": "Use",
+      "name": "Reason",
       "type": "string",
       "role": "editorial",
-      "description": "value: this measurement is the headline. context: cited for the headline, not its value.",
+      "description": "Why the rule's own choice is wrong for this product, in a sentence a reviewer can check against the source.",
       "constraints": {
-        "required": true,
-        "enum": [
-          "value",
-          "context"
-        ]
+        "required": true
       }
     }
   ]

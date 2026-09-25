@@ -42,7 +42,7 @@ export function synthesize(factor, outRoot) {
     const copy = (table, rows, fields, extra = () => ({})) => {
       for (const r of rows) t.append(table, { ...r, ...Object.fromEntries(fields.map((f) => [f, shift(r[f])])), ...extra(r) });
     };
-    copy('materials', originals.materials.filter(own), ['MaterialID', 'Representative grade'], (r) => ({
+    copy('materials', originals.materials.filter(own), ['MaterialID'], (r) => ({
       'Original name': r['Original name'] + suffix, Abbreviation: r.Abbreviation + suffix,
     }));
     copy('grades', originals.grades.filter(own), ['GradeID', 'MaterialID'], (r) => ({ 'Shared formulation key': `${r['Shared formulation key']}${suffix}` }));

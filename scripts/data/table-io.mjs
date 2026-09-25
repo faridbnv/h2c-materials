@@ -130,6 +130,24 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
       removals.push({ Table: name, Record: id, Migration: migration, Where: where });
       changes.push({ table: name, record: id, action: 'Removed', field: null, before: null, after: null });
     },
+    /**
+     * Remove the one row whose fields equal `match`, for a table without a primary key (headlines), under the same
+     * rule as remove: a ledger row names the migration and where it went. The ledger names the row as the data diff
+     * does, by the table's first unique key ("M001 | hdt045 | V000008").
+     */
+    removeWhere(name, match, { migration, where } = {}) {
+      const label = Object.values(match).join(' | ');
+      if (!migration || !where) throw new Error(`${name} ${label}: removeWhere needs { migration, where }`);
+      const t = table(name);
+      const hits = t.rows.filter((r) => Object.entries(match).every(([k, v]) => r[k] === v));
+      if (hits.length !== 1) throw new Error(`${name}: ${hits.length} rows match ${label}; removeWhere removes exactly one`);
+      const [row] = hits;
+      const record = (schemas[name].uniqueKeys?.[0] ?? t.header).map((f) => row[f]).join(' | ');
+      t.rows.splice(t.rows.indexOf(row), 1);
+      t.dirty = true;
+      removals.push({ Table: name, Record: record, Migration: migration, Where: where });
+      changes.push({ table: name, record, action: 'Removed', field: null, before: null, after: null });
+    },
     /** Create a new table. Structural: add schema/tables/<name>.schema.json in the same change. */
     createTable(name, header, rows = []) {
       if (tables[name]) throw new Error(`Table "${name}" already exists`);

@@ -42,6 +42,16 @@ export function estimateKeys(registry, model = ESTIMATE_MODEL) {
 export const identityOf = (m) => m.estimateIdentity ?? null;
 
 /**
+ * What a material's headline was measured as, for calibration and the screening back-test: its typical product's own
+ * value (build/src/products.js), the product nearest its products' median. Null where no product publishes it.
+ */
+export function measuredHeadline(m, key) {
+  const h = m.headline[key];
+  if (!h?.known || !h.typical?.gradeId || h.typical.value == null) return null;
+  return { gradeId: h.typical.gradeId, value: h.typical.value, unit: h.unit };
+}
+
+/**
  * The model with the polymer identities of data/tables/polymers.csv (compiled as db.polymers), in the shape the stage
  * reads: group, morphology, tm, fastCrystallising, printsAmorphous (true or 'unfilled'), waterUptake, density [min, max].
  */

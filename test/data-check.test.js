@@ -269,7 +269,7 @@ test('the material scaffold writes a material and its grade, and names what it c
     assert.equal(material['Original name'], 'PXX');
     // No row in polymers.csv, so the estimate model does not identify it and it shows only what its sheets publish.
     assert.equal(material['Estimate identity'], 'Not applicable');
-    assert.equal(t.rows('grades').at(-1).GradeID, material['Representative grade']);
+    assert.equal(t.rows('grades').at(-1).MaterialID, material.MaterialID);
     assert.deepEqual(check(dir), []);
     assert.match(written.stdout, /Still needed before it is a candidate/);
   } finally { rmSync(dir, { recursive: true, force: true }); }

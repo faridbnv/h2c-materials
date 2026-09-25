@@ -69,10 +69,10 @@ const materialRows = db.materials.map((m) => {
   const measured = own('measurements');
   return {
     id:m.id,name:m.name,family:m.family,basePolymer:m.basePolymer,modifier:m.modifier,role:m.role,
-    representativeGrade:m.representativeGrade,activeGradeIds:m.gradeIds,
+    activeGradeIds:m.gradeIds,
     retiredGradeIds:own('grades').filter((g)=>g.retired).map((g)=>g.id),
     studyGradeIds:own('grades').filter((g)=>/-R\d+$/.test(g.id)).map((g)=>g.id),
-    headlineCitations:Object.fromEntries(Object.entries(m.headline).filter(([,h])=>h.known&&h.measurementId).map(([k,h])=>[k,h.measurementId])),
+    headlineCitations:Object.fromEntries(Object.entries(m.headline).filter(([,h])=>h.known&&h.typical?.measurementId).map(([k,h])=>[k,h.typical.measurementId])),
     measurements:measured.map((r)=>r.id),numeric:measured.filter((r)=>r.numeric).length,
     profiles:m.profileIds,evidence:own('evidence').map((r)=>r.id),prices:own('prices').map((r)=>r.id),
     coverage:own('coverage').map((r)=>r.id),
@@ -80,10 +80,9 @@ const materialRows = db.materials.map((m) => {
     estimates:Object.entries(m.headline).filter(([,h])=>h.estimate).map(([key,h])=>({key,...h.estimate})),
     limitations:[
       ...(!measured.length?['No property measurements']:[]),
-      ...(m.headline.hdt045.known&&!m.headline.hdt045.loadStated?['Headline HDT load unstated']:[]),
       ...(measured.some((r)=>r.numeric&&r.direction==='unknown')?['Some measurement directions unstated']:[]),
       ...(measured.some((r)=>r.numeric&&r.specimenType?.startsWith('Not published'))?['Some specimen forms unstated']:[]),
-      ...(own('grades').filter(g=>!g.retired&&!/-R\d+$/.test(g.id)).length>1?['Multiple grades: printing/price/evidence may not describe representative grade']:[]),
+      ...(own('grades').filter(g=>!g.retired&&!/-R\d+$/.test(g.id)).length>1?['Multiple grades: each number is the typical of its products; each product has its own']:[]),
       ...(m.excluded?['Outside H2C scope']:[]),
     ],
   };

@@ -32,10 +32,10 @@ what it means and how to fix it.
 | `DATA-STATUS-UNKNOWN` | error | A measurement has a Data status the build does not know. | Use a status from schema/vocab/data-status.csv. |
 | `PARSE-UNREAD` | warn | Raw process text the parser could not read. | Check the typed columns hold the right reading; extend the parser if the wording is common. |
 | `PARSE-MISMATCH` | error | A typed value differs from the parser reading of its raw text, with no Parse review. | Correct the typed value, or explain the reviewed value in Parse review. |
-| `HEADLINE-KEY-UNKNOWN` | error | headlines.csv selects for a key that is not a measurement headline. | Use a key from headline_definitions.csv. |
-| `HEADLINE-SELECTION-MULTIPLE` | error | A headline selects more than one value measurement. | Keep one value row; mark the others Use context. |
-| `HEADLINE-NOT-APPLICABLE` | error | A headline selects a value for a material outside its Applies to. | Remove the selection, or widen Applies to. |
-| `HEADLINE-SELECTION-INVALID` | error | A selected measurement cannot be the headline (inactive, non-numeric, another material or grade, wrong property, unit or direction; a physically implausible value; a moulded, film or filament specimen; conditioned; annealed where the grade publishes it as printed). | Select a measurement that fits the headline definition, or fix the measurement. |
+| `HEADLINE-KEY-UNKNOWN` | error | headlines.csv pins a value for a key that is not a measurement headline. | Use a key from headline_definitions.csv. |
+| `HEADLINE-SELECTION-MULTIPLE` | error | One product has two pinned values for one headline in headlines.csv. | Keep one pin: a product has one value per headline. |
+| `HEADLINE-NOT-APPLICABLE` | error | headlines.csv pins a value for a material outside the headline's Applies to. | Remove the pin, or widen Applies to. |
+| `HEADLINE-SELECTION-INVALID` | error | A pinned measurement cannot be its product's value (inactive, another material, not on an active product, wrong property or unit, another direction or load, a physically implausible value, a moulded, film or filament specimen, conditioned, annealed where the product publishes it as printed). | Pin a measurement that can be the value, or remove the pin and let the rule choose (build/src/products.js). |
 | `FAMILY-ENTRY-MAPPING` | error | Family entries in materials.csv and their member mapping disagree. | Make the family entry and its members agree. |
 | `FAMILY-ENTRY-OWNS` | error | A family entry owns an active grade. | File the product under the material it is (D44). |
 | `GRADE-ROLE-ID` | error | A grade Role disagrees with its -R# ID suffix. | Study and reference grades, and only they, end in -R#. |
@@ -78,7 +78,7 @@ what it means and how to fix it.
 | `MEAS-ENDPOINT-LOCATOR` | error | An elongation-at-break row whose locator names another endpoint. | File it under the endpoint the source names. |
 | `MEAS-RAW-RECONCILE` | error | Raw value, raw numeric, factor and normalized value do not agree. | Re-read the source; correct the raw number, the factor or the normalized value. |
 | `MEAS-UNIT-UNKNOWN` | error | A raw unit and a normalized unit the raw-value reconciliation has no conversion between, so the value is not independently checked. | Add the conversion to CONVERSIONS in build/src/measurement-rules.js, or write the raw unit as the source prints it and the normalized unit it converts to. |
-| `MEAS-HEADLINE-TYPE` | error | A headline and its measurement disagree in property, unit or value. | Select a measurement that fits the headline. |
+| `MEAS-HEADLINE-TYPE` | error | A product value and its measurement disagree in property, unit or value. | A defect in build/src/products.js: a product value is read from its measurement, never typed. |
 | `MEAS-PROPERTY-UNREGISTERED` | error | A measurement of a property not in properties.csv. | Register the property, or use its registered name. |
 | `MEAS-UNIT` | error | A numeric measurement in a unit its property does not allow. | Convert to a canonical unit, or add the unit to the property deliberately. |
 | `MEAS-NOT-APPLICABLE` | error | A measurement of a property that does not apply to its material. | File it under the right material, or widen Applies to. |
@@ -90,8 +90,7 @@ what it means and how to fix it.
 | `OWN-GRADE-MATERIAL` | error | A record is filed under a material its grade does not belong to. | File it under the grade's material, or use that material's grade. |
 | `OWN-RETIRED-GRADE` | error | An active record uses a retired grade. | Retire or quarantine the record, or move it to the active grade. |
 | `GRADES-LIST` | error | A material's grade list is inconsistent with its grades. | Check grade Role, Status and MaterialID. |
-| `REP-GRADE-NOT-OWN` | error | A representative grade is not one of the material's grades. | Choose one of its procurement grades. |
-| `HEADLINE-CITATION` | error | A headline cites a missing, retired, other-material, non-representative or quarantined measurement. | Select the representative grade's own active measurement. |
+| `HEADLINE-CITATION` | error | A product value cites a missing, quarantined or another product's measurement, or a material names a typical product that is not its own. | A defect in build/src/products.js: a product value is chosen from that product's own active measurements. |
 | `LINK-CITATION` | error | A material link or headline evidence cites a record that does not exist, is the wrong kind, or belongs to another material. | Correct the RecordID or the Link kind. |
 | `GUIDANCE-MISMATCH` | error | Printing guidance does not quote its first cited profile. | Cite the right profile first. |
 | `ENVIRONMENT-NOT-OWN` | error | Environmental evidence is not exactly the material's own exposure records. | File exposure evidence under the material it tests (D38). |
@@ -100,9 +99,7 @@ what it means and how to fix it.
 
 | Code | Level | Means | Fix |
 |---|---|---|---|
-| `HEADLINE-DIRECTION` | error | An XY headline cites a measurement of another direction. | Select an XY measurement; an unstated direction is not XY. |
-| `HDT-LOAD-WRONG` | error | An HDT headline at 0.45 MPa cites a measurement at another stated load. | Select a 0.45 MPa measurement. |
-| `HDT-LOAD-UNSTATED` | warn | HDT headlines whose source names the standard but not the load. | Re-read the source for the load; the value stays flagged until then. Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". Checked by npm run audit:data (in verify). |
+| `HEADLINE-DIRECTION` | error | A product value decides as a comparable XY value but its measurement states another direction. | A defect in build/src/products.js (assess): an unstated direction is as published, never XY. |
 | `IMPACT-UNITS` | info | Impact data in J/m and kJ/m², which cannot share an axis. | Informational; no conversion without specimen geometry. |
 
 ## Coverage

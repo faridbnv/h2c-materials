@@ -78,7 +78,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 
 Each becomes an entry in [DECISIONS.md](DECISIONS.md) in the change that builds it, not before, so DECISIONS never
 describes a tool that does not exist yet. D83 and D84 are entered (the build and the engine carry them; the page reads
-them from phase 3). D85 is entered with the record tier's first lane: `source_facts` and the full-text index
+them from phase 3; phase 4 retired the representative grade and its hand picks, m137). D85 is entered with the record tier's first lane: `source_facts` and the full-text index
 `documents_fts` in `dist/h2c.sqlite`. Makers' know-how in the panel (lane 3) is not built yet.
 
 - **D83. A material is the range of its products.**

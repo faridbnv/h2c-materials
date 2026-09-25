@@ -7,14 +7,15 @@ import { HEAD, transform } from './model.js';
 /**
  * A range function for one headline: (m, subject, p, unit, { ownBounds }) => { bounds, centre, range, wide, at }, where p is
  * the prediction on the model scale with the melting-point offset already added, and subject the material whose
- * product is predicted (itself, or the material its representative product is filed under). at(pr) is the quantile pr
+ * product is predicted (itself, or the material its product is filed under). at(pr) is the quantile pr
  * with the plausible range's calibration and the same limits, for a range wider than the plausible one; cdf(value)
  * is where a value falls in that distribution, which the screening back-test records.
  */
 export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlausible }) {
   const { likely, plausible } = model.levels;
-  // `formulation` predicts one grade rather than the material: the density limit then asks whether that grade is
-  // a declared variant, not whether the representative one is (D81). Material calls pass none, so nothing moves.
+  // `formulation` predicts one grade rather than the material: its own published bounds take part, not its siblings',
+  // and the density limit asks whether that grade is a declared variant (D81). A material call passes none: the
+  // material's own bounds take part, and the density limit asks whether all its products are variants.
   return (m, subject, p, unit, { ownBounds = true, formulation } = {}) => {
     const h = { unit };
     const bounds = [];
@@ -43,10 +44,9 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
     // the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa under HDT at 0.45 MPa) limits its
     // estimate from below, as a published one-sided bound does. PA6's plausible HDT reached down to 72 °C though
     // its own 1.8 MPa value is 90 °C (audit 2026-09-15, B-16).
-    // What the material's own printed measurements prove is its representative grade's: another grade's range does
+    // What the material's own printed measurements prove bounds the material, not one grade: a grade's range does
     // not take it.
-    const representative = formulation === undefined || (m.representativeGrade && S.fkey(m.representativeGrade) === formulation);
-    if (ownBounds && representative) {
+    if (ownBounds && formulation === undefined) {
       const scaleName = model.properties[key].scale === 'log' ? 'log' : 'linear';
       for (const b of m.headline[key]?.impliedBounds ?? []) {
         if (!(b.lo > 0) && scaleName === 'log') continue;
@@ -61,7 +61,7 @@ export function makeRangeFor({ key, model, S, oneSided, inv, calLikely, calPlaus
       bounds.push({ side: 'upper', value: S.vicatOf(m) + lift, sd, why: `its own Vicat ${S.vicatOf(m)} °C + ${lift} °C: ${why}` });
     }
     const variantHere = formulation !== undefined ? S.variantOf(formulation)
-      : S.variantOf(m.representativeGrade && S.fkey(m.representativeGrade)) || S.grades.get(m.representativeGrade)?.variant;
+      : (m.gradeIds ?? []).length > 0 && m.gradeIds.every((id) => S.variantOf(S.fkey(id)) || S.grades.get(id)?.variant);
     if (key === 'density' && S.info(m).density && !variantHere) {
       const [dlo, dhi] = S.info(m).density, cfg = model.bounds.density;
       const r = S.reinforcement(m), rf = cfg.fibreDensity[r];

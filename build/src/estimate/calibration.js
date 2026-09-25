@@ -1,9 +1,9 @@
-// Fitting a headline's model with conflicting evidence down-weighted, and calibrating its ranges: every measured
-// headline is hidden in turn and predicted from everything else, and the likely and plausible ranges are scaled until
+// Fitting a headline's model with conflicting evidence down-weighted, and calibrating its ranges: every material's
+// typical product's value is hidden in turn and predicted from everything else, and the likely and plausible ranges are scaled until
 // they hold the hidden value as often as they claim (DECISIONS D43).
 
 import { median, quantile } from './numerics.js';
-import { HEAD, transform, sig3 } from './model.js';
+import { HEAD, transform, sig3, measuredHeadline } from './model.js';
 import { fitModel, posterior, predict, hyperparameters, spreadObservations } from './gaussian.js';
 import { conversions, betweenProductSpread } from './conversions.js';
 
@@ -105,14 +105,14 @@ export function calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible
   const cfg = model.calibration;
   const loo = [];
   for (const m of S.pool) {
-    const h = m.headline[key];
-    if (!h?.known || (key === 'hdt045' && !(h.loadStated && h.loadMPa === 0.45))) continue;
-    const f = S.fkey(h.gradeId);
+    const t = measuredHeadline(m, key);
+    if (!t) continue;
+    const f = S.fkey(t.gradeId);
     const hide = obs.map((o, i) => (o.m.id === m.id && o.f === f && o.kind === HEAD[key] ? i : -1)).filter((i) => i >= 0);
     if (!hide.length) continue;
-    const p = holdOut(m, f, S.grades.get(h.gradeId)?.manufacturer, hide);
+    const p = holdOut(m, f, S.grades.get(t.gradeId)?.manufacturer, hide);
     const rest = obs.some((o, i) => o.m.id === m.id && !hide.includes(i));
-    loo.push({ m, y: transform(key, model)(h.value) - tmMean(m), p, rest });
+    loo.push({ m, y: transform(key, model)(t.value) - tmMean(m), p, rest, measured: t.value, unit: t.unit });
   }
   const zs = loo.map((l) => Math.abs((l.y - l.p.mu) / l.p.sd));
   const clamp = (x, [lo, hi]) => Math.min(hi, Math.max(lo, x));
@@ -124,7 +124,7 @@ export function calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible
   for (const l of loo) {
     const z = (l.y - l.p.mu) / (l.p.sd * calPlausible);
     if (Math.abs(z) > cfg.outlierZ) {
-      outliers.push({ key, materialId: l.m.id, material: l.m.name, measured: l.m.headline[key].value, expected: sig3(inv(l.p.mu + tmMean(l.m))), unit: l.m.headline[key].unit, z: Math.round(z * 10) / 10 });
+      outliers.push({ key, materialId: l.m.id, material: l.m.name, measured: l.measured, expected: sig3(inv(l.p.mu + tmMean(l.m))), unit: l.unit, z: Math.round(z * 10) / 10 });
     }
   }
   const r3 = (v) => (v == null ? null : Number(v.toPrecision(3)));

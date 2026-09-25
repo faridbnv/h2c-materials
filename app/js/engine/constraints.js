@@ -170,34 +170,11 @@ function evaluateNumeric(material, c, ctx = {}) {
     reason = h.assumption
       ? `Assumed ${fmt(h.value)} ${h.unit} (a scenario assumption, not published)`
       : `Published ${fmt(h.value)}${band ? ` ± ${fmt(h.uncertainty)}` : ''} ${h.unit}`;
-    if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;
+    // A value whose sheet leaves the load or direction unstated decides only when the reader includes such values (D84).
+    if (h.caveat) reason += `, its test ${h.caveat === 'load-not-stated' ? 'load' : 'direction'} not stated (counted because values published that way are included)`;
+    else if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;
     if (closeToLimit) reason += `; close to the limit: the threshold lies within the published spread, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
   }
-  // A headline whose load was never stated cannot back a load-specific thermal claim outright. It is
-  // not unbounded either: measured at 0.45 or 1.8 MPa, the 0.45 MPa value lies in a bracket whose top
-  // is the largest load gap its matrix shows (build/src/estimate/screening.js). That top is inference, so it
-  // decides only what an estimate may: in Explore with estimates on, a requirement the whole bracket
-  // fails screens the material out, and the verdict stays INDETERMINATE (D26, D43).
-  // Keyed on the headline's own flag, not its name: any headline defined at a load can lose it (D46 registry).
-  if (h.loadStated === false) {
-    const b = h.loadBracket;
-    const bracket = b ? compareInterval({ lo: b.lo, hi: b.hi, kind: 'range' }, c.operator, c.value) : null;
-    // The range that screens is set by the build, end by end (D48, D59): the bottom is the published value, the top
-    // only where the gaps grades publish show it. An older snapshot without screenRange screens on the bracket.
-    const decides = b?.screenRange ?? (b?.canScreen === false ? null : b);
-    const fails = !!decides && compareInterval({ lo: decides.lo, hi: decides.hi, kind: 'range' }, c.operator, c.value) === STATUS.FAIL;
-    const screened = !!(ctx.useEstimates && fails);
-    return {
-      status: STATUS.INDETERMINATE,
-      reason: b
-        ? `${reason}, but the source states the standard without the load, so at 0.45 MPa it is ${fmt(b.lo)} to ${fmt(b.hi)} ${h.unit}${fails ? `, which cannot meet this requirement${screened ? '. Screened out; the load is not stated' : ''}` : bracket === STATUS.FAIL ? `; ${b.screenLimit ?? `the top it may screen on, ${fmt(decides?.hi)} ${h.unit}, could still meet it`}` : ''}`
-        : `${reason}, but the source states the standard without the load`,
-      criterion: label, observed: h.value, unit: h.unit,
-      measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
-      caveat: 'load-not-stated', loadBracket: b ?? null, screened, vetoedBy: [],
-    };
-  }
-
   return {
     status, reason, criterion: label, closeToLimit,
     observed: h.value, unit: h.unit, interval,

@@ -2,7 +2,9 @@
 // The rule against the hand: for every headline value selected in headlines.csv, the value the product rule
 // (build/src/products.js) chooses on the same grade with no selection to follow, and where the hand-picked product sits
 // among its material's products. Re-center phase 1's gate: the rule should agree with at least nine picks in ten, and
-// every disagreement is listed for the owner, because phase 4 retires the hand picks the rule reproduces.
+// every disagreement is listed for the owner, because phase 4 retires the hand picks the rule reproduces. Since m137
+// retired them, the picks and each material's representative grade are read from their archive,
+// docs/audits/2026-09-25-re-center/retired-representative-picks.csv, so the comparison can still be re-run.
 //
 //   node scripts/audit/rule-vs-hand-picks.mjs   writes docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md
 
@@ -10,6 +12,7 @@ import { writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../../build/src/load.js';
+import { readCsv } from '../../build/src/csv.js';
 import { buildDatabase } from '../../build/src/pipeline.js';
 import { measurementHeadlines } from '../../build/src/registry.js';
 import { ruleValue } from '../../build/src/products.js';
@@ -18,6 +21,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const out = join(root, 'docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md');
 
 const wb = loadTables(join(root, 'data'));
+const archive = readCsv(join(root, 'docs/audits/2026-09-25-re-center/retired-representative-picks.csv')).records.map((r) => r.values);
+const representativeOf = new Map(archive.map((r) => [r.MaterialID, r['Representative grade']]));
 const { db } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'audit', estimates: false });
 const defs = new Map(measurementHeadlines(db.registry).map((d) => [d.key, d]));
 const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
@@ -32,7 +37,7 @@ for (const m of db.measurements) {
 const fmt = (v) => (v == null ? '—' : Number(v.toPrecision(6)).toString());
 const rows = [];
 const picked = new Set();
-for (const s of wb.Headlines.rows.filter((r) => r.Use === 'value')) {
+for (const s of archive.filter((r) => r.Use === 'value')) {
   const def = defs.get(s.HeadlineKey);
   const m = measurementById.get(s.MeasurementID);
   if (!def || !m) continue;
@@ -52,8 +57,8 @@ for (const s of wb.Headlines.rows.filter((r) => r.Use === 'value')) {
 
 // Headlines nobody picked where the representative grade publishes a value the rule accepts.
 const added = [];
-for (const mat of db.materials.filter((x) => !x.familyEntry && x.representativeGrade && gradeById.has(x.representativeGrade))) {
-  const g = gradeById.get(mat.representativeGrade);
+for (const mat of db.materials.filter((x) => !x.familyEntry && gradeById.has(representativeOf.get(x.id)))) {
+  const g = gradeById.get(representativeOf.get(mat.id));
   for (const [key, def] of defs) {
     if (picked.has(`${mat.id}|${key}`) || mat.headline[key]?.notApplicable) continue;
     const rule = ruleValue(g, def, byGrade.get(g.id) ?? []);

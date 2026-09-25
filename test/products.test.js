@@ -92,7 +92,9 @@ test('every hand-picked headline is the product value of its grade, and the rule
 
 test("a material's summary is the spread of its procurement products that are not variants", () => {
   for (const m of db.materials.filter((x) => x.summary)) {
-    const products = m.gradeIds.map((id) => gradeById.get(id)).filter((g) => !g.variant);
+    // A material whose every product is a declared variant (PP Lightweight) is its variants.
+    const all = m.gradeIds.map((id) => gradeById.get(id));
+    const products = all.every((g) => g.variant) ? all : all.filter((g) => !g.variant);
     for (const [key, s] of Object.entries(m.summary)) {
       const values = products.map((g) => g.headline?.[key]).filter((v) => v?.level === LEVEL.COMPARABLE).map((v) => v.value);
       assert.equal(s.products, products.length, `${m.id} ${key}`);
@@ -102,7 +104,7 @@ test("a material's summary is the spread of its procurement products that are no
       assert.equal(s.max, Math.max(...values));
       assert.ok(s.min <= s.median && s.median <= s.max, `${m.id} ${key}`);
       assert.equal(values.length >= 4, s.q1 !== undefined, `${m.id} ${key}: quartiles from four values`);
-      assert.ok(m.gradeIds.includes(s.typical) && !gradeById.get(s.typical).variant, `${m.id} ${key}: typical ${s.typical}`);
+      assert.ok(products.includes(gradeById.get(s.typical)), `${m.id} ${key}: typical ${s.typical}`);
     }
   }
 });
@@ -132,4 +134,22 @@ test('a product with no profile and no annealed value has no recipe, and a retir
   const bare = db.grades.filter((g) => !g.retired && !db.profiles.some((p) => p.gradeId === g.id) && g.print);
   assert.ok(bare.every((g) => g.print.anneal.length), bare.map((g) => g.id).join(', '));
   for (const g of db.grades.filter((x) => x.retired)) assert.equal(g.headline, undefined, g.id);
+});
+
+test("a material's headline is its products' median with their spread, and none publishing leaves it missing", () => {
+  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
+  let known = 0;
+  for (const m of db.materials.filter((x) => x.summary)) {
+    for (const [key, s] of Object.entries(m.summary)) {
+      const h = m.headline[key];
+      // A price listed only for a declared variant is the market's for the material, not a plain product's (PA6).
+      if (!(s.n > 0)) { if (key !== 'priceCADkg') assert.equal(h.known, false, `${m.id} ${key}`); continue; }
+      known++;
+      assert.deepEqual([h.value, h.spread.n, h.spread.min, h.spread.max, h.typical.gradeId], [s.median, s.n, s.min, s.max, s.typical], `${m.id} ${key}`);
+      assert.equal(h.typical.value, gradeById.get(s.typical).headline[key].value, `${m.id} ${key}`);
+      // One product: its value is the material's, citing its measurement as a single value always did.
+      if (s.n === 1) assert.equal(h.measurementId, h.typical.measurementId, `${m.id} ${key}`);
+    }
+  }
+  assert.ok(known > 400, `only ${known} headlines from products`);
 });

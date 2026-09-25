@@ -1,0 +1,520 @@
+MaterialID,Material,Representative grade,HeadlineKey,MeasurementID,Use
+M001,PLA,G001-01,density,V000001,value
+M001,PLA,G001-01,elongationXY,V000004,value
+M001,PLA,G001-01,hdt045,V000008,context
+M001,PLA,G001-01,tensileModulusXY,V000003,value
+M002,PLA Basic,G002-01,density,V000042,value
+M002,PLA Basic,G002-01,elongationXY,V000054,value
+M002,PLA Basic,G002-01,hdt045,V000048,value
+M002,PLA Basic,G002-01,tensileModulusXY,V000050,value
+M002,PLA Basic,G002-01,tensileStrengthXY,V000052,value
+M003,PLA Matte,G003-01,density,V000063,value
+M003,PLA Matte,G003-01,elongationXY,V000075,value
+M003,PLA Matte,G003-01,hdt045,V000069,value
+M003,PLA Matte,G003-01,tensileModulusXY,V000071,value
+M003,PLA Matte,G003-01,tensileStrengthXY,V000073,value
+M004,PLA Lite,G004-01,density,V001900,value
+M004,PLA Lite,G004-01,elongationXY,V001905,value
+M004,PLA Lite,G004-01,hdt045,V001902,value
+M004,PLA Lite,G004-01,tensileStrengthXY,V001903,value
+M005,PLA Basic Gradient,G005-01,density,V000083,value
+M005,PLA Basic Gradient,G005-01,elongationXY,V000095,value
+M005,PLA Basic Gradient,G005-01,hdt045,V000089,value
+M005,PLA Basic Gradient,G005-01,tensileModulusXY,V000091,value
+M005,PLA Basic Gradient,G005-01,tensileStrengthXY,V000093,value
+M006,PLA Tough+,G006-01,density,V000104,value
+M006,PLA Tough+,G006-01,elongationXY,V000115,value
+M006,PLA Tough+,G006-01,hdt045,V000109,value
+M006,PLA Tough+,G006-01,tensileModulusXY,V000111,value
+M006,PLA Tough+,G006-01,tensileStrengthXY,V000113,value
+M007,PLA Translucent,G007-01,density,V000124,value
+M007,PLA Translucent,G007-01,elongationXY,V000135,value
+M007,PLA Translucent,G007-01,hdt045,V000129,value
+M007,PLA Translucent,G007-01,tensileModulusXY,V000131,value
+M007,PLA Translucent,G007-01,tensileStrengthXY,V000133,value
+M008,PLA Silk,G008-01,density,V001913,value
+M008,PLA Silk,G008-01,hdt045,V001914,context
+M008,PLA Silk,G008-01,tensileModulusXY,V001915,value
+M008,PLA Silk,G008-01,tensileStrengthXY,V001916,value
+M009,PLA Silk+,G009-01,density,V000144,value
+M009,PLA Silk+,G009-01,elongationXY,V000155,value
+M009,PLA Silk+,G009-01,hdt045,V000149,value
+M009,PLA Silk+,G009-01,tensileModulusXY,V000151,value
+M009,PLA Silk+,G009-01,tensileStrengthXY,V000153,value
+M010,PLA Silk Dual Color,G010-01,density,V000164,value
+M010,PLA Silk Dual Color,G010-01,elongationXY,V000176,value
+M010,PLA Silk Dual Color,G010-01,hdt045,V000170,value
+M010,PLA Silk Dual Color,G010-01,tensileModulusXY,V000172,value
+M010,PLA Silk Dual Color,G010-01,tensileStrengthXY,V000174,value
+M011,PLA Metal,G011-01,density,V000184,value
+M011,PLA Metal,G011-01,elongationXY,V000195,value
+M011,PLA Metal,G011-01,hdt045,V000189,value
+M011,PLA Metal,G011-01,tensileModulusXY,V000191,value
+M011,PLA Metal,G011-01,tensileStrengthXY,V000193,value
+M012,PLA Marble,G012-01,density,V000204,value
+M012,PLA Marble,G012-01,elongationXY,V000215,value
+M012,PLA Marble,G012-01,hdt045,V000209,value
+M012,PLA Marble,G012-01,tensileModulusXY,V000211,value
+M012,PLA Marble,G012-01,tensileStrengthXY,V000213,value
+M013,PLA Sparkle,G013-01,density,V000224,value
+M013,PLA Sparkle,G013-01,elongationXY,V000236,value
+M013,PLA Sparkle,G013-01,hdt045,V000230,value
+M013,PLA Sparkle,G013-01,tensileModulusXY,V000232,value
+M013,PLA Sparkle,G013-01,tensileStrengthXY,V000234,value
+M014,PLA Wood,G014-01,density,V000244,value
+M014,PLA Wood,G014-01,elongationXY,V000255,value
+M014,PLA Wood,G014-01,hdt045,V000249,value
+M014,PLA Wood,G014-01,tensileModulusXY,V000251,value
+M014,PLA Wood,G014-01,tensileStrengthXY,V000253,value
+M015,PLA Galaxy,G015-01,density,V000264,value
+M015,PLA Galaxy,G015-01,elongationXY,V000275,value
+M015,PLA Galaxy,G015-01,hdt045,V000269,value
+M015,PLA Galaxy,G015-01,tensileModulusXY,V000271,value
+M015,PLA Galaxy,G015-01,tensileStrengthXY,V000273,value
+M016,PLA Glow,G016-01,density,V000283,value
+M016,PLA Glow,G016-01,elongationXY,V000294,value
+M016,PLA Glow,G016-01,hdt045,V000288,value
+M016,PLA Glow,G016-01,tensileModulusXY,V000290,value
+M016,PLA Glow,G016-01,tensileStrengthXY,V000292,value
+M017,PLA Aero,G017-01,density,V000303,value
+M017,PLA Aero,G017-01,elongationXY,V000314,value
+M017,PLA Aero,G017-01,hdt045,V000308,value
+M017,PLA Aero,G017-01,tensileModulusXY,V000310,value
+M017,PLA Aero,G017-01,tensileStrengthXY,V000312,value
+M018,PLA-CF,G018-01,density,V000323,value
+M018,PLA-CF,G018-01,elongationXY,V000335,value
+M018,PLA-CF,G018-01,hdt045,V000329,value
+M018,PLA-CF,G018-01,tensileModulusXY,V000331,value
+M018,PLA-CF,G018-01,tensileStrengthXY,V000333,value
+M019,PLA-GF,G019-01,density,V000344,value
+M019,PLA-GF,G019-01,elongationXY,V000358,value
+M019,PLA-GF,G019-01,hdt045,V000350,value
+M019,PLA-GF,G019-01,tensileModulusXY,V000354,value
+M019,PLA-GF,G019-01,tensileStrengthXY,V000356,value
+M020,PETG,G020-01,density,V000382,value
+M020,PETG,G020-01,elongationXY,V000385,value
+M020,PETG,G020-01,hdt045,V000389,value
+M020,PETG,G020-01,tensileModulusXY,V000384,value
+M021,PETG Basic,G021-01,density,V000423,value
+M021,PETG Basic,G021-01,elongationXY,V000435,value
+M021,PETG Basic,G021-01,hdt045,V000429,value
+M021,PETG Basic,G021-01,tensileModulusXY,V000431,value
+M021,PETG Basic,G021-01,tensileStrengthXY,V000433,value
+M022,PETG HF,G022-01,density,V000443,value
+M022,PETG HF,G022-01,elongationXY,V000455,value
+M022,PETG HF,G022-01,hdt045,V000449,value
+M022,PETG HF,G022-01,tensileModulusXY,V000451,value
+M022,PETG HF,G022-01,tensileStrengthXY,V000453,value
+M023,PETG Translucent,G023-01,density,V000463,value
+M023,PETG Translucent,G023-01,elongationXY,V000475,value
+M023,PETG Translucent,G023-01,hdt045,V000469,value
+M023,PETG Translucent,G023-01,tensileModulusXY,V000471,value
+M023,PETG Translucent,G023-01,tensileStrengthXY,V000473,value
+M024,PETG-CF,G024-01,density,V000484,value
+M024,PETG-CF,G024-01,elongationXY,V000496,value
+M024,PETG-CF,G024-01,hdt045,V000490,value
+M024,PETG-CF,G024-01,tensileModulusXY,V000492,value
+M024,PETG-CF,G024-01,tensileStrengthXY,V000494,value
+M025,PETG-GF,G025-02,density,V001967,value
+M025,PETG-GF,G025-02,elongationXY,V001972,value
+M025,PETG-GF,G025-02,tensileModulusXY,V001971,value
+M025,PETG-GF,G025-02,tensileStrengthXY,V001970,value
+M026,PETG-ESD,G026-01,density,V000510,value
+M026,PETG-ESD,G026-01,elongationXY,V000513,value
+M026,PETG-ESD,G026-01,hdt045,V000517,value
+M026,PETG-ESD,G026-01,tensileModulusXY,V000512,value
+M027,ABS,G027-01,density,V000546,value
+M027,ABS,G027-01,elongationXY,V000558,value
+M027,ABS,G027-01,hdt045,V000552,value
+M027,ABS,G027-01,tensileModulusXY,V000554,value
+M027,ABS,G027-01,tensileStrengthXY,V000556,value
+M028,ABS-GF,G028-01,density,V000567,value
+M028,ABS-GF,G028-01,elongationXY,V000579,value
+M028,ABS-GF,G028-01,hdt045,V000573,value
+M028,ABS-GF,G028-01,tensileModulusXY,V000575,value
+M028,ABS-GF,G028-01,tensileStrengthXY,V000577,value
+M029,ABS-CF,G029-01,density,V000587,value
+M029,ABS-CF,G029-01,elongationXY,V000590,value
+M029,ABS-CF,G029-01,hdt045,V000594,value
+M029,ABS-CF,G029-01,tensileModulusXY,V000589,value
+M030,ABS-ESD,G030-01,density,V000596,value
+M030,ABS-ESD,G030-01,elongationXY,V000599,value
+M030,ABS-ESD,G030-01,hdt045,V000603,value
+M030,ABS-ESD,G030-01,tensileModulusXY,V000598,value
+M031,ASA,G031-01,density,V000612,value
+M031,ASA,G031-01,elongationXY,V000624,value
+M031,ASA,G031-01,hdt045,V000618,value
+M031,ASA,G031-01,tensileModulusXY,V000620,value
+M031,ASA,G031-01,tensileStrengthXY,V000622,value
+M032,ASA Aero,G032-01,density,V000633,value
+M032,ASA Aero,G032-01,elongationXY,V000645,value
+M032,ASA Aero,G032-01,hdt045,V000639,value
+M032,ASA Aero,G032-01,tensileModulusXY,V000641,value
+M032,ASA Aero,G032-01,tensileStrengthXY,V000643,value
+M033,ASA-CF,G033-01,density,V000653,value
+M033,ASA-CF,G033-01,elongationXY,V000663,value
+M033,ASA-CF,G033-01,hdt045,V000657,value
+M033,ASA-CF,G033-01,tensileModulusXY,V000659,value
+M033,ASA-CF,G033-01,tensileStrengthXY,V000661,value
+M034,ASA-GF,G034-03,density,V001980,value
+M034,ASA-GF,G034-03,elongationXY,V001987,value
+M034,ASA-GF,G034-03,hdt045,V001982,value
+M034,ASA-GF,G034-03,tensileModulusXY,V001985,value
+M034,ASA-GF,G034-03,tensileStrengthXY,V001983,value
+M035,PC,G035-01,density,V000677,value
+M035,PC,G035-01,elongationXY,V000689,value
+M035,PC,G035-01,hdt045,V000683,context
+M035,PC,G035-01,tensileModulusXY,V000685,value
+M035,PC,G035-01,tensileStrengthXY,V000687,value
+M036,PC FR,G036-01,density,V000698,value
+M036,PC FR,G036-01,elongationXY,V000710,value
+M036,PC FR,G036-01,hdt045,V000704,value
+M036,PC FR,G036-01,tensileModulusXY,V000706,value
+M036,PC FR,G036-01,tensileStrengthXY,V000708,value
+M037,PC-CF,G037-01,density,V000719,value
+M037,PC-CF,G037-01,elongationXY,V000722,value
+M037,PC-CF,G037-01,hdt045,V000726,value
+M037,PC-CF,G037-01,tensileModulusXY,V000721,value
+M038,PC-GF,G038-02,density,V001829,value
+M038,PC-GF,G038-02,elongationXY,V001837,value
+M038,PC-GF,G038-02,hdt045,V001831,value
+M038,PC-GF,G038-02,tensileModulusXY,V001839,value
+M038,PC-GF,G038-02,tensileStrengthXY,V001835,value
+M039,TPU,G039-01,density,V000752,value
+M039,TPU,G039-01,elongationXY,V000754,value
+M039,TPU,G039-01,tensileModulusXY,V000753,value
+M040,TPU for AMS,G040-01,density,V000768,value
+M040,TPU for AMS,G040-01,elongationXY,V000779,value
+M040,TPU for AMS,G040-01,tensileModulusXY,V000775,context
+M040,TPU for AMS,G040-01,tensileStrengthXY,V000777,value
+M041,TPU 95A HF,G041-01,density,V000784,value
+M041,TPU 95A HF,G041-01,elongationXY,V000795,value
+M041,TPU 95A HF,G041-01,tensileModulusXY,V000791,value
+M041,TPU 95A HF,G041-01,tensileStrengthXY,V000793,value
+M042,TPU 90A,G042-01,density,V000803,value
+M042,TPU 90A,G042-01,elongationXY,V000814,value
+M042,TPU 90A,G042-01,tensileModulusXY,V000810,value
+M042,TPU 90A,G042-01,tensileStrengthXY,V000812,value
+M043,TPU 85A,G043-01,density,V000819,value
+M043,TPU 85A,G043-01,elongationXY,V000830,value
+M043,TPU 85A,G043-01,tensileModulusXY,V000826,value
+M043,TPU 85A,G043-01,tensileStrengthXY,V000828,value
+M044,TPE,Not published,,,
+M045,PEBA,G045-01,density,V000838,value
+M045,PEBA,G045-01,elongationXY,V000845,value
+M046,TPC / TPEE,G046-01,density,V001690,value
+M047,PA,Not published,,,
+M048,PAHT-CF,G048-01,density,V000896,value
+M048,PAHT-CF,G048-01,elongationXY,V000908,value
+M048,PAHT-CF,G048-01,hdt045,V000902,value
+M048,PAHT-CF,G048-01,tensileModulusXY,V000904,value
+M048,PAHT-CF,G048-01,tensileStrengthXY,V000906,value
+M049,PA6,G049-01,density,V000917,value
+M050,PA6-CF,G050-01,density,V000922,value
+M050,PA6-CF,G050-01,elongationXY,V000934,value
+M050,PA6-CF,G050-01,hdt045,V000928,value
+M050,PA6-CF,G050-01,tensileModulusXY,V000930,value
+M050,PA6-CF,G050-01,tensileStrengthXY,V000932,value
+M051,PA6-GF,G051-01,density,V000943,value
+M051,PA6-GF,G051-01,elongationXY,V000955,value
+M051,PA6-GF,G051-01,hdt045,V000949,value
+M051,PA6-GF,G051-01,tensileModulusXY,V000951,value
+M051,PA6-GF,G051-01,tensileStrengthXY,V000953,value
+M052,PA12,G052-01,,,
+M053,PA12-CF,G053-01,density,V000964,value
+M053,PA12-CF,G053-01,elongationXY,V000967,value
+M053,PA12-CF,G053-01,hdt045,V000971,value
+M053,PA12-CF,G053-01,tensileModulusXY,V000966,value
+M054,PA12-GF,G054-01,density,V001007,value
+M054,PA12-GF,G054-01,elongationXY,V001010,value
+M054,PA12-GF,G054-01,hdt045,V001014,value
+M054,PA12-GF,G054-01,tensileModulusXY,V001009,value
+M055,PA66,Not published,,,
+M056,PA66-CF,Not published,,,
+M057,PA6/66,G057-01,density,V001015,value
+M057,PA6/66,G057-01,elongationXY,V001027,value
+M057,PA6/66,G057-01,hdt045,V001021,value
+M057,PA6/66,G057-01,tensileModulusXY,V001023,value
+M057,PA6/66,G057-01,tensileStrengthXY,V001025,value
+M058,PA612,Not published,,,
+M059,PA612-CF,G059-01,density,V001052,value
+M059,PA612-CF,G059-01,elongationXY,V001059,value
+M059,PA612-CF,G059-01,hdt045,V001054,value
+M059,PA612-CF,G059-01,tensileModulusXY,V001055,value
+M059,PA612-CF,G059-01,tensileStrengthXY,V001057,value
+M060,PA612-GF,Not published,,,
+M061,CoPA,Not published,,,
+M062,PA-CF,Not published,,,
+M063,PA-GF,Not published,,,
+M064,PA-ESD,G064-01,density,V001200,value
+M064,PA-ESD,G064-01,hdt045,V001207,value
+M065,PA612-ESD,G065-01,density,V001236,value
+M065,PA612-ESD,G065-01,elongationXY,V001242,value
+M065,PA612-ESD,G065-01,hdt045,V002065,value
+M065,PA612-ESD,G065-01,tensileModulusXY,V001238,value
+M065,PA612-ESD,G065-01,tensileStrengthXY,V001240,value
+M066,PET,G066-01,density,V001753,value
+M067,PET-CF,G067-01,density,V001264,value
+M067,PET-CF,G067-01,elongationXY,V001276,value
+M067,PET-CF,G067-01,hdt045,V001270,value
+M067,PET-CF,G067-01,tensileModulusXY,V001272,value
+M067,PET-CF,G067-01,tensileStrengthXY,V001274,value
+M068,PET-GF,G068-02,density,V001925,value
+M068,PET-GF,G068-02,elongationXY,V001938,value
+M068,PET-GF,G068-02,hdt045,V001931,value
+M068,PET-GF,G068-02,tensileModulusXY,V001934,value
+M068,PET-GF,G068-02,tensileStrengthXY,V001936,value
+M069,PPA,G069-01,density,V001285,value
+M069,PPA,G069-01,elongationXY,V001294,value
+M069,PPA,G069-01,hdt045,V002224,value
+M069,PPA,G069-01,tensileModulusXY,V001292,value
+M069,PPA,G069-01,tensileStrengthXY,V001290,value
+M070,PPA-CF,G070-01,density,V001302,value
+M070,PPA-CF,G070-01,elongationXY,V001314,value
+M070,PPA-CF,G070-01,hdt045,V001308,value
+M070,PPA-CF,G070-01,tensileModulusXY,V001310,value
+M070,PPA-CF,G070-01,tensileStrengthXY,V001312,value
+M071,PPA-GF,G071-01,density,V001322,value
+M071,PPA-GF,G071-01,elongationXY,V001331,value
+M071,PPA-GF,G071-01,hdt045,V001326,value
+M071,PPA-GF,G071-01,tensileModulusXY,V001329,value
+M071,PPA-GF,G071-01,tensileStrengthXY,V001327,value
+M072,PPS,G072-01,density,V001339,value
+M072,PPS,G072-01,elongationXY,V001342,value
+M072,PPS,G072-01,hdt045,V001346,value
+M072,PPS,G072-01,tensileModulusXY,V001341,value
+M073,PPS-CF,G073-01,density,V001353,value
+M073,PPS-CF,G073-01,elongationXY,V001365,value
+M073,PPS-CF,G073-01,hdt045,V001359,value
+M073,PPS-CF,G073-01,tensileModulusXY,V001361,value
+M073,PPS-CF,G073-01,tensileStrengthXY,V001363,value
+M074,PPS-GF,G074-01,density,V001374,value
+M074,PPS-GF,G074-01,elongationXY,V001383,value
+M074,PPS-GF,G074-01,hdt045,V001378,value
+M074,PPS-GF,G074-01,tensileModulusXY,V001381,value
+M074,PPS-GF,G074-01,tensileStrengthXY,V001379,value
+M075,PVA,G075-01,density,V001406,value
+M076,BVOH,G076-01,density,V001418,value
+M077,Support for PLA,G077-01,density,V001808,value
+M077,Support for PLA,G077-01,hdt045,V001810,context
+M078,Support for PLA/PETG,G078-01,density,V001427,value
+M079,Support for ABS,G079-01,density,V001439,value
+M080,Support for PA/PET,G080-01,density,V001458,value
+M081,HIPS,G081-01,density,V001470,value
+M081,HIPS,G081-01,elongationXY,V001473,value
+M081,HIPS,G081-01,hdt045,V001477,value
+M081,HIPS,G081-01,tensileModulusXY,V001472,value
+M082,PP,G082-02,density,V002053,value
+M082,PP,G082-02,elongationXY,V001497,context
+M082,PP,G082-02,hdt045,V001501,value
+M082,PP,G082-02,tensileModulusXY,V001499,context
+M083,PP-CF,G083-01,density,V001502,value
+M083,PP-CF,G083-01,elongationXY,V001505,value
+M083,PP-CF,G083-01,hdt045,V001508,value
+M083,PP-CF,G083-01,tensileModulusXY,V001504,value
+M084,PP-GF,G084-01,density,V001509,value
+M084,PP-GF,G084-01,elongationXY,V001512,value
+M084,PP-GF,G084-01,hdt045,V001515,value
+M084,PP-GF,G084-01,tensileModulusXY,V001511,value
+M085,PE,G085-02,density,V002277,value
+M085,PE,G085-02,elongationXY,V002279,value
+M085,PE,G085-02,hdt045,V002283,value
+M085,PE,G085-02,tensileModulusXY,V002280,value
+M085,PE,G085-02,tensileStrengthXY,V002278,value
+M086,OBC,G086-01,density,V001683,value
+M087,POM / Acetal,G087-02,density,V002018,value
+M087,POM / Acetal,G087-02,elongationXY,V002022,value
+M087,POM / Acetal,G087-02,tensileModulusXY,V002023,value
+M087,POM / Acetal,G087-02,tensileStrengthXY,V002021,value
+M088,PCTG,G088-01,density,V001523,value
+M088,PCTG,G088-01,elongationXY,V001526,value
+M088,PCTG,G088-01,hdt045,V001531,value
+M088,PCTG,G088-01,tensileModulusXY,V001525,value
+M089,CPE,G089-01,density,V001947,value
+M089,CPE,G089-01,hdt045,V001954,value
+M090,CPE-CF,G090-01,density,V001676,value
+M091,CoPE,G091-02,density,V001919,value
+M091,CoPE,G091-02,hdt045,V001920,context
+M091,CoPE,G091-02,tensileModulusXY,V001921,value
+M091,CoPE,G091-02,tensileStrengthXY,V001922,value
+M092,nGen / Amphora,G092-01,elongationXY,V001958,value
+M092,nGen / Amphora,G092-01,hdt045,V001965,context
+M092,nGen / Amphora,G092-01,tensileModulusXY,V001956,value
+M092,nGen / Amphora,G092-01,tensileStrengthXY,V001957,value
+M093,PVB,G093-01,density,V001695,value
+M093,PVB,G093-01,hdt045,V001698,value
+M094,PC-ABS,G094-01,density,V001547,value
+M094,PC-ABS,G094-01,elongationXY,V001550,value
+M094,PC-ABS,G094-01,hdt045,V001554,value
+M094,PC-ABS,G094-01,tensileModulusXY,V001549,value
+M095,PC-PBT,G095-01,density,V001583,value
+M095,PC-PBT,G095-01,elongationXY,V001595,value
+M095,PC-PBT,G095-01,hdt045,V001589,value
+M095,PC-PBT,G095-01,tensileModulusXY,V001591,value
+M095,PC-PBT,G095-01,tensileStrengthXY,V001593,value
+M096,PVDF,G096-01,density,V001603,value
+M096,PVDF,G096-01,elongationXY,V001606,value
+M096,PVDF,G096-01,hdt045,V001610,value
+M096,PVDF,G096-01,tensileModulusXY,V001605,value
+M097,PEEK,G097-01,density,V001611,value
+M097,PEEK,G097-01,elongationXY,V001614,value
+M097,PEEK,G097-01,hdt045,V001618,value
+M097,PEEK,G097-01,tensileModulusXY,V001613,value
+M097,PEEK,G097-01,tensileStrengthXY,V001612,value
+M098,PEKK,G098-01,density,V001619,value
+M098,PEKK,G098-01,elongationXY,V001622,value
+M098,PEKK,G098-01,hdt045,V001626,value
+M098,PEKK,G098-01,tensileModulusXY,V001621,value
+M098,PEKK,G098-01,tensileStrengthXY,V001620,value
+M099,PEI / ULTEM,G099-01,density,V001635,value
+M099,PEI / ULTEM,G099-01,elongationXY,V001638,value
+M099,PEI / ULTEM,G099-01,hdt045,V001642,value
+M099,PEI / ULTEM,G099-01,tensileModulusXY,V001637,value
+M099,PEI / ULTEM,G099-01,tensileStrengthXY,V001636,value
+M100,PSU,G100-01,density,V001643,value
+M100,PSU,G100-01,elongationXY,V001646,value
+M100,PSU,G100-01,hdt045,V001650,value
+M100,PSU,G100-01,tensileModulusXY,V001645,value
+M100,PSU,G100-01,tensileStrengthXY,V001644,value
+M101,PESU / PES,G101-01,density,V001651,value
+M102,PPSU,G102-01,density,V001659,value
+M102,PPSU,G102-01,elongationXY,V001662,value
+M102,PPSU,G102-01,hdt045,V001666,value
+M102,PPSU,G102-01,tensileModulusXY,V001661,value
+M102,PPSU,G102-01,tensileStrengthXY,V001660,value
+M103,PP Lightweight,G103-01,density,V002226,value
+M103,PP Lightweight,G103-01,elongationXY,V002229,value
+M103,PP Lightweight,G103-01,hdt045,V002232,value
+M103,PP Lightweight,G103-01,tensileModulusXY,V002228,value
+M104,PA6-CE,G104-01,,,
+M105,ASA-EC,G105-01,,,
+M106,ABS-AF,G106-01,,,
+M107,PLA-ESD,G107-01,,,
+M108,PA6-GS,G108-01,,,
+M109,PETG-PTFE,G109-01,,,
+M110,PCTG-GF,G110-01,,,
+M111,PLA-EC,G111-01,,,
+M112,PC-PTFE,G112-01,,,
+M113,ASA-AF,G113-01,,,
+M114,TPC-ESD,G114-01,density,V003134,value
+M114,TPC-ESD,G114-01,hdt045,V003140,value
+M114,TPC-ESD,G114-01,tensileModulusXY,V003136,value
+M114,TPC-ESD,G114-01,tensileStrengthXY,V003135,value
+M115,PEKK-ESD,G115-01,density,V003141,value
+M115,PEKK-ESD,G115-01,elongationXY,V003144,value
+M115,PEKK-ESD,G115-01,hdt045,V003148,value
+M115,PEKK-ESD,G115-01,tensileModulusXY,V003143,value
+M115,PEKK-ESD,G115-01,tensileStrengthXY,V003142,value
+M116,PC-ESD,G116-01,density,V003149,value
+M116,PC-ESD,G116-01,elongationXY,V003152,value
+M116,PC-ESD,G116-01,hdt045,V003156,value
+M116,PC-ESD,G116-01,tensileModulusXY,V003151,value
+M116,PC-ESD,G116-01,tensileStrengthXY,V003150,value
+M117,PEI-GF,G117-01,density,V003165,value
+M117,PEI-GF,G117-01,elongationXY,V003168,value
+M117,PEI-GF,G117-01,hdt045,V003172,value
+M117,PEI-GF,G117-01,tensileModulusXY,V003167,value
+M117,PEI-GF,G117-01,tensileStrengthXY,V003166,value
+M118,PEI-CF,G118-01,density,V003197,value
+M118,PEI-CF,G118-01,elongationXY,V003200,value
+M118,PEI-CF,G118-01,hdt045,V003204,value
+M118,PEI-CF,G118-01,tensileModulusXY,V003199,value
+M118,PEI-CF,G118-01,tensileStrengthXY,V003198,value
+M119,PC-ASA,G119-01,density,V003238,value
+M119,PC-ASA,G119-01,elongationXY,V003241,value
+M119,PC-ASA,G119-01,hdt045,V003245,value
+M119,PC-ASA,G119-01,tensileModulusXY,V003240,value
+M119,PC-ASA,G119-01,tensileStrengthXY,V003239,value
+M120,PVDF-ESD,G120-01,density,V003246,value
+M120,PVDF-ESD,G120-01,elongationXY,V003249,value
+M120,PVDF-ESD,G120-01,hdt045,V003253,value
+M120,PVDF-ESD,G120-01,tensileModulusXY,V003248,value
+M120,PVDF-ESD,G120-01,tensileStrengthXY,V003247,value
+M121,TPI,G121-01,density,V003254,value
+M121,TPI,G121-01,elongationXY,V003257,value
+M121,TPI,G121-01,hdt045,V003261,value
+M121,TPI,G121-01,tensileModulusXY,V003256,value
+M121,TPI,G121-01,tensileStrengthXY,V003255,value
+M122,PEKK-CF,G122-01,density,V003270,value
+M122,PEKK-CF,G122-01,elongationXY,V003273,value
+M122,PEKK-CF,G122-01,hdt045,V003278,value
+M122,PEKK-CF,G122-01,tensileModulusXY,V003272,value
+M122,PEKK-CF,G122-01,tensileStrengthXY,V003271,value
+M123,PEI-ESD,G123-01,density,V003295,value
+M123,PEI-ESD,G123-01,elongationXY,V003298,value
+M123,PEI-ESD,G123-01,tensileModulusXY,V003297,value
+M123,PEI-ESD,G123-01,tensileStrengthXY,V003296,value
+M124,PPS-ESD,G124-01,density,V003310,value
+M124,PPS-ESD,G124-01,elongationXY,V003313,value
+M124,PPS-ESD,G124-01,hdt045,V003317,value
+M124,PPS-ESD,G124-01,tensileModulusXY,V003312,value
+M124,PPS-ESD,G124-01,tensileStrengthXY,V003311,value
+M125,PEEK-CF,G125-01,density,V003318,value
+M125,PEEK-CF,G125-01,elongationXY,V003321,value
+M125,PEEK-CF,G125-01,hdt045,V003325,value
+M125,PEEK-CF,G125-01,tensileModulusXY,V003320,value
+M125,PEEK-CF,G125-01,tensileStrengthXY,V003319,value
+M126,TPU-ESD,G126-01,density,V003326,value
+M126,TPU-ESD,G126-01,tensileStrengthXY,V003327,value
+M127,PEEK-GF,G127-01,density,V003353,value
+M127,PEEK-GF,G127-01,elongationXY,V003356,value
+M127,PEEK-GF,G127-01,hdt045,V003360,value
+M127,PEEK-GF,G127-01,tensileModulusXY,V003355,value
+M127,PEEK-GF,G127-01,tensileStrengthXY,V003354,value
+M128,PC-ABS-CF,G128-01,density,V003377,value
+M128,PC-ABS-CF,G128-01,elongationXY,V003380,value
+M128,PC-ABS-CF,G128-01,hdt045,V003384,value
+M128,PC-ABS-CF,G128-01,tensileModulusXY,V003379,value
+M128,PC-ABS-CF,G128-01,tensileStrengthXY,V003378,value
+M129,TPU-CF,G129-01,density,V004074,value
+M130,PPE-PS,G130-01,density,V004082,value
+M130,PPE-PS,G130-01,elongationXY,V004085,value
+M130,PPE-PS,G130-01,tensileModulusXY,V004084,value
+M130,PPE-PS,G130-01,tensileStrengthXY,V004083,value
+M131,PC-PBT-CF,G131-01,,,
+M132,PBT-GF,G132-01,density,V005262,value
+M132,PBT-GF,G132-01,elongationXY,V005266,value
+M132,PBT-GF,G132-01,hdt045,V005270,value
+M132,PBT-GF,G132-01,tensileModulusXY,V005267,value
+M132,PBT-GF,G132-01,tensileStrengthXY,V005265,value
+M133,PBAT,G133-01,density,V005362,value
+M133,PBAT,G133-01,elongationXY,V005366,value
+M133,PBAT,G133-01,hdt045,V005369,value
+M133,PBAT,G133-01,tensileModulusXY,V005367,value
+M133,PBAT,G133-01,tensileStrengthXY,V005365,value
+M134,CPE-LW,G134-01,density,V005542,value
+M134,CPE-LW,G134-01,hdt045,V005551,value
+M135,PVC,G135-01,density,V005618,value
+M136,SAN,G136-01,density,V005630,value
+M137,COC,G137-01,density,V005676,value
+M138,PE-GF,G138-01,density,V005692,value
+M139,LCP,G139-01,density,V005732,value
+M139,LCP,G139-01,hdt045,V005730,context
+M140,PBT,G140-01,density,V005738,value
+M141,PET-LW,G141-01,,,
+M142,nGen-CF,G142-01,hdt045,V005764,value
+M143,nGen FLEX,G143-01,density,V005866,context
+M143,nGen FLEX,G143-01,hdt045,V005870,context
+M144,PCTG-CF,G144-01,density,V007706,value
+M144,PCTG-CF,G144-01,hdt045,V007712,value
+M145,PLA-PHA,G145-01,density,V009445,value
+M146,PLA-PHB,G146-01,density,V009497,value
+M146,PLA-PHB,G146-01,hdt045,V009504,value
+M147,PAHT,G147-01,density,V009643,context
+M147,PAHT,G147-01,hdt045,V009650,context
+M148,PAHT-CE,G148-01,density,V009726,value
+M148,PAHT-CE,G148-01,hdt045,V009734,context
+M149,PCL,G149-01,,,
+M150,TPU-LW,G150-01,density,V010000,value
+M151,TPU-GF,G151-01,density,V010100,value
+M151,TPU-GF,G151-01,elongationXY,V010103,value
+M151,TPU-GF,G151-01,tensileModulusXY,V010102,value
+M151,TPU-GF,G151-01,tensileStrengthXY,V010101,value
+M152,PLA-NF,G152-01,density,V010252,value
+M153,PETG-GR,G153-01,,,
+M154,PA12-AF,G154-01,,,
+M155,PLA-GR,G155-01,,,
+M156,PA6/66-CF,G156-01,density,V010359,value
+M156,PA6/66-CF,G156-01,hdt045,V010365,context
+M157,TPU-EC,G157-01,density,V010383,value
+M158,PLA-CE,G158-01,hdt045,V010560,value

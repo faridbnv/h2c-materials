@@ -1,14 +1,14 @@
 // Compile: turn the data tables into the normalized runtime database.
 //
-// The one rule that shapes this file: a headline is a measurement selected in headlines.csv, never a
-// number typed a second time. Its value is read from that measurement, and the selection is checked:
-// the measurement must be the material's own, on its representative grade, with the headline's
-// property, unit and direction. A selection that fails any of these is a build error.
+// The one rule that shapes this file: a number is read from its measurement, never typed a second time. Each product's
+// value for a headline is chosen by rule from its own measurements, and a material's headline is its products' spread
+// (products.js, D83); nobody selects either. Where no product publishes a comparable value the headline is missing,
+// with the related evidence and implied bounds a reader, and the estimate stage, can use.
 
 import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS, RETIRED_AVAILABILITY } from './normalize/values.js';
 import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
-import { specimenForm, postProcessingState, isPartSpecimen, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';
+import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';
 import { moistureState } from './normalize/moisture.js';
 import {
   parseTemperature, withinH2C, parseNozzleDiameters, parseAbrasion, parseDrying, parseEnclosure,
@@ -16,7 +16,7 @@ import {
 } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
 import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
-import { compileRegistry, measurementHeadlines, applies } from './registry.js';
+import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
@@ -229,94 +229,27 @@ function buySummary(materialId, prices) {
 const NOT_PUBLISHED = parseValue('Not published');
 const NOT_APPLICABLE = parseValue('Not applicable');
 
-function compileHeadlines(mat, selections, registry, measurementsById, measurementsByMaterial, issues) {
+/**
+ * A material's measurement headlines before its products are summarised: not applicable where the headline's Applies
+ * to excludes the material, else missing, with its related evidence and implied bounds. attachProducts (products.js)
+ * replaces each one its products publish comparably with their spread.
+ */
+function compileHeadlines(mat, registry, measurementsByMaterial) {
   const headline = {};
-  const where = `headlines ${mat.MaterialID} (${mat['Original name']})`;
-  const defs = measurementHeadlines(registry);
-  for (const s of selections) {
-    if (!defs.some((d) => d.key === s.HeadlineKey)) issues.push({ level: 'error', code: 'HEADLINE-KEY-UNKNOWN', where, message: `Headline key "${s.HeadlineKey}" is not a measurement headline in headline_definitions.csv` });
-  }
-  for (const def of defs) {
-    const { key, unit, direction } = def;
-    const values = selections.filter((s) => s.HeadlineKey === key && s.Use === 'value');
-    if (values.length > 1) issues.push({ level: 'error', code: 'HEADLINE-SELECTION-MULTIPLE', where, message: `${key} selects ${values.length} values (${values.map((s) => s.MeasurementID).join(', ')}); a headline shows one measurement` });
-
+  for (const def of measurementHeadlines(registry)) {
+    const { key, unit } = def;
     // A headline limited to some materials does not apply to the rest: not a gap, a statement.
     if (!applies(def.appliesTo, mat)) {
-      if (values.length) issues.push({ level: 'error', code: 'HEADLINE-NOT-APPLICABLE', where, message: `${key} does not apply to this material (${def.appliesToText}) but selects ${values[0].MeasurementID}` });
       headline[key] = { known: false, missing: NOT_APPLICABLE.missing, text: NOT_APPLICABLE.text, unit, notApplicable: { reason: def.notApplicableReason, rule: def.appliesToText } };
       continue;
     }
-
-    if (!values.length) {
-      headline[key] = {
-        known: false, missing: NOT_PUBLISHED.missing, text: NOT_PUBLISHED.text, unit,
-        related: relatedEvidence(mat, def, measurementsByMaterial),
-        impliedBounds: impliedBounds(mat, def, measurementsByMaterial),
-      };
-      continue;
-    }
-
-    const id = values[0].MeasurementID;
-    const m = measurementsById.get(id);
-    const problem = !m ? `${id} is not an active measurement (missing or a retired duplicate)`
-      : !m.numeric ? `${id} has no usable numeric value (${m.dataStatus})`
-      : m.materialId !== mat.MaterialID ? `${id} is a measurement of ${m.materialId}`
-      : m.gradeId !== mat['Representative grade'] ? `${id} is on grade ${m.gradeId}, not the representative grade ${mat['Representative grade']}`
-      : !def.valueProperties.includes(m.property) ? `${id} measures ${m.property}`
-      : m.unit !== unit ? `${id} is in ${m.unit}, not ${unit}`
-      : direction && m.direction !== direction ? `${id} is a ${m.direction} measurement but the headline is ${direction}`
-      : m.implausible ? `${id} is flagged physically implausible (Data status); see its Notes`
-      : !isPartSpecimen(m.specimenType) ? `${id} is a ${m.specimenForm} specimen, not a printed part`
-      : m.moistureState === 'conditioned' ? `${id} was measured after moisture conditioning (${m.moisture}); a headline is dry or unstated`
-      : annealedBesideAsPrinted(m, measurementsByMaterial.get(mat.MaterialID) ?? []) ? `${id} is annealed, and grade ${m.gradeId} publishes the property as printed`
-      : null;
-    if (problem) {
-      issues.push({ level: 'error', code: 'HEADLINE-SELECTION-INVALID', where, message: `Headline ${key} cannot show ${problem}` });
-      headline[key] = { known: true, value: m?.value ?? null, unit, origin: ORIGIN.SOURCE, verified: false };
-      continue;
-    }
-
-    const entry = {
-      known: true,
-      value: m.value,
-      unit,
-      origin: ORIGIN.SOURCE,
-      verified: true,
-      measurementId: m.id,
-      gradeId: m.gradeId,
-      sourceId: m.sourceId,
-      direction: m.direction,
-      specimenType: m.specimenType,
-      moisture: m.moisture,
-      postProcessing: m.postProcessing,
-      interval: m.interval,
-      uncertainty: m.uncertainty,
+    headline[key] = {
+      known: false, missing: NOT_PUBLISHED.missing, text: NOT_PUBLISHED.text, unit,
+      related: relatedEvidence(mat, def, measurementsByMaterial),
+      impliedBounds: impliedBounds(mat, def, measurementsByMaterial),
     };
-    // A headline defined at a test load (HDT at 0.45 MPa). Where the cited source never stated a
-    // load, say so rather than letting the label assert it.
-    if (def.loadMPa != null) {
-      entry.loadStated = m.thermal?.loadStated ?? false;
-      entry.loadMPa = m.thermal?.loadMPa ?? null;
-      entry.standard = m.thermal?.standard ?? null;
-      // A stable code, not prose. The engine branches on this, and the UI supplies the wording.
-      if (!entry.loadStated) {
-        entry.caveat = 'load-not-stated';
-        entry.caveatText = 'Source states the standard but not the load';
-      }
-    }
-    headline[key] = entry;
   }
   return headline;
-}
-
-/** Every measurement a material cites for its headlines, values and context, grouped as the app shows them. */
-function headlineEvidence(selections, registry) {
-  const group = Object.fromEntries(measurementHeadlines(registry).map((d) => [d.key, d.evidenceGroup]));
-  return {
-    mechanical: selections.filter((s) => group[s.HeadlineKey] === 'mechanical').map((s) => s.MeasurementID),
-    thermal: selections.filter((s) => group[s.HeadlineKey] === 'thermal').map((s) => s.MeasurementID),
-  };
 }
 
 // There is deliberately NO cross-property fallback.
@@ -341,21 +274,6 @@ const DIRECTION_NOTE = {
   unknown: 'direction not stated by the source, so it cannot be read as XY',
 };
 
-/**
- * Related evidence for a headline that has no value.
- *
- * 31 materials have a tensile-strength measurement on record that never became the headline,
- * because the source stated no direction or measured a different endpoint. A blank cell hid that
- * and implied nothing was known.
- *
- * It reports ONE measurement, never a range across grades. The Method sheet's Comparison / Headlines
- * rule is that the Materials sheet shows labelled single-grade observations and not cross-grade
- * family ranges; a range would assert exactly the comparability the database refuses to assert.
- * PEBA is the case that matters: its three grades run 7.5, 25 and 30 MPa, and "7.5 to 30" reads as
- * one material's uncertainty rather than three different products.
- *
- * This never becomes the headline and never satisfies a constraint.
- */
 /**
  * Measurements of the material that bound a missing headline from below (headline_definitions.csv Lower bound). The
  * engine lets one veto an estimate's screen when it meets the requirement: the headline is at least that value.
@@ -387,11 +305,19 @@ const FORM_NOTE = {
   filament: 'filament strand, not a printed part',
 };
 
+/**
+ * Related evidence for a headline that has no value: none of the material's products publishes a comparable one.
+ *
+ * Many materials have a measurement on record that is not a comparable value, because the source stated no direction,
+ * measured a different endpoint, or tested a moulded bar. A blank cell hid that and implied nothing was known. It
+ * reports the closest measurement and how many there are, with why each is not comparable; it is never pooled into a
+ * range (the range of a material is its products' comparable values, D83), never becomes the headline, and never
+ * satisfies a constraint.
+ */
 function relatedEvidence(mat, def, measurementsByMaterial) {
   const props = def.relatedProperties;
   if (!props.length) return null;
   const materialId = mat.MaterialID;
-  const representative = mat['Representative grade'];
 
   const items = (measurementsByMaterial.get(materialId) ?? [])
     .filter((m) => m.numeric && !m.quarantined && props.includes(m.property))
@@ -414,11 +340,10 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
     }));
   if (!items.length) return null;
 
-  // Closest to what the headline would have been: XY, printed, the representative grade.
+  // Closest to what the headline would have been: XY, printed, the headline's own property.
   const score = (i) =>
     (i.direction === 'XY' ? 8 : i.direction === 'not-applicable' ? 6 : 0)
     + (i.printed ? 4 : 0)
-    + (i.gradeId === representative ? 2 : 0)
     + (i.property === props[0] ? 1 : 0);
   const sorted = [...items].sort((a, b) => score(b) - score(a));
   const best = sorted[0];
@@ -451,14 +376,15 @@ function compilePriceHeadline(mat, pricesByMaterial) {
 }
 
 /**
- * What a material's headline values represent. It was a column of materials.csv, one of three sentences chosen by
- * the material's own Scope and Representative grade, so it is derived (D47, m45). The Method row Scope / Headline
- * basis states the rule this implements.
+ * What a material's headline values represent, said once per material (D47, m45; Method, Scope / Headline basis). A
+ * family entry has none of its own; a material none of whose products publishes a comparable value has insufficient
+ * comparable data; every other material shows its products' spread (D83).
  */
-function headlineBasis(mat) {
-  if (mat.Scope === FAMILY_ENTRY) return 'Family entry: no values of its own; see its member materials';
-  if (mat['Representative grade'] === 'Not published') return 'Insufficient comparable data';
-  return 'Single-grade observations; not a polymer-family range';
+function headlineBasis(m) {
+  if (m.familyEntry) return 'Family entry: no values of its own; see its member materials';
+  const measured = Object.entries(m.summary ?? {}).some(([key, s]) => key !== 'priceCADkg' && s.n > 0);
+  if (!measured) return 'Insufficient comparable data: none of its products publishes a comparable value';
+  return 'Each number is the typical value of its products that publish it comparably, with their range; the Products tab has each one';
 }
 
 // ---------------------------------------------------------------------------- facets
@@ -574,7 +500,6 @@ export function compile(wb, { snapshot, build }) {
     evidence: wb['Use & durability'].rows.filter((r) => isRetiredDuplicate(r['Evidence type'])).length,
   };
   const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues);
-  const measurementsById = new Map(measurements.map((m) => [m.id, m]));
 
   const profiles = compileProfiles(wb['Print setup'].rows, wb['Print setup notes'].rows, issues);
   const retiredGrades = new Set(grades.filter((g) => g.retired).map((g) => g.id));
@@ -674,9 +599,10 @@ export function compile(wb, { snapshot, build }) {
     measurementsByMaterial.get(m.materialId).push(m);
   }
 
-  const materials = wb.Materials.rows.map((mat) => {
+  // Each row with its polymer's Morphology, which a headline's Applies to may test (heat deflection: not an elastomer).
+  const materialRows = materialRowsOf(wb);
+  const materials = materialRows.map((mat) => {
     const mProfiles = profilesByMaterial.get(mat.MaterialID) || [];
-    const selections = headlineSelections.get(mat.MaterialID) || [];
     const printingEvidence = linked(mat.MaterialID, 'printing');
     // The guidance quotes the first print profile the material cites.
     const guideProfile = printingEvidence.map((id) => profilesById.get(id)).find(Boolean);
@@ -698,10 +624,9 @@ export function compile(wb, { snapshot, build }) {
       // A family or an alias, not a material: it owns no product, carries no value and is never a
       // candidate. Its members come from data/tables/family_members.csv.
       familyEntry: mat.Scope === FAMILY_ENTRY ? familyEntryFor(familyEntries, mat['Original name']) : null,
-      representativeGrade: mat['Representative grade'],
       gradeIds: procurementGrades.get(mat.MaterialID) ?? [],
-      headline: { ...compileHeadlines(mat, selections, registry, measurementsById, measurementsByMaterial, issues), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
-      headlineBasis: headlineBasis(mat),
+      headline: { ...compileHeadlines(mat, registry, measurementsByMaterial), priceCADkg: compilePriceHeadline(mat, pricesByMaterial) },
+      headlineBasis: null,
       facets: deriveFacets(mat),
       guidance: { nozzle: guide('nozzle'), bed: guide('bed'), chamber: guide('chamber') },
       print: printSummary(mProfiles),
@@ -717,9 +642,6 @@ export function compile(wb, { snapshot, build }) {
       },
       profileIds: mProfiles.map((p) => p.id),
       printingEvidence,
-      // Everything headlines.csv cites for this material, kept so the validator can check that every
-      // citation exists and belongs to it, not only the ones selected as values.
-      headlineEvidence: headlineEvidence(selections, registry),
       bestUses: mat['Best uses'],
       limitations: mat.Limitations,
       identity: { notes: mat['Identity notes'], h2cEvidence: linked(mat.MaterialID, 'h2c-status') },
@@ -732,9 +654,10 @@ export function compile(wb, { snapshot, build }) {
 
   resolveFamilyEntries(familyEntries, materials, grades, issues);
 
-  // Every product's own values and print recipe, and every material's spread across its products (products.js). They
-  // decide nothing yet: the headline above does, until the engine reads the products (re-center phase 2).
-  attachProducts({ grades, materials, materialRows: wb.Materials.rows, measurements, profiles, prices, registry, selections: headlineSelections });
+  // Every product's own values and print recipe, every material's spread across its products, and the headline that
+  // spread gives it (products.js). The engine judges the products; the material's headline is what the page shows.
+  attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, issues });
+  for (const m of materials) m.headlineBasis = headlineBasis(m);
 
   // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
   // are not compiled here: the estimate stage (build/src/estimate/) adds them to the finished database.

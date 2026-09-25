@@ -127,11 +127,11 @@ export function measurementIssues(db, wb) {
     }
   }
   const byId = new Map(db.measurements.map((m) => [m.id, m]));
-  for (const mat of db.materials) for (const def of db.registry.headlines.filter((h) => h.kind === 'measurement')) {
-    const h = mat.headline[def.key];
-    if (!h?.known) continue;
-    const m = byId.get(h.measurementId);
-    if (!m || !def.valueProperties.includes(m.property) || m.unit !== def.unit || h.unit !== def.unit || m.value !== h.value) error('MEAS-HEADLINE-TYPE', `materials ${mat.id}`, `Headline ${def.key} has inconsistent property, unit, value or citation`);
+  for (const g of db.grades) for (const def of db.registry.headlines.filter((h) => h.kind === 'measurement')) {
+    const v = g.headline?.[def.key];
+    if (!v) continue;
+    const m = byId.get(v.measurementId);
+    if (!m || !def.valueProperties.includes(m.property) || m.unit !== def.unit || m.value !== v.value) error('MEAS-HEADLINE-TYPE', `grades ${g.id}`, `${def.key} has an inconsistent property, unit, value or citation`);
   }
 
   // Every measurement is of a registered property, in one of its units, of a material it applies to.

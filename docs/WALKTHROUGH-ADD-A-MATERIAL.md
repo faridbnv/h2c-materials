@@ -119,19 +119,23 @@ Run `npm run data:check` as you go: it names the file, line, record and field.
 
 ---
 
-## 4. The headline selections
+## 4. The product's values, and the material's
 
-A measurement appears in the drawer as soon as it exists. Being a **headline** is a separate, editorial choice: a
-row in `headlines.csv` saying which measurement each headline shows.
+Nothing to write. A measurement appears in the drawer as soon as it exists, and the build chooses each product's value
+per headline from its own measurements by rule: comparable before as published, a printed specimen before an unstated
+one, as printed before annealed, dry before unstated, the product's own data sheet first (`build/src/products.js`). The
+material then shows its products' spread: the median of their comparable values, their range, and the typical product.
+
+Only where the rule chooses the wrong measurement for one product, pin it with a row in `headlines.csv` and say why:
 
 ```csv
-MaterialID,HeadlineKey,MeasurementID,Use
-M049,tensileStrengthXY,V002271,value
+MaterialID,HeadlineKey,MeasurementID,Reason
+M049,tensileStrengthXY,V002271,"The sheet's first table is the dry, as-printed one; the rule took the second"
 ```
 
-The build refuses a selection that is not the material's own, not on its representative grade, the wrong property,
-unit or direction, a moulded or film specimen, conditioned, physically implausible, or annealed where the grade
-publishes the as-printed value. It names which. Use `context` for a measurement worth citing that is not the value.
+The build refuses a pin that is not that product's own, the wrong property or unit, another direction or load, a
+moulded or film specimen, conditioned, physically implausible, or annealed where the product publishes the as-printed
+value. It names which.
 
 ---
 

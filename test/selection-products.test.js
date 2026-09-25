@@ -1,6 +1,6 @@
 // A material answered by its products (D83, re-center phase 2): each product is judged on every requirement at once,
 // and the material says whether all, some or none of the products that could be judged pass. These use small
-// hand-built materials so each rule is visible; build/snapshot/templates-products.csv shows what they do to the data.
+// hand-built materials so each rule is visible; build/snapshot/templates.csv shows what they do to the data.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { runSelection, explainExclusions, evaluateProducts, STATUS, UNKNOWN_POLICY, SHARE } from '../app/js/engine/constraints.js';
@@ -118,23 +118,6 @@ test('a material ranks by the median index of its passing products, computed pro
   assert.equal(r.products, 2);
   assert.equal(r.value, 0.0025);
   assert.equal(r.best.gradeId, 'G1');
-});
-
-test("the page shows a material as its products' typical value and range, and leaves what no product publishes as it was", async () => {
-  const { displayMaterial } = await import('../app/js/engine/products.js');
-  const m = {
-    id: 'M1', headline: { tensileModulusXY: { known: true, value: 2.9, unit: 'GPa' }, hdt045: { known: false, missing: 'not-published', unit: '°C', estimate: { lo: 50, hi: 60 } },
-      elongationXY: { known: false, notApplicable: { reason: 'x' }, unit: '%' } },
-    summary: { tensileModulusXY: { products: 5, n: 3, min: 2.1, max: 3.4, median: 2.9, typical: 'G2' }, hdt045: { products: 5, n: 0 }, elongationXY: { products: 5, n: 2, min: 1, max: 2, median: 1.5, typical: 'G1' } },
-  };
-  const grades = new Map([['G2', { id: 'G2', headline: { tensileModulusXY: { value: 2.9, level: 'comparable', measurementId: 'V000002' } } }]]);
-  const d = displayMaterial(m, grades);
-  assert.equal(d.headline.tensileModulusXY.value, 2.9);
-  assert.deepEqual([d.headline.tensileModulusXY.spread.min, d.headline.tensileModulusXY.spread.max, d.headline.tensileModulusXY.spread.n], [2.1, 3.4, 3]);
-  assert.equal(d.headline.hdt045, m.headline.hdt045, 'no product publishes it: the estimate stays');
-  assert.equal(d.headline.elongationXY, m.headline.elongationXY, 'not applicable stays a statement');
-  assert.notEqual(d, m, 'the material is copied, never changed');
-  assert.equal(m.headline.tensileModulusXY.spread, undefined);
 });
 
 test('a link carries the goal and the evidence level only when set, and an old link reads as it did', async () => {

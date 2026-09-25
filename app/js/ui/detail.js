@@ -205,12 +205,21 @@ function groupBy(list, keyOf, first = null) {
 }
 
 /**
- * Grades by maker, the representative grade's maker first. PLA has 198 grades from sixty-odd makers, and a flat list
- * of them was a page a reader scrolled past; a maker is one collapsed line until opened.
+ * Grades by maker, `first` first. PLA has 198 grades from sixty-odd makers, and a flat list of them was a page a reader
+ * scrolled past; a maker is one collapsed line until opened.
  */
-export function groupByMaker(grades, representativeId = null) {
-  const rep = grades.find((g) => g.id === representativeId);
-  return groupBy(grades, (g) => g.manufacturer, rep?.manufacturer ?? null);
+export function groupByMaker(grades, first = null) {
+  return groupBy(grades, (g) => g.manufacturer, first);
+}
+
+/** The maker a material's panel opens on: the one whose product is most often its typical product (D83), else none. */
+function leadMaker(m, c) {
+  const count = new Map();
+  for (const h of Object.values(m.headline ?? {})) {
+    const maker = h?.typical && c.gradeById.get(h.typical.gradeId)?.manufacturer;
+    if (maker) count.set(maker, (count.get(maker) ?? 0) + 1);
+  }
+  return [...count].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? null;
 }
 
 /** A collapsed block per maker or property: the summary counts what is inside, the body shows once opened. */
@@ -423,7 +432,7 @@ function estimateCard(h, label, key) {
     + `${i.measurementId ? ` <span style="font-family:var(--mono)">${esc(i.measurementId)}</span>` : ''}${i.from ? `, ${esc(i.from)}` : ''}`;
   const evidence = e.evidence.length
     ? `<ul class="est-evidence">${e.evidence.map((ev) => `<li>${ev.items.map(item).join('; ')}
-        ${ev.sameGrade ? '<span class="tag">this grade</span>' : `<span class="tag">grade ${esc(ev.gradeId)}</span>`}
+        ${ev.sameGrade ? '<span class="tag">its product</span>' : `<span class="tag">grade ${esc(ev.gradeId)}</span>`}
         → about ${d.num(ev.converted)} ${esc(d.unit)} as this headline. <span class="fine">${esc(ev.conversion)}.</span>
         ${ev.conflict ? '<b>Contradicts the rest of the evidence and is down-weighted.</b>' : ''}</li>`).join('')}</ul>`
     : '';
@@ -437,7 +446,7 @@ function estimateCard(h, label, key) {
     <div class="est-span">${d.lo} – ${d.hi} ${esc(d.unit)} <span class="fine">likely (${pct(e.levels.likely)}), centred on ${d.centre}${d.inColumn ? `; ${d.inColumn[0]}–${d.inColumn[1]} ${esc(d.columnUnit)} in the table` : ''}</span></div>
     <div class="est-basis">Plausibly ${d.plausible[0]} – ${d.plausible[1]} ${esc(d.unit)} (${pct(e.levels.plausible)}). Precision: <b>${esc(e.precision)}</b>, ${esc(ESTIMATE_PRECISION[e.precision])}.
       ${esc(s.title)}${e.strength !== 'family' ? `; this material's own evidence carries about ${pct(e.ownShare)} of the estimate` : ''}. Family: ${esc(e.family)}.${bounds}
-      ${e.sharedWith ? `Its representative product is also recorded under ${esc(e.sharedWith.name)}, so both show the same estimate.` : ''}
+      ${e.sharedWith ? `Its product is also recorded under ${esc(e.sharedWith.name)}, so both show the same estimate.` : ''}
       ${screen} ${e.screenLimit ? esc(`${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}`) : ''}</div>
     ${evidence}
   </details>`;
@@ -894,7 +903,7 @@ function tabBody(tab, c) {
 
   if (tab === 'Printing') {
     if (!profiles.length) return empty('Printing');
-    const repMaker = c.gradeById.get(m.representativeGrade)?.manufacturer ?? null;
+    const leadingMaker = leadMaker(m, c);
     const profileBlock = (p) => {
       const g = c.gradeById.get(p.gradeId);
       return `<div class="profile-block" data-search-item="${esc([gradeName(g), g?.manufacturer, p.profile, p.id].filter(stated).join(' '))}">
@@ -927,8 +936,8 @@ function tabBody(tab, c) {
         <dt>Sources</dt><dd>${[p.sourceId, p.h2cSourceId].filter(stated).map((sid) => `${esc(sourceName(c.sourceById.get(sid), sid))} ${tag(sid, 'Source')}`).join('; ')}</dd>
       </dl></div>`;
     };
-    return searchBox('a grade or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not recorded', repMaker)
-      .map(([maker, group]) => makerBlock(maker, group.length, 'print profile', group.map(profileBlock).join(''), { open: maker === repMaker })).join('');
+    return searchBox('a grade or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not recorded', leadingMaker)
+      .map(([maker, group]) => makerBlock(maker, group.length, 'print profile', group.map(profileBlock).join(''), { open: maker === leadingMaker })).join('');
   }
 
   if (tab === 'Environment') {
@@ -1000,7 +1009,7 @@ function tabBody(tab, c) {
     const noPrice = (p) => `${p.retailer} lists it${Number.isFinite(p.displayedPrice) ? ` at ${fmtNumber(p.displayedPrice)} ${p.currency ?? 'CAD'}` : ''} (seen ${p.accessDate}), `
       + `but no usable regular price per kilogram was recorded. ${stated(p.basis) ? `${p.basis.replace(/[.\s]*$/, '')}.` : ''}${stated(p.notes) ? ` ${p.notes}` : ''}`;
     const quarantineWhy = (p) => [String(p.basis ?? '').replace(/^quarantined:\s*/i, ''), p.notes].filter(stated).map((t) => t.replace(/[.\s]*$/, '')).join('. ');
-    return `<div class="note">Headline is the median of observations flagged for the headline sample.
+    return `<div class="note">The material's price is the median of its products' prices; each product's is the median of its listings in the sample.
       Prices sampled ${esc(db.meta.pricesSampled ?? db.meta.snapshot)}; they are not live. A struck-through row is quarantined: the listing is a different product and backs nothing. Why is said under it.</div>
       ${scrollTable(`<table class="grid price-table"><thead><tr>
       <th>ID</th><th class="retailer">Retailer</th><th class="variant">Variant</th><th class="num">kg</th><th class="num">CAD/kg</th><th>Stock</th><th>In sample</th></tr></thead>
@@ -1020,11 +1029,11 @@ function tabBody(tab, c) {
 
   if (tab === 'Evidence') {
     if (!ms.length) return empty('Evidence');
-    const repMaker = c.gradeById.get(m.representativeGrade)?.manufacturer ?? null;
+    const leadingMaker = leadMaker(m, c);
     const publisher = ([sid]) => c.sourceById.get(sid)?.publisher ?? 'Publisher not recorded';
-    return searchBox('a source or publisher') + groupBy(groupBySource(ms), publisher, repMaker).map(([maker, group]) => makerBlock(maker, group.length, 'source',
+    return searchBox('a source or publisher') + groupBy(groupBySource(ms), publisher, leadingMaker).map(([maker, group]) => makerBlock(maker, group.length, 'source',
       group.map(([sid, list]) => `<div data-search-item="${esc([sourceName(c.sourceById.get(sid), sid), maker, sid].join(' '))}">${sourceBlock(sid, list, c, { inSources: true })}</div>`).join(''),
-      { open: maker === repMaker || group.some(([sid]) => sid === c.highlightSource) })).join('');
+      { open: maker === leadingMaker || group.some(([sid]) => sid === c.highlightSource) })).join('');
   }
 
   if (tab === 'Coverage') {

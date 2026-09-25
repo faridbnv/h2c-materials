@@ -93,38 +93,3 @@ export function productView(material, grade, ctx = {}) {
   for (const key of Object.keys(material.headline ?? {})) headline[key] = productHeadline(material, grade, key, ctx);
   return { ...material, headline, gates: productGates(material, grade), product: grade };
 }
-
-/**
- * The material as the page shows it: each headline that its products publish comparably becomes the products' typical
- * value (their median), carrying their spread, so every view that reads a material's headline (the table, the chart,
- * Compare, the export) shows the material as the spread of its products (D83). A headline no product publishes
- * comparably keeps what the build gave it: an estimate, a related measurement, not published, not applicable. Nothing
- * here decides: the verdict is its products' (evaluateProducts).
- */
-export function displayMaterial(material, gradeById) {
-  if (!material.summary) return material;
-  let headline = null;
-  for (const [key, s] of Object.entries(material.summary)) {
-    const base = material.headline?.[key];
-    if (!(s.n > 0) || !base || base.notApplicable) continue;
-    const typical = gradeById.get(s.typical)?.headline?.[key];
-    headline ??= { ...material.headline };
-    headline[key] = {
-      known: true, value: s.median, unit: base.unit, origin: 'products', verified: true,
-      interval: { lo: s.median, hi: s.median, kind: 'point' },
-      spread: { n: s.n, products: s.products, min: s.min, max: s.max, q1: s.q1 ?? null, q3: s.q3 ?? null,
-        asPublished: s.asPublished ?? null, variants: s.variants ?? null },
-      typical: { gradeId: s.typical, measurementId: typical?.measurementId ?? null, value: typical?.value ?? null },
-      // One product: its value is the material's, and opens its measurement as a headline always did.
-      ...(s.n === 1 ? { measurementId: typical?.measurementId ?? null, gradeId: s.typical } : {}),
-      ...(key === 'priceCADkg' ? { observations: s.n } : {}),
-    };
-  }
-  return headline ? { ...material, headline } : material;
-}
-
-/** Every material as the page shows it (displayMaterial), for the page and for anything that must see what it sees. */
-export function displayMaterials(db) {
-  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
-  return db.materials.map((m) => displayMaterial(m, gradeById));
-}

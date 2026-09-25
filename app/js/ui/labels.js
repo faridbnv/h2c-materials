@@ -68,8 +68,8 @@ export const CHAMBER_GUIDANCE = {
  * table cell, the drawer, Compare, the chart and the export.
  */
 export const ESTIMATE_STRENGTH = {
-  'this-grade': { short: 'from this grade\'s related measurements', title: 'Built mainly from this grade\'s own related measurements (another endpoint, direction, load or specimen), each converted to this property, with the family model' },
-  'this-material': { short: 'from this material\'s other grades', title: 'Built from this material\'s other grades or resin data, converted to this property, with the family model' },
+  'this-grade': { short: 'from this product\'s related measurements', title: 'Built mainly from this product\'s own related measurements (another endpoint, direction, load or specimen), each converted to this property, with the family model' },
+  'this-material': { short: 'from its material\'s products', title: 'Built from related measurements of the material\'s products or resin data (another endpoint, direction, load or specimen), converted to this property, with the family model' },
   family: { short: 'from the family model only', title: 'No evidence of this material itself: predicted from its polymer, reinforcement and chemical family, learned from every measured material' },
 };
 
