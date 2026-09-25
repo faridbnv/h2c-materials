@@ -294,6 +294,37 @@ select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;
 
 ---
 
+## 12. Print recipes the sheets state and the database does not hold
+
+Found by re-center lane 2 (m136, 2026-09-25), which filled what the products' own cached sheets state and the parsers
+read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". Still open:
+
+- **Seventy-five products have no recipe of their own by rule.** The import recorded them as another product's twin
+  (R053) or reprint (R166): a grade each, the values once, on the other product. Their printing tables went with the
+  values, so under D83 they are unknown on every print gate although their own sheets print a recipe. A ruling: record
+  the recipe per product, or let a product read its twin's.
+- **Wordings the parsers cannot read**, left out of m136 rather than typed against the parser: Polymaker's "Closure
+  chamber | Needed" and "No Needed" (7 products), Eryone's "Sealed printing | Supports open/closed printing" (35
+  sheets), "printable on non-heated chamber FFF 3D printers" in prose. `parseEnclosure` would need the words.
+- **Thirty-five Polymaker profiles are the "How to make specimens" block**, read as manufacturer guidance: the nozzle
+  and bed a test bar was printed at (P0339: "Printing temperature 260°C"), beside the product's real recommended
+  profile from the same sheet. They widen nothing today (the recommended profile decides), but they are not guidance.
+- **Twenty-six drying cells hold a fragment, not a schedule**, and count as drying stated: "to", "use", "2-4",
+  "before Printing", "Diameter accuracy (2.85/1.75 mm):", "X1 Series & P Series & H2 Series Printer".
+- **Nine grades are named by a sentence fragment** the import took for the product: "and prevents nozzle jams."
+  (G001-82), "colors." (G035-16), "to print as PLA." (G001-76), "Technical Data" (G020-35), and five more.
+- **A PolyTerra PLA+ sheet** (S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1) is cited by a PolyTerra PLA profile (P0316).
+- **Not yet read:** the hardened-nozzle statements (180 products' sheets), nozzle and bed for products that already had
+  a profile, and drying the printed part after printing (16 products), a treatment like annealing.
+
+```bash
+npm run sql --silent -- "select profileid, sourceid, locator from profiles where sourceid like 'S-POLYCN-TDS-%' and locator like '%: Printing temperature'"
+npm run sql --silent -- "select profileid, drying from profiles where drying_state = 'stated' and drying_c = 'Not published' and drying_hours = 'Not published'"
+npm run sql --silent -- "select gradeid, product_name from grades where status = 'active' and (product_name like '%.' or product_name = 'Technical Data')"
+```
+
+---
+
 ## Coverage, in one number
 
 Of 795 coverage rows, 267 record a gap, 93 a comparability limitation, 41 a reviewed limitation and 13 a partial

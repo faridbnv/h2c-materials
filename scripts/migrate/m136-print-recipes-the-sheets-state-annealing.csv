@@ -1,0 +1,62 @@
+GradeID,SourceID,Page,Label,Finding,Exposure
+G001-115,R-MATTERHACKERS-PRO-SERIES-8AWUF9,1,Annealing note,Preheat the oven to an anneal temperature range of (110°C-120°C).,110°C-120°C
+G001-21,S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,5,Annealing note,"For higher temperature stability, you can anneal this material for 30 minutes @ 80-90°C.",80-90°C for 30 minutes
+G001-29,S-POLYCN-TDS-Polymaker-HT-PLA-Pro-V1-4-2026-7-17-EN,1,Annealing note,"NOTE: For higher temp. resistance, you can anneal this material for 30 mins. @ 100°C.",100°C for 30 mins
+G001-93,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,Annealing Temperature,Annealing Temperature 110-120°C,110-120°C
+G002-01,B-pla-basic-filament-TDS,4,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Basic is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G003-01,B-pla-matte-TDS,4,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Matte is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G006-01,B-pla-tough-upgrade-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Tough+ is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G007-01,B-pla-translucent-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Translucent is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G009-01,B-pla-silk-upgrade-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Silk+ is 50 to 55 °C, and the time is 6 to 12 hours.","50 to 55 °C, 6 to 12 hours"
+G011-01,B-pla-metal-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Metal is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G012-01,B-pla-marble-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Marble is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G014-01,B-pla-wood-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Wood is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G015-01,B-pla-galaxy-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Galaxy is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G016-01,B-pla-glow-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Glow is 50 to 60 °C, and the time is 6 to 12 hours.","50 to 60 °C, 6 to 12 hours"
+G017-01,B-pla-aero-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA Aero is 50 to 55 °C, and the time is 6 to 12 hours.","50 to 55 °C, 6 to 12 hours"
+G018-01,B-pla-cf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PLA-CF is 55 to 60 °C, and the time is 6 to 12 hours.","55 to 60 °C, 6 to 12 hours"
+G019-01,S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,5,Annealing temperature; Annealing time,Annealing temperature 80-100 (°C) (Recommended 100°C); Annealing time 20-30 Mins (Recommended 30 mins),"80-100 (°C) (Recommended 100°C), 20-30 Mins (Recommended 30 mins)"
+G021-01,B-petg-basic-TDS,3,Annealing note,"It's not recommended to anneal prints of PETG Basic, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 °C, and the time is 6 to 12 hours.","60 to 70 °C, 6 to 12 hours"
+G022-01,B-petg-hf-TDS,3,Annealing note,"It's not recommended to anneal prints of PETG HF, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 75 to 80 °C, and the time is 4 to 8 hours.","75 to 80 °C, 4 to 8 hours"
+G023-01,B-petg-translucent-TDS,3,Annealing note,"It's not recommended to anneal prints of PETG Translucent, because only very limited promotion of properties can obtain while prints with not very simple shape and structure may deform obviously. If you do want to anneal them, the suggested temperature is 60 to 70 °C, and the time is 6 to 12 hours.","60 to 70 °C, 6 to 12 hours"
+G027-01,B-abs-filament-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu ABS is 80 to 90 °C, and the time is 6 to 12 hours.","80 to 90 °C, 6 to 12 hours"
+G027-47,R-3DJAKE-KINGROON-ABS-Technical-Data-Sheet-V1-0,3,Annealing note,"For printed models, the recommended annealing conditions are 80–90 °C for 6–12 hours.",80–90 °C for 6–12 hours
+G028-01,B-abs-gf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu ABS-GF is 80 to 90 °C, and the time is 6 to 12 hours.","80 to 90 °C, 6 to 12 hours"
+G031-01,B-asa-filament-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu ASA is 80 to 90 °C, and the time is 6 to 12 hours.","80 to 90 °C, 6 to 12 hours"
+G035-01,B-PC-Bambu-PC-Technical-Data-Sheet,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PC is 85 to 100 °C, and the time is 6 to 12 hours.","85 to 100 °C, 6 to 12 hours"
+G035-02,S-POLYCN-PolyLite-PC-TDS-V5-3,4,Annealing note,Annealing settings: 90˚C for 2h,90˚C for 2h
+G035-06,S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN,1,Annealing setting,Annealing setting 90°C/2H,90°C/2H
+G035-07,S-POLYCN-index-php-controller-attachment-id-attachment-167,1,Annealing note,Annealing settings: 100˚C for 2h,100˚C for 2h
+G035-08,S-POLYCN-TDS-Polymaker-PolyMax-PC-FR-V5-5-2026-01-06-EN,1,Annealing setting,Annealing setting 90°C/2H,90°C/2H
+G035-10,S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN,1,Annealing note,Annealing settings: 90°C for 2h,90°C for 2h
+G035-16,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V6,2,Annealing note,"Note: After the printing, it is recommended to anneal the model in the oven at 100°C for 2 hours.",100°C for 2 hours
+G035-18,D-RAISE3D-Raise3d-Premium-PC-Black-White-TDS-V6,2,Annealing note,"Note: After the printing, it is recommended to anneal the model in the oven at 100°C for 2 hours.",100°C for 2 hours
+G036-01,B-pc-fr-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PC FR is 85 to 100 °C, and the time is 6 to 12 hours.","85 to 100 °C, 6 to 12 hours"
+G036-02,S-POLYCN-PolyMax-PC-FR-TDS-V5-1,4,Annealing note,Annealing settings: 90˚C for 2h,90˚C for 2h
+G048-01,B-paht-cf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PAHT-CF is 80 to 130 °C, and the time is 6 to 12 hours.","80 to 130 °C, 6 to 12 hours"
+G050-01,B-pa6-cf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PA6-CF is 80 to 130 °C, and the time is 6 to 12 hours.","80 to 130 °C, 6 to 12 hours"
+G050-11,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,1,Annealing temp. and time,Annealing temp. and time 100 °C/16H,100 °C/16H
+G051-01,B-pa6-gf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PA6-GF is 80 to 130 °C, and the time is 6 to 12 hours.","80 to 130 °C, 6 to 12 hours"
+G051-03,S-POLYCN-PolyMide-PA6-GF-TDS-V5-1,5,Annealing note,"After the printing process, it is recommended to anneal the model in the oven at 80 - 100°C for 6 hours.",80 - 100°C for 6 hours
+G051-09,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,1,Annealing temp. and time,Annealing temp. and time 100 °C/16H,100 °C/16H
+G053-02,S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1,5,Annealing note,"After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.",80°C for 6 hours
+G053-08,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,1,Annealing temp. and time,Annealing temp. and time 100 °C/16H,100 °C/16H
+G053-09,D-RAISE3D-Raise3D-Industrial-PA12-CF-TDS-V3-0-0b3967,2,Annealing note,"After printing, it is recommended to anneal the model in the oven at 80°C for 6-8 hours.",80°C for 6-8 hours
+G057-01,S-POLYCN-PolyMide-CoPA-TDS-V5-2,5,Annealing note,"After the printing process, it is recommended to anneal the model in the oven at 80°C for 6 hours.",80°C for 6 hours
+G057-03,S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN,1,Annealing setting,Annealing setting 80°C/6H,80°C/6H
+G059-01,S-FIBER-PA612,1,Annealing temp. and time,Annealing temp. and time 100 °C/16H,100 °C/16H
+G059-02,R-QIDI-PA12-CF,4,Annealing note,"After the printing is completed, the printed part can be annealed to further improve the strength of print part. Annealing conditions: leave printing part in an oven at 80-100℃ for 4 to 8 hours and cool to room temperature naturally.",80-100℃ for 4 to 8 hours
+G065-01,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,Annealing temp. and time,Annealing temp. and time 100 °C/16H,100 °C/16H
+G067-01,B-pet-cf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PET-CF is 80 to 140 °C, and the time is 6 to 12 hours.","80 to 140 °C, 6 to 12 hours"
+G067-02,R-FIBERON-PETCF17-TDS,1,Annealing temp. and time,Annealing temp. and time 120 °C/10H,120 °C/10H
+G067-05,D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V2-8c9901cf-e1d5-4e11-b9e2-cd245c298c4f,2,Annealing note,"After printing, it is recommended to anneal the model in an oven at 80-100°C for 8-12 hours.",80-100°C for 8-12 hours
+G068-02,R-FIBERON-PETGF15-TDS,1,Annealing temp. and time,Annealing temp. and time 120°C/16H,120°C/16H
+G068-04,D-RAISE3D-Raise3D-Industrial-PET-GF-TDS-V1,2,Annealing note,"After the printing, it is recommended to anneal the model in the oven at 80-100°C for 8-12 hours.",80-100°C for 8-12 hours
+G070-01,B-ppa-cf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PPA-CF is 120 to 140 °C, and the time is 6 to 12 hours.","120 to 140 °C, 6 to 12 hours"
+G070-04,D-RAISE3D-Industrial-PPA-CF-TDS-V2-0,2,Annealing note,"After the printing, it is recommended to anneal the printed part at 80-100°C for 8 hours.",80-100°C for 8 hours
+G071-04,D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1,2,Annealing note,"After the printing, it is recommended to anneal the printed part at 80-100°C for 8 hours.",80-100°C for 8 hours
+G073-01,B-pps-cf-TDS,3,Annealing note,"the suggested annealing temperature of models printed with Bambu PPS-CF is 180 to 220 °C, and the time is 6 to 12 hours.","180 to 220 °C, 6 to 12 hours"
+G073-04,R-POLYMAKER-FIBERON-TDS-FIBERON-PPS-CF10-V1-1-EN-1,1,Annealing temp. and time,Annealing temp. and time 125 °C/16H,125 °C/16H
+G074-02,S-FIBER-PPSGF-TDS-2,1,Annealing temp. and time,Annealing temp. and time 130 °C/10H,130 °C/10H
+G094-02,S-POLYCN-Polymaker-PC-ABS-TDS-V5-1,4,Annealing note,Annealing settings: 90˚C for 2h,90˚C for 2h
+G095-01,S-POLYCN-Polymaker-PC-PBT-TDS-V5-1,4,Annealing note,Annealing settings: 90˚C for 2h,90˚C for 2h

@@ -1,0 +1,357 @@
+Fill,GradeID,SourceID,Page,Axis,Label,Raw,Target,State,Min,Max,Requirement,Drying °C,Drying hours,Parse review
+F001,G001-02,S-POLYCN-PolySonic-PLA-EN-V5-3-TDS,4,drying,Drying setting,55˚C for 6h,P0002,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F002,G001-103,S-PCGF-PLA-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F003,G001-106,S-PCGF-PLA-Matte-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F004,G001-116,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA,2,drying,Dry Environment,"50~60℃, 6~8h",P0827,stated,Not applicable,Not applicable,Not applicable,60,8,Not applicable
+F005,G001-116,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-V3-0,2,drying,Dry Environment,"45-50℃,6-8h",P0863,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F006,G001-116,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-V3-0-0,2,drying,Dry Environment,"45-50℃,6-8h",P0818,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F007,G001-126,R-3DJAKE-3DJAKE-Technische-daten-PLAx,1,drying,Drying note,Pre-dry material for 3-6 hours at 50°C (max.).,P0857,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F008,G001-132,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-HS-V3-0,2,drying,Dry Environment,"45-50℃,6-8h",P0880,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F009,G001-152,D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,2,drying,Drying note,Please dry the filament at 50 - 60 ºC for 6 - 12 hours,P0907,stated,Not applicable,Not applicable,Not applicable,60,12,"The sheet prints the degree sign as ""º"", which the parser does not read, so the typed temperature is what it reads with a degree sign: 60 (m136)."
+F010,G001-156,R-COLORFABB-TDS-copperFill-en-0,1,drying,Drying conditions (dehumidifying drier),4 Hours @ 60 °C,new,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F011,G001-176,S-POLYCN-PolyWood-TDS-V5-1,4,chamber,Environmental temperature,Room temperature - 45 (˚C),P1005,range,25,45,required,Not applicable,Not applicable,Not applicable
+F012,G001-181,S-POLYCN-Polylite-CosPLA-Version-B-EN-V5-3-20240123,4,chamber,Environmental temperature,0 - 40 (˚C),P1037,range,0,40,required,Not applicable,Not applicable,Not applicable
+F013,G001-183,B-PC-uVYGQd,1,bed,Bed Temperature,55 - 69°C,new,range,55,69,required,Not applicable,Not applicable,Not applicable
+F014,G001-183,B-PC-uVYGQd,1,chamber,Chamber Temperature,29- 40°C,new,range,29,40,required,Not applicable,Not applicable,Not applicable
+F015,G001-183,B-PC-uVYGQd,1,drying,Drying Settings before Printing,"Blast Drying Oven: 50 °C, 8h",new,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F016,G001-183,B-PC-uVYGQd,1,nozzle,Nozzle Temperature,190 - 230°C,new,range,190,230,required,Not applicable,Not applicable,Not applicable
+F017,G001-189,R-BIGREP-ETc3xC8Tf1xLsCQNb96LTKcBFORK1-vyseiwkW-aUdjaJw,1,drying,Drying Recommendations,50°C for4 - 6 hours,new,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F018,G001-189,R-BIGREP-ETc3xC8Tf1xLsCQNb96LTKcBFORK1-vyseiwkW-aUdjaJw,1,nozzle,Nozzle Temperature,200 - 230 °C,new,range,200,230,required,Not applicable,Not applicable,Not applicable
+F019,G001-19,S-POLYCN-PolyLite-PLA-TDS-V3,1,chamber,Recommended environmental temperature,Room temperature - 45 (˚C),P0305,range,25,45,required,Not applicable,Not applicable,Not applicable
+F020,G001-19,S-POLYCN-PolyLite-PLA-TDS-V5-1-7,4,chamber,Environmental temperature,Room temperature,P0270,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable,Not applicable
+F021,G001-20,S-POLYCN-TDS-Polymaker-PolySonic-PLA-Pro-6-0-2026-06-08-EN,1,drying,Drying temp. and time,55˚C for 6h,P0286,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F022,G001-21,S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-0,5,drying,Drying setting,60°C for 6h,P0300,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F023,G001-21,S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-0,5,enclosure,Closure chamber,Not needed,P0300,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F024,G001-21,S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,5,drying,Drying setting,60°C for 6h,P0294,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F025,G001-21,S-POLYCN-Polymaker-HT-PLA-TDS-EN-V1-1,5,enclosure,Closure chamber,Not needed,P0294,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F026,G001-21,S-POLYCN-TDS-Polymaker-HT-PLA-V1-3-2025-12-10-EN,1,drying,Drying temp. and time,60°C/6H,P0331,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F027,G001-21,S-POLYCN-TDS-Polymaker-HT-PLA-V1-3-2025-12-10-EN,1,enclosure,Closure chamber,Not Needed,P0331,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F028,G001-22,S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6,5,chamber,Environmental temperature,0 - 40 (˚C),P0302,range,0,40,required,Not applicable,Not applicable,Not applicable
+F029,G001-23,S-POLYCN-PolyTerra-PLA-TDS-V5-11,4,chamber,Environmental temperature,Room temperature - 60 (˚C),P0311,range,25,60,required,Not applicable,Not applicable,Not applicable
+F030,G001-23,S-POLYCN-TDS-PolyTerra-PLA-V6-0-2026-06-08-EN,1,drying,Drying temp. and time,55˚C for 6h,P0340,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F031,G001-24,S-POLYCN-TDS-Polymaker-PolyMax-PLA-V5-5-2026-01-06-EN,1,drying,Drying temp. and time,55°C/6H,P0317,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F032,G001-24,S-POLYCN-TDS-Polymaker-PolyMax-PLA-V5-5-2026-01-06-EN,1,enclosure,Closure chamber,Not needed,P0317,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F033,G001-25,S-POLYCN-TDS-PolySonic-PLA-V6-0-2026-06-08-EN,1,drying,Drying temp. and time,55˚C for 6h,P0329,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F034,G001-27,S-POLYCN-TDS-Polymaker-PolyLite-PLA-Pro-V5-6-2026-01-05-EN,1,drying,Drying temp. and time,55°C/6H,P0336,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F035,G001-27,S-POLYCN-TDS-Polymaker-PolyLite-PLA-Pro-V5-6-2026-01-05-EN,1,enclosure,Closure chamber,Not needed,P0336,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F036,G001-28,S-POLYCN-TDS-Polymaker-PolyLite-CosPLA-Version-A-V5-5-2025-12-30-EN,1,drying,Drying temp. and time,55°C/6H,P0342,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F037,G001-28,S-POLYCN-TDS-Polymaker-PolyLite-CosPLA-Version-A-V5-5-2025-12-30-EN,1,enclosure,Closure chamber,Not needed,P0342,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F038,G001-30,S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,1,drying,Drying temp. and time,55°C/6H,P0349,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F039,G001-30,S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN,1,enclosure,Closure chamber,Not needed,P0349,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F040,G001-39,R-SUNLU-19364171789540194308,2,drying,Drying Temp.,50-60℃,new,stated,Not applicable,Not applicable,Not applicable,60,Not published,Not applicable
+F041,G001-48,D-FLASH-PLA-Multicolor-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0459,range,25,40,required,Not applicable,Not applicable,Not applicable
+F042,G001-50,D-FLASH-PLA-Matte-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0472,range,25,40,required,Not applicable,Not applicable,Not applicable
+F043,G001-51,D-FLASH-PLA-Pro-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0475,range,25,40,required,Not applicable,Not applicable,Not applicable
+F044,G001-52,D-FLASH-PLA-Crystal-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0483,range,25,40,required,Not applicable,Not applicable,Not applicable
+F045,G001-67,D-FLASH-PLA-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0552,range,25,40,required,Not applicable,Not applicable,Not applicable
+F046,G001-71,S-PEBA-PLA-Matte-TDS-2025-06-19-1,2,drying,Drying Preparation,50℃ >8H,P0577,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F047,G001-73,R-3D4MAKERS-TDS-PLLA-Filament,1,drying,Drying Instruction,"3 hours, 60°C",P0584,stated,Not applicable,Not applicable,Not applicable,60,3,Not applicable
+F048,G001-78,S-PEBA-PLA-TDS-en,2,drying,Drying Preparation,"50℃,8~12h",P0595,stated,Not applicable,Not applicable,Not applicable,50,12,Not applicable
+F049,G001-80,S-PEBA-PLA-HF-TDS-2026-2-2,2,drying,Drying Preparation,"50℃,8~12h",P0601,stated,Not applicable,Not applicable,Not applicable,50,12,Not applicable
+F050,G001-82,D-RAISE3D-Raise3D-Premium-PLA-TDS-V6-0-EN,2,chamber,Recommended environmental temperature (°C),Room temperature - 45,P0614,range,25,45,required,Not applicable,Not applicable,Not applicable
+F051,G001-83,S-PEBA-PLA-Basic-TDS-EN-2026-6-5,2,drying,Drying Preparation,"50℃,8~12h",P0616,stated,Not applicable,Not applicable,Not applicable,50,12,Not applicable
+F052,G001-86,S-PEBA-PLA-Cast-TDS-EN-2025-8-27,2,drying,Drying Preparation,50℃>8H,P0629,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F053,G001-88,S-PEBA-PLA-HS-TDS,2,drying,Drying Preparation,50℃ >8H,P0639,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F054,G001-94,S-PEBA-PLA-Basic-TDS-EN,2,drying,Drying Preparation,50℃ > 8H,P0693,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F055,G001-98,R-NANOVIA-PLA-EF-3D850,1,drying,Drying note,Dehydrate for 4h at 50°C prior to printing after prolonged exposure to humidity.,P0710,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F056,G008-02,S-ESUN-PLA-Silk-TDS-2025-06-19,2,bed,Build Platform Temperature,45-60℃,new,range,45,60,required,Not applicable,Not applicable,Not applicable
+F057,G008-02,S-ESUN-PLA-Silk-TDS-2025-06-19,2,drying,Drying Preparation,50℃ >8H,new,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F058,G008-02,S-ESUN-PLA-Silk-TDS-2025-06-19,2,nozzle,Nozzle Temperature,190-230℃,new,range,190,230,required,Not applicable,Not applicable,Not applicable
+F059,G008-05,R-SUNLU-56889371789540318047,2,drying,Drying Temp.,55℃,new,stated,Not applicable,Not applicable,Not applicable,55,Not published,Not applicable
+F060,G008-07,R-ERYONE-eryone-silk-rainbow-pla-tds,1,drying,Drying conditions,"50-60℃, 6h",P0432,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F061,G008-09,D-FLASH-PLA-Silk-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0474,range,25,40,required,Not applicable,Not applicable,Not applicable
+F062,G008-14,S-PCGF-PLA-Silk-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F063,G008-17,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-silk-V3-0,2,drying,Dry Environment,"55-65℃,6-8h",P0877,stated,Not applicable,Not applicable,Not applicable,65,8,Not applicable
+F064,G011-06,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-Metal-V3-0,2,drying,Dry Environment,"55-65℃,6-8h",P0866,stated,Not applicable,Not applicable,Not applicable,65,8,Not applicable
+F065,G012-03,R-ERYONE-eryone-marble-pla-tds,1,drying,Drying conditions,"50℃-60℃,6h",P0435,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F066,G012-04,S-PCGF-PLA-Marble-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F067,G012-05,R-SUNLU-TDS-High-speed-PLA-marble,2,drying,Drying Temp.,50℃,new,stated,Not applicable,Not applicable,Not applicable,50,Not published,Not applicable
+F068,G014-04,D-FLASH-PLA-Wood-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0482,range,25,40,required,Not applicable,Not applicable,Not applicable
+F069,G014-08,R-NANOVIA-PLA-Wood,1,drying,Drying note,Dehydrate for 4h at 50°C prior to printing after prolonged exposure to humidity.,P0731,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F070,G014-09,S-PCGF-PLA-Wood-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F071,G014-15,I-PLA-PLA-Wood-TDS,2,drying,Drying note,Effective drying takes place at 60°C for 5 hours.,new,stated,Not applicable,Not applicable,Not applicable,60,5,Not applicable
+F072,G016-02,R-ERYONE-eryone-glow-in-the-dark-pla-tds,1,drying,Drying conditions,"50℃-60℃,6h",P0451,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F073,G016-03,S-PCGF-PLA-Glow-in-the-Dark-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F074,G017-02,S-SPECTRUM-en-tds-spectrum-lw-pla-ultrafoam,1,drying,Drying (if wet) ***,at least 6h at 50°C using a hot dry air oven,P0217,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F075,G017-03,S-POLYCN-TDS-PolyLite-LW-PLA-v7-0-2026-04-09,1,drying,Drying temp. and time,55°C/6H,P0298,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F076,G017-03,S-POLYCN-TDS-PolyLite-LW-PLA-v7-0-2026-04-09,1,enclosure,Closure chamber,Not needed,P0298,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F077,G017-04,S-POLYCN-PolyLite-LW-PLA-TDS-US-5-3-20240307,4,chamber,Environmental temperature,Room temperature - 45 (˚C),P0312,range,25,45,required,Not applicable,Not applicable,Not applicable
+F078,G017-06,R-ERYONE-eryone-pla-light-weight-tds,1,drying,Drying conditions,"55℃, 8H",P0429,stated,Not applicable,Not applicable,Not applicable,55,8,Not applicable
+F079,G017-07,D-FLASH-PLA-LW-TDS-EN,3,chamber,Ambient Temperature for Printing,Room temperature~40°C,P0462,range,25,40,required,Not applicable,Not applicable,Not applicable
+F080,G017-07,D-FLASH-PLA-LW-TDS-EN,1,drying,Drying note,dry it in an oven at 50°C for at least 5 hours,P0462,stated,Not applicable,Not applicable,Not applicable,50,5,Not applicable
+F081,G018-06,S-POLYCN-PolyLite-PLA-CF-TDS-US-5-1,4,chamber,Environmental temperature,Room temperature - 45 (˚C),P0354,range,25,45,required,Not applicable,Not applicable,Not applicable
+F082,G018-09,R-ERYONE-eryone-pla-cf-tds,1,drying,Drying conditions,"50℃-60℃,6h",P0450,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F083,G018-10,D-FLASH-PLA-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0486,range,25,40,required,Not applicable,Not applicable,Not applicable
+F084,G018-10,D-FLASH-PLA-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 60℃ for at least 5 hours is recommended,P0486,stated,Not applicable,Not applicable,Not applicable,60,5,Not applicable
+F085,G018-12,S-PCGF-PLA-Carbon-Fiber-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F086,G018-13,R-QIDI-PLA-CF,3,drying,Drying note,Please dry the filament in an oven at 50°C for 4-6h,new,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F087,G018-16,R-3DJAKE-3DJAKE-TDS-PLAx-CF-25-02,1,drying,Drying note,Pre-dry material for 3-6 hours at 50°C (max.).,P0873,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F088,G018-17,R-FILAMENT2PRINT-CreatBot-PLA,1,drying,Pre-printing drying,"40-50℃,6-8 H",P0929,stated,Not applicable,Not applicable,Not applicable,50,8,Not applicable
+F089,G019-01,S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,5,drying,Drying setting,60°C for 6h,P0019,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F090,G019-01,S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN,1,drying,Drying temp. and time,60°C/6H,P0296,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F091,G019-04,R-3DJAKE-3DJAKE-c9047f-1e9c2a0b33dd4d3eb764ce6233abe759,1,drying,Drying note,Pre-dry material for 3-6 hours at 50°C (max.).,P0839,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F092,G020-07,S-SPECTRUM-EN-TDS-Spectrum-PETG-Premium-High-Speed,1,drying,Drying (if wet) ***,at least 4h at 60°C using a hot dry air oven,P0720,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F093,G020-07,S-SPECTRUM-en-tds-spectrum-petg-premium-high-speed,1,drying,Drying (if wet) ***,at least 4h at 60°C using a hot dry air oven,P0196,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F094,G020-14,S-POLYCN-PolyMax-PETG-TDS-V4,1,chamber,Recommended environmental temperature,25 (˚C),P0322,range,25,25,required,Not applicable,Not applicable,Not applicable
+F095,G020-15,S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17,1,drying,Drying temp. and time,55°C/6H,P0325,stated,Not applicable,Not applicable,Not applicable,55,6,Not applicable
+F096,G020-15,S-POLYCN-TDS-Polymaker-PETG-V2-0-2025-11-17,1,enclosure,Closure chamber,Not Needed,P0325,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F097,G020-16,S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN,1,drying,Drying temp. and time,65°C/6H,P0358,stated,Not applicable,Not applicable,Not applicable,65,6,Not applicable
+F098,G020-16,S-POLYCN-TDS-Polymaker-PolyMax-PETG-V5-5-2026-01-06-EN,1,enclosure,Closure chamber,Not needed,P0358,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F099,G020-18,R-SUNLU-30522971789539747056,2,drying,Drying Temp.,65℃,new,stated,Not applicable,Not applicable,Not applicable,65,Not published,Not applicable
+F100,G020-24,D-FLASH-PETG-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~50℃,P0480,range,25,50,required,Not applicable,Not applicable,Not applicable
+F101,G020-24,D-FLASH-PETG-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 70℃ for at least 5 hours is recommended,P0480,stated,Not applicable,Not applicable,Not applicable,70,5,Not applicable
+F102,G020-28,R-FILLAMENTUM-Technical-Data-Sheet-PETG-EN-06052020-FE,1,drying,Conditions to re-dry,"65 °C, 3–4 hours",P0537,stated,Not applicable,Not applicable,Not applicable,65,4,Not applicable
+F103,G020-32,S-PEBA-eSUN-PETG-Filament-TDS-1,2,drying,Drying Preparation,60℃ >8H,P0652,stated,Not applicable,Not applicable,Not applicable,60,8,Not applicable
+F104,G020-35,S-PEBA-PETG-TDS-en,3,drying,Drying Preparation,60℃>8H,P0687,stated,Not applicable,Not applicable,Not applicable,60,8,Not applicable
+F105,G020-37,S-PEBA-PETG-Basic-TDS,2,drying,Drying Preparation,60℃,P0690,stated,Not applicable,Not applicable,Not applicable,60,Not published,Not applicable
+F106,G020-38,S-PEBA-PETG-Matte-TDS,2,drying,Drying Preparation,60℃,P0701,stated,Not applicable,Not applicable,Not applicable,60,Not published,Not applicable
+F107,G020-39,R-NANOVIA-PETG,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0718,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F108,G020-42,S-PCGF-PETG-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F109,G020-43,S-PCGF-PETG-Matte-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F110,G020-48,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PETG-V3-0,2,drying,Dry Environment,"55-65℃,6-8h",P0823,stated,Not applicable,Not applicable,Not applicable,65,8,Not applicable
+F111,G020-51,R-3DJAKE-3DJAKE-TDS-PETG-23-12,1,drying,Drying note,Pre-dry material for 3-6 hours at 60°C (max.).,P0854,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F112,G024-02,R-FIBERON-PETGRCF08-TDS,1,bed,Build plate temperature,60-70 °C,new,range,60,70,required,Not applicable,Not applicable,Not applicable
+F113,G024-02,R-FIBERON-PETGRCF08-TDS,1,chamber,Chamber temperature,Room temp.,new,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable,Not applicable
+F114,G024-02,R-FIBERON-PETGRCF08-TDS,1,drying,Drying temp. and time,65 °C/3H,new,stated,Not applicable,Not applicable,Not applicable,65,3,Not applicable
+F115,G024-02,R-FIBERON-PETGRCF08-TDS,1,nozzle,Nozzle temperature,240-270 °C,new,range,240,270,required,Not applicable,Not applicable,Not applicable
+F116,G024-08,D-FLASH-PETG-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~65℃,P0469,range,25,65,required,Not applicable,Not applicable,Not applicable
+F117,G024-08,D-FLASH-PETG-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 70℃ for at least 5 hours is recommended,P0469,stated,Not applicable,Not applicable,Not applicable,70,5,Not applicable
+F118,G024-11,R-NANOVIA-PETG-CF,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0729,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F119,G024-12,S-PCGF-PETG-CF-v2,1,drying,Drying note,It is recommended to dry the consumables in a hot air oven at 60℃ for at least 12 hours,new,stated,Not applicable,Not applicable,Not applicable,60,12,Not applicable
+F120,G024-14,S-PCGF-PETG-Carbon-Fiber-TDS-Siddament,1,drying,Drying note,"If damp, dry at 60°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F121,G024-18,R-3DJAKE-3DJAKE-TDS-PETG-CF-23-12,1,drying,Drying note,Pre-dry material for 3-6 hours at 60 - 70°C (max.).,P0870,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F122,G024-19,D-SIRAYA-fibreheart-petg-cf-pro-filament-technical-data-tds,1,drying,Drying,70-80°C for 4-6 hours,P0883,stated,Not applicable,Not applicable,Not applicable,80,6,Not applicable
+F123,G024-19,D-SIRAYA-fibreheart-petg-cf-pro-filament-technical-data-tds,1,enclosure,Enclosure,"Not mandatory, but it is recommended",P0883,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F124,G025-03,R-NANOVIA-PETG-GF-UV,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0722,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F125,G025-05,R-3DJAKE-3DJAKE-TDS-PETG-GF-26-04,1,drying,Drying note,Pre-dry material for 3-6 hours at 60 - 70°C (max.).,P0844,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F126,G026-04,D-FLASH-PETG-ESD-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0485,range,25,40,required,Not applicable,Not applicable,Not applicable
+F127,G026-04,D-FLASH-PETG-ESD-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 70℃ for at least 5 hours is recommended,P0485,stated,Not applicable,Not applicable,Not applicable,70,5,Not applicable
+F128,G026-05,R-POLYMAKER-FIBERON-TDS-FIBERON-PETG-ESD-V1-1-EN-1,1,drying,Drying temp. and time,65 °C/3H,P0543,stated,Not applicable,Not applicable,Not applicable,65,3,Not applicable
+F129,G026-07,S-PEBA-PETG-ESD-TDS-EN,2,drying,Drying Preparation,65℃ >8H,P0680,stated,Not applicable,Not applicable,Not applicable,65,8,Not applicable
+F130,G026-08,R-NANOVIA-PETG-ESD,1,drying,Drying note,Dehydrate for 8h at 60 °C prior to printing.,P0730,stated,Not applicable,Not applicable,Not applicable,60,8,Not applicable
+F131,G027-02,S-POLYCN-PolyLite-ABS-TDS-V5-3,4,bed,Build plate temperature,90 - 100 (˚C),new,range,90,100,required,Not applicable,Not applicable,Not applicable
+F132,G027-02,S-POLYCN-PolyLite-ABS-TDS-V5-3,4,chamber,Environmental temperature,Room temperature - 90 (˚C),new,range,25,90,required,Not applicable,Not applicable,Not applicable
+F133,G027-02,S-POLYCN-PolyLite-ABS-TDS-V5-3,4,nozzle,Nozzle temperature,245 – 265 (℃),new,range,245,265,required,Not applicable,Not applicable,Not applicable
+F134,G027-08,S-POLYCN-TDS-Polymaker-ABS-Pro-V1-1-2026-06-01-EN,1,enclosure,Closure chamber,Yes,P0292,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F135,G027-09,S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04,1,drying,Drying temp. and time,70°C/6H,P0338,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F136,G027-10,S-POLYCN-TDS-Polymaker-PolyLite-ABS-V5-6-2025-12-30-EN,1,drying,Drying temp. and time,70°C/6H,P0356,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F137,G027-16,D-FLASH-ABS-Matte-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0463,range,25,40,required,Not applicable,Not applicable,Not applicable
+F138,G027-16,D-FLASH-ABS-Matte-TDS-EN,3,drying,Drying note,we recommend drying it in a hot air oven at 80℃ for at least 5 hours,P0463,stated,Not applicable,Not applicable,Not applicable,80,5,Not applicable
+F139,G027-22,S-PEBA-ABS-TDS-EN-docx,3,drying,Drying Preparation,"60-70 ℃,6-8 hours",P0660,stated,Not applicable,Not applicable,Not applicable,70,8,Not applicable
+F140,G027-30,R-NANOVIA-ABS-EF,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0749,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F141,G027-31,S-PCGF-ABS-TDS-Siddament,1,drying,Drying note,"If damp, dry at 80°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F142,G027-32,R-QIDI-ODORLESS-ABS,5,drying,Drying note,please dry the filament at 70-80°C for 4-6 hours,new,stated,Not applicable,Not applicable,Not applicable,80,6,Not applicable
+F143,G027-35,R-3DJAKE-3DJAKE-TDS-ABSx-23-12,1,drying,Drying note,Pre-dry material for 3-6 hours at 60 - 70°C (max.).,P0826,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F144,G027-40,D-RAISE3D-Raise3D-Premium-ABS-TDS-V7-2,2,chamber,Recommended environmental temperature,20 - 50,P0910,range,20,50,required,Not applicable,Not applicable,Not applicable
+F145,G027-56,S-PET-formfutura-tds-titanx,1,bed,Bed temperature,100-110°C,new,range,100,110,required,Not applicable,Not applicable,Not applicable
+F146,G027-56,S-PET-formfutura-tds-titanx,1,drying,Drying,Recommended 45- 60 °C 12 h,new,stated,Not applicable,Not applicable,Not applicable,60,12,Not applicable
+F147,G027-56,S-PET-formfutura-tds-titanx,1,enclosure,Enclosure,Yes,new,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F148,G027-56,S-PET-formfutura-tds-titanx,1,nozzle,Nozzle temperature,245- 270 °C,new,range,245,270,required,Not applicable,Not applicable,Not applicable
+F149,G027-58,S-PET-formfutura-tds-easyfilabs-glowinthedark,1,bed,Bed temperature,100 - 100 °C,new,range,100,100,required,Not applicable,Not applicable,Not applicable
+F150,G027-58,S-PET-formfutura-tds-easyfilabs-glowinthedark,1,enclosure,Enclosure,No,new,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F151,G027-58,S-PET-formfutura-tds-easyfilabs-glowinthedark,1,nozzle,Nozzle temperature,230 - 255 °C,new,range,230,255,required,Not applicable,Not applicable,Not applicable
+F152,G028-02,D-SIRAYA-Fibreheart-ABS-GF-TDS,4,drying,Drying note,dry the filament at 65°C for 4-6 hours,new,stated,Not applicable,Not applicable,Not applicable,65,6,Not applicable
+F153,G028-06,D-FLASH-ABS-GF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~60℃,P0484,range,25,60,required,Not applicable,Not applicable,Not applicable
+F154,G028-06,D-FLASH-ABS-GF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80°C for at least 5 hours is recommended,P0484,stated,Not applicable,Not applicable,Not applicable,80,5,Not applicable
+F155,G028-10,R-QIDI-ABS-GF25,6,drying,Drying note,please dry the filament at 70°C for 4-6 hours,new,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F156,G029-05,R-NANOVIA-ABS-CF,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0740,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F157,G029-07,S-PCGF-ABS-Carbon-Fiber-TDS-Siddament,1,drying,Drying note,"If damp, dry at 80°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F158,G029-08,D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds,1,drying,Drying note,dry the filament at 60-70°C for 4-6 hours,P0892,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F159,G029-08,D-SIRAYA-siraya-tech-fibreheart-abs-cf-core-tds,1,enclosure,Enclosure,An enclosure is highly recommended even as the core-shell technology provides improved dimensional stability.,P0892,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F160,G029-09,D-RAISE3D-Raise3D-Hyper-Core-ABS-CF15-TDS-V1-0,2,drying,Drying note,Please dry the filament at 60 - 70 ºC for 6 - 8 hours,P0918,stated,Not applicable,Not applicable,Not applicable,70,8,"The sheet prints the degree sign as ""º"", which the parser does not read, so the typed temperature is what it reads with a degree sign: 70 (m136)."
+F161,G030-03,D-FLASH-ABS-ESD-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0460,range,25,40,required,Not applicable,Not applicable,Not applicable
+F162,G030-03,D-FLASH-ABS-ESD-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 70℃ for at least 5 hours is recommended,P0460,stated,Not applicable,Not applicable,Not applicable,70,5,Not applicable
+F163,G030-05,S-PEBA-ABS-ESD-TDS-EN,2,drying,Drying Preparation,85℃ > 8H,P0678,stated,Not applicable,Not applicable,Not applicable,85,8,Not applicable
+F164,G030-06,R-NANOVIA-ABS-ESD,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0716,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F165,G030-09,R-3DJAKE-3DJAKE-c9047f-87fad94441284d8b9a04976ae0a5e874,1,drying,Drying note,Pre-dry material for 3-6 hours at 60 - 70°C (max.).,P0829,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F166,G031-02,S-POLYCN-index-php-controller-attachment-id-attachment-3937,4,chamber,Closure Chamber,Needed (ambient temperature),P0351,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable,Not applicable
+F167,G031-02,S-POLYCN-index-php-controller-attachment-id-attachment-3937,4,drying,Drying setting,70˚C for 7h,P0351,stated,Not applicable,Not applicable,Not applicable,70,7,Not applicable
+F168,G031-06,S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN,1,drying,Drying temp. and time,70°C/7H,P0278,stated,Not applicable,Not applicable,Not applicable,70,7,Not applicable
+F169,G031-09,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--1d9fed,1,drying,Drying conditions,"75~85℃,6~8H",P0430,stated,Not applicable,Not applicable,Not applicable,85,8,Not applicable
+F170,G031-11,D-FLASH-ASA-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0481,range,25,40,required,Not applicable,Not applicable,Not applicable
+F171,G031-11,D-FLASH-ASA-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80℃ for at least 5 hours is recommended,P0481,stated,Not applicable,Not applicable,Not applicable,80,5,Not applicable
+F172,G031-22,R-NANOVIA-ASA,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0711,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F173,G031-24,S-PCGF-ASA-TDS-Siddament,1,drying,Drying note,"If damp, dry at 80°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F174,G031-28,R-MATTERHACKERS-PRO-SERIES-XKjoeP,2,drying,Material Drying Temperature,80°C-90°C (not necessary but recommended),P0842,stated,Not applicable,Not applicable,Not applicable,80,Not published,Not applicable
+F175,G031-32,R-3DJAKE-3DJAKE-TDS-ASA-23-12,1,drying,Drying note,Pre-dry material for 3-6 hours at 60 - 70°C (max.).,P0874,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F176,G031-35,R-FILAMENT2PRINT-CreatBot-ASA,1,drying,Pre-printing drying,"70-80℃,6-8 H",P0948,stated,Not applicable,Not applicable,Not applicable,80,8,Not applicable
+F177,G031-36,S-PET-formfutura-tds-apollox2024,1,drying,Drying,Recommended 45-60°C 12 h,new,stated,Not applicable,Not applicable,Not applicable,60,12,Not applicable
+F178,G031-36,S-PET-formfutura-tds-apollox2024,1,enclosure,Enclosure,Yes,new,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F179,G031-42,S-PET-formfutura-tds-reformrapollo,1,bed,Bed temperature,60 - 80 °C,new,range,60,80,required,Not applicable,Not applicable,Not applicable
+F180,G031-42,S-PET-formfutura-tds-reformrapollo,1,drying,Drying,Recommended 45 - 60 °C 12 h,new,stated,Not applicable,Not applicable,Not applicable,60,12,Not applicable
+F181,G031-42,S-PET-formfutura-tds-reformrapollo,1,enclosure,Enclosure,Yes,new,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F182,G031-42,S-PET-formfutura-tds-reformrapollo,1,nozzle,Nozzle temperature,230 - 270 °C,new,range,230,270,required,Not applicable,Not applicable,Not applicable
+F183,G032-02,S-SPECTRUM-en-tds-spectrum-lw-asa-ultrafoam,1,drying,Drying (if wet) ***,at least 6h at 75°C using a hot dry air oven,P0225,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F184,G033-07,D-FLASH-ASA-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~60℃,P0461,range,25,60,required,Not applicable,Not applicable,Not applicable
+F185,G033-07,D-FLASH-ASA-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80℃ for at least 5 hours is recommended,P0461,stated,Not applicable,Not applicable,Not applicable,80,5,Not applicable
+F186,G033-11,R-POLYMAKER-FIBERON-TDS-FIBERON-ASA-CF08-V1-0-EN,1,drying,Drying temp. and time,90 °C/6H,P0569,stated,Not applicable,Not applicable,Not applicable,90,6,Not applicable
+F187,G033-12,S-PET-formfutura-tds-apolloxcf10,1,enclosure,Enclosure note,"No enclosure, or heated chamber needed.",new,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F188,G033-13,S-PCGF-ASA-Carbon-Fiber-TDS-Siddament,1,drying,Drying note,"If damp, dry at 80°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F189,G033-14,R-QIDI-ASA-CF20-CORE,4,drying,Drying note,please dry the filament at 60-70°C for 4-6 hours,P0760,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F190,G033-15,R-3DJAKE-3DJAKE-ASAx-CF-Technical-Data,1,drying,Drying note,Pre-dry material for 3-6 hours at 60 - 70°C (max.).,P0846,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F191,G033-17,S-PCGF-ASA-TDS,1,drying,Drying note,It is recommended to dry the filament in a dryer at 80°C for at least 5 hours,new,stated,Not applicable,Not applicable,Not applicable,80,5,Not applicable
+F192,G035-02,S-POLYCN-PolyLite-PC-TDS-V5-1,4,chamber,Environmental temperature,70-80 (˚C)(Recommended),P0315,range,70,80,recommended,Not applicable,Not applicable,"The sheet marks the window ""(Recommended)"" after the numbers; the parser reads a recommendation only when the cell starts with the word, so the typed requirement is recommended (m136)."
+F193,G035-02,S-POLYCN-PolyLite-PC-TDS-V5-1,4,enclosure,Enclosure note,it is recommended to use an enclosure,P0315,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F194,G035-03,S-SPECTRUM-en-tds-spectrum-pc-275,1,drying,Drying (if wet) ***,at least 5h at 120°C using a hot dry air oven,P0203,stated,Not applicable,Not applicable,Not applicable,120,5,Not applicable
+F195,G035-06,S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN,1,drying,Drying temp. and time,75°C/6H,P0276,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F196,G035-07,S-POLYCN-index-php-controller-attachment-id-attachment-167,1,chamber,Recommended environmental temperature,70 – 80 (recommended) (˚C),P0303,range,70,80,recommended,Not applicable,Not applicable,"The sheet marks the window ""(Recommended)"" after the numbers; the parser reads a recommendation only when the cell starts with the word, so the typed requirement is recommended (m136)."
+F197,G035-07,S-POLYCN-index-php-controller-attachment-id-attachment-167,1,enclosure,Enclosure note,it is recommended to use an enclosure,P0303,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F198,G035-08,S-POLYCN-TDS-Polymaker-PolyMax-PC-FR-V5-5-2026-01-06-EN,1,chamber,Closure chamber,Needed (70°C-100°C),P0344,range,70,100,required,Not applicable,Not applicable,Not applicable
+F199,G035-08,S-POLYCN-TDS-Polymaker-PolyMax-PC-FR-V5-5-2026-01-06-EN,1,drying,Drying temp. and time,75°C/6H,P0344,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F200,G035-08,S-POLYCN-TDS-Polymaker-PolyMax-PC-FR-V5-5-2026-01-06-EN,1,enclosure,Enclosure note,it is recommended to use an enclosure,P0344,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F201,G035-10,S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN,1,chamber,Closure chamber,Needed (70°C-100°C),P0352,range,70,100,required,Not applicable,Not applicable,Not applicable
+F202,G035-10,S-POLYCN-TDS-Polymaker-PolyLite-PC-Transparent-V5-5-2026-01-05-EN,1,drying,Drying temp. and time,75°C/6H,P0352,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F203,G035-13,D-FLASH-PC-TDS-EN,2,chamber,Ambient Temperature for Printing,40~70℃,P0478,range,40,70,required,Not applicable,Not applicable,Not applicable
+F204,G035-13,D-FLASH-PC-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80℃ for at least 12 hours is recommended,P0478,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F205,G035-17,S-PEBA-PC-HT-TDS,2,drying,Drying Preparation,"95-105℃,5-7 hours",P0624,stated,Not applicable,Not applicable,Not applicable,105,7,Not applicable
+F206,G035-19,R-NANOVIA-PC,1,drying,Drying note,Dehydrate for 6 h at 100 °C prior to printing after prolonged exposure to humidity.,P0742,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F207,G035-20,S-PCGF-PC-TDS-Siddament,1,drying,Drying note,"If damp, dry at 80°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F208,G036-02,S-POLYCN-PolyMax-PC-FR-TDS-V5-1,4,bed,Build plate temperature,90 - 105 (˚C),new,range,90,105,required,Not applicable,Not applicable,Not applicable
+F209,G036-02,S-POLYCN-PolyMax-PC-FR-TDS-V5-1,4,chamber,Environmental temperature,90-100 (˚C),new,range,90,100,required,Not applicable,Not applicable,Not applicable
+F210,G036-02,S-POLYCN-PolyMax-PC-FR-TDS-V5-1,4,enclosure,Enclosure note,it is recommended to use an enclosure,new,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F211,G036-02,S-POLYCN-PolyMax-PC-FR-TDS-V5-1,4,nozzle,Nozzle temperature,250 – 270 (℃),new,range,250,270,required,Not applicable,Not applicable,Not applicable
+F212,G037-02,S-SPECTRUM-EN-TDS-Spectrum-PC-CF-3,1,drying,Drying (if wet) ***,at least 6h at 75°C using a hot dry air oven,P0551,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F213,G037-02,S-SPECTRUM-en-tds-spectrum-pc-cf,1,drying,Drying (if wet) ***,at least 6h at 75°C using a hot dry air oven,P0046,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F214,G037-05,D-FLASH-PC-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~60℃,P0456,range,25,60,required,Not applicable,Not applicable,Not applicable
+F215,G037-05,D-FLASH-PC-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 100°C for at least 4 hours is recommended,P0456,stated,Not applicable,Not applicable,Not applicable,100,4,Not applicable
+F216,G037-07,R-NANOVIA-PC-CF,1,drying,Drying note,Dehydrate for 6 h at 100 °C prior to printing after prolonged exposure to humidity.,P0713,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F217,G037-08,S-PCGF-PC-Carbon-Fiber-TDS-Siddament,1,drying,Drying note,"If damp, dry at 80°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F218,G037-09,R-3DJAKE-3DJAKE-c9047f-230cb5f262c040bb8f570d174a23b353,1,drying,Drying note,"Pre-dry material for 4-6 hours at 80°C (max.), 6-8 hours at 70°C or 10-12 hours at 60°C.",P0856,stated,Not applicable,Not applicable,Not applicable,80,6,Not applicable
+F219,G039-10,S-POLYCN-PolyFlex-TPU95-HF-TDS-V4-2,1,chamber,Recommended environmental temperature,Room temperature - 45 (˚C),P0274,range,25,45,required,Not applicable,Not applicable,Not applicable
+F220,G039-11,S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN,1,drying,Drying temp. and time,70°C/8H,P0290,stated,Not applicable,Not applicable,Not applicable,70,8,Not applicable
+F221,G039-11,S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN,1,enclosure,Closure chamber,Not needed,P0290,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F222,G039-12,S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN,1,drying,Drying temp. and time,70°C/8H,P0320,stated,Not applicable,Not applicable,Not applicable,70,8,Not applicable
+F223,G039-12,S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-HF-V5-5-2025-12-29-EN,1,enclosure,Closure chamber,Not needed,P0320,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F224,G039-13,S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-V5-5-2025-12-29-EN,1,drying,Drying temp. and time,70°C/8H,P0333,stated,Not applicable,Not applicable,Not applicable,70,8,Not applicable
+F225,G039-13,S-POLYCN-TDS-Polymaker-PolyFlex-TPU95-V5-5-2025-12-29-EN,1,enclosure,Closure chamber,Not needed,P0333,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F226,G039-22,D-FLASH-TPU-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0477,range,25,40,required,Not applicable,Not applicable,Not applicable
+F227,G039-22,D-FLASH-TPU-TDS-EN,3,drying,Drying note,dry the filament in a hot dry air oven at 70℃ for at least 5 hours before use,P0477,stated,Not applicable,Not applicable,Not applicable,70,5,Not applicable
+F228,G039-23,D-FLASH-TPU-64D-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 90℃-100℃ for at least 12 hours is recommended,P0487,stated,Not applicable,Not applicable,Not applicable,90,12,Not applicable
+F229,G039-37,S-PEBA-eSUN-TPU-95A-Filament-TDS-V4-0,2,drying,Drying note,dry the printing (55℃/>4H),P0650,stated,Not applicable,Not applicable,Not applicable,55,4,Not applicable
+F230,G039-44,S-PEBA-TPU-64D-TDS,2,drying,Drying Preparation,"80℃,4-8H",P0699,stated,Not applicable,Not applicable,Not applicable,80,8,Not applicable
+F231,G039-45,R-NANOVIA-TPU-70D,1,drying,Drying note,Dehydrate for 6 h at 80 °C prior to printing after prolonged exposure to humidity.,P0717,stated,Not applicable,Not applicable,Not applicable,80,6,Not applicable
+F232,G039-46,S-PET-TDS-ReForm-rTPU-95A,1,drying,Drying,24 hours @ ~50-70 °C,P0726,stated,Not applicable,Not applicable,Not applicable,70,24,Not applicable
+F233,G039-49,S-PCGF-TPU-95A-TDS-Siddament,1,drying,Drying note,"If damp, dry at 50°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable
+F234,G039-50,R-QIDI-TPU95A-HF,4,drying,Drying note,Please dry the filament in an oven at 70-80℃ for 4-6h,new,stated,Not applicable,Not applicable,Not applicable,80,6,Not applicable
+F235,G039-55,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-TPU-V3-0,2,drying,Dry Environment,"70℃-80℃,8h-12h",P0840,stated,Not applicable,Not applicable,Not applicable,70,8,Not applicable
+F236,G039-57,R-MATTERHACKERS-PRO-SERIES-XNT7Rt,2,drying,Material Drying Temperature,90°C (Active Drying Recommended),P0872,stated,Not applicable,Not applicable,Not applicable,90,Not published,Not applicable
+F237,G039-66,D-SIRAYA-siraya-tech-fibreheart-flex-tpu-95a-tds,1,drying,Drying note,dry the filament at 50°C - 65°C for 4-6 hours,P0975,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F238,G039-67,D-SIRAYA-siraya-tech-fibreheart-flex-tpu-85a-tds,1,drying,Drying note,dry the filament at 50°C - 65°C for 4-6 hours,new,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F239,G039-69,D-SIRAYA-siraya-tech-flex-tpu-air-tds,1,drying,Drying note,Dry 4-6 hours at 70°C - 80°C before printing,P0977,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F240,G045-04,R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,drying,Conditions to re-dry,"70 °C, 5 hours",new,stated,Not applicable,Not applicable,Not applicable,70,5,Not applicable
+F241,G045-04,R-FILLAMENTUM-FLEXFILL-PEBA-90A-TDS,1,nozzle,Print temperature,225–245 °C,new,range,225,245,required,Not applicable,Not applicable,Not applicable
+F242,G045-07,R-QIDI-PEBA-95A,3,drying,Drying note,Please dry the filament in an oven at 70-75°C for 4-6h,P0762,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F243,G045-09,D-SIRAYA-siraya-tech-rebound-peba-air-70a-95a-tds,1,drying,Drying note,Dry 4-6 hours at 70°C - 75°C before printing,P1017,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F244,G045-10,D-SIRAYA-rebound-peba-85a-filament-tds,1,drying,Drying note,Dry your filament thoroughly at 70-75°C for 4-6h,P1031,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F245,G049-01,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,drying,Drying (if wet) ***,at least 12h at 80 using a hot dry air oven,P0064,stated,Not applicable,Not applicable,Not applicable,80,12,"The sheet prints the drying temperature without its unit (""at 80 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F246,G049-03,S-SPECTRUM-en-tds-spectrum-pa6-low-warp,1,drying,Drying (if wet) ***,at least 12h at 60 using a hot dry air oven,P0218,stated,Not applicable,Not applicable,Not applicable,60,12,"The sheet prints the drying temperature without its unit (""at 60 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F247,G049-04,S-SPECTRUM-en-tds-pa6-neat-nt,1,drying,Drying (if wet) ***,at least 12h at 80 using a hot dry air oven,P0221,stated,Not applicable,Not applicable,Not applicable,80,12,"The sheet prints the drying temperature without its unit (""at 80 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F248,G049-06,R-NANOVIA-PA-6,1,drying,Drying note,Dehydrate for 6h at 100°C prior to printing.,P0736,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F249,G049-07,S-PCGF-PA-TDS-Siddament,1,drying,Drying note,"If damp, dry at 80°C for 2-4 hours.",new,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F250,G049-08,R-NANOVIA-PA-Rail-ac7021,1,drying,Drying note,Dehydrate for 6 h at 100 °C prior to printing.,P0898,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F251,G050-03,S-SPECTRUM-en-tds-spectrum-pa6-low-warp-cf15s,1,drying,Drying (if wet) ***,at least 12h at 80 using a hot dry air oven,P0183,stated,Not applicable,Not applicable,Not applicable,80,12,"The sheet prints the drying temperature without its unit (""at 80 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F252,G050-04,S-SPECTRUM-en-tds-spectrum-pa6-cf15,1,drying,Drying (if wet) ***,at least 12h at 80 using a hot dry air oven,P0210,stated,Not applicable,Not applicable,Not applicable,80,12,"The sheet prints the drying temperature without its unit (""at 80 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F253,G050-08,D-FLASH-PA6-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~65℃,P0458,range,25,65,required,Not applicable,Not applicable,Not applicable
+F254,G050-08,D-FLASH-PA6-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80℃ for at least 12 hours is recommended,P0458,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F255,G050-11,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN,1,drying,Drying temp. and time,100 °C/10H,P0575,stated,Not applicable,Not applicable,Not applicable,100,10,Not applicable
+F256,G050-12,R-NANOVIA-PA-6-CF,1,drying,Drying note,Dehydrate for 6 h at 100 °C prior to printing.,P0723,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F257,G050-14,S-PCGF-PA6CF,1,drying,Drying note,It is recommended to dry the filament in a dryer at 80°C for at least 12 hours,new,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F258,G051-04,S-SPECTRUM-en-tds-spectrum-pa6-low-warp-gf30,1,drying,Drying (if wet) ***,at least 12h at 80 using a hot dry air oven,P0182,stated,Not applicable,Not applicable,Not applicable,80,12,"The sheet prints the drying temperature without its unit (""at 80 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F259,G051-07,D-FLASH-PA6-GF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~80℃,P0479,range,25,80,required,Not applicable,Not applicable,Not applicable
+F260,G051-07,D-FLASH-PA6-GF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 100℃ for at least 6 hours is recommended,P0479,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F261,G051-09,R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-GF25-V1-1-EN,1,drying,Drying temp. and time,100 °C/10H,P0567,stated,Not applicable,Not applicable,Not applicable,100,10,Not applicable
+F262,G052-04,S-PEBA-eSUN-ePA12-Filament-TDS-V4-0,2,drying,Drying note,needs to be dried (70℃/>12H) before printing,P0599,stated,Not applicable,Not applicable,Not applicable,70,12,Not applicable
+F263,G053-03,S-SPECTRUM-EN-TDS-Spectrum-PA12-CF15,1,drying,Drying (if wet) ***,at least 6h at 80°C using a hot dry air oven,P0573,stated,Not applicable,Not applicable,Not applicable,80,6,Not applicable
+F264,G053-03,S-SPECTRUM-en-tds-spectrum-pa12-cf15,1,drying,Drying (if wet) ***,at least 6h at 80°C using a hot dry air oven,P0070,stated,Not applicable,Not applicable,Not applicable,80,6,Not applicable
+F265,G053-08,R-POLYMAKER-FIBERON-TDS-FIBERON-PA12-CF10-V1-1-EN,1,drying,Drying temp. and time,100 °C/10H,P0558,stated,Not applicable,Not applicable,Not applicable,100,10,Not applicable
+F266,G053-10,S-PCGF-PA12-CF-TDS-EN-1,2,chamber,Printing Environmental Temperature,Room temperature to 50℃,P0637,range,25,50,required,Not applicable,Not applicable,Not applicable
+F267,G053-10,S-PCGF-PA12-CF-TDS-EN-1,3,drying,Drying note,It is recommended to dry the filament in a dryer at 80°C for at least 12 hours,P0637,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F268,G057-03,S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN,1,chamber,Closure chamber,Needed (ambient temp.),P0327,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable,Not applicable
+F269,G057-03,S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN,1,drying,Drying temp. and time,100°C/8H,P0327,stated,Not applicable,Not applicable,Not applicable,100,8,Not applicable
+F270,G057-04,S-PEBA-eSUN-ePA-Filament-TDS-V4-02,2,drying,Drying note,Drying (70℃/> 12 h) before printing,P0613,stated,Not applicable,Not applicable,Not applicable,70,12,Not applicable
+F271,G059-02,R-QIDI-PA12-CF,4,drying,Drying note,Please dry the filament in an oven at 80-100℃ for 4-6h,P0922,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F272,G067-02,R-FIBERON-PETCF17-TDS,1,bed,Build plate temperature,70-80 °C,new,range,70,80,required,Not applicable,Not applicable,Not applicable
+F273,G067-02,R-FIBERON-PETCF17-TDS,1,chamber,Chamber temperature,Room temp.,new,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable,Not applicable
+F274,G067-02,R-FIBERON-PETCF17-TDS,1,drying,Drying temp. and time,100 °C/10H,new,stated,Not applicable,Not applicable,Not applicable,100,10,Not applicable
+F275,G067-02,R-FIBERON-PETCF17-TDS,1,nozzle,Nozzle temperature,270-300 °C,new,range,270,300,required,Not applicable,Not applicable,Not applicable
+F276,G067-04,D-FLASH-PET-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~50℃,P0471,range,25,50,required,Not applicable,Not applicable,Not applicable
+F277,G067-04,D-FLASH-PET-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80℃ for at least 12 hours is recommended,P0471,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F278,G067-08,S-PCGF-PET-CF-TDS,1,drying,Drying note,It is recommended to dry the consumables in a hot air oven at 90°C~100°C for at least 12 hours,new,stated,Not applicable,Not applicable,Not applicable,90,12,Not applicable
+F279,G068-01,D-FLASH-PET-GF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~50℃,P0466,range,25,50,required,Not applicable,Not applicable,Not applicable
+F280,G068-05,R-QIDI-PET-GF,4,drying,Drying note,Please dry the filament in an oven at 100-120℃ for 4-6h,new,stated,Not applicable,Not applicable,Not applicable,120,6,Not applicable
+F281,G069-01,S-PPA-TDS,2,enclosure,Compatible Printer Type,"Enclosed-frame (recommended), open-frame,",P0088,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F282,G069-02,D-SIRAYA-Fibreheart-PPA-TDS,5,bed,Bed Temperature,70-80°C,new,range,70,80,required,Not applicable,Not applicable,Not applicable
+F283,G069-02,D-SIRAYA-Fibreheart-PPA-TDS,5,drying,Drying note,Dry in oven at 80-100°C for 4-6 hours,new,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F284,G069-02,D-SIRAYA-Fibreheart-PPA-TDS,5,nozzle,Nozzle Temperature,280-300°C,new,range,280,300,required,Not applicable,Not applicable,Not applicable
+F285,G070-02,D-SIRAYA-Fibreheart-PPA-CF-TDS,4,bed,Build Plate Temperature,70-90°C,new,range,70,90,required,Not applicable,Not applicable,Not applicable
+F286,G070-02,D-SIRAYA-Fibreheart-PPA-CF-TDS,3,drying,Drying,Dry at 100°C for 4-6 hours,new,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F287,G070-02,D-SIRAYA-Fibreheart-PPA-CF-TDS,4,nozzle,Nozzle Temperature,300-320°C,new,range,300,320,required,Not applicable,Not applicable,Not applicable
+F288,G070-03,D-SIRAYA-Fibreheart-PPA-CF-Core-TDS,4,bed,Bed Temperature,80°C,new,range,80,80,required,Not applicable,Not applicable,Not applicable
+F289,G070-03,D-SIRAYA-Fibreheart-PPA-CF-Core-TDS,4,drying,Drying note,Dry in oven at 80-100°C for 4-6 hours,new,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F290,G070-03,D-SIRAYA-Fibreheart-PPA-CF-Core-TDS,4,nozzle,Nozzle Temperature,280-320°C,new,range,280,320,required,Not applicable,Not applicable,Not applicable
+F291,G070-04,D-RAISE3D-Industrial-PPA-CF-TDS-V2-0,2,drying,Drying note,Please dry the filament at 80-100°C for 6-12 hours,new,stated,Not applicable,Not applicable,Not applicable,100,12,Not applicable
+F292,G070-06,D-FLASH-PPA-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~80℃,P0465,range,25,80,required,Not applicable,Not applicable,Not applicable
+F293,G070-06,D-FLASH-PPA-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 120℃ for at least 8 hours is recommended,P0465,stated,Not applicable,Not applicable,Not applicable,120,8,Not applicable
+F294,G070-09,D-SIRAYA-siraya-tech-fibreheart-paht-cf-ppa-based-tds,1,drying,Drying,Dry at 100°C for 4-6 hours,P0925,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F295,G071-01,D-IPCON-PPA,2,enclosure,Compatible Printer Type,"Enclosed-frame (recommended), open-frame,",P0090,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F296,G071-02,D-SIRAYA-Fibreheart-PPA-GF-TDS,4,bed,Build Plate Temp,80 - 110°C,new,range,80,110,required,Not applicable,Not applicable,Not applicable
+F297,G071-02,D-SIRAYA-Fibreheart-PPA-GF-TDS,4,chamber,Chamber Temp,60 - 80°C,new,range,60,80,required,Not applicable,Not applicable,Not applicable
+F298,G071-02,D-SIRAYA-Fibreheart-PPA-GF-TDS,4,drying,Drying,Always dry the filament at 80-100°C for 4-6 hours before every print job.,new,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F299,G071-02,D-SIRAYA-Fibreheart-PPA-GF-TDS,4,enclosure,Enclosure,"A passively heated or actively heated enclosed build chamber is recommended to maintain a stable ambient temperature, which prevents warping and improves layer adhesion.",new,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F300,G071-02,D-SIRAYA-Fibreheart-PPA-GF-TDS,4,nozzle,Nozzle Temp,300-320 °C,new,range,300,320,required,Not applicable,Not applicable,Not applicable
+F301,G071-03,D-FLASH-PPA-GF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~80℃,P0470,range,25,80,required,Not applicable,Not applicable,Not applicable
+F302,G071-03,D-FLASH-PPA-GF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 120℃ for at least 8 hours is recommended,P0470,stated,Not applicable,Not applicable,Not applicable,120,8,Not applicable
+F303,G071-04,D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1,2,drying,Drying note,Please dry the filament at 80-100°C for 6-12 hours,new,stated,Not applicable,Not applicable,Not applicable,100,12,Not applicable
+F304,G072-02,S-SPECTRUM-en-tds-spectrum-pps-am230,1,drying,Drying (if wet) ***,at least 3h at 90°C using hot dry air owen,P0092,stated,Not applicable,Not applicable,Not applicable,90,3,Not applicable
+F305,G073-03,D-FLASH-PPS-CF-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~80℃,P0473,range,25,80,required,Not applicable,Not applicable,Not applicable
+F306,G073-03,D-FLASH-PPS-CF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 120℃ for at least 8 hours is recommended,P0473,stated,Not applicable,Not applicable,Not applicable,120,8,Not applicable
+F307,G073-04,R-POLYMAKER-FIBERON-TDS-FIBERON-PPS-CF10-V1-1-EN-1,1,drying,Drying temp. and time,100 °C/10H,P0561,stated,Not applicable,Not applicable,Not applicable,100,10,Not applicable
+F308,G075-05,S-PEBA-eSUN-PVA-Filament-TDS-V4-0,2,drying,Drying note,dry the material before printing (45℃/>10H),P0979,stated,Not applicable,Not applicable,Not applicable,45,10,Not applicable
+F309,G075-07,D-FLASH-PVA-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P1009,range,25,40,required,Not applicable,Not applicable,Not applicable
+F310,G076-01,S-BVOH,2,drying,Drying,BVOH is highly hygroscopic. Recommended drying at 60 ∞C for 4 - 6 hours.,P0097,stated,Not applicable,Not applicable,Not applicable,60,6,"The sheet prints the degree sign as ""∞"", which the parser does not read, so the typed temperature is what it reads with a degree sign: 60 (m136)."
+F311,G076-02,S-BVOH-ULTRAFUSE-TDS-v1-3,2,bed,Bed Temperature,60 – 100 °C,new,range,60,100,required,Not applicable,Not applicable,Not applicable
+F312,G076-02,S-BVOH-ULTRAFUSE-TDS-v1-3,2,nozzle,Nozzle Temperature,190 – 210 °C,new,range,190,210,required,Not applicable,Not applicable,Not applicable
+F313,G077-02,S-POLYCN-TDS-Polymaker-PolySupport-v5-5-2026-01-14-EN,1,enclosure,Closure chamber,Not needed,P0990,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F314,G080-02,S-POLYCN-TDS-Polymaker-PolySupport-PA12-v5-5-2026-01-14-EN,1,chamber,Closure chamber,Needed (ambient temp.),P1002,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable,Not applicable
+F315,G081-06,R-NANOVIA-Insublend,1,drying,Drying note,Dehydrate for 4h at 80°C prior to printing after prolonged exposure to humidity.,P0721,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F316,G081-10,R-NANOVIA-HIPS,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P1004,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F317,G082-04,R-SUNLU-25182761789529093884,2,drying,Drying Temp.,50℃,new,stated,Not applicable,Not applicable,Not applicable,50,Not published,Not applicable
+F318,G083-04,R-NANOVIA-PP-CF,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0745,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F319,G088-05,S-PET-formfutura-tds-athenax,1,drying,Drying note,dry the filament at 75°C for approximately 24 hours,new,stated,Not applicable,Not applicable,Not applicable,75,24,Not applicable
+F320,G088-06,R-3DJAKE-3DJAKE-PCTG-TECHNISCHES-DATENBLATT,1,drying,Drying note,Pre-dry material for 3-6 hours at 60°C (max.).,P0831,stated,Not applicable,Not applicable,Not applicable,60,6,Not applicable
+F321,G093-02,S-POLYCN-PolySmooth-TDS-V5-4,4,bed,Build plate temperature,25 - 70 (˚C),new,range,25,70,required,Not applicable,Not applicable,Not applicable
+F322,G093-02,S-POLYCN-PolySmooth-TDS-V5-4,4,drying,Drying setting,50˚C for 12h,new,stated,Not applicable,Not applicable,Not applicable,50,12,Not applicable
+F323,G093-02,S-POLYCN-PolySmooth-TDS-V5-4,4,nozzle,Nozzle temperature,190 – 220 (℃),new,range,190,220,required,Not applicable,Not applicable,Not applicable
+F324,G093-04,S-POLYCN-PolyCast-TDS-V5-1,4,chamber,Environmental temperature,Room temperature,P1014,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable,Not applicable
+F325,G093-04,S-POLYCN-TDS-Polymaker-Polycast-V5-5-2025-12-10-EN,1,drying,Drying temp. and time,50°C/12H,P0995,stated,Not applicable,Not applicable,Not applicable,50,12,Not applicable
+F326,G093-04,S-POLYCN-TDS-Polymaker-Polycast-V5-5-2025-12-10-EN,1,enclosure,Closure chamber,Not needed,P0995,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F327,G094-02,S-POLYCN-TDS-Polymaker-PC-ABS-V5-5-2025-12-10-EN,1,drying,Drying temp. and time,75°C/6H,P0307,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F328,G094-05,D-FLASH-PC-ABS-TDS-EN,2,chamber,Ambient Temperature for Printing,40~70℃,P0464,range,40,70,required,Not applicable,Not applicable,Not applicable
+F329,G094-05,D-FLASH-PC-ABS-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80℃ for at least 12 hours is recommended,P0464,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F330,G094-07,R-NANOVIA-PC-ABS-Rail,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0712,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F331,G094-08,R-NANOVIA-PC-ABS,1,drying,Drying note,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.,P0735,stated,Not applicable,Not applicable,Not applicable,60,4,Not applicable
+F332,G094-13,S-PCGF-PC-ABS-TDS,1,drying,Drying note,It is recommended to dry the filament in a hot air oven at 80°C for at least 12 hours,new,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F333,G095-01,S-POLYCN-TDS-Polymaker-PC-PBT-V5-5-2025-12-10-EN,1,drying,Drying temp. and time,75°C/6H,P0314,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F334,G097-04,R-3D4MAKERS-TDS-LUVOCOM-3F-PEEK-9581-Filament,1,drying,Drying Instruction,"4 hours, 110°C",P0590,stated,Not applicable,Not applicable,Not applicable,110,4,Not applicable
+F335,G098-05,R-FILAMENT2PRINT-Tecafil-PEKK,1,chamber,Build chamber temperature,120 - 160,P0850,range,120,160,required,Not applicable,Not applicable,Not applicable
+F336,G099-07,S-PVB-53ee8f5e-tds-prusament-pei-1010-en,1,drying,Drying note,Drying at 150°C for 6-8 hours,P0696,stated,Not applicable,Not applicable,Not applicable,150,8,Not applicable
+F337,G104-01,S-SPECTRUM-en-tds-spectrum-pa6-cs20-frv0,1,drying,Drying (if wet) ***,at least 12h at 80 using a hot dry air oven,P0184,stated,Not applicable,Not applicable,Not applicable,80,12,"The sheet prints the drying temperature without its unit (""at 80 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F338,G105-01,S-SPECTRUM-en-tds-spectrum-asa-conductive,1,drying,Drying (if wet) ***,at least 6h at 75°C using a hot dry air oven,P0186,stated,Not applicable,Not applicable,Not applicable,75,6,Not applicable
+F339,G106-03,R-NANOVIA-ABS-AF,1,drying,Drying note,Dehydrate for 4h at 80°C prior to printing after prolonged exposure to humidity.,P0748,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F340,G108-01,S-SPECTRUM-en-tds-spectrum-pa6-gk10,1,drying,Drying (if wet) ***,at least 12h at 80 using a hot dry air oven,P0200,stated,Not applicable,Not applicable,Not applicable,80,12,"The sheet prints the drying temperature without its unit (""at 80 using a hot dry air oven""), which the parser does not read as a temperature (m136)."
+F341,G111-01,S-SPECTRUM-en-tds-spectrum-pla-conductive,1,drying,Drying (if wet) ***,at least 6h at 50°C using a hot dry air oven,P0227,stated,Not applicable,Not applicable,Not applicable,50,6,Not applicable
+F342,G112-02,R-NANOVIA-PC-PTFE,1,drying,Drying note,Dehydrate for 4h at 80°C prior to printing after prolonged exposure to humidity.,P0743,stated,Not applicable,Not applicable,Not applicable,80,4,Not applicable
+F343,G113-02,S-PET-TDS-ApolloX-Kevlar,1,enclosure,Enclosure note,"No enclosure, or heated chamber needed.",new,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F344,G118-03,R-NANOVIA-PEI-CF-Ultem-1010,1,drying,Drying note,Dehydrate for 6 h at 100 °C prior to printing after prolonged exposure to humidity.,P0885,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F345,G122-02,R-NANOVIA-PEKK-A-CF,1,drying,Drying note,Dehydrate for 6h at 100°C prior to printing after prolonged exposure to humidity.,P0897,stated,Not applicable,Not applicable,Not applicable,100,6,Not applicable
+F346,G129-01,S-SPECTRUM-en-tds-spectrum-sflex-carbon,1,drying,Drying (if wet) ***,at least 4h at 85°C using a hot dry air oven,P0369,stated,Not applicable,Not applicable,Not applicable,85,4,Not applicable
+F347,G132-01,D-FLASH-PBT-GF-TDS-EN,2,chamber,Ambient Temperature for Printing,50~70℃,P0467,range,50,70,required,Not applicable,Not applicable,Not applicable
+F348,G132-01,D-FLASH-PBT-GF-TDS-EN,3,drying,Drying note,Using a hot dry air oven at 80℃ for at least 12 hours is recommended,P0467,stated,Not applicable,Not applicable,Not applicable,80,12,Not applicable
+F349,G133-01,D-FLASH-PBAT-TDS-EN,2,chamber,Ambient Temperature for Printing,Room temperature~40℃,P0476,range,25,40,required,Not applicable,Not applicable,Not applicable
+F350,G133-01,D-FLASH-PBAT-TDS-EN,3,drying,Drying note,dry the filament in a hot dry air oven at 60℃ for at least 5 hours before use,P0476,stated,Not applicable,Not applicable,Not applicable,60,5,Not applicable
+F351,G144-01,S-PET-formfutura-tds-athenaxcf10,1,drying,Drying note,pre-dry the filament at 75°C for approximately 24 hours before usage,new,stated,Not applicable,Not applicable,Not applicable,75,24,Not applicable
+F352,G144-01,S-PET-formfutura-tds-athenaxcf10,1,enclosure,Enclosure note,"No enclosure, or heated chamber needed.",new,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F353,G144-02,R-3DJAKE-3DJAKE-PCTG-CF-tech-data,1,drying,Drying note,Pre-dry material for 3-6 hours at 60 - 70°C (max.).,P0835,stated,Not applicable,Not applicable,Not applicable,70,6,Not applicable
+F354,G146-01,R-FILLAMENTUM-Technical-Data-Sheet-NonOilen-EN-03082020-FfN,1,drying,Conditions to re-dry,"65 °C, 2 hours",P0930,stated,Not applicable,Not applicable,Not applicable,65,2,Not applicable
+F355,G151-01,D-SIRAYA-fibreheart-tpu-gf-filament-tds,1,enclosure,Enclosure,"Not mandatory, but it is recommended",P0994,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F356,G152-02,R-NANOVIA-PLA-Flax,1,drying,Drying note,Dehydrate for 4h at 50°C prior to printing after prolonged exposure to humidity.,P1020,stated,Not applicable,Not applicable,Not applicable,50,4,Not applicable

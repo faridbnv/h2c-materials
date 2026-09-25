@@ -85,7 +85,7 @@ PROCESS REQUIREMENTS
 Material Nozzle within H2C Bed within H2C Chamber within H2C Hardened nozzle Drying
 ASA-AF yes yes yes required not recorded
 ASA-CF yes yes yes required guidance published
-ASA-EC yes yes not recorded required not recorded
+ASA-EC yes yes not recorded required guidance published
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
 ASA-AF 1 of 6 4† 3 21

@@ -248,3 +248,120 @@ SQLite file leaves `dist/db.json` byte-identical.
   is not matched. It also takes false friends: "Infill Density" is matched to Density.
 - **The sample check is still to do.** GOALS.md asks for a person to read 30 to 50 rows per lane against the page
   image, and that has not been done.
+
+## Phase 6, lane 2: printability and treatment, from the documents already cached (2026-09-25)
+
+Phase 6, lane 2 (GOALS step 2, C9). Since D83 each product's own profiles screen it, and a product whose profile is
+silent on an axis is unknown on that gate. Migration `m136-print-recipes-the-sheets-state` writes what the products'
+own sheets state and the database did not record. Every statement is pinned, with its page and the label of its row,
+in `scripts/migrate/m136-print-recipes-the-sheets-state.csv` (356 cells) and `…-annealing.csv` (61 statements); the
+migration re-reads each on its cached, hash-checked page before writing (the statement's words stand on that page in
+order), and checks the typed columns against the build's own parsers. The reviewer of every row is an agent (Claude
+Opus 5.5), reading the candidates the rules below proposed; no person has reviewed them.
+
+**The census, before anything changed.** Of 1,098 active products, per axis: how many lack it, and what their own
+cached documents say. "Own" means a document linked to that product alone (grade source, profile or measurement
+source), from the maker or resin producer. The import's proposals had extracted almost none of it: their `settings`
+lines give a value for only 6 of the products lacking a chamber, 18 lacking an enclosure and 15 lacking drying.
+
+| Axis | Lacking | Own document mentions it | A labelled row or a sentence the rules found | Filled |
+|---|---:|---:|---:|---:|
+| Chamber or enclosure (neither recorded) | 830 | 182 | 87 chamber, 48 enclosure | 58 chamber, 31 enclosure |
+| Drying | 917 | 605 (the word "dry" in a test condition or a storage note counts here) | 276 | 224 |
+| Nozzle | 336 | 218 | 52 (products with no profile only) | 17 |
+| Bed | 430 | 255 | 25 (products with no profile only) | 15 |
+| Hardened nozzle | 877 | 180 | not attempted | 0 |
+| Annealing the part, as a treatment | none recorded | 143 mention annealing | 78 | 61 |
+
+What the statements look like: Flashforge's recommended table prints "Ambient Temperature for Printing | Room
+temperature~40℃" (29 products); Polymaker's older sheets "Environmental temperature | Room temperature - 45 (˚C)" in
+the recommended table (their second such row, "90 °C" beside "Cooling fan", is how the test bars were printed, and is
+left), and the newer ones "Closure chamber | Not needed" and "Drying temp. and time | 55°C/6H" in the right-hand
+column the import did not read; Spectrum "Drying (if wet) | recommended***" with the schedule in the footnote ("at
+least 6h at 75°C using a hot dry air oven"); eSUN "Drying Preparation | 50℃ >8H"; and prose: Nanovia's "Dehydrate
+for 4h at 60°C prior to printing after prolonged exposure to humidity." (27), SIDDAMENT's "If damp, dry at 80°C for
+2-4 hours." (21), Flashforge's "Using a hot dry air oven at 80℃ for at least 12 hours is recommended" (24),
+Nobufil's "Pre-dry material for 3-6 hours at 60 - 70°C (max.)." (13). Annealing: Bambu Lab's "the suggested annealing
+temperature of models printed with Bambu PA6-CF is 80 to 130 °C, and the time is 6 to 12 hours." (23), Polymaker's
+"Annealing temp. and time 100 °C/16H" and "Annealing settings: 90˚C for 2h", Raise3D's "After the printing, it is
+recommended to anneal the model in the oven at 80-100°C for 8-12 hours."
+
+**What m136 wrote.** 254 cells on 208 existing profiles, and 102 on 61 new ones (a product with no profile gets one, citing
+its own sheet, with every axis the sheet does not state left Not published); the Locator of an existing profile gains
+the page and label of each statement. The raw column is the sheet's words, fullwidth punctuation written in ASCII;
+the typed columns are the parser's reading, except 13 cells whose Parse review says why: two windows marked
+"(Recommended)" after their numbers, eight Spectrum drying temperatures printed without a unit ("at 80 using a hot dry
+air oven"), and three printed with a degree glyph the parser does not know ("50 - 60 ºC", "60 ∞C"). Annealing went to
+`evidence.csv` as a Manufacturer statement under Post-processing, the maker's words in Finding and the schedule in
+Exposure / conditions (Q00498 to Q00558), one per product, its own document first. No new check code, vocabulary
+value or column.
+
+| Products (of 1,098) with the axis stated | Before | After |
+|---|---:|---:|
+| A profile at all | 840 | 899 |
+| Nozzle | 762 | 779 |
+| Bed | 668 | 683 |
+| Chamber state | 140 | 198 |
+| Chamber decided (a chamber state, or "no enclosure needed") | 222 | 296 |
+| Enclosure | 135 | 166 |
+| Drying | 181 | 405 |
+| Hardened nozzle | 221 | 221 |
+| An annealing recipe for the part | 0 | 61 |
+
+Each product's own print gate (`grades[].print`): chamber unknown 886 → 812 (59 within, 9 partial, 2 recommended above
+65 °C, 4 exceeding: PolyMax PC-FR and PolyLite PC Transparent "Closure chamber Needed (70°C-100°C)", PolyMax PC-FR V5.1
+"90-100 (˚C)", Ensinger's PEKK "120 - 160 °C"); nozzle unknown 336 → 319; bed unknown 430 → 415.
+
+**The decision diff.** Of the six templates only "Warm environment" screens on the print gates (nozzle and chamber),
+and only there did an answer move. Judged by products (`templates-products.csv`, Explore): PASS 28 → 31, UNKNOWN
+62 → 61. Three materials' verdicts moved: ABS-ESD and PC-CF now pass through one product each (a Flashforge sheet's
+40 °C and 60 °C ambient ceilings) and enter the candidate set the material-level gate had kept them from, and PBAT
+goes UNKNOWN → PASS. PC FR goes from ALL to SOME: Polymaker's PolyMax PC-FR asks for 90-100 °C, beyond the H2C. Eight
+passing materials gained passing products (ABS 1 → 3, ASA 1 → 3, PET-CF 1 → 3, ABS-GF, ASA-CF, PA6-CF, PA12-CF,
+PET-GF one more each). Judged by headline (`templates.csv`), Warm environment PASS 23 → 26 (ABS-ESD, PC-CF, PBAT).
+
+**Sample check.** 30 of the 417 statements drawn with a fixed seed (20260925; `mulberry32`, a shuffle of the 356
+cells and 61 annealing rows) and each re-read against its page's text by the same agent: **30 agree**. Two needed a
+second look because their number stands on more than one line of the page (FIBERON PA12 CF10's drying and PA6 GF25's
+annealing), and both rows print exactly what was recorded.
+
+**Left, and why** (counts are products):
+- **Twins and reprints: 75.** The products the import recorded as another's twin (R053, 49) or reprint (R166 and its
+  like, 26) hold no values of their own, and their sheets' printing tables were rejected with them. Under D83 they are
+  unknown on every print gate. A ruling is needed: record the recipe per product, or let a product read its twin's.
+- **Wordings the parser cannot read,** left rather than typed against it (each would be a PARSE-UNREAD warning):
+  Polymaker's "Closure chamber Needed" / "No Needed" (7; the bracketed temperatures of "Needed (…)" were taken as the
+  chamber), Eryone's "Sealed printing | Supports open/closed printing" (35 sheets), BASF's "Build Chamber Temperature
+  -" (4), CreatBot's "OFF", Polymaker ABS Max's "65˚C+" (an at-least value the gate would read as met), the prose
+  "printable on non-heated chamber FFF 3D printers" and "we highly recommend printing … within a closed chamber
+  printer". eSUN's "Drying Recommendations | N/A" (27) states no drying, and is not one.
+- **Not the product's recipe:** the conditions test bars were printed under (37 chamber, 6 nozzle, 6 bed readings,
+  among them 3DXTECH's "Chamber Temp: 160°C"), drying the printed part to raise its strength (Flashforge's "After the
+  printing process, it is recommended to dry the model in the oven at 80-100°C for 1-3 hours", 16 products: a
+  treatment, not yet recorded), the test material's preparation (Bambu PLA Pure's "baked in a 50°C blast drying oven"),
+  and a PolyTerra PLA+ sheet filed under PolyTerra PLA.
+- **Numbers the parser would misread:** Ensinger's "160 - 230 °C" chamber (above its 200 °C window), text broken by
+  the layout ("5 0-6 0°C"), unitless "50-150" (Anycubic).
+- **Annealing, 4:** three Bambu sheets name another product in the sentence (ASA Aero's and ASA-CF's say "Bambu ASA",
+  PLA Silk Dual Color's "Bambu PLA Silk"), and PETG-CF's "65 to 70 hours" reads as a misprint.
+- **Not attempted:** the hardened-nozzle column (180 products' sheets mention it), and nozzle and bed for products that
+  already had a profile. Both are next in this lane, as is a polymer-level printing guide where makers are silent.
+
+Found and not fixed, now in [OPEN-PROBLEMS.md](../../OPEN-PROBLEMS.md) §12: 35 Polymaker profiles that are the "How to
+make specimens" block recorded as guidance, 26 drying cells that hold a fragment rather than a schedule, and nine
+grades whose product name is a sentence fragment ("and prevents nozzle jams.").
+
+| | Result |
+|---|---|
+| `npm run data:check` / `data:lint` | 0 issues / 287 findings, all accepted, 0 new |
+| `npm run build` | 0 errors, the same 5 warnings; no PARSE-UNREAD |
+| `npm run build:diff` | 2,945 differences, all downstream of the profiles and the 61 evidence rows: `db.profiles` (61 new, 208 with a new Locator, their drying, chamber, enclosure and gates), `db.grades[].print` (53 products gain a recipe; chamber, drying, enclosure, nozzle and bed of the rest), `db.materials[].gates`, `.print`, `.profileIds` and two `.guidance.chamber` (the material-wide unions), `db.evidence` (61), 23 derived `db.coverage[].finding`, `db.meta.counts`, `db.meta.chamberEstimates` and two `db.materials[].print.chamberEstimate` (two research chamber bands superseded by a published window) and `db.meta.printEstimates` (one window, the fibre offset for bed) |
+| Tests | 293 pass in `npm test`; one test re-targeted: "chamber windows recovered from the cited Bambu data sheets" now reads the Bambu product's own window (D83), since PC FR's material-wide union widened to 45-100 °C with Polymaker's product; it still checks the material's lower end and gate |
+| `verify:fast` / `verify` | 47 s with the build cached / passing; three recorded views rewritten (`ui:check -- --write`): Warm environment, strict and with estimates, shows 26 PASS where it showed 23, and the three-way comparison shows ASA-EC's drying as published |
+
+**Merged onto the re-centered page (2026-09-25).** Lane 2 was built on phase 2; on `v2` after phase 3 the snapshot and
+the views are regenerated with the page judging by products. The one test the lane rewrote (PC FR's chamber window,
+now the Bambu product's own) went in its own commit before the data, and holds on the data before and after it. Full
+`verify` passes, the scale check included (60 s at twice the data, against its 150 s budget; it had failed in the
+lanes only under a load average of 10 to 36).
+
