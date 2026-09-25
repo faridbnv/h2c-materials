@@ -7,6 +7,21 @@ Stretch before breaking % 8 1.2–65 41 of 178 48 without direction or load (2.6
 Heat resistance °C 55 50–135 62 of 178 21 without direction or load (53–108); 7 variants (55–115)
 Price CAD/kg — — 0 of 178 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
+WHAT MAKERS SAY
+171 of its 198 products carry statements from their makers, in the makers' words under each product below; 27 products' data sheets say nothing beyond their numbers. The makers' websites have not been searched yet.
+Good for: 17 of 39 makers (60 products)
+Benefits: 29 of 39 makers (126 products)
+Pitfalls and limitations: 10 of 39 makers (13 products)
+Warping and shrinkage: 16 of 39 makers (34 products)
+Precision and tolerance: 7 of 39 makers (13 products)
+Surface finish: 22 of 39 makers (77 products)
+Adhesion between layers: 7 of 39 makers (15 products)
+Moisture sensitivity: 9 of 39 makers (31 products)
+Nozzle wear: 9 of 39 makers (35 products)
+Odour and emissions: 13 of 39 makers (21 products)
+Supports and removal: 8 of 39 makers (33 products)
+Printing advice: 12 of 39 makers (20 products)
+Of the products whose documents were read, 149 give no chamber or enclosure need, 150 no drying schedule and 189 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
 3DXTECH
 3 products
@@ -32,9 +47,7 @@ Hardened nozzle
 not published
 Drying
 45 °C for 4 h
-WHAT THE MAKER SAYS
-Detail / tolerance
-No special concerns
+3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no annealing schedule; its website has not been searched yet.
 About this product
 3DXTECH ECOMAX Tough PLA G001-18
 Density
@@ -60,21 +73,8 @@ Hardened nozzle
 not published
 Drying
 not published
-What the maker says about printing and using it: nothing collected from its data sheet yet, and its maker's site has not been searched.
+3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no chamber or enclosure need, drying schedule or annealing schedule; its website has not been searched yet.
 About this product
 3DXTECH SimuBone Bone Simulation G001-178 variant
 Density
 1,340 kg/m³
-Stiffness
-3.41 GPa
-Strength
-65 MPa
-Stretch before breaking
-4 %
-Heat resistance
-89 °C
-HOW TO PRINT IT
-Nozzle
-230 °C yes
-Bed
-23 °C yes

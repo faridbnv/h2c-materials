@@ -311,6 +311,9 @@ try {
   await click('.drawer [data-tab="Grades"]');
   await sleep(200);
   results['14-drawer-pa12cf-products'] = await drawerText();
+  // What makers say (re-center lane 3): the material's count per topic, then each product's statements in its maker's
+  // words with source and page, or the sentence that names the maker whose sheet is silent.
+  results['15-drawer-pa12cf-maker-says'] = await evaluate(`[...document.querySelectorAll('.drawer-body .print-counts, .drawer-body .maker-says, .drawer-body .maker-says-gap')].map((e) => e.innerText || e.textContent).join('\\n').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n')`);
 
   // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
   // counts are the only ones in the rail that follow the other requirements.

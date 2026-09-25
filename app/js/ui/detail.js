@@ -690,19 +690,89 @@ function printCard(g) {
   </dl></div>`;
 }
 
-// What a maker writes about printing and using a product beyond its numbers: the print notes that name a pitfall, and its
-// evidence records. Shown, never filtered on. Where nothing was collected, the gap is said (docs/GOALS.md).
-const KNOW_HOW_TOPICS = new Set(['Warping / shrinkage', 'Detail / tolerance', 'Adhesion / release', 'Layer adhesion', 'Surface finish', 'Odour / emissions', 'Storage humidity', 'Overhang', 'Bridging']);
-function makerSays(g, c) {
-  const notes = c.profiles.filter((p) => p.gradeId === g.id).flatMap((p) => p.notes.filter((n) => KNOW_HOW_TOPICS.has(n.topic)));
-  const records = c.ev.filter((e) => e.gradeId === g.id);
-  if (!notes.length && !records.length) {
-    return '<div class="fine maker-says-gap">What the maker says about printing and using it: nothing collected from its data sheet yet, and its maker\'s site has not been searched.</div>';
+// What a maker writes about printing and using a product beyond its numbers (db.knowHow, build/src/know-how.js): its
+// statements in its own words, by topic, each with its source and page. Shown, never filtered on. Where the product's
+// documents say nothing, the state says so and names the maker, instead of an empty section (docs/GOALS.md).
+const knowHowIndex = new WeakMap();
+/** The know-how statements of a database, by product. */
+function knowHowOf(db) {
+  if (!knowHowIndex.has(db)) {
+    const byGrade = new Map();
+    for (const k of db.knowHow ?? []) (byGrade.get(k.gradeId) ?? byGrade.set(k.gradeId, []).get(k.gradeId)).push(k);
+    knowHowIndex.set(db, byGrade);
   }
+  return knowHowIndex.get(db);
+}
+const lower = (t) => t.charAt(0).toLowerCase() + t.slice(1);
+const orList = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} or ${xs.at(-1)}`);
+const RECIPE_WORDS = { chamber: 'chamber or enclosure need', drying: 'drying schedule', annealing: 'annealing schedule' };
+// A topic as the end of "says nothing about …"; a topic the vocabulary gains later reads as its name.
+const TOPIC_WORDS = {
+  'Good for': 'what it is good for', Benefits: 'its benefits', 'Pitfalls and limitations': 'pitfalls', 'Warping and shrinkage': 'warping',
+  'Precision and tolerance': 'precision', 'Surface finish': 'surface finish', 'Adhesion between layers': 'layer adhesion',
+  'Moisture sensitivity': 'moisture', 'Nozzle wear': 'nozzle wear', 'Odour and emissions': 'odour', 'Supports and removal': 'supports',
+  'Printing advice': 'printing advice',
+};
+
+/** Where a statement stands: a data sheet, or the maker's product page, which is marketing text, and the page. */
+function knowHowSource(k, c) {
+  const s = c.sourceById.get(k.sourceId);
+  const kind = s?.sourceClass === 'Manufacturer product page or guide' ? "the maker's product page (marketing text)"
+    : s?.sourceClass === 'Manufacturer TDS' ? 'data sheet' : lower(s?.sourceClass ?? 'source');
+  return `<span class="maker-src" title="${esc(sourceName(s, k.sourceId))}">${esc(kind)}, ${esc(k.locator)}</span>`;
+}
+
+/** The sentence for what was not found: the maker, what its documents leave out, and whether its site was searched. */
+function knowHowGap(g, missingTopics, c) {
+  const k = g.knowHow;
+  const maker = stated(g.manufacturer) ? g.manufacturer : 'The maker';
+  const site = k.searchedOn ? `its website, searched on ${k.searchedOn}, says nothing more` : 'its website has not been searched yet';
+  if (k.state === 'no-document-read') return `None of ${maker}'s documents for this product has been read for what it says beyond the numbers, and ${site}.`;
+  const doc = c.sourceById.get(g.sourceId)?.sourceClass === 'Manufacturer product page or guide' ? 'product page' : 'data sheet';
+  const recipe = Object.entries(k.recipe).filter(([, s]) => s !== 'collected' && s !== 'no-document-read').map(([part]) => RECIPE_WORDS[part]);
+  const says = k.state === 'collected'
+    ? (missingTopics.length ? `${maker}'s ${doc} says nothing about ${orList(missingTopics.map((t) => TOPIC_WORDS[t] ?? lower(t)))}` : '')
+    : `${maker}'s ${doc} says nothing about printing or using it beyond its numbers`;
+  const parts = [says, recipe.length ? `${says ? 'it' : `${maker}'s ${doc}`} gives no ${orList(recipe)}` : ''].filter(Boolean);
+  return parts.length ? `${parts.join('; ')}; ${site}.` : '';
+}
+
+function makerSays(g, c) {
+  const k = g.knowHow;
+  const own = knowHowOf(c.db).get(g.id) ?? [];
+  const topics = c.db.meta.knowHow?.topics ?? [];
+  // The product's other evidence records (chemical resistance, flammability and the like), as before: the Environment
+  // tab lists them with the material's; here they stay with the product they were published for.
+  const records = c.ev.filter((e) => e.gradeId === g.id);
+  const other = records.length ? `<details class="grade-more"><summary>Its other published records (${records.length})</summary><dl class="kv small">
+    ${records.map((e) => `<dt>${esc(e.categoryLabel ?? e.domain)}</dt><dd>${esc(e.topic)}: ${esc(e.finding)}</dd>`).join('')}</dl></details>` : '';
+  if (!k) return other;
+  const gap = knowHowGap(g, topics.filter((t) => !k.topics[t]), c);
+  if (!own.length) return `<div class="fine maker-says-gap">${esc(gap)}</div>${other}`;
+  const groups = topics.map((t) => [t, own.filter((x) => x.topic === t)]).filter(([, list]) => list.length);
   return `<div class="maker-says"><div class="shared-head">What the maker says</div><dl class="kv small">
-    ${notes.map((n) => `<dt>${esc(n.topic)}</dt><dd>${longText(n.text)}</dd>`).join('')}
-    ${records.map((e) => `<dt>${esc(e.categoryLabel ?? e.domain)}</dt><dd>${esc(e.topic)}: ${esc(e.finding)}</dd>`).join('')}
-  </dl></div>`;
+    ${groups.map(([t, list]) => `<dt>${esc(t)}</dt><dd><ul class="maker-quotes">${list.map((x) => `<li>“${esc(x.text)}” ${knowHowSource(x, c)}</li>`).join('')}</ul></dd>`).join('')}
+  </dl>${gap ? `<p class="fine">${esc(gap)}</p>` : ''}</div>${other}`;
+}
+
+/** Across a material's products: how many makers say something on each topic, and where the sheets are silent. */
+function makersSayCounts(m, c) {
+  const k = m.knowHow;
+  const topics = c.db.meta.knowHow?.topics ?? [];
+  if (!k || !topics.length) return '';
+  const n = k.products;
+  const total = Object.values(n).reduce((a, b) => a + b, 0);
+  if (!total) return '';
+  const silent = [n['sheet-silent'] ? `${plural(n['sheet-silent'], 'product')}' data sheets say nothing beyond their numbers` : '',
+    n['no-document-read'] ? `${plural(n['no-document-read'], 'product')} ${n['no-document-read'] === 1 ? 'has' : 'have'} no document read` : '',
+    n['searched-nothing'] ? `${plural(n['searched-nothing'], 'product')}' makers' sites were searched and say nothing` : ''].filter(Boolean);
+  const recipe = Object.entries(k.recipe).map(([part, s]) => [part, s['sheet-silent'] + s['searched-nothing']]).filter(([, x]) => x)
+    .map(([part, x], i) => `${x} ${i ? '' : 'give '}no ${RECIPE_WORDS[part]}`);
+  const recipeLine = recipe.length > 1 ? `${recipe.slice(0, -1).join(', ')} and ${recipe.at(-1)}` : recipe.join('');
+  return `<h3 class="sec">What makers say</h3>
+    <p class="fine"><b>${n.collected} of its ${plural(total, 'product')}</b> carry statements from their makers, in the makers' words under each product below${silent.length ? `; ${silent.join('; ')}` : ''}. ${n['searched-nothing'] ? '' : "The makers' websites have not been searched yet."}</p>
+    <ul class="print-counts">${topics.map((t) => `<li><b>${esc(t)}</b>: ${k.topics[t]?.makers ?? 0} of ${plural(k.makers, 'maker')}${k.topics[t] ? ` (${plural(k.topics[t].products, 'product')})` : ''}</li>`).join('')}</ul>
+    ${recipe.length ? `<p class="fine">Of the products whose documents were read, ${recipeLine}.</p>` : ''}`;
 }
 
 /** How many of a material's products the H2C can print, axis by axis, from each product's own settings. */
@@ -995,7 +1065,7 @@ function tabBody(tab, c) {
     // PLA". Then every product by maker, as before.
     const passing = c.tested ? grades.filter((g) => judged.get(g.id)?.verdict === 'PASS') : [];
     const firstMaker = passing[0]?.manufacturer ?? grades.find((g) => typicalOf.has(g.id))?.manufacturer ?? null;
-    return `${spreadTable(m, c)}
+    return `${spreadTable(m, c)}${makersSayCounts(m, c)}
       <div class="note">Which colours a product is sold in is not part of this database: check the retailer listing.
       Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.</div>`
       + (passing.length ? makerBlock(`Meet every requirement`, passing.length, 'product', passing.map(block).join(''), { open: true, cls: 'maker-block pass-block' }) : '')

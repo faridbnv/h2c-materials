@@ -1165,6 +1165,10 @@ tr.baseline-row .name { color: var(--accent); }
 .pass-block > summary .maker-name { color: var(--pass); }
 .spread-table td, .spread-table th { font-size: var(--t-small); }
 .print-counts { margin: 4px 0 8px 18px; padding: 0; font-size: var(--t-small); }
+/* Makers' know-how: each statement in the maker's words, with where it stands in a smaller, quieter line. */
+.maker-quotes { margin: 0; padding: 0 0 0 16px; }
+.maker-quotes li + li { margin-top: 3px; }
+.maker-src { font-size: var(--t-label); color: var(--ink-3); }
 .lvl { font-size: var(--t-label); }
 .rank-line { color: var(--accent); }
 .rank-pick { display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small); color: var(--ink-2); }

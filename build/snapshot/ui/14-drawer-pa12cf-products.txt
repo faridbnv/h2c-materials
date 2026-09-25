@@ -8,6 +8,21 @@ Stretch before breaking % 3.9 2.1–14.8 6 of 16 7 without direction or load (3.
 Heat resistance °C 150 48–185 11 of 16 —
 Price CAD/kg — — 0 of 16 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
+WHAT MAKERS SAY
+12 of its 16 products carry statements from their makers, in the makers' words under each product below; 4 products' data sheets say nothing beyond their numbers. The makers' websites have not been searched yet.
+Good for: 8 of 15 makers (8 products)
+Benefits: 9 of 15 makers (9 products)
+Pitfalls and limitations: 0 of 15 makers
+Warping and shrinkage: 8 of 15 makers (8 products)
+Precision and tolerance: 2 of 15 makers (2 products)
+Surface finish: 0 of 15 makers
+Adhesion between layers: 1 of 15 makers (1 product)
+Moisture sensitivity: 4 of 15 makers (5 products)
+Nozzle wear: 7 of 15 makers (8 products)
+Odour and emissions: 1 of 15 makers (1 product)
+Supports and removal: 4 of 15 makers (5 products)
+Printing advice: 4 of 15 makers (4 products)
+Of the products whose documents were read, 11 give no chamber or enclosure need, 9 no drying schedule and 13 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
 Meet every requirement
 1 product
@@ -35,9 +50,7 @@ Hardened nozzle
 required
 Drying
 90 °C for 4 h
-WHAT THE MAKER SAYS
-Detail / tolerance
-0.25mm or higher
+3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no chamber or enclosure need or annealing schedule; its website has not been searched yet.
 About this product
 3DXTECH
 1 product
@@ -64,8 +77,4 @@ Fabru
 iSANMATE
 1 product
 Fillamentum
-1 product
-MatterHackers
-1 product
-Fiberlogy
 1 product
