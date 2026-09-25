@@ -64,10 +64,10 @@ function withShoreA({ misfile = false } = {}) {
   return { dir, elastomerId: elastomer.MaterialID, measurementId: id, misfiledId };
 }
 
-function compiled(dir) {
+function compiled(dir, { estimates = true } = {}) {
   const schemaIssues = checkData(join(dir, 'data'), join(dir, 'schema')).issues;
   const wb = loadTables(join(dir, 'data'));
-  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates });
   return { db, schemaIssues, errors: issues.filter((i) => i.level === 'error') };
 }
 
@@ -113,7 +113,8 @@ test('a property for elastomers only is added with data rows alone and reaches e
 test('the same property recorded against a rigid filament stops the build', () => {
   const { dir, misfiledId } = withShoreA({ misfile: true });
   try {
-    const { errors } = compiled(dir);
+    // The core database: the error is the compiler's, which the estimate stage cannot remove.
+    const { errors } = compiled(dir, { estimates: false });
     assert.ok(errors.some((e) => e.where === `measurements ${misfiledId}` && /Shore A hardness does not apply to PLA/.test(e.message)), errors.map((e) => e.message).join(' | '));
   } finally {
     rmSync(dir, { recursive: true, force: true });

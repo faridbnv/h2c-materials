@@ -21,7 +21,8 @@ mkdirSync(out, { recursive: true });
 const hash = (b) => createHash('sha256').update(b).digest('hex');
 const { wb, referenceRows, referenceWhere, inputs } = readSource(resolve('.'));
 const stored = JSON.parse(readFileSync('dist/db.json'));
-const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: stored.meta.build });
+// A fresh compile, never the build cache's stored result: this is the independent rebuild dist/ is compared with below.
+const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: stored.meta.build, cache: false });
 issues.push(...checkData(resolve('data'), resolve('schema')).issues);
 const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 {

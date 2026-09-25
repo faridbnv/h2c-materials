@@ -9,10 +9,12 @@ import { buildDatabase } from '../build/src/pipeline.js';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = loadTables(join(root, 'data'));
 
+// The core database: every check here is on grade lists and on compile and validate errors, which the estimate stage
+// neither writes nor raises.
 function build(edit = () => {}) {
   const wb = structuredClone(base);
   edit(wb);
-  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates: false });
   return { db, errors: issues.filter((i) => i.level === 'error').map((i) => `${i.where}: ${i.message}`) };
 }
 const grade = (wb, id) => wb.Grades.rows.find((g) => g.GradeID === id);

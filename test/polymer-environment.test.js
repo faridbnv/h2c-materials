@@ -147,14 +147,16 @@ test('the compiler refuses an unknown polymer, an unretrieved source, a fatigue 
   assert.match(issues[4].message, /parts under load/);
 });
 
+// The core database from here on: the compiler raises these errors and the validator the precedence one, and the
+// estimate stage neither raises them nor reads or writes evidence, evidenceIds or environmentCategories.
 test('a real build with a bad row fails, and a duplicate (polymer, category, agent) is refused', () => {
-  assert.ok(built([row('PLA', 'fatigue', 'a', 'resistant')]).errors.some((e) => e.startsWith('POLYMER-ENV-CATEGORY')));
-  assert.ok(built([row('PLA', 'acid', 'a', 'resistant'), row('PLA', 'acid', 'a', 'limited')]).errors.some((e) => e.startsWith('POLYMER-ENV-DUPLICATE')));
-  if (NOT_RETRIEVED) assert.ok(built([row('PLA', 'acid', 'a', 'resistant', { SourceID: NOT_RETRIEVED })]).errors.some((e) => e.startsWith('POLYMER-ENV-REFERENCE')));
+  assert.ok(built([row('PLA', 'fatigue', 'a', 'resistant')], { estimates: false }).errors.some((e) => e.startsWith('POLYMER-ENV-CATEGORY')));
+  assert.ok(built([row('PLA', 'acid', 'a', 'resistant'), row('PLA', 'acid', 'a', 'limited')], { estimates: false }).errors.some((e) => e.startsWith('POLYMER-ENV-DUPLICATE')));
+  if (NOT_RETRIEVED) assert.ok(built([row('PLA', 'acid', 'a', 'resistant', { SourceID: NOT_RETRIEVED })], { estimates: false }).errors.some((e) => e.startsWith('POLYMER-ENV-REFERENCE')));
 });
 
 test('attaching to a material that already has a record in the category is refused by the validator, not only avoided', () => {
-  const { db } = built([row('PLA', 'acid', 'a', 'resistant')]);
+  const { db } = built([row('PLA', 'acid', 'a', 'resistant')], { estimates: false });
   const p = db.polymerEvidence[0];
   const m = db.materials.find((x) => x.id === p.materialId);
   // Forge a grade-level record in that category and re-validate: precedence must be an invariant.
@@ -164,8 +166,8 @@ test('attaching to a material that already has a record in the category is refus
 });
 
 test('the layer is removable: dropping it leaves every other record as it was', () => {
-  const plain = built([]).db;
-  const { db } = built([row('PLA', 'acid', 'a', 'resistant')]);
+  const plain = built([], { estimates: false }).db;
+  const { db } = built([row('PLA', 'acid', 'a', 'resistant')], { estimates: false });
   delete db.polymerEnvironment; delete db.polymerEvidence;
   delete db.meta.counts.polymerEnvironment; delete db.meta.counts.polymerEvidence;
   for (const m of db.materials) delete m.evidenceIds.polymer;

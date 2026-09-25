@@ -25,7 +25,8 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     const schemaIssues = checkData(join(dir, 'data'), join(dir, 'schema')).issues;
     const t1 = performance.now();
     const wb = loadTables(join(dir, 'data'));
-    const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'scale' });
+    // cache: false, here and below: this check times the stages, and a stored result would time nothing.
+    const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'scale', cache: false });
     const t2 = performance.now();
 
     assert.deepEqual(schemaIssues, []);
@@ -65,7 +66,7 @@ test('twice the entries pass the gate, compile and validate within budget', () =
     assert.ok(t1 - t0 < 3000, `schema gate took ${Math.round(t1 - t0)} ms`);
     assert.ok(t2 - t1 < 150000, `compile and validate took ${Math.round(t2 - t1)} ms`);
     const t3 = performance.now();
-    buildDatabase(loadTables(join(dir, 'data')), { snapshot: snapshotDate(wb.Method.rows), build: 'scale', estimates: false });
+    buildDatabase(loadTables(join(dir, 'data')), { snapshot: snapshotDate(wb.Method.rows), build: 'scale', estimates: false, cache: false });
     assert.ok(performance.now() - t3 < 5000, `compile and validate without estimates took ${Math.round(performance.now() - t3)} ms`);
     console.log(`2x: ${counts.materials} materials, ${counts.measurements} measurements; gate ${Math.round(t1 - t0)} ms, compile+validate ${Math.round(t2 - t1)} ms, db ${(JSON.stringify(db).length / 1048576).toFixed(1)} MB`);
   } finally {

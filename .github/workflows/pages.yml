@@ -36,6 +36,11 @@ jobs:
       - name: Install build dependencies
         run: npm ci --prefix build
 
+      # The build cache starts empty, so every build result in this job, the published one included, is computed here
+      # from the tables (build/src/build-cache.js).
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build
+
       # One gate: canonical data format, schema and references, build (which validates), tests and
       # the source-to-HTML audit. Any failure stops the job and blocks the deploy.
       - name: Verify

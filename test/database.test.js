@@ -902,13 +902,27 @@ test('no estimate reaches past a physical limit, and calibration still holds', (
 // 2026-09-14: a grade declared a variant of its material (grades.csv Variant) explains its own offset. HyperLite
 // PP's 0.81 g/cc (a lightweight additive) was a model outlier and pulled PP's family; declared, it is neither.
 test('a declared grade variant explains its own offset instead of moving its family', async () => {
-  const { loadTables, snapshotDate } = await import('../build/src/load.js');
-  const { buildDatabase } = await import('../build/src/pipeline.js');
-  const pa66Stiffness = (edit) => {
-    const wb = loadTables(join(root, 'data'));
-    edit(wb);
-    return buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).db.materials.find((m) => m.name === 'PA66').headline.tensileModulusXY.estimate.centre;
-  };
+  const { loadTables } = await import('../build/src/load.js');
+  const { Worker } = await import('node:worker_threads');
+  // PA66's estimated stiffness after setting some fields of one grade in a fresh copy of the tables. The four builds
+  // below are whole builds and independent of each other, so each runs in a worker thread of its own and together they
+  // take about as long as one.
+  const pa66Stiffness = (gradeId, set) => new Promise((resolve, reject) => {
+    const worker = new Worker(`
+      const { workerData: { root, gradeId, set }, parentPort } = require('node:worker_threads');
+      const { pathToFileURL } = require('node:url');
+      const { join } = require('node:path');
+      (async () => {
+        const { loadTables, snapshotDate } = await import(pathToFileURL(join(root, 'build/src/load.js')).href);
+        const { buildDatabase } = await import(pathToFileURL(join(root, 'build/src/pipeline.js')).href);
+        const wb = loadTables(join(root, 'data'));
+        if (gradeId) Object.assign(wb.Grades.rows.find((g) => g.GradeID === gradeId), set);
+        parentPort.postMessage(buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).db.materials.find((m) => m.name === 'PA66').headline.tensileModulusXY.estimate.centre);
+      })();`, { eval: true, workerData: { root, gradeId, set } });
+    worker.once('message', resolve);
+    worker.once('error', reject);
+    worker.once('exit', (code) => reject(new Error(`the build worker for ${gradeId ?? 'the tables as they are'} exited with code ${code} before it answered`)));
+  });
   // Spectrum PA6 Neat (3.4 GPa, 1.25 g/cm³) is a compound. Declared, it explains its own offset; undeclared, it lifts
   // the unfilled polyamides' stiffness (audit 2026-09-15, B-11). HyperLite PP, once the test case, is its own material.
   // The invariant is that the declared grade leaves its family where it would be without the grade at all, and that
@@ -917,16 +931,19 @@ test('a declared grade variant explains its own offset instead of moving its fam
   // products to materials with several (PVB, BVOH, PE, TPC), the between-product spread learned from them absorbed an
   // undeclared compound as product deviation and the lift fell to 2.8%, while the declared estimate stayed within 2.3%
   // of the family without the grade. A check that fails when the model gets better data is measuring the wrong thing.
-  const retire = (g) => { g.Status = 'retired'; g.Availability = 'Retired mapping; audit trail only'; };
-  const declared = pa66Stiffness(() => {});
-  const undeclared = pa66Stiffness((wb) => { wb.Grades.rows.find((g) => g.GradeID === 'G049-01').Variant = 'Not applicable'; });
-  const without = pa66Stiffness((wb) => retire(wb.Grades.rows.find((g) => g.GradeID === 'G049-01')));
+  const retire = { Status: 'retired', Availability: 'Retired mapping; audit trail only' };
   // Measured against a control, because removing any one product from a family moves the fit a little and that
   // movement is not what this test is about: retiring an ordinary PA6 grade, one with no variant declared, moves
   // PA66 by as much as retiring the declared compound does. The invariant is that the declared grade is no more
   // disturbing to its family than an ordinary sibling, which is what "explains its own offset" means; comparing it
   // with a fixed tolerance measured the model's sensitivity to its own data instead, and grew with the corpus.
-  const control = pa66Stiffness((wb) => retire(wb.Grades.rows.find((g) => g.MaterialID === 'M049' && g.GradeID !== 'G049-01' && g.Status === 'active' && !g.Variant.startsWith('undisclosed') && !g.Variant.startsWith('lightweight'))));
+  const sibling = loadTables(join(root, 'data')).Grades.rows.find((g) => g.MaterialID === 'M049' && g.GradeID !== 'G049-01' && g.Status === 'active' && !g.Variant.startsWith('undisclosed') && !g.Variant.startsWith('lightweight')).GradeID;
+  const [declared, undeclared, without, control] = await Promise.all([
+    pa66Stiffness(),                                          // the variant declared, as the tables have it
+    pa66Stiffness('G049-01', { Variant: 'Not applicable' }),  // undeclared
+    pa66Stiffness('G049-01', retire),                         // without the grade
+    pa66Stiffness(sibling, retire),                           // the control: without an ordinary sibling instead
+  ]);
   const ordinary = Math.abs(control / without - 1);
   assert.ok(Math.abs(declared / without - 1) <= Math.max(0.03, ordinary), `PA66 stiffness ${declared} with the variant declared, ${without} without the grade, ${control} without an ordinary sibling: the declared grade moved its family more than an ordinary one does`);
   // Within 2%: with a second, unfilled PA6 grade on record (STYX, 2026-09-16) the undeclared compound is absorbed as

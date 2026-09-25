@@ -76,6 +76,11 @@ test('a renamed, dropped, retyped or unexpected field is reported at its path', 
 test('building the same tree twice produces the same bytes', () => {
   const hashes = () => Object.fromEntries(['db.json', 'reference.json', 'manifest.json'].map((f) => [f, createHash('sha256').update(readFileSync(join(root, 'dist', f))).digest('hex')]));
   const before = hashes();
+  // Rebuilt with the build cache off, so the stages really run again; dist/ may have come from the cache, and then this
+  // also proves a stored result gives the bytes a cold build gives.
+  execFileSync(process.execPath, ['build/src/index.js'], { cwd: root, stdio: 'ignore', env: { ...process.env, H2C_NO_BUILD_CACHE: '1' } });
+  assert.deepEqual(hashes(), before);
+  // And through the cache, which the build uses by default.
   execFileSync(process.execPath, ['build/src/index.js'], { cwd: root, stdio: 'ignore' });
   assert.deepEqual(hashes(), before);
   const manifest = read('manifest.json');

@@ -16,10 +16,12 @@ const base = loadTables(join(root, 'data'));
 const registry = compileRegistry(base, []);
 const measured = registry.headlines.filter((h) => h.kind === 'measurement');
 
-function build(edit = () => {}) {
+// `estimates: false` where a test looks only for an error the compiler, validator or registry raises: the estimate
+// stage cannot remove one.
+function build(edit = () => {}, { estimates = true } = {}) {
   const wb = structuredClone(base);
   edit(wb);
-  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates });
   return { db, errors: issues.filter((i) => i.level === 'error').map((i) => `${i.where}: ${i.message}`) };
 }
 
@@ -65,16 +67,16 @@ test('an applicability rule is checked against real fields and values', () => {
 test('a measurement of a material a property does not apply to is an error', () => {
   const { errors } = build((wb) => {
     Object.assign(wb['Property registry'].rows.find((p) => p.Property === 'Hardness'), { 'Applies to': 'Family: Flexible Elastomers', 'Not applicable reason': 'Shore hardness describes elastomers' });
-  });
+  }, { estimates: false });
   const hardnessOutside = base.Properties.rows.filter((r) => r.Property === 'Hardness' && base.Materials.rows.find((m) => m.MaterialID === r.MaterialID).Family !== 'Flexible Elastomers' && r['Data status'] !== 'Retired duplicate record');
   assert.ok(hardnessOutside.length > 0, 'the fixture needs hardness recorded outside elastomers');
   for (const r of hardnessOutside) assert.ok(errors.some((e) => e.startsWith(`measurements ${r.MeasurementID}: Hardness does not apply to`)), `${r.MeasurementID}: ${errors.join(' | ')}`);
-  const noReason = build((wb) => { wb['Property registry'].rows.find((p) => p.Property === 'Hardness')['Applies to'] = 'Family: Flexible Elastomers'; }).errors;
+  const noReason = build((wb) => { wb['Property registry'].rows.find((p) => p.Property === 'Hardness')['Applies to'] = 'Family: Flexible Elastomers'; }, { estimates: false }).errors;
   assert.ok(noReason.includes('properties Hardness: Applies to is set, so a Not applicable reason is required'), noReason.join(' | '));
 });
 
 test('a numeric measurement in a unit its property does not allow is an error', () => {
-  const { errors } = build((wb) => { wb['Property registry'].rows.find((p) => p.Property === 'Density').Units = 'g/cm³'; });
+  const { errors } = build((wb) => { wb['Property registry'].rows.find((p) => p.Property === 'Density').Units = 'g/cm³'; }, { estimates: false });
   assert.ok(errors.some((e) => /^measurements V\d+: Density in kg\/m³; properties\.csv allows g\/cm³$/.test(e)), errors.slice(0, 5).join(' | '));
 });
 
@@ -102,11 +104,11 @@ test('a replaced property keeps its record, and no measurement or headline may u
   const izod = registry.properties.find((p) => p.name === 'Izod strength');
   assert.equal(izod.replacedBy, 'Izod impact strength');
   assert.ok(!build().errors.some((e) => /replaced by/.test(e)), 'the tables use no replaced property');
-  const reused = build((wb) => { wb.Properties.rows.find((r) => r.Property === 'Izod impact strength').Property = 'Izod strength'; }).errors;
+  const reused = build((wb) => { wb.Properties.rows.find((r) => r.Property === 'Izod impact strength').Property = 'Izod strength'; }, { estimates: false }).errors;
   assert.ok(reused.some((e) => /^measurements V\d+: Izod strength is replaced by Izod impact strength$/.test(e)), reused.slice(0, 5).join(' | '));
   const chained = build((wb) => {
     wb['Property registry'].rows.find((r) => r.Property === 'Izod impact strength')['Replaced by'] = 'Charpy strength';
     wb['Property registry'].rows.find((r) => r.Property === 'Charpy strength')['Replaced by'] = 'Izod impact strength';
-  }).errors;
+  }, { estimates: false }).errors;
   assert.ok(chained.some((e) => /itself replaced/.test(e)), chained.slice(0, 5).join(' | '));
 });

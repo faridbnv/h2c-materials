@@ -29,6 +29,11 @@ jobs:
       - name: Install build dependencies
         run: npm ci --prefix build
 
+      # The build cache (.cache/build, build/src/build-cache.js) is never restored in CI: every result this job uses
+      # is built cold once, and the audit and the reproducibility test build again with the cache off.
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build
+
       - name: Verify
         run: CHROME=$(command -v google-chrome || command -v chromium) npm run verify
 

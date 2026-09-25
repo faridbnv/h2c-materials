@@ -68,7 +68,8 @@ test('provoked errors carry the code a reader looks up', () => {
   const wb = loadTables(join(root, 'data'));
   wb.Headlines.rows.find((r) => r.MaterialID === 'M020' && r.HeadlineKey === 'density').MeasurementID = 'V000384';
   wb.Grades.rows.find((g) => g.GradeID === 'G020-01').Role = 'study';
-  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' });
+  // The core database: both codes are the compiler's, which the estimate stage cannot remove.
+  const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates: false });
   const codes = new Set(issues.filter((i) => i.level === 'error').map((i) => i.code));
   assert.ok(codes.has('HEADLINE-SELECTION-INVALID'), [...codes].join(' '));
   assert.ok(codes.has('GRADE-ROLE-ID'), [...codes].join(' '));
