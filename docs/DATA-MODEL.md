@@ -156,16 +156,16 @@ shape; nothing is flattened into one wide table.
 meta         snapshot, build, price sampling date, counts, H2C baseline, coverage
              summaries, environment category names and what each can decide,
              which chamber bands were used and which the evidence superseded
-materials    103   the selection-level object
-grades       156   materials 1 -- N grades
-measurements 2078  materials 1 -- N, grades 1 -- N, sources N -- 1 (155 retired duplicates excluded;
-                   1,920 numeric, 4 quarantined, 10 flagged physically implausible)
-profiles     172   print setup, with parsed temperatures, enclosure wording and gate verdicts
-evidence     462   use and durability, classified (16 retired duplicates excluded)
-prices       104   quarantined observations kept as an audit trail, backing nothing
-sources      244
-coverage     1199  terminal: reports gaps, never feeds selection
-method        48   the rules, verbatim
+materials          the selection-level object
+grades             materials 1 -- N grades
+measurements       materials 1 -- N, grades 1 -- N, sources N -- 1 (retired duplicates excluded;
+                   quarantined and physically implausible values flagged)
+profiles           print setup, with parsed temperatures, enclosure wording and gate verdicts
+evidence           use and durability, classified (retired duplicates excluded)
+prices             quarantined observations kept as an audit trail, backing nothing
+sources
+coverage           terminal: reports gaps, never feeds selection
+method             the rules, verbatim
 registry           { properties, headlines }: what every property and headline means
 ```
 
@@ -336,15 +336,8 @@ BVOH, PVA, unfilled PPA) converts heat values with the amorphous class and learn
 measured directly from materials with several products (median pairwise difference). The rest are
 estimated from the data above documented floors. Then each measured headline is hidden and predicted
 from everything else, and both ranges are scaled until they hold the hidden value as often as they
-claim. On this snapshot:
-
-| Headline | Hidden headlines | Likely (80%) holds | Plausible (95%) holds | Median likely width |
-|---|---:|---:|---:|---:|
-| Density | 86 | 80% | 95% | ×1.13 |
-| Stiffness | 68 | 81% | 96% | ×1.54 |
-| Strength | 53 | 81% | 96% | ×1.58 |
-| Elongation | 69 | 81% | 96% | ×2.48 |
-| Heat deflection | 59 | 81% | 97% | 8.7 °C |
+claim. The current figures, per headline, are in `build/reports/validation-report.md`, which every build
+rewrites; they are not copied here, where they would go stale.
 
 The build fails if a likely range drifts more than 0.1 from 80%, or a plausible range falls more than
 0.05 below 95%. Heat deflection is softly capped by the melting point of a semicrystalline polymer, by Tg plus
@@ -373,9 +366,9 @@ like an estimate's end (below), and is open for a matrix with too few of them.
 **Nothing blank.** Every in-scope headline carries a value, an estimate or `notApplicable` with a
 reason. Heat deflection of an elastomer is not applicable and never estimated (ISO 75 ends at 0.2 % outer-fibre
 strain, which needs a modulus near 225 MPa); a value its own source publishes is shown only as that measurement. Any
-value of a support product is not applicable unless the material's own sources publish one. On this snapshot: 94
-estimates (60 from the grade's own related measurements, 18 from other grades or resin references, 16 from the family
-model alone; 17 imprecise) and 28 not applicable. The review snapshot's `screening.csv` lists which ends may screen.
+value of a support product is not applicable unless the material's own sources publish one. How many estimates there
+are, and what each rests on (its own grade, its other grades, the family model alone), is in
+`build/reports/validation-report.md`. The review snapshot's `screening.csv` lists which ends may screen.
 
 **What it may do.** An estimate never passes a requirement; the verdict stays UNKNOWN. Where it may screen is set
 every build, end by end (D48, D59). Each measured headline is hidden as far as an evidence class requires (this grade,

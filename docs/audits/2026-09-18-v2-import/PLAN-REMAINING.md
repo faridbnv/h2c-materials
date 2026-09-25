@@ -1,5 +1,9 @@
 # What is left of V2
 
+> **Superseded as the working plan on 2026-09-25.** A step back from V2 ([the re-center review and
+> plan](../2026-09-25-re-center/REPORT.md)) set the tool's goals ([docs/GOALS.md](../../GOALS.md)) and paused the import.
+> What happens to each open item below is in that plan's section 6. This page stays as the record of how V2 closed.
+
 Rewritten 2026-09-21 as the close-out plan: every document terminal, the data swept for mistakes, the estimator
 extended to grades, and the interface reworked for the volume. It replaces the completion plan, whose phases landed
 as batches b23 to b27, migrations m98 to m106, rulings R074 to R088 and D80.
@@ -15,7 +19,7 @@ in what order, with the reasoning a count cannot carry.
 
 ## 1. Where it stands
 
-On 2026-09-21, after batch b33 the import is closed for V2: of 2,089 ledger rows, 1,264 are applied, 560 settled
+On 2026-09-21, after batch b33 the import is closed for V2 (and on 2026-09-25 paused; see the note at the top): of 2,089 ledger rows, 1,264 are applied, 560 settled
 (a copy, a product already recorded, not a data sheet), 104 deferred past V2 with the reader gap named, and 161
 open — 105 identity questions for the owner, 33 `gated` (INTAMSYS, out of V2), 15 `unreachable` (retried at the
 Wayback Machine) and 8 twins of sheets still held. STATUS.md reconciles the research inventory's 1,936 documents

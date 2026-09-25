@@ -4,8 +4,8 @@
 // static hosting, offline, after distribution. Dependency versions are pinned in package.json.
 //
 // The compiled database is embedded gzipped and base64-encoded, then inflated at boot with
-// DecompressionStream. Raw it is 3 MB, almost all of it repeated condition strings; gzipped it is
-// under 200 KB. The library, not the data, is what costs size here.
+// DecompressionStream. Raw it is tens of megabytes, most of it measurements, and gzip takes it to about a
+// sixteenth of that. The plotting library is still most of what the page weighs (docs/ARCHITECTURE.md).
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';

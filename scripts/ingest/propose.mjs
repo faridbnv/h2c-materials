@@ -3188,8 +3188,11 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
     // safe选择 when a batch has moved several kinds of blocker at once.
     .filter((r) => (held ? (held === 'any' ? /^held: /.test(r.status_note ?? '') : (r.status_note ?? '').startsWith(`held: ${held}`)) : true))
     .filter((r) => r.sha256 && cachedText(r.sha256))
-    // --compare reads the sheets the database already holds, which is exactly what a batch run leaves out.
-    // --compare scores a sheet somebody transcribed by hand against what this reader reads off the same bytes.
+    // --compare reads the sheets the database already holds, which is exactly what a batch run leaves out, and
+    // scores what this reader reads off the same bytes against what the tables hold for them. Most of those rows were
+    // written by this reader in the import itself, so the headline figure is a regression test of the reader; only
+    // the measurements recorded before the import (INDEPENDENT_UNTIL) score it against a transcription it did not
+    // make, and the census reports that separately.
     // A document registered because its product already has a grade (registered_by "product") points at a
     // source that was read from other bytes — the English edition, the maker's own copy — and scoring it counts
     // that source's values as ones this sheet was expected to yield. It put Spectrum's Polish editions against
@@ -3201,6 +3204,10 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
 
   if (process.argv.includes('--compare')) {
     const measurements = table('measurements');
+    // The last measurement recorded before the import's first batch (commit 73de8d2, 2026-09-18). Everything up to it
+    // was transcribed by hand or by an earlier, separate reading; everything after it came through this pipeline.
+    const INDEPENDENT_UNTIL = 'V002645';
+    const independent = (m) => m.MeasurementID <= INDEPENDENT_UNTIL;
     // --all scores every maker whose sheets somebody transcribed by hand, in one run, and writes the table down.
     // Run one maker at a time, the makers nobody asked about are the ones that quietly stop being checked: Bambu
     // and iSANMATE were both below the gate for two days and nothing said so.
@@ -3211,24 +3218,30 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
     const table2 = [];
     for (const only of providers) {
       const scored = rows.filter((r) => r.registered_source_id && (only == null || r.provider === only));
-      let recorded = 0, found = 0;
+      let recorded = 0, found = 0, indSheets = 0, indRecorded = 0, indFound = 0;
       const missedAll = [];
       for (const r of scored) {
         const p = propose(r, cachedText(r.sha256), world);
         const mine = measurements.filter((m) => m.SourceID === r.registered_source_id && /^Published value/.test(m['Data status']));
         const c = compare(p, mine);
         recorded += c.recorded; found += c.found;
+        const theirs = mine.filter(independent);
+        if (theirs.length) { const ci = compare(p, theirs); indSheets++; indRecorded += ci.recorded; indFound += ci.found; }
         missedAll.push(...c.missed.map((m) => `${r.registered_source_id}: ${m}`));
         if (!all) console.log(`${String(c.found).padStart(3)} of ${String(c.recorded).padStart(3)}  ${r.registered_source_id}${c.missed.length ? `\n      missed: ${c.missed.slice(0, 6).join('; ')}` : ''}`);
       }
       const pct = recorded ? (found / recorded) * 100 : 0;
       if (all) console.log(`${pct.toFixed(0).padStart(3)}%  ${String(found).padStart(4)} of ${String(recorded).padStart(4)}  ${String(scored.length).padStart(3)} sheet(s)  ${only}`);
       else console.log(`\nparity ${pct.toFixed(0)}%: ${found} of ${recorded} recorded values on ${scored.length} sheet(s)`);
-      table2.push({ Provider: only ?? 'all', Sheets: scored.length, Recorded: recorded, Found: found, Parity: pct.toFixed(0), Missed: missedAll.join(' | ') });
+      const indPct = indRecorded ? ((indFound / indRecorded) * 100).toFixed(0) : '';
+      if (!all && indRecorded) console.log(`independent parity ${indPct}%: ${indFound} of ${indRecorded} values recorded before the import, on ${indSheets} sheet(s)`);
+      table2.push({ Provider: only ?? 'all', Sheets: scored.length, Recorded: recorded, Found: found, Parity: pct.toFixed(0), 'Independent sheets': indSheets, 'Independent recorded': indRecorded, 'Independent found': indFound, 'Independent parity': indPct, Missed: missedAll.join(' | ') });
     }
     if (all) {
       mkdirSync(join(AUDIT, 'census'), { recursive: true });
-      writeFileSync(join(AUDIT, 'census/parity.csv'), csvText(['Provider', 'Sheets', 'Recorded', 'Found', 'Parity', 'Missed'], table2.sort((a, b) => b.Sheets - a.Sheets)));
+      writeFileSync(join(AUDIT, 'census/parity.csv'), csvText(['Provider', 'Sheets', 'Recorded', 'Found', 'Parity', 'Independent sheets', 'Independent recorded', 'Independent found', 'Independent parity', 'Missed'], table2.sort((a, b) => b.Sheets - a.Sheets)));
+      const t = table2.reduce((a, r) => ({ n: a.n + r['Independent sheets'], rec: a.rec + r['Independent recorded'], f: a.f + r['Independent found'] }), { n: 0, rec: 0, f: 0 });
+      console.log(`independent parity: ${t.rec ? ((t.f / t.rec) * 100).toFixed(1) : '-'}% (${t.f} of ${t.rec} values recorded before the import, on ${t.n} sheet(s))`);
       const below = table2.filter((t) => Number(t.Parity) < 95);
       console.log(`\n${table2.length} maker(s) -> census/parity.csv${below.length ? `\n${below.length} below the 95% gate: ${below.map((t) => `${t.Provider} ${t.Parity}%`).join(', ')}` : ''}`);
     }

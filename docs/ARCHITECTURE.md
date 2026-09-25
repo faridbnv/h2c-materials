@@ -66,8 +66,8 @@ no backend and no network. That rules out CDN references, which is why the libra
 the dependency versions are pinned.
 
 The compiled database ships gzipped and base64-encoded, inflated at boot with `DecompressionStream`.
-Raw it is about 3 MB, almost all of it repeated condition strings; gzipped it is under 200 KB. The
-plotting library, not the data, is what the file weighs.
+At the 2026-09-21 build it is 21 MB raw, most of it measurements, and about 1.3 MB gzipped (1.7 MB once
+base64-encoded). The plotting library is still most of what the file weighs: 4.3 of the page's 6.3 MB.
 
 ## Module map
 
@@ -134,7 +134,10 @@ plotting library, not the data, is what the file weighs.
 | `data/representative.mjs` | `npm run data:representative`: per material, the headlines its representative grade publishes against the best-documented procurement grade, for the owner's review (PLAN-REMAINING 2.4). |
 | `ingest/` | The import pipeline (`docs/audits/2026-09-18-v2-import/`): a ledger of every document, fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). The rules are in `AGENTS.md`, "Importing a batch of data sheets". |
 
-`npm run verify:fast` runs format, schema, lint, generated docs, build and tests, in about 25 seconds, while you work.
+`npm run verify:fast` runs format, schema, lint, generated docs, build and tests while you work: about 75 seconds after a
+change and 30 when nothing the build reads changed, because the build result is cached by content
+(`build/src/build-cache.js`, `.cache/build/`); its budget is 90 seconds (docs/GOALS.md). The import pipeline's tests
+run in `verify` (`npm run test:ingest`), not here, while imports are paused.
 `npm run verify` adds the audit, review snapshot, interface views and 300 rendered scenarios, before a commit. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, CI runs `verify` on every push and 2,000 rendered scenarios on a new seed every night, and

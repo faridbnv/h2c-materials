@@ -1,5 +1,9 @@
 # Working on the data
 
+**Read `docs/GOALS.md` first.** It says what the tool is for, the method it follows, what is decided next, and the
+working rules every change is judged by: name the step it improves, record everything but verify what decides, show
+how many scenario answers it moved, and keep `verify:fast` within its budget.
+
 This file is for anyone changing the H2C material database: the owner and the AI agents alike. It says
 where data lives, how to change it without breaking anything, and what the build will refuse. The
 reasons behind the rules are in `docs/DECISIONS.md` (D35, D45 to D76). Every column and vocabulary
@@ -17,14 +21,19 @@ acceptance.
 generated and never edited, and the retired Excel workbooks are history. Before committing, run:
 
 ```bash
-npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about four minutes; the test suite is most of it)
+npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 75 s after a change, 30 s when nothing the build reads changed; budget 90 s)
 npm run verify        # verify:fast, then audit, review snapshot, interface views, 300 rendered scenarios: before a commit
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
 `verify` fails on a new lint finding, on an unreviewed build finding, on a stale `docs/RULES.md` or
 `docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
-engine over 300 random scenarios (about twenty minutes more than `verify:fast`: the interface views and the rendered scenarios drive a headless browser). CI runs `verify` on every push and 2,000
+engine over 300 random scenarios (about three minutes more than `verify:fast`, measured 2026-09-25: the interface views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests (`npm run test:ingest`), which `verify:fast` leaves out while imports are paused.
+
+The build result is cached by content in `.cache/build/` (`build/src/build-cache.js`): the same tables, code, runtime
+and options give the stored result back instead of running the estimate stage again, which is what keeps
+`verify:fast` inside its budget. The key covers everything the build reads, so a stale hit is not possible;
+`H2C_NO_BUILD_CACHE=1` turns it off, CI starts with it empty, and the audit and the reproducibility test rebuild without it. CI runs `verify` on every push and 2,000
 scenarios on a new seed every night (`npm run ui:fuzz:full` locally). After a data or rule change, run `npm run snapshot`
 (and `npm run ui:check -- --write` when a view changed), read the diff, and commit it with the change: it is the change's
 downstream effect. A change meant to move nothing (code moved, a table split, a column retyped) shows `0 difference(s)`
@@ -192,6 +201,11 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 
 ## Importing a batch of data sheets
 
+**Paused on 2026-09-25 by the owner.** No new batch until the re-center in `docs/GOALS.md` is built. The documents
+already fetched may be mined for the record tier, print recipes and makers' know-how under the re-center plan
+(`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is not a batch, and it does not travel this pipeline.
+What follows is how a batch was run, kept for when imports resume.
+
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
 in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.
 
@@ -242,7 +256,8 @@ The rules that differ from editing a table by hand:
 - **Parity before novelty.** A maker's layout is proved on the sheets somebody already transcribed before any sheet
   of theirs that nobody has. Below about 95% the reader is not ready; what it misses is named per row.
 - **A proposal is not data.** Every row carries the page and line it was read from, and a review that records who
-  accepted it. `ingest:apply` writes nothing unless every row was accepted or rejected by a named person, every
+  accepted it. `ingest:apply` writes nothing unless every row was accepted or rejected by a named reviewer (a person, or an
+  agent named as one: every review in the V2 import was an agent's, and a report must say so), every
   document still hashes to what was recorded, and every number is printed on the page its Locator names.
 - **A copy is not a source.** A document is its bytes; the same file from a maker and a retailer is one document.
   Where two sheets print the same numbers under different product names, the ledger queues them rather than

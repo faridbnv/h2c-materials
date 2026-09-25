@@ -172,8 +172,11 @@ The rulings the agent made rather than the owner, and which the owner can overtu
 What shipped, against the owner's request of 2026-09-21 (family filtering, a tidier drawer, estimates where they
 help, decision helpers, the data refactored and swept):
 
-- **The database**: 158 materials, 1,119 grades, 11,096 measurements, 1,422 sources; every ledger row terminal
-  (1,264 applied, 178 deferred with the gap named, 33 gated INTAMSYS, 15 unreachable). The sweep read the 200 most
+- **The database**: 158 materials, 1,119 grades, 11,096 measurements, 1,422 sources. The ledger was **not** all
+  terminal, as this line first said: 1,264 applied, 560 settled, 178 deferred with the gap named, 33 gated INTAMSYS
+  and 15 unreachable, but 39 rows were still `held` (31 on a ruling, 8 twins), and 20 of those already had a verdict
+  in `readings/readings.csv` and were stuck on a gap in the hold logic. Corrected 2026-09-25; they stay paused (see
+  below). The sweep read the 200 most
   outlying values and fixed each class it found across the whole table (m126 to m135, `sweep/README.md`); six more
   properties have physics windows (D82); every implausible flag carries its reason.
 - **The estimator**: a robust z-score per measurement and `EST-CONFLICT` (2.1); an estimate per grade from the same
@@ -184,3 +187,24 @@ help, decision helpers, the data refactored and swept):
 - **Set aside** for V2.1, listed in PLAN-REMAINING §8, with what would free each.
 
 `npm run verify` passes; `v2` is ahead of `main` and merges when the owner asks.
+
+## After the close: the step back (2026-09-25)
+
+A review of the whole effort ([../2026-09-25-re-center/REPORT.md](../2026-09-25-re-center/REPORT.md)) found that the
+import changed one verdict among the original materials across the six template scenarios: the selector judges each
+material by its representative grade, so 80 % of the values never reach a verdict, and half of the new values do not
+state how their specimen was made. Two corrections to what this folder says:
+
+- **Who reviewed.** Every review decision in `proposals/` was made by an AI agent (`claude-opus-5`,
+  `claude-optical`, `claude-fable-5-1`: 20,478 signatures). "A named person" in the pipeline's rules meant a named
+  reviewer, and every named reviewer here was an agent. No person has yet sampled those decisions.
+- **What parity measures.** `--compare --all` compares the reader with every document that has a registered source,
+  and 1,113 of the 1,257 compared were registered by the reader itself in this import. It is a regression test of
+  the reader, not an accuracy measure against independent transcription; only the 144 sheets transcribed before the
+  import measure that. Measured on 2026-09-25 (`--compare --all` now reports both, and STATUS.md shows them): the
+  reader reproduces **87.1 %** of the values recorded before the import (1,759 of 2,020, on 141 sheets), against the
+  regression figure's 96.6 %. Most makers imported here have one such sheet or none, so their accuracy is unmeasured.
+
+Bulk import is paused (owner, 2026-09-25) until the tool has been re-centered on its products and on the engineering
+selection method. The documents already fetched, and the lines the reader skipped on them, are kept: the plan mines
+them for print recipes, makers' know-how and a record of everything they publish.

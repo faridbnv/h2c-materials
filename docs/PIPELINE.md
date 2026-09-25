@@ -163,7 +163,7 @@ Compile also derives, each tagged with its origin so the interface can tell them
 
 ## 4. Estimates — `estimate/` and `chamber-estimates.js`
 
-Runs after every headline is known, in about two seconds. For each headline it rejects physically
+Runs after every headline is known; it is almost all of the build's time (see Scale, below). For each headline it rejects physically
 impossible values, converts every observation of every in-scope material to the headline's semantics
 (conversions documented in `build/mappings/estimate-model.json`, refined by grades that publish both),
 measures the spread between products of one material directly, estimates the remaining spreads from
@@ -333,7 +333,16 @@ full precision in `measurements.csv`, so the raw-value reconciliation reads exac
 
 ## Scale
 
-`test/scale.test.js` doubles the data (every material and its records cloned under new IDs) and runs the
+**The build cache.** `buildDatabase` stores its result in `.cache/build/` under a SHA-256 of everything it can depend
+on: the loaded tables as they are in memory (so a test that edits them gets its own key), the bytes of every file
+under `build/src/`, `build/mappings/` and `schema/`, the dependency tree, the Node and ICU versions and collation
+locale, and the options. A hit returns a private copy, so the build, the lint, the snapshot and the test files
+that compile the same tables run the estimate stage once, not once each. A key that cannot be computed safely (a
+code file changed after the process started, a table holding anything but plain data) turns the cache off for that
+call. `H2C_NO_BUILD_CACHE=1` or `buildDatabase(wb, { cache: false })` bypass it; the scale check, the audit's
+independent rebuild and the reproducibility test do, and CI starts with it empty.
+
+`test/scale.check.js` (`npm run scale`) doubles the data (every material and its records cloned under new IDs) and runs the
 gate, compile and validate. Today's build is 0.07 s to compile, 13.5 s for the estimate stage and 0.06 s to
 validate at 158 materials and 11,096 measurements; doubled, the estimate stage takes about 59 s against a budget
 of 150 s (`test/scale.check.js` keeps the history). The estimate model dominates, because its Gaussian process is

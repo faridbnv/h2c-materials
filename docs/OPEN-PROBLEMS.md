@@ -189,7 +189,7 @@ more data narrows them, a review does not (D73).
 - **Two are recorded `not-retrieved`**: a Polymaker CoPE sheet (HTTP 404) and the Fiberon PET-GF15 page (HTTP 403),
   both on 2026-09-13. Nothing was entered from either, and nothing may cite them. The second is what C01136 above
   is blocked on.
-- **Eighteen are `retrieved-copy`**: the bytes were staged by hand because the host serves them through a viewer
+- **Twenty are `retrieved-copy`**: the bytes were staged by hand because the host serves them through a viewer
   or refuses an automated fetch. The document is still identified by the SHA-256 of what was read.
 - **Four have no public URL and are `read-only`** (`LOCAL-CANON`, `LOCAL-CREEP`, `LOCAL-FATIGUE`, `LOCAL-XLSM`):
   local references on the owner's machine. Two are cited, for the creep and fatigue principles; nothing selectable
@@ -197,9 +197,10 @@ more data narrows them, a review does not (D73).
 - **Four sources serve a revision that differs from the copy that was read.** They are recorded `retrieved` with
   the difference in their Access note, because the served file is what was read.
 
-24 of 665 sources are in one of those states; the other 641 were fetched, hashed and read. Beside them, and not in
-`sources.csv` at all, the import ledger holds 64 documents behind a login or a request form and 404 not yet
-fetched (`docs/audits/2026-09-18-v2-import/STATUS.md`).
+On 2026-09-25, 26 of 1,422 sources are in one of the first three states and the other 1,396 were fetched, hashed and
+read; the query below re-derives the figure. Beside them, and not in `sources.csv` at all, the import ledger holds 33
+documents behind a login (`gated`, INTAMSYS) and 15 `unreachable` after a Wayback retry
+(`docs/audits/2026-09-18-v2-import/STATUS.md`).
 
 ```bash
 npm run sql --silent -- "select sourceid, access_state, access_note from sources where access_state <> 'retrieved'"

@@ -10,7 +10,7 @@ single HTML file you can download and open with no internet.
 ## What the tool is, and is not
 
 The tool is a screening and comparison aid. You state requirements (stiffness at least 3 GPa, heat resistance at
-least 100 °C, printable on the H2C, resists oils), and it tells you which of about a hundred filaments the recorded
+least 100 °C, printable on the H2C, resists oils), and it tells you which of the materials in the database the recorded
 evidence says pass, fail, or cannot be judged, and why, with a link from every number to the document it came from.
 
 It is not a source of design allowables. Every value is what one manufacturer's data sheet says about one product

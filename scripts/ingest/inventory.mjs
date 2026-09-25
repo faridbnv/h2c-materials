@@ -241,11 +241,16 @@ function statusReport(rows) {
 
   const parity = parityTable();
   if (parity.length) {
+    const ind = parity.reduce((a, r) => ({ f: a.f + Number(r['Independent found'] || 0), rec: a.rec + Number(r['Independent recorded'] || 0), n: a.n + Number(r['Independent sheets'] || 0) }), { f: 0, rec: 0, n: 0 });
     out.push('## The reader', '',
-      'Every value somebody transcribed by hand before this programme, read again by the reader and compared. A',
-      'maker\'s layout is proved here before any sheet of theirs that nobody has transcribed is proposed.', '',
-      ...table(['Maker', 'Sheets', 'Reproduced', 'Parity'],
-        parity.map((r) => [r.Provider, r.Sheets, `${r.Found} of ${r.Recorded}`, `${r.Parity}%`])), '',
+      'Every sheet the tables hold values for, read again by the reader and compared with what the tables hold. Most',
+      'of those values were written by this reader during the import, so Parity is a regression test: it says the',
+      'reader still reads what it read. **Independent** compares it only with the values recorded before the import',
+      '(up to V002645, commit 73de8d2), which it did not write; that is the measure of its accuracy.', '',
+      ...(ind.rec ? [`Independent parity over all makers: **${((ind.f / ind.rec) * 100).toFixed(1)}%**, ${n(ind.f)} of ${n(ind.rec)} values on ${n(ind.n)} sheets.`, ''] : []),
+      ...table(['Maker', 'Sheets', 'Reproduced', 'Parity', 'Independent'],
+        parity.map((r) => [r.Provider, r.Sheets, `${r.Found} of ${r.Recorded}`, `${r.Parity}%`,
+          r['Independent recorded'] ? `${r['Independent found']} of ${r['Independent recorded']} (${r['Independent parity']}%)` : '-'])), '',
       '```bash', 'npm run ingest:propose -- --compare --all', '```', '');
   }
 

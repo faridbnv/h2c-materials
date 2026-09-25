@@ -40,8 +40,9 @@ const ROUNDTRIP_SHARE = Number(arg('roundtrip', 0.05));
 const OUT = resolve(arg('out', join(tmpdir(), 'h2c-ui-fuzz')));
 mkdirSync(OUT, { recursive: true });
 const TMP_BASE = arg('tmp', null);
-// Reload a tab after this many in-app imports. Every Ashby render leaks a Plotly resize listener and its plot
-// (finding A-03), so a tab that is never reloaded slows down as its heap grows.
+// Reload a tab after this many in-app imports. Every Ashby render used to leak a Plotly resize listener and its plot
+// (finding A-03); ashby.js now wires one listener for all plots (A-04). The reload stays so a long run measures each
+// scenario from a similar heap, not one a new leak has quietly grown.
 const RECYCLE = Number(arg('recycle', 40));
 const CAP = 50;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

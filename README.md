@@ -18,7 +18,7 @@ data sheets, and not a guarantee that any third-party filament runs on an H2C.
 npm install --prefix build     # once
 npm run hooks                  # once per clone: the pre-commit data check
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
-npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about four minutes; the test suite is most of it)
+npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about 75 s after a change, 30 s when nothing the build reads changed)
 npm run verify                 # before a commit: verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
 npm run build:diff             # what a change did to the compiled database, against HEAD
 npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
@@ -194,7 +194,7 @@ clearly fails and the material's own data does not contradict it. See
 [the data model](docs/DATA-MODEL.md#estimates) and DECISIONS D43.
 
 *Strict and Explore are the names used in the code and in these documents. On screen the control is
-labelled "If a material has no data", and the two buttons read "Leave it out" and "Keep it, flagged",
+labelled "Candidate confidence", and the two buttons read "Confirmed only" and "Include uncertain",
 because the words Strict and Explore told a first-time reader nothing about what they did.*
 
 ## H2C hardware baseline

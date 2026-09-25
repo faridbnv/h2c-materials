@@ -59,52 +59,56 @@ staged documents the pipeline added. Where each of the inventory's ended:
 
 ## The reader
 
-Every value somebody transcribed by hand before this programme, read again by the reader and compared. A
-maker's layout is proved here before any sheet of theirs that nobody has transcribed is proposed.
+Every sheet the tables hold values for, read again by the reader and compared with what the tables hold. Most
+of those values were written by this reader during the import, so Parity is a regression test: it says the
+reader still reads what it read. **Independent** compares it only with the values recorded before the import
+(up to V002645, commit 73de8d2), which it did not write; that is the measure of its accuracy.
 
-| Maker | Sheets | Reproduced | Parity |
-|---|---:|---|---:|
-| 3DJake / 3DJAKE | 259 | 2019 of 2027 | 100% |
-| Spectrum | 92 | 665 of 665 | 100% |
-| Polymaker / Fiberon | 60 | 927 of 963 | 96% |
-| 3DXTECH | 59 | 465 of 466 | 100% |
-| SUNLU | 46 | 477 of 477 | 100% |
-| Extrudr | 45 | 371 of 371 | 100% |
-| FormFutura | 44 | 308 of 322 | 96% |
-| Bambu Lab | 41 | 684 of 739 | 93% |
-| Fabru / purefil | 41 | 233 of 233 | 100% |
-| colorFabb | 36 | 283 of 288 | 98% |
-| Flashforge | 35 | 358 of 364 | 98% |
-| Eryone | 34 | 353 of 353 | 100% |
-| iSANMATE | 33 | 216 of 272 | 79% |
-| Nanovia | 28 | 127 of 127 | 100% |
-| Raise3D | 26 | 151 of 157 | 96% |
-| 3D4Makers | 23 | 166 of 166 | 100% |
-| SIDDAMENT | 23 | 170 of 172 | 99% |
-| Fillamentum | 22 | 179 of 180 | 99% |
-| MatterHackers / PRO Series | 20 | 103 of 103 | 100% |
-| eSUN | 17 | 145 of 147 | 99% |
-| Filament2Print | 16 | 158 of 158 | 100% |
-| NinjaTek | 15 | 113 of 113 | 100% |
-| QIDI | 14 | 149 of 149 | 100% |
-| Prusa Research / Prusament | 13 | 15 of 34 | 44% |
-| Siraya Tech | 11 | 67 of 67 | 100% |
-| Stratasys | 11 | 69 of 83 | 83% |
-| Fiberlogy | 10 | 104 of 104 | 100% |
-| Yousu | 10 | 55 of 58 | 95% |
-| Shop3D Canada | 9 | 96 of 96 | 100% |
-| BigRep | 8 | 62 of 65 | 95% |
-| Recreus / Filaflex | 8 | 44 of 44 | 100% |
-| 3D-Fuel | 5 | 58 of 58 | 100% |
-| BASF Forward AM / Ultrafuse | 5 | 71 of 72 | 99% |
-| IPCON | 4 | 68 of 76 | 89% |
-| Essentium / Nexa3D | 3 | 1 of 24 | 4% |
-| Trinity3DS | 3 | 23 of 23 | 100% |
-| UltiMaker / MakerBot | 3 | 14 of 14 | 100% |
-| Braskem | 2 | 14 of 15 | 93% |
-| Grupa Azoty / Tarfuse | 1 | 4 of 6 | 67% |
-| Kimya / Airtech | 1 | 7 of 11 | 64% |
-| Markforged | 1 | 5 of 5 | 100% |
+Independent parity over all makers: **87.1%**, 1,759 of 2,020 values on 141 sheets.
+
+| Maker | Sheets | Reproduced | Parity | Independent |
+|---|---:|---|---:|---|
+| 3DJake / 3DJAKE | 314 | 2327 of 2340 | 99% | 19 of 24 (79%) |
+| Spectrum | 93 | 665 of 665 | 100% | 113 of 113 (100%) |
+| 3DXTECH | 68 | 511 of 512 | 100% | 214 of 214 (100%) |
+| Polymaker / Fiberon | 60 | 926 of 963 | 96% | 397 of 430 (92%) |
+| FormFutura | 48 | 283 of 318 | 89% | 12 of 26 (46%) |
+| SUNLU | 46 | 477 of 477 | 100% | 0 of 0 (null%) |
+| Extrudr | 45 | 370 of 371 | 100% | 0 of 0 (null%) |
+| Bambu Lab | 42 | 686 of 741 | 93% | 684 of 739 (93%) |
+| Fabru / purefil | 41 | 233 of 233 | 100% | 0 of 0 (null%) |
+| Fiberlogy | 39 | 339 of 339 | 100% | 0 of 0 (null%) |
+| Eryone | 36 | 353 of 353 | 100% | 0 of 0 (null%) |
+| colorFabb | 36 | 282 of 288 | 98% | 8 of 11 (73%) |
+| Flashforge | 35 | 358 of 364 | 98% | 7 of 13 (54%) |
+| iSANMATE | 34 | 215 of 271 | 79% | 86 of 142 (61%) |
+| Nanovia | 29 | 126 of 127 | 99% | 0 of 0 (null%) |
+| SIDDAMENT | 27 | 185 of 187 | 99% | 11 of 13 (85%) |
+| Raise3D | 26 | 151 of 157 | 96% | 7 of 13 (54%) |
+| 3D4Makers | 23 | 158 of 161 | 98% | 0 of 0 (null%) |
+| Fillamentum | 22 | 178 of 180 | 99% | 22 of 23 (96%) |
+| MatterHackers / PRO Series | 21 | 110 of 110 | 100% | 0 of 0 (null%) |
+| eSUN | 17 | 145 of 147 | 99% | 21 of 23 (91%) |
+| Filament2Print | 16 | 158 of 158 | 100% | 0 of 0 (null%) |
+| NinjaTek | 15 | 112 of 113 | 99% | 0 of 0 (null%) |
+| Prusa Research / Prusament | 14 | 15 of 34 | 44% | 3 of 22 (14%) |
+| QIDI | 14 | 149 of 149 | 100% | 0 of 0 (null%) |
+| Recreus / Filaflex | 12 | 53 of 53 | 100% | 0 of 0 (null%) |
+| Shop3D Canada | 11 | 96 of 96 | 100% | 0 of 0 (null%) |
+| Siraya Tech | 11 | 67 of 67 | 100% | 0 of 0 (null%) |
+| Stratasys | 11 | 69 of 83 | 83% | 2 of 16 (13%) |
+| Yousu | 11 | 55 of 58 | 95% | 5 of 8 (63%) |
+| BigRep | 10 | 80 of 83 | 96% | 6 of 9 (67%) |
+| 3D-Fuel | 5 | 56 of 57 | 98% | 0 of 0 (null%) |
+| BASF Forward AM / Ultrafuse | 5 | 71 of 72 | 99% | 56 of 57 (98%) |
+| IPCON | 4 | 68 of 76 | 89% | 68 of 76 (89%) |
+| Essentium / Nexa3D | 3 | 1 of 24 | 4% | 0 of 23 (0%) |
+| Trinity3DS | 3 | 23 of 23 | 100% | 0 of 0 (null%) |
+| UltiMaker / MakerBot | 3 | 14 of 14 | 100% | 0 of 0 (null%) |
+| Braskem | 2 | 14 of 15 | 93% | 7 of 8 (88%) |
+| Grupa Azoty / Tarfuse | 1 | 4 of 6 | 67% | 4 of 6 (67%) |
+| Kimya / Airtech | 1 | 7 of 11 | 64% | 7 of 11 (64%) |
+| Markforged | 1 | 5 of 5 | 100% | 0 of 0 (null%) |
 
 ```bash
 npm run ingest:propose -- --compare --all
@@ -134,7 +138,7 @@ npm run ingest:propose -- --compare --all
 | [b24](batches/b24/README.md) | b24: a table's columns by position, and the caption that names the table | m96-batch-b24, 2026-09-21 |
 | [b25](batches/b25/README.md) | b25: what four polymer rows and four rulings let in | m100-batch-b25, 2026-09-21 |
 | [b26](batches/b26/README.md) | b26: what a browser had to draw first | m103-batch-b26, 2026-09-21 |
-| [b27](batches/b27/README.md) | b27: the optical pool, read and not applied | not recorded |
+| [b27](batches/b27/README.md) | b27: the optical pool, read against its page images and applied | not recorded |
 | [b28](batches/b28/README.md) | b28: FormFutura's own library, and what reading it showed up | m110-batch-b28, 2026-09-21 |
 | [b29](batches/b29/README.md) | b29: iSANMATE's current sheets | m112-batch-b29, 2026-09-21 |
 | [b30](batches/b30/README.md) | b30: verdicts by witness, and four small reader rules | m117-batch-b30, 2026-09-21 |

@@ -1,11 +1,13 @@
 # Documentation
 
-Start with [HOW-IT-WORKS.md](HOW-IT-WORKS.md) if you use the tool and want to know where its numbers come from,
+Start with [GOALS.md](GOALS.md): what the tool is for, the method it follows, and the rules every change is held to.
+Then [HOW-IT-WORKS.md](HOW-IT-WORKS.md) if you use the tool and want to know where its numbers come from,
 [ARCHITECTURE.md](ARCHITECTURE.md) if you are going to change code, or [DATA-MODEL.md](DATA-MODEL.md) if you are
 going to question a number.
 
 | Document | Answers |
 |---|---|
+| [GOALS.md](GOALS.md) | What is this for, who is it for, what is decided next, and how is a change judged? |
 | [HOW-IT-WORKS.md](HOW-IT-WORKS.md) | For an engineer: how a data sheet becomes a number on the screen, what each kind of number means, how far to trust it, and what the tool is not |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | How is this put together? Where does my change go? |
 | [PIPELINE.md](PIPELINE.md) | How do the data tables become an HTML file? |
@@ -26,11 +28,11 @@ Three places, in the order to try them.
 
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than
    errors, so the reason usually sits directly above the code.
-2. **[DECISIONS.md](DECISIONS.md).** Numbered D1 to D76, with an index at the head saying which still hold, each
-   saying what would break if it were reversed, followed by a table of bugs that shipped and what pins each one now.
-3. **[audits/](audits/).** Seventeen audit passes so far, each in its own dated folder: the report as it was
-   delivered, and the outcome of every finding. The latest, the [architecture review](audits/2026-09-15-architecture-review/REPORT.md),
-   is also where what is done and what is not yet done is kept current.
+2. **[DECISIONS.md](DECISIONS.md).** Numbered, with an index at the head saying which still hold, each saying what
+   would break if it were reversed, followed by a table of bugs that shipped and what pins each one now.
+3. **[audits/](audits/).** Each audit pass in its own dated folder: the report as it was delivered, and the outcome
+   of every finding. The latest, the [re-center review](audits/2026-09-25-re-center/REPORT.md), holds the plan now
+   being followed; what is decided from it is in [GOALS.md](GOALS.md).
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
 is the way it is because of what the data can and cannot support, DECISIONS says so. If neither
