@@ -48,3 +48,12 @@ test('punctuation is a separator, never part of a word', () => {
   assert.deepEqual(words('TPC / TPEE'), ['tpc', 'tpee']);
   assert.ok(searchableWords(pa6cf).includes('polyamide'));
 });
+
+test("a material is found by its products' makers and names, and a brand never matches inside a word", () => {
+  const pla = { name: 'PLA', family: 'PLA', gradeIds: [] };
+  const products = [{ manufacturer: 'Polymaker', product: 'PolyLite PLA' }, { manufacturer: 'Prusa Research', product: 'Prusament PLA' }];
+  assert.equal(matchesQuery(pla, 'polymaker', products), true);
+  assert.equal(matchesQuery(pla, 'prusament', products), true);
+  assert.equal(matchesQuery(pla, 'polymaker', []), false, 'without its products a material is found by its own words only');
+  assert.equal(matchesQuery(pla, 'maker', products), false, 'a term begins a word; it is not a substring');
+});

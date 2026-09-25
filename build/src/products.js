@@ -131,7 +131,7 @@ function recipeAxis(profiles, axis) {
   const pick = same.find((p) => p.gates[axis].over === gate.over && p[axis].state === 'range')
     ?? same.find((p) => p[axis].state === 'range') ?? same[0];
   const t = pick?.[axis];
-  return { verdict: gate.verdict, state: t?.state ?? 'unknown', min: t?.min ?? null, max: t?.max ?? null, profileId: pick?.id ?? null };
+  return { verdict: gate.verdict, reason: gate.reason, state: t?.state ?? 'unknown', min: t?.min ?? null, max: t?.max ?? null, profileId: pick?.id ?? null };
 }
 
 /**

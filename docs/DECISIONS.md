@@ -8,13 +8,13 @@ break if it were reversed, because that is the part that gets lost.
 | | Decision | Status |
 |---|---|---|
 | D1 | Excel is the authoring format; JSON is the runtime | Authoring superseded by D45 |
-| D2 | Headline values are verified, never recomputed | In force |
+| D2 | Headline values are verified, never recomputed | Amended by D83 |
 | D3 | Missing data is four states, never zero | In force |
 | D4 | INDETERMINATE is not UNKNOWN | In force |
 | D5 | Evidence outranks silence in gate aggregation | In force |
 | D6 | A recommendation is not a requirement | In force |
 | D7 | Only gates that can discriminate become filters | In force |
-| D8 | Related evidence reports one measurement, never a cross-grade range | In force |
+| D8 | Related evidence reports one measurement, never a cross-grade range | Its refusal of a range superseded by D83 |
 | D9 | No cross-property fallback | In force |
 | D10 | A family estimate may rule out, never rule in | Superseded by D40, D42, then D43 |
 | D11 | Estimates never pool across behaviour classes | Narrowed by D40, D42 and D43 |
@@ -43,7 +43,7 @@ break if it were reversed, because that is the part that gets lost.
 | D34 | An estimated chamber band decides nothing | In force |
 | D35 | A research report is re-read against its sources, never transcribed | In force |
 | D36 | Referential integrity includes ownership, not just existence | In force |
-| D37 | A headline belongs to the representative grade; study grades are not procurement grades | In force |
+| D37 | A headline belongs to the representative grade; study grades are not procurement grades | Amended by D83 |
 | D38 | Environmental evidence is owned by the material; family evidence stays context | In force |
 | D39 | Coverage is terminal, but it must agree with the records | In force |
 | D40 | Peer observations are context, not exclusion bounds | Superseded by D42, then D43 |
@@ -89,6 +89,8 @@ break if it were reversed, because that is the part that gets lost.
 | D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | In force |
 | D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | In force |
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | In force |
+| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | In force |
+| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | In force |
 
 <!-- end index -->
 
@@ -114,6 +116,10 @@ named error and no output.
 
 Amended by D47: the number is no longer typed twice. `headlines.csv` selects the measurement and the
 value is read from it, so there is nothing left to reconcile; the build checks the selection instead.
+
+*Amended by D83 (2026-09-25):* a product's value is chosen by rule from its own measurements, and a selection in
+`headlines.csv` pins it. The value is still a measurement, never recomputed; a material's median and quartiles are
+statistics of its products, labelled as such, and never shown as a measurement.
 
 ## D3. Missing data is four states, never zero
 
@@ -156,7 +162,7 @@ abrasion and drying. The rest appear as evidence in a material's Printing tab. A
 everything is worse than no filter, because it teaches the reader to trust a check that checked
 nothing.
 
-## D8. Related evidence reports one measurement, never a cross-grade range
+## D8. Related evidence reports one measurement, never a cross-grade range (its refusal of a range superseded by D83)
 
 PEBA's three grades measure 7.5, 25 and 30 MPa. "7.5 to 30" reads as one material's uncertainty
 rather than three different products, and the Method sheet forbids cross-grade family ranges.
@@ -490,6 +496,10 @@ Every measured headline must therefore cite the representative grade.
 `GradeIDs` lists commercial grades that can be selected or procured. Supplemental research grades
 carry an `-R#` suffix and stay outside it. PA12's fatigue study grade is useful context, but it does
 not make a PA12 product available and cannot become the representative grade.
+
+*Amended by D83 (2026-09-25):* the concern stands and is now met by judging each product on every requirement at once:
+no verdict rests on density from one product and strength from another. A material's row shows the spread of its
+products, labelled as such, beside how many of them pass.
 
 ## D38. Environmental evidence is owned by the material; family evidence stays context
 
@@ -1935,3 +1945,61 @@ service temperature, decomposition and crystallisation temperature, and tensile 
 Properties with fewer than thirty values (fatigue life, compression, tear strength, abrasion, dielectric strength)
 have none yet: a window drawn from nine rows is a guess about the next one. Reversing this removes seventeen windows
 and W0080's redrawing, and the findings they raise; the two flags would need their own reasons to stand.
+
+## D83. A material is the spread of its products, and passes when one of its products meets every requirement
+
+*Decided by the owner on 2026-09-25 (docs/GOALS.md); supersedes D8's refusal of a range and amends D2 and D37.
+Built in re-center phases 1 and 2; the page reads it from phase 3.*
+
+Each material showed the values of one hand-picked product, its representative grade. At a hundred materials with a
+product or two each that was a fair summary. At 1,119 products it was not: PLA's 198 products were judged by one of
+them, 80 % of the values never reached a verdict, and the V2 import changed one verdict among the original materials
+across the six templates. Engineering selection (Ashby) screens a material as the range of what it can be, then asks
+which products are that; so does this now.
+
+- **A product's values are chosen by rule** (`build/src/products.js`): the tests a headline selection passes, less the
+  representative grade, at one of D84's two levels, and among several candidates a fixed order (comparable, printed, as
+  printed, dry, the product's own sheet, the headline's first property, a point, the lowest ID). A `headlines.csv`
+  selection pins its product's value. On the day it was built the rule alone reproduced all 477 selections.
+- **A material's row is the spread of its products**: the procurement products that are not declared variants (D57),
+  how many publish a comparable value, their range, median, quartiles from four values, and the typical product
+  nearest the median; values published without direction or load, and variants, are counted apart. It is the spread
+  of different products, never uncertainty about one, and it is labelled that way: PEBA's 7.5, 25 and 30 MPa are three
+  products, which is what D8 feared a range would hide.
+- **A verdict is judged product by product** (`app/js/engine/products.js`, `evaluateProducts`): each product is
+  judged on every requirement at once, through a view of the material with that product's values and its own print
+  recipe, so D37's concern (a property set for a formulation that does not exist) cannot reach a verdict. A material
+  passes when one product passes, and says whether all the products that could be judged pass or only some; it fails
+  when none passes and one fails; it is unknown when none could be judged. A product with no data is counted as
+  untested and does not count against its material. Print gates are the product's own: a product with no profile is
+  unknown on them, never a pass.
+- **The material's estimate stands in only where no product publishes a comparable value**, which is the case it was
+  calibrated for (D43). A silent product beside siblings that publish is untested, not estimated.
+- **Performance indices are computed per product** and a material ranks by the median over its passing products,
+  never from medians of different products.
+
+What it did, across the six templates in Include uncertain: 13 materials went from FAIL to PASS (one of their
+products meets every requirement the representative did not), 8 from UNKNOWN to PASS, and 36 from UNKNOWN to FAIL
+(the representative grade was silent and every product that publishes fails); no PASS was lost
+(`build/snapshot/templates-products.csv`). Reversing it returns the representative grade as the only answer, and the
+data the import brought in stops reaching a verdict again.
+
+## D84. Two evidence levels: comparable decides; a value published without its direction or load is counted apart
+
+*Decided by the owner on 2026-09-25 (docs/GOALS.md). Built in re-center phases 1 and 2.*
+
+A value is **comparable** when it is what the headline says: a printed or unstated specimen, the headline's direction,
+dry or unstated, at the headline's load. It is **as published** when the source leaves the direction or the test load
+unstated. Such values are common (half the modulus rows state no direction) and read like moulded bars: of PLA's
+products, 27 state an XY stiffness and none reaches 3 GPa, while 30 of the 46 that state no direction do.
+
+- Comparable values decide by default. An as-published value is shown, counted apart in the material's spread, and
+  named in the reason ("published 3.4 GPa without stating the test direction, so it is not compared"); a scenario
+  that admits such values lets it decide.
+- What a headline is not (a Z, film, filament or moulded value, a conditioned or implausible one, one annealed where
+  the product publishes it as printed, one at another load) is no product value at either level, and stays evidence.
+- A heat deflection value without its load is as published; phase 4 retires the unstated-load bracket this replaces.
+
+Reversing it either mixes moulded-looking values into printed ones, or hides them; both were tried, in effect, by the
+representative grade, which took whichever one somebody picked.
+

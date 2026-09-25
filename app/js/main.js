@@ -5,6 +5,7 @@
 
 import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constraints.js';
 import { matchesQuery } from './engine/search.js';
+import { productsByMaterial } from './engine/products.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
@@ -137,6 +138,9 @@ function buildContext(db) {
     // The base polymers' published behaviour, attached by the build where a material has no record of its own (D64).
     polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'),
     coverageByMaterial: group(db.coverage, 'materialId'),
+    // Each material's products, for search by maker and product name. Named apart from `productsByMaterial`, which
+    // would have the engine judge materials by their products (D83): the page does that from re-center phase 3.
+    productsOf: productsByMaterial(db),
     unknownPolicy: UNKNOWN_POLICY.STRICT,
   };
 }
@@ -166,10 +170,11 @@ function recompute() {
   // Searching a family's name finds its members and says what the family is, so "PA-CF" answers
   // with PA6-CF, PA12-CF and the rest rather than with nothing, or with one of them twice.
   state.searchFamilies = q ? db.materials.filter((m) => m.familyEntry && matchesQuery(m, q)) : [];
+  const productsOf = (m) => state.ctx.productsOf?.get(m.id) ?? [];
   const members = new Set(state.searchFamilies.flatMap((f) => f.familyEntry.members.map((x) => x.id)));
   const found = state.selection.evaluations
     .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
-    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && (matchesQuery(m, q) || members.has(m.id)));
+    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && (matchesQuery(m, q, productsOf(m)) || members.has(m.id)));
 
   const visible = (e) => state.showStates.has(e.verdict) && (!e.screened || state.showScreened);
   state.rows = found.filter(({ evaluation: e }) => visible(e));

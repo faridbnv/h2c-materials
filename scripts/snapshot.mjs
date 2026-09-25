@@ -11,6 +11,9 @@
 //   build/snapshot/grades.csv      every grade's own estimate per headline (D81): strength, precision, the ranges
 //   build/snapshot/products.csv    every product's own value per headline, by rule: the measurement, its evidence level,
 //                                   what qualifies it, and whether headlines.csv pins it (re-center phase 1)
+//   build/snapshot/templates-products.csv  each template's candidates judged by products (D83, re-center phase 2): the
+//                                   verdict, how many products pass, fail or could not be judged, and the best product.
+//                                   The page still judges materials on their headline until phase 3.
 //   build/snapshot/summaries.csv   every material's spread per headline across its products: n, range, quartiles,
 //                                   the typical product, the values published without direction or load, the variants
 //
@@ -24,6 +27,7 @@ import { csvText } from '../build/src/csv.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 import { runSelection, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
+import { productsByMaterial } from '../app/js/engine/products.js';
 import { TEMPLATES } from '../app/js/ui/templates.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -65,6 +69,20 @@ for (const t of TEMPLATES) {
     for (const e of evaluations.filter((x) => x.eligible || x.screened)) {
       templates.push({ Template: t.name, Mode: mode, MaterialID: e.materialId, Material: db.materials.find((m) => m.id === e.materialId).name,
         Verdict: e.verdict, Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; ') });
+    }
+  }
+}
+
+// The same templates judged by products (D83): a material passes when one of its products meets every requirement.
+const templatesProducts = [];
+const byProducts = { ...ctx, productsByMaterial: productsByMaterial(db) };
+for (const t of TEMPLATES) {
+  for (const [mode, c] of Object.entries(modes)) {
+    const { evaluations } = runSelection(mats, t.constraints, { ...byProducts, ...c });
+    for (const e of evaluations.filter((x) => x.eligible || x.screened)) {
+      templatesProducts.push({ Template: t.name, Mode: mode, MaterialID: e.materialId, Material: db.materials.find((m) => m.id === e.materialId).name,
+        Verdict: e.verdict, Share: e.share ?? '', Pass: e.counts?.pass ?? '', Fail: e.counts?.fail ?? '', Untested: e.counts?.untested ?? '',
+        Products: e.counts?.products ?? '', Best: e.gradeId ?? '', Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; ') });
     }
   }
 }
@@ -121,6 +139,7 @@ const files = {
   'screening.csv': csvText(Object.keys(screening[0]), screening),
   'grades.csv': csvText(['GradeID', 'MaterialID', 'Product', 'Headline', 'Strength', 'Precision', 'Centre', 'Likely', 'Plausible', 'Unit', 'Own'], gradeRows),
   'products.csv': csvText(Object.keys(productRows[0]), productRows),
+  'templates-products.csv': csvText(Object.keys(templatesProducts[0]), templatesProducts),
   'summaries.csv': csvText(Object.keys(summaryRows[0]), summaryRows),
 };
 

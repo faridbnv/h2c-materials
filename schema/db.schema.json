@@ -2180,6 +2180,7 @@
           "additionalProperties": false,
           "required": [
             "verdict",
+            "reason",
             "state",
             "min",
             "max",
@@ -2194,6 +2195,9 @@
                 "exceeds",
                 "unknown"
               ]
+            },
+            "reason": {
+              "type": "string"
             },
             "state": {
               "type": "string"
@@ -2223,6 +2227,7 @@
           "additionalProperties": false,
           "required": [
             "verdict",
+            "reason",
             "state",
             "min",
             "max",
@@ -2237,6 +2242,9 @@
                 "exceeds",
                 "unknown"
               ]
+            },
+            "reason": {
+              "type": "string"
             },
             "state": {
               "type": "string"
@@ -2266,6 +2274,7 @@
           "additionalProperties": false,
           "required": [
             "verdict",
+            "reason",
             "state",
             "min",
             "max",
@@ -2280,6 +2289,9 @@
                 "exceeds",
                 "unknown"
               ]
+            },
+            "reason": {
+              "type": "string"
             },
             "state": {
               "type": "string"

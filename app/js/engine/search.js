@@ -21,13 +21,16 @@ export const words = (value) => String(value ?? '').toLowerCase().match(WORD_RE)
  * Property values are not searchable, because a number reached by typing it is a filter, and the
  * filter rail is where a number belongs.
  */
-export function searchableWords(material) {
+export function searchableWords(material, products = []) {
   const out = [];
   for (const field of [material.name, material.fullName, material.abbreviation,
     material.family, material.basePolymer, material.modifier]) {
     out.push(...words(field));
   }
   for (const id of material.gradeIds ?? []) out.push(...words(id));
+  // A material is found by its products' makers and names too: "Polymaker", "PolyLite", "Prusament". Searching a brand
+  // was the first thing a first-time user tried, and it found nothing (audit 2026-09-11, F1).
+  for (const g of products) out.push(...words(g.manufacturer), ...words(g.product));
   return out;
 }
 
@@ -37,9 +40,9 @@ export function searchableWords(material) {
  * Every term must match, so adding a word narrows. A term matches when some word of the material
  * begins with it.
  */
-export function matchesQuery(material, query) {
+export function matchesQuery(material, query, products = []) {
   const terms = words(query);
   if (!terms.length) return true;
-  const hay = searchableWords(material);
+  const hay = searchableWords(material, products);
   return terms.every((term) => hay.some((w) => w.startsWith(term)));
 }

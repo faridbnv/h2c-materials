@@ -49,10 +49,12 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const { runSelection, compareInterval, STATUS, UNKNOWN_POLICY } = await import(pathToFileURL(join(root, 'app/js/engine/constraints.js')).href);
 const { matchesQuery } = await import(pathToFileURL(join(root, 'app/js/engine/search.js')).href);
+const { productsByMaterial } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
 const { applyAssumptions, toHash, validateScenario } = await import(pathToFileURL(join(root, 'app/js/engine/scenario.js')).href);
 const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
 
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
+const productsOf = productsByMaterial(db);
 // The current snapshot's page, never whichever older page sorts first in dist/ (see ui-probe.mjs).
 const html = readdirSync(join(root, 'dist')).find((f) => f === `H2C_Material_Selector_${db.meta.snapshot}.html`);
 if (!html) { console.error(`No built page for snapshot ${db.meta.snapshot} in dist/; run npm run build`); process.exit(1); }
@@ -191,7 +193,7 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   const byId = new Map(materials.map((m) => [m.id, m]));
   const families = q ? db.materials.filter((m) => m.familyEntry && matchesQuery(m, q)) : [];
   const members = new Set(families.flatMap((f) => f.familyEntry.members.map((x) => x.id)));
-  const found = sel.evaluations.map((ev) => ({ material: byId.get(ev.materialId), evaluation: ev })).filter(({ material: m }) => matchesQuery(m, q) || members.has(m.id));
+  const found = sel.evaluations.map((ev) => ({ material: byId.get(ev.materialId), evaluation: ev })).filter(({ material: m }) => matchesQuery(m, q, productsOf.get(m.id) ?? []) || members.has(m.id));
   const showStates = new Set(explore ? ['PASS', 'UNKNOWN'] : ['PASS']); if (fail) showStates.add('FAIL');
   const visible = (ev) => showStates.has(ev.verdict) && (!ev.screened || screened);
   const rows = found.filter(({ evaluation: ev }) => visible(ev));

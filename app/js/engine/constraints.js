@@ -10,6 +10,10 @@
 // INDETERMINATE means evidence exists and the threshold cuts through it, so the source cannot
 // settle the question either way.
 
+import { productView, SHARE } from './products.js';
+
+export { SHARE };
+
 export const STATUS = {
   PASS: 'PASS',
   FAIL: 'FAIL',
@@ -129,6 +133,14 @@ function evaluateNumeric(material, c, ctx = {}) {
         criterion: label,
         reason,
         missing: h?.missing ?? 'not-published',
+      };
+    }
+    // A product value the source published without the direction or the load: shown, and not comparable (D84).
+    if (h?.asPublished) {
+      const what = h.asPublished.caveat === 'load-not-stated' ? 'the test load' : 'the test direction';
+      return {
+        status: STATUS.UNKNOWN, criterion: label, missing: 'not-comparable', asPublished: h.asPublished,
+        reason: `Published ${fmt(h.asPublished.value)} ${h.unit} without stating ${what}, so it is not compared (include values published that way to use it)`,
       };
     }
     return {
@@ -479,9 +491,55 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
   };
 }
 
+/**
+ * A material answered by its products (D83): each product is judged on every constraint at once, through a view of the
+ * material with that product's values and print recipe (products.js). The material passes when at least one product
+ * passes, and says whether all the products that could be judged pass or only some; it fails when none passes and at
+ * least one fails; it is unknown when none could be judged. A product with no data does not count against its material,
+ * and is counted as untested. The evaluation's reasons are its best product's: the first that passes, else the first
+ * that fails, else the first. A material with no product is judged as it always was, on its own headline.
+ */
+export function evaluateProducts(material, products, constraints, ctx = {}) {
+  if (!products?.length) return { ...evaluateMaterial(material, constraints, ctx), share: null, counts: null, products: [] };
+  const policy = normalizePolicy(ctx.unknownPolicy);
+  const judged = products.map((g) => ({ grade: g, e: evaluateMaterial(productView(material, g, ctx), constraints, ctx) }));
+  const pass = judged.filter((x) => x.e.verdict === STATUS.PASS);
+  const fail = judged.filter((x) => x.e.verdict === STATUS.FAIL);
+  const unknown = judged.filter((x) => x.e.verdict === STATUS.UNKNOWN);
+  const verdict = pass.length ? STATUS.PASS : fail.length ? STATUS.FAIL : STATUS.UNKNOWN;
+  const share = pass.length ? (fail.length ? SHARE.SOME : SHARE.ALL) : fail.length ? SHARE.NONE : null;
+  // Every product that could not be judged shares the material's estimate (products.js), so a screen holds for all or none.
+  const screened = policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && unknown.every((x) => x.e.screened);
+  const best = (pass[0] ?? fail[0] ?? unknown[0]);
+  return {
+    ...best.e,
+    materialId: material.id,
+    verdict,
+    eligible: verdict === STATUS.PASS || (policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && !screened),
+    needsVerification: verdict === STATUS.UNKNOWN && policy === UNKNOWN_POLICY.EXPLORATION && !screened,
+    screened,
+    screenedBy: screened ? best.e.screenedBy : [],
+    heldBy: policy === UNKNOWN_POLICY.STRICT && verdict === STATUS.UNKNOWN ? best.e.heldBy : [],
+    failedBy: verdict === STATUS.FAIL ? best.e.failedBy : [],
+    share,
+    counts: { products: products.length, pass: pass.length, fail: fail.length, untested: unknown.length, screened: unknown.filter((x) => x.e.screened).length },
+    products: judged.map((x) => ({ gradeId: x.grade.id, verdict: x.e.verdict, screened: x.e.screened, failedBy: x.e.failedBy })),
+    gradeId: best.grade.id,
+  };
+}
+
+/** Evaluate one material: by its products when the context carries them (D83), else on its own headline. */
+function evaluateOne(material, constraints, ctx) {
+  return ctx.productsByMaterial
+    ? evaluateProducts(material, ctx.productsByMaterial.get(material.id) ?? [], constraints, ctx)
+    : evaluateMaterial(material, constraints, ctx);
+}
+
 /** Run the whole set. Returns evaluations plus the counts the status bar needs. */
 export function runSelection(materials, constraints, ctx = {}) {
-  const evaluations = materials.map((m) => evaluateMaterial(m, constraints, ctx));
+  // A product value cites its measurement; the reason names that measurement's source.
+  if (ctx.productsByMaterial && !ctx.measurementById && ctx.db) ctx = { ...ctx, measurementById: new Map(ctx.db.measurements.map((m) => [m.id, m])) };
+  const evaluations = materials.map((m) => evaluateOne(m, constraints, ctx));
   const counts = { pass: 0, fail: 0, unknown: 0, screened: 0, total: evaluations.length };
   for (const e of evaluations) {
     if (e.verdict === STATUS.PASS) counts.pass++;
@@ -502,16 +560,21 @@ export function explainExclusions(materials, constraints, ctx = {}) {
   return constraints.map((c, i) => {
     const without = constraints.filter((_, j) => j !== i);
     const recovered = runSelection(materials, without, ctx).candidates.length - base;
-    let removed = 0, held = 0, screened = 0, screenedByPolymer = 0;
+    let removed = 0, held = 0, screened = 0, screenedByPolymer = 0, productsRemoved = 0;
     for (const m of materials) {
-      const r = evaluateConstraint(m, c, ctx);
+      // Judged by its products, a requirement removes a material when no product meets it and one fails it.
+      const products = ctx.productsByMaterial?.get(m.id);
+      const rs = products?.length ? products.map((g) => evaluateConstraint(productView(m, g, ctx), c, ctx)) : [evaluateConstraint(m, c, ctx)];
+      if (products?.length) productsRemoved += rs.filter((r) => r.status === STATUS.FAIL).length;
+      const r = rs.find((x) => x.status === STATUS.PASS) ?? rs.find((x) => x.status === STATUS.FAIL) ?? rs[0];
       if (r.status === STATUS.FAIL) removed++;
       else if (r.status === STATUS.UNKNOWN || r.status === STATUS.INDETERMINATE) held++;
       if (r.screened) screened++;
       if (r.screened && r.polymerScreen) screenedByPolymer++;
     }
     // `screened` counts every screen; `screenedByPolymer` the part of it that rests on the base polymer's published
-    // behaviour rather than an estimate, so the panel can say which.
-    return { constraint: c, removed, held, screened, screenedByPolymer, recovered };
+    // behaviour rather than an estimate, so the panel can say which. `productsRemoved` counts products, where the
+    // selection is by product.
+    return { constraint: c, removed, held, screened, screenedByPolymer, recovered, ...(ctx.productsByMaterial ? { productsRemoved } : {}) };
   }).sort((a, b) => b.recovered - a.recovered || b.removed - a.removed);
 }

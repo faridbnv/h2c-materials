@@ -150,11 +150,12 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 | Module | Responsibility |
 |---|---|
 | `constraints.js` | The four-state evaluator, the unknown-data policies, ranked exclusions. The heart of the tool. |
+| `products.js` | A material answered by its products (D83): a product view (the material with one product's values and print recipe), which `evaluateProducts` in `constraints.js` judges on every requirement at once and rolls up to all / some / none. Used when the context carries `productsByMaterial`; the page does from re-center phase 3. |
 | `indices.js` | The Ashby performance-index library, their slopes and their caveats. |
 | `pareto.js` | Non-dominated sets over the current candidates and axes. |
 | `coverage.js` | What the database knows and does not, per material and per domain. |
 | `scenario.js` | The user's question, serialised: shareable link, saved file, user assumptions. Validation leaves out, with a warning, what the build cannot evaluate. |
-| `search.js` | Catalogue search. Its own module because the obvious implementation matches "PLA" inside "thermoplastic". |
+| `search.js` | Catalogue search, by a material's own words and its products' makers and names. Its own module because the obvious implementation matches "PLA" inside "thermoplastic". |
 
 ### Interface, `app/js/ui/`
 

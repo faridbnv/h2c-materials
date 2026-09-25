@@ -136,3 +136,28 @@ export function rankByIndex(materials, index) {
     .filter((r) => r.value !== null)
     .sort((a, b) => b.value - a.value);
 }
+
+/**
+ * Rank materials by an index computed product by product (D83): each passing product's own M from its own density,
+ * stiffness or strength and price, never from medians of different products. A material ranks by the median M of its
+ * passing products and names its best one. `evaluations` are runSelection's with products (their `products[]`
+ * verdicts); a material without products ranks on its own headline, as rankByIndex does.
+ */
+export function rankMaterials(evaluations, materials, productsByMaterial, index, viewOf) {
+  const byId = new Map(materials.map((m) => [m.id, m]));
+  const out = [];
+  for (const e of evaluations) {
+    const material = byId.get(e.materialId);
+    if (!material) continue;
+    const passing = new Set((e.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => p.gradeId));
+    const products = (productsByMaterial.get(material.id) ?? []).filter((g) => passing.has(g.id));
+    const values = products.length
+      ? products.map((g) => ({ gradeId: g.id, value: indexValue(viewOf(material, g), index) })).filter((x) => x.value !== null)
+      : e.products?.length ? [] : [{ gradeId: null, value: indexValue(material, index) }].filter((x) => x.value !== null);
+    if (!values.length) continue;
+    const sorted = [...values].sort((a, b) => a.value - b.value);
+    const mid = sorted.length % 2 ? sorted[(sorted.length - 1) / 2].value : (sorted[sorted.length / 2 - 1].value + sorted[sorted.length / 2].value) / 2;
+    out.push({ materialId: material.id, value: mid, best: sorted.at(-1), products: values.length });
+  }
+  return out.sort((a, b) => b.value - a.value || a.materialId.localeCompare(b.materialId));
+}

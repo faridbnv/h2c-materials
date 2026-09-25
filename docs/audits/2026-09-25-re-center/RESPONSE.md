@@ -76,3 +76,47 @@ against a median of 3.3 across its four comparable products.
 Not built in this step, and why: a print summary per material (the engine will need the products' recipes, not a
 summary of them; the table's print columns come in phase 3), and D83/D84 in DECISIONS.md (they are entered with the
 phase 2 change that makes them decide).
+
+## Phase 2: the engine answers all / some / none, including printability (2026-09-25)
+
+`app/js/engine/products.js` gives a **product view**: the material with one product's values and its own print recipe.
+`evaluateProducts` (`constraints.js`) judges every product on every requirement at once and rolls up: PASS when one
+product passes, with share ALL or SOME; FAIL (NONE) when none passes and one fails; UNKNOWN when none could be judged;
+untested products counted and never held against the material. The material's estimate stands in only where none of
+its products publishes a comparable value. `runSelection` and `explainExclusions` do this whenever the context carries
+`productsByMaterial`; `explainExclusions` also counts the products each requirement removes. `rankMaterials`
+(`indices.js`) ranks by the median index over a material's passing products, computed product by product. Search finds
+a material by its products' makers and names ("Polymaker", "Prusament"), in the page and in the fuzzer alike. D83 and
+D84 are entered in DECISIONS.md, with D8 marked superseded in its refusal of a range and D2 and D37 amended.
+
+**The page still judges materials on their headline**, as planned: phase 3 switches it, with the interface that can
+show a SOME row. `build/snapshot/templates-products.csv` holds the templates judged by products.
+
+**Gate: the decision diff**, six templates, Include uncertain, materials judged by their headline against by products:
+
+| Template | Headline: PASS / FAIL / UNKNOWN | Products: PASS / FAIL / UNKNOWN | FAIL→PASS | UNKNOWN→PASS | UNKNOWN→FAIL | SOME |
+|---|---|---|---:|---:|---:|---:|
+| Outdoor structural part | 17 / 88 / 48 | 18 / 96 / 39 | 1 | 0 | 9 | 8 |
+| Indoor prototype | 20 / 35 / 98 | 20 / 35 / 98 | 0 | 0 | 0 | 0 |
+| Lightweight structure | 23 / 84 / 46 | 27 / 93 / 33 | 4 | 0 | 13 | 11 |
+| Warm environment | 23 / 57 / 73 | 28 / 63 / 62 | 1 | 4 | 7 | 13 |
+| High-stiffness fixture | 12 / 87 / 54 | 18 / 85 / 50 | 6 | 0 | 4 | 10 |
+| Flexible component | 8 / 91 / 54 | 13 / 93 / 47 | 1 | 4 | 3 | 1 |
+| **Total** | 103 / 442 / 373 | 124 / 465 / 329 | **13** | **8** | **36** | 43 |
+
+No PASS was lost, per-product print gates included. The 13 FAIL→PASS match the phase 1 estimate of about 14. Examples:
+- PA6-CF, PET-CF, PAHT-CF, ASA-CF, PETG-CF and PA6-GF pass the stiffness fixture through a product the representative
+  grade was not.
+- PLA passes the warm-environment template through 5 of its 63 judged products (135 untested), and PETG through 1 of 27.
+- The 36 UNKNOWN→FAIL are materials whose representative grade was silent but whose products that publish all fail:
+  PLA Silk's 10 judged products for heat, PP's 5 for stiffness.
+
+UNKNOWN among the materials not ruled out fell from 78 % (373 of 476) to 73 % (329 of 453).
+
+| | Result |
+|---|---|
+| Tests | 10 new engine tests (`test/selection-products.test.js`: joint judgement, all / some / none, D84 levels, print gates per product, the estimate's reach, a material without products, why excluded, ranking), 1 search test; 293 pass in `npm test`, 164 in `test:ingest` |
+| `verify` | 3 min 41 s, passing; the page's 63 views and 300 fuzzed scenarios unchanged |
+
+Not built in this step: `rankBy` and `evidence` in the scenario and its link, which arrive with the controls that set
+them (phase 3), so no saved scenario changes shape before the page can use it.

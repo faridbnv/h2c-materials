@@ -74,10 +74,11 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C14 | Team layer (shared scenarios, approved list, own tests); later | 1 |
 | C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 |
 
-## Decided on 2026-09-25, to be built
+## Decided on 2026-09-25
 
 Each becomes an entry in [DECISIONS.md](DECISIONS.md) in the change that builds it, not before, so DECISIONS never
-describes a tool that does not exist yet.
+describes a tool that does not exist yet. D83 and D84 are entered (the build and the engine carry them; the page reads
+them from phase 3); D85 waits for the record tier.
 
 - **D83. A material is the range of its products.**
   - Each product's values are derived by rule, and `headlines.csv` becomes an override.
