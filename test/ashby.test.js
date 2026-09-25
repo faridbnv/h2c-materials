@@ -8,6 +8,7 @@ const yDef = { label: 'Stiffness', unit: 'GPa' };
 test('Ashby view names say what each point represents', () => {
   assert.deepEqual(DETAIL_LEVELS.map((d) => d.label), [
     'One material',
+    'One product',
     'One matched measurement pair',
     'One mixed-condition pair',
   ]);

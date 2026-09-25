@@ -10,6 +10,16 @@ What this database cannot answer
 Properties
 Printing
 What the material is like
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
 Compare against
 no reference
 PLA
@@ -18,56 +28,141 @@ ABS
 ASA
 PC
 — not published
-* measured, not the headline
+2.3 1.0–3.0 · 27 typical and range
+* measured, not comparable
 ? heat load not stated
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 PA-ESD
 Nylon / Polyamide
- PASS 1,140 6.9* 68* 3.8* 142 — ☆
+ PASS
+1 of 1
+ 1,140 6.9* 68* 3.8* 142 — ☆
 PA12
 Nylon / Polyamide
- PASS 1,010* 1.44* 43* 50* 94.7* — ☆
+ PASS
+7 of 7
+ 1,011
+1,000–1,020 · 4
+ 1.44* 43* 50* 135
+100–135 · 3
+ — ☆
 PA12-AF
 Nylon / Polyamide
- PASS — 0.51* 50.4* 5.8* — — ☆
+ PASS
+1 of 1
+ — 0.51* 50.4* 5.8* — — ☆
 PA12-CF
 Nylon / Polyamide
- PASS 1,160 8 72* 2.1 150 — ☆
+ PASS
+16 of 16
+ 1,070
+1,030–1,230 · 11
+ 3.32
+3.3–8 · 4
+ 72
+58–86 · 6
+ 3.9
+2.1–14.8 · 6
+ 150
+48–185 · 11
+ — ☆
 PA12-GF
 Nylon / Polyamide
- PASS 1,230 7.8 82* 4.5 150 — ☆
+ PASS
+3 of 3
+ 1,230 7.8 82 4.5 163
+150–175 · 2
+ — ☆
 PA6
 Nylon / Polyamide
- PASS 1,250 3.4* 78* 1.9* 90* 163↗ ☆
+ PASS
+8 of 8
+ 1,145
+1,130–1,200 · 6
+ 3.4* 78* 1.9* 140 163↗ ☆
 PA6-CE
 Nylon / Polyamide
- PASS 1,490* 6* 55* — 90* — ☆
+ PASS
+1 of 1
+ 1,490 6* 55* — 90* — ☆
 PA6-CF
 Nylon / Polyamide
- PASS 1,090 4.43 102 5.8 186 110↗ ☆
+ PASS
+14 of 14
+ 1,170
+1,090–1,250 · 12
+ 4.3
+3.8–8.64 · 5
+ 82.5
+53–112 · 6
+ 7.35
+2.1–16.5 · 6
+ 185
+140–215 · 9
+ 110↗ ☆
 PA6-GF
 Nylon / Polyamide
- PASS 1,140 2.85 75 3.9 182 77↗ ☆
+ PASS
+11 of 11
+ 1,290
+1,140–1,370 · 8
+ 4.35
+2.85–5.36 · 4
+ 82.3
+62.8–98.9 · 6
+ 4.95
+2.4–12.5 · 6
+ 186
+161–210 · 9
+ 77↗ ☆
 PA6-GS
 Nylon / Polyamide
- PASS 1,010* 4.2* 87* — 90* — ☆
+ PASS
+1 of 1
+ 1,010 4.2* 87* — 90* — ☆
 PA6/66
 Nylon / Polyamide
- PASS 1,120 2.22 66.2 9.9 111 — ☆
+ PASS
+7 of 7
+ 1,120
+1,100–1,120 · 6
+ 2.22
+1.98–2.7 · 3
+ 63.6
+55–78 · 4
+ 13.8
+9.9–100 · 4
+ 115
+110–140 · 4
+ — ☆
 PA6/66-CF
 Nylon / Polyamide
- PASS 1,240 — 140* 10.6* 155* — ☆
+ PASS
+1 of 1
+ 1,240 — 140* 10.6* 155* — ☆
 PA612
 Nylon / Polyamide
  PASS 1,060* 2.4* 62* 100* 135* — ☆
 PA612-CF
 Nylon / Polyamide
- PASS 1,030 5.14 91.9 2.6 175 — ☆
+ PASS
+2 of 2
+ 1,060
+1,030–1,090 · 2
+ 5.01
+4.88–5.14 · 2
+ 87.6
+83.3–91.9 · 2
+ 2.88
+2.6–3.16 · 2
+ 175 — ☆
 PA612-ESD
 Nylon / Polyamide
- PASS 1,100 4.29 84.3 3 157 — ☆
+ PASS
+1 of 1
+ 1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
  PASS — — — — — — ☆
@@ -79,13 +174,31 @@ Nylon / Polyamide
  PASS — — — — — — ☆
 PAHT
 Nylon / Polyamide
- PASS 1,200* 3.4* 85* 3.6* 90* — ☆
+ PASS
+1 of 1
+ 1,200* 3.4* 85* 3.6* 90* — ☆
 PAHT-CE
 Nylon / Polyamide
- PASS 1,250 3.4* 78* — 90* — ☆
+ PASS
+2 of 2
+ 1,370
+1,250–1,490 · 2
+ 3.4* 78* — 90* — ☆
 PAHT-CF
 Nylon / Polyamide
- PASS 1,060 3.86 92 8.4 194 124↗ ☆
+ PASS
+5 of 5
+ 1,240
+1,060–1,250 · 3
+ 8.39
+3.86–8.62 · 3
+ 103
+92–123 · 3
+ 1.98
+1.8–8.4 · 3
+ 170
+145–194 · 2
+ 124↗ ☆
 RAIL
 Each count is how many of a family the other requirements leave. Choose a family to see its polymers.
 PLA

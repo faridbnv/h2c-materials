@@ -10,6 +10,8 @@
 import { renderValue, chip, esc, fmtNumber, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
+import { INDICES, indexById, rankMaterials } from '../engine/indices.js';
+import { productView } from '../engine/products.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -111,6 +113,13 @@ export function sortValue(row, col, showEstimates = false) {
  * the measurement is the firmer answer.
  */
 export function sortRows(rows, state) {
+  // Ranked by a goal (D83): by the median index of each material's passing products, best first; a material with no
+  // value for the index follows, by name. A column sort chosen afterwards clears the ranking (main.js).
+  const ranks = rankOf(rows, state);
+  if (ranks) {
+    return [...rows].sort((a, b) => (ranks.get(b.material.id)?.value ?? -Infinity) - (ranks.get(a.material.id)?.value ?? -Infinity)
+      || a.material.name.localeCompare(b.material.name));
+  }
   const { sort } = state;
   const COLUMNS = COLUMN_SETS[state.columnSet]?.columns ?? COLUMN_SETS.properties.columns;
   const col = COLUMNS.find((c) => c.key === sort.key) ?? COLUMNS[0];
@@ -126,6 +135,14 @@ export function sortRows(rows, state) {
   });
 }
 
+/** Each row's rank under the scenario's goal, or null when it ranks by nothing. */
+export function rankOf(rows, state) {
+  const index = state.scenario?.rankBy ? indexById(state.scenario.rankBy) : null;
+  if (!index || !state.ctx?.productsByMaterial) return null;
+  const ranked = rankMaterials(rows.map((r) => r.evaluation), rows.map((r) => r.material), state.ctx.productsByMaterial, index, (m, g) => productView(m, g, state.ctx));
+  return new Map(ranked.map((r, i) => [r.materialId, { ...r, place: i + 1 }]));
+}
+
 /**
  * The class a column's heading and cells carry, which is what the stylesheet sizes by: a minimum width per kind of
  * column (a number, a result, a name) rather than a share of whatever width the screen has.
@@ -139,6 +156,25 @@ export const printRange = (r) => (!r ? null
   : r.min === 0 ? `up to ${fmtNumber(r.max)}`
   : `${fmtNumber(r.min)}\u2013${fmtNumber(r.max)}`);
 
+/**
+ * How many of a material's products meet every requirement (D83), under its verdict: "3 of 27" is three passing of the
+ * twenty-seven that could be judged. The products that publish too little to judge are counted in the popover, never
+ * against the material.
+ */
+export function shareMark(e) {
+  const c = e?.counts;
+  if (!c) return '';
+  const judged = c.pass + c.fail;
+  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  const text = judged ? `${c.pass} of ${judged}` : 'none judged';
+  const title = judged
+    ? `${plural(c.pass, 'product')} of the ${plural(judged, 'product')} that could be judged meet${c.pass === 1 ? 's' : ''} every requirement together.`
+      + `${c.untested ? ` ${c.untested} more publish${c.untested === 1 ? 'es' : ''} too little to judge; they do not count against the material.` : ''}`
+      + ' The material\'s Products tab lists each and why.'
+    : `None of its ${plural(c.products, 'product')} publishes enough to judge against these requirements.`;
+  return ` ${explainButton(text, title, { cls: 'share', head: 'Products that pass', action: 'products', id: e.materialId })}`;
+}
+
 export function renderTable(host, state, actions) {
   const { rows, sort, scenario } = state;
   const setKey = COLUMN_SETS[state.columnSet] ? state.columnSet : 'properties';
@@ -148,6 +184,9 @@ export function renderTable(host, state, actions) {
   const tested = scenario.constraints.length > 0;
 
   const sorted = sortRows(rows, state);
+  const ranks = rankOf(rows, state);
+  const index = ranks ? indexById(state.scenario.rankBy) : null;
+  const gradeById = ranks ? new Map(state.db.grades.map((g) => [g.id, g])) : null;
 
   const head = COLUMNS.map((c) => {
     // The shortlist column has nothing meaningful to sort by, so it does not pretend to.
@@ -174,7 +213,11 @@ export function renderTable(host, state, actions) {
           { cls: 'chip chip-UNKNOWN', head: 'Scenario assumption' })}` : '';
         const sub = [aka ? `also called ${aka}` : null,
           m.family && !m.name.startsWith(m.family) ? m.family : null].filter(Boolean).join(' · ');
-        return `<td class="name">${esc(primary)}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}</td>`;
+        // Ranked by a goal: its place, and the product that ranks best, which is the one to look at first.
+        const r = ranks && !ghost ? ranks.get(m.id) : null;
+        const best = r?.best?.gradeId ? gradeById.get(r.best.gradeId) : null;
+        const rank = r ? `<span class="row-sub rank-line" title="${esc(`${index.designCase}: ${index.formula}, the median over ${r.products} passing product${r.products === 1 ? '' : 's'}${best ? `; best ${best.manufacturer} ${best.product}` : ''}`)}">#${r.place}${best ? ` · best: ${esc(`${best.manufacturer} ${best.product}`)}` : ''}</span>` : '';
+        return `<td class="name">${esc(primary)}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}${rank}</td>`;
       }
       if (c.kind === 'text') return `<td>${esc(m[c.key] ?? '')}</td>`;
       if (c.kind === 'state') {
@@ -183,7 +226,7 @@ export function renderTable(host, state, actions) {
         const scr = e?.screened ? screenedChip(e) : null;
         return ghost
           ? `<td class="state">${explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' })}</td>`
-          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: 'chip chip-screened', head: scr.head, action: scr.action, id: m.id })}` : ''}</td>`
+          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: 'chip chip-screened', head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}</td>`
           : `<td class="state"><span class="chip chip-neutral" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
@@ -286,9 +329,12 @@ export function renderTable(host, state, actions) {
     explainButton('<span class="dash">\u2014</span> not published',
       'Not published in the sampled sources. Not zero, and not a low value. Select a dash in the table for which kind of absence it is.',
       { cls: 'lg', head: 'Not published' }),
-    explainButton('<span class="related-mark">*</span> measured, not the headline',
-      'A real measurement of this material that was never made the headline, for example because its source states no direction or measures another endpoint. It is not used by any filter. Select a starred value for the measurement and the reason.',
-      { cls: 'lg', head: 'Measured, but not the headline' }),
+    explainButton('<b>2.3</b> <span class="spread">1.0\u20133.0 · 27</span> typical and range',
+      'A material is the spread of its products. The number is their typical value (the median) and the line under it their range, with how many products publish the value comparably: printed or unstated specimen, stated direction, dry or unstated. Different products, not the uncertainty of one. Select a value for the details.',
+      { cls: 'lg', head: 'Typical value and range' }),
+    explainButton('<span class="related-mark">*</span> measured, not comparable',
+      'A real measurement of this material that no product publishes comparably, for example because its source states no direction or measures another endpoint. It is not used by any filter. Select a starred value for the measurement and the reason.',
+      { cls: 'lg', head: 'Measured, but not comparable' }),
     state.ctx?.showEstimates ? explainButton('<span class="lg-est">~a\u2013b<span class="est-mark">\u2020</span></span> estimate, <i>italic</i> = rough',
       `An estimate, not a measurement: the likely (${likely}%) range of a calibrated model built from the material's own related measurements and its polymer family. It never passes a requirement, and with Use estimates on it can screen a material out. In italic, its precision is poor: an order of magnitude only. A nozzle, bed or chamber window marked this way is an estimated starting point and changes no result. Select an estimate for what it rests on.`,
       { cls: 'lg', head: 'Estimate, not a measurement' }) : '',
@@ -366,6 +412,13 @@ export function renderTable(host, state, actions) {
         </div>
         <span class="colset-help" id="colset-help">${esc(COLUMN_SETS[setKey].help)}</span>
       </div>
+      <label class="rank-pick" title="Orders the results by a goal: a performance index worked out for each passing product, the material ranked by the median of its products.">
+        Rank by
+        <select data-rank-by>
+          <option value="">nothing: sort by column</option>
+          ${INDICES.map((i) => `<option value="${esc(i.id)}" ${state.scenario.rankBy === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`).join('')}
+        </select>
+      </label>
       <label class="baseline-pick" title="Adds a reference row so every number has something familiar beside it.">
         Compare against
         <select data-baseline>
@@ -386,6 +439,7 @@ export function renderTable(host, state, actions) {
   markTableOverflow(host);
   host.querySelectorAll('[data-colset]').forEach((b) => b.addEventListener('click', () => actions.setColumns(b.dataset.colset)));
   host.querySelector('[data-baseline]')?.addEventListener('change', (e) => actions.setBaseline(e.target.value));
+  host.querySelector('[data-rank-by]')?.addEventListener('change', (e) => actions.setRankBy(e.target.value));
 
   host.querySelectorAll('th[data-sort]').forEach((th) => {
     const go = () => actions.sort(th.dataset.sort);
@@ -489,6 +543,45 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     ].map(q).join(',')),
   ];
   return lines.join('\n');
+}
+
+/**
+ * Every product of the materials on screen, one row each (D83): the end of the funnel, where a material becomes a spool.
+ * Its own values with their level, its print recipe, and its verdict under the scenario's requirements, so the file
+ * says which product to buy and why without the screen.
+ */
+export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
+  const KEYS = exportHeadlines().map((h) => h.key);
+  const q = (v) => {
+    const s = v === null || v === undefined ? '' : String(v);
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  const win = (a) => (!a ? '' : a.state === 'range' ? `${a.min ?? ''}-${a.max ?? ''}` : a.state);
+  const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements',
+    ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]),
+    'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Source'];
+  const header = [
+    '# H2C Material Selector: products of the materials on screen',
+    `# database snapshot ${db.meta.snapshot}, application build ${db.meta.build}`,
+    '# a value is comparable (printed or unstated specimen, stated direction, dry or unstated, at the load) or as-published (direction or load not stated)',
+    ...(scenario?.constraints ?? []).map((c) => `# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`),
+  ];
+  const lines = [];
+  for (const { material: m, evaluation: e } of rows) {
+    const verdict = new Map((e?.products ?? []).map((x) => [x.gradeId, x.verdict]));
+    for (const g of productsByMaterial?.get(m.id) ?? []) {
+      const p = g.print;
+      lines.push([m.id, m.name, g.id, g.manufacturer, g.product, g.variant ?? '',
+        scenario?.constraints?.length ? verdict.get(g.id) ?? '' : 'not tested',
+        ...KEYS.flatMap((k) => { const v = g.headline?.[k]; return [v?.value ?? '', v?.level ?? '', v?.measurementId ?? (v?.priceIds ?? []).join(' ')]; }),
+        p?.profileIds.length ? win(p.nozzle) : '', p?.profileIds.length ? win(p.bed) : '', p?.profileIds.length ? win(p.chamber) : '',
+        p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',
+        p?.drying ? `${p.drying.tempC ?? ''} C ${p.drying.hours ?? ''} h` : '',
+        (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), g.sourceId,
+      ].map(q).join(','));
+    }
+  }
+  return [...header, cols.join(','), ...lines].join('\n');
 }
 
 export function download(filename, text, type = 'text/plain') {

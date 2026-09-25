@@ -5,15 +5,14 @@
 //   build/snapshot/headlines.csv   every material's headline: value, estimate (likely, plausible, the range that
 //                                   screens), not applicable or none
 //   build/snapshot/gates.csv       every material's process gates
-//   build/snapshot/templates.csv   each application template's candidates in Strict, Explore, and Explore with estimates
+//   build/snapshot/templates.csv   each application template's candidates in Strict, Explore, and Explore with estimates,
+//                                   judged by their products as the page judges them (D83): the verdict, how many
+//                                   products pass, fail or could not be judged, and the product the reasons come from
 //   build/snapshot/warnings.csv    every build warning, one row per record
 //   build/snapshot/screening.csv   for every headline, evidence class and end, whether it may screen and where (D59)
 //   build/snapshot/grades.csv      every grade's own estimate per headline (D81): strength, precision, the ranges
 //   build/snapshot/products.csv    every product's own value per headline, by rule: the measurement, its evidence level,
 //                                   what qualifies it, and whether headlines.csv pins it (re-center phase 1)
-//   build/snapshot/templates-products.csv  each template's candidates judged by products (D83, re-center phase 2): the
-//                                   verdict, how many products pass, fail or could not be judged, and the best product.
-//                                   The page still judges materials on their headline until phase 3.
 //   build/snapshot/summaries.csv   every material's spread per headline across its products: n, range, quartiles,
 //                                   the typical product, the values published without direction or load, the variants
 //
@@ -59,7 +58,7 @@ const gate = (g) => (g == null ? '' : typeof g === 'string' ? g : g.verdict ?? J
 const gates = db.materials.map((m) => ({ MaterialID: m.id, Material: m.name, ...Object.fromEntries(Object.entries(m.gates).map(([k, g]) => [k, gate(g)])) }));
 
 const group = (list) => { const out = new Map(); for (const x of list) { if (!out.has(x.materialId)) out.set(x.materialId, []); out.get(x.materialId).push(x); } return out; };
-const ctx = { db, evidenceByMaterial: group(db.evidence), polymerEvidenceByMaterial: group(db.polymerEvidence ?? []), measurementsByMaterial: group(db.measurements), coverageByMaterial: group(db.coverage) };
+const ctx = { db, productsByMaterial: productsByMaterial(db), evidenceByMaterial: group(db.evidence), polymerEvidenceByMaterial: group(db.polymerEvidence ?? []), measurementsByMaterial: group(db.measurements), coverageByMaterial: group(db.coverage) };
 const mats = db.materials.filter((m) => !m.familyEntry);
 const modes = { Strict: { unknownPolicy: UNKNOWN_POLICY.STRICT }, Explore: { unknownPolicy: UNKNOWN_POLICY.EXPLORATION }, 'Explore with estimates': { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates: true } };
 const templates = [];
@@ -68,19 +67,6 @@ for (const t of TEMPLATES) {
     const { evaluations } = runSelection(mats, t.constraints, { ...ctx, ...c });
     for (const e of evaluations.filter((x) => x.eligible || x.screened)) {
       templates.push({ Template: t.name, Mode: mode, MaterialID: e.materialId, Material: db.materials.find((m) => m.id === e.materialId).name,
-        Verdict: e.verdict, Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; ') });
-    }
-  }
-}
-
-// The same templates judged by products (D83): a material passes when one of its products meets every requirement.
-const templatesProducts = [];
-const byProducts = { ...ctx, productsByMaterial: productsByMaterial(db) };
-for (const t of TEMPLATES) {
-  for (const [mode, c] of Object.entries(modes)) {
-    const { evaluations } = runSelection(mats, t.constraints, { ...byProducts, ...c });
-    for (const e of evaluations.filter((x) => x.eligible || x.screened)) {
-      templatesProducts.push({ Template: t.name, Mode: mode, MaterialID: e.materialId, Material: db.materials.find((m) => m.id === e.materialId).name,
         Verdict: e.verdict, Share: e.share ?? '', Pass: e.counts?.pass ?? '', Fail: e.counts?.fail ?? '', Untested: e.counts?.untested ?? '',
         Products: e.counts?.products ?? '', Best: e.gradeId ?? '', Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; ') });
     }
@@ -139,7 +125,6 @@ const files = {
   'screening.csv': csvText(Object.keys(screening[0]), screening),
   'grades.csv': csvText(['GradeID', 'MaterialID', 'Product', 'Headline', 'Strength', 'Precision', 'Centre', 'Likely', 'Plausible', 'Unit', 'Own'], gradeRows),
   'products.csv': csvText(Object.keys(productRows[0]), productRows),
-  'templates-products.csv': csvText(Object.keys(templatesProducts[0]), templatesProducts),
   'summaries.csv': csvText(Object.keys(summaryRows[0]), summaryRows),
 };
 

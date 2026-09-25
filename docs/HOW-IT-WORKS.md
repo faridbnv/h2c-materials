@@ -10,8 +10,8 @@ single HTML file you can download and open with no internet.
 ## What the tool is, and is not
 
 The tool is a screening and comparison aid. You state requirements (stiffness at least 3 GPa, heat resistance at
-least 100 °C, printable on the H2C, resists oils), and it tells you which of the materials in the database the recorded
-evidence says pass, fail, or cannot be judged, and why, with a link from every number to the document it came from.
+least 100 °C, printable on the H2C, resists oils), and it tells you which of the materials in the database have products the recorded
+evidence says pass, fail, or cannot be judged, which products those are, and why, with a link from every number to the document it came from.
 
 It is not a source of design allowables. Every value is what one manufacturer's data sheet says about one product
 under that manufacturer's test, and printed parts vary with orientation, settings and moisture far more than moulded
@@ -250,6 +250,24 @@ What it does compute is the selection: which materials meet your requirements. T
 tested on its own, and every night two thousand random sets of requirements are run through the rendered page and
 compared with the same logic run outside the browser, so the screen cannot drift from the rules.
 
+## A material is the spread of its products
+
+A material such as PLA is not one number: its 198 products differ. Each product's own values are chosen from its own
+data sheet by a fixed rule (a printed or unstated specimen, the column's direction, dry or unstated, as printed), and a
+material's cell shows **the typical value of its products (their median), with their range and how many products
+under it**: `2.27` over `0.95–2.95 · 27`. The range is different products, not the uncertainty of one.
+
+A requirement is checked **product by product, all requirements at once**, including whether the H2C can print that
+product on its own settings. A material passes when at least one of its products meets everything, and the result says
+how many: `PASS · 1 of 4` means one of the four products that could be judged meets every requirement. Products that
+publish too little to judge are counted but never held against the material. Open the material's **Products** tab to
+see which products pass, each with its own numbers, how to print it and what its maker says about it.
+
+Values whose source does not state the test direction or load are counted apart: they often read like moulded bars
+(of PLA's products, the 27 that state an XY stiffness range from 0.95 to 2.95 GPa; 30 of the 46 that state no
+direction claim 3 GPa or more). They are shown and not compared, unless you tick **Also count values published without
+their test direction or load** in the Evidence filters.
+
 ## The four kinds of number
 
 This is the most important thing to know. The table shows them differently on purpose, and only the first one is
@@ -257,7 +275,8 @@ evidence.
 
 | On screen | What it is | Can it satisfy a requirement? |
 |---|---|---|
-| `4.43` | **Measured.** One published value from the material's representative product, printed specimen, dry, as printed, in the direction the column names. Hover or open the drawer to see the measurement, the grade, the source and the page | Yes |
+| `2.27` over `0.95–2.95 · 27` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
+| `4.43` | **Measured, one product.** The only product that publishes it comparably | Yes |
 | `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (yield instead of ultimate), a moulded resin value, an annealed part. Shown so you know something is known | No |
 | `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. In Explore mode it can rule a material *out* |
 | `n/a` | **Not applicable.** The property does not mean anything for this material (heat deflection of a rubber-like elastomer, structural values of a support material) | No; in Explore it screens the same way |
@@ -366,9 +385,11 @@ is doing the work.
 
 ## Printability on the H2C
 
-The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared with every product's published print
-profile, and a material reports **within**, **exceeds**, **partial** (a chamber window the printer only partly reaches)
-or **unknown**. A recommendation ("chamber recommended if possible") is not a requirement and never excludes. Where a
+The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared with each product's own published print
+profile, and each product reports **within**, **exceeds**, **partial** (a chamber window the printer only partly reaches)
+or **unknown**; a product with no profile is unknown, never a pass. A material's printability is its products': the
+drawer counts how many of them the H2C can print on each axis, and a requirement on printing is met by a product that
+meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a requirement and never excludes. Where a
 source says a heated chamber is not needed, that counts; "enclosure recommended" counts as nothing. A material with
 no product at all shows an estimated nozzle and bed window, marked as such, that decides nothing.
 

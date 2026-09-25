@@ -308,6 +308,14 @@ function body(group, materials, cs, db, ctx = {}) {
       <label><input type="checkbox" data-evidence="noConflicts" ${g?.noConflicts ? 'checked' : ''}> Exclude unresolved conflicts</label>
       <div class="avail">${plural(conflicts, 'coverage record')} flagged as a conflict or quarantined in this snapshot</div>
     </div>`);
+    // Which values decide (D84). Values whose source leaves the test direction or load unstated read like moulded bars
+    // and flatter a printed part, so they are counted apart unless the reader admits them.
+    const asPublished = db.grades.reduce((n, gr) => n + Object.values(gr.headline ?? {}).filter((v) => v.level === 'as-published').length, 0);
+    const admits = ctx?.evidence === 'as-published';
+    out.push(`<div class="control" data-active="${admits}">
+      <label><input type="checkbox" data-evidence-level ${admits ? 'checked' : ''}> Also count values published without their test direction or load</label>
+      <div class="avail">${asPublished} product values are published that way. They often read like moulded bars, stiffer and stronger than a printed part, so by default they are shown but not compared</div>
+    </div>`);
   }
 
   return out.join('');
@@ -438,6 +446,7 @@ function wire(host, state, actions) {
     actions.changed();
   }));
 
+  host.querySelector('[data-evidence-level]')?.addEventListener('change', (e) => actions.setEvidence(e.target.checked ? 'as-published' : 'comparable'));
   const evBoxes = [...host.querySelectorAll('[data-evidence]')];
   evBoxes.forEach((el) => el.addEventListener('change', () => {
     drop((c) => c.kind === 'evidence');

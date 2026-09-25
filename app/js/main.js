@@ -5,10 +5,10 @@
 
 import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constraints.js';
 import { matchesQuery } from './engine/search.js';
-import { productsByMaterial } from './engine/products.js';
+import { productsByMaterial, displayMaterials } from './engine/products.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
-import { renderTable, toCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
+import { renderTable, toCSV, productsCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
 import { renderAshby } from './ui/ashby.js';
 import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
@@ -138,9 +138,8 @@ function buildContext(db) {
     // The base polymers' published behaviour, attached by the build where a material has no record of its own (D64).
     polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'),
     coverageByMaterial: group(db.coverage, 'materialId'),
-    // Each material's products, for search by maker and product name. Named apart from `productsByMaterial`, which
-    // would have the engine judge materials by their products (D83): the page does that from re-center phase 3.
-    productsOf: productsByMaterial(db),
+    // Each material's products: the engine judges a material by them (D83), and search finds it by their makers and names.
+    productsByMaterial: productsByMaterial(db),
     unknownPolicy: UNKNOWN_POLICY.STRICT,
   };
 }
@@ -153,6 +152,8 @@ function recompute() {
   // `showEstimates` is the display switch, kept separate from `useEstimates` (the engine's) so the two
   // can diverge later without touching every view.
   state.ctx.useEstimates = scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.useEstimates;
+  // Which values decide (D84): comparable only unless the reader admits values published without direction or load.
+  state.ctx.evidence = scenario.evidence ?? 'comparable';
   state.ctx.showEstimates = state.ctx.useEstimates;
 
   // A family entry (PA, PA-CF, PA-GF, TPE; CoPA for PA6/66) owns no product and is never a candidate.
@@ -170,7 +171,7 @@ function recompute() {
   // Searching a family's name finds its members and says what the family is, so "PA-CF" answers
   // with PA6-CF, PA12-CF and the rest rather than with nothing, or with one of them twice.
   state.searchFamilies = q ? db.materials.filter((m) => m.familyEntry && matchesQuery(m, q)) : [];
-  const productsOf = (m) => state.ctx.productsOf?.get(m.id) ?? [];
+  const productsOf = (m) => state.ctx.productsByMaterial?.get(m.id) ?? [];
   const members = new Set(state.searchFamilies.flatMap((f) => f.familyEntry.members.map((x) => x.id)));
   const found = state.selection.evaluations
     .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
@@ -193,6 +194,7 @@ const actions = {
   changed() { state.subset = null; render(); pushHash(); },
   sort(key) {
     state.sortNotice = null;
+    state.scenario.rankBy = null;
     state.sort = state.sort.key === key
       ? { key, dir: state.sort.dir === 'asc' ? 'desc' : 'asc' }
       : { key, dir: key === 'name' || key === 'family' ? 'asc' : 'desc' };
@@ -302,6 +304,10 @@ const actions = {
     render();
   },
   setPlot(patch) { Object.assign(state.scenario.plot, patch); renderLens(); pushHash(); },
+  // Rank the survivors by a goal (D83): a performance index over each material's passing products. A column sort
+  // chosen afterwards takes over, and ranking by nothing returns to it.
+  setRankBy(id) { state.scenario.rankBy = id || null; state.sortNotice = null; renderLens(); pushHash(); },
+  setEvidence(level) { state.scenario.evidence = level; actions.changed(); },
   selectSubset(ids) { state.subset = ids; render(); },
   // A template's result is read in the table, which is the only lens with the requirements
   // header. Applied from Compare or a chart it used to change nothing visible.
@@ -751,6 +757,7 @@ function renderScenario(host) {
       <h3 class="sec">Take it with you</h3>
       <div class="sc-actions">
         <button class="btn" id="sc-csv"><b>Export the rows on screen</b><span>CSV in the table's order, with the requirements, each row's result and the reasons for it</span></button>
+        <button class="btn" id="sc-products"><b>Export their products</b><span>CSV of every product of the materials on screen: maker, its own values and whether each is comparable, how to print it, and whether it meets the requirements</span></button>
         <button class="btn" id="sc-link"><b>Copy a link to this selection</b><span>${localFile
           ? 'Reopens the requirements, shortlist and view on this computer. The page is a local file, so the link will not work for anyone else: send them the saved scenario instead.'
           : 'Reopens the requirements, shortlist, assumptions and view. Search text and a lasso selection are not included.'}</span></button>
@@ -787,6 +794,9 @@ function renderScenario(host) {
   host.querySelector('#sc-csv').addEventListener('click', () =>
     download(`h2c-candidates-${db.meta.snapshot}.csv`,
       toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates }), 'text/csv'));
+  host.querySelector('#sc-products').addEventListener('click', () =>
+    download(`h2c-products-${db.meta.snapshot}.csv`,
+      productsCSV(sortRows(state.rows, state), db, { scenario, productsByMaterial: state.ctx.productsByMaterial }), 'text/csv'));
   host.querySelector('#sc-json').addEventListener('click', () =>
     download(`h2c-scenario-${new Date().toISOString().slice(0, 10)}.json`, serialize(scenario), 'application/json'));
   host.querySelector('#sc-link').addEventListener('click', async (e) => {
@@ -825,6 +835,8 @@ function renderScenario(host) {
   try { const t = localStorage.getItem('h2c-theme'); if (t) document.documentElement.dataset.theme = t; } catch { /* ignore */ }
 
   const { db, reference } = await loadData();
+  // A material is shown as the spread of its products (D83): its headlines become their typical values, with the range.
+  db.materials = displayMaterials(db);
   state.db = db;
   state.reference = reference;
   state.ctx = buildContext(db);

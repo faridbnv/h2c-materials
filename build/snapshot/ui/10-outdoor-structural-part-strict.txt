@@ -1,7 +1,7 @@
-COUNT 17 shown PASS
-STATUS ☑ PASS 17 | ☐ UNKNOWN 48 | ☐ FAIL 88
-17 of the 153 materials in this database meet these requirements
-48 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
+COUNT 18 shown PASS
+STATUS ☑ PASS 18 | ☐ UNKNOWN 39 | ☐ FAIL 96
+18 of the 153 materials in this database meet these requirements
+39 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
@@ -22,6 +22,16 @@ What this database cannot answer
 Properties
 Printing
 What the material is like
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
 Compare against
 no reference
 PLA
@@ -30,57 +40,221 @@ ABS
 ASA
 PC
 — not published
-* measured, not the headline
+2.3 1.0–3.0 · 27 typical and range
+* measured, not comparable
 ? heat load not stated
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-ASA-CF PASS 1,020 4.2 34 9.6 110 no price↗ ☆
+ASA-CF PASS
+3 of 7
+ 1,095
+1,020–1,170 · 14
+ 3.91
+0.85–5.36 · 6
+ 41.3
+34–50.1 · 6
+ 3
+1.64–15.5 · 5
+ 98.8
+86–110 · 8
+ no price↗ ☆
 PA12-CF
 Nylon / Polyamide
- PASS 1,160 8 72* 2.1 150 — ☆
+ PASS
+3 of 5
+ 1,070
+1,030–1,230 · 11
+ 3.32
+3.3–8 · 4
+ 72
+58–86 · 6
+ 3.9
+2.1–14.8 · 6
+ 150
+48–185 · 11
+ — ☆
 PA12-GF
 Nylon / Polyamide
- PASS 1,230 7.8 82* 4.5 150 — ☆
+ PASS
+1 of 1
+ 1,230 7.8 82 4.5 163
+150–175 · 2
+ — ☆
 PA6-CF
 Nylon / Polyamide
- PASS 1,090 4.43 102 5.8 186 110↗ ☆
+ PASS
+5 of 5
+ 1,170
+1,090–1,250 · 12
+ 4.3
+3.8–8.64 · 5
+ 82.5
+53–112 · 6
+ 7.35
+2.1–16.5 · 6
+ 185
+140–215 · 9
+ 110↗ ☆
+PA6-GF
+Nylon / Polyamide
+ PASS
+3 of 4
+ 1,290
+1,140–1,370 · 8
+ 4.35
+2.85–5.36 · 4
+ 82.3
+62.8–98.9 · 6
+ 4.95
+2.4–12.5 · 6
+ 186
+161–210 · 9
+ 77↗ ☆
 PA612-CF
 Nylon / Polyamide
- PASS 1,030 5.14 91.9 2.6 175 — ☆
+ PASS
+1 of 1
+ 1,060
+1,030–1,090 · 2
+ 5.01
+4.88–5.14 · 2
+ 87.6
+83.3–91.9 · 2
+ 2.88
+2.6–3.16 · 2
+ 175 — ☆
 PA612-ESD
 Nylon / Polyamide
- PASS 1,100 4.29 84.3 3 157 — ☆
+ PASS
+1 of 1
+ 1,100 4.29 84.3 3 157 — ☆
 PAHT-CF
 Nylon / Polyamide
- PASS 1,060 3.86 92 8.4 194 124↗ ☆
+ PASS
+1 of 1
+ 1,240
+1,060–1,250 · 3
+ 8.39
+3.86–8.62 · 3
+ 103
+92–123 · 3
+ 1.98
+1.8–8.4 · 3
+ 170
+145–194 · 2
+ 124↗ ☆
 PBT-GF
 Polymer Blends
- PASS 1,320 3.7 65 2 175 — ☆
+ PASS
+1 of 1
+ 1,320 3.7 65 2 175 — ☆
 PC-ABS-CF
 Polymer Blends
- PASS 1,240 5.9 62 2 130 — ☆
+ PASS
+1 of 1
+ 1,240 5.9 62 2 130 — ☆
 PC-CF
 Polycarbonate
- PASS 1,360 6.2 70* 2 135 — ☆
+ PASS
+2 of 2
+ 1,235
+1,180–1,360 · 8
+ 6.59
+6.2–6.98 · 2
+ 70
+35–73 · 3
+ 2.1
+2–7.5 · 3
+ 128
+119–140 · 4
+ — ☆
 PET-CF
 PET Engineering
- PASS 1,290 4.73 74 4.5 205 116↗ ☆
+ PASS
+2 of 3
+ 1,340
+1,290–1,400 · 5
+ 5.48
+4.73–6.03 · 3
+ 74.5
+65.9–87 · 4
+ 2.4
+2.01–4.5 · 3
+ 124
+74–205 · 4
+ 116↗ ☆
 PP-CF
 Polyolefins
- PASS 1,100 6.15 78* 1.5 124 — ☆
+ PASS
+1 of 2
+ 1,000
+910–1,100 · 4
+ 6.15 78 1.5 124
+88–158 · 3
+ — ☆
 PP-GF
 Polyolefins
- PASS 1,120 6.75 65* 1.7 139 — ☆
+ PASS
+1 of 1
+ 1,120 6.75 65 1.7 139 — ☆
 PPA-CF
 High-Performance Engineering
- PASS 1,250 11.8 168 3.2 227 255↗ ☆
+ PASS
+3 of 5
+ 1,210
+1,150–1,250 · 7
+ 8.2
+7.1–11.8 · 3
+ 108
+87–168 · 3
+ 3.2
+1.9–3.5 · 3
+ 220
+84.5–240 · 5
+ 255↗ ☆
 PPA-GF
 High-Performance Engineering
- PASS 1,280 6.56 106 2.1 227 — ☆
+ PASS
+2 of 3
+ 1,285
+1,270–1,310 · 4
+ 6.56
+5.7–7 · 3
+ 100
+89–106 · 3
+ 2.7
+2.1–3.5 · 3
+ 220
+84–227 · 3
+ — ☆
 PPS-CF
 High-Performance Engineering
- PASS 1,260 8.23 87 1.2 264 221↗ ☆
+ PASS
+3 of 4
+ 1,290
+1,260–1,510 · 5
+ 7.73
+5.45–8.23 · 4
+ 75
+59.4–95 · 4
+ 1.8
+1.2–4 · 4
+ 253
+245–264 · 3
+ 221↗ ☆
 PPS-GF
 High-Performance Engineering
- PASS 1,360 5.76 72 1.6 241 — ☆
+ PASS
+2 of 2
+ 1,360
+1,360–1,360 · 2
+ 5.16
+4.55–5.76 · 2
+ 68
+64.1–72 · 2
+ 1.8
+1.6–2 · 2
+ 239
+236–241 · 2
+ — ☆

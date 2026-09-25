@@ -49,11 +49,13 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const { runSelection, compareInterval, STATUS, UNKNOWN_POLICY } = await import(pathToFileURL(join(root, 'app/js/engine/constraints.js')).href);
 const { matchesQuery } = await import(pathToFileURL(join(root, 'app/js/engine/search.js')).href);
-const { productsByMaterial } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
+const { productsByMaterial, displayMaterials } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
 const { applyAssumptions, toHash, validateScenario } = await import(pathToFileURL(join(root, 'app/js/engine/scenario.js')).href);
 const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
 
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
+// As the page does at boot: a material shown as the spread of its products, and judged by them (D83).
+db.materials = displayMaterials(db);
 const productsOf = productsByMaterial(db);
 // The current snapshot's page, never whichever older page sorts first in dist/ (see ui-probe.mjs).
 const html = readdirSync(join(root, 'dist')).find((f) => f === `H2C_Material_Selector_${db.meta.snapshot}.html`);
@@ -63,7 +65,7 @@ const candidates = db.materials.filter((m) => !m.familyEntry);
 const KEYS = db.registry.headlines.map((h) => h.key);
 const BETTER = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.better]));
 const group = (rows, key) => { const m = new Map(); for (const r of rows) { if (!m.has(r[key])) m.set(r[key], []); m.get(r[key]).push(r); } return m; };
-const baseCtx = { db, measurementsByMaterial: group(db.measurements, 'materialId'), evidenceByMaterial: group(db.evidence, 'materialId'), polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'), coverageByMaterial: group(db.coverage, 'materialId') };
+const baseCtx = { db, productsByMaterial: productsOf, measurementsByMaterial: group(db.measurements, 'materialId'), evidenceByMaterial: group(db.evidence, 'materialId'), polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'), coverageByMaterial: group(db.coverage, 'materialId') };
 
 // ------------------------------------------------------------------ seeded generator
 
@@ -88,7 +90,10 @@ const edges = Object.fromEntries(KEYS.map((k) => {
   return [k, [...s]];
 }));
 // Headline values the table displays rounded (27.99 shows as "28"): thresholds near them probe I5.
-const sensitive = Object.fromEntries(KEYS.map((k) => [k, candidates.map((m) => m.headline[k]).filter((h) => h?.known && Number(fmtNumber(h.value).replace(/,/g, '')) !== h.value).map((h) => h.value)]));
+const rounds = (v) => Number(fmtNumber(v).replace(/,/g, '')) !== v;
+// A spread's ends are printed too (D83), and probed the same way.
+const sensitive = Object.fromEntries(KEYS.map((k) => [k, candidates.map((m) => m.headline[k]).flatMap((h) => (!h?.known ? []
+  : [h.value, ...(h.spread?.n > 1 ? [h.spread.min, h.spread.max] : [])]).filter(rounds))]));
 const threshold = (k) => {
   if (chance(0.5) && edges[k].length) {
     const v = sensitive[k].length && chance(0.35) ? pick(sensitive[k]) : pick(edges[k]); const st = roundStep(v);
@@ -345,9 +350,24 @@ function compareReading(s, key, r, o) {
         const raw = KEYS.find((k) => new RegExp(`(^|[^A-Za-z0-9_])${k}($|[^A-Za-z0-9_])`).test(scrTitle));
         if (raw) violate('I6-raw-key', 'screened chip title names an internal headline key', s, key, { id, key: raw, scrTitle });
       }
-      // I5: displayed value against each numeric requirement on that property.
+      // I5: displayed value against each numeric requirement on that property. A material shown as the spread of its
+      // products (D83) prints its range under its typical value; neither end may be rounded across a threshold.
       for (const c of s.constraints) {
         if (c.kind !== 'numeric' || !cells[c.property]) continue;
+        const sp = x.material.headline[c.property]?.spread;
+        const rm = sp && sp.n > 1 ? /(-?[\d,]*\.?\d+)\u2013(-?[\d,]*\.?\d+)\s*·/.exec(cells[c.property].t) : null;
+        if (sp && sp.n > 1) {
+          check('I5-spread');
+          if (!rm) violate('I5-spread', 'a material with a spread shows no range', s, key, { id, displayed: cells[c.property].t });
+          else {
+            for (const [end, text] of [[sp.min, rm[1]], [sp.max, rm[2]]]) {
+              const shownEnd = Number(text.replace(/,/g, ''));
+              if (compareInterval({ lo: end, hi: end }, c.operator, c.value) !== compareInterval({ lo: shownEnd, hi: shownEnd }, c.operator, c.value)) {
+                violate('I5-spread', `displayed range end of ${c.property} crosses the threshold (${c.operator})`, s, key, { id, end, displayed: text, requirement: `${c.operator} ${c.value}` });
+              }
+            }
+          }
+        }
         const h = x.material.headline[c.property];
         if (!h?.known || h.loadStated === false) continue;
         const iv = h.interval ?? { lo: h.value, hi: h.value, kind: 'point' };

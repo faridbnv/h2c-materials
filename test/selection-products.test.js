@@ -119,3 +119,42 @@ test('a material ranks by the median index of its passing products, computed pro
   assert.equal(r.value, 0.0025);
   assert.equal(r.best.gradeId, 'G1');
 });
+
+test("the page shows a material as its products' typical value and range, and leaves what no product publishes as it was", async () => {
+  const { displayMaterial } = await import('../app/js/engine/products.js');
+  const m = {
+    id: 'M1', headline: { tensileModulusXY: { known: true, value: 2.9, unit: 'GPa' }, hdt045: { known: false, missing: 'not-published', unit: '°C', estimate: { lo: 50, hi: 60 } },
+      elongationXY: { known: false, notApplicable: { reason: 'x' }, unit: '%' } },
+    summary: { tensileModulusXY: { products: 5, n: 3, min: 2.1, max: 3.4, median: 2.9, typical: 'G2' }, hdt045: { products: 5, n: 0 }, elongationXY: { products: 5, n: 2, min: 1, max: 2, median: 1.5, typical: 'G1' } },
+  };
+  const grades = new Map([['G2', { id: 'G2', headline: { tensileModulusXY: { value: 2.9, level: 'comparable', measurementId: 'V000002' } } }]]);
+  const d = displayMaterial(m, grades);
+  assert.equal(d.headline.tensileModulusXY.value, 2.9);
+  assert.deepEqual([d.headline.tensileModulusXY.spread.min, d.headline.tensileModulusXY.spread.max, d.headline.tensileModulusXY.spread.n], [2.1, 3.4, 3]);
+  assert.equal(d.headline.hdt045, m.headline.hdt045, 'no product publishes it: the estimate stays');
+  assert.equal(d.headline.elongationXY, m.headline.elongationXY, 'not applicable stays a statement');
+  assert.notEqual(d, m, 'the material is copied, never changed');
+  assert.equal(m.headline.tensileModulusXY.spread, undefined);
+});
+
+test('a link carries the goal and the evidence level only when set, and an old link reads as it did', async () => {
+  const { toHash, fromHash, newScenario } = await import('../app/js/engine/scenario.js');
+  const s = { ...newScenario({ snapshot: 'x' }), rankBy: 'tie-stiffness', evidence: 'as-published' };
+  const back = fromHash(toHash(s), { snapshot: 'x' }).scenario;
+  assert.equal(back.rankBy, 'tie-stiffness');
+  assert.equal(back.evidence, 'as-published');
+  const plain = newScenario({ snapshot: 'x' });
+  assert.ok(!/"r"|"v"/.test(decodeURIComponent(toHash(plain))), 'defaults add nothing to a link');
+  const bad = fromHash(encodeURIComponent(JSON.stringify({ c: [], r: 'no-such-index', v: 'anything' })), { snapshot: 'x' }).scenario;
+  assert.equal(bad.rankBy, null);
+  assert.equal(bad.evidence, 'comparable');
+});
+
+test("a reader's assumption stands in for a product with no value that may decide, and never over one that does", () => {
+  const assumed = { known: true, value: 0.175, unit: 'GPa', assumption: true, interval: { lo: 0.175, hi: 0.175, kind: 'point' } };
+  const m = withGrades([grade('G1', { tensileModulusXY: v(3.4, 'as-published', 'unstated-direction') }), grade('G2', { tensileModulusXY: v(3.2) })],
+    { headline: { tensileModulusXY: assumed, hdt045: missing('°C') } });
+  assert.equal(productView(m, m.__grades[0]).headline.tensileModulusXY.assumption, true, 'a value that is not comparable does not decide, so the assumption does');
+  assert.equal(productView(m, m.__grades[0], { evidence: EVIDENCE.AS_PUBLISHED }).headline.tensileModulusXY.value, 3.4, 'admitted, the published value decides');
+  assert.equal(productView(m, m.__grades[1]).headline.tensileModulusXY.value, 3.2, 'a comparable value is never overridden');
+});

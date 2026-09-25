@@ -108,7 +108,9 @@ export function renderCompare(host, state, actions) {
     const t = log ? Math.log10 : (v) => v;
     const baseSpan = base ? t(base.hi) - t(base.lo) : 0;
     const near = (v) => !base || (t(v) >= t(base.lo) - baseSpan && t(v) <= t(base.hi) + baseSpan);
-    const drawn = [...related.map((v) => v.related.best.value), ...requirements.map((c) => c.value).filter(near)];
+    // A material's products' range is drawn behind its typical value (D83), so the track holds it too.
+    const drawn = [...related.map((v) => v.related.best.value), ...requirements.map((c) => c.value).filter(near),
+      ...vals.flatMap((v) => (v?.spread ? [v.spread.min, v.spread.max] : []))];
     const lo = Math.min(base?.lo ?? Infinity, ...known, ...drawn);
     const hi = Math.max(base?.hi ?? -Infinity, ...known, ...drawn);
     const widened = base && (lo < base.lo || hi > base.hi);
@@ -168,7 +170,10 @@ export function renderCompare(host, state, actions) {
         }
         // The bar fills from the track's low end, the lowest candidate, so its length is the material's place in the
         // database's range; the end labels under the bars say what that range is.
-        const bounds = h.interval && h.interval.lo !== h.interval.hi && h.interval.lo !== null && h.interval.hi !== null
+        const bounds = h.spread && h.spread.n > 1
+          // The range of its products, behind the typical value's bar: different products, not the spread of one.
+          ? `<span class="bounds spread-bounds" title="${esc(`Its ${h.spread.n} products range from ${fmtNumber(h.spread.min)} to ${fmtNumber(h.spread.max)}`)}" style="left:${pct(h.spread.min)}%;width:${Math.max(pct(h.spread.max) - pct(h.spread.min), 1)}%"></span>`
+          : h.interval && h.interval.lo !== h.interval.hi && h.interval.lo !== null && h.interval.hi !== null
           ? `<span class="bounds" style="left:${pct(h.interval.lo)}%;width:${pct(h.interval.hi) - pct(h.interval.lo)}%"></span>` : '';
         return `<div class="cmp-bar${isAnchor(m) ? ' anchor' : ''}">
           <span>${who}</span>
@@ -225,7 +230,7 @@ export function renderCompare(host, state, actions) {
       the numbers under it are the lowest and highest, so a bar's length is where a material sits among them.${logTracks.length
         ? ` Where the candidates span more than a hundredfold (here ${logTracks.join(' and ')}) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude.` : ''}${scenario.constraints.some((c) => c.kind === 'numeric')
         ? ' An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so.' : ''}
-      ${anyBounds ? 'The <b>|—|</b> marks on a bar are the range or uncertainty the source reported. ' : ''}${anyRelated ? 'A <b>*</b> value is a measurement that was never made the headline, drawn as a tick, not a bar; select it for why.' : ''}</p>
+      ${anyBounds ? 'The <b>|—|</b> marks on a bar are the range of the material\'s products, or the range or uncertainty a source reported. ' : ''}${anyRelated ? 'A <b>*</b> value is a measurement that is not comparable, drawn as a tick, not a bar; select it for why.' : ''}</p>
     ${blocks}
     <h3 class="sec">Process requirements</h3>
     ${scrollTable(`<table class="grid"><thead><tr><th class="name">Material</th><th>Nozzle within H2C</th><th>Bed within H2C</th><th>Chamber within H2C</th><th>Hardened nozzle</th><th>Drying</th></tr></thead>

@@ -246,16 +246,17 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     const more = r.count - 1;
     // Quiet by design: a value plus one marker. The earlier version stacked shouty uppercase tags
     // like "XY +1" and "NO DIRECTION" into the cell, which made the column unscannable.
-    const title = `Not published as a headline. Nearest measurement on record: ${fmtNumber(b.value)} ${b.unit}`
+    const title = `No product publishes this comparably. Nearest measurement on record: ${fmtNumber(b.value)} ${b.unit}`
       + ` — ${b.property}, grade ${b.gradeId}${dir ? ', ' + dir + ' direction' : ', direction not stated'}.`
-      + ` Reason it is not the headline: ${b.why}.`
+      + ` Why it is not compared: ${b.why}.`
       + `${more ? ` ${more} further measurement${more === 1 ? '' : 's'} across ${r.grades} grade${r.grades === 1 ? '' : 's'}.` : ''}`
       + ' Not used by any filter.';
     return explainButton(`<span class="rv">${fmtNumber(b.value)}${showUnit ? ' ' + esc(b.unit) : ''}</span>`
       + `<span class="related-mark">*</span>`, title,
-    { cls: 'related', head: 'Measured, but not the headline', action: 'measurement', id: b.measurementId });
+    { cls: 'related', head: 'Measured, but not comparable', action: 'measurement', id: b.measurementId });
   }
   const thresholds = results.map((r) => r.constraint).filter((c) => c && Number.isFinite(c.value));
+  if (entry.spread && entry.spread.n > 1) return renderSpread(entry, thresholds, { showUnit, compact, materialId });
   const text = fmtAgainst(entry.value, thresholds, showUnit ? entry.unit : null);
   let cls = '';
   let title = '';
@@ -299,6 +300,30 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
       { cls: 'load-mark', head: 'Close to the limit', label: 'Close to the limit' })
     : '';
   return `${value}${load}${near}`;
+}
+
+/**
+ * A material's value as the spread of its products (D83): their typical value (the median) first, and under it the
+ * range and how many products it rests on. The range is products that differ, not uncertainty about one; the popover
+ * says so, names the product nearest the median, and counts the values set apart (published without the direction or
+ * load, and declared variants such as a metal-filled PLA).
+ */
+function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
+  const s = entry.spread;
+  const unit = showUnit ? entry.unit : null;
+  const median = fmtAgainst(entry.value, thresholds, unit);
+  const lo = fmtAgainst(s.min, thresholds, null), hi = fmtAgainst(s.max, thresholds, unit);
+  const apart = [
+    s.asPublished ? `${s.asPublished.n} more publish it without stating the test direction or load (${fmtNumber(s.asPublished.min)} to ${fmtNumber(s.asPublished.max)}); they are not compared` : null,
+    s.variants ? `${s.variants.n} declared variant${s.variants.n === 1 ? '' : 's'} (${fmtNumber(s.variants.min)} to ${fmtNumber(s.variants.max)}) ${s.variants.n === 1 ? 'is' : 'are'} kept apart` : null,
+  ].filter(Boolean);
+  const title = `Typical of ${s.n} products that publish it comparably: the median. They range from ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
+    + `${s.q1 != null ? `, the middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}. These are different products, not the uncertainty of one.`
+    + `${s.products > s.n ? ` ${s.products - s.n} of the material's ${s.products} products do not publish it comparably.` : ''}`
+    + `${apart.length ? ` ${apart.join('; ')}.` : ''} The material's Products tab lists each.`;
+  const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Typical of ${s.n} products`, action: 'products', id: materialId });
+  const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${lo}–${hi}<span class="spread-n"> · ${s.n}</span></span>`;
+  return compact ? `${main}${range}` : `${main} ${range}`;
 }
 
 /** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */

@@ -7,6 +7,8 @@
 // stand-in value lives here and is marked wherever it surfaces.
 
 import { normalizePolicy } from './constraints.js';
+import { INDICES } from './indices.js';
+import { normalizeEvidence } from './products.js';
 
 export const SCENARIO_VERSION = 1;
 
@@ -28,6 +30,10 @@ export function newScenario(meta) {
     columnSet: 'properties',
     baseline: null,
     template: null,
+    // The goal the survivors are ranked by: a performance index, computed product by product (D83), or none.
+    rankBy: null,
+    // Which values decide: comparable only, or also those published without their direction or load (D84).
+    evidence: 'comparable',
   };
 }
 
@@ -136,6 +142,8 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
   out.columnSet = COLUMN_SETS.has(raw.columnSet) ? raw.columnSet : 'properties';
   out.useEstimates = raw.useEstimates !== false;
   out.template = typeof raw.template === 'string' ? raw.template : null;
+  out.rankBy = INDICES.some((i) => i.id === raw.rankBy) ? raw.rankBy : null;
+  out.evidence = normalizeEvidence(raw.evidence);
   for (const key of ['openMaterial', 'baseline']) {
     const id = raw[key];
     out[key] = typeof id === 'string' && known(id) ? id : null;
@@ -164,6 +172,9 @@ export function toHash(scenario) {
     // different result, silently, after a database update or whenever an assumption was in play.
     a: scenario.assumptions?.length ? scenario.assumptions : undefined,
     d: scenario.dbSnapshot ?? undefined,
+    // Only when set, so a link without them reads as it always did.
+    r: scenario.rankBy ?? undefined,
+    v: scenario.evidence === 'as-published' ? 'as-published' : undefined,
   };
   return encodeURIComponent(JSON.stringify(compact));
 }
@@ -180,7 +191,7 @@ export function fromHash(hash, meta, options) {
   return validateScenario({
     version: SCENARIO_VERSION, constraints: c.c, unknownPolicy: c.u, shortlist: c.s, plot: c.p,
     template: c.t, lens: c.l, openMaterial: c.m, useEstimates: c.e, columnSet: c.k, baseline: c.b,
-    assumptions: c.a, dbSnapshot: c.d,
+    assumptions: c.a, dbSnapshot: c.d, rankBy: c.r, evidence: c.v,
   }, meta, options);
 }
 

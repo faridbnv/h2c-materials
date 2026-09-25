@@ -409,8 +409,8 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
             ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa` : 'load not stated by the source')
             : null)
         || (def.endpointNote && m.property !== props[0]
-            ? `${m.property.replace('Tensile ', '')} endpoint, not the headline endpoint` : null)
-        || 'on record but not selected as the headline observation',
+            ? `${m.property.replace('Tensile ', '')} endpoint, not the one this property is read at` : null)
+        || 'on record, but not a comparable printed value of this product',
     }));
   if (!items.length) return null;
 

@@ -1,7 +1,7 @@
-COUNT 8 shown PASS
-STATUS ☑ PASS 8 | ☐ UNKNOWN 54 | ☐ FAIL 91
-8 of the 153 materials in this database meet these requirements
-54 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+COUNT 13 shown PASS
+STATUS ☑ PASS 13 | ☐ UNKNOWN 47 | ☐ FAIL 93
+13 of the 153 materials in this database meet these requirements
+47 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -15,6 +15,16 @@ What this database cannot answer
 Properties
 Printing
 What the material is like
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
 Compare against
 no reference
 PLA
@@ -23,32 +33,108 @@ ABS
 ASA
 PC
 — not published
-* measured, not the headline
+2.3 1.0–3.0 · 27 typical and range
+* measured, not comparable
 ? heat load not stated
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+OBC
+Polyolefins
+ PASS
+1 of 1
+ 905
+905–905 · 2
+ — 14 700 n/a — ☆
+PA6/66
+Nylon / Polyamide
+ PASS
+1 of 4
+ 1,120
+1,100–1,120 · 6
+ 2.22
+1.98–2.7 · 3
+ 63.6
+55–78 · 4
+ 13.8
+9.9–100 · 4
+ 115
+110–140 · 4
+ — ☆
 PBAT
 PVB / Specialty Polymers
- PASS 1,250 0.006 27 400 90 — ☆
+ PASS
+1 of 1
+ 1,250 0.006 27 400 90 — ☆
+PCL
+PVB / Specialty Polymers
+ PASS
+1 of 1
+ 1,100
+1,100–1,130 · 3
+ 0.35* 45* 800 57* — ☆
 PE
 Polyolefins
- PASS 954 0.752 18.5 208 66 — ☆
+ PASS
+1 of 1
+ 954 0.752 18.5 208 66 — ☆
 PEBA
 Flexible Elastomers
- PASS 1,010 0.09* 16.5* 520 n/a — ☆
+ PASS
+4 of 4
+ 1,010
+1,000–1,020 · 6
+ 0.09 16.5
+9.17–30 · 3
+ 905
+520–1,107 · 3
+ n/a — ☆
+PP
+Polyolefins
+ PASS
+2 of 2
+ 900
+890–960 · 8
+ 1.2* 19 850 80
+58.5–85 · 3
+ — ☆
+TPC
+also called TPEE · Flexible Elastomers
+ PASS
+1 of 1
+ 1,150
+1,100–1,220 · 6
+ 0.067 17.7 500 n/a — ☆
 TPU
 Flexible Elastomers
- PASS 1,200 0.029 29* 330 n/a — ☆
+ PASS
+12 of 12
+ 1,200
+1,000–1,240 · 54
+ 0.027
+0.006–0.029 · 5
+ 29
+23.1–39 · 13
+ 521
+140–1,000 · 12
+ n/a — ☆
 TPU 85A
 Flexible Elastomers
- PASS 1,180 0.0068 12 700 n/a no price↗ ☆
+ PASS
+1 of 1
+ 1,180 0.0068 12 700 n/a no price↗ ☆
 TPU 90A
 Flexible Elastomers
- PASS 1,240 0.0053 12.5 650 n/a 54↗ ☆
+ PASS
+1 of 1
+ 1,240 0.0053 12.5 650 n/a 54↗ ☆
 TPU 95A HF
 Flexible Elastomers
- PASS 1,220 0.0098 27.3 650 n/a 54↗ ☆
+ PASS
+1 of 1
+ 1,220 0.0098 27.3 650 n/a 54↗ ☆
 TPU for AMS
 Flexible Elastomers
- PASS 1,260 1.19* 22.4 650 n/a 47.5↗ ☆
+ PASS
+1 of 1
+ 1,260 1.19* 22.4 650 n/a 47.5↗ ☆

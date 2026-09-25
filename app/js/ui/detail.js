@@ -74,7 +74,7 @@ const COVERAGE_FOR_TAB = {
  */
 const TABS = [
   ['Overview', 'Overview'], ['Mechanical', 'Mechanical'], ['Thermal', 'Thermal'], ['Printing', 'Printing'],
-  ['Environment', 'Environment'], ['Grades', 'Grades'], ['Price', 'Price'], ['Evidence', 'Sources'], ['Coverage', 'Coverage'],
+  ['Environment', 'Environment'], ['Grades', 'Products'], ['Price', 'Price'], ['Evidence', 'Sources'], ['Coverage', 'Coverage'],
 ];
 
 /**
@@ -89,7 +89,7 @@ const TAB_HELP = {
   Thermal: (n) => (n ? `${plural(n, 'thermal measurement')} on record, by property; each value names its grade and source.` : 'No thermal measurement is on record for this material.'),
   Printing: (n) => (n ? `${plural(n, 'print profile')}, by maker: the temperatures, nozzle, drying and feed each source gives.` : 'No print profile is on record for this material.'),
   Environment: (n, c) => (n ? `${plural(n, 'record')} of how it behaves in chemicals, moisture and other exposure, by category${c.poly?.length ? `, ${c.poly.length} of them the base polymer's published behaviour` : ''}.` : 'No record of chemical, moisture or other exposure is on file for this material.'),
-  Grades: (n) => (n ? `${plural(n, 'commercial grade')} recorded under this material, by maker.` : 'No commercial grade is recorded under this material.'),
+  Grades: (n) => (n ? `${plural(n, 'product')} recorded under this material, by maker: each with its own values, whether it meets your requirements, and how to print it.` : 'No product is recorded under this material.'),
   Price: (n) => (n ? `${plural(n, 'Canadian price observation')} from the sampled retailers.` : 'No sampled Canadian retailer listed this material.'),
   Evidence: (n, c) => (n ? `${plural(n, 'source')} behind this material's ${plural(c.ms.length, 'measurement')}, by publisher, each with what it published and a link to the original.` : 'No source has published a measurement of this material.'),
   Coverage: (n) => (n ? `${plural(n, 'coverage record')}: what the database holds for this material and what it does not, by domain.` : 'No coverage record is on file for this material.'),
@@ -243,12 +243,14 @@ function applySearch(host) {
 /** One line per headline of what the model says of this grade (D81), only with estimates on. It decides nothing. */
 function gradeEstimateLines(g, c) {
   if (!c.showEstimates || !g.estimate) return '';
-  const lines = REGISTRY.headlines.filter((h) => g.estimate[h.key]).map((h) => {
+  // Only where the product publishes no comparable value of its own: an estimate beside its own measurement said less
+  // than the measurement and read as a second answer (a 10 % elongation estimated at "10–10 %").
+  const lines = REGISTRY.headlines.filter((h) => g.estimate[h.key] && g.headline?.[h.key]?.level !== 'comparable').map((h) => {
     const e = g.estimate[h.key];
     return `<div class="grade-est"><b>${esc(h.labels.plain)}</b> <span class="est est-${esc(e.precision)}">~${fmtNumber(e.lo)}–${fmtNumber(e.hi)} ${esc(e.unit)}<span class="est-mark">†</span></span>
       <span class="fine">centred on ${fmtNumber(e.centre)} · ${esc(e.precision)} precision · ${esc(ESTIMATE_STRENGTH[e.strength]?.short ?? e.strength)}</span></div>`;
   });
-  return lines.length ? `<div class="grade-ests"><div class="shared-head">Estimated for this grade</div>${lines.join('')}</div>` : '';
+  return lines.length ? `<div class="grade-ests"><div class="shared-head">Estimated where this product publishes nothing comparable</div>${lines.join('')}</div>` : '';
 }
 
 /**
@@ -640,6 +642,96 @@ export function renderDrawer(host, state, actions) {
   }
 }
 
+// ------------------------------------------------------------------ a material's products (D83)
+
+const LEVEL_NOTE = {
+  'unstated-direction': 'The source does not state the test direction, so this value may be a moulded or differently oriented bar. It is not compared unless you admit such values.',
+  'load-not-stated': 'The source does not state the heat test load, so this value is not compared unless you admit such values.',
+};
+
+/** A product's own value for each headline (build/src/products.js): its measurement, and a mark where it is not comparable. */
+function productValues(g, c) {
+  const rows = REGISTRY.headlines.filter((h) => g.headline?.[h.key]).map((h) => {
+    const v = g.headline[h.key];
+    const value = v.measurementId
+      ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="Opens the measurement behind this value">${fmtNumber(v.value)} ${esc(h.unit)}<span class="evidence-dot" aria-hidden="true"></span></button>`
+      : `${fmtNumber(v.value)} ${esc(h.unit)}${v.observations ? ` <span class="fine">(${plural(v.observations, 'listing')})</span>` : ''}`;
+    const mark = v.level === 'as-published'
+      ? ` ${explainButton('not comparable', LEVEL_NOTE[v.caveat] ?? 'Not comparable.', { cls: 'missing lvl', head: 'Published without its conditions' })}` : '';
+    const anneal = v.anneal ? ` <span class="fine">after annealing${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';
+    return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}</dd>`;
+  });
+  return rows.length ? `<dl class="kv small product-values">${rows.join('')}</dl>` : '<div class="fine">This product publishes none of the key numbers comparably.</div>';
+}
+
+/** How to print a product, from its own profiles (grades[].print): never its material's union. */
+function printCard(g) {
+  const p = g.print;
+  if (!p?.profileIds.length && !p?.anneal?.length) return '<div class="print-card fine">No print settings recorded for this product. Its maker\'s other products may be similar, but that is not this product\'s data.</div>';
+  const win = (a) => (a.state === 'range' ? `${a.min != null && a.min !== a.max ? `${fmtNumber(a.min)}–` : ''}${fmtNumber(a.max)} °C`
+    : a.state === 'not-required' || a.state === 'ambient' ? 'not required' : a.state === 'unknown' ? 'not published' : a.state.replace(/-/g, ' '));
+  const axis = (label, a) => (p.profileIds.length ? `<dt>${label}</dt><dd>${esc(win(a))} ${gateChip(a, label)}</dd>` : '');
+  const anneal = (p.anneal ?? []).map((x) => `${x.tempC != null ? `${fmtNumber(x.tempC)} °C` : 'temperature not stated'}${x.hours != null ? ` for ${fmtNumber(x.hours)} h` : ''}`);
+  return `<div class="print-card"><div class="shared-head">How to print it</div><dl class="kv small">
+    ${axis('Nozzle', p.nozzle)}${axis('Bed', p.bed)}${axis('Chamber', p.chamber)}
+    ${p.profileIds.length ? `<dt>Enclosure</dt><dd>${esc(p.enclosure === 'unknown' ? 'not published' : p.enclosure.replace(/-/g, ' '))}</dd>
+    <dt>Hardened nozzle</dt><dd>${p.hardenedNozzle === true ? 'required' : p.hardenedNozzle === false ? 'not needed' : 'not published'}</dd>
+    <dt>Drying</dt><dd>${p.drying ? `${p.drying.tempC != null ? `${fmtNumber(p.drying.tempC)} °C` : 'published'}${p.drying.hours != null ? ` for ${fmtNumber(p.drying.hours)} h` : ''}` : 'not published'}</dd>` : ''}
+    ${anneal.length ? `<dt>Annealing</dt><dd>${esc(anneal.join('; '))}: some of its values were measured after it</dd>` : ''}
+  </dl></div>`;
+}
+
+// What a maker writes about printing and using a product beyond its numbers: the print notes that name a pitfall, and its
+// evidence records. Shown, never filtered on. Where nothing was collected, the gap is said (docs/GOALS.md).
+const KNOW_HOW_TOPICS = new Set(['Warping / shrinkage', 'Detail / tolerance', 'Adhesion / release', 'Layer adhesion', 'Surface finish', 'Odour / emissions', 'Storage humidity', 'Overhang', 'Bridging']);
+function makerSays(g, c) {
+  const notes = c.profiles.filter((p) => p.gradeId === g.id).flatMap((p) => p.notes.filter((n) => KNOW_HOW_TOPICS.has(n.topic)));
+  const records = c.ev.filter((e) => e.gradeId === g.id);
+  if (!notes.length && !records.length) {
+    return '<div class="fine maker-says-gap">What the maker says about printing and using it: nothing collected from its data sheet yet, and its maker\'s site has not been searched.</div>';
+  }
+  return `<div class="maker-says"><div class="shared-head">What the maker says</div><dl class="kv small">
+    ${notes.map((n) => `<dt>${esc(n.topic)}</dt><dd>${longText(n.text)}</dd>`).join('')}
+    ${records.map((e) => `<dt>${esc(e.categoryLabel ?? e.domain)}</dt><dd>${esc(e.topic)}: ${esc(e.finding)}</dd>`).join('')}
+  </dl></div>`;
+}
+
+/** How many of a material's products the H2C can print, axis by axis, from each product's own settings. */
+function productPrintCounts(grades) {
+  const products = grades.filter((g) => !/-R\d+$/.test(g.id));
+  if (!products.length) return '';
+  const count = (axis) => {
+    const n = { within: 0, over: 0, unknown: 0 };
+    for (const g of products) {
+      const v = g.print?.profileIds.length ? g.print[axis].verdict : 'unknown';
+      if (v === 'within') n.within++; else if (v === 'unknown') n.unknown++; else n.over++;
+    }
+    return n;
+  };
+  const line = (label, n) => `<li><b>${label}</b>: ${n.within} within the H2C${n.over ? `, ${n.over} above it` : ''}${n.unknown ? `, ${n.unknown} not published` : ''}</li>`;
+  return `<p class="fine">Of its ${plural(products.length, 'product')}, by each one's own settings:</p>
+    <ul class="print-counts">${line('Nozzle', count('nozzle'))}${line('Bed', count('bed'))}${line('Chamber', count('chamber'))}</ul>
+    <p class="fine">The Products tab has each product's settings. The lines below are the range recorded across all of them, a guide rather than one recipe.</p>`;
+}
+
+/** A material's spread across its products, per key number (materials[].summary): typical, range, how many. */
+function spreadTable(m, c) {
+  const rows = REGISTRY.headlines.map((h) => [h, m.summary?.[h.key]]).filter(([, s]) => s);
+  if (!rows.length) return '';
+  const judged = c.evaluation?.counts;
+  const line = c.tested && judged
+    ? `<p class="fine"><b>${judged.pass} of the ${judged.pass + judged.fail} products</b> that could be judged meet every requirement together${judged.untested ? `; ${judged.untested} publish too little to judge` : ''}.</p>` : '';
+  return `${line}<h3 class="sec">Across its products</h3>${scrollTable(`<table class="grid spread-table"><thead><tr>
+    <th>Property</th><th class="num">Typical</th><th class="num">Range</th><th class="num">Products</th><th>Set apart</th></tr></thead><tbody>
+    ${rows.map(([h, s]) => `<tr><td>${esc(h.labels.plain)} <span class="u">${esc(h.unit)}</span></td>
+      <td class="num">${s.n ? fmtNumber(s.median) : '—'}</td>
+      <td class="num">${s.n > 1 ? `${fmtNumber(s.min)}–${fmtNumber(s.max)}` : s.n ? fmtNumber(s.min) : '—'}</td>
+      <td class="num">${s.n} of ${s.products}</td>
+      <td>${[s.asPublished ? `${s.asPublished.n} without direction or load (${fmtNumber(s.asPublished.min)}–${fmtNumber(s.asPublished.max)})` : '', s.variants ? `${plural(s.variants.n, 'variant')} (${fmtNumber(s.variants.min)}–${fmtNumber(s.variants.max)})` : ''].filter(Boolean).map(esc).join('; ') || '—'}</td></tr>`).join('')}
+  </tbody></table>`)}
+  <p class="fine">Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.</p>`;
+}
+
 function tabBody(tab, c) {
   const { m, ms, ev, poly, cov, profiles, grades, prices, evaluation, summary, db, showEstimates, policy } = c;
   const covFor = (t) => cov.filter((r) => (COVERAGE_FOR_TAB[t] ?? []).includes(r.domain));
@@ -708,13 +800,19 @@ function tabBody(tab, c) {
           </div>`;
         }).join('')}
       </div>
-      <p class="fine">${esc((m.headlineBasis ?? '').replace(/[.\s]*$/, ''))}. Select a measured number, marked with a dot, for the measurement behind it, and a marked value or a dash for what it means.</p>
+      <p class="fine">${HEAD.some(([, k]) => m.headline[k]?.spread)
+        ? 'Each number is the typical value of the products that publish it comparably, with their range under it: different products, not the uncertainty of one. The Products tab has each product\'s own numbers.'
+        : esc((m.headlineBasis ?? '').replace(/[.\s]*$/, '')) + '.'} Select a number for what it rests on, and a marked value or a dash for what it means.</p>
       ${hiddenEstimates}
       ${m.identity?.notes && m.identity.notes !== 'Not applicable' ? `<p class="fine"><strong>About this entry:</strong> ${esc(m.identity.notes)}</p>` : ''}
       ${estimateGroup(m, HEAD, showEstimates)}`;
 
+    // By product (D83): whether the H2C can print a material is whether it can print its products, each on its own
+    // settings. The windows below are the material's recorded range, kept as a guide; the counts are what decide.
+    const byProduct = productPrintCounts(grades);
     const print = `
       <h3 class="sec">Can the H2C print it?</h3>
+      ${byProduct}
       <div class="facts-list">
         ${gateLine(m.gates.nozzle, 'Nozzle temperature', range(m.print?.nozzleC), windowEstimate(m.print?.nozzleEstimate, 'Nozzle', showEstimates))}
         ${gateLine(m.gates.bed, 'Bed temperature', range(m.print?.bedC), windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}
@@ -857,28 +955,42 @@ function tabBody(tab, c) {
 
   if (tab === 'Grades') {
     if (!grades.length) return empty('Grades');
-    const repMaker = c.gradeById.get(m.representativeGrade)?.manufacturer ?? null;
+    const judged = new Map((evaluation?.products ?? []).map((x) => [x.gradeId, x]));
+    const typicalOf = new Set(Object.values(m.summary ?? {}).map((s) => s.typical).filter(Boolean));
     // Colour. The field was collected on every grade, but it does not hold what a buyer wants: on 132 of 144 grades it
     // is the same sentence saying properties may vary by colour, and on the others it names the colour of the specimen
-    // that was tested. So the caveat is said once, above the grades, and a grade shows its colour only where the tested
-    // one is stated; the same sentence under every grade had read as something different about each.
+    // that was tested. So the caveat is said once, above the products, and a product shows its colour only where the
+    // tested one is stated; the same sentence under every product had read as something different about each.
     const SPEC_COLOUR = /^(white|black|natural|grey|gray|red|blue|green|yellow|orange|clear|transparent)\b/i;
-    return `<div class="note">Which colours a grade is sold in is not part of this database: check the retailer listing.
-      Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
-      Where that colour is recorded, the grade below says so.</div>`
-      + searchBox('a grade or maker') + groupByMaker(grades, m.representativeGrade).map(([maker, group]) => makerBlock(maker, group.length, 'grade', group.map((g) => `<div class="grade-block" data-search-item="${esc([gradeName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
-      <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Grade')}${g.id === m.representativeGrade ? ' <span class="chip chip-neutral chip-small">stands for this material</span>' : ''}</h3>
-      <dl class="kv">
+    const block = (g) => {
+      const j = judged.get(g.id);
+      const verdictChip = c.tested && j ? ` ${chip(j.verdict)}` : '';
+      return `<div class="grade-block" data-search-item="${esc([gradeName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
+      <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Product')}${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}</h3>
+      ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why">Fails: ${esc(j.failedBy.join('; '))}</div>` : ''}
+      ${productValues(g, c)}
+      ${printCard(g)}
+      ${makerSays(g, c)}
+      <details class="grade-more"><summary>About this product</summary><dl class="kv">
         <dt>Manufacturer</dt><dd>${esc(g.manufacturer ?? '')}</dd>
         <dt>Product</dt><dd>${esc(g.product ?? '')}</dd>
         <dt>Composition</dt><dd>${esc(g.composition ?? '')}</dd>
-        ${g.variant ? `<dt>Variant</dt><dd>${esc(g.variant)}: its numbers describe this product, not the polymer in general</dd>` : ''}
+        ${g.variant ? `<dt>Variant</dt><dd>${esc(g.variant)}: its numbers describe this product, not the polymer in general, so they stay out of the material's range</dd>` : ''}
         <dt>Availability</dt><dd>${esc(g.availability ?? '')}</dd>
         <dt>Certifications</dt><dd>${esc(g.certifications ?? '')}</dd>
         ${SPEC_COLOUR.test((g.colourCaveat ?? '').trim()) ? `<dt>Colour tested</dt><dd>Measured on the <b>${esc(g.colourCaveat.trim())}</b> version. Other colours may differ.</dd>` : ''}
-        <dt>Why this grade</dt><dd>${esc(g.rationale ?? '')}</dd>
         <dt>Source</dt><dd>${esc(sourceName(c.sourceById.get(g.sourceId), g.sourceId))} ${tag(g.sourceId, 'Source')}</dd>
-      </dl>${gradeEstimateLines(g, c)}</div>`).join(''), { open: maker === repMaker })).join('');
+      </dl></details>${gradeEstimateLines(g, c)}</div>`;
+    };
+    // With requirements set, the products that meet all of them come first, together: that is the answer to "which
+    // PLA". Then every product by maker, as before.
+    const passing = c.tested ? grades.filter((g) => judged.get(g.id)?.verdict === 'PASS') : [];
+    const firstMaker = passing[0]?.manufacturer ?? grades.find((g) => typicalOf.has(g.id))?.manufacturer ?? null;
+    return `${spreadTable(m, c)}
+      <div class="note">Which colours a product is sold in is not part of this database: check the retailer listing.
+      Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.</div>`
+      + (passing.length ? makerBlock(`Meet every requirement`, passing.length, 'product', passing.map(block).join(''), { open: true, cls: 'maker-block pass-block' }) : '')
+      + searchBox('a product or maker') + groupByMaker(grades, null).map(([maker, group]) => makerBlock(maker, group.length, 'product', group.map(block).join(''), { open: !passing.length && maker === firstMaker })).join('');
   }
 
   if (tab === 'Price') {

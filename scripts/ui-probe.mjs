@@ -298,6 +298,20 @@ try {
   await sleep(200);
   results['13-drawer-pla-mechanical'] = await drawerText();
 
+  // A material answered by its products (D83): the stiff-fixture template ranked by specific stiffness, each row its
+  // place and best product; then PA12-CF's Products tab, where the one product that passes comes first with how to
+  // print it and what its maker says.
+  await open(pageUrl);
+  await click('[data-template="4"]');
+  await evaluate(`(() => { const s = document.querySelector('[data-rank-by]'); s.value = 'tie-stiffness'; s.dispatchEvent(new Event('change')); return true; })()`);
+  await sleep(200);
+  results['14-ranked-stiffness'] = await view();
+  await click('#lens tr[data-material="M053"]');
+  await until(`!!document.querySelector('.drawer')`, 'the PA12-CF drawer');
+  await click('.drawer [data-tab="Grades"]');
+  await sleep(200);
+  results['14-drawer-pa12cf-products'] = await drawerText();
+
   // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
   // counts are the only ones in the rail that follow the other requirements.
   const rail = () => evaluate(`(document.querySelector('.family-facet')?.innerText ?? 'NO FAMILY RAIL').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim()`);

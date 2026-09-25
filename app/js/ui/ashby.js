@@ -36,6 +36,11 @@ export const DETAIL_LEVELS = [
     help: 'Best for comparing and choosing materials.',
   },
   {
+    id: 'products',
+    label: 'One product',
+    help: 'Every product that publishes both values comparably, in its material\'s colour.',
+  },
+  {
     id: 'measured',
     label: 'One matched measurement pair',
     help: 'Pairs recorded for the same grade under matching conditions.',
@@ -124,14 +129,15 @@ export function renderAshby(host, state, actions) {
   const focusKey = host.contains(document.activeElement) ? document.activeElement.dataset?.focus : null;
 
   const level = detailLevel(p);
-  const measurementMode = level !== 'material';
-  const { pts, mixed, unavailable } = measurementMode
+  const measurementMode = level !== 'material' && level !== 'products';
+  const { pts, mixed, unavailable } = level === 'products' ? productPoints(rows, xDef, yDef, state)
+    : measurementMode
     ? measurementPoints(rows, xDef, yDef, level === 'measured-mixed' ? 'broad' : 'strict', state.ctx)
     : headlinePoints(rows, xDef, yDef);
 
   // Only in "one dot per material": at measurement level every point is already a real
   // measurement, and a family bound has nothing to say about an individual grade.
-  const estimated = measurementMode ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.showEstimates);
+  const estimated = level !== 'material' ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.showEstimates);
   const envelopes = p.showEstimates ? estimated : [];
 
   const subjects = new Set(pts.map((q) => q.id)).size;
@@ -369,6 +375,59 @@ function estimateEnvelopes(rows, xDef, yDef, useEstimates) {
   return out;
 }
 
+/**
+ * One point per product (D83): each product whose own values on both axes are comparable, drawn in its material's
+ * colour and shape. A material is then the cloud of its products, which is what its bubble summarises. A product is
+ * judged, and so marked, by its own verdict.
+ */
+function productPoints(rows, xDef, yDef, state) {
+  const pts = [];
+  for (const { material: m, evaluation: e } of rows) {
+    const verdictOf = new Map((e.products ?? []).map((x) => [x.gradeId, x.verdict]));
+    for (const g of state.ctx?.productsByMaterial?.get(m.id) ?? []) {
+      const vx = g.headline?.[xDef.key], vy = g.headline?.[yDef.key];
+      if (vx?.level !== 'comparable' || vy?.level !== 'comparable') continue;
+      const verdict = verdictOf.get(g.id) ?? e.verdict;
+      pts.push({
+        id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value, material: m,
+        evaluation: { ...e, verdict, eligible: verdict === 'PASS' || (e.eligible && verdict !== 'FAIL'), needsVerification: verdict === 'UNKNOWN' && e.needsVerification },
+        label: `${m.name}: ${g.manufacturer} ${g.product}`,
+        x: vx.value, y: vy.value,
+        xh: { measurementId: vx.measurementId, gradeId: g.id }, yh: { measurementId: vy.measurementId, gradeId: g.id, direction: vy.direction ?? '' },
+        assumed: false, notes: [], relaxed: [], product: true,
+      });
+    }
+  }
+  return { pts, mixed: [], unavailable: null };
+}
+
+/**
+ * A material as a bubble (D83): the middle half of its products on each axis (their full range where fewer than four
+ * publish it), with whiskers to the extremes through the typical value. Behind the points, never a point itself.
+ */
+function spreadTraces(pts, xDef, yDef, colors, colourGroup) {
+  const out = [];
+  const box = (s, v) => (!s ? [v, v] : s.q1 != null ? [s.q1, s.q3] : [s.min, s.max]);
+  for (const q of pts) {
+    const sx = q.xh?.spread, sy = q.yh?.spread;
+    if (!sx && !sy) continue;
+    const [x0, x1] = box(sx, q.x), [y0, y1] = box(sy, q.y);
+    const color = colors.color(q.family);
+    const hover = `<b>${esc(q.name)}</b><br>Spread of its products`
+      + `${sx ? `<br>${esc(xDef.label)}: ${fmtNumber(sx.min)}–${fmtNumber(sx.max)} ${esc(xDef.unit)} (${sx.n})` : ''}`
+      + `${sy ? `<br>${esc(yDef.label)}: ${fmtNumber(sy.min)}–${fmtNumber(sy.max)} ${esc(yDef.unit)} (${sy.n})` : ''}`
+      + '<br><i>The box is the middle half of its products where four or more publish; the whiskers their extremes</i><extra></extra>';
+    const common = { type: 'scatter', showlegend: false, legendgroup: colourGroup(q.family), hoverinfo: 'skip', name: `${q.name} spread` };
+    if (x0 !== x1 && y0 !== y1) {
+      out.push({ ...common, mode: 'lines', x: [x0, x1, x1, x0, x0], y: [y0, y0, y1, y1, y0], fill: 'toself',
+        fillcolor: hexToRgba(color, 0.1), line: { color: hexToRgba(color, 0.45), width: 1 }, hoveron: 'fills', hoverinfo: 'text', text: hover.replace(/<extra><\/extra>$/, ''), hovertemplate: hover });
+    }
+    if (sx && sx.min !== sx.max) out.push({ ...common, mode: 'lines', x: [sx.min, sx.max], y: [q.y, q.y], line: { color: hexToRgba(color, 0.5), width: 1 } });
+    if (sy && sy.min !== sy.max) out.push({ ...common, mode: 'lines', x: [q.x, q.x], y: [sy.min, sy.max], line: { color: hexToRgba(color, 0.5), width: 1 } });
+  }
+  return out;
+}
+
 /** One point per canonical material, using the same headline logic as the rest of the selector. */
 function headlinePoints(rows, xDef, yDef) {
   const pts = rows
@@ -393,7 +452,7 @@ function headlinePoints(rows, xDef, yDef) {
 function measurementPoints(rows, xDef, yDef, mode, ctx) {
   if (!xDef.measurement || !yDef.measurement) {
     const which = !xDef.measurement ? xDef.label : yDef.label;
-    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a compiled headline. Choose "One material" under Each point shows, or choose another axis.` };
+    return { pts: [], mixed: [], unavailable: `${which} has no measurement-level data, only a material value. Choose "One material" under Each point shows, or choose another axis.` };
   }
   const pts = [];
   const mixed = new Set();
@@ -508,7 +567,7 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
 
   const eligibleForFront = pts.filter((q) => q.evaluation.eligible && !q.assumed);
   const frontNow = paretoFront(eligibleForFront, xDef.better, yDef.better);
-  const measurementMode = pts.some((q) => q.notes !== undefined && q.xh?.measurementId && q.yh?.measurementId);
+  const measurementMode = pts.some((q) => !q.product && q.notes !== undefined && q.xh?.measurementId && q.yh?.measurementId);
   const shortlisted = new Set(scenario.shortlist);
   const frontIds = new Set(frontNow.map((q) => q.id));
   // What may carry a label, placed after the chart is drawn, where a label's size on screen is known (placeLabels).
@@ -551,6 +610,9 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     }
     traces.push(trace);
   }
+
+  // A material's bubble, the spread of its products, sits behind its point (D83).
+  if (pts.some((q) => q.xh?.spread || q.yh?.spread)) traces.push(...spreadTraces(pts.filter((q) => q.xh?.spread || q.yh?.spread), xDef, yDef, colors, colourGroup));
 
   for (const [key, list] of groups) {
     const [family, filler] = key.split('|');
@@ -1064,7 +1126,7 @@ function renderIndexCard(host, state, pts, actions) {
             aria-valuetext="M = ${M.toPrecision(3)}, ${above} material${above === 1 ? '' : 's'} above the line">
           <span class="formula">M = ${M.toPrecision(3)}</span>
           <strong>${above} material${above === 1 ? '' : 's'} above the line</strong>
-          <span class="index-of">of ${evaluable} with both headline values${detailLevel(p) === 'material' ? '' : '; counted by material, from headline values, not by dot'}</span>
+          <span class="index-of">of ${evaluable} with both values${detailLevel(p) === 'material' ? '' : '; counted by material, from their typical values, not by dot'}</span>
         </div>
       ` : applicable
         // Said, not drawn: what the reader would have had to know to read a line drawn on these axes.

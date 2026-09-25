@@ -1,0 +1,71 @@
+1 of the 4 products that could be judged meet every requirement together; 12 publish too little to judge.
+ACROSS ITS PRODUCTS
+Property Typical Range Products Set apart
+Density kg/m³ 1,070 1,030–1,230 11 of 16 —
+Stiffness GPa 3.32 3.3–8 4 of 16 6 without direction or load (0.5–9.5)
+Strength MPa 72 58–86 6 of 16 8 without direction or load (50–125)
+Stretch before breaking % 3.9 2.1–14.8 6 of 16 7 without direction or load (3.5–103)
+Heat resistance °C 150 48–185 11 of 16 —
+Price CAD/kg — — 0 of 16 —
+Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
+Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
+Meet every requirement
+1 product
+3DXTECH CarbonX CF PA12 G053-01 PASS
+Density
+1,160 kg/m³
+Stiffness
+8 GPa
+Strength
+72 MPa
+Stretch before breaking
+2.1 %
+Heat resistance
+150 °C
+HOW TO PRINT IT
+Nozzle
+265–285 °C yes
+Bed
+90–110 °C yes
+Chamber
+not published not recorded
+Enclosure
+not published
+Hardened nozzle
+required
+Drying
+90 °C for 4 h
+WHAT THE MAKER SAYS
+Detail / tolerance
+0.25mm or higher
+About this product
+3DXTECH
+1 product
+Polymaker
+2 products
+Spectrum
+1 product
+Extrudr
+1 product
+SUNLU
+1 product
+Eryone
+1 product
+Fabru / purefil
+1 product
+Raise3D
+1 product
+SIDDAMENT
+1 product
+BigRep
+1 product
+Fabru
+1 product
+iSANMATE
+1 product
+Fillamentum
+1 product
+MatterHackers
+1 product
+Fiberlogy
+1 product

@@ -68,16 +68,16 @@ export const CHAMBER_GUIDANCE = {
  * table cell, the drawer, Compare, the chart and the export.
  */
 export const ESTIMATE_STRENGTH = {
-  'this-grade': { short: 'from this grade\'s related measurements', title: 'Built mainly from this grade\'s own related measurements (another endpoint, direction, load or specimen), each converted to this headline, with the family model' },
-  'this-material': { short: 'from this material\'s other grades', title: 'Built from this material\'s other grades or resin data, converted to this headline, with the family model' },
+  'this-grade': { short: 'from this grade\'s related measurements', title: 'Built mainly from this grade\'s own related measurements (another endpoint, direction, load or specimen), each converted to this property, with the family model' },
+  'this-material': { short: 'from this material\'s other grades', title: 'Built from this material\'s other grades or resin data, converted to this property, with the family model' },
   family: { short: 'from the family model only', title: 'No evidence of this material itself: predicted from its polymer, reinforcement and chemical family, learned from every measured material' },
 };
 
 /** How a likely range should be read. */
 export const ESTIMATE_PRECISION = {
-  good: 'narrow enough to decide on',
-  fair: 'indicative',
-  poor: 'an order of magnitude only',
+  good: 'narrow enough to rule a material out of a requirement it clearly misses',
+  fair: 'a rough guide',
+  poor: 'only the order of magnitude',
 };
 
 const percent = (p) => `${Math.round(p * 100)}%`;
@@ -91,12 +91,15 @@ export function estimateTitle(e, d) {
   const s = ESTIMATE_STRENGTH[e.strength] ?? { title: 'Estimated' };
   const levels = e.levels ?? { likely: 0.8, plausible: 0.95 };
   const unit = d.unit ? ` ${d.unit}` : '';
-  const wide = d.plausible ? ` Plausibly ${d.plausible[0]} to ${d.plausible[1]}${unit} (${percent(levels.plausible)}).` : '';
+  // Said for a reader who is not a statistician: what the range is, how often ranges like it held when the model was
+  // tested on values it had not seen, and what it may and may not do.
+  const oneIn = (p) => (p >= 0.94 && p <= 0.96 ? '19 in 20' : p >= 0.78 && p <= 0.82 ? '8 in 10' : percent(p));
+  const wide = d.plausible ? ` It could be anywhere from ${d.plausible[0]} to ${d.plausible[1]}${unit} (${oneIn(levels.plausible)}).` : '';
   const column = d.inColumn ? ` In ${d.columnUnit}, the unit of its column, that is ${d.inColumn[0]} to ${d.inColumn[1]}.` : '';
-  return `Estimated, not measured: likely ${d.lo} to ${d.hi}${unit} (${percent(levels.likely)} of hidden measured values fell inside ranges like this), centred on ${d.centre}${unit}.${column}${wide}`
-    + ` ${s.title}.${e.sharedWith ? ` Its representative product is also recorded under ${e.sharedWith.name}.` : ''}`
+  return `An estimate, not a measurement: probably ${d.lo} to ${d.hi}${unit}, most likely around ${d.centre}${unit}. When the model was tested on published values it was not shown, ${oneIn(levels.likely)} fell inside ranges like this.${column}${wide}`
+    + ` ${s.title}.${e.sharedWith ? ` Its product is also recorded under ${e.sharedWith.name}.` : ''}`
     + ` Precision: ${e.precision}, ${ESTIMATE_PRECISION[e.precision] ?? ''}.`
-    + ` Never enough to pass a requirement. ${e.canScreen ? `With "${POLICY_LABELS.exploration}", it screens this material out of ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
+    + ` An estimate never makes a material pass. ${e.canScreen ? `With "${POLICY_LABELS.exploration}", it rules this material out of ${screenRangeText(e, d.num, d.unit)}.` : ''}${e.screenLimit ? ` ${e.screenLimit.charAt(0).toUpperCase()}${e.screenLimit.slice(1)}` : ''}`;
 }
 
 /**

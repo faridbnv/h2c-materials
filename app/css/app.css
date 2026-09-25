@@ -732,7 +732,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 }
 
 @media print {
-  .rail, .topbar, .statusbar, .tray, .lens-bar, #drawer-host, .rail-backdrop, #cmp-print, .baseline-pick, .popover, .skip-link { display: none !important; }
+  .rail, .topbar, .statusbar, .tray, .lens-bar, #drawer-host, .rail-backdrop, #cmp-print, .baseline-pick, .rank-pick, .popover, .skip-link { display: none !important; }
   .app { display: block; height: auto; }
   .main { display: block; }
   .cmp-prop, .cmp-context, table.grid tr { break-inside: avoid; }
@@ -763,6 +763,11 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .related { display: inline; font-size: var(--t-table); color: var(--ink-2); border-bottom: 1px dotted var(--border-strong); }
 .related .rv { font-variant-numeric: tabular-nums; }
 .related-mark { color: var(--unknown); font-weight: 700; margin-left: 2px; }
+/* A material as the spread of its products (D83): the typical value, and under it the range and how many. */
+.spread { display: block; font-size: 0.78em; color: var(--ink-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.spread-n { opacity: 0.85; }
+.drawer .spread, .compare .spread, .legend-row .spread { display: inline; margin-left: 4px; }
+.share { display: block; margin-top: 2px; font-size: 0.78em; color: var(--ink-2); white-space: nowrap; }
 .table-note { font-size: var(--t-small); color: var(--ink-3); margin: 14px 2px 0; max-width: 80ch; line-height: 1.5; }
 .related-list { margin-top: 8px; border-left: 3px solid var(--border-strong); padding-left: 11px; }
 .related-head { font-size: var(--t-label); color: var(--ink-3); margin-bottom: 5px; }
@@ -1150,3 +1155,21 @@ tr.baseline-row .name { color: var(--accent); }
 .popover-close { flex: 0 0 auto; min-width: 26px; min-height: 26px; }
 .popover-text { margin: 0; white-space: pre-line; color: var(--ink-2); overflow-wrap: anywhere; }
 .popover-action { margin-top: 10px; }
+
+/* A material's products (D83): each product's own values, how to print it, and what its maker says. */
+.product-values { margin: 6px 0 4px; }
+.print-card, .maker-says { margin: 8px 0; padding: 8px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); }
+.print-card.fine, .maker-says-gap { background: none; border: none; padding: 0; margin: 6px 0; }
+.grade-more { margin: 6px 0; }
+.grade-more > summary { cursor: pointer; font-size: var(--t-small); color: var(--ink-2); }
+.pass-block > summary .maker-name { color: var(--pass); }
+.spread-table td, .spread-table th { font-size: var(--t-small); }
+.print-counts { margin: 4px 0 8px 18px; padding: 0; font-size: var(--t-small); }
+.lvl { font-size: var(--t-label); }
+.rank-line { color: var(--accent); }
+.rank-pick { display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-small); color: var(--ink-2); }
+.rank-pick select {
+  padding: 4px 8px; font-size: var(--t-small); border: 1px solid var(--border-strong);
+  border-radius: var(--radius); background: var(--bg); color: inherit; max-width: 260px;
+}
+.cmp-bar .spread-bounds { top: 3px; height: 10px; border: 1px solid var(--ink-2); border-radius: 2px; background: color-mix(in srgb, var(--ink-3) 18%, transparent); }

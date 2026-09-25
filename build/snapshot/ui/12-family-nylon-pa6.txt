@@ -12,6 +12,16 @@ What this database cannot answer
 Properties
 Printing
 What the material is like
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
 Compare against
 no reference
 PLA
@@ -20,26 +30,59 @@ ABS
 ASA
 PC
 — not published
-* measured, not the headline
+2.3 1.0–3.0 · 27 typical and range
+* measured, not comparable
 ? heat load not stated
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 PA6
 Nylon / Polyamide
- PASS 1,250 3.4* 78* 1.9* 90* 163↗ ☆
+ PASS
+8 of 8
+ 1,145
+1,130–1,200 · 6
+ 3.4* 78* 1.9* 140 163↗ ☆
 PA6-CE
 Nylon / Polyamide
- PASS 1,490* 6* 55* — 90* — ☆
+ PASS
+1 of 1
+ 1,490 6* 55* — 90* — ☆
 PA6-CF
 Nylon / Polyamide
- PASS 1,090 4.43 102 5.8 186 110↗ ☆
+ PASS
+14 of 14
+ 1,170
+1,090–1,250 · 12
+ 4.3
+3.8–8.64 · 5
+ 82.5
+53–112 · 6
+ 7.35
+2.1–16.5 · 6
+ 185
+140–215 · 9
+ 110↗ ☆
 PA6-GF
 Nylon / Polyamide
- PASS 1,140 2.85 75 3.9 182 77↗ ☆
+ PASS
+11 of 11
+ 1,290
+1,140–1,370 · 8
+ 4.35
+2.85–5.36 · 4
+ 82.3
+62.8–98.9 · 6
+ 4.95
+2.4–12.5 · 6
+ 186
+161–210 · 9
+ 77↗ ☆
 PA6-GS
 Nylon / Polyamide
- PASS 1,010* 4.2* 87* — 90* — ☆
+ PASS
+1 of 1
+ 1,010 4.2* 87* — 90* — ☆
 RAIL
 Each count is how many of a family the other requirements leave. Choose a family to see its polymers.
 PLA

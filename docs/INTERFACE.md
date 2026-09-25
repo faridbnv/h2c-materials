@@ -303,8 +303,10 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 
 | Looks like | Is |
 |---|---|
-| `4.43` | A measured, verified headline |
-| `46*` | A real measurement never promoted to a headline. Select it for why, and **Open the measurement** |
+| `2.27` over `0.95–2.95 · 27` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. Select it for the details and **Open its products** |
+| `4.43` | A measured value of the material's one product that publishes it comparably |
+| `PASS` over `1 of 4` | One of the four products that could be judged meets every requirement together. Select it for the untested count |
+| `46*` | A real measurement that no product publishes comparably. Select it for why, and **Open the measurement** |
 | `~1.9–5.3†` | An estimate: the likely (80%) range of a calibrated model of every observation. Never passes; select it for its evidence and which ends may screen, and **Open the estimate** |
 | `80?` | A heat value whose source states the standard but not the load. It can neither pass nor fail a heat requirement outright |
 | `35≈` | A published mean ± spread whose spread contains the requirement's threshold. Judged on the mean (D54); select the mark for the spread |
@@ -704,6 +706,26 @@ A scenario assumption stands in for a missing value only: never for one that doe
 every reason, drawn faint on the chart and never on its front. Loading a file restores the lens,
 columns, baseline and estimates switch as well as the requirements, through the same function the
 page uses at startup.
+
+## A material answered by its products (re-center phase 3)
+
+The page judges a material by its products (D83): each product on every requirement at once, printing included, and
+the material passes when one product passes. The table's Result says how many (`1 of 4`), each number cell the
+products' typical value with their range under it, and **Rank by** orders the results by a goal: a performance index
+worked out for each passing product, the material placed by the median of its products, its best product named under
+its name. A column sort clears the ranking. The drawer's **Products** tab (the Grades tab before) opens with the
+material's spread per property and, with requirements set, the products that meet all of them; each product shows its
+own values, marked where not comparable, **How to print it** from its own profiles, and **What the maker says** (its
+print notes on warping, tolerance and adhesion, and its evidence records), or says that nothing has been collected
+from its data sheet yet and its maker's site has not been searched. The Overview counts, axis by axis, how many
+products the H2C can print. The Ashby chart draws each material as a bubble (the middle half of its products, whiskers
+to the extremes) behind its typical point, and **One product** plots every product that publishes both values
+comparably. Compare draws each material's product range behind its bar. **Export their products** writes every
+product of the materials on screen with its values, levels, print settings and verdict. **Also count values published
+without their test direction or load**, under Evidence, lets such values decide (D84); it travels in the link.
+
+Measured on 2026-09-25 in headless Chrome on the owner's laptop: the page renders its first result in about 0.36 s
+from a cached file, with a 104 MB heap, well inside the 1.5 s at which measurements would move to a second payload.
 
 ## The drawer at 1,119 grades
 

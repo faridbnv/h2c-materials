@@ -120,3 +120,57 @@ UNKNOWN among the materials not ruled out fell from 78 % (373 of 476) to 73 % (3
 
 Not built in this step: `rankBy` and `evidence` in the scenario and its link, which arrive with the controls that set
 them (phase 3), so no saved scenario changes shape before the page can use it.
+
+## Phase 3: the interface follows the funnel (2026-09-25)
+
+The page now judges every material by its products and shows it as their spread.
+
+- **Boot.** The page shows each material as the spread of its products (`displayMaterials`,
+  `app/js/engine/products.js`): a headline that products publish comparably becomes their typical value (median) with
+  their range; one no product publishes keeps what the build gave it (an estimate, a related value, not published,
+  not applicable). The engine judges by products (`ctx.productsByMaterial`). The fuzzer applies the same transform and
+  the same context, so the page is still checked against the engine it runs.
+- **Table.**
+  - Each number cell shows the typical value with its range and count under it (`2.27` over `0.95–2.95 · 27`).
+  - The Result shows how many products pass (`1 of 4`), with the untested count in its popover and a way to the
+    products.
+  - **Rank by** orders the results by a performance index over each material's passing products, and names the best
+    product under each material.
+  - The legend explains the new marks; "headline" has left the screen.
+- **Drawer.**
+  - The Grades tab is now **Products**. It opens with the material's spread per property and, with requirements set,
+    the products that meet all of them first.
+  - Each product shows its own values (marked where not comparable), **How to print it** from its own profiles, and
+    **What the maker says** (its print notes and evidence records, or the gap stated).
+  - A grade estimate is shown only where a product has no comparable value of its own; the "10–10 %" bug is gone.
+  - The Overview counts, per axis, how many products the H2C can print.
+- **Ashby chart.** Each material is a bubble behind its typical point (the middle half of its products, whiskers to
+  the extremes). **One product** plots every product with both values comparable.
+- **Compare** draws each material's product range behind its bar.
+- **Export.** **Export their products** writes every product of the materials on screen with its values, levels,
+  print settings, source and verdict.
+- **Evidence and links.** **Also count values published without their test direction or load** (Evidence filters)
+  lets such values decide (D84). The goal and the evidence level travel in links and saved scenarios only when set,
+  so every older link reads as it did.
+- **Plain language.** The estimate popover now says, for a non-statistician, what the range is, how often ranges like
+  it held when tested, and that an estimate never passes a material. "Good precision" no longer claims to decide.
+- **Templates.** `build/snapshot/templates.csv` is judged by products, as the page is; `templates-products.csv` is
+  gone.
+
+**Gate.**
+
+| | Result |
+|---|---|
+| Views | 65 (two new: the stiffness fixture ranked by specific stiffness, PA12-CF's Products tab), reviewed; no layout failure on laptop, tablet or phone |
+| Fuzz | a new invariant, I5-spread (neither end of a range may be rounded across a threshold), with range ends probed as thresholds; 300 scenarios in `verify` and 600 on seed 3 with no violation. 2,000 on seed 11 found 168 of one kind: a reader's assumption lost to a product value that was not comparable, and the reason called it published. Fixed (an assumption stands in wherever no value may decide) and pinned by a test; 2,000 on seed 11 then clean |
+| PLA | reads `2.27` over `0.95–2.95 · 27`, with 46 values published without a direction set apart |
+| PPS-CF | each product's own nozzle window in its Products tab; the material's recorded range kept only as a guide |
+| Boot | about 0.36 s to the first result in headless Chrome from a cached file, 104 MB heap: no second payload needed |
+| Tests | 295 in `npm test` and 164 in `test:ingest`, all passing; `verify` 3 min 41 s |
+| Build | `build:diff` shows only the rewording of the related-evidence reasons ("not comparable", not "not the headline") |
+
+**Not done in this step, and why.**
+- Rows do not expand in the table. The Products tab, one press away from every row and from the "1 of 4" mark, shows
+  the passing products first, and the table's rows stay one per material, which is what the fuzzer and the views
+  check.
+- The team test needs two of the team's engineers: its script is [team-test.md](team-test.md).

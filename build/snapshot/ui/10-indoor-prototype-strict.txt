@@ -15,6 +15,16 @@ What this database cannot answer
 Properties
 Printing
 What the material is like
+Rank by
+nothing: sort by column
+Tie, minimum mass, stiffness prescribed
+Beam, minimum mass, stiffness prescribed
+Panel, minimum mass, stiffness prescribed
+Tie, minimum mass, strength prescribed
+Beam, minimum mass, strength prescribed
+Panel, minimum mass, strength prescribed
+Beam, minimum material cost, stiffness prescribed
+Tie, minimum material cost, strength prescribed
 Compare against
 no reference
 PLA
@@ -23,30 +33,183 @@ ABS
 ASA
 PC
 — not published
-* measured, not the headline
+2.3 1.0–3.0 · 27 typical and range
+* measured, not comparable
 ? heat load not stated
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-ABS PASS 1,050 2.2 33 10.5 87 26↗ ☆
-ABS-GF PASS 1,080 3.16 36 1.2 99 39↗ ☆
-ASA PASS 1,050 2.45 37 9.2 100 39↗ ☆
+ABS PASS
+1 of 1
+ 1,050
+1,020–1,150 · 42
+ 2.25
+1.77–2.38 · 10
+ 35
+15.7–45 · 16
+ 10
+3.9–40 · 15
+ 94
+78.9–104 · 21
+ 26↗ ☆
+ABS-GF PASS
+1 of 1
+ 1,100
+1,016–1,150 · 11
+ 3.16
+1.74–4.21 · 5
+ 46.5
+35.5–68 · 7
+ 2.1
+1.2–10 · 7
+ 93.5
+82–100 · 8
+ 39↗ ☆
+ASA PASS
+1 of 1
+ 1,070
+1,040–1,150 · 34
+ 2.32
+0.943–2.45 · 9
+ 38.5
+30.2–45 · 10
+ 6.35
+1.9–11 · 10
+ 95
+82–103 · 18
+ 39↗ ☆
 HIPS
 Styrenics
- PASS 1,040 1.35 40* 18 80 43↗ ☆
-PETG Basic PASS 1,250 2.78 51 9.5 71 25↗ ☆
-PETG Translucent PASS 1,250 1.42 33 8.2 74 26↗ ☆
-PETG-CF PASS 1,250 2.46 35 10.4 74 41↗ ☆
-PLA Basic PASS 1,240 2.58 35 12.2 57 28↗ ☆
-PLA Galaxy PASS 1,190 1.54 26 9.3 55 32↗ ☆
-PLA Glow PASS 1,260 2.03 32 8.6 55 32↗ ☆
-PLA Marble PASS 1,220 2.33 33 6.7 56 32↗ ☆
-PLA Matte PASS 1,310 1.96 30 14.8 58 28↗ ☆
-PLA Metal PASS 1,250 2.01 34 14.7 62 32↗ ☆
-PLA Silk Dual Color PASS 1,320 1.83 27 3.5 53 32↗ ☆
-PLA Silk+ PASS 1,270 2.13 33 2.8 60 31↗ ☆
-PLA Sparkle PASS 1,260 1.94 39 11.7 55 32↗ ☆
-PLA Tough+ PASS 1,210 1.86 34.9 9.4 61 27↗ ☆
-PLA Translucent PASS 1,220 2.88 55.4 11 60 30↗ ☆
-PLA Wood PASS 1,210 2.36 26 15.3 60 32↗ ☆
-PLA-CF PASS 1,220 2.79 38 8.4 55 41↗ ☆
+ PASS
+1 of 1
+ 1,050
+1,023–1,080 · 9
+ 1.47
+1.35–1.59 · 2
+ 29.2
+18.4–40 · 2
+ 9.7
+1.4–18 · 2
+ 88
+80–103 · 6
+ 43↗ ☆
+PETG Basic PASS
+1 of 1
+ 1,250 2.78 51 9.5 71 25↗ ☆
+PETG Translucent PASS
+1 of 1
+ 1,250 1.42 33 8.2 74 26↗ ☆
+PETG-CF PASS
+1 of 1
+ 1,290
+1,190–1,350 · 22
+ 2.46
+1.77–5.23 · 5
+ 44.4
+32–59.8 · 6
+ 6.6
+1.9–14 · 6
+ 71.5
+68–77 · 10
+ 41↗ ☆
+PLA Basic PASS
+1 of 1
+ 1,240 2.58 35 12.2 57 28↗ ☆
+PLA Galaxy PASS
+1 of 1
+ 1,225
+1,190–1,240 · 4
+ 1.79
+1.54–2.03 · 2
+ 43.3
+26–54.2 · 3
+ 9.3
+2.1–16.3 · 3
+ 54.6
+53–55 · 3
+ 32↗ ☆
+PLA Glow PASS
+1 of 1
+ 1,255
+1,240–1,260 · 4
+ 2.01
+1.99–2.03 · 2
+ 37.6
+32–43.2 · 2
+ 5.15
+1.7–8.6 · 2
+ 54
+53–55 · 2
+ 32↗ ☆
+PLA Marble PASS
+1 of 1
+ 1,250
+1,220–1,260 · 5
+ 2.03
+1.73–2.33 · 2
+ 41
+33–53.8 · 4
+ 15.8
+2.1–80 · 4
+ 54.9
+53–56 · 4
+ 32↗ ☆
+PLA Matte PASS
+1 of 1
+ 1,310 1.96 30 14.8 58 28↗ ☆
+PLA Metal PASS
+1 of 1
+ 1,765
+1,200–2,360 · 6
+ 2.01 34 14.7 60
+58–62 · 2
+ 32↗ ☆
+PLA Silk Dual Color PASS
+1 of 1
+ 1,320 1.83 27 3.5 53 32↗ ☆
+PLA Silk+ PASS
+1 of 1
+ 1,270 2.13 33 2.8 60 31↗ ☆
+PLA Sparkle PASS
+1 of 1
+ 1,255
+1,240–1,410 · 4
+ 1.94 49
+39–59 · 2
+ 12.1
+11.7–12.5 · 2
+ 52.9
+50.8–55 · 2
+ 32↗ ☆
+PLA Tough+ PASS
+1 of 1
+ 1,210 1.86 34.9 9.4 61 27↗ ☆
+PLA Translucent PASS
+1 of 1
+ 1,220 2.88 55.4 11 60 30↗ ☆
+PLA Wood PASS
+1 of 1
+ 1,200
+970–1,300 · 15
+ 1.68
+1–2.36 · 2
+ 30
+26–33 · 3
+ 10
+7.5–15.3 · 3
+ 54
+50–60 · 6
+ 32↗ ☆
+PLA-CF PASS
+1 of 1
+ 1,250
+1,190–1,420 · 18
+ 2.87
+1.1–4.95 · 8
+ 41
+28.3–54.9 · 9
+ 8.4
+2–13.2 · 9
+ 55.4
+54–91 · 10
+ 41↗ ☆
