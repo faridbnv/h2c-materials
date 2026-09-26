@@ -173,7 +173,9 @@ test('on this database, every number the estimate stage reads is the dense solve
     const a = predict(fit, hp, subject, formulation, house, H);
     const b = predict(denseFit, hp, subject, formulation, house, H);
     close(a.mu, b.mu, 1e-9, `${what}: mu`);
-    assert.ok(Math.abs(a.sd ** 2 - b.sd ** 2) <= 1e-10 * prior, `${what}: variance ${a.sd ** 2} vs ${b.sd ** 2}`);
+    // 1e-9 of the prior: hiding a material with many sampled observations (PLA, with 204 products since m141) downdates
+    // a larger block, and the two solves then part at about 1e-10 of it, far below any digit an estimate prints.
+    assert.ok(Math.abs(a.sd ** 2 - b.sd ** 2) <= 1e-9 * prior, `${what}: variance ${a.sd ** 2} vs ${b.sd ** 2}`);
     closeAll(a.weights, b.weights, 1e-7, `${what}: weights`);
   }
   // invertSmall is shared by both paths; naming it here says the hold-out downdate is the same arithmetic.
