@@ -341,11 +341,13 @@ was chosen by an agent and none by a person; a sample of 50 was read against the
   the sites the data holds, is `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md` (`npm run audit:know-how`).
   Six procurement products have no document read at all (no cached text): eSUN PLA-Lite, 3DXTECH 3DXPRO LG PETG and
   AMIDEX Nylon 12, purefil POM, Kimya PEBA-S, DSM Arnitel ID 2045.
-- **eSUN says its numbers are moulded, not printed.** 52 cached eSUN documents (48 sources, 47 active products) print
-  "The physical properties, mechanical properties, thermal properties, and electrical properties of the filament are
-  obtained based on the injection molding spline test." Their measurements are recorded as printed or unstated
-  specimens and can decide (D84). A decision-tier re-read for lane 4: Specimen type "Raw material value" where the
-  sheet says so.
+- **eSUN's densities rest on m128's reading.** 49 cached eSUN sheets print "The physical properties, mechanical
+  properties, thermal properties, and electrical properties of the filament are obtained based on the injection molding
+  spline test." Lane 3 listed this as unread; it is not: m128 (2026-09-21) typed the 202 bar values (strength, modulus,
+  elongation, flexural, impact, HDT) "Raw material value", so they decide nothing, and left the 39 densities "not
+  explicitly established" because a density is not measured on the bar the sentence describes. 38 of them are their
+  products' density. If the owner reads "physical properties" as covering density, those 38 would stop deciding and
+  PA6/66-CF, whose only density is eSUN's, would fall back to an estimate.
 - **A document that covers two products speaks for the one the tables link.** Raise3D's PA12 CF sheet also describes
   PA12 CF+, and three CF+ statements sit on Raise3D Industrial PA12 CF (G053-09). The Panchroma TDS that covers Silk PLA
   and CoPE was left out whole.

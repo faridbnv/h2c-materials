@@ -39,6 +39,7 @@
     "data:lint": "node scripts/data/lint.mjs",
     "docs:rules": "node scripts/docs-rules.mjs",
     "audit:sources": "node scripts/audit/source-completeness.mjs",
+    "audit:gaps": "node scripts/audit/blocking-gaps.mjs",
     "audit:know-how": "node scripts/audit/know-how-worklist.mjs",
     "data:new": "node scripts/data/new.mjs",
     "data:new-material": "node scripts/data/new-material.mjs",

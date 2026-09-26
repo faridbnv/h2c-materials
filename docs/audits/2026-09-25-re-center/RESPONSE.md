@@ -573,3 +573,42 @@ chamber or enclosure need in the maker's own statements now counts as collected,
 chamber 341 became 367, drying 405 became 412, and the table above is the corrected one. Those 33 products' settings
 still lack what their words say, so their gates stay unknown; that is lane 2's to type (OPEN-PROBLEMS §12).
 
+**Checked after the merge: the eSUN finding was already handled.** Lane 3 reported that 52 eSUN documents call their
+values injection-moulded while the database records them as printed. The database does not: m128 typed the 202 bar
+values from those 49 sources as moulded on 2026-09-21, and none of them is a product's value. What decides is the 39
+densities m128 left "not explicitly established" by its own stated rule (density is not measured on the bar), 38 of
+them products' densities. OPEN-PROBLEMS §13 now says that, instead of the lane's claim.
+
+## Phase 6, lane 4 begins: the gaps that block an answer (2026-09-25)
+
+*In plain words: before fetching or re-reading anything more, a report says which missing or uncertain values actually
+stop the six templates from answering, so the next data work goes where it moves an answer.*
+
+`npm run audit:gaps` writes [BLOCKING-GAPS.md](BLOCKING-GAPS.md), generated from the data and changing nothing. Judged
+as the page judges (products, comparable values, Explore):
+
+| Template | UNKNOWN | What leaves them unjudged |
+|---|---:|---|
+| Outdoor structural part | 39 | not published 51; published without direction or load 24 |
+| Indoor prototype | 98 | no sampled price 98 |
+| Lightweight structure | 33 | not published 25; without direction or load 19 |
+| Warm environment | 62 | print setting not recorded 57; not published 27; without direction or load 2 |
+| High-stiffness fixture | 50 | without direction or load 31; not published 19 |
+| Flexible component | 47 | without direction or load 30; not published 17 |
+
+- **The biggest single lever is XY stiffness.** 41 materials cannot be judged on it: 27 in all three templates that
+  ask for it, 14 in two. For 24 of the 41 the products publish a modulus without saying the direction (PA12, PCL, COC,
+  SAN, TPU-CF, the PLA and PETG graphene grades, PP); one reading of each sheet's test conditions settles up to three
+  answers. For the other 17 no product publishes one.
+- **114 answers change when values published without direction or load are admitted.** Those are the re-reads that
+  settle the most, listed by template. The direction of the change is the D84 caution: PLA goes from FAIL to PASS in
+  the outdoor template on values that read like moulded bars.
+- **Warm environment waits on print settings**: 57 material × window pairs have no product with a recorded chamber or
+  nozzle window, which is lane 2's next step.
+- **Price holds up the Indoor prototype alone** (98 materials without a sampled price), which the plan leaves for a
+  price refresh late in the funnel.
+- **797 close calls**, products decided by 10 % or less on one value; the 80 closest are listed as the first values a
+  person should check against the page.
+
+Nothing was re-read in this step; it names the targets.
+
