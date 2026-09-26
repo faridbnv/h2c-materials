@@ -1450,6 +1450,9 @@ is a drawing layer nobody was extending.
 The legacy `offset` on each property is the retired reference workbook's column position. Nothing reads it, and it
 stays in code, not in the data, only because `schema/reference.schema.json` still requires it in `meta.properties`.
 
+*Amended in phase 5, part 5 (2026-09-25):* the offset is gone from `dist/reference.json` and its contract, and m148
+corrected three misspelled names (Sandstone, Silicon, Plywood) through the removal ledger (D72).
+
 Reversing it brings back a schema change for a number, and a loader that knows the shape of a spreadsheet.
 
 ## D68. A datasheet sentence is data, not a vocabulary: the state is a column on the row

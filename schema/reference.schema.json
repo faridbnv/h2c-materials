@@ -37,8 +37,7 @@
             "additionalProperties": false,
             "required": [
               "key",
-              "unit",
-              "offset"
+              "unit"
             ],
             "properties": {
               "key": {
@@ -46,9 +45,6 @@
               },
               "unit": {
                 "type": "string"
-              },
-              "offset": {
-                "type": "number"
               }
             }
           }

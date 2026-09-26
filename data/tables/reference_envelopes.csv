@@ -191,14 +191,14 @@ Marble,compressiveStrength,55,105
 Marble,elongation,0,0
 Marble,fractureToughness,0.6,1.2
 Marble,thermalExpansion,3,5
-Standstone,density,2240,2650
-Standstone,tensileModulus,14,40
-Standstone,yieldStrength,4,15
-Standstone,tensileStrength,4,15
-Standstone,compressiveStrength,70,90
-Standstone,elongation,0,0
-Standstone,fractureToughness,0.7,1.5
-Standstone,thermalExpansion,7.5,8.5
+Sandstone,density,2240,2650
+Sandstone,tensileModulus,14,40
+Sandstone,yieldStrength,4,15
+Sandstone,tensileStrength,4,15
+Sandstone,compressiveStrength,70,90
+Sandstone,elongation,0,0
+Sandstone,fractureToughness,0.7,1.5
+Sandstone,thermalExpansion,7.5,8.5
 Slate,density,2600,2900
 Slate,tensileModulus,60,90
 Slate,yieldStrength,20,50
@@ -279,14 +279,14 @@ Glass ceramic,compressiveStrength,340,355
 Glass ceramic,elongation,0.08,0.09
 Glass ceramic,fractureToughness,1.4,1.7
 Glass ceramic,thermalExpansion,7.4,9.3
-Slilicon,density,2300,2350
-Slilicon,tensileModulus,140,155
-Slilicon,yieldStrength,160,180
-Slilicon,tensileStrength,160,180
-Slilicon,compressiveStrength,3200,3460
-Slilicon,elongation,0.1,0.15
-Slilicon,fractureToughness,0.83,0.94
-Slilicon,thermalExpansion,2,3.2
+Silicon,density,2300,2350
+Silicon,tensileModulus,140,155
+Silicon,yieldStrength,160,180
+Silicon,tensileStrength,160,180
+Silicon,compressiveStrength,3200,3460
+Silicon,elongation,0.1,0.15
+Silicon,fractureToughness,0.83,0.94
+Silicon,thermalExpansion,2,3.2
 Silicon carbide,density,3100,3210
 Silicon carbide,tensileModulus,400,460
 Silicon carbide,yieldStrength,400,610
@@ -895,19 +895,19 @@ Particleboard perpendicular to board,compressiveStrength,8,16
 Particleboard perpendicular to board,elongation,0.29,0.35
 Particleboard perpendicular to board,fractureToughness,1,2
 Particleboard perpendicular to board,thermalExpansion,10,15
-Polywood parallel to board,density,700,800
-Polywood parallel to board,tensileModulus,6.9,13
-Polywood parallel to board,yieldStrength,9,22
-Polywood parallel to board,tensileStrength,10,28
-Polywood parallel to board,compressiveStrength,27,34
-Polywood parallel to board,elongation,2.43,2.97
-Polywood parallel to board,fractureToughness,1,1.8
-Polywood parallel to board,thermalExpansion,6,8
-Polywood perpendicular to board,density,700,800
-Polywood perpendicular to board,tensileModulus,3.4,5.1
-Polywood perpendicular to board,yieldStrength,4,6
-Polywood perpendicular to board,tensileStrength,4,6
-Polywood perpendicular to board,compressiveStrength,17.5,26.5
-Polywood perpendicular to board,elongation,2.38,2.91
-Polywood perpendicular to board,fractureToughness,0.5,1
-Polywood perpendicular to board,thermalExpansion,6,8
+Plywood parallel to board,density,700,800
+Plywood parallel to board,tensileModulus,6.9,13
+Plywood parallel to board,yieldStrength,9,22
+Plywood parallel to board,tensileStrength,10,28
+Plywood parallel to board,compressiveStrength,27,34
+Plywood parallel to board,elongation,2.43,2.97
+Plywood parallel to board,fractureToughness,1,1.8
+Plywood parallel to board,thermalExpansion,6,8
+Plywood perpendicular to board,density,700,800
+Plywood perpendicular to board,tensileModulus,3.4,5.1
+Plywood perpendicular to board,yieldStrength,4,6
+Plywood perpendicular to board,tensileStrength,4,6
+Plywood perpendicular to board,compressiveStrength,17.5,26.5
+Plywood perpendicular to board,elongation,2.38,2.91
+Plywood perpendicular to board,fractureToughness,0.5,1
+Plywood perpendicular to board,thermalExpansion,6,8

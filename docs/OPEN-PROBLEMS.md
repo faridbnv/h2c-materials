@@ -182,11 +182,6 @@ more data narrows them, a review does not (D73).
 - **A list column loses its missing state in SQLite.** `Standards` and `Units` are TEXT and hold `Not published`
   inline, where a number column gets a `_state` sibling and a NULL. Harmless today, because no vocabulary value
   collides with a missing-state word, but it is an inconsistency in the query layer (D75).
-- **`reference.csv` holds three misspelled names**: `Standstone`, `Slilicon`, `Polywood` (for sandstone, silicon,
-  plywood). `Name` is the table's primary key and `reference_envelopes.csv` points at it, so correcting them is a
-  key rename through the removal ledger (D72), not an edit.
-- **`offset` in `dist/reference.json` is dead.** Nothing reads it; it stays because `schema/reference.schema.json`
-  still requires it. It goes when that contract does (D67).
 
 ## 8. Sources that cannot be reached
 
