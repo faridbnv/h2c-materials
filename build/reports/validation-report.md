@@ -8,32 +8,32 @@ Database snapshot 2026-09-21 · build 2026-09-25
 
 | Entity | Records |
 |---|---:|
-| materials | 173 |
-| h2cRelevant | 135 |
+| materials | 174 |
+| h2cRelevant | 136 |
 | familyEntries | 21 |
 | retiredDuplicates | [object Object] |
 | excluded | 17 |
-| grades | 1157 |
-| measurements | 11136 |
-| numericMeasurements | 10961 |
+| grades | 1159 |
+| measurements | 11146 |
+| numericMeasurements | 10971 |
 | quarantined | 18 |
-| profiles | 1195 |
+| profiles | 1196 |
 | evidence | 542 |
 | prices | 104 |
-| sources | 1479 |
+| sources | 1481 |
 | coverage | 865 |
 | knowHow | 4502 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 345 |
-| coverageDerived | 702 |
+| coverageDerived | 705 |
 
 ## Headline coverage
 
-What a selection criterion can actually decide, out of 173 canonical materials.
+What a selection criterion can actually decide, out of 174 canonical materials.
 
 | Headline | Materials with a value |
 |---|---:|
-| density | 140 |
+| density | 141 |
 | tensileModulusXY | 90 |
 | tensileStrengthXY | 93 |
 | elongationXY | 92 |
@@ -46,16 +46,16 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
-| nozzle | 124 | n/a | 14 | 0 | 35 |
-| bed | 118 | n/a | 14 | 0 | 41 |
-| chamber | 77 | 5 | 9 | 2 | 80 |
+| nozzle | 125 | n/a | 14 | 0 | 35 |
+| bed | 118 | n/a | 14 | 0 | 42 |
+| chamber | 77 | 5 | 9 | 2 | 81 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
 Nozzle and bed are read by the upper end of the window.
 
 ## Chamber evidence
 
-What the 156 in-scope materials publish about the chamber, strongest kind first. A statement
+What the 157 in-scope materials publish about the chamber, strongest kind first. A statement
 in words is manufacturer evidence but never a temperature. An estimated band is inference from
 data/tables/chamber_bands.csv; it is shown beside the chamber question and changes no verdict.
 
@@ -65,7 +65,7 @@ data/tables/chamber_bands.csv; it is shown beside the chamber question and chang
 | No heated chamber needed, in words | 24 |
 | Chamber recommended, no temperature | 1 |
 | Data sheet lists no setpoint | 1 |
-| Nothing published | 70 |
+| Nothing published | 71 |
 | Carrying an estimated band (any of the last three) | 17 |
 
 26 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes 25-100 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
@@ -129,10 +129,10 @@ its plausible range wholly fails.
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | density | 12 | 1 | 2 | 8 | 0 | 1 | 11 |
-| tensileModulusXY | 58 | 16 | 29 | 4 | 4 | 5 | 49 |
-| tensileStrengthXY | 55 | 15 | 26 | 4 | 4 | 6 | 45 |
-| elongationXY | 56 | 15 | 24 | 8 | 4 | 5 | 46 |
-| hdt045 | 51 | 10 | 12 | 8 | 19 | 2 | 30 |
+| tensileModulusXY | 59 | 16 | 29 | 4 | 4 | 6 | 49 |
+| tensileStrengthXY | 56 | 15 | 26 | 4 | 4 | 7 | 45 |
+| elongationXY | 57 | 15 | 24 | 8 | 4 | 6 | 46 |
+| hdt045 | 52 | 10 | 12 | 8 | 19 | 3 | 30 |
 
 Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence class's screening range is set where a new true value lies beyond it at most 10% of the time with 90% confidence, from where the honestly predicted true values of the class fell; never inside the plausible range. A class with too few cases cannot set an end and screens only where the family model agrees.
 
@@ -400,11 +400,11 @@ Measured headlines far outside their prediction (worth a second look at the sour
 
 ## Consistency
 
-Every one of the 173 materials was checked, and any failure below stops the build:
+Every one of the 174 materials was checked, and any failure below stops the build:
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (3409 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (3414 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

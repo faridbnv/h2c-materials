@@ -878,3 +878,35 @@ snapshot already holds the number.*
 
 Still to do in phase 5, after the held sheets are merged: the two stored copies (Availability's retirement copy of
 Status, H2C status's copy of Scope's exclusion), and moving the 75 MB of import proposals to `archive/`.
+
+## Phase 5, part 2b: the owner's answers to what b34 left (2026-09-25)
+
+*In plain words: three sheets from the held set waited on a question for the owner. The owner answered, and two of them
+are in the database now; the third is settled but waits for the reader to learn its maker's layout.*
+
+The owner's four answers are rulings signed "owner" (R199 to R202, and R193 amended with the confirmation). Batch b35
+(m144, m145) built them through the pipeline, every row reviewed by claude-opus-5.5, named as an agent reviewer
+(batches/b35/README.md):
+
+- **FormFutura Crystal Flex entered** as the one product of a new in-scope material, **SBC** (M174, styrene-butadiene
+  block copolymer, under Styrenics): its density, melt flow, moisture absorption, yield strength, elongation, flexural
+  strength and modulus, hardness and nozzle window. SBC is not estimated until a resin reference gives it a
+  polymers.csv row. Heat deflection applies to it: hdt045 already names Styrenics among the rigid families (D87), so
+  nothing there changed.
+- **purefil's TPV sheet entered** under TPE, polymer not stated (M167), as "Thermoplastic vulcanizate (TPV)", the product
+  the sheet names, not the TPS 40D its listing said: its density and tensile modulus. The sheet is not a scan; its text
+  layer draws the "ti" ligature as "+", which the review renamed.
+- **QIDI S-White is settled as Support for ABS and did not enter.** QIDI's bilingual layout holds every QIDI sheet, and
+  this one shows why: the reader read no printing profile, where a support's pairings (the seven QIDI materials the
+  sheet lists) belong, and misread its water absorption. It is deferred with that gap and its pairings named.
+- **3D4Makers PI Z2 stays TPI**, confirmed; it is still deferred for its layout.
+
+**The decision diff** (`build/snapshot/templates.csv`, against `c21755a`): 1,055 answers became 1,067. The 12 new ones
+are SBC's, UNKNOWN in all six templates in Explore and Explore with estimates: Crystal Flex publishes its strength and
+elongation without a direction (D84), and nothing else a template asks. No existing answer changed its verdict, share or
+pass and fail counts; TPE, polymer not stated has 13 products where it had 12, in its 8 rows.
+
+**Checks.** `data:check` 0 issues, `data:lint` 0 new findings, the build 0 errors with its 4 warnings, 29 of the 66
+views rewritten for the new counts and lists with no layout failure. The full `npm run verify` passes in 3 min 33 s
+(load average 3.2 at the start, 10.6 at the end): `npm test` 304, `test:ingest` 167, the scale check, the audit, the
+snapshot and counts current, 66 views, 300 fuzzed scenarios.

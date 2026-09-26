@@ -1,7 +1,7 @@
-COUNT 114 shown PASS + UNKNOWN
-STATUS ☑ PASS 15 | ☑ UNKNOWN 99 | ☐ FAIL 38
-15 of the 152 materials in this database meet these requirements, and 99 more could not be checked for missing data
-Include uncertain lists those 99 flagged. From the Indoor prototype template. Click any criterion to remove it.
+COUNT 115 shown PASS + UNKNOWN
+STATUS ☑ PASS 15 | ☑ UNKNOWN 100 | ☐ FAIL 38
+15 of the 153 materials in this database meet these requirements, and 100 more could not be checked for missing data
+Include uncertain lists those 100 flagged. From the Indoor prototype template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Ease of printing is not rated: no source publishes it. Materials with no sampled Canadian price are held out.
@@ -861,6 +861,11 @@ Styrenics
  UNKNOWN
 none judged
  1,080 ~1.0–3.9† ~23–57† ~3–38† ~78–108† — ☆
+SBC
+Styrenics
+ UNKNOWN
+none judged
+ 1,010 — 26* 230* — — ☆
 TPC
 also called TPEE · Flexible Elastomers
  UNKNOWN
@@ -878,7 +883,7 @@ Flexible Elastomers
  UNKNOWN
 none judged
  1,150
-1,000–1,250 · 10
+1,000–1,250 · 11
  0.0344* 22* 250* n/a — ☆
 TPS
 Flexible Elastomers

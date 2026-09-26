@@ -3410,6 +3410,8 @@ G167-11,M167,Flexfill TPE 96A,elongationXY,150,as-published,unstated-direction,V
 G167-12,M167,ISTROFLEX,density,1550,comparable,,V011321,,,declared dense filler
 G167-12,M167,ISTROFLEX,tensileModulusXY,0.06,as-published,unstated-direction,V011322,,,declared dense filler
 G167-12,M167,ISTROFLEX,tensileStrengthXY,11.5,as-published,unstated-direction,V011323,,,declared dense filler
+G167-13,M167,Thermoplastic vulcanizate (TPV),density,1240,comparable,,V011355,,,
+G167-13,M167,Thermoplastic vulcanizate (TPV),tensileModulusXY,0.0139,as-published,unstated-direction,V011354,,,
 G168-01,M168,PRO HT,density,1300,comparable,,V011097,,,
 G168-01,M168,PRO HT,tensileModulusXY,3.1,as-published,unstated-direction,V011099,,,
 G168-01,M168,PRO HT,tensileStrengthXY,45,as-published,unstated-direction,V011098,,,
@@ -3446,3 +3448,6 @@ G170-02,M170,Ultrafuse TPS 90A,elongationXY,280,comparable,,V011341,,,
 G171-01,M171,Mt 316L,density,7190,comparable,,V011241,,,
 G172-01,M172,SiC,density,2660,comparable,,V011353,,,
 G173-01,M173,Kerfil Aluminiumoxid (Al2O3),density,3776,comparable,,V011287,,,
+G174-01,M174,Crystal Flex,density,1010,comparable,,V011356,,,
+G174-01,M174,Crystal Flex,tensileStrengthXY,26,as-published,unstated-direction,V011359,,,
+G174-01,M174,Crystal Flex,elongationXY,230,as-published,unstated-direction,V011360,,,

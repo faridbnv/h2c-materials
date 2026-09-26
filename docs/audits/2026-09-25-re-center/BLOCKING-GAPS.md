@@ -9,12 +9,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 135 | 18 | 77 | 40 | not published 54; published, not comparable 24 | 20 |
-| Indoor prototype | 135 | 15 | 21 | 99 | no sampled price 99 | 0 |
-| Lightweight structure | 135 | 25 | 77 | 33 | not published 26; published, not comparable 19 | 28 |
-| Warm environment | 135 | 33 | 37 | 65 | print setting not recorded 62; not published 29; published, not comparable 1 | 2 |
-| High-stiffness fixture | 135 | 18 | 63 | 54 | published, not comparable 35; not published 19 | 36 |
-| Flexible component | 135 | 14 | 69 | 52 | published, not comparable 34; not published 18 | 37 |
+| Outdoor structural part | 136 | 18 | 77 | 41 | not published 56; published, not comparable 24 | 20 |
+| Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
+| Lightweight structure | 136 | 25 | 77 | 34 | not published 27; published, not comparable 19 | 28 |
+| Warm environment | 136 | 33 | 37 | 66 | print setting not recorded 63; not published 30; published, not comparable 1 | 2 |
+| High-stiffness fixture | 136 | 18 | 63 | 55 | published, not comparable 35; not published 20 | 36 |
+| Flexible component | 136 | 14 | 69 | 53 | published, not comparable 35; not published 18 | 38 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -26,7 +26,7 @@ applicable (D56) and is not counted as a gap.
 
 A material none of whose products can be judged on a property, counted across the templates whose answer it holds
 up (one value settles every threshold on it). The first rows are where one reading settles several answers. Price is
-apart: 99 materials hold up the Indoor prototype for want of a sampled price.
+apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 
 | Material | Products | Property | Why unjudged | Limits | Templates |
 |---|---:|---|---|---|---:|
@@ -53,6 +53,7 @@ apart: 99 materials hold up the Indoor prototype for want of a sampled price.
 | PC-PBT-CF (M131) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PLA-PHA (M145) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PLA-PHB (M146) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
+| SBC (M174) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA612 (M058) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA612-GF (M060) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA66 (M055) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
@@ -89,9 +90,8 @@ apart: 99 materials hold up the Indoor prototype for want of a sampled price.
 | CPE-LW (M134) | 1 | tensileModulusXY | not published | >= 2.5, >= 5 | 2 |
 | LCP (M139) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | LCP (M139) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| nGen FLEX (M143) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 
-And 150 more, each holding up one template.
+And 154 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -223,11 +223,12 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Flexible component | TPE, polymer not stated | UNKNOWN | PASS |
 | Flexible component | PLA family, polymer not stated | UNKNOWN | FAIL |
 | Flexible component | PLA family-CF, polymer not stated | UNKNOWN | FAIL |
+| Flexible component | SBC | UNKNOWN | PASS |
 
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 830 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 831 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|

@@ -7,11 +7,11 @@ can go stale without the command that made it saying so.
 
 | Table | Rows |
 |---|---:|
-| materials | 173 |
-| grades | 1,157 |
-| measurements | 11,353 |
-| sources | 1,479 |
-| profiles | 1,195 |
+| materials | 174 |
+| grades | 1,159 |
+| measurements | 11,363 |
+| sources | 1,481 |
+| profiles | 1,196 |
 | profile notes | 2,061 |
 | headlines | 0 |
 
@@ -21,10 +21,10 @@ can go stale without the command that made it saying so.
 
 | Status | Documents |
 |---|---:|
-| applied | 1,308 |
+| applied | 1,310 |
 | duplicate-of | 302 |
 | registered | 179 |
-| deferred | 126 |
+| deferred | 124 |
 | safety-data-sheet | 49 |
 | held | 38 |
 | not-a-data-sheet | 37 |
@@ -49,9 +49,9 @@ staged documents the pipeline added. Where each of the inventory's ended:
 
 | Where | Documents |
 |---|---:|
-| applied | 1,300 |
+| applied | 1,302 |
 | settled: a copy, a product already recorded, or not a data sheet | 448 |
-| deferred past V2, the gap named | 102 |
+| deferred past V2, the gap named | 100 |
 | open: gated (the owner) | 33 |
 | open: an identity question for the owner | 31 |
 | open: unreachable, retried at the Wayback Machine | 15 |
@@ -158,8 +158,8 @@ npm run ingest:propose -- --compare --all
 | Nanovia | 73 | 37 |  | 33 |  |  |  | 3 |  |  |  |
 | Polymaker / Fiberon | 72 | 65 |  | 3 |  | 1 |  | 2 |  |  | 1 |
 | BASF Forward AM / Ultrafuse | 71 | 6 | 24 | 4 |  | 1 | 27 | 5 |  |  | 4 |
-| FormFutura | 68 | 49 | 2 | 6 |  | 1 |  | 10 |  |  |  |
-| Fabru / purefil | 67 | 43 | 3 | 17 |  | 2 |  |  |  |  | 2 |
+| FormFutura | 68 | 50 | 1 | 6 |  | 1 |  | 10 |  |  |  |
+| Fabru / purefil | 67 | 44 | 2 | 17 |  | 2 |  |  |  |  | 2 |
 | SUNLU | 53 | 46 |  |  |  | 2 |  | 5 |  |  |  |
 | Fiberlogy | 51 | 41 |  | 8 |  |  |  | 2 |  |  |  |
 | colorFabb | 47 | 41 | 1 | 5 |  |  |  |  |  |  |  |

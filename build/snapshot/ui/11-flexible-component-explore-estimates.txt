@@ -1,7 +1,7 @@
-COUNT 38 shown PASS + UNKNOWN
-STATUS ☑ PASS 14 | ☑ UNKNOWN 52 | ☐ FAIL 86 | ☐ SCREENED 28
-14 of the 152 materials in this database meet these requirements, and 52 more could not be checked for missing data
-Include uncertain lists those 52 flagged, except the 28 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
+COUNT 39 shown PASS + UNKNOWN
+STATUS ☑ PASS 14 | ☑ UNKNOWN 53 | ☐ FAIL 86 | ☐ SCREENED 28
+14 of the 153 materials in this database meet these requirements, and 53 more could not be checked for missing data
+Include uncertain lists those 53 flagged, except the 28 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -203,6 +203,11 @@ none judged
  1,310
 1,269–1,350 · 2
  ~0.1–8.0† ~22–59† ~10–150† ~52–76† — ☆
+SBC
+Styrenics
+ UNKNOWN
+none judged
+ 1,010 — 26* 230* — — ☆
 TPC
 also called TPEE · Flexible Elastomers
  PASS
@@ -220,7 +225,7 @@ Flexible Elastomers
  UNKNOWN
 none judged
  1,150
-1,000–1,250 · 10
+1,000–1,250 · 11
  0.0344* 22* 250* n/a — ☆
 TPS
 Flexible Elastomers
