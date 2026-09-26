@@ -9,12 +9,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 128 | 18 | 72 | 38 | not published 49; published, not comparable 24 | 19 |
-| Indoor prototype | 128 | 15 | 21 | 92 | no sampled price 92 | 0 |
-| Lightweight structure | 128 | 24 | 72 | 32 | not published 24; published, not comparable 19 | 27 |
-| Warm environment | 128 | 31 | 36 | 61 | print setting not recorded 58; not published 27; published, not comparable 1 | 2 |
-| High-stiffness fixture | 128 | 18 | 61 | 49 | published, not comparable 32; not published 17 | 33 |
-| Flexible component | 128 | 13 | 68 | 47 | published, not comparable 30; not published 17 | 33 |
+| Outdoor structural part | 135 | 18 | 77 | 40 | not published 54; published, not comparable 24 | 20 |
+| Indoor prototype | 135 | 15 | 21 | 99 | no sampled price 99 | 0 |
+| Lightweight structure | 135 | 25 | 77 | 33 | not published 26; published, not comparable 19 | 28 |
+| Warm environment | 135 | 33 | 37 | 65 | print setting not recorded 62; not published 29; published, not comparable 1 | 2 |
+| High-stiffness fixture | 135 | 18 | 63 | 54 | published, not comparable 35; not published 19 | 36 |
+| Flexible component | 135 | 14 | 69 | 52 | published, not comparable 34; not published 18 | 37 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -26,7 +26,7 @@ applicable (D56) and is not counted as a gap.
 
 A material none of whose products can be judged on a property, counted across the templates whose answer it holds
 up (one value settles every threshold on it). The first rows are where one reading settles several answers. Price is
-apart: 92 materials hold up the Indoor prototype for want of a sampled price.
+apart: 99 materials hold up the Indoor prototype for want of a sampled price.
 
 | Material | Products | Property | Why unjudged | Limits | Templates |
 |---|---:|---|---|---|---:|
@@ -44,6 +44,7 @@ apart: 92 materials hold up the Indoor prototype for want of a sampled price.
 | TPU-ESD (M126) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | ASA-EC (M105) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | nGen FLEX (M143) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
+| Nylon-GF, polymer not stated (M166) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA-ESD (M064) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PA12-AF (M154) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PA6-GS (M108) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
@@ -56,9 +57,9 @@ apart: 92 materials hold up the Indoor prototype for want of a sampled price.
 | PA612-GF (M060) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA66 (M055) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA66-CF (M056) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| TPU harder than 95A (M162) | 13 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
+| TPU harder than 95A (M162) | 14 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PP (M082) | 12 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| PA6 (M049) | 8 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
+| PA6 (M049) | 9 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PET (M066) | 7 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PET (M066) | 7 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PCL (M149) | 4 | hdt045 | published, not comparable | >= 100, >= 80 | 2 |
@@ -89,9 +90,8 @@ apart: 92 materials hold up the Indoor prototype for want of a sampled price.
 | LCP (M139) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | LCP (M139) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | nGen FLEX (M143) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| nGen-CF (M142) | 1 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
 
-And 133 more, each holding up one template.
+And 150 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -100,7 +100,6 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 
 | Template | Material | Comparable only | Admitting them |
 |---|---|---|---|
-| Outdoor structural part | PLA | FAIL | PASS |
 | Outdoor structural part | PA6 | UNKNOWN | FAIL |
 | Outdoor structural part | PA12 | UNKNOWN | FAIL |
 | Outdoor structural part | PA-ESD | UNKNOWN | PASS |
@@ -119,6 +118,8 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Outdoor structural part | PLA-GR | UNKNOWN | FAIL |
 | Outdoor structural part | TPU-EC | UNKNOWN | FAIL |
 | Outdoor structural part | TPU harder than 95A | UNKNOWN | FAIL |
+| Outdoor structural part | PLA family, polymer not stated | FAIL | PASS |
+| Outdoor structural part | PLA family-CF, polymer not stated | FAIL | PASS |
 | Lightweight structure | PLA Silk | FAIL | PASS |
 | Lightweight structure | PLA Wood | FAIL | PASS |
 | Lightweight structure | PLA Galaxy | FAIL | PASS |
@@ -146,6 +147,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Lightweight structure | PETG-GR | UNKNOWN | FAIL |
 | Lightweight structure | PA12-AF | UNKNOWN | FAIL |
 | Lightweight structure | PLA-GR | UNKNOWN | FAIL |
+| Lightweight structure | PLA family-CF, polymer not stated | FAIL | PASS |
 | Warm environment | PETG-GF | UNKNOWN | FAIL |
 | Warm environment | PCL | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-CF | FAIL | PASS |
@@ -181,6 +183,9 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | High-stiffness fixture | TPU-EC | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-CE | UNKNOWN | FAIL |
 | High-stiffness fixture | TPU harder than 95A | UNKNOWN | FAIL |
+| High-stiffness fixture | TPE, polymer not stated | UNKNOWN | FAIL |
+| High-stiffness fixture | PLA family, polymer not stated | UNKNOWN | PASS |
+| High-stiffness fixture | PLA family-CF, polymer not stated | UNKNOWN | PASS |
 | Flexible component | PETG | FAIL | PASS |
 | Flexible component | PC | FAIL | PASS |
 | Flexible component | PA6 | UNKNOWN | FAIL |
@@ -214,11 +219,15 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Flexible component | PA12-AF | UNKNOWN | FAIL |
 | Flexible component | PLA-GR | UNKNOWN | FAIL |
 | Flexible component | PLA-CE | UNKNOWN | FAIL |
+| Flexible component | Nylon-CF, polymer not stated | UNKNOWN | FAIL |
+| Flexible component | TPE, polymer not stated | UNKNOWN | PASS |
+| Flexible component | PLA family, polymer not stated | UNKNOWN | FAIL |
+| Flexible component | PLA family-CF, polymer not stated | UNKNOWN | FAIL |
 
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 797 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 830 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|
@@ -275,6 +284,8 @@ are the first values a person should check against the page: the 80 closest of 7
 | Lightweight structure | PBAT | Flashforge Flexible | density <= 1250 | 1250 | 0 % pass | V005362 |
 | Lightweight structure | PAHT-CE | LEHVOSS LUVOCOM 3F PAHT 9936 BK | density <= 1250 | 1250 | 0 % pass | V009726 |
 | Lightweight structure | PLA-NF | Nanovia PLA Flax | density <= 1250 | 1250 | 0 % pass | V010283 |
+| Lightweight structure | Nylon, polymer not stated | colorFabb PA Blue Metal Detectable | density <= 1250 | 1250 | 0 % pass | V011124 |
+| Lightweight structure | TPE, polymer not stated | Nanovia Flex VX | density <= 1250 | 1250 | 0 % pass | V011283 |
 | Warm environment | PLA | 3DXTECH ECOMAX Tough PLA | hdt045 >= 80 | 80 | 0 % pass | V003212 |
 | Warm environment | PLA | Nanovia PLA EF 3D850 | hdt045 >= 80 | 80 | 0 % pass | V007474 |
 | Warm environment | PLA | Nanovia PLA VX | hdt045 >= 80 | 80 | 0 % pass | V007533 |
@@ -300,6 +311,4 @@ are the first values a person should check against the page: the 80 closest of 7
 | Outdoor structural part | PAHT-CE | LEHVOSS LUVOCOM 3F PAHT KK 50056 BK | density <= 1500 | 1490 | -0.7 % pass | V009738 |
 | Lightweight structure | PLA | 3DXTECH ECOMAX PLA | density <= 1250 | 1240 | -0.8 % pass | V000001 |
 | Lightweight structure | PLA | iSANMATE PLA | density <= 1250 | 1240 | -0.8 % pass | V000038 |
-| Lightweight structure | PLA | Bambu Lab PLA Basic | density <= 1250 | 1240 | -0.8 % pass | V007555 |
-| Lightweight structure | PLA | Bambu Lab PLA Basic Gradient | density <= 1250 | 1240 | -0.8 % pass | V000083 |
 

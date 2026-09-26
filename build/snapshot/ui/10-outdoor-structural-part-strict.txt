@@ -1,7 +1,7 @@
 COUNT 18 shown PASS
-STATUS ☑ PASS 18 | ☐ UNKNOWN 38 | ☐ FAIL 86
-18 of the 142 materials in this database meet these requirements
-38 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
+STATUS ☑ PASS 18 | ☐ UNKNOWN 40 | ☐ FAIL 94
+18 of the 152 materials in this database meet these requirements
+40 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.

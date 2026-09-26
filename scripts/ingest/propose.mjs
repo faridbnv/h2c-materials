@@ -2890,10 +2890,17 @@ export function propose(row, text, world) {
     head.product && !notAProduct(head.product, asWritten.join(' ')) ? head.product : row.product_raw);
   const furniture = pageFurniture(read, row, text, world, asWritten);
   const named = furniture.name;
-  const identity = classifyProduct(named || row.product_raw, { manufacturer: made?.maker ?? row.manufacturer, catalogue: row.product_raw, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow }, world);
+  // The values are read before the identity is settled, because one of them can settle it: a TPU is filed by the
+  // Shore rating its maker gives it, and where the name states none the sheet's own hardness row does (D86).
+  const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
+  const sheet = readSheet(text, registry);
+  const shore = sheet.values.find((v) => v.property === 'Hardness' && /^Shore [AD]$/.test(v.target?.unit ?? '') && Number.isFinite(Number(v.read?.rawNumber)));
+  const hardness = shore ? `${Math.round(Number(shore.read.rawNumber))}${shore.target.unit.slice(-1)}` : null;
+  const identity = classifyProduct(named || row.product_raw, { manufacturer: made?.maker ?? row.manufacturer, catalogue: row.product_raw, title: [head.title, row.product_raw].filter(Boolean).join(' '), body, composition: compositionRow, hardness }, world);
   // A ruling that names this product by name has answered for it: the owner's verdict on the reading says what
-  // the product is, and with it that the name it was read under stands for the product (R075, R077).
-  const ruledByName = (identity.signals ?? []).some((s) => /^ruling R\d+/.test(s));
+  // the product is, and with it that the name it was read under stands for the product (R075, R077). A ruling on a
+  // word the name contains ("nylon") says what the word means, and answers neither of the questions below.
+  const ruledByName = (identity.signals ?? []).some((s) => /^ruling R\d+:/.test(s));
   // What the page says about its own name, where what it says is not a product's name. Neither is decided here:
   // a name is the reader's to read and a ruling is the owner's to make, so each says what the page shows.
   //
@@ -2928,7 +2935,6 @@ export function propose(row, text, world) {
     identity.reasons.push(`the sheet is hosted by ${row.provider} and names no maker of its own, and neither does its URL: R074 holds it until one of them does`);
     identity.needsRuling = true;
   }
-  const registry = new Map((world.properties ?? []).map((p) => [p.Property, p]));
   // How this polymer solidifies and whether it is reinforced: the two things the build's own physics windows are
   // keyed on, so a reading judged here is judged the way the build will judge it.
   const morphology = (world.polymers ?? []).find((p) => p.PolymerID === identity.polymer)?.Morphology;
@@ -2938,7 +2944,6 @@ export function propose(row, text, world) {
       : identity.modifier === 'Foaming' ? 'light'
         : identity.modifier === 'Unfilled / unspecified' ? 'unfilled' : 'any',
   };
-  const sheet = readSheet(text, registry);
   const sourceId = row.registered_source_id || sourceIdFor(row, world.sources ?? []);
   const { title, product } = head;
   const measurements = sheet.values.map((v, i) => ({

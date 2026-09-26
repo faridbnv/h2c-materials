@@ -80,7 +80,7 @@ Each becomes an entry in [DECISIONS.md](DECISIONS.md) in the change that builds 
 describes a tool that does not exist yet. D83 and D84 are entered (the build and the engine carry them; the page reads
 them from phase 3; phase 4 retired the representative grade and its hand picks, m137). D85 is entered with the record
 tier's first lane: `source_facts` and the full-text index `documents_fts` in `dist/h2c.sqlite`. Makers' know-how in the
-panel is built with lane 3 (m140; D85, its last part).
+panel is built with lane 3 (m140; D85, its last part). Phase 5's decisions are D86 (m141) and D87 (m142, m143).
 
 - **D83. A material is the range of its products.**
   - Each product's values are derived by rule, and `headlines.csv` becomes an override.
@@ -111,13 +111,15 @@ Asked with the facts and a recommendation each; the owner's answers:
    harder than 95A, and hardness not stated; Bambu's four TPU rows are aliases of their class. Built in m141 (D86).
 2. **A family gets a "polymer not stated" home,** for products whose sheets name only the family ("colorFabb PA Neat",
    "eSUN TPE 83A"): shown and judged like any product, clearly labelled, with no estimate. The 50 sheets waiting on it
-   are imported now, the owner's exception to the pause.
+   are imported now, the owner's exception to the pause. Built in m142 and m143 (D87): 44 of the 74 held sheets
+   entered, 22 are deferred with the gap named (batch b34).
 3. **Metal and ceramic sintering filaments are out of scope** (316L, 17-4 PH, SiC, alumina): recorded, never a
    candidate, because the printed part must be debinded and sintered elsewhere and its properties are the sintered
    metal's. The other rulings pending follow the defaults proposed: Antero 800NA is PEKK (out of scope); PI is a new
    out-of-scope material; colorFabb Amphora AM3300 is nGen / Amphora; WearX is a PA6; the styrenic elastomers (TPS) are a
    material of their own; the elastomers named only by hardness and the undisclosed bio-copolymers (FiberFlex, MattFlex,
-   GreenTEC, niceBIO) take their family's "polymer not stated" home.
+   GreenTEC, niceBIO) take their family's "polymer not stated" home. Built in m142 and m143 (D87); PI is filed as the
+   TPI that exists, since its sheet says "thermoplastic polyimide" (R193), for the owner to overrule.
 4. **eSUN's densities keep counting.** m128's reading stands: a density is not measured on the bar eSUN's sentence
    describes, and most makers' density is the resin's.
 

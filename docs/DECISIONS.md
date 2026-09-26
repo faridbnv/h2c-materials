@@ -93,6 +93,7 @@ break if it were reversed, because that is the part that gets lost.
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | In force |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | In force |
+| D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | In force |
 
 <!-- end index -->
 
@@ -2146,3 +2147,44 @@ Basic, and TPU answers per class (the 95A class passes the Flexible component on
 4 of 12). The fifteen product-line rows leave the results; their products answer inside their materials. Reversing it
 brings back one maker's catalogue as the taxonomy, and a TPU that is every hardness at once.
 
+## D87. A family's "polymer not stated" home, and sintering filaments are recorded, never candidates
+
+*Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md, decisions 2 and 3). Built in m142 and m143.*
+
+Seventy-four data sheets sat deferred for their identity. Fifty name only a family ("colorFabb PA Neat", "eSUN TPE
+83A", a flexible filament rated only by its Shore hardness), and a family owns no product (D44), so none had a home;
+twenty-four waited on an owner ruling (FiberFlex, GreenTEC, WearX, the styrenic elastomers, PI, PEKK, and metal and
+ceramic filaments). Their values were read and never used.
+
+- **A family gets a "polymer not stated" material**, one per family entry and declared filler the sheets need: Nylon,
+  Nylon-CF and Nylon-GF (members of PA, PA-CF and PA-GF), TPE (a member of TPE), and for the undisclosed
+  bio-copolymers the owner named the PLA family, unfilled and with carbon fibre. It is shown and judged like any
+  material and labelled in its name. It is **not estimated** (Estimate identity Not applicable): the model identifies a
+  material by its polymer, and these products share none that anyone states. A sheet that names its polymer after all
+  is filed under that polymer's material, never the home (R167).
+- **What files a product there is a ruling**: an identity ruling on the family's word (R168 to R170: "nylon" and "pa"
+  are PA, "tpe" is TPE, which the homes take as their base polymer), or a `material` ruling that names the home for
+  a product whose words name no family (FiberFlex, GreenTEC). A `material` ruling also reaches a material whose polymer
+  has no row (PEKK, the sintering filaments) and a TPU class the rule would pick wrongly; a family entry is never one.
+- **A headline none of a home's products publishes is not published**, and judged unknown as an untested product is
+  (D83). HEADLINE-BLANK stays an error for a material that names an Estimate identity; one declared not estimated lists
+  its blanks under HEADLINE-UNESTIMATED, at info.
+- **Heat deflection names its families.** It applied through Morphology, and a Flexible Elastomers material with no
+  polymer row (TPS, the TPE home) has Morphology "not modelled", so FiberFlex's 70 °C and purefil TPS 40D's 110 °C
+  would have decided heat requirements. hdt045 now applies to the rigid families as well as the three morphologies,
+  which leaves out Flexible Elastomers and the sintering filaments; no material that existed before changed.
+- **The styrenic elastomers are TPS**, a material of their own under Flexible Elastomers with no polymers.csv row
+  (R196, superseding R056, which had filed them under TPE, a family entry).
+- **Metal and ceramic sintering filaments are recorded and never a candidate**, as PEEK is: Scope and H2C status
+  Excluded, a family of their own, one material per metal or ceramic (316L, silicon carbide, alumina). The printed
+  part is a green part that must be debinded and sintered elsewhere, and its properties are the sintered metal's, so
+  the sintered values are left to the record tier (R187).
+
+What it did (batch b34, m143): of the 74, 44 entered as 38 products (9 in Nylon, 1 each in Nylon-CF and Nylon-GF, 12
+in TPE, 5 in the PLA family and 2 with carbon fibre, 2 in TPS, 4 sintering filaments, WearX in PA6 and MD Flex in TPU
+harder than 95A), 6 were registered to products already recorded, 2 are not data sheets, and 22 are deferred with the
+gap named. purefil's GreenTEC Pro and Spectrum's GreenyHT, filed under PLA from their sheets' comparison with PLA, moved
+to the PLA family's home. Across the six templates the homes add 60 answers, 12 of them PASS: the Nylon home passes the
+Lightweight structure on CreatBot Ultra PA, the PLA family's homes pass the Warm environment on 3 of 7 and 1 of 2
+products, and TPS passes the Flexible component on Ultrafuse TPS 90A. PLA keeps its answers with two products fewer.
+Reversing it sends the 44 sheets back to deferred, and a family-only product has no home again.

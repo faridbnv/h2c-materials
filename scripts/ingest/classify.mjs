@@ -26,6 +26,9 @@ const POLYMERS = lexicon('polymer-aliases');
 const MODIFIERS = lexicon('modifier-aliases');
 const VARIANTS = lexicon('variant-aliases');
 const STOPWORDS = new Set(lexicon('stopwords').map((r) => r.Token));
+// The materials a polymer is split into by the Shore hardness its makers rate it (TPU, m141, D86), and the range each
+// takes. A product is filed by its rating: the one in its name, else the one its sheet publishes.
+const HARDNESS_CLASSES = lexicon('hardness-classes');
 
 // Longest token first: "pa612" before "pa6" before "pa", "petg" before "pet", "pc-abs" before "pc". A token that
 // names a polymer is read before one that names only a family, so "ESD Nylon 12" is a PA12 and not a question.
@@ -139,25 +142,68 @@ const SUPPORT = /\b(support|breakaway|dissolv|soluble|polysupport|sr-?30|rapidri
  * or without its maker in front of it; the Value is a PolymerID. Nothing else in a ruling reaches the reader:
  * a ruling that settles a material or a filler is read by apply.mjs, where the material is created.
  */
+const normName = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9/+]+/g, ' ').trim();
+// The product as the sheet prints it, and as the catalogue lists it: a verdict is given on the reading, whose row
+// carries the catalogue's name, while the reader classifies by the sheet's own; either names the product.
+const namesOf = (product, context) => new Set([product, context.catalogue].filter(Boolean)
+  .flatMap((n) => [normName(n), normName(`${context.manufacturer ?? ''} ${n}`)]).filter(Boolean));
+
 function identityRuling(product, context, world, seen = null) {
-  const norm = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9/+]+/g, ' ').trim();
-  // The product as the sheet prints it, and as the catalogue lists it: a verdict is given on the reading, whose
-  // row carries the catalogue's name, while the reader classifies by the sheet's own; either names the product.
-  const names = new Set([product, context.catalogue].filter(Boolean).flatMap((n) => [norm(n), norm(`${context.manufacturer ?? ''} ${n}`)]).filter(Boolean));
+  const names = namesOf(product, context);
   const polymers = new Set((world.polymers ?? []).map((p) => p.PolymerID));
   for (const r of world.rulings ?? []) {
-    if (r.Kind !== 'identity' || !names.has(norm(r.Subject)) || !polymers.has(r.Value)) continue;
-    return { ruling: r.Ruling, token: norm(product), value: r.Value, note: r.Reason };
+    if (r.Kind !== 'identity' || !names.has(normName(r.Subject)) || !polymers.has(r.Value)) continue;
+    return { ruling: r.Ruling, token: normName(product), value: r.Value, note: r.Reason, byName: true };
   }
-  // A ruling may answer for a name rather than for a product: "TPS" on these sheets is the ISO 18064 code for a
-  // styrenic elastomer, not thermoplastic starch, and every sheet that says it means the same thing.
+  // A ruling may answer for a name rather than for a product: "nylon" on a sheet that names no polyamide of its own
+  // is the family's word, and every sheet that says only it means the same thing (R168, D87). It answers what the
+  // product is and nothing else: not who made it, and not whether a resin's sheet stands for the filament.
   if (seen) {
     for (const r of world.rulings ?? []) {
-      if (r.Kind !== 'identity' || norm(r.Subject) !== norm(seen) || !polymers.has(r.Value)) continue;
-      return { ruling: r.Ruling, token: norm(seen), value: r.Value, note: r.Reason };
+      if (r.Kind !== 'identity' || normName(r.Subject) !== normName(seen) || !polymers.has(r.Value)) continue;
+      return { ruling: r.Ruling, token: normName(seen), value: r.Value, note: r.Reason, byName: false };
     }
   }
   return null;
+}
+
+/**
+ * A ruling that files this product under a named material (Kind `material`, the Value a MaterialID). It is for a
+ * material no polymer of polymers.csv identifies: a family's "polymer not stated" home, a material whose polymer
+ * has no row (PEKK, the sintering filaments), and a class the rule would pick wrongly (a TPU whose rating only its
+ * prose states). The Subject is the product as the sheet prints it or the catalogue lists it, with or without its
+ * maker in front, exactly as an identity ruling's is; a family entry is never a home (D44), so a ruling naming one
+ * answers nothing.
+ */
+function materialRuling(product, context, world) {
+  const names = namesOf(product, context);
+  for (const r of world.rulings ?? []) {
+    if (r.Kind !== 'material' || !names.has(normName(r.Subject))) continue;
+    const material = (world.materials ?? []).find((m) => m.MaterialID === r.Value && m.Scope !== 'Family entry');
+    if (material) return { ruling: r.Ruling, material, note: r.Reason };
+  }
+  return null;
+}
+
+/** A Shore rating as the classes read it: "95A" is 95 on scale A, "64D" 64 on D. */
+const rating = (text) => {
+  const m = /^(\d{1,3})([AD])$/i.exec(String(text ?? '').trim());
+  return m ? { value: Number(m[1]), scale: m[2].toUpperCase() } : null;
+};
+
+/**
+ * Of several materials that are one polymer split by hardness, the one a product's rating falls in, or the class for
+ * a rating nobody states. Null where the candidates are not such a split, and the caller keeps its first choice.
+ */
+export function hardnessClass(candidates, hardness) {
+  const ids = new Set(candidates.map((m) => m.MaterialID));
+  const classes = HARDNESS_CLASSES.filter((c) => ids.has(c.MaterialID));
+  if (!classes.length || !candidates.every((m) => classes.some((c) => c.MaterialID === m.MaterialID))) return null;
+  const rated = rating(hardness);
+  const hit = rated
+    ? classes.find((c) => c.Scale === rated.scale && rated.value >= Number(c.From) && rated.value <= Number(c.To))
+    : classes.find((c) => c.Scale === 'none');
+  return hit ? candidates.find((m) => m.MaterialID === hit.MaterialID) ?? null : null;
 }
 
 export function classifyProduct(product, context = {}, world = {}) {
@@ -322,8 +368,12 @@ export function classifyProduct(product, context = {}, world = {}) {
   const support = SUPPORT.test(product)
     || aboutThisFilament(context.title, SUPPORT)
     || aboutThisFilament(context.body, SAYS_SUPPORT);
+  // The rating in the product's own name comes first; the one its sheet publishes, which the proposal reads before
+  // it classifies, is the second witness (D86: "the rating in the product's name, else the one its sheet publishes").
   const hardness = shoreFromName(product);
+  const rated = hardness ?? (rating(context.hardness) ? String(context.hardness).toUpperCase() : null);
   if (hardness) signals.push(`hardness: ${hardness}`);
+  else if (rated) signals.push(`hardness: ${rated} (from the sheet)`);
 
   // An identity the rule cannot settle is a ruling, written once and applied to every sheet that says the same
   // thing. SUNLU's Easy PA sheet says only "PA", which names a family; SUNLU's own store calls it a PA6/66
@@ -332,8 +382,15 @@ export function classifyProduct(product, context = {}, world = {}) {
   const namedByARuling = Boolean(namedByRuling);
   if (namedByRuling) {
     polymer = { token: namedByRuling.token, value: namedByRuling.value, note: namedByRuling.note };
-    signals.push(`ruling ${namedByRuling.ruling}: ${namedByRuling.value}`);
+    // A ruling on the product answers for the product; one on a word answers what the word means and nothing more,
+    // and says so, because the proposal lets only the first settle who made it or whether a resin stands for it.
+    signals.push(namedByRuling.byName ? `ruling ${namedByRuling.ruling}: ${namedByRuling.value}`
+      : `ruling ${namedByRuling.ruling} on the word "${namedByRuling.token}": ${namedByRuling.value}`);
   }
+  // A ruling that names the material this product is filed under settles the identity whole: the polymer, the filler
+  // and the material. It is taken before anything the words would choose (D87).
+  const pinned = materialRuling(product, context, world);
+  if (pinned) signals.push(`ruling ${pinned.ruling}: filed under ${pinned.material.MaterialID} ${pinned.material['Original name']}`);
 
   // R076, built: a support is filed by its own chemistry, read where the sheet says what the product is — its
   // name, or a sentence whose subject it is ("Helios Support is a 'high heat' water-soluble PVA material", "Atlas
@@ -366,10 +423,11 @@ export function classifyProduct(product, context = {}, world = {}) {
   if (supportPick) signals.push(supportPick.how);
 
   const reasons = [];
-  if (support && !supportPick) reasons.push(`"${product}" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports`);
-  if (!polymer) reasons.push(`no base polymer in "${product}"`);
-  else if (!polymer.value) reasons.push(`"${polymer.token}" names a family, not a polymer: ${polymer.note}`);
-  if (modifier && !modifier.value) reasons.push(`"${modifier.token}" has no value in schema/vocab/modifiers.csv: ${modifier.note}`);
+  // A material ruling has answered every one of these for this product, so none is asked again (D87).
+  if (support && !supportPick && !pinned) reasons.push(`"${product}" is a support or soluble product; which support material it is comes from the sheet, and it is never filed under the material it supports`);
+  if (!polymer && !pinned) reasons.push(`no base polymer in "${product}"`);
+  else if (polymer && !polymer.value && !pinned) reasons.push(`"${polymer.token}" names a family, not a polymer: ${polymer.note}`);
+  if (modifier && !modifier.value && !pinned) reasons.push(`"${modifier.token}" has no value in schema/vocab/modifiers.csv: ${modifier.note}`);
 
   let confidence = 1;
   if (fromBody) confidence -= 0.2;
@@ -394,7 +452,7 @@ export function classifyProduct(product, context = {}, world = {}) {
     // "PLA/PHA" names both parts of a blend the database holds a row for, which is the blend naming itself.
     polymer = asBlend(distinct, blendNamed);
     signals.push(`name: ${distinct.join('/')} is the blend ${blendNamed}`);
-  } else if (distinct.length > 1 && !namedByARuling && !supportPick) {
+  } else if (distinct.length > 1 && !namedByARuling && !supportPick && !pinned) {
     // (A support's name names what it supports — "Support for PLA/PETG", "Support for ABS" — not what it is made
     // of: R076 filed it above, by its chemistry or by that name.)
     // A ruling that names this product has already read the name: Siraya Tech's "Fibreheart PAHT CF (PPA based)"
@@ -413,17 +471,27 @@ export function classifyProduct(product, context = {}, world = {}) {
     hardness, support, signals,
   };
   identity.family = polymer?.Family ?? POLYMERS.find((p) => p.Token === polymer?.token)?.Family ?? '';
+  // Filed by a ruling: the identity is the material's own, so the windows, the density check and the family the
+  // proposal reads are the material's and not a guess from the words.
+  if (pinned) {
+    const m = pinned.material;
+    identity.polymer = identityOf(m);
+    identity.modifier = m['Modifier / filler'];
+    identity.variantClass = m['Variant class'] && m['Variant class'] !== 'Not applicable' ? m['Variant class'] : '';
+    identity.family = m.Family;
+  }
 
   // "AmideX PA6 Copolymer" is a copolymer of nylon 6 and 6,6, which is PA6/66 and not PA6; the 2026-09-13
   // duplicate-products audit found exactly that sheet filed under three materials. A copolymer word beside a
-  // polyamide is a question for the sheet, not a match.
-  if (/copolymer|copoly\b/i.test(product) && /^PA/.test(identity.polymer ?? '')) {
+  // polyamide is a question for the sheet, not a match. A ruling that names this product has answered it.
+  if (/copolymer|copoly\b/i.test(product) && /^PA/.test(identity.polymer ?? '') && !pinned && !namedByRuling?.byName) {
     reasons.push(`"${product}" says copolymer beside ${identity.polymer}: which polyamide it is comes from the sheet, not the name`);
     confidence -= 0.3;
   }
 
-  const match = supportPick?.materialId ? (world.materials ?? []).find((m) => m.MaterialID === supportPick.materialId)
-    : matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [] });
+  const match = pinned ? pinned.material
+    : supportPick?.materialId ? (world.materials ?? []).find((m) => m.MaterialID === supportPick.materialId)
+      : matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [], hardness: rated });
   if (!match) {
     const collision = collidesWith(identity, world.materials ?? []);
     if (collision) reasons.push(`a new material here would duplicate ${collision.MaterialID} ${collision['Original name']}, which already holds ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
@@ -513,8 +581,15 @@ export function matchMaterial(identity, materials, context = {}) {
     if (byFinish) return byFinish;
   }
 
-  const byIdentity = open.find((m) => same(m) && !ownProduct(m));
-  if (byIdentity) return byIdentity;
+  // A polymer split by hardness (TPU, m141) is several materials of one identity, and the table's first of them is no
+  // answer: until this read the rating, every new TPU was filed as 87A or softer. The rating picks the class, and a
+  // product that states none goes to the class for that (D86).
+  const byIdentity = open.filter((m) => same(m) && !ownProduct(m));
+  if (byIdentity.length > 1) {
+    const byHardness = hardnessClass(byIdentity, context.hardness);
+    if (byHardness) return byHardness;
+  }
+  if (byIdentity.length) return byIdentity[0];
   // A material the estimate model cannot identify (the high-temperature six, whose polymers have no row) can only
   // be reached by name, so a name inside the product's own words finds it: "THERMAX PES" is the PESU material.
   // This is last, or "Carbon Fiber PETG" would stop at PETG instead of reaching PETG-CF.

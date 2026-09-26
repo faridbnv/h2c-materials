@@ -220,6 +220,12 @@ if (process.argv[1]?.endsWith('review.mjs')) {
         grade.review = { status: 'accepted', by, date: today(), visual: true, note: `Product name: ${before} -> ${name}. ${arg('note')}` };
         console.log(`${proposal.document?.docKey}: ${before} -> ${name}`);
       }
+      // The page's own line for the product is what the reader could not find (pageFurniture, reader:name-not-a-name);
+      // a reviewer who quotes it has found it, so the gap is closed and the note keeps what was read before.
+      if (proposal.nameUnsupported) {
+        proposal.nameRead = { ...proposal.nameUnsupported, by, date: today(), as: name };
+        delete proposal.nameUnsupported;
+      }
       save(path, proposal);
     }
   } else if (arg('accept')) decide('accepted', arg('accept'), arg('note'));

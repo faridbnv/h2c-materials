@@ -156,7 +156,9 @@ test('quarantined measurements stay out of headlines and related evidence', () =
 });
 
 test('the six excluded materials trip the envelope gate on their own evidence', () => {
-  const excluded = db.materials.filter((m) => m.excluded);
+  // Excluded for the H2C's envelope: the industrial high-temperature family. The sintering filaments are excluded by
+  // scope, not by the envelope (D87): they print at 170 to 250 °C, and their part is the sintered metal's.
+  const excluded = db.materials.filter((m) => m.excluded && /Outside H2C Practical Envelope/.test(m.family));
   assert.ok(excluded.length >= 6, 'the six audited exclusions are still excluded');
   for (const m of excluded) {
     assert.equal(m.gates.nozzle.verdict, 'exceeds', `${m.name} nozzle gate`);
@@ -190,7 +192,9 @@ test('no in-scope headline is left with nothing: a value, an estimate or a reaso
   for (const m of db.materials.filter((x) => !x.excluded && !x.familyEntry)) {
     for (const k of ESTIMATED) {
       const h = m.headline[k];
-      assert.ok(h.known || h.estimate || h.notApplicable, `${m.name} ${k} is blank`);
+      // A material declared not estimated (a family's "polymer not stated" home, D87) shows what its products publish,
+      // and a headline none of them publishes is unknown, as an untested product is; every other one has something.
+      assert.ok(h.known || h.estimate || h.notApplicable || !m.estimateIdentity, `${m.name} ${k} is blank`);
       assert.ok(!(h.known && (h.estimate || h.notApplicable)), `${m.name} ${k} mixes a value with inference`);
       assert.ok(!(h.estimate && h.notApplicable), `${m.name} ${k}`);
     }

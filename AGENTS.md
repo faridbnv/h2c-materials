@@ -213,8 +213,8 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 
 ## Importing a batch of data sheets
 
-**Paused on 2026-09-25 by the owner**, until the re-center in `docs/GOALS.md` is built; the owner lifted it for the
-sheets held for identity (GOALS, "Decided on 2026-09-25, for phase 5"). A document never enters by hand: it travels the
+**Paused on 2026-09-25 by the owner**, until the re-center in `docs/GOALS.md` is built; the owner lifted it once, for the
+sheets held for identity (batch b34, D87). A document never enters by hand: it travels the
 import pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing
 a table by hand, are in [docs/IMPORTING.md](docs/IMPORTING.md).
 

@@ -1,4 +1,4 @@
-COUNT 142 materials no requirements set
+COUNT 152 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,9 +25,9 @@ High-stiffness fixture
 A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
-142 materials, 128 of them in H2C scope
-10879 measurements, each traceable to a source
-131 have a density, 88 a modulus, 33 a Canadian price
+152 materials, 135 of them in H2C scope
+11136 measurements, each traceable to a source
+140 have a density, 90 a modulus, 33 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -57,6 +57,9 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+316L stainless steel sintering filament
+Metal and Ceramic Sintering - Outside H2C Scope
+ not tested 7,190 — — — n/a — ☆
 ABS not tested 1,050
 1,020–1,150 · 42
  2.25
@@ -104,6 +107,9 @@ ABS-GF not tested 1,100
  93.5
 82–100 · 8
  39↗ ☆
+Alumina sintering filament
+Metal and Ceramic Sintering - Outside H2C Scope
+ not tested 3,776 — — — n/a — ☆
 ASA not tested 1,070
 1,040–1,150 · 34
  2.32
@@ -203,6 +209,19 @@ Copolyesters
 nGen-CF
 Copolyesters
  not tested — 2.52* 44.7* 3.1* 78 — ☆
+Nylon-CF, polymer not stated
+Nylon / Polyamide
+ not tested 1,400 — 107* 2* — — ☆
+Nylon-GF, polymer not stated
+Nylon / Polyamide
+ not tested — 4.2* 73.7* 5.9* — — ☆
+Nylon, polymer not stated
+Nylon / Polyamide
+ not tested 1,175
+1,010–1,250 · 4
+ 3.33 69.2 9.77 91
+79–102 · 3
+ — ☆
 OBC
 Polyolefins
  not tested 905
@@ -241,9 +260,11 @@ Nylon / Polyamide
  — ☆
 PA6
 Nylon / Polyamide
- not tested 1,145
-1,130–1,200 · 6
- 3.4* 78* 1.9* 140 163↗ ☆
+ not tested 1,150
+1,130–1,200 · 7
+ 3.4* 78* 1.9* 142
+140–143 · 2
+ 163↗ ☆
 PA6-CE
 Nylon / Polyamide
  not tested 1,490 6* 55* — 90* — ☆
@@ -663,6 +684,16 @@ PLA Aero not tested 1,150
  53
 48–59 · 7
  58↗ ☆
+PLA family-CF, polymer not stated not tested 1,280
+1,200–1,360 · 2
+ 7.12* 65* 2.5* 94.5
+74–115 · 2
+ — ☆
+PLA family, polymer not stated not tested 1,340
+1,300–1,540 · 7
+ 4.4* 52* 3.4* 87
+54–115 · 5
+ — ☆
 PLA Galaxy not tested 1,225
 1,190–1,240 · 4
  1.79
@@ -908,6 +939,9 @@ Fluoropolymers
 SAN
 Styrenics
  not tested 1,080 3.8* 72* — — — ☆
+Silicon carbide sintering filament
+Metal and Ceramic Sintering - Outside H2C Scope
+ not tested 2,660 — — — n/a — ☆
 Support for ABS
 Support / Interface
  not tested 1,160 n/a n/a n/a n/a 40↗ ☆
@@ -932,9 +966,19 @@ also called TPEE · Flexible Elastomers
 TPC-ESD
 Flexible Elastomers
  not tested 1,280 1.4 70 — n/a — ☆
+TPE, polymer not stated
+Flexible Elastomers
+ not tested 1,150
+1,000–1,250 · 10
+ 0.0344* 22* 250* n/a — ☆
 TPI
 Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,300 2.95 74 6 237 — ☆
+TPS
+Flexible Elastomers
+ not tested 1,132
+1,044–1,220 · 2
+ 0.054 — 280 n/a — ☆
 TPU 85A class and softer
 Flexible Elastomers
  not tested 1,180
@@ -964,8 +1008,8 @@ Flexible Elastomers
  n/a 54↗ ☆
 TPU harder than 95A
 Flexible Elastomers
- not tested 1,195
-1,090–1,260 · 12
+ not tested 1,190
+1,090–1,260 · 13
  1.19* 30
 22.4–39 · 3
  540

@@ -2020,3 +2020,43 @@ P1038,Speed,30-70 (mm/s)
 P1038,Adhesion / release,separation distance 0.2 (mm)
 P1038,Retraction,1 - 3 (mm)
 P1038,Shell / walls,2
+P1159,Speed,>75mm/s
+P1159,Layer height,≥ 0.1mm
+P1160,Speed,of printing 20–30 mm/s
+P1162,Speed,of printing 15–25 mm/s
+P1163,Cooling,Up to 100%
+P1163,Layer height,0.40 - 2.70mm
+P1163,Shell / walls,0.05 - 0.30mm
+P1163,Adhesion / release,recommended (Magigoo PA)
+P1166,Speed,30 - 150 mm/s
+P1169,Layer height,0.15mm or larger
+P1170,Cooling,50%
+P1170,Speed,30 – 40 mm/s
+P1171,Cooling,50 %
+P1171,Speed,30-40 mm/s
+P1173,Adhesion / release,not required
+P1173,Speed,20-200mm/s
+P1173,Cooling,20-50%
+P1174,Adhesion / release,not required
+P1174,Speed,20-200mm/s
+P1174,Cooling,30-80%
+P1175,Adhesion / release,not required
+P1175,Speed,20-200mm/s
+P1175,Cooling,30-80%
+P1176,Speed,20 – 40 mm/s
+P1178,Speed,15 - 50 mm/s
+P1179,Cooling,0-50 %
+P1179,Speed,30-40 mm/s
+P1182,Cooling,YES (up to 100%)
+P1182,Layer height,0.05 - 0.30 mm
+P1182,Shell / walls,0.40 - 2.70 mm
+P1182,Speed,40 - 200 mm/s
+P1186,Speed,50 – 70 mm3 /s
+P1187,Cooling,100%
+P1187,Speed,40mm/s
+P1188,Cooling,50 - 100 %
+P1189,Speed,of printing 15–25 mm/s
+P1190,Cooling,50%
+P1190,Speed,30 – 40 mm/s
+P1193,Speed,10 - 30 mm/s
+P1194,Speed,30-200 mm/s

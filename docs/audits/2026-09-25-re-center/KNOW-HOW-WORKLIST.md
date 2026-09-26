@@ -12,8 +12,8 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 887 | 198 | 0 | 6 | 1091 |
-| Materials | 118 | 20 | 0 | 4 | 142 |
+| Products | 887 | 198 | 0 | 44 | 1129 |
+| Materials | 119 | 20 | 0 | 13 | 152 |
 
 4502 statements; 1262 sources read for know-how; 0 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
@@ -31,7 +31,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PP-CF (M083) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 5 | 3 / 3 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA612-CF (M059) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 2 | 1 / 0 / 0 | — |
 | PAHT-CF (M048) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 4 / 3 / 3 | — |
-| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 27 of 204 | 147 / 150 / 189 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); BigRep (bigrep.com); Elegoo (no address held); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com); Prusa Research (prusament.com); Recreus (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
+| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 27 of 202 | 146 / 148 / 187 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); BigRep (bigrep.com); Elegoo (no address held); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com); Prusa Research (prusament.com); Recreus (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 17 of 77 | 55 / 52 / 71 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); FormFutura (formfutura.com); MatterHackers (matterhackers.com); Nobufil (no address held); Prusa Research (prusament.com); Recreus (no address held); Yousu (ysfilament.com) |
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 12 | 8 / 6 / 11 | 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com) |
 | PA12-GF (M054) | High-stiffness fixture; Lightweight structure; Outdoor structural part | collected | 2 of 3 | 2 / 2 / 3 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
@@ -66,11 +66,11 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA Marble (M012) | Indoor prototype | collected | 1 of 7 | 6 / 2 / 6 | Spectrum (spectrumfilaments.com) |
 | TPC / TPEE (M046) | Flexible component | collected | 1 of 7 | 5 / 5 / 6 | Kimya (samaro.fr) |
 | TPU 95A class (M161) | Flexible component | collected | 1 of 25 | 15 / 12 / 24 | Polymaker (polymaker.com, fiberon.polymaker.com) |
-| TPU harder than 95A (M162) | Flexible component | collected | 1 of 13 | 6 / 9 / 12 | NinjaTek (ninjatek.com) |
+| TPU harder than 95A (M162) | Flexible component | collected | 1 of 14 | 6 / 9 / 12 | NinjaTek (ninjatek.com) |
 | TPU, hardness not stated (M163) | Flexible component | collected | 1 of 8 | 8 / 4 / 8 | MatterHackers (matterhackers.com) |
 | ASA Aero (M032) | Warm environment | collected | 0 of 5 | 2 / 3 / 4 | — |
 | OBC (M086) | Flexible component | collected | 0 of 2 | 2 / 2 / 2 | — |
-| PA6 (M049) | Warm environment | collected | 0 of 8 | 3 / 2 / 8 | — |
+| PA6 (M049) | Warm environment | collected | 0 of 9 | 3 / 2 / 8 | — |
 | PBT-GF (M132) | Outdoor structural part | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PE (M085) | Flexible component | collected | 0 of 2 | 1 / 2 / 2 | — |
 | PEBA (M045) | Flexible component | collected | 0 of 10 | 6 / 5 / 9 | — |
@@ -80,6 +80,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA Glow (M016) | Indoor prototype | collected | 0 of 7 | 6 / 3 / 6 | — |
 | PLA Metal (M011) | Indoor prototype | collected | 0 of 9 | 5 / 7 / 8 | — |
 | PLA Sparkle (M013) | Indoor prototype | collected | 0 of 4 | 2 / 2 / 3 | — |
+| PLA family, polymer not stated (M168) | Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
 | PLA-NF (M152) | Warm environment | collected | 0 of 2 | 0 / 1 / 2 | — |
 | PPA (M069) | Lightweight structure | collected | 0 of 2 | 0 / 0 / 1 | — |
 | TPU 85A class and softer (M159) | Flexible component | collected | 0 of 16 | 9 / 11 / 16 | — |
