@@ -53,9 +53,13 @@ const { proc, port } = await launchChrome(chrome, profile);
 
 let ws, nextId = 0;
 const pending = new Map(), errors = [];
+// A call Chrome never answers fails the check. Without a limit, a browser that stalled left verify waiting with no
+// output and no CPU for an hour and a half (2026-09-25); every call here answers in well under a second.
+const CALL_MS = 60000;
 const send = (method, params = {}) => new Promise((resolve, reject) => {
   const id = ++nextId;
-  pending.set(id, { resolve, reject });
+  const timer = setTimeout(() => { pending.delete(id); reject(new Error(`Chrome did not answer ${method} within ${CALL_MS / 1000} s`)); }, CALL_MS);
+  pending.set(id, { resolve: (v) => { clearTimeout(timer); resolve(v); }, reject: (e) => { clearTimeout(timer); reject(e); } });
   ws.send(JSON.stringify({ id, method, params }));
 });
 const evaluate = async (expression) => {

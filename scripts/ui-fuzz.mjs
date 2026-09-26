@@ -566,7 +566,14 @@ ws.onmessage = (m) => {
   const t = msg.sessionId && sessions.get(msg.sessionId);
   if (t) t.onEvent(msg.method, msg.params);
 };
-const send = (method, params = {}, sessionId) => new Promise((resolve, reject) => { const id = ++nid; pending.set(id, { resolve, reject }); ws.send(JSON.stringify({ id, method, params, sessionId })); });
+// A call Chrome never answers fails the run instead of leaving it waiting with no output (ui-probe.mjs, CALL_MS).
+const CALL_MS = 60000;
+const send = (method, params = {}, sessionId) => new Promise((resolve, reject) => {
+  const id = ++nid;
+  const timer = setTimeout(() => { pending.delete(id); reject(new Error(`Chrome did not answer ${method} within ${CALL_MS / 1000} s`)); }, CALL_MS);
+  pending.set(id, { resolve: (v) => { clearTimeout(timer); resolve(v); }, reject: (e) => { clearTimeout(timer); reject(e); } });
+  ws.send(JSON.stringify({ id, method, params, sessionId }));
+});
 
 async function openTab(k) {
   const { targetId } = await send('Target.createTarget', { url: 'about:blank' });
