@@ -1,14 +1,14 @@
 MaterialID,Material,scope,nozzle,bed,chamber,abrasive,drying
 M001,PLA,within,within,within,within,requires-hardened,required
-M002,PLA Basic,within,within,within,within,unknown,required
-M003,PLA Matte,within,within,within,within,unknown,required
-M004,PLA Lite,within,within,within,within,unknown,unknown
-M005,PLA Basic Gradient,within,within,within,within,unknown,required
-M006,PLA Tough+,within,within,within,within,unknown,required
-M007,PLA Translucent,within,within,within,within,unknown,required
+M002,PLA Basic,family,unknown,unknown,unknown,unknown,unknown
+M003,PLA Matte,family,unknown,unknown,unknown,unknown,unknown
+M004,PLA Lite,family,unknown,unknown,unknown,unknown,unknown
+M005,PLA Basic Gradient,family,unknown,unknown,unknown,unknown,unknown
+M006,PLA Tough+,family,unknown,unknown,unknown,unknown,unknown
+M007,PLA Translucent,family,unknown,unknown,unknown,unknown,unknown
 M008,PLA Silk,within,within,within,within,unknown,required
-M009,PLA Silk+,within,within,within,within,unknown,required
-M010,PLA Silk Dual Color,within,within,within,within,unknown,required
+M009,PLA Silk+,family,unknown,unknown,unknown,unknown,unknown
+M010,PLA Silk Dual Color,family,unknown,unknown,unknown,unknown,unknown
 M011,PLA Metal,within,within,within,within,requires-hardened,required
 M012,PLA Marble,within,within,within,within,unknown,required
 M013,PLA Sparkle,within,within,within,within,unknown,required
@@ -19,9 +19,9 @@ M017,PLA Aero,within,within,within,within,unknown,required
 M018,PLA-CF,within,within,within,within,requires-hardened,required
 M019,PLA-GF,within,within,within,within,requires-hardened,required
 M020,PETG,within,within,within,within,no-special-concern,required
-M021,PETG Basic,within,within,within,within,unknown,required
-M022,PETG HF,within,within,within,within,unknown,required
-M023,PETG Translucent,within,within,within,within,unknown,required
+M021,PETG Basic,family,unknown,unknown,unknown,unknown,unknown
+M022,PETG HF,family,unknown,unknown,unknown,unknown,unknown
+M023,PETG Translucent,family,unknown,unknown,unknown,unknown,unknown
 M024,PETG-CF,within,within,within,within,requires-hardened,required
 M025,PETG-GF,within,within,within,within,requires-hardened,required
 M026,PETG-ESD,within,within,within,within,no-special-concern,required
@@ -37,11 +37,11 @@ M035,PC,within,within,within,within,unknown,required
 M036,PC FR,within,within,within,within,unknown,required
 M037,PC-CF,within,within,within,within,requires-hardened,required
 M038,PC-GF,within,within,within,within,requires-hardened,required
-M039,TPU,within,within,within,within,requires-hardened,required
-M040,TPU for AMS,within,within,within,within,unknown,required
-M041,TPU 95A HF,within,within,within,within,unknown,required
-M042,TPU 90A,within,within,within,within,unknown,required
-M043,TPU 85A,within,within,within,within,unknown,required
+M039,TPU,family,unknown,unknown,unknown,unknown,unknown
+M040,TPU for AMS,family,unknown,unknown,unknown,unknown,unknown
+M041,TPU 95A HF,family,unknown,unknown,unknown,unknown,unknown
+M042,TPU 90A,family,unknown,unknown,unknown,unknown,unknown
+M043,TPU 85A,family,unknown,unknown,unknown,unknown,unknown
 M044,TPE,family,unknown,unknown,unknown,unknown,unknown
 M045,PEBA,within,within,within,within,no-special-concern,required
 M046,TPC / TPEE,within,within,within,unknown,unknown,required
@@ -157,3 +157,8 @@ M155,PLA-GR,within,unknown,unknown,unknown,unknown,unknown
 M156,PA6/66-CF,within,within,within,unknown,requires-hardened,unknown
 M157,TPU-EC,within,unknown,unknown,unknown,unknown,required
 M158,PLA-CE,within,within,within,unknown,unknown,unknown
+M159,TPU 85A class and softer,within,within,within,within,requires-hardened,required
+M160,TPU 90A class,within,within,within,within,unknown,required
+M161,TPU 95A class,within,within,within,within,requires-hardened,required
+M162,TPU harder than 95A,within,within,within,within,requires-hardened,required
+M163,"TPU, hardness not stated",within,within,within,unknown,requires-hardened,required

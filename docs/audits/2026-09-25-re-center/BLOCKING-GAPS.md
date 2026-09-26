@@ -9,12 +9,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 139 | 18 | 82 | 39 | not published 51; published, not comparable 24 | 19 |
-| Indoor prototype | 139 | 20 | 21 | 98 | no sampled price 98 | 0 |
-| Lightweight structure | 139 | 27 | 79 | 33 | not published 25; published, not comparable 19 | 27 |
-| Warm environment | 139 | 31 | 46 | 62 | print setting not recorded 57; not published 27; published, not comparable 2 | 3 |
-| High-stiffness fixture | 139 | 18 | 71 | 50 | published, not comparable 31; not published 19 | 32 |
-| Flexible component | 139 | 13 | 79 | 47 | published, not comparable 30; not published 17 | 33 |
+| Outdoor structural part | 128 | 18 | 72 | 38 | not published 49; published, not comparable 24 | 19 |
+| Indoor prototype | 128 | 15 | 21 | 92 | no sampled price 92 | 0 |
+| Lightweight structure | 128 | 24 | 72 | 32 | not published 24; published, not comparable 19 | 27 |
+| Warm environment | 128 | 31 | 36 | 61 | print setting not recorded 58; not published 27; published, not comparable 1 | 2 |
+| High-stiffness fixture | 128 | 18 | 61 | 49 | published, not comparable 32; not published 17 | 33 |
+| Flexible component | 128 | 13 | 68 | 47 | published, not comparable 30; not published 17 | 33 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -26,7 +26,7 @@ applicable (D56) and is not counted as a gap.
 
 A material none of whose products can be judged on a property, counted across the templates whose answer it holds
 up (one value settles every threshold on it). The first rows are where one reading settles several answers. Price is
-apart: 98 materials hold up the Indoor prototype for want of a sampled price.
+apart: 92 materials hold up the Indoor prototype for want of a sampled price.
 
 | Material | Products | Property | Why unjudged | Limits | Templates |
 |---|---:|---|---|---|---:|
@@ -50,13 +50,13 @@ apart: 98 materials hold up the Indoor prototype for want of a sampled price.
 | PA6/66-CF (M156) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PAHT (M147) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PC-PBT-CF (M131) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| PLA Lite (M004) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PLA-PHA (M145) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PLA-PHB (M146) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PA612 (M058) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA612-GF (M060) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA66 (M055) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA66-CF (M056) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
+| TPU harder than 95A (M162) | 13 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PP (M082) | 12 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
 | PA6 (M049) | 8 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PET (M066) | 7 | hdt045 | not published | >= 100, >= 80 | 2 |
@@ -91,7 +91,7 @@ apart: 98 materials hold up the Indoor prototype for want of a sampled price.
 | nGen FLEX (M143) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | nGen-CF (M142) | 1 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
 
-And 134 more, each holding up one template.
+And 133 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -101,7 +101,6 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Template | Material | Comparable only | Admitting them |
 |---|---|---|---|
 | Outdoor structural part | PLA | FAIL | PASS |
-| Outdoor structural part | PLA Lite | UNKNOWN | FAIL |
 | Outdoor structural part | PA6 | UNKNOWN | FAIL |
 | Outdoor structural part | PA12 | UNKNOWN | FAIL |
 | Outdoor structural part | PA-ESD | UNKNOWN | PASS |
@@ -119,6 +118,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Outdoor structural part | PA12-AF | UNKNOWN | FAIL |
 | Outdoor structural part | PLA-GR | UNKNOWN | FAIL |
 | Outdoor structural part | TPU-EC | UNKNOWN | FAIL |
+| Outdoor structural part | TPU harder than 95A | UNKNOWN | FAIL |
 | Lightweight structure | PLA Silk | FAIL | PASS |
 | Lightweight structure | PLA Wood | FAIL | PASS |
 | Lightweight structure | PLA Galaxy | FAIL | PASS |
@@ -146,7 +146,6 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Lightweight structure | PETG-GR | UNKNOWN | FAIL |
 | Lightweight structure | PA12-AF | UNKNOWN | FAIL |
 | Lightweight structure | PLA-GR | UNKNOWN | FAIL |
-| Warm environment | PLA Lite | UNKNOWN | FAIL |
 | Warm environment | PETG-GF | UNKNOWN | FAIL |
 | Warm environment | PCL | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-CF | FAIL | PASS |
@@ -181,6 +180,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | High-stiffness fixture | PLA-GR | UNKNOWN | FAIL |
 | High-stiffness fixture | TPU-EC | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-CE | UNKNOWN | FAIL |
+| High-stiffness fixture | TPU harder than 95A | UNKNOWN | FAIL |
 | Flexible component | PETG | FAIL | PASS |
 | Flexible component | PC | FAIL | PASS |
 | Flexible component | PA6 | UNKNOWN | FAIL |
@@ -256,11 +256,11 @@ are the first values a person should check against the page: the 80 closest of 7
 | Lightweight structure | PLA-CF | QIDI PLA-CF | density <= 1250 | 1250 | 0 % pass | V008113 |
 | Lightweight structure | PLA-GF | iSANMATE PLA Glass Fiber | density <= 1250 | 1250 | 0 % pass | V000377 |
 | Lightweight structure | PETG | Polymaker PolyLite PETG | density <= 1250 | 1250 | 0 % pass | V000390 |
+| Lightweight structure | PETG | Bambu Lab PETG Basic | density <= 1250 | 1250 | 0 % pass | V000423 |
+| Lightweight structure | PETG | Bambu Lab PETG Translucent | density <= 1250 | 1250 | 0 % pass | V007777 |
 | Lightweight structure | PETG | Polymaker Polymaker PolyLite PETG | density <= 1250 | 1250 | 0 % pass | V003401 |
 | Lightweight structure | PETG | Polymaker PolyMax PETG | density <= 1250 | 1250 | 0 % pass | V003749 |
 | Lightweight structure | PETG | Eryone Standard PETG | density <= 1250 | 1250 | 0 % pass | V005029 |
-| Lightweight structure | PETG Basic | Bambu Lab PETG Basic | density <= 1250 | 1250 | 0 % pass | V000423 |
-| Lightweight structure | PETG Translucent | Bambu Lab PETG Translucent | density <= 1250 | 1250 | 0 % pass | V007777 |
 | Lightweight structure | PETG-CF | Bambu Lab PETG-CF | density <= 1250 | 1250 | 0 % pass | V000484 |
 | Lightweight structure | PETG-CF | Eryone PETG-CF | density <= 1250 | 1250 | 0 % pass | V005015 |
 | Lightweight structure | PETG-CF | iSANMATE PETG CF | density <= 1250 | 1250 | 0 % pass | V009949 |
@@ -300,6 +300,6 @@ are the first values a person should check against the page: the 80 closest of 7
 | Outdoor structural part | PAHT-CE | LEHVOSS LUVOCOM 3F PAHT KK 50056 BK | density <= 1500 | 1490 | -0.7 % pass | V009738 |
 | Lightweight structure | PLA | 3DXTECH ECOMAX PLA | density <= 1250 | 1240 | -0.8 % pass | V000001 |
 | Lightweight structure | PLA | iSANMATE PLA | density <= 1250 | 1240 | -0.8 % pass | V000038 |
-| Lightweight structure | PLA | Spectrum PLA High Speed | density <= 1250 | 1240 | -0.8 % pass | V002699 |
-| Lightweight structure | PLA | Spectrum PLA Matt | density <= 1250 | 1240 | -0.8 % pass | V002775 |
+| Lightweight structure | PLA | Bambu Lab PLA Basic | density <= 1250 | 1240 | -0.8 % pass | V007555 |
+| Lightweight structure | PLA | Bambu Lab PLA Basic Gradient | density <= 1250 | 1240 | -0.8 % pass | V000083 |
 

@@ -92,6 +92,7 @@ break if it were reversed, because that is the part that gets lost.
 | D83 | A material is the spread of its products, and passes when one of its products meets every requirement | In force |
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | In force |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | In force |
+| D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | In force |
 
 <!-- end index -->
 
@@ -2113,4 +2114,35 @@ rather than derived into the SQLite file, because each one is a reading somebody
 
 Reversing it puts the statements back among the evidence, where a later category change could let one decide, or
 drops the reads table, and a silent sheet and an unread one look the same again.
+
+## D86. A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID
+
+*Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md). Built in m141.*
+
+The canonical list was Bambu's catalogue, so fourteen Bambu product lines and eSUN's PLA-Lite were materials of their
+own, one product each, beside a PLA, PETG and TPU that already held every other maker's matte, tough, translucent,
+high-speed and hardness-named products. The tree was inconsistent (D44 says a product has one home, the most specific
+material it is), and the only sampled prices sat on those lines, so plain PLA and PETG had none.
+
+- **The eleven PLA, PLA Silk and PETG lines are products of the material they are.** Each old row stays, as an alias
+  (Scope Family entry, D44), so its name still finds the product; its coverage findings are superseded by Not
+  applicable rows, and it keeps its H2C listing and family-context citations.
+- **TPU is read by the Shore hardness its makers rate it**, for every maker, as the owner chose over one TPU: 87A or
+  softer, 88 to 92A, 93 to 97A, harder than 95A (98A and above, and Shore D), and hardness not stated. The rating is
+  the one in the product's name, else the one its sheet publishes, pinned per product
+  (`scripts/migrate/m141-product-lines-and-tpu-hardness-tpu-hardness.csv`); a product that shares its formulation with
+  another (R053) shares its class, and products the makers rate differently are not one formulation, whatever their
+  sheets print. TPU is a family entry over the five, and Bambu's four TPU rows aliases of their class. A flexible part
+  is chosen by its hardness, and a range from 60A to 75D read as one material's.
+- **A product moves by its MaterialID** (`scripts/data/records.mjs`, `moveGrade`): the grade, every record filed under
+  it and the printing citations of its own profiles and evidence change material; every ID stays. Until m141 a move
+  retired the grade and copied it and every record under a new ID (m25, m113, m120), which for 85 products would have
+  duplicated 1,502 records and broken every link to them. A GradeID now keeps the number of the material it was first
+  filed under; nothing reads the number.
+
+What it did, across the six templates: PLA, PLA Silk and PETG pass the Indoor prototype (their products now carry the
+sampled prices; TPU's hardness-not-stated class stays unknown), PETG passes the Lightweight structure on Bambu PETG
+Basic, and TPU answers per class (the 95A class passes the Flexible component on 7 of its 25 products, the 90A class on
+4 of 12). The fifteen product-line rows leave the results; their products answer inside their materials. Reversing it
+brings back one maker's catalogue as the taxonomy, and a TPU that is every hardness at once.
 

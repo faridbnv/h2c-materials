@@ -1,6 +1,6 @@
 COUNT 5 shown PASS
-STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 148
-5 of the 153 materials in this database meet these requirements
+STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 137
+5 of the 142 materials in this database meet these requirements
 Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -85,8 +85,6 @@ Nylon / Polyamide
  1,010 4.2* 87* — 90* — ☆
 RAIL
 Each count is how many of a family the other requirements leave. Choose a family to see its polymers.
-PLA
-24
 Nylon / Polyamide
 21
 PA6
@@ -103,6 +101,8 @@ PA66
 2
 PA
 1
+PLA
+16
 Industrial High-Temperature
 14
 Flexible Elastomers
@@ -111,13 +111,13 @@ Copolyesters
 10
 Polymer Blends
 10
-PETG
-9
 High-Performance Engineering
 8
 Polyolefins
 7
 ASA
+6
+PETG
 6
 Polycarbonate
 6

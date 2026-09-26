@@ -1,0 +1,75 @@
+GradeID,Product,Rating,From,Class
+G039-01,Polymaker PolyFlex TPU95,95A,"product name ""PolyFlex TPU95""",M161
+G039-02,iSANMATE TPU,95A,V002177 (95 (Shore A)),M161
+G039-03,Polymaker PolyFlex TPU90,90A,"product name ""PolyFlex TPU90""",M160
+G039-04,Spectrum S-Flex 90A,90A,"product name ""S-Flex 90A""",M160
+G039-05,Spectrum THE FILAMENT TPU 95A,95A,"product name ""THE FILAMENT TPU 95A""",M161
+G039-06,Spectrum THE FILAMENT TPU 87A,87A,"product name ""THE FILAMENT TPU 87A""",M159
+G039-07,Spectrum S-Flex 85A,85A,"product name ""S-Flex 85A""",M159
+G039-08,Spectrum S-Flex 98A,98A,"product name ""S-Flex 98A""",M162
+G039-09,Spectrum THE FILAMENT TPU 82A,82A,"product name ""THE FILAMENT TPU 82A""",M159
+G039-10,Polymaker PolyFlex TPU95-HF,95A,"product name ""PolyFlex TPU95-HF""",M161
+G039-11,Polymaker Polymaker PolyFlex TPU90,90A,"product name ""Polymaker PolyFlex TPU90""",M160
+G039-12,Polymaker Polymaker PolyFlex TPU95 HF,95A,"product name ""Polymaker PolyFlex TPU95 HF""",M161
+G039-13,Polymaker Polymaker PolyFlex TPU95,95A,"product name ""Polymaker PolyFlex TPU95""",M161
+G039-14,Extrudr FLEX MEDIUM MATT,50D,V004121 (50),M162
+G039-15,Extrudr FLEX SEMISOFT,85A,V004139 (85),M159
+G039-16,Extrudr FLEX HARD,58D,V004201 (58),M162
+G039-17,Extrudr FLEX MEDIUM,98A,V004315 (98),M162
+G039-18,SUNLU TPU 90A,90A,"product name ""TPU 90A""",M160
+G039-19,SUNLU TPU 95A,95A,"product name ""TPU 95A""",M161
+G039-20,Eryone TPU 90A,90A,"product name ""TPU 90A""",M160
+G039-21,Eryone Hyper Speed TPU,Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-22,Flashforge TPU95A,95A,"product name ""TPU95A""",M161
+G039-23,Flashforge TPU 64D,64D,"product name ""TPU 64D""",M162
+G039-24,Fabru / purefil Thermoplastic polyurethane (TPU),Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-25,colorFabb varioShore TPU,92A,V005780 (92),M160
+G039-26,colorFabb TPU85A,85A,"product name ""TPU85A""",M159
+G039-27,colorFabb TPU95A,95A,"product name ""TPU95A""",M161
+G039-28,colorFabb varioShore 85A,85A,"product name ""varioShore 85A""",M159
+G039-29,Fillamentum Flexfill TPU 98A,98A,"product name ""Flexfill TPU 98A""",M162
+G039-30,Fillamentum Flexfill TPU 92A,92A,"product name ""Flexfill TPU 92A""",M160
+G039-31,NinjaTek Cheetah,95A,V006672 (95 Shore A),M161
+G039-32,NinjaTek NinjaFlex,85A,V006784 (85 Shore A),M159
+G039-33,Recreus 70A,70A,"product name ""70A""",M159
+G039-34,BigRep TPU 98A,98A,"product name ""TPU 98A""",M162
+G039-35,Prusa Research Prusament TPU 95A by Prusa Polymers,95A,"product name ""Prusament TPU 95A by Prusa Polymers""",M161
+G039-36,"Raise3D such as insoles, tubes, seals, and bushings.",95A,V007033 (95),M161
+G039-37,eSUN TPU 95A,95A,"product name ""TPU 95A""",M161
+G039-38,Essentium TPU 80A-Z,80A,"product name ""TPU 80A-Z""",M159
+G039-39,NinjaTek Armadillo,75D,V007173 (75 Shore D),M162
+G039-40,Recreus 95A,95A,"product name ""95A""",M161
+G039-41,Recreus 60A,60A,"product name ""60A""",M159
+G039-42,Recreus RECIFLEX,95A,V007287 (92-98 Shore A: the middle of the range it publishes),M161
+G039-43,Recreus 82A,82A,"product name ""82A""",M159
+G039-44,eSUN TPU-64D,64D,"product name ""TPU-64D""",M162
+G039-45,Nanovia TPU 70D,70D,"product name ""TPU 70D""",M162
+G039-46,FormFutura ReForm rTPU 95A,95A,"product name ""ReForm rTPU 95A""",M161
+G039-47,FormFutura Python Flex,98A,V007646 (98),M162
+G039-48,eSUN eFlex,Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-49,SIDDAMENT TPU 95A,95A,"product name ""TPU 95A""",M161
+G039-50,QIDI TPU95A-HF,95A,"product name ""TPU95A-HF""",M161
+G039-51,SUNLU TPU,Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-52,MatterHackers Build Series TPU,Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-53,The Filament TPU 95A,95A,"product name ""TPU 95A""",M161
+G039-54,The Filament TPU 87A,87A,"product name ""TPU 87A""",M159
+G039-55,Anycubic TPU,Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-56,The Filament TPU 82A,82A,"product name ""TPU 82A""",M159
+G039-57,MatterHackers TPU,95A,V009097 (95 Shore A),M161
+G039-58,eSUN TPU HS,95A,"its formulation twin G039-37, eSUN TPU 95A (R053: its sheet prints the same numbers)",M161
+G039-59,Essentium TPU 95A-Z,95A,"product name ""TPU 95A-Z""",M161
+G039-60,colorFabb varioShore Prosthetic TPU,92A,"its formulation twin G039-25, colorFabb varioShore TPU (R053: its sheet prints the same numbers), which publishes 92A",M160
+G039-61,Eryone Standard TPU,Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-62,FormFutura ReForm rTPU 90A,90A,"product name ""ReForm rTPU 90A""",M160
+G039-63,FormFutura Python Flex TPU 90A,90A,"product name ""Python Flex TPU 90A""",M160
+G039-64,FormFutura ReForm rTPU 85A,85A,"product name ""ReForm rTPU 85A""",M159
+G039-65,3DJake TPU A95,95A,"product name ""TPU A95""",M161
+G039-66,Siraya Tech Flex TPU 95A,95A,"product name ""Flex TPU 95A""",M161
+G039-67,Siraya Tech Flex TPU 85A,85A,"product name ""Flex TPU 85A""",M159
+G039-68,Siraya Tech Flex TPU 64D,64D,"product name ""Flex TPU 64D""",M162
+G039-69,Siraya Tech Flex TPU Air,Not stated,neither its name nor its sheets state a Shore hardness,M163
+G039-70,Kingroon TPU 90A,90A,"product name ""TPU 90A""",M160
+G040-01,Bambu Lab TPU for AMS,68D,V002235 (68D),M162
+G041-01,Bambu Lab TPU 95A HF,95A,"product name ""TPU 95A HF""",M161
+G042-01,Bambu Lab TPU 90A,90A,"product name ""TPU 90A""",M160
+G043-01,Bambu Lab TPU 85A,85A,"product name ""TPU 85A""",M159

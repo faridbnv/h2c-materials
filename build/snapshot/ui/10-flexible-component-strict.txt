@@ -1,6 +1,6 @@
 COUNT 13 shown PASS
-STATUS ☑ PASS 13 | ☐ UNKNOWN 47 | ☐ FAIL 93
-13 of the 153 materials in this database meet these requirements
+STATUS ☑ PASS 13 | ☐ UNKNOWN 47 | ☐ FAIL 82
+13 of the 142 materials in this database meet these requirements
 47 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -105,36 +105,54 @@ also called TPEE · Flexible Elastomers
  1,150
 1,100–1,220 · 6
  0.067 17.7 500 n/a — ☆
-TPU
+TPU 85A class and softer
 Flexible Elastomers
  PASS
-12 of 12
+1 of 1
+ 1,180
+1,070–1,210 · 12
+ 0.0068 12 700 n/a no price↗ ☆
+TPU 90A class
+Flexible Elastomers
+ PASS
+4 of 4
+ 1,205
+1,120–1,240 · 8
+ 0.0162
+0.0053–0.027 · 2
+ 26.9
+12.5–30 · 4
+ 618
+574–1,000 · 4
+ n/a 54↗ ☆
+TPU 95A class
+Flexible Elastomers
+ PASS
+7 of 7
  1,200
-1,000–1,240 · 54
- 0.027
-0.006–0.029 · 5
- 29
-23.1–39 · 13
- 521
-140–1,000 · 12
- n/a — ☆
-TPU 85A
+1,000–1,240 · 21
+ 0.0115
+0.006–0.029 · 4
+ 27.1
+23.1–31.8 · 8
+ 496
+330–900 · 7
+ n/a 54↗ ☆
+TPU harder than 95A
+Flexible Elastomers
+ PASS
+3 of 3
+ 1,195
+1,090–1,260 · 12
+ 1.19* 30
+22.4–39 · 3
+ 540
+140–650 · 3
+ n/a 47.5↗ ☆
+TPU, hardness not stated
 Flexible Elastomers
  PASS
 1 of 1
- 1,180 0.0068 12 700 n/a no price↗ ☆
-TPU 90A
-Flexible Elastomers
- PASS
-1 of 1
- 1,240 0.0053 12.5 650 n/a 54↗ ☆
-TPU 95A HF
-Flexible Elastomers
- PASS
-1 of 1
- 1,220 0.0098 27.3 650 n/a 54↗ ☆
-TPU for AMS
-Flexible Elastomers
- PASS
-1 of 1
- 1,260 1.19* 22.4 650 n/a 47.5↗ ☆
+ 1,220
+1,120–1,230 · 5
+ 0.027 27.3 501 n/a — ☆

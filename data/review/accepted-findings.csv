@@ -1,7 +1,6 @@
 Code,Table,Record,Field,Reason,Accepted
 COVERAGE-SUPERSEDED,coverage,C01092 | C01093,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
 COVERAGE-SUPERSEDED,coverage,C01098 | C01099,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
-COVERAGE-SUPERSEDED,coverage,C01100 | C01101,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
 COVERAGE-SUPERSEDED,coverage,C01102 | C01103,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
 COVERAGE-SUPERSEDED,coverage,C01162 | C01169,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14
 COVERAGE-SUPERSEDED,coverage,C01174 | C01175 | C01176,,"A log of separate events in one domain (one row per retired grade, re-filed grade, or resolved record); none replaces another.",2026-09-14

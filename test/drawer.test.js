@@ -36,7 +36,9 @@ test('every prose field in the database that points at evidence resolves, and sa
       assert.doesNotMatch(r.prose, /\bQ\d{5}\b/, `${m.name} ${field}`);
     }
   }
-  assert.ok(pointing.filter((name) => !db.materials.find((m) => m.name === name).familyEntry).length >= 47, `${pointing.length} pointing fields`);
+  // Every one resolves, a family entry's or an alias's included: m141 made fifteen product lines aliases, and their
+  // prose went with them, so the guard counts them all (50 on 2026-09-25) rather than the materials alone.
+  assert.ok(pointing.length >= 50, `${pointing.length} pointing fields`);
   // PVA and BVOH point only at water-soluble support guidance: their drawers have family guidance and no Good for.
   for (const name of ['PVA', 'BVOH']) {
     const r = resolvePointers(db.materials.find((m) => m.name === name).bestUses, evidenceById);

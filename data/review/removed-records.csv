@@ -1033,3 +1033,24 @@ headlines,M156 | density | V010359,m137-the-representative-grade-retires,docs/au
 headlines,M156 | hdt045 | V010365,m137-the-representative-grade-retires,docs/audits/2026-09-25-re-center/retired-representative-picks.csv; the build chooses each product's value by rule (build/src/products.js) and a material's headline is its products' spread (D83)
 headlines,M157 | density | V010383,m137-the-representative-grade-retires,docs/audits/2026-09-25-re-center/retired-representative-picks.csv; the build chooses each product's value by rule (build/src/products.js) and a material's headline is its products' spread (D83)
 headlines,M158 | hdt045 | V010560,m137-the-representative-grade-retires,docs/audits/2026-09-25-re-center/retired-representative-picks.csv; the build chooses each product's value by rule (build/src/products.js) and a material's headline is its products' spread (D83)
+material_links,M002 | printing | P0004,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M001 | printing | P0004
+material_links,M003 | printing | P0005,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M001 | printing | P0005
+material_links,M004 | printing | P0161,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M001 | printing | P0161
+material_links,M005 | printing | P0006,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M001 | printing | P0006
+material_links,M006 | printing | P0007,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M001 | printing | P0007
+material_links,M007 | printing | P0008,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M001 | printing | P0008
+material_links,M009 | printing | P0009,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M008 | printing | P0009
+material_links,M010 | printing | P0010,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M008 | printing | P0010
+material_links,M021 | printing | P0024,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M020 | printing | P0024
+material_links,M022 | printing | P0025,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M020 | printing | P0025
+material_links,M023 | printing | P0026,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M020 | printing | P0026
+material_links,M039 | printing | P0049,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M161 | printing | P0049
+material_links,M040 | printing | P0051,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M162 | printing | P0051
+material_links,M041 | printing | P0052,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M161 | printing | P0052
+material_links,M042 | printing | P0053,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M160 | printing | P0053
+material_links,M043 | printing | P0054,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M159 | printing | P0054
+family_members,M044 | M039,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M163
+family_members,M044 | M040,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M162
+family_members,M044 | M041,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M161
+family_members,M044 | M042,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M160
+family_members,M044 | M043,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M159

@@ -501,8 +501,10 @@ plausible setpoint, and a setpoint is a recommendation at most.
 
 ## Family entries and one home per product
 
-Every commercial product is recorded once, under the most specific material it is. Five canonical names
-are not materials: PA, PA-CF, PA-GF and TPE are families, and CoPA is another name for PA6/66. Their
+Every commercial product is recorded once, under the most specific material it is. Twenty-one canonical names
+are not materials: PA, PA-CF, PA-GF, TPE and, since m141, TPU are families (TPU over its five hardness classes); CoPA
+is another name for PA6/66; and fifteen one-product rows named after a maker's product line (Bambu's PLA Basic, PETG
+HF, TPU 90A and the rest, and eSUN's PLA Lite) are aliases of the material or class their product is (D86). Their
 Scope is `Family entry`, their members are in `data/tables/family_entries.csv` and `family_members.csv`, and they
 carry no grade, value, estimate or print window. They are never candidates. Searching a family's name
 lists its members and says what the family is; its drawer links them.
@@ -513,6 +515,11 @@ each duplicate grade with the retirement marker and marked its measurements and 
 duplicate record`, after proving each has an identical twin under the grade that keeps the product.
 Those records stay in the tables as an audit trail and never reach `db.json`. Products filed under a
 generic row but belonging to a specific one moved there with every record (PA6-CF, PA6-GF, TPU).
+
+Since m141 a product moves by its MaterialID (`scripts/data/records.mjs`, `moveGrade`; D86): the grade, every record
+filed under it and the printing citations of its own profiles and evidence change material, and every ID stays. A
+GradeID keeps the number of the material it was first filed under (G002-01, Bambu PLA Basic, is a PLA). The row it
+left becomes an alias, whose live coverage findings are superseded by Not applicable rows.
 
 The build fails if a family entry owns an active grade, if the mapping and the materials table disagree, or
 if a member is not an in-scope material; a test fails if any data sheet is filed under two materials.

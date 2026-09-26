@@ -1,7 +1,7 @@
 COUNT 31 shown PASS
-STATUS ☑ PASS 31 | ☐ UNKNOWN 62 | ☐ FAIL 60
-31 of the 153 materials in this database meet these requirements
-62 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+STATUS ☑ PASS 31 | ☐ UNKNOWN 61 | ☐ FAIL 50
+31 of the 142 materials in this database meet these requirements
+61 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -355,31 +355,35 @@ PET Engineering
 81.6–200 · 3
  — ☆
 PETG PASS
-1 of 27
+1 of 30
  1,270
-1,180–1,350 · 52
- 1.59
-0.5–3.5 · 14
- 47.3
-31.7–68.4 · 20
+1,180–1,350 · 55
+ 1.65
+0.5–3.5 · 17
+ 47
+31.7–68.4 · 23
  8.4
-4.1–24 · 20
+4.1–24 · 23
  70
-63–80 · 26
- — ☆
+63–80 · 29
+ 25.5
+25–26 · 2
+↗ ☆
 PLA PASS
-5 of 63
+5 of 68
  1,240
-1,170–1,329 · 129
+1,170–1,329 · 135
  2.27
-0.95–2.95 · 27
- 45.3
-26–70.4 · 44
- 8
-1.2–65 · 41
+0.95–2.95 · 32
+ 45
+26–70.4 · 50
+ 9.4
+1.2–65 · 47
  55
-50–135 · 62
- — ☆
+50–135 · 67
+ 28
+27–30 · 4
+↗ ☆
 PLA-NF PASS
 1 of 1
  1,350

@@ -169,6 +169,12 @@ nothing may cite a source that was not retrieved.
 **Retire a grade.** `npm run data:retire -- grade <GradeID>` sets Status `retired` and Availability "Retired
 mapping; audit trail only" and lists every record still on it, with what must happen to each.
 
+**Move a product to another material.** In a migration, `moveGrade(t, gradeId, materialId)` from
+`scripts/data/records.mjs`: the grade, every record filed under it and the printing citations of its own profiles and
+evidence change material, and every ID stays (D86). A material left with no product becomes a family entry or an alias
+(`family_entries.csv`, `family_members.csv`, Scope `Family entry`), and its live coverage findings are superseded, never
+edited (m141 is the example).
+
 **Retire a duplicate record.** Data status (measurements) or Evidence type (evidence) "Retired
 duplicate record", with a note naming the twin that stays. Quarantine a wrong price listing by
 setting Quarantined `TRUE` and saying why in its Regular price basis. A coverage finding a later row replaces gets Status

@@ -63,8 +63,12 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
     /**
      * Edit the one row whose fields equal `match`, for a table without a primary key (headlines: MaterialID and
      * HeadlineKey, with Use). Refuses when no row or several match, and, as set does, when the value moved.
+     *
+     * A field of the table's first unique key is the row's identity, so re-pointing it (a printing citation that goes
+     * with its profile to another material, m141) is the row leaving under one key and arriving under another. It
+     * needs `migration`, and writes the ledger row the data diff reads (D72), naming the key it now has.
      */
-    update(name, match, field, value, { expect } = {}) {
+    update(name, match, field, value, { expect, migration } = {}) {
       const t = table(name);
       if (!t.header.includes(field)) throw new Error(`${name}: no column "${field}"`);
       const rows = t.rows.filter((r) => Object.entries(match).every(([k, v]) => r[k] === v));
@@ -75,6 +79,14 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
       if (expect !== undefined && before !== expect) throw new Error(`${name} ${label} ${field}: expected "${expect}", found "${before}"; the data moved since this change was written`);
       const after = value == null || value === '' ? null : String(value).trim();
       if (before === after) return false;
+      const key = !pkOf(name) && schemas[name].uniqueKeys?.[0];
+      if (key?.includes(field)) {
+        if (!migration) throw new Error(`${name} ${label}: ${field} is part of the row's key; re-pointing it needs { migration }, which writes its ledger row`);
+        const keyOf = (r) => key.map((f) => r[f]).join(' | ');
+        const from = keyOf(row);
+        const to = keyOf({ ...row, [field]: after });
+        removals.push({ Table: name, Record: from, Migration: migration, Where: `re-pointed: the same row is now ${to}` });
+      }
       row[field] = after;
       t.dirty = true;
       changes.push({ table: name, record: label, action: 'Edited', field, before, after });

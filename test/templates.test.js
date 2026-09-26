@@ -43,7 +43,8 @@ test('no template recommends a support or interface material', () => {
 // most ordinary cheap filament was missing from the cheap-and-easy template.
 test('the indoor prototype template includes ordinary PLA', () => {
   const names = candidates(TEMPLATES.find((t) => t.name === 'Indoor prototype')).map((m) => m.name);
-  assert.ok(names.includes('PLA Basic'), names.join(', '));
+  // Since m141 Bambu's PLA Basic is a product of PLA, and PLA carries its price.
+  assert.ok(names.includes('PLA'), names.join(', '));
 });
 
 test('every template names what it does not check, and survives validation', () => {

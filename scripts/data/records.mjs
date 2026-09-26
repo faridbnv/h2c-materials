@@ -59,8 +59,38 @@ export function retireGrade(t, gradeId) {
 }
 
 /**
+ * Move a product to another material by its MaterialID (D86): the grade, every record filed under it (measurements,
+ * profiles, evidence, prices) and the printing citations of its own profiles and evidence. Every ID stays, so every
+ * link, pin and statement still resolves; the GradeID keeps the number of the material it was first filed under.
+ * A re-pointed citation's ledger row names `migration` (table-io update). Returns the number of records moved with
+ * it, or 0 when it is already there.
+ */
+export function moveGrade(t, gradeId, materialId, { migration } = {}) {
+  const from = t.get('grades', gradeId).MaterialID;
+  if (from === materialId) return 0;
+  t.get('materials', materialId);
+  t.set('grades', gradeId, 'MaterialID', materialId, { expect: from });
+  const own = new Set();
+  let records = 0;
+  for (const table of ['measurements', 'profiles', 'evidence', 'prices']) {
+    const pk = t.schemas[table].primaryKey;
+    for (const r of t.rows(table).filter((x) => x.GradeID === gradeId)) {
+      if (r.MaterialID !== from) throw new Error(`${table} ${r[pk]} is on ${gradeId} but filed under ${r.MaterialID}`);
+      t.set(table, r[pk], 'MaterialID', materialId, { expect: from });
+      own.add(r[pk]);
+      records++;
+    }
+  }
+  for (const l of t.rows('material_links').filter((x) => x.MaterialID === from && x.Link === 'printing' && own.has(x.RecordID))) {
+    t.update('material_links', { MaterialID: from, Link: 'printing', RecordID: l.RecordID }, 'MaterialID', materialId, { expect: from, migration });
+  }
+  return records;
+}
+
+/**
  * Re-file a grade under the material its sheet says it is, the way m25 re-filed HyperLite PP (D72: nothing is
- * deleted, and an ID is never reused). A GradeID carries its material's number, so the grade itself cannot move:
+ * deleted, and an ID is never reused). Since m141 moveGrade (above) is the lighter way, and the one to use (D86); this
+ * copy-and-retire is kept for the migrations that used it. Here the grade is not moved:
  * the old grade is retired and a copy takes the next ID under the new material; each of its measurements is copied
  * under the new grade and the original retired as a duplicate naming its twin; each of its print profiles and their
  * notes are copied; a source that names the old grade names both. It refuses where a pinned headline value rests on

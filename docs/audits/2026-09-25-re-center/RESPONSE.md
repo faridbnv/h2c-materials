@@ -612,3 +612,40 @@ as the page judges (products, comparable values, Explore):
 
 Nothing was re-read in this step; it names the targets.
 
+## Phase 5, part 1: the owner's decisions, and one maker's product lines are products (2026-09-25)
+
+*In plain words: the owner decided how products are grouped. Bambu's own product lines stop being materials and join
+the material they are, and TPU is divided by hardness, because a flexible part is chosen by it.*
+
+**The decisions** were asked with the facts and a recommendation each (`docs/GOALS.md`, "Decided on 2026-09-25, for
+phase 5"): merge the product lines, and split TPU by hardness for every maker rather than keep one TPU; give each family
+a "polymer not stated" home and import the 50 sheets waiting on it now; keep metal and ceramic sintering filaments out
+of scope, with the other rulings on the proposed defaults; keep eSUN's densities.
+
+**m141** (D86) moves 85 products with the 1,502 records filed under them:
+- PLA gains Bambu's PLA Basic, Matte, Basic Gradient, Tough+ and Translucent and eSUN PLA-Lite; PLA Silk gains PLA
+  Silk+ and Silk Dual Color; PETG gains PETG Basic, HF and Translucent. The eleven rows are aliases now.
+- TPU's 74 products are read by the Shore hardness their makers rate them and filed in five classes: 87A or softer
+  (16), 88 to 92A (12), 93 to 97A (25), harder than 95A (13) and not stated (8). The rating is the product's name, else
+  its sheet's published hardness; RECIFLEX's "92-98 Shore A" counts at its middle. TPU is a family entry over the five,
+  and Bambu's four TPU rows aliases of their class.
+- A check caught four sheets filed under two classes. Two are one formulation under two names (colorFabb varioShore
+  and varioShore Prosthetic, eSUN TPU 95A and TPU HS: R053 twins whose sheets print the same numbers), so the unrated
+  one takes its twin's class. Two are sheets R053 recorded once for products the makers rate differently (Essentium's
+  80A and 95A, FormFutura's rTPU 85A, 90A and 95A); those are not one formulation, and each now has its own key.
+- A product moves by its MaterialID and keeps its ID (`moveGrade`, `scripts/data/records.mjs`): the old retire-and-copy
+  would have duplicated all 1,502 records and broken every link to them. Coverage findings of the rows left without a
+  product are superseded, never edited; four "Gap" findings the moved products fill (PLA's and PETG's price, PLA Silk's
+  price and environment) are superseded by Resolved rows.
+
+**The decision diff** (`build/snapshot/templates.csv`): PLA, PLA Silk and PETG now pass the Indoor prototype, since
+their products carry the sampled Canadian prices that sat only on the product lines; PETG passes the Lightweight
+structure on Bambu PETG Basic; TPU answers per class (in the Flexible component the 95A class passes on 7 of its 25
+products, the 90A class on 4 of 12, the softer and harder classes on 1 of 16 and 3 of 13). The fifteen product-line rows
+leave the results. The blocking-gaps report now counts 92 unknown in the Indoor prototype where it counted 98.
+
+**Checks.** One check was loosened, in its own commit (`4a6200b`), with its reason: the dense-solve comparison's
+variance tolerance, 1e-10 of the prior, which the larger hold-out of a PLA with 204 products exceeds by
+floating-point arithmetic alone (a relative 1e-8). Eight tests that named the merged rows now name the product or the
+class. The drawer's pointer guard counts the aliases' prose too: every pointer resolves, 50 as before.
+

@@ -270,7 +270,8 @@ test('mis-filed products moved to the material they are, with everything recorde
   assert.equal(at('G050-02').product, 'PA6 CF');
   // The three re-filed grades are its own; later batches add more beside them, which is not a re-filing.
   for (const id of ['G051-01', 'G051-02', 'G051-03']) assert.ok(byName('PA6-GF').gradeIds.includes(id), id);
-  assert.ok(byName('TPU').gradeIds.includes('G039-03'));
+  // PolyFlex TPU90 came to TPU from TPE; since m141 TPU is read by hardness, and it is a 90A.
+  assert.ok(byName('TPU 90A class').gradeIds.includes('G039-03'));
   for (const gid of ['G050-02', 'G051-02', 'G051-03', 'G039-03']) {
     const mid = at(gid).materialId;
     assert.ok(db.measurements.filter((x) => x.gradeId === gid).every((x) => x.materialId === mid), gid);
@@ -293,14 +294,13 @@ test('mis-filed products moved to the material they are, with everything recorde
   assert.equal(db.meta.counts.retiredDuplicates.evidence, 16);
 });
 
-test('a heat deflection whose load the sheet leaves unstated is as published, and its material is estimated', () => {
-  // eSUN PLA-Lite's 53 °C names ISO 75 but no load. It is counted apart (D84) and decides only when the reader asks;
-  // the material's heat deflection is estimated, with that value among its evidence.
-  const lite = byName('PLA Lite');
-  assert.deepEqual([lite.summary.hdt045.n, lite.summary.hdt045.asPublished.n], [0, 1]);
-  assert.equal(db.grades.find((g) => g.id === 'G004-01').headline.hdt045.caveat, 'load-not-stated');
-  const e = lite.headline.hdt045.estimate;
-  assert.ok(!lite.headline.hdt045.known && e && e.evidence.some((ev) => ev.items.some((i) => i.measurementId === 'V001902')), 'PLA Lite HDT estimate');
+test('a heat deflection whose load the sheet leaves unstated is as published, and counted apart in its material', () => {
+  // eSUN PLA-Lite's 53 °C names ISO 75 but no load. It is counted apart (D84) and decides only when the reader asks.
+  const lite = db.grades.find((g) => g.id === 'G004-01');
+  assert.deepEqual([lite.headline.hdt045.level, lite.headline.hdt045.caveat], ['as-published', 'load-not-stated']);
+  const pla = db.materials.find((m) => m.id === lite.materialId);
+  assert.equal(pla.name, 'PLA');
+  assert.ok(pla.summary.hdt045.asPublished.n >= 1 && pla.summary.hdt045.asPublished.min <= 53, 'counted apart in PLA');
 });
 
 // Regression: Zytel 101L's moulded 3.1 GPa vetoed screening PA66 out of "stiffness at least 3 GPa".
@@ -502,16 +502,14 @@ test('the snapshot comes from the Method sheet', () => {
 // evidence. PC FR and PAHT-CF reach their whole window. The window is the Bambu product's own (D83): the material's
 // union widens when another maker's product publishes a wider one, as Polymaker's PolyMax PC-FR (90-100 °C) did in m136.
 test('chamber windows recovered from the cited Bambu data sheets are compiled', () => {
-  const byName = (n) => db.materials.find((m) => m.name === n);
-  for (const [name, min, max] of [['PLA Basic', 25, 45], ['PETG HF', 35, 50], ['PC FR', 45, 60], ['PAHT-CF', 45, 60], ['Support for PA/PET', 45, 60]]) {
-    const m = byName(name);
-    const bambu = db.grades.filter((g) => g.materialId === m.id && !g.retired && g.manufacturer === 'Bambu Lab');
-    assert.equal(bambu.length, 1, name);
-    assert.deepEqual([bambu[0].print?.chamber?.min, bambu[0].print?.chamber?.max], [min, max], name);
-    assert.equal(bambu[0].print.chamber.verdict, 'within', name);
-    assert.equal(m.print.chamberC?.min, min, name);
-    assert.equal(m.gates.chamber.verdict, 'within', name);
+  // Each is the Bambu product's own window (D83); PLA Basic and PETG HF are products of PLA and PETG since m141.
+  for (const [id, min, max] of [['G002-01', 25, 45], ['G022-01', 35, 50], ['G036-01', 45, 60], ['G048-01', 45, 60], ['G080-01', 45, 60]]) {
+    const g = db.grades.find((x) => x.id === id);
+    assert.equal(g.manufacturer, 'Bambu Lab', id);
+    assert.deepEqual([g.print?.chamber?.min, g.print?.chamber?.max], [min, max], id);
+    assert.equal(g.print.chamber.verdict, 'within', id);
   }
+  for (const name of ['PC FR', 'PAHT-CF', 'Support for PA/PET']) assert.equal(byName(name).gates.chamber.verdict, 'within', name);
 });
 
 // Regression: a 60-90 °C chamber window was read by its upper end alone, so a material whose own
@@ -655,9 +653,10 @@ test('raw-material supplier values never become a product\'s value', () => {
 
 // Flexural is not tensile: PLA Lite publishes a flexural modulus and no tensile one.
 test('a flexural modulus never fills the stiffness headline', () => {
-  const lite = db.materials.find((m) => m.name === 'PLA Lite');
-  assert.equal(lite.headline.tensileModulusXY.known, false);
-  assert.ok(db.measurements.some((m) => m.materialId === lite.id && m.property === 'Flexural modulus'));
+  // eSUN PLA-Lite publishes a flexural modulus and no tensile one: it has no stiffness value of its own.
+  const lite = db.grades.find((g) => g.id === 'G004-01');
+  assert.equal(lite.headline.tensileModulusXY, undefined);
+  assert.ok(db.measurements.some((m) => m.gradeId === lite.id && m.property === 'Flexural modulus'));
 });
 
 // A research band is inference about a setpoint. It is shown only where no source says anything
@@ -746,7 +745,8 @@ test('recovered Bambu chemical records keep each data sheet\'s own verdict', () 
   assert.equal(finding('ABS-GF', 'Resistance to Acid'), 'Resistant');
   assert.equal(finding('PPS-CF', 'Resistance to Organic Solvent'), 'Resistant');
   assert.equal(finding('PVA', 'Solubility'), 'Soluble in water');
-  assert.equal(finding('PLA Tough+', 'Resistance to Alkali'), 'Not resistant');
+  // PLA Tough+ is a product of PLA since m141, and its record went with it.
+  assert.equal(db.evidence.find((e) => e.gradeId === 'G006-01' && e.topic === 'Resistance to Alkali')?.finding, 'Not resistant');
 });
 
 // Systematic data audit: use the actual source tables, then introduce independent corruption.
@@ -842,8 +842,9 @@ test('retired CoPE identity is archival, never active procurement or printing ev
 });
 
 test('a headline cannot borrow another property simply because its value matches', () => {
-  assert.ok(errorsFor(c=>{const h=mat(c,'PLA Basic').headline.tensileStrengthXY;c.measurements.find(m=>m.id===h.measurementId).property='Flexural strength';}).some(e=>/inconsistent property/.test(e)));
-  assert.ok(errorsFor(c=>{const h=mat(c,'PLA Basic').headline.tensileStrengthXY;c.measurements.find(m=>m.id===h.measurementId).unit='GPa';}).some(e=>/inconsistent property/.test(e)));
+  const value = (c) => c.grades.find((g) => g.id === 'G002-01').headline.tensileStrengthXY;
+  assert.ok(errorsFor(c=>{const h=value(c);c.measurements.find(m=>m.id===h.measurementId).property='Flexural strength';}).some(e=>/inconsistent property/.test(e)));
+  assert.ok(errorsFor(c=>{const h=value(c);c.measurements.find(m=>m.id===h.measurementId).unit='GPa';}).some(e=>/inconsistent property/.test(e)));
 });
 
 test('the estimate numerics: normal quantiles, soft limits and hardness', () => {

@@ -36,9 +36,10 @@ test('makers run the polymer and the filler together, and write a nylon as a nam
   assert.ok(!tokenise('packaging').includes('pa'));
 });
 
-test('a product-level row answers only for the maker whose product it is', () => {
-  assert.equal(classify('PLA Matte', 'Bambu Lab').materialId, 'M003');
-  // Another maker's matte PLA is a finish on plain PLA, not Bambu's product.
+test('a maker\'s product line is a product of its material, whoever sells it (D86)', () => {
+  // Until m141 Bambu's PLA Matte was a material of its own, answering only for Bambu; it is an alias of PLA now.
+  assert.equal(classify('PLA Matte', 'Bambu Lab').materialId, 'M001');
+  // Another maker's matte PLA is a finish on plain PLA too.
   assert.equal(classify('PLA Matte', 'SUNLU').materialId, 'M001');
   assert.equal(classify('matte PLA', 'Fiberlogy').materialId, 'M001');
 });
@@ -153,7 +154,8 @@ test('a product-level row needs a maker, because most documents do not name one'
   // 723 of the corpus's 1,936 documents name no maker. Without this test every one of them took Bambu's SKU rows.
   assert.equal(classify('PLA BASIC', '').materialId, 'M001');
   assert.equal(classify('PLA Basic', 'SUNLU').materialId, 'M001');
-  assert.equal(classify('PLA Basic', 'Bambu Lab').materialId, 'M002');
+  // And Bambu's own, since m141 (D86): PLA Basic is a PLA.
+  assert.equal(classify('PLA Basic', 'Bambu Lab').materialId, 'M001');
 });
 
 test('a class row is reachable however its name and its modifier are written', () => {

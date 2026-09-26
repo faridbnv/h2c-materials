@@ -1,25 +1,25 @@
 ACROSS ITS PRODUCTS
 Property Typical Range Products Set apart
-Density kg/m³ 1,240 1,170–1,329 129 of 178 18 variants (800–4,000)
-Stiffness GPa 2.27 0.95–2.95 27 of 178 46 without direction or load (1.44–4.78); 11 variants (0.715–4.73)
-Strength MPa 45.3 26–70.4 44 of 178 54 without direction or load (30–71); 13 variants (12.6–65)
-Stretch before breaking % 8 1.2–65 41 of 178 48 without direction or load (2.6–84); 11 variants (2.4–40)
-Heat resistance °C 55 50–135 62 of 178 21 without direction or load (53–108); 7 variants (55–115)
-Price CAD/kg — — 0 of 178 —
+Density kg/m³ 1,240 1,170–1,329 135 of 184 18 variants (800–4,000)
+Stiffness GPa 2.27 0.95–2.95 32 of 184 46 without direction or load (1.44–4.78); 11 variants (0.715–4.73)
+Strength MPa 45 26–70.4 50 of 184 54 without direction or load (30–71); 13 variants (12.6–65)
+Stretch before breaking % 9.4 1.2–65 47 of 184 48 without direction or load (2.6–84); 11 variants (2.4–40)
+Heat resistance °C 55 50–135 67 of 184 22 without direction or load (53–108); 7 variants (55–115)
+Price CAD/kg 28 27–30 4 of 184 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
 WHAT MAKERS SAY
-171 of its 198 products carry statements from their makers, in the makers' words under each product below; 27 products' data sheets say nothing beyond their numbers. The makers' websites have not been searched yet.
-Good for: 17 of 39 makers (60 products)
-Benefits: 29 of 39 makers (126 products)
+176 of its 204 products carry statements from their makers, in the makers' words under each product below; 27 products' data sheets say nothing beyond their numbers; 1 product has no document read. The makers' websites have not been searched yet.
+Good for: 18 of 39 makers (61 products)
+Benefits: 30 of 39 makers (129 products)
 Pitfalls and limitations: 10 of 39 makers (13 products)
 Warping and shrinkage: 16 of 39 makers (34 products)
 Precision and tolerance: 7 of 39 makers (13 products)
-Surface finish: 22 of 39 makers (77 products)
-Adhesion between layers: 7 of 39 makers (15 products)
+Surface finish: 23 of 39 makers (79 products)
+Adhesion between layers: 8 of 39 makers (17 products)
 Moisture sensitivity: 9 of 39 makers (31 products)
 Nozzle wear: 9 of 39 makers (35 products)
-Odour and emissions: 13 of 39 makers (21 products)
-Supports and removal: 8 of 39 makers (33 products)
+Odour and emissions: 13 of 39 makers (26 products)
+Supports and removal: 8 of 39 makers (38 products)
 Printing advice: 12 of 39 makers (20 products)
 Of the products whose documents were read, 147 give no chamber or enclosure need, 150 no drying schedule and 189 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.

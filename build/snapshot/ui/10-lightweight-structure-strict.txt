@@ -1,7 +1,7 @@
-COUNT 27 shown PASS
-STATUS ☑ PASS 27 | ☐ UNKNOWN 33 | ☐ FAIL 93
-27 of the 153 materials in this database meet these requirements
-33 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
+COUNT 24 shown PASS
+STATUS ☑ PASS 24 | ☐ UNKNOWN 32 | ☐ FAIL 86
+24 of the 142 materials in this database meet these requirements
+32 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
@@ -239,22 +239,36 @@ Polycarbonate
  5.95
 2.4–9.5 · 2
  134 — ☆
-PETG Basic PASS
-1 of 1
- 1,250 2.78 51 9.5 71 25↗ ☆
+PETG PASS
+1 of 48
+ 1,270
+1,180–1,350 · 55
+ 1.65
+0.5–3.5 · 17
+ 47
+31.7–68.4 · 23
+ 8.4
+4.1–24 · 23
+ 70
+63–80 · 29
+ 25.5
+25–26 · 2
+↗ ☆
 PLA PASS
-11 of 59
+14 of 64
  1,240
-1,170–1,329 · 129
+1,170–1,329 · 135
  2.27
-0.95–2.95 · 27
- 45.3
-26–70.4 · 44
- 8
-1.2–65 · 41
+0.95–2.95 · 32
+ 45
+26–70.4 · 50
+ 9.4
+1.2–65 · 47
  55
-50–135 · 62
- — ☆
+50–135 · 67
+ 28
+27–30 · 4
+↗ ☆
 PLA Aero PASS
 1 of 6
  1,150
@@ -268,15 +282,6 @@ PLA Aero PASS
  53
 48–59 · 7
  58↗ ☆
-PLA Basic PASS
-1 of 1
- 1,240 2.58≈ 35 12.2 57 28↗ ☆
-PLA Basic Gradient PASS
-1 of 1
- 1,240 2.58≈ 36 15.2 57 no price↗ ☆
-PLA Translucent PASS
-1 of 1
- 1,220 2.88 55.4 11 60 30↗ ☆
 PLA-CF PASS
 3 of 12
  1,250

@@ -98,7 +98,28 @@ panel is built with lane 3 (m140; D85, its last part).
 - **Printability per product.** Each product's own profile screens it. A union across a material's products never
   does.
 - **New document imports are paused** until the re-center is built. The documents already fetched are mined first:
-  for the record, print recipes and makers' know-how.
+  for the record, print recipes and makers' know-how. The owner lifted it for one set on 2026-09-25 (below).
+
+## Decided on 2026-09-25, for phase 5
+
+Asked with the facts and a recommendation each; the owner's answers:
+
+1. **A maker's product line is a product, and TPU is read by hardness.** The eleven PLA, PLA Silk and PETG rows that
+   were one product each (Bambu's PLA Basic, Matte, Basic Gradient, Tough+, Translucent, Silk+, Silk Dual Color, PETG
+   Basic, HF, Translucent, and eSUN's PLA-Lite) become products of the material they are, their names kept as aliases.
+   TPU is split by the Shore hardness its makers rate it, for every maker: 87A or softer, 88 to 92A, 93 to 97A,
+   harder than 95A, and hardness not stated; Bambu's four TPU rows are aliases of their class. Built in m141 (D86).
+2. **A family gets a "polymer not stated" home,** for products whose sheets name only the family ("colorFabb PA Neat",
+   "eSUN TPE 83A"): shown and judged like any product, clearly labelled, with no estimate. The 50 sheets waiting on it
+   are imported now, the owner's exception to the pause.
+3. **Metal and ceramic sintering filaments are out of scope** (316L, 17-4 PH, SiC, alumina): recorded, never a
+   candidate, because the printed part must be debinded and sintered elsewhere and its properties are the sintered
+   metal's. The other rulings pending follow the defaults proposed: Antero 800NA is PEKK (out of scope); PI is a new
+   out-of-scope material; colorFabb Amphora AM3300 is nGen / Amphora; WearX is a PA6; the styrenic elastomers (TPS) are a
+   material of their own; the elastomers named only by hardness and the undisclosed bio-copolymers (FiberFlex, MattFlex,
+   GreenTEC, niceBIO) take their family's "polymer not stated" home.
+4. **eSUN's densities keep counting.** m128's reading stands: a density is not measured on the bar eSUN's sentence
+   describes, and most makers' density is the resin's.
 
 ## Working rules
 

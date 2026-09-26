@@ -153,7 +153,7 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `MEAS-PHYSICS-WINDOW` | 182 | See item 2. |
 | `MEAS-PHYSICS-ORDER` | 47 | See item 2. |
 | `MEAS-PHYSICS-STRAIN` | 31 | See item 2. |
-| `COVERAGE-SUPERSEDED` | 9 | A coverage finding a later row replaces. |
+| `COVERAGE-SUPERSEDED` | 8 | A coverage finding a later row replaces. |
 | `MEAS-CROSS-SOURCE-TWIN` | 5 | Two sources publishing the same numbers: two revisions of one Polymaker sheet each, republished without remeasuring. |
 | `EST-OUTLIER` | 2 | A material's typical product far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; and PLA-EC's, whose two conductive PLAs publish 1.24 and 1.35 where the model expects about 1.52. TPU's elongation stopped being one when phase 4 made TPU's value the median of its products (m137). |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
@@ -162,7 +162,7 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 | `MEAS-LOCATOR-DIRECTION` | 2 | HDT is recorded without a direction by convention; the sheet's "XY" names the bar's build orientation, not a test axis. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
 
-295 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
+294 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
 that no longer occurs, so this list cannot go stale unnoticed.
 
 Estimates that are merely wide because the evidence is thin are `EST-THIN`, informational, and need no reviewer:
@@ -341,13 +341,6 @@ was chosen by an agent and none by a person; a sample of 50 was read against the
   the sites the data holds, is `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md` (`npm run audit:know-how`).
   Six procurement products have no document read at all (no cached text): eSUN PLA-Lite, 3DXTECH 3DXPRO LG PETG and
   AMIDEX Nylon 12, purefil POM, Kimya PEBA-S, DSM Arnitel ID 2045.
-- **eSUN's densities rest on m128's reading.** 49 cached eSUN sheets print "The physical properties, mechanical
-  properties, thermal properties, and electrical properties of the filament are obtained based on the injection molding
-  spline test." Lane 3 listed this as unread; it is not: m128 (2026-09-21) typed the 202 bar values (strength, modulus,
-  elongation, flexural, impact, HDT) "Raw material value", so they decide nothing, and left the 39 densities "not
-  explicitly established" because a density is not measured on the bar the sentence describes. 38 of them are their
-  products' density. If the owner reads "physical properties" as covering density, those 38 would stop deciding and
-  PA6/66-CF, whose only density is eSUN's, would fall back to an estimate.
 - **A document that covers two products speaks for the one the tables link.** Raise3D's PA12 CF sheet also describes
   PA12 CF+, and three CF+ statements sit on Raise3D Industrial PA12 CF (G053-09). The Panchroma TDS that covers Silk PLA
   and CoPE was left out whole.

@@ -54,7 +54,10 @@ export function synthesize(factor, outRoot) {
     copy('prices', originals.prices.filter(own), ['PriceID', 'MaterialID', 'GradeID']);
     copy('coverage', originals.coverage.filter(own), ['CoverageID', 'MaterialID']);
     copy('headlines', originals.headlines.filter(own), ['MaterialID', 'MeasurementID']);
-    copy('material_links', originals.material_links.filter(own), ['MaterialID', 'RecordID']);
+    // A material may cite a family entry's records as family context (the TPU classes cite TPU's, m141). Those are not
+    // copied, so a copy cites the original.
+    const familyRecords = new Set([...originals.evidence, ...originals.profiles].filter((r) => familyEntries.has(r.MaterialID)).map((r) => r.EvidenceID ?? r.ProfileID));
+    copy('material_links', originals.material_links.filter(own), ['MaterialID', 'RecordID'], (r) => (familyRecords.has(r.RecordID) ? { RecordID: r.RecordID } : {}));
     const materialOf = new Map(originals.measurements.map((m) => [m.MeasurementID, m.MaterialID]));
     copy('fatigue_tests', originals.fatigue_tests.filter((r) => !familyEntries.has(materialOf.get(r.MeasurementID))), ['MeasurementID']);
   }
