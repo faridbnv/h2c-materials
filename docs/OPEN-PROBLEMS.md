@@ -389,7 +389,9 @@ database holds, 2 are not data sheets, and 22 are deferred again with the gap na
 - **A TPU rated only in prose needs a ruling.** The reader files a TPU by the rating in its name or its sheet's Shore
   hardness row (hardness-classes.csv); Copper3D's MD Flex says "TPU98A" in a sentence, and R197 pins it.
 - **Heat deflection names its families** (hdt045 Applies to, D87). A new family of rigid polymers must be added there,
-  or heat deflection will not apply to it; the build does not warn.
+  or heat deflection will not apply to it. `data:lint` now names every family with candidate materials that the list
+  leaves out (HEADLINE-FAMILY-UNLISTED); Flexible Elastomers is accepted with its reason, so a new family fails verify
+  until someone decides.
 - **Three profiles leave printed settings unread**, as §12 describes for the class: Spectrum ThermaTech PA's nozzle,
   3DXTECH WearX's bed and enclosure, and BigRep HI-TEMP CF's bed. Their gates stay unknown until lane 2 types them.
 
@@ -402,19 +404,10 @@ npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) 
 ## Coverage, in one number
 
 Of 795 coverage rows, 267 record a gap, 93 a comparability limitation, 41 a reviewed limitation and 13 a partial
-resolution. Those are not defects; they are the database saying what it does not know. The headline gaps, against
-the 153 candidate materials (the five family entries own no value):
-
-| Headline | Measured on |
-|---|---|
-| Density | 127 of 153 materials |
-| Stiffness, XY | 92 |
-| Elongation, XY | 92 |
-| Heat deflection at 0.45 MPa | 88 |
-| Strength, XY | 78 |
-| Price (CAD/kg) | 38 |
-
-The rest are estimated, and every estimate says how far to trust it.
+resolution. Those are not defects; they are the database saying what it does not know. How many material values come
+from products and how many are estimated is generated in `build/snapshot/counts.md`, and each material's headline,
+with its products, in `build/snapshot/headlines.csv`; every estimate says how far to trust it. (A table of headline
+gaps against "153 candidate materials" stood here and went stale with m141 and b34.)
 
 ```bash
 npm run sql --silent -- "select status, count(*) from coverage group by 1 order by 2 desc"

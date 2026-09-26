@@ -60,6 +60,19 @@ test('a superseded coverage row is history, not a duplicate', () => {
   assert.deepEqual(run([row('C1', 'Superseded', 'Superseded by C2: x'), row('C2', 'Gap', 'x')]), []);
 });
 
+test('a headline limited to named families names every family with candidates, or a reason is accepted', () => {
+  const materials = [{ MaterialID: 'M1', Family: 'PLA', Scope: 'H2C-relevant' }, { MaterialID: 'M2', Family: 'Flexible Elastomers', Scope: 'H2C-relevant' },
+    { MaterialID: 'M3', Family: 'Metal and Ceramic Sintering', Scope: 'Excluded' }, { MaterialID: 'M4', Family: 'Polyketones', Scope: 'H2C-relevant' }];
+  const run = (appliesTo) => lintData({
+    materials: { header: Object.keys(materials[0]), rows: materials },
+    headline_definitions: { header: ['HeadlineKey', 'Applies to'], rows: [{ HeadlineKey: 'hdt045', 'Applies to': appliesTo }, { HeadlineKey: 'density', 'Applies to': '' }] },
+  }, {}).filter((f) => f.code === 'HEADLINE-FAMILY-UNLISTED').map((f) => f.record);
+  // A family that arrived after the list was written is named; an excluded family is not a candidate.
+  assert.deepEqual(run('Morphology: amorphous | not modelled; Family: PLA'), ['hdt045 | Flexible Elastomers', 'hdt045 | Polyketones']);
+  assert.deepEqual(run('Family: PLA | Polyketones | Flexible Elastomers'), []);
+  assert.deepEqual(run('Morphology: amorphous'), []);
+});
+
 test('a locator that names one direction must agree with the Direction column; mixed labels are left alone', () => {
   const f = (id, Locator, Direction) => row({ MeasurementID: id, Locator, Direction, 'Normalized value': id.slice(-1) });
   const found = codes([

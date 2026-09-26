@@ -33,6 +33,7 @@ export const LINT_RULES = {
   'SOURCE-TITLE-NOT-TITLE': 'A source Title that is not the document\'s own title: a shop page\'s chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf) or "untitled"; write the title the publisher printed on the sheet or page.',
   'COVERAGE-DUPLICATE': 'Two coverage rows for one material and domain with the same status and finding.',
   'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same status; an older finding may have been overtaken by a newer one.',
+  'HEADLINE-FAMILY-UNLISTED': 'A headline limited to named families leaves out a family with candidate materials that nobody named: a new rigid family would have no heat deflection at all, and no warning. Name the family in Applies to, or accept with why the headline means nothing for it (an elastomer, D56).',
 };
 
 /**
@@ -397,6 +398,18 @@ export function lintData(tables, schemas) {
     for (const [status, same] of byStatus) {
       const distinct = [...new Map(same.map((r) => [r.Finding, r])).values()];
       if (distinct.length > 1 && !MISSING.test(status)) add('COVERAGE-SUPERSEDED', 'coverage', distinct.map((r) => r.CoverageID).join(' | '), '', `${k}: ${distinct.length} "${status}" findings`);
+    }
+  }
+
+  // A headline limited to named families (heat deflection names the rigid ones, D87). A family is left out on purpose,
+  // with the reason accepted, or by oversight, when it arrived after the list was written.
+  const candidates = (tables.materials?.rows ?? []).filter((m) => m.Scope === 'H2C-relevant');
+  for (const h of tables.headline_definitions?.rows ?? []) {
+    const clause = String(h['Applies to'] ?? '').split(';').map((x) => x.trim()).find((x) => /^Family\s*:/.test(x));
+    if (!clause) continue;
+    const named = new Set(clause.replace(/^Family\s*:/, '').split('|').map((x) => x.trim()));
+    for (const family of [...new Set(candidates.map((m) => m.Family))].filter((f) => !named.has(f)).sort()) {
+      add('HEADLINE-FAMILY-UNLISTED', 'headline_definitions', `${h.HeadlineKey} | ${family}`, 'Applies to', `${family} has candidate materials and is not named`);
     }
   }
   return findings;
