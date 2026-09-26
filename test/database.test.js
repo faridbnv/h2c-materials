@@ -37,7 +37,8 @@ test('every product value equals its measurement, and a material\'s headline is 
       const v = g.headline?.[key];
       if (!v) continue;
       assert.equal(byId.get(v.measurementId).value, v.value, `${g.id} ${key}`);
-      assert.equal(byId.get(v.measurementId).gradeId, g.id, `${g.id} ${key}`);
+      // A twin's value is its sibling's measurement (D89); test/products.test.js checks who the sibling may be.
+      assert.equal(byId.get(v.measurementId).gradeId, v.from?.origin === 'twin' ? v.from.gradeId : g.id, `${g.id} ${key}`);
       checked++;
     }
   }

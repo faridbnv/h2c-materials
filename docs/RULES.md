@@ -90,7 +90,7 @@ what it means and how to fix it.
 | `OWN-GRADE-MATERIAL` | error | A record is filed under a material its grade does not belong to. | File it under the grade's material, or use that material's grade. |
 | `OWN-RETIRED-GRADE` | error | An active record uses a retired grade. | Retire or quarantine the record, or move it to the active grade. |
 | `GRADES-LIST` | error | A material's grade list is inconsistent with its grades. | Check grade Role, Status and MaterialID. |
-| `HEADLINE-CITATION` | error | A product value cites a missing, quarantined or another product's measurement, or a material names a typical product that is not its own. | A defect in build/src/products.js: a product value is chosen from that product's own active measurements. |
+| `HEADLINE-CITATION` | error | A product value cites a missing, quarantined or another product's measurement (other than a twin's: an active product of the same material under the same formulation key, D89), or a material names a typical product that is not its own. | A defect in build/src/products.js: a product value is chosen from that product's own active measurements, or read from its twin's where it publishes none. |
 | `LINK-CITATION` | error | A material link or headline evidence cites a record that does not exist, is the wrong kind, or belongs to another material. | Correct the RecordID or the Link kind. |
 | `GUIDANCE-MISMATCH` | error | Printing guidance does not quote its first cited profile. | Cite the right profile first. |
 | `ENVIRONMENT-NOT-OWN` | error | Environmental evidence is not exactly the material's own exposure records. | File exposure evidence under the material it tests (D38). |

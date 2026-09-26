@@ -668,25 +668,36 @@ function productValues(g, c) {
     const mark = v.level === 'as-published'
       ? ` ${explainButton('not comparable', LEVEL_NOTE[v.caveat] ?? 'Not comparable.', { cls: 'missing lvl', head: 'Published without its conditions' })}` : '';
     const anneal = v.anneal ? ` <span class="fine">after annealing${v.anneal.tempC != null ? ` at ${fmtNumber(v.anneal.tempC)} °C` : ''}${v.anneal.hours != null ? ` for ${fmtNumber(v.anneal.hours)} h` : ''}</span>` : '';
-    return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}</dd>`;
+    return `<dt>${esc(h.labels.plain)}</dt><dd>${value}${mark}${anneal}${fromNote(v.from)}</dd>`;
   });
   return rows.length ? `<dl class="kv small product-values">${rows.join('')}</dl>` : '<div class="fine">This product publishes none of the key numbers comparably.</div>';
 }
 
-/** How to print a product, from its own profiles (grades[].print): never its material's union. */
+/**
+ * Where a value or a part of a recipe was read when it is not the product's own sheet: its twin's, which prints the
+ * same table (D89), or its material's printer maker's guide (D88). Always said beside it.
+ */
+const fromNote = (from) => (from ? ` <span class="fine from-note from-${esc(from.origin)}">${esc(from.label)}</span>` : '');
+
+/**
+ * How to print a product, from its own profiles (grades[].print): never its material's union. A part its own profiles
+ * are silent on may be its twin's or its material's printer maker's guide's, and says so (D88, D89).
+ */
 function printCard(g) {
   const p = g.print;
-  if (!p?.profileIds.length && !p?.anneal?.length) return '<div class="print-card fine">No print settings recorded for this product. Its maker\'s other products may be similar, but that is not this product\'s data.</div>';
+  const from = p?.from ?? {};
+  const some = !!p?.profileIds.length || Object.keys(from).some((a) => a !== 'anneal');
+  if (!some && !p?.anneal?.length) return '<div class="print-card fine">No print settings recorded for this product. Its maker\'s other products may be similar, but that is not this product\'s data.</div>';
   const win = (a) => (a.state === 'range' ? `${a.min != null && a.min !== a.max ? `${fmtNumber(a.min)}–` : ''}${fmtNumber(a.max)} °C`
     : a.state === 'not-required' || a.state === 'ambient' ? 'not required' : a.state === 'unknown' ? 'not published' : a.state.replace(/-/g, ' '));
-  const axis = (label, a) => (p.profileIds.length ? `<dt>${label}</dt><dd>${esc(win(a))} ${gateChip(a, label)}</dd>` : '');
+  const axis = (label, key) => (some ? `<dt>${label}</dt><dd>${esc(win(p[key]))} ${gateChip(p[key], label)}${fromNote(from[key])}</dd>` : '');
   const anneal = (p.anneal ?? []).map((x) => `${x.tempC != null ? `${fmtNumber(x.tempC)} °C` : 'temperature not stated'}${x.hours != null ? ` for ${fmtNumber(x.hours)} h` : ''}`);
   return `<div class="print-card"><div class="shared-head">How to print it</div><dl class="kv small">
-    ${axis('Nozzle', p.nozzle)}${axis('Bed', p.bed)}${axis('Chamber', p.chamber)}
-    ${p.profileIds.length ? `<dt>Enclosure</dt><dd>${esc(p.enclosure === 'unknown' ? 'not published' : p.enclosure.replace(/-/g, ' '))}</dd>
-    <dt>Hardened nozzle</dt><dd>${p.hardenedNozzle === true ? 'required' : p.hardenedNozzle === false ? 'not needed' : 'not published'}</dd>
-    <dt>Drying</dt><dd>${p.drying ? `${p.drying.tempC != null ? `${fmtNumber(p.drying.tempC)} °C` : 'published'}${p.drying.hours != null ? ` for ${fmtNumber(p.drying.hours)} h` : ''}` : 'not published'}</dd>` : ''}
-    ${anneal.length ? `<dt>Annealing</dt><dd>${esc(anneal.join('; '))}: some of its values were measured after it</dd>` : ''}
+    ${axis('Nozzle', 'nozzle')}${axis('Bed', 'bed')}${axis('Chamber', 'chamber')}
+    ${some ? `<dt>Enclosure</dt><dd>${esc(p.enclosure === 'unknown' ? 'not published' : p.enclosure.replace(/-/g, ' '))}${fromNote(from.enclosure)}</dd>
+    <dt>Hardened nozzle</dt><dd>${p.hardenedNozzle === true ? 'required' : p.hardenedNozzle === false ? 'not needed' : 'not published'}${fromNote(from.hardenedNozzle)}</dd>
+    <dt>Drying</dt><dd>${p.drying ? `${p.drying.tempC != null ? `${fmtNumber(p.drying.tempC)} °C` : 'published'}${p.drying.hours != null ? ` for ${fmtNumber(p.drying.hours)} h` : ''}` : 'not published'}${fromNote(from.drying)}</dd>` : ''}
+    ${anneal.length ? `<dt>Annealing</dt><dd>${esc(anneal.join('; '))}: some of its values were measured after it${fromNote(from.anneal)}</dd>` : ''}
   </dl></div>`;
 }
 
@@ -779,17 +790,24 @@ function makersSayCounts(m, c) {
 function productPrintCounts(grades) {
   const products = grades.filter((g) => !/-R\d+$/.test(g.id));
   if (!products.length) return '';
+  const origins = { twin: 0, guide: 0 };
   const count = (axis) => {
     const n = { within: 0, over: 0, unknown: 0 };
     for (const g of products) {
-      const v = g.print?.profileIds.length ? g.print[axis].verdict : 'unknown';
+      const from = g.print?.from?.[axis];
+      const v = g.print?.profileIds.length || from ? g.print[axis].verdict : 'unknown';
       if (v === 'within') n.within++; else if (v === 'unknown') n.unknown++; else n.over++;
+      if (from && v !== 'unknown') origins[from.origin]++;
     }
     return n;
   };
   const line = (label, n) => `<li><b>${label}</b>: ${n.within} within the H2C${n.over ? `, ${n.over} above it` : ''}${n.unknown ? `, ${n.unknown} not published` : ''}</li>`;
-  return `<p class="fine">Of its ${plural(products.length, 'product')}, by each one's own settings:</p>
-    <ul class="print-counts">${line('Nozzle', count('nozzle'))}${line('Bed', count('bed'))}${line('Chamber', count('chamber'))}</ul>
+  const lines = `${line('Nozzle', count('nozzle'))}${line('Bed', count('bed'))}${line('Chamber', count('chamber'))}`;
+  // Where a product's own sheet is silent, its twin's (D89) or its material's printer maker's guide (D88) is read.
+  const read = [origins.twin ? `${plural(origins.twin, 'answer')} from a twin's sheet, which prints the same table` : '',
+    origins.guide ? `${plural(origins.guide, 'answer')} from a printer maker's guide, where the product's own sheet is silent` : ''].filter(Boolean);
+  return `<p class="fine">Of its ${plural(products.length, 'product')}, by each one's own settings${read.length ? ` (${read.join('; ')}; each product in the Products tab says which)` : ''}:</p>
+    <ul class="print-counts">${lines}</ul>
     <p class="fine">The Products tab has each product's settings. The lines below are the range recorded across all of them, a guide rather than one recipe.</p>`;
 }
 

@@ -319,6 +319,8 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
   ].filter(Boolean);
   const title = `Typical of ${s.n} products that publish it comparably: the median. They range from ${fmtNumber(s.min)} to ${fmtNumber(s.max)} ${entry.unit}`
     + `${s.q1 != null ? `, the middle half ${fmtNumber(s.q1)} to ${fmtNumber(s.q3)}` : ''}. These are different products, not the uncertainty of one.`
+    // A twin is a product of its own whose sheet prints its sibling's table (D89); it counts as the product it is.
+    + `${s.twins ? ` ${s.twins} of them ${s.twins === 1 ? 'is a product whose' : 'are products whose'} own sheet prints the same table as another of its products, and ${s.twins === 1 ? 'counts' : 'count'} as the ${s.twins === 1 ? 'product it is' : 'products they are'}.` : ''}`
     + `${s.products > s.n ? ` ${s.products - s.n} of the material's ${s.products} products do not publish it comparably.` : ''}`
     + `${apart.length ? ` ${apart.join('; ')}.` : ''} The material's Products tab lists each.`;
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Typical of ${s.n} products`, action: 'products', id: materialId });

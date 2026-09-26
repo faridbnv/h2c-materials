@@ -110,14 +110,19 @@ export function validate(db, wb) {
       if (gradeById.get(id) && gradeById.get(id).materialId !== mat.id) issues.push(err('GRADES-LIST', where, `GradeIDs lists ${id}, a grade of ${gradeById.get(id).materialId}`));
     }
     // Product values (D83). Each is one measurement of that product, chosen by rule (products.js): a value citing
-    // another product's measurement would put two formulations' numbers in one row as if they were one product.
+    // another product's measurement would put two formulations' numbers in one row as if they were one product. The
+    // one exception is a twin (D89), whose sheet prints its sibling's table: it cites the sibling's measurement, and
+    // the sibling must be an active product of the same material under the same formulation key.
     for (const g of grades) {
       if (g.retired) continue;
       for (const [key, v] of Object.entries(g.headline ?? {})) {
         if (!v.measurementId) continue;
         const m = measurementById.get(v.measurementId);
         if (!m) { issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} cites missing measurement ${v.measurementId}`)); continue; }
-        if (m.gradeId !== g.id) issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} cites ${m.id}, a measurement of ${m.gradeId}`));
+        const twin = v.from?.origin === 'twin' ? gradeById.get(v.from.gradeId) : null;
+        if (v.from && (!twin || twin.retired || twin.materialId !== g.materialId || twin.formulationKey !== g.formulationKey || m.gradeId !== twin.id)) {
+          issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} reads ${m.id} of ${m.gradeId} as a twin's value, but ${v.from.gradeId} is not an active product of ${g.materialId} under its formulation key`));
+        } else if (!v.from && m.gradeId !== g.id) issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} cites ${m.id}, a measurement of ${m.gradeId}`));
         if (m.quarantined) issues.push(err('HEADLINE-CITATION', where, `${g.id} ${key} cites quarantined measurement ${m.id}`));
         citationsChecked++;
       }

@@ -425,6 +425,31 @@ G001-140,M001,PLA-Lite,tensileModulusXY,0.7153,comparable,,V009303,,,undisclosed
 G001-140,M001,PLA-Lite,tensileStrengthXY,32.4,comparable,,V009302,,,undisclosed dense filler,
 G001-140,M001,PLA-Lite,elongationXY,7,comparable,,V009304,,,undisclosed dense filler,
 G001-140,M001,PLA-Lite,hdt045,60,comparable,,V009299,,,undisclosed dense filler,
+G001-141,M001,PLA Nature,density,1240,comparable,,V006348,,,,twin G001-69
+G001-141,M001,PLA Nature,hdt045,55,as-published,load-not-stated,V006357,,,,twin G001-69
+G001-142,M001,PLA,density,1230,comparable,,V006603,,,,twin G001-74
+G001-145,M001,High Speed Matte PLA,density,1360,comparable,,V004368,,,,twin G001-36
+G001-145,M001,High Speed Matte PLA,tensileStrengthXY,27,comparable,,V004357,,,,twin G001-36
+G001-145,M001,High Speed Matte PLA,elongationXY,20,comparable,,V004358,,,,twin G001-36
+G001-145,M001,High Speed Matte PLA,hdt045,55,comparable,,V004364,,,,twin G001-36
+G001-146,M001,PLA Clear,density,1200,comparable,,V006838,,,,twin G001-84
+G001-147,M001,PLA Thermoactive,density,1240,comparable,,V006348,,,,twin G001-69
+G001-147,M001,PLA Thermoactive,hdt045,55,as-published,load-not-stated,V006357,,,,twin G001-69
+G001-148,M001,PolyLite CosPLA,density,1230,comparable,,V003834,,,,twin G001-27
+G001-148,M001,PolyLite CosPLA,tensileModulusXY,2.9322,comparable,,V003839,,,,twin G001-27
+G001-148,M001,PolyLite CosPLA,tensileStrengthXY,49.8,comparable,,V003841,,,,twin G001-27
+G001-148,M001,PolyLite CosPLA,elongationXY,6.3,comparable,,V003843,,,,twin G001-27
+G001-149,M001,PLA Vertigo,tensileModulusXY,3.28579,as-published,unstated-direction,V006518,,,,twin G001-70
+G001-149,M001,PLA Vertigo,tensileStrengthXY,70.72,as-published,unstated-direction,V006521,,,,twin G001-70
+G001-149,M001,PLA Vertigo,elongationXY,3.49,as-published,unstated-direction,V006524,,,,twin G001-70
+G001-149,M001,PLA Vertigo,hdt045,59.03,as-published,load-not-stated,V006529,,,,twin G001-70
+G001-150,M001,SafeGuard PLA,density,1240,comparable,,V006348,,,,twin G001-69
+G001-150,M001,SafeGuard PLA,hdt045,55,as-published,load-not-stated,V006357,,,,twin G001-69
+G001-151,M001,Burnt Titanium PLA,density,1230,comparable,,V005096,,,,twin G001-47
+G001-151,M001,Burnt Titanium PLA,tensileModulusXY,1.7375,comparable,,V005102,,,,twin G001-47
+G001-151,M001,Burnt Titanium PLA,tensileStrengthXY,52.2,comparable,,V005101,,,,twin G001-47
+G001-151,M001,Burnt Titanium PLA,elongationXY,2.1,comparable,,V005103,,,,twin G001-47
+G001-151,M001,Burnt Titanium PLA,hdt045,53,comparable,,V005098,,,,twin G001-47
 G001-152,M001,Hyper Speed PLA Pro,density,1210,comparable,,V009312,,,,
 G001-153,M001,PLA,tensileModulusXY,3.3,as-published,unstated-direction,V009336,,,,
 G001-153,M001,PLA,tensileStrengthXY,59,as-published,unstated-direction,V009337,,,,
@@ -531,6 +556,19 @@ G001-189,M001,rPLA,density,1240,comparable,,V011005,,,,
 G001-189,M001,rPLA,tensileModulusXY,3.4,as-published,unstated-direction,V011007,,,,
 G001-189,M001,rPLA,tensileStrengthXY,53,as-published,unstated-direction,V011006,,,,
 G001-189,M001,rPLA,hdt045,54,comparable,,V011012,,,,
+G001-190,M001,MagicFil Thermo PLA,density,1240,comparable,,V009579,,,,twin G001-159
+G001-194,M001,ReForm - rPLA,density,1240,comparable,,V009579,,,,twin G001-159
+G001-196,M001,HT-PLA,density,1200,comparable,,V002869,,,,twin G001-09
+G001-196,M001,HT-PLA,tensileModulusXY,2.62,as-published,unstated-direction,V002873,,,,twin G001-09
+G001-196,M001,HT-PLA,tensileStrengthXY,44,as-published,unstated-direction,V002870,,,,twin G001-09
+G001-196,M001,HT-PLA,elongationXY,12,as-published,unstated-direction,V002872,,,,twin G001-09
+G001-196,M001,HT-PLA,hdt045,108,as-published,load-not-stated,V002876,,,,twin G001-09
+G001-197,M001,PLA Matte,density,1290,comparable,,V002863,,,,twin G001-08
+G001-197,M001,PLA Matte,tensileStrengthXY,37,as-published,unstated-direction,V002864,,,,twin G001-08
+G001-197,M001,PLA Matte,elongationXY,9,as-published,unstated-direction,V002865,,,,twin G001-08
+G001-197,M001,PLA Matte,hdt045,60,as-published,load-not-stated,V002868,,,,twin G001-08
+G001-198,M001,PLA Lite,density,1240,comparable,,V002950,,,,twin G001-12
+G001-198,M001,PLA Lite,hdt045,56,as-published,load-not-stated,V002954,,,,twin G001-12
 G002-01,M001,PLA Basic,density,1240,comparable,,V007555,,,,
 G002-01,M001,PLA Basic,tensileModulusXY,2.58,comparable,,V000050,55 °C 8 h,,,
 G002-01,M001,PLA Basic,tensileStrengthXY,35,comparable,,V000052,55 °C 8 h,,,
@@ -622,11 +660,54 @@ G008-15,M008,PLA+ (Silk PLA+),elongationXY,6.3,as-published,unstated-direction,V
 G008-15,M008,PLA+ (Silk PLA+),hdt045,53,comparable,,V008654,,,,
 G008-17,M008,PLA Silk,density,1220,comparable,,V009119,,,,
 G008-17,M008,PLA Silk,hdt045,53,comparable,,V009126,,,,
+G008-19,M008,Silk PLA+,density,1230,comparable,,V004356,,,,twin G008-04
+G008-19,M008,Silk PLA+,tensileStrengthXY,50,comparable,,V004344,,,,twin G008-04
+G008-19,M008,Silk PLA+,elongationXY,11,comparable,,V004345,,,,twin G008-04
+G008-19,M008,Silk PLA+,hdt045,57,comparable,,V004351,,,,twin G008-04
+G008-20,M008,Silk PLA Tri-Color,density,1320,comparable,,V004850,,,,twin G008-07
+G008-20,M008,Silk PLA Tri-Color,tensileModulusXY,1.7249,comparable,,V004856,,,,twin G008-07
+G008-20,M008,Silk PLA Tri-Color,tensileStrengthXY,49.8,comparable,,V004855,,,,twin G008-07
+G008-20,M008,Silk PLA Tri-Color,elongationXY,1.7,comparable,,V004857,,,,twin G008-07
+G008-20,M008,Silk PLA Tri-Color,hdt045,53,comparable,,V004852,,,,twin G008-07
+G008-21,M008,PLA SILK,density,1220,comparable,,V002894,,,,twin G008-03
+G008-21,M008,PLA SILK,tensileModulusXY,2.7,as-published,unstated-direction,V002898,,,,twin G008-03
+G008-21,M008,PLA SILK,tensileStrengthXY,59,as-published,unstated-direction,V002897,,,,twin G008-03
+G008-21,M008,PLA SILK,elongationXY,10,as-published,unstated-direction,V002899,,,,twin G008-03
+G008-21,M008,PLA SILK,hdt045,50,as-published,load-not-stated,V002903,,,,twin G008-03
+G008-22,M008,Hyper Speed Triple Color Silk PLA,density,1320,comparable,,V004864,,,,twin G008-08
+G008-22,M008,Hyper Speed Triple Color Silk PLA,tensileModulusXY,1.9321,comparable,,V004870,,,,twin G008-08
+G008-22,M008,Hyper Speed Triple Color Silk PLA,tensileStrengthXY,62.7,comparable,,V004869,,,,twin G008-08
+G008-22,M008,Hyper Speed Triple Color Silk PLA,elongationXY,2.3,comparable,,V004871,,,,twin G008-08
+G008-22,M008,Hyper Speed Triple Color Silk PLA,hdt045,50,comparable,,V004866,,,,twin G008-08
+G008-23,M008,Silk PLA Dual-Color,density,1320,comparable,,V004850,,,,twin G008-07
+G008-23,M008,Silk PLA Dual-Color,tensileModulusXY,1.7249,comparable,,V004856,,,,twin G008-07
+G008-23,M008,Silk PLA Dual-Color,tensileStrengthXY,49.8,comparable,,V004855,,,,twin G008-07
+G008-23,M008,Silk PLA Dual-Color,elongationXY,1.7,comparable,,V004857,,,,twin G008-07
+G008-23,M008,Silk PLA Dual-Color,hdt045,53,comparable,,V004852,,,,twin G008-07
+G008-24,M008,PLA SILK Rainbow,density,1220,comparable,,V002894,,,,twin G008-03
+G008-24,M008,PLA SILK Rainbow,tensileModulusXY,2.7,as-published,unstated-direction,V002898,,,,twin G008-03
+G008-24,M008,PLA SILK Rainbow,tensileStrengthXY,59,as-published,unstated-direction,V002897,,,,twin G008-03
+G008-24,M008,PLA SILK Rainbow,elongationXY,10,as-published,unstated-direction,V002899,,,,twin G008-03
+G008-24,M008,PLA SILK Rainbow,hdt045,50,as-published,load-not-stated,V002903,,,,twin G008-03
+G008-25,M008,Silk PLA+ Dual-Color,density,1230,comparable,,V004356,,,,twin G008-04
+G008-25,M008,Silk PLA+ Dual-Color,tensileStrengthXY,50,comparable,,V004344,,,,twin G008-04
+G008-25,M008,Silk PLA+ Dual-Color,elongationXY,11,comparable,,V004345,,,,twin G008-04
+G008-25,M008,Silk PLA+ Dual-Color,hdt045,57,comparable,,V004351,,,,twin G008-04
+G008-26,M008,Silk PLA+ Rainbow,density,1230,comparable,,V004356,,,,twin G008-04
+G008-26,M008,Silk PLA+ Rainbow,tensileStrengthXY,50,comparable,,V004344,,,,twin G008-04
+G008-26,M008,Silk PLA+ Rainbow,elongationXY,11,comparable,,V004345,,,,twin G008-04
+G008-26,M008,Silk PLA+ Rainbow,hdt045,57,comparable,,V004351,,,,twin G008-04
+G008-27,M008,Silk PLA+ Tri-Color,density,1230,comparable,,V004356,,,,twin G008-04
+G008-27,M008,Silk PLA+ Tri-Color,tensileStrengthXY,50,comparable,,V004344,,,,twin G008-04
+G008-27,M008,Silk PLA+ Tri-Color,elongationXY,11,comparable,,V004345,,,,twin G008-04
+G008-27,M008,Silk PLA+ Tri-Color,hdt045,57,comparable,,V004351,,,,twin G008-04
 G008-28,M008,Silk Gloss PLA,density,1240,comparable,,V009592,,,,
 G008-28,M008,Silk Gloss PLA,tensileModulusXY,2.58,as-published,unstated-direction,V009595,,,,
 G008-28,M008,Silk Gloss PLA,tensileStrengthXY,64,as-published,unstated-direction,V009594,,,,
 G008-29,M008,PLA Silk Dual Color,density,1240,comparable,,V009852,,,,
 G008-29,M008,PLA Silk Dual Color,elongationXY,19.35,as-published,unstated-direction,V009855,,,,
+G008-32,M008,PLA Silk,density,1240,comparable,,V009852,,,,twin G008-29
+G008-32,M008,PLA Silk,elongationXY,19.35,as-published,unstated-direction,V009855,,,,twin G008-29
 G009-01,M008,PLA Silk+,density,1270,comparable,,V000144,55 °C 8 h,,,
 G009-01,M008,PLA Silk+,tensileModulusXY,2.13,comparable,,V000151,55 °C 8 h,,,
 G009-01,M008,PLA Silk+,tensileStrengthXY,33,comparable,,V000153,55 °C 8 h,,,
@@ -1113,6 +1194,10 @@ G020-56,M020,XPETG MATT,tensileModulusXY,3.1,as-published,unstated-direction,V00
 G020-56,M020,XPETG MATT,tensileStrengthXY,53,as-published,unstated-direction,V009148,,,undisclosed dense filler,
 G020-56,M020,XPETG MATT,elongationXY,7.6,as-published,unstated-direction,V009149,,,undisclosed dense filler,
 G020-56,M020,XPETG MATT,hdt045,67,comparable,,V009152,,,undisclosed dense filler,
+G020-57,M020,Type G polyethylene terephthalate (PETG),density,1290,comparable,,V005573,,,,twin G020-26
+G020-57,M020,Type G polyethylene terephthalate (PETG),tensileModulusXY,2.079,as-published,unstated-direction,V005571,,,,twin G020-26
+G020-57,M020,Type G polyethylene terephthalate (PETG),tensileStrengthXY,50,as-published,unstated-direction,V005568,,,,twin G020-26
+G020-57,M020,Type G polyethylene terephthalate (PETG),elongationXY,165,as-published,unstated-direction,V005570,,,,twin G020-26
 G020-60,M020,MakerBot PETG,tensileModulusXY,1.9,as-published,unstated-direction,V009467,,,,
 G020-60,M020,MakerBot PETG,tensileStrengthXY,44,as-published,unstated-direction,V009468,,,,
 G020-61,M020,EasyFil ePETG,density,1290,comparable,,V009539,,,,
@@ -1145,6 +1230,9 @@ G020-71,M020,R PET-G,tensileModulusXY,2.8,as-published,unstated-direction,V01072
 G020-71,M020,R PET-G,tensileStrengthXY,51,as-published,unstated-direction,V010726,,,,
 G020-71,M020,R PET-G,elongationXY,29,as-published,unstated-direction,V010729,,,,
 G020-71,M020,R PET-G,hdt045,68,comparable,,V010733,,,,
+G020-73,M020,PETG Lite,density,1290,comparable,,V002706,,,,twin G020-06
+G020-73,M020,PETG Lite,elongationXY,160,as-published,unstated-direction,V002708,,,,twin G020-06
+G020-73,M020,PETG Lite,hdt045,77,as-published,load-not-stated,V002710,,,,twin G020-06
 G021-01,M020,PETG Basic,density,1250,comparable,,V000423,,,,
 G021-01,M020,PETG Basic,tensileModulusXY,2.78,comparable,,V000431,,,,
 G021-01,M020,PETG Basic,tensileStrengthXY,51,comparable,,V000433,,,,
@@ -1444,6 +1532,11 @@ G027-46,M027,EasyFil ABS,density,1030,comparable,,V009556,,,,
 G027-46,M027,EasyFil ABS,tensileModulusXY,1.9,as-published,unstated-direction,V009561,,,,
 G027-46,M027,EasyFil ABS,tensileStrengthXY,38,as-published,unstated-direction,V009560,,,,
 G027-46,M027,EasyFil ABS,elongationXY,9,as-published,unstated-direction,V009562,,,,
+G027-47,M027,ABS,density,1050,comparable,,V000546,80 °C 12 h,,,twin G027-01
+G027-47,M027,ABS,tensileModulusXY,2.2,comparable,,V000554,80 °C 12 h,,,twin G027-01
+G027-47,M027,ABS,tensileStrengthXY,33,comparable,,V000556,80 °C 12 h,,,twin G027-01
+G027-47,M027,ABS,elongationXY,10.5,comparable,,V000558,80 °C 12 h,,,twin G027-01
+G027-47,M027,ABS,hdt045,87,comparable,,V000552,80 °C 12 h,,,twin G027-01
 G027-48,M027,ClearScent ABS,density,1060,comparable,,V009792,,,,
 G027-48,M027,ClearScent ABS,tensileModulusXY,1.9,as-published,unstated-direction,V009796,,,,
 G027-48,M027,ClearScent ABS,tensileStrengthXY,39.2,as-published,unstated-direction,V009795,,,,
@@ -1524,6 +1617,10 @@ G028-10,M028,NexABS-GF25,tensileModulusXY,3.75213,comparable,,V008037,,,,
 G028-10,M028,NexABS-GF25,tensileStrengthXY,48.48,comparable,,V008035,,,,
 G028-10,M028,NexABS-GF25,elongationXY,2.1,comparable,,V008036,,,,
 G028-10,M028,NexABS-GF25,hdt045,87,comparable,,V008034,,,,
+G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),density,1110,comparable,,V005709,,,,twin G028-08
+G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),tensileModulusXY,4.2,as-published,unstated-direction,V005707,,,,twin G028-08
+G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),tensileStrengthXY,81,as-published,unstated-direction,V005704,,,,twin G028-08
+G028-11,M028,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),elongationXY,3,as-published,unstated-direction,V005706,,,,twin G028-08
 G028-12,M028,ABS Glass Fiber,density,1100,comparable,,V009932,,,,
 G028-12,M028,ABS Glass Fiber,tensileStrengthXY,51,as-published,unstated-direction,V009935,,,,
 G028-12,M028,ABS Glass Fiber,elongationXY,12,as-published,unstated-direction,V009936,,,,
@@ -1733,6 +1830,10 @@ G031-41,M031,MATTE ASA,hdt045,96,comparable,,V010968,,,,
 G031-42,M031,ReForm - rApollo,density,1070,comparable,,V010978,,,,
 G031-42,M031,ReForm - rApollo,tensileModulusXY,1.8,as-published,unstated-direction,V010979,,,,
 G031-42,M031,ReForm - rApollo,elongationXY,35,as-published,unstated-direction,V010980,,,,
+G031-43,M031,ASA,density,1070,comparable,,V002995,,,,twin G031-04
+G031-43,M031,ASA,tensileModulusXY,1.87,as-published,unstated-direction,V002997,,,,twin G031-04
+G031-43,M031,ASA,tensileStrengthXY,46,as-published,unstated-direction,V002996,,,,twin G031-04
+G031-43,M031,ASA,hdt045,86,as-published,load-not-stated,V002999,,,,twin G031-04
 G032-01,M032,ASA Aero,density,990,comparable,,V000633,80 °C 12 h,,,
 G032-01,M032,ASA Aero,tensileModulusXY,2.01,comparable,,V000641,80 °C 12 h,,,
 G032-01,M032,ASA Aero,tensileStrengthXY,32,comparable,,V000643,80 °C 12 h,,,
@@ -1808,6 +1909,10 @@ G033-16,M033,ASA CF,density,1120,comparable,,V009415,,,,
 G033-16,M033,ASA CF,tensileStrengthXY,62,as-published,unstated-direction,V009418,,,,
 G033-16,M033,ASA CF,elongationXY,8,as-published,unstated-direction,V009419,,,,
 G033-17,M033,ASA CF,tensileStrengthXY,39,as-published,unstated-direction,V010672,,,,
+G033-18,M033,ASA CF,density,1120,comparable,,V002658,,,,twin G033-03
+G033-18,M033,ASA CF,tensileStrengthXY,66,as-published,unstated-direction,V002659,,,,twin G033-03
+G033-18,M033,ASA CF,elongationXY,2,as-published,unstated-direction,V002661,,,,twin G033-03
+G033-18,M033,ASA CF,hdt045,88,as-published,load-not-stated,V002663,,,,twin G033-03
 G034-01,M034,asax x gf10,density,1110,comparable,,V000671,,,,
 G034-02,M034,ASA Glass Fiber,density,1150,comparable,,V000673,,,,
 G034-02,M034,ASA Glass Fiber,tensileStrengthXY,55,as-published,unstated-direction,V002219,,,,
@@ -1903,6 +2008,10 @@ G035-20,M035,PC,density,1200,comparable,,V007995,,,,
 G035-20,M035,PC,tensileStrengthXY,55,as-published,unstated-direction,V007997,,,,
 G035-20,M035,PC,elongationXY,3.8,as-published,unstated-direction,V007998,,,,
 G035-20,M035,PC,hdt045,117,as-published,load-not-stated,V008002,,,,
+G035-21,M035,Kratos PC,density,1200,comparable,,V002878,,,,twin G035-03
+G035-21,M035,Kratos PC,tensileStrengthXY,61.781895,as-published,unstated-direction,V002879,,,,twin G035-03
+G035-21,M035,Kratos PC,elongationXY,100,as-published,unstated-direction,V002880,,,,twin G035-03
+G035-21,M035,Kratos PC,hdt045,139,comparable,,V002884,,,,twin G035-03
 G035-23,M035,PC,hdt045,144,comparable,,V009430,,,,
 G035-24,M035,PC-ISO,tensileModulusXY,2,as-published,unstated-direction,V009439,,,,
 G035-24,M035,PC-ISO,tensileStrengthXY,57,as-published,unstated-direction,V009438,,,,
@@ -2120,6 +2229,14 @@ G039-57,M161,TPU,density,1140,comparable,,V009102,,,,
 G039-57,M161,TPU,tensileModulusXY,0.02275,as-published,unstated-direction,V009099,,,,
 G039-57,M161,TPU,tensileStrengthXY,17.2,as-published,unstated-direction,V009098,,,,
 G039-57,M161,TPU,elongationXY,550,as-published,unstated-direction,V009100,,,,
+G039-58,M161,TPU HS,density,1210,comparable,,V007034,,,,twin G039-37
+G039-60,M160,varioShore Prosthetic TPU,density,1220,comparable,,V005818,,,,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,tensileStrengthXY,58.6,as-published,unstated-direction,V005821,,,,twin G039-25
+G039-60,M160,varioShore Prosthetic TPU,elongationXY,490,as-published,unstated-direction,V005822,,,,twin G039-25
+G039-61,M163,Standard TPU,density,1220,comparable,,V004971,,,,twin G039-21
+G039-61,M163,Standard TPU,tensileModulusXY,0.027,comparable,,V004974,,,,twin G039-21
+G039-61,M163,Standard TPU,tensileStrengthXY,27.3,comparable,,V004973,,,,twin G039-21
+G039-61,M163,Standard TPU,elongationXY,501.3,comparable,,V004975,,,,twin G039-21
 G039-65,M161,TPU A95,density,1200,comparable,,V009672,,,,
 G039-65,M161,TPU A95,tensileStrengthXY,55,as-published,unstated-direction,V009674,,,,
 G039-65,M161,TPU A95,elongationXY,400,as-published,unstated-direction,V009675,,,,
@@ -2185,6 +2302,9 @@ G046-04,M046,Thermoplastic polyester elastomer (TPC),tensileStrengthXY,43,as-pub
 G046-05,M046,FlexiFil TPC 30D,density,1150,comparable,,V007462,,,,
 G046-05,M046,FlexiFil TPC 30D,tensileStrengthXY,4.4129925,as-published,unstated-direction,V007463,,,,
 G046-05,M046,FlexiFil TPC 30D,elongationXY,400,as-published,unstated-direction,V007466,,,,
+G046-06,M046,FlexiFil TPC 40D,density,1150,comparable,,V007462,,,,twin G046-05
+G046-06,M046,FlexiFil TPC 40D,tensileStrengthXY,4.4129925,as-published,unstated-direction,V007463,,,,twin G046-05
+G046-06,M046,FlexiFil TPC 40D,elongationXY,400,as-published,unstated-direction,V007466,,,,twin G046-05
 G046-07,M046,FlexiFil,density,1140,comparable,,V009780,,,,
 G046-07,M046,FlexiFil,tensileModulusXY,0.095,as-published,unstated-direction,V009784,,,,
 G046-07,M046,FlexiFil,tensileStrengthXY,24,as-published,unstated-direction,V009783,,,,
@@ -2295,6 +2415,11 @@ G050-11,M050,FIBERON PA6 CF20,hdt045,215,comparable,,V006543,100 °C 16 h,,,
 G050-12,M050,PA-6 CF,density,1210,comparable,,V007549,,,,
 G050-12,M050,PA-6 CF,tensileModulusXY,5.5,as-published,unstated-direction,V007550,,,,
 G050-12,M050,PA-6 CF,hdt045,140,comparable,,V007553,,,,
+G050-13,M050,STYX PA6-CF15,density,1180,comparable,,V002722,,,,twin G050-03
+G050-13,M050,STYX PA6-CF15,tensileModulusXY,9,as-published,unstated-direction,V002725,,,,twin G050-03
+G050-13,M050,STYX PA6-CF15,tensileStrengthXY,120,as-published,unstated-direction,V002724,,,,twin G050-03
+G050-13,M050,STYX PA6-CF15,elongationXY,4,as-published,unstated-direction,V002726,,,,twin G050-03
+G050-13,M050,STYX PA6-CF15,hdt045,180,comparable,,V002732,,,,twin G050-03
 G050-14,M050,PA6-CF,tensileStrengthXY,60,as-published,unstated-direction,V010655,,,,
 G050-14,M050,PA6-CF,elongationXY,6,as-published,unstated-direction,V010656,,,,
 G051-01,M051,PA6-GF,density,1140,comparable,,V000943,80 °C 12 h,,,
@@ -2336,6 +2461,11 @@ G051-09,M051,FIBERON PA6 GF25,tensileModulusXY,5.3569,comparable,,V006462,100 °
 G051-09,M051,FIBERON PA6 GF25,tensileStrengthXY,80.1,comparable,,V006464,100 °C 16 h,,,
 G051-09,M051,FIBERON PA6 GF25,elongationXY,2.4,comparable,,V006466,100 °C 16 h,,,
 G051-09,M051,FIBERON PA6 GF25,hdt045,191,comparable,,V006461,100 °C 16 h,,,
+G051-10,M051,STYX PA6-GF30,density,1340,comparable,,V002711,,,,twin G051-04
+G051-10,M051,STYX PA6-GF30,tensileModulusXY,5.5,as-published,unstated-direction,V002714,,,,twin G051-04
+G051-10,M051,STYX PA6-GF30,tensileStrengthXY,80,as-published,unstated-direction,V002713,,,,twin G051-04
+G051-10,M051,STYX PA6-GF30,elongationXY,3,as-published,unstated-direction,V002715,,,,twin G051-04
+G051-10,M051,STYX PA6-GF30,hdt045,180,comparable,,V002721,,,,twin G051-04
 G051-11,M051,PA6/66-GF30-FR,hdt045,161,comparable,,V009369,,,,
 G052-03,M052,Polyamide 12 (PA12),density,1000,comparable,,V005724,,,,
 G052-03,M052,Polyamide 12 (PA12),tensileModulusXY,1.5,as-published,unstated-direction,V005722,,,,
@@ -2406,6 +2536,10 @@ G053-11,M053,PA12 CF,density,1070,comparable,,V007197,,,,
 G053-11,M053,PA12 CF,tensileModulusXY,2.4,as-published,unstated-direction,V007199,,,,
 G053-11,M053,PA12 CF,tensileStrengthXY,52,as-published,unstated-direction,V007198,,,,
 G053-11,M053,PA12 CF,hdt045,48,comparable,,V007204,,,,
+G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),density,1070,comparable,,V005636,,,,twin G053-07
+G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),tensileModulusXY,9.5,as-published,unstated-direction,V005635,,,,twin G053-07
+G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),tensileStrengthXY,110,as-published,unstated-direction,V005632,,,,twin G053-07
+G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),elongationXY,4.5,as-published,unstated-direction,V005634,,,,twin G053-07
 G053-14,M053,Nylon CF15 Carbon,density,1080,comparable,,V010092,,,,
 G053-14,M053,Nylon CF15 Carbon,tensileModulusXY,0.5,as-published,unstated-direction,V010096,,,,
 G053-14,M053,Nylon CF15 Carbon,tensileStrengthXY,54.5,as-published,unstated-direction,V010094,,,,
@@ -2452,6 +2586,7 @@ G057-06,M057,Easy PA,tensileModulusXY,1.79,as-published,unstated-direction,V0081
 G057-06,M057,Easy PA,tensileStrengthXY,61,comparable,,V009283,,,,
 G057-06,M057,Easy PA,elongationXY,15,comparable,,V009284,,,,
 G057-06,M057,Easy PA,hdt045,119,comparable,,V009289,,,,
+G057-07,M057,ePA,density,1120,comparable,,V006797,,,,twin G057-04
 G059-01,M059,Fiberon PA612-CF15,density,1030,comparable,,V001052,,,,
 G059-01,M059,Fiberon PA612-CF15,tensileModulusXY,5.1367,comparable,,V001055,100 °C 16 h,,,
 G059-01,M059,Fiberon PA612-CF15,tensileStrengthXY,91.9,comparable,,V001057,100 °C 16 h,,,
@@ -2571,6 +2706,11 @@ G070-06,M070,PPA-CF,tensileModulusXY,7.1,comparable,,V005239,,,,
 G070-06,M070,PPA-CF,tensileStrengthXY,108,comparable,,V005237,,,,
 G070-06,M070,PPA-CF,elongationXY,3.5,comparable,,V005238,,,,
 G070-06,M070,PPA-CF,hdt045,220,comparable,,V005246,,,,
+G070-07,M070,PPA-CF,density,1210,comparable,,V005234,,,,twin G070-06
+G070-07,M070,PPA-CF,tensileModulusXY,7.1,comparable,,V005239,,,,twin G070-06
+G070-07,M070,PPA-CF,tensileStrengthXY,108,comparable,,V005237,,,,twin G070-06
+G070-07,M070,PPA-CF,elongationXY,3.5,comparable,,V005238,,,,twin G070-06
+G070-07,M070,PPA-CF,hdt045,220,comparable,,V005246,,,,twin G070-06
 G070-09,M070,Fibreheart PAHT CF (PPA based),density,1200,comparable,,V009443,,,,
 G071-01,M071,PPA-GF,density,1280,comparable,,V001322,,,,
 G071-01,M071,PPA-GF,tensileModulusXY,6.558,comparable,,V001329,,,,
@@ -2614,6 +2754,11 @@ G073-04,M073,FIBERON PPS CF10,tensileStrengthXY,59.4,comparable,,V006398,125 °C
 G073-04,M073,FIBERON PPS CF10,elongationXY,1.4,comparable,,V006400,125 °C 16 h,,,
 G073-04,M073,FIBERON PPS CF10,hdt045,252.5,comparable,,V006395,125 °C 16 h,,,
 G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,density,1510,comparable,,V007156,,,,
+G073-06,M073,PPS CF,density,1300,comparable,,V005327,,,,twin G073-03
+G073-06,M073,PPS CF,tensileModulusXY,8,comparable,,V005332,,,,twin G073-03
+G073-06,M073,PPS CF,tensileStrengthXY,95,comparable,,V005330,,,,twin G073-03
+G073-06,M073,PPS CF,elongationXY,4,comparable,,V005331,,,,twin G073-03
+G073-06,M073,PPS CF,hdt045,245,comparable,,V005339,,,,twin G073-03
 G073-07,M073,Industrial PPS CF,density,1290,comparable,,V009313,,,,
 G074-01,M074,PPS-GF,density,1360,comparable,,V001374,,,,
 G074-01,M074,PPS-GF,tensileModulusXY,5.764,comparable,,V001381,,,,
@@ -2710,6 +2855,10 @@ G081-11,M081,HIPS,tensileModulusXY,1.85,as-published,unstated-direction,V010510,
 G081-11,M081,HIPS,tensileStrengthXY,25,as-published,unstated-direction,V010508,,,,
 G081-11,M081,HIPS,elongationXY,31,as-published,unstated-direction,V010512,,,,
 G081-11,M081,HIPS,hdt045,83,comparable,,V010514,,,,
+G081-12,M081,LimoSolve,density,1040,comparable,,V009699,,,,twin G081-08
+G081-12,M081,LimoSolve,tensileModulusXY,1.55,as-published,unstated-direction,V009704,,,,twin G081-08
+G081-12,M081,LimoSolve,tensileStrengthXY,22,as-published,unstated-direction,V009703,,,,twin G081-08
+G081-12,M081,LimoSolve,elongationXY,50,as-published,unstated-direction,V009705,,,,twin G081-08
 G082-02,M082,PP,density,890,comparable,,V002053,,,,
 G082-02,M082,PP,tensileStrengthXY,13.9,as-published,unstated-direction,V002054,,,,
 G082-02,M082,PP,elongationXY,460,as-published,unstated-direction,V001497,,,,
@@ -3028,6 +3177,9 @@ G099-11,M099,PEI 9085,tensileModulusXY,3.05,as-published,unstated-direction,V010
 G099-11,M099,PEI 9085,tensileStrengthXY,88,as-published,unstated-direction,V010826,,,,
 G099-11,M099,PEI 9085,elongationXY,50,as-published,unstated-direction,V010830,,,,
 G099-11,M099,PEI 9085,hdt045,169,comparable,,V010850,,,,
+G099-13,M099,PEI ULTEM 9085,density,1340,comparable,,V007233,,,,twin G099-06
+G099-13,M099,PEI ULTEM 9085,tensileModulusXY,3.44,as-published,unstated-direction,V007238,,,,twin G099-06
+G099-13,M099,PEI ULTEM 9085,tensileStrengthXY,84,as-published,unstated-direction,V007239,,,,twin G099-06
 G100-01,M100,THERMAX PSU,density,1240,comparable,,V001643,,,,
 G100-01,M100,THERMAX PSU,tensileModulusXY,2.1,comparable,,V001645,,,,
 G100-01,M100,THERMAX PSU,tensileStrengthXY,52,comparable,,V001644,,,,
@@ -3090,6 +3242,10 @@ G110-01,M110,PCTG GF10,density,1310,comparable,,V002927,,,,
 G110-01,M110,PCTG GF10,tensileStrengthXY,55,as-published,unstated-direction,V002929,,,,
 G110-01,M110,PCTG GF10,elongationXY,8,as-published,unstated-direction,V002928,,,,
 G110-01,M110,PCTG GF10,hdt045,78,comparable,,V002932,,,,
+G110-02,M110,AthenaX GF10,density,1310,comparable,,V002927,,,,twin G110-01
+G110-02,M110,AthenaX GF10,tensileStrengthXY,55,as-published,unstated-direction,V002929,,,,twin G110-01
+G110-02,M110,AthenaX GF10,elongationXY,8,as-published,unstated-direction,V002928,,,,twin G110-01
+G110-02,M110,AthenaX GF10,hdt045,78,comparable,,V002932,,,,twin G110-01
 G110-03,M110,PCTG+GF10,tensileModulusXY,3.4,as-published,unstated-direction,V010861,,,,
 G110-03,M110,PCTG+GF10,tensileStrengthXY,55,as-published,unstated-direction,V010859,,,,
 G110-03,M110,PCTG+GF10,elongationXY,8,as-published,unstated-direction,V010862,,,,
@@ -3108,6 +3264,7 @@ G113-01,M113,ASA Kevlar,density,1070,comparable,,V003116,,,,
 G113-02,M113,ApolloX Kevlar,density,1070,comparable,,V007518,,,,
 G113-02,M113,ApolloX Kevlar,tensileStrengthXY,40,as-published,unstated-direction,V007519,,,,
 G113-02,M113,ApolloX Kevlar,elongationXY,6,as-published,unstated-direction,V007522,,,,
+G113-03,M113,ASA+AF,density,1070,comparable,,V003116,,,,twin G113-01
 G114-01,M114,3DXSTAT ESD-TPC (90A),density,1280,comparable,,V003134,,,,
 G114-01,M114,3DXSTAT ESD-TPC (90A),tensileModulusXY,1.4,comparable,,V003136,,,,
 G114-01,M114,3DXSTAT ESD-TPC (90A),tensileStrengthXY,70,comparable,,V003135,,,,
@@ -3251,6 +3408,9 @@ G135-02,M135,Vinyl 303,elongationXY,13.1,as-published,unstated-direction,V006111
 G136-01,M136,Styrol-Acrylnitril (SAN),density,1080,comparable,,V005630,,,,
 G136-01,M136,Styrol-Acrylnitril (SAN),tensileModulusXY,3.8,as-published,unstated-direction,V005628,,,,
 G136-01,M136,Styrol-Acrylnitril (SAN),tensileStrengthXY,72,as-published,unstated-direction,V005627,,,,
+G136-02,M136,Styrol-Acrylnitril (SAN),density,1080,comparable,,V005630,,,,twin G136-01
+G136-02,M136,Styrol-Acrylnitril (SAN),tensileModulusXY,3.8,as-published,unstated-direction,V005628,,,,twin G136-01
+G136-02,M136,Styrol-Acrylnitril (SAN),tensileStrengthXY,72,as-published,unstated-direction,V005627,,,,twin G136-01
 G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),density,1020,comparable,,V005676,,,,
 G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),tensileModulusXY,1.9,as-published,unstated-direction,V005674,,,,
 G137-01,M137,Cyclo-olefin copolymer impact-modified (COC tough),tensileStrengthXY,40,as-published,unstated-direction,V005672,,,,

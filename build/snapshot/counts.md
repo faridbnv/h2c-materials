@@ -10,12 +10,12 @@ rather than repeat a number.
 | … family entries and aliases | 21 | names that own no product (D44, D86) |
 | … out of scope | 17 | recorded, never a candidate |
 | Products | 1,131 | active procurement grades |
-| … with a comparable value for at least one property | 944 | D84 |
+| … with a comparable value for at least one property | 989 | D84 |
 | … with a print profile of their own | 932 |  |
 | … with a maker's know-how statement | 887 | lane 3 |
 | Measurements | 11,146 | active rows |
 | … with a usable number | 10,971 |  |
-| Product values | 3,452 | one per product and headline, chosen by rule (D83) |
+| Product values | 3,612 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 444 | headline cells of in-scope materials |
 | Material values estimated | 182 | where no product publishes (D43) |
 | Print profiles | 1,196 |  |

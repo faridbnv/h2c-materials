@@ -141,6 +141,12 @@ with its conditions is all it takes. Nobody selects a material's number: the rep
 retired in m137 (archived in `docs/audits/2026-09-25-re-center/retired-representative-picks.csv`), after the rule alone
 reproduced every one of them (`rule-vs-hand-picks.md` beside it).
 
+**A twin needs no row either.** Products of one material whose sheets print one table are a grade each under one Shared
+formulation key, with the values recorded once (R053). The build lets each read its sibling's values and print recipe
+wherever its own are silent, labelled "same sheet as …" (D89); a price is never read, and a product that reprints
+another material's table (R166) shares no key and reads nothing. Record a twin's own statement on its own grade: it
+always wins.
+
 **Pin a product's value.** Only where the rule chooses the wrong measurement for one product: a row in `headlines.csv`
 with MaterialID, HeadlineKey, MeasurementID and a Reason a reviewer can check against the source. The measurement must
 be that product's own and able to be the headline's value (property, unit, direction or load, a printed or unstated

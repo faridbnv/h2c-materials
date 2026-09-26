@@ -61,15 +61,15 @@ Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C
 Metal and Ceramic Sintering - Outside H2C Scope
  not tested 7,190 — — — n/a — ☆
 ABS not tested 1,050
-1,020–1,150 · 42
+1,020–1,150 · 43
  2.25
-1.77–2.38 · 10
- 35
-15.7–45 · 16
+1.77–2.38 · 11
+ 34.9
+15.7–45 · 17
  10
-3.9–40 · 15
- 94
-78.9–104 · 21
+3.9–40 · 16
+ 93.5
+78.9–104 · 22
  26↗ ☆
 ABS-AF not tested 1,050
 1,040–1,050 · 3
@@ -97,7 +97,7 @@ ABS-ESD not tested 1,070
 96–98 · 4
  — ☆
 ABS-GF not tested 1,100
-1,016–1,150 · 11
+1,016–1,150 · 12
  3.16
 1.74–4.21 · 5
  46.5
@@ -111,7 +111,7 @@ Alumina sintering filament
 Metal and Ceramic Sintering - Outside H2C Scope
  not tested 3,776 — — — n/a — ☆
 ASA not tested 1,070
-1,040–1,150 · 34
+1,040–1,150 · 35
  2.32
 0.943–2.45 · 9
  38.5
@@ -133,10 +133,10 @@ ASA Aero not tested 1,010
 70–85 · 2
  64↗ ☆
 ASA-AF not tested 1,070
-1,070–1,070 · 2
+1,070–1,070 · 3
  2.2* 40* 6* 89* — ☆
-ASA-CF not tested 1,095
-1,020–1,170 · 14
+ASA-CF not tested 1,100
+1,020–1,170 · 15
  3.91
 0.85–5.36 · 6
  41.3
@@ -186,8 +186,8 @@ Copolyesters
  not tested 1,160 — 2* 700* 70 — ☆
 HIPS
 Styrenics
- not tested 1,050
-1,023–1,080 · 9
+ not tested 1,045
+1,023–1,080 · 10
  1.47
 1.35–1.59 · 2
  29.2
@@ -243,7 +243,7 @@ Nylon / Polyamide
 PA12-CF
 Nylon / Polyamide
  not tested 1,070
-1,030–1,230 · 11
+1,030–1,230 · 12
  3.32
 3.3–8 · 4
  72
@@ -271,28 +271,28 @@ Nylon / Polyamide
 PA6-CF
 Nylon / Polyamide
  not tested 1,170
-1,090–1,250 · 12
+1,090–1,250 · 13
  4.3
 3.8–8.64 · 5
  82.5
 53–112 · 6
  7.35
 2.1–16.5 · 6
- 185
-140–215 · 9
+ 183
+140–215 · 10
  110↗ ☆
 PA6-GF
 Nylon / Polyamide
- not tested 1,290
-1,140–1,370 · 8
+ not tested 1,310
+1,140–1,370 · 9
  4.35
 2.85–5.36 · 4
  82.3
 62.8–98.9 · 6
  4.95
 2.4–12.5 · 6
- 186
-161–210 · 9
+ 184
+161–210 · 10
  77↗ ☆
 PA6-GS
 Nylon / Polyamide
@@ -300,7 +300,7 @@ Nylon / Polyamide
 PA6/66
 Nylon / Polyamide
  not tested 1,120
-1,100–1,120 · 6
+1,100–1,120 · 7
  2.22
 1.98–2.7 · 3
  63.6
@@ -372,7 +372,7 @@ Polymer Blends
 PC
 Polycarbonate
  not tested 1,200
-1,150–1,230 · 20
+1,150–1,230 · 21
  2.24
 1.8–2.63 · 12
  61
@@ -380,7 +380,7 @@ Polycarbonate
  7
 3.2–25 · 13
  114
-101–144 · 10
+101–144 · 11
  51↗ ☆
 PC FR
 Polycarbonate
@@ -477,8 +477,10 @@ Copolyesters
  — ☆
 PCTG-GF
 Copolyesters
- not tested 1,310 3.4* 55* 8* 77
-76–78 · 2
+ not tested 1,310
+1,310–1,310 · 2
+ 3.4* 55* 8* 78
+76–78 · 3
  — ☆
 PE
 Polyolefins
@@ -524,8 +526,8 @@ Industrial High-Temperature - Outside H2C Practical Envelope
  not tested 1,440 7.25 105 2.5 300 — ☆
 PEI
 also called ULTEM · Industrial High-Temperature - Outside H2C Practical Envelope
- not tested 1,308
-1,270–1,380 · 8
+ not tested 1,340
+1,270–1,380 · 9
  2.18
 2.05–2.5 · 3
  56
@@ -621,7 +623,7 @@ PET-LW
 PET Engineering
  not tested — — — — — — ☆
 PETG not tested 1,270
-1,180–1,350 · 55
+1,180–1,350 · 57
  1.65
 0.5–3.5 · 17
  47
@@ -661,15 +663,15 @@ PETG-GF not tested 1,330
 PETG-GR not tested — 1.4* 55.2* 5.62* — — ☆
 PETG-PTFE not tested 1,320 1.85* 40* 100* — — ☆
 PLA not tested 1,240
-1,170–1,329 · 135
+1,170–1,329 · 147
  2.27
-0.95–2.95 · 32
- 45
-26–70.4 · 50
- 9.4
-1.2–65 · 47
+0.95–2.95 · 34
+ 45.3
+26–70.4 · 52
+ 8.7
+1.2–65 · 49
  55
-50–135 · 67
+50–135 · 68
  28
 27–30 · 4
 ↗ ☆
@@ -733,15 +735,15 @@ PLA Metal not tested 1,765
 58–62 · 2
  32↗ ☆
 PLA Silk not tested 1,240
-1,210–1,320 · 19
- 1.78
-0.597–2.4 · 8
- 47.4
-27–62.7 · 10
- 3.5
-1.7–11.7 · 9
+1,210–1,320 · 29
+ 1.72
+0.597–2.4 · 11
+ 50
+27–62.7 · 17
+ 7
+1.7–11.7 · 16
  53
-50–62 · 12
+50–62 · 19
  31.5
 31–32 · 2
 ↗ ☆
@@ -831,15 +833,15 @@ High-Performance Engineering
 PPA-CF
 High-Performance Engineering
  not tested 1,210
-1,150–1,250 · 7
- 8.2
-7.1–11.8 · 3
+1,150–1,250 · 8
+ 7.65
+7.1–11.8 · 4
  108
-87–168 · 3
- 3.2
-1.9–3.5 · 3
+87–168 · 4
+ 3.35
+1.9–3.5 · 4
  220
-84.5–240 · 5
+84.5–240 · 6
  255↗ ☆
 PPA-GF
 High-Performance Engineering
@@ -864,16 +866,16 @@ High-Performance Engineering
  2.65 50 18 90 no price↗ ☆
 PPS-CF
 High-Performance Engineering
- not tested 1,290
-1,260–1,510 · 5
- 7.73
-5.45–8.23 · 4
- 75
-59.4–95 · 4
- 1.8
-1.2–4 · 4
- 253
-245–264 · 3
+ not tested 1,295
+1,260–1,510 · 6
+ 8
+5.45–8.23 · 5
+ 87
+59.4–95 · 5
+ 2.2
+1.2–4 · 5
+ 249
+245–264 · 4
  221↗ ☆
 PPS-ESD
 High-Performance Engineering
@@ -938,7 +940,9 @@ Fluoropolymers
  not tested 1,840 2.63 55 10 177 — ☆
 SAN
 Styrenics
- not tested 1,080 3.8* 72* — — — ☆
+ not tested 1,080
+1,080–1,080 · 2
+ 3.8* 72* — — — ☆
 SBC
 Styrenics
  not tested 1,010 — 26* 230* — — ☆
@@ -964,7 +968,7 @@ Support / Interface
 TPC
 also called TPEE · Flexible Elastomers
  not tested 1,150
-1,100–1,220 · 6
+1,100–1,220 · 7
  0.067 17.7 500 n/a — ☆
 TPC-ESD
 Flexible Elastomers
@@ -989,8 +993,8 @@ Flexible Elastomers
  0.0068 12 700 n/a no price↗ ☆
 TPU 90A class
 Flexible Elastomers
- not tested 1,205
-1,120–1,240 · 8
+ not tested 1,210
+1,120–1,240 · 9
  0.0162
 0.0053–0.027 · 2
  26.9
@@ -1001,7 +1005,7 @@ Flexible Elastomers
 TPU 95A class
 Flexible Elastomers
  not tested 1,200
-1,000–1,240 · 21
+1,000–1,240 · 22
  0.0115
 0.006–0.029 · 4
  27.1
@@ -1042,5 +1046,11 @@ Flexible Elastomers
 TPU, hardness not stated
 Flexible Elastomers
  not tested 1,220
-1,120–1,230 · 5
- 0.027 27.3 501 n/a — ☆
+1,120–1,230 · 6
+ 0.027
+0.027–0.027 · 2
+ 27.3
+27.3–27.3 · 2
+ 501
+501–501 · 2
+ n/a — ☆

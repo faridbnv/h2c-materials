@@ -173,6 +173,8 @@ function evaluateNumeric(material, c, ctx = {}) {
     // A value whose sheet leaves the load or direction unstated decides only when the reader includes such values (D84).
     if (h.caveat) reason += `, its test ${h.caveat === 'load-not-stated' ? 'load' : 'direction'} not stated (counted because values published that way are included)`;
     else if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;
+    // A twin's value is printed on its sibling's sheet too, and recorded there once (D89).
+    if (h.from?.label) reason += `, ${h.from.label}`;
     if (closeToLimit) reason += `; close to the limit: the threshold lies within the published spread, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
   }
   return {
@@ -218,8 +220,10 @@ function evaluateGate(material, c) {
       return { status: STATUS.PASS, criterion: 'Hardened nozzle available', reason: 'A hardened nozzle prints abrasive and non-abrasive filament' };
     }
     const g = material.gates.abrasive;
-    if (g === 'requires-hardened') return { status: STATUS.FAIL, criterion, reason: 'A source states it needs an abrasion-resistant nozzle' };
-    if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: 'A source states no special nozzle concern' };
+    // Read from a twin's sheet or a printer maker's guide where the product's own is silent (D88, D89): said so.
+    const from = material.gates.abrasiveFrom ? ` (${material.gates.abrasiveFrom})` : '';
+    if (g === 'requires-hardened') return { status: STATUS.FAIL, criterion, reason: `A source states it needs an abrasion-resistant nozzle${from}` };
+    if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: `A source states no special nozzle concern${from}` };
     const filler = material.facets?.reinforcement?.value;
     if (filler === 'carbon-fibre' || filler === 'glass-fibre') {
       return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, but no abrasion guidance was recorded. Treat as abrasive until the grade says otherwise' };
@@ -260,7 +264,7 @@ function evaluateGate(material, c) {
   if (c.gate === 'dryingKnown') {
     const ok = material.gates.drying === 'required';
     return ok
-      ? { status: STATUS.PASS, criterion: 'Drying schedule published', reason: 'A drying schedule is published for this material' }
+      ? { status: STATUS.PASS, criterion: 'Drying schedule published', reason: `A drying schedule is published for this material${material.gates.dryingFrom ? ` (${material.gates.dryingFrom})` : ''}` }
       : { status: STATUS.UNKNOWN, criterion: 'Drying schedule published', reason: 'No drying schedule in the sampled sources' };
   }
 

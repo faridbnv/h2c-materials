@@ -51,7 +51,7 @@ Nylon / Polyamide
  PASS
 1 of 4
  1,120
-1,100–1,120 · 6
+1,100–1,120 · 7
  2.22
 1.98–2.7 · 3
  63.6
@@ -103,7 +103,7 @@ also called TPEE · Flexible Elastomers
  PASS
 1 of 1
  1,150
-1,100–1,220 · 6
+1,100–1,220 · 7
  0.067 17.7 500 n/a — ☆
 TPS
 Flexible Elastomers
@@ -123,8 +123,8 @@ TPU 90A class
 Flexible Elastomers
  PASS
 4 of 4
- 1,205
-1,120–1,240 · 8
+ 1,210
+1,120–1,240 · 9
  0.0162
 0.0053–0.027 · 2
  26.9
@@ -137,7 +137,7 @@ Flexible Elastomers
  PASS
 7 of 7
  1,200
-1,000–1,240 · 21
+1,000–1,240 · 22
  0.0115
 0.006–0.029 · 4
  27.1
@@ -159,7 +159,13 @@ Flexible Elastomers
 TPU, hardness not stated
 Flexible Elastomers
  PASS
-1 of 1
+2 of 2
  1,220
-1,120–1,230 · 5
- 0.027 27.3 501 n/a — ☆
+1,120–1,230 · 6
+ 0.027
+0.027–0.027 · 2
+ 27.3
+27.3–27.3 · 2
+ 501
+501–501 · 2
+ n/a — ☆

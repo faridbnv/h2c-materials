@@ -139,17 +139,17 @@ G001-137,M001,steelFill,within,within,unknown,unknown,unknown,unknown,
 G001-138,M001,Magnetic Iron PLA,within,within,unknown,unknown,unknown,unknown,
 G001-139,M001,"Brass Fill, Bronze Fill, Copper Fill HTPLA",within,within,unknown,unknown,unknown,unknown,
 G001-140,M001,PLA-Lite,within,within,unknown,unknown,unknown,required,
-G001-141,M001,PLA Nature,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-142,M001,PLA,unknown,unknown,unknown,unknown,unknown,unknown,
+G001-141,M001,PLA Nature,within,within,within,not-needed,unknown,unknown,nozzle: twin G001-69; bed: twin G001-69; chamber: twin G001-69; enclosure: twin G001-69
+G001-142,M001,PLA,within,within,unknown,unknown,unknown,unknown,nozzle: twin G001-74; bed: twin G001-74
 G001-143,M001,PLA+2.0,unknown,unknown,unknown,unknown,unknown,unknown,
 G001-144,M001,Prusament PLA by Prusa Polymers,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-145,M001,High Speed Matte PLA,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-146,M001,PLA Clear,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-147,M001,PLA Thermoactive,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-148,M001,PolyLite CosPLA,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-149,M001,PLA Vertigo,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-150,M001,SafeGuard PLA,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-151,M001,Burnt Titanium PLA,unknown,unknown,unknown,unknown,unknown,unknown,
+G001-145,M001,High Speed Matte PLA,unknown,within,unknown,unknown,unknown,required,bed: twin G001-36; drying: twin G001-36
+G001-146,M001,PLA Clear,within,within,unknown,unknown,unknown,unknown,nozzle: twin G001-84; bed: twin G001-84
+G001-147,M001,PLA Thermoactive,within,within,within,not-needed,unknown,unknown,nozzle: twin G001-69; bed: twin G001-69; chamber: twin G001-69; enclosure: twin G001-69
+G001-148,M001,PolyLite CosPLA,within,within,within,not-needed,unknown,required,nozzle: twin G001-27; bed: twin G001-27; chamber: twin G001-27; enclosure: twin G001-27; drying: twin G001-27
+G001-149,M001,PLA Vertigo,within,within,unknown,unknown,unknown,unknown,nozzle: twin G001-70; bed: twin G001-70
+G001-150,M001,SafeGuard PLA,within,within,within,not-needed,unknown,unknown,nozzle: twin G001-69; bed: twin G001-69; chamber: twin G001-69; enclosure: twin G001-69
+G001-151,M001,Burnt Titanium PLA,within,within,unknown,unknown,unknown,required,nozzle: twin G001-47; bed: twin G001-47; drying: twin G001-47
 G001-152,M001,Hyper Speed PLA Pro,within,unknown,unknown,unknown,unknown,required,
 G001-153,M001,PLA,within,within,unknown,unknown,unknown,unknown,
 G001-154,M001,Precise PLA,unknown,unknown,unknown,unknown,unknown,unknown,
@@ -188,15 +188,15 @@ G001-186,M001,HS PLA CLEAR,within,within,unknown,unknown,unknown,unknown,
 G001-187,M001,MATTE PLA,within,within,unknown,unknown,unknown,unknown,
 G001-188,M001,PLA,unknown,unknown,unknown,unknown,unknown,unknown,
 G001-189,M001,rPLA,within,unknown,unknown,unknown,unknown,required,
-G001-190,M001,MagicFil Thermo PLA,unknown,unknown,unknown,unknown,unknown,unknown,
+G001-190,M001,MagicFil Thermo PLA,within,unknown,unknown,unknown,unknown,unknown,nozzle: twin G001-159
 G001-191,M001,Standard PLA,unknown,unknown,unknown,unknown,unknown,unknown,
 G001-192,M001,PLA Basic,unknown,unknown,unknown,unknown,unknown,unknown,
 G001-193,M001,eTwinkling,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-194,M001,ReForm - rPLA,unknown,unknown,unknown,unknown,unknown,unknown,
+G001-194,M001,ReForm - rPLA,within,unknown,unknown,unknown,unknown,unknown,nozzle: twin G001-159
 G001-195,M001,Modified PLA,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-196,M001,HT-PLA,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-197,M001,PLA Matte,unknown,unknown,unknown,unknown,unknown,unknown,
-G001-198,M001,PLA Lite,unknown,unknown,unknown,unknown,unknown,unknown,
+G001-196,M001,HT-PLA,within,within,within,not-needed,no-special-concern,unknown,nozzle: twin G001-09; bed: twin G001-09; chamber: twin G001-09; enclosure: twin G001-09; hardenedNozzle: twin G001-09
+G001-197,M001,PLA Matte,within,within,within,not-needed,no-special-concern,unknown,nozzle: twin G001-08; bed: twin G001-08; chamber: twin G001-08; enclosure: twin G001-08; hardenedNozzle: twin G001-08
+G001-198,M001,PLA Lite,within,within,within,not-needed,no-special-concern,unknown,nozzle: twin G001-12; bed: twin G001-12; chamber: twin G001-12; enclosure: twin G001-12; hardenedNozzle: twin G001-12
 G002-01,M001,PLA Basic,within,within,within,unknown,unknown,required,
 G003-01,M001,PLA Matte,within,within,within,unknown,unknown,required,
 G004-01,M001,PLA-Lite,within,within,within,not-needed,unknown,unknown,
@@ -221,20 +221,20 @@ G008-15,M008,PLA+ (Silk PLA+),unknown,unknown,unknown,unknown,unknown,required,
 G008-16,M008,ecoPLA Silk,within,unknown,unknown,unknown,unknown,unknown,
 G008-17,M008,PLA Silk,unknown,unknown,unknown,unknown,unknown,required,
 G008-18,M008,ecoPLA Silk Rainbow,within,unknown,unknown,unknown,unknown,unknown,
-G008-19,M008,Silk PLA+,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-20,M008,Silk PLA Tri-Color,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-21,M008,PLA SILK,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-22,M008,Hyper Speed Triple Color Silk PLA,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-23,M008,Silk PLA Dual-Color,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-24,M008,PLA SILK Rainbow,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-25,M008,Silk PLA+ Dual-Color,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-26,M008,Silk PLA+ Rainbow,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-27,M008,Silk PLA+ Tri-Color,unknown,unknown,unknown,unknown,unknown,unknown,
+G008-19,M008,Silk PLA+,unknown,within,unknown,unknown,unknown,required,bed: twin G008-04; drying: twin G008-04
+G008-20,M008,Silk PLA Tri-Color,unknown,unknown,unknown,unknown,unknown,required,drying: twin G008-07
+G008-21,M008,PLA SILK,within,within,within,not-needed,unknown,unknown,nozzle: twin G008-03; bed: twin G008-03; chamber: twin G008-03; enclosure: twin G008-03
+G008-22,M008,Hyper Speed Triple Color Silk PLA,within,within,unknown,unknown,unknown,required,nozzle: twin G008-08; bed: twin G008-08; drying: twin G008-08
+G008-23,M008,Silk PLA Dual-Color,unknown,unknown,unknown,unknown,unknown,required,drying: twin G008-07
+G008-24,M008,PLA SILK Rainbow,within,within,within,not-needed,unknown,unknown,nozzle: twin G008-03; bed: twin G008-03; chamber: twin G008-03; enclosure: twin G008-03
+G008-25,M008,Silk PLA+ Dual-Color,unknown,within,unknown,unknown,unknown,required,bed: twin G008-04; drying: twin G008-04
+G008-26,M008,Silk PLA+ Rainbow,unknown,within,unknown,unknown,unknown,required,bed: twin G008-04; drying: twin G008-04
+G008-27,M008,Silk PLA+ Tri-Color,unknown,within,unknown,unknown,unknown,required,bed: twin G008-04; drying: twin G008-04
 G008-28,M008,Silk Gloss PLA,within,unknown,unknown,unknown,unknown,unknown,
 G008-29,M008,PLA Silk Dual Color,within,within,within,unknown,unknown,unknown,
 G008-30,M008,ePLA-Silk Magic,unknown,unknown,unknown,unknown,unknown,unknown,
 G008-31,M008,ePLA-Silk Mystic,unknown,unknown,unknown,unknown,unknown,unknown,
-G008-32,M008,PLA Silk,unknown,unknown,unknown,unknown,unknown,unknown,
+G008-32,M008,PLA Silk,within,within,within,unknown,unknown,unknown,nozzle: twin G008-29; bed: twin G008-29; chamber: twin G008-29
 G008-33,M008,SILK,unknown,unknown,unknown,unknown,unknown,unknown,
 G009-01,M008,PLA Silk+,within,within,within,unknown,unknown,required,
 G010-01,M008,PLA Silk Dual Color,within,within,within,unknown,unknown,required,
@@ -384,7 +384,7 @@ G020-55,M020,MH Build Series PETG,within,within,unknown,unknown,unknown,unknown,
 G020-56,M020,XPETG MATT,within,within,unknown,recommended,unknown,unknown,
 G020-57,M020,Type G polyethylene terephthalate (PETG),unknown,unknown,unknown,unknown,unknown,unknown,
 G020-58,M020,Premium PETG,unknown,unknown,unknown,unknown,unknown,unknown,
-G020-59,M020,Prusament PETG Recycled by Prusa Polymers,unknown,unknown,unknown,unknown,unknown,unknown,
+G020-59,M020,Prusament PETG Recycled by Prusa Polymers,within,within,unknown,unknown,unknown,unknown,nozzle: twin G020-29; bed: twin G020-29
 G020-60,M020,MakerBot PETG,unknown,unknown,unknown,unknown,unknown,unknown,
 G020-61,M020,EasyFil ePETG,unknown,unknown,unknown,unknown,unknown,unknown,
 G020-62,M020,ReForm - rPET,within,unknown,unknown,unknown,unknown,unknown,
@@ -398,7 +398,7 @@ G020-69,M020,MATTE PET-G,within,within,unknown,unknown,unknown,unknown,
 G020-70,M020,PET-G,unknown,unknown,unknown,unknown,unknown,unknown,
 G020-71,M020,R PET-G,within,within,unknown,unknown,unknown,unknown,
 G020-72,M020,PETG Basic,unknown,unknown,unknown,unknown,unknown,unknown,
-G020-73,M020,PETG Lite,unknown,unknown,unknown,unknown,unknown,unknown,
+G020-73,M020,PETG Lite,within,within,within,not-needed,no-special-concern,unknown,nozzle: twin G020-06; bed: twin G020-06; chamber: twin G020-06; enclosure: twin G020-06; hardenedNozzle: twin G020-06
 G020-74,M020,PET-G FX120,unknown,unknown,unknown,unknown,unknown,unknown,
 G021-01,M020,PETG Basic,within,within,within,unknown,unknown,required,
 G022-01,M020,PETG HF,within,within,within,unknown,unknown,required,
@@ -488,7 +488,7 @@ G027-43,M027,ABS-M30i,unknown,unknown,unknown,unknown,unknown,unknown,
 G027-44,M027,ABS-ESD7,unknown,unknown,unknown,unknown,unknown,unknown,
 G027-45,M027,ABSpro,within,unknown,unknown,unknown,unknown,unknown,
 G027-46,M027,EasyFil ABS,within,unknown,unknown,unknown,unknown,unknown,
-G027-47,M027,ABS,within,within,within,unknown,unknown,unknown,
+G027-47,M027,ABS,within,within,within,unknown,unknown,required,drying: twin G027-01; anneal: twin G027-01
 G027-48,M027,ClearScent ABS,within,unknown,unknown,unknown,unknown,unknown,
 G027-49,M027,Premium ABS,within,unknown,unknown,unknown,unknown,unknown,
 G027-50,M027,ABS,within,within,partial,unknown,unknown,unknown,
@@ -576,7 +576,7 @@ G031-39,M031,Triton ASA Model Material,unknown,unknown,unknown,unknown,unknown,u
 G031-40,M031,ASA,within,within,unknown,unknown,unknown,unknown,
 G031-41,M031,MATTE ASA,within,within,unknown,unknown,unknown,unknown,
 G031-42,M031,ReForm - rApollo,within,within,unknown,recommended,unknown,required,
-G031-43,M031,ASA,unknown,unknown,unknown,unknown,unknown,unknown,
+G031-43,M031,ASA,within,within,unknown,recommended,no-special-concern,unknown,nozzle: twin G031-04; bed: twin G031-04; chamber: twin G031-04; enclosure: twin G031-04; hardenedNozzle: twin G031-04
 G032-01,M032,ASA Aero,within,within,within,unknown,unknown,required,
 G032-02,M032,LW-ASA UltraFoam,within,within,unknown,recommended,unknown,required,
 G032-03,M032,Light Weight ASA (LW-ASA),within,within,unknown,unknown,unknown,unknown,
@@ -599,7 +599,7 @@ G033-14,M033,ASA-CF20 Core,unknown,unknown,unknown,unknown,requires-hardened,req
 G033-15,M033,ASAx CF,within,within,unknown,unknown,requires-hardened,required,
 G033-16,M033,ASA CF,within,unknown,unknown,unknown,requires-hardened,unknown,
 G033-17,M033,ASA CF,unknown,unknown,unknown,unknown,unknown,required,
-G033-18,M033,ASA CF,unknown,unknown,unknown,unknown,unknown,unknown,
+G033-18,M033,ASA CF,within,within,unknown,recommended,requires-hardened,unknown,nozzle: twin G033-03; bed: twin G033-03; chamber: twin G033-03; enclosure: twin G033-03; hardenedNozzle: twin G033-03
 G034-01,M034,asax x gf10,within,within,within,not-needed,requires-hardened,unknown,
 G034-02,M034,ASA Glass Fiber,unknown,unknown,unknown,unknown,requires-hardened,unknown,
 G034-03,M034,IPCON ASA GF,within,within,within,recommended,requires-hardened,required,
@@ -626,7 +626,7 @@ G035-17,M035,PC-HT,within,within,unknown,unknown,unknown,required,
 G035-18,M035,Premium PC Black White,within,within,unknown,unknown,unknown,unknown,
 G035-19,M035,PC V0,within,exceeds,exceeds,unknown,unknown,required,
 G035-20,M035,PC,unknown,unknown,unknown,unknown,unknown,required,
-G035-21,M035,Kratos PC,unknown,unknown,unknown,unknown,unknown,unknown,
+G035-21,M035,Kratos PC,within,exceeds,unknown,recommended,unknown,required,nozzle: twin G035-03; bed: twin G035-03; chamber: twin G035-03; enclosure: twin G035-03; drying: twin G035-03
 G035-22,M035,Premium PC,unknown,unknown,unknown,unknown,unknown,unknown,
 G035-23,M035,PC,unknown,unknown,unknown,unknown,unknown,unknown,
 G035-24,M035,PC-ISO,unknown,unknown,unknown,unknown,unknown,unknown,
@@ -704,10 +704,10 @@ G039-54,M159,TPU 87A,within,within,within,not-needed,requires-hardened,unknown,
 G039-55,M163,TPU,unknown,unknown,unknown,unknown,unknown,required,
 G039-56,M159,TPU 82A,within,within,within,not-needed,requires-hardened,unknown,
 G039-57,M161,TPU,within,within,unknown,unknown,unknown,required,
-G039-58,M161,TPU HS,unknown,unknown,unknown,unknown,unknown,unknown,
+G039-58,M161,TPU HS,within,within,unknown,unknown,unknown,required,nozzle: twin G039-37; bed: twin G039-37; drying: twin G039-37
 G039-59,M161,TPU 95A-Z,unknown,unknown,unknown,unknown,unknown,unknown,
-G039-60,M160,varioShore Prosthetic TPU,unknown,unknown,unknown,unknown,unknown,unknown,
-G039-61,M163,Standard TPU,unknown,unknown,unknown,unknown,unknown,unknown,
+G039-60,M160,varioShore Prosthetic TPU,within,within,unknown,unknown,unknown,unknown,nozzle: twin G039-25; bed: twin G039-25
+G039-61,M163,Standard TPU,within,within,unknown,unknown,unknown,required,nozzle: twin G039-21; bed: twin G039-21; drying: twin G039-21
 G039-62,M160,ReForm rTPU 90A,unknown,unknown,unknown,unknown,unknown,unknown,
 G039-63,M160,Python Flex TPU 90A,unknown,unknown,unknown,unknown,unknown,unknown,
 G039-64,M159,ReForm rTPU 85A,unknown,unknown,unknown,unknown,unknown,unknown,
@@ -764,7 +764,7 @@ G050-09,M050,Fishy Filaments’ 0rCA,unknown,unknown,unknown,unknown,unknown,unk
 G050-10,M050,CarbonX Carbon Fiber Nylon (Gen3),within,within,unknown,unknown,requires-hardened,unknown,
 G050-11,M050,FIBERON PA6 CF20,within,within,within,unknown,requires-hardened,required,
 G050-12,M050,PA-6 CF,within,within,within,unknown,requires-hardened,required,
-G050-13,M050,STYX PA6-CF15,unknown,unknown,unknown,unknown,unknown,unknown,
+G050-13,M050,STYX PA6-CF15,within,within,unknown,recommended,requires-hardened,required,nozzle: twin G050-03; bed: twin G050-03; chamber: twin G050-03; enclosure: twin G050-03; hardenedNozzle: twin G050-03; drying: twin G050-03
 G050-14,M050,PA6-CF,unknown,unknown,unknown,unknown,unknown,required,
 G051-01,M051,PA6-GF,within,within,within,unknown,requires-hardened,required,
 G051-02,M051,AMIDEX Nylon GF30,unknown,unknown,unknown,unknown,requires-hardened,unknown,
@@ -775,7 +775,7 @@ G051-06,M051,PA6-GF,unknown,within,unknown,unknown,requires-hardened,required,
 G051-07,M051,PA6-GF20,within,within,partial,unknown,requires-hardened,required,
 G051-08,M051,Polyamid 6 glass fiber 10% (PA6 GF10),unknown,unknown,unknown,unknown,unknown,unknown,
 G051-09,M051,FIBERON PA6 GF25,within,within,within,unknown,requires-hardened,required,
-G051-10,M051,STYX PA6-GF30,unknown,unknown,unknown,unknown,unknown,unknown,
+G051-10,M051,STYX PA6-GF30,within,within,unknown,recommended,requires-hardened,required,nozzle: twin G051-04; bed: twin G051-04; chamber: twin G051-04; enclosure: twin G051-04; hardenedNozzle: twin G051-04; drying: twin G051-04
 G051-11,M051,PA6/66-GF30-FR,unknown,unknown,unknown,unknown,unknown,unknown,
 G052-01,M052,AMIDEX Nylon 12,within,within,within,unknown,unknown,required,
 G052-02,M052,DURAPRO PA12,within,within,unknown,recommended,unknown,unknown,
@@ -809,7 +809,7 @@ G057-03,M057,Polymaker PolyMide CoPA,within,within,within,unknown,unknown,requir
 G057-04,M057,PA Nylon Filament (1kg) Natural,within,within,unknown,unknown,unknown,required,
 G057-05,M057,PA6/66,within,unknown,unknown,unknown,unknown,required,
 G057-06,M057,Easy PA,unknown,within,unknown,unknown,unknown,required,
-G057-07,M057,ePA,unknown,unknown,unknown,unknown,unknown,unknown,
+G057-07,M057,ePA,within,within,unknown,unknown,unknown,required,nozzle: twin G057-04; bed: twin G057-04; drying: twin G057-04
 G059-01,M059,Fiberon PA612-CF15,within,within,within,unknown,requires-hardened,required,
 G059-02,M059,PA612-CF,within,unknown,unknown,unknown,requires-hardened,required,
 G064-01,M064,3DXSTAT ESD PA12,within,within,unknown,unknown,unknown,unknown,
@@ -841,7 +841,7 @@ G070-03,M070,Fibreheart PPA-CF Core,within,within,unknown,unknown,unknown,requir
 G070-04,M070,Industrial PPA CF,unknown,unknown,unknown,unknown,unknown,required,
 G070-05,M070,CarbonX Carbon Fiber High Temp Nylon (HTN),within,exceeds,unknown,unknown,requires-hardened,unknown,
 G070-06,M070,PPA-CF,within,within,partial,unknown,requires-hardened,required,
-G070-07,M070,PPA-CF,unknown,unknown,unknown,unknown,unknown,unknown,
+G070-07,M070,PPA-CF,within,within,partial,unknown,requires-hardened,required,nozzle: twin G070-06; bed: twin G070-06; chamber: twin G070-06; hardenedNozzle: twin G070-06; drying: twin G070-06
 G070-08,M070,Hyper Core PPA CF25,unknown,unknown,unknown,unknown,unknown,unknown,
 G070-09,M070,Fibreheart PAHT CF (PPA based),within,unknown,unknown,unknown,requires-hardened,required,
 G071-01,M071,PPA-GF,within,within,unknown,recommended,requires-hardened,required,
@@ -856,7 +856,7 @@ G073-02,M073,Essentium PPS-CF,exceeds,within,unknown,unknown,requires-hardened,r
 G073-03,M073,PPS-CF,within,within,partial,unknown,requires-hardened,required,
 G073-04,M073,FIBERON PPS CF10,within,within,within,unknown,requires-hardened,required,
 G073-05,M073,LUVOCOM 3F PPS CF 9938 BK,within,unknown,unknown,unknown,requires-hardened,unknown,
-G073-06,M073,PPS CF,unknown,unknown,unknown,unknown,unknown,unknown,
+G073-06,M073,PPS CF,within,within,partial,unknown,requires-hardened,required,nozzle: twin G073-03; bed: twin G073-03; chamber: twin G073-03; hardenedNozzle: twin G073-03; drying: twin G073-03
 G073-07,M073,Industrial PPS CF,within,unknown,unknown,unknown,requires-hardened,unknown,
 G074-01,M074,PPS-GF,exceeds,within,partial,unknown,requires-hardened,required,
 G074-02,M074,Fiberon PPS-GF20,within,within,within,unknown,requires-hardened,required,
@@ -893,7 +893,7 @@ G081-08,M081,EasyFil HIPS,within,unknown,unknown,unknown,unknown,unknown,
 G081-09,M081,Ultrafuse HiPS,within,within,unknown,unknown,unknown,required,
 G081-10,M081,HIPS,within,within,exceeds,unknown,unknown,required,
 G081-11,M081,HIPS,within,within,unknown,unknown,unknown,unknown,
-G081-12,M081,LimoSolve,unknown,unknown,unknown,unknown,unknown,unknown,
+G081-12,M081,LimoSolve,within,unknown,unknown,unknown,unknown,unknown,nozzle: twin G081-08
 G082-02,M082,PP,within,within,unknown,unknown,unknown,unknown,
 G082-03,M082,PP,within,within,unknown,recommended,unknown,unknown,
 G082-04,M082,PP2.0,unknown,unknown,unknown,unknown,unknown,required,
@@ -988,7 +988,7 @@ G099-09,M099,Ultem 9085 Model Material,unknown,unknown,unknown,unknown,unknown,u
 G099-10,M099,Ultem 1010 Model Material,unknown,unknown,unknown,unknown,unknown,unknown,
 G099-11,M099,PEI 9085,exceeds,exceeds,exceeds,unknown,unknown,unknown,
 G099-12,M099,PEI Ultem 1010,unknown,unknown,unknown,unknown,unknown,unknown,
-G099-13,M099,PEI ULTEM 9085,unknown,unknown,unknown,unknown,unknown,unknown,
+G099-13,M099,PEI ULTEM 9085,exceeds,exceeds,unknown,unknown,unknown,unknown,nozzle: twin G099-06; bed: twin G099-06
 G100-01,M100,THERMAX PSU,exceeds,exceeds,unknown,unknown,unknown,required,
 G101-01,M101,THERMAX PES,exceeds,exceeds,unknown,unknown,unknown,required,
 G102-01,M102,THERMAX PPSU,exceeds,exceeds,unknown,unknown,unknown,required,
@@ -1007,7 +1007,7 @@ G108-01,M108,PA6 GK10,within,within,unknown,recommended,requires-hardened,requir
 G109-01,M109,PETG/PTFE,within,within,within,not-needed,unknown,unknown,
 G109-02,M109,PETG+PTFE,within,within,unknown,unknown,unknown,unknown,
 G110-01,M110,PCTG GF10,within,within,within,not-needed,requires-hardened,unknown,
-G110-02,M110,AthenaX GF10,unknown,unknown,unknown,unknown,unknown,unknown,
+G110-02,M110,AthenaX GF10,within,within,within,not-needed,requires-hardened,unknown,nozzle: twin G110-01; bed: twin G110-01; chamber: twin G110-01; enclosure: twin G110-01; hardenedNozzle: twin G110-01
 G110-03,M110,PCTG+GF10,within,within,unknown,unknown,requires-hardened,unknown,
 G111-01,M111,PLA Conductive,within,within,within,not-needed,requires-hardened,required,
 G111-02,M111,Conductive PLA,within,within,unknown,unknown,unknown,unknown,
@@ -1015,7 +1015,7 @@ G112-01,M112,PC/PTFE,within,within,unknown,recommended,unknown,unknown,
 G112-02,M112,PC-PTFE,within,exceeds,exceeds,unknown,unknown,required,
 G113-01,M113,ASA Kevlar,within,within,within,not-needed,requires-hardened,unknown,
 G113-02,M113,ApolloX Kevlar,unknown,unknown,within,not-needed,unknown,unknown,
-G113-03,M113,ASA+AF,unknown,unknown,unknown,unknown,unknown,unknown,
+G113-03,M113,ASA+AF,within,within,within,not-needed,requires-hardened,unknown,nozzle: twin G113-01; bed: twin G113-01; chamber: twin G113-01; enclosure: twin G113-01; hardenedNozzle: twin G113-01
 G114-01,M114,3DXSTAT ESD-TPC (90A),within,within,unknown,unknown,unknown,unknown,
 G115-01,M115,3DXSTAT ESD-PEKK,exceeds,exceeds,unknown,unknown,unknown,unknown,
 G116-01,M116,3DXSTAT ESD-PC,within,exceeds,unknown,unknown,unknown,unknown,

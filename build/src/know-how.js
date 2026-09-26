@@ -114,6 +114,9 @@ export function attachKnowHow(db, wb, issues) {
     const topics = {};
     for (const t of KNOW_HOW_TOPICS) { const n = own.filter((k) => k.topic === t).length; if (n) topics[t] = n; }
     const p = g.print;
+    // The maker's own documents only: a part of the recipe read from a twin's sheet or a printer maker's guide (D88,
+    // D89) is not something this product's documents were found to say.
+    const ownPart = (axis) => !!p && !p.from?.[axis];
     g.knowHow = {
       state: stateOf(own.length > 0, reads),
       statements: own.length,
@@ -121,9 +124,9 @@ export function attachKnowHow(db, wb, issues) {
       readOn: reads.readOn,
       searchedOn: reads.searchedOn,
       recipe: {
-        chamber: stateOf((!!p && (p.chamber.state !== 'unknown' || p.enclosure !== 'unknown')) || says(own, CHAMBER_STATED), reads),
-        drying: stateOf(!!p?.drying || says(own, DRYING_STATED), reads),
-        annealing: stateOf(!!p?.anneal?.length || annealStated.has(g.id), reads),
+        chamber: stateOf((ownPart('chamber') && p.chamber.state !== 'unknown') || (ownPart('enclosure') && p.enclosure !== 'unknown') || says(own, CHAMBER_STATED), reads),
+        drying: stateOf((ownPart('drying') && !!p.drying) || says(own, DRYING_STATED), reads),
+        annealing: stateOf((ownPart('anneal') && !!p.anneal?.length) || annealStated.has(g.id), reads),
       },
     };
   }

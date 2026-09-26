@@ -239,17 +239,25 @@ a material's headline is derived from them, and no product stands for a material
   lowest ID. A row of `headlines.csv` on the product pins it (`pinned`), with its Reason; on 2026-09-25 the rule alone
   reproduced all 477 hand picks (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`), which m137 retired. A value measured on an
   annealed part carries the schedule (`anneal`). `priceCADkg` is the median of the product's own sample listings.
+  Where the product has no value of its own for a headline and a **twin** does, it reads the twin's own value, marked
+  `from: { origin: "twin", gradeId, label }` (D89). A twin is another active product of the same material under the
+  same Shared formulation key: the products whose sheets print one table the import recorded once (R053). It is
+  derived; no table holds it. A price is never read from a twin, and a product that reprints another material's table
+  (R166) has no twin.
 - **`grades[].print`**: the product's own recipe from its own profiles, never a union across a material: per axis the
   gate against the H2C and the window of the profile that decided it, the enclosure, whether it wants a hardened
-  nozzle, drying, and the annealing its sheets state. Null for a product with neither a profile nor an annealing
-  schedule.
+  nozzle, drying, and the annealing its sheets state. Where its own profiles say nothing on a part, its twin's own
+  (D89) are read, and `print.from[part]` and the gate's reason say so. Null for a product with nothing on any part.
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
   variants (a material whose every product is a variant, PP Lightweight, is its variants). `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
   values) and `typical` product (nearest the median) these are. Values published without the direction or load
   (`asPublished`) and variants (`variants`) are counted apart. It is the spread of different products, never
-  uncertainty about one; PEBA's 7.5, 25 and 30 MPa are three products.
+  uncertainty about one; PEBA's 7.5, 25 and 30 MPa are three products. A twin counts as the product it is, and
+  `twins` says how many of the `n` values are a twin's; a twin reading a declared variant's sheet is set apart with it,
+  and where a twin ties its sibling the typical product is the sibling.
 
-`build/snapshot/products.csv` and `summaries.csv` hold every value; `npm run sql` has `products_compiled` and
+`build/snapshot/products.csv` and `summaries.csv` hold every value (their From and Twins columns name a twin's reading),
+and `print.csv` every product's print gates and where each part came from; `npm run sql` has `products_compiled` and
 `summaries_compiled`.
 
 ### A headline value
