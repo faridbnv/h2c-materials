@@ -649,3 +649,206 @@ variance tolerance, 1e-10 of the prior, which the larger hold-out of a PLA with 
 floating-point arithmetic alone (a relative 1e-8). Eight tests that named the merged rows now name the product or the
 class. The drawer's pointer guard counts the aliases' prose too: every pointer resolves, 50 as before.
 
+
+## Phase 5, part 2: the held sheets get a home (2026-09-25)
+
+*In plain words: seventy-four data sheets had been set aside because they did not say which polymer their product
+is. The owner decided where such a product belongs: in its family's "polymer not stated" material, shown and judged
+like any other and never estimated. Forty-four of them are in the database now, and each of the other thirty says why
+it is not.*
+
+Improves C2 (a home for everything) and C3 (the decision tier's evidence), steps 2 and 5.
+
+**The homes** (m142, D87). One material per family entry and declared filler the sheets need, each in scope, labelled
+in its name, Estimate identity Not applicable, a member of its family entry where one exists:
+
+| Material | Family (entry) | Products |
+|---|---|---:|
+| M164 Nylon, polymer not stated | Nylon / Polyamide (PA) | 9 |
+| M165 Nylon-CF, polymer not stated | Nylon / Polyamide (PA-CF) | 1 |
+| M166 Nylon-GF, polymer not stated | Nylon / Polyamide (PA-GF) | 1 |
+| M167 TPE, polymer not stated | Flexible Elastomers (TPE) | 12 |
+| M168 PLA family, polymer not stated | PLA | 7 |
+| M169 PLA family-CF, polymer not stated | PLA | 2 |
+| M170 TPS | Flexible Elastomers (TPE) | 2 |
+| M171 316L stainless steel sintering filament | Metal and Ceramic Sintering (new, Excluded) | 2 |
+| M172 Silicon carbide sintering filament | Metal and Ceramic Sintering (Excluded) | 1 |
+| M173 Alumina sintering filament | Metal and Ceramic Sintering (Excluded) | 1 |
+
+- The nylon and TPE homes take the family's word as their base polymer (PA, TPE), so a word ruling files a family-only
+  sheet by its declared filler. The PLA family's homes are for the undisclosed bio-copolymers the owner named; their
+  family is PLA because two of Extrudr's own safety-sheet editions say "based on PLA, contains copolyester", every one
+  of them prints at PLA's temperatures and is compared with PLA by its maker, and the reader already filed GreenTEC's
+  word under PLA's family. Their base polymer is "Biopolymer (not stated)", which no identity reaches.
+- purefil's GreenTEC Pro and Spectrum's GreenyHT, filed under PLA from their sheets' comparison with PLA, moved to the
+  PLA family's home with their 30 records (moveGrade); their "undisclosed dense filler" had been measured against
+  PLA's neat density, and with the polymer not stated it is not a reading, so their Variant is Not applicable.
+- **TPS has no polymers.csv row**, as the owner's default said: the one styrenic resin reference recorded (Kraton
+  G1650 M) is a single SEBS grade, and purefil's sheet does not say its block copolymer is SEBS. **Heat deflection,
+  checked as asked: hdt045 applied to "Morphology: amorphous | semicrystalline | not modelled", and a material with no
+  polymer row is "not modelled", so it applied to TPS and to the TPE home.** FiberFlex's 70 °C and purefil TPS 40D's
+  110 °C would have decided heat requirements. hdt045 now names the rigid families as well (Applies to), which leaves
+  out Flexible Elastomers and the sintering filaments; no material that existed before changed (build:diff 0 before the
+  homes). The limit: a new rigid family must be added to that list (OPEN-PROBLEMS §14).
+- **The homes are not estimated**, and the build required every in-scope headline to have a value or an estimate
+  (HEADLINE-BLANK, an error). That check was wrong for a material the owner declared not estimated, and the homes could
+  not be built without changing it, so it changed in its own commit (`4b1ba1e`, the one edit to build/src): it stays an
+  error where a material names an Estimate identity, and a declared-not-estimated material lists its blanks under
+  HEADLINE-UNESTIMATED, at info. On the data before the homes it moved nothing (PC-ASA publishes all five headlines).
+
+**The rulings** (rulings.csv, R167 to R198; R056 marked superseded):
+
+| Ruling | Kind | What it settles | By |
+|---|---|---|---|
+| R167 | identity-policy | A sheet that names only a family goes to the family's home; amends R077 | owner |
+| R168 to R170 | identity | "nylon" and "pa" are PA, "tpe" is TPE: the words the homes stand for | agent |
+| R171 | identity-policy | Elastomers named only by hardness and undisclosed bio-copolymers take their family's home | owner |
+| R172 to R174 | material | FiberFlex 30D, FiberFlex 40D, MattFlex 40D: TPE home | owner |
+| R175 to R178 | material | Nanovia Flex, Flex VX, ISTROFLEX, Flex B4C: TPE home (R171 applied) | agent |
+| R179 to R182 | material | GreenTEC, GreenTEC Pro (PLA family home), GreenTEC Pro CF (with CF), niceBIO | owner |
+| R183 to R186 | material | Greeny Pro, GreenyHT, BigRep PRO HT, BigRep HI-TEMP CF (R171 applied) | agent |
+| R187 | scope | Metal and ceramic sintering filaments: recorded, Excluded, a material per metal or ceramic | owner |
+| R188 to R191 | material | Ultrafuse 316L, Mt 316L, SiC, Kerfil alumina | owner |
+| R192 | material | Antero 800NA is PEKK (M098) | owner |
+| R193 | material | PI Z2 is TPI (M121), not a new PI: its sheet says "Thermoplastic Polyimide" | agent, deviating |
+| R194 | source-record | Eastman's Amphora resin sheets are registered to the colorFabb product made of each | owner (AM3300), agent |
+| R195 | identity | WearX is a PA6 | owner |
+| R196 | new-material | TPS, its own material; supersedes R056 | owner |
+| R197 | material | MD Flex, "a high quality TPU98A": TPU harder than 95A | agent |
+| R198 | material | Onyx GF: Nylon-GF home (the reader missed its filler) | agent |
+
+"agent" means claude-opus-5.5 under R089; each such row says so. The classifier learned the `material` kind, which
+names a MaterialID (an identity ruling can only name a polymer with a row), and to file a TPU by its Shore rating from
+its name or its sheet's hardness row: since m141 every new TPU had gone to the table's first class, 87A or softer
+(`a40e8f6`; parity census unchanged).
+
+**The import** (batch b34, m143). `--reopen-gap` put the 74 back under the hold they were deferred with; `--holds`;
+`--propose --held ruling` read 105 held sheets, and the 31 outside the owner's exception were set aside and the 74
+proposed by key. Review, `--split`, `ingest:apply --dry-run`, the migration, `--holds`, then `--settle` and `--defer`
+for the 30 that did not enter (batches/b34/README.md, review.mjs, settle.mjs).
+
+**Who reviewed: an agent.** Every row of the 74 was read and decided by claude-opus-5.5, named on each row as
+"claude-opus-5.5 (agent reviewer)". The eight optically read sheets were read against their page images and signed
+`--visual`. No person and no second reader has sampled the batch; R085's sample is still to draw.
+
+| | Sheets |
+|---|---:|
+| applied, 38 products, 381 records (257 measurements, 37 profiles) | 44 |
+| registered to a product already recorded | 6 |
+| not a data sheet | 2 |
+| deferred, the gap named | 22 |
+
+Per sheet:
+
+| Sheet (listed as) | Outcome |
+|---|---|
+| 3D4Makers PI Filament Z2 Zymergen 3D4Makers | deferred: a layout the reader does not pair |
+| 3DJake niceBIO | applied: PLA family, polymer not stated (G168-02) |
+| Extrudr greentec pro cf (3DJake's copy) | registered to G169-01 |
+| Fiberlogy FIBERLOGY FIBERFLEX 30D (3DJake) | applied: TPE, polymer not stated (G167-03) |
+| Fiberlogy FIBERLOGY FIBERFLEX 40D (3DJake) | applied: TPE, polymer not stated (G167-06) |
+| Fiberlogy FIBERLOGY MATTFLEX 40D (3DJake, two copies) | applied: TPE, polymer not stated (G167-04), two sources |
+| Fiberlogy FiberFlex 30D (3DJake, older layout) | applied: TPE, polymer not stated (G167-03) |
+| colorFabb AmphoraAM3300 | registered to G092-01 |
+| colorFabb AmphoraHT5300 | registered to G089-04 |
+| colorFabb ColorFabb PA neat | applied: Nylon, polymer not stated (G164-06) |
+| colorFabb carbon | deferred: identity: names neither polymer nor family |
+| colorFabb colorFabb Woodfill Fine | deferred: identity: a resin maker's sheet naming no filament |
+| colorFabb colorFabb XT Light Blue | registered to G089-03 |
+| colorFabb colorFabbPABlueMetalDetectable | applied: Nylon, polymer not stated (G164-02) |
+| 3DXTECH WearX Wear Resistant PA6 | applied: PA6 (G049-09) |
+| BASF Forward AM ultrafuse 17 4 ph (a debinding guide for 316L) | not a data sheet |
+| BASF Forward AM ultrafuse tps 90a | applied: TPS (G170-02) |
+| BigRep hi temp | deferred: a text layer whose glyphs are mis-mapped |
+| BigRep hi temp cf | applied: PLA family-CF, polymer not stated (G169-02) |
+| BigRep pro ht | applied: PLA family, polymer not stated (G168-01) |
+| Essentium / Nexa3D Essentium PA | deferred: a layout the reader does not pair |
+| Essentium / Nexa3D Essentium PA CF | deferred: a layout the reader does not pair |
+| Extrudr greentec | applied: PLA family, polymer not stated (G168-04) |
+| Extrudr greentec pro | applied: PLA family, polymer not stated (G168-03) |
+| Extrudr greentec pro cf | applied: PLA family-CF, polymer not stated (G169-01) |
+| Fabru / purefil purefil TPS 40D Filament | applied: TPS (G170-01) |
+| Fabru / purefil purefil TPS 40D Filament (the bytes are the TPV sheet) | deferred: identity: owner ruling pending |
+| Fabru / purefil purefil kerfil alumina | applied: Alumina sintering filament (G173-01) |
+| Fiberlogy FIBERLOGY FIBERFLEX30D | applied: TPE, polymer not stated (G167-03) |
+| Fiberlogy FIBERLOGY FIBERFLEX40D | applied: TPE, polymer not stated (G167-06) |
+| CreatBot CreatBot UltraPA | applied: Nylon, polymer not stated (G164-09) |
+| Filament2Print Electrifi | deferred: identity: names neither polymer nor family |
+| Filament2Print Flex 77A | deferred: a language the lexicon lacks |
+| Filament2Print Iglidur | deferred: identity: names neither polymer nor family |
+| Filament2Print Nuterials Jecto [EN] | deferred: identity: names neither polymer nor family |
+| Filament2Print POP 4 (a 3D scanner brochure) | not a data sheet |
+| Fillamentum Flexfill TPE 90A | applied: TPE, polymer not stated (G167-02) |
+| Fillamentum Flexfill TPE 96A | applied: TPE, polymer not stated (G167-11) |
+| Fillamentum Nylon FX256 | applied: Nylon, polymer not stated (G164-01) |
+| Fillamentum Timberfill | deferred: identity: names neither polymer nor family |
+| Flashforge TPE | deferred: a language the lexicon lacks |
+| Copper3D MDflex | applied: TPU harder than 95A (G162-01) |
+| FormFutura Crystal Flex | deferred: identity: owner ruling pending |
+| FormFutura SKULPT | deferred: identity: names neither polymer nor family |
+| Markforged Carbon Fiber (the Composites sheet) | deferred: several products in one table |
+| Markforged Onyx GF | applied: Nylon-GF, polymer not stated (G166-01) |
+| MatterHackers MatterHackers PRO Series Nylon | applied: Nylon, polymer not stated (G164-04) |
+| Nanovia Flex | applied: TPE, polymer not stated (G167-09) |
+| Nanovia Flex B4C | applied: TPE, polymer not stated (G167-07) |
+| Nanovia Flex VX | applied: TPE, polymer not stated (G167-08) |
+| Nanovia ISTROFLEX | applied: TPE, polymer not stated (G167-12) |
+| Nanovia Mt 316L | applied: 316L stainless steel sintering filament (G171-01) |
+| Nanovia PA Food Industry | applied: Nylon, polymer not stated (G164-07) |
+| Nanovia SiC | applied: Silicon carbide sintering filament (G172-01) |
+| Nanovia TPE 22D | applied: TPE, polymer not stated (G167-01) |
+| Nanovia TPE 22D (French page) | registered to G167-01 |
+| NinjaTek Chinchilla | applied: TPE, polymer not stated (G167-05) |
+| NinjaTek NinjaFlex Edge (the Eel sheet) | deferred: identity: names neither polymer nor family |
+| colorFabb PA CF Low Warp | applied: Nylon-CF, polymer not stated (G165-01) |
+| QIDI S WHITE | deferred: identity: owner ruling pending |
+| BASF Forward AM Ultrafuse Stainless Steel 316L | applied: 316L stainless steel sintering filament (G171-02) |
+| Spectrum spectrum greeny pro | applied: PLA family, polymer not stated (G168-05) |
+| Spectrum spectrum thermatech pa | applied: Nylon, polymer not stated (G164-03) |
+| Stratasys Composite Molding Material (ST-130) | deferred: Stratasys condition tables |
+| Stratasys antero 800na | deferred: Stratasys condition tables |
+| Stratasys diran410mf07 | deferred: Stratasys condition tables |
+| Stratasys nylon cf10 | deferred: Stratasys condition tables |
+| UltiMaker MakerBot Specialty Nylon | applied: Nylon, polymer not stated (G164-05) |
+| UltiMaker MakerBot Specialty Nylon (Method comparison page) | registered to G164-05 |
+| Guangzhou Yousu 3D Technology Nylon | applied: Nylon, polymer not stated (G164-08) |
+| colorFabb PA Blue Metal Detectable | applied: Nylon, polymer not stated (G164-02) |
+| colorFabb colorFabb PA NEAT | applied: Nylon, polymer not stated (G164-06) |
+| eSUN eSUN TPE 83A Filament | applied: TPE, polymer not stated (G167-10) |
+
+Twenty-two are deferred: seven name neither a polymer nor a family, three wait on the owner with a recommendation each
+(Crystal Flex's SBC: an SBC material under Styrenics; purefil's TPV: the TPE home; QIDI S-White: Support for ABS), and
+twelve on a reader gap (OPEN-PROBLEMS §14). purefil's GreenTEC sheet, held before b34 and not among the 74, is answered
+by R179 and waits for imports to resume.
+
+**The decision diff** (`build/snapshot/templates.csv`, against `a7b9004`): 995 answers before, 1,055 after. 60 are new,
+the new materials' own; none was lost.
+
+| Change | Answers | Which |
+|---|---:|---|
+| New PASS | 12 | Lightweight structure: Nylon, polymer not stated, on CreatBot Ultra PA (1 of 9 products), in all three modes. Warm environment: PLA family, polymer not stated (3 of 7, typical GreenyHT) and PLA family-CF (1 of 2, GreenTEC Pro CF), all three modes. Flexible component: TPS on Ultrafuse TPS 90A (1 of 2), all three modes |
+| New UNKNOWN | 46 | the homes where no product publishes the value asked, or publishes it without a direction |
+| New screened (Explore with estimates) | 2 | TPE, polymer not stated, and TPS in the Warm environment: heat deflection does not apply to them, the way it does not to the TPU classes |
+| Screen lifted (Explore with estimates) | 5 | PET in the Warm environment (hdt045 ≥ 80); PA66, PA612, PBT and PET-LW in the Flexible component (elongation ≥ 100). The screening ends are set by the back-test over every observation (D59), and the new ones moved them (screening.csv: the family bottom of elongation, the this-material top of heat deflection) |
+| Same verdict, other pass or fail counts | 6 | PLA in the Lightweight structure and the Warm environment, all three modes: 204 → 202 products (GreenTEC Pro and GreenyHT moved); the Warm environment's passing products 5 → 4, GreenyHT being one |
+| Same verdict and counts, one product more or fewer | 21 | PA6 (+WearX) and TPU harder than 95A (+MD Flex) in each template and mode where they appear, untested; PLA's other three rows |
+
+No Strict or Explore verdict of a material that existed before changed; only its counts did.
+
+**Checks.**
+
+| Check | Result |
+|---|---|
+| `data:check` | 24 tables, 27,338 rows, 0 issues |
+| `data:lint` | 0 new findings; 4 accepted with a per-record reason in the batch (two melt flows near 100 g/10 min printed with no condition, a 22 Shore D elastomer named for it, an unnotched Charpy of 218 kJ/m²) |
+| `npm run build` | 0 errors; the same 4 warnings as before |
+| Parity census | unchanged by the reader change (census/parity.csv identical) |
+| Tests | `npm test` 307 pass; `test:ingest` 167 pass, 3 new (ingest-homes). Three tests the import had to update: the envelope test names the high-temperature family (the sintering filaments are excluded by scope, not by the envelope); the in-scope-headline test lets a material declared not estimated show a blank; the catalogued-codes test lists HEADLINE-UNESTIMATED |
+| Views | `ui:check -- --write`: 34 of 66 views change (the new materials in the lists and counts), no layout failure |
+| `audit:gaps`, `audit:know-how` | regenerated: in scope 128 → 135 materials, unknown answers 319 → 343 across the six templates (Explore), the homes' own; the know-how worklist gains the new products |
+| `verify:fast` | 62 s on the first run after the data changed (load average 2.3 to 2.8), 27.5 s warm (load 2.1 to 3.5); budget 90 s |
+| `npm run verify` | passes in 3 min 2 s (load average 3.1 at the start, 11.4 at the end with the headless browser): `npm test` 307, `test:ingest` 167, the scale check (65 s), the audit, the snapshot current, 66 views, 300 fuzzed scenarios |
+
+**What is left, with a recommendation each** (OPEN-PROBLEMS §14): the three owner questions above; PI filed as TPI (R193),
+which the owner may overrule; the four Stratasys sheets and the three layouts wait on reader rules the import plan
+already names; a new rigid family must be added to hdt045's Applies to; a second reader should sample b34 (R085).
