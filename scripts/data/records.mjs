@@ -4,7 +4,6 @@
 import { nextId } from './table-io.mjs';
 
 const NP = 'Not published', NA = 'Not applicable';
-export const RETIRED_AVAILABILITY = 'Retired mapping; audit trail only';
 
 /**
  * A complete new row for `table`: the next ID, every column filled from a template row (`like`), then `set`, and
@@ -37,14 +36,14 @@ export function newRecord(t, table, { like, material, study = false, set = {} } 
 }
 
 /**
- * Retire a grade: Status and Availability together (a half-finished retirement is GRADE-RETIREMENT-HALF). Returns
- * what still depends on the grade, each with what must happen to it; nothing else is changed, because whether a
- * record is a duplicate to retire, a value to re-file under another grade, or an offer to quarantine is a decision.
+ * Retire a grade: Status alone, the one place retirement is recorded (m147). Availability keeps what was recorded about
+ * the product. Returns what still depends on the grade, each with what must happen to it; nothing else is changed,
+ * because whether a record is a duplicate to retire, a value to re-file under another grade, or an offer to quarantine
+ * is a decision.
  */
 export function retireGrade(t, gradeId) {
   const g = t.get('grades', gradeId);
   if (g.Status !== 'retired') t.set('grades', gradeId, 'Status', 'retired', { expect: g.Status });
-  if (g.Availability !== RETIRED_AVAILABILITY) t.set('grades', gradeId, 'Availability', RETIRED_AVAILABILITY, { expect: g.Availability });
   const todo = [];
   const onGrade = (table) => t.rows(table).filter((r) => r.GradeID === gradeId);
   const ownMeasurements = onGrade('measurements').filter((r) => !['Retired duplicate record', 'Unresolved unit / layout'].includes(r['Data status']));

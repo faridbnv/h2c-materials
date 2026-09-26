@@ -5,7 +5,7 @@
 // (products.js, D83); nobody selects either. Where no product publishes a comparable value the headline is missing,
 // with the related evidence and implied bounds a reader, and the estimate stage, can use.
 
-import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS, RETIRED_AVAILABILITY } from './normalize/values.js';
+import { parseValue, parseOperator, parseBoolean, toInterval, median, cents, DATA_STATUS } from './normalize/values.js';
 import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
 import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';

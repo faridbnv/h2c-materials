@@ -469,11 +469,11 @@ Checked: identifier uniqueness; referential integrity across every table; every 
 registered property that no other property replaces, in one of its units, of a material the property applies to;
 raw value, uncertainty and upper bound each reconciled with the conversion factor; quarantined measurements
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
-kJ/m² without specimen geometry; scope and H2C status agreeing about exclusion; a product value that decides as XY being an XY measurement; every in-scope headline carrying a value,
+kJ/m² without specimen geometry; an excluded material (Scope, the one place exclusion is recorded) carrying the excluded scope gate; a product value that decides as XY being an XY measurement; every in-scope headline carrying a value,
 an estimate or a not-applicable reason; every estimate nesting its likely range inside its plausible
 range and citing only its own material's or its products' measurements; each headline's
 likely range holding 80% (±10 points) and its plausible range at least 90% of the hidden values of materials'
-typical products; a retirement finished on both Status and Availability; grade roles agreeing with the -R#
+typical products; grade roles agreeing with the -R#
 ID suffix; every chamber band naming a real, in-scope material
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.

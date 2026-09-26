@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Retire a grade (Status and Availability together) and list every record that still depends on it, with what
-// must happen to each. Records are retired, never deleted (AGENTS.md).
+// Retire a grade (its Status, the one place retirement is recorded) and list every record that still depends on it,
+// with what must happen to each. Records are retired, never deleted (AGENTS.md).
 //
 //   npm run data:retire -- grade G020-03            write the retirement and print the to-do list
 //   npm run data:retire -- grade G020-03 --dry-run  print the to-do list only

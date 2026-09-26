@@ -105,7 +105,7 @@ const threshold = (k) => {
   const [a, b] = RANGES[k] ?? [0, 100];
   return Number((a + rnd() * (b - a)).toPrecision(chance(0.5) ? 3 : 6));
 };
-const H2C = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical', 'Excluded'];
+const H2C = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical', 'Exceeds H2C limits'];
 const REINF = ['carbon-fibre', 'glass-fibre', 'unfilled', 'esd', 'foaming', 'undisclosed'];
 const CATS = Object.keys(db.meta.environmentCategories);
 const FAMILIES = [...new Set(candidates.map((m) => m.facets.family.value))];

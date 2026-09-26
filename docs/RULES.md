@@ -56,9 +56,9 @@ what it means and how to fix it.
 | `ID-MISSING` | error | A compiled record has no identifier. | Give the record its ID. |
 | `ID-DUPLICATE` | error | Two compiled records share an identifier. | Retire one, or renumber a new record. |
 | `REF-UNKNOWN` | error | A record points at a material, grade or source that does not exist. | Correct the identifier. |
-| `GRADE-RETIREMENT-HALF` | error | A grade retirement is recorded on Status or Availability but not both. | Set Status retired and Availability "Retired mapping; audit trail only" together (npm run data:retire). |
+| `GRADE-RETIREMENT-HALF` | error | Retired 2026-09-25 (m147): a grade retirement was recorded twice, as Status and as an Availability phrase, and this kept the two in step. Status is the one place now, and Availability says what was recorded about the product. | Nothing to do; the code stays out of use. npm run data:retire sets Status. |
 | `QUARANTINE-NUMERIC` | error | A quarantined measurement carries a number, or backs a headline. | Quarantined values back nothing. |
-| `EXCLUSION` | error | Scope and H2C status disagree about exclusion, or an excluded material lacks its gate. | Set Scope Excluded and H2C status Excluded together. |
+| `EXCLUSION` | error | An excluded material (Scope Excluded, the one place exclusion is recorded) does not carry the excluded scope gate. | A defect in build/src/compile.js: the scope gate is read from Scope. |
 
 ## Registry
 

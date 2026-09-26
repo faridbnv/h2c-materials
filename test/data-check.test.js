@@ -216,14 +216,16 @@ test('a new record gets the next ID, its template\'s columns and declared missin
   }
 });
 
-test('retiring a grade sets both fields and lists every record left to resolve', async () => {
-  const { retireGrade, RETIRED_AVAILABILITY } = await import('../scripts/data/records.mjs');
+test('retiring a grade sets its Status alone and lists every record left to resolve', async () => {
+  const { retireGrade } = await import('../scripts/data/records.mjs');
   const dir = copy();
   try {
     const t = openTables(dir);
+    const availability = t.get('grades', 'G020-03').Availability;
     const todo = retireGrade(t, 'G020-03');
     assert.equal(t.get('grades', 'G020-03').Status, 'retired');
-    assert.equal(t.get('grades', 'G020-03').Availability, RETIRED_AVAILABILITY);
+    // Availability is what was recorded about the product; retirement is Status's alone (m147).
+    assert.equal(t.get('grades', 'G020-03').Availability, availability);
     const tables = new Set(todo.map((x) => x.table));
     assert.ok(tables.has('measurements') && tables.has('profiles') && tables.has('sources'), [...tables].join(', '));
     assert.ok(todo.every((x) => x.action.length > 10));

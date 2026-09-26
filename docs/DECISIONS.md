@@ -2180,6 +2180,10 @@ ceramic filaments). Their values were read and never used.
   part is a green part that must be debinded and sintered elsewhere, and its properties are the sintered metal's, so
   the sintered values are left to the record tier (R187).
 
+*Amended in phase 5, part 5 (m146, 2026-09-25):* exclusion is recorded once, in Scope. H2C status "Excluded" was Scope
+again, kept in step by EXCLUSION, and left the vocabulary: the sintering filaments are Theoretical (their sheets print at
+170 to 250 °C on a 40 to 120 °C bed), and the industrial high-temperature materials take "Exceeds H2C limits".
+
 What it did (batch b34, m143): of the 74, 44 entered as 38 products (9 in Nylon, 1 each in Nylon-CF and Nylon-GF, 12
 in TPE, 5 in the PLA family and 2 with carbon fibre, 2 in TPS, 4 sintering filaments, WearX in PA6 and MD Flex in TPU
 harder than 95A), 6 were registered to products already recorded, 2 are not data sheets, and 22 are deferred with the

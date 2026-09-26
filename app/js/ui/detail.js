@@ -859,11 +859,16 @@ function tabBody(tab, c) {
         : `Estimated ranges for the missing numbers are shown under ${esc(POLICY_LABELS.exploration)}, with Use estimates on.`}</p>`
       : '';
 
+    // H2C status says how the material relates to the printer; Scope alone says whether it is a candidate (m146), so an
+    // excluded material is never told it was "included", and says why it is out.
     const lede = `<p class="lede">${esc(m.fullName ?? m.name)}. ${esc(describeFacets(m))}
         ${m.h2cStatus === 'Official Bambu product' ? 'Sold by Bambu for this printer.'
           : m.h2cStatus === 'Officially listed family' ? 'Bambu lists this family, but not necessarily every brand of it.'
           : m.h2cStatus === 'Conditional' ? 'Usable with conditions; check the Printing tab.'
-          : 'Included on the strength of its processing requirements, not on any Bambu validation.'}</p>`;
+          : m.h2cStatus === 'Exceeds H2C limits' ? 'Bambu does not list it, and its typical processing needs more than the H2C reaches.'
+          : m.excluded ? 'Not listed by Bambu.'
+          : 'Included on the strength of its processing requirements, not on any Bambu validation.'}
+        ${m.excluded ? 'Recorded, and never a candidate: its Limitations say why.' : ''}</p>`;
 
     const numbers = `
       <h3 class="sec">Key numbers</h3>
