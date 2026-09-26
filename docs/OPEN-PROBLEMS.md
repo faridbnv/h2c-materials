@@ -368,24 +368,27 @@ npm run sql --silent -- "select evidenceid, gradeid, finding from evidence where
 ## 14. The held sheets: what did not enter, and what the homes leave open
 
 Batch b34 (m143, D87) took the 74 sheets deferred for their identity; 44 entered, 6 were registered to products the
-database holds, 2 are not data sheets, and 22 are deferred again with the gap named in the ledger.
+database holds, 2 are not data sheets, and 22 were deferred again with the gap named in the ledger. The owner answered
+the three identity questions they left the same day, and batch b35 (m144, m145) took two of those sheets in: 20 remain
+deferred.
 
 - **Seven name neither a polymer nor a family**, so no home reaches them: colorFabb's 2015 "20% milled carbon
   fibres", Multi3D Electrifi, igus iglidur A350, Nuterials JECTO, Fillamentum Timberfill, FormFutura SKULPT, NinjaTek
   Eel. A maker document naming the polymer or the family frees each.
-- **Three wait on the owner**, each with a recommendation in its ledger note: FormFutura Crystal Flex names "SBC", a
-  clear stiff styrenic (Shore D 63, flexural modulus 1.8 GPa) that is not an elastomer and has no material or
-  polymer row; purefil's "TPS 40D" listing is its TPV sheet, which no ruling covers (recommended: TPE, polymer not
-  stated); QIDI S-White is a breakaway support for seven materials (recommended: Support for ABS).
-- **Twelve wait on a reader gap**: four Stratasys condition tables (Antero 800NA is PEKK by R192; Diran 410MF07, "a
+- **Thirteen wait on a reader gap**: four Stratasys condition tables (Antero 800NA is PEKK by R192; Diran 410MF07, "a
   nylon-based ... mineral-filled 7%", waits on the owner for its home too), three layouts (Essentium PA and PA-CF,
-  3D4Makers PI Z2), two languages (Smartfil FLEX 77A in Spanish, a TPU; Flashforge FABRIAL-R in Japanese), BigRep
-  HI-TEMP's mis-mapped text layer, Markforged's four-product Composites table, and FKuR's Fibrolon trial-grade sheet,
-  a resin maker's that names no filament.
+  3D4Makers PI Z2, which stays TPI by the owner's confirmation of R193), two languages (Smartfil FLEX 77A in Spanish,
+  a TPU; Flashforge FABRIAL-R in Japanese), BigRep HI-TEMP's mis-mapped text layer, Markforged's four-product
+  Composites table, FKuR's Fibrolon trial-grade sheet, a resin maker's that names no filament, and QIDI S-White.
+- **QIDI S-White is Support for ABS (R202) and did not enter.** QIDI's bilingual layout holds it, as it holds
+  QIDI's other sheets: the reader read no profile, so the seven materials the sheet lists as suitable (its Support
+  pairing) have no row to go in, and it misread the water absorption (b35). The bilingual reader, or a profile read
+  from the page, frees it.
+- **SBC (M174) is not estimated**, and Crystal Flex publishes its strength and elongation without a direction, so
+  SBC's answers are unknown until a scenario admits values as published (D84) or a resin reference gives it a
+  polymers.csv row (R199).
 - **purefil's GreenTEC (d299af0d689965eb) is answered and not imported.** R179 names GreenTEC; the sheet was held
   before b34 and is not among the 74 the owner freed, so it waits for imports to resume.
-- **3D4Makers PI Z2 is filed as TPI (R193), not a new PI material** as the owner's default said: its sheet says
-  "Thermoplastic Polyimide", which M121 already is. The owner may overrule; it is deferred for its layout either way.
 - **A TPU rated only in prose needs a ruling.** The reader files a TPU by the rating in its name or its sheet's Shore
   hardness row (hardness-classes.csv); Copper3D's MD Flex says "TPU98A" in a sentence, and R197 pins it.
 - **Heat deflection names its families** (hdt045 Applies to, D87). A new family of rigid polymers must be added there,
@@ -394,7 +397,7 @@ database holds, 2 are not data sheets, and 22 are deferred again with the gap na
   3DXTECH WearX's bed and enclosure, and BigRep HI-TEMP CF's bed. Their gates stay unknown until lane 2 types them.
 
 ```bash
-npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) from materials m join grades g on g.materialid = m.materialid where m.materialid between 'M164' and 'M173' and g.status = 'active' group by 1, 2"
+npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) from materials m join grades g on g.materialid = m.materialid where m.materialid between 'M164' and 'M174' and g.status = 'active' group by 1, 2"
 ```
 
 ---

@@ -1,7 +1,7 @@
-COUNT 51 shown PASS + UNKNOWN
-STATUS ☑ PASS 25 | ☑ UNKNOWN 33 | ☐ FAIL 94 | ☐ SCREENED 7
-25 of the 152 materials in this database meet these requirements, and 33 more could not be checked for missing data
-Include uncertain lists those 33 flagged, except the 7 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Lightweight structure template. Click any criterion to remove it.
+COUNT 52 shown PASS + UNKNOWN
+STATUS ☑ PASS 25 | ☑ UNKNOWN 34 | ☐ FAIL 94 | ☐ SCREENED 7
+25 of the 153 materials in this database meet these requirements, and 34 more could not be checked for missing data
+Include uncertain lists those 34 flagged, except the 7 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
@@ -460,6 +460,11 @@ Styrenics
  UNKNOWN
 none judged
  1,080 ~1.0–3.9† ~23–57† ~3–38† ~78–108† — ☆
+SBC
+Styrenics
+ UNKNOWN
+none judged
+ 1,010 — 26* 230* — — ☆
 TPU-CF
 Flexible Elastomers
  UNKNOWN

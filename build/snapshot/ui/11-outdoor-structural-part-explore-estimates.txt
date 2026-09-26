@@ -1,7 +1,7 @@
-COUNT 44 shown PASS + UNKNOWN
-STATUS ☑ PASS 18 | ☑ UNKNOWN 40 | ☐ FAIL 94 | ☐ SCREENED 14
-18 of the 152 materials in this database meet these requirements, and 40 more could not be checked for missing data
-Include uncertain lists those 40 flagged, except the 14 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Outdoor structural part template. Click any criterion to remove it.
+COUNT 45 shown PASS + UNKNOWN
+STATUS ☑ PASS 18 | ☑ UNKNOWN 41 | ☐ FAIL 94 | ☐ SCREENED 14
+18 of the 153 materials in this database meet these requirements, and 41 more could not be checked for missing data
+Include uncertain lists those 41 flagged, except the 14 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
@@ -387,3 +387,8 @@ Styrenics
  UNKNOWN
 none judged
  1,080 ~1.0–3.9† ~23–57† ~3–38† ~78–108† — ☆
+SBC
+Styrenics
+ UNKNOWN
+none judged
+ 1,010 — 26* 230* — — ☆

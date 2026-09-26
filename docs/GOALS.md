@@ -115,11 +115,12 @@ Asked with the facts and a recommendation each; the owner's answers:
    entered, 22 are deferred with the gap named (batch b34).
 3. **Metal and ceramic sintering filaments are out of scope** (316L, 17-4 PH, SiC, alumina): recorded, never a
    candidate, because the printed part must be debinded and sintered elsewhere and its properties are the sintered
-   metal's. The other rulings pending follow the defaults proposed: Antero 800NA is PEKK (out of scope); PI is a new
-   out-of-scope material; colorFabb Amphora AM3300 is nGen / Amphora; WearX is a PA6; the styrenic elastomers (TPS) are a
+   metal's. The other rulings pending follow the defaults proposed: Antero 800NA is PEKK (out of scope); PI is the
+   out-of-scope TPI its sheet names; colorFabb Amphora AM3300 is nGen / Amphora; WearX is a PA6; the styrenic elastomers (TPS) are a
    material of their own; the elastomers named only by hardness and the undisclosed bio-copolymers (FiberFlex, MattFlex,
-   GreenTEC, niceBIO) take their family's "polymer not stated" home. Built in m142 and m143 (D87); PI is filed as the
-   TPI that exists, since its sheet says "thermoplastic polyimide" (R193), for the owner to overrule.
+   GreenTEC, niceBIO) take their family's "polymer not stated" home. Built in m142 and m143 (D87). The three questions
+   batch b34 left were answered the same day and built in m144 and m145 (batch b35): Crystal Flex is a new SBC
+   material, purefil's TPV is TPE, polymer not stated, QIDI S-White is Support for ABS, and PI stays TPI (R193).
 4. **eSUN's densities keep counting.** m128's reading stands: a density is not measured on the bar eSUN's sentence
    describes, and most makers' density is the resin's.
 

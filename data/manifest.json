@@ -2,24 +2,24 @@
   "note": "Row count and SHA-256 of every data table. Written by `npm run data:fmt`; checked by `npm run data:check` and the build.",
   "tables": {
     "materials": {
-      "rows": 173,
-      "sha256": "d2bf2b2a7198220f37b22844a9456cddbf860d0b70d4f726d22a989d6b0427ae"
+      "rows": 174,
+      "sha256": "b33be349e0be8e599bb2fc5c7a766c5fea0f27d2819a6eff0fcd23e669a3df83"
     },
     "grades": {
-      "rows": 1157,
-      "sha256": "2d81090b8cea79a650841f5415b303dd0d33199f390ee72e8fab6871f9c66d1d"
+      "rows": 1159,
+      "sha256": "277300a2643638e5d1468be24dad1c5dbcb57f1dfeead7f76ead0247559cf014"
     },
     "profiles": {
-      "rows": 1195,
-      "sha256": "854de31a5bb3b9857a86310b2ae9ff5336cbd320d54f7880203f633bb9425ea1"
+      "rows": 1196,
+      "sha256": "341a58a269408987e80f632d5586c1f874e17ebd0bfabd20b2b4dac75d334bb7"
     },
     "profile_notes": {
       "rows": 2061,
       "sha256": "5533fe64925e6737e2812efb88e07b692c6e1009650e267a6f856582639fddb3"
     },
     "measurements": {
-      "rows": 11353,
-      "sha256": "40e52273b687484c50ee452afd76dd9b2dd254431ab7cd677a3746e8914748d3"
+      "rows": 11363,
+      "sha256": "042a6bd1558f4af041dbaeefa6198a312d7fbc8989361e3ba7d0ed1e24ba9115"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -42,8 +42,8 @@
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1479,
-      "sha256": "858786bd14e832d58ff9d0f5640b6919739279d8f456921db9c217a4a6234935"
+      "rows": 1481,
+      "sha256": "8a955d5ef496e0dd089b2ffcb546d3401b52dc417b15852acd7e536a47a2a69c"
     },
     "coverage": {
       "rows": 865,
@@ -66,8 +66,8 @@
       "sha256": "73c7b29abfb52afa899b7808199c2f976f97f6d0516415bf426bffb08140798b"
     },
     "material_links": {
-      "rows": 820,
-      "sha256": "91de90911581134858bc874570e95db48c203b19d4b2720a13088b5882e97c7e"
+      "rows": 821,
+      "sha256": "7a553d3732341b96ceec5385eac00e83ca9556e808106310bff719a286cd8211"
     },
     "properties": {
       "rows": 44,

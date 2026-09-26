@@ -12,8 +12,8 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 887 | 198 | 0 | 44 | 1129 |
-| Materials | 119 | 20 | 0 | 13 | 152 |
+| Products | 887 | 198 | 0 | 46 | 1131 |
+| Materials | 119 | 20 | 0 | 14 | 153 |
 
 4502 statements; 1262 sources read for know-how; 0 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are

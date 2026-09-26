@@ -1,6 +1,6 @@
 COUNT 5 shown PASS
-STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 147
-5 of the 152 materials in this database meet these requirements
+STATUS ☑ PASS 5 | ☐ UNKNOWN 0 | ☐ FAIL 148
+5 of the 153 materials in this database meet these requirements
 Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -133,9 +133,9 @@ Support / Interface
 4
 Metal and Ceramic Sintering - Outside H2C Scope
 3
-Fluoropolymers
-2
 Styrenics
+3
+Fluoropolymers
 2
 Support / Soluble
 2

@@ -1,4 +1,4 @@
-COUNT 152 materials no requirements set
+COUNT 153 materials no requirements set
 STATUS 
 1
 Set requirements
@@ -25,9 +25,9 @@ High-stiffness fixture
 A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
-152 materials, 135 of them in H2C scope
-11136 measurements, each traceable to a source
-140 have a density, 90 a modulus, 33 a Canadian price
+153 materials, 136 of them in H2C scope
+11146 measurements, each traceable to a source
+141 have a density, 90 a modulus, 33 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -939,6 +939,9 @@ Fluoropolymers
 SAN
 Styrenics
  not tested 1,080 3.8* 72* — — — ☆
+SBC
+Styrenics
+ not tested 1,010 — 26* 230* — — ☆
 Silicon carbide sintering filament
 Metal and Ceramic Sintering - Outside H2C Scope
  not tested 2,660 — — — n/a — ☆
@@ -969,7 +972,7 @@ Flexible Elastomers
 TPE, polymer not stated
 Flexible Elastomers
  not tested 1,150
-1,000–1,250 · 10
+1,000–1,250 · 11
  0.0344* 22* 250* n/a — ☆
 TPI
 Industrial High-Temperature - Outside H2C Practical Envelope

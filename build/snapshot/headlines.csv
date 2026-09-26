@@ -995,7 +995,7 @@ M166,"Nylon-GF, polymer not stated",tensileStrengthXY,none,,MPa,,,,,,,
 M166,"Nylon-GF, polymer not stated",elongationXY,none,,%,,,,,,,
 M166,"Nylon-GF, polymer not stated",hdt045,none,,°C,,,,,,,
 M166,"Nylon-GF, polymer not stated",priceCADkg,none,,CAD/kg,,,,,,,
-M167,"TPE, polymer not stated",density,value,1150,kg/m³,,,,,10,G167-02,V011129
+M167,"TPE, polymer not stated",density,value,1150,kg/m³,,,,,11,G167-02,V011129
 M167,"TPE, polymer not stated",tensileModulusXY,none,,GPa,,,,,,,
 M167,"TPE, polymer not stated",tensileStrengthXY,none,,MPa,,,,,,,
 M167,"TPE, polymer not stated",elongationXY,none,,%,,,,,,,
@@ -1037,3 +1037,9 @@ M173,Alumina sintering filament,tensileStrengthXY,none,,MPa,,,,,,,
 M173,Alumina sintering filament,elongationXY,none,,%,,,,,,,
 M173,Alumina sintering filament,hdt045,not applicable,,°C,,,,,,,
 M173,Alumina sintering filament,priceCADkg,none,,CAD/kg,,,,,,,
+M174,SBC,density,value,1010,kg/m³,,,,,1,G174-01,V011356
+M174,SBC,tensileModulusXY,none,,GPa,,,,,,,
+M174,SBC,tensileStrengthXY,none,,MPa,,,,,,,
+M174,SBC,elongationXY,none,,%,,,,,,,
+M174,SBC,hdt045,none,,°C,,,,,,,
+M174,SBC,priceCADkg,none,,CAD/kg,,,,,,,

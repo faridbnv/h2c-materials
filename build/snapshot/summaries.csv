@@ -855,11 +855,11 @@ M166,"Nylon-GF, polymer not stated",tensileStrengthXY,1,0,,,,,,,,
 M166,"Nylon-GF, polymer not stated",elongationXY,1,0,,,,,,,,
 M166,"Nylon-GF, polymer not stated",hdt045,1,0,,,,,,,,
 M166,"Nylon-GF, polymer not stated",priceCADkg,1,0,,,,,,,,
-M167,"TPE, polymer not stated",density,10,10,1000,1132.5,1150,1160,1250,G167-02,,2: 1450-1550
-M167,"TPE, polymer not stated",tensileModulusXY,10,0,,,,,,,1: 0.0344393262-0.0344393262,1: 0.06-0.06
-M167,"TPE, polymer not stated",tensileStrengthXY,10,0,,,,,,,4: 5-32,1: 11.5-11.5
-M167,"TPE, polymer not stated",elongationXY,10,0,,,,,,,8: 150-870,
-M167,"TPE, polymer not stated",priceCADkg,10,0,,,,,,,,
+M167,"TPE, polymer not stated",density,11,11,1000,1135,1150,1185,1250,G167-02,,2: 1450-1550
+M167,"TPE, polymer not stated",tensileModulusXY,11,0,,,,,,,2: 0.0139-0.0344393262,1: 0.06-0.06
+M167,"TPE, polymer not stated",tensileStrengthXY,11,0,,,,,,,4: 5-32,1: 11.5-11.5
+M167,"TPE, polymer not stated",elongationXY,11,0,,,,,,,8: 150-870,
+M167,"TPE, polymer not stated",priceCADkg,11,0,,,,,,,,
 M168,"PLA family, polymer not stated",density,7,7,1300,1315,1340,1370,1540,G168-05,,
 M168,"PLA family, polymer not stated",tensileModulusXY,7,0,,,,,,,6: 0.9-5.1,
 M168,"PLA family, polymer not stated",tensileStrengthXY,7,0,,,,,,,7: 45-58,
@@ -892,3 +892,9 @@ M173,Alumina sintering filament,tensileModulusXY,1,0,,,,,,,,
 M173,Alumina sintering filament,tensileStrengthXY,1,0,,,,,,,,
 M173,Alumina sintering filament,elongationXY,1,0,,,,,,,,
 M173,Alumina sintering filament,priceCADkg,1,0,,,,,,,,
+M174,SBC,density,1,1,1010,,1010,,1010,G174-01,,
+M174,SBC,tensileModulusXY,1,0,,,,,,,,
+M174,SBC,tensileStrengthXY,1,0,,,,,,,1: 26-26,
+M174,SBC,elongationXY,1,0,,,,,,,1: 230-230,
+M174,SBC,hdt045,1,0,,,,,,,,
+M174,SBC,priceCADkg,1,0,,,,,,,,
