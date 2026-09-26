@@ -124,6 +124,21 @@ Asked with the facts and a recommendation each; the owner's answers:
 4. **eSUN's densities keep counting.** m128's reading stands: a density is not measured on the bar eSUN's sentence
    describes, and most makers' density is the resin's.
 
+## Decided on 2026-09-25, for phase 6
+
+Asked with the facts and a recommendation each; the owner took each recommendation:
+
+1. **Where a product's own sheet is silent on printing, Bambu Lab's Filament Guide decides its printability gate**,
+   for the material types the guide covers, labelled as the guide's and not the maker's. A product's own statement
+   always wins. The guide is a registered source, re-fetched and hash-checked before use.
+2. **A twin reads its sibling's values and print recipe.** A product whose sheet prints the same table as a sibling of
+   the same material (R053) shows the sibling's, labelled "same sheet as …", so the counts of products that pass are
+   right. A product that reprints another material's table (R166) still reads nothing.
+3. **Price waits.** No price refresh in phase 6; cost sits late in the funnel, and a refresh routine comes with the
+   team layer. The Indoor prototype keeps saying which materials lack a sampled price.
+4. **Lane 4 fetches new documents only where one settles a blocking answer**, through the import pipeline and named
+   reviews. The general pause on imports stays, and no new reader rules are built for the held sheets.
+
 ## Working rules
 
 1. **Goal first.** Name the step and scorecard line a piece of work improves.
