@@ -21,6 +21,11 @@ export function validateEstimates(db) {
   // delivers the coverage it states when measured headlines are hidden (DECISIONS D43).
   const LEVELS = ESTIMATE_MODEL.levels;
   const tally = { 'this-grade': 0, 'this-material': 0, family: 0, notApplicable: 0, screen: 0, poor: 0 };
+  // An in-scope material may be declared not estimated (Estimate identity Not applicable): a family's "polymer not
+  // stated" home, whose products share no polymer anyone states, or a polymer with no row (D87). What none of its
+  // products publishes is not published, and judged unknown as an untested product is (D83); it is listed, not an
+  // error. A material that names an identity the model cannot find is still an error: that is a missing row.
+  const unestimated = [];
   for (const mat of db.materials) {
     for (const key of estimateKeys(db.registry)) {
       const h = mat.headline[key];
@@ -28,9 +33,12 @@ export function validateEstimates(db) {
       const where = `materials ${mat.id} ${key}`;
       if (!mat.excluded && !mat.familyEntry && !h.known && !h.estimate && !h.notApplicable) {
         const identity = identityOf(mat);
-        issues.push(err('HEADLINE-BLANK', where, identity && polymers.has(identity)
-          ? `${mat.name} has no value, no estimate and no not-applicable statement`
-          : `${mat.name} has no value, and cannot be estimated: it has no Estimate identity in materials.csv, or its identity has no row in data/tables/polymers.csv. Name one (a polymers.csv row with its group and morphology), or record a value`));
+        if (!identity) unestimated.push({ record: `${mat.id} ${key}`, text: `${mat.name} ${key}` });
+        else {
+          issues.push(err('HEADLINE-BLANK', where, polymers.has(identity)
+            ? `${mat.name} has no value, no estimate and no not-applicable statement`
+            : `${mat.name} has no value, and cannot be estimated: its Estimate identity ${identity} has no row in data/tables/polymers.csv. Write the row (its group and morphology), declare it Not applicable, or record a value`));
+        }
       }
       if (h.notApplicable) {
         tally.notApplicable++;
@@ -134,6 +142,7 @@ export function validateEstimates(db) {
     const entry = { record: `${mat.id} ${key}`, text: `${mat.name} ${key} ${e.lo}-${e.hi} ${e.unit} (plausible ${e.plausible.lo}-${e.plausible.hi}, ${e.strength})` };
     (publishesUsableValue(mat, key) ? wide : thin).push(entry);
   }
+  if (unestimated.length) issues.push(warn('HEADLINE-UNESTIMATED', 'materials', `${unestimated.length} headlines of materials the model does not estimate by declaration are published by none of their products: ${unestimated.map((u) => u.text).join('; ')}`, { records: unestimated.map((u) => u.record) }));
   if (wide.length) issues.push(warn('EST-WIDE', 'materials', `${wide.length} estimates are imprecise although the material publishes a usable value for the headline: ${wide.map((w) => w.text).join('; ')}`, { records: wide.map((w) => w.record) }));
   if (thin.length) issues.push(warn('EST-THIN', 'materials', `${thin.length} estimates are too imprecise to guide a choice, on materials that publish nothing for the headline: ${thin.map((w) => w.text).join('; ')}`, { records: thin.map((w) => w.record) }));
 
