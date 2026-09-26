@@ -423,13 +423,6 @@ test('values the registered sources publish are recorded as published', () => {
   }
 });
 
-test('PETG-GF, ASA-GF and POM products carry the printed values their sheets publish', () => {
-  const values = (id) => ESTIMATED.map((k) => db.grades.find((g) => g.id === id).headline?.[k]?.value);
-  assert.deepEqual(values('G025-02').slice(0, 4), [1330, 2.3345, 53.6, 1.9]);
-  assert.deepEqual(values('G034-03'), [1110, 2.758, 39, 5.8, 98]);
-  assert.deepEqual(values('G087-02').slice(0, 4), [1420, 1.87, 50, 11]);
-});
-
 test('resin references are study grades whose moulded values never become headlines', () => {
   for (const id of ['G055-R1', 'G058-R1', 'G087-R1']) {
     const grade = db.grades.find((x) => x.id === id);
@@ -548,16 +541,6 @@ test('enclosure guidance clears the chamber only when it says an enclosure is no
   }
 });
 
-test('CoPE is its own grade, no longer a copy of CPE', () => {
-  const cope = db.materials.find((m) => m.name === 'CoPE');
-  const cpe = db.materials.find((m) => m.name === 'CPE');
-  assert.deepEqual(cope.gradeIds, ['G091-02']);
-  for (const key of ['density', 'tensileModulusXY', 'tensileStrengthXY']) {
-    assert.equal(cope.headline[key].typical.gradeId, 'G091-02', key);
-  }
-  assert.ok(!cpe.gradeIds.some((id) => cope.gradeIds.includes(id)), 'CoPE and CPE share a product');
-});
-
 // The Fiberon page headlines 133.7 °C. That figure is annealed; as printed it is 81.6 °C. Both are
 // on record and the headline is the one a printed part has.
 test('an annealed value is not averaged with its as-printed twin, and mixed schedules are not a precise mean', () => {
@@ -610,34 +593,37 @@ test('a physically implausible value is kept and flagged, and backs no headline,
   assert.ok(!ams.known && (ams.estimate?.plausible.hi ?? 0) < 1, `TPU for AMS stiffness ${JSON.stringify(ams.estimate?.plausible)}`);
 });
 
-test('HyperLite PP is its own material, PP describes unfilled polypropylene, and PC-GF headlines printed dry data', () => {
+test('HyperLite PP is its own material, and PP describes unfilled polypropylene', () => {
   const pp = byName('PP'), light = byName('PP Lightweight');
   assert.ok(pp.headline.density.spread.max < 1000, `unfilled PP products publish up to ${pp.headline.density.spread.max} kg/m³`);
   assert.ok(pp.headline.tensileModulusXY.estimate.plausible.hi < 2.5, 'unfilled PP stiffness estimate');
   // PP Lightweight's one product is a declared variant, and so the material's own range.
   assert.equal(light.headline.density.value, 810);
   assert.ok(!db.measurements.some((m) => m.gradeId === 'G082-01'), 'the retired HyperLite grade still holds active measurements');
-  const pcgf = db.grades.find((g) => g.id === 'G038-02');
-  assert.deepEqual(['density', 'tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045'].map((k) => pcgf.headline[k].value), [1176, 2.665, 36.1, 2.4, 134]);
-});
 
-test('PPA\'s value is its as-printed heat deflection, and its annealed value stays evidence', () => {
-  // IPCON PPA prints "103 °C; 131 °C (annealed)"; only 131 °C was transcribed and it was the headline (B-05, m21).
-  const v = db.grades.find((g) => g.id === 'G069-01').headline.hdt045;
-  assert.equal(v.value, 103);
-  assert.equal(db.measurements.find((m) => m.id === v.measurementId).postProcessing, 'As printed');
-  const annealed = db.measurements.find((m) => m.id === 'V001289');
-  assert.equal([annealed.value, annealed.postProcessingState].join(' '), '131 annealed');
-});
-
-test('PET-GF15 keeps its as-printed and annealed HDT apart, and its value is the as-printed one', () => {
-  assert.equal(db.grades.find((g) => g.id === 'G068-02').headline.hdt045.value, 81.6);
-  const hdt = db.measurements.filter((m) => m.gradeId === 'G068-02' && m.property === 'HDT' && m.thermal.loadMPa === 0.45);
-  assert.deepEqual(hdt.map((m) => [m.value, m.postProcessing.split(' ')[0]]).sort(), [[133.7, 'Annealed'], [81.6, 'As']]);
 });
 
 // The nGen TDS footnotes its density and HDT as raw-material supplier data. The printed XY values
 // are headlines; the supplier values are related evidence and say why.
+test('no product value is an annealed bar where the product publishes the property as printed', () => {
+  // A rule over every product (re-center phase 5), where tests once pinned the cases that found it: IPCON PPA prints
+  // "103 °C; 131 °C (annealed)" and only 131 °C had been transcribed (B-05, m21); PET-GF15 prints 81.6 and 133.7 °C.
+  const byGrade = new Map();
+  for (const m of db.measurements) { if (!byGrade.has(m.gradeId)) byGrade.set(m.gradeId, []); byGrade.get(m.gradeId).push(m); }
+  const byId = new Map(db.measurements.map((m) => [m.id, m]));
+  let annealed = 0;
+  for (const g of db.grades) {
+    for (const [key, v] of Object.entries(g.headline ?? {})) {
+      const m = byId.get(v.measurementId);
+      if (!m) continue;
+      assert.ok(!annealedBesideAsPrinted(m, byGrade.get(g.id) ?? []), `${g.id} ${key} is ${m.id}, annealed beside an as-printed value`);
+      if (m.postProcessingState === 'annealed') { annealed++; assert.ok(v.anneal, `${g.id} ${key} does not say it is reached after annealing`); }
+    }
+  }
+  assert.equal(db.grades.find((g) => g.id === 'G069-01').headline.hdt045.value, 103, 'IPCON PPA, the case that found it');
+  assert.ok(annealed > 0, 'no product value is annealed at all, so the second half of the rule is untested');
+});
+
 test('raw-material supplier values never become a product\'s value', () => {
   // nGen's resin sheet (G092-01) prints a moulded density and heat deflection; they stay evidence.
   const g = db.grades.find((x) => x.id === 'G092-01');

@@ -13,7 +13,7 @@
 //
 // `npm run validate` stops after the report; `npm run build` continues to the bundle; `--no-estimates` builds the core
 // database without the estimate stage.
-// See docs/PIPELINE.md.
+// See docs/ARCHITECTURE.md, "The build, stage by stage".
 
 import { writeFileSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';

@@ -41,7 +41,7 @@ export const COLUMN_SETS = {
   },
   printing: {
     label: 'Printing',
-    help: 'What your machine needs to do',
+    help: 'What your machine needs to do: each window is the range across the material\'s products; each product\'s own is in its Products tab',
     columns: [
       { key: 'name', label: 'Material', kind: 'name', width: '22%' },
       { key: 'verdict', label: 'Result', kind: 'state', width: '11%' },

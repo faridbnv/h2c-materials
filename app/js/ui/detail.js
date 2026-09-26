@@ -893,9 +893,9 @@ function tabBody(tab, c) {
       <h3 class="sec">Can the H2C print it?</h3>
       ${byProduct}
       <div class="facts-list">
-        ${gateLine(m.gates.nozzle, 'Nozzle temperature', range(m.print?.nozzleC), windowEstimate(m.print?.nozzleEstimate, 'Nozzle', showEstimates))}
-        ${gateLine(m.gates.bed, 'Bed temperature', range(m.print?.bedC), windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}
-        ${gateLine(m.gates.chamber, 'Chamber temperature', range(m.print?.chamberC), chamberExtra)}
+        ${gateLine(m.gates.nozzle, 'Nozzle temperature, across its products', range(m.print?.nozzleC), windowEstimate(m.print?.nozzleEstimate, 'Nozzle', showEstimates))}
+        ${gateLine(m.gates.bed, 'Bed temperature, across its products', range(m.print?.bedC), windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}
+        ${gateLine(m.gates.chamber, 'Chamber temperature, across its products', range(m.print?.chamberC), chamberExtra)}
         <div class="fact">
           ${m.gates.abrasive === 'requires-hardened'
             // A requirement is not an ambiguity. The half-filled marker meant "we are not sure"

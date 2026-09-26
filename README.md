@@ -10,6 +10,10 @@ The tool is **decision support**: screening, comparison and evidence navigation.
 of certified design allowables, not a substitute for reading the exact grade's technical and safety
 data sheets, and not a guarantee that any third-party filament runs on an H2C.
 
+What the database holds (materials, products, measurements, sources) is counted by every build in
+[build/snapshot/counts.md](build/snapshot/counts.md); what the tool is for, and the rules a change is judged by, are in
+[docs/GOALS.md](docs/GOALS.md).
+
 ---
 
 ## Quick start
@@ -61,7 +65,7 @@ snapshot-stamped filename and the validation report are published alongside it:
 | Read this | For |
 |---|---|
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The three layers, the module map, where to add things |
-| [docs/PIPELINE.md](docs/PIPELINE.md) | What each build stage does, and what it refuses to do |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#the-build-stage-by-stage) | What each build stage does, and what it refuses to do |
 | [AGENTS.md](AGENTS.md) | How to change data, for people and AI agents alike |
 | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) | For an engineer using the tool: where a number comes from, what each kind means, and how far to trust it |
 | [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | The tables, the registry, the compiled shape, the three kinds of number |

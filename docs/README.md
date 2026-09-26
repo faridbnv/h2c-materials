@@ -9,9 +9,9 @@ going to question a number.
 |---|---|
 | [GOALS.md](GOALS.md) | What is this for, who is it for, what is decided next, and how is a change judged? |
 | [HOW-IT-WORKS.md](HOW-IT-WORKS.md) | For an engineer: how a data sheet becomes a number on the screen, what each kind of number means, how far to trust it, and what the tool is not |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | How is this put together? Where does my change go? |
-| [PIPELINE.md](PIPELINE.md) | How do the data tables become an HTML file? |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | How is this put together, how do the data tables become an HTML file, and where does my change go? |
 | [../AGENTS.md](../AGENTS.md) | How do I change data safely? |
+| [IMPORTING.md](IMPORTING.md) | How does a batch of manufacturers' data sheets enter the database? (paused; the procedure for when it runs) |
 | [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) | I have a data sheet. What do I do, from the source row to the commit? |
 | [DATA-MODEL.md](DATA-MODEL.md) | What is this number, and how much should I trust it? |
 | [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |

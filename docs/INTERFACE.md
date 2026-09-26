@@ -32,9 +32,10 @@ Once a requirement is set, the panel gives way to a statement of what is being a
 drop a criterion on click. The previous build simply removed the panel, so using the tool left a
 bare table and no statement of the query.
 
-The heading above the pills adds up to the rows under it. It counts against the 153 materials, the same denominator
-the start panel and the rail use (the five family names are never candidates, so none of them counts). Under
-**Confirmed only** it reads "15 of the 153 materials in this database meet these requirements" and says how many more
+The heading above the pills adds up to the rows under it. It counts against the materials in the database that are
+not family entries or aliases, the same denominator the start panel and the rail use (a family name is never a
+candidate, so none counts; the current numbers are in `build/snapshot/counts.md`). Under **Confirmed only** it reads,
+for example, "15 of the 142 materials in this database meet these requirements" and says how many more
 could not be checked and are left out. Under **Include uncertain** those materials are listed, so the heading counts
 them too ("… and 16 more could not be checked for missing data"), and the sentence under it says how many an
 estimate screened out of the list. "15 meet these requirements" above 23 rows had read as a contradiction.

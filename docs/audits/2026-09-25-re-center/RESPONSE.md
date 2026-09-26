@@ -649,3 +649,29 @@ variance tolerance, 1e-10 of the prior, which the larger hold-out of a PLA with 
 floating-point arithmetic alone (a relative 1e-8). Eight tests that named the merged rows now name the product or the
 class. The drawer's pointer guard counts the aliases' prose too: every pointer resolves, 50 as before.
 
+## Phase 5, part 3: fewer places for a number to go stale (2026-09-25)
+
+*In plain words: the numbers the docs quoted are now counted by the build, the developer documents are one, the paused
+import procedure has its own page, and tests that pinned one product's number became rules or were retired where the
+snapshot already holds the number.*
+
+- **Counts are generated.** `npm run snapshot` writes `build/snapshot/counts.md` (materials, products, measurements,
+  product and material values, profiles, evidence, know-how statements, prices, sources), and `verify` fails when it
+  is stale. The README links it; INTERFACE and PIPELINE no longer quote a denominator that moved (153 materials became
+  142 in-scope rows with m141).
+- **One developer document.** PIPELINE.md is now ARCHITECTURE.md's "The build, stage by stage", every section kept;
+  PIPELINE.md stays as a pointer for older links. The plan also named HOW-IT-WORKS, but it is written for the engineer
+  using the tool, not for one changing it, so it stays apart.
+- **AGENTS.md** keeps the rules every change follows (3,835 words became 2,965); the import procedure moved, word for
+  word, to `docs/IMPORTING.md`, since imports run only by the owner's exception.
+- **Tests.** The PPA and PET-GF15 tests, which pinned the cases that found a rule, became the rule over every product:
+  no product value is an annealed bar where the product publishes the property as printed, and an annealed value says
+  so (`anneal`). The PETG-GF, ASA-GF and POM value pins and the CoPE test are retired: `build/snapshot/products.csv`
+  holds those values and `verify` compares it on every change, and the one-home test covers CoPE. The HyperLite PP test
+  keeps its physics and drops its PC-GF value pins. 307 tests became 304.
+- **The material print windows** say what they are: "across its products", in the drawer and in the table's Printing
+  view, where each product's own window is in its Products tab.
+
+Still to do in phase 5, after the held sheets are merged: the two stored copies (Availability's retirement copy of
+Status, H2C status's copy of Scope's exclusion), and moving the 75 MB of import proposals to `archive/`.
+
