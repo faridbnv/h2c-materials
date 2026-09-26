@@ -16,6 +16,7 @@
 //   npm run ingest:batch -- --batch b14 --finish                       (generated docs, then verify)
 //   npm run ingest:batch -- --defer <key> --gap "<name>" --why "..." --by "<name>"   (past V2, by hand)
 //   npm run ingest:batch -- --reopen-gap "<gap>" --why "..." --by "<name>"            (a deferral whose cause is settled)
+//   npm run ingest:batch -- --settle <key> --as registered --to <SourceID> --why "..." --by "<name>"   (read, not ruled)
 //
 // Nothing here decides anything a person has to: --accept takes only the rows review.mjs's holdsBack allows, and
 // everything it holds back is left for a reader. What this removes is the typing, not the reading.
@@ -841,9 +842,41 @@ function reopen(keys, gap, why, by) {
   console.log(`${n} document(s) reopened${gap ? ` from "${gap}"` : ''}: ${why}`);
 }
 
+/**
+ * A waiting document settled by a reading of it rather than by a rule: a sheet that is not a data sheet at all (a
+ * scanner brochure, a debinding guide listed under a product it does not describe), or the resin maker's sheet for a
+ * product the database already records (R179: colorFabb HT is "producted using Eastman Amphora HT5300"), which is
+ * registered to that product's source. Terminal, like the states the rules write, and the note says who read it.
+ *   npm run ingest:batch -- --settle <doc_key> --as not-a-data-sheet --why "..." --by "<name>"
+ *   npm run ingest:batch -- --settle <doc_key> --as registered --to <SourceID> --why "..." --by "<name>"
+ */
+function settle(keys, as, to, why, by) {
+  const AS = ['registered', 'not-a-data-sheet'];
+  if (!keys.length || !AS.includes(as) || !why || !by || (as === 'registered' && !to)) {
+    console.error(`usage: --settle <doc_key> --as ${AS.join('|')} [--to <SourceID>] --why "<what the page is>" --by <name>`);
+    process.exit(2);
+  }
+  const ledger = readLedger();
+  const today = new Date().toISOString().slice(0, 10);
+  let n = 0;
+  for (const key of keys) {
+    const row = ledger.find((r) => r.doc_key === key);
+    if (!row) { console.error(`no ledger row is keyed ${key}`); process.exitCode = 1; continue; }
+    if (!['held', 'extracted', 'twin-check'].includes(row.status)) { console.error(`${key} is ${row.status}; only a waiting document is settled`); process.exitCode = 1; continue; }
+    row.status = as;
+    if (as === 'registered') { row.registered_source_id = to; row.registered_by = 'reading'; }
+    row.status_note = `${why} (${by}, ${today})`.slice(0, 400);
+    row.updated = today;
+    n++;
+  }
+  writeFileSync(LEDGER, csvText(HEADER, ledger));
+  console.log(`${n} document(s) settled as ${as}`);
+}
+
 if (process.argv[1]?.endsWith('batch.mjs')) {
   const batch = arg('batch');
   if (flag('holds')) writeHolds();
+  else if (arg('settle')) settle(args('settle'), arg('as'), arg('to'), arg('why'), arg('by'));
   else if (arg('defer')) defer(args('defer'), arg('gap'), arg('why'), arg('by'));
   else if (arg('reopen') || arg('reopen-gap')) reopen(args('reopen'), arg('reopen-gap'), arg('why'), arg('by'));
   else if (!batch) { console.error('--batch <name> names the batch to work on, or --holds to say why documents wait'); process.exit(2); }
