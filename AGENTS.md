@@ -213,7 +213,8 @@ Estimated `FALSE` unless the estimate model has been extended for it; the build 
 
 ## Importing a batch of data sheets
 
-**Paused on 2026-09-25 by the owner.** No new batch until the re-center in `docs/GOALS.md` is built. The documents
+**Paused on 2026-09-25 by the owner.** No new batch until the re-center in `docs/GOALS.md` is built. The owner
+lifted it once, for the 74 sheets deferred for their identity (batch b34, D87). The documents
 already fetched may be mined for the record tier, print recipes and makers' know-how under the re-center plan
 (`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is not a batch, and it does not travel this pipeline.
 What follows is how a batch was run, kept for when imports resume.
@@ -256,6 +257,8 @@ npm run ingest:review -- --batch bNN --doc <key> --accept m01 --by "<name>" --no
 npm run ingest:batch -- --batch bNN --split                  # aside: optical, twin, held, already registered
 npm run ingest:apply -- --batch bNN --dry-run                # then a migration mNN-batch-bNN calls applyBatch
 npm run ingest:batch -- --batch bNN --finish                 # generated docs and the snapshot, then verify
+npm run ingest:batch -- --reopen-gap "<gap>" --why "..." --by "<name>"   # deferred documents whose cause is settled
+npm run ingest:batch -- --settle <key> --as registered --to <SourceID> --why "..." --by "<name>"   # read, not ruled
 ```
 
 `npm run ingest:propose -- --compare --all` is the parity census: run it before a batch commits, and before and
@@ -275,7 +278,9 @@ The rules that differ from editing a table by hand:
   Where two sheets print the same numbers under different product names, the ledger queues them rather than
   consolidating: that is a reading of the sheet, not a rule.
 - **An identity the rule cannot settle is a ruling**, written once in `rulings/rulings.csv` and applied to every
-  sheet that says the same thing. "Nylon" names a family, and a family owns no product (D44).
+  sheet that says the same thing. "Nylon" names a family, and a family owns no product (D44): a sheet that says only
+  that goes to the family's "polymer not stated" home (R167, D87). An `identity` ruling names a polymer; a `material`
+  ruling names the material itself, for a home or a polymer with no row. A TPU is filed by its Shore rating.
 - **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals and calls `applyBatch`, so
   the migration sequence stays the one history of how the data got here, and a re-run is a no-op.
 - **`--holds` before `--propose`.** A hold reason is what the last `--holds` run wrote, so a document whose

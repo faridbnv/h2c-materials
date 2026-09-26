@@ -1,7 +1,7 @@
-COUNT 31 shown PASS
-STATUS ☑ PASS 31 | ☐ UNKNOWN 61 | ☐ FAIL 50
-31 of the 142 materials in this database meet these requirements
-61 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+COUNT 33 shown PASS
+STATUS ☑ PASS 33 | ☐ UNKNOWN 65 | ☐ FAIL 54
+33 of the 152 materials in this database meet these requirements
+65 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -182,9 +182,11 @@ PA6
 Nylon / Polyamide
  PASS
 1 of 1
- 1,145
-1,130–1,200 · 6
- 3.4* 78* 1.9* 140 163↗ ☆
+ 1,150
+1,130–1,200 · 7
+ 3.4* 78* 1.9* 142
+140–143 · 2
+ 163↗ ☆
 PA6-CF
 Nylon / Polyamide
  PASS
@@ -370,7 +372,7 @@ PETG PASS
 25–26 · 2
 ↗ ☆
 PLA PASS
-5 of 68
+4 of 67
  1,240
 1,170–1,329 · 135
  2.27
@@ -384,6 +386,20 @@ PLA PASS
  28
 27–30 · 4
 ↗ ☆
+PLA family-CF, polymer not stated PASS
+1 of 2
+ 1,280
+1,200–1,360 · 2
+ 7.12* 65* 2.5* 94.5
+74–115 · 2
+ — ☆
+PLA family, polymer not stated PASS
+3 of 4
+ 1,340
+1,300–1,540 · 7
+ 4.4* 52* 3.4* 87
+54–115 · 5
+ — ☆
 PLA-NF PASS
 1 of 1
  1,350

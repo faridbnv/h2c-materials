@@ -1,9 +1,9 @@
 MaterialID,Material,Headline,Products,Comparable,Min,Q1,Median,Q3,Max,Typical,AsPublished,Variants
-M001,PLA,density,184,135,1170,1220,1240,1240,1329,G001-01,,18: 800-4000
-M001,PLA,tensileModulusXY,184,32,0.95,1.747625,2.271,2.84175,2.94575,G001-29,46: 1.43872-4.78,11: 0.7153-4.73
-M001,PLA,tensileStrengthXY,184,50,25.976,39,45,52.025,70.37,G001-39,54: 30-71,13: 12.6-65
-M001,PLA,elongationXY,184,47,1.2,4.605,9.4,13.65,65,G006-01,48: 2.6-84,11: 2.4-40
-M001,PLA,hdt045,184,67,50,53,55,59.3,135,G001-108,22: 53-108,7: 55-115
+M001,PLA,density,184,135,1170,1220,1240,1240,1329,G001-01,,16: 800-4000
+M001,PLA,tensileModulusXY,184,32,0.95,1.747625,2.271,2.84175,2.94575,G001-29,46: 1.43872-4.78,9: 0.7153-4.73
+M001,PLA,tensileStrengthXY,184,50,25.976,39,45,52.025,70.37,G001-39,54: 30-71,11: 12.6-65
+M001,PLA,elongationXY,184,47,1.2,4.605,9.4,13.65,65,G006-01,48: 2.6-84,10: 2.4-40
+M001,PLA,hdt045,184,67,50,53,55,59.3,135,G001-108,22: 53-108,5: 55-89
 M001,PLA,priceCADkg,184,4,26.99,27.74,27.99,28.49,29.99,G002-01,,
 M008,PLA Silk,density,35,19,1210,1230,1240,1260,1320,G008-01,,
 M008,PLA Silk,tensileModulusXY,35,8,0.597,1.19905,1.77745,1.981575,2.403,G008-07,3: 2.58-2.76,
@@ -177,12 +177,12 @@ M048,PAHT-CF,tensileStrengthXY,5,3,92,,103.2,,123.17,G048-02,1: 170-170,
 M048,PAHT-CF,elongationXY,5,3,1.8,,1.98,,8.4,G048-05,1: 1-1,
 M048,PAHT-CF,hdt045,5,2,145,,169.5,,194,G048-02,,
 M048,PAHT-CF,priceCADkg,5,1,124.49,,124.49,,124.49,G048-01,,
-M049,PA6,density,6,6,1130,1140,1145,1150,1200,G049-04,,2: 1250-1490
-M049,PA6,tensileModulusXY,6,0,,,,,,,5: 2.1-3.3,2: 3.28-3.4
-M049,PA6,tensileStrengthXY,6,0,,,,,,,5: 50-80,1: 78-78
-M049,PA6,elongationXY,6,0,,,,,,,4: 1.9-51,1: 1.6-1.6
-M049,PA6,hdt045,6,1,140,,140,,140,G049-06,3: 60-186,
-M049,PA6,priceCADkg,6,0,,,,,,,,1: 162.65-162.65
+M049,PA6,density,7,7,1130,1140,1150,1165,1200,G049-02,,2: 1250-1490
+M049,PA6,tensileModulusXY,7,0,,,,,,,6: 2.1-3.3,2: 3.28-3.4
+M049,PA6,tensileStrengthXY,7,0,,,,,,,6: 50-80,1: 78-78
+M049,PA6,elongationXY,7,0,,,,,,,5: 1.9-51,1: 1.6-1.6
+M049,PA6,hdt045,7,2,140,,141.5,,143,G049-06,3: 60-186,
+M049,PA6,priceCADkg,7,0,,,,,,,,1: 162.65-162.65
 M050,PA6-CF,density,14,12,1090,1142.5,1170,1185,1250,G050-02,,
 M050,PA6-CF,tensileModulusXY,14,5,3.8,4.02,4.3,4.43,8.6365,G050-08,5: 1.1-15,
 M050,PA6-CF,tensileStrengthXY,14,6,53,63,82.5,107.475,112,G050-08,6: 60-170,
@@ -827,13 +827,68 @@ M161,TPU 95A class,tensileModulusXY,25,4,0.006,0.00885,0.0115,0.01715,0.029,G041
 M161,TPU 95A class,tensileStrengthXY,25,8,23.1,25.7275,27.15,29.5,31.81,G039-22,12: 8.6-55,
 M161,TPU 95A class,elongationXY,25,7,330.1,466.65,495.8,725,900,G039-12,11: 265-1063,
 M161,TPU 95A class,priceCADkg,25,1,53.99,,53.99,,53.99,G041-01,,
-M162,TPU harder than 95A,density,13,12,1090,1175,1195,1222.5,1260,G039-17,,
-M162,TPU harder than 95A,tensileModulusXY,13,0,,,,,,,4: 0.04-0.3964487,
-M162,TPU harder than 95A,tensileStrengthXY,13,3,22.4,,30,,39,G039-23,4: 47.573844-55,
-M162,TPU harder than 95A,elongationXY,13,3,140,,540,,650,G039-23,6: 295-510,
-M162,TPU harder than 95A,priceCADkg,13,1,47.49,,47.49,,47.49,G040-01,,
+M162,TPU harder than 95A,density,14,13,1090,1160,1190,1220,1260,G039-17,,
+M162,TPU harder than 95A,tensileModulusXY,14,0,,,,,,,4: 0.04-0.3964487,
+M162,TPU harder than 95A,tensileStrengthXY,14,3,22.4,,30,,39,G039-23,4: 47.573844-55,
+M162,TPU harder than 95A,elongationXY,14,3,140,,540,,650,G039-23,6: 295-510,
+M162,TPU harder than 95A,priceCADkg,14,1,47.49,,47.49,,47.49,G040-01,,
 M163,"TPU, hardness not stated",density,8,5,1120,1170,1220,1230,1230,G039-21,,
 M163,"TPU, hardness not stated",tensileModulusXY,8,1,0.027,,0.027,,0.027,G039-21,2: 0.0126-0.0502,
 M163,"TPU, hardness not stated",tensileStrengthXY,8,1,27.3,,27.3,,27.3,G039-21,3: 21.7-52,
 M163,"TPU, hardness not stated",elongationXY,8,1,501.3,,501.3,,501.3,G039-21,3: 470-536,
 M163,"TPU, hardness not stated",priceCADkg,8,0,,,,,,,,
+M164,"Nylon, polymer not stated",density,7,4,1010,1107.5,1175,1220,1250,G164-06,,2: 1300-1300
+M164,"Nylon, polymer not stated",tensileModulusXY,7,1,3.3297,,3.3297,,3.3297,G164-09,4: 1.4-3.12,1: 3.8-3.8
+M164,"Nylon, polymer not stated",tensileStrengthXY,7,1,69.2,,69.2,,69.2,G164-09,5: 45-96,
+M164,"Nylon, polymer not stated",elongationXY,7,1,9.77,,9.77,,9.77,G164-09,4: 4.5-50,
+M164,"Nylon, polymer not stated",hdt045,7,3,79,,91,,102,G164-05,1: 60-60,
+M164,"Nylon, polymer not stated",priceCADkg,7,0,,,,,,,,
+M165,"Nylon-CF, polymer not stated",density,1,1,1400,,1400,,1400,G165-01,,
+M165,"Nylon-CF, polymer not stated",tensileModulusXY,1,0,,,,,,,,
+M165,"Nylon-CF, polymer not stated",tensileStrengthXY,1,0,,,,,,,1: 107-107,
+M165,"Nylon-CF, polymer not stated",elongationXY,1,0,,,,,,,1: 2-2,
+M165,"Nylon-CF, polymer not stated",hdt045,1,0,,,,,,,,
+M165,"Nylon-CF, polymer not stated",priceCADkg,1,0,,,,,,,,
+M166,"Nylon-GF, polymer not stated",density,1,0,,,,,,,,
+M166,"Nylon-GF, polymer not stated",tensileModulusXY,1,0,,,,,,,,
+M166,"Nylon-GF, polymer not stated",tensileStrengthXY,1,0,,,,,,,,
+M166,"Nylon-GF, polymer not stated",elongationXY,1,0,,,,,,,,
+M166,"Nylon-GF, polymer not stated",hdt045,1,0,,,,,,,,
+M166,"Nylon-GF, polymer not stated",priceCADkg,1,0,,,,,,,,
+M167,"TPE, polymer not stated",density,10,10,1000,1132.5,1150,1160,1250,G167-02,,2: 1450-1550
+M167,"TPE, polymer not stated",tensileModulusXY,10,0,,,,,,,1: 0.0344393262-0.0344393262,1: 0.06-0.06
+M167,"TPE, polymer not stated",tensileStrengthXY,10,0,,,,,,,4: 5-32,1: 11.5-11.5
+M167,"TPE, polymer not stated",elongationXY,10,0,,,,,,,8: 150-870,
+M167,"TPE, polymer not stated",priceCADkg,10,0,,,,,,,,
+M168,"PLA family, polymer not stated",density,7,7,1300,1315,1340,1370,1540,G168-05,,
+M168,"PLA family, polymer not stated",tensileModulusXY,7,0,,,,,,,6: 0.9-5.1,
+M168,"PLA family, polymer not stated",tensileStrengthXY,7,0,,,,,,,7: 45-58,
+M168,"PLA family, polymer not stated",elongationXY,7,0,,,,,,,3: 2.2-14,
+M168,"PLA family, polymer not stated",hdt045,7,5,54,84,87,115,115,G001-134,,
+M168,"PLA family, polymer not stated",priceCADkg,7,0,,,,,,,,
+M169,"PLA family-CF, polymer not stated",density,2,2,1200,,1280,,1360,G169-01,,
+M169,"PLA family-CF, polymer not stated",tensileModulusXY,2,0,,,,,,,2: 7-7.12,
+M169,"PLA family-CF, polymer not stated",tensileStrengthXY,2,0,,,,,,,2: 65-65,
+M169,"PLA family-CF, polymer not stated",elongationXY,2,0,,,,,,,1: 2.5-2.5,
+M169,"PLA family-CF, polymer not stated",hdt045,2,2,74,,94.5,,115,G169-02,,
+M169,"PLA family-CF, polymer not stated",priceCADkg,2,0,,,,,,,,
+M170,TPS,density,2,2,1044,,1132,,1220,G170-02,,
+M170,TPS,tensileModulusXY,2,1,0.054,,0.054,,0.054,G170-02,1: 0.011-0.011,
+M170,TPS,tensileStrengthXY,2,0,,,,,,,,
+M170,TPS,elongationXY,2,1,280,,280,,280,G170-02,,
+M170,TPS,priceCADkg,2,0,,,,,,,,
+M171,316L stainless steel sintering filament,density,2,1,7190,,7190,,7190,G171-01,,
+M171,316L stainless steel sintering filament,tensileModulusXY,2,0,,,,,,,,
+M171,316L stainless steel sintering filament,tensileStrengthXY,2,0,,,,,,,,
+M171,316L stainless steel sintering filament,elongationXY,2,0,,,,,,,,
+M171,316L stainless steel sintering filament,priceCADkg,2,0,,,,,,,,
+M172,Silicon carbide sintering filament,density,1,1,2660,,2660,,2660,G172-01,,
+M172,Silicon carbide sintering filament,tensileModulusXY,1,0,,,,,,,,
+M172,Silicon carbide sintering filament,tensileStrengthXY,1,0,,,,,,,,
+M172,Silicon carbide sintering filament,elongationXY,1,0,,,,,,,,
+M172,Silicon carbide sintering filament,priceCADkg,1,0,,,,,,,,
+M173,Alumina sintering filament,density,1,1,3776,,3776,,3776,G173-01,,
+M173,Alumina sintering filament,tensileModulusXY,1,0,,,,,,,,
+M173,Alumina sintering filament,tensileStrengthXY,1,0,,,,,,,,
+M173,Alumina sintering filament,elongationXY,1,0,,,,,,,,
+M173,Alumina sintering filament,priceCADkg,1,0,,,,,,,,

@@ -1,6 +1,6 @@
-COUNT 21 shown PASS
-STATUS ☑ PASS 21 | ☐ UNKNOWN 0 | ☐ FAIL 121
-21 of the 142 materials in this database meet this requirement
+COUNT 24 shown PASS
+STATUS ☑ PASS 24 | ☐ UNKNOWN 0 | ☐ FAIL 128
+24 of the 152 materials in this database meet this requirement
 Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -34,6 +34,25 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+Nylon-CF, polymer not stated
+Nylon / Polyamide
+ PASS
+1 of 1
+ 1,400 — 107* 2* — — ☆
+Nylon-GF, polymer not stated
+Nylon / Polyamide
+ PASS
+1 of 1
+ — 4.2* 73.7* 5.9* — — ☆
+Nylon, polymer not stated
+Nylon / Polyamide
+ PASS
+9 of 9
+ 1,175
+1,010–1,250 · 4
+ 3.33 69.2 9.77 91
+79–102 · 3
+ — ☆
 PA-ESD
 Nylon / Polyamide
  PASS
@@ -78,10 +97,12 @@ Nylon / Polyamide
 PA6
 Nylon / Polyamide
  PASS
-8 of 8
- 1,145
-1,130–1,200 · 6
- 3.4* 78* 1.9* 140 163↗ ☆
+9 of 9
+ 1,150
+1,130–1,200 · 7
+ 3.4* 78* 1.9* 142
+140–143 · 2
+ 163↗ ☆
 PA6-CE
 Nylon / Polyamide
  PASS
@@ -202,9 +223,11 @@ Nylon / Polyamide
 RAIL
 Each count is how many of a family the other requirements leave. Choose a family to see its polymers.
 Nylon / Polyamide
-21
+24
 PA6
 5
+PA
+4
 PA12
 4
 PA612
@@ -215,14 +238,12 @@ PA6/66
 2
 PA66
 2
-PA
-1
 PLA
-16
+18
+Flexible Elastomers
+15
 Industrial High-Temperature
 14
-Flexible Elastomers
-13
 Copolyesters
 10
 Polymer Blends
@@ -245,6 +266,8 @@ PET Engineering
 4
 Support / Interface
 4
+Metal and Ceramic Sintering - Outside H2C Scope
+3
 Fluoropolymers
 2
 Styrenics

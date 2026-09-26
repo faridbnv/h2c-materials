@@ -162,3 +162,13 @@ M160,TPU 90A class,within,within,within,within,unknown,required
 M161,TPU 95A class,within,within,within,within,requires-hardened,required
 M162,TPU harder than 95A,within,within,within,within,requires-hardened,required
 M163,"TPU, hardness not stated",within,within,within,unknown,requires-hardened,required
+M164,"Nylon, polymer not stated",within,within,within,within,unknown,required
+M165,"Nylon-CF, polymer not stated",within,within,within,unknown,requires-hardened,unknown
+M166,"Nylon-GF, polymer not stated",within,unknown,unknown,unknown,unknown,unknown
+M167,"TPE, polymer not stated",within,within,within,within,unknown,unknown
+M168,"PLA family, polymer not stated",within,within,within,within,requires-hardened,unknown
+M169,"PLA family-CF, polymer not stated",within,within,within,within,requires-hardened,required
+M170,TPS,within,within,within,unknown,unknown,required
+M171,316L stainless steel sintering filament,excluded,within,within,within,unknown,required
+M172,Silicon carbide sintering filament,excluded,within,within,within,unknown,unknown
+M173,Alumina sintering filament,excluded,unknown,unknown,unknown,unknown,unknown

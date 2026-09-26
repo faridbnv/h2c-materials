@@ -1,7 +1,7 @@
-COUNT 13 shown PASS
-STATUS ☑ PASS 13 | ☐ UNKNOWN 47 | ☐ FAIL 82
-13 of the 142 materials in this database meet these requirements
-47 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+COUNT 14 shown PASS
+STATUS ☑ PASS 14 | ☐ UNKNOWN 52 | ☐ FAIL 86
+14 of the 152 materials in this database meet these requirements
+52 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
@@ -105,6 +105,13 @@ also called TPEE · Flexible Elastomers
  1,150
 1,100–1,220 · 6
  0.067 17.7 500 n/a — ☆
+TPS
+Flexible Elastomers
+ PASS
+1 of 1
+ 1,132
+1,044–1,220 · 2
+ 0.054 — 280 n/a — ☆
 TPU 85A class and softer
 Flexible Elastomers
  PASS
@@ -142,8 +149,8 @@ TPU harder than 95A
 Flexible Elastomers
  PASS
 3 of 3
- 1,195
-1,090–1,260 · 12
+ 1,190
+1,090–1,260 · 13
  1.19* 30
 22.4–39 · 3
  540

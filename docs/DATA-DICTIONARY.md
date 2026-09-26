@@ -792,6 +792,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Fluoropolymers |  |
 | High-Performance Engineering |  |
 | Industrial High-Temperature - Outside H2C Practical Envelope |  |
+| Metal and Ceramic Sintering - Outside H2C Scope |  |
 | Nylon / Polyamide |  |
 | PET Engineering |  |
 | PETG |  |
@@ -1019,6 +1020,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Glass fibre |  | GF |
 | Glass spheres | A hollow glass sphere (bead) load: it stiffens a little and lowers density, and it does not carry load along a fibre the way a reinforcement does. | GS |
 | Graphene | A graphene or graphene-nanoplatelet load, declared by the maker. It is neither carbon fibre nor unfilled: the platelets raise stiffness and, above a percolation threshold, conductivity, without the fibre length that makes a fibre-filled grade abrasive in the same way (R080). | GR |
+| Metal powder | A metal powder load in a binder: a sintering filament's stainless steel. The printed part is a green part, and its properties are the metal's only after debinding and sintering elsewhere (D87). | MP |
 | Natural fibre | A declared plant fibre milled into the polymer: flax and hemp are the two this database has seen declared as a fibre. It raises stiffness and lowers density, and its published values are its own. A wood, cork or coffee fill is not here: those are a particle fill and the database records them as the variant class particle-filled, which is what M014 already holds (R080). | NF |
 | PTFE | A polytetrafluoroethylene load: a tribological additive that lowers friction and wear. | PTFE |
 | Unfilled / unspecified |  |  |
