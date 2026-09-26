@@ -39,7 +39,7 @@
       "name": "H2C status",
       "type": "string",
       "role": "canonical",
-      "description": "How the material relates to the Bambu Lab H2C.",
+      "description": "How the material relates to the Bambu Lab H2C: what Bambu lists, or what its typical processing asks of the printer. Whether it is a candidate is Scope, not this.",
       "vocabulary": "h2c-status",
       "constraints": {
         "required": true
@@ -79,7 +79,7 @@
       "name": "Scope",
       "type": "string",
       "role": "canonical",
-      "description": "Whether the row is a candidate, a family entry, or excluded.",
+      "description": "Whether the row is a candidate, a family entry, or excluded. The one place exclusion is recorded: an excluded material is shown and never recommended.",
       "vocabulary": "scopes",
       "constraints": {
         "required": true

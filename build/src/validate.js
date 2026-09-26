@@ -5,7 +5,6 @@ import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
 import { measurementIssues } from './measurement-rules.js';
 import { measurementHeadlines, applies } from './registry.js';
-import { RETIRED_AVAILABILITY } from './normalize/values.js';
 import {
   ENVIRONMENT_CATEGORIES, CLAIMS_EVIDENCE, CLAIMS_ABSENCE, domainData, manufacturerCount, isStudyGrade,
 } from './coverage-rules.js';
@@ -57,18 +56,6 @@ export function validate(db, wb) {
   }
   for (const m of db.materials) {
     for (const g of m.gradeIds) if (!G.has(g)) issues.push(err('GRADES-LIST', `materials ${m.id}`, `GradeIDs lists unknown grade "${g}"`));
-  }
-
-  // -- retirement is finished, not half-done -----------------------------------
-  // Status retires a grade. An active grade whose Availability still speaks of retirement, or a
-  // retired grade that does not say so, is a retirement someone started and did not finish.
-  for (const g of db.grades) {
-    if (!g.retired && /retire/i.test(g.availability ?? '')) {
-      issues.push(err('GRADE-RETIREMENT-HALF', `grades ${g.id}`, `Availability "${g.availability}" describes a retirement but Status is active`));
-    }
-    if (g.retired && g.availability !== RETIRED_AVAILABILITY) {
-      issues.push(err('GRADE-RETIREMENT-HALF', `grades ${g.id}`, `Status is retired but Availability does not read "${RETIRED_AVAILABILITY}"`));
-    }
   }
 
   // -- every record points at the right material --------------------------------
@@ -220,11 +207,8 @@ export function validate(db, wb) {
   }
 
   // -- excluded materials stay out of the default candidate set ---------------
+  // Scope is the one place exclusion is recorded; H2C status says how the material relates to the printer (m146).
   const excluded = db.materials.filter((m) => m.excluded);
-  // Exclusion is stated twice, as scope and as H2C status; the two must agree, whatever the count.
-  for (const m of db.materials) {
-    if (m.excluded !== (m.h2cStatus === 'Excluded')) issues.push(err('EXCLUSION', `materials ${m.id}`, `Scope "${m.scope}" and H2C status "${m.h2cStatus}" disagree about exclusion`));
-  }
   for (const m of excluded) {
     if (m.gates.scope !== 'excluded') issues.push(err('EXCLUSION', `materials ${m.id}`, 'Excluded material does not carry the excluded scope gate'));
   }

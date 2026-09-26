@@ -193,8 +193,10 @@ function evaluateGate(material, c) {
     return {
       status: excluded ? STATUS.FAIL : STATUS.PASS,
       criterion: 'H2C-relevant scope',
+      // Scope is the one place exclusion is recorded (m146); the material's Limitations say why it is out (an envelope
+      // the H2C cannot reach, or a sintering feedstock whose part is not the printed polymer).
       reason: excluded
-        ? 'Outside the H2C practical envelope; excluded from the master list'
+        ? 'Excluded from the candidates (Scope Excluded); its Limitations say why'
         : 'In scope for the H2C',
     };
   }

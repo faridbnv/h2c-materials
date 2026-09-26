@@ -47,7 +47,12 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
       if (!row) throw new Error(`${name}: no row with ${pkOf(name)} ${id}`);
       return row;
     },
-    set(name, id, field, value, { expect } = {}) {
+    /**
+     * Edit one cell of the row with primary key `id`. Changing the primary key itself (a misspelled reference name,
+     * m148) is the record leaving under one key and arriving under another: it needs `migration`, and writes the
+     * ledger row the data diff reads (D72), naming the key it now has.
+     */
+    set(name, id, field, value, { expect, migration } = {}) {
       const t = table(name);
       if (!t.header.includes(field)) throw new Error(`${name}: no column "${field}"`);
       const row = api.get(name, id);
@@ -55,6 +60,11 @@ export function openTables(root = projectRoot, { allowMissing = false } = {}) {
       if (expect !== undefined && before !== expect) throw new Error(`${name} ${id} ${field}: expected "${expect}", found "${before}"; the data moved since this change was written`);
       const after = value == null || value === '' ? null : String(value).trim();
       if (before === after) return false;
+      if (field === pkOf(name)) {
+        if (!migration) throw new Error(`${name} ${id}: ${field} is the primary key; re-keying it needs { migration }, which writes its ledger row`);
+        if (api.find(name, after)) throw new Error(`${name}: ${field} ${after} already exists`);
+        removals.push({ Table: name, Record: before, Migration: migration, Where: `re-keyed: the same row is now ${after}` });
+      }
       row[field] = after;
       t.dirty = true;
       changes.push({ table: name, record: id, action: 'Edited', field, before, after });

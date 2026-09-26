@@ -3,103 +3,109 @@
 The choices that are not obvious, and the bugs that forced several of them. Each says what would
 break if it were reversed, because that is the part that gets lost.
 
+Each decision opens with one line in plain words, for a reader who was not there, and a status line where a later
+decision superseded, amended, narrowed or extended it. The index below collects both (`npm run docs:decisions`).
+
 <!-- index: npm run docs:decisions -->
 
-| | Decision | Status |
-|---|---|---|
-| D1 | Excel is the authoring format; JSON is the runtime | Authoring superseded by D45 |
-| D2 | Headline values are verified, never recomputed | Amended by D83 |
-| D3 | Missing data is four states, never zero | In force |
-| D4 | INDETERMINATE is not UNKNOWN | In force |
-| D5 | Evidence outranks silence in gate aggregation | In force |
-| D6 | A recommendation is not a requirement | In force |
-| D7 | Only gates that can discriminate become filters | In force |
-| D8 | Related evidence reports one measurement, never a cross-grade range | Its refusal of a range superseded by D83 |
-| D9 | No cross-property fallback | In force |
-| D10 | A family estimate may rule out, never rule in | Superseded by D40, D42, then D43 |
-| D11 | Estimates never pool across behaviour classes | Narrowed by D40, D42 and D43 |
-| D12 | Peers sharing a formulation key count once | In force |
-| D13 | The reference layer is separate and off by default | In force |
-| D14 | The engine never imports from the interface | In force |
-| D15 | Tabulator was dropped; Plotly kept | In force |
-| D16 | The data is embedded gzipped | In force |
-| D17 | One vocabulary module, and no second way to name anything | In force |
-| D18 | The familiar baseline is a reference, never a candidate | In force |
-| D19 | No sampled offer is UNKNOWN, not FAIL | In force |
-| D20 | Category names are authored with the rules that create them | In force |
-| D21 | One control for how much evidence the chart draws | In force |
-| D22 | Search matches words, never substrings | In force |
-| D23 | An estimate is drawn as a range, never as a point | In force |
-| D24 | A relaxed condition and an unstated fact are different things | In force |
-| D25 | In the measurement plot, a dot is a test and must say so | In force |
-| D26 | The verdict describes the evidence; the policy decides eligibility | In force |
-| D27 | The nozzle question asks what the user lacks | In force |
-| D28 | Limited resistance is not resistance | In force |
-| D29 | A template names what it cannot check | In force |
-| D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | In force |
-| D31 | A quarantined observation backs nothing | In force |
-| D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | In force |
-| D33 | "Enclosure not needed" clears the chamber; "enclosure recommended" does not | In force |
-| D34 | An estimated chamber band decides nothing | In force |
-| D35 | A research report is re-read against its sources, never transcribed | In force |
-| D36 | Referential integrity includes ownership, not just existence | In force |
-| D37 | A headline belongs to the representative grade; study grades are not procurement grades | Amended by D83 |
-| D38 | Environmental evidence is owned by the material; family evidence stays context | In force |
-| D39 | Coverage is terminal, but it must agree with the records | In force |
-| D40 | Peer observations are context, not exclusion bounds | Superseded by D42, then D43 |
-| D41 | Raw values, endpoints and archived identities are enforced | In force |
-| D42 | An estimate is a prediction interval from like-for-like evidence, and may only screen | Superseded by D43 |
-| D43 | An estimate is a calibrated model of every observation, and says how far to trust it | In force |
-| D44 | Each product has one home; a family is an entry, not a material | In force |
-| D45 | The source of truth is CSV tables under a declared schema | In force |
-| D46 | A property is a registry row, and may apply to some filaments only | In force |
-| D47 | What can be calculated is not stored | In force |
-| D48 | Evidence screens only where a back-test shows it screens reliably | Amended by D55, D59, D83 |
-| D49 | The values the build decides on are typed columns; raw text stays, and the parsers check it | In force |
-| D50 | Every check has a code, and quality findings are fixed or accepted with a reason | In force |
-| D51 | Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on | In force |
-| D52 | The transfer is proven cell by cell; every later correction is re-read, guarded and replayable | In force |
-| D53 | The estimate model reads declared states, not wording; and every change shows its downstream effect | In force |
-| D54 | A published mean ± band is judged on its mean; the band flags a result close to the limit | In force |
-| D55 | A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline | In force |
-| D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | Amended by D83 |
-| D57 | Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed | In force |
-| D58 | Estimates are an overlay on a complete core, and grow by data, not by special cases | In force |
-| D59 | A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence | In force |
-| D60 | What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables | In force |
-| D61 | No meaning lives only in a tooltip | In force |
-| D62 | A narrow screen scrolls what does not fit inside its own box, and never squeezes it | In force |
-| D63 | A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide | In force |
-| D64 | Polymer-level behaviour is shown and may screen, never passes | In force |
-| D65 | A test method that defines its load states that load; the typed value says so in Parse review | In force |
-| D66 | A templated safety data sheet is evidence only where it speaks about the product | In force |
-| D67 | A property is a row, not a pair of columns: the reference envelopes are long | In force |
-| D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | In force |
-| D69 | A profile's qualitative notes are rows, and an empty column is not a fact | In force |
-| D70 | A constant is not a per-material fact, and a summary of the data is not data | In force |
-| D71 | How a source was classed and how it was reached are states, not sentences | In force |
-| D72 | A record may leave a table only where the build derives it, and only through a ledger | In force |
-| D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | In force |
-| D74 | A coverage row is a judgement; that a material has records is derived | In force |
-| D75 | A generated SQLite file for asking questions, with the schema's types in it | In force |
-| D76 | The standards a measurement names are a typed list, and a fragment is not a standard | In force |
-| D77 | The spread search sees a sample; the model still sees everything | In force |
-| D78 | A limit a material's own grades publish is a floor for its shown range | In force |
-| D79 | The kernel is solved by block, and the estimates are the dense solve's | In force |
-| D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | In force |
-| D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Amended by D83 |
-| D82 | A property with thirty values has a window, drawn from physics and checked against the rows | In force |
-| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | In force |
-| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | In force |
-| D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | In force |
-| D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | In force |
-| D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | In force |
+| | Decision | In plain words | Status |
+|---|---|---|---|
+| D1 | Excel is the authoring format; JSON is the runtime | The page reads JSON that only the build produces; data is no longer written in Excel. | The authoring half superseded by D45 (CSV tables); the JSON runtime stands |
+| D2 | Headline values are verified, never recomputed | A number shown for a product is always a recorded measurement, read from its record, never retyped or recomputed. | Amended by D47 (the value is read from the measurement, not typed twice) and D83 (a product's value is chosen by rule, and a material shows its products' spread) |
+| D3 | Missing data is four states, never zero | Not published, not enough comparable data, not applicable and quarantined are four different answers, and none of them is ever shown as zero. | In force |
+| D4 | INDETERMINATE is not UNKNOWN | "Nobody has measured it" (unknown) and "the evidence straddles your limit" (indeterminate) are different answers and stay apart. | In force |
+| D5 | Evidence outranks silence in gate aggregation | When one print profile states a temperature the H2C cannot reach and another says nothing, the stated one decides. | In force |
+| D6 | A recommendation is not a requirement | A maker's "recommended if possible" setting above what the H2C gives warns, and never rules a material out. | In force |
+| D7 | Only gates that can discriminate become filters | A printing field that almost every source leaves as "verify the exact grade" is shown as evidence, not offered as a filter. | In force |
+| D8 | Related evidence reports one measurement, never a cross-grade range | Values of different products were never to be merged into one range, because it would read as one material's uncertainty. | Its refusal of a range superseded by D83, where a material is the labelled spread of its products |
+| D9 | No cross-property fallback | A missing value is never filled with a different property: no Vicat or glass transition stands in for heat deflection. | In force |
+| D10 | A family estimate may rule out, never rule in | The first estimates could only rule a material out, never qualify it; the design was replaced by the calibrated model. | Superseded by D40, D42, then D43; its rule that an estimate never passes a material lives on in D43 |
+| D11 | Estimates never pool across behaviour classes | Elastomers, supports and rigid plastics are never pooled when estimating. | Narrowed by D40, D42 and D43 |
+| D12 | Peers sharing a formulation key count once | Several products described by one data sheet count as one piece of evidence, not several. | In force |
+| D13 | The reference layer is separate and off by default | The generic reference materials (steels, woods, moulded plastics) are drawn on the chart only when asked for, and are never candidates. | In force |
+| D14 | The engine never imports from the interface | The decision logic does not depend on the page, so it can be tested without a browser. | In force |
+| D15 | Tabulator was dropped; Plotly kept | The results table is hand-built and the charts use Plotly, except the parallel-lines chart, drawn in SVG. | In force |
+| D16 | The data is embedded gzipped | The single HTML page carries its data compressed and unpacks it when it opens. | In force |
+| D17 | One vocabulary module, and no second way to name anything | Every property and requirement takes its on-screen name from one place, so nothing is called two different things. | In force |
+| D18 | The familiar baseline is a reference, never a candidate | A familiar material you pick for comparison is drawn beside the results and never counted as one of them. | In force |
+| D19 | No sampled offer is UNKNOWN, not FAIL | A material no sampled shop listed is unknown for "can I buy it"; only one listed and out of stock fails. | In force |
+| D20 | Category names are authored with the rules that create them | Environment category names are written in the data beside the rules that define them, not assembled by the page. | In force |
+| D21 | One control for how much evidence the chart draws | The chart's two overlapping evidence switches became one three-way choice. | In force |
+| D22 | Search matches words, never substrings | Search matches the start of words, so "PLA" does not find thermoplastic polyurethane. | In force |
+| D23 | An estimate is drawn as a range, never as a point | An estimated value is drawn as a range, never as a dot, and never joins the Pareto front. | In force |
+| D24 | A relaxed condition and an unstated fact are different things | A chart point is marked doubtful only when strict mode would have rejected it, not whenever a source left a detail unstated. | In force |
+| D25 | In the measurement plot, a dot is a test and must say so | In the measurement view a dot is one test, and one material's dots are linked so they read as one material. | In force |
+| D26 | The verdict describes the evidence; the policy decides eligibility | A requirement nobody could check is unknown in every mode; the mode only decides whether unknowns are shown. | In force |
+| D27 | The nozzle question asks what the user lacks | The hardened-nozzle filter asks "I don't have one", so owning more hardware can never remove materials. | In force |
+| D28 | Limited resistance is not resistance | A chemical-resistance requirement passes only on a plain "resistant" record, not on "limited". | In force |
+| D29 | A template names what it cannot check | Each ready-made scenario lists what it does not check, and promises nothing it does not test. | In force |
+| D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | The data's date is read from the Method table, not written in code; prices keep their own sampling date. | In force |
+| D31 | A quarantined observation backs nothing | A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing. | In force |
+| D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end. | In force |
+| D33 | "Enclosure not needed" clears the chamber; "enclosure recommended" does not | A sheet saying no enclosure is needed settles the chamber question; one recommending an enclosure does not. | In force |
+| D34 | An estimated chamber band decides nothing | Researched guesses of a chamber temperature are shown, marked, and never pass or exclude a material. | In force |
+| D35 | A research report is re-read against its sources, never transcribed | Every value is entered from its original document, re-read and hash-checked, never copied from a report or a summary. | In force |
+| D36 | Referential integrity includes ownership, not just existence | The build checks that every record belongs to the material it is filed under, not merely that its identifiers exist. | In force |
+| D37 | A headline belongs to the representative grade; study grades are not procurement grades | A material's numbers must not mix products, and a research-only grade is never a buyable product. | Amended by D83: the representative grade retired and each product is judged on its own values; the rule on research grades stands |
+| D38 | Environmental evidence is owned by the material; family evidence stays context | A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material. | In force |
+| D39 | Coverage is terminal, but it must agree with the records | The findings on what data a material has never change a result, but the build stops if they contradict the records. | In force; extended by D74 (a finding that only restates the records is derived) |
+| D40 | Peer observations are context, not exclusion bounds | For a short time, estimates drawn from similar materials were allowed to decide nothing at all. | Superseded by D42, then D43 |
+| D41 | Raw values, endpoints and archived identities are enforced | The build stops when a raw value, its unit and its converted value disagree, and a retired product stays out of every active list. | In force |
+| D42 | An estimate is a prediction interval from like-for-like evidence, and may only screen | The second estimate design: like-for-like evidence and 95% intervals, allowed to rule out and never to qualify. | Superseded by D43 |
+| D43 | An estimate is a calibrated model of every observation, and says how far to trust it | Missing values are estimated by one statistical model per property, checked against known values it had hidden, labelled with how far to trust them, and never allowed to pass a material. | Amended by D48 (which estimates may rule a material out) and D83 (a material is estimated only where none of its products publishes the value) |
+| D44 | Each product has one home; a family is an entry, not a material | Each product is recorded once, under the most specific material it is; a family name such as PA or TPE only leads to its members. | In force |
+| D45 | The source of truth is CSV tables under a declared schema | All data is edited in CSV tables checked against a declared schema; the Excel workbooks were retired. | In force; narrowed by D72 (a record may leave through the removal ledger), and its open question on SQLite answered by D75 |
+| D46 | A property is a registry row, and may apply to some filaments only | What each property means, its units and which filaments it applies to are rows in a table, so adding one needs no code. | In force |
+| D47 | What can be calculated is not stored | Anything the build can compute from the records (medians, per-kg prices, grade lists) is computed, never stored beside them. | In force; extended by D70 and D74 |
+| D48 | Evidence screens only where a back-test shows it screens reliably | An estimate may rule a material out only where hiding known values shows that kind of estimate to be reliable. | Amended by D55, D59 and D83 |
+| D49 | The values the build decides on are typed columns; raw text stays, and the parsers check it | Decisions read typed columns; the source's own words stay beside them, and the build stops if the two disagree. | In force |
+| D50 | Every check has a code, and quality findings are fixed or accepted with a reason | Every check has a stable code, and every data-quality finding is fixed or accepted with a written reason. | In force; its "nothing is deleted" narrowed by D72 |
+| D51 | Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on | Hand-kept lookup tables use record identifiers, not names, so renaming something cannot silently break them. | In force |
+| D52 | The transfer is proven cell by cell; every later correction is re-read, guarded and replayable | The move out of Excel was proven cell by cell, and every correction since is a re-runnable script that refuses to run if the data moved. | In force |
+| D53 | The estimate model reads declared states, not wording; and every change shows its downstream effect | Estimates read declared states (dry, conditioned, a declared variant) rather than wording, and every change commits a snapshot of what it did. | Amended by D68: the state is a column on the row, not an entry of the vocabulary |
+| D54 | A published mean ± band is judged on its mean; the band flags a result close to the limit | A value published as "35 ± 4 MPa" is judged as 35; the band only marks a result close to the limit. | In force |
+| D55 | A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline | A published number physics rules out is kept and flagged, and decides nothing; only a printed part's value can set a lower bound. | In force; extended by D82 |
+| D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | Estimates follow printing physics: slow-crystallising plastics, water in nylons, filler density, and what an elastomer cannot have. | Amended by D68 (states are columns on the row) and D83 (heat deflection does not apply to an elastomer) |
+| D57 | Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed | Unusual products are declared in the data, a replaced property name keeps its record, and every build warning is reviewed. | In force |
+| D58 | Estimates are an overlay on a complete core, and grow by data, not by special cases | The database works without estimates, which only add to it, and the model grows by declaring cases in the data rather than by new code. | In force |
+| D59 | A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence | An estimate may rule a material out only on a side of its range that testing has shown to be reliable, and never against the material's own data. | In force |
+| D60 | What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables | What the estimate model knows about a polymer, a variant or a product's hardness lives in tables, not in its configuration. | In force |
+| D61 | No meaning lives only in a tooltip | No meaning is available only on mouse hover: every such mark is also a button that explains it, for touch and keyboard. | In force |
+| D62 | A narrow screen scrolls what does not fit inside its own box, and never squeezes it | On tablets and phones, tables scroll sideways inside their box rather than squeezing, and the detail panel becomes a proper dialog. | In force |
+| D63 | A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide | A source's title is the heading the document prints, never a file name or page chrome, and a specimen's print parameters are only the tested conditions. | In force; extended in phase 5, part 5 (m149): page furniture read as a title is flagged too |
+| D64 | Polymer-level behaviour is shown and may screen, never passes | What a resin handbook says about a plastic's chemical resistance is shown where a product has no record of its own; it can rule out but never qualify. | In force |
+| D65 | A test method that defines its load states that load; the typed value says so in Parse review | A heat deflection labelled Method A or Method B has the load those standards define, recorded with the reason. | In force |
+| D66 | A templated safety data sheet is evidence only where it speaks about the product | Boilerplate in a safety data sheet that contradicts the product's own data sheet is not recorded; its composition always is. | In force |
+| D67 | A property is a row, not a pair of columns: the reference envelopes are long | Each generic reference material's property ranges are rows, one per property, so a new property needs no new column. | In force; amended in phase 5, part 5 (its dead offset removed, three misspelled names corrected) |
+| D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | A sheet's sentence is copied as printed, and the state it means (dry, annealed) is a typed column beside it. | In force |
+| D69 | A profile's qualitative notes are rows, and an empty column is not a fact | A maker's printing notes (cooling, overhangs) are one row per note, and the Printing tab shows them. | In force |
+| D70 | A constant is not a per-material fact, and a summary of the data is not data | A sentence true of every material is one Method rule, and anything computable from the data is computed, not stored. | In force |
+| D71 | How a source was classed and how it was reached are states, not sentences | A source's kind and whether it was retrieved are values from fixed lists, with the particulars in notes. | In force |
+| D72 | A record may leave a table only where the build derives it, and only through a ledger | Records are never deleted, except one the build now derives, and then only with a ledger row naming the migration and where it went. | In force |
+| D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | A reviewer's conclusion is written into the data row, and an estimate that is wide only because data is thin is reported, not reviewed. | In force |
+| D74 | A coverage row is a judgement; that a material has records is derived | The build works out which kinds of data each material has; stored coverage rows are kept only for human judgements. | In force |
+| D75 | A generated SQLite file for asking questions, with the schema's types in it | The build writes a SQLite copy of the tables for asking questions, with missing values as empty beside their reason, and nothing reads it back. | In force |
+| D76 | The standards a measurement names are a typed list, and a fragment is not a standard | The standards a measurement names are a checked list beside the source's wording, and a garbled fragment is never read as a standard. | In force |
+| D77 | The spread search sees a sample; the model still sees everything | To stay fast, one step of the estimate fit uses a fixed sample of at most 400 values; every other step uses all the data. | In force; extended by D79 (the block solve) |
+| D78 | A limit a material's own grades publish is a floor for its shown range | An estimated range never goes past a limit the material's own data sheets publish. | In force |
+| D79 | The kernel is solved by block, and the estimates are the dense solve's | The estimate model's large matrix is solved one chemical group at a time, about nine times faster, with the same results to floating-point precision. | In force |
+| D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | A product declared heavily filled (metal-filled, foamed) is checked against the physical limits of that kind of filler, and the product's declaration comes before its material's. | In force; extended by D82 |
+| D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Each product gets its own estimate from the same model, shown for information and deciding nothing. | Amended by D83: only a product without a comparable value of its own gets one |
+| D82 | A property with thirty values has a window, drawn from physics and checked against the rows | Every property with thirty or more values has plausibility limits drawn from physics, and each value outside them is checked against its sheet. | In force |
+| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | In force |
+| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | In force |
+| D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
+| D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
+| D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
 
 <!-- end index -->
 
 ---
 
 ## D1. Excel is the authoring format; JSON is the runtime (authoring superseded by D45)
+
+> **In plain words:** The page reads JSON that only the build produces; data is no longer written in Excel.
+> **Status:** the authoring half superseded by D45 (CSV tables); the JSON runtime stands.
 
 A browser can parse XLSX, but doing so couples the interface to workbook layout, pushes validation
 failures into the user's session, and makes output non-deterministic. The workbook is never written
@@ -109,6 +115,9 @@ Since 2026-09-14 the authoring format is CSV tables under a declared schema (D45
 stands: JSON is the runtime, and the build is the only thing that produces it.
 
 ## D2. Headline values are verified, never recomputed
+
+> **In plain words:** A number shown for a product is always a recorded measurement, read from its record, never retyped or recomputed.
+> **Status:** amended by D47 (the value is read from the measurement, not typed twice) and D83 (a product's value is chosen by rule, and a material shows its products' spread).
 
 The Materials sheet already cites the MeasurementID behind each headline. The build checks the
 number equals its citation rather than deriving a headline itself. All 361 reconcile. A price
@@ -126,17 +135,23 @@ statistics of its products, labelled as such, and never shown as a measurement.
 
 ## D3. Missing data is four states, never zero
 
+> **In plain words:** Not published, not enough comparable data, not applicable and quarantined are four different answers, and none of them is ever shown as zero.
+
 Not published, insufficient comparable data, not applicable, quarantined. They mean different things
 and are different engineering answers. A tool that renders them all as blank invites the reader to
 assume the value is low.
 
 ## D4. INDETERMINATE is not UNKNOWN
 
+> **In plain words:** "Nobody has measured it" (unknown) and "the evidence straddles your limit" (indeterminate) are different answers and stay apart.
+
 UNKNOWN means no comparable evidence exists. INDETERMINATE means evidence exists and the threshold
 cuts through it. Collapsing them would turn "the source cannot settle this" into "nobody has
 measured this", which sends the reader looking for the wrong thing.
 
 ## D5. Evidence outranks silence in gate aggregation
+
+> **In plain words:** When one print profile states a temperature the H2C cannot reach and another says nothing, the stated one decides.
 
 A material's process gate aggregates across its profiles with precedence
 `within > partial > exceeds-recommended > exceeds > unknown`. `partial` exists for the chamber only
@@ -150,11 +165,15 @@ PPS-GF still reports "within", because one of its grades genuinely fits.
 
 ## D6. A recommendation is not a requirement
 
+> **In plain words:** A maker's "recommended if possible" setting above what the H2C gives warns, and never rules a material out.
+
 "Recommended 70-140C if possible" exceeds the 65 °C chamber but does not make the material
 unprintable. Treating it as a hard requirement would wrongly exclude printable materials; ignoring
 it would hide a real caveat. It returns `exceeds-recommended`, which warns without excluding.
 
 ## D7. Only gates that can discriminate become filters
+
+> **In plain words:** A printing field that almost every source leaves as "verify the exact grade" is shown as evidence, not offered as a filter.
 
 Section 8.2A of the brief lists eleven process gates and says they should come first. The Print setup
 sheet does not support that: routing and AMS read "verify the exact grade" on 140 of 167 profiles,
@@ -167,16 +186,24 @@ nothing.
 
 ## D8. Related evidence reports one measurement, never a cross-grade range (its refusal of a range superseded by D83)
 
+> **In plain words:** Values of different products were never to be merged into one range, because it would read as one material's uncertainty.
+> **Status:** its refusal of a range superseded by D83, where a material is the labelled spread of its products.
+
 PEBA's three grades measure 7.5, 25 and 30 MPa. "7.5 to 30" reads as one material's uncertainty
 rather than three different products, and the Method sheet forbids cross-grade family ranges.
 
 ## D9. No cross-property fallback
+
+> **In plain words:** A missing value is never filled with a different property: no Vicat or glass transition stands in for heat deflection.
 
 An earlier version fell back to Vicat or glass transition where a material had no HDT. For TPE that
 put a glass transition of −35 °C in a column headed "HDT at 0.45 MPa" — a different physical
 quantity, and actively dangerous for anyone screening on heat resistance. Same-property only.
 
 ## D10. A family estimate may rule out, never rule in (superseded by D40, D42, then D43)
+
+> **In plain words:** The first estimates could only rule a material out, never qualify it; the design was replaced by the calibrated model.
+> **Status:** superseded by D40, D42, then D43; its rule that an estimate never passes a material lives on in D43.
 
 The asymmetry is the whole design. Knowing every measured unreinforced PLA falls between 2.8 and
 15.3% elongation is enough to say PLA Lite is not an elastomer. It is not enough to certify PLA Lite
@@ -189,17 +216,24 @@ no peers.
 
 ## D11. Estimates never pool across behaviour classes (narrowed by D40, D42 and D43)
 
+> **In plain words:** Elastomers, supports and rigid plastics are never pooled when estimating.
+> **Status:** narrowed by D40, D42 and D43.
+
 "All unreinforced materials" spanned TPU at 0.0053 GPa and PLA at 2.88 GPa. Three orders of
 magnitude rules nothing out and implies a support material might be as stiff as a structural one.
 Elastomers, supports and rigid thermoplastics are separate populations.
 
 ## D12. Peers sharing a formulation key count once
 
+> **In plain words:** Several products described by one data sheet count as one piece of evidence, not several.
+
 PA, PA6/66 and CoPA all draw their headline from a single PolyMide datasheet. Counting them as three
 peers produced an "estimate" of 2.223 to 2.223 GPa: a precise value dressed as a range, claiming
 three corroborations where there is one. The Method sheet states the rule directly.
 
 ## D13. The reference layer is separate and off by default
+
+> **In plain words:** The generic reference materials (steels, woods, moulded plastics) are drawn on the chart only when asked for, and are never candidates.
 
 114 generic materials compile to their own file and never enter the candidate set, counts, Pareto
 fronts, search or exports. They are bulk and molded values while the candidates are printed and
@@ -208,9 +242,13 @@ with a banner.
 
 ## D14. The engine never imports from the interface
 
+> **In plain words:** The decision logic does not depend on the page, so it can be tested without a browser.
+
 It is what makes the decision logic testable without a browser, and it is enforceable by inspection.
 
 ## D15. Tabulator was dropped; Plotly kept
+
+> **In plain words:** The results table is hand-built and the charts use Plotly, except the parallel-lines chart, drawn in SVG.
 
 The brief names both. At 102 rows a data grid's virtues do not apply, every cell needs custom
 rendering for the provenance typography, and sorting plus export came to about a hundred lines. That
@@ -221,12 +259,16 @@ not: it needs WebGL, which fails outright on many machines, so that lens is hand
 
 ## D16. The data is embedded gzipped
 
+> **In plain words:** The single HTML page carries its data compressed and unpacks it when it opens.
+
 Raw `db.json` is about 3 MB, almost all repeated condition strings; gzipped it is under 200 KB,
 inflated at boot with `DecompressionStream`. No schema change, no interning, and the plotting
 library rather than the data becomes what the file weighs.
 
 
 ## D17. One vocabulary module, and no second way to name anything
+
+> **In plain words:** Every property and requirement takes its on-screen name from one place, so nothing is called two different things.
 
 `app/js/ui/labels.js` owns what every property and every criterion is called. Before it, three code
 paths described the same property three ways: the drawer said "Stiffness", the table said "Tensile
@@ -242,6 +284,8 @@ Reversing this reintroduces the class of bug rather than any one instance of it.
 
 ## D18. The familiar baseline is a reference, never a candidate
 
+> **In plain words:** A familiar material you pick for comparison is drawn beside the results and never counted as one of them.
+
 4.43 GPa means nothing to someone who has only printed PLA. PLA, PETG, ABS, ASA and PC can each be
 set as an anchor, drawn as a row in the table, a labelled cross on the chart and a grey bar in
 Compare.
@@ -253,6 +297,8 @@ that treatment with the generic reference layer (D13) and nothing else: the base
 out of `db.json` with its own citations, while the reference layer is uncited bulk values.
 
 ## D19. No sampled offer is UNKNOWN, not FAIL
+
+> **In plain words:** A material no sampled shop listed is unknown for "can I buy it"; only one listed and out of stock fails.
 
 The availability criterion answers "only show me what I can buy". A material that no sampled
 retailer listed reports UNKNOWN; one that was listed and out of stock reports FAIL.
@@ -267,6 +313,8 @@ Explore the unsampled ones stay visible and flagged, which is the honest reading
 
 ## D20. Category names are authored with the rules that create them
 
+> **In plain words:** Environment category names are written in the data beside the rules that define them, not assembled by the page.
+
 Environment category display names live in `build/mappings/environment-topics.json` (since m09, `schema/vocab/environment-categories.csv`), next to the
 topic patterns, and compile into the snapshot in two forms: a heading ("Acid resistance") and a
 sentence noun ("acids").
@@ -278,6 +326,8 @@ the engine also names categories in its reason strings, and the engine may not i
 rule intact.
 
 ## D21. One control for how much evidence the chart draws
+
+> **In plain words:** The chart's two overlapping evidence switches became one three-way choice.
 
 The Ashby lens had two switches, "Points" (headline against measurements) and "Comparability"
 (strict against broad). That reads as four combinations and is three: comparability can do nothing
@@ -293,6 +343,8 @@ every state the old pair could reach is still reachable.
 
 ## D22. Search matches words, never substrings
 
+> **In plain words:** Search matches the start of words, so "PLA" does not find thermoplastic polyurethane.
+
 A bare substring test for "PLA" matches "Thermoplastic Polyurethane". Searching for the most common
 filament on earth returned every TPU and TPE in the database, and nothing about the result looked
 wrong: it looked like the tool believed TPU was a kind of PLA.
@@ -306,6 +358,8 @@ Slashes are separators, so "Support for PLA/PETG" answers to either name, which 
 genuinely about both.
 
 ## D23. An estimate is drawn as a range, never as a point
+
+> **In plain words:** An estimated value is drawn as a range, never as a dot, and never joins the Pareto front.
 
 The chart plotted only measured headlines, so on density against stiffness 25 of the 96 in-scope
 materials simply were not there. The table two tabs away listed them with their estimated span, and
@@ -328,6 +382,8 @@ cannot dominate evidence.
 
 ## D24. A relaxed condition and an unstated fact are different things
 
+> **In plain words:** A chart point is marked doubtful only when strict mode would have rejected it, not whenever a source left a detail unstated.
+
 The measurement plot marked a point hollow, and announced "mixed conditions are included here",
 whenever a measurement carried any remark at all. One of those remarks is that the source did not
 name the specimen form, which on an axis with no direction requirement — density — is the ordinary
@@ -342,6 +398,8 @@ hover. A warning that fires when nothing is wrong is worse than no warning, beca
 reader to ignore the one that matters.
 
 ## D25. In the measurement plot, a dot is a test and must say so
+
+> **In plain words:** In the measurement view a dot is one test, and one material's dots are linked so they read as one material.
 
 The mode draws one point per grade per measurement, which is the evidence behind the headline and
 the only place anisotropy is visible. It was also unreadable: a field of anonymous dots, each
@@ -359,6 +417,8 @@ that. The index card counts materials, not dots, for the same reason.
 
 ## D26. The verdict describes the evidence; the policy decides eligibility
 
+> **In plain words:** A requirement nobody could check is unknown in every mode; the mode only decides whether unknowns are shown.
+
 A material whose requirement cannot be checked is UNKNOWN in both modes. Strict holds it out of the
 results and Explore keeps it flagged, but neither changes what the verdict says.
 
@@ -368,6 +428,8 @@ both, and the four-state vocabulary the rest of this document defends collapsed 
 one level a user reads. Reversing this makes a missing measurement look like a bad material again.
 
 ## D27. The nozzle question asks what the user lacks
+
+> **In plain words:** The hardened-nozzle filter asks "I don't have one", so owning more hardware can never remove materials.
 
 "I have a hardened nozzle" removed materials: 75 have no abrasion guidance, and Strict held them all
 out. More hardware can never make fewer materials printable. The criterion is now "I don't have a
@@ -382,6 +444,8 @@ material at all, because no source in the snapshot states "no special nozzle con
 
 ## D28. Limited resistance is not resistance
 
+> **In plain words:** A chemical-resistance requirement passes only on a plain "resistant" record, not on "limited".
+
 An environment criterion passes only on an unqualified positive record: "resistant", or "insoluble"
 for water. "Limited" is INDETERMINATE on its own and alongside a positive record. The rail used to
 request `['resistant', 'limited']`, which passed PLA on a solvent screen because one record said its
@@ -393,6 +457,8 @@ and the reason says so. Choosing the exact agent first needs data most records d
 
 ## D29. A template names what it cannot check
 
+> **In plain words:** Each ready-made scenario lists what it does not check, and promises nothing it does not test.
+
 Each template carries `notChecked`, shown beside the result count, and screens out support
 materials. The descriptions used to promise outcomes no criterion tested: "survives a hot day in the
 sun", "springs back", "prints without a heated chamber". The last was simply false, since the chamber
@@ -401,6 +467,8 @@ chamber gate, which tested nothing about ease of printing and held out PLA Basic
 a chamber temperature.
 
 ## D30. The snapshot date comes from the workbook (now `data/tables/method.csv`)
+
+> **In plain words:** The data's date is read from the Method table, not written in code; prices keep their own sampling date.
 
 The build used to carry the snapshot date as a constant. The 2026-09-13 manufacturer audit moved the
 Method sheet to a new snapshot, and every filename, "data" label and export would have kept naming
@@ -412,6 +480,8 @@ is true and "2026-09-13" would not be. `meta.pricesSampled` carries it.
 
 ## D31. A quarantined observation backs nothing
 
+> **In plain words:** A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing.
+
 The workbook marks a wrong-product price listing by starting its price basis with "Quarantined" and
 clearing its CAD/kg. The build keeps the row, so the audit trail survives, and excludes it from the
 buy link and from the evidence that a material is in stock. The Price tab shows it struck through.
@@ -421,6 +491,8 @@ ABS median moved to 25.99, but the Materials row still cited CA0069 and still sa
 and the build did not notice because it checked only the value. It checks the citation now.
 
 ## D32. A chamber window the printer only partly reaches is partial, and only the chamber has one
+
+> **In plain words:** A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end.
 
 A process window was read by its upper end, because the question is whether a material needs more
 than the printer gives. For a chamber that failed materials whose own window starts below 65 °C:
@@ -438,6 +510,8 @@ out-of-scope materials trip the gate on exactly those rows: PEKK's nozzle is 345
 
 ## D33. "Enclosure not needed" clears the chamber; "enclosure recommended" does not
 
+> **In plain words:** A sheet saying no enclosure is needed settles the chamber question; one recommending an enclosure does not.
+
 Five Spectrum data sheets answer the chamber question only in their enclosure row. A material that
 does not need to be enclosed does not need a heated chamber, so "not necessary" clears the chamber
 gate, and the Printing tab says the answer was read from the enclosure row.
@@ -448,6 +522,8 @@ goes for "Recommended" with no number in the chamber row, and for a data sheet t
 is its own state: not zero, and not "not required".
 
 ## D34. An estimated chamber band decides nothing
+
+> **In plain words:** Researched guesses of a chamber temperature are shown, marked, and never pass or exclude a material.
 
 The 2026-09-13 research proposed chamber bands for materials that publish no chamber temperature.
 They are kept, in `build/mappings/chamber-estimates.json` (since m09, `data/tables/chamber_bands.csv`), and shown marked †, but unlike a property
@@ -464,6 +540,8 @@ The superseded bands are listed in the validation report, so a reader can see wh
 evidence has already overtaken.
 
 ## D35. A research report is re-read against its sources, never transcribed
+
+> **In plain words:** Every value is entered from its original document, re-read and hash-checked, never copied from a report or a summary.
 
 The 2026-09-13 research was careful, and still wrong in four places that mattered: it said the Bambu
 PPA-CF data sheet had no chamber range (it has 50–80 °C), that PET-GF15 recommends a chamber (its data
@@ -482,6 +560,8 @@ and states the value it expects to replace, so it refuses to run on data that ha
 
 ## D36. Referential integrity includes ownership, not just existence
 
+> **In plain words:** The build checks that every record belongs to the material it is filed under, not merely that its identifiers exist.
+
 A `MaterialID`, `GradeID` and `SourceID` can each exist and still describe the wrong relationship.
 A measurement filed under PC FR while naming a PLA grade passes three ordinary foreign-key checks
 and then puts PLA data on a PC screen.
@@ -491,6 +571,9 @@ material that owns its grade. It also checks every cited record belongs to the m
 it. Mutation tests deliberately create valid-but-wrong relationships and require named errors.
 
 ## D37. A headline belongs to the representative grade; study grades are not procurement grades
+
+> **In plain words:** A material's numbers must not mix products, and a research-only grade is never a buyable product.
+> **Status:** amended by D83: the representative grade retired and each product is judged on its own values; the rule on research grades stands.
 
 The Materials row is a labelled single-grade observation. If density comes from one grade and
 strength from another, the row looks like a property set for a formulation that does not exist.
@@ -507,6 +590,8 @@ the second half stands: a study or reference grade is no procurement product, an
 
 ## D38. Environmental evidence is owned by the material; family evidence stays context
 
+> **In plain words:** A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material.
+
 The Environmental evidence column had become a copy of family application notes for 31 materials.
 That made PC FR look chemically evidenced by records written for another polycarbonate material,
 while other materials omitted records from their own data sheets.
@@ -517,6 +602,9 @@ fields are narrative and the relationship is visible. Family context cannot sett
 environment criterion.
 
 ## D39. Coverage is terminal, but it must agree with the records
+
+> **In plain words:** The findings on what data a material has never change a result, but the build stops if they contradict the records.
+> **Status:** in force; extended by D74 (a finding that only restates the records is derived).
 
 Coverage never feeds selection, so an inconsistency cannot change the candidate list. It can still
 send the next researcher in the wrong direction: PC-GF said Print setup was a gap beside two
@@ -602,6 +690,9 @@ answers rather than failing.
 
 ## D40. Peer observations are context, not exclusion bounds (superseded by D42, then D43)
 
+> **In plain words:** For a short time, estimates drawn from similar materials were allowed to decide nothing at all.
+> **Status:** superseded by D42, then D43.
+
 The systematic data audit found OBC borrowing PP and reinforced PP mechanical spans, flexible
 families pooling TPU with PEBA/TPC, and HDT estimates borrowing unstated loads. Even within a
 correct family, the observed extremes of a small sample do not bound an unmeasured formulation.
@@ -609,6 +700,8 @@ Peer estimates now require the same base polymer and modifier, preserve interval
 determine eligibility. This supersedes D10 and the exclusion claims in historical audits.
 
 ## D41. Raw values, endpoints and archived identities are enforced
+
+> **In plain words:** The build stops when a raw value, its unit and its converted value disagree, and a retired product stays out of every active list.
 
 Four decimal-comma values were truncated; two maximum-force strain observations were mislabelled
 as break strain; a qualitative No Break result carried numeric status. Raw-to-normalized checks
@@ -621,6 +714,9 @@ source checksums, before/after compiled changes, every filament and every family
 
 
 ## D42. An estimate is a prediction interval from like-for-like evidence, and may only screen (superseded by D43)
+
+> **In plain words:** The second estimate design: like-for-like evidence and 95% intervals, allowed to rule out and never to qualify.
+> **Status:** superseded by D43.
 
 Estimates failed twice, in opposite directions. The first model (D10, D11) pooled display families
 and then whole filler classes, took the sample's minimum and maximum, and let that span fail a
@@ -656,6 +752,9 @@ extremes as bounds bring back over-confident exclusions, and no screening brings
 the elastomers. The user chose screening, the evidence rungs and the 95% level when this was designed.
 
 ## D43. An estimate is a calibrated model of every observation, and says how far to trust it
+
+> **In plain words:** Missing values are estimated by one statistical model per property, checked against known values it had hidden, labelled with how far to trust them, and never allowed to pass a material.
+> **Status:** amended by D48 (which estimates may rule a material out) and D83 (a material is estimated only where none of its products publishes the value).
 
 D42 was honest and too wide to use: PA-CF strength 38–204 MPa beside its own 72 MPa break strength,
 TPE elongation 73–4695%, and nothing at all for PA66, PA612 or POM. It had two blind spots. It used
@@ -715,6 +814,8 @@ calibration makes every width a guess; hard caps collapse ranges to a point.
 
 ## D44. Each product has one home; a family is an entry, not a material
 
+> **In plain words:** Each product is recorded once, under the most specific material it is; a family name such as PA or TPE only leads to its members.
+
 The canonical list mixes materials with families and aliases. PA, PA-CF, PA-GF and TPE name families;
 CoPA names the copolymer the database calls PA6/66. Their rows had been filled with products that
 belong to specific rows, so the tool showed one product as several candidates with identical
@@ -732,6 +833,9 @@ Reversing it brings back double counting, which is worse than a gap because it l
 agreeing with itself. See [the duplicate-products audit](audits/2026-09-13-duplicate-products/REPORT.md).
 
 ## D45. The source of truth is CSV tables under a declared schema
+
+> **In plain words:** All data is edited in CSV tables checked against a declared schema; the Excel workbooks were retired.
+> **Status:** in force; narrowed by D72 (a record may leave through the removal ledger), and its open question on SQLite answered by D75.
 
 The workbook had become hard to govern, not too big. Git saw each audited change as a binary blob, so
 a 25-cell correction needed a 70,000-line evidence package to be reviewable. Relationships were
@@ -762,6 +866,8 @@ names a sheet row rather than a field.
 
 ## D46. A property is a registry row, and may apply to some filaments only
 
+> **In plain words:** What each property means, its units and which filaments it applies to are rows in a table, so adding one needs no code.
+
 A property's meaning was hardcoded in about a dozen places across the build and the app, differently:
 the drawer's Mechanical tab and the coverage rules disagreed about five properties, and the Overview
 told users elongation "high means tough" while the filter rail said it is not toughness. Adding one
@@ -784,6 +890,9 @@ not.
 
 ## D47. What can be calculated is not stored
 
+> **In plain words:** Anything the build can compute from the records (medians, per-kg prices, grade lists) is computed, never stored beside them.
+> **Status:** in force; extended by D70 and D74.
+
 The workbook stored conclusions beside the evidence for them and then checked they agreed: headline
 values beside their measurements, price medians beside their observations, per-kg prices beside list
 price and mass, each material's grade list beside its grades, environmental evidence beside the
@@ -802,6 +911,9 @@ list the same environmental records in table order rather than typed order.
 
 
 ## D48. Evidence screens only where a back-test shows it screens reliably
+
+> **In plain words:** An estimate may rule a material out only where hiding known values shows that kind of estimate to be reliable.
+> **Status:** amended by D55, D59 and D83.
 
 D42 and D43 decided by rule which estimates may screen: the material's own evidence, or an identity
 measured on at least two products. The rule was a judgement, and the leak sweep of the 2026-09-14
@@ -882,6 +994,8 @@ leaves unstated is its product's value only as published (D84), and no material 
 
 ## D49. The values the build decides on are typed columns; raw text stays, and the parsers check it
 
+> **In plain words:** Decisions read typed columns; the source's own words stay beside them, and the build stops if the two disagree.
+
 The build read decisions out of free text on every run: a nozzle window from "Classic: 190 - 210 °C", an HDT
 load from about twenty spellings, a drying schedule from a sentence. A parser change could move a verdict with no
 data change and no diff, and a mis-parse looked like data.
@@ -906,6 +1020,9 @@ B 0.45 MPa, C 8.00 MPa); a bare standard with no load stays unstated.
 Reversing it lets a parser edit change verdicts silently and hides a mis-parse behind a plausible number.
 
 ## D50. Every check has a code, and quality findings are fixed or accepted with a reason
+
+> **In plain words:** Every check has a stable code, and every data-quality finding is fixed or accepted with a written reason.
+> **Status:** in force; its "nothing is deleted" narrowed by D72.
 
 Issues were messages. A test asserted on wording, a reader could not look a message up, and warnings could not be
 baselined, so a doubling of the data would bury a new problem among old ones.
@@ -932,6 +1049,8 @@ Reversing it brings back message-matching tests, and warnings nobody can tell ap
 
 ## D51. Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on
 
+> **In plain words:** Hand-kept lookup tables use record identifiers, not names, so renaming something cannot silently break them.
+
 Three mappings were JSON keyed by material name: family entries and their members, chamber bands, and the
 environment topic vocabulary. A renamed material broke them, and only the build noticed, by a name.
 
@@ -949,6 +1068,8 @@ and property the estimate model names is checked the same way (EST-MODEL-REFEREN
 Reversing it makes a rename a silent break.
 
 ## D52. The transfer is proven cell by cell; every later correction is re-read, guarded and replayable
+
+> **In plain words:** The move out of Excel was proven cell by cell, and every correction since is a re-runnable script that refuses to run if the data moved.
 
 The migration proved the first CSV build equal to the workbook build. That proved the conversion, not that the
 workbook matched its sources, and not that every cell reached the tables.
@@ -977,6 +1098,9 @@ with the reason.
 Reversing it lets a transcription error that looks like data stand, and makes a correction unrepeatable.
 
 ## D53. The estimate model reads declared states, not wording; and every change shows its downstream effect
+
+> **In plain words:** Estimates read declared states (dry, conditioned, a declared variant) rather than wording, and every change commits a snapshot of what it did.
+> **Status:** amended by D68: the state is a column on the row, not an entry of the vocabulary.
 
 **Moisture.** A value was converted from wet to dry only if its moisture label contained "wet", so 84 rows labelled
 "Conditioned: 70% RH", nylons among them, were read as dry. Each Moisture condition value now declares its State
@@ -1012,6 +1136,8 @@ polypropylene's density, PEBA's strength pinned to its bound, or a change whose 
 
 ## D54. A published mean ± band is judged on its mean; the band flags a result close to the limit
 
+> **In plain words:** A value published as "35 ± 4 MPa" is judged as 35; the band only marks a result close to the limit.
+
 A measured headline with a band ("35 ± 4 MPa") was compared as the hard interval 31 to 39, so it never passed a
 requirement of 33 MPa and decided nothing within its own spread. 128 of 362 headlines carry a band, mostly a specimen
 standard deviation from Bambu Lab, Polymaker and Fiberlogy sheets, not a tolerance. The owner ruled (audit
@@ -1027,6 +1153,9 @@ Reversing it makes a quarter of the measured headlines undecidable next to their
 rounds a pass into a visible failure.
 
 ## D55. A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline
+
+> **In plain words:** A published number physics rules out is kept and flagged, and decides nothing; only a printed part's value can set a lower bound.
+> **Status:** in force; extended by D82.
 
 Some sheets publish what cannot be: PC's HDT at 0.45 MPa below its HDT at 1.8 MPa, a 1.19 GPa modulus on a 68D
 elastomer that stretches 650 %, a PA12 glass transition of 158 °C, an HDT on a 26 MPa TPU. They are faithful
@@ -1048,6 +1177,9 @@ Reversing it lets a sheet's impossible number decide a requirement, and a strong
 a material in searches its printed parts fail.
 
 ## D56. The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have
+
+> **In plain words:** Estimates follow printing physics: slow-crystallising plastics, water in nylons, filler density, and what an elastomer cannot have.
+> **Status:** amended by D68 (states are columns on the row) and D83 (heat deflection does not apply to an elastomer).
 
 *Amended by D83 (phase 4, 2026-09-25):* heat deflection of an elastomer is not applicable by its headline definition
 (`headline_definitions.csv` Applies to, on the polymer's Morphology), for its products as for its estimate. A value an
@@ -1086,6 +1218,8 @@ any item brings back a failure seen in this snapshot.
 
 ## D57. Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed
 
+> **In plain words:** Unusual products are declared in the data, a replaced property name keeps its record, and every build warning is reviewed.
+
 - **Compounds and variants.** HyperLite PP is its own material, PP Lightweight, as PLA Aero is (m25); PP describes
   iSANMATE PP. Spectrum PA6 Neat (1.25 g/cm³) is declared an undisclosed dense filler, as Spectrum HDPE is, and both
   materials say their values are a compound's ("About this entry" in the drawer). PC-GF's representative grade is BASF's
@@ -1105,6 +1239,8 @@ Reversing any of these lets a lightweight or filled product speak for its polyme
 evidence, a new outlier reach the page unreviewed, or an interface defect pass every unit test.
 
 ## D58. Estimates are an overlay on a complete core, and grow by data, not by special cases
+
+> **In plain words:** The database works without estimates, which only add to it, and the model grows by declaring cases in the data rather than by new code.
 
 The estimate model absorbed every data discovery as code. Of the eight revisions to estimates and screening between
 2026-09-13 and 2026-09-15 (D40 to D56), four were forced by classes of data nobody had declared: Z results coded
@@ -1129,6 +1265,8 @@ Reversing it lets a data defect become a model branch again, and lets the core's
 can switch off to check.
 
 ## D59. A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence
+
+> **In plain words:** An estimate may rule a material out only on a side of its range that testing has shown to be reliable, and never against the material's own data.
 
 The owner kept screening and asked that its weaknesses be resolved (2026-09-15). D48's back-test certified an evidence
 class unless it could *disprove* it: over at least 20 hidden headlines, neither side missed significantly more than
@@ -1188,6 +1326,8 @@ overruled by its family, and lets calibration grade itself on values it has seen
 
 ## D60. What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables
 
+> **In plain words:** What the estimate model knows about a polymer, a variant or a product's hardness lives in tables, not in its configuration.
+
 D51 moved hand-kept mappings keyed by name into tables and left the estimate model's configuration alone, because
 conversions between properties are physics. But the configuration also held records: 36 polymer identities matched to
 materials by the text of their base polymer, nine grades' Shore hardness keyed by GradeID with their quotes, and two
@@ -1212,6 +1352,8 @@ noticed, and no schema, lint, diff or source register covered them.
 Reversing it puts records back where no schema, diff or source register can see them.
 
 ## D61. No meaning lives only in a tooltip
+
+> **In plain words:** No meaning is available only on mouse hover: every such mark is also a button that explains it, for touch and keyboard.
 
 An interface assessment on 2026-09-16 counted 175 elements on the desktop table, and 540 on a tablet, whose meaning was a
 native `title` of 25 characters or more and nothing else: what an estimate rests on and which of its ends may screen,
@@ -1247,6 +1389,8 @@ Reversing it makes the tool's most important distinctions, measured against esti
 anyone not holding a mouse.
 
 ## D62. A narrow screen scrolls what does not fit inside its own box, and never squeezes it
+
+> **In plain words:** On tablets and phones, tables scroll sideways inside their box rather than squeezing, and the detail panel becomes a proper dialog.
 
 The interface was laid out for a desktop and wrapped below it. An assessment on 2026-09-16 at 1180, 820 and 390 px found
 the results table the worst of it: a fixed-layout table shared the width out by percentages, so at 820 px 46 of 207
@@ -1292,6 +1436,9 @@ chart, and a full-screen panel that keyboard and screen reader users can walk ou
 
 ## D63. A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide
 
+> **In plain words:** A source's title is the heading the document prints, never a file name or page chrome, and a specimen's print parameters are only the tested conditions.
+> **Status:** in force; extended in phase 5, part 5 (m149): page furniture read as a title is flagged too.
+
 Two text columns had been filled with whatever the transcription had to hand. Seventy-eight source Titles were not
 titles: 22 product pages carried the page's `<title>` with the store's payment footer glued on ("CARBONX™ ABS+CF Ach
 Direct Debit Amazon American Express Apple Pay ... Visa"), 40 Bambu Lab sheets a file-name stub ("B pla basic
@@ -1316,10 +1463,17 @@ TDS v1.0; standard deviations in parentheses") where the other rows hold the she
   standard deviations, its caveat that properties depend on production conditions) goes to Notes with its page
   (m33).
 
+*Extended in phase 5, part 5 (m149, 2026-09-25):* the lint also flags page furniture a reader took from a sheet's
+first line (a credit line such as "supported by", a lone "TM" or "1", the "TECHNICAL" of a two-line heading, a "Page: 1"
+or "Version: 3.0" label), and a document that prints no title has Title Not published. m149 wrote the printed title of
+the seventy it found.
+
 Reversing it puts payment footers back into citations and lets a marketing paragraph stand where an engineer reads
 the print conditions of the bar that was tested.
 
 ## D64. Polymer-level behaviour is shown and may screen, never passes
+
+> **In plain words:** What a resin handbook says about a plastic's chemical resistance is shown where a product has no record of its own; it can rule out but never qualify.
 
 Environment criteria answer from a material's own evidence records, and most materials have none in most categories: a
 "resists solvents" requirement returned UNKNOWN for the great majority of the database, including every PLA whose data
@@ -1370,6 +1524,8 @@ evidence, and the evidence is not about this grade.
 
 ## D65. A test method that defines its load states that load; the typed value says so in Parse review
 
+> **In plain words:** A heat deflection labelled Method A or Method B has the load those standards define, recorded with the reason.
+
 Two Siraya Tech sheets print heat deflection as `93 ℃ / 97 ℃ Method A/B` and `73.5 ℃ / 81 ℃ Method A/B`, naming the
 method and never the load. Read literally, neither row carries a load, and `hdt045` cannot use a value whose load is
 unknown: both would join the seven headlines `HDT-LOAD-UNSTATED` already warns about, presented as nothing more than
@@ -1401,6 +1557,8 @@ the test that fixes it. Extending it — typing a load from a bare standard, or 
 
 ## D66. A templated safety data sheet is evidence only where it speaks about the product
 
+> **In plain words:** Boilerplate in a safety data sheet that contradicts the product's own data sheet is not recorded; its composition always is.
+
 Siraya Tech's four filament safety data sheets are word-for-word identical in sections 5, 7, 10, 12 and 13, across
 three different polymers and two different fibres. Only section 3, the composition, differs. Two of the shared
 statements are false of the products carrying them: 10.4 "Avoid temperatures above 240 ºC" appears on three sheets
@@ -1430,6 +1588,9 @@ would lose the composition, which is the only reason this source class was added
 
 ## D67. A property is a row, not a pair of columns: the reference envelopes are long
 
+> **In plain words:** Each generic reference material's property ranges are rows, one per property, so a new property needs no new column.
+> **Status:** in force; amended in phase 5, part 5 (its dead offset removed, three misspelled names corrected).
+
 `reference.csv` held a `min` and a `max` column for each of eight properties. Adding a ninth meant two new columns,
 a schema change, an edit to the loader's column-pair walk, and 114 rows widened for a value most of them would not
 have. That is the shape D46 had already rejected for measured properties, kept here only because the reference layer
@@ -1450,9 +1611,14 @@ is a drawing layer nobody was extending.
 The legacy `offset` on each property is the retired reference workbook's column position. Nothing reads it, and it
 stays in code, not in the data, only because `schema/reference.schema.json` still requires it in `meta.properties`.
 
+*Amended in phase 5, part 5 (2026-09-25):* the offset is gone from `dist/reference.json` and its contract, and m148
+corrected three misspelled names (Sandstone, Silicon, Plywood) through the removal ledger (D72).
+
 Reversing it brings back a schema change for a number, and a loader that knows the shape of a spreadsheet.
 
 ## D68. A datasheet sentence is data, not a vocabulary: the state is a column on the row
+
+> **In plain words:** A sheet's sentence is copied as printed, and the state it means (dry, annealed) is a typed column beside it.
 
 *Amends D53 and D56, which put the state in the vocabulary.*
 
@@ -1484,6 +1650,8 @@ close enough rather than record what the sheet says.
 
 ## D69. A profile's qualitative notes are rows, and an empty column is not a fact
 
+> **In plain words:** A maker's printing notes (cooling, overhangs) are one row per note, and the Printing tab shows them.
+
 `profiles.csv` was 56 columns wide. Eleven of them held free text about how a material prints, 363 notes spread
 across 172 profiles, so most were empty on most rows. Three — Stringing, Volumetric limit and Difficulty — were
 empty on every row of every profile, and had been since the workbook. A twelfth topic meant a column on all 172.
@@ -1508,6 +1676,8 @@ overhangs could not see it, and a curator had no reason to record any more of it
 Reversing it brings back a table that has to be widened to record a sentence, and evidence nobody can read.
 
 ## D70. A constant is not a per-material fact, and a summary of the data is not data
+
+> **In plain words:** A sentence true of every material is one Method rule, and anything computable from the data is computed, not stored.
 
 *Extends D47, which this snapshot had drifted from.*
 
@@ -1543,6 +1713,8 @@ about the material and which are the same sentence 103 times.
 
 ## D71. How a source was classed and how it was reached are states, not sentences
 
+> **In plain words:** A source's kind and whether it was retrieved are values from fixed lists, with the particulars in notes.
+
 `sources.csv` described both in prose. Source class held 21 wordings for nine real classes: "Manufacturer TDS",
 "Manufacturer TDS (web)", "Manufacturer TDS indexed at authorized distributor" and "Manufacturer TDS hosted by
 current brand owner" are one class and three facts about one document. Access status held 17 wordings for four real
@@ -1569,6 +1741,8 @@ Reversing it brings back a register that cannot be counted, and a check on prose
 
 ## D72. A record may leave a table only where the build derives it, and only through a ledger
 
+> **In plain words:** Records are never deleted, except one the build now derives, and then only with a ledger row naming the migration and where it went.
+
 *Narrows "nothing is deleted" (D45, D50).*
 
 Records are retired, never deleted, and the pre-commit hook and CI enforce it by failing on any removed row. That
@@ -1591,6 +1765,8 @@ Reversing it leaves only the blunt instrument: `--no-verify`, which turns off ev
 record of what was removed or why.
 
 ## D73. A reviewed fact belongs in the row, and "not enough data" is not a defect to review
+
+> **In plain words:** A reviewer's conclusion is written into the data row, and an estimate that is wide only because data is thin is reported, not reviewed.
 
 Two checks had been answered by suppression rather than by the data, and both suppressions were hiding the check.
 
@@ -1620,6 +1796,8 @@ Thirteen acceptances of each retired. `build/snapshot/warnings.csv` lost thirtee
 Reversing either brings back a review file doing a row's job, and a reviewer's signature standing in for a number.
 
 ## D74. A coverage row is a judgement; that a material has records is derived
+
+> **In plain words:** The build works out which kinds of data each material has; stored coverage rows are kept only for human judgements.
 
 *Extends D39 and D47 to the table D39 created.*
 
@@ -1660,6 +1838,8 @@ somebody did.
 
 ## D75. A generated SQLite file for asking questions, with the schema's types in it
 
+> **In plain words:** The build writes a SQLite copy of the tables for asking questions, with missing values as empty beside their reason, and nothing reads it back.
+
 *Answers the open question in D45.*
 
 D45 chose schema-checked CSV over SQLite and said the same schema could generate one later if it were ever needed.
@@ -1697,6 +1877,8 @@ Reversing it brings back the one-off script, and the temptation to read a column
 
 ## D76. The standards a measurement names are a typed list, and a fragment is not a standard
 
+> **In plain words:** The standards a measurement names are a checked list beside the source's wording, and a garbled fragment is never read as a standard.
+
 `Standard / load` is the source's own words, and by this snapshot it held 301 spellings for a few dozen tests:
 "ISO 527, GB/T 1040", "ISO527,GB/T1040", "ISO 527-2/50", "ISO 527 (testing speed 5 mm/min)", "D 638". Nothing could
 be asked of it. Which Charpy results are comparable, how many products test to ASTM rather than ISO, whether two
@@ -1727,6 +1909,9 @@ exists not to hold.
 Reversing it brings back a column that can only be read by eye, and a parser per question.
 
 ## D77. The spread search sees a sample; the model still sees everything
+
+> **In plain words:** To stay fast, one step of the estimate fit uses a fixed sample of at most 400 values; every other step uses all the data.
+> **Status:** in force; extended by D79 (the block solve).
 
 The estimate stage is 3.9 seconds of a 4.0 second build, and almost all of it is one thing: the search for the
 model's spreads. Each search fits the Gaussian model about 330 times over a grid, the calibration refits it once per
@@ -1771,6 +1956,8 @@ not change.
 
 ## D78. A limit a material's own grades publish is a floor for its shown range
 
+> **In plain words:** An estimated range never goes past a limit the material's own data sheets publish.
+
 The estimate model already treated a material's own published limits as observations at the limit with a declared
 half-width: a bound a sheet prints (`> 16.5 MPa`), and a bound its own numbers imply (a yield stress under the
 ultimate, HDT at 1.8 MPa under HDT at 0.45 MPa). The model's own words for the second half of that rule are "in
@@ -1798,6 +1985,8 @@ model's ability to learn that a maker's bound is sometimes conservative. This ch
 learned.
 
 ## D79. The kernel is solved by block, and the estimates are the dense solve's
+
+> **In plain words:** The estimate model's large matrix is solved one chemical group at a time, about nine times faster, with the same results to floating-point precision.
 
 D77 said the exact half of the scaling problem, if the stage got slow again, was to block the kernel by chemical
 group and solve the shared columns as a low-rank correction. It got slow again. `npm run scale` builds twice the
@@ -1848,6 +2037,9 @@ block. `npm run scale` still has something to say, which is the point of keeping
 
 ## D80. A grade's declared load is a fill class of its own, and the grade declares it before the material does
 
+> **In plain words:** A product declared heavily filled (metal-filled, foamed) is checked against the physical limits of that kind of filler, and the product's declaration comes before its material's.
+> **Status:** in force; extended by D82.
+
 D57 and R078 say what to do with a filament denser than its named polymer can reach: keep it under that polymer
 and declare the load as a grade `Variant`, so its values stay its own and a bronze-filled PLA cannot pull ordinary
 PLA's estimates. The estimate model has read that Variant since it was written. The physics windows did not.
@@ -1895,6 +2087,9 @@ graphene and natural fibre were (R080). `dense` is for the load a maker declares
 
 ## D81. Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing
 
+> **In plain words:** Each product gets its own estimate from the same model, shown for information and deciding nothing.
+> **Status:** amended by D83: only a product without a comparable value of its own gets one.
+
 *Amended by D83 (phase 4, 2026-09-25):* a grade estimate is attached only to a product without a comparable value of
 its own; beside its own value it said less than the value and read as a second answer.
 
@@ -1935,6 +2130,8 @@ if that grows. Reversing it removes the grade cards and nothing else.
 
 ## D82. A property with thirty values has a window, drawn from physics and checked against the rows
 
+> **In plain words:** Every property with thirty or more values has plausibility limits drawn from physics, and each value outside them is checked against its sheet.
+
 *Extends D55 and D80.*
 
 The physics windows (`plausibility_windows.csv`) are what turns a value no reader has questioned into a finding
@@ -1962,6 +2159,8 @@ have none yet: a window drawn from nine rows is a guess about the next one. Reve
 and W0080's redrawing, and the findings they raise; the two flags would need their own reasons to stand.
 
 ## D83. A material is the spread of its products, and passes when one of its products meets every requirement
+
+> **In plain words:** A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values.
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md); supersedes D8's refusal of a range and amends D2 and D37.
 Built in re-center phases 1 and 2; the page reads it from phase 3.*
@@ -2026,6 +2225,8 @@ TPU-CF gained a second reason.
 
 ## D84. Two evidence levels: comparable decides; a value published without its direction or load is counted apart
 
+> **In plain words:** Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked.
+
 *Decided by the owner on 2026-09-25 (docs/GOALS.md). Built in re-center phases 1 and 2.*
 
 A value is **comparable** when it is what the headline says: a printed or unstated specimen, the headline's direction,
@@ -2044,6 +2245,8 @@ Reversing it either mixes moulded-looking values into printed ones, or hides the
 representative grade, which took whichever one somebody picked.
 
 ## D85. The record tier: what a source publishes is kept as printed, in the database only, and decides nothing
+
+> **In plain words:** Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows.
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md); replaces R002 and R003's "transcribe everything, to the decision
 standard" with "record everything, verify what decides". Built in re-center phase 6, lane 1.*
@@ -2118,6 +2321,8 @@ drops the reads table, and a silent sheet and an unread one look the same again.
 
 ## D86. A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID
 
+> **In plain words:** Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers.
+
 *Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md). Built in m141.*
 
 The canonical list was Bambu's catalogue, so fourteen Bambu product lines and eSUN's PLA-Lite were materials of their
@@ -2149,6 +2354,9 @@ brings back one maker's catalogue as the taxonomy, and a TPU that is every hardn
 
 ## D87. A family's "polymer not stated" home, and sintering filaments are recorded, never candidates
 
+> **In plain words:** Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates.
+> **Status:** amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone.
+
 *Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md, decisions 2 and 3). Built in m142 and m143.*
 
 Seventy-four data sheets sat deferred for their identity. Fifty name only a family ("colorFabb PA Neat", "eSUN TPE
@@ -2179,6 +2387,10 @@ ceramic filaments). Their values were read and never used.
   Excluded, a family of their own, one material per metal or ceramic (316L, silicon carbide, alumina). The printed
   part is a green part that must be debinded and sintered elsewhere, and its properties are the sintered metal's, so
   the sintered values are left to the record tier (R187).
+
+*Amended in phase 5, part 5 (m146, 2026-09-25):* exclusion is recorded once, in Scope. H2C status "Excluded" was Scope
+again, kept in step by EXCLUSION, and left the vocabulary: the sintering filaments are Theoretical (their sheets print at
+170 to 250 °C on a 40 to 120 °C bed), and the industrial high-temperature materials take "Exceeds H2C limits".
 
 What it did (batch b34, m143): of the 74, 44 entered as 38 products (9 in Nylon, 1 each in Nylon-CF and Nylon-GF, 12
 in TPE, 5 in the PLA family and 2 with carbon fibre, 2 in TPS, 4 sintering filaments, WearX in PA6 and MD Flex in TPU

@@ -131,7 +131,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Composition / filler | raw | string | yes |  |  | Declared composition. |
 | Variant | editorial | string | yes | Not applicable | [grade-variants](#vocab-grade-variants) | The product is a variant its material's Modifier / filler does not describe (schema/vocab/grade-variants.csv). Its values stay its own; the estimate model gives it a variant covariate so it does not pull its family. Say why in Composition / filler. |
 | Colour caveat | prose | string | yes |  |  | Colour scope of the data. |
-| Availability | canonical | string | yes |  |  | Availability as recorded. Retirement is Status, not this text. |
+| Availability | canonical | string | yes |  |  | Availability as recorded: what a listing or sheet said about buying the product. Retirement is Status alone and leaves this as it was (m147). |
 | Certification claims | raw | string | yes |  |  | Certification claims as published. |
 | Selected-grade rationale | prose | string | yes |  |  | Why this grade was selected or retired. |
 | SourceID | canonical | string | yes |  | → sources.SourceID | Source identifying the grade. |
@@ -215,11 +215,11 @@ lists the missing states a column accepts instead of a value; a blank required c
 | MaterialID | key | string | yes |  | `^M\d{3}$` | Stable material identifier. Never reused. |
 | Original name | canonical | string | yes |  |  | Name as it appears in the canonical master list. |
 | Family | canonical | string | yes |  | [families](#vocab-families) | Navigation family. |
-| H2C status | canonical | string | yes |  | [h2c-status](#vocab-h2c-status) | How the material relates to the Bambu Lab H2C. |
+| H2C status | canonical | string | yes |  | [h2c-status](#vocab-h2c-status) | How the material relates to the Bambu Lab H2C: what Bambu lists, or what its typical processing asks of the printer. Whether it is a candidate is Scope, not this. |
 | Best uses | prose | string | yes |  |  | Documented best uses. |
 | Limitations | prose | string | yes | Not published |  | What is true of this material alone. The general caveat that holds for every material here is a Method rule (Scope / Transferable allowables), shown on each; Not published where the material adds nothing to it. |
 | Full name | canonical | string | yes |  |  | Expanded polymer name. |
-| Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, or excluded. |
+| Scope | canonical | string | yes |  | [scopes](#vocab-scopes) | Whether the row is a candidate, a family entry, or excluded. The one place exclusion is recorded: an excluded material is shown and never recommended. |
 | Abbreviation | canonical | string | yes |  |  | Short display name. |
 | Base polymer | canonical | string | yes |  |  | The base polymer, as the source names it. |
 | Estimate identity | canonical | string | yes | Not applicable | → polymers.PolymerID | The polymers.csv row the estimate model treats this material as: its base polymer, or for a blend its own name. Not applicable for a material the model does not estimate. |
@@ -461,7 +461,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|---|---|---|---|---|
 | SourceID | key | string | yes |  | `^[A-Za-z0-9][A-Za-z0-9._-]*$` | Stable source identifier, never reused. The prefix says where it came from, and the rest names the document: B Bambu Lab, S Polymaker, X and XP 3DXTECH, I iSANMATE, PR Prusa Research, D other manufacturers' pages, R a reference or web datasheet, CA a Canadian retailer, P a paper, H2C the printer's own documentation, NIOSH and other bodies their own name, LOCAL a user-supplied reference. Keep a publisher's existing prefix rather than inventing a second one for it. |
 | Publisher | raw | string | yes |  |  | Publisher. |
-| Title | raw | string | yes |  |  | The document's own title as the publisher printed it: a sheet's heading, a page's title or main heading. Never a file name, a shop page's payment or store chrome, or a placeholder such as untitled (D63; lint SOURCE-TITLE-NOT-TITLE). |
+| Title | raw | string | yes | Not published |  | The document's own title as the publisher printed it: a sheet's heading, a page's title or main heading. Never a file name, a shop page's payment or store chrome, a placeholder such as untitled, or page furniture read as a title (a credit line, a trademark sign, a page or version label); Not published where the document prints no title (D63; lint SOURCE-TITLE-NOT-TITLE). |
 | Revision | raw | string | yes |  |  | Document revision. |
 | Publication date | raw | string | yes |  | `^(\d{4}(-\d{2}(-\d{2})?)?\|Not published)$` | Publication date (YYYY, YYYY-MM or YYYY-MM-DD) or Not published. |
 | Access date | raw | date | yes |  |  | Date the source was retrieved (YYYY-MM-DD). |
@@ -861,11 +861,11 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| Conditional |  |
-| Excluded |  |
-| Official Bambu product |  |
-| Officially listed family |  |
-| Theoretical |  |
+| Conditional | Usable on the H2C with conditions, not validated by Bambu; the Printing tab says which. |
+| Exceeds H2C limits | Bambu does not list it, and its typical processing needs more than the H2C reaches (Method: H2C / Hardware baseline): the industrial high-temperature polymers. It describes the printer, not the candidate set; exclusion is Scope's alone. |
+| Official Bambu product | Sold by Bambu for this printer. |
+| Officially listed family | Bambu lists this family for the H2C, but not necessarily every brand of it. |
+| Theoretical | Not listed by Bambu; judged printable on the H2C from its typical processing requirements, with no Bambu validation. |
 
 <a id="vocab-know-how-scopes"></a>
 ### know-how-scopes
@@ -1196,7 +1196,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| Excluded | Outside the H2C practical envelope; shown but never recommended. |
+| Excluded | Not a candidate: outside the H2C's practical envelope, or a filament whose printed part is not the product (a sintering feedstock). Shown, never recommended; its Limitations say why. |
 | Family entry | A family or alias name that owns no product and carries no value; search answers with its members (D44). |
 | H2C-relevant | A candidate for selection. |
 

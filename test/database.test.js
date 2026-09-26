@@ -933,7 +933,7 @@ test('a declared grade variant explains its own offset instead of moving its fam
   // products to materials with several (PVB, BVOH, PE, TPC), the between-product spread learned from them absorbed an
   // undeclared compound as product deviation and the lift fell to 2.8%, while the declared estimate stayed within 2.3%
   // of the family without the grade. A check that fails when the model gets better data is measuring the wrong thing.
-  const retire = { Status: 'retired', Availability: 'Retired mapping; audit trail only' };
+  const retire = { Status: 'retired' };
   // Measured against a control, because removing any one product from a family moves the fit a little and that
   // movement is not what this test is about: retiring an ordinary PA6 grade, one with no variant declared, moves
   // PA66 by as much as retiring the declared compound does. The invariant is that the declared grade is no more

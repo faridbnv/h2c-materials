@@ -28,12 +28,14 @@ test("a material's grades are its active procurement grades", () => {
   assert.ok(added.materials.find((m) => m.id === 'M020').gradeIds.includes('G020-09'), 'a new grade row joins its material with no other edit');
 });
 
-test('retiring a grade is one field, and a half-finished retirement is an error', () => {
-  const { db, errors } = build((wb) => { Object.assign(grade(wb, 'G020-03'), { Status: 'retired', Availability: 'Retired mapping; audit trail only' }); });
+test('retiring a grade is one field: Status', () => {
+  const { db, errors } = build((wb) => { grade(wb, 'G020-03').Status = 'retired'; });
   assert.ok(!db.materials.find((m) => m.id === 'M020').gradeIds.includes('G020-03'));
   assert.ok(errors.some((e) => /Active record uses retired grade G020-03|Active profile uses retired grade/.test(e)), 'records on a retired grade must be dealt with');
-  const half = build((wb) => { grade(wb, 'G020-03').Availability = 'Retired mapping; audit trail only'; }).errors;
-  assert.ok(half.some((e) => /grades G020-03: Availability .* describes a retirement but Status is active/.test(e)), half.join(' | '));
+  // Availability is what was recorded about the product, not a second copy of the retirement (m147): a sentence that
+  // mentions retiring leaves an active grade active.
+  const { db: worded } = build((wb) => { grade(wb, 'G020-03').Availability = 'Retired mapping; audit trail only'; });
+  assert.ok(worded.materials.find((m) => m.id === 'M020').gradeIds.includes('G020-03'));
 });
 
 test('a study or reference role must match the -R# suffix', () => {

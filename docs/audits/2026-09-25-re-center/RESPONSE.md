@@ -910,3 +910,58 @@ pass and fail counts; TPE, polymer not stated has 13 products where it had 12, i
 views rewritten for the new counts and lists with no layout failure. The full `npm run verify` passes in 3 min 33 s
 (load average 3.2 at the start, 10.6 at the end): `npm test` 304, `test:ingest` 167, the scale check, the audit, the
 snapshot and counts current, 66 views, 300 fuzzed scenarios.
+
+## Phase 5, part 5: stored copies, the reference layer, DECISIONS summaries (2026-09-25)
+
+*In plain words: two facts that were written down twice are now written once, three misspelled reference names and a
+dead number are gone, seventy source titles that were page furniture now say what the sheet prints, and every decision
+opens with one line a newcomer can read. No answer the tool gives changed.*
+
+Built by an agent (claude-opus-5.5), in four commits on its branch; every value was read from the tables' history or a
+cached, hash-checked document.
+
+- **Exclusion lives in Scope (m146).** H2C status "Excluded" was Scope again, kept in step by EXCLUSION, and it left
+  the vocabulary. The three sintering filaments are Theoretical: Bambu does not list them, and their own sheets print
+  at 170-250 °C on a 40-120 °C bed. The fourteen industrial high-temperature materials fit no existing value, because
+  each asserts that the H2C can print the material and their profiles ask 340-480 °C nozzles, 120-180 °C beds and
+  70-150 °C chambers; they take one new value, **Exceeds H2C limits**, which describes the printer, not the candidate
+  set. The vocabulary's Meaning cells, empty until now, are written. EXCLUSION keeps only its gate check; the drawer no
+  longer tells an excluded material it was "included on the strength of its processing requirements", and the scope
+  gate's reason no longer calls a sintering filament outside the envelope. D87 is amended.
+- **Retirement lives in Status (m147).** Availability's "Retired mapping; audit trail only" was Status again, kept in
+  step by GRADE-RETIREMENT-HALF. Availability is what was recorded about buying the product, and retirement withdraws
+  a grade record, not a product: all 21 retired grades are products that live on under another grade. Each gets back
+  what was recorded before the phrase overwrote it (18 Not published, 3 "Current official product listing retrieved",
+  as their active twins still read). GRADE-RETIREMENT-HALF is retired, `npm run data:retire` sets Status alone, and
+  the Method rules, AGENTS.md's recipe, DATA-MODEL and ARCHITECTURE say so.
+- **The reference layer (m148, PLAN-REMAINING §3.5).** "Standstone", "Slilicon" and the two "Polywood ... to board"
+  rows are sandstone, silicon and plywood by their own envelopes; each is re-keyed in place, with its eight envelopes,
+  through the removal ledger (36 rows, D72). `table-io` set now needs `{ migration }` to change a primary key and writes
+  the ledger row. The dead `offset` left `dist/reference.json` and its contract. `scenario.plot.showReference` is still
+  the only reader, and it reads nothing that moved. D67 is amended; OPEN-PROBLEMS §7 loses both entries.
+- **Printed titles (m149).** Copper3D's MD Flex was titled "supported by", the corner credit whose sponsor is a logo.
+  SOURCE-TITLE-NOT-TITLE is widened to that class, precisely (no false hit in 1,422 titles): a credit line ending
+  "by", a lone mark or number, the "TECHNICAL" of a two-line heading, a "Page:" or "Version:" label. It found 70, all
+  read from a sheet's first line by the importer; each now carries the heading its cached sheet prints, and one ELEGOO
+  table that prints no title is Not published, which the column now accepts. A title that is only "Technical Data
+  Sheet" (45) is left alone, because some sheets print exactly that. M173's "A alumina" is "An alumina"; M171 and M172
+  were right. D63 is extended. Reading the heads found two identity defects, now OPEN-PROBLEMS §15: Anycubic's PLA+
+  sheet sits on the Anycubic PLA product, and ELEGOO's PLA product is named "S.I.".
+- **DECISIONS in plain words.** Every one of the 87 decisions opens with a line saying what it decides, and a status
+  line where a later decision superseded, amended, narrowed or extended it. Eleven changes the index had missed are
+  now stated: D2 (by D47), D39, D43 (by D48), D45, D47, D50, D53 and D56 (by D68), D55, D77 and D80; beside them are
+  this part's own notes on D63, D67 and D87. `npm run docs:decisions` puts both lines in the index and names any entry
+  without its plain-words line; the entries' text is otherwise unchanged.
+
+**`npm run build:diff`** against 45443ef: 187 differences, every one a stored field: 70 source titles, 56 revisions and
+12 publication dates the heads printed, 2 source notes, 21 grades' Availability, 17 materials' H2C status, 6 derived
+coverage findings that quote the H2C status, 2 Method rules and 1 identity note. `dist/reference.json`: four names and
+their ids, and no offset.
+
+**The decision diff: none.** `build/snapshot/` is unchanged, `templates.csv` included: no answer, share or count moved
+in any of the six templates, and the 66 interface views match without a rewrite.
+
+**Checks.** m146 to m149 re-run as no-ops. `data:check` 0 issues, `data:lint` 0 new findings (291 accepted, none
+stale), the removal ledger covers every re-keyed row. `verify:fast` 85 s after the change. The full `npm run verify`
+passes in 4 min 58 s at a load average of 16.6 to 20.7 (three other agents building): `npm test` 305, `test:ingest`
+167, the scale check (2x in 99 s), the audit, the snapshot current, 66 views, 300 fuzzed scenarios.

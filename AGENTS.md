@@ -76,7 +76,7 @@ Scaffolding:
 ```bash
 npm run data:new -- measurements --like V000384 --set "Raw value=2.1 GPa"   # next ID, every column filled
 npm run data:new -- grades --material M020 --set Manufacturer=Polymaker
-npm run data:retire -- grade G020-03       # Status and Availability together; lists what still depends on it
+npm run data:retire -- grade G020-03       # sets Status retired; lists what still depends on it
 npm run audit:sources                     # every PDF source re-read (hash-checked) for values not in the tables
 ```
 
@@ -166,8 +166,9 @@ variant class (silk, particle-filled) goes in Variant class. The build names the
 role is `cited` unless the source is kept to corroborate, as a register, as provenance, or was not retrieved;
 nothing may cite a source that was not retrieved.
 
-**Retire a grade.** `npm run data:retire -- grade <GradeID>` sets Status `retired` and Availability "Retired
-mapping; audit trail only" and lists every record still on it, with what must happen to each.
+**Retire a grade.** `npm run data:retire -- grade <GradeID>` sets Status `retired`, the one place a retirement is
+recorded, and lists every record still on it, with what must happen to each. Availability keeps what was recorded
+about buying the product.
 
 **Move a product to another material.** In a migration, `moveGrade(t, gradeId, materialId)` from
 `scripts/data/records.mjs`: the grade, every record filed under it and the printing citations of its own profiles and

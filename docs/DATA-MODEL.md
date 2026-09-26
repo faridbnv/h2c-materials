@@ -186,7 +186,8 @@ printed, its page, the reader's reason, the document's source and grades, and th
 ```js
 {
   id, name, fullName, abbreviation, normalizedName,
-  family, basePolymer, modifier, role, scope, h2cStatus, excluded,
+  family, basePolymer, modifier, role, scope, h2cStatus, excluded,   // excluded is Scope "Excluded", the one place
+                                 // exclusion is recorded; h2cStatus says how it relates to the printer (m146)
   familyEntry,                   // null, or { kind: 'family' | 'alias', members: [{ id, name }], why }
   gradeIds: [],
   headline: { density, tensileModulusXY, tensileStrengthXY, elongationXY, hdt045, priceCADkg },
@@ -702,8 +703,9 @@ Carried as warnings in `build/reports/validation-report.md`, and surfaced in the
 
 ## Retired identity mappings
 
-A grade with Status `retired` compiles to `retired: true`; its Availability reads "Retired mapping; audit
-trail only", and the build flags a retirement finished on one field and not the other.
+A grade with Status `retired` compiles to `retired: true`. Status is the one place a retirement is recorded;
+Availability keeps what was recorded about buying the product, which a retirement of the grade record does not change
+(m147, where "Retired mapping; audit trail only" left the column and GRADE-RETIREMENT-HALF with it).
 The grade and its profiles remain identifiable in the archival data, but cannot appear in active
 a material's grade list, print summaries/gates, the Grades or Printing drawer, or procurement counts.
 G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only G091-02.

@@ -119,7 +119,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `data/new-id.mjs` | `npm run data:new-id`: the next free ID for a table, or a material's next grade. |
 | `data/new-material.mjs` | `npm run data:new-material`: a material and its first grade in one write, and a list of the records it still needs. |
 | `lib/cdp.mjs` | Headless Chrome for `ui-probe.mjs` and `ui-fuzz.mjs`: where it is, how it is launched, the debugging port. |
-| `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision and whether it still holds. |
+| `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision, its line in plain words, and whether it still holds. |
 | `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed. |
 | `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
 | `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
@@ -469,11 +469,11 @@ Checked: identifier uniqueness; referential integrity across every table; every 
 registered property that no other property replaces, in one of its units, of a material the property applies to;
 raw value, uncertainty and upper bound each reconciled with the conversion factor; quarantined measurements
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
-kJ/m² without specimen geometry; scope and H2C status agreeing about exclusion; a product value that decides as XY being an XY measurement; every in-scope headline carrying a value,
+kJ/m² without specimen geometry; an excluded material (Scope, the one place exclusion is recorded) carrying the excluded scope gate; a product value that decides as XY being an XY measurement; every in-scope headline carrying a value,
 an estimate or a not-applicable reason; every estimate nesting its likely range inside its plausible
 range and citing only its own material's or its products' measurements; each headline's
 likely range holding 80% (±10 points) and its plausible range at least 90% of the hidden values of materials'
-typical products; a retirement finished on both Status and Availability; grade roles agreeing with the -R#
+typical products; grade roles agreeing with the -R#
 ID suffix; every chamber band naming a real, in-scope material
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.

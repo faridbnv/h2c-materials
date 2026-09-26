@@ -1054,3 +1054,39 @@ family_members,M044 | M040,m141-product-lines-and-tpu-hardness,re-pointed: the s
 family_members,M044 | M041,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M161
 family_members,M044 | M042,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M160
 family_members,M044 | M043,m141-product-lines-and-tpu-hardness,re-pointed: the same row is now M044 | M159
+reference,Standstone,m148-reference-names,re-keyed: the same row is now Sandstone
+reference_envelopes,Standstone | density,m148-reference-names,re-pointed: the same row is now Sandstone | density
+reference_envelopes,Standstone | tensileModulus,m148-reference-names,re-pointed: the same row is now Sandstone | tensileModulus
+reference_envelopes,Standstone | yieldStrength,m148-reference-names,re-pointed: the same row is now Sandstone | yieldStrength
+reference_envelopes,Standstone | tensileStrength,m148-reference-names,re-pointed: the same row is now Sandstone | tensileStrength
+reference_envelopes,Standstone | compressiveStrength,m148-reference-names,re-pointed: the same row is now Sandstone | compressiveStrength
+reference_envelopes,Standstone | elongation,m148-reference-names,re-pointed: the same row is now Sandstone | elongation
+reference_envelopes,Standstone | fractureToughness,m148-reference-names,re-pointed: the same row is now Sandstone | fractureToughness
+reference_envelopes,Standstone | thermalExpansion,m148-reference-names,re-pointed: the same row is now Sandstone | thermalExpansion
+reference,Slilicon,m148-reference-names,re-keyed: the same row is now Silicon
+reference_envelopes,Slilicon | density,m148-reference-names,re-pointed: the same row is now Silicon | density
+reference_envelopes,Slilicon | tensileModulus,m148-reference-names,re-pointed: the same row is now Silicon | tensileModulus
+reference_envelopes,Slilicon | yieldStrength,m148-reference-names,re-pointed: the same row is now Silicon | yieldStrength
+reference_envelopes,Slilicon | tensileStrength,m148-reference-names,re-pointed: the same row is now Silicon | tensileStrength
+reference_envelopes,Slilicon | compressiveStrength,m148-reference-names,re-pointed: the same row is now Silicon | compressiveStrength
+reference_envelopes,Slilicon | elongation,m148-reference-names,re-pointed: the same row is now Silicon | elongation
+reference_envelopes,Slilicon | fractureToughness,m148-reference-names,re-pointed: the same row is now Silicon | fractureToughness
+reference_envelopes,Slilicon | thermalExpansion,m148-reference-names,re-pointed: the same row is now Silicon | thermalExpansion
+reference,Polywood parallel to board,m148-reference-names,re-keyed: the same row is now Plywood parallel to board
+reference_envelopes,Polywood parallel to board | density,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | density
+reference_envelopes,Polywood parallel to board | tensileModulus,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | tensileModulus
+reference_envelopes,Polywood parallel to board | yieldStrength,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | yieldStrength
+reference_envelopes,Polywood parallel to board | tensileStrength,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | tensileStrength
+reference_envelopes,Polywood parallel to board | compressiveStrength,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | compressiveStrength
+reference_envelopes,Polywood parallel to board | elongation,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | elongation
+reference_envelopes,Polywood parallel to board | fractureToughness,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | fractureToughness
+reference_envelopes,Polywood parallel to board | thermalExpansion,m148-reference-names,re-pointed: the same row is now Plywood parallel to board | thermalExpansion
+reference,Polywood perpendicular to board,m148-reference-names,re-keyed: the same row is now Plywood perpendicular to board
+reference_envelopes,Polywood perpendicular to board | density,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | density
+reference_envelopes,Polywood perpendicular to board | tensileModulus,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | tensileModulus
+reference_envelopes,Polywood perpendicular to board | yieldStrength,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | yieldStrength
+reference_envelopes,Polywood perpendicular to board | tensileStrength,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | tensileStrength
+reference_envelopes,Polywood perpendicular to board | compressiveStrength,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | compressiveStrength
+reference_envelopes,Polywood perpendicular to board | elongation,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | elongation
+reference_envelopes,Polywood perpendicular to board | fractureToughness,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | fractureToughness
+reference_envelopes,Polywood perpendicular to board | thermalExpansion,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | thermalExpansion

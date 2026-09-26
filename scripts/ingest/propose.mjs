@@ -2700,11 +2700,13 @@ export function newMaterialFor(identity, world, { sourceId, page = 1 }) {
     // A polymer the database knows can be estimated even where no material stands for it yet: the model needs a
     // row of polymers.csv, not a sibling.
     const known = (world.polymers ?? []).some((p) => p.PolymerID === identity.polymer);
+    // The industrial high-temperature family needs more than the H2C reaches (H2C status), and Scope is what keeps it
+    // out of the candidates (m146).
     const excluded = /High-Temperature/i.test(identity.family);
     return {
       'Original name': name,
       Family: identity.family,
-      'H2C status': excluded ? 'Excluded' : 'Theoretical',
+      'H2C status': excluded ? 'Exceeds H2C limits' : 'Theoretical',
       'Representative grade': '${grade:main}',
       'Best uses': NP,
       Limitations: NP,

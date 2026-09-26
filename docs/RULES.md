@@ -56,9 +56,9 @@ what it means and how to fix it.
 | `ID-MISSING` | error | A compiled record has no identifier. | Give the record its ID. |
 | `ID-DUPLICATE` | error | Two compiled records share an identifier. | Retire one, or renumber a new record. |
 | `REF-UNKNOWN` | error | A record points at a material, grade or source that does not exist. | Correct the identifier. |
-| `GRADE-RETIREMENT-HALF` | error | A grade retirement is recorded on Status or Availability but not both. | Set Status retired and Availability "Retired mapping; audit trail only" together (npm run data:retire). |
+| `GRADE-RETIREMENT-HALF` | error | Retired 2026-09-25 (m147): a grade retirement was recorded twice, as Status and as an Availability phrase, and this kept the two in step. Status is the one place now, and Availability says what was recorded about the product. | Nothing to do; the code stays out of use. npm run data:retire sets Status. |
 | `QUARANTINE-NUMERIC` | error | A quarantined measurement carries a number, or backs a headline. | Quarantined values back nothing. |
-| `EXCLUSION` | error | Scope and H2C status disagree about exclusion, or an excluded material lacks its gate. | Set Scope Excluded and H2C status Excluded together. |
+| `EXCLUSION` | error | An excluded material (Scope Excluded, the one place exclusion is recorded) does not carry the excluded scope gate. | A defect in build/src/compile.js: the scope gate is read from Scope. |
 
 ## Registry
 
@@ -183,7 +183,7 @@ what it means and how to fix it.
 | `SOURCE-UNCITED` | lint | A source whose Citation role is "cited" but no record cites it; cite it, or give it the role it has. | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |
 | `SOURCE-ROLE-CITED` | lint | A source recorded as not retrieved is cited by a record; nothing may be entered from a source that was not read. | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |
 | `SOURCE-LOCAL-PATH` | lint | A source whose location is a path on one computer, not a URL anyone can open. | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |
-| `SOURCE-TITLE-NOT-TITLE` | lint | A source Title that is not the document's own title: a shop page's chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf) or "untitled"; write the title the publisher printed on the sheet or page. | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |
+| `SOURCE-TITLE-NOT-TITLE` | lint | A source Title that is not the document's own title: a shop page's chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf), "untitled", or page furniture (a credit line such as "supported by", a lone mark such as "TM" or "1", the first word of a two-line heading such as "TECHNICAL", a "Page: 1" or "Version: 3.0" label); write the title the publisher printed on the sheet or page, or Not published where it prints none. | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |
 | `COVERAGE-DUPLICATE` | lint | Two coverage rows for one material and domain with the same status and finding. | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |
 | `COVERAGE-SUPERSEDED` | lint | Several coverage rows for one material and domain with the same status; an older finding may have been overtaken by a newer one. | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |
 | `HEADLINE-FAMILY-UNLISTED` | lint | A headline limited to named families leaves out a family with candidate materials that nobody named: a new rigid family would have no heat deflection at all, and no warning. Name the family in Applies to, or accept with why the headline means nothing for it (an elastomer, D56). | Fix it, or accept it with a reason: npm run data:lint -- --accept CODE "reason". |

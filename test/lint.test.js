@@ -43,7 +43,7 @@ test('a source needs a citation only when its role says it is cited; a source ne
   assert.deepEqual(run([sources('not-retrieved')], [{ MeasurementID: 'V1', SourceID: 'S1' }]), ['SOURCE-ROLE-CITED S1']);
 });
 
-test('a source Title is what the publisher printed, not shop chrome, a file name or a placeholder', () => {
+test('a source Title is what the publisher printed, not shop chrome, a file name, a placeholder or page furniture', () => {
   const src = (id, Title) => ({ SourceID: id, Title, 'Source class': 'Manufacturer TDS', 'Citation role': 'corroboration', 'Access state': 'retrieved', URL: 'https://example.com/' + id });
   const run = (rows) => lintData({ sources: { header: Object.keys(rows[0]), rows } }, { sources: { primaryKey: 'SourceID', fields: [] } }).filter((f) => f.code === 'SOURCE-TITLE-NOT-TITLE').map((f) => f.record);
   assert.deepEqual(run([
@@ -51,6 +51,14 @@ test('a source Title is what the publisher printed, not shop chrome, a file name
     src('S4', 'untitled'), src('S5', 'CF_PA12_v1.xlsx'), src('S6', 'TDS_FIBERON PA612-CF15_V1.1_EN'),
     src('S7', 'Bambu Filament Technical Data Sheet - PLA Basic'), src('S8', 'CARBONX™ ABS+CF'), src('S9', 'Bambu Lab Filament Guide'), src('S10', 'PLA Basic | Bambu Lab CA Store'),
   ]), ['S1', 'S2', 'S3', 'S4', 'S5', 'S6']);
+  // Page furniture a reader took from a sheet's first line (m149): a credit line whose name is a logo, a lone mark or
+  // number, the first word of a two-line heading, a page, version or date label. A sheet that prints no title says so.
+  assert.deepEqual(run([
+    src('F1', 'supported by'), src('F2', 'A product by'), src('F3', 'TM'), src('F4', '®'), src('F5', '1'), src('F6', 'S.I.'),
+    src('F7', 'TECHNICAL'), src('F8', 'T E C H N I C A L'), src('F9', 'Page: 1'), src('F10', 'Version: 3.0'), src('F11', 'Date of issue: November 1%, 2024'),
+    src('T1', 'MD¹ Flex Antibacterial Nanocomposite'), src('T2', 'PolyLite™ PETG Technical Data Sheet'), src('T3', 'Technical Data Sheet'),
+    src('T4', 'PEEK'), src('T5', 'Not published'), src('T6', 'Version history of PolyLite PLA'),
+  ]), ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11']);
 });
 
 test('a superseded coverage row is history, not a duplicate', () => {

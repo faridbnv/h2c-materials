@@ -112,7 +112,7 @@
       "name": "Availability",
       "type": "string",
       "role": "canonical",
-      "description": "Availability as recorded. Retirement is Status, not this text.",
+      "description": "Availability as recorded: what a listing or sheet said about buying the product. Retirement is Status alone and leaves this as it was (m147).",
       "constraints": {
         "required": true
       }

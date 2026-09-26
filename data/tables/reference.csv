@@ -23,7 +23,7 @@ Composite,"SMC, sheet molding compound"
 "Concrete, Stone, Ceramic, Brick, Glass",Granite
 "Concrete, Stone, Ceramic, Brick, Glass",Limestone
 "Concrete, Stone, Ceramic, Brick, Glass",Marble
-"Concrete, Stone, Ceramic, Brick, Glass",Standstone
+"Concrete, Stone, Ceramic, Brick, Glass",Sandstone
 "Concrete, Stone, Ceramic, Brick, Glass",Slate
 "Concrete, Stone, Ceramic, Brick, Glass",Borosilicate glass (Pyrex)
 "Concrete, Stone, Ceramic, Brick, Glass",Laminated glass
@@ -34,7 +34,7 @@ Composite,"SMC, sheet molding compound"
 "Concrete, Stone, Ceramic, Brick, Glass",Aluminum nitride
 "Concrete, Stone, Ceramic, Brick, Glass",Boron carbide
 "Concrete, Stone, Ceramic, Brick, Glass",Glass ceramic
-"Concrete, Stone, Ceramic, Brick, Glass",Slilicon
+"Concrete, Stone, Ceramic, Brick, Glass",Silicon
 "Concrete, Stone, Ceramic, Brick, Glass",Silicon carbide
 "Concrete, Stone, Ceramic, Brick, Glass",Silicon nitride
 "Concrete, Stone, Ceramic, Brick, Glass",Tungsten carbide
@@ -111,5 +111,5 @@ Wood,Medium density fiberboard parallel to board
 Wood,Medium density fiberboard perpendicular to board
 Wood,Particleboard parallel to board
 Wood,Particleboard perpendicular to board
-Wood,Polywood parallel to board
-Wood,Polywood perpendicular to board
+Wood,Plywood parallel to board
+Wood,Plywood perpendicular to board

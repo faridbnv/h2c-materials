@@ -28,11 +28,6 @@ export const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const n
 // Half up to the cent, on the decimal value: 124.485 is 124.49, not binary floating point's 124.48.
 export const cents = (x) => Math.round(Number((x * 100).toPrecision(12))) / 100;
 
-// Method, Identity / Retired mappings: a retired grade (Grades Status) is an audit record, never an active grade. Its
-// Availability conventionally reads this phrase; the validator flags any active grade whose Availability still talks
-// about retirement, because that is a half-finished retirement.
-export const RETIRED_AVAILABILITY = 'Retired mapping; audit trail only';
-
 export const DATA_STATUS = {
   'Published value': { numeric: true, corrected: false },
   'Published value (transcription corrected)': { numeric: true, corrected: true },
