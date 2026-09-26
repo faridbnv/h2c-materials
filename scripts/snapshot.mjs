@@ -14,7 +14,10 @@
 //   build/snapshot/products.csv    every product's own value per headline, by rule: the measurement, its evidence level,
 //                                   what qualifies it, and whether headlines.csv pins it (re-center phase 1)
 //   build/snapshot/summaries.csv   every material's spread per headline across its products: n, range, quartiles,
-//                                   the typical product, the values published without direction or load, the variants
+//                                   the typical product, the values published without direction or load, the variants,
+//                                   and how many of its values a twin reads from its sibling's sheet (D89)
+//   build/snapshot/print.csv       every product's print gates as the engine judges them, and which parts of its recipe
+//                                   were read from a twin's sheet (D89) or a printer maker's guide (D88), not its own
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -26,7 +29,7 @@ import { csvText } from '../build/src/csv.js';
 import { loadTables, snapshotDate } from '../build/src/load.js';
 import { buildDatabase } from '../build/src/pipeline.js';
 import { runSelection, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
-import { productsByMaterial } from '../app/js/engine/products.js';
+import { productsByMaterial, productGates } from '../app/js/engine/products.js';
 import { TEMPLATES } from '../app/js/ui/templates.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -102,7 +105,8 @@ for (const g of [...db.grades].sort((a, b) => a.id.localeCompare(b.id, 'en', { n
   for (const [key, v] of Object.entries(g.headline ?? {})) {
     productRows.push({ GradeID: g.id, MaterialID: g.materialId, Product: g.product, Headline: key, Value: v.value, Level: v.level,
       Caveat: v.caveat ?? '', Measurement: v.measurementId ?? (v.priceIds ?? []).join('; '),
-      Annealed: v.anneal ? `${v.anneal.tempC ?? '?'} °C ${v.anneal.hours ?? '?'} h` : '', Pinned: v.pinned ? 'yes' : '', Variant: g.variant ?? '' });
+      Annealed: v.anneal ? `${v.anneal.tempC ?? '?'} °C ${v.anneal.hours ?? '?'} h` : '', Pinned: v.pinned ? 'yes' : '', Variant: g.variant ?? '',
+      From: v.from ? `${v.from.origin} ${v.from.gradeId}` : '' });
   }
 }
 for (const m of db.materials) {
@@ -110,8 +114,19 @@ for (const m of db.materials) {
     summaryRows.push({ MaterialID: m.id, Material: m.name, Headline: key, Products: s.products, Comparable: s.n,
       Min: s.min ?? '', Q1: s.q1 ?? '', Median: s.median ?? '', Q3: s.q3 ?? '', Max: s.max ?? '', Typical: s.typical ?? '',
       AsPublished: s.asPublished ? `${s.asPublished.n}: ${s.asPublished.min}-${s.asPublished.max}` : '',
-      Variants: s.variants ? `${s.variants.n}: ${s.variants.min}-${s.variants.max}` : '' });
+      Variants: s.variants ? `${s.variants.n}: ${s.variants.min}-${s.variants.max}` : '', Twins: s.twins ?? '' });
   }
+}
+
+// Every product's print gates as the engine judges it (app/js/engine/products.js), so a recipe that moves shows which
+// product it moved, and where the part that decided came from when it is not the product's own sheet (D88, D89).
+const materialById = new Map(db.materials.map((m) => [m.id, m]));
+const printRows = [];
+for (const g of [...db.grades].filter((x) => !x.retired && !/-R\d+$/.test(x.id)).sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }))) {
+  const gates = productGates(materialById.get(g.materialId), g);
+  const from = Object.entries(g.print?.from ?? {}).map(([axis, f]) => `${axis}: ${f.origin} ${f.origin === 'twin' ? f.gradeId : f.guideId}`).join('; ');
+  printRows.push({ GradeID: g.id, MaterialID: g.materialId, Product: g.product, Nozzle: gates.nozzle.verdict, Bed: gates.bed.verdict, Chamber: gates.chamber.verdict,
+    Enclosure: g.print?.enclosure ?? 'unknown', Abrasive: gates.abrasive, Drying: gates.drying, From: from });
 }
 
 // The numbers the docs would otherwise repeat and let go stale (re-center phase 5; GOALS rule 9, "counts are
@@ -153,6 +168,7 @@ const files = {
   'grades.csv': csvText(['GradeID', 'MaterialID', 'Product', 'Headline', 'Strength', 'Precision', 'Centre', 'Likely', 'Plausible', 'Unit', 'Own'], gradeRows),
   'products.csv': csvText(Object.keys(productRows[0]), productRows),
   'summaries.csv': csvText(Object.keys(summaryRows[0]), summaryRows),
+  'print.csv': csvText(Object.keys(printRows[0]), printRows),
 };
 
 if (process.argv.includes('--check')) {
@@ -162,5 +178,5 @@ if (process.argv.includes('--check')) {
 } else {
   mkdirSync(dir, { recursive: true });
   for (const [f, text] of Object.entries(files)) writeFileSync(join(dir, f), text);
-  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates, ${productRows.length} product values, ${summaryRows.length} material summaries`);
+  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates, ${productRows.length} product values, ${summaryRows.length} material summaries, ${printRows.length} product print gates`);
 }

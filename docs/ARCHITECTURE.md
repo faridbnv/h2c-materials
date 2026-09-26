@@ -88,6 +88,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `normalize/moisture.js` | The declared State (dry, conditioned, not-stated) of each Moisture condition wording, from its vocabulary (D53). |
 | `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament) and State of each Post-processing wording (as-printed, annealed, not-stated), and whether an annealed value has an as-printed twin (D56). |
 | `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). |
+| `recipe.js` | One print recipe read from a profile's columns: the typed windows, enclosure, drying and hardened nozzle checked against the raw text, the chamber a "no enclosure needed" clears, and the gates against the H2C. |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database. A material's headline starts missing, with its related evidence and implied bounds (from printed values only, D55); products.js fills each one its products publish comparably. |
 | `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Checks the pins in `headlines.csv`. The engine judges the products. |

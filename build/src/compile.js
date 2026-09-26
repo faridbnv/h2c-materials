@@ -10,15 +10,13 @@ import { normalizeDirection } from './normalize/direction.js';
 import { parseHdtStandard } from './normalize/thermal.js';
 import { specimenForm, postProcessingState, annealedBesideAsPrinted, parseAnnealSchedule } from './normalize/specimen.js';
 import { moistureState } from './normalize/moisture.js';
-import {
-  parseTemperature, withinH2C, parseNozzleDiameters, parseAbrasion, parseDrying, parseEnclosure,
-  H2C_BASELINE, PROCESS_STATE, REQUIREMENT,
-} from './normalize/process.js';
+import { parseNozzleDiameters, H2C_BASELINE, PROCESS_STATE } from './normalize/process.js';
 import { classifyTopic, classifyFinding, countUsableByCategory } from './normalize/chemical.js';
 import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
-import { applyProfileTyped, applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
+import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
+import { readRecipe } from './recipe.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { aggregateGate } from './gates.js';
 import { attachProducts } from './products.js';
@@ -27,8 +25,7 @@ import { attachKnowHow } from './know-how.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 
-// Plausibility windows keep a stray number in a sentence from being read as a temperature.
-export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200] };
+export { TEMP_WINDOW } from './recipe.js';
 
 // ---------------------------------------------------------------------------- measurements
 
@@ -112,43 +109,24 @@ function compileProfiles(rows, noteRows, issues) {
     notesById.get(n.ProfileID).push({ topic: n.Topic, text: n.Text });
   }
   return rows.map((r) => {
-    // The stored typed values decide; the parsers' reading of the raw text checks them (typed-values.js).
-    const typed = applyProfileTyped(r, {
-      nozzle: parseTemperature(r['Nozzle °C'], { plausible: TEMP_WINDOW.nozzle }),
-      bed: parseTemperature(r['Bed °C'], { plausible: TEMP_WINDOW.bed }),
-      chamber: parseTemperature(r['Chamber °C'], { plausible: TEMP_WINDOW.chamber }),
-      enclosure: parseEnclosure(r.Enclosure), drying: parseDrying(r.Drying), abrasion: parseAbrasion(r['Abrasion / clogging']),
-    }, issues);
-    const { nozzle, bed, enclosure } = typed;
-    let { chamber } = typed;
-    // Five Spectrum data sheets say only that a closed chamber is "not necessary". A material that
-    // does not need enclosing does not need a heated chamber, so that clears the chamber question
-    // without inventing a temperature. The reverse does not hold: an enclosure being recommended
-    // says nothing about whether 65 C is enough, so it leaves the chamber unknown.
-    if (chamber.state === PROCESS_STATE.UNKNOWN && !chamber.unparsed && enclosure.state === 'not-needed') {
-      chamber = { ...chamber, state: PROCESS_STATE.NOT_REQUIRED, requirement: REQUIREMENT.NONE, fromEnclosure: true };
-    }
-    for (const [name, p] of [['Nozzle', nozzle], ['Bed', bed], ['Chamber', chamber], ['Enclosure', enclosure]]) {
-      if (p.unparsed) issues.push({ level: 'warn', code: 'PARSE-UNREAD', where: `Print setup row ${r.__row}`, message: `${name} text not parsed: "${p.text}"` });
-    }
+    // The stored typed values decide; the parsers' reading of the raw text checks them (recipe.js, typed-values.js).
+    // A sheet that says only that no enclosure is needed clears the chamber question too; one that recommends an
+    // enclosure leaves it unknown (recipe.js).
+    const recipe = readRecipe(r, issues, { where: `profiles ${r.ProfileID}`, unreadWhere: `Print setup row ${r.__row}` });
     return {
       id: r.ProfileID,
       materialId: r.MaterialID,
       gradeId: r.GradeID,
       profile: r.Profile,
-      nozzle, bed, chamber,
-      gates: {
-        nozzle: withinH2C(nozzle, H2C_BASELINE.nozzleC),
-        bed: withinH2C(bed, H2C_BASELINE.bedC),
-        chamber: withinH2C(chamber, H2C_BASELINE.chamberC, { partialWindow: true }),
-      },
+      nozzle: recipe.nozzle, bed: recipe.bed, chamber: recipe.chamber,
+      gates: recipe.gates,
       enclosure: r.Enclosure,
-      enclosureState: enclosure.state,
+      enclosureState: recipe.enclosureState,
       plate: r.Plate,
       nozzleMaterial: r['Nozzle material'],
       nozzleDiameter: parseNozzleDiameters(r['Nozzle diameter']),
-      abrasion: typed.abrasion,
-      drying: typed.drying,
+      abrasion: recipe.abrasion,
+      drying: recipe.drying,
       // Routing and AMS fields are carried verbatim. 133 of 160 say "Verify exact grade", so they
       // are evidence chips in the detail view, never filters. See the plan, section 5.4.
       routing: { left: r['H2C left'], right: r['H2C right'], ams2Pro: r['AMS 2 Pro'], amsHT: r['AMS HT'], amsPublished: r['AMS published'] },
@@ -657,7 +635,7 @@ export function compile(wb, { snapshot, build }) {
 
   // Every product's own values and print recipe, every material's spread across its products, and the headline that
   // spread gives it (products.js). The engine judges the products; the material's headline is what the page shows.
-  attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, issues });
+  attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, sources, issues });
   for (const m of materials) m.headlineBasis = headlineBasis(m);
 
   // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
