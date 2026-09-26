@@ -461,7 +461,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|---|---|---|---|---|
 | SourceID | key | string | yes |  | `^[A-Za-z0-9][A-Za-z0-9._-]*$` | Stable source identifier, never reused. The prefix says where it came from, and the rest names the document: B Bambu Lab, S Polymaker, X and XP 3DXTECH, I iSANMATE, PR Prusa Research, D other manufacturers' pages, R a reference or web datasheet, CA a Canadian retailer, P a paper, H2C the printer's own documentation, NIOSH and other bodies their own name, LOCAL a user-supplied reference. Keep a publisher's existing prefix rather than inventing a second one for it. |
 | Publisher | raw | string | yes |  |  | Publisher. |
-| Title | raw | string | yes |  |  | The document's own title as the publisher printed it: a sheet's heading, a page's title or main heading. Never a file name, a shop page's payment or store chrome, or a placeholder such as untitled (D63; lint SOURCE-TITLE-NOT-TITLE). |
+| Title | raw | string | yes | Not published |  | The document's own title as the publisher printed it: a sheet's heading, a page's title or main heading. Never a file name, a shop page's payment or store chrome, a placeholder such as untitled, or page furniture read as a title (a credit line, a trademark sign, a page or version label); Not published where the document prints no title (D63; lint SOURCE-TITLE-NOT-TITLE). |
 | Revision | raw | string | yes |  |  | Document revision. |
 | Publication date | raw | string | yes |  | `^(\d{4}(-\d{2}(-\d{2})?)?\|Not published)$` | Publication date (YYYY, YYYY-MM or YYYY-MM-DD) or Not published. |
 | Access date | raw | date | yes |  |  | Date the source was retrieved (YYYY-MM-DD). |

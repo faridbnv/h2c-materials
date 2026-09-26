@@ -30,7 +30,7 @@ export const LINT_RULES = {
   'SOURCE-UNCITED': 'A source whose Citation role is "cited" but no record cites it; cite it, or give it the role it has.',
   'SOURCE-ROLE-CITED': 'A source recorded as not retrieved is cited by a record; nothing may be entered from a source that was not read.',
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
-  'SOURCE-TITLE-NOT-TITLE': 'A source Title that is not the document\'s own title: a shop page\'s chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf) or "untitled"; write the title the publisher printed on the sheet or page.',
+  'SOURCE-TITLE-NOT-TITLE': 'A source Title that is not the document\'s own title: a shop page\'s chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf), "untitled", or page furniture (a credit line such as "supported by", a lone mark such as "TM" or "1", the first word of a two-line heading such as "TECHNICAL", a "Page: 1" or "Version: 3.0" label); write the title the publisher printed on the sheet or page, or Not published where it prints none.',
   'COVERAGE-DUPLICATE': 'Two coverage rows for one material and domain with the same status and finding.',
   'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same status; an older finding may have been overtaken by a newer one.',
   'HEADLINE-FAMILY-UNLISTED': 'A headline limited to named families leaves out a family with candidate materials that nobody named: a new rigid family would have no heat deflection at all, and no warning. Name the family in Applies to, or accept with why the headline means nothing for it (an elastomer, D56).',
@@ -56,7 +56,19 @@ const CHROME = /\b(Visa|Mastercard|Maestro|PayPal|Klarna|Amazon|Apple Pay|Google
 // is not enough — colorFabb writes its products nGen_FLEX and colorFabb_XT, and "Technical datasheet nGen_FLEX"
 // is the title its own sheet prints.
 const FILE_NAME = /^B [A-Za-z]|^(tds|msds|sds|pds|tdb)[_-]|_[^_]*_|\.(xlsx|xls|csv|pdf|docx?)$/i;
-export const isTitle = (title) => !(CHROME.test(title) || FILE_NAME.test(title) || /^untitled$/i.test(title));
+// Page furniture read as the title, which is what a reader that takes a sheet's first line gets (m149): a credit line
+// whose name is a logo ("supported by", "A product by"), a lone mark or number with no word in it ("TM", "®", "1",
+// "S.I."), the first word of a heading set on two lines ("TECHNICAL", or letter-spaced "T E C H N I C A L"), and a
+// page, version or date label ("Page: 1", "Version: 3.0", "Date of issue: ..."). A title that is only the kind of
+// document ("Technical Data Sheet") is left alone: some sheets print exactly that as their heading.
+const FURNITURE = (title) => /\bby$/i.test(title)
+  || !/[A-Za-z]{2}/.test(title.replace(/\bTM\b|[\u2122\u00ae\u00a9]/g, ''))
+  || /^t ?e ?c ?h ?n ?i ?c ?a ?l$/i.test(title)
+  || /^(page|version|revision|rev\.?|date( of issue)?|issued?|updated?)\s*:/i.test(title);
+export const isTitle = (title) => {
+  const t = String(title).trim();
+  return !(CHROME.test(t) || FILE_NAME.test(t) || /^untitled$/i.test(t) || FURNITURE(t));
+};
 
 const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment'];
 

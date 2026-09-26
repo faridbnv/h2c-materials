@@ -399,6 +399,30 @@ npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) 
 
 ---
 
+## 15. What re-reading seventy sheets' heads found
+
+m149 re-read the head of every source whose title was page furniture ("supported by", "TM", "TECHNICAL", "Page: 1",
+"Version: 3.0") and wrote the title each prints; SOURCE-TITLE-NOT-TITLE now catches that class. Reading them found two
+product identities that are wrong and one kind of title the lint leaves alone:
+
+- **Anycubic PLA+ is filed as Anycubic PLA.** `R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-V3-0` is the PLA+ sheet ("Product Name:
+  Anycubic PLA+"), and its eight values (a density of 1.21 g/cm³ among them) are on G001-116, Anycubic PLA, beside
+  the PLA sheets' own. PLA+ is a product of its own: a grade for it and its rows moved there, a product identity
+  decision for a migration.
+- **ELEGOO's PLA grade is called "S.I."** G001-129's Product name is the "S.I." column heading of a sheet (hosted by
+  3DJake) that prints no product name and no title, only a table under ELEGOO's logo. The retailer's product page the
+  sheet was linked from names the product; it is not cached, so the name waits for that page.
+- **A title that is only the kind of document is not flagged**: 45 "Technical Data Sheet", 3 "Technical
+  Specifications", "TECHNICAL DATA SHEET", "Technical Data Sheet TM TM", and Polymaker's slogan "Innovators in 3D
+  printing". Some sheets print exactly that as their heading, so a rule would not be precise; the product name beside
+  it is what a re-read adds.
+
+```bash
+npm run sql --silent -- "select sourceid, title from sources where lower(title) in ('technical data sheet', 'technical specifications', 'technical data sheet tm tm', 'innovators in 3d printing')"
+```
+
+---
+
 ## Coverage, in one number
 
 Of 795 coverage rows, 267 record a gap, 93 a comparability limitation, 41 a reviewed limitation and 13 a partial
