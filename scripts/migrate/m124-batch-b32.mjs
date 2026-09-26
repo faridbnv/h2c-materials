@@ -14,6 +14,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { applyBatch, Refusal } from '../ingest/apply.mjs';
 import { openTables, nextId, projectRoot } from '../data/table-io.mjs';
+import { PROPOSALS } from '../ingest/archive.mjs';
 
 const MIGRATION = 'm124-batch-b32';
 const DATE = '2026-09-21';
@@ -28,7 +29,7 @@ try {
 }
 
 // R166: one coverage row per material, naming each product whose sheet reprints another material's table.
-const dir = join(projectRoot, 'docs/audits/2026-09-18-v2-import/proposals/b32');
+const dir = join(projectRoot, PROPOSALS, 'b32');
 const reprinting = readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8'))).filter((p) => p.reprints);
 const t = openTables();
 const byMaterial = new Map();

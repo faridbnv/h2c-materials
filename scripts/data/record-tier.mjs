@@ -10,7 +10,7 @@
 //                  under another document's source, that source), who published it, and where the import left it
 //                  (applied, deferred, held, a copy of another).
 //   source_facts   one row per distinct line (document, page, text) the import reader read without it becoming
-//                  data, from the committed proposals (docs/audits/2026-09-18-v2-import/proposals/**, where a
+//                  data, from the committed proposals (archive/ingest-2026-09-18/proposals/**, where a
 //                  document re-read by several batches appears once per batch):
 //                    kind 'skipped'    a line a batch made no row of, with that batch's reason. Where the document
 //                                      is registered it stays skipped even if another batch made a row of it,
@@ -37,8 +37,9 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { readCsv } from '../../build/src/csv.js';
 import { cacheDir, cachedText } from '../lib/pdf-text.mjs';
+import { PROPOSALS } from '../ingest/archive.mjs';
 
-export const PROPOSALS = 'docs/audits/2026-09-18-v2-import/proposals';
+export { PROPOSALS };
 export const LEDGER = 'docs/audits/2026-09-18-v2-import/ledger.csv';
 
 const rows = (path) => readCsv(path).records.map((r) => r.values);

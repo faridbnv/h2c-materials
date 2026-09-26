@@ -71,8 +71,9 @@ The rules that differ from editing a table by hand:
   sheet that says the same thing. "Nylon" names a family, and a family owns no product (D44): a sheet that says only
   that goes to the family's "polymer not stated" home (R167, D87). An `identity` ruling names a polymer; a `material`
   ruling names the material itself, for a home or a polymer with no row. A TPU is filed by its Shore rating.
-- **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals and calls `applyBatch`, so
-  the migration sequence stays the one history of how the data got here, and a re-run is a no-op.
+- **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals
+  (`archive/ingest-2026-09-18/proposals/<batch>/`) and calls `applyBatch`, so the migration sequence stays the one
+  history of how the data got here, and a re-run is a no-op.
 - **`--holds` before `--propose`.** A hold reason is what the last `--holds` run wrote, so a document whose
   blocker has changed since is one a named reason misses. `--propose --held any` takes every held document.
 - **A review names its batch.** A document is proposed again in every batch that re-reads it, and the older

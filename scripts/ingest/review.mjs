@@ -21,22 +21,22 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { projectRoot } from '../data/table-io.mjs';
+import { PROPOSALS } from './archive.mjs';
 import { couldBe, windowFor } from './propose.mjs';
 import { basisHead } from '../../build/src/lint-rules.js';
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && !String(process.argv[i + 1] ?? '--').startsWith('--') ? process.argv[i + 1] : null; };
 const flag = (name) => process.argv.includes(`--${name}`);
 const today = () => new Date().toISOString().slice(0, 10);
 
 const files = (batch) => {
-  const dir = join(AUDIT, 'proposals', batch);
+  const dir = join(projectRoot, PROPOSALS, batch);
   return existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => join(dir, f)) : [];
 };
 
 /** Every proposal of a batch, or the one file a document key names. */
 export function find({ batch, doc }) {
-  const batches = batch ? [batch] : readdirSync(join(AUDIT, 'proposals'), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
+  const batches = batch ? [batch] : readdirSync(join(projectRoot, PROPOSALS), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
   const out = [];
   for (const name of batches) {
     for (const path of files(name)) {

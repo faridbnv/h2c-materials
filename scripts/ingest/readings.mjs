@@ -30,13 +30,14 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
+import { PROPOSALS as PROPOSALS_REL } from './archive.mjs';
 import { tokenise } from './classify.mjs';
 import { productName } from './propose.mjs';
 import { IMPLAUSIBLE_DENSITY } from './propose.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const PROPOSALS = join(AUDIT, 'proposals');
+const PROPOSALS = join(projectRoot, PROPOSALS_REL);
 const OUT = join(AUDIT, 'readings');
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && !String(process.argv[i + 1] ?? '--').startsWith('--') ? process.argv[i + 1] : null; };
 

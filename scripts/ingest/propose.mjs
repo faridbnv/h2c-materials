@@ -17,12 +17,13 @@
 //   npm run ingest:propose -- --doc <doc_key>
 //   npm run ingest:propose -- --provider Spectrum --compare     read the sheets already transcribed and score
 //
-// Writes docs/audits/2026-09-18-v2-import/proposals/<batch>/<doc_key>.json
+// Writes archive/ingest-2026-09-18/proposals/<batch>/<doc_key>.json
 
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
+import { PROPOSALS } from './archive.mjs';
 import { cachedText, columnPositions, cellsAt, joinDigits, lineCells, spanText } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
@@ -3253,7 +3254,7 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
     process.exit(0);
   }
 
-  const dir = join(AUDIT, 'proposals', batch ?? 'unsorted');
+  const dir = join(projectRoot, PROPOSALS, batch ?? 'unsorted');
   mkdirSync(dir, { recursive: true });
   let values = 0;
   const made = rows.map((r) => ({ row: r, proposal: propose(r, cachedText(r.sha256), world) }));

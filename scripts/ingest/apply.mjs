@@ -32,6 +32,7 @@ import { lintData, findingKey } from '../../build/src/lint-rules.js';
 import { loadTables, snapshotDate } from '../../build/src/load.js';
 import { buildDatabase } from '../../build/src/pipeline.js';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
+import { PROPOSALS } from './archive.mjs';
 import { sha256, numberOnPage, cachedText } from '../lib/pdf-text.mjs';
 import { documentPath } from './extract.mjs';
 import { recountGrades } from '../data/records.mjs';
@@ -53,7 +54,7 @@ export class Refusal extends Error {
 }
 
 export const proposalsOf = (batch) => {
-  const dir = join(AUDIT, 'proposals', batch);
+  const dir = join(projectRoot, PROPOSALS, batch);
   if (!existsSync(dir)) throw new Error(`no proposals at ${dir.replace(projectRoot + '/', '')}`);
   return readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
     .map((f) => ({ file: f, ...JSON.parse(readFileSync(join(dir, f), 'utf8')) }));
