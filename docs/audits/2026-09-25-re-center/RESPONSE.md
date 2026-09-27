@@ -910,3 +910,161 @@ pass and fail counts; TPE, polymer not stated has 13 products where it had 12, i
 views rewritten for the new counts and lists with no layout failure. The full `npm run verify` passes in 3 min 33 s
 (load average 3.2 at the start, 10.6 at the end): `npm test` 304, `test:ingest` 167, the scale check, the audit, the
 snapshot and counts current, 66 views, 300 fuzzed scenarios.
+
+## Phase 5, part 4: tests and acceptances as rules (2026-09-26)
+
+*In plain words: the tests that checked one named product's number now check a rule over every product, or were
+dropped where a committed snapshot already holds the number. The acceptances that repeated one reason dozens of times
+became that reason, written once as a rule or a window. Nothing a template answers moved.*
+
+Step and scorecard line: C15, engineering hygiene (checks guard decisions), and C13, data operations (working rules 2
+and 5). Made by claude-opus-5.5, an agent.
+
+**Tests.** `npm test` ran 305 tests and now runs 294. In `database.test.js` twenty tests that named records became
+eleven. Headlines, products and templates lost one each, merged into a rule or retired to a snapshot, and lint gained
+one. The tests that edit a
+copy of the tables to prove a check fires keep a real record as the fixture, now chosen by what it must be (a product
+with two comparable moduli, a profile with a parsed window, a grade that measurements, a profile and a source all stand
+on), so a batch that moves one record cannot break the proof. The polymer-environment fixtures build the core alone,
+where the layer is attached and validated, instead of running the estimate stage twice.
+
+Time. Run back to back with the build cache off, the eleven changed files take the same wall time as before (43.9 s,
+set by their slowest file), with 25 % less CPU: 237 s became 178 s (load 2 to 7). `verify:fast` passes, but its wall
+time could not be compared fairly, because three other agents ran their own checks throughout. At the baseline it was
+26.5 s with a warm cache (load 1.5 to 3.4) and 78 s with an empty one (load 8). Afterwards it was 68 s warm at load 17,
+and 99 s at load 6 rising to 19. In that last run the reproducibility test, a cache-off rebuild this change does not
+touch, took 88 s of the 99.
+
+**Acceptances.** 299 became 228 (lint 291 became 219; build review 8 became 9).
+
+| Code | Before | After | What changed |
+|---|---:|---:|---|
+| `MEAS-PHYSICS-WINDOW` | 186 | 148 | 31 hardness rows and 6 metal-filled densities: rules below. One duplicate row removed. |
+| `MEAS-PHYSICS-ORDER` | 47 | 22 | 25 glass transitions above a heavy-load Vicat: rule below |
+| `MEAS-PHYSICS-STRAIN` | 31 | 31 | per record (below) |
+| `COVERAGE-SUPERSEDED` | 8 | 1 | 7 logs of Resolved rows: rule below |
+| `MEAS-PHYSICS-Z-ABOVE-XY` | 7 | 7 | per record |
+| `MEAS-CROSS-SOURCE-TWIN` | 5 | 5 | per record; a finding (below) |
+| `SOURCE-LOCAL-PATH` | 4 | 4 | per record; two reasons corrected (below) |
+| `MEAS-LOCATOR-DIRECTION` | 2 | 0 | rule below |
+| `EST-FAMILY-ORDER` | 4 | 4 | |
+| `EST-OUTLIER` | 2 | 3 | PLA Metal's gone (m161), PA6-CE's and PA6-GS's reviewed (below) |
+| `NO-MEASUREMENTS` | 2 | 2 | |
+| `HEADLINE-FAMILY-UNLISTED` | 1 | 1 | |
+
+What became a rule, each with the reason the acceptances gave:
+
+- **A hardness whose scale the sheet does not publish** (31: SUNLU's "HA/HD" column, and one sheet printing no scale
+  at all). The unit "Shore (scale not specified by source)" is the state that says so. The reader writes it
+  (`propose.mjs`), and nothing that decides reads it (the estimate model takes Shore A and D only). The window W0079
+  flagged every such value whatever its number. m160 makes it the union of the Shore A and Shore D windows it could
+  belong to. A number is impossible only where it is impossible on both scales, and surprising only where it would
+  surprise on both. It is no wider than those two windows, and a lint test holds it to them.
+- **A Vicat taken under the heavy load** (25: SUNLU's "5kg ISO 306" and "5kg ASTM D1525", and like sheets). A needle
+  pressed at 50 N sinks into a glassy bar once it yields, below the glass transition. So `MEAS-PHYSICS-ORDER` no longer
+  orders a glass transition against a Vicat whose own words name the heavy load ("5 kg", "50 N", ISO 306's B50 or
+  B120). The Vicat is still ordered against the melting point. Four kinds of pair still fire, and their acceptances
+  stand: a load the row does not state (Eryone), the light load (Anycubic's "VST 10N"), ASTM's "Rate B" (a heating
+  rate, not a load), and Bambu's PC at 145 against 119 °C.
+- **A log of Resolved coverage rows** (7). A Resolved row is closed, so several in one domain are separate events and
+  not one finding overtaking another. `COVERAGE-SUPERSEDED` now looks at open statuses only. The one acceptance left
+  is two "Evidence recorded" rows.
+- **An HDT's locator naming the print orientation** (2). A thermal or physical row whose Direction is Not applicable
+  carries no build direction by convention, so its locator's "XY" is how the bar was printed. A mechanical row is
+  still held to its locator.
+- **Spectrum's metal-filled PLAs** (6, and PLA Metal's `EST-OUTLIER`). The rule already existed: D80's dense fill
+  class and R095's Variant "declared dense filler". R095 said on 2026-09-21 that these three grades "take the Variant
+  in the sweep", and they never did. m161 applies it. Each sheet was re-read from the SHA-keyed text cache, and each
+  says on page 1 "enriched with copper [brass, bronze] powder", "High … powder content" and "Approximately two to
+  three times heavier than" standard PLA.
+
+Left per record, because the reason is a judgement about one sheet or needs a basis nobody has recorded:
+
+- `MEAS-PHYSICS-STRAIN`, 10 × "brittle printed bars", eight of them Z. The reason is a modulus basis (chord,
+  crosshead) that the sheets do not state, so no column carries it. Loosening the ratio would need a sourced bound on
+  how far two bases differ, and switching the check off for Bambu Lab or IPCON is not allowed.
+- The elastomer groups: 3DXSTAT ESD-TPC 6, S-Flex Carbon 5 and FiberFlex CF 2. A fibre-filled elastomer window would
+  need a reference for what fibre does to a TPU, and none is recorded.
+- `MEAS-CROSS-SOURCE-TWIN` and the notched Izod group.
+
+**The disposition of every test touched** (a: a rule over all records; b: retired, with its guard; c: a fixture kept,
+now chosen by shape):
+
+| File: test (before) | Pinned | Now |
+|---|---|---|
+| database: a material with one fitting grade is printable… | PPS-GF's nozzle gate | a: every material's three gates are the best of its active profiles', and its windows span theirs |
+| database: likely and plausible ranges hold… | PA12-CF's strength spread | b: `summaries.csv`; the calibration half stays |
+| database: every commercial product has exactly one home | CoPE `sharedWith` | b: `FORMULATION-KEY-SPANS-MATERIALS`; the one-home rule stays |
+| database: PA, PA-CF, PA-GF, TPE and CoPA are family entries | five names | a: every row of `family_entries.csv`, with its members from `family_members.csv` |
+| database: mis-filed products moved… | nine grades, PA6-GF's price, PA-ESD's window | a: every measurement sits under its grade's material, and no retired grade keeps one; evidence duplicates counted from the table. b: the price is in `headlines.csv`, the window is profiles.csv's and the new gate rule |
+| database: a heat deflection whose load is unstated… | eSUN PLA-Lite | a: products: every material's as-published and variant spans, checked exactly |
+| database: the validator rejects a family entry… | PA-CF | c |
+| database: estimates follow the physics of printing… and polyamide estimates… (two tests) | PET, BVOH, PA12, PA66, PA66-CF, PA612, PA612-GF | a, one test: every heat deflection estimate is under its polymer's melting point, and an unfilled one under its own highest Vicat; a fibre-filled estimate is no lighter and is stiffer and stretches less than the unfilled same polymer's. b: PA12's density is in `headlines.csv` |
+| database: an elastomer's heat deflection… | eleven names | a: every material whose polymer is an elastomer |
+| database: estimated nozzle and bed windows… | PA66, PA612-GF | a: every estimated nozzle window starts above its polymer's melting point |
+| database: values the registered sources publish… | V000605, V000039, V000507, V000008, five typical HDTs | b: the window check, the products rule, the Data status set by migration, `headlines.csv`, and the HDT load rule. The rule half stays, renamed |
+| database: resin references are study grades… | three -R1 grades | a: every -R# grade is no product and backs none of its material's values |
+| database: the four audited grades… are compiled | four grades, four profiles, 92 IDs | b: the tables hold them; nothing is deleted without a ledger row (pre-commit, D72); the record-moves rule |
+| database: a quarantined price observation… | CA0069, ABS 25.99 | a: every quarantined price, and every cited listing is its own material's. b: ABS's price is in `headlines.csv` |
+| database: a qualitative result is evidence… | V001899 | a: every qualitative measurement |
+| database: the corrected Bambu notch records… | V000342, V000343, V000717 | b: impact backs no headline or estimate (record tier); `data:diff` shows any edit |
+| database: an over-temperature audited profile…, and a chamber window the H2C only partly reaches… (two tests) | P0160, PPA-CF, ABS-CF | a, one test: every profile's gate on every axis is its own window against the H2C, and a partial one says how much |
+| database: chamber windows recovered from the Bambu sheets… | five grades, three materials | b: profiles.csv; products: a product's window is its own profile's; `gates.csv` |
+| database: a "-" in a data sheet is no setpoint | TPC / TPEE | a: every no-setpoint profile |
+| database: an annealed value is not averaged… | four IDs | the rule over every conflict stays; the IDs go |
+| database: a physically implausible value is kept… | TPU for AMS | b: `headlines.csv`; the rule stays |
+| database: HyperLite PP is its own material… | PP, PP Lightweight, G082-01 | b: `summaries.csv`, `headlines.csv`; the record-moves rule |
+| database: no product value is an annealed bar… | G069-01 at 103 | b: `products.csv`; the rule stays |
+| database: raw-material supplier values never become a product's value | G092-01 | b: products: "no product value is a Z, moulded, film, filament, conditioned or implausible value" |
+| database: a flexural modulus never fills the stiffness headline | eSUN PLA-Lite | a: every product value is a property its headline takes, and every flexural-only product has no stiffness |
+| database: an estimated chamber band never sits beside… | PPA's band | b: chamber_bands.csv, `gates.csv`; the rule stays |
+| database: five validator tests (another product's value; the wrong material; a missing GradeID; guidance; environment and coverage) | G068-02, G025-02, G036-01, CoPE, PC FR, Q00290, C00435, C00428 | c; the environment test adds a rule over every material's environmental records |
+| database: recovered Bambu chemical records keep each sheet's verdict | four findings | b: the new `build/snapshot/environment.csv`, every verdict an environment requirement screens on, 711 rows |
+| database: corrected source endpoints…, and retired CoPE identity… (two tests) | V000894, V000920, V001349, V000419; G091-01, P0115 | a: a strain at another endpoint is never an elongation at break (fixture by shape), no retired duplicate reaches the database, and no material lists a retired grade or profile. b: V001349 is m14's |
+| database: raw values reconcile, a unit is its meaning, a headline cannot borrow, the validator rejects a blank headline | V000539, G002-01, PA66 | c |
+| database: a declared grade variant explains its own offset | G049-01 | c, now asserting the fixture still declares its filler; one of its four whole builds was the build every test reads, and is reused |
+| products: a declared variant stays out of its material's range | PLA | a: merged into the summary rule, which now checks the median exactly |
+| headlines: a material's headline is the median… | PETG, PA66 | a: the products summary rule; PA66's "Not published" is in `headlines.csv` |
+| headlines: three pin tests | G020-02, V000398, V003638, V000384, V000001, V001933 | c |
+| grades: four tests | M031, G020-01, G020-03, M020 | c; a study grade is never listed, over every -R# |
+| typed-values: three tests | P0003 | c |
+| data-check: four tests | C00002's line, V000384's value, G020-01, G020-03 | c; the others, which inject a defect into V000384, P0001 or Q00001, keep them, since IDs are never reused |
+| drawer: three tests | Q00282–Q00285, PVA and BVOH, PLA | c, and b for PVA and BVOH (materials.csv prose; every pointer resolves) |
+| templates: the indoor prototype includes ordinary PLA | PLA | b: `templates.csv` |
+| contract: a renamed field is reported | PLA | c |
+
+**What the rules found on today's data.** These are not written as tests because they do not hold today:
+
+- Nineteen unfilled products publish a density outside their polymer's neat range and declare no Variant.
+  Examples: Polymaker PolyLite ABS 1,120 against 1,000 to 1,110; Spectrum PET-G MATT and eSUN PETG-Matte 1,350
+  against 1,220 to 1,300; SUNLU PVA 1,010 against 1,180 to 1,340; Polymaker PolyDissolve S1 1,370; Recreus RECIFLEX
+  1,000. R078 declares a Variant where a density is beyond the neat polymer. Each needs its sheet re-read, and some
+  of the neat ranges are narrow, so nothing was changed.
+- Two heat deflection estimates reach above their polymer's melting point at an upper end, though their centres are
+  below it: PCL (likely to 62.2 °C, plausible to 66.5, melting 60) and PA612-GF (plausible to 220, melting 218). Only
+  the centre is asserted.
+- A study grade carries product values: G052-R1 (Stratasys, PA12) has a density and a heat deflection of its own. It
+  is in no material's list and backs none of PA12's values, so nothing reads them. Whether a study grade should have
+  them at all is open.
+- Two fibre-filled materials publish a median density below their unfilled polymer's: PPS-CF 1,290 against PPS 1,305,
+  and CPE-CF 1,220 against CPE 1,250, each a median of two to five sheets. The estimates keep the order.
+- Three `MEAS-CROSS-SOURCE-TWIN` pairs, accepted as "two revisions of one product's sheet", are cited by two grades:
+  PolyLite PETG, PolySonic PLA, and Polymaker ABS beside PolyLite ABS. If the reason is right, each is one product
+  counted twice in its material's spread. `GRADE-PRODUCT-DUPLICATE` misses them because the names differ by the maker's
+  prefix or a revision suffix. Merging them moves medians and needs the owner's word that they are one product.
+- An acceptance was written twice for V005862, and the second copy quoted the wrong value (150 MPa for a row that
+  prints 130). One row with the right number stays. `data:lint` now fails on a repeated acceptance, which it never
+  read.
+- Two `SOURCE-LOCAL-PATH` reasons said "kept as provenance" of LOCAL-CREEP and LOCAL-FATIGUE, which are cited. The
+  reasons now say so.
+
+**The decision diff** (`build/snapshot/templates.csv`, against `45443ef`): none. All 1,067 answers are unchanged.
+
+m160 moves nothing in the build: the windows feed the lint and the reader only. m161 moves what it should. PLA
+Metal's density becomes the median of its three plain products, 1,225 kg/m³ (1,200 to 1,250). It was 1,765 over six;
+the metal grades are now counted apart as six variants from 2,280 to 3,500. The estimate model refits without the
+metal densities pulling the PLA family. `npm run build:diff` counts 3,968 paths, nearly all grade estimate ranges
+moving in the third significant figure. The warnings trade PLA Metal's `EST-OUTLIER` for PA6-CE's and PA6-GS's. Both
+were re-read from their sheets (1.49 g/cm³ with ceramic fillers and a flame retardant; 1.01 g/cm³ filled with hollow
+glass spheres) and accepted with that reason: the model has no covariate for either filler. Nine interface views change
+in the numbers they show, and none in a verdict.

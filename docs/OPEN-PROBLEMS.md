@@ -83,20 +83,21 @@ Each now carries its reason in Notes, with the numbers its own sheet prints besi
 above the sheet's own Vicat, a yield equal to the break); their reasons are in their rows.
 
 These need the manufacturer to be asked, not more reading. They are the values the database refuses to use. A
-larger set — 267 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
-says the rule, not the number, is what does not fit: 182 `MEAS-PHYSICS-WINDOW`, 31 `MEAS-PHYSICS-STRAIN` (brittle
+larger set — 209 physics findings — is accepted with a reason apiece and stays in use, because in each the reason
+says the rule, not the number, is what does not fit: 148 `MEAS-PHYSICS-WINDOW`, 31 `MEAS-PHYSICS-STRAIN` (brittle
 bars whose strain at break sits 10 to 60 % below stress over modulus, systematically across several manufacturers,
-which reads as a difference in how modulus was measured rather than a transcription error), 47
-`MEAS-PHYSICS-ORDER` and 7 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for the list above if a re-read finds
-the sheet really does print what cannot be.
+which reads as a difference in how modulus was measured rather than a transcription error), 23
+`MEAS-PHYSICS-ORDER` (22 acceptances; one row pairs twice) and 7 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for
+the list above if a re-read finds the sheet really does print what cannot be.
 
-The window findings are not mostly flexible grades, which is what this page used to say. By family they are PLA 59,
-flexible elastomers 25, PETG 16, copolyesters 14, polyamides 13; by property tensile modulus 33, hardness 31, Izod
-23, elongation 21, density 17. **Thirty are one defect, not thirty**: SUNLU's hardness column names both Shore
-scales ("HA/HD"). Where the value itself says which ("80D", "90A±2") the row records it; the thirty print a bare
-number under the double heading, so the scale is not published and the rows say so ("Shore (scale not specified by
-source)"). A rigid thermoplastic at 55 to 87 can only be Shore D, but that is physics, not the sheet (D35), and the
-acceptances stand.
+Where a shared reason was a rule, the rule now carries it and the acceptances are gone (re-center phase 5, part 4):
+a hardness whose scale the sheet does not publish is judged against both Shore scales (m160, W0079), a Vicat taken
+under the heavy load is not ordered against the glass transition, and Spectrum's metal-filled PLAs declare their load
+(m161, R095). By family the window findings are PLA 31, flexible elastomers 28, copolyesters 17, polyamides 13, PETG
+9; by property tensile modulus 34, Izod 25, elongation 23, flexural modulus 16, heat deflection 11. **The strain
+findings are the largest group left with one reason**: ten brittle printed bars, eight of them Z, whose strain at break
+sits below stress over modulus on Bambu Lab's, IPCON's and others' sheets. The reason is a modulus basis the sheets do
+not state, so no column carries it and the check cannot tell it from a wrong value; it stays per record.
 
 ```bash
 npm run sql --silent -- "select measurementid, materialid, property, normalized_value, notes from measurements
@@ -155,19 +156,19 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `MEAS-PHYSICS-WINDOW` | 186 | See item 2. Four came with batch b34 (m143): two melt flows near 100 g/10 min printed with no condition (Fillamentum Nylon FX256, Yousu Nylon), a 22 Shore D elastomer named for it (Nanovia TPE 22D) and an unnotched Charpy of 218 kJ/m² (Extrudr GreenTEC). |
-| `MEAS-PHYSICS-ORDER` | 47 | See item 2. |
+| `MEAS-PHYSICS-WINDOW` | 148 | See item 2. Four came with batch b34 (m143): two melt flows near 100 g/10 min printed with no condition (Fillamentum Nylon FX256, Yousu Nylon), a 22 Shore D elastomer named for it (Nanovia TPE 22D) and an unnotched Charpy of 218 kJ/m² (Extrudr GreenTEC). |
 | `MEAS-PHYSICS-STRAIN` | 31 | See item 2. |
-| `COVERAGE-SUPERSEDED` | 8 | A coverage finding a later row replaces. |
-| `MEAS-CROSS-SOURCE-TWIN` | 5 | Two sources publishing the same numbers: two revisions of one Polymaker sheet each, republished without remeasuring. |
-| `EST-OUTLIER` | 2 | A material's typical product far outside what every other observation predicts. PLA Metal's density — Bambu prints 1.25 g/cm³ where Spectrum's copper, brass and bronze grades print 2.28 to 2.36, and they are different products under one name; and PLA-EC's, whose two conductive PLAs publish 1.24 and 1.35 where the model expects about 1.52. TPU's elongation stopped being one when phase 4 made TPU's value the median of its products (m137). |
-| `SOURCE-LOCAL-PATH` | 4 | See item 8. |
+| `MEAS-PHYSICS-ORDER` | 22 | See item 2. |
 | `MEAS-PHYSICS-Z-ABOVE-XY` | 7 | Polymaker prints a Z stiffness 15 to 26 % above XY, and one b09 sheet a Z strength above its own X-Y one. Unusual at 100 % infill but not impossible; whether the sheet swapped its labels cannot be settled from the table. |
+| `MEAS-CROSS-SOURCE-TWIN` | 5 | Two sources publishing the same numbers: two revisions of one Polymaker sheet each, republished without remeasuring. Three of the five pairs are cited by two different grades (PolyLite PETG G020-02 and G020-13, PolySonic PLA G001-02 and G001-25, Polymaker ABS G027-09 and PolyLite ABS G027-10), so if the reason is right each is one product counted twice in its material's spread; GRADE-PRODUCT-DUPLICATE does not see it, because the names differ by the maker's prefix or a revision suffix. |
 | `EST-FAMILY-ORDER` | 4 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ASA-GF's median is of two sheets 0.9 GPa apart; ABS-AF's two sheets state no direction, so it is estimated below the numbers they print; PA12-AF has no heat deflection of its own. PLA-CF and PLA-NF stopped being ones when their values became their products' medians (m137). |
-| `MEAS-LOCATOR-DIRECTION` | 2 | HDT is recorded without a direction by convention; the sheet's "XY" names the bar's build orientation, not a test axis. |
+| `SOURCE-LOCAL-PATH` | 4 | See item 8. |
+| `EST-OUTLIER` | 3 | A material's typical product far outside what every other observation predicts, each carrying a filler the model has no covariate for: PA6-CE (Spectrum PA6 CS20 FR V0, 1.49 g/cm³ with ceramic fillers and a flame retardant, against 1.17 predicted), PA6-GS (Spectrum PA6 GK10, 1.01 g/cm³ with hollow glass spheres, against 1.33), and PLA-EC, whose two conductive PLAs publish 1.24 and 1.35 against about 1.52. The first two crossed three deviations when m161 took Spectrum's metal-filled PLAs out of the density fit and the scale tightened; PLA Metal stopped being one, because its range is now its plain products' (1.20 to 1.25) and the metal grades are counted apart. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
+| `COVERAGE-SUPERSEDED` | 1 | Two "Evidence recorded" rows for PA6-GF's grades, each a separate re-filing (C01184, C01185). Several Resolved rows in one domain are a log of closed events and no longer a finding (phase 5, part 4). |
+| `HEADLINE-FAMILY-UNLISTED` | 1 | Heat deflection does not name Flexible Elastomers, on purpose (D56). |
 
-298 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
+228 accepted findings in all, each with its reason and the date it was accepted. `npm run audit:data` fails on one
 that no longer occurs, so this list cannot go stale unnoticed.
 
 Estimates that are merely wide because the evidence is thin are `EST-THIN`, informational, and need no reviewer:
@@ -400,6 +401,30 @@ deferred.
 
 ```bash
 npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) from materials m join grades g on g.materialid = m.materialid where m.materialid between 'M164' and 'M174' and g.status = 'active' group by 1, 2"
+```
+
+## 15. What the tests found when they became rules
+
+Phase 5, part 4 rewrote the tests that named records as rules over every record. These would-be rules do not hold
+today, so they are recorded here rather than asserted (RESPONSE.md, phase 5, part 4):
+
+- **Nineteen unfilled products publish a density outside their polymer's neat range and declare no Variant**, which
+  R078 asks for where a density is beyond the neat polymer: PolyLite ABS 1,120 (neat ABS to 1,110), Spectrum PET-G MATT
+  and eSUN PETG-Matte 1,350 (neat PETG to 1,300), SUNLU PVA 1,010 and PolyDissolve S1 1,370 (neat PVA 1,180 to 1,340),
+  Recreus RECIFLEX 1,000, and thirteen more. Some neat ranges are narrow (ABS, ASA), so each needs its sheet re-read
+  before it is declared, not a bulk Variant.
+- **Three pairs of sheet revisions sit on two grades each**: PolyLite PETG (G020-02, G020-13), PolySonic PLA (G001-02,
+  G001-25), and Polymaker ABS beside PolyLite ABS (G027-09, G027-10). Their `MEAS-CROSS-SOURCE-TWIN` acceptances call
+  them one product's sheet republished; if so, each product is counted twice in its material's spread, and
+  `GRADE-PRODUCT-DUPLICATE` misses it because the names differ by the maker's prefix or a revision suffix. Merging them
+  needs the owner's word that they are one product.
+- **Two heat deflection estimates reach past their polymer's melting point** at the upper end, with their centres below
+  it: PCL (likely to 62.2 °C, plausible to 66.5, melting 60) and PA612-GF (plausible to 220, melting 218).
+- **A study grade carries product values**: G052-R1 (Stratasys, PA12) has a density and a heat deflection of its own.
+  It is in no material's list and backs nothing, so nothing reads them.
+
+```bash
+npm run sql --silent -- "select p.gradeid, p.manufacturer, p.product, p.value, y.neat_density_min_kg_m3, y.neat_density_max_kg_m3 from products_compiled p join materials m on m.materialid = p.materialid join polymers y on y.polymerid = m.estimate_identity where p.headline_key = 'density' and m.modifier_filler = 'Unfilled / unspecified' and coalesce(p.variant, '') = '' and p.gradeid not like '%-R%' and (p.value > y.neat_density_max_kg_m3 or p.value < y.neat_density_min_kg_m3)"
 ```
 
 ---
