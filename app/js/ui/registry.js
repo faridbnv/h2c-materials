@@ -24,8 +24,10 @@ export function useRegistry(registry) {
 
   AXIS_DEFS.splice(0, AXIS_DEFS.length, ...REGISTRY.headlines.map((h) => ({
     key: h.key, label: h.labels.axis, unit: h.unit, better: h.better,
+    // The conditions a measurement must meet to be drawn on the axis: the headline's own (D84, D92), each only where set.
     measurement: h.kind === 'measurement'
-      ? { properties: h.valueProperties, direction: h.direction, ...(h.loadMPa != null ? { loadMPa: h.loadMPa } : {}) }
+      ? { properties: h.valueProperties, direction: h.direction, ...(h.loadMPa != null ? { loadMPa: h.loadMPa } : {}),
+        ...(h.notch ? { notch: h.notch } : {}), ...(h.testTemperatureC != null ? { testTemperatureC: h.testTemperatureC } : {}) }
       : null,
   })));
 }

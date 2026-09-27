@@ -130,20 +130,28 @@ export function renderAshby(host, state, actions) {
 
   const level = detailLevel(p);
   const measurementMode = level !== 'material' && level !== 'products';
-  const { pts, mixed, unavailable } = level === 'products' ? productPoints(rows, xDef, yDef, state)
+  const { pts: all, mixed, unavailable } = level === 'products' ? productPoints(rows, xDef, yDef, state)
     : measurementMode
     ? measurementPoints(rows, xDef, yDef, level === 'measured-mixed' ? 'broad' : 'strict', state.ctx)
     : headlinePoints(rows, xDef, yDef);
-
   // Only in "one dot per material": at measurement level every point is already a real
   // measurement, and a family bound has nothing to say about an individual grade.
-  const estimated = level !== 'material' ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.showEstimates);
+  const ranges = level !== 'material' ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.showEstimates);
+  // A value at or below zero has no logarithm (a glass transition below 0 °C, D92): on a Log axis a point or a range
+  // that reaches one is not drawn, never counts as plotted, estimated or on the front, and the note says how many
+  // candidates it leaves off.
+  const loggable = (q) => (!p.xLog || q.x > 0) && (!p.yLog || q.y > 0);
+  const rangeLoggable = (q) => (!p.xLog || q.x.lo > 0) && (!p.yLog || q.y.lo > 0);
+  const pts = all.filter(loggable);
+  const estimated = ranges.filter(rangeLoggable);
+  const offLog = new Set([...all.filter((q) => !loggable(q) && !pts.some((d) => d.id === q.id)), ...ranges.filter((q) => !rangeLoggable(q))]
+    .map((q) => q.id)).size;
   const envelopes = p.showEstimates ? estimated : [];
 
   const subjects = new Set(pts.map((q) => q.id)).size;
   // Only for the footer note. drawPlot computes the front it actually draws.
   const frontSize = paretoFront(pts.filter((q) => q.evaluation.eligible), xDef.better, yDef.better).length;
-  const missing = rows.length - subjects - estimated.length;
+  const missing = rows.length - subjects - offLog - estimated.length;
   const thin = pts.length < 10;
 
   // "Price — 10" read as ten dollars. Name the property, then say what the number counts.
@@ -266,6 +274,8 @@ export function renderAshby(host, state, actions) {
            headline number tells you.
            ${level === 'measured-mixed' ? '<br><b>Hollow dots</b> were measured a different way from the axis definition, for example in another print direction. They are included here so you can see them, and pointing at or tapping one names the mismatch.' : ''}`
         : `${pts.length} of ${rows.length} candidates plotted${missing ? `, ${missing} lack one or both properties and are not drawn as zero` : ''}.`}
+      ${offLog ? `<br><b>${offLog} more candidate${offLog === 1 ? ' has' : 's have'}</b> a value at or below zero, which a Log axis
+        cannot show. Not drawn; switch that axis to Linear to see ${offLog === 1 ? 'it' : 'them'}.` : ''}
       Colour is polymer family, marker shape is filler class.
       ${estimated.length && !p.showEstimates
         // Counted even when not drawn, so they are never silently absent. That silence was the

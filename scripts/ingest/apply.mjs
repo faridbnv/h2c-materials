@@ -36,6 +36,7 @@ import { PROPOSALS } from './archive.mjs';
 import { sha256, numberOnPage, cachedText } from '../lib/pdf-text.mjs';
 import { documentPath } from './extract.mjs';
 import { recountGrades } from '../data/records.mjs';
+import { testTemperatureCell } from '../../build/src/typed-values.js';
 
 const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const SEP = String.fromCharCode(0);
@@ -280,7 +281,8 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
       const gradeId = gradeOf(m.gradeKey, m.row.GradeID);
       const added = `Added ${date} (${migration}): re-read from the source document, page ${PAGE.exec(m.row.Locator)?.[1] ?? '?'} (SHA-256 recorded in sources.csv).`;
       t.append('measurements', {
-        MeasurementID: id, ...m.row, GradeID: gradeId, MaterialID: materialOf(gradeId, m.row.MaterialID),
+        // A proposal written before m175 carries no typed test temperature: it is read from the row's own wording.
+        MeasurementID: id, 'Test temperature °C': testTemperatureCell(m.row['Test temperature']), ...m.row, GradeID: gradeId, MaterialID: materialOf(gradeId, m.row.MaterialID),
         Notes: m.row.Notes && m.row.Notes !== 'Not applicable' ? `${added} ${m.row.Notes}` : added,
       });
       note(`measurement ${id} ${m.row.Property}`);

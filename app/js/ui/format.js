@@ -247,7 +247,8 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     // Quiet by design: a value plus one marker. The earlier version stacked shouty uppercase tags
     // like "XY +1" and "NO DIRECTION" into the cell, which made the column unscannable.
     const title = `No product publishes this comparably. Nearest measurement on record: ${fmtNumber(b.value)} ${b.unit}`
-      + ` — ${b.property}, grade ${b.gradeId}${dir ? ', ' + dir + ' direction' : ', direction not stated'}.`
+      // A property with no direction (a glass transition, a density) is never said to lack one.
+      + ` — ${b.property}, grade ${b.gradeId}${dir ? ', ' + dir + ' direction' : b.direction === 'not-applicable' ? '' : ', direction not stated'}.`
       + ` Why it is not compared: ${b.why}.`
       + `${more ? ` ${more} further measurement${more === 1 ? '' : 's'} across ${r.grades} grade${r.grades === 1 ? '' : 's'}.` : ''}`
       + ' Not used by any filter.';

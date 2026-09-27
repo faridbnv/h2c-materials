@@ -100,8 +100,16 @@ export function compileRegistry(wb, issues) {
         properties: list(r['Lower bound properties']), loadMPa: numOrNull(r['Lower bound load MPa']),
         excludeMoisture: list(r['Lower bound excludes']), why: orNull(r['Lower bound basis']),
       } : null,
-      direction: orNull(r.Direction), loadMPa: numOrNull(r['Load MPa']), evidenceGroup: orNull(r['Evidence group']),
+      direction: orNull(r.Direction),
+      // A value whose source states no direction: this headline's as published (D84), or none of its values (D92).
+      unstatedDirection: orNull(r['Unstated direction']),
+      loadMPa: numOrNull(r['Load MPa']),
+      // The conditions an impact value is defined at (D92): the notch it must state, and the test temperature a stated
+      // one must be.
+      notch: orNull(r.Notch), testTemperatureC: numOrNull(r['Test temperature °C']),
+      evidenceGroup: orNull(r['Evidence group']),
       endpointNote: bool(r['Endpoint note']),
+      comparisonNote: orNull(r['Comparison note']),
       labels: { short: r.Short, plain: r.Plain, technical: r.Technical, hint: r.Hint, axis: r['Axis label'], export: r['Export header'] },
       better: r.Better,
       filter: { group: r['Filter group'], operator: r['Filter operator'], example: r['Filter example'], nonNegative: bool(r['Non-negative']) },
@@ -118,8 +126,10 @@ export function compileRegistry(wb, issues) {
         const p = propertyByName.get(name);
         if (p && !p.units.includes(h.unit)) err('REGISTRY-HEADLINE', where, `Value property ${name} is never measured in ${h.unit} (its units: ${p.units.join(', ')})`);
       }
-    } else if (h.valueProperties.length || h.relatedProperties.length) {
-      err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties must be Not applicable');
+      // A headline with a direction says what a value without one is; a headline without a direction has nothing to say.
+      if (!!h.direction !== !!h.unstatedDirection) err('REGISTRY-HEADLINE', where, h.direction ? `Direction ${h.direction} needs an Unstated direction (as-published or excluded)` : 'Unstated direction is set, but the headline has no Direction');
+    } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null) {
+      err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties and its test conditions must be Not applicable');
     }
     return h;
   });

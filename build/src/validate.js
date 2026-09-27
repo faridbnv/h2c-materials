@@ -1,7 +1,6 @@
 // Validation. The build fails on any error. Warnings describe what the tool cannot yet see, which
 // is why the report is a deliverable in its own right rather than console noise.
 
-import { DIRECTION } from './normalize/direction.js';
 import { PROCESS_STATE } from './normalize/process.js';
 import { measurementIssues } from './measurement-rules.js';
 import { measurementHeadlines, applies } from './registry.js';
@@ -192,12 +191,16 @@ export function validate(db, wb) {
 
   // -- XY and Z never merge ---------------------------------------------------
   // Method sheet, Comparison / Directions. A product value that decides as an XY value is an XY measurement, and
-  // "unknown direction is not XY": it may only be as published (D84).
+  // "unknown direction is not XY": it may only be as published (D84). A Z value is a Z measurement, and a headline that
+  // excludes an unstated direction (the layer strength, D92) has no value published without one.
   for (const g of db.grades) {
-    for (const def of measurementHeadlines(db.registry).filter((h) => h.direction === DIRECTION.XY)) {
+    for (const def of measurementHeadlines(db.registry).filter((h) => h.direction)) {
       const v = g.headline?.[def.key];
-      if (v?.level === 'comparable' && v.direction !== DIRECTION.XY) {
+      if (v?.level === 'comparable' && v.direction !== def.direction) {
         issues.push(err('HEADLINE-DIRECTION', `grades ${g.id}`, `${def.key} decides as comparable but its measurement's direction is ${v.direction}`));
+      }
+      if (v && def.unstatedDirection === 'excluded' && v.level !== 'comparable') {
+        issues.push(err('HEADLINE-DIRECTION', `grades ${g.id}`, `${def.key} excludes a value without a stated direction, but carries one (${v.measurementId})`));
       }
     }
   }

@@ -519,6 +519,10 @@
           "testTemperature": {
             "type": "string"
           },
+          "testTemperatureC": {
+            "description": "The test temperature in °C from the typed column Test temperature °C (m175); absent where the source states none as a number.",
+            "type": "number"
+          },
           "standardText": {
             "type": "string"
           },
@@ -1443,9 +1447,13 @@
         "relatedProperties",
         "lowerBounds",
         "direction",
+        "unstatedDirection",
         "loadMPa",
+        "notch",
+        "testTemperatureC",
         "evidenceGroup",
         "endpointNote",
+        "comparisonNote",
         "labels",
         "better",
         "filter",
@@ -1532,7 +1540,29 @@
             "null"
           ]
         },
+        "unstatedDirection": {
+          "description": "Whether a value whose source states no direction is this headline's as published (D84) or no value of it (D92); null where the headline has no direction.",
+          "enum": [
+            "as-published",
+            "excluded",
+            null
+          ]
+        },
         "loadMPa": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "notch": {
+          "description": "The notch a backing impact measurement must state (D92), or null.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "testTemperatureC": {
+          "description": "The test temperature the headline is defined at (D92); a value stated at another is no value of it. Null: any.",
           "type": [
             "number",
             "null"
@@ -1547,6 +1577,13 @@
         },
         "endpointNote": {
           "type": "boolean"
+        },
+        "comparisonNote": {
+          "description": "What the headline compares and why its related values that are not its own are left out, shown beside them in the drawer (D92), or null.",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "labels": {
           "type": "object",

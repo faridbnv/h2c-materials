@@ -3,6 +3,7 @@
 // changed measurement gets a dated note saying what changed and where the source says so.
 
 import { nextId } from '../data/table-io.mjs';
+import { testTemperatureCell } from '../../build/src/typed-values.js';
 
 const NA = 'Not applicable';
 
@@ -25,6 +26,10 @@ export function correct(t, { source, ids, set, note, migration, date = '2026-09-
       if (!ok) throw new Error(`${migration}: ${id} ${field} is "${row[field]}", expected ${from}; the data moved since this correction was written`);
       t.set('measurements', id, field, to, { expect: row[field] });
       edited = true;
+    }
+    // The typed test temperature follows its wording, unless the edit sets it too (m175).
+    if (edited && 'Test temperature' in set && !('Test temperature °C' in set) && t.header('measurements').includes('Test temperature °C')) {
+      t.set('measurements', id, 'Test temperature °C', testTemperatureCell(row['Test temperature']));
     }
     if (edited) {
       t.set('measurements', id, 'Notes', withNote(row.Notes, `Corrected ${date} (${migration}) against the source: ${note}`), { expect: row.Notes });
@@ -52,6 +57,8 @@ export function addValue(t, { like, set, note, migration, date = '2026-09-14', w
     MeasurementID: nextId('measurements', rows.map((r) => r.MeasurementID)),
     Notes: `Added ${date} (${migration}): ${why}${note ? ` ${note}` : ''}`,
   };
+  // The typed test temperature is read from the row's own wording unless `set` gives it (m175).
+  if (t.header('measurements').includes('Test temperature °C') && !('Test temperature °C' in set)) row['Test temperature °C'] = testTemperatureCell(row['Test temperature']);
   // Fatigue loading lives in fatigue_tests.csv since m31; an added row carries none.
   for (const k of ['Stress max MPa', 'Stress min MPa', 'Stress amplitude MPa', 'Frequency Hz', 'Load ratio R', 'Run-out']) delete row[k];
   t.append('measurements', row);

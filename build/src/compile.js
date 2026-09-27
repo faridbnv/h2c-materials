@@ -15,12 +15,12 @@ import { classifyTopic, classifyFinding, countUsableByCategory } from './normali
 import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
-import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
+import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped, applyTestTemperatureTyped } from './typed-values.js';
 import { readRecipe } from './recipe.js';
 import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { aggregateGate } from './gates.js';
-import { attachProducts } from './products.js';
+import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
 
@@ -81,6 +81,10 @@ function compileMeasurements(rows, fatigueRows, issues) {
       notes: r.Notes,
       raw: { value: r['Raw value'], unit: r['Raw unit'] },
     };
+    // The test temperature in °C, from the typed column, where the source states one as a number (m175, D92); a
+    // measurement without it states none, which a headline defined at a temperature counts as its own.
+    const testTemperatureC = applyTestTemperatureTyped(r, issues);
+    if (testTemperatureC != null) m.testTemperatureC = testTemperatureC;
 
     if (r.Property === 'HDT') {
       const h = applyLoadTyped(r, parseHdtStandard(r['Standard / load']), issues);
@@ -253,6 +257,36 @@ const DIRECTION_NOTE = {
   'not-applicable': null,
   unknown: 'direction not stated by the source, so it cannot be read as XY',
 };
+// Against a Z headline, the layer strength (D92): an XY value is the plastic's in-plane strength, and a value with no
+// stated direction is almost always a flat or a moulded bar.
+const Z_DIRECTION_NOTE = {
+  ...DIRECTION_NOTE,
+  XY: 'XY direction, in the print plane: how strong the plastic is, not how well its layers hold together',
+  Z: null,
+  'not-applicable': 'direction not stated by the source, so it cannot be read as Z',
+  unknown: 'direction not stated by the source, so it cannot be read as Z',
+};
+/**
+ * Why a measurement's direction keeps it from a headline, or null. A headline without a direction (density, heat
+ * deflection, glass transition) has no direction to miss, so a value's direction is no reason there.
+ */
+const directionNote = (m, def) => (!def.direction || m.direction === def.direction ? null
+  : (def.direction === 'Z' ? Z_DIRECTION_NOTE : DIRECTION_NOTE)[m.direction]
+    // A row recorded Not applicable (most impact rows, whose sheets state no orientation) is, to a headline with a
+    // direction, a direction not stated: products.js reads it so (UNSTATED_DIRECTIONS), and so does the reason.
+    ?? (m.direction === 'not-applicable' ? DIRECTION_NOTE.unknown : null));
+
+/**
+ * Why an impact value is not the headline's (D92): another test, a notch the source does not state, a cold bar. Null
+ * where none of these applies, or the headline sets none of them. A value in another unit, or of the other notch, is
+ * never shown in its place.
+ */
+function conditionNote(m, def, props) {
+  if (def.notch && !def.valueProperties.includes(m.property)) return `${m.property}, not ${props[0]}: the source names another test on another bar, or none`;
+  if (def.notch && m.notch !== def.notch) return 'the source does not state whether the bar was notched';
+  if (def.testTemperatureC != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - def.testTemperatureC) > TEST_TEMPERATURE_TOLERANCE_C) return `struck at ${m.testTemperatureC} °C, not at room temperature`;
+  return null;
+}
 
 /**
  * Measurements of the material that bound a missing headline from below (headline_definitions.csv Lower bound). The
@@ -301,6 +335,14 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
 
   const items = (measurementsByMaterial.get(materialId) ?? [])
     .filter((m) => m.numeric && !m.quarantined && props.includes(m.property))
+    // What is shown in a headline's place is in its unit, and of its notch where it names one: an Izod value in J/m, or
+    // an unnotched bar that absorbs several times a notched one's energy, is another quantity, not a nearest one (D92).
+    // A headline that excludes an unstated direction (the layer strength) is shown only values in its own direction: an
+    // XY or unstated strength is no guide to it, being the higher of the two, where a Z value in an XY column is a
+    // lower bound. The drawer lists them all, with its note on why they are not compared.
+    .filter((m) => m.unit === def.unit
+      && (!def.notch || !['Notched', 'Unnotched'].includes(m.notch) || m.notch === def.notch)
+      && (def.unstatedDirection !== 'excluded' || m.direction === def.direction))
     .map((m) => ({
       measurementId: m.id, gradeId: m.gradeId, sourceId: m.sourceId, interval: m.interval,
       property: m.property, value: m.value, unit: m.unit,
@@ -310,19 +352,23 @@ function relatedEvidence(mat, def, measurementsByMaterial) {
       why: (m.implausible ? 'flagged physically implausible; see its notes' : null)
         || FORM_NOTE[m.specimenForm]
         || (annealedBesideAsPrinted(m, measurementsByMaterial.get(materialId)) ? 'annealed; the grade also publishes the as-printed value' : null)
-        || DIRECTION_NOTE[m.direction]
+        || directionNote(m, def)
         || (def.loadMPa != null && m.thermal && m.thermal.loadMPa !== def.loadMPa
             ? (m.thermal.loadStated ? `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa` : 'load not stated by the source')
             : null)
+        || conditionNote(m, def, props)
         || (def.endpointNote && m.property !== props[0]
             ? `${m.property.replace('Tensile ', '')} endpoint, not the one this property is read at` : null)
         || 'on record, but not a comparable printed value of this product',
     }));
   if (!items.length) return null;
 
-  // Closest to what the headline would have been: XY, printed, the headline's own property.
+  // Closest to what the headline would have been: for an impact headline a bar stated to be notched above all, then its
+  // direction (XY where it has none), printed, and the headline's own property.
+  const notchOf = new Map((measurementsByMaterial.get(materialId) ?? []).map((m) => [m.id, m.notch]));
   const score = (i) =>
-    (i.direction === 'XY' ? 8 : i.direction === 'not-applicable' ? 6 : 0)
+    (def.notch && notchOf.get(i.measurementId) === def.notch ? 16 : 0)
+    + (i.direction === (def.direction ?? 'XY') ? 8 : i.direction === 'not-applicable' ? 6 : 0)
     + (i.printed ? 4 : 0)
     + (i.property === props[0] ? 1 : 0);
   const sorted = [...items].sort((a, b) => score(b) - score(a));

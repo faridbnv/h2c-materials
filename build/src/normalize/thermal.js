@@ -47,3 +47,14 @@ export function parseHdtStandard(raw) {
     text,
   };
 }
+
+/**
+ * The test temperature a Test temperature wording states, in °C, or null where it states none as a number: "23°C",
+ * "23 °C" and "-30°C" are 23, 23 and -30; "Not published" and "Room temperature" are null. It checks the typed column
+ * Test temperature °C (typed-values.js, PARSE-MISMATCH), and the build decides on that column (D92): a notched bar
+ * struck at -30 °C gives another number from one struck at 23 °C, and a headline defined at 23 °C must not take it.
+ */
+export function readTestTemperature(raw) {
+  const m = /^\s*([-−]?\d+(?:[.,]\d+)?)\s*°\s*C\s*$/.exec(String(raw ?? ''));
+  return m ? Number(m[1].replace('−', '-').replace(',', '.')) : null;
+}

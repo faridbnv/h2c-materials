@@ -34,6 +34,11 @@ export const axisByKey = (k) => AXIS_DEFS.find((a) => a.key === k) ?? AXIS_DEFS[
 export function measurementMatches(m, axis, mode) {
   if (!axis.measurement || !m.numeric || m.quarantined || m.implausible) return null;
   if (!axis.measurement.properties.includes(m.property)) return null;
+  // Another unit is another quantity, in either mode: an impact value in J/m is energy per metre of notch, and becomes
+  // kJ/m² only with the bar's thickness (D92). So is a bar with the other notch.
+  if (axis.unit && m.unit !== axis.unit) return null;
+  const notch = axis.measurement.notch;
+  if (notch && ['Notched', 'Unnotched'].includes(m.notch) && m.notch !== notch) return null;
 
   const relaxed = [];
   const notes = [];
@@ -48,6 +53,16 @@ export function measurementMatches(m, axis, mode) {
       if (mode === 'strict') return null;
       relaxed.push(load == null ? 'HDT load not stated' : `HDT at ${load} MPa`);
     }
+  }
+  // A notch the source does not state, or a bar struck away from room temperature: strict leaves it out (D92).
+  if (notch && m.notch !== notch) {
+    if (mode === 'strict') return null;
+    relaxed.push('notch not stated');
+  }
+  const at = axis.measurement.testTemperatureC;
+  if (at != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - at) > 2) {
+    if (mode === 'strict') return null;
+    relaxed.push(`struck at ${m.testTemperatureC} °C`);
   }
   const unstatedSpecimen = m.specimenType && !m.specimenType.startsWith('Printed specimen');
   if (unstatedSpecimen) {

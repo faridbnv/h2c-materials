@@ -55,6 +55,17 @@ ASA-EC
 3.8
 292
 all 153 candidates
+Strength across layers MPa
+ASA-AF
+Not published
+ASA-CF
+30
+25–31 · 3
+ASA-EC
+Not published
+7.5
+60.7
+all 153 candidates
 Stretch before breaking %
 ASA-AF
 ~1–14†
@@ -67,6 +78,17 @@ ASA-EC
 log scale
 1,400
 all 153 candidates
+Notched impact strength kJ/m²
+ASA-AF
+7.5*
+ASA-CF
+5.76
+5.5–6.2 · 3
+ASA-EC
+1.5*
+1.5
+33
+widened to a value shown
 Heat resistance °C
 Heat resistance at least 100 °C
 ASA-AF
@@ -79,6 +101,17 @@ ASA-EC
 41.8
 300
 all 153 candidates
+Glass transition °C
+ASA-AF
+Not published
+ASA-CF
+106
+105–107 · 2
+ASA-EC
+Not published
+-60
+247
+all 153 candidates
 Price CAD/kg
 Not published for any shortlisted material.
 PROCESS REQUIREMENTS
@@ -88,7 +121,7 @@ ASA-CF yes yes yes required guidance published
 ASA-EC yes yes not recorded required guidance published
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
-ASA-AF 1 of 6 4† 3 21
-ASA-CF 5 of 6 — 18 165
-ASA-EC 1 of 6 4† 1 10
+ASA-AF 1 of 9 4† 3 21
+ASA-CF 8 of 9 — 18 165
+ASA-EC 1 of 9 4† 1 10
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

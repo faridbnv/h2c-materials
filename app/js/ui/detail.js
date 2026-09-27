@@ -1004,9 +1004,13 @@ function tabBody(tab, c) {
     const present = new Set(all.map((r) => r.property));
     const absent = list.filter((p) => !present.has(p));
     const byValue = (a, b) => (b.numeric - a.numeric) || ((b.value ?? 0) - (a.value ?? 0));
+    // Where a selectable property compares only some of these values (a notched Charpy bar at room temperature, a bar
+    // pulled along Z), its note says which, and why the rest stay on record but are not compared (D92).
+    const notes = (p) => REGISTRY.headlines.filter((h) => h.comparisonNote && h.relatedProperties.includes(p))
+      .map((h) => `<p class="fine cmp-note"><b>${esc(h.labels.plain)}.</b> ${esc(h.comparisonNote)}</p>`).join('');
     const blocks = list.filter((p) => rows.some((x) => x.property === p)).map((p) => {
       const group = rows.filter((x) => x.property === p).sort(byValue);
-      return makerBlock(p, group.length, 'value', group.map((x) => measurementRow(x, c, { compact: true })).join(''), { cls: 'prop-block' });
+      return makerBlock(p, group.length, 'value', notes(p) + group.map((x) => measurementRow(x, c, { compact: true })).join(''), { cls: 'prop-block' });
     });
     const namedHtml = named.length
       ? `<div class="np-line">Named on a sheet, not published: ${named.map((x) => `<span class="np-item${c.highlight === x.id ? ' target' : ''}" data-mid="${esc(x.id)}" title="Measurement ${esc(x.id)}">${esc(inSentence(x.property))} (${esc(gradeName(c.gradeById.get(x.gradeId)) || x.gradeId)})</span>`).join(', ')}.</div>`

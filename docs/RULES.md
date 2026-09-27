@@ -101,7 +101,7 @@ what it means and how to fix it.
 
 | Code | Level | Means | Fix |
 |---|---|---|---|
-| `HEADLINE-DIRECTION` | error | A product value decides as a comparable XY value but its measurement states another direction. | A defect in build/src/products.js (assess): an unstated direction is as published, never XY. |
+| `HEADLINE-DIRECTION` | error | A product value decides as comparable but its measurement states another direction than its headline's, or a headline that excludes an unstated direction (the layer strength) carries a value published without one. | A defect in build/src/products.js (assess): an unstated direction is as published where the headline says so, never comparable, and never a Z value (D92). |
 | `IMPACT-UNITS` | info | Impact data in J/m and kJ/m², which cannot share an axis. | Informational; no conversion without specimen geometry. |
 
 ## Coverage

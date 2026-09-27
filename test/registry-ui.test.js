@@ -16,8 +16,13 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const legacy = JSON.parse(readFileSync(join(root, 'test/fixtures/legacy-constants.json'), 'utf8')).app;
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
 
+// The lists were hardcoded for six headlines. A headline added since (D92) is a registry row they never had: it reaches
+// every list in registry order, and leaves the six as they were. These compare the six.
+const LEGACY = new Set(legacy.CSV_KEYS);
+const six = (registry) => ({ ...registry, headlines: registry.headlines.filter((h) => LEGACY.has(h.key)) });
+
 test('labels, axes, filters, table columns and export headers reproduce the hardcoded lists', () => {
-  useRegistry(db.registry);
+  useRegistry(six(db.registry));
   assert.deepEqual(PROPERTY, legacy.PROPERTY);
   assert.deepEqual(AXIS_DEFS, legacy.AXIS_DEFS);
   assert.deepEqual(numericFilters(), legacy.NUMERIC);
@@ -27,8 +32,26 @@ test('labels, axes, filters, table columns and export headers reproduce the hard
   assert.deepEqual(exportHeadlines().map((h) => h.key), legacy.CSV_KEYS);
 });
 
-test('the drawer uses the shared labels and the shared property domains (D46 corrections)', () => {
+test('every headline the registry holds reaches every list, in registry order, and the six keep their places among them', () => {
   useRegistry(db.registry);
+  const keys = db.registry.headlines.map((h) => h.key);
+  assert.deepEqual(Object.keys(PROPERTY), keys);
+  assert.deepEqual(AXIS_DEFS.map((a) => a.key), keys);
+  assert.deepEqual(numericFilters().map((f) => f.key), keys);
+  assert.deepEqual(exportHeadlines().map((h) => h.key), keys);
+  assert.deepEqual(keys.filter((k) => LEGACY.has(k)), legacy.CSV_KEYS);
+  assert.deepEqual(COLUMN_SETS.properties.columns.filter((c) => c.kind === 'headline' || c.kind === 'price').map((c) => c.key),
+    db.registry.headlines.filter((h) => h.tableColumn).map((h) => h.key));
+  // An axis carries the conditions its headline sets, and no others: a notch and a test temperature only where set.
+  for (const h of db.registry.headlines.filter((x) => x.kind === 'measurement')) {
+    const m = AXIS_DEFS.find((a) => a.key === h.key).measurement;
+    assert.equal(m.notch ?? null, h.notch, h.key);
+    assert.equal(m.testTemperatureC ?? null, h.testTemperatureC, h.key);
+  }
+});
+
+test('the drawer uses the shared labels and the shared property domains (D46 corrections)', () => {
+  useRegistry(six(db.registry));
   // Overview key numbers now read the same hint as the filter rail. The drawer had said elongation
   // "high means tough", which the shared label exists to contradict.
   const head = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint]);

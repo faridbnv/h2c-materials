@@ -45,13 +45,16 @@ test('every product value is a measurement of that product, or of its twin, that
   assert.ok(checked > 3000, `only ${checked} product values`);
 });
 
-test('no product value is a Z, moulded, film, filament, conditioned or implausible value', () => {
+test('no product value is in another direction than its headline\'s, or a moulded, film, filament, conditioned or implausible value', () => {
   for (const g of db.grades) {
     for (const [key, v] of Object.entries(g.headline ?? {})) {
       if (!v.measurementId) continue;
       const m = measurementById.get(v.measurementId);
+      const def = defs.get(key);
       assert.ok(!['moulded', 'film', 'filament'].includes(m.specimenForm), `${g.id} ${key} ${m.id} is a ${m.specimenForm} specimen`);
-      assert.ok(!['Z', 'XZ', 'ZX'].includes(m.direction), `${g.id} ${key} ${m.id} is ${m.direction}`);
+      // A Z value is only ever the layer strength's, and the layer strength is only ever a Z value (D92).
+      if (def.direction) assert.ok([def.direction, 'unknown', 'not-applicable'].includes(m.direction), `${g.id} ${key} ${m.id} is ${m.direction}`);
+      if (['Z', 'XZ', 'ZX'].includes(m.direction)) assert.equal(def.direction, m.direction, `${g.id} ${key} ${m.id} is ${m.direction}`);
       assert.notEqual(m.moistureState, 'conditioned', `${g.id} ${key} ${m.id}`);
       assert.ok(!m.implausible, `${g.id} ${key} ${m.id}`);
     }
@@ -71,6 +74,90 @@ test('a value is as published exactly when the source leaves the direction or th
   assert.equal(assess(heat({ loadStated: true, loadMPa: 0.455 }), hdt, []).level, LEVEL.COMPARABLE, 'ASTM D648\'s 0.455 MPa is the 0.45 MPa test');
   assert.deepEqual(assess(heat({ loadStated: false, loadMPa: null }), hdt, []), { level: LEVEL.AS_PUBLISHED, caveat: 'load-not-stated' });
   assert.ok(assess(heat({ loadStated: true, loadMPa: 1.8 }), hdt, []).excluded);
+});
+
+// D92: three selectable properties. Each rule below is over every product of every headline that sets the condition,
+// not over particular records: build/snapshot/products.csv holds the values themselves.
+const valuesOf = (def) => db.grades.filter((g) => !g.retired && g.headline?.[def.key])
+  .map((g) => ({ g, v: g.headline[def.key], m: measurementById.get(g.headline[def.key].measurementId) }));
+
+test('an impact value is a notched bar of the headline\'s own test, in its unit, struck at room temperature or at one the source leaves unstated', () => {
+  const impact = [...defs.values()].filter((d) => d.notch);
+  assert.ok(impact.length, 'a headline sets a notch');
+  for (const def of impact) {
+    const values = valuesOf(def);
+    assert.ok(values.length > 150, `${def.key}: only ${values.length} product values`);
+    for (const { g, v, m } of values) {
+      const where = `${g.id} ${def.key} ${m.id}`;
+      assert.ok(def.valueProperties.includes(m.property), `${where} is ${m.property}: an Izod value is never a Charpy value`);
+      assert.equal(m.unit, def.unit, `${where}: J/m does not become kJ/m² without the bar's thickness`);
+      assert.equal(m.notch, def.notch, `${where} is ${m.notch}`);
+      assert.ok(m.testTemperatureC == null || Math.abs(m.testTemperatureC - def.testTemperatureC) <= 2, `${where} was struck at ${m.testTemperatureC} °C`);
+      assert.equal(v.level, m.direction === def.direction ? LEVEL.COMPARABLE : LEVEL.AS_PUBLISHED, where);
+    }
+  }
+});
+
+test('a headline that excludes an unstated direction holds only values the source says are in its direction, all comparable', () => {
+  const strict = [...defs.values()].filter((d) => d.unstatedDirection === 'excluded');
+  assert.ok(strict.length, 'a headline excludes an unstated direction');
+  for (const def of strict) {
+    const values = valuesOf(def);
+    assert.ok(values.length > 100, `${def.key}: only ${values.length} product values`);
+    for (const { g, v, m } of values) {
+      assert.equal(m.direction, def.direction, `${g.id} ${def.key} ${m.id}`);
+      assert.equal(v.level, LEVEL.COMPARABLE, `${g.id} ${def.key}`);
+    }
+  }
+});
+
+test('a headline with no direction and no load has only comparable values, never a resin supplier\'s', () => {
+  const plain = [...defs.values()].filter((d) => !d.direction && d.loadMPa == null);
+  assert.ok(plain.some((d) => valuesOf(d).length > 300), 'the glass transition and the density have hundreds');
+  for (const def of plain) {
+    for (const { g, v, m } of valuesOf(def)) {
+      assert.equal(v.level, LEVEL.COMPARABLE, `${g.id} ${def.key}`);
+      assert.notEqual(m.specimenForm, 'moulded', `${g.id} ${def.key} ${m.id}`);
+    }
+  }
+});
+
+test('a product whose own measurement a headline accepts has a value for it, at the best level it has', () => {
+  // The converse of the first rule: the rule misses nothing. Every active product, every headline that applies to it.
+  const byGrade = new Map();
+  for (const m of db.measurements) (byGrade.get(m.gradeId) ?? byGrade.set(m.gradeId, []).get(m.gradeId)).push(m);
+  let checked = 0;
+  for (const g of db.grades.filter((x) => !x.retired)) {
+    const own = byGrade.get(g.id) ?? [];
+    for (const def of defs.values()) {
+      const levels = own.map((m) => assess(m, def, own)).filter((a) => !a.excluded).map((a) => a.level);
+      if (!levels.length) continue;
+      const v = g.headline?.[def.key];
+      if (!v && db.materials.find((x) => x.id === g.materialId)?.headline?.[def.key]?.notApplicable) continue;
+      assert.ok(v, `${g.id} publishes a value ${def.key} accepts, and has none`);
+      if (levels.includes(LEVEL.COMPARABLE) && !v.from && !v.pinned) assert.equal(v.level, LEVEL.COMPARABLE, `${g.id} ${def.key}`);
+      checked++;
+    }
+  }
+  assert.ok(checked > 3000, `only ${checked}`);
+});
+
+test('the notch, the test temperature and an excluded unstated direction are conditions of a value, as the direction and the load are', () => {
+  const impact = [...defs.values()].find((d) => d.notch);
+  const layer = [...defs.values()].find((d) => d.unstatedDirection === 'excluded');
+  const bar = (over) => ({ id: 'V999999', gradeId: 'G999-01', numeric: true, dataStatus: 'Published value', property: impact.valueProperties[0], unit: impact.unit, value: 5,
+    implausible: false, specimenType: 'Printed specimen', specimenForm: 'printed', moistureState: 'not-stated', postProcessingState: 'not-stated', direction: 'XY', notch: impact.notch, ...over });
+  assert.deepEqual(assess(bar({}), impact, []), { level: LEVEL.COMPARABLE, caveat: null });
+  assert.equal(assess(bar({ testTemperatureC: 25 }), impact, []).level, LEVEL.COMPARABLE, '25 °C is inside the laboratory\'s 23 ± 2 °C');
+  assert.deepEqual(assess(bar({ direction: 'not-applicable' }), impact, []), { level: LEVEL.AS_PUBLISHED, caveat: 'unstated-direction' });
+  assert.match(assess(bar({ testTemperatureC: -30 }), impact, []).excluded, /-30 °C/);
+  assert.match(assess(bar({ notch: 'Unnotched' }), impact, []).excluded, /unnotched/);
+  assert.match(assess(bar({ notch: 'Not published' }), impact, []).excluded, /does not state whether the bar was notched/);
+  assert.ok(assess(bar({ property: 'Izod impact strength' }), impact, []).excluded);
+  assert.ok(assess(bar({ property: 'Izod impact strength', unit: 'J/m' }), impact, []).excluded);
+  const pulled = (over) => bar({ property: layer.valueProperties[0], unit: layer.unit, value: 20, notch: 'Not applicable', direction: layer.direction, ...over });
+  assert.deepEqual(assess(pulled({}), layer, []), { level: LEVEL.COMPARABLE, caveat: null });
+  for (const direction of ['unknown', 'not-applicable', 'XY', 'XZ', 'ZX']) assert.ok(assess(pulled({ direction }), layer, []).excluded, direction);
 });
 
 test('a comparable value is preferred to one published without a direction, whatever else the other has', () => {
