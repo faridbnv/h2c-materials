@@ -116,8 +116,9 @@ export function renderNoResults(host, state, actions) {
   }
   if (q) {
     host.innerHTML = `<div class="empty"><h3>No material is called anything like "${esc(q)}"</h3>
-      <p>Search looks at material names, families, fillers and grade IDs. Brand and product names are
-        not searched; try the polymer instead, such as PLA, PETG or PA6-CF.</p>
+      <p>Search looks at material names, families, polymers, fillers and grade IDs, and at the maker and
+        name of each product. A product this database does not hold finds nothing; try its polymer instead,
+        such as PLA, PETG or PA6-CF.</p>
       <button class="btn btn-primary" id="clear-search">Clear the search</button></div>`;
     host.querySelector('#clear-search').addEventListener('click', () => actions.clearSearch());
     return;

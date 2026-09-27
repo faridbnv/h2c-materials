@@ -47,9 +47,9 @@ flowchart TB
     subgraph TBL["2 · data/tables · the source of truth, plain text, one fact in one place"]
         direction LR
         REC["Records<br/>materials · grades · measurements<br/>profiles · evidence · prices"]
-        SEL["Editorial choices<br/>headlines: the one measurement a column shows<br/>material_links: what a material cites"]
+        SEL["Editorial choices<br/>headlines: a pin, where the rule picks the wrong<br/>measurement for one product (normally empty)<br/>material_links: what a material cites"]
         REGI["Registry and physics<br/>properties · headline_definitions<br/>polymers · method"]
-        CTX["Context<br/>coverage · fatigue_tests · chamber_bands · polymer_environment<br/>family_entries · family_members · reference"]
+        CTX["Context<br/>coverage · fatigue_tests · chamber_bands · polymer_environment<br/>print_guide · print_guide_materials<br/>family_entries · family_members · reference"]
     end
     TRAN --> REC
     TRAN --> SEL
@@ -62,7 +62,7 @@ flowchart TB
     subgraph CMPL["4 · Compile · build/src/compile.js"]
         direction TB
         NORM["normalize · the sheet's own words become typed values<br/>direction · specimen form · moisture state · annealing schedule<br/>HDT standard and load · nozzle, bed, chamber and drying settings"]
-        ASSM["Assemble each material<br/>a headline is a pointer to one measurement, never a copied number<br/>gates against the H2C envelope · print window · best sampled offer<br/>related evidence · implied bounds · what coverage claims"]
+        ASSM["Assemble each material<br/>each product's value chosen by rule from its own measurements<br/>a material's headline is its products' spread, never a copied number<br/>gates against the H2C envelope · print window · best sampled offer<br/>related evidence · implied bounds · what coverage claims"]
         NORM --> ASSM
     end
     GATE -- "every table passes" --> NORM
@@ -77,7 +77,7 @@ flowchart TB
     end
     ASSM --> OBSV
 
-    VALD{{"6 · Validate<br/>every record filed under the material its grade belongs to<br/>each product value its own grade's, printed, dry, as printed<br/>quarantined values in no summary · XY never merged with Z<br/>coverage agrees with the records · calibration still holds"}}
+    VALD{{"6 · Validate<br/>every record filed under the material its grade belongs to<br/>each product value its own grade's, or its twin's where the two<br/>print one table · printed, dry, as printed<br/>quarantined values in no summary · XY never merged with Z<br/>coverage agrees with the records · calibration still holds"}}
     ASSM --> VALD
     SCRN --> VALD
     VALD -- "any error" --> STOP2(["Build stops"])
@@ -140,22 +140,23 @@ depend on inference.
 ### 1. Sources
 
 Every document the database uses is registered once: publisher, title, revision, the date it was read, its URL, and
-the SHA-256 hash of the file that was read. If a manufacturer silently changes a PDF, the hash no longer matches and
-the build says so. A source that could not be retrieved is recorded as such and nothing may cite it.
+the SHA-256 hash of the file that was read. If a manufacturer silently changes a PDF, the hash no longer matches when
+the document is fetched again, and `npm run audit:sources` reports it. A source that could not be retrieved is recorded
+as such and nothing may cite it.
 
 ### 2. Tables
 
-The database is nineteen CSV files you can open in any editor. The ones that matter to a reader:
+The database is a set of CSV files in `data/tables` you can open in any editor. The ones that matter to a reader:
 
 | Table | One row is |
 |---|---|
 | `materials` | a material as the tool lists it: PLA, PA6-CF, PC FR. An identity, not a product |
-| `grades` | one exact commercial product from one manufacturer (Polymaker PolyMide PA6-CF, Bambu PC FR). A material has one or more |
+| `grades` | one exact commercial product from one manufacturer (Polymaker FIBERON PA6 CF20, Bambu Lab PC FR). A material has one or more |
 | `measurements` | one published test result of one grade: the property, the value exactly as printed, the unit, the normalised value, the print direction, the specimen, the moisture and annealing state, the standard and load, the source and the page it is on |
 | `profiles` | one product's recommended print settings (nozzle, bed, chamber, drying) with the source's own words kept beside the typed numbers |
 | `evidence` | one qualitative statement: chemical resistance, food contact, UV, flammability, with its source |
 | `prices` | one Canadian retail listing on one day |
-| `headlines` | which single measurement stands for a material in each column of the table (see below) |
+| `headlines` | a pin: the measurement that is one product's value where the rule would choose another, with a reason. Normally empty |
 | `polymers` | what the estimate model knows about each polymer: crystallinity, melting point, water uptake, neat density |
 | `coverage` | what was looked for and not found, so a blank is a recorded absence, not an oversight |
 
@@ -166,7 +167,7 @@ measurements, one measurement is published in exactly one source.
 erDiagram
     POLYMERS ||--o{ MATERIALS : "gives its physics to"
     MATERIALS ||--o{ GRADES : "is sold as"
-    MATERIALS ||--o{ HEADLINES : "shows one value per column"
+    MATERIALS ||--o{ HEADLINES : "may pin a product's value"
     MATERIALS ||--o{ COVERAGE : "records what was looked for"
     MATERIALS ||--o{ MATERIAL_LINKS : "cites"
     MATERIALS ||--o| CHAMBER_BANDS : "may carry a researched band"
@@ -179,7 +180,7 @@ erDiagram
     SOURCES ||--o{ GRADES : "identifies"
     PROPERTIES ||--o{ MEASUREMENTS : "is what was measured"
     HEADLINE_DEFINITIONS ||--o{ HEADLINES : "defines the column"
-    HEADLINES }o--|| MEASUREMENTS : "names the one shown"
+    HEADLINES }o--|| MEASUREMENTS : "names the one pinned"
     MEASUREMENTS ||--o| FATIGUE_TESTS : "if fatigue, its loading"
 
     MATERIALS {
@@ -208,8 +209,8 @@ erDiagram
     }
     HEADLINES {
         string HeadlineKey "density, stiffness, strength, layer strength, stretch, impact, heat, glass transition, price"
-        string MeasurementID "the measurement this column shows"
-        string Use "the value itself, or context cited beside it"
+        string MeasurementID "the product's measurement this column shows"
+        string Reason "why the rule's choice is wrong, checkable against the source"
     }
     POLYMERS {
         string PolymerID "PA6, PETG, TPU"
@@ -220,8 +221,9 @@ erDiagram
     }
 ```
 
-Two rules shape all of them. **Nothing that can be calculated is stored**: a material's headline is a pointer to a
-measurement, never a number typed twice; a per-kilogram price is computed from list price and net mass. **Nothing is
+Two rules shape all of them. **Nothing that can be calculated is stored**: a product's value is a pointer to its
+measurement, and a material's headline is computed from its products, never a number typed twice; a per-kilogram price
+is computed from list price and net mass. **Nothing is
 deleted**: a wrong or duplicated record is retired with a note, so the audit trail survives.
 
 ### 3. The gate and the build
@@ -229,14 +231,15 @@ deleted**: a wrong or duplicated record is retired with a note, so the audit tra
 Before anything is computed, every table is checked against a written schema: every column has a type, a required
 value or an explicit "Not published" or "Not applicable" (a blank cell is an error, and nothing ever becomes zero),
 every ID points at a row that exists, every categorical value is in a closed list. A mistake is reported by file,
-line, record and field in about a tenth of a second.
+line, record and field in under a second.
 
 The build then assembles the database and checks what a schema cannot: that a measurement is filed under the
-material its grade belongs to, that a product's value cites that product's own measurement, that a value marked
-"quarantined" reaches no summary, that the nozzle text "255-275 °C" and the typed numbers beside it agree. Any error
-stops the build, so a database that has drifted can never reach the page. Warnings (an imprecise estimate, a heat
-value whose load the sheet never stated) are listed per record and each has to be reviewed and accepted with a
-written reason before the build is allowed to pass.
+material its grade belongs to, that a product's value cites that product's own measurement, or its twin's where the two
+print one table, that a value marked "quarantined" reaches no summary, that the nozzle text "255-275 °C" and the typed
+numbers beside it agree. Any error stops the build, so a database that has drifted can never reach the page. Warnings
+that need a reviewer (an outlier, an estimate left imprecise beside a usable published value, a reinforced material
+below its unfilled sibling, a material with no measurements) are listed per record, and each has to be fixed or
+accepted with a written reason before `npm run verify` passes.
 
 Estimates (below) are added last, as a separate layer over a database that is already complete and valid without
 them.
@@ -251,10 +254,11 @@ compared with the same logic run outside the browser, so the screen cannot drift
 
 ## A material is the spread of its products
 
-A material such as PLA is not one number: its two hundred products differ. Each product's own values are chosen from its own
-data sheet by a fixed rule (a printed or unstated specimen, the column's direction, dry or unstated, as printed), and a
-material's cell shows **the typical value of its products (their median), with their range and how many products
-under it**: `2.45` over `0.95–4.24 · 38` for PLA's stiffness. The range is different products, not the uncertainty of one.
+A material such as PLA is not one number: its two hundred products differ. Each product's own values are chosen from
+its own data sheet by a fixed rule (a printed or unstated specimen, the column's direction, dry or unstated, as
+printed), and a material's cell shows **the typical value of its products (their median), with their range and how
+many products under it**: `2.45` over `0.95–4.24 · 38` for PLA's stiffness. The range is different products, not the
+uncertainty of one.
 
 A requirement is checked **product by product, all requirements at once**, including whether the H2C can print that
 product on its own settings. A material passes when at least one of its products meets everything, and the result says
@@ -263,9 +267,10 @@ publish too little to judge are counted but never held against the material. Ope
 see which products pass, each with its own numbers, how to print it and what its maker says about it.
 
 Values whose source does not state the test direction or load are counted apart: they often read like moulded bars
-(of PLA's products, the 27 that state an XY stiffness range from 0.95 to 2.95 GPa; 30 of the 46 that state no
-direction claim 3 GPa or more). They are shown and not compared, unless you tick **Also count values published without
-their test direction or load** in the Evidence filters.
+(of PLA's products, 3 of the 38 that state an XY stiffness reach 3 GPa; 27 of the 41 that state no direction claim 3
+GPa or more). They are shown and not compared, unless you tick **Also count values published without their test
+direction or load** in the Evidence filters. The layer strength never counts a value with no stated direction, ticked
+or not: a bar pulled in an unstated direction is not a bar pulled across the layers (D92).
 
 ## The four kinds of number
 
@@ -274,26 +279,28 @@ evidence.
 
 | On screen | What it is | Can it satisfy a requirement? |
 |---|---|---|
-| `2.27` over `0.95–2.95 · 27` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
+| `2.45` over `0.95–4.24 · 38` | **Measured, across products.** The typical value of the products that publish it comparably, their range and how many. Select it for the details, and the material's Products tab for each product's own measurement, grade, source and page | Yes, product by product |
 | `4.43` | **Measured, one product.** The only product that publishes it comparably | Yes |
-| `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (yield instead of ultimate), a moulded resin value, an annealed part. Shown so you know something is known | No |
+| `46*` | **Related.** A real measurement of the same property that was not promoted: another direction, another endpoint (elongation at yield in the stretch column), a moulded resin value, an annealed part. Shown so you know something is known | No |
 | `~71–92†` | **Estimated.** The likely range (80 %) of a statistical model of every observation in the database, converted to this column. Never a point, always a range | No. In Explore mode it can rule a material *out* |
 | `n/a` | **Not applicable.** The property does not mean anything for this material (heat deflection of a rubber-like elastomer, structural values of a support material) | No; in Explore it screens the same way |
 | `—` | **Not published** in any registered source. Hover to see which kind of absence | No |
 
-Two marks qualify a measured value: `80?` means the source named the standard but not the load, so an HDT value of
-80 °C may be at 0.45 MPa or 1.8 MPa and can neither pass nor fail a heat requirement outright; `35≈` means the
-published mean ± spread contains your threshold, so the mean passes but some parts may not.
+One mark qualifies a measured value: `35≈` means the published mean ± spread contains your threshold, so the mean
+passes but some parts may not. A heat value whose source names no load is counted apart, like a value with no stated
+direction.
 
 ## Estimates: what they are and what they may do
 
-About a third of the headline cells have no published value. Rather than leave them blank, the build estimates them
-from everything else it knows: the material's own other measurements (a break strength where the ultimate strength
-is missing, a flexural modulus where the tensile one is), its other grades, its resin supplier's sheet, and its
-polymer family. Each piece of evidence is converted to the column's meaning with a documented offset and spread (a
-Z-direction strength converts to an XY one with a wide spread; a break strength to an ultimate one with a narrow one),
-and the whole model is checked by hiding every measured value in turn and predicting it: the 80 % range has to
-contain the hidden value 80 % of the time, and the build fails if it does not.
+Many headline cells have no published value ([build/snapshot/counts.md](../build/snapshot/counts.md) counts the cells
+products fill and the ones estimated). In the five columns the model covers (density, stiffness, strength, stretch and
+heat resistance), rather than leave them blank, the build estimates them from everything else it knows: the
+material's own other measurements (a break strength where the ultimate strength is missing, a flexural modulus where
+the tensile one is), its other grades, its resin supplier's sheet, and its polymer family. Each piece of evidence is
+converted to the column's meaning with a documented offset and spread (a Z-direction strength converts to an XY one
+with a wide spread; a break strength to an ultimate one with a narrow one), and the whole model is checked by hiding
+every measured value in turn and predicting it: the 80 % range has to contain the hidden value 80 % of the time, and
+the build fails if it does not.
 
 Physics the model follows: a fibre raises a semicrystalline polymer's heat deflection towards its melting point but an
 amorphous one's only a little past its glass transition; PET and PVA print amorphous and are treated as such; a
@@ -307,8 +314,8 @@ What an estimate may do is deliberately limited:
 - **In Explore mode it may screen a material out**, but only on an end of its range the build has demonstrated. Every
   build hides each measured value as far as the estimate's kind of evidence would, predicts it, and sets the range's
   ends where a new true value falls beyond them no more than 10 % of the time with 90 % confidence. An end the
-  material's own data contradict (PP's own 460 % elongation against a family range topping at 118 %) is left open and
-  screens nothing. The drawer says, for each estimate, which ends may screen and why.
+  material's own data contradict (PA6's own 51 % elongation, above the range the model would screen on) is left open
+  and screens nothing. The drawer says, for each estimate, which ends may screen and why.
 - **A material's own printed measurement can veto a screen.** If its published yield strength already meets your
   minimum, no estimate of its ultimate strength can remove it.
 
@@ -323,8 +330,10 @@ least 100"). The mode decides what happens to the last two.
 - **Confirmed only (Strict):** only materials with a PASS on every requirement are candidates. Measured evidence only.
   This is the mode for a shortlist you will act on.
 - **Include uncertain (Explore):** materials with UNKNOWN or INDETERMINATE answers stay visible and flagged, so a gap
-  in the database does not hide a material that might suit. With **Use estimates** on, estimates may screen as above.
-  The SCREENED chip brings screened materials back.
+  in the database does not hide a material that might suit. With **Use estimates and polymer data** on, estimates may
+  screen as above, and so may a base polymer's published behaviour where the material has no record of its own in a
+  category and the reference finds the polymer resistant to nothing in it (D64). The SCREENED chip brings screened
+  materials back.
 
 The whole of that logic, for one requirement against one material, is this. The verdict always describes the evidence;
 only the mode decides whether the material stays on your list.
@@ -345,7 +354,7 @@ flowchart TB
         PASS["PASS"]
         FAILV["FAIL"]
         INDT["INDETERMINATE<br/>a published range straddles it"]
-        BRKT["INDETERMINATE<br/>the load was never stated, so the value<br/>is read as a bracket, which may screen"]
+        ASPB["UNKNOWN<br/>published without its direction or load:<br/>not compared unless you count such values"]
         NAPP["UNKNOWN · n/a<br/>the property does not apply,<br/>and may screen in Explore"]
         UNK1["UNKNOWN<br/>not published in any registered source"]
         UNK2["UNKNOWN<br/>the estimate is shown and decides nothing"]
@@ -356,7 +365,7 @@ flowchart TB
     CMPV -- "the value meets it" --> PASS
     CMPV -- "the value misses it" --> FAILV
     CMPV -- "a range straddles it" --> INDT
-    COMPLETE -- "no" --> BRKT
+    COMPLETE -- "no" --> ASPB
     APPL -- "no" --> NAPP
     ESTQ -- "no" --> UNK1
     SCRQ -- "no" --> UNK2
@@ -375,7 +384,7 @@ flowchart TB
 
     class PASS,KEEP good
     class FAILV,DROP bad
-    class INDT,BRKT,NAPP,UNK1,UNK2,UNK3,SCRD grey
+    class INDT,ASPB,NAPP,UNK1,UNK2,UNK3,SCRD grey
     class HASV,COMPLETE,CMPV,APPL,ESTQ,SCRQ,VETO,MODE ask
 ```
 
@@ -385,18 +394,26 @@ is doing the work.
 ## Printability on the H2C
 
 The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared with each product's own published print
-profile, and each product reports **within**, **exceeds**, **partial** (a chamber window the printer only partly reaches)
-or **unknown**; a product with no profile is unknown, never a pass. A material's printability is its products': the
+profile, and each product reports **within**, **exceeds**, **partial** (a chamber window the printer only partly
+reaches), **recommended higher** (a recommended window above the H2C's) or **unknown**. Where its own sheet says
+nothing on a part, a product reads its twin's sheet (another product of the same material that prints the same table,
+D89), then Bambu Lab's Filament Guide for its type (D88), each labelled as such wherever it is shown; its own sheet
+always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the
 drawer counts how many of them the H2C can print on each axis, and a requirement on printing is met by a product that
-meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a requirement and never excludes. Where a
-source says a heated chamber is not needed, that counts; "enclosure recommended" counts as nothing. A material with
-no product at all shows an estimated nozzle and bed window, marked as such, that decides nothing.
+meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a
+requirement and never fails a product. Where a source says a heated chamber is not needed, that counts. For the nine
+types the guide asks an enclosure for (ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF, PPS-CF), an enclosure
+asked for with no temperature, by the guide or by the product's own maker, is met by the H2C's heated chamber (D90,
+D93); for any other type "enclosure recommended" counts as nothing. A material whose sources publish no nozzle or bed
+window shows an estimated one, marked as such, that decides nothing.
 
 ## How to check a number yourself
 
-- **Hover** a value for its measurement ID, grade and source. **Open the drawer** (click the row) for the full
-  record: every measurement of the material with its conditions, every estimate with its evidence and limits, the
-  print profiles with the source's own words, the chemical evidence with the sheet's own wording.
+- **Select** a value: one product's opens its measurement, with its grade and source; a material's typical value says
+  what it rests on and offers **Open its products**, the drawer's Products tab. **Open the drawer** (click the row)
+  for the full record: every measurement of the material with its conditions, every estimate with its evidence and
+  limits, each product's own values and print settings, the print profiles with the source's own words, the chemical
+  evidence with the sheet's own wording.
 - **Compare** puts up to six materials side by side with the measurement conditions under each number, and prints.
 - **Export** writes a CSV in which estimates are in their own column and can never be mistaken for measurements.
 - If you have the repository: `npm run trace -- PETG` prints every headline of a material back to its source file,
