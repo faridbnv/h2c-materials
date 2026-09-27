@@ -29,7 +29,7 @@ Three places, in the order to try them.
 1. **The source comment.** Most traps here produce plausible-looking wrong answers rather than
    errors, so the reason usually sits directly above the code.
 2. **[DECISIONS.md](DECISIONS.md).** Numbered, with an index at the head saying which still hold, each saying what
-   would break if it were reversed, followed by a table of bugs that shipped and what pins each one now.
+   would break if it were reversed, and a table of bugs worth remembering, with what pins each one now.
 3. **[audits/](audits/).** Each audit pass in its own dated folder: the report as it was delivered, and the outcome
    of every finding. The latest, the [re-center review](audits/2026-09-25-re-center/REPORT.md), holds the plan now
    being followed; what is decided from it is in [GOALS.md](GOALS.md).
@@ -53,12 +53,12 @@ Those tests read oddly without the context, which is exactly why the context is 
 **If you weaken a rule in the list in the README, say so in DECISIONS.md.** Those rules are
 what the tool asserts about its own trustworthiness.
 
-**Names live in one place.** `app/js/ui/labels.js` for properties and criteria,
-`schema/vocab/environment-categories.csv` for environment categories. A second way to name something
-does not look wrong where you write it; it looks wrong three screens away, to a reader who now
-doubts the number beside it.
+**Names live in one place.** `data/tables/headline_definitions.csv` for properties, `app/js/ui/labels.js` for
+criteria and verdicts, `schema/vocab/environment-categories.csv` for environment categories. A second way to name
+something does not look wrong where you write it; it looks wrong three screens away, to a reader who now doubts the
+number beside it.
 
-The [systematic data audit](audits/2026-09-13-systematic-data/REPORT.md) includes every filament and family, all source/record locators and reproducible validation. D40 supersedes the old peer-exclusion rule.
+The [systematic data audit](audits/2026-09-13-systematic-data/REPORT.md) includes every filament and family, all source/record locators and reproducible validation. Its rule that peer observations are context, not exclusion bounds, is D40, since superseded by D42 and then D43.
 
 The [transfer verification](audits/2026-09-14-transfer-verification/REPORT.md) proves the workbook reached the tables cell by cell, records every source correction since (m10 to m18), and explains the screening back-test (D48) and the checks `npm run verify` now runs.
 

@@ -4,10 +4,11 @@
 one runs. AGENTS.md keeps the rules every change follows.*
 
 **Paused on 2026-09-25 by the owner.** No new batch until the re-center in `docs/GOALS.md` is built. The owner
-lifted it once, for the 74 sheets deferred for their identity (batch b34, D87). The documents
-already fetched may be mined for the record tier, print recipes and makers' know-how under the re-center plan
-(`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is not a batch, and it does not travel this pipeline.
-What follows is how a batch was run, kept for when imports resume.
+lifted it for the 74 sheets deferred for their identity (batch b34, and batch b35 for the three questions b34 left;
+D87). The documents already fetched may be mined for the record tier, print recipes and makers' know-how under the
+re-center plan (`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is not a batch, and it does not travel
+this pipeline. Phase 6 fetched new documents only where one settled a blocking answer, and those did travel it
+(batch b36; GOALS, phase 6, decision 4). What follows is how a batch was run, kept for when imports resume.
 
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
 in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.
@@ -67,10 +68,11 @@ The rules that differ from editing a table by hand:
 - **A copy is not a source.** A document is its bytes; the same file from a maker and a retailer is one document.
   Where two sheets print the same numbers under different product names, the ledger queues them rather than
   consolidating: that is a reading of the sheet, not a rule.
-- **An identity the rule cannot settle is a ruling**, written once in `rulings/rulings.csv` and applied to every
-  sheet that says the same thing. "Nylon" names a family, and a family owns no product (D44): a sheet that says only
-  that goes to the family's "polymer not stated" home (R167, D87). An `identity` ruling names a polymer; a `material`
-  ruling names the material itself, for a home or a polymer with no row. A TPU is filed by its Shore rating.
+- **An identity the rule cannot settle is a ruling**, written once in
+  `docs/audits/2026-09-18-v2-import/rulings/rulings.csv` and applied to every sheet that says the same thing.
+  "Nylon" names a family, and a family owns no product (D44): a sheet that says only that goes to the family's
+  "polymer not stated" home (R167, D87). An `identity` ruling names a polymer; a `material` ruling names the material
+  itself, for a home or a polymer with no row. A TPU is filed by its Shore rating.
 - **A batch is a migration.** `scripts/migrate/mNN-batch-<name>.mjs` pins the proposals
   (`archive/ingest-2026-09-18/proposals/<batch>/`) and calls `applyBatch`, so the migration sequence stays the one
   history of how the data got here, and a re-run is a no-op.
