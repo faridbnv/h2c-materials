@@ -18,8 +18,8 @@
       "sha256": "5533fe64925e6737e2812efb88e07b692c6e1009650e267a6f856582639fddb3"
     },
     "measurements": {
-      "rows": 11444,
-      "sha256": "c9b9a522b68d37c86216c65f31ba7bb9084ff955bb9514cdaaae54b2b82d15bb"
+      "rows": 11456,
+      "sha256": "272fd62ca578c713b25a25c4dc028ee8430387aa090989454170371588f6aaa1"
     },
     "fatigue_tests": {
       "rows": 42,

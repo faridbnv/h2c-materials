@@ -2609,6 +2609,10 @@ screened out of Lightweight structure and PLA-PHB out of the Outdoor structural 
 45/45 and the 20 added values out, and the flat bars of the makers who label them by their raster stop counting.
 Revisit it if a sheet printing both an XY and a ±45° bar of an unfilled filament shows them far apart.
 
+m199 (2026-09-27) read what m168 left: each of the twelve pages' ±45° tab prints an "Ultimate strength", the maximum
+stress, now the product's XY tensile strength (16 to 77 MPa), read from the same hash-checked bytes. No template asks
+it without a stiffness these products already had, and no answer moved.
+
 ## D92. Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition
 
 > **In plain words:** You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared.

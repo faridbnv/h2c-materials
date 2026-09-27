@@ -473,10 +473,10 @@ count.
   than the pages: its bars were printed "Along the tension stress", "Successively at 45° and – 45°, close to 3D
   printing standards" and "Perpendicular to the tension stress", to ISO 527-2/1A, drawn in plan. Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states
   "ISO 3167 A test specimens" (a shape, not how it was made), and Flex prints no sentence.
-- **Nanovia's "Ultimate strength" was never read.** Each tensile tab prints it (the maximum stress, which the registry
-  holds as Tensile strength (endpoint unspecified)), and the reader has no property for the words, so it sits in the
-  record tier (`source_facts`) on every page. The ±45° tab's would be the XY tensile strength of the twelve products
-  whose ±45° modulus m168 recorded; entering it is a re-read like m168's.
+- **Nanovia's "Ultimate strength" is read on the ±45° tab only.** m199 added the ±45° tab's ultimate strength as the
+  XY tensile strength of the twelve products whose ±45° modulus m168 recorded (16 to 77 MPa). The 0° and 90° tabs'
+  strengths stay in the record tier (`source_facts`), as their other rows do, and the six pages that print a 0° tab
+  alone (above) still give their products no XY value.
 - **A ±45° bar beside the sheet's own XY bar stays apart** (D91). Essentium's PPS-CF prints XY, 45/45 and ZX columns;
   its 45/45 tensile, flexural and Izod rows keep Direction 45/45, and its 45/45 bar reaches 71 % of the XY strength and
   61 % of the XY stiffness: it is the one sheet held that labels both an XY and a ±45° bar. The ruling named tensile
@@ -504,7 +504,7 @@ count.
 ```bash
 npm run audit:gaps   # the answers that still change when as-published values are admitted
 npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and (notes like '%m155%' or notes like '%m168%') group by 1"
-npm run sql --silent -- "select sourceid, text from source_facts where sourceid like 'R-NANOVIA-%' and text like 'Ultimate strength %'"
+npm run sql --silent -- "select sourceid, raw_value, locator from measurements where sourceid like 'R-NANOVIA-%' and property like 'Tensile strength%' and locator like '%Ultimate%strength (+45%'"
 ```
 
 ---

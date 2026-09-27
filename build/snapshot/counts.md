@@ -15,11 +15,11 @@ rather than repeat a number.
 | … reading values from a twin's sheet | 46 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 461 | where their own sheet is silent (D88); 15 guide rows |
 | … with a maker's know-how statement | 883 | lane 3 |
-| Measurements | 11,146 | active rows |
-| … with a usable number | 10,970 |  |
-| Product values | 4,315 | one per product and headline, chosen by rule (D83) |
-| Material values from products | 652 | headline cells of in-scope materials |
-| Material values estimated | 155 | where no product publishes (D43) |
+| Measurements | 11,158 | active rows |
+| … with a usable number | 10,982 |  |
+| Product values | 4,327 | one per product and headline, chosen by rule (D83) |
+| Material values from products | 654 | headline cells of in-scope materials |
+| Material values estimated | 153 | where no product publishes (D43) |
 | Print profiles | 1,274 |  |
 | Evidence records | 565 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 4,502 | the makers' words, shown in the panel only (D85) |
