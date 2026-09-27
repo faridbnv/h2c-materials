@@ -156,9 +156,13 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Lower bound excludes | canonical | string | yes | Not applicable | conditioned | Moisture state whose measurements bound nothing (a conditioned nylon stretches further than a dry one). |
 | Lower bound basis | prose | string | yes | Not applicable |  | Why the bound holds. |
 | Direction | canonical | string | yes | Not applicable | [directions](#vocab-directions) | Print direction a backing measurement must have. |
+| Unstated direction | canonical | string | yes | Not applicable | as-published, excluded | What a measurement whose source states no direction is to a headline with a Direction: as-published, a value that may be this direction and is counted apart (D84; a flat bar is how makers test unless they say otherwise); or excluded, no value of it at all (D92; a maker who pulls a bar across its layers says so). Not applicable where Direction is. |
 | Load MPa | canonical | number | yes | Not applicable |  | Test load the headline is defined at; a backing measurement with an unstated load is flagged. |
+| Notch | canonical | string | yes |  | [notches](#vocab-notches) | The notch a backing impact measurement must state (D92): a value with another notch, or none stated, is no value of the headline and stays evidence. Not applicable: the headline is not an impact test. |
+| Test temperature °C | canonical | number | yes | Not applicable |  | The test temperature the headline is defined at (D92): a backing measurement whose Test temperature °C is stated and more than 2 °C from it (the standard laboratory atmosphere of ISO 291 and ASTM D618 is 23 ± 2 °C) is no value of the headline; one that states none counts. Not applicable: any. |
 | Evidence group | canonical | string | yes | Not applicable | mechanical, thermal | Which citation list the headline's evidence joins. |
 | Endpoint note | canonical | boolean | yes |  |  | Whether related evidence of a non-first property is labelled as a different endpoint. |
+| Comparison note | prose | string | yes | Not applicable |  | What the headline compares, and why its related values that are not its own (another test, unit, notch, direction or temperature) are left out, in a reader's words. The drawer shows it beside those values (D92). Not applicable: the per-value reason says enough. |
 | Short | prose | string | yes |  |  | Column and pill label. |
 | Plain | prose | string | yes |  |  | Plain-language name. |
 | Technical | prose | string | yes |  |  | Technical name, shown as a subtitle. |
@@ -260,7 +264,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Post-processing state | canonical | string | yes |  | [post-processing-states](#vocab-post-processing-states) | The reviewed post-processing state: as-printed, annealed or not-stated. The build decides on this, never on the wording; a disagreement with the wording stops the build unless Parse review explains it. |
 | Anneal °C | canonical | number | yes | Not published, Not applicable |  | Annealing temperature the Post-processing wording states; the build decides on this column and the parser checks it (PARSE-MISMATCH). Not published: annealed, temperature not stated. Not applicable: not annealed, or post-processing not stated. |
 | Anneal h | canonical | number | yes | Not published, Not applicable |  | Annealing time in hours the wording states (30 min is 0.5). Not published: annealed, time not stated. Not applicable: not annealed, or post-processing not stated. |
-| Test temperature | raw | string | yes |  |  | Test temperature as published. |
+| Test temperature | raw | string | yes |  |  | Test temperature as published. Test temperature °C beside it is what the build reads. |
+| Test temperature °C | canonical | number | yes | Not published |  | The test temperature the Test temperature wording states, in °C; the build decides on this column and the parser checks it (PARSE-MISMATCH). A headline defined at a temperature takes no value stated at another (D92). Not published: the source states none, or states it only in words (room temperature). |
 | Standard / load | raw | string | yes |  |  | Test standard and load as published, in the source's words. Standards beside it is what the build reads. |
 | Standards | canonical | list (";") | yes | Not published | list of [standards](#vocab-standards) | The standards the source names, at family level and one spelling each: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the specimen speed are conditions of one test and the row's own columns carry them. Not published where the text names none, which a melt-flow condition or a study's own method does. |
 | Test load MPa | canonical | number | yes | Not applicable, Not published |  | Reviewed test load of an HDT measurement; Not published when the source states none; Not applicable for other properties. |
@@ -1087,7 +1092,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-notches"></a>
 ### notches
 
-`schema/vocab/notches.csv`, used by measurements.Notch.
+`schema/vocab/notches.csv`, used by headline_definitions.Notch, measurements.Notch.
 
 | Value | Meaning |
 |---|---|

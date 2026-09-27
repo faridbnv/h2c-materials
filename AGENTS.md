@@ -109,7 +109,7 @@ Rules the tooling enforces:
   the typed column beside it (Moisture state, Post-processing state), which is what the build reads.
 - **A lint finding is fixed or accepted with a reason.** `npm run data:lint -- --accept CODE "reason"`
   writes `data/review/accepted-findings.csv`; an accepted finding that no longer occurs must be removed.
-- **Raw columns keep the source's own text.** Typed columns beside them (Test load MPa, the profile
+- **Raw columns keep the source's own text.** Typed columns beside them (Test load MPa, Test temperature °C, the profile
   windows) carry the value the build uses, and the parser checks they agree (PARSE-MISMATCH); a deliberate
   difference is explained in Parse review.
 
@@ -225,7 +225,9 @@ and units. If it only means something for some filaments, set "Applies to", for 
 
 **Add a selectable headline.** A row in `headline_definitions.csv` (the schema describes every column); each
 product's value is chosen from its measurements by rule. The filter rail, charts, table, export and drawer pick it up. Leave
-Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise.
+Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise. What a value must be is
+a column of the row, never a branch in `products.js`: its direction and what a value with none is (Unstated direction),
+its load, its notch and its test temperature (D92). Say in Comparison note what it leaves out; the drawer shows it.
 
 ## Importing a batch of data sheets
 

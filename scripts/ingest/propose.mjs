@@ -30,7 +30,7 @@ import { readStandards } from '../../build/src/normalize/standards.js';
 import { readPostProcessingState, parseAnnealSchedule, specimenForm } from '../../build/src/normalize/specimen.js';
 import { readMoistureState } from '../../build/src/normalize/moisture.js';
 import { parseHdtStandard } from '../../build/src/normalize/thermal.js';
-import { profileCellsFromParsed, loadCellFromParsed } from '../../build/src/typed-values.js';
+import { profileCellsFromParsed, loadCellFromParsed, testTemperatureCell } from '../../build/src/typed-values.js';
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
 import { classifyProduct, collidesWith, plainMaterialFor } from './classify.mjs';
 
@@ -2226,6 +2226,8 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
     'Anneal °C': postState === 'annealed' ? (schedule?.tempC == null ? NP : String(schedule.tempC)) : NA,
     'Anneal h': postState === 'annealed' ? (schedule?.hours == null ? NP : String(schedule.hours)) : NA,
     'Test temperature': at ? `${at[1].replace(',', '.')}°C` : NP,
+    // The typed test temperature beside it, from the build's own reader, which checks it on every build (m175).
+    'Test temperature °C': testTemperatureCell(at ? `${at[1].replace(',', '.')}°C` : NP),
     'Standard / load': asciiPunctuation(standardText) || NP, Standards: standards.length ? standards.join('; ') : NP,
     'Test load MPa': v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(standardText)) : NA,
     Notch: v.notch || NA,

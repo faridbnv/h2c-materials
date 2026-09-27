@@ -10,15 +10,15 @@ rather than repeat a number.
 | … family entries and aliases | 21 | names that own no product (D44, D86) |
 | … out of scope | 17 | recorded, never a candidate |
 | Products | 1,131 | active procurement grades |
-| … with a comparable value for at least one property | 999 | D84 |
+| … with a comparable value for at least one property | 1,009 | D84 |
 | … with a print profile of their own | 932 |  |
 | … reading values from a twin's sheet | 46 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 507 | where their own sheet is silent (D88); 15 guide rows |
 | … with a maker's know-how statement | 887 | lane 3 |
 | Measurements | 11,090 | active rows |
 | … with a usable number | 10,914 |  |
-| Product values | 3,522 | one per product and headline, chosen by rule (D83) |
-| Material values from products | 465 | headline cells of in-scope materials |
+| Product values | 4,202 | one per product and headline, chosen by rule (D83) |
+| Material values from products | 620 | headline cells of in-scope materials |
 | Material values estimated | 161 | where no product publishes (D43) |
 | Print profiles | 1,196 |  |
 | Evidence records | 542 | exposure, flammability, post-processing and the rest |

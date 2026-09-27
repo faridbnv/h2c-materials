@@ -93,7 +93,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Each product gets its own estimate from the same model, shown for information and deciding nothing. | Amended by D83: only a product without a comparable value of its own gets one |
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | Every property with thirty or more values has plausibility limits drawn from physics, and each value outside them is checked against its sheet. | In force |
 | D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate) and D89 (a twin reads its sibling's values and recipe) |
-| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | In force |
+| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature) |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
@@ -101,6 +101,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88 |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
+| D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | In force |
 
 <!-- end index -->
 
@@ -2237,8 +2238,13 @@ TPU-CF gained a second reason.
 ## D84. Two evidence levels: comparable decides; a value published without its direction or load is counted apart
 
 > **In plain words:** Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked.
+> **Status:** amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md). Built in re-center phases 1 and 2.*
+
+*Amended by D92 (2026-09-26): a headline says what a value with no stated direction is to it. For the XY headlines it
+stays as published; for the layer strength, along Z, it is no value at all. And a headline may set a notch and a test
+temperature, which a value must meet as it meets the direction and the load.*
 
 A value is **comparable** when it is what the headline says: a printed or unstated specimen, the headline's direction,
 dry or unstated, at the headline's load. It is **as published** when the source leaves the direction or the test load
@@ -2600,3 +2606,63 @@ Arnitel ID 2045 (390 %) as well; PA6-CF passes the Outdoor structural part on on
 screened out of Lightweight structure and PLA-PHB out of the Outdoor structural part. Reversing it sends 7 rows back to
 45/45 and the 20 added values out, and the flat bars of the makers who label them by their raster stop counting.
 Revisit it if a sheet printing both an XY and a ±45° bar of an unfilled filament shows them far apart.
+
+## D92. Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition
+
+> **In plain words:** You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared.
+
+*Built in re-center phase 6, lane 4 (docs/audits/2026-09-25-re-center/REPORT.md, lane 4, item 3; scorecard C1), with
+m175 and m176. It amends D84.*
+
+The requirements an engineer states for a printed part include how well its layers hold, how brittle it is and where
+it softens. The database held the values, 11,000 rows of them, and none could be asked for: 135 products publish a
+tensile strength along Z, about 200 a notched impact strength and 344 a glass transition. Each is now a row of
+`headline_definitions.csv`, and each product's value is chosen from its own measurements by the rule of D83. None is
+estimated: the estimate model has no conversion for them, and a registry row cannot switch one on (D46).
+
+- **The layer strength** (`tensileStrengthZ`, MPa) is the tensile strength of a bar the source says it printed upright
+  and pulled along Z: the same three endpoints as the in-plane strength, direction Z. A value with no stated direction
+  is *not* counted apart as D84 counts it for XY: a maker who pulls a bar across its layers says so, and an unstated
+  strength is almost always a flat or a moulded bar, at about twice the layer strength. So the table gained a column,
+  **Unstated direction**: `as-published` for the three XY headlines (unchanged) and `excluded` here. A bar labelled XZ
+  or ZX is left out too: which of those are upright bars is not settled (Eryone's 27 "X-Z" values run from 8.7 to
+  47 MPa, and the vocabulary's own meanings for the two labels are not ISO/ASTM 52921's).
+- **The notched impact strength** (`charpyNotched`, kJ/m²) is Charpy, notched, in kJ/m² at room temperature: ISO 179
+  and the GB/T 1043 that follows it. Charpy rather than Izod because more products publish it comparably, 72 against
+  45 for notched Izod in kJ/m². Izod clamps a bar upright and strikes it; Charpy supports it at both ends: the numbers
+  are different tests, never mixed. A value in J/m (ASTM D256) is energy per metre of notch and becomes kJ/m² only with
+  the bar's thickness, which no sheet here gives. An unnotched bar absorbs several times a notched one's energy, and a
+  sheet that does not say which it struck could be either. So two more columns: **Notch** (`Notched`) and **Test
+  temperature °C** (23; ISO 291's laboratory atmosphere is 23 ± 2 °C). A value's own test temperature was free text
+  that decided nothing; m175 types it as **Test temperature °C** beside the wording, and the parser checks it on every
+  build (PARSE-MISMATCH). Polymaker's PC PBT prints a notched XY value of 33 kJ/m² and one of 15 kJ/m² at -30 °C on a
+  printed bar. The rule prefers a printed bar, and without the test temperature would have taken 15; it takes 33.
+  Direction is XY, and an unstated direction is as published, as D84 has it for the other XY headlines.
+- **The glass transition** (`glassTransition`, °C) is the product's own value, almost always by DSC. It is a property
+  of the plastic, not of a bar, so it has no direction and no load, and every value that qualifies is comparable. A
+  resin supplier's value (Specimen type `Raw material value`) is the raw material's, not the product's, and is not the
+  product's value, as for every other headline.
+- **What stays out is shown and said.** A fourth column, **Comparison note**, says in a reader's words what a headline
+  compares and why its related values that are not its own are left out; the drawer shows it above every related
+  property's values (the Izod, Charpy and impact blocks; the tensile strength blocks). What stands in a missing
+  headline's place is only in its unit and of its notch, and for the layer strength only a Z value: an Izod value in
+  J/m, an unnotched bar or an in-plane strength is another quantity, and an XY strength in a Z column would read as a
+  bound it is not. A headline with no direction never gives a direction as the reason a value is not compared (HDT's
+  M066 now says "measured at 1.8 MPa"), and a row recorded with direction Not applicable is, to a headline with a
+  direction, a direction not stated (PC-ESD's modulus, M049).
+- **A value at or below zero** has no logarithm, and the glass transition is the first headline with such values (an
+  elastomer's is below 0 °C). On a Log axis the chart leaves off a candidate whose value or estimated range reaches
+  one, counts it apart from the plotted, and says so; the rendered-page check models it (`ui-fuzz`, I4-log-count).
+- **No new table column.** Each of the three is a filter, a chart axis, a key number and a product value in the drawer,
+  a Compare row and an export column. The Properties table fits a 1440 px screen with the filters open (D62), and with
+  the layer strength and the impact strength as columns it needed 1,226 px in a 1,068 px box and scrolled sideways;
+  with the layer strength alone, 1,127 px. From 1600 px either would fit. The glass transition would not be a default column in any case: the table
+  has a heat column, and beside it a glass transition invites the wrong reading for a semicrystalline plastic (PA6's
+  products put it at 65 °C, and their heat deflection at 142 °C).
+
+What it did: 143 products have a layer strength (48 materials a spread), 201 a notched impact strength (72 comparable,
+129 published without a direction; 38 materials a spread, 27 more only values published without a direction), and 344
+a glass transition (70 in-scope materials a spread). Across the six templates no answer moved and no product count
+changed (`build/snapshot/templates.csv`); the templates ask none of the three. Reversing it takes the three questions
+away again, and a cold or unnotched value, or an in-plane one, would decide the first time anyone added them without
+the conditions.

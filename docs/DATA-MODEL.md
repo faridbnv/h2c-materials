@@ -37,7 +37,7 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | Table | What it holds |
 |---|---|
 | `properties.csv` | Every measured property: domain (mechanical, thermal, physical), the canonical units a usable measurement may carry, and which materials it applies to |
-| `headline_definitions.csv` | Every headline: kind, unit, value and related properties, direction, test load, labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
+| `headline_definitions.csv` | Every headline: kind, unit, value and related properties, direction and what a value with none is to it, test load, notch and test temperature, a comparison note, labels, filter, axis, table column, export header, whether it is estimated, and which materials it applies to |
 
 **Mappings**
 
@@ -94,8 +94,9 @@ and nothing is silently empty.
 What the build decides on is a typed column beside the raw text it came from (D49). A profile carries, per axis,
 the source's words ("Classic: 190 - 210 °C") and the state, minimum, maximum and requirement read from them; drying,
 enclosure and the hardened-nozzle requirement likewise; a measurement carries its Standard / load text and Test load
-MPa. The parsers check every typed value against its raw text on every build, and Parse review explains a deliberate
-difference. A vocabulary can carry what the build needs about a wording: each Moisture condition declares its State.
+MPa, and its Test temperature text and Test temperature °C (m175: the number the wording states, Not published where it
+states none or only in words). The parsers check every typed value against its raw text on every build, and Parse
+review explains a deliberate difference. A vocabulary can carry what the build needs about a wording: each Moisture condition declares its State.
 
 ### Classes that record intent
 
@@ -192,7 +193,8 @@ printed, its page, the reader's reason, the document's source and grades, and th
                                  // exclusion is recorded; h2cStatus says how it relates to the printer (m146)
   familyEntry,                   // null, or { kind: 'family' | 'alias', members: [{ id, name }], why }
   gradeIds: [],
-  headline: { density, tensileModulusXY, tensileStrengthXY, elongationXY, hdt045, priceCADkg },
+  headline: { density, tensileModulusXY, tensileStrengthXY, tensileStrengthZ, elongationXY, charpyNotched, hdt045,
+              glassTransition, priceCADkg },   // one per row of headline_definitions.csv, in its order
                                  // its products' spread where they publish comparably (below); decides nothing
   summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, asPublished, variants } },
   headlineBasis,                 // the data's own statement of what the headline is
@@ -236,8 +238,10 @@ a material's headline is derived from them, and no product stands for a material
 - **`grades[].headline[key]`**: the product's own value for each headline, chosen by rule from its own measurements.
   The rule accepts a printed or unstated specimen,
   the headline's direction, not conditioned, not implausible, not annealed where the product publishes it as printed,
-  at the headline's load. A value is `comparable`, or `as-published` with a `caveat` where the source leaves the
-  direction (`unstated-direction`) or the load (`load-not-stated`) unstated. Several candidates are ordered: comparable,
+  at the headline's load, and where the headline sets them its notch and its test temperature (23 ± 2 °C, or none
+  stated; D92). A value is `comparable`, or `as-published` with a `caveat` where the source leaves the
+  direction (`unstated-direction`) or the load (`load-not-stated`) unstated; a headline whose Unstated direction is
+  `excluded` (the layer strength) takes no value without a stated direction at all. Several candidates are ordered: comparable,
   printed, as printed, dry, the product's own data sheet, the headline's first value property, a point, then the
   lowest ID. A row of `headlines.csv` on the product pins it (`pinned`), with its Reason; on 2026-09-25 the rule alone
   reproduced all 477 hand picks (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`), which m137 retired. A value measured on an
@@ -268,6 +272,24 @@ a material's headline is derived from them, and no product stands for a material
 `build/snapshot/products.csv` and `summaries.csv` hold every value (their From and Twins columns name a twin's reading),
 and `print.csv` every product's print gates and where each part came from; `npm run sql` has `products_compiled` and
 `summaries_compiled`.
+
+### What each selectable property compares
+
+A headline's row says what a value must be to be a product's value for it (the rule above). What that means for each
+of the nine:
+
+| Headline | Comparable | As published (counted apart) | Never its value |
+|---|---|---|---|
+| Density, heat deflection (0.45 MPa) | a printed or unstated specimen; heat deflection at 0.45 MPa | heat deflection with no load stated | a moulded, film or filament specimen; heat deflection at another load |
+| Stiffness, strength, stretch (XY) | direction XY | no direction stated | Z, XZ, ZX or a source's own label |
+| **Layer strength** (`tensileStrengthZ`) | direction Z, the source's own word | none | no direction stated (almost always a flat or moulded bar); XY; XZ or ZX, whose use by sheets is not settled |
+| **Notched impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated | no direction stated | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
+| **Glass transition** (`glassTransition`) | the product's own value, any method (almost all DSC) | none: it has no direction or load | a resin supplier's value (Specimen type Raw material value) |
+
+Every headline also leaves out a conditioned or implausible value, and an annealed one where the product publishes it
+as printed. The glass transition is a property of the plastic, not of a bar, which is why a printed and an unstated
+specimen are the same to it; a raw material value is still not the product's, as for every headline. Each of the three
+new rows carries a Comparison note, which the drawer shows above the values it leaves out (D92).
 
 ### A headline value
 
@@ -331,6 +353,11 @@ It reports **one** measurement, never a range across grades. The Method table's 
 material's headlines are labelled single-grade observations and not cross-grade family ranges. PEBA is
 the case that forced it: its three grades measure 7.5, 25 and 30 MPa, and "7.5 to 30" reads as one
 material's uncertainty rather than three different products.
+
+What stands in a headline's place is in the headline's unit and, for an impact headline, of its notch where the
+source states one; for the layer strength it is only a value the source says is along Z (D92). An Izod value in J/m,
+an unnotched bar or an in-plane strength is another quantity, not the nearest one, and shows in the drawer's
+Mechanical tab under the headline's comparison note instead.
 
 A value the source itself marks as raw-material supplier data, such as nGen's density and HDT,
 is related evidence and says so. It is not a printed or product specimen, whatever its standard. So, with their own

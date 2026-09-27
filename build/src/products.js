@@ -21,6 +21,11 @@
 // value, a conditioned or implausible one, one annealed where the product publishes it as printed) is no product
 // value at all, and stays evidence in the drawer.
 //
+// A headline may set more of what it is (D92), each a column of headline_definitions.csv: a notch (the notched impact
+// strength takes only a bar stated to be notched), a test temperature (and no bar struck away from 23 ± 2 °C), and
+// whether a value with no stated direction is as published or none of its values (the layer strength, along Z, takes
+// only a bar the source says it pulled along Z).
+//
 // A material's range is the spread of its products, never uncertainty about one of them: PEBA's three products at
 // 7.5, 25 and 30 MPa are three products (D8's example, which D83 answers by counting them, not by pooling them).
 
@@ -36,6 +41,9 @@ const UNSTATED_DIRECTIONS = new Set(['unknown', 'not-applicable']);
 // ASTM D648's low load is 66 psi, 0.455 MPa, and ISO 75 method B's 0.45 MPa: one test (estimate/observations.js reads
 // 0.44 to 0.46 MPa as it too).
 const LOAD_TOLERANCE_MPA = 0.01;
+// The standard laboratory atmosphere of ISO 291 and ASTM D618 is 23 ± 2 °C: a bar struck at 25 °C was struck in it, one
+// at -30 °C was not (D92).
+export const TEST_TEMPERATURE_TOLERANCE_C = 2;
 
 /**
  * Whether a measurement can be a product's value for a headline, and at which level. Returns { excluded } with the
@@ -49,9 +57,22 @@ export function assess(m, def, gradeMeasurements) {
   if (!isPartSpecimen(m.specimenType)) return { excluded: `a ${m.specimenForm} specimen, not a printed part` };
   if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
   if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed' };
+  // An impact headline is defined on a notched bar at room temperature (D92). An unnotched bar absorbs several times the
+  // energy, and a notch the source does not state may be either, so neither is ever the headline's value; nor is a
+  // bar struck cold. A temperature the source does not state is the laboratory's, as it is for every other headline.
+  if (def.notch && m.notch !== def.notch) {
+    return { excluded: m.notch === 'Unnotched' ? `an unnotched bar, not ${def.notch.toLowerCase()}` : m.notch === 'Notched' ? `a notched bar, not ${def.notch.toLowerCase()}`
+      : 'the source does not state whether the bar was notched' };
+  }
+  if (def.testTemperatureC != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - def.testTemperatureC) > TEST_TEMPERATURE_TOLERANCE_C) {
+    return { excluded: `tested at ${m.testTemperatureC} °C, not ${def.testTemperatureC} °C` };
+  }
   let caveat = null;
   if (def.direction && m.direction !== def.direction) {
     if (!UNSTATED_DIRECTIONS.has(m.direction)) return { excluded: `a ${m.direction} measurement, not ${def.direction}` };
+    // A value that states no direction may be an XY bar, the way makers test unless they say otherwise, and is counted
+    // apart (D84); it is never a Z value, which a maker who pulls a bar across its layers says it is (D92).
+    if (def.unstatedDirection === 'excluded') return { excluded: `the source states no direction, and a ${def.direction} value is one it says is ${def.direction}` };
     caveat = 'unstated-direction';
   }
   if (def.loadMPa != null) {

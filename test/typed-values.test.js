@@ -53,6 +53,19 @@ test('an HDT test load is typed and checked the same way', () => {
   assert.ok(mismatches.some((m) => m.startsWith(`measurements ${hdt.MeasurementID}: Test load MPa is 1.8`)), mismatches.join(' | '));
 });
 
+test('a test temperature is typed and checked the same way, and a wording with no number states none (m175)', async () => {
+  const { readTestTemperature } = await import('../build/src/normalize/thermal.js');
+  assert.deepEqual(['23°C', '23 °C', '-30°C', '21.5 °C', 'Room temperature', 'Not published'].map(readTestTemperature), [23, 23, -30, 21.5, null, null]);
+  const cold = base.Properties.rows.find((r) => r['Test temperature'] === '-30°C' && r['Parse review'] === 'Not applicable');
+  assert.equal(cold['Test temperature °C'], '-30');
+  const { mismatches } = run((wb) => { wb.Properties.rows.find((r) => r.MeasurementID === cold.MeasurementID)['Test temperature °C'] = '23'; });
+  assert.deepEqual(mismatches, [`measurements ${cold.MeasurementID}: Test temperature °C is 23 but the parser reads "-30°C" as -30; correct the typed value, or explain it in Parse review`]);
+  // The compiled measurement carries it only where the source states one.
+  const { db } = run(() => {});
+  const stated = db.measurements.filter((m) => m.testTemperatureC != null);
+  assert.ok(stated.length > 1000 && stated.every((m) => m.testTemperatureC === readTestTemperature(m.testTemperature)));
+});
+
 test('the annealing schedule is a typed pair the wording checks: three spellings of one schedule are one state', async () => {
   const { parseAnnealSchedule } = await import('../build/src/normalize/specimen.js');
   for (const text of ['All the specimens were annealed and dried at 55 °C for 8 h before testing', 'All the specimens were annealed and dried at 55 °C for 8 hours before testing', 'All the specimens were annealed and dried at 55 °C for 8 h ours before testing']) {

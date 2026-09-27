@@ -273,7 +273,19 @@
       "name": "Test temperature",
       "type": "string",
       "role": "raw",
-      "description": "Test temperature as published.",
+      "description": "Test temperature as published. Test temperature °C beside it is what the build reads.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Test temperature °C",
+      "type": "number",
+      "role": "canonical",
+      "description": "The test temperature the Test temperature wording states, in °C; the build decides on this column and the parser checks it (PARSE-MISMATCH). A headline defined at a temperature takes no value stated at another (D92). Not published: the source states none, or states it only in words (room temperature).",
+      "missing": [
+        "Not published"
+      ],
       "constraints": {
         "required": true
       }

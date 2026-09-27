@@ -26,10 +26,16 @@ function build(edit = () => {}, { estimates = true } = {}) {
 }
 
 test('the registry reproduces the headline constants it replaced', () => {
-  assert.deepEqual(measured.map((h) => [h.key, h.unit, h.evidenceGroup, h.valueProperties.length === 1 ? h.valueProperties[0] : null, h.direction]), legacy.HEADLINES);
-  assert.deepEqual(Object.fromEntries(measured.map((h) => [h.key, h.relatedProperties])), legacy.RELATED);
-  assert.deepEqual(Object.fromEntries(measured.map((h) => [h.key, { unit: h.unit, properties: h.valueProperties }])), legacy.HEADLINE_TYPES);
-  assert.deepEqual(measured.filter((h) => h.direction === 'XY').map((h) => h.key), legacy.XY_KEYS);
+  // The constants named five measured headlines. A headline added since (the layer strength, the notched impact
+  // strength and the glass transition, D92) is a registry row they never had, and leaves those five as they were.
+  const replaced = new Set(legacy.HEADLINES.map(([key]) => key));
+  const old = measured.filter((h) => replaced.has(h.key));
+  assert.deepEqual(old.map((h) => [h.key, h.unit, h.evidenceGroup, h.valueProperties.length === 1 ? h.valueProperties[0] : null, h.direction]), legacy.HEADLINES);
+  assert.deepEqual(Object.fromEntries(old.map((h) => [h.key, h.relatedProperties])), legacy.RELATED);
+  assert.deepEqual(Object.fromEntries(old.map((h) => [h.key, { unit: h.unit, properties: h.valueProperties }])), legacy.HEADLINE_TYPES);
+  assert.deepEqual(old.filter((h) => h.direction === 'XY').map((h) => h.key), legacy.XY_KEYS);
+  // What an unstated direction is to each of them stays what it was: as published (D84).
+  assert.deepEqual(old.filter((h) => h.direction).map((h) => h.unstatedDirection), old.filter((h) => h.direction).map(() => 'as-published'));
   assert.deepEqual(estimateKeys(registry), legacy.ESTIMATE_KEYS);
   assert.deepEqual(Object.fromEntries(registry.headlines.filter((h) => h.referenceProperty).map((h) => [h.referenceProperty, h.key])), legacy.AXIS_EQUIVALENCE);
 });

@@ -207,7 +207,7 @@ erDiagram
         string SourceID "and the page it is on"
     }
     HEADLINES {
-        string HeadlineKey "density, stiffness, strength, stretch, heat, price"
+        string HeadlineKey "density, stiffness, strength, layer strength, stretch, impact, heat, glass transition, price"
         string MeasurementID "the measurement this column shows"
         string Use "the value itself, or context cited beside it"
     }

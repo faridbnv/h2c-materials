@@ -19,7 +19,7 @@
     },
     "measurements": {
       "rows": 11388,
-      "sha256": "76886c78cabea18d7aea650ce4af9f04ba6f26e116dd8ed28f16bc2bff60bbc8"
+      "sha256": "12c5b3eed8b91a5baccfbc4944d0c175eda6eca8d0566990b5047c7597546e3a"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -82,8 +82,8 @@
       "sha256": "5b2d58aacd9c9be82fd49a5fc93f2f1224bcff821fac5a96fcd7bf83721fd5bb"
     },
     "headline_definitions": {
-      "rows": 6,
-      "sha256": "4264c87a6a06d1fe05b3e231ec631a0b2ad53ad0bcc46be521bd8e273b846819"
+      "rows": 9,
+      "sha256": "89da1e1adb03aad6330b9257efb243bc0a26835ea68f30a4fed13349b7d321ad"
     },
     "polymers": {
       "rows": 48,

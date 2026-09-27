@@ -147,6 +147,14 @@ HDT at 0.45 MPa                          88 of 153 have data
 This single pattern does most of the work. It says what a criterion can and cannot decide before
 anyone relies on it, and it turns the build's audit findings into everyday guidance.
 
+The numeric controls are the registry's measured headlines, in its order (D46): under **Mechanical** density,
+stiffness, strength, **strength across layers** (tensile strength along Z), stretch before breaking and **notched impact
+strength** (Charpy, ISO 179, kJ/m²); under **Thermal** heat resistance and **glass transition**; under **Cost** the
+price. The three in bold came with D92 and are filters, chart axes, drawer key numbers, Compare rows and export
+columns, but not default table columns: the Properties table fits a 1440 px screen with the filters open with the
+columns it has, and one more made it scroll. What each compares, and what it leaves out, is in DATA-MODEL, "What each
+selectable property compares"; the drawer says it beside the values left out (below).
+
 A group's badge says what it counts ("2 set"): a bare number beside "Mechanical" read as a count of results. The
 support filter is called **Bambu support level**, as its requirement pill is, and the temperature checks are "within
 the H2C limit of 350 °C": "baseline" means the reference row in the table and nothing else.
@@ -522,7 +530,9 @@ warnings and banners · the chart · the guide-line card · reading this chart
 ```
 
 - **What is plotted**: each axis carries its own scale toggle, and Swap exchanges the axes with
-  their scales.
+  their scales. A value at or below zero has no logarithm: on a Log axis a candidate whose value, or whose estimated
+  range, reaches one is not drawn, is not counted as plotted, and "Reading this chart" says how many were left off and
+  that Linear shows them. Today only the glass transition has such values (an elastomer's is below 0 °C; D92).
 - **How it is drawn**: three labelled groups, each with one line of help for the current choice.
   A control that does not apply is disabled with its reason, never replaced by a sentence, so the
   panel keeps its shape as settings change.
@@ -737,5 +747,9 @@ open, and a search box above filters by grade, product, maker or source and open
 "representative grade" was marked "stands for this material"; since D83 no product stands for it.) **Mechanical** and **Thermal** lead with the property: each is a collapsed line
 with its count, and inside it every value with its grade and source, largest first, keeping the two short conditions
 (post-processing, test temperature) and leaving the print-parameter paragraphs to the Sources tab. No range is drawn
-across a property's values (D46). With estimates on, each grade block ends with what the model says of that grade,
+across a property's values (D46). Where a selectable property compares only some of a property's values, its
+comparison note opens the property's block and says which, and why the rest are shown but not compared: under Charpy,
+Izod and Impact strength, that only a notched Charpy bar in kJ/m² at room temperature is; under each tensile strength,
+that only a bar the source says it pulled along Z is a layer strength; under the glass transition, that a resin
+supplier's value is the raw material's (D92). With estimates on, each grade block ends with what the model says of that grade,
 one line per headline (D81); in Confirmed only it shows nothing, as the layout probe asserts.

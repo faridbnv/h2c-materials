@@ -76,7 +76,7 @@ const subset = (a) => a.filter(() => chance(0.4));
 
 /** The display rounding step of fmtNumber (app/js/ui/format.js) at a magnitude. */
 const roundStep = (v) => { const a = Math.abs(v); return a >= 100 ? 1 : a >= 10 ? 0.1 : a >= 1 ? 0.01 : a > 0 ? 10 ** (Math.floor(Math.log10(a)) - 2) : 0.001; };
-const RANGES = { density: [800, 1800], tensileModulusXY: [0.01, 12], tensileStrengthXY: [5, 170], elongationXY: [1, 700], hdt045: [40, 270], priceCADkg: [20, 300] };
+const RANGES = { density: [800, 1800], tensileModulusXY: [0.01, 12], tensileStrengthXY: [5, 170], tensileStrengthZ: [2, 90], elongationXY: [1, 700], charpyNotched: [0.5, 80], hdt045: [40, 270], glassTransition: [-60, 240], priceCADkg: [20, 300] };
 const edges = Object.fromEntries(KEYS.map((k) => {
   const s = new Set();
   const add = (v) => { if (Number.isFinite(v)) s.add(v); };
@@ -234,18 +234,23 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
 function plotOracle(o, plot) {
   const span = (h) => { if (h?.known) return { lo: h.value, hi: h.value, measured: true }; const e = h?.estimate; return e && e.lo !== null && e.hi !== null ? { lo: e.lo, hi: e.hi, measured: false } : null; };
   const pts = [], est = [];
+  let offLog = 0;
   for (const { material: m, evaluation: ev } of o.rows) {
     const hx = m.headline[plot.x], hy = m.headline[plot.y];
+    // A value at or below zero has no logarithm (a glass transition below 0 °C): on a Log axis the page leaves it off and
+    // counts it apart, never as plotted (D92).
+    if (hx?.known && hy?.known && ((plot.xLog && !(hx.value > 0)) || (plot.yLog && !(hy.value > 0)))) { offLog++; continue; }
     if (hx?.known && hy?.known) { pts.push({ id: m.id, x: hx.value * (process.env.FZ_MUTATE === 'value' ? 1.001 : 1), y: hy.value, eligible: ev.eligible, assumed: !!(hx.assumption || hy.assumption) }); continue; }
     if (!o.ctx.showEstimates) continue;
     const x = span(hx), y = span(hy);
-    if (x && y) est.push({ id: m.id, x, y });
+    if (x && y && ((plot.xLog && !(x.lo > 0)) || (plot.yLog && !(y.lo > 0)))) offLog++;
+    else if (x && y) est.push({ id: m.id, x, y });
   }
   const better = (a, b, g) => (g === 'min' ? a < b : a > b);
   // A scenario assumption is drawn but never joins the front (A-02).
   const el = pts.filter((p) => p.eligible && !p.assumed);
   const front = el.filter((p) => !el.some((q) => q !== p && !better(p.x, q.x, BETTER[plot.x]) && !better(p.y, q.y, BETTER[plot.y]) && (better(q.x, p.x, BETTER[plot.x]) || better(q.y, p.y, BETTER[plot.y]))));
-  return { pts, est, envs: plot.showEstimates ? est : [], front, missing: o.rows.length - pts.length - est.length };
+  return { pts, est, envs: plot.showEstimates ? est : [], front, offLog, missing: o.rows.length - pts.length - offLog - est.length };
 }
 
 // ------------------------------------------------------------------ violations
@@ -427,6 +432,9 @@ function compareReading(s, key, r, o) {
     else {
       const [pl, tot, miss] = [Number(m[1]), Number(m[2]), Number(m[3] ?? 0)];
       if (pl !== p.pts.length || tot !== o.rows.length || miss !== p.missing) violate('I4-legend', 'plotted/total/lacking counts differ', s, key, { page: [pl, tot, miss], node: [p.pts.length, o.rows.length, p.missing] });
+      check('I4-log-count');
+      const off = /(\d+) more candidates? ha(?:s|ve) a value at or below zero/.exec(r.legend);
+      if ((off ? Number(off[1]) : 0) !== p.offLog) violate('I4-log-count', '"N more candidates have a value at or below zero" count differs', s, key, { page: off?.[1] ?? null, node: p.offLog });
       const more = /(\d+) more candidates? ha(?:s|ve) no measurement/.exec(r.legend);
       const outlined = /The outlined ranges are (\d+) material/.exec(r.legend);
       check('I4-estimate-text');
@@ -442,7 +450,7 @@ function compareReading(s, key, r, o) {
         const exp = est ? `(${known} measured, ${est} estimated)` : `(${known} of ${o.rows.length} have it)`;
         if (!text?.endsWith(exp)) violate('I4-axis-counts', 'axis picker count differs', s, key, { axis: which, page: text, node: exp });
       }
-      if (pl + miss + p.est.length !== tot) violate('I4-legend', 'plotted + lacking + estimated != rows', s, key, { page: [pl, tot, miss], est: p.est.length });
+      if (pl + miss + p.est.length + p.offLog !== tot) violate('I4-legend', 'plotted + lacking + estimated + off a Log axis != rows', s, key, { page: [pl, tot, miss], est: p.est.length, offLog: p.offLog });
     }
   }
 }

@@ -3,8 +3,11 @@ Property Typical Range Products Set apart
 Density kg/m³ 1,240 1,170–1,329 147 of 184 17 variants (800–4,000)
 Stiffness GPa 2.53 0.95–4.24 39 of 184 41 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
 Strength MPa 45.3 26–70.4 56 of 184 50 without direction or load (30–71); 12 variants (12.6–65)
+Strength across layers MPa 31 14.3–43.5 29 of 184 1 variant (14.5–14.5)
 Stretch before breaking % 7.23 1.2–65 53 of 184 43 without direction or load (2.9–84); 11 variants (2.4–40)
+Notched impact strength kJ/m² 17.1 4.94–72.3 10 of 184 20 without direction or load (1.8–29.8); 4 variants (1.8–2.97)
 Heat resistance °C 55 50–135 67 of 184 28 without direction or load (53–108); 6 variants (55–89)
+Glass transition °C 59 54–67.5 64 of 184 6 variants (55–62.4)
 Price CAD/kg 28 27–30 4 of 184 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
 WHAT MAKERS SAY
@@ -34,6 +37,8 @@ Strength
 56 MPa
 Stretch before breaking
 8 %
+Glass transition
+55 °C
 HOW TO PRINT IT
 Nozzle
 190–220 °C yes
@@ -60,6 +65,8 @@ Stretch before breaking
 65 %
 Heat resistance
 80 °C
+Glass transition
+55 °C
 HOW TO PRINT IT
 Nozzle
 220 °C yes
@@ -71,10 +78,3 @@ Enclosure
 not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Hardened nozzle
 not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Drying
-not published
-3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no chamber or enclosure need, drying schedule or annealing schedule; its website has not been searched yet.
-About this product
-3DXTECH SimuBone Bone Simulation G001-178 variant
-Density
-1,340 kg/m³

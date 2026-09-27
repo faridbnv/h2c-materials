@@ -13,6 +13,7 @@
 import { readMoistureState } from './normalize/moisture.js';
 import { readPostProcessingState } from './normalize/specimen.js';
 import { readStandards } from './normalize/standards.js';
+import { readTestTemperature } from './normalize/thermal.js';
 
 const NA = 'Not applicable';
 const NP = 'Not published';
@@ -34,6 +35,7 @@ export const PROFILE_TYPED_COLUMNS = [
 export const MEASUREMENT_TYPED_COLUMNS = [
   { after: 'Moisture condition', columns: ['Moisture state'] },
   { after: 'Post-processing', columns: ['Post-processing state'] },
+  { after: 'Test temperature', columns: ['Test temperature °C'] },
   { after: 'Standard / load', columns: ['Standards', 'Test load MPa'] },
   { after: 'Notes', columns: ['Parse review'] },
 ];
@@ -158,4 +160,20 @@ export function applyLoadTyped(r, h, issues) {
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Test load MPa is ${load ?? 'Not published'} but the parser reads "${r['Standard / load']}" as ${h.loadMPa ?? 'no stated load'}; correct the typed value, or explain it in Parse review` });
   }
   return load === h.loadMPa ? h : { ...h, loadMPa: load, loadStated: load !== null, label: load === null ? 'load not stated' : `${load} MPa (reviewed)` };
+}
+
+/** The typed cell for a Test temperature wording: the number it states, else Not published (m175). */
+export const testTemperatureCell = (text) => cell(readTestTemperature(text), NP);
+
+/**
+ * The stored test temperature of a measurement in °C, or null where the source states none as a number (m175, D92),
+ * checked against the Test temperature wording. The column decides; the reader is the check.
+ */
+export function applyTestTemperatureTyped(r, issues) {
+  const stored = value(r['Test temperature °C']);
+  const read = readTestTemperature(r['Test temperature']);
+  if (stored !== read && !reviewed(r)) {
+    issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Test temperature °C is ${r['Test temperature °C'] ?? 'empty'} but the parser reads "${r['Test temperature']}" as ${read ?? NP}; correct the typed value, or explain it in Parse review` });
+  }
+  return stored;
 }

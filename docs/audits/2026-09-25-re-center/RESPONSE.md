@@ -1538,3 +1538,82 @@ its own commit (`build:diff` 0).
   twelve products m168 gave a stiffness. Recommendation: a migration like m168 (OPEN-PROBLEMS §15).
 - *D91 names tensile values.* No flexural or impact bar in the database is labelled only by its raster today. If one
   arrives, recommend the same reading, since the bar lies flat for the same reason.
+
+## Phase 6, lane 4: three new selectable properties (2026-09-26)
+
+*In plain words: you can now ask for a strength across the layers, a notched impact strength and a glass transition.
+Each product's number is picked by the same rule as the others, and a number measured another way (another test, unit,
+notch, direction or temperature) is still shown, with a note saying why it is not compared.*
+
+Scorecard C1 (translate requirements), method step 1; D92, built with m175 and m176. None is estimated (Estimated
+FALSE): the estimate model has no conversion for them.
+
+**What was built.**
+- `headline_definitions.csv` gains three rows and four columns (m176): **Unstated direction** (`as-published` for the
+  three XY headlines, as D84 had it; `excluded` for the layer strength), **Notch**, **Test temperature °C** and
+  **Comparison note**, each Not applicable on the six existing rows. `build/src/products.js` reads them in `assess`:
+  a notch other than the headline's, or none stated, is no value; a bar struck more than 2 °C from 23 °C is no value; a
+  value without a direction is no layer strength. The schema, the compiled registry and `schema/db.schema.json` carry
+  the four.
+- A measurement's test temperature becomes a typed column, **Test temperature °C**, beside its wording (m175: 1,147
+  rows state one, the rest Not published), checked on every build by `readTestTemperature` (PARSE-MISMATCH). The
+  import pipeline writes it (`propose`, and `apply` for proposals written before it), and `source-edits.mjs` keeps it in
+  step with a corrected wording. m175 moves nothing: `build:diff` showed only `testTemperatureC` on 1,144 compiled
+  measurements.
+- **No new table column**: each is a filter, a chart axis, a key number and product value in the drawer, a Compare row
+  and an export column. The Properties table fits a 1440 px screen with the filters open; with the layer strength and
+  the impact strength as columns it needed 1,226 px in a 1,068 px box, and with the layer strength alone 1,127 px
+  (measured in headless Chrome).
+- The drawer shows each headline's comparison note above the values of its related properties (Mechanical and Thermal
+  tabs). What stands in a missing headline's place is in its unit and notch, and for the layer strength only a Z value.
+  Two reasons for an existing headline got more exact on the way: a headline without a direction no longer gives a
+  value's direction as the reason (HDT, M066: "measured at 1.8 MPa, not 0.45 MPa"), and a row recorded with direction
+  Not applicable reads as a direction not stated to an XY headline (modulus, M049). The chart's measurement mode leaves
+  out a value in another unit or of the other notch, and in strict mode one with no notch stated or struck cold.
+- The glass transition is the first headline with values at or below zero (an elastomer's is below 0 °C), which a Log
+  axis cannot show. The first `verify` found it: 102 fuzzed scenarios counted such a point as plotted and drew nothing.
+  The chart now leaves such a candidate off a Log axis, point or estimated range, counts it apart and says so; the
+  fuzz's oracle leaves it off too, and a new check (I4-log-count) holds the page's count to it. The existing check that
+  no non-positive point is counted as plotted is unchanged, and passes.
+
+**Per property** (active procurement products; a twin reading its sibling's sheet, D89, counts as the product it is):
+
+| | Layer strength (`tensileStrengthZ`) | Notched impact (`charpyNotched`) | Glass transition (`glassTransition`) |
+|---|---|---|---|
+| Unit, what counts | MPa; a bar the source says it pulled along Z | kJ/m²; Charpy (ISO 179, GB/T 1043), notched, XY, at 23 ± 2 °C or none stated | °C; the product's own value, any method (almost all DSC) |
+| Products with a comparable value | 143 (2 read from a twin) | 72 (129 more published without a direction, counted apart) | 344 (16 from a twin) |
+| Materials with a summary | 48 of 136 in scope | 38 of 136 in scope, and 27 more with only values published without a direction | 70 of 136 in scope (84 with the out-of-scope ones) |
+| What stays out, and why | Every strength with no stated direction: almost always a flat or moulded bar, about twice the layer strength, so not counted apart as D84 counts it for XY. 38 products whose across-layer values carry only an XZ or ZX label (27 of them Eryone's "X-Z", 8.7 to 47 MPa): which of those are upright bars is not settled. One product whose only Z value is conditioned. | Izod (161 products have notched Izod and no notched Charpy): another test on another bar. J/m (ASTM D256): energy per metre of notch, which needs the bar's thickness. 75 products whose Charpy value states no notch: it could be either, and an unnotched bar absorbs several times the energy. Two products (G036-02, G057-01) whose only notched Charpy is at -30 °C; where both are published the room value is taken, and without the test temperature the rule's preference for a printed bar would have taken the cold one for Polymaker's PC PBT and PC-ABS (15 and 13 kJ/m² for 33 and 25.8). | Eight products whose only value is a resin supplier's (Raw material value), which is the raw material's, not the product's. Nine flagged implausible. |
+
+Charpy rather than Izod for the impact headline: in kJ/m², notched, printed or unstated specimen, XY and at room
+temperature, 72 products publish Charpy against 45 Izod (26 materials); notched Izod in J/m leaves one. Charpy and Izod
+are never mixed. Printed XY Charpy bars absorb more than the sheets that state no direction suggest: PLA's comparable
+median is 17.1 kJ/m² on 10 products (Bambu and Polymaker, 4.9 to 72.3), while its 22 values without a direction run
+1.8 to 29.8 and read like moulded bars, which is D84's case.
+
+**The decision diff.** Across the six templates no answer moved and no product count changed: `build/snapshot/
+templates.csv` is unchanged, since the templates ask none of the three. `counts.md`: products with a comparable value
+for at least one property 1,001 to 1,011, product values 3,599 to 4,288, material values from products 463 to 619.
+`build:diff` against HEAD: 2,912 differences (the three headlines' product values, summaries and material headlines,
+the registry rows moved by the three inserted beside their neighbours, `testTemperatureC`, two corrected reasons, and
+M141's headline basis, which now has a comparable value to describe).
+
+**Left, with a recommendation each** (OPEN-PROBLEMS §18):
+- **XZ and ZX.** Rule which labels are upright bars. ISO/ASTM 52921 names a bar by the axis along its length first,
+  which makes ZX upright; the vocabulary's own meanings say otherwise. Recommended: re-read the 38 products' sheets for
+  the drawing or words that say how the bar stood, and count ZX as Z only where a sheet shows it upright. Revisit when a
+  maker's sheet prints both labels with a picture.
+- **An Izod headline beside the Charpy one** (ISO 180, kJ/m²) would give 45 products a comparable notched impact value
+  and 115 a value at all. Recommended: add it only if a template or a team requirement asks for impact, since two
+  impact filters invite mixing them.
+- **75 Charpy values with no notch stated**, mostly GB/T 1043 sheets: a re-read of their headings, not a default.
+- Nine notched Charpy rows cite the unnotched method (ISO 179/1eU); kept as their labels say, all counted apart.
+
+| | Result |
+|---|---|
+| `npm run data:check` / `data:lint` | 26 tables, 0 issues / 220 findings, all accepted, 0 new |
+| `node scripts/migrate/m175-…` / `m176-…` | 11,364 rows gain the typed column / 4 columns and 3 rows; a re-run of either is a no-op |
+| Tests | `npm test` 308 (seven new tests, five of them rules over every product: an impact value is a notched bar of the headline's own test, in its unit, at room temperature or none stated, as published exactly when its direction is unstated; a headline excluding an unstated direction holds only its direction's values; a headline with no direction or load has only comparable values, never a resin's; every product whose measurement a headline accepts has a value, at its best level; the conditions as `assess` sees them; the registry's new rows reach every list in order; a typed test temperature is checked against its wording), `test:ingest` 167 |
+| `npm run build:diff` | 2,912 differences: the three headlines' product values, summaries and material headlines; the registry; `testTemperatureC` on 1,144 measurements (m175 alone: that and nothing else); two corrected reasons; M141's headline basis |
+| `verify:fast` | paired on this machine at load 12 to 20: 38 s with the build cached, as at `ca25c37`, and the same CPU time (178 s); 79 s after a change with the cache empty (480 s CPU), against 129 s (495 s CPU) for `ca25c37` under a heavier load. Three headlines cost the build nothing measurable: compile is 0.13 to 0.17 s either way, and the estimate stage does not read them |
+| `verify` | passing in 302 s at load 13 to 22: 308 tests, 167 ingest, the scale check (compile and validate at twice the data 99 s of its 150 s budget), the audit, the snapshot current, 66 views (3 rewritten: the Products tab's spreads and Compare), 300 fuzzed scenarios. The first run failed only on the Log axis (above); 1,000 more scenarios on seed 7 pass |

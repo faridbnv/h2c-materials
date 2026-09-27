@@ -538,6 +538,34 @@ today, so they are recorded here rather than asserted (RESPONSE.md, phase 5, par
 npm run sql --silent -- "select p.gradeid, p.manufacturer, p.product, p.value, y.neat_density_min_kg_m3, y.neat_density_max_kg_m3 from products_compiled p join materials m on m.materialid = p.materialid join polymers y on y.polymerid = m.estimate_identity where p.headline_key = 'density' and m.modifier_filler = 'Unfilled / unspecified' and coalesce(p.variant, '') = '' and p.gradeid not like '%-R%' and (p.value > y.neat_density_max_kg_m3 or p.value < y.neat_density_min_kg_m3)"
 ```
 
+## 18. What the three new selectable properties leave out
+
+The layer strength, the notched impact strength and the glass transition (D92, m175, m176) take only what their rows
+say. What stays out is recorded and shown, under each headline's comparison note in the drawer. Counts are active
+procurement products, 2026-09-26:
+
+- **75 products publish a Charpy value with no notch stated** and no notched one, most of them Chinese makers' sheets
+  under GB/T 1043, which covers both bars. Their sheets may say which in a heading the import did not read. A re-read
+  settles each; nothing else should.
+- **161 products publish a notched Izod value and no notched Charpy one** (115 of them in kJ/m², 52 in J/m, some in
+  both), so they have no notched impact value. An Izod headline beside the Charpy one (ISO 180, kJ/m²: 45 products comparably, 26 materials)
+  would give them one; the J/m values need the bar's thickness, which no sheet here prints.
+- **38 products publish their across-layer tensile strength only under an XZ or ZX label**, 27 of them Eryone's "X-Z"
+  (8.7 to 47 MPa). ISO/ASTM 52921 names a bar by the axis along its length first, which makes ZX an upright bar, and the
+  vocabulary's own meanings for the two labels ("Upright in the XZ plane", "Flat, loaded along Z-X") say otherwise.
+  Until the owner rules which labels are upright bars, only Z counts.
+- **Nine notched Charpy rows cite the unnotched method** (ISO 179/1eU): Spectrum's PA6 Low Warp and PA12-CF15 sheets,
+  FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. Each sheet's label says notched, which is what the row
+  keeps; none states a direction, so all nine are counted apart and decide only when asked.
+- **Four glass transition rows cite a Vicat or heat deflection standard** (ASTM D1525, ISO 75), as their sheets print
+  it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
+- **Eight products' only glass transition is a resin supplier's value** (Specimen type Raw material value), which is
+  not the product's.
+
+```bash
+npm run sql --silent -- "with pv as (select m.* from measurements m join grades g on g.gradeid = m.gradeid where g.status = 'active' and g.role = 'procurement' and m.data_status in ('Published value', 'Published value (transcription corrected)')) select (select count(distinct gradeid) from pv where property = 'Charpy strength' and notch = 'Not published' and gradeid not in (select gradeid from pv where property = 'Charpy strength' and notch = 'Notched')) charpy_notch_unstated, (select count(distinct gradeid) from pv where property = 'Izod impact strength' and notch = 'Notched' and gradeid not in (select gradeid from pv where property = 'Charpy strength' and notch = 'Notched')) izod_only, (select count(distinct gradeid) from pv where property like 'Tensile%strength%' and direction in ('XZ', 'ZX', 'Vertical XZ (source label)') and gradeid not in (select gradeid from pv where property like 'Tensile%strength%' and direction = 'Z')) xz_zx_only, (select count(*) from pv where property = 'Charpy strength' and notch = 'Notched' and standard_load like '%1eU%') notched_1eu, (select count(*) from pv where property = 'Glass transition temperature' and standards in ('ASTM D1525', 'ISO 75')) tg_other_standard"
+```
+
 ---
 
 ## Coverage, in one number
