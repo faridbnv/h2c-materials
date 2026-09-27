@@ -381,7 +381,10 @@ deferred.
   from the page, frees it.
 - **SBC (M174) is not estimated**, and Crystal Flex publishes its strength and elongation without a direction, so
   SBC's answers are unknown until a scenario admits values as published (D84) or a resin reference gives it a
-  polymers.csv row (R199).
+  polymers.csv row (R199). The reference the database already cites, BASF's "Polystyrene and Styrolux"
+  (R-BASF-POLYSTYRENE-STYROLUX, SHA-256 0ae31d22…), is not in this machine's cache: neither its bytes under
+  `.cache/sources/by-sha` nor its text, so lane 4 could not re-read its S/B/S density or classification and wrote no
+  row (m155). Re-fetching it from its recorded URL, hash-checked, is the first step.
 - **purefil's GreenTEC (d299af0d689965eb) is answered and not imported.** R179 names GreenTEC; the sheet was held
   before b34 and is not among the 74 the owner freed, so it waits for imports to resume.
 - **A TPU rated only in prose needs a ruling.** The reader files a TPU by the rating in its name or its sheet's Shore
@@ -397,9 +400,46 @@ deferred.
 npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) from materials m join grades g on g.materialid = m.materialid where m.materialid between 'M164' and 'M174' and g.status = 'active' group by 1, 2"
 ```
 
+## 15. Values that decide, published without their direction or load, that no cached sheet settles
+
+Lane 4 re-read the 251 product values behind the 124 answers that change when as-published values are admitted
+(BLOCKING-GAPS, D84), on their 199 cached sheets (m155, 2026-09-25). 24 sheets state how their bars were made or
+tested, and 18 answers moved; the other 175 sheets print a standard ("ISO 527") and nothing about the bar. 107
+answers still change when as-published values are admitted. They wait for a document that states the specimen's
+build direction, or that it was moulded, or the heat deflection load: a newer data sheet, a maker's test-method page,
+or an answer from the maker. BLOCKING-GAPS lists them; the maker-by-maker list for the targeted fetches is in
+[the lane 4 response](audits/2026-09-25-re-center/RESPONSE.md), "Phase 6, lane 4: the values that decide, re-read".
+
+- **Some sheets look like resin data and do not say so.** purefil prints ISO 294-4 mould shrinkage, Spectrum's PA6
+  sheets "Linear mould shrinkage", Fiberlogy "gathered from standard reference materials and/or supplier test data",
+  and 3D-Fuel's Pro PCTG "measurements from injection molded and 3D printed parts" without saying which. None is a
+  statement about a row, so none was recorded.
+- **Nanovia's 0° and 90° rasters are a direction the vocabulary has no value for.** Its pages state each tensile tab's
+  raster ("3D printed test specimins at 0°, along with the tension stress") and not the bar's build orientation, so
+  those rows are "Stated, not a usable direction" and stay as published; its ±45° rows are 45/45 (m33). Nanovia's
+  article "Mechanical data on 3D printed test specimens at 3 different angles"
+  (nanovia.tech/en/mechanical-data-on-3d-printed-test-specimens-at-3-different-angles/, not fetched) may state it.
+  Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states "ISO 3167
+  A test specimens" (a shape, not how it was made), and Flex prints no sentence.
+- **Nanovia's "Elongation ultimate strength" is filed as Elongation at break** on 14 rows of 13 products. It reads as the
+  strain at the ultimate (maximum) stress, which the registry has as Tensile strain at strength, a lower bound of the
+  elongation headline and not its value. For these brittle filled grades the two may coincide; a property ruling
+  (R-series) should decide, and a re-filing moves the Flexible component answers of the materials concerned.
+- **The ±45° convention decides more than it did.** A value a sheet labels only by its ±45° raster is 45/45 and no
+  product value (m33); Nanovia's ABS ESD prints no 0° tab, so its product lost its stiffness and elongation. Many
+  makers' "XY" bars are printed at ±45°, so whether a raster-only label should count as XY is a question for the
+  owner, not a data fix.
+- **Two raw cells on MakerBot Tough** hold the metric column ("63.3 MPa") where the test method belongs; the sheet names
+  "ASTM D628" (sic) and D790 in a footnote. The values are moulded (m155) and decide nothing.
+
+```bash
+npm run audit:gaps   # the answers that still change when as-published values are admitted
+npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and notes like '%m155%' group by 1"
+```
+
 ---
 
-## 15. What re-reading seventy sheets' heads found
+## 16. What re-reading seventy sheets' heads found
 
 m149 re-read the head of every source whose title was page furniture ("supported by", "TM", "TECHNICAL", "Page: 1",
 "Version: 3.0") and wrote the title each prints; SOURCE-TITLE-NOT-TITLE now catches that class. Reading them found two

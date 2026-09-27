@@ -55,6 +55,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PC-GF (M038) | Lightweight structure; Warm environment | collected | 0 of 3 | 2 / 2 / 3 | — |
 | PPA-GF (M071) | High-stiffness fixture; Outdoor structural part | collected | 0 of 5 | 2 / 1 / 3 | — |
 | ABS-ESD (M030) | Warm environment | collected | 5 of 11 | 9 / 5 / 10 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com) |
+| PET (M066) | Flexible component | collected | 5 of 7 | 5 / 6 / 7 | 3D4Makers (no address held); FormFutura (formfutura.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | PC (M035) | Lightweight structure | collected | 4 of 26 | 13 / 14 / 18 | 3DXTECH (3dxtech.com, trinity3ds.com); Yousu (ysfilament.com) |
 | PLA Silk (M008) | Indoor prototype | collected | 4 of 35 | 29 / 23 / 33 | Fabru (purefil.de); Polymaker (polymaker.com, fiberon.polymaker.com); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com) |
 | PC-ABS (M094) | Warm environment | collected | 3 of 13 | 7 / 6 / 12 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
@@ -69,6 +70,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | TPU harder than 95A (M162) | Flexible component | collected | 1 of 14 | 6 / 9 / 12 | NinjaTek (ninjatek.com) |
 | TPU, hardness not stated (M163) | Flexible component | collected | 1 of 8 | 8 / 4 / 8 | MatterHackers (matterhackers.com) |
 | ASA Aero (M032) | Warm environment | collected | 0 of 5 | 2 / 3 / 4 | — |
+| CPE-CF (M090) | High-stiffness fixture | collected | 0 of 3 | 1 / 2 / 3 | — |
 | OBC (M086) | Flexible component | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PA6 (M049) | Warm environment | collected | 0 of 9 | 3 / 2 / 8 | — |
 | PBT-GF (M132) | Outdoor structural part | collected | 0 of 1 | 0 / 0 / 1 | — |
@@ -82,16 +84,17 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA Sparkle (M013) | Indoor prototype | collected | 0 of 4 | 2 / 2 / 3 | — |
 | PLA family, polymer not stated (M168) | Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
 | PLA-NF (M152) | Warm environment | collected | 0 of 2 | 0 / 1 / 2 | — |
+| PLA-PHA (M145) | Lightweight structure | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PPA (M069) | Lightweight structure | collected | 0 of 2 | 0 / 0 / 1 | — |
 | TPU 85A class and softer (M159) | Flexible component | collected | 0 of 16 | 9 / 11 / 16 | — |
 | TPU 90A class (M160) | Flexible component | collected | 0 of 12 | 8 / 7 / 12 | — |
+| nGen FLEX (M143) | Flexible component | collected | 0 of 1 | 1 / 1 / 1 | — |
 
 ## Every other material
 
 | Material | Candidate in | Know-how | Products silent | Recipe silent (chamber / drying / annealing) | Makers to search |
 |---|---|---|---:|---|---|
 | PEI / ULTEM (M099) | — | collected | 7 of 13 | 10 / 11 / 13 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
-| PET (M066) | — | collected | 5 of 7 | 5 / 6 / 7 | 3D4Makers (no address held); FormFutura (formfutura.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | PCTG (M088) | — | collected | 3 of 8 | 4 / 5 / 8 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
 | PEKK (M098) | — | collected | 3 of 5 | 2 / 2 / 5 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PETG-ESD (M026) | — | collected | 3 of 10 | 4 / 5 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com) |
@@ -137,7 +140,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | TPU-ESD (M126) | — | collected | 1 of 2 | 1 / 2 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-EC (M105) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | COC (M137) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
-| CPE-CF (M090) | — | collected | 0 of 3 | 1 / 2 / 3 | — |
 | LCP (M139) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PA-ESD (M064) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PA12-AF (M154) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
@@ -154,7 +156,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA-EC (M111) | — | collected | 0 of 2 | 1 / 1 / 2 | — |
 | PLA-GF (M019) | — | collected | 0 of 4 | 3 / 2 / 3 | — |
 | PLA-GR (M155) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
-| PLA-PHA (M145) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PLA-PHB (M146) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 4 | 2 / 2 / 3 | — |
 | Support for ABS (M079) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
@@ -165,7 +166,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | TPU-GF (M151) | — | collected | 0 of 1 | 0 / 1 / 1 | — |
 | TPU-LW (M150) | — | collected | 0 of 3 | 3 / 1 / 3 | — |
 | nGen / Amphora (M092) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
-| nGen FLEX (M143) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | nGen-CF (M142) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 
 ## By maker: the silent products to look up

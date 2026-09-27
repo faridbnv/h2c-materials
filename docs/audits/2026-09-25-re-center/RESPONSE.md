@@ -945,7 +945,7 @@ cached, hash-checked document.
   read from a sheet's first line by the importer; each now carries the heading its cached sheet prints, and one ELEGOO
   table that prints no title is Not published, which the column now accepts. A title that is only "Technical Data
   Sheet" (45) is left alone, because some sheets print exactly that. M173's "A alumina" is "An alumina"; M171 and M172
-  were right. D63 is extended. Reading the heads found two identity defects, now OPEN-PROBLEMS §15: Anycubic's PLA+
+  were right. D63 is extended. Reading the heads found two identity defects, now OPEN-PROBLEMS §16: Anycubic's PLA+
   sheet sits on the Anycubic PLA product, and ELEGOO's PLA product is named "S.I.".
 - **DECISIONS in plain words.** Every one of the 87 decisions opens with a line saying what it decides, and a status
   line where a later decision superseded, amended, narrowed or extended it. Eleven changes the index had missed are
@@ -965,3 +965,130 @@ in any of the six templates, and the 66 interface views match without a rewrite.
 stale), the removal ledger covers every re-keyed row. `verify:fast` 85 s after the change. The full `npm run verify`
 passes in 4 min 58 s at a load average of 16.6 to 20.7 (three other agents building): `npm test` 305, `test:ingest`
 167, the scale check (2x in 99 s), the audit, the snapshot current, 66 views, 300 fuzzed scenarios.
+
+## Phase 6, lane 4: the values that decide, re-read (2026-09-25)
+
+*In plain words: 124 answers turned on numbers published without saying how the test bar was made. Every sheet behind
+them was re-read. Twenty-four sheets do say it, in a note or a footnote, and 18 answers are now settled; the other 175
+name a standard and nothing else, so those answers wait for a document that says more. The 80 closest calls were
+checked against their pages and all 80 numbers stand. The reader was an AI agent, not a person.*
+
+Scorecard lines C3 (the decision tier, values with their conditions) and C4 (comparability); method step 2, screen.
+Every page was read by an AI agent (Claude, lane 4), and every note it wrote says so. This is not the human spot-check
+GOALS also asks for, which is still owed.
+
+**Task A: the test conditions the sheets state (m155).** BLOCKING-GAPS listed 124 answers that change when values
+published without their direction or load are admitted (D84). Behind them stand 251 product values on 199 sheets, all
+cached: 242 without a direction (24 of them already recorded as printed) and 9 heat deflections without a load. Each
+sheet's text was read in full, and where the document is a web page whose text extraction dropped a sentence, its
+hash-checked bytes. Twenty-four sheets state a condition for 37 of the 251 values. m155 applies each statement to every
+row it covers, 158 rows, and adds one:
+
+| Sheet | What it states | Rows |
+|---|---|---:|
+| colorFabb: 31 sheets print it, 23 with rows to change, 10 behind an answer | p. 2, Notes: "The specimens have been printed in XY plane, ...", for the table headed "Mechanical Properties – 3D Printed" | 99 → XY |
+| 3D-Fuel Workday ABS | "All properties, except melt flow rate are measured on injection molded specimens ..." | 8 → moulded |
+| MakerBot / UltiMaker Tough | "All tests were performed ... with injection molded specimens from the same resin used to create MakerBot filaments." The rows had been recorded as printed. | 6 → moulded |
+| eSUN TPE 83A | "... obtained based on the injection molding spline test.": m128's sentence, on a sheet that entered after it | 2 → moulded |
+| Stratasys ABS-M30i | footnote 1 to Mechanical Properties: "Build orientation is on side long edge."; "Tested parts were built on Fortus 400mc" | 4 → printed, XZ |
+| Filament2Print BioFil PCL | "Heat deflection temperature 57°C ISO 75 B": method B, 0.45 MPa (D65) | 1 → load |
+| SIDDAMENT PA12-CF | p. 2 "Test Sample Printing Conditions"; p. 3 "Attachment: Test sample dimensions and printing direction", the bars drawn flat (read on the page image) | 6 → printed, 4 of them XY |
+| Nanovia: 18 product pages, 8 behind an answer | each tensile tab's sentence: "at 0°, along with the tension stress", "successively at 45° and -45° per layer", "at 90°" | 28 → a raster, not a direction; 4 → 45/45; 1 added |
+
+A statement covers the bars a test is made on (m128's scope), never density, melt flow or a DSC temperature. Nanovia's
+rasters settle nothing, because a raster is not a build direction (DSM's "raster 0°-90°", m35; Essentium's 45/45, m33),
+but "Unstated" had claimed the page says nothing. Two of its rows stood in the ±45° tab: PLA Flax's modulus (2.83 GPa;
+its 0° row, spelled "Young modulus’s", was never transcribed and is added at 3.1 GPa) and PA Rail's second elongation.
+ABS ESD prints no 0° tab, so its product has no stiffness or elongation value now.
+
+**The decision diff** (`build/snapshot/templates.csv`, against `45443ef`): 40 answers moved across the three modes, 18
+of them in Explore, the page's default. Every Explore one is an answer BLOCKING-GAPS listed, and each moved the way
+admitting the value had predicted.
+
+| Template | Explore | Strict | Explore with estimates |
+|---|---|---|---|
+| Outdoor structural part | PET, nGen FLEX, PCL: UNKNOWN → FAIL | — | the same 3; PA12 and COC now screened at 3 GPa, TPU-CF gains that screen |
+| Lightweight structure | PLA-PHA UNKNOWN → PASS (colorFabb PLA/PHA 3.29 GPa, XY); nGen FLEX UNKNOWN → FAIL | PLA-PHA FAIL → PASS | the same 2; PCL screened at 2.5 GPa |
+| Warm environment | PCL UNKNOWN → FAIL (57 °C at 0.45 MPa) | — | the same |
+| High-stiffness fixture | CPE-CF UNKNOWN → PASS (colorFabb XT-CF20 5.15 GPa, XY); PET, CPE, nGen-CF, nGen FLEX, PLA-PHA UNKNOWN → FAIL | CPE-CF FAIL → PASS | the same 6; PETG-PTFE, PC-PTFE and PET-LW screened at 5 GPa |
+| Flexible component | PET (colorFabb PET Flex Max, 418 %) and nGen FLEX (320 %) UNKNOWN → PASS; CPE, CPE-CF, nGen-CF, PLA-PHA UNKNOWN → FAIL | PET, nGen FLEX FAIL → PASS | the same 6; PA6, PBT and PET-LW screened at 100 % |
+| Indoor prototype | — | — | — |
+
+Counts changed inside three passing answers: TPU 85A class and softer (1 → 3 products pass), TPU 95A class (7 → 8),
+and Nylon, polymer not stated in Lightweight structure (1 → 3). Product values fell from 3,452 to 3,439 (a moulded, XZ
+or ±45° bar is no product value), material values from products rose from 444 to 463 and estimated ones fell from 182
+to 163, and the estimate model recalibrated on the larger comparable set (`build/snapshot/grades.csv`). ASA-GF's
+family-order finding no longer occurs, and its acceptance is removed. 19 of the 66 views changed, with no layout
+failure.
+
+**What the sheets could not settle.** 107 answers still change when as-published values are admitted (CPE's Flexible
+answer is now FAIL, and admitting still makes it PASS). Behind them stand 217 values of 179 products on 180 sheets that
+name a standard and say nothing about the bar. Some look like resin data without saying so (purefil's ISO 294-4 mould
+shrinkage, Spectrum's "Linear mould shrinkage", Fiberlogy's "supplier test data", 3D-Fuel Pro PCTG's "injection molded
+and 3D printed parts" without saying which); none is a statement about a row, so none was recorded. For the targeted
+fetches (GOALS, phase 6 decision 4), maker by maker:
+
+| Maker | Values | Products | Materials, and what they decide | Where its sheets are |
+|---|---:|---:|---|---|
+| Fiberlogy | 34 | 28 | PA12, PP, PETG-PTFE, PCTG-GF, PCTG-CF, PLA-CE, TPU-CF, CPE, CPE-LW, PVB, TPE (polymer not stated) and others: stiffness, elongation | fiberlogy.com/app/uploads/…_TDS.pdf |
+| Spectrum | 31 | 26 | PA6 (and its HDT load), PA6-GS, PA6-CE, PC-PTFE, ABS-AF, PE, PC, PCTG-GF, PLA-CF (and its HDT load), PLA family | spectrumfilaments.com/wp-content/uploads/… |
+| FormFutura | 25 | 22 | PA12 (STYX-12), PA6 (STYX PA6 and its HDT load), SBC (Crystal Flex), ASA-AF, PCTG, PCTG-CF, PLA Galaxy | formfutura.com, formfutura.sharepoint.com |
+| purefil (Fabru) | 25 | 19 | COC, LCP, PBT, PE-GF, SAN, PP, PVC, PA12, PLA family (GreenTEC Pro), TPE (TPV) | cdn02.plentyone.com (purefil.de) |
+| Extrudr | 17 | 14 | PC-PBT-CF, PLA family and family-CF (GreenTEC), TPU-CF, TPU harder than 95A, TPU-ESD, PLA-NF, PLA-CF (ASTM E2092 HDT, no load) | s3.extrudr.com/extrudr-media/datasheets/tds/ |
+| Nanovia | 15 | 11 | PLA-NF, PC-PTFE, ABS-AF, ABS, PETG-CF, PC-ABS, PA6 (PA Rail), TPE: a raster is stated, not the build direction | nanovia.tech/en/mechanical-data-on-3d-printed-test-specimens-at-3-different-angles/ (linked from every page, not fetched) |
+| Fillamentum | 14 | 11 | PA12-AF (AF80), PLA-PHB (NonOilen), PP, PC-ABS, CPE, PVC, PA6, TPE | fillamentum.com/wp-content/uploads/2020/10/… |
+| 3DJake (PROGRAFEN) | 11 | 7 | PETG-GR and PLA-GR (all their products), PLA-CF, PCTG | 3d.nice-cdn.com/upload/file/EN_TDS_… |
+| SIDDAMENT, iSANMATE, QIDI | 11 | 10 | heat deflection loads: PA6 and PLA-CF (SIDDAMENT), PP (iSANMATE), PETG-GF (QIDI); PC, PETG elongation | cdn.shopify.com, isanmate.com, drive.google.com |
+| 3DXTECH | 4 | 2 | PA-ESD (3DXSTAT ESD PA12 lacks the "Printed Specimen Conditions" block its other sheets print) | cdn.shopify.com/…/3DXSTAT_ESD_PA12_TDS_v1.pdf |
+| Twelve others (MatterHackers, Recreus, SUNLU, NinjaTek, BigRep, 3D-Fuel, 3D4Makers, Filament2Print, Yousu, Prusa, AzureFilm, colorFabb's PA-CF low warp) | 30 | 29 | TPU-EC, TPU-LW, PCL, Nylon-CF, and single products of PETG, ABS, PLA Silk and PLA Wood | as recorded in sources.csv |
+
+A document settles a value when it says, for its test bars, the build orientation (or that they were moulded), or for
+heat deflection the load or its method letter: a newer data sheet, the maker's test-method page, or the maker's
+answer. Nanovia's article is the one fetch that may settle a whole maker.
+
+**Task B: the 80 closest calls, re-read.** BLOCKING-GAPS's 80 closest products (decided by 0.8 % or less) were read
+against their pages: the number, the unit, the property, the direction, the specimen and the moisture state. **All 80
+numbers, units and properties stand, and so do their conditions: 0 of 80 wrong.** Most are a density printed as 1.25
+g/cm³ against the 1,250 kg/m³ limit; 13 are the low end of a range the sheet prints (Flashforge's 1.25~1.26 g/cm³,
+Nanovia's 80–90 °C), which the product value takes by rule. One raw cell was garbled and m156 corrects it: 3DXTECH
+ECOMAX Tough PLA's heat deflection read "0.45 °C ISO 75", joining the load's number to the value's unit; the typed 0.45
+MPa was right. The re-read for m155 found what the close calls did not: varioShore TPU 85A's "Stress @ 300%
+elongation" line recorded as an elongation at break of 300 % (the sheet's is 585 %, V005953), quarantined in m156 as
+m127 quarantined such numbers. Of the 251 values' recorded conditions, 3 were wrong (MakerBot Tough's specimen, PLA
+Flax's tab, PCL's load letter) and 34 were recorded as unstated where the sheet states them; the 251 numbers were not
+re-read one by one beyond the close calls and the sample below.
+
+**Task C: SBC's polymer row, not written.** The reference cited for it, BASF's "Polystyrene and Styrolux"
+(R-BASF-POLYSTYRENE-STYROLUX), is not in the cache on this machine: its bytes (SHA-256 0ae31d22…) are not under
+`.cache/sources/by-sha`, and `documents_fts` holds no page of it. Nothing about S/B/S could be re-read, so nothing was
+written (D35). A polymers.csv row needs the reference's own group and morphology for S/B/S (M174's note argues from
+Crystal Flex's Shore D 63 and 1,795 MPa flexural modulus that it is a stiff styrenic, not an elastomer), melting point,
+as-printed and water uptake Not applicable as for the other styrenics if the reference agrees, and the neat density
+range it prints. Re-fetching it from its recorded URL, hash-checked, is the first step; OPEN-PROBLEMS §14 says so.
+
+**Sample check of this lane's own edits** (an agent's, seed 20260925: 30 of the 161 rows m155 and m156 wrote, each
+shown beside its page line and its statement): 30 of 30 stand. They are 17 colorFabb rows, each in its sheet's
+3D-printed table with the XY note on p. 2; 3 MakerBot Tough, 1 Workday ABS and 2 eSUN TPE 83A rows with their moulding
+sentences; 5 Nanovia rows in the tab their note names; 1 Stratasys flexural strength with its footnote; and SIDDAMENT
+PA12-CF's elongation, printed and flat.
+
+**Left, with a recommendation** (OPEN-PROBLEMS §15):
+- Nanovia's "Elongation ultimate strength" is filed as Elongation at break on 14 rows of 13 products; it reads as the
+  strain at maximum stress (Tensile strain at strength). Recommend a property ruling before a later change moves it.
+- A raster-only label (±45°) is no product value (m33), and many makers' XY bars are printed at ±45°. Whether a
+  raster-only label should count as XY is the owner's question; recommend keeping m33 until a sheet that states both
+  shows the two agree.
+- Fetch Nanovia's article first, then Fiberlogy's, Spectrum's and purefil's test-method statements: with Nanovia they
+  hold 105 of the 217 values.
+- The human spot-check of 30 to 50 decision values against their sheets is still owed (REPORT, phase 6).
+
+**Checks.** `data:check` 0 issues, `data:lint` 0 new findings (291 accepted), the build 0 errors with its 4 warnings,
+`audit:data` 0 errors, the snapshot current, 66 views matching with no layout failure, 300 fuzzed scenarios in
+agreement. `verify:fast` passes in 31.5 s with the build cache (load average 12.7); its first run after the change,
+with an empty cache, took 118 s at load 17. The full `npm run verify` passed `verify:fast` (`npm test` 305) and
+`test:ingest` (167) and stopped at the scale check, run while three other lanes built in parallel (load 23.7 at its
+start, 24.0 at its end; compile and validate 188 s against a 150 s budget). The steps after it were run one by one and
+pass. The scale check alone failed once more at load 21 (194 s) and passed the next time (150 s for the whole check,
+load 16.6 falling to 7.9). The unchanged tree at `45443ef`, timed the same way straight after, failed it at 151 s
+(load 7.3 rising to 17.5): the budget sits at its edge on this machine under this load whatever the data, and this
+change does not move it past.
