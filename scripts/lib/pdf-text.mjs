@@ -10,7 +10,7 @@
 // read once, and a file that changed is a different key rather than a stale entry. Nothing here touches data/.
 
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
@@ -179,6 +179,14 @@ export const LABELS = [
 ];
 
 const textPath = (sha) => cacheDir('text', `${sha}.json`);
+// Written whole or not at all: the test files run in parallel and read one fixture's text, and a reader that caught a
+// file mid-write parsed an empty one (CI, 2026-09-27). A rename within one directory is atomic.
+function writeCache(path, value) {
+  mkdirSync(dirname(path), { recursive: true });
+  const tmp = `${path}.${process.pid}.${Date.now()}.tmp`;
+  writeFileSync(tmp, JSON.stringify(value));
+  renameSync(tmp, path);
+}
 
 /**
  * The document's text, from the cache or by reading it. Returns { sha, extractor, pages: [{ page, lines, squeezed }] }.
@@ -195,14 +203,12 @@ export async function documentText(bytes, { sha = sha256(bytes), refresh = false
   if (!String(bytes.subarray?.(0, 5) ?? '').startsWith('%PDF') && !Buffer.from(bytes).subarray(0, 5).toString().startsWith('%PDF')) {
     const { htmlText } = await import('./html-text.mjs');
     const read = htmlText(bytes, { sha, extractor: HTML_READER });
-    mkdirSync(dirname(path), { recursive: true });
-    writeFileSync(path, JSON.stringify(read));
+    writeCache(path, read);
     return read;
   }
   const pages = (await pdfPages(bytes)).map(({ page, spans }) => ({ page, lines: pageLines(spans), squeezed: squeezed(spans) }));
   const text = { sha, extractor: EXTRACTOR, pages };
-  mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, JSON.stringify(text));
+  writeCache(path, text);
   return text;
 }
 
