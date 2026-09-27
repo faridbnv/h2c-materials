@@ -22,13 +22,13 @@ What the database holds (materials, products, measurements, sources) is counted 
 npm install --prefix build     # once
 npm run hooks                  # once per clone: the pre-commit data check
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
-npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about 75 s after a change, 30 s when nothing the build reads changed)
-npm run verify                 # before a commit: verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
+npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about a minute after a change, half that when nothing the build reads changed)
+npm run verify                 # before a commit: verify:fast, the import tests, the scale and reproducible-build checks, audit, review snapshot, interface views, 300 rendered scenarios
 npm run build:diff             # what a change did to the compiled database, against HEAD
 npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
 npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
-npm run data:new-material -- --name PA11 --polymer PA11   # a material and its first grade, and what it still needs
+npm run data:new-material -- --name PA11 --polymer PA11   # a material (and its first grade, given --manufacturer, --product and --source), and what it still needs
 npm run data:export-xlsx       # read-only review workbook in dist/review/
 npm run db:sqlite              # dist/h2c.sqlite; then npm run sql -- "select ..." to ask across records
 ```
@@ -92,7 +92,8 @@ build/src/                              check -> load -> normalize -> compile ->
 build/src/estimate/                     the estimate stage, an overlay on the compiled database (D58)
 build/src/coverage-rules.js             one definition of what counts as a material's own data
 build/mappings/estimate-model.json      the estimate model's conversions, physical limits and fitting judgements, reviewed like code
-build/snapshot/                         the committed review snapshot: headlines, gates, templates, warnings, screening ends, interface views
+build/snapshot/                         the committed review snapshot: counts, headlines, products and spreads, print gates,
+                                        environment, templates, warnings, screening ends, interface views
 build/reports/                          the validation report, regenerated every build
 
 app/js/engine/                          the selection logic. Pure: no DOM, never imports from ui/
@@ -101,9 +102,11 @@ app/js/ui/registry.js                   labels, filters, axes, columns and expor
 app/js/ui/labels.js                     the one vocabulary: what every criterion and verdict is called
 app/js/main.js                          the only place that holds state
 
-test/                                   engine, data gate, registry, contract, scale and database tests
+test/                                   engine, data gate, registry, contract, database and import (ingest-*) tests;
+                                        the scale and reproducible-build checks (*.check.js), which verify runs
 scripts/data/                           fmt, check, lint and build-finding review, new, new-material, retire, new-id, diff, the edit API, review workbook, scale data
-scripts/audit/                          source completeness: every PDF source re-read for values not in the tables
+scripts/audit/                          source completeness (every PDF source re-read for values not in the tables),
+                                        blocking gaps, the know-how worklist, the spot-check and final-round samples
 scripts/build-diff.mjs                  what a change did to the compiled database, against HEAD
 scripts/snapshot.mjs, ui-probe.mjs      the committed review snapshot and interface views (build/snapshot/)
 scripts/ui-fuzz.mjs, lib/cdp.mjs        random scenarios through the built page, checked against the engine; shared headless Chrome
@@ -112,6 +115,7 @@ scripts/audit-data.mjs                  record/family inventory and source-to-HT
 scripts/docs-*.mjs                      the generated rule catalogue, data dictionary and decision index
 scripts/migrate/                        source corrections and table changes since the conversion (m10 onwards), each guarded and re-runnable
 archive/workbook-conversion/            the 2026-09-14 workbook conversion (m01-m09, ledger, replay, baseline); history, no longer runs
+archive/ingest-2026-09-18/              the V2 import's proposals, still read by the batch migrations (scripts/ingest/archive.mjs)
 .githooks/pre-commit                    format, schema and no-deletion check on data commits
 .github/workflows/                      verify on every push; build, verify, publish on main
 dist/                                   build output, not committed
@@ -179,8 +183,8 @@ Only the first is evidence. The interface renders them differently on purpose.
 
 | | What it is | Looks like |
 |---|---|---|
-| **Measured** | A verified headline, traceable to one measurement, grade and source | `4.43` |
-| **Related** | A real measurement of the same property, never promoted to a headline | `46*` |
+| **Measured** | Its products' comparable values: their typical value (the median), and under it their range and how many products, each product's value traceable to one measurement, grade and source | `2.3` over `1.0–3.0 · 27` |
+| **Related** | A real measurement of the same property that is not a comparable value of any product, so it decides nothing | `46*` |
 | **Estimated** | The likely (80%) range of a calibrated model of every observation. Inference, not evidence | `~71.3–92.5†` |
 
 Estimates exist because in Explore a material with no mechanical data answered UNKNOWN to every
@@ -190,11 +194,13 @@ as a bound, which was wrong in its own way; the second stopped estimates decidin
 used only like-for-like evidence and gave ranges too wide to use, such as PA-CF strength 38–204 MPa.
 The current model fits one calibrated Gaussian model per property to every observation in the
 database, each converted to the headline (a break strength, a flexural modulus, a Z value, a resin
-data sheet), with polymer, reinforcement and melting-point structure shared across a family. PA-CF
-strength (its product, CarbonX CF PA12, now recorded only under PA12-CF) reads 70–92 MPa, PA66-CF sits above PA66, and hidden measured values fall inside the
-shown 80% range 79–81% of the time. Every in-scope headline has a value, an estimate or a reason it
-does not apply. An estimate never passes a material, and screens one out only when its 95% range
-clearly fails and the material's own data does not contradict it. See
+data sheet), with polymer, reinforcement and melting-point structure shared across a family. PA66-CF
+sits above PA66, and hidden measured values fall inside the shown 80% range about 80% of the time (the build fails if
+that drifts; the figure for each property is in the validation report). Every in-scope material that names an Estimate
+identity has, for each estimated property (density, stiffness, strength, stretch, heat deflection), a value, an
+estimate or a reason it does not apply; the other properties show Not published where nothing is. An estimate never
+passes a material, and screens one out only when its screening range wholly fails (at least the 95% range, wider where
+the back-test shows it must be, D59) and the material's own data does not contradict it. See
 [the data model](docs/DATA-MODEL.md#estimates) and DECISIONS D43.
 
 *Strict and Explore are the names used in the code and in these documents. On screen the control is
@@ -204,8 +210,11 @@ because the words Strict and Explore told a first-time reader nothing about what
 ## H2C hardware baseline
 
 350 °C nozzle, 120 °C bed, 65 °C active chamber, from the Method table. The build parses each
-profile's published requirement and compares it against this envelope. All six materials the
-database marks as out of scope trip that gate independently, on their own published requirements.
+profile's published requirement and compares it against this envelope. The materials marked out of scope (Scope
+`Excluded`; how many is in [build/snapshot/counts.md](build/snapshot/counts.md)) are the industrial high-temperature
+polymers and the metal and ceramic sintering filaments. Every one of those polymers that publishes a nozzle
+temperature trips that gate on it; the others publish no print setting. The sintering filaments are never candidates,
+whatever they print at, since the part is the sintered metal's or ceramic's (D87).
 A chamber window that starts inside the envelope and ends above it, such as Bambu PPS-CF's 60–90 °C,
 is reported as partly reachable rather than as a failure.
 
@@ -213,6 +222,6 @@ is reported as partly reachable rather than as a failure.
 
 `build/reports/validation-report.md` is a deliverable, not console noise. It records what the
 compiled database cannot support, so the interface can say so rather than implying a certainty it
-does not have. Its warnings name their records: unstated heat loads, outlying headlines, imprecise estimates,
-family-order breaks and materials without measurements. Each record is fixed or accepted with a reason in
+does not have. Its warnings name their records: outlying headlines, imprecise estimates, family-order breaks and
+materials without measurements. Each record is fixed or accepted with a reason in
 `data/review/accepted-findings.csv`, and `verify` fails on one that is neither (D57).

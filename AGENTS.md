@@ -6,7 +6,7 @@ how many scenario answers it moved, and keep `verify:fast` within its budget.
 
 This file is for anyone changing the H2C material database: the owner and the AI agents alike. It says
 where data lives, how to change it without breaking anything, and what the build will refuse. The
-reasons behind the rules are in `docs/DECISIONS.md` (D35, D45 to D76). Every column and vocabulary
+reasons behind the rules are in `docs/DECISIONS.md` (D35, and D45 onwards). Every column and vocabulary
 is listed in `docs/DATA-DICTIONARY.md`; every check the tooling can raise, by code, in `docs/RULES.md`.
 Starting from a data sheet, with nothing recorded yet? `docs/WALKTHROUGH-ADD-A-MATERIAL.md` runs it end to end.
 
@@ -21,14 +21,16 @@ acceptance.
 generated and never edited, and the retired Excel workbooks are history. Before committing, run:
 
 ```bash
-npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 75 s after a change, 30 s when nothing the build reads changed; budget 90 s)
-npm run verify        # verify:fast, then the reproducible rebuild, audit, snapshot, interface views, 300 rendered scenarios: before a commit
+npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about a minute after a change, half that when nothing the build reads changed; budget 90 s)
+npm run verify        # verify:fast, then the import tests, the scale and reproducible-build checks, audit, snapshot, interface views, 300 rendered scenarios: before a commit
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
 `verify` fails on a new lint finding, on an unreviewed build finding, on a stale `docs/RULES.md` or
 `docs/DATA-DICTIONARY.md`, on a stale `build/snapshot/`, and on any disagreement between the rendered page and the
-engine over 300 random scenarios (about three minutes more than `verify:fast`, measured 2026-09-25: the interface views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests (`npm run test:ingest`), which `verify:fast` leaves out while imports are paused.
+engine over 300 random scenarios (about three minutes more than `verify:fast`, as GOALS C13 measures it: the interface
+views and the rendered scenarios drive a headless browser). `verify` also runs the import pipeline's tests
+(`npm run test:ingest`), which `verify:fast` leaves out while imports are paused.
 
 The build result is cached by content in `.cache/build/` (`build/src/build-cache.js`): the same tables, code, runtime
 and options give the stored result back instead of running the estimate stage again, which is what keeps
@@ -233,9 +235,10 @@ its load, its notch and its test temperature (D92), and the test standard a valu
 
 ## Importing a batch of data sheets
 
-**Paused on 2026-09-25 by the owner**, until the re-center in `docs/GOALS.md` is built; the owner lifted it once, for the
-sheets held for identity (batch b34, D87). A document never enters by hand: it travels the
-import pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing
+**Paused on 2026-09-25 by the owner**, until the re-center in `docs/GOALS.md` is built. The owner lifted it for the
+sheets held for identity (batches b34 and b35, D87), and phase 6 allowed a targeted fetch where one document settled a
+blocking answer (batch b36; GOALS, phase 6, decision 4). A document never enters by hand: it travels the import
+pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing
 a table by hand, are in [docs/IMPORTING.md](docs/IMPORTING.md).
 
 ## Checking your work

@@ -59,7 +59,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | # | Component | 2026-09-25 | 2026-09-27 | What moved it, and what holds it back |
 |---|---|:-:|:-:|---|
 | C1 | Translate requirements (limits engineers use, a goal to rank by) | 2 | 4 | Ten limits (layer strength, notched Charpy and Izod, glass transition added) and Rank by; no template uses the new four |
-| C2 | Classification (family → polymer → material → product, a home for everything) | 2 | 4 | Product lines are products, TPU by hardness, a "polymer not stated" home per family; 20 held sheets and 2 materials without a product remain |
+| C2 | Classification (family → polymer → material → product, a home for everything) | 2 | 4 | Product lines are products, TPU by hardness, a "polymer not stated" home per family; 20 held sheets and 4 materials with no product to buy (2 with only a resin reference) remain |
 | C3 | Evidence store, decision tier (values with their conditions) | 3 | 3 | The values that decide were re-read (0 of 80 close calls wrong); 199 still lack their test conditions, and no person has measured the error rate (SPOT-CHECK.md) |
 | C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | Comparable and as published on every headline, the user admits the second |
 | C5 | Material summary (range and typical value across products) | 1 | 4 | Every material is its products' spread, variants and twins placed by rule |
@@ -68,11 +68,11 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | The Products tab, passing products first, search by maker and product |
 | C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | Each product's own recipe, then its twin's, then Bambu's guide, labelled: chamber decided for 719 of 1,125 products (was 140), nozzle 997 |
 | C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4,502 statements on 881 products in the maker's words, every gap stated; the maker-site search is later |
-| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 41,460 skipped facts and 4,482 cached pages searchable in `dist/h2c.sqlite` |
+| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | The facts no row holds and every cached page's text, searchable in `dist/h2c.sqlite` (`npm run db:sqlite` counts them) |
 | C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | Estimated only where no product publishes (153 material cells); the special cases went with the representative grade |
 | C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | `verify:fast` 23 to 65 s, `verify` about 4 min; a product still takes the pipeline or a checked migration |
 | C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | Later, as planned |
-| C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | Tests are rules, counts generated, every decision in plain words, 219 acceptances each with its reason; the audit record is long |
+| C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | Tests are rules, counts generated, every decision in plain words, every acceptance with its reason; the audit record is long |
 
 Re-scored on 2026-09-27, at the end of phases 5 and 6, by Claude (an agent) from the build and the record
 ([RESPONSE.md](audits/2026-09-25-re-center/RESPONSE.md), "Phases 5 and 6: where they end"). The owner may re-score.
@@ -85,7 +85,8 @@ describes a tool that does not exist yet. D83 and D84 are entered (the build and
 them from phase 3; phase 4 retired the representative grade and its hand picks, m137). D85 is entered with the record
 tier's first lane: `source_facts` and the full-text index `documents_fts` in `dist/h2c.sqlite`. Makers' know-how in the
 panel is built with lane 3 (m140; D85, its last part). Phase 5's decisions are D86 (m141) and D87 (m142, m143). Phase
-6's decisions 1 and 2 are D88 (m150) and D89. Of those of 2026-09-26, decisions 1 and 4 are D90 (m165) and D91 (m168), and 2 and 3 are data (m166, m167).
+6's decisions 1 and 2 are D88 (m150) and D89. Of those of 2026-09-26, decisions 1, 4, 5, 6 and 8 are D90 (m165), D91
+(m168), D93 (m190), D95 (m197) and D94 (m195); 2, 3 and 7 are data (m166, m167, m198).
 
 - **D83. A material is the range of its products.**
   - Each product's values are derived by rule, and `headlines.csv` becomes an override.
@@ -103,7 +104,8 @@ panel is built with lane 3 (m140; D85, its last part). Phase 5's decisions are D
 - **Printability per product.** Each product's own profile screens it. A union across a material's products never
   does.
 - **New document imports are paused** until the re-center is built. The documents already fetched are mined first:
-  for the record, print recipes and makers' know-how. The owner lifted it for one set on 2026-09-25 (below).
+  for the record, print recipes and makers' know-how. The owner lifted it for one set on 2026-09-25, and for targeted
+  fetches in phase 6 (both below).
 
 ## Decided on 2026-09-25, for phase 5
 
@@ -112,8 +114,9 @@ Asked with the facts and a recommendation each; the owner's answers:
 1. **A maker's product line is a product, and TPU is read by hardness.** The eleven PLA, PLA Silk and PETG rows that
    were one product each (Bambu's PLA Basic, Matte, Basic Gradient, Tough+, Translucent, Silk+, Silk Dual Color, PETG
    Basic, HF, Translucent, and eSUN's PLA-Lite) become products of the material they are, their names kept as aliases.
-   TPU is split by the Shore hardness its makers rate it, for every maker: 87A or softer, 88 to 92A, 93 to 97A,
-   harder than 95A, and hardness not stated; Bambu's four TPU rows are aliases of their class. Built in m141 (D86).
+   TPU is split by the Shore hardness its makers rate it, for every maker: 87A or softer, 88 to 92A, 93 to 97A, 98A
+   and above or Shore D (the class named "harder than 95A"), and hardness not stated; Bambu's four TPU rows are aliases
+   of their class. Built in m141 (D86).
 2. **A family gets a "polymer not stated" home,** for products whose sheets name only the family ("colorFabb PA Neat",
    "eSUN TPE 83A"): shown and judged like any product, clearly labelled, with no estimate. The 50 sheets waiting on it
    are imported now, the owner's exception to the pause. Built in m142 and m143 (D87): 44 of the 74 held sheets
