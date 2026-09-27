@@ -43,7 +43,7 @@ export const DETAIL_LEVELS = [
   {
     id: 'measured',
     label: 'One matched measurement pair',
-    help: 'Pairs recorded for the same grade under matching conditions.',
+    help: 'Pairs recorded for the same product under matching conditions.',
   },
   {
     id: 'measured-mixed',
@@ -265,7 +265,7 @@ export function renderAshby(host, state, actions) {
         // material. Without that sentence a cluster of six dots reads as six materials, or as noise.
         // A dot pairs two recorded measurements of the same grade taken under compatible conditions.
         // The source rarely says both came from one specimen, so a dot is not claimed to be one test.
-        ? `<b>Each dot pairs two measurements of one grade, not one material.</b> ${pts.length} pair${pts.length === 1 ? '' : 's'}
+        ? `<b>Each dot pairs two measurements of one product, not one material.</b> ${pts.length} pair${pts.length === 1 ? '' : 's'}
            across ${subjects} of ${rows.length} candidates. The two values were recorded for the same
            grade under compatible conditions, not necessarily on the same specimen, so dots are not
            independent tests. Where a material has more than one pair

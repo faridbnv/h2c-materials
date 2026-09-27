@@ -189,6 +189,13 @@ function body(group, materials, cs, db, ctx = {}) {
       evidence rather than as filters that would pass everything.</div>`);
   }
 
+  // The first clause of a headline's Not applicable reason, lower-cased after the colon it follows: "heat deflection is
+  // a rigid-bar test and means nothing for an elastomer".
+  const notApplicableWhy = (def) => {
+    const why = String(def.notApplicableReason ?? '').split(/[:.;(]/)[0].trim();
+    return why ? `: ${why.charAt(0).toLowerCase()}${why.slice(1)}` : '';
+  };
+
   for (const f of numericFilters().filter((x) => x.group === group)) {
     const c = find(cs, (x) => x.property === f.key);
     const a = availability(materials, f.key);
@@ -197,7 +204,9 @@ function body(group, materials, cs, db, ctx = {}) {
     const extra = a.caveats
       ? `${a.caveats} of those ${a.withData} cite a source that states the standard but not the load`
       : def?.kind === 'price' ? `Three Canadian retailers, sampled ${db.meta.pricesSampled ?? db.meta.snapshot}`
-      : def?.appliesTo ? `Applies only to ${def.appliesToText.replace(/:/g, ' ')}; ${a.notApplicable} other material${a.notApplicable === 1 ? '' : 's'} are not applicable` : null;
+      // Why it does not apply, in the registry's own words up to its first stop: the raw rule ("Morphology: amorphous |
+      // semicrystalline; Family: ABS | ...") was printed here, which told an engineer nothing.
+      : def?.appliesTo ? `Does not apply to ${a.notApplicable} material${a.notApplicable === 1 ? '' : 's'}${notApplicableWhy(def)}` : null;
     out.push(`<div class="control" data-active="${!!c}">
       <label title="${esc(P.technical)}">${esc(P.plain)}</label>
       <div class="sub-label">${esc(P.hint)}</div>
@@ -300,7 +309,7 @@ function body(group, materials, cs, db, ctx = {}) {
     const conflicts = db.coverage.filter((r) => r.status === 'Conflict' || r.status === 'Quarantined').length;
     const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
     out.push(`<div class="control" data-active="${!!g?.exactGrade}">
-      <label><input type="checkbox" data-evidence="exactGrade" ${g?.exactGrade ? 'checked' : ''}> Has a grade-specific measurement</label>
+      <label><input type="checkbox" data-evidence="exactGrade" ${g?.exactGrade ? 'checked' : ''}> Has a product-specific measurement</label>
       <div class="avail">Any numeric property on any recorded grade. ${unmeasured} of ${materials.length} materials have no property measurements at all</div>
     </div>`);
     out.push(`<div class="control" data-active="${!!g?.noConflicts}">

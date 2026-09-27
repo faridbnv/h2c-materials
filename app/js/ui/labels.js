@@ -146,7 +146,7 @@ export function describeConstraint(c) {
       return `Resists ${envNoun(c.category)}`;
     case 'evidence': {
       const bits = [];
-      if (c.exactGrade) bits.push('has a grade-specific measurement');
+      if (c.exactGrade) bits.push('has a product-specific measurement');
       if (c.noConflicts) bits.push('no unresolved conflicts');
       return bits.length ? `Evidence: ${bits.join(', ')}` : 'Evidence quality';
     }
@@ -186,7 +186,7 @@ export function screenedChip(evaluation) {
   if (by.polymer.length) parts.push(`${SCREEN_PREFIX.polymer}: ${by.polymer.join('; ')}.`);
   const onlyPolymer = by.polymer.length && !by.estimate.length;
   return {
-    text: `${parts.join(' ')} Not a failure; ${onlyPolymer ? 'not tested on this grade' : 'not measured'}.`,
+    text: `${parts.join(' ')} Not a failure; ${onlyPolymer ? 'not tested on this product' : 'not measured'}.`,
     head: onlyPolymer ? 'Screened by the base polymer' : by.polymer.length ? 'Screened by an estimate and the base polymer' : SCREEN_PREFIX.estimate,
     action: onlyPolymer ? 'polymer' : 'estimate',
   };

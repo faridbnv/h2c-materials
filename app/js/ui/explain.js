@@ -73,8 +73,8 @@ export function renderExclusions(host, state, actions) {
   host.querySelector('#to-explore')?.addEventListener('click', () => actions.setPolicy('exploration'));
 }
 
-/** Per-candidate explanation: one line per criterion, with the measurement behind it. */
-export function renderWhy(evaluation) {
+/** Per-candidate explanation: one line per criterion, with the measurement behind it and the product it is from. */
+export function renderWhy(evaluation, { productName } = {}) {
   if (!evaluation.results.length) return `<p class="missing">No requirements are set.</p>`;
   // One list, so the result chips share a column and the text beside them one left edge (app.css).
   return `<div class="explain-list">${evaluation.results.map((r) => `
@@ -85,7 +85,7 @@ export function renderWhy(evaluation) {
         <div class="why">${esc(r.reason)}${r.measurementId
           // The measurement a result rests on, labelled and one press away (wireEvidence opens it), where a bare code had
           // named it and led nowhere.
-          ? ` · measurement <button type="button" class="link-btn" data-measurement="${esc(r.measurementId)}" title="Opens the measurement behind this result">${esc(r.measurementId)}</button>` : ''}${r.gradeId ? ` · grade ${esc(r.gradeId)}` : ''}${r.polymer
+          ? ` · measurement <button type="button" class="link-btn" data-measurement="${esc(r.measurementId)}" title="Opens the measurement behind this result">${esc(r.measurementId)}</button>` : ''}${r.gradeId ? ` · ${esc(productName?.(r.gradeId) ? `${productName(r.gradeId)} (${r.gradeId})` : `product ${r.gradeId}`)}` : ''}${r.polymer
           // A result that rests on the base polymer's published behaviour says so, and where its rows are (D64).
           ? ` · from the base polymer ${esc(r.polymerId)}, shown on the Environment tab` : ''}</div>
       </div>
@@ -116,7 +116,7 @@ export function renderNoResults(host, state, actions) {
   }
   if (q) {
     host.innerHTML = `<div class="empty"><h3>No material is called anything like "${esc(q)}"</h3>
-      <p>Search looks at material names, families, polymers, fillers and grade IDs, and at the maker and
+      <p>Search looks at material names, families, polymers, fillers and product IDs (G…), and at the maker and
         name of each product. A product this database does not hold finds nothing; try its polymer instead,
         such as PLA, PETG or PA6-CF.</p>
       <button class="btn btn-primary" id="clear-search">Clear the search</button></div>`;

@@ -228,13 +228,13 @@ function evaluateGate(material, c) {
     if (g === 'no-special-concern') return { status: STATUS.PASS, criterion, reason: `A source states no special nozzle concern${from}` };
     const filler = material.facets?.reinforcement?.value;
     if (filler === 'carbon-fibre' || filler === 'glass-fibre') {
-      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, but no abrasion guidance was recorded. Treat as abrasive until the grade says otherwise' };
+      return { status: STATUS.UNKNOWN, criterion, reason: 'Fibre-filled, but no abrasion guidance was recorded. Treat as abrasive until the product says otherwise' };
     }
     return {
       status: STATUS.PASS, criterion,
       reason: filler === 'unfilled'
         ? 'No hardened-nozzle requirement recorded'
-        : 'No hardened-nozzle requirement recorded. The filler is not disclosed, so check the grade: glow, metal, wood and marble fills can wear brass',
+        : 'No hardened-nozzle requirement recorded. The filler is not disclosed, so check the product: glow, metal, wood and marble fills can wear brass',
     };
   }
 
@@ -386,7 +386,7 @@ function evaluatePolymerLevel(polymer, label, ctx) {
   const screened = !!ctx?.useEstimates;
   return {
     ...common, polymerScreen: true, screened, vetoedBy: [],
-    reason: screened ? `${basis}. Screened out; not tested on this grade` : `${basis}. It would screen this material out with inference on`,
+    reason: screened ? `${basis}. Screened out; not tested on this product` : `${basis}. It would screen this material out with inference on`,
   };
 }
 

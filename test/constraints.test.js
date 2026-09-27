@@ -310,7 +310,7 @@ test('without a hardened nozzle, a recorded requirement fails and a fibre filler
   assert.equal(evaluateConstraint(abrasive('unknown', 'unfilled'), c).status, STATUS.PASS);
   const undisclosed = evaluateConstraint(abrasive('unknown', 'undisclosed'), c);
   assert.equal(undisclosed.status, STATUS.PASS);
-  assert.match(undisclosed.reason, /check the grade/);
+  assert.match(undisclosed.reason, /check the product/);
 });
 
 // --- environment ------------------------------------------------------------

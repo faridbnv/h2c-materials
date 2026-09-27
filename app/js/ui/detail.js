@@ -85,8 +85,8 @@ const TAB_HELP = {
   Overview: (n, c) => (c.tested
     ? 'How this material fares against your requirements, whether the H2C can print it, and its key numbers.'
     : 'What this material is, its key numbers, and whether the H2C can print it.'),
-  Mechanical: (n) => (n ? `${plural(n, 'mechanical measurement')} on record, by property; each value names its grade and source.` : 'No mechanical measurement is on record for this material.'),
-  Thermal: (n) => (n ? `${plural(n, 'thermal measurement')} on record, by property; each value names its grade and source.` : 'No thermal measurement is on record for this material.'),
+  Mechanical: (n) => (n ? `${plural(n, 'mechanical measurement')} on record, by property; each value names its product and source.` : 'No mechanical measurement is on record for this material.'),
+  Thermal: (n) => (n ? `${plural(n, 'thermal measurement')} on record, by property; each value names its product and source.` : 'No thermal measurement is on record for this material.'),
   Printing: (n) => (n ? `${plural(n, 'print profile')}, by maker: the temperatures, nozzle, drying and feed each source gives.` : 'No print profile is on record for this material.'),
   Environment: (n, c) => (n ? `${plural(n, 'record')} of how it behaves in chemicals, moisture and other exposure, by category${c.poly?.length ? `, ${c.poly.length} of them the base polymer's published behaviour` : ''}.` : 'No record of chemical, moisture or other exposure is on file for this material.'),
   Grades: (n) => (n ? `${plural(n, 'product')} recorded under this material, by maker: each with its own values, whether it meets your requirements, and how to print it.` : 'No product is recorded under this material.'),
@@ -177,7 +177,7 @@ function measurementRow(x, c, { shared = new Map(), inSources = false, compact =
       ${x.implausible ? explainButton('physically implausible', 'The source publishes this number, but physics rules it out; see Notes. It decides nothing.', { cls: 'chip chip-FAIL chip-small', head: 'Physically implausible' }) : ''}</div>
     ${cond ? `<div class="cond">${esc(cond)}</div>` : ''}
     ${more.length ? `<dl class="kv small cond-more">${more.map(([k, t]) => `<dt>${esc(k)}</dt><dd>${longText(t)}</dd>`).join('')}</dl>` : ''}
-    <div class="cond meas-foot">Measurement ${esc(x.id)}${compact ? '' : ` · grade ${esc(x.gradeId)}`}${source}</div>
+    <div class="cond meas-foot">Measurement ${esc(x.id)}${compact ? '' : ` · ${esc(gradeName(c.gradeById.get(x.gradeId)) || 'product')} (${esc(x.gradeId)})`}${source}</div>
   </div>`;
 }
 
@@ -328,7 +328,7 @@ function familyGuidance(m, c) {
   const records = [...new Map(fields.flatMap((f) => f?.records ?? []).map((r) => [r.id, r])).values()];
   const unresolved = [...new Set(fields.flatMap((f) => f?.unresolved ?? []))];
   const owner = (r) => c.materialById.get(r.materialId)?.name ?? r.materialId;
-  const scope = (name) => (name === m.name ? 'as a family, not specific to one grade' : `as a family, not specific to ${m.name} or its grades`);
+  const scope = (name) => (name === m.name ? 'as a family, not specific to one product' : `as a family, not specific to ${m.name} or its products`);
   // The record's ID is kept in the title only: the Overview is for reading, and the record is listed, with its ID, in
   // the Environment tab of the material it belongs to.
   const cite = (r) => `<span class="fine-src" title="Evidence record ${esc(r.id)}">source: ${esc(sourceName(c.sourceById.get(r.sourceId), r.sourceId))}</span>`;
@@ -386,7 +386,7 @@ function polymerSection(poly, c) {
   if (!poly.length) return '';
   const screens = poly.filter((p) => p.screens);
   return `<h3 class="sec">From the base polymer ${esc(poly[0].polymerId)}</h3>
-    <div class="note">In ${poly.length === 1 ? 'this category' : `these ${poly.length} categories`} no source tested this material or its grades, so the
+    <div class="note">In ${poly.length === 1 ? 'this category' : `these ${poly.length} categories`} no source tested this material or its products, so the
       published behaviour of the neat ${esc(poly[0].polymerId)} resin is shown instead, from a resin producer's or handbook reference. It is not a test of
       this grade: fillers, pigments and printing change it. It never passes a requirement${screens.length
         ? `; where the reference reports the polymer attacked or dissolved (${screens.map((p) => p.categoryLabel.toLowerCase()).join(', ')}), it screens this material
@@ -399,7 +399,7 @@ function polymerSection(poly, c) {
         <div>${esc(a.finding)}</div>
         ${a.conditions ? `<div class="cond">${esc(a.conditions)}</div>` : ''}
         ${a.notes ? `<div class="cond">${esc(a.notes)}</div>` : ''}
-        <div class="cond meas-foot">${esc(p.evidenceType)} for ${esc(p.polymerId)}, not this grade · source: ${esc(sourceName(c.sourceById.get(a.sourceId), a.sourceId))}${a.locator ? `, ${esc(a.locator)}` : ''} ${tag(a.id, 'Polymer row')}</div>
+        <div class="cond meas-foot">${esc(p.evidenceType)} for ${esc(p.polymerId)}, not this product · source: ${esc(sourceName(c.sourceById.get(a.sourceId), a.sourceId))}${a.locator ? `, ${esc(a.locator)}` : ''} ${tag(a.id, 'Polymer row')}</div>
       </div>`).join('')}`).join('');
 }
 
@@ -535,7 +535,7 @@ function renderFamilyEntry(host, m, actions) {
       <p class="lede">${f.kind === 'alias'
         ? `${esc(m.name)} is another name for the material below. It has no product or values of its own.`
         : `${esc(m.name)} is a family, not one material. It has no product or values of its own, and it is never a candidate: each product is recorded once, under the material it is.`}</p>
-      <p class="fine family-no-tabs">No tabs here: measurements, print profiles, grades and prices are recorded under each ${f.kind === 'alias' ? 'material' : 'member'}, so open ${f.members.length === 1 ? 'it' : 'one'} below for its evidence.</p>
+      <p class="fine family-no-tabs">No tabs here: measurements, print profiles, products and prices are recorded under each ${f.kind === 'alias' ? 'material' : 'member'}, so open ${f.members.length === 1 ? 'it' : 'one'} below for its evidence.</p>
       <h3 class="sec">${f.kind === 'alias' ? 'The material' : `${plural(f.members.length, 'member')}`}</h3>
       <div class="facts-list">${f.members.map((x) => `<div class="fact"><button class="btn btn-sm" data-open-member="${esc(x.id)}">${esc(x.name)}</button></div>`).join('')}</div>
       <p class="fine">${esc(f.why)}</p>
@@ -978,9 +978,9 @@ function tabBody(tab, c) {
         <div class="fact-card"><div class="fact-label">Measurements</div>
           <div class="fact-value">${summary.numericMeasurements}</div>
           <div class="fact-hint">${summary.quarantined ? `${summary.quarantined} quarantined` : 'numeric, each with a source'}</div></div>
-        <div class="fact-card"><div class="fact-label">Grades on record</div>
+        <div class="fact-card"><div class="fact-label">Products on record</div>
           <div class="fact-value">${summary.grades || '—'}</div>
-          <div class="fact-hint">${summary.exactGradeEvidence ? 'grade-specific evidence exists' : 'no grade-specific evidence'}</div></div>
+          <div class="fact-hint">${summary.exactGradeEvidence ? 'product-specific evidence exists' : 'no product-specific evidence'}</div></div>
         <div class="fact-card${summary.gaps ? ' warn' : ''}"><div class="fact-label">Known gaps</div>
           <div class="fact-value">${summary.gaps}</div>
           <div class="fact-hint">recorded as missing</div></div>
@@ -992,7 +992,7 @@ function tabBody(tab, c) {
     // With requirements set, the first question is how the material fares against them, and the next whether it can be
     // printed: "Against your requirements" had been the last section, under the numbers, the estimates, the printing
     // checks, the uses and the documentation cards. Without requirements there is nothing to answer first.
-    const requirements = c.tested ? `<h3 class="sec">Against your requirements</h3>${renderWhy(evaluation)}` : '';
+    const requirements = c.tested ? `<h3 class="sec">Against your requirements</h3>${renderWhy(evaluation, { productName: (id) => gradeName(c.gradeById.get(id)) })}` : '';
     const rest = `${usesSection(m, c)}${documented}`;
     return c.tested
       ? `${printable}${lede}${requirements}${print}${numbers}${rest}`
@@ -1067,7 +1067,7 @@ function tabBody(tab, c) {
         <dt>Sources</dt><dd>${[p.sourceId, p.h2cSourceId].filter(stated).map((sid) => `${esc(sourceName(c.sourceById.get(sid), sid))} ${tag(sid, 'Source')}`).join('; ')}</dd>
       </dl></div>`;
     };
-    return guide + searchBox('a grade or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not recorded', leadingMaker)
+    return guide + searchBox('a product or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not recorded', leadingMaker)
       .map(([maker, group]) => makerBlock(maker, group.length, 'print profile', group.map(profileBlock).join(''), { open: maker === leadingMaker })).join('');
   }
 
@@ -1088,7 +1088,7 @@ function tabBody(tab, c) {
         <div><strong>${esc(e.topic)}</strong>${e.agent ? ` · ${esc(e.agent)}` : ''}${e.strength && e.strength !== 'unspecified' ? ` · ${esc(e.strength)}` : ''}</div>
         <div>${esc(e.finding)}</div>
         ${e.exposure ? `<div class="cond">${esc(e.exposure)}</div>` : ''}
-        <div class="cond meas-foot">${esc(e.evidenceType)}${stated(e.gradeId) ? ` · grade ${esc(e.gradeId)}` : ''} · source: ${esc(sourceName(c.sourceById.get(e.sourceId), e.sourceId))}${e.locator ? `, ${esc(e.locator)}` : ''} ${tag(e.id, 'Evidence record')}</div>
+        <div class="cond meas-foot">${esc(e.evidenceType)}${stated(e.gradeId) ? ` · ${esc(gradeName(c.gradeById.get(e.gradeId)) || 'product')} (${esc(e.gradeId)})` : ''} · source: ${esc(sourceName(c.sourceById.get(e.sourceId), e.sourceId))}${e.locator ? `, ${esc(e.locator)}` : ''} ${tag(e.id, 'Evidence record')}</div>
       </div>`).join('')}`).join('');
     return own + polymerSection(poly, c);
   }

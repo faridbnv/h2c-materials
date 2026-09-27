@@ -120,7 +120,7 @@ button, input, select { font: inherit; color: inherit; font-variant-numeric: tab
 }
 .search { position: relative; }
 .search input {
-  width: 230px; padding: 6px 28px 6px 10px; border: 1px solid var(--border-strong);
+  width: 260px; padding: 6px 28px 6px 10px; border: 1px solid var(--border-strong);
   border-radius: var(--radius); background: var(--bg);
 }
 /* The "/" shortcut, shown in the box until it is used. Nothing on screen had said it existed. */
@@ -911,6 +911,9 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .pill:hover { background: var(--fail-bg); border-color: var(--fail); color: var(--fail); }
 .pill .x { font-size: 15px; line-height: 1; opacity: .7; }
 .pill.soft { border-style: dashed; border-color: var(--border-strong); background: var(--surface); color: var(--ink-2); font-weight: 400; }
+/* The tracked requirements are a row of their own, so their label never reads as part of the required pills. */
+.pill-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex-basis: 100%; }
+.pill-group .pill-label { margin-left: 0; }
 .pill-label { font-size: var(--t-label); color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; font-weight: 650; margin-left: 6px; }
 
 /* ---------------------------------------------------------------- scenario drawer */

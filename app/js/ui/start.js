@@ -78,8 +78,8 @@ function limits(db) {
           temperature is recorded far more often and is the closest usable proxy.</li>
         <li><b>UV and outdoor life, food contact, creep, fatigue.</b> Narrative notes only, never a
           verdict. Read them in a material's Environment tab.</li>
-        <li><b>Which exact product has every property.</b> A row combines the evidence recorded
-          for a material, which can come from different grades. Check the Grades tab before buying.</li>
+        <li><b>Which exact product has every property.</b> A row shows a material as the spread of its
+          products, so no one product need have every value. Check its Products tab before buying.</li>
       </ul>
       <p>Colour choice, print speed and layer-adhesion tuning are likewise out of scope. This is a
         materials database, not a profile library.</p>
@@ -144,7 +144,7 @@ export function renderActive(state, actions) {
     ${template ? `<p class="not-checked"><b>Not checked by this template.</b> ${esc(template.notChecked)}</p>` : ''}
     <div class="pills">
       ${hard.map((c) => pill(c, cs.indexOf(c))).join('')}
-      ${soft.length ? `<span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}` : ''}
+      ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>
     ${limits(state.db)}
   </section>`;
