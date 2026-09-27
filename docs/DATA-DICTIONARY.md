@@ -1363,6 +1363,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 1798 | Tensile strength and elongation at break of flexible cellular polymeric materials; Siraya Tech cites it for the foamed PEBA Air. |
 | ISO 180 | Izod impact strength. |
 | ISO 2039 | Hardness by ball indentation. |
+| ISO 22007 | Thermal conductivity and diffusivity of plastics; its part 2 is the transient plane source (hot disk) method, which LEHVOSS cites. |
 | ISO 2577 | Shrinkage of thermosetting moulding materials; colorFabb cites it for the mould shrinkage of its copperFill. |
 | ISO 2781 | Density by immersion. |
 | ISO 294 | Injection moulding of test specimens, including moulding shrinkage. |

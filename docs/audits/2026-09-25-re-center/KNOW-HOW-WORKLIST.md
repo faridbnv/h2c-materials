@@ -73,6 +73,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | CPE-CF (M090) | High-stiffness fixture | collected | 0 of 3 | 1 / 2 / 3 | — |
 | OBC (M086) | Flexible component | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PA6 (M049) | Warm environment | collected | 0 of 9 | 3 / 2 / 8 | — |
+| PAHT (M147) | Lightweight structure | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PBT-GF (M132) | Outdoor structural part | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC-GF (M038) | Lightweight structure | collected | 0 of 3 | 2 / 2 / 3 | — |
 | PE (M085) | Flexible component | collected | 0 of 2 | 1 / 2 / 2 | — |
@@ -146,7 +147,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PA6-CE (M104) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PA6-GS (M108) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PA6/66-CF (M156) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
-| PAHT (M147) | — | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PAHT-CE (M148) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PC-PBT (M095) | — | collected | 0 of 2 | 0 / 1 / 1 | — |
 | PC-PBT-CF (M131) | — | collected | 0 of 1 | 0 / 1 / 1 | — |

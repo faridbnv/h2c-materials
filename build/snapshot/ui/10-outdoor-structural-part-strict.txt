@@ -1,7 +1,7 @@
 COUNT 18 shown PASS
-STATUS ☑ PASS 18 | ☐ UNKNOWN 38 | ☐ FAIL 97
+STATUS ☑ PASS 18 | ☐ UNKNOWN 37 | ☐ FAIL 98
 18 of the 153 materials in this database meet these requirements
-38 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
+37 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
@@ -89,8 +89,8 @@ Nylon / Polyamide
 1,090–1,250 · 13
  4.37
 3.8–8.64 · 6
- 82.5
-53–112 · 6
+ 77
+53–112 · 7
  7.35
 2.1–16.5 · 6
  185

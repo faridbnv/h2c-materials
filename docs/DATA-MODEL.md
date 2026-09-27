@@ -287,8 +287,9 @@ of the ten:
 | **Notched impact, Izod** (`izodNotched`, D94) | Izod, notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated, to ISO 180 or no standard named | no direction stated | Charpy, in either unit; J/m; ASTM D256 printed in kJ/m² (a J/m value its maker converted); unnotched, or notch not stated; struck at another temperature |
 | **Glass transition** (`glassTransition`) | the product's own value, any method (almost all DSC) | none: it has no direction or load | a resin supplier's value (Specimen type Raw material value) |
 
-Every headline also leaves out a conditioned or implausible value, and an annealed one where the product publishes it
-as printed. The glass transition is a property of the plastic, not of a bar, which is why a printed and an unstated
+Every headline also leaves out a conditioned or implausible value, an annealed one where the product publishes it
+as printed, and a bar printed at a setting the product is not meant for (Specimen type "Printed off the product's
+recipe", Form off-recipe: colorFabb's lightweight PETs printed unfoamed, D95). The glass transition is a property of the plastic, not of a bar, which is why a printed and an unstated
 specimen are the same to it; a raw material value is still not the product's, as for every headline. Each of the four
 rows added since D92 carries a Comparison note, which the drawer shows above the values it leaves out (D92, D94); a row
 may also name its test Standard, which a value naming only other standards does not meet (the Izod row's ISO 180, D94).

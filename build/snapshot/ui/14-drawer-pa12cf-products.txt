@@ -6,7 +6,8 @@ Stiffness GPa 3.32 3.3–8 4 of 16 6 without direction or load (0.5–9.5)
 Strength MPa 72 50–86 7 of 16 7 without direction or load (52–125)
 Strength across layers MPa 43.3 43–52.2 3 of 16 —
 Stretch before breaking % 3.6 2.1–14.8 7 of 16 6 without direction or load (4.5–103)
-Notched impact strength kJ/m² 9.9 9.9 1 of 16 3 without direction or load (11–15)
+Notched impact, Charpy kJ/m² 9.9 9.9 1 of 16 3 without direction or load (11–15)
+Notched impact, Izod kJ/m² 11.3 11.3 1 of 16 —
 Heat resistance °C 159 48–185 10 of 16 —
 Glass transition °C 55 54–99 4 of 16 —
 Price CAD/kg — — 0 of 16 —
@@ -77,4 +78,3 @@ BigRep
 1 product
 Fabru
 1 product
-iSANMATE

@@ -1,7 +1,7 @@
 COUNT 19 shown PASS
-STATUS ☑ PASS 19 | ☐ UNKNOWN 46 | ☐ FAIL 88
+STATUS ☑ PASS 19 | ☐ UNKNOWN 44 | ☐ FAIL 90
 19 of the 153 materials in this database meet these requirements
-46 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
+44 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).
@@ -48,8 +48,8 @@ ABS-CF PASS
 1,050–1,110 · 10
  4.1
 2.7–5.21 · 3
- 36.6
-27.3–46 · 2
+ 29
+27.3–46 · 3
  1.9
 1.8–2 · 2
  78
@@ -105,8 +105,8 @@ Nylon / Polyamide
 1,090–1,250 · 13
  4.37
 3.8–8.64 · 6
- 82.5
-53–112 · 6
+ 77
+53–112 · 7
  7.35
 2.1–16.5 · 6
  185
@@ -196,8 +196,8 @@ PETG-CF PASS
 1,190–1,350 · 22
  3.09
 1.77–5.23 · 6
- 44.4
-32–59.8 · 6
+ 48.7
+32–59.8 · 7
  6.6
 1.9–14 · 6
  72

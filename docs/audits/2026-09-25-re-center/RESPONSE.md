@@ -1794,3 +1794,187 @@ or hardened nozzle", in their Locator.
 | `ui:check -- --write` | 15 of 66 views rewritten; no layout failures |
 | `audit:gaps` / `audit:know-how` | regenerated: Warm environment 66 unknown; "print setting not recorded" 62 → 70 (the specimen settings removed) |
 | `verify:fast` / `verify` | 64 s at load 16 to 18 / passing in 4 min at load 14 to 24: the scale check (73 s at twice the data), the audit (one EST-OUTLIER acceptance, PA6-CE's density, no longer occurred once the merges moved the medians, and is removed), the snapshot current, 66 views, 300 fuzzed scenarios |
+
+## Phase 6, final round: Izod, and the values the sheets print that were never read (2026-09-27)
+
+*In plain words: you can now ask for a notched Izod impact strength beside the Charpy one; the two are different tests,
+and each filter says the other is never mixed in or converted. Every Charpy value with no notch was re-read on its page,
+and the notch is set where the page says it. colorFabb's lightweight PETs are judged as they are meant to be printed,
+foamed, with the unfoamed values kept beside them; LEHVOSS's sheet of printed PAHT bars is in, figure by figure; and
+Nanovia's ±45° tabs give twelve products their XY strength. PET-LW and PAHT, which were unknown, are now answered in
+four templates. The reader and reviewer of every page was an AI agent, claude-opus-5.5, not a person.*
+
+GOALS step 1 (translate requirements: the Izod filter, scorecard C1) and step 2 (screen: the values that decide,
+scorecard C3 and C4). The owner's decisions 6, 7 and 8 of 2026-09-26 (docs/GOALS.md) are D95 (m197), m198 and D94
+(m195); m196 and m199 are the re-reads OPEN-PROBLEMS §18 and §15 asked for. Five commits, one per task, and a last one
+with the views, the generated reports and this section. Every reading below was reviewed by an agent, claude-opus-5.5
+(agent reviewer); no person has reviewed it.
+
+**1. Notched Izod beside notched Charpy (D94, m195).** `izodNotched` is D92's Charpy row with Izod's test: Izod impact
+strength, notched, kJ/m², XY with an unstated direction counted apart (D84), at 23 ± 2 °C or none stated. The owner's
+"never converted" needed one more condition: `headline_definitions.csv` gains a **Standard** column, ISO 180 on the Izod
+row and Not applicable on every other, because an Izod value to ASTM D256 printed in kJ/m² is that test's energy per
+metre of notch divided by a bar thickness its maker chose and does not give. A value that names no standard counts, as
+for Charpy. Each impact row's filter hint and drawer comparison note name the other test as never mixed or converted;
+the Charpy row's labels now say Charpy ("Notched impact, Charpy"); and Izod leaves the Charpy row's related properties
+(and Charpy is not among Izod's), so a cell with no value of its own test no longer offers the other test's number as its
+nearest evidence (11 materials' Charpy cells had only that, and now show none). The rule (`assess`), the related
+evidence, the chart's measurement mode and the registry's axis read the new column; a test holds every impact headline
+to its own property and standard over every product.
+
+| | Notched Izod (`izodNotched`) | Notched Charpy (`charpyNotched`), for comparison |
+|---|---:|---:|
+| Products with a comparable value | 45 | 77 (71 at the base: four from m196, PET-LW's two from m197) |
+| Products with a value published without a direction, counted apart | 71 | 122 (120; two from m196) |
+| In-scope materials with a spread | 26 | 39 (38; PET-LW) |
+| … and more with only values published without a direction | 12 | 26 |
+| Left out, shown: only J/m (ASTM D256) | 47 products | — |
+| Left out, shown: only ASTM D256 in kJ/m² | 13 products | — |
+
+**2. The notch each Charpy row's page states (m196).** All 164 active Charpy rows with no notch were re-read on their
+cached pages with the lines around them. The notch is set only where the page states it, in the row's words, in a
+"(notched)" Bambu Lab prints under the one value of a two-value X-Y cell it qualifies, in 缺口冲击强度 ("notched impact
+strength"), or in the method's eA or eU, as the import's own reader reads it: **12 notched, 5 unnotched**. Nothing was
+inferred from a value's size or a maker's other sheets. Where the same lines state more the row had lost, it is set
+too: BASF's extended sheets head the first column "XY-Direction" and say their specimens "are produced with the Fused
+Filament Fabrication method" (three rows become printed XY bars, and PAHT CF15's "(notched) conditioned" row is
+conditioned), and QIDI prints "(X-Y)" under its two values. **Six products gain a notched Charpy value**, four
+comparable (QIDI Odorless ABS 20.0 and PLA-CF 6.65, BASF Ultrafuse ASA 8.6 and PET CF15 5.4 kJ/m²); products whose only
+Charpy states no notch fell from 75 to 65. The rest print "Impact strength" or "Charpy impact strength" with ISO 179 or
+GB/T 1043 and nothing more, and stay as they are.
+The **nine notched rows citing 1eU**: every page labels the row notched, and all but Nanovia PLA VX print an unnotched
+bar beside it several times higher (139 NB, 75, 60, 25, 25 and 12 kJ/m² against 6.8, 15, 4, 4, 7.5 and 1.8), so the label
+stands, the method is the sheet's slip, and each row's notes now say so. Their mirror was wrong and is corrected:
+Nanovia PLA XRS's "Charpy full 12 kJ/m² ISO 179-1eA" had been recorded notched from its method; by its own word it is
+unnotched. None of the nine states a direction, so none decides unless asked.
+
+**3. colorFabb's lightweight PETs, foamed (D95, m197).** The two sheets print six rows in two columns, "Value unfoamed @
+210 °C" and "Value foamed @ 260 °C, flow: 60%"; m197 records all 24 values from the pages. The foamed column is the
+product's value by the rule; the unfoamed one is **Specimen type "Printed off the product's recipe"**, a new vocabulary
+value whose Form, `off-recipe`, the build reads as it reads a moulded, film or filament form: no product value, no bound,
+no estimate observation, shown in the drawer with its reason. So the rule needed one declared state, not a branch: a
+specimen form, and one line each in `assess`, the related-evidence note and the estimate's observation filter; the
+physics lint orders an off-recipe value only against its own column. A test holds every such row to backing nothing and
+standing beside a value of the product's own recipe. PET-LW (M141) now publishes a stiffness of 1.29 and 1.50 GPa, a
+strength of 16.1 and 10.3 MPa, an elongation of 30.3 and 33.2 % and a notched Charpy of 0.5 and 0.6 kJ/m² (foamed; the
+FLEX would have passed 2.5 GPa unfoamed, at 2.52). The same pages, and colorFabb's three other PET sheets, head their
+thermal table "Thermal Properties*" and say "*These results are obtained from the information provided by the supplier
+of the raw material": their five glass transitions (67.6 °C) had been recorded as printed specimens and became product
+values when D92 made the glass transition selectable; they are Raw material value now, as eleven such rows already were.
+
+**4. LEHVOSS LUVOCOM 3F PAHT 9825 NT (m198).** The printed-specimen sheet is "LUVOCOM 3F Filament PAHT® 9825 NT, High-
+temperature polyamide, unreinforced, natural color": the product G147-01 already is, under PAHT (M147), from LEHVOSS's
+injection moulded sheet of the same filament. It is registered as a second source of G147-01 (R-COLORFABB-TDS-LUVOCOM-3F-
+Filaments-9825-NT, Citation role cited), and the grade's name gains the HT both sheets print as a superscript. m198
+checks the bytes against the recorded SHA-256, then every figure against a run of the page's own lines: the tensile
+table in both of LEHVOSS's Ultimaker profiles ("Engineering settings", "Fast settings"), three XY rasters (0°, 45/135°,
+90°) and ZX, the strength, the elongation at maximum force (filed as the strain at strength) and the modulus, each with
+its spread (24 values, Printed specimen, the direction each is labelled); heat deflection A on a printed bar (80 °C);
+and the rows carried over from the moulded sheet on MPTS bars or pellets. The heading "Mechanical properties at 23°C /
+50% rh" is the test atmosphere with no conditioning stated, so the moisture state is not stated and the words are kept.
+The Engineering profile's 45/135° bar is written first, so D83's last tie-break (the lowest ID) makes it the product's
+XY value, the flat bar D91 reads a ±45° raster as: **PAHT's stiffness is 3.1 GPa** and its XY strength 82.1 MPa. The
+ledger row is settled as applied (`registered_by` sha, the note naming m198 and its reviewer) and STATUS.md regenerated.
+Left in the record tier: a thermal expansion printed as 0.5 × 10⁻⁵/K, a tenth of an unfilled polyamide's, the 200 h
+service temperature and the insulation resistance, which the registry has no property for. ISO 22007 joins the
+standards vocabulary.
+
+**5. Nanovia's ±45° ultimate strength (m199).** For the twelve products whose ±45° modulus m168 recorded as XY, the ±45°
+tab's "Ultimate strength" (PA 6-CF's "Ultimate tensile strength") is their XY tensile strength, read from the page's
+hash-checked bytes by m168's tab reader: 16 (HIPS) to 77 MPa (PA 6-CF). The 0° and 90° tabs' strengths stay in the
+record tier.
+
+**The decision diff** (`build/snapshot/templates.csv`, against `1fcc16a`): **17 rows changed, 13 of them a verdict**, 6
+in Explore, the page's default. m195, m196 and m199 moved none.
+
+| Template | Explore | Strict | Explore with estimates | By |
+|---|---|---|---|---|
+| Lightweight structure | PET-LW UNKNOWN → FAIL (1.29 and 1.50 GPa foamed, against 2.5); PAHT UNKNOWN → PASS (3.1 GPa) | PAHT PASS (it was not listed) | the same two; TPU-CF and COC now screened (modulus ≥ 2.5) | m197, m198 |
+| High-stiffness fixture | PET-LW and PAHT UNKNOWN → FAIL (against 5 GPa) | — | the same two; PC-PBT-CF now screened (modulus ≥ 5) | m197, m198 |
+| Outdoor structural part | PET-LW UNKNOWN → FAIL | — | PET-LW UNKNOWN → FAIL | m197 |
+| Flexible component | PET-LW UNKNOWN → FAIL (30.3 and 33.2 %, against 100) | — | PET-LW UNKNOWN → FAIL; PBT no longer screened (elongation ≥ 100) | m197 |
+
+In Explore over the 136 in-scope materials and six templates: PASS +1, FAIL +5, UNKNOWN −6. The four screen changes are
+the estimate model's recalibration on the new observations (`build/snapshot/grades.csv`, `screening.csv`); no screening
+end changed side for a material that has a product value. `BLOCKING-GAPS.md`: unknown answers fell in four templates
+(Outdoor 38 → 37, Lightweight 30 → 28, High-stiffness 46 → 44, Flexible 47 → 46); PET-LW's and PAHT's "stiffness not
+published" rows are gone. `counts.md`: measurements 11,090 → 11,158 active, product values 4,187 → 4,327 (116 of them
+Izod), material values from products 620 → 654, estimated 161 → 153.
+
+**Sample check.** 30 of the 100 rows m196 to m199 wrote or re-read were drawn with a fixed seed (2027, `mulberry32`,
+`scripts/audit/final-round-sample.mjs`) and checked again by a reading independent of the migration that wrote them: the
+row's number must stand on the page its Locator names (the whitespace-free page, as `numberOnPage` reads it; Nanovia's
+through its ±45° tab), and a notch m196 set must be named on that page. **30 of 30 confirmed.** The check proves the
+number and the notch are on the page, not that they sit in the row the Locator names; that is what each migration's
+own line-by-line guard proves.
+| Row | By | Source | Property | Raw value | Page | Number on the page | Notch on the page |
+|---|---|---|---|---|---|---|---|
+| V002346 | m196 | R-FORMFUTURA-STYX-PA6-TDS | Charpy strength | 6,8 kJ/m² | 1 | yes | Notched: yes |
+| V005746 | m197 | R-COLORFABB-TDS-PET-HIGH-SPEED-PRO | Glass transition temperature | 67,6 °C | 1 | yes | — |
+| V005816 | m197 | R-COLORFABB-TDS-PET-FLEX-MAX | Glass transition temperature | 67,6 °C | 1 | yes | — |
+| V005836 | m197 | R-COLORFABB-TDS-LW-PET-FLEX | Glass transition temperature | 67,6 °C | 1 | yes | — |
+| V007573 | m196 | B-PC-Bambu-PLA-Basic-Technical-Data-Sheet | Charpy strength | 7.9 ± 1.2 kJ/m² | 2 | yes | Notched: yes |
+| V007632 | m196 | R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5 | Charpy strength | 5.1 kJ/m2 | 6 | yes | Notched: yes |
+| V007755 | m196 | B-PC-new-Bambu-PLA-Tough-Technical-Data-Sheet | Charpy strength | 72.3 ± 6.1 kJ/m² | 2 | yes | Notched: yes |
+| V007801 | m196 | R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1 | Charpy strength | 8.6 kJ/m2 | 5 | yes | Notched: yes |
+| V010335 | m196 | R-FILLAMENTUM-Technical-Data-Sheet-Nylon-AF80-Aramid | Charpy strength | 53,2 kJ/m2 | 1 | yes | Unnotched: yes |
+| V011390 | m197 | R-COLORFABB-TDS-LW-PET | Tensile modulus | 1290 MPa | 1 | yes | — |
+| V011391 | m197 | R-COLORFABB-TDS-LW-PET | Tensile strength (endpoint unspecified) | 41,3 MPa | 1 | yes | — |
+| V011394 | m197 | R-COLORFABB-TDS-LW-PET | Elongation at break | 30,3 % | 1 | yes | — |
+| V011397 | m197 | R-COLORFABB-TDS-LW-PET | Flexural strength | 76,8 MPa | 1 | yes | — |
+| V011399 | m197 | R-COLORFABB-TDS-LW-PET | Charpy strength | 1,2 kJ/m² | 1 | yes | — |
+| V011401 | m197 | R-COLORFABB-TDS-LW-PET-FLEX | Tensile modulus | 2520 MPa | 1 | yes | — |
+| V011406 | m197 | R-COLORFABB-TDS-LW-PET-FLEX | Elongation at break | 33,2 % | 1 | yes | — |
+| V011408 | m197 | R-COLORFABB-TDS-LW-PET-FLEX | Flexural modulus | 523,2 MPa | 1 | yes | — |
+| V011415 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Tensile modulus | 3.1 ± 0.1 GPa | 1 | yes | — |
+| V011416 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Tensile strength (endpoint unspecified) | 69.1 ± 2.9 MPa | 1 | yes | — |
+| V011419 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Tensile strength (endpoint unspecified) | 81.6 ± 0.9 MPa | 1 | yes | — |
+| V011421 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Tensile modulus | 3.1 ± 0.0 GPa | 1 | yes | — |
+| V011422 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Tensile strength (endpoint unspecified) | 26.3 ± 2.7 MPa | 1 | yes | — |
+| V011423 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Tensile strain at strength | 1.1 ± 0.1 % | 1 | yes | — |
+| V011425 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Tensile strength (endpoint unspecified) | 51.2 ± 1.9 MPa | 1 | yes | — |
+| V011438 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Density | 1.20 g/cm³ | 1 | yes | — |
+| V011443 | m198 | R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT | Thermal conductivity | 0.3 W/mK | 1 | yes | — |
+| V011446 | m199 | R-NANOVIA-ABS-ESD | Tensile strength (endpoint unspecified) | 22 MPa | 1 | yes | — |
+| V011451 | m199 | R-NANOVIA-ABS-CF | Tensile strength (endpoint unspecified) | 29 MPa | 1 | yes | — |
+| V011455 | m199 | R-NANOVIA-HIPS | Tensile strength (endpoint unspecified) | 16 MPa | 1 | yes | — |
+| V011456 | m199 | R-NANOVIA-PLA-Flax | Tensile strength (endpoint unspecified) | 37 MPa | 1 | yes | — |
+
+30 of 30 confirmed (seed 2027, from 100 rows m196 to m199 wrote).
+
+**Left, with a recommendation each** (OPEN-PROBLEMS §14, §15, §18):
+- **colorFabb's LW-PLA and LW-PLA-HT** print the same two columns ("Value @ 210˚C; 100%" and "foaming 230%; 60%"),
+  seven rows in the record tier. Recommendation: read them as D95 reads the PETs, by a migration like m197; the owner's
+  ruling named the PETs, so this wants a nod.
+- **The two PET-LW profiles** (P0495, P0508) took the unfoamed column's 210 °C as their nozzle window; the sheet's print
+  guideline gives 260 °C foamed. The H2C reaches both, so no gate moves. Recommendation: the profiles lane sets the
+  foamed recipe, 260 °C, beside the unfoamed one, as the values are.
+- **LEHVOSS's XY value is chosen by the lowest ID.** Six XY bars (three rasters, two profiles) tie under D83's rule, and
+  m198 wrote the Engineering 45/135° bar first. Recommendation: accept it (D91's reading of a ±45° raster, LEHVOSS's first
+  profile); if a second sheet prints several labelled XY rasters, make the preference a declared state rather than an
+  order of rows. The sheet's processing window (265 to 290 °C, bed ≥ 50 °C, drying 110 °C) differs from G147-01's
+  profile, and its thermal expansion reads a tenth of a polyamide's: both for a reader, the second with LEHVOSS.
+- **colorFabb's "Ch-N"** (Economy PLA, 7 kJ/m²; StoneFill prints the same label with TBD) is left unstated: it is usually
+  Charpy notched, but no colorFabb page spells it out. Recommendation: the owner's word, or colorFabb's, and one row.
+- **BASF's three extended sheets** print a full impact table (Charpy and Izod, notched and unnotched, dry and
+  conditioned, in XY, XZ and ZX) of which the import kept one number each. Recommendation: a re-read migration; PAHT
+  CF15's dry notched XY Charpy (4.8 kJ/m²) would be its comparable value.
+- **Charpy names no standard.** Three notched Charpy rows cite ASTM D882 or ISO 527, and count. Recommendation: re-read
+  them; if the owner wants the symmetry, give the Charpy row Standard ISO 179 (a two-product change).
+- **Numbering.** D94 is Izod as asked; the foamed ruling is D95, on the assumption that the other lane of this round
+  enters the enclosure words as D93. If it took D95 too, renumber this one on merge (DECISIONS, the vocabulary meaning,
+  the code comments and m197 name it).
+
+
+| | Result |
+|---|---|
+| m195 to m199 | 7 registry changes and a column; 27 rows (18 notches, one of them the mirror corrected, with 5 directions, 3 specimens and 1 conditioning; 9 notes); 29 (24 values, 5 specimen types); 35 (1 source, 1 name, 32 values, the ledger); 12 values. Each re-run is a no-op |
+| `npm run data:check` / `data:lint` | 26 tables, 0 issues / 220 findings, all accepted, 0 new, 0 stale (accepted with reasons: Bambu PLA Tough's 72.3 kJ/m² notched, the two foamed Charpy values, PBAT's modulus outlier at z = -3.0; two Z-above-XY acceptances that no longer occur removed) |
+| `npm run build` | 0 errors, the same 4 warnings |
+| `npm run build:diff -- --ref 1fcc16a` | 12,685 differences: nearly all the grade estimates of the three tensile headlines, which the new observations recalibrate; `izodNotched` (116 product values, 153 summaries, 174 material headlines); the Charpy row's related evidence (16 materials); the registry; the new values' products and summaries |
+| Tests | `npm test` 316 (new rules over every record: an impact headline never takes the other test's property, and one naming a standard refuses a value naming only another; a bar printed off its product's recipe backs no product value or bound and stands beside the recipe's own value; every axis carries its headline's standard), `test:ingest` 167 |
+| `ui:check -- --write` | 20 of 66 views rewritten (the template views' counts; the Products tab's spreads and Compare gain a "Notched impact, Izod" row beside "Notched impact, Charpy"); no layout failures |
+| `audit:gaps` / `audit:know-how` | regenerated: unknown answers down in four templates; PET-LW and PAHT leave the stiffness blockers |
+| `docs:decisions` / `docs:rules` / `docs:dictionary` | D94 and D95 indexed, D92 amended by D94; RULES unchanged; the dictionary gains Standard, the off-recipe specimen type and ISO 22007 |
+| `verify:fast` | 51 s after a change at load 3 to 9, 27 s with the build cached |
+| `verify` | passing in 4 min 50 s at load 5 to 27: 316 tests, 167 ingest, the scale check (72 s), reproducible, the audit (0 errors), the snapshot current, 66 views, 300 fuzzed scenarios (a new range for `izodNotched`) |

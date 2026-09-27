@@ -9,12 +9,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 136 | 18 | 80 | 38 | not published 55; published, not comparable 17 | 15 |
+| Outdoor structural part | 136 | 18 | 81 | 37 | not published 50; published, not comparable 17 | 15 |
 | Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
-| Lightweight structure | 136 | 27 | 79 | 30 | not published 27; published, not comparable 13 | 21 |
+| Lightweight structure | 136 | 28 | 80 | 28 | not published 23; published, not comparable 13 | 21 |
 | Warm environment | 136 | 34 | 38 | 64 | print setting not recorded 69; not published 31 | 0 |
-| High-stiffness fixture | 136 | 19 | 71 | 46 | published, not comparable 25; not published 21 | 26 |
-| Flexible component | 136 | 16 | 73 | 47 | published, not comparable 25; not published 22 | 30 |
+| High-stiffness fixture | 136 | 19 | 73 | 44 | published, not comparable 25; not published 19 | 26 |
+| Flexible component | 136 | 16 | 74 | 46 | published, not comparable 25; not published 21 | 30 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -36,7 +36,6 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | TPU-LW (M150) | 3 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | COC (M137) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | OBC (M086) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PET-LW (M141) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PLA-GR (M155) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | SAN (M136) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | TPU-ESD (M126) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
@@ -46,7 +45,6 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PA12-AF (M154) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PA6-GS (M108) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PA6/66-CF (M156) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PAHT (M147) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PC-PBT-CF (M131) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PLA-PHB (M146) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | SBC (M174) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
@@ -65,8 +63,6 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PBT (M140) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PBT (M140) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PC-PTFE (M112) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| PET-LW (M141) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PET-LW (M141) | 2 | density | not published | <= 1500, <= 1250 | 2 |
 | PETG-GR (M153) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PETG-GR (M153) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PETG-PTFE (M109) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
@@ -90,8 +86,12 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PA6-CE (M104) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PA6-CE (M104) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PA6-GS (M108) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
+| PA6/66-CF (M156) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
+| PAHT (M147) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
+| PC-PBT-CF (M131) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
+| PC-PBT-CF (M131) | 1 | density | not published | <= 1500, <= 1250 | 2 |
 
-And 144 more, each holding up one template.
+And 139 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -196,7 +196,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 880 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 882 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|
