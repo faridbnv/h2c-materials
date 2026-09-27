@@ -58,7 +58,7 @@ const CHROME = /\b(Visa|Mastercard|Maestro|PayPal|Klarna|Amazon|Apple Pay|Google
 const FILE_NAME = /^B [A-Za-z]|^(tds|msds|sds|pds|tdb)[_-]|_[^_]*_|\.(xlsx|xls|csv|pdf|docx?)$/i;
 export const isTitle = (title) => !(CHROME.test(title) || FILE_NAME.test(title) || /^untitled$/i.test(title));
 
-const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment'];
+const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment', 'print_guide', 'print_guide_materials'];
 
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
 export function lintData(tables, schemas) {
@@ -364,7 +364,7 @@ export function lintData(tables, schemas) {
   // Sources.
   const byDigest = new Map();
   const cited = new Set();
-  for (const t of ['grades', 'profiles', 'measurements', 'evidence', 'prices', 'polymer_environment', 'polymers']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
+  for (const t of ['grades', 'profiles', 'measurements', 'evidence', 'prices', 'polymer_environment', 'polymers', 'print_guide']) for (const r of tables[t]?.rows ?? []) cited.add(r.SourceID);
   for (const r of tables.profiles?.rows ?? []) for (const s of String(r['H2C SourceID'] ?? '').split(';')) cited.add(s.trim());
   for (const r of tables.material_links?.rows ?? []) cited.add(r.RecordID);
   for (const r of tables.sources?.rows ?? []) {

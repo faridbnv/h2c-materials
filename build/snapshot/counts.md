@@ -12,6 +12,8 @@ rather than repeat a number.
 | Products | 1,131 | active procurement grades |
 | … with a comparable value for at least one property | 989 | D84 |
 | … with a print profile of their own | 932 |  |
+| … reading values from a twin's sheet | 46 | the same table, recorded once (D89) |
+| … reading part of the print gate from a printer maker's guide | 507 | where their own sheet is silent (D88); 15 guide rows |
 | … with a maker's know-how statement | 887 | lane 3 |
 | Measurements | 11,146 | active rows |
 | … with a usable number | 10,971 |  |

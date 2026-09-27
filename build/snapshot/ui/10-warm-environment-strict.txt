@@ -1,6 +1,6 @@
-COUNT 33 shown PASS
-STATUS ☑ PASS 33 | ☐ UNKNOWN 66 | ☐ FAIL 54
-33 of the 153 materials in this database meet these requirements
+COUNT 34 shown PASS
+STATUS ☑ PASS 34 | ☐ UNKNOWN 66 | ☐ FAIL 53
+34 of the 153 materials in this database meet these requirements
 66 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -372,7 +372,7 @@ PETG PASS
 25–26 · 2
 ↗ ☆
 PLA PASS
-4 of 69
+8 of 73
  1,240
 1,170–1,329 · 147
  2.27
@@ -400,6 +400,19 @@ PLA family, polymer not stated PASS
  4.4* 52* 3.4* 87
 54–115 · 5
  — ☆
+PLA-CF PASS
+1 of 10
+ 1,250
+1,190–1,420 · 18
+ 2.87
+1.1–4.95 · 8
+ 41
+28.3–54.9 · 9
+ 8.4
+2–13.2 · 9
+ 55.4
+54–91 · 10
+ 41↗ ☆
 PLA-NF PASS
 1 of 1
  1,350

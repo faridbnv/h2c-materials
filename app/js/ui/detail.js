@@ -786,6 +786,33 @@ function makersSayCounts(m, c) {
     ${recipe.length ? `<p class="fine">Of the products whose documents were read, ${recipeLine}.</p>` : ''}`;
 }
 
+/**
+ * A printer maker's filament guide for this material's type (db.printGuide, D88): what it states, and what it is for.
+ * It is read for a product only where the product's own sheet, and its twin's, say nothing on a part of the print
+ * gate; it is never a profile of this material, and its drying line fills nothing.
+ */
+function guideBlock(m, c) {
+  const guide = (c.db.printGuide ?? []).find((x) => x.materials.some((y) => y.materialId === m.id));
+  if (!guide) return '';
+  const why = guide.materials.find((y) => y.materialId === m.id).reason;
+  const readBy = c.grades.filter((g) => Object.values(g.print?.from ?? {}).some((f) => f.guideId === guide.id)).length;
+  const enclosure = guide.enclosureState === 'recommended' ? 'asked for' : guide.enclosureState === 'not-needed' ? 'not needed' : 'not stated';
+  const hardened = guide.abrasion.requiresHardened === true ? 'required' : guide.abrasion.requiresHardened === false ? 'not needed' : 'not settled';
+  return `<div class="profile-block guide-block"><h3 class="block-title">${esc(guide.name)} ${tag(guide.id, 'Guide row')}</h3>
+    <p class="fine">What the printer maker's guide states for its ${esc(guide.guideType)}. It stands in for a product's print gate
+      only where the product's own sheet, and a twin's, say nothing on that part, and it is labelled there as the guide's,
+      never the maker's: ${plural(readBy, 'product')} of this material read a part from it. ${esc(why)}</p>
+    <dl class="kv">
+      <dt>Nozzle</dt><dd>${esc(guide.nozzle.text)} ${gateChip(guide.gates.nozzle, 'Nozzle')}</dd>
+      <dt>Bed</dt><dd>${esc(guide.bed.text)} ${gateChip(guide.gates.bed, 'Bed')}</dd>
+      <dt>Chamber</dt><dd>${guide.chamber.state === 'unknown' ? 'No chamber temperature stated' : esc(guide.chamber.text)} ${gateChip(guide.gates.chamber, 'Chamber')}</dd>
+      <dt>Enclosure</dt><dd>${esc(guide.enclosure)}: ${esc(enclosure)}</dd>
+      <dt>Nozzle</dt><dd>${esc(guide.nozzleSizeMaterial)}: hardened nozzle ${esc(hardened)}</dd>
+      <dt>Drying</dt><dd>${longText(guide.drying.text)} <span class="fine">(recorded; fills no product's recipe)</span></dd>
+      <dt>Source</dt><dd>${esc(sourceName(c.sourceById.get(guide.sourceId), guide.sourceId))}, ${esc(guide.locator)} ${tag(guide.sourceId, 'Source')}</dd>
+    </dl></div>`;
+}
+
 /** How many of a material's products the H2C can print, axis by axis, from each product's own settings. */
 function productPrintCounts(grades) {
   const products = grades.filter((g) => !/-R\d+$/.test(g.id));
@@ -990,7 +1017,8 @@ function tabBody(tab, c) {
   }
 
   if (tab === 'Printing') {
-    if (!profiles.length) return empty('Printing');
+    const guide = guideBlock(m, c);
+    if (!profiles.length) return guide || empty('Printing');
     const leadingMaker = leadMaker(m, c);
     const profileBlock = (p) => {
       const g = c.gradeById.get(p.gradeId);
@@ -1024,7 +1052,7 @@ function tabBody(tab, c) {
         <dt>Sources</dt><dd>${[p.sourceId, p.h2cSourceId].filter(stated).map((sid) => `${esc(sourceName(c.sourceById.get(sid), sid))} ${tag(sid, 'Source')}`).join('; ')}</dd>
       </dl></div>`;
     };
-    return searchBox('a grade or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not recorded', leadingMaker)
+    return guide + searchBox('a grade or maker') + groupBy(profiles, (p) => c.gradeById.get(p.gradeId)?.manufacturer ?? 'Maker not recorded', leadingMaker)
       .map(([maker, group]) => makerBlock(maker, group.length, 'print profile', group.map(profileBlock).join(''), { open: maker === leadingMaker })).join('');
   }
 

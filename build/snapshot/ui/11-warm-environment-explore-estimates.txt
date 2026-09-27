@@ -1,6 +1,6 @@
-COUNT 80 shown PASS + UNKNOWN
-STATUS ☑ PASS 33 | ☑ UNKNOWN 66 | ☐ FAIL 54 | ☐ SCREENED 19
-33 of the 153 materials in this database meet these requirements, and 66 more could not be checked for missing data
+COUNT 81 shown PASS + UNKNOWN
+STATUS ☑ PASS 34 | ☑ UNKNOWN 66 | ☐ FAIL 53 | ☐ SCREENED 19
+34 of the 153 materials in this database meet these requirements, and 66 more could not be checked for missing data
 Include uncertain lists those 66 flagged, except the 19 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
@@ -528,7 +528,7 @@ PETG-PTFE UNKNOWN
 none judged
  1,320 ~0.8–3.0† ~26–56† ~100–240† ~48–71† — ☆
 PLA PASS
-4 of 69
+8 of 73
  1,240
 1,170–1,329 · 147
  2.27
@@ -556,6 +556,19 @@ PLA family, polymer not stated PASS
  4.4* 52* 3.4* 87
 54–115 · 5
  — ☆
+PLA-CF PASS
+1 of 10
+ 1,250
+1,190–1,420 · 18
+ 2.87
+1.1–4.95 · 8
+ 41
+28.3–54.9 · 9
+ 8.4
+2–13.2 · 9
+ 55.4
+54–91 · 10
+ 41↗ ☆
 PLA-EC UNKNOWN
 none judged
  1,295

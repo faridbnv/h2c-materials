@@ -37,13 +37,17 @@
       "rows": 353,
       "sha256": "e40011199958e55374b5b4fb48f373d9c6f9aab626c0416d83e21b022223b88d"
     },
+    "print_guide": {
+      "rows": 15,
+      "sha256": "e33e5409a526bf18f40894337e063abd2af895e4a9c35d009897adb44cc36ea3"
+    },
     "prices": {
       "rows": 104,
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
       "rows": 1481,
-      "sha256": "8a955d5ef496e0dd089b2ffcb546d3401b52dc417b15852acd7e536a47a2a69c"
+      "sha256": "38409da48a50ba9f19eb772077e0e47d5abc8c7dedb065ef5423f571d2447b11"
     },
     "coverage": {
       "rows": 865,
@@ -68,6 +72,10 @@
     "material_links": {
       "rows": 821,
       "sha256": "7a553d3732341b96ceec5385eac00e83ca9556e808106310bff719a286cd8211"
+    },
+    "print_guide_materials": {
+      "rows": 15,
+      "sha256": "be62279a47e9e7f2a47066c66fac564dab4a85ce41b9c75edca65fe4cad8948c"
     },
     "properties": {
       "rows": 44,

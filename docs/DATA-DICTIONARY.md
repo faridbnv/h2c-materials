@@ -29,6 +29,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
 | [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
+| [print_guide](#print_guide) | PrintGuideID | What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). The drying statement is recorded and fills no product's recipe. |
+| [print_guide_materials](#print_guide_materials) | MaterialID | Which of our materials a print_guide row speaks for, and why: a guide type applies to a material only where it is the same material type (the guide's PC to PC, never to a PC blend or a filled PC the guide does not name). One row per material; a material no row names has no guide, and its silent products stay unknown (D88). |
 | [profile_notes](#profile_notes) | ProfileID + Topic | One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile. |
 | [profiles](#profiles) | ProfileID | One row per published print profile for an exact grade. Its qualitative notes are rows of profile_notes.csv, one per topic (D69). |
 | [properties](#properties) | Property | One row per measured property. A new property is a new row here plus its measurements: no code changes. Domain decides the drawer tab and coverage domain; Units lists the canonical units a usable measurement may carry; Applies to limits the property to some materials (blank: all). |
@@ -361,6 +363,52 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Access date | raw | date | yes |  |  | Date the listing was read. |
 | Notes | prose | string | yes |  |  | Notes. |
 
+### print_guide
+
+`data/tables/print_guide.csv` (Print guide). What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). The drying statement is recorded and fills no product's recipe.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| PrintGuideID | key | string | yes |  | `^PG\d{3}$` | Stable identifier (PG###; npm run data:new-id -- print_guide). |
+| SourceID | canonical | string | yes |  | → sources.SourceID | The guide: a retrieved source in sources.csv with Citation role cited (PRINT-GUIDE-REFERENCE). |
+| Guide type | raw | string | yes |  |  | The material type as the guide heads its column (PC, PETG HF, TPU 95A HF). Which of our materials it is, is print_guide_materials.csv. |
+| Nozzle °C | raw | string | yes |  |  | The guide's nozzle temperature as printed; parsed by the build. |
+| Nozzle state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Nozzle °C, as a profile's. |
+| Nozzle min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not applicable unless the state is range. |
+| Nozzle max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
+| Nozzle requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
+| Bed °C | raw | string | yes |  |  | The guide's build plates and bed temperatures as printed, every plate; parsed by the build as one window across them. |
+| Bed state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Bed °C, as a profile's. |
+| Bed min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not applicable unless the state is range. |
+| Bed max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
+| Bed requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
+| Chamber °C | raw | string | yes |  |  | The guide's chamber temperature as printed, or Not published where it has no such row. An enclosure it says is not needed clears the chamber, as a profile's does; one it asks for says nothing about 65 °C. |
+| Chamber state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Chamber °C, as a profile's. |
+| Chamber min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not applicable unless the state is range. |
+| Chamber max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
+| Chamber requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
+| Enclosure | raw | string | yes |  |  | The guide's answer to printing with an enclosure, as printed; a mark drawn in place of a word is written as its glyph (✓ or ✗). Parsed by the build. |
+| Enclosure state | canonical | string | yes |  | [enclosure-states](#vocab-enclosure-states) | Reviewed reading of Enclosure. |
+| Drying | raw | string | yes |  |  | The guide's drying statement as printed, each row it comes from named. Recorded; it fills no product's recipe (D88). |
+| Drying state | canonical | string | yes |  | [drying-states](#vocab-drying-states) | stated or unknown. |
+| Drying °C | canonical | number | yes | Not applicable, Not published |  | Drying temperature as the parser reads it. |
+| Drying hours | canonical | number | yes | Not applicable, Not published |  | Drying time as the parser reads it. |
+| Nozzle size / material | raw | string | yes |  |  | The nozzle sizes and materials the guide lists, as printed; parsed by the build for whether a hardened nozzle is needed. |
+| Hardened nozzle | canonical | boolean | yes | Not published |  | Whether the guide says a hardened nozzle is needed: TRUE where it lists hardened steel alone, FALSE for any nozzle, Not published where it settles neither. |
+| Locator | raw | string | yes |  |  | The page, the column heading and the row labels each cell was read under. |
+| Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build. |
+
+### print_guide_materials
+
+`data/tables/print_guide_materials.csv` (Print guide materials). Which of our materials a print_guide row speaks for, and why: a guide type applies to a material only where it is the same material type (the guide's PC to PC, never to a PC blend or a filled PC the guide does not name). One row per material; a material no row names has no guide, and its silent products stay unknown (D88).
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| MaterialID | canonical | string | yes |  | → materials.MaterialID | The material the guide type is. A family entry or an alias owns no product and is refused (PRINT-GUIDE-MATERIAL). |
+| PrintGuideID | canonical | string | yes |  | → print_guide.PrintGuideID | The guide row read for the material's silent products. |
+| Reason | prose | string | yes |  |  | Why the guide type is this material type, and which neighbouring materials it is not. |
+| Reviewed by | editorial | string | yes |  |  | Who made the mapping, and when: a person, or an agent named as one. |
+
 ### profile_notes
 
 `data/tables/profile_notes.csv` (Print profile notes). One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile.
@@ -586,7 +634,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-drying-states"></a>
 ### drying-states
 
-`schema/vocab/drying-states.csv`, used by profiles.Drying state.
+`schema/vocab/drying-states.csv`, used by print_guide.Drying state, profiles.Drying state.
 
 | Value | Meaning |
 |---|---|
@@ -596,7 +644,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-enclosure-states"></a>
 ### enclosure-states
 
-`schema/vocab/enclosure-states.csv`, used by profiles.Enclosure state.
+`schema/vocab/enclosure-states.csv`, used by print_guide.Enclosure state, profiles.Enclosure state.
 
 | Value | Meaning |
 |---|---|
@@ -1098,7 +1146,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-process-requirements"></a>
 ### process-requirements
 
-`schema/vocab/process-requirements.csv`, used by profiles.Nozzle requirement, profiles.Bed requirement, profiles.Chamber requirement.
+`schema/vocab/process-requirements.csv`, used by print_guide.Nozzle requirement, print_guide.Bed requirement, print_guide.Chamber requirement, profiles.Nozzle requirement, profiles.Bed requirement, profiles.Chamber requirement.
 
 | Value | Meaning |
 |---|---|
@@ -1110,7 +1158,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-process-states"></a>
 ### process-states
 
-`schema/vocab/process-states.csv`, used by profiles.Nozzle state, profiles.Bed state, profiles.Chamber state.
+`schema/vocab/process-states.csv`, used by print_guide.Nozzle state, print_guide.Bed state, print_guide.Chamber state, profiles.Nozzle state, profiles.Bed state, profiles.Chamber state.
 
 | Value | Meaning |
 |---|---|

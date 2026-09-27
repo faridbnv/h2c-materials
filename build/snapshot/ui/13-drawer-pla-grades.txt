@@ -42,9 +42,9 @@ Bed
 Chamber
 not required yes
 Enclosure
-not published
+not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Hardened nozzle
-not published
+not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Drying
 45 °C for 4 h
 3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no annealing schedule; its website has not been searched yet.
@@ -66,11 +66,11 @@ Nozzle
 Bed
 23 °C yes
 Chamber
-not published not recorded
+not required yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Enclosure
-not published
+not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Hardened nozzle
-not published
+not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Drying
 not published
 3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no chamber or enclosure need, drying schedule or annealing schedule; its website has not been searched yet.

@@ -1,0 +1,12 @@
+{
+  "$comment": "Contract for data/tables/print_guide_materials.csv. Checked by build/src/schema.js; compiled by build/src/print-guide.js (D88).",
+  "title": "Print guide materials",
+  "description": "Which of our materials a print_guide row speaks for, and why: a guide type applies to a material only where it is the same material type (the guide's PC to PC, never to a PC blend or a filled PC the guide does not name). One row per material; a material no row names has no guide, and its silent products stay unknown (D88).",
+  "primaryKey": "MaterialID",
+  "fields": [
+    { "name": "MaterialID", "type": "string", "role": "canonical", "description": "The material the guide type is. A family entry or an alias owns no product and is refused (PRINT-GUIDE-MATERIAL).", "reference": { "table": "materials", "field": "MaterialID" }, "constraints": { "required": true, "unique": true } },
+    { "name": "PrintGuideID", "type": "string", "role": "canonical", "description": "The guide row read for the material's silent products.", "reference": { "table": "print_guide", "field": "PrintGuideID" }, "constraints": { "required": true } },
+    { "name": "Reason", "type": "string", "role": "prose", "description": "Why the guide type is this material type, and which neighbouring materials it is not.", "constraints": { "required": true } },
+    { "name": "Reviewed by", "type": "string", "role": "editorial", "description": "Who made the mapping, and when: a person, or an agent named as one.", "constraints": { "required": true } }
+  ]
+}

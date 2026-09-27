@@ -11,6 +11,7 @@
     "grades",
     "measurements",
     "profiles",
+    "printGuide",
     "evidence",
     "knowHow",
     "prices",
@@ -564,6 +565,40 @@
           "fatigue": {
             "type": "object"
           }
+        }
+      }
+    },
+    "printGuide": {
+      "type": "array",
+      "description": "A printer maker's filament guide, one entry per type it heads a column with (data/tables/print_guide.csv, D88): its recipe read as a profile's, and the materials it speaks for with why. Read for a product only where its own profiles and its twin's are silent on a part of its print gate; never a product's profile.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "sourceId", "guideType", "name", "locator", "materials", "nozzle", "bed", "chamber", "gates", "enclosure", "enclosureState", "nozzleSizeMaterial", "abrasion", "drying"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^PG\\d{3}$" },
+          "sourceId": { "type": "string" },
+          "guideType": { "type": "string" },
+          "name": { "type": "string" },
+          "locator": { "type": "string" },
+          "materials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["materialId", "reason"],
+              "properties": { "materialId": { "type": "string" }, "reason": { "type": "string" } }
+            }
+          },
+          "nozzle": { "type": "object" },
+          "bed": { "type": "object" },
+          "chamber": { "type": "object" },
+          "gates": { "type": "object" },
+          "enclosure": { "type": "string" },
+          "enclosureState": { "type": "string" },
+          "nozzleSizeMaterial": { "type": "string" },
+          "abrasion": { "type": "object" },
+          "drying": { "type": "object" }
         }
       }
     },

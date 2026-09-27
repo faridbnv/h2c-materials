@@ -910,3 +910,100 @@ pass and fail counts; TPE, polymer not stated has 13 products where it had 12, i
 views rewritten for the new counts and lists with no layout failure. The full `npm run verify` passes in 3 min 33 s
 (load average 3.2 at the start, 10.6 at the end): `npm test` 304, `test:ingest` 167, the scale check, the audit, the
 snapshot and counts current, 66 views, 300 fuzzed scenarios.
+
+## Phase 6, lane 2 (the owner's decisions): the print guide and twins (2026-09-25)
+
+*In plain words: a product whose own sheet says nothing about how to print it now reads the sheet it shares with a
+sibling, and after that Bambu Lab's filament guide for its type, and every answer read that way says where it came
+from. More products can be judged; one more material passes the warm-environment screen; nothing that was decided
+changed.*
+
+GOALS step 2 (screen, printability) and step 5 (drill down), scorecard lines C9 and C8. The owner's decisions 1 and 2
+for phase 6 (docs/GOALS.md), entered as D88 and D89 in DECISIONS. Three commits: the snapshot gains `print.csv` (every
+product's print gates and where each part came from) and a From/Twins column, moving nothing (`build:diff` 0
+differences); then D89; then D88 with migration m150. The reviewer of every reading and mapping here is an agent,
+claude-opus-5.5 (agent reviewer); no person has reviewed them.
+
+**Twins (D89).** A twin is derived, not stored: another active product of the same material under the same Shared
+formulation key, the products whose sheets print one table recorded once (R053). Where a product has no value of its own
+for a headline it reads its twin's own value, and where its own profiles say nothing on a part of its recipe, its twin's
+own; never a price, never what the twin itself read, and a key never spans two materials, so a reprint of another
+material's table (R166) reads nothing. Each carries `from` and the label "same sheet as <maker product>", shown in the
+drawer's product values and print card, the engine's reasons, the products export (Values read from, Recipe read from),
+the chart's product points and the spread's popover. 46 of the 47 twins read 160 values (Prusament PETG Recycled's
+sibling publishes only a hardness), and 42 read part of a recipe. **The spread counts each twin** as the product it is,
+because its own sheet prints those values: PLA Silk's tensile strength is the median of 17 products where it was 10, four
+of them SUNLU's Silk PLA+ colour packs, and it moved from 47.4 to 50 MPa. Fifty material headlines changed their count
+and 23 their median; `spread.twins` and the popover say how many values are a twin's. A twin reading a declared
+variant's sheet is set apart with it (SUNLU High Speed Matte PLA prints PLA Lite's dense-filler table), and where a twin
+ties its sibling the typical product is the sibling, so the estimate model's calibration still hides the formulation it
+names. 119 estimate ranges moved with the medians; no screen moved.
+
+**The guide (D88).** Bambu Lab's Filament Guide is registered twice: R-BAMBU-GUIDE-202609 (the current revision) and
+B-GUIDE (January 2025). **Both were re-fetched on 2026-09-25 from their recorded URLs, and each matched its recorded
+SHA-256** (`048fb9a6…dc41` and `ea799364…b858`); no new revision was registered. The ingest fetcher works from the
+import ledger, where neither is listed, so they were fetched directly and cached by SourceID and digest. The guide is one
+page, a column per Bambu filament type. It states a nozzle temperature, a bed temperature per plate, whether to print
+with an enclosure, the nozzle sizes and materials, drying and annealing; it states no chamber temperature.
+
+- `print_guide.csv` holds the current revision's fifteen types in a print profile's columns, the guide's words and the
+  profile parsers' reading of them; `print_guide_materials.csv` maps each to the one material it is, with a reason naming
+  the neighbours it is not (PC to PC, never PC FR, PC-CF or a PC blend; PETG HF to PETG, since Bambu's PETG HF is a
+  product of PETG; TPU 95A HF to the 95A class). m150 finds every cell on the hash-checked page by its column heading
+  and row label (`scripts/lib/comparison-table.mjs`); the current revision draws the enclosure answer as a green tick or
+  a red cross, which m150 reads by fill colour and checks against the January 2025 revision's words (Required for each
+  tick, Optional for each cross, all fifteen agreeing). The parsers learnt two wordings: a lone mark as an enclosure
+  answer, and the guide's nozzle column.
+- Where a product's own profiles, and then its twin's, say nothing on a part of its print gate, it reads its material's
+  guide row, labelled "per Bambu Lab's Filament Guide for PC, not this maker's sheet" (for Bambu's own products, "not this
+  product's data sheet") in the gate's reason, the print card and the export; the Printing tab shows the row itself. What
+  the product's own sheet says always wins, even words the parser cannot read.
+- It cannot decide the chamber for the nine types it asks an enclosure for: no temperature is given, and an enclosure is
+  not proof that 65 °C is enough. Drying is recorded and fills nothing.
+
+**Products that gained a decided gate, by origin** (1,131 products; "decided" is a verdict other than unknown):
+
+| Part | Before | Own sheet | Twin (D89) | Guide (D88) | Still unknown |
+|---|---:|---:|---:|---:|---:|
+| Nozzle | 811 | 811 | +34 | +126 | 160 |
+| Bed | 706 | 706 | +36 | +175 | 214 |
+| Chamber | 298 | 298 | +15 | +244 (all "within", from an enclosure the guide says is not needed) | 574 |
+| Enclosure stated | 171 | 171 | +17 | +446 | 497 |
+| Hardened nozzle stated | 224 | 224 | +12 | +417 | 478 |
+| Drying | 410 | 410 | +19 | none, by rule | 702 |
+
+**The decision diff.** Across the six templates, twins moved no material's answer; the guide moved one. Judged by
+product in Explore over all 136 in-scope materials:
+
+| Warm environment | Base (`45443ef`) | After twins | After the guide |
+|---|---:|---:|---:|
+| Materials PASS / FAIL / UNKNOWN | 33 / 37 / 66 | 33 / 37 / 66 | 34 / 36 / 66 |
+| Products PASS / FAIL / UNKNOWN | 58 / 232 / 790 | 59 / 242 / 779 | 64 / 242 / 774 |
+| Products unresolved on the chamber gate | 817 | 804 | 560 |
+| Products unresolved on the nozzle gate | 310 | 277 | 151 |
+
+In `templates.csv`, twins changed 33 rows (the product counts of PLA, PETG, ABS, PA6-GF, PPA-CF, PPS-CF and TPU,
+hardness not stated) and the guide 6: PLA-CF enters Warm environment as PASS (3DXTECH CarbonX CF-PLA, heat deflection
+91 °C, its sheet silent on the chamber, which the guide clears), and PLA passes on 8 products where it passed on 4
+(3DXTECH ECOMAX Tough PLA, purefil PLA+, colorFabb PLA-HP, 3DXTECH SimuBone). Passing products in the other templates
+rose with the twins only (Strict: Outdoor 36 to 38, Lightweight 57 to 59, High-stiffness 28 to 30, Flexible 29 to 30).
+**Why the 66 UNKNOWNs stay:** each is held by a heat deflection no product publishes comparably, or by a chamber
+nobody states. 24 of them have a product that meets everything but the chamber; for PC (11 products) and PPA-CF (6)
+that product's only word on the chamber is the guide's tick. A question for the owner, with a recommendation: count
+Bambu's own "print with an enclosure" as within the H2C's chamber for the types its guide names, labelled as the guide's
+(the guide's own drying rows name Bambu's X1 series, so it speaks of Bambu's own printers), which would let PC and
+PPA-CF pass Warm environment; revisit when a maker states a chamber temperature for either. Until then it is in
+OPEN-PROBLEMS §12.
+
+**Left.** Thirty products with no value of their own have no twin (R166 reprints, and products whose sibling holds
+nothing); 27 of them have no profile either. The January 2025 revision's ASA-CF, PC FR and TPU for AMS columns are not
+read, since the current revision dropped them. The guide's annealing, AMS, adhesion and speed rows are not recorded.
+Both are in OPEN-PROBLEMS §12.
+
+| | Result |
+|---|---|
+| `npm run data:check` / `data:lint` | 26 tables, 0 issues / 291 findings, all accepted, 0 new |
+| `npm run build:diff` | twins: 1,117 differences (product values, spreads, the estimates that follow their medians); the guide: 3,285 (`db.grades[].print` and `.print.from`, `db.printGuide`, two source fields) |
+| `node scripts/migrate/m150-bambu-filament-guide.mjs` | 33 changes; a re-run is a no-op |
+| Tests | `npm test` 312 (seven new rules over every product: a twin reads only a same-material, same-key sibling's own value and never a price; no product is silent beside a sibling that publishes; a twin's recipe part is its sibling's own and only where its own profiles are silent; the spread's twin count; a guide part is its material's row, only where the product and its twins are silent, labelled; a guide's enclosure without a temperature leaves the chamber unknown; the engine judges and labels a borrowed value and gate), `test:ingest` 167 |
+| `verify:fast` / `verify` | 57 s with the build cached at load 14 (78 s at load 17 to 20 for the twins commit) / passing in 5 min 50 s at load 13 to 37: the scale check, the audit, the snapshot and counts current, 66 views (6 rewritten for the guide, 25 for the twins), 300 fuzzed scenarios |

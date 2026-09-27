@@ -17,6 +17,7 @@ import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from '
 import { ORIGIN } from './normalize/provenance.js';
 import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped } from './typed-values.js';
 import { readRecipe } from './recipe.js';
+import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { aggregateGate } from './gates.js';
 import { attachProducts } from './products.js';
@@ -633,9 +634,13 @@ export function compile(wb, { snapshot, build }) {
 
   resolveFamilyEntries(familyEntries, materials, grades, issues);
 
+  // A printer maker's filament guide, and the material each of its types is (D88): read for a product only where its
+  // own profiles and its twin's say nothing on a part of its print gate.
+  const printGuide = compilePrintGuide(wb['Print guide']?.rows ?? [], wb['Print guide materials']?.rows ?? [], { sources, materials: wb.Materials.rows, issues });
+
   // Every product's own values and print recipe, every material's spread across its products, and the headline that
   // spread gives it (products.js). The engine judges the products; the material's headline is what the page shows.
-  attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, sources, issues });
+  attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections: headlineSelections, guideByMaterial: printGuide.byMaterial, sources, issues });
   for (const m of materials) m.headlineBasis = headlineBasis(m);
 
   // The research's chamber bands are authored data, attached where nothing better exists; they decide nothing. Estimates
@@ -675,7 +680,7 @@ export function compile(wb, { snapshot, build }) {
           registry.headlines.map((h) => [h.key, materials.filter((m) => m.headline[h.key]?.known).length]),
         ),
       },
-      materials, grades, measurements, profiles, evidence, prices, sources, coverage, method, polymers,
+      materials, grades, measurements, profiles, printGuide: printGuide.guides, evidence, prices, sources, coverage, method, polymers,
       // What every property and headline means. The app builds its labels, filters, axes, table and
       // export from this, so a registry row reaches the interface with no code change.
       registry,

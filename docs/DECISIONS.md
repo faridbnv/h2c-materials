@@ -89,11 +89,12 @@ break if it were reversed, because that is the part that gets lost.
 | D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | In force |
 | D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Amended by D83 |
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | In force |
-| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | Amended by D89 |
+| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | Amended by D88, D89 |
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | In force |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | In force |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | In force |
+| D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | In force |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | In force |
 
 <!-- end index -->
@@ -1964,8 +1965,13 @@ and W0080's redrawing, and the findings they raise; the two flags would need the
 
 ## D83. A material is the spread of its products, and passes when one of its products meets every requirement
 
+> **Status:** amended by D88 (a printer maker's guide answers a product's silent print gate) and D89 (a twin reads its sibling's values and recipe).
+
 *Decided by the owner on 2026-09-25 (docs/GOALS.md); supersedes D8's refusal of a range and amends D2 and D37.
 Built in re-center phases 1 and 2; the page reads it from phase 3.*
+
+*Amended by D88 (2026-09-25): where a product's own sheet is silent on a part of its print gate, its material's
+printer maker's guide decides it, labelled as the guide's.*
 
 *Amended by D89 (2026-09-25): a product whose sheet prints its sibling's table reads the sibling's values and recipe
 where its own are silent, so it is judged, not untested.*
@@ -2193,7 +2199,63 @@ Lightweight structure on CreatBot Ultra PA, the PLA family's homes pass the Warm
 products, and TPS passes the Flexible component on Ultrafuse TPS 90A. PLA keeps its answers with two products fewer.
 Reversing it sends the 44 sheets back to deferred, and a family-only product has no home again.
 
+## D88. Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's
+
+> **In plain words:** Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for.
+
+*Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 1). Built in re-center phase 6, lane 2 (the
+owner's decisions), m150.*
+
+Since D83 a product's own profiles screen it, and a part its sheet leaves out is unknown. After lane 2 (m136) and the
+twins (D89) that was still most of them: of 1,131 products, 286 were unknown on the nozzle, 389 on the bed and 818 on
+the chamber, although the maker of the printer publishes what each common filament type needs.
+
+- **The guide is a registered source, re-read from its bytes.** Bambu Lab's Filament Guide is one page: a column per
+  Bambu filament type, a row per property or requirement. Its current revision (R-BAMBU-GUIDE-202609) and its January
+  2025 revision (B-GUIDE) were re-fetched on 2026-09-25, and each matched the SHA-256 recorded when it was registered.
+  Per type it states a nozzle temperature, a bed temperature per build plate, whether to print with an enclosure, the
+  nozzle sizes and materials, whether and how to dry the filament, and an annealing schedule. It states no chamber
+  temperature.
+- **It is data.** `print_guide.csv` has one row per type the current revision heads, in a print profile's columns: the
+  guide's words, the typed columns the profile parsers read from them (PARSE-MISMATCH checks them as a profile's), the
+  source and the column and rows each cell stands under. The current revision answers "Print with Enclosure" with a
+  drawn tick or cross, written as its glyph; m150 reads each mark by its fill colour in its cell, and checks it against
+  the January 2025 revision, which prints Required for every tick and Optional for every cross on the types both carry.
+  Every other cell m150 finds by its column heading and row label on the hash-checked page. Two wordings reached the
+  parsers: a lone tick or cross as the whole answer to an enclosure question, and the guide's nozzle column ("All
+  Size/Material" is any nozzle; "Hardened Steel / Stainless Steel" is stated and settles nothing about brass).
+- **It speaks for a material only where it names that material type** (`print_guide_materials.csv`, a reason each,
+  reviewed by an agent): its PC is our PC, never PC FR, PC-CF or a PC blend; its PETG HF is PETG, which Bambu's PETG HF
+  is a product of (D86); its TPU 95A HF is the TPU 95A class. Fifteen types, fifteen materials. A material the guide
+  does not name has no guide, and its silent products stay unknown.
+- **What it decides.** Where a product's own profiles, and then its twin's (D89), say nothing on a part of its print
+  gate (nozzle window, bed window, chamber, enclosure, hardened nozzle), the product reads its material's guide row, and
+  the gate is judged as a profile's would be. A product's own statement always wins, stricter or looser, and words its
+  sheet prints that the parser cannot read count as a statement. A chamber and an enclosure are one question: a sheet
+  that recommends an enclosure has spoken about the chamber.
+- **What it cannot decide.** The chamber, for the nine types it asks an enclosure for (ABS, ABS-GF, ASA, PC, PAHT-CF,
+  PA6-CF, PA6-GF, PPA-CF, PPS-CF): it gives no temperature, and an enclosure is not proof that 65 °C is enough, the rule
+  every profile follows; their silent products stay unknown, with a reason that says so. For the six it says need none,
+  the chamber is cleared as a sheet's "not necessary" clears it. Drying and annealing are a treatment: the guide's drying
+  line is recorded and fills nothing. TPU's nozzle line settles no hardened-nozzle question.
+- **Labelled everywhere it is shown.** A part read from the guide carries `print.from[part]` with the guide row, the
+  source and the label "per Bambu Lab's Filament Guide for PC, not this maker's sheet" ("not this product's data sheet"
+  for Bambu Lab's own products); the label is in the gate's reason, so the result panel and the exports carry it, and in
+  the product's print card; the products export names it in "Recipe read from"; the Printing tab shows the guide row
+  itself. A product's know-how state (D85) reads only its own recipe, so the maker-site worklist is unchanged.
+
+What it did: 507 products read a part of their print gate from the guide (nozzle 126, bed 175, chamber 244, enclosure
+446, hardened nozzle 417). Products unknown on the nozzle fell from 286 to 160, the bed from 389 to 214, the chamber from
+818 to 574. Only Warm environment screens on print gates: PLA-CF went from FAIL to PASS (3DXTECH's CarbonX CF-PLA, heat
+deflection 91 °C, its sheet silent on the chamber), and PLA passes on 8 products where it passed on 4; the material
+UNKNOWNs stayed at 66. Of those, 24 have a product that meets everything but the chamber, and for PC (11 products) and
+PPA-CF (6) that is the guide's enclosure without a temperature: whether Bambu's own "print with an enclosure" is enough
+for the H2C's 65 °C chamber is a question for the owner, not a reading. Reversing it sends 507 products back to unknown
+on the parts their sheets leave out.
+
 ## D89. A twin reads its sibling's values and print recipe where its own are silent
+
+> **In plain words:** A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range.
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 2). Built in re-center phase 6, lane 2 (the
 owner's decisions).*

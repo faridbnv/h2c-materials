@@ -49,6 +49,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
 | `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
+| `print_guide.csv` | What a printer maker's filament guide states for printing a material type, one row per type it heads a column with, in a print profile's columns (D88): no product's profile |
+| `print_guide_materials.csv` | Which material each guide type is, with why and who mapped it: the same material type only (D88) |
 
 `data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
 `data/review/removed-records.csv` is not data either: it is the ledger of records that left a table because the
@@ -247,7 +249,11 @@ a material's headline is derived from them, and no product stands for a material
 - **`grades[].print`**: the product's own recipe from its own profiles, never a union across a material: per axis the
   gate against the H2C and the window of the profile that decided it, the enclosure, whether it wants a hardened
   nozzle, drying, and the annealing its sheets state. Where its own profiles say nothing on a part, its twin's own
-  (D89) are read, and `print.from[part]` and the gate's reason say so. Null for a product with nothing on any part.
+  (D89) are read; where those say nothing either on a part of the print gate (nozzle, bed, chamber, enclosure, hardened
+  nozzle), its material's printer maker's guide row (`print_guide.csv`, D88). `print.from[part]` and the gate's reason
+  say which, with the label a reader is shown. What a product's own sheet says, even words the parser cannot read,
+  always stands; a guide that asks for an enclosure and gives no chamber temperature leaves the chamber unknown.
+  Null for a product with nothing on any part. `db.printGuide` holds the guide's rows, each with its materials.
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
   variants (a material whose every product is a variant, PP Lightweight, is its variants). `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
   values) and `typical` product (nearest the median) these are. Values published without the direction or load

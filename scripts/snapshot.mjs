@@ -143,6 +143,8 @@ const countRows = [
   ['Products', products.length, 'active procurement grades'],
   ['… with a comparable value for at least one property', products.filter((g) => Object.entries(g.headline ?? {}).some(([k, v]) => k !== 'priceCADkg' && v.level === 'comparable')).length, 'D84'],
   ['… with a print profile of their own', products.filter((g) => g.print?.profileIds?.length).length, ''],
+  ['… reading values from a twin\'s sheet', products.filter((g) => Object.values(g.headline ?? {}).some((v) => v.from?.origin === 'twin')).length, 'the same table, recorded once (D89)'],
+  ['… reading part of the print gate from a printer maker\'s guide', products.filter((g) => Object.values(g.print?.from ?? {}).some((f) => f.origin === 'guide')).length, `where their own sheet is silent (D88); ${(db.printGuide ?? []).length} guide rows`],
   ['… with a maker\'s know-how statement', products.filter((g) => g.knowHow?.state === 'collected').length, 'lane 3'],
   ['Measurements', db.measurements.length, 'active rows'],
   ['… with a usable number', db.measurements.filter((m) => m.numeric).length, ''],
