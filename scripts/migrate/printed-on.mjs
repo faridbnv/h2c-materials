@@ -13,14 +13,18 @@ export const plain = (s) => String(s).replace(/[！-～]/g, (ch) => String.fromC
 // A comma the layout left without its space ("For best results,It is recommended") divides two words all the same.
 export const words = (s) => plain(s).replace(/,(?=\S)/g, ', ').split(' ').map((w) => w.replace(/[.,;:]+$/, '')).filter(Boolean);
 
-/** A reader of pages for one set of tables: `printed(sourceId, page, statement)` is true when the page prints it. */
-export function pageReader(t, migration) {
+/**
+ * A reader of pages for one set of tables: `printed(sourceId, page, statement)` is true when the page prints it.
+ * `texts` holds, by SHA-256, the text of documents this machine's cache does not (read from bytes whose digest the
+ * caller has checked, as `documentText` would read them).
+ */
+export function pageReader(t, migration, { texts = new Map() } = {}) {
   const pages = new Map();
   function tokens(sourceId, page) {
     const key = `${sourceId}|${page}`;
     if (!pages.has(key)) {
       const s = t.get('sources', sourceId);
-      const text = cachedText(s.SHA256);
+      const text = cachedText(s.SHA256) ?? texts.get(s.SHA256);
       if (!text) throw new Error(`${migration}: ${sourceId} has no cached text for ${s.SHA256}; fetch and extract it first`);
       const p = text.pages.find((x) => x.page === Number(page));
       if (!p) throw new Error(`${migration}: ${sourceId} has no page ${page}`);

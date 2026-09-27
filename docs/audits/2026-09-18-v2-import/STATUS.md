@@ -9,7 +9,7 @@ can go stale without the command that made it saying so.
 |---|---:|
 | materials | 174 |
 | grades | 1,160 |
-| measurements | 11,444 |
+| measurements | 11,456 |
 | sources | 1,483 |
 | profiles | 1,274 |
 | profile notes | 2,061 |

@@ -1978,3 +1978,128 @@ own line-by-line guard proves.
 | `docs:decisions` / `docs:rules` / `docs:dictionary` | D94 and D95 indexed, D92 amended by D94; RULES unchanged; the dictionary gains Standard, the off-recipe specimen type and ISO 22007 |
 | `verify:fast` | 51 s after a change at load 3 to 9, 27 s with the build cached |
 | `verify` | passing in 4 min 50 s at load 5 to 27: 316 tests, 167 ingest, the scale check (72 s), reproducible, the audit (0 errors), the snapshot current, 66 views, 300 fuzzed scenarios (a new range for `izodNotched`) |
+
+## Phase 6, final round: a maker's enclosure words, layer strength, test-bar settings, identities (2026-09-27)
+
+*In plain words: when a filament maker's own sheet says to print an ABS, ASA, PC or nylon-fibre type in an enclosure and
+gives no temperature, the H2C's heated chamber now counts, as it already did for Bambu Lab's guide, so 31 products stop
+being unknown on the chamber and 11 more pass the warm-environment screen. Eight products gain a layer strength where
+their sheet shows the test bar stood upright. The print settings of the test bars now sit with the values measured on
+them. Two products that sat twice on the list (eSUN PLA+, Polymaker PolyMax PC) sit once, and eSUN's ABS+ has its
+right name. No material's answer changed.*
+
+GOALS step 2 (screen, printability) and step 5 (drill down); scorecard lines C9, C1 and C3 (the layer strength), C8 and
+C2. The owner's decision 5 of 2026-09-26 is D93 (m190); the rest are data (m191 to m193). Four commits, one per task
+(m194 was not needed). Every reading, mapping and merge here was reviewed by an agent, claude-opus-5.5 (agent
+reviewer), on the cached, hash-checked page; no person has reviewed them.
+
+**The decision diff** (`build/snapshot/templates.csv` against `1fcc16a`): 30 of 1,037 rows changed, none a material's
+verdict or its presence in the list, 27 only a count of products, 3 an estimate screen.
+
+| Task | Commit | Rows | What moved |
+|---|---|---:|---|
+| 1. A maker's enclosure words (D93, m190) | 9ddf288 | 15 | Warm environment, all three modes: passing products 109 → 120 (ABS 17 → 18, ASA 14 → 16, PC 6 → 9, PA6-CF 6 → 9, PA6-GF 7 → 9); PC's best product is now Spectrum PC 275 |
+| 2. Layer strength from upright bars (m191) | 201f8fc | 0 | none; the templates ask no layer strength |
+| 3. The test bars' settings (m192) | 0a9859b | 0 | none; every snapshot file unchanged |
+| 4. Identities (m193) | the last | 18 | PLA 201 → 200 products and PC 25 → 24 in Indoor prototype, Lightweight structure and Warm environment (one fewer untested, and in Lightweight structure one fewer failing PC); with estimates, TPU-CF and PC-PTFE are no longer screened out and PET-LW is, as the merged products move medians |
+
+**1. A maker's own "enclosure needed" (D93, m190).** Every profile of the nine guide types whose own sheet asks for an
+enclosure and prints no chamber row was found by query and re-read: 29 profiles on 28 products (ABS 11, ASA 10, PC 3,
+PA6-CF 3, PA6-GF 2). Each declares Chamber state `enclosed`, with requirement `recommended` where the words recommend
+("Closed chamber recommended for larger prints", "we strongly recommend printing ABS material inside an enclosed
+printer") and `required` where they say needed, yes, or print it closed ("Closure chamber | Needed", "Enclosed Space |
+yes", "Sealed printing | Closed printing", "Box Sealing Print"), and Parse review names the page. The check is
+PROCESS-ENCLOSED, extended across rows: a profile may declare it only on its chamber, where it asks for an enclosure,
+prints no chamber row, its material's guide row declares `enclosed`, and no other profile of its product states a
+chamber. The gate's reason quotes the maker's words ("Its maker asks for an enclosure, in its words "Needed", and states
+no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (65 °C) is
+that enclosure"); the print card says "an enclosure its maker asks for", the Printing tab quotes the row. Nothing in the
+code names a type. Kratos PC reads it from its twin, Spectrum PC 275 (its own sheet says "Enclosure recommended for
+large(r) prints" and holds no profile). Two Polymaker PCs keep their stated windows: PolyLite PC Transparent's "Needed
+(70°C-100°C)" and PolyMax PC's "Not needed (70°C-100°C)". The re-read also found FormFutura's STYX PA6-CF15 and PA6-GF30
+sheets saying "No enclosure, or heated chamber needed.": their profiles had missed it and read the Spectrum twin's
+"Closed chamber recommended"; they now hold their own words. Products unknown on the chamber: 438 → 407. The scale
+check's synthetic copies now take their material's guide mapping with them, which the new check needs.
+
+**2. Layer strength from upright bars (m191, OPEN-PROBLEMS §18).** All 38 products' sheets were re-read, and rendered
+where a drawing might say more. 26 tensile rows on 7 sheets are Z now, each with a note naming the page:
+
+| Sheet | What says the bar stood upright |
+|---|---|
+| BASF Ultrafuse PC GF30, PAHT CF15 v4.0 (dry and conditioned), BVOH | "Print direction \| XY \| XZ \| ZX" over "Flat \| On its edge \| Upright" |
+| Stratasys FDM Nylon 12 (a study grade) | "Flat (XY) On Edge (XZ) Upright (ZX)" |
+| Essentium PPS-CF | the drawing stands the ZX bar upright beside the flat XY and 45/45 bars |
+| Eryone Hyper Speed Dual Color Silk PLA, Dual Color Burnt Titanium PLA | "a Z-axis tensile strength approaching 20 MPa", "its Z-axis tensile strength reaches 34 MPa, ensuring excellent interlayer adhesion" (their X-Z rows: 19.1 and 34.2 MPa) |
+
+Left as labelled, because nothing on the page says how the bar stood: 25 more Eryone "X-Z" sheets, SUNLU's two "(Z-X)"
+(their drawings show flat bars only), Flashforge HS PLA's "(X-Z)", iSANMATE PEI 9085's "ZX Orientation", Prusament PVB's
+"Vertical xz" (49 MPa beside a horizontal 50, and an interlayer adhesion of 9 MPa printed apart), Markforged Onyx GF's XZ
+(73.7 MPa, above its XY 57.9) and Stratasys ABS-M30i's XZ ("Build orientation is on side long edge"). Only tensile rows
+moved; the same sheets' upright flexural and impact bars keep ZX. The Direction vocabulary gives ISO/ASTM 52921's
+meanings now (XZ on its edge, ZX upright), and the layer strength's reason for a label left says so. PAHT CF15 v4.0 is
+not in this machine's cache: it was re-fetched from its recorded URL, matched its SHA-256 (29bce0ad…), and m191 reads
+it with `--cache`; `printed-on.mjs` takes such texts. Products with a comparable layer strength: +8 (6 own, 2 twins),
+and the study grade; materials with a spread 48 → 49 (BVOH); products with only an XZ or ZX label 38 → 32. The two
+Eryone sheets' X-Z rows had counted as in-plane evidence in the estimate model (it classes XZ with XY); as Z they move
+the XY strength, elongation and modulus estimates in the third figure.
+
+**3. The test bars' settings (m192, D63, OPEN-PROBLEMS §12).** 310 of the 332 measurements now hold the block their
+sheet prints, pinned per sheet in `m192-the-test-bar-settings.csv` with the heading or sentence that says it describes
+the test specimens, both checked on the page:
+
+| Sheets | Block | Rows |
+|---|---|---:|
+| 3DXTECH, 35 | "Printed Specimen Conditions Printer: … Specimen Orientation: XY Flat", on every row recorded as a printed specimen, as the three 3DXTECH sheets that had it do | 275 |
+| Raise3D Industrial PET CF, PET GF, PETG ESD | "All testing specimens were printed under the following conditions: …", on the mechanical, heat deflection and Vicat rows | 25 |
+| Polymaker PC-PBT V5.5 | "How to make specimens", the same rows | 10 |
+
+The 35 Raise3D and Polymaker rows also become Printed specimen: they said "do not assume printed" only because m128's
+reader did not know these two wordings. The other 22 are density, DSC temperatures, melt flow, water uptake or moisture,
+not measured on the bar a block describes, and a 6 GPa modulus Raise3D's PET CF prose claims "after annealing". No cell
+that held the tested conditions was touched.
+
+**4. Identities (m193, OPEN-PROBLEMS §16).**
+- *eSUN PLA+ is one product.* G001-142 ("PLA", the Nov. 2021 Version 4.0 sheet) and G001-78 (PLA+, the Feb. 2026
+  Version1.0 sheet) both head their first page "PLA+", list the same applications, recommend the same nozzle (210-230
+  °C) and bed (45-60 °C) windows, and print the same slicing advice word for word. The numbering restarts because eSUN's
+  2024 template restarts every sheet at 1.0: its ABS+ sheets (Nov. 2021 Version 4.0, Dec. 2025 Version 1.0) did the
+  same and were already one grade. The 2021 values are injection-moulded splines, the 2026 ones printed samples: a new
+  test, not a new product. G001-142 retires into G001-78 with its six records; it had been filed as a twin of eSUN
+  PLA+CMYK and read that product's values. The accepted GRADE-PRODUCT-DUPLICATE finding for it is removed.
+- *G027-22 is ABS+*: both its sheets head their first page "ABS+".
+- *PolyMax PC is one product* (found on the way): the Nov. 2018 Version 4.1 sheet (G035-07) and the V5.5 sheet (G035-06)
+  print "PolyMax™ PC" and the same description word for word, and V5.5 continues the numbering, m174's case exactly.
+  G035-07 retires with its 18 records, and G035-06 drops the "Polymaker" the import put before the name. The merged
+  product takes the 2018 sheet's tensile values, since the rule prefers a printed specimen and the V5.5 rows say "do
+  not assume printed" (below), and its chamber reads the 2018 sheet's "70 – 80 (recommended)": exceeds, recommended.
+- The four eSUN sheets carry the title, revision and date they print.
+- *Buddy3D*: no cached page names a maker (re-read); left.
+
+**Sample check.** 30 of the 405 edits were drawn with a fixed seed (20260927, `mulberry32`, a shuffle of m190's 31
+profiles, m191's 26 rows, m192's 310 rows and m193's 38 changes: 21 m192, 4 m190, 3 m193, 2 m191), and each was re-read
+beside its page's lines: **30 agree.** One of the 30 (V002468, PAHT CF15's 0.5 % elongation) was read from the
+re-fetched bytes, since this machine's cache does not hold the sheet.
+
+| | Result |
+|---|---|
+| Migrations | m190 31 profiles, m191 26 rows, m192 310 rows (35 specimen types), m193 38 changes (24 records moved, 2 grades retired, 2 names, 10 source fields); each re-run is a no-op |
+| `npm run data:check` / `data:lint` | 26 tables, 0 issues / 218 findings, all accepted, 0 new, 0 stale |
+| `npm run build:diff` | task 1: 249 (the 31 products' chamber, their profiles' gates, five materials' gate basis); task 2: 8,834 (nearly all grade estimates); task 3: 690 (print parameters, notes, 35 specimen types); task 4: 9,226 (the merges' product values, spreads and grade estimates) |
+| Tests | `npm test` 317 (new rules: every product whose chamber is its maker's `enclosed` holds it on its own or twin's profile of a guide-enclosed type, in its words, and none of those types asking for an enclosure with no temperature stays unknown; a stated chamber beside it errs; every tensile value of a bar moved to Z moves together; a profile's gate without a window may be an `enclosed` chamber), `test:ingest` 167 |
+| `ui:check -- --write` | 2, 8, 0 and 12 views rewritten; no layout failures |
+| `audit:gaps` / `audit:know-how` | regenerated: close calls 880 → 877; the know-how worklist counts the two merged products once (1,127 → 1,125) |
+| `verify:fast` / `verify` | 44 s after the last change (the build not cached) and 23 s cached, at load 2 to 8 / passing before each of the four commits: 3 min 28 s, 4 min 32 s, 4 min 34 s and 3 min 19 s, at loads from 3 to 20 (317 tests, 167 ingest, the scale check at 58 to 62 s of its 150 s budget, the reproducible build, the audit, the snapshot current, 66 views, 300 scenarios). The first run of task 1 failed only on the scale check: its synthetic copies had no guide row, fixed in the same commit; the last task's first `verify:fast` found the know-how worklist stale, regenerated |
+
+**Left, with a recommendation each.**
+- *Eryone's other 25 "X-Z" sheets.* The same template, and two of its sheets call the X-Z value the "Z-axis tensile
+  strength". Recommendation: ask the owner whether Eryone's template "X-Z" is always the upright bar; that would give 25
+  products a layer strength (8.7 to 47 MPa). Revisit if an Eryone sheet shows its bar lying on edge.
+- *Polymaker's letter-spaced "How to make specimens"* (OPEN-PROBLEMS §12): 376 bar rows on 37 newer sheets say "do not
+  assume printed" although the block says the bars were printed. It decides where a product holds two sheets: merged
+  PolyMax PC and three of m174's merges take the older sheet's values. Recommendation: extend m192's "bars" reading to
+  that heading next, with its own decision diff.
+- *The test-bar settings of the other 122 sheets* m170 read (1,016 bar rows), and Eryone's and SUNLU's notes: they
+  decide nothing, so by working rule 4 they wait until a change touches those sheets.
+- *Kratos PC's own enclosure words* sit on no profile; it reads its twin's identical ones. Recommendation: give it a
+  profile when its sheet's printing rows are read.
+- *The sixteen higher chamber statements* D90 listed are unchanged; D93 reads only a maker's words with no temperature.

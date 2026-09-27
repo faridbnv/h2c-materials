@@ -9,16 +9,16 @@ rather than repeat a number.
 | … in scope for the H2C | 136 | candidates the templates judge |
 | … family entries and aliases | 21 | names that own no product (D44, D86) |
 | … out of scope | 17 | recorded, never a candidate |
-| Products | 1,127 | active procurement grades |
-| … with a comparable value for at least one property | 1,009 | D84 |
-| … with a print profile of their own | 1,001 |  |
-| … reading values from a twin's sheet | 46 | the same table, recorded once (D89) |
-| … reading part of the print gate from a printer maker's guide | 461 | where their own sheet is silent (D88); 15 guide rows |
-| … with a maker's know-how statement | 883 | lane 3 |
+| Products | 1,125 | active procurement grades |
+| … with a comparable value for at least one property | 1,007 | D84 |
+| … with a print profile of their own | 999 |  |
+| … reading values from a twin's sheet | 45 | the same table, recorded once (D89) |
+| … reading part of the print gate from a printer maker's guide | 459 | where their own sheet is silent (D88); 15 guide rows |
+| … with a maker's know-how statement | 881 | lane 3 |
 | Measurements | 11,158 | active rows |
 | … with a usable number | 10,982 |  |
-| Product values | 4,327 | one per product and headline, chosen by rule (D83) |
-| Material values from products | 654 | headline cells of in-scope materials |
+| Product values | 4,329 | one per product and headline, chosen by rule (D83) |
+| Material values from products | 655 | headline cells of in-scope materials |
 | Material values estimated | 153 | where no product publishes (D43) |
 | Print profiles | 1,274 |  |
 | Evidence records | 565 | exposure, flammability, post-processing and the rest |

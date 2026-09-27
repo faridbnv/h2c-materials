@@ -318,10 +318,13 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   the nine types Bambu Lab's guide asks an enclosure for, a silent product's chamber is within the H2C, labelled as the
   guide's; 123 products read it. Sixteen products of those types state a chamber above 65 °C on their own sheets and
   keep that reading, Bambu Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets among them, which the owner
-  named as the reason to revisit. Twenty-three whose own sheet, or twin's, asks for an enclosure without a temperature
-  stay unknown, because a maker's own statement wins and only the printer maker's guide means its own enclosed
-  printers; the owner ruled on 2026-09-26 that those read as the guide does (GOALS). Query: products of those nine materials whose `print.chamber.verdict` is `exceeds`, `partial` or
-  `exceeds-recommended`, and those unknown with `print.enclosure` recommended.
+  named as the reason to revisit. Since D93 (m190, 2026-09-27) a maker's own "enclosure needed" or "recommended" with
+  no temperature reads as the guide's tick does: 28 products' own sheets and one twin's (Kratos PC, whose own sheet says
+  "Enclosure recommended for large(r) prints" and holds no profile of its own). None of those types is unknown with an
+  enclosure asked for since m193 merged PolyMax PC's two revisions: the 2018 sheet's "70 – 80 (recommended)" now
+  speaks for it beside the V5.5 sheet's unread "Not needed (70°C-100°C)" (below). Query: products of those nine
+  materials whose `print.chamber.verdict` is `exceeds`, `partial` or `exceeds-recommended`, and those unknown with
+  `print.enclosure` recommended.
 - **What the guide prints and the tables do not use.** Its January 2025 revision (B-GUIDE) also heads ASA-CF, PC FR
   and TPU for AMS, which the current revision dropped; only the current revision is read, so those three materials'
   silent products read nothing. The guide's drying line is recorded and fills no recipe, and its annealing row,
@@ -341,12 +344,21 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
     enclosure and a heated chamber for large parts (P0276, Parse review).
   - *A drying cell that says drying is not needed* ("Not needed", "drying is not necessary", 4 profiles) counts as
     drying stated, with no schedule: the drying states are stated or unknown, and nothing says "not needed".
-  - *The specimen blocks m170 took out of the profiles are not yet on the measurements.* D63 puts a sheet's specimen
-    printing conditions in its measurements' Specimen / print parameters; 332 measurements of the 50 sheets whose
-    profiles lost a specimen value say Not published there (3DXTECH's "Printed Specimen Conditions", Raise3D's "All
-    testing specimens were printed under the following conditions", and the like). Five excluded high-temperature
-    materials (PEKK-ESD, PEI-GF, PEI-ESD, TPI, PEEK-GF) now publish no nozzle window at all; their exclusion is their H2C
-    status.
+  - *The specimen blocks on the other sheets are not yet on their measurements.* D63 puts a sheet's specimen printing
+    conditions in its measurements' Specimen / print parameters. m192 wrote them on 310 of the 332 measurements of the
+    50 sheets whose profiles m170 left with no value (3DXTECH's "Printed Specimen Conditions", Raise3D's "All testing
+    specimens were printed under the following conditions", Polymaker PC-PBT's "How to make specimens"); the other 22
+    are density, DSC, melt flow, water uptake or moisture, not measured on the bar the block describes, and one 6 GPa
+    modulus Raise3D's PET CF prose claims. The 122 other sheets m170 read a specimen block on (their profiles kept a
+    recommended row) hold 1,390 measurements still Not published there, 1,016 of them bars or printed specimens:
+    Polymaker's, Flashforge's, eSUN's, Raise3D Premium's, 3DJake's and Fiberon's blocks. m192's CSV and check take them
+    sheet by sheet. Five excluded high-temperature materials (PEKK-ESD, PEI-GF, PEI-ESD, TPI, PEEK-GF) now publish no
+    nozzle window at all; their exclusion is their H2C status.
+  - *Polymaker's newer sheets set "How to make specimens" letter by letter* ("H O W T O M A K E S P E C I M E N S" in
+    their text), which m128's reader did not match, so 376 bar rows on 37 of them say "do not assume printed" although
+    the block says the test bars were printed. It decides where a product holds two sheets: the rule prefers a printed
+    specimen, so merged PolyMax PC (m193) and m174's merges take the older sheet's values. m192's "bars" reading,
+    with this heading, fixes both columns; its decision diff needs its own look.
   - *The specimens' nozzle diameter* is still the profile's on Flashforge's, AzureFilm's and SIDDAMENT's sheets ("0.4mm"
     where the recommended row prints "φ0.4/0.6mm (φ0.4mm recommended)"). It decides no gate; the Printing tab shows it.
   - *A part-drying schedule that may be another sheet's:* Flashforge's PET-GF and TPU 64D and SIDDAMENT's PET CF all say
@@ -514,18 +526,19 @@ npm run sql --silent -- "select sourceid, raw_value, locator from measurements w
 m149 re-read the head of every source whose title was page furniture ("supported by", "TM", "TECHNICAL", "Page: 1",
 "Version: 3.0") and wrote the title each prints; SOURCE-TITLE-NOT-TITLE now catches that class. m174 fixed the two
 product identities it found (Anycubic PLA+ has its own grade; ELEGOO's PLA is named Not published, since its sheet prints
-no name). Still open:
+no name), and m193 three that eSUN's and Polymaker's sheets settle (G027-22 is ABS+, as both its sheets print; eSUN PLA+
+and PolyMax PC each sit on one grade). Still open:
 
 - **ELEGOO's PLA has no name on record.** G001-129's sheet prints only ELEGOO's logo over a table of typical values, and
   the retailer's page that linked it (3djake.com/elegoo/pla-sea-green) is not cached. The name waits for a cached page
   that prints it.
-- **eSUN's older sheets print a "+" the grades do not carry.** G027-22 ("ABS") holds two sheets that both print "ABS+"
-  (2021 V4.0 and 2025 V1.0). G001-142 ("PLA") is the 2021 V4.0 sheet of "PLA+", which G001-78 names from its 2026 V1.0
-  sheet; the version numbering restarts and the descriptions differ, so whether they are one product is not settled
-  (the GRADE-PRODUCT-DUPLICATE finding is accepted with that reason).
 - **The Buddy3D cards name no maker.** The four "Product card" sheets 3DJake files under Prusa (G001-108, G020-46,
   G027-33, G030-08) carry only the Buddy3D logo; m174 named each product as its card does and kept the Manufacturer as
-  the retailer lists it.
+  the retailer lists it. Re-read on 2026-09-27: no cached page names a maker.
+- **Other revisions of one sheet may still sit on two grades.** m174 and m193 merged seven pairs found by reading
+  (m193: eSUN PLA+, whose 2021 Version 4.0 and 2026 Version 1.0 sheets print the same product, since eSUN's 2024
+  template restarts every sheet at 1.0; and Polymaker's PolyMax PC, 2018 Version 4.1 and V5.5). No rule finds them:
+  GRADE-PRODUCT-DUPLICATE compares names, and a revision often carries the maker's name before the product's.
 - **A title that is only the kind of document is not flagged**: 45 "Technical Data Sheet", 3 "Technical
   Specifications", "TECHNICAL DATA SHEET", "Technical Data Sheet TM TM", and Polymaker's slogan "Innovators in 3D
   printing". Some sheets print exactly that as their heading, so a rule would not be precise; the product name beside
@@ -580,10 +593,19 @@ procurement products, 2026-09-26:
   thickness they do not give, which the owner ruled out (D94). Both are shown, never compared. Three notched Charpy rows
   cite a tensile or film standard (ASTM D882 twice, ISO 527 once) and still count, since the Charpy row names no
   standard; a re-read of those sheets would say whether the citation is a slip.
-- **38 products publish their across-layer tensile strength only under an XZ or ZX label**, 27 of them Eryone's "X-Z"
-  (8.7 to 47 MPa). ISO/ASTM 52921 names a bar by the axis along its length first, which makes ZX an upright bar, and the
-  vocabulary's own meanings for the two labels ("Upright in the XZ plane", "Flat, loaded along Z-X") say otherwise.
-  Until the owner rules which labels are upright bars, only Z counts.
+- **32 products publish their across-layer tensile strength only under an XZ or ZX label** (38 before m191, which made
+  Z the tensile rows of six whose sheets show or say the bar stood upright: BASF's "ZX | Upright" columns, Essentium's
+  drawing, two Eryone sentences naming the "X-Z" value the "Z-axis tensile strength"). Left, because nothing on the page
+  says how the bar stood: 25 more Eryone "X-Z" sheets of the same template (8.7 to 47 MPa), SUNLU's two "(Z-X)" sheets
+  (their drawings show only flat bars), Flashforge HS PLA's "(X-Z)", iSANMATE PEI 9085's "ZX Orientation", Prusament
+  PVB's "Vertical xz" (49 MPa beside a horizontal 50 MPa, and a separate interlayer adhesion of 9 MPa, so not across the
+  layers), Markforged Onyx GF's XZ (73.7 MPa, above its XY) and Stratasys ABS-M30i's XZ ("on side long edge"). The
+  Direction vocabulary gives ISO/ASTM 52921's meanings now (XZ on its edge, ZX upright). Eryone's own two sentences
+  suggest its template's "X-Z" is always the Z-axis bar; applying that to the other 25 is a ruling, not a reading.
+- **Eryone's sheets state their test bars' printing conditions** ("Note: All splines are printed under the following
+  conditions: printing temperature=210° C, printing speed=80mm/s, base plate 60 ° C, filling=100%, nozzle
+  diameter=0.4mm") and their rows' Specimen / print parameters say Not published; so do SUNLU's ("测试样条打印速度 45 mm/s，
+  打印温度 255 ℃。填充 100%"). These sheets were not among m170's, so m192 did not reach them (§12).
 - **Nine notched Charpy rows cite the unnotched method** (ISO 179/1eU): Spectrum's PA6 Low Warp and PA12-CF15 sheets,
   FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. m196 re-read each: every page labels the row notched,
   and all but Nanovia PLA VX print an unnotched row beside it several times higher, so the label stands and the method

@@ -44,7 +44,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS
-17 of 19
+18 of 20
  1,050
 1,020–1,150 · 42
  2.2
@@ -88,7 +88,7 @@ ABS-GF PASS
 82–100 · 8
  39↗ ☆
 ASA PASS
-14 of 15
+16 of 17
  1,070
 1,040–1,150 · 35
  2.25
@@ -196,7 +196,7 @@ Nylon / Polyamide
 PA6-CF
 Nylon / Polyamide
  PASS
-6 of 6
+9 of 9
  1,170
 1,090–1,250 · 13
  4.37
@@ -211,7 +211,7 @@ Nylon / Polyamide
 PA6-GF
 Nylon / Polyamide
  PASS
-7 of 7
+9 of 9
  1,310
 1,140–1,370 · 9
  4.35
@@ -279,15 +279,15 @@ PVB / Specialty Polymers
 PC
 Polycarbonate
  PASS
-6 of 9
+9 of 12
  1,200
-1,150–1,230 · 20
- 2.24
-1.8–2.63 · 12
- 61
-40–69.1 · 14
+1,150–1,230 · 19
+ 2.18
+1.8–2.63 · 11
+ 62
+40–69.1 · 13
  7
-3.2–25 · 13
+3.2–25 · 12
  114
 101–144 · 11
  51↗ ☆
@@ -384,7 +384,7 @@ PETG PASS
 PLA PASS
 8 of 73
  1,240
-1,170–1,329 · 147
+1,170–1,329 · 146
  2.45
 0.95–4.24 · 38
  45.3

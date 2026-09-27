@@ -82,6 +82,14 @@ test('provoked errors carry the code a reader looks up', () => {
   const enclosed = { 'Chamber state': 'enclosed', 'Chamber requirement': 'required', 'Parse review': 'test' };
   Object.assign(wb['Print setup'].rows[0], enclosed);
   Object.assign(wb['Print guide'].rows.find((r) => r['Enclosure state'] === 'not-needed'), enclosed);
+  // And (D93) by a maker's profile that asks for an enclosure with no temperature, of a type the guide asks one for,
+  // where another profile of its product states the chamber: the first such profile the tables hold.
+  const guideEnclosed = new Set(wb['Print guide'].rows.filter((r) => r['Chamber state'] === 'enclosed').map((r) => r.PrintGuideID));
+  const enclosedTypes = new Set(wb['Print guide materials'].rows.filter((r) => guideEnclosed.has(r.PrintGuideID)).map((r) => r.MaterialID));
+  const stating = wb['Print setup'].rows.filter((r) => enclosedTypes.has(r.MaterialID) && r['Chamber state'] === 'range');
+  const beside = wb['Print setup'].rows.find((r) => r['Enclosure state'] === 'recommended' && r['Chamber °C'] === 'Not published'
+    && stating.some((s) => s.GradeID === r.GradeID && s !== r));
+  Object.assign(beside, enclosed);
   // The core database: these codes are the compiler's, which the estimate stage cannot remove.
   const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates: false });
   const codes = new Set(issues.filter((i) => i.level === 'error').map((i) => i.code));
@@ -91,6 +99,7 @@ test('provoked errors carry the code a reader looks up', () => {
   assert.ok(codes.has('PRINT-GUIDE-MATERIAL'), [...codes].join(' '));
   const enclosedAt = issues.filter((i) => i.code === 'PROCESS-ENCLOSED').map((i) => i.where.split(' ')[0]);
   assert.deepEqual([...new Set(enclosedAt)].sort(), ['print_guide', 'profiles'], 'a profile and a guide row that needs no enclosure may not declare it');
+  assert.ok(issues.some((i) => i.code === 'PROCESS-ENCLOSED' && i.where === `profiles ${beside.ProfileID}` && /states its chamber/.test(i.message)), `${beside.ProfileID}: a stated chamber beside it decides`);
   const schema = checkData(join(root, 'data'), join(root, 'schema')).issues;
   assert.deepEqual(schema, []);
 });

@@ -174,7 +174,7 @@
       "name": "Chamber state",
       "type": "string",
       "role": "canonical",
-      "description": "Reviewed reading of Chamber °C: range, not-required, ambient, no-setpoint, recommended or unknown.",
+      "description": "Reviewed reading of Chamber °C: range, not-required, ambient, no-setpoint, recommended or unknown; or enclosed, where the sheet asks for an enclosure (Enclosure state recommended) and prints no chamber temperature, for a type its material's printer maker's guide asks an enclosure for: the H2C's heated chamber meets it (D93), and Parse review says so.",
       "vocabulary": "process-states",
       "constraints": {
         "required": true

@@ -16,7 +16,7 @@ import { ENVIRONMENT_CATEGORIES, derivedCoverage } from './coverage-rules.js';
 import { compileRegistry, measurementHeadlines, applies, materialRowsOf } from './registry.js';
 import { ORIGIN } from './normalize/provenance.js';
 import { applyLoadTyped, applyAnnealTyped, applyStateTyped, applyStandardsTyped, applyTestTemperatureTyped } from './typed-values.js';
-import { readRecipe } from './recipe.js';
+import { readRecipe, checkMakerEnclosed } from './recipe.js';
 import { compilePrintGuide } from './print-guide.js';
 import { attachChamberEstimates, chamberBandsFromTables } from './chamber-estimates.js';
 import { aggregateGate } from './gates.js';
@@ -116,7 +116,8 @@ function compileProfiles(rows, noteRows, issues) {
   return rows.map((r) => {
     // The stored typed values decide; the parsers' reading of the raw text checks them (recipe.js, typed-values.js).
     // A sheet that says only that no enclosure is needed clears the chamber question too; one that recommends an
-    // enclosure leaves it unknown (recipe.js).
+    // enclosure leaves it unknown (recipe.js), unless its row declares it "enclosed" for a type its printer maker's
+    // guide asks an enclosure for (D93).
     const recipe = readRecipe(r, issues, { where: `profiles ${r.ProfileID}`, unreadWhere: `Print setup row ${r.__row}` });
     return {
       id: r.ProfileID,
@@ -263,6 +264,10 @@ const Z_DIRECTION_NOTE = {
   ...DIRECTION_NOTE,
   XY: 'XY direction, in the print plane: how strong the plastic is, not how well its layers hold together',
   Z: null,
+  // ISO/ASTM 52921 names a bar by the axis along its length first; a sheet that shows or says its bar stood upright is
+  // recorded Z (m191), so what is left under these labels is a bar whose stance the source does not settle.
+  XZ: 'labelled XZ, a bar on its edge by ISO/ASTM 52921, and the source does not show it pulled across its layers',
+  ZX: 'labelled ZX, an upright bar by ISO/ASTM 52921, but the source does not show or say how the bar stood',
   'not-applicable': 'direction not stated by the source, so it cannot be read as Z',
   unknown: 'direction not stated by the source, so it cannot be read as Z',
 };
@@ -685,6 +690,9 @@ export function compile(wb, { snapshot, build }) {
   // A printer maker's filament guide, and the material each of its types is (D88): read for a product only where its
   // own profiles and its twin's say nothing on a part of its print gate.
   const printGuide = compilePrintGuide(wb['Print guide']?.rows ?? [], wb['Print guide materials']?.rows ?? [], { sources, materials: wb.Materials.rows, issues });
+  // A maker's own "enclosure needed", with no temperature, is the H2C's chamber only for a type that guide asks an
+  // enclosure for, and only where nothing else its product's sheets say about the chamber decides (D93).
+  checkMakerEnclosed(profiles, printGuide.byMaterial, issues);
 
   // Every product's own values and print recipe, every material's spread across its products, and the headline that
   // spread gives it (products.js). The engine judges the products; the material's headline is what the page shows.
