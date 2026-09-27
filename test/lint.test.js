@@ -1,6 +1,7 @@
 // Data lint rules: each catches the defect it names, and leaves legitimate look-alikes alone.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { fileURLToPath } from 'node:url';
 import { lintData } from '../build/src/lint-rules.js';
 
 const schemas = { measurements: { primaryKey: 'MeasurementID' } };
@@ -287,4 +288,23 @@ test('two values a sheet orders the wrong way round are a swapped line, unless t
   assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, film)]), []);
   // The same two values measured on one kind of specimen are still one of them on the wrong line.
   assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, bar)]), ['V1']);
+});
+
+test('a Shore number whose scale the sheet does not publish is judged against both scales, and no wider', async () => {
+  // The unit records the missing scale (m160), so the window says only whether the number could be a Shore reading
+  // at all: its bounds are the union of the A and D windows it could belong to, and drift in either shows here.
+  const { readCsv } = await import('../build/src/csv.js');
+  const windows = readCsv(fileURLToPath(new URL('../data/tables/plausibility_windows.csv', import.meta.url))).records.map((r) => r.values)
+    .filter((w) => w.Property === 'Hardness');
+  const unsettled = windows.filter((w) => w['Normalized unit'] === 'Shore (scale not specified by source)');
+  assert.ok(unsettled.length > 0, 'no window for a hardness whose scale is not published');
+  const n = (x, f) => Number(x[f]);
+  for (const w of unsettled) {
+    const scales = windows.filter((x) => ['Shore A', 'Shore D'].includes(x['Normalized unit']) && x['Matrix class'] === w['Matrix class'] && x['Fill class'] === w['Fill class']);
+    assert.equal(scales.length, 2, `${w.WindowID}: the Shore A and Shore D windows it is drawn from`);
+    assert.equal(w['Always flag'], 'FALSE', `${w.WindowID} flags every value, which the unit already does`);
+    const lowest = (f) => Math.min(...scales.map((x) => n(x, f)));
+    const highest = (f) => Math.max(...scales.map((x) => n(x, f)));
+    assert.deepEqual(['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => n(w, f)), [lowest('Hard low'), lowest('Soft low'), highest('Soft high'), highest('Hard high')], w.WindowID);
+  }
 });

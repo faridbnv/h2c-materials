@@ -2,8 +2,8 @@ Headline,Class,End,Held,BeyondPlausible,Rank,Quantile,Screens
 density,this-grade,top,6,1,,,no
 density,this-grade,bottom,6,0,,,no
 density,this-material,top,85,0,5,0.975,yes
-density,this-material,bottom,85,2,5,0.025,yes
-density,family,top,116,7,8,0.975,yes
+density,this-material,bottom,85,1,5,0.025,yes
+density,family,top,116,8,8,0.976001,yes
 density,family,bottom,116,2,8,0.025,yes
 tensileModulusXY,this-grade,top,65,2,4,0.975,yes
 tensileModulusXY,this-grade,bottom,65,0,4,0.025,yes
@@ -11,7 +11,7 @@ tensileModulusXY,this-material,top,61,0,3,0.975,yes
 tensileModulusXY,this-material,bottom,61,0,3,0.025,yes
 tensileModulusXY,family,top,74,0,4,0.975,yes
 tensileModulusXY,family,bottom,74,1,4,0.025,yes
-tensileStrengthXY,this-grade,top,49,2,2,0.977645,yes
+tensileStrengthXY,this-grade,top,49,2,2,0.978139,yes
 tensileStrengthXY,this-grade,bottom,49,0,2,0.025,yes
 tensileStrengthXY,this-material,top,51,0,2,0.975,yes
 tensileStrengthXY,this-material,bottom,51,1,2,0.025,yes

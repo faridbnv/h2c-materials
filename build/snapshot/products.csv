@@ -645,12 +645,12 @@ G011-01,M011,PLA Metal,tensileStrengthXY,34,comparable,,V000193,55 °C 8 h,,
 G011-01,M011,PLA Metal,elongationXY,14.7,comparable,,V000195,55 °C 8 h,,
 G011-01,M011,PLA Metal,hdt045,62,comparable,,V000189,55 °C 8 h,,
 G011-01,M011,PLA Metal,priceCADkg,31.99,comparable,,CA0013,,,
-G011-02,M011,PLA Metal Copper,density,2360,comparable,,V004044,,,
-G011-02,M011,PLA Metal Copper,tensileStrengthXY,35,as-published,unstated-direction,V004046,,,
-G011-03,M011,PLA Metal Brass,density,2330,comparable,,V004048,,,
-G011-03,M011,PLA Metal Brass,tensileStrengthXY,30,as-published,unstated-direction,V004050,,,
-G011-04,M011,PLA Metal Bronze,density,2280,comparable,,V004058,,,
-G011-04,M011,PLA Metal Bronze,tensileStrengthXY,31,as-published,unstated-direction,V004060,,,
+G011-02,M011,PLA Metal Copper,density,2360,comparable,,V004044,,,declared dense filler
+G011-02,M011,PLA Metal Copper,tensileStrengthXY,35,as-published,unstated-direction,V004046,,,declared dense filler
+G011-03,M011,PLA Metal Brass,density,2330,comparable,,V004048,,,declared dense filler
+G011-03,M011,PLA Metal Brass,tensileStrengthXY,30,as-published,unstated-direction,V004050,,,declared dense filler
+G011-04,M011,PLA Metal Bronze,density,2280,comparable,,V004058,,,declared dense filler
+G011-04,M011,PLA Metal Bronze,tensileStrengthXY,31,as-published,unstated-direction,V004060,,,declared dense filler
 G011-05,M011,ePLA Metal,density,1225,comparable,,V007387,,,
 G011-06,M011,PLA Metal,density,1200,comparable,,V009065,,,
 G011-06,M011,PLA Metal,hdt045,58,comparable,,V009072,,,

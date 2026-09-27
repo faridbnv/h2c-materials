@@ -52,9 +52,9 @@ ASA-CF
 34–50.1 · 6
 ASA-EC
 ~30–48†
-2.23
+2.26
 log scale
-286
+285
 all 153 candidates
 Stretch before breaking %
 ASA-AF

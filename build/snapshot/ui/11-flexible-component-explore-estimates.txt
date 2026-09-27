@@ -101,7 +101,7 @@ Nylon / Polyamide
 none judged
  1,150
 1,130–1,200 · 7
- ~1.3–4.1† ~34–75† ~3–24† 142
+ ~1.3–4.1† ~34–74† ~3–24† 142
 140–143 · 2
  163↗ ☆
 PA6/66
@@ -121,7 +121,7 @@ Nylon / Polyamide
  — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.0–3.8† ~35–83† ~4–50† ~90–160† — ☆
+ UNKNOWN ~990–1,080† ~1.0–3.8† ~35–83† ~4–50† ~90–160† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN ~1,070–1,170† ~1.1–4.3† ~35–84† ~3–43† ~107–185† — ☆
@@ -169,7 +169,7 @@ PET-LW
 PET Engineering
  UNKNOWN
 none judged
- ~1,240–1,400† ~0.6–3.0† ~22–71† ~2–45† ~46–66† — ☆
+ ~1,240–1,390† ~0.6–3.0† ~22–71† ~2–45† ~46–66† — ☆
 PETG-PTFE UNKNOWN
 none judged
  1,320 ~0.8–3.0† ~25–57† ~100–250† ~48–71† — ☆
@@ -284,12 +284,12 @@ Flexible Elastomers
 none judged
  1,230
 1,220–1,230 · 3
- ~0.01–0.71† ~12–108† ~17–66† n/a — ☆
+ ~0.01–0.71† ~12–109† ~17–66† n/a — ☆
 TPU-EC
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,330 ~0.067–0.142† ~6–63† ~130–870† n/a — ☆
+ 1,330 ~0.067–0.142† ~6–64† ~130–870† n/a — ☆
 TPU-ESD
 Flexible Elastomers
  UNKNOWN
