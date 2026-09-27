@@ -632,9 +632,9 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Unstated | The source publishes this printed result and states no direction; re-read and confirmed. Unlike Not published, it says someone has looked. |
 | Vertical XZ (source label) | The source says vertical XZ. |
 | XY | In the build plane: a flat bar, whether the sheet says XY or labels a tensile value only by its ±45° raster (D91). |
-| XZ | Upright in the XZ plane. |
-| Z | Along the build axis. |
-| ZX | Flat, loaded along Z-X. |
+| XZ | On its edge by ISO/ASTM 52921, which names a bar by the axis along its length first (X), then its width (Z): pulled in the build plane. Makers use the label loosely; a tensile bar its sheet shows or says was pulled across its layers is Z (m191). |
+| Z | Along the build axis: a bar printed upright and pulled across its layers, as its sheet says or shows (a Z column, a ZX column headed Upright, a drawing of the standing bar, a sentence naming its Z-axis strength). |
+| ZX | Upright by ISO/ASTM 52921: the bar's length along Z. Kept as the label where the sheet does not show or say how the bar stood, and on an upright flexural or impact bar; a tensile bar the sheet shows upright is Z, the layer strength (D92, m191). |
 
 <a id="vocab-drying-states"></a>
 ### drying-states

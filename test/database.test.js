@@ -859,6 +859,22 @@ test('a tensile value labelled only by a ±45° raster is XY; a ±45° bar besid
   assert.ok(xy > 20, `only ${xy} tensile values on a ±45° raster are XY`);
 });
 
+// OPEN-PROBLEMS §18, m191: a tensile bar its sheet shows or says stood upright is Z, the layer strength (D92). The
+// label is the bar's, so every tensile value of that bar moves together, and each says where its sheet shows it.
+test('a tensile bar its sheet shows upright is Z for every value of that bar, and says where', () => {
+  const TENSILE = new Set(['Tensile modulus', 'Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength',
+    'Elongation at break', 'Elongation at yield']);
+  let moved = 0;
+  for (const m of db.measurements.filter((x) => TENSILE.has(x.property) && x.direction === 'Z')) {
+    const was = /Direction Z, was (ZX|XZ): (pp?\. \d+)/.exec(m.notes ?? '');
+    if (!was) continue;
+    moved++;
+    const left = db.measurements.filter((x) => x.sourceId === m.sourceId && x.gradeId === m.gradeId && TENSILE.has(x.property) && x.direction === was[1]);
+    assert.deepEqual(left.map((x) => x.id), [], `${m.id} is Z, but its sheet's other ${was[1]} tensile values are not`);
+  }
+  assert.ok(moved >= 20, `only ${moved} tensile values moved from an upright bar's label to Z`);
+});
+
 test('a retired grade or profile is archival, never active procurement or printing evidence', () => {
   // A rule over every material, where the test once named CoPE's retired grade and profile (G091-01, P0115).
   const retiredGrades = new Set(db.grades.filter((g) => g.retired).map((g) => g.id));

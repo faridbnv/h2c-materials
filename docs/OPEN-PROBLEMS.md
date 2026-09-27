@@ -565,10 +565,19 @@ procurement products, 2026-09-26:
 - **161 products publish a notched Izod value and no notched Charpy one** (115 of them in kJ/m², 52 in J/m, some in
   both), so they have no notched impact value. An Izod headline beside the Charpy one (ISO 180, kJ/m²: 45 products comparably, 26 materials)
   would give them one; the J/m values need the bar's thickness, which no sheet here prints.
-- **38 products publish their across-layer tensile strength only under an XZ or ZX label**, 27 of them Eryone's "X-Z"
-  (8.7 to 47 MPa). ISO/ASTM 52921 names a bar by the axis along its length first, which makes ZX an upright bar, and the
-  vocabulary's own meanings for the two labels ("Upright in the XZ plane", "Flat, loaded along Z-X") say otherwise.
-  Until the owner rules which labels are upright bars, only Z counts.
+- **32 products publish their across-layer tensile strength only under an XZ or ZX label** (38 before m191, which made
+  Z the tensile rows of six whose sheets show or say the bar stood upright: BASF's "ZX | Upright" columns, Essentium's
+  drawing, two Eryone sentences naming the "X-Z" value the "Z-axis tensile strength"). Left, because nothing on the page
+  says how the bar stood: 25 more Eryone "X-Z" sheets of the same template (8.7 to 47 MPa), SUNLU's two "(Z-X)" sheets
+  (their drawings show only flat bars), Flashforge HS PLA's "(X-Z)", iSANMATE PEI 9085's "ZX Orientation", Prusament
+  PVB's "Vertical xz" (49 MPa beside a horizontal 50 MPa, and a separate interlayer adhesion of 9 MPa, so not across the
+  layers), Markforged Onyx GF's XZ (73.7 MPa, above its XY) and Stratasys ABS-M30i's XZ ("on side long edge"). The
+  Direction vocabulary gives ISO/ASTM 52921's meanings now (XZ on its edge, ZX upright). Eryone's own two sentences
+  suggest its template's "X-Z" is always the Z-axis bar; applying that to the other 25 is a ruling, not a reading.
+- **Eryone's sheets state their test bars' printing conditions** ("Note: All splines are printed under the following
+  conditions: printing temperature=210° C, printing speed=80mm/s, base plate 60 ° C, filling=100%, nozzle
+  diameter=0.4mm") and their rows' Specimen / print parameters say Not published; so do SUNLU's ("测试样条打印速度 45 mm/s，
+  打印温度 255 ℃。填充 100%"). These sheets were not among m170's, so m192 did not reach them (§12).
 - **Nine notched Charpy rows cite the unnotched method** (ISO 179/1eU): Spectrum's PA6 Low Warp and PA12-CF15 sheets,
   FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. Each sheet's label says notched, which is what the row
   keeps; none states a direction, so all nine are counted apart and decide only when asked.

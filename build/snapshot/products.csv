@@ -214,6 +214,7 @@ G001-46,M001,Hyper Speed Matte PLA,hdt045,55,comparable,,V005058,,,,
 G001-47,M001,Dual Color Burnt Titanium PLA,density,1230,comparable,,V005096,,,,
 G001-47,M001,Dual Color Burnt Titanium PLA,tensileModulusXY,1.7375,comparable,,V005102,,,,
 G001-47,M001,Dual Color Burnt Titanium PLA,tensileStrengthXY,52.2,comparable,,V005101,,,,
+G001-47,M001,Dual Color Burnt Titanium PLA,tensileStrengthZ,34.2,comparable,,V005104,,,,
 G001-47,M001,Dual Color Burnt Titanium PLA,elongationXY,2.1,comparable,,V005103,,,,
 G001-47,M001,Dual Color Burnt Titanium PLA,hdt045,53,comparable,,V005098,,,,
 G001-47,M001,Dual Color Burnt Titanium PLA,glassTransition,62,comparable,,V005099,,,,
@@ -530,6 +531,7 @@ G001-150,M001,SafeGuard PLA,glassTransition,55,comparable,,V006358,,,,twin G001-
 G001-151,M001,Burnt Titanium PLA,density,1230,comparable,,V005096,,,,twin G001-47
 G001-151,M001,Burnt Titanium PLA,tensileModulusXY,1.7375,comparable,,V005102,,,,twin G001-47
 G001-151,M001,Burnt Titanium PLA,tensileStrengthXY,52.2,comparable,,V005101,,,,twin G001-47
+G001-151,M001,Burnt Titanium PLA,tensileStrengthZ,34.2,comparable,,V005104,,,,twin G001-47
 G001-151,M001,Burnt Titanium PLA,elongationXY,2.1,comparable,,V005103,,,,twin G001-47
 G001-151,M001,Burnt Titanium PLA,hdt045,53,comparable,,V005098,,,,twin G001-47
 G001-151,M001,Burnt Titanium PLA,glassTransition,62,comparable,,V005099,,,,twin G001-47
@@ -764,6 +766,7 @@ G008-07,M008,Silk Rainbow PLA,glassTransition,63,comparable,,V004853,,,,
 G008-08,M008,Hyper Speed Dual Color Silk PLA,density,1320,comparable,,V004864,,,,
 G008-08,M008,Hyper Speed Dual Color Silk PLA,tensileModulusXY,1.9321,comparable,,V004870,,,,
 G008-08,M008,Hyper Speed Dual Color Silk PLA,tensileStrengthXY,62.7,comparable,,V004869,,,,
+G008-08,M008,Hyper Speed Dual Color Silk PLA,tensileStrengthZ,19.1,comparable,,V004872,,,,
 G008-08,M008,Hyper Speed Dual Color Silk PLA,elongationXY,2.3,comparable,,V004871,,,,
 G008-08,M008,Hyper Speed Dual Color Silk PLA,hdt045,50,comparable,,V004866,,,,
 G008-08,M008,Hyper Speed Dual Color Silk PLA,glassTransition,57,comparable,,V004867,,,,
@@ -811,6 +814,7 @@ G008-21,M008,PLA SILK,glassTransition,57,comparable,,V002904,,,,twin G008-03
 G008-22,M008,Hyper Speed Triple Color Silk PLA,density,1320,comparable,,V004864,,,,twin G008-08
 G008-22,M008,Hyper Speed Triple Color Silk PLA,tensileModulusXY,1.9321,comparable,,V004870,,,,twin G008-08
 G008-22,M008,Hyper Speed Triple Color Silk PLA,tensileStrengthXY,62.7,comparable,,V004869,,,,twin G008-08
+G008-22,M008,Hyper Speed Triple Color Silk PLA,tensileStrengthZ,19.1,comparable,,V004872,,,,twin G008-08
 G008-22,M008,Hyper Speed Triple Color Silk PLA,elongationXY,2.3,comparable,,V004871,,,,twin G008-08
 G008-22,M008,Hyper Speed Triple Color Silk PLA,hdt045,50,comparable,,V004866,,,,twin G008-08
 G008-22,M008,Hyper Speed Triple Color Silk PLA,glassTransition,57,comparable,,V004867,,,,twin G008-08
@@ -2428,6 +2432,7 @@ G038-01,M038,V2 PC-GF,hdt045,125,as-published,load-not-stated,V000750,,,,
 G038-02,M038,Ultrafuse PC GF30,density,1176,comparable,,V001829,,,,
 G038-02,M038,Ultrafuse PC GF30,tensileModulusXY,2.665,comparable,,V001839,,,,
 G038-02,M038,Ultrafuse PC GF30,tensileStrengthXY,36.1,comparable,,V001835,,,,
+G038-02,M038,Ultrafuse PC GF30,tensileStrengthZ,11.2,comparable,,V001836,,,,
 G038-02,M038,Ultrafuse PC GF30,elongationXY,2.4,comparable,,V001837,,,,
 G038-02,M038,Ultrafuse PC GF30,charpyNotched,6.1,comparable,,V001850,,,,
 G038-02,M038,Ultrafuse PC GF30,hdt045,134,comparable,,V001831,,,,
@@ -2700,6 +2705,7 @@ G048-01,M048,PAHT-CF,glassTransition,70,comparable,,V000898,80 °C 12 h,,,
 G048-01,M048,PAHT-CF,priceCADkg,124.49,comparable,,CA0054; CA0083,,,,
 G048-02,M048,Ultrafuse PAHT CF15,tensileModulusXY,8.386,comparable,,V002469,,,,
 G048-02,M048,Ultrafuse PAHT CF15,tensileStrengthXY,103.2,comparable,,V002465,,,,
+G048-02,M048,Ultrafuse PAHT CF15,tensileStrengthZ,18.2,comparable,,V002466,,,,
 G048-02,M048,Ultrafuse PAHT CF15,elongationXY,1.8,comparable,,V002467,,,,
 G048-02,M048,Ultrafuse PAHT CF15,charpyNotched,4.8,comparable,,V002480,,,,
 G048-02,M048,Ultrafuse PAHT CF15,hdt045,145,comparable,,V002464,,,,
@@ -2898,6 +2904,7 @@ G052-07,M052,R Nylon,tensileStrengthXY,45,as-published,unstated-direction,V01105
 G052-07,M052,R Nylon,elongationXY,50,as-published,unstated-direction,V011061,,,,
 G052-07,M052,R Nylon,hdt045,135,comparable,,V011063,,,,
 G052-R1,M052,310-21800 (PA12),density,1010,comparable,,V002002,,,,
+G052-R1,M052,310-21800 (PA12),tensileStrengthZ,41.8,comparable,,V002007,,,,
 G052-R1,M052,310-21800 (PA12),hdt045,94.7,comparable,,V002003,,,,
 G052-R1,M052,310-21800 (PA12),glassTransition,34.03,comparable,,V002005,,,,
 G053-01,M053,CarbonX CF PA12,density,1160,comparable,,V000964,,,,
@@ -3212,6 +3219,7 @@ G073-01,M073,PPS-CF,glassTransition,100,comparable,,V001355,,,,
 G073-01,M073,PPS-CF,priceCADkg,221.32,comparable,,CA0062; CA0093,,,,
 G073-02,M073,Essentium PPS-CF,tensileModulusXY,7.46,comparable,,V001865,,,,
 G073-02,M073,Essentium PPS-CF,tensileStrengthXY,63,comparable,,V001862,,,,
+G073-02,M073,Essentium PPS-CF,tensileStrengthZ,28.2,comparable,,V001864,,,,
 G073-02,M073,Essentium PPS-CF,elongationXY,2.2,comparable,,V001868,,,,
 G073-02,M073,Essentium PPS-CF,glassTransition,92,comparable,,V001882,,,,
 G073-03,M073,PPS-CF,density,1300,comparable,,V005327,,,,
@@ -3286,6 +3294,7 @@ G076-01,M076,BVOH,glassTransition,68,comparable,,V001425,,,,
 G076-02,M076,Ultrafuse BVOH,density,1138,comparable,,V002257,,,,
 G076-02,M076,Ultrafuse BVOH,tensileModulusXY,2.339,comparable,,V002266,,,,
 G076-02,M076,Ultrafuse BVOH,tensileStrengthXY,33.7,comparable,,V002262,,,,
+G076-02,M076,Ultrafuse BVOH,tensileStrengthZ,8.7,comparable,,V002263,,,,
 G076-02,M076,Ultrafuse BVOH,elongationXY,14.8,comparable,,V002264,,,,
 G076-02,M076,Ultrafuse BVOH,glassTransition,69,comparable,,V002258,,,,
 G076-03,M076,BVOH,density,1140,comparable,,V010017,,,,

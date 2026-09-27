@@ -101,7 +101,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types) |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
-| D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | In force |
+| D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | In force; extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts |
 | D93 | A maker's own "enclosure needed", with no temperature, reads as the guide's tick | For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides. | In force; it extends D90 |
 
 <!-- end index -->
@@ -2615,9 +2615,17 @@ Revisit it if a sheet printing both an XY and a ±45° bar of an unfilled filame
 ## D92. Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition
 
 > **In plain words:** You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared.
+> **Status:** in force; extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts.
 
 *Built in re-center phase 6, lane 4 (docs/audits/2026-09-25-re-center/REPORT.md, lane 4, item 3; scorecard C1), with
 m175 and m176. It amends D84.*
+
+*Extended in phase 6, final round (m191, 2026-09-27): every sheet whose across-layer tensile values carried only an XZ or
+ZX label was re-read. Where it shows or says the bar stood upright and was pulled across its layers (BASF's "ZX |
+Upright" column, Stratasys's "Upright (ZX)", Essentium's drawing, two Eryone sentences naming their "X-Z" value the
+"Z-axis tensile strength"), its tensile rows are Z; the rest keep their label, and the Direction vocabulary now gives
+ISO/ASTM 52921's meanings (XZ on its edge, ZX upright). "Which of those are upright bars is not settled", below, is
+the reading this narrowed.*
 
 The requirements an engineer states for a printed part include how well its layers hold, how brittle it is and where
 it softens. The database held the values, 11,000 rows of them, and none could be asked for: 135 products publish a

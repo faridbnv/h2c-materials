@@ -264,6 +264,10 @@ const Z_DIRECTION_NOTE = {
   ...DIRECTION_NOTE,
   XY: 'XY direction, in the print plane: how strong the plastic is, not how well its layers hold together',
   Z: null,
+  // ISO/ASTM 52921 names a bar by the axis along its length first; a sheet that shows or says its bar stood upright is
+  // recorded Z (m191), so what is left under these labels is a bar whose stance the source does not settle.
+  XZ: 'labelled XZ, a bar on its edge by ISO/ASTM 52921, and the source does not show it pulled across its layers',
+  ZX: 'labelled ZX, an upright bar by ISO/ASTM 52921, but the source does not show or say how the bar stood',
   'not-applicable': 'direction not stated by the source, so it cannot be read as Z',
   unknown: 'direction not stated by the source, so it cannot be read as Z',
 };
