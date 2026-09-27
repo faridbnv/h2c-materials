@@ -156,6 +156,15 @@ Raised by the lanes' findings; asked with the facts and a recommendation each:
 4. **A tensile value labelled only by a ±45° raster counts as an XY value.** Makers commonly print their flat XY bars
    with a ±45° raster; this supersedes m33's reading for such values. (The recommendation was to keep m33 until a
    sheet printing both showed they agree; the owner chose to count them.)
+5. **A maker's own "enclosure needed" or "recommended", with no temperature, reads as the guide's tick does**: within
+   the H2C's chamber, for the same nine types, labelled as the maker's words. A maker's stated temperature above 65 °C
+   still reads as partial or beyond. (Recommended; taken.)
+6. **colorFabb's lightweight PETs are judged foamed**: the value as the product is meant to be printed decides, and the
+   unfoamed value is recorded beside it. (Recommended; taken.)
+7. **LEHVOSS's printed-specimen sheet for LUVOCOM 3F PAHT 9825 NT enters by a migration that checks each figure on its
+   page**, not by a new reader rule. (Recommended; taken.)
+8. **Notched Izod becomes a filter beside notched Charpy.** The two tests are never mixed or converted, and each says
+   so. (The recommendation was one impact filter until a requirement asked for Izod; the owner chose both.)
 
 ## Working rules
 
