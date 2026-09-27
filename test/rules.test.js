@@ -50,7 +50,9 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   }
   // EST-WIDE is absent because no material in this snapshot has an imprecise estimate beside a usable published
   // value it could have shown; the thirteen that used to raise it publish nothing for the headline, so they are
-  // EST-THIN (m47). A build that raises EST-WIDE again means the model is ignoring evidence it has.
+  // EST-THIN (m47). A build that raises EST-WIDE again means the model is ignoring evidence it has. A declared
+  // variant's value is not such evidence where the material has other products: its headline sets it apart (D57), as
+  // PA6's does Nanovia PA Rail's XY modulus since m168.
   //
   // EST-REJECTED appeared with b20: a bronze-filled and a steel-filled PLA publish 3.9 and 3.13 g/cm³, which is
   // true of the products and outside anything the model can learn a PLA's density from. Each grade declares the

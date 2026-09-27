@@ -125,11 +125,18 @@ export function validateEstimates(db) {
     byMaterial.get(m.materialId).push(m);
   }
   /** A published value of this material that the headline could nearly have shown: one of its products, the
-   * headline's property, direction, a printed or unstated specimen, unconditioned, and a usable number. */
+   * headline's property, direction, a printed or unstated specimen, unconditioned, and a usable number. A declared
+   * variant's value describes the product, not the polymer, and the headline sets it apart (D57, D83), so it counts
+   * only where every product of the material is a variant, and the material is its variants. */
+  const productsOf = (mat) => {
+    const plain = mat.gradeIds.filter((id) => !gradeById.get(id)?.variant);
+    return new Set(plain.length ? plain : mat.gradeIds);
+  };
   const publishesUsableValue = (mat, key) => {
     const def = headlineDefs.get(key);
     if (!def) return false;
-    return (byMaterial.get(mat.id) ?? []).some((x) => mat.gradeIds.includes(x.gradeId)
+    const products = productsOf(mat);
+    return (byMaterial.get(mat.id) ?? []).some((x) => products.has(x.gradeId)
       && def.valueProperties.includes(x.property) && x.numeric && !x.quarantined && !x.implausible
       && ['printed', 'not-stated'].includes(x.specimenForm) && x.moistureState !== 'conditioned'
       && (def.direction === 'Not applicable' ? x.direction === 'not-applicable' : x.direction === def.direction));
