@@ -138,7 +138,6 @@ G001-138,M001,Magnetic Iron PLA,within,within,within,not-needed,no-special-conce
 G001-139,M001,"Brass Fill, Bronze Fill, Copper Fill HTPLA",within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-140,M001,PLA-Lite,within,within,within,not-needed,no-special-concern,required,hardenedNozzle: guide PG001
 G001-141,M001,PLA Nature,within,within,within,not-needed,no-special-concern,unknown,nozzle: twin G001-69; bed: twin G001-69; chamber: twin G001-69; enclosure: twin G001-69; hardenedNozzle: twin G001-69
-G001-142,M001,PLA,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-143,M001,PLA+2.0,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-144,M001,Prusament PLA by Prusa Polymers,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-145,M001,High Speed Matte PLA,within,within,within,not-needed,no-special-concern,required,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001; drying: twin G001-36
@@ -460,7 +459,7 @@ G027-18,M027,Methylmethacrylat-Acrylnitrilbutadienstyrol (MABS),within,within,wi
 G027-19,M027,ABS Extrafill,within,within,within,recommended,no-special-concern,unknown,bed: guide PG003; chamber: guide PG003; enclosure: guide PG003; hardenedNozzle: guide PG003
 G027-20,M027,eABS HS,within,within,within,recommended,no-special-concern,unknown,chamber: guide PG003; enclosure: guide PG003; hardenedNozzle: guide PG003
 G027-21,M027,TOUGH,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG003; bed: guide PG003; chamber: guide PG003; enclosure: guide PG003; hardenedNozzle: guide PG003
-G027-22,M027,ABS,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG003
+G027-22,M027,ABS+,within,within,within,recommended,no-special-concern,required,hardenedNozzle: guide PG003
 G027-23,M027,ABS,within,within,within,recommended,no-special-concern,required,chamber: guide PG003; enclosure: guide PG003; hardenedNozzle: guide PG003
 G027-24,M027,Hyper Speed ABS,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG003; bed: guide PG003; chamber: guide PG003; enclosure: guide PG003; hardenedNozzle: guide PG003
 G027-25,M027,ABS HT,within,within,within,recommended,no-special-concern,unknown,chamber: guide PG003; enclosure: guide PG003; hardenedNozzle: guide PG003
@@ -608,8 +607,7 @@ G035-02,M035,PolyLite PC,within,within,exceeds-recommended,recommended,no-specia
 G035-03,M035,PC 275,within,exceeds,within,recommended,no-special-concern,required,
 G035-04,M035,ezPC Polycarbonate,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG006; bed: guide PG006; chamber: guide PG006; enclosure: guide PG006; hardenedNozzle: guide PG006
 G035-05,M035,3DXMAX Polycarbonate,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG006; bed: guide PG006; chamber: guide PG006; enclosure: guide PG006; hardenedNozzle: guide PG006
-G035-06,M035,Polymaker PolyMax PC,within,within,unknown,recommended,no-special-concern,required,hardenedNozzle: guide PG006
-G035-07,M035,PolyMax PC,within,within,exceeds-recommended,recommended,no-special-concern,unknown,hardenedNozzle: guide PG006
+G035-06,M035,PolyMax PC,within,within,exceeds-recommended,recommended,no-special-concern,required,hardenedNozzle: guide PG006
 G035-08,M035,Polymaker PolyMax PC FR,within,within,exceeds,recommended,no-special-concern,required,hardenedNozzle: guide PG006
 G035-09,M035,Polymaker PC Max,within,within,within,recommended,no-special-concern,unknown,nozzle: guide PG006; bed: guide PG006; chamber: guide PG006; enclosure: guide PG006; hardenedNozzle: guide PG006
 G035-10,M035,Polymaker PolyLite PC Transparent,within,within,exceeds,recommended,no-special-concern,required,hardenedNozzle: guide PG006

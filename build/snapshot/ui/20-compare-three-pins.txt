@@ -42,7 +42,7 @@ ASA-EC
 ~2.1–4.1†
 0.00132
 log scale
-21.4
+22.1
 all 153 candidates
 Strength MPa
 ASA-AF
@@ -52,7 +52,7 @@ ASA-CF
 34–50.1 · 6
 ASA-EC
 ~30–50†
-2.17
+2.15
 log scale
 293
 all 153 candidates
@@ -75,9 +75,9 @@ ASA-CF
 1.64–15.5 · 5
 ASA-EC
 ~0.9–5.6†
-0.354
+0.351
 log scale
-1,620
+1,410
 all 153 candidates
 Notched impact strength kJ/m²
 ASA-AF

@@ -196,7 +196,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 880 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 877 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|

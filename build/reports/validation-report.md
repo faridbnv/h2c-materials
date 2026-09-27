@@ -123,11 +123,11 @@ its plausible range wholly fails.
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 855 | 117 | 80% | 96% | ×1.1 | 0.0251 (15517 pairs) |
-| tensileModulusXY | 1180 | 82 | 81% | 95% | ×1.48 | 0.326 (1276 pairs) |
-| tensileStrengthXY | 1297 | 63 | 81% | 95% | ×1.44 | 0.256 (2475 pairs) |
-| elongationXY | 1009 | 82 | 81% | 95% | ×3.82 | 0.71 (2338 pairs) |
-| hdt045 | 1228 | 80 | 80% | 95% | 17.1 °C | 4.3 (3889 pairs) |
+| density | 854 | 117 | 80% | 96% | ×1.1 | 0.0251 (15499 pairs) |
+| tensileModulusXY | 1178 | 82 | 81% | 95% | ×1.47 | 0.332 (1265 pairs) |
+| tensileStrengthXY | 1296 | 63 | 81% | 95% | ×1.44 | 0.256 (2462 pairs) |
+| elongationXY | 1008 | 82 | 81% | 95% | ×3.76 | 0.711 (2325 pairs) |
+| hdt045 | 1227 | 80 | 80% | 95% | 17 °C | 4.3 (3889 pairs) |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -150,7 +150,7 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileStrengthXY | this-grade | 57 | 2 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | this-material | 56 | 0 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | family | 63 | 0 | 97.5% point | 2 | 2.5% point |
-| elongationXY | this-grade | 38 | 0 | 97.5% point | 0 | 2.5% point |
+| elongationXY | this-grade | 38 | 1 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-material | 68 | 2 | 97.5% point | 2 | 2.5% point |
 | elongationXY | family | 82 | 2 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 56 | 4 | 99.28% point | 1 | 2.5% point |
@@ -161,13 +161,13 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 
 | Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
 |---|---:|---:|---:|---:|---:|---|
-| density | 771 | 1.38 | 1.86 | 0.798 | 0.951 | yes |
-| tensileModulusXY | 264 | 1.09 | 1.21 | 0.792 | 0.943 | yes |
-| tensileStrengthXY | 278 | 1.1 | 1.15 | 0.802 | 0.95 | yes |
-| elongationXY | 323 | 1.06 | 1.16 | 0.802 | 0.944 | yes |
-| hdt045 | 368 | 1.83 | 3 | 0.783 | 0.927 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
+| density | 770 | 1.38 | 1.81 | 0.797 | 0.951 | yes |
+| tensileModulusXY | 263 | 1.09 | 1.21 | 0.795 | 0.943 | yes |
+| tensileStrengthXY | 277 | 1.11 | 1.15 | 0.801 | 0.949 | yes |
+| elongationXY | 322 | 1.06 | 1.16 | 0.798 | 0.944 | yes |
+| hdt045 | 368 | 1.82 | 3 | 0.783 | 0.929 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
-EST-GRADE-OUTLIER, 30 grades: PLA 9, PLA Wood 3, PLA Aero 3, PA12-CF 3, ABS 2, PPA-CF 2, PLA Marble 1, PP 1, POM / Acetal 1, PLA Silk 1, TPU 85A class and softer 1, PETG 1, PET-GF 1, PPA-GF 1.
+EST-GRADE-OUTLIER, 31 grades: PLA 9, PLA Wood 3, PLA Aero 3, PA12-CF 3, ABS 2, PPA-CF 2, PLA Marble 1, PLA-CF 1, PP 1, POM / Acetal 1, PLA Silk 1, TPU 85A class and softer 1, PETG 1, PET-GF 1, PPA-GF 1.
 
 Evidence that contradicts everything else and was down-weighted (EST-CONFLICT, 215 observations):
 
@@ -401,7 +401,7 @@ Every one of the 174 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (4158 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (4151 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
