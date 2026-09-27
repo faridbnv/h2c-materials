@@ -474,8 +474,8 @@ In Explore with Estimates on, an estimate screens a material out when the range 
 printed measurement of the material bounds the headline from below and meets the requirement (`impliedBounds`: yield or
 break strength under ultimate strength, yield strain under break strain, HDT at 1.8 MPa under 0.45 MPa, each at its
 published value; D55). The same bounds limit the estimate's own range from below. Not
-applicable screens the same way; the top of the unstated-load bracket screens only for a matrix whose gaps can set it
-(today amorphous). Strict neither shows nor uses estimates. The earlier models are recorded in D10,
+applicable screens the same way. (An unstated-load heat deflection bracket screened too until phase 4 removed it: a value
+published without its load is now as published, D84.) Strict neither shows nor uses estimates. The earlier models are recorded in D10,
 D11, D40, D42 and D43.
 
 **Moisture, variants and bounds.** A value measured after conditioning (the Moisture condition vocabulary's
@@ -758,7 +758,7 @@ G091-01 / P0115 is the retired CPE-HG100-to-CoPE mapping; active CoPE uses only 
 
 ## Raw-value reconciliation
 
-`build/src/measurement-rules.js` independently checks all 1,913 numeric observations against raw
+`build/src/measurement-rules.js` independently checks every numeric observation against its raw
 values and unit conversions, including each uncertainty and upper bound. Decimal commas are retained, thousands-separated cycle counts remain
 integers, and qualitative outcomes use their own status. Product values are checked for property, unit, value,
 direction and ownership (MEAS-HEADLINE-TYPE, HEADLINE-CITATION, HEADLINE-DIRECTION). An unstated HDT load decides

@@ -100,7 +100,7 @@ flowchart TB
 
     subgraph CHK["Kept honest by, outside the build"]
         direction LR
-        CK1["npm run verify · gate, lint, 215 tests, source-to-page audit,<br/>review snapshot, 14 interface views, 300 rendered scenarios"]
+        CK1["npm run verify · gate, lint, tests, source-to-page audit,<br/>review snapshot, interface views, 300 rendered scenarios"]
         CK2["build/snapshot · every headline, gate, template result and<br/>screening end, committed, so a change shows its effect in its own diff"]
         CK3["Nightly · 2,000 random sets of requirements through the<br/>built page, compared with the engine run on its own"]
         CK4["npm run trace · any number back to its measurement,<br/>grade, source and page"]
@@ -251,10 +251,10 @@ compared with the same logic run outside the browser, so the screen cannot drift
 
 ## A material is the spread of its products
 
-A material such as PLA is not one number: its 198 products differ. Each product's own values are chosen from its own
+A material such as PLA is not one number: its two hundred products differ. Each product's own values are chosen from its own
 data sheet by a fixed rule (a printed or unstated specimen, the column's direction, dry or unstated, as printed), and a
 material's cell shows **the typical value of its products (their median), with their range and how many products
-under it**: `2.27` over `0.95–2.95 · 27`. The range is different products, not the uncertainty of one.
+under it**: `2.45` over `0.95–4.24 · 38` for PLA's stiffness. The range is different products, not the uncertainty of one.
 
 A requirement is checked **product by product, all requirements at once**, including whether the H2C can print that
 product on its own settings. A material passes when at least one of its products meets everything, and the result says

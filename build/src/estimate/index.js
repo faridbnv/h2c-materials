@@ -29,7 +29,7 @@
 //
 // Files: model.js (configuration, shared names), numerics.js, observations.js (conversion kinds, the snapshot),
 // conversions.js, gaussian.js (kernel, fit, prediction), calibration.js, bounds.js (the ranges and their limits),
-// screening.js (back-test, brackets, the range that decides), print.js (nozzle and bed windows), validate.js (checks and
+// screening.js (back-test, the range that decides), print.js (nozzle and bed windows), validate.js (checks and
 // report section).
 
 import { normalQuantile } from './numerics.js';

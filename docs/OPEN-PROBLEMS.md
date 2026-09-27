@@ -625,8 +625,8 @@ npm run sql --silent -- "with pv as (select m.* from measurements m join grades 
 
 ## Coverage, in one number
 
-Of 795 coverage rows, 267 record a gap, 93 a comparability limitation, 41 a reviewed limitation and 13 a partial
-resolution. Those are not defects; they are the database saying what it does not know. How many material values come
+Most coverage rows record a gap, a comparability limitation, a reviewed limitation or a partial resolution (the query
+below counts them). Those are not defects; they are the database saying what it does not know. How many material values come
 from products and how many are estimated is generated in `build/snapshot/counts.md`, and each material's headline,
 with its products, in `build/snapshot/headlines.csv`; every estimate says how far to trust it. (A table of headline
 gaps against "153 candidate materials" stood here and went stale with m141 and b34.)
