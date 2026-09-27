@@ -11,9 +11,10 @@ export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200
 /**
  * A row's recipe: nozzle, bed and chamber windows, enclosure, drying and hardened nozzle, and the gates. `where` names
  * the row in a PARSE-MISMATCH, `unreadWhere` in a PARSE-UNREAD, and `abrasionColumn` is the raw column that says
- * whether a hardened nozzle is needed (a profile's "Abrasion / clogging", a guide's "Nozzle size / material").
+ * whether a hardened nozzle is needed (a profile's "Abrasion / clogging", a guide's "Nozzle size / material"). `guide`
+ * says the row is a printer maker's guide row (D88), the one kind that may declare its chamber "enclosed" (D90).
  */
-export function readRecipe(r, issues, { where, unreadWhere, abrasionColumn = 'Abrasion / clogging' }) {
+export function readRecipe(r, issues, { where, unreadWhere, abrasionColumn = 'Abrasion / clogging', guide = false }) {
   const typed = applyProfileTyped(r, {
     nozzle: parseTemperature(r['Nozzle °C'], { plausible: TEMP_WINDOW.nozzle }),
     bed: parseTemperature(r['Bed °C'], { plausible: TEMP_WINDOW.bed }),
@@ -31,6 +32,13 @@ export function readRecipe(r, issues, { where, unreadWhere, abrasionColumn = 'Ab
   }
   for (const [name, p] of [['Nozzle', nozzle], ['Bed', bed], ['Chamber', chamber], ['Enclosure', enclosure]]) {
     if (p.unparsed) issues.push({ level: 'warn', code: 'PARSE-UNREAD', where: unreadWhere, message: `${name} text not parsed: "${p.text}"` });
+  }
+  // "enclosed" says the H2C's heated chamber is the enclosure a printer maker's guide asks for on its own printers
+  // (D90). Only such a row may say it, of its chamber, and only where it asks for an enclosure: a maker's own sheet
+  // that asks for one has not said 65 °C is enough.
+  for (const [name, p] of [['Nozzle', nozzle], ['Bed', bed], ['Chamber', chamber]]) {
+    if (p.state !== PROCESS_STATE.ENCLOSED || (guide && name === 'Chamber' && enclosure.state === 'recommended')) continue;
+    issues.push({ level: 'error', code: 'PROCESS-ENCLOSED', where, message: `${name} state is enclosed, which only a print guide row's chamber may declare, where the row asks for an enclosure (D90)` });
   }
   return {
     nozzle, bed, chamber,

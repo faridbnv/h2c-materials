@@ -1,5 +1,6 @@
 Value,Meaning
 ambient,The source says room temperature: no heated setpoint needed.
+enclosed,"A printer maker's guide asks for an enclosure on its own enclosed printers and states no temperature: the H2C's heated, enclosed chamber (65 °C) meets it (D90). A print guide row's chamber only, where the row asks for an enclosure; a maker's own sheet that asks for one says Enclosure state recommended."
 no-setpoint,"The source prints '-': no setpoint given, which is neither zero nor not required."
 not-required,The source says it is not required.
 range,A temperature window; min and max hold it (min may be Not published for 'up to').

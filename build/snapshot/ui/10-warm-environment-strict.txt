@@ -1,7 +1,7 @@
-COUNT 34 shown PASS
-STATUS ☑ PASS 34 | ☐ UNKNOWN 65 | ☐ FAIL 54
-34 of the 153 materials in this database meet these requirements
-65 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+COUNT 36 shown PASS
+STATUS ☑ PASS 36 | ☐ UNKNOWN 64 | ☐ FAIL 53
+36 of the 153 materials in this database meet these requirements
+64 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -44,7 +44,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS
-4 of 6
+19 of 21
  1,050
 1,020–1,150 · 43
  2.25
@@ -75,7 +75,7 @@ ABS-ESD PASS
 96–98 · 4
  — ☆
 ABS-GF PASS
-2 of 2
+8 of 8
  1,100
 1,016–1,150 · 12
  3.16
@@ -88,7 +88,7 @@ ABS-GF PASS
 82–100 · 8
  39↗ ☆
 ASA PASS
-3 of 4
+17 of 18
  1,070
 1,040–1,150 · 35
  2.25
@@ -196,7 +196,7 @@ Nylon / Polyamide
 PA6-CF
 Nylon / Polyamide
  PASS
-4 of 4
+7 of 7
  1,170
 1,090–1,250 · 13
  4.3
@@ -211,7 +211,7 @@ Nylon / Polyamide
 PA6-GF
 Nylon / Polyamide
  PASS
-3 of 3
+7 of 7
  1,310
 1,140–1,370 · 9
  4.35
@@ -259,7 +259,7 @@ Nylon / Polyamide
 PAHT-CF
 Nylon / Polyamide
  PASS
-1 of 1
+2 of 2
  1,240
 1,060–1,250 · 3
  8.39
@@ -276,6 +276,21 @@ PVB / Specialty Polymers
  PASS
 1 of 1
  1,250 0.006 27 400 90 — ☆
+PC
+Polycarbonate
+ PASS
+7 of 10
+ 1,200
+1,150–1,230 · 21
+ 2.24
+1.8–2.63 · 12
+ 61
+40–69.1 · 14
+ 7
+3.2–25 · 13
+ 114
+101–144 · 11
+ 51↗ ☆
 PC FR
 Polycarbonate
  PASS
@@ -433,6 +448,21 @@ Polyolefins
  6.15 78 1.5 124
 88–158 · 3
  — ☆
+PPA-CF
+High-Performance Engineering
+ PASS
+3 of 3
+ 1,210
+1,150–1,250 · 8
+ 7.65
+7.1–11.8 · 4
+ 108
+87–168 · 4
+ 3.35
+1.9–3.5 · 4
+ 220
+84.5–240 · 6
+ 255↗ ☆
 PPS-CF
 High-Performance Engineering
  PASS

@@ -12,7 +12,7 @@ that settles the most answers first, not the most data.
 | Outdoor structural part | 136 | 18 | 80 | 38 | not published 54; published, not comparable 19 | 17 |
 | Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
 | Lightweight structure | 136 | 26 | 78 | 32 | not published 27; published, not comparable 16 | 26 |
-| Warm environment | 136 | 34 | 37 | 65 | print setting not recorded 62; not published 30 | 1 |
+| Warm environment | 136 | 36 | 36 | 64 | print setting not recorded 61; not published 30 | 1 |
 | High-stiffness fixture | 136 | 19 | 68 | 49 | published, not comparable 29; not published 20 | 30 |
 | Flexible component | 136 | 16 | 73 | 47 | published, not comparable 29; not published 18 | 33 |
 
@@ -91,7 +91,7 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | Nylon-GF, polymer not stated (M166) | 1 | density | not published | <= 1500, <= 1250 | 2 |
 | PA12-AF (M154) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 
-And 140 more, each holding up one template.
+And 139 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 

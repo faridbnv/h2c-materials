@@ -49,6 +49,7 @@ what it means and how to fix it.
 | `POLYMER-ENV-DUPLICATE` | error | Two polymer_environment rows name the same polymer, category and agent. | Keep one row per polymer, category and agent; put a second condition in Conditions or Notes. |
 | `PRINT-GUIDE-REFERENCE` | error | A print_guide row cites a source that is not in sources.csv, was not retrieved, or is not cited. | Register the guide, fetched and hash-checked, with Citation role cited; nothing enters from a guide that was not read (D88). |
 | `PRINT-GUIDE-MATERIAL` | error | A print_guide_materials row names a guide row or a material that does not exist, or a family entry, which owns no product. | Map a guide type to the one material it is (D88). |
+| `PROCESS-ENCLOSED` | error | A nozzle, bed or chamber state is "enclosed" where it may not be: on a print profile, on a nozzle or bed, or on a print guide row that does not ask for an enclosure. | Only a printer maker's guide row that asks for an enclosure on its own enclosed printers declares its chamber "enclosed" (D90); a maker's own sheet that asks for an enclosure is Enclosure state recommended, and its chamber stays as it reads. |
 
 ## Integrity
 

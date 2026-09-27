@@ -76,13 +76,19 @@ test('provoked errors carry the code a reader looks up', () => {
   wb['Print guide'].rows.push({ ...guide, PrintGuideID: 'PG999', SourceID: 'B-GUIDE' });
   const family = wb.Materials.rows.find((m) => m.Scope === 'Family entry').MaterialID;
   wb['Print guide materials'].rows.push({ MaterialID: family, PrintGuideID: guide.PrintGuideID, Reason: 'test', 'Reviewed by': 'test' });
-  // The core database: both codes are the compiler's, which the estimate stage cannot remove.
+  // "enclosed" declared by a maker's own profile, and by a guide row that says no enclosure is needed (D90).
+  const enclosed = { 'Chamber state': 'enclosed', 'Chamber requirement': 'required', 'Parse review': 'test' };
+  Object.assign(wb['Print setup'].rows[0], enclosed);
+  Object.assign(wb['Print guide'].rows.find((r) => r['Enclosure state'] === 'not-needed'), enclosed);
+  // The core database: these codes are the compiler's, which the estimate stage cannot remove.
   const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates: false });
   const codes = new Set(issues.filter((i) => i.level === 'error').map((i) => i.code));
   assert.ok(codes.has('HEADLINE-SELECTION-INVALID'), [...codes].join(' '));
   assert.ok(codes.has('GRADE-ROLE-ID'), [...codes].join(' '));
   assert.ok(codes.has('PRINT-GUIDE-REFERENCE'), [...codes].join(' '));
   assert.ok(codes.has('PRINT-GUIDE-MATERIAL'), [...codes].join(' '));
+  const enclosedAt = issues.filter((i) => i.code === 'PROCESS-ENCLOSED').map((i) => i.where.split(' ')[0]);
+  assert.deepEqual([...new Set(enclosedAt)].sort(), ['print_guide', 'profiles'], 'a profile and a guide row that needs no enclosure may not declare it');
   const schema = checkData(join(root, 'data'), join(root, 'schema')).issues;
   assert.deepEqual(schema, []);
 });

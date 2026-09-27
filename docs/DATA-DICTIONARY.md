@@ -382,8 +382,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Bed min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not applicable unless the state is range. |
 | Bed max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
 | Bed requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
-| Chamber °C | raw | string | yes |  |  | The guide's chamber temperature as printed, or Not published where it has no such row. An enclosure it says is not needed clears the chamber, as a profile's does; one it asks for says nothing about 65 °C. |
-| Chamber state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Chamber °C, as a profile's. |
+| Chamber °C | raw | string | yes |  |  | The guide's chamber temperature as printed, or Not published where it has no such row. An enclosure it says is not needed clears the chamber, as a profile's does; one it asks for on its maker's own enclosed printers is declared in Chamber state (D90). |
+| Chamber state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Chamber °C, as a profile's; or enclosed, where the row asks for an enclosure on its maker's own enclosed printers and states no temperature: the H2C's heated chamber meets it (D90), and Parse review says so. |
 | Chamber min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not applicable unless the state is range. |
 | Chamber max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
 | Chamber requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
@@ -1163,6 +1163,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Value | Meaning |
 |---|---|
 | ambient | The source says room temperature: no heated setpoint needed. |
+| enclosed | A printer maker's guide asks for an enclosure on its own enclosed printers and states no temperature: the H2C's heated, enclosed chamber (65 °C) meets it (D90). A print guide row's chamber only, where the row asks for an enclosure; a maker's own sheet that asks for one says Enclosure state recommended. |
 | no-setpoint | The source prints '-': no setpoint given, which is neither zero nor not required. |
 | not-required | The source says it is not required. |
 | range | A temperature window; min and max hold it (min may be Not published for 'up to'). |

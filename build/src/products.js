@@ -184,7 +184,8 @@ function guideAnswers(guide, axis) {
   if (!GUIDE_AXES.includes(axis)) return false;
   return axis === 'hardenedNozzle' ? guide.abrasion.requiresHardened != null : speaksTo([guide], axis);
 }
-// A source that asks for an enclosure and gives no chamber temperature has said all it will about the chamber.
+// A source that asks for an enclosure and gives no chamber temperature has said all it will about the chamber. A
+// printer maker's guide row that means its own enclosed printers declares its chamber "enclosed" instead (D90).
 const ENCLOSURE_ONLY = 'Asks for an enclosure but states no chamber temperature; an enclosure is not proof that 65 °C is enough';
 
 /** The annealing a product's sheets state for its values measured on annealed parts, one per schedule. */

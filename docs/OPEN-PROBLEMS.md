@@ -311,12 +311,14 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   reprints of another material's table (R166 and its like) or products whose sibling holds nothing: no formulation key
   spans two materials, so they read nothing, and 27 of them have no profile of their own either. Their sheets print a
   recipe the import rejected with the values. Query: active products with no measurement and no same-key sibling.
-- **The printer maker's guide cannot settle the chamber where it asks for an enclosure** (D88). Bambu Lab's guide ticks
-  "Print with Enclosure" for ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and PPS-CF and gives no temperature,
-  so their silent products stay unknown on the chamber. In Warm environment 24 unknown materials have a product that
-  meets everything but the chamber; for PC (11 products) and PPA-CF (6) that product's only word on it is the guide's
-  tick. Whether "print with an enclosure", from the maker of the printer, is enough for the H2C's 65 °C chamber is the
-  owner's question. Query: products whose `print.from.chamber.origin` is `guide` and `print.chamber.verdict` unknown.
+- **The guide's enclosure is the H2C's chamber, and some makers ask for more** (D90, m165). The owner ruled that for
+  the nine types Bambu Lab's guide asks an enclosure for, a silent product's chamber is within the H2C, labelled as the
+  guide's; 123 products read it. Sixteen products of those types state a chamber above 65 °C on their own sheets and
+  keep that reading, Bambu Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets among them, which the owner
+  named as the reason to revisit. Twenty-three whose own sheet, or twin's, asks for an enclosure without a temperature
+  stay unknown, because a maker's own statement wins and only the printer maker's guide means its own enclosed
+  printers. Query: products of those nine materials whose `print.chamber.verdict` is `exceeds`, `partial` or
+  `exceeds-recommended`, and those unknown with `print.enclosure` recommended.
 - **What the guide prints and the tables do not use.** Its January 2025 revision (B-GUIDE) also heads ASA-CF, PC FR
   and TPU for AMS, which the current revision dropped; only the current revision is read, so those three materials'
   silent products read nothing. The guide's drying line is recorded and fills no recipe, and its annealing row,

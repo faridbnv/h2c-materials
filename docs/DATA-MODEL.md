@@ -253,7 +253,9 @@ a material's headline is derived from them, and no product stands for a material
   (D89) are read; where those say nothing either on a part of the print gate (nozzle, bed, chamber, enclosure, hardened
   nozzle), its material's printer maker's guide row (`print_guide.csv`, D88). `print.from[part]` and the gate's reason
   say which, with the label a reader is shown. What a product's own sheet says, even words the parser cannot read,
-  always stands; a guide that asks for an enclosure and gives no chamber temperature leaves the chamber unknown.
+  always stands. A guide row that asks for an enclosure and gives no chamber temperature leaves the chamber unknown,
+  unless it declares Chamber state `enclosed`: Bambu Lab's rows for the nine types it asks an enclosure for, written for
+  its own enclosed printers, whose enclosure the H2C's heated chamber is (D90). Only a guide row may declare it.
   Null for a product with nothing on any part. `db.printGuide` holds the guide's rows, each with its materials.
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
   variants (a material whose every product is a variant, PP Lightweight, is its variants). `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
