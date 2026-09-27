@@ -10,7 +10,8 @@ export const DIRECTION = {
   HORIZONTAL_LABEL: 'horizontal-source-label',
   VERTICAL_XZ_LABEL: 'vertical-xz-source-label',
   ALONG_FLOW: 'along-flow',
-  // An alternating ±45° raster (Essentium PPS-CF) is its own orientation, neither XY nor Z (audit 2026-09-15, C-06).
+  // An alternating ±45° raster beside the sheet's own XY bar (Essentium PPS-CF) is its own orientation, neither XY nor Z
+  // (audit 2026-09-15, C-06). A tensile value a sheet labels only by its ±45° raster is recorded XY (D91).
   RASTER_45: 'raster-45',
   NOT_APPLICABLE: 'not-applicable',
   UNKNOWN: 'unknown',

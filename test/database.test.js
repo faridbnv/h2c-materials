@@ -822,6 +822,23 @@ test('a strain at another endpoint is never an elongation at break, and a retire
   }
 });
 
+test('a tensile value labelled only by a ±45° raster is XY; a ±45° bar beside the sheet\'s own XY bar is not (D91)', () => {
+  const TENSILE = new Set(['Tensile modulus', 'Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength',
+    'Elongation at break', 'Elongation at yield', 'Tensile strain at strength']);
+  const RASTER_45 = /±\s?45|\+\s?\/\s?-\s?45|45°?\s?(?:and|\/)\s?-45|45°?-45°|45\/45/i;
+  const BUILD = new Set(['XY', 'Z', 'XZ', 'ZX']);
+  const sheetXY = (m) => db.measurements.some((x) => x !== m && x.sourceId === m.sourceId && x.gradeId === m.gradeId && x.property === m.property && x.direction === 'XY');
+  let xy = 0;
+  for (const m of db.measurements.filter((x) => TENSILE.has(x.property))) {
+    const raster = m.direction === 'raster-45' || RASTER_45.test(`${m.printParameters ?? ''} ${m.locator ?? ''}`);
+    if (!raster) continue;
+    if (m.direction === 'XY') { xy++; continue; }
+    if (BUILD.has(m.direction)) continue;
+    assert.ok(sheetXY(m), `${m.id}: labelled only by a ±45° raster, so XY (${m.directionText})`);
+  }
+  assert.ok(xy > 20, `only ${xy} tensile values on a ±45° raster are XY`);
+});
+
 test('a retired grade or profile is archival, never active procurement or printing evidence', () => {
   // A rule over every material, where the test once named CoPE's retired grade and profile (G091-01, P0115).
   const retiredGrades = new Set(db.grades.filter((g) => g.retired).map((g) => g.id));

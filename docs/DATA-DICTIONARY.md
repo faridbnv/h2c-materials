@@ -618,15 +618,15 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 | Value | Meaning |
 |---|---|
-| 45/45 | Alternating ±45° raster. |
+| 45/45 | An alternating ±45° raster on a bar the sheet labels beside its own XY bar (Essentium PPS-CF prints XY, 45/45 and ZX columns): not the XY value. A tensile value a sheet labels only by a ±45° raster is XY, with the raster in Specimen / print parameters (D91). |
 | Along flow | Along the melt flow (moulded). |
 | Horizontal (source label) | The source says horizontal without an axis convention. |
 | Not applicable | Direction does not apply (e.g. density, thermal transitions). |
 | Not published | The source does not state a direction. |
-| Stated, not a usable direction | The source states an orientation the database cannot use as a build direction: a raster it has no value for, or a label the source’s own numbers contradict. Notes say which. |
+| Stated, not a usable direction | The source states an orientation the database cannot use as a build direction: a raster it has no value for (0°, 90°, 0°-90°), or a label the source’s own numbers contradict. Notes say which. A ±45° raster alone is XY (D91). |
 | Unstated | The source publishes this printed result and states no direction; re-read and confirmed. Unlike Not published, it says someone has looked. |
 | Vertical XZ (source label) | The source says vertical XZ. |
-| XY | In the build plane. |
+| XY | In the build plane: a flat bar, whether the sheet says XY or labels a tensile value only by its ±45° raster (D91). |
 | XZ | Upright in the XZ plane. |
 | Z | Along the build axis. |
 | ZX | Flat, loaded along Z-X. |

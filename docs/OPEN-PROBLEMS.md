@@ -424,28 +424,35 @@ answers still change when as-published values are admitted. They wait for a docu
 build direction, or that it was moulded, or the heat deflection load: a newer data sheet, a maker's test-method page,
 or an answer from the maker. BLOCKING-GAPS lists them; the maker-by-maker list for the targeted fetches is in
 [the lane 4 response](audits/2026-09-25-re-center/RESPONSE.md), "Phase 6, lane 4: the values that decide, re-read".
+Since the owner's rulings of 2026-09-26 (D91, m167, m168) 102 answers change when they are admitted.
 
 - **Some sheets look like resin data and do not say so.** purefil prints ISO 294-4 mould shrinkage, Spectrum's PA6
   sheets "Linear mould shrinkage", Fiberlogy "gathered from standard reference materials and/or supplier test data",
   and 3D-Fuel's Pro PCTG "measurements from injection molded and 3D printed parts" without saying which. None is a
   statement about a row, so none was recorded.
 - **Nanovia's 0° and 90° rasters are a direction the vocabulary has no value for.** Its pages state each tensile tab's
-  raster ("3D printed test specimins at 0°, along with the tension stress") and not the bar's build orientation, so
-  those rows are "Stated, not a usable direction" and stay as published; its ±45° rows are 45/45 (m33). Nanovia's
-  article "Mechanical data on 3D printed test specimens at 3 different angles"
-  (nanovia.tech/en/mechanical-data-on-3d-printed-test-specimens-at-3-different-angles/, not fetched) may state it.
-  Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states "ISO 3167
-  A test specimens" (a shape, not how it was made), and Flex prints no sentence.
-- **The ±45° convention decides more than it did.** A value a sheet labels only by its ±45° raster is 45/45 and no
-  product value (m33); Nanovia's ABS ESD prints no 0° tab, so its product lost its stiffness and elongation. Many
-  makers' "XY" bars are printed at ±45°, so whether a raster-only label should count as XY is a question for the
-  owner, not a data fix.
+  raster and not the bar's build orientation. The ±45° tab is each product's XY value (D91, m168); the 0° rows stay
+  "Stated, not a usable direction" and the 90° tabs are in the record tier only. Six pages print a 0° tab alone (PC,
+  PC-ABS, PC-ABS Rail, PC-CF, PC-PTFE, PP-CF), so those products still have no XY value. Nanovia's article
+  "Mechanical data on 3D printed test specimens at 3 different angles"
+  (nanovia.tech/en/mechanical-data-on-3d-printed-test-specimens-at-3-different-angles/, not fetched) may say how its
+  bars lie. Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states
+  "ISO 3167 A test specimens" (a shape, not how it was made), and Flex prints no sentence.
+- **Nanovia's "Ultimate strength" was never read.** Each tensile tab prints it (the maximum stress, which the registry
+  holds as Tensile strength (endpoint unspecified)), and the reader has no property for the words, so it sits in the
+  record tier (`source_facts`) on every page. The ±45° tab's would be the XY tensile strength of the twelve products
+  whose ±45° modulus m168 recorded; entering it is a re-read like m168's.
+- **A ±45° bar beside the sheet's own XY bar stays apart** (D91). Essentium's PPS-CF prints XY, 45/45 and ZX columns;
+  its 45/45 tensile, flexural and Izod rows keep Direction 45/45, and its 45/45 bar reaches 71 % of the XY strength and
+  61 % of the XY stiffness: it is the one sheet held that labels both an XY and a ±45° bar. The ruling named tensile
+  values; a flexural or impact bar labelled only by its raster, of which the database holds none today, is not decided.
 - **Two raw cells on MakerBot Tough** hold the metric column ("63.3 MPa") where the test method belongs; the sheet names
   "ASTM D628" (sic) and D790 in a footnote. The values are moulded (m155) and decide nothing.
 
 ```bash
 npm run audit:gaps   # the answers that still change when as-published values are admitted
-npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and notes like '%m155%' group by 1"
+npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and (notes like '%m155%' or notes like '%m168%') group by 1"
+npm run sql --silent -- "select sourceid, text from source_facts where sourceid like 'R-NANOVIA-%' and text like 'Ultimate strength %'"
 ```
 
 ---

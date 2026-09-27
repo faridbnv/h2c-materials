@@ -1,7 +1,7 @@
-COUNT 26 shown PASS
-STATUS ☑ PASS 26 | ☐ UNKNOWN 32 | ☐ FAIL 95
-26 of the 153 materials in this database meet these requirements
-32 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
+COUNT 27 shown PASS
+STATUS ☑ PASS 27 | ☐ UNKNOWN 31 | ☐ FAIL 95
+27 of the 153 materials in this database meet these requirements
+31 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
@@ -42,11 +42,11 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS-CF PASS
-2 of 2
+3 of 3
  1,085
 1,050–1,110 · 10
- 4.66
-4.1–5.21 · 2
+ 4.1
+2.7–5.21 · 3
  36.6
 27.3–46 · 2
  1.9
@@ -133,11 +133,11 @@ Nylon / Polyamide
 PA6-CF
 Nylon / Polyamide
  PASS
-5 of 5
+6 of 6
  1,170
 1,090–1,250 · 13
- 4.3
-3.8–8.64 · 5
+ 4.37
+3.8–8.64 · 6
  82.5
 53–112 · 6
  7.35
@@ -270,11 +270,11 @@ PETG PASS
 25–26 · 2
 ↗ ☆
 PLA PASS
-15 of 66
+16 of 67
  1,240
 1,170–1,329 · 147
- 2.45
-0.95–4.24 · 38
+ 2.53
+0.95–4.24 · 39
  45.3
 26–70.4 · 56
  7.23
@@ -310,6 +310,11 @@ PLA-CF PASS
  55.4
 54–91 · 10
  41↗ ☆
+PLA-NF PASS
+1 of 2
+ 1,350
+1,250–1,450 · 2
+ 2.83 43* 22.3* 80 — ☆
 PLA-PHA
 Polymer Blends
  PASS

@@ -1347,3 +1347,113 @@ Both are in OPEN-PROBLEMS §12.
 | `node scripts/migrate/m150-bambu-filament-guide.mjs` | 33 changes; a re-run is a no-op |
 | Tests | `npm test` 312 (seven new rules over every product: a twin reads only a same-material, same-key sibling's own value and never a price; no product is silent beside a sibling that publishes; a twin's recipe part is its sibling's own and only where its own profiles are silent; the spread's twin count; a guide part is its material's row, only where the product and its twins are silent, labelled; a guide's enclosure without a temperature leaves the chamber unknown; the engine judges and labels a borrowed value and gate), `test:ingest` 167 |
 | `verify:fast` / `verify` | 57 s with the build cached at load 14 (78 s at load 17 to 20 for the twins commit) / passing in 5 min 50 s at load 13 to 37: the scale check, the audit, the snapshot and counts current, 66 views (6 rewritten for the guide, 25 for the twins), 300 fuzzed scenarios |
+
+## Phase 6: the owner's rulings of 2026-09-26
+
+*In plain words: four answers the owner gave on 2026-09-26 are built. Where Bambu Lab's guide says to print a type in
+an enclosure, the H2C's heated chamber now counts, so PC and PPA-CF pass the warm-environment screen. The two excluded
+families lose the "outside H2C" tails on their names. Nanovia's "elongation at ultimate strength" is filed as what it
+is, and stops counting as an elongation at break. A tensile bar a sheet labels only by its ±45° print pattern counts
+as a flat XY bar, which gives thirteen products a stiffness the tool can compare. The answers that moved are listed
+below.*
+
+GOALS step 2 (screen) and step 5 (drill down); scorecard lines C9 (printability), C3 and C4 (the decision tier and
+comparability) and C2 (classification). The owner's decisions of 2026-09-26 (docs/GOALS.md) are D90 (m165) and D91
+(m168), and data for the other two (m166, m167). Five commits on the branch: one per ruling, and between the third and
+the fourth a fix to one check, in its own commit because the fourth would otherwise have tripped it. Every reading,
+mapping and refiling here was reviewed by an agent, claude-opus-5.5 (agent reviewer); no person has reviewed them.
+
+**The decision diff** (`build/snapshot/templates.csv`, against `ca25c37`): 61 rows changed, 17 of them a material's
+verdict or its presence in the list, 42 only the count of products that pass, 2 an estimate screen. By ruling:
+
+| Ruling | Commit | Rows | Answers moved (material, template, mode) |
+|---|---|---:|---|
+| 1. The guide's enclosure is the H2C's chamber (D90, m165) | 9729465 | 24 | Warm environment: PC FAIL → PASS (7 of 26 products) and PPA-CF UNKNOWN → PASS (3 of 9), in all three modes; passing products 64 → 117 |
+| 2. Out of scope said once (m166) | d25a4c3 | 0 | none |
+| 3. Nanovia's strain at strength (m167) | 651cd62 | 0 | none |
+| EST-WIDE counts only what a headline could show | 9e442d7 | 0 | none |
+| 4. A ±45° raster alone is XY (D91, m168) | the last | 37 | Lightweight structure: PLA-NF FAIL → PASS (all three modes), ABS-AF UNKNOWN → FAIL; High-stiffness fixture: PA6, ABS-AF and PLA-NF UNKNOWN → FAIL (Explore, with and without estimates); with estimates, COC and PLA-PHB screened out |
+
+In Explore, the page's default, over the 136 in-scope materials and six templates: PASS 128 → 131, FAIL 357 → 359,
+UNKNOWN 331 → 326. Passing products rose in four templates: Warm environment 64 → 117, Lightweight structure 62 → 66
+(PLA, ABS-CF and PA6-CF one more each, and PLA-NF's first), Flexible component 35 → 36 (TPC / TPEE on DSM's Arnitel
+ID 2045), Outdoor structural part 38 → 39 (PA6-CF). In High-stiffness fixture PETG-CF, ABS-CF and PA6-CF each have one
+more failing product: Nanovia's ±45° moduli (4.15, 2.7 and 4.675 GPa) fall short of 5 GPa. `BLOCKING-GAPS.md`: the
+answers that change when values without direction or load are admitted fell from 107 to 102.
+
+**1. Enclosure as the H2C's chamber (D90, m165).** Bambu Lab's Filament Guide ticks "Print with Enclosure" (its January
+2025 revision prints "Required") for ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and PPS-CF, and gives no
+chamber temperature. The ruling is data: each of the nine `print_guide.csv` rows declares Chamber state `enclosed`, a
+new `process-states` value, with the reason in Parse review, and the gate reads it as within, labelled as the guide's in
+the reason, the print card, the Printing tab and the exports. Only a guide row that asks for an enclosure may declare it
+(PROCESS-ENCLOSED). The guard checks that the tick rows are exactly the nine the owner named, that each still prints no
+chamber temperature, and that the guide's drying rows name Bambu's X1 Series. 123 products (and two study grades)
+read the chamber from it: ABS 44, ASA 31, PC 15, ABS-GF 10, PA6-CF 6, PPA-CF 6, PAHT-CF 4, PA6-GF 4, PPS-CF 3. Products
+unknown on the chamber fell from 574 to 451. A maker's own statement still wins. Sixteen products of these types state
+a chamber above 65 °C and keep it: Polymaker's PolyMax PC FR and PolyLite PC Transparent and Nanovia PC V0 at 100 °C,
+Nanovia ABS EF and ASA at 90 °C, PolyLite and PolyMax PC recommending 80 °C, and nine windows the H2C reaches only in
+part, Bambu Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets among them. Twenty-three whose own sheet, or
+twin's, asks for an enclosure and names no temperature stay unknown.
+
+**2. Out of scope is said once (m166).** "Industrial High-Temperature - Outside H2C Practical Envelope" is
+"Industrial High-Temperature", and "Metal and Ceramic Sintering - Outside H2C Scope" is "Metal and Ceramic
+Sintering". The new names are on the 17 materials, in hdt045's Applies to, in the families vocabulary, in the import
+lexicon and in the background master list. The guard checks that every one is Scope Excluded and that the families
+hold exactly the materials m146 wrote for. The page stopped stripping a suffix (filters.js, format.js's FAMILY_LABEL,
+labels.js, ashby.js), and the envelope test selects by H2C status. `build:diff`: 95 differences, all the name where it is
+shown or quoted.
+
+**3. Nanovia's "Elongation ultimate strength" (m167).** Each of the 14 rows (13 products) was re-read on its product
+page's hash-checked bytes: its label and number must stand in the tab its own sentence names, beside that tab's
+"Ultimate strength". Each is now Tensile strain at strength, with a note naming the tab, the value and the strength.
+The values stay shown, as a lower bound of the elongation, and fill it no more. The tab reader m155 used is now
+`scripts/lib/nanovia-tabs.mjs`. MEAS-ENDPOINT-LOCATOR now names "ultimate strength", so the misfiling cannot recur. None
+of the 14 had decided an answer: 12 were published without a usable direction and 2 on the ±45° raster. So nothing
+moved but the elongation estimates, in their third figure, and 12 products' as-published elongations.
+
+**4. A ±45° raster alone is XY (D91, m168).** Searched: every row whose Direction, Locator, Specimen / print parameters
+or Notes names a ±45° raster, and every cached page with such wording (90 documents; the 3DXTECH, QIDI, Flashforge and
+Raise3D sheets among them state the bar's orientation beside their ±45° infill, and their rows already carry it). 13
+rows were 45/45:
+
+| Sheet | What it prints | Now |
+|---|---|---|
+| DSM Arnitel ID 2045 (3 rows) | "printed tensile bars, printed in two directions: 0°-90° and 45°-45°" | its 45°-45° strength, modulus and elongation are XY; the 0°-90° ones stay a raster |
+| Nanovia (4 rows: ABS ESD, PA Rail, PLA Flax) | a tensile tab per raster: 0°, ±45°, 90° | the ±45° rows are XY; 20 ±45° values the import never took (a modulus and a strain at strength on 12 pages) are added as XY; the 0° rows stay a raster |
+| Essentium PPS-CF (6 rows) | "Print Orientation" columns XY, 45/45 and ZX | unchanged: its 45/45 bar stands beside its own XY bar |
+
+DSM's sheet is not in this machine's cache. It was re-fetched from its recorded URL, matched its SHA-256 (7af73589…),
+and was read with the project's PDF reader; m168 takes its folder with `--cache`, and a re-run without it is a no-op.
+The Direction vocabulary's meanings for XY, 45/45 and "Stated, not a usable direction" say so, and a test holds every
+record to it: a tensile row on a ±45° raster is XY unless its sheet labels its own XY bar beside it. The one sheet that
+labels both, Essentium's carbon-fibre PPS-CF, has its 45/45 bar at 71 % of the XY strength and 61 % of the XY
+stiffness. Nanovia's ±45° moduli run from 66 % to 117 % of their 0° ones.
+
+**The check fixed on the way.** m168 gave Nanovia PA Rail, a declared variant of PA6, an XY modulus. EST-WIDE then
+called PA6's poor estimate "ignoring evidence it has", although a variant's value is set apart from its material by
+design (D57). EST-WIDE counts a variant now only where every product of the material is one. The fix moved nothing at
+its own commit (`build:diff` 0).
+
+| | Result |
+|---|---|
+| m165 to m168 | 9, 18, 14 and 27 changes; each re-run a no-op |
+| `npm run data:check` / `data:lint` | 26 tables, 0 issues / 220 findings, all accepted, 0 new, 0 stale |
+| `npm run build:diff` | ruling 1: 411; ruling 2: 95; ruling 3: 3,021; the fix: 0; ruling 4: 13,106 (nearly all grade estimates in the third figure) |
+| Tests | `npm test` 302 (new rules over every record: a guide's enclosure is the H2C's chamber only where its row declares it; "enclosed" only on such a row; an ultimate strength is an endpoint; a tensile value on a ±45° raster alone is XY), `test:ingest` 167 |
+| `verify:fast` | 65 s with the build cached, at load 19 |
+| `verify` | passes before each commit: 3 min 7 s, 3 min 21 s, 5 min 13 s, 5 min 32 s and 5 min 22 s, at loads from 3 to 25 with three other agents building; the scale check passed every time |
+
+**Left, with a recommendation.**
+- *Sixteen makers' own sheets ask more than 65 °C for the guide's types*, Bambu Lab's PPA-CF and PPS-CF among them. The
+  owner said to revisit D90 if a maker states a higher chamber, and some already do. Recommendation: keep D90 for the
+  silent products (the guide's tick is Bambu's word for its own printers), and read Bambu Lab's own 50 to 80 °C PPA-CF
+  and 60 to 90 °C PPS-CF windows as the reason to ask whether, for those two types, the guide's tick should read as
+  partial, as their own sheets do.
+- *Twenty-three products whose own sheet asks for an enclosure, with no temperature, stay unknown*, while silent
+  products of the same types pass. That follows the ruling: a maker's own statement wins, and only the printer maker's
+  guide speaks for Bambu's enclosed printers. Recommendation: ask the owner whether a maker's plain "enclosure
+  recommended" for these nine types should read as the guide's does.
+- *Nanovia's "Ultimate strength"* is on every tab and never read; the ±45° tab's is the XY tensile strength of the
+  twelve products m168 gave a stiffness. Recommendation: a migration like m168 (OPEN-PROBLEMS §15).
+- *D91 names tensile values.* No flexural or impact bar in the database is labelled only by its raster today. If one
+  arrives, recommend the same reading, since the bar lies flat for the same reason.

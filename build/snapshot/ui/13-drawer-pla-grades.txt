@@ -1,7 +1,7 @@
 ACROSS ITS PRODUCTS
 Property Typical Range Products Set apart
 Density kg/m³ 1,240 1,170–1,329 147 of 184 17 variants (800–4,000)
-Stiffness GPa 2.45 0.95–4.24 38 of 184 44 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
+Stiffness GPa 2.53 0.95–4.24 39 of 184 43 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
 Strength MPa 45.3 26–70.4 56 of 184 53 without direction or load (30–71); 12 variants (12.6–65)
 Stretch before breaking % 7.23 1.2–65 53 of 184 46 without direction or load (2.9–84); 11 variants (2.4–40)
 Heat resistance °C 55 50–135 68 of 184 29 without direction or load (53–108); 6 variants (55–89)

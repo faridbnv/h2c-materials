@@ -99,7 +99,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
 | D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber) |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
-| D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force |
+| D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88 |
+| D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
 
 <!-- end index -->
 
@@ -2517,6 +2518,7 @@ untested, and the count of products that pass undercounts every maker that sells
 ## D90. Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it
 
 > **In plain words:** For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach.
+> **Status:** in force; it amends D88.
 
 *Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 1); amends D88.
 Built in m165.*
@@ -2550,3 +2552,51 @@ from 574 to 451. Only Warm environment screens on the chamber: PC (FAIL) and PPA
 to 7, PA6-CF 4 to 7, PAHT-CF 1 to 2). Reversing it sends the 123 products back to unknown on the chamber, and PC and PPA-CF
 to their earlier answers. Revisit it if the owner reads the sixteen higher statements, Bambu Lab's own among them, as
 saying the guide's tick needs more than 65 °C for a type.
+
+## D91. A tensile value labelled only by a ±45° raster is an XY value
+
+> **In plain words:** A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart.
+> **Status:** in force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone.
+
+*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 4); supersedes, for
+such values, the reading m33 gave Essentium's "45/45" and m155 gave Nanovia's ±45° tabs. Built in m168.*
+
+A raster is the direction of the lines inside each layer; a build direction is how the bar lies on the plate. m33 read a
+±45° raster as neither XY nor Z (Direction `45/45`), and m155 read Nanovia's 0°, ±45° and 90° tabs the same way, so no
+value labelled that way could be a product's value. Makers commonly print their flat XY bars with an alternating ±45°
+raster: 3DXTECH's sheets state "Infill: 100%, +/- 45°" beside "Specimen Orientation: XY", QIDI's a ±45° infill angle
+beside XY and Z columns. The lane 4 recommendation was to keep m33 until a sheet printing both showed they agree; the
+owner chose to count them.
+
+- **The rule.** A tensile value (modulus, strength, elongation, strain at strength) that its sheet labels only by a ±45°
+  raster is Direction XY, with the raster kept in Specimen / print parameters. Where the sheet labels a bar XY beside its
+  ±45° bar for the same product and property, the ±45° one keeps Direction `45/45` and is not the XY value: Essentium's
+  PPS-CF prints XY, 45/45 and ZX columns, and its 45/45 tensile, flexural and Izod rows stay. A test holds every record
+  to it. A 0°, 90° or 0°-90° raster is still "Stated, not a usable direction".
+- **Found everywhere.** Every row whose Direction, Locator, Specimen / print parameters or Notes names a ±45° raster was
+  read, and every cached page for such wording (90 documents): the others already carry the build orientation their
+  sheet states. Thirteen rows were 45/45: DSM's Arnitel ID 2045 (3), which says "The mechanical data is tested on printed
+  tensile bars, printed in two directions: 0°-90° and 45°-45°" (its bytes, not cached on this machine, were re-fetched
+  and matched their SHA-256); Nanovia (4); Essentium (6, which stay).
+- **Where a sheet prints several raster tabs, the ±45° one is the product's XY value.** Nanovia's product pages print a
+  tensile tab per raster: 0° (along the load), ±45° and 90° (across). The import had taken the first tab only, so where a
+  page prints a ±45° tab the database lacked, its modulus and its strain at the ultimate strength are added as XY, read
+  from the page's hash-checked bytes (20 values on 12 pages); the 0° rows stay recorded with their raster stated, and
+  the 90° tabs stay in the record tier. PETG's page repeats the 0° sentence under all three tabs and is left, as m155
+  left it. The "Ultimate strength" each tab prints was never read on any tab and waits (OPEN-PROBLEMS §15).
+- **What the sheets that print both show.** Essentium's carbon-fibre PPS-CF: the 45/45 bar reaches 71 % of the XY bar's
+  strength and 61 % of its stiffness. Nanovia's ±45° moduli run from 66 % (PETG-GF) to 117 % (PLA EF) of their 0° ones.
+  DSM's elastomer prints the same modulus for both rasters. A ±45° value is a flat bar's value, not the stiffest a
+  fibre-filled filament can be printed.
+
+What it did (m168): 7 rows became XY and 20 were added. Thirteen products gained a comparable XY modulus (twelve of
+Nanovia's, and DSM's Arnitel ID 2045, which gains its XY strength and elongation too); each replaced a value published
+without a usable direction but ABS ESD's, which had none, so product values rose from 3,587 to 3,588. Across the six
+templates: in Lightweight
+structure PLA-NF passes on Nanovia PLA Flax (2.83 GPa) where it failed, ABS-AF fails (Nanovia ABS AF, 1.89 GPa) where it
+was unknown, and PLA, ABS-CF and PA6-CF pass on one product more; in High-stiffness fixture PA6, ABS-AF and PLA-NF go from
+unknown to fail (their only XY moduli are 3.59, 1.89 and 2.83 GPa); TPC / TPEE passes the Flexible component on DSM's
+Arnitel ID 2045 (390 %) as well; PA6-CF passes the Outdoor structural part on one product more. With estimates, COC is
+screened out of Lightweight structure and PLA-PHB out of the Outdoor structural part. Reversing it sends 7 rows back to
+45/45 and the 20 added values out, and the flat bars of the makers who label them by their raster stop counting.
+Revisit it if a sheet printing both an XY and a ±45° bar of an unfilled filament shows them far apart.

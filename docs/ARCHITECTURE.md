@@ -309,7 +309,8 @@ because this is serialised to JSON and `JSON.stringify` would turn Infinity into
 
 **Direction** (`direction.js`). Ten spellings onto canonical values. Three of them are the source's
 own words rather than a confirmed build orientation, so `Horizontal (source label)` gets its own
-value and never merges into XY, in the engine or in the estimate model; `45/45` is a ±45° raster, its own value.
+value and never merges into XY, in the engine or in the estimate model. A tensile value a sheet labels only by a ±45°
+raster is XY (D91); `45/45` is a ±45° bar the sheet labels beside its own XY bar, its own value.
 The Method table's rule: an unknown direction is not XY. A locator naming a direction the Direction column does not
 record is a lint finding (MEAS-LOCATOR-DIRECTION): 18 Z results coded unknown once skewed every estimate.
 

@@ -54,6 +54,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PBAT (M133) | Flexible component; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC FR (M036) | Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 1 / 0 | — |
 | PC-GF (M038) | Lightweight structure; Warm environment | collected | 0 of 3 | 2 / 2 / 3 | — |
+| PLA-NF (M152) | Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 1 / 2 | — |
 | PPA-GF (M071) | High-stiffness fixture; Outdoor structural part | collected | 0 of 5 | 2 / 1 / 3 | — |
 | ABS-ESD (M030) | Warm environment | collected | 5 of 11 | 9 / 5 / 10 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com) |
 | PET (M066) | Flexible component | collected | 5 of 7 | 5 / 6 / 7 | 3D4Makers (no address held); FormFutura (formfutura.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
@@ -83,7 +84,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA Metal (M011) | Indoor prototype | collected | 0 of 9 | 5 / 7 / 8 | — |
 | PLA Sparkle (M013) | Indoor prototype | collected | 0 of 4 | 2 / 2 / 3 | — |
 | PLA family, polymer not stated (M168) | Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
-| PLA-NF (M152) | Warm environment | collected | 0 of 2 | 0 / 1 / 2 | — |
 | PLA-PHA (M145) | Lightweight structure | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PPA (M069) | Lightweight structure | collected | 0 of 2 | 0 / 0 / 1 | — |
 | TPU 85A class and softer (M159) | Flexible component | collected | 0 of 16 | 9 / 11 / 16 | — |

@@ -26,8 +26,8 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 153 materials, 136 of them in H2C scope
-11147 measurements, each traceable to a source
-141 have a density, 96 a modulus, 33 a Canadian price
+11167 measurements, each traceable to a source
+141 have a density, 98 a modulus, 33 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -62,8 +62,8 @@ Metal and Ceramic Sintering
  not tested 7,190 — — — n/a — ☆
 ABS not tested 1,050
 1,020–1,150 · 43
- 2.25
-1.77–2.38 · 11
+ 2.22
+1.77–2.38 · 12
  34.9
 15.7–45 · 17
  10
@@ -73,11 +73,11 @@ ABS not tested 1,050
  26↗ ☆
 ABS-AF not tested 1,050
 1,040–1,050 · 3
- 2.41* 35* 6* 88 — ☆
+ 1.89 35* 6* 88 — ☆
 ABS-CF not tested 1,085
 1,050–1,110 · 10
- 4.66
-4.1–5.21 · 2
+ 4.1
+2.7–5.21 · 3
  36.6
 27.3–46 · 2
  1.9
@@ -87,8 +87,8 @@ ABS-CF not tested 1,085
  — ☆
 ABS-ESD not tested 1,070
 970–1,100 · 10
- 2.13
-1.3–2.35 · 3
+ 1.9
+1.3–2.35 · 4
  36.5
 34–58 · 4
  4
@@ -194,8 +194,8 @@ HIPS
 Styrenics
  not tested 1,045
 1,023–1,080 · 10
- 1.47
-1.35–1.59 · 2
+ 1.59
+1.35–2 · 3
  29.2
 18.4–40 · 2
  9.7
@@ -280,7 +280,7 @@ PA6
 Nylon / Polyamide
  not tested 1,150
 1,130–1,200 · 7
- 3.4* 78* 1.9* 142
+ 3.59* 78* 1.9* 142
 140–143 · 2
  163↗ ☆
 PA6-CE
@@ -290,8 +290,8 @@ PA6-CF
 Nylon / Polyamide
  not tested 1,170
 1,090–1,250 · 13
- 4.3
-3.8–8.64 · 5
+ 4.37
+3.8–8.64 · 6
  82.5
 53–112 · 6
  7.35
@@ -661,8 +661,8 @@ PETG not tested 1,270
 ↗ ☆
 PETG-CF not tested 1,290
 1,190–1,350 · 22
- 2.46
-1.77–5.23 · 5
+ 3.09
+1.77–5.23 · 6
  44.4
 32–59.8 · 6
  6.6
@@ -673,7 +673,7 @@ PETG-CF not tested 1,290
 PETG-ESD not tested 1,240
 1,220–1,320 · 9
  1.98
-1.4–1.98 · 5
+1.4–2.13 · 6
  36.1
 35–50 · 6
  7.3
@@ -683,13 +683,15 @@ PETG-ESD not tested 1,240
  — ☆
 PETG-GF not tested 1,330
 1,250–1,420 · 5
- 2.33 53.6 1.9 80 — ☆
+ 2.57
+2.33–2.81 · 2
+ 53.6 1.9 80 — ☆
 PETG-GR not tested — 1.4* 55.2* 5.62* — — ☆
 PETG-PTFE not tested 1,320 1.85* 40* 100* — — ☆
 PLA not tested 1,240
 1,170–1,329 · 147
- 2.45
-0.95–4.24 · 38
+ 2.53
+0.95–4.24 · 39
  45.3
 26–70.4 · 56
  7.23
@@ -815,7 +817,7 @@ PLA-GF not tested 1,280
 PLA-GR not tested — 3.6* 65* 4.19* — — ☆
 PLA-NF not tested 1,350
 1,250–1,450 · 2
- 2.83* 43* 22.3* 80 — ☆
+ 2.83 43* 22.3* 80 — ☆
 PLA-PHA
 Polymer Blends
  not tested 1,240 3.29 57.7 6.1 51* — ☆
@@ -993,7 +995,13 @@ TPC
 also called TPEE · Flexible Elastomers
  not tested 1,150
 1,100–1,220 · 7
- 0.067 17.7 500 n/a — ☆
+ 0.048
+0.029–0.067 · 2
+ 12.7
+7.6–17.7 · 2
+ 445
+390–500 · 2
+ n/a — ☆
 TPC-ESD
 Flexible Elastomers
  not tested 1,280 1.4 70 — n/a — ☆
