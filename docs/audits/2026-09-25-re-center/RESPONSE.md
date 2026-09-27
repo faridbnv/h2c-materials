@@ -1347,3 +1347,84 @@ Both are in OPEN-PROBLEMS §12.
 | `node scripts/migrate/m150-bambu-filament-guide.mjs` | 33 changes; a re-run is a no-op |
 | Tests | `npm test` 312 (seven new rules over every product: a twin reads only a same-material, same-key sibling's own value and never a price; no product is silent beside a sibling that publishes; a twin's recipe part is its sibling's own and only where its own profiles are silent; the spread's twin count; a guide part is its material's row, only where the product and its twins are silent, labelled; a guide's enclosure without a temperature leaves the chamber unknown; the engine judges and labels a borrowed value and gate), `test:ingest` 167 |
 | `verify:fast` / `verify` | 57 s with the build cached at load 14 (78 s at load 17 to 20 for the twins commit) / passing in 5 min 50 s at load 13 to 37: the scale check, the audit, the snapshot and counts current, 66 views (6 rewritten for the guide, 25 for the twins), 300 fuzzed scenarios |
+
+## Phase 6, lane 4: targeted fetches (batch b36) (2026-09-26)
+
+*In plain words: we went looking, maker by maker, for a page that says how the test bars behind the undecided answers
+were made. Two makers say it: Extrudr (every value on its sheets is from a moulded bar, which the database knew
+for the sheets of one batch and now knows for all of them) and QIDI (its filament guide labels the heat deflection load and the
+axis its sheets leave out). Ten answers moved, three of them on the page's default setting. The other makers publish
+nothing of the kind, so their answers now need the maker's reply or the owner's rule, not another search. The reader
+of every page was an AI agent, not a person.*
+
+Scorecard lines C3 (the decision tier, values with their conditions) and C4 (comparability); method step 2, screen.
+GOALS' phase 6 decision 4 allows a fetch where one document settles a blocking answer, through the pipeline and named
+reviews, with no new reader rule for the held sheets. The reviewer of everything below is an agent, claude-opus-5.5
+(agent reviewer); no person reviewed it.
+
+**What was fetched, and what became of each** (about 40 fetches, most of them maker pages that turned out to say
+nothing). The two new documents that bear on a value are in the ledger, hashed and extracted by the pipeline: the
+QIDI guide as a witness, the LEHVOSS sheet as batch b36's one document. The Extrudr and BASF documents were registered
+before, and were fetched again and checked against the digests recorded for them.
+
+| Document | What it says | Outcome |
+|---|---|---|
+| Extrudr, Additional Information Sheet (R-EXTRUDR-AIS, 04.09.2024), fetched again | p. 4, section 4: "To determine a specific value for the technical data sheets, standardized test specimen are being used ... The test specimen are manufactured through injection moulding and are tested afterwards." Every Extrudr sheet points to it ("More info in the additional information sheet.", and in German, French and Italian) | Hashes to what m63 recorded. m63 had applied it to batch b07; **m180** applies it to the 36 Extrudr sheets that entered later (3DJake's copies, the German, French and Italian editions, GreenTEC, FLAX, PEARL, WOOD, BIOFUSION, XPETG): 194 rows of 29 products become raw material values with no build direction. Settles all 17 Extrudr values of the 217 |
+| QIDI, Filament Guide (new source R-QIDI-FILAMENT-GUIDE; ledger: `ingest:witness` for the PETG-GF sheet) | A comparison table whose rows are labelled "Bending Modulus - XY", "Tensile Strength - Z" and "HDT, 0.45 MPa", printing the figures QIDI's sheets print bare | **m180**: heat deflection at 0.45 MPa for PETG-GF (76 °C), PETG CF (77) and PETG Rapido (70); XY for two flexural moduli (NexABS-GF25, ABS) and Z for ABS's 26.16 MPa tensile strength. Each product is pinned to its column, and the guide's figure must equal the row's |
+| Nanovia, "Mechanical data on 3D printed test specimens at 3 different angles" (2022) | Bars printed "Along the tension stress, to obtain the maximal resistance", "Successively at 45° and – 45°, close to 3D printing standards", "Perpendicular to the tension stress, to obtain the minimal resistance"; a figure of the three bars in plan | Not imported: it names no build orientation beyond what the product pages' tabs say. It supports the owner's decision 4 (±45° counts as XY), which another lane builds |
+| LEHVOSS, LUVOCOM 3F Filament PAHT 9825 NT, printed-specimen sheet (hosted by colorFabb; `ingest:fetch`, extract, propose in b36) | Modulus 3.1 GPa in XY at 0°, 45/135° and 90°, 2.8 GPa in ZX, under "Engineering" and "Fast" settings | **Deferred**, gap "a layout the reader does not pair": the reader takes "ISO 3167:2014 Typ A" for a moulded bar and "100% infill" for an elongation, so no row could be accepted. It alone would give PAHT a comparable stiffness, the requirement that holds it up in three templates (OPEN-PROBLEMS §14) |
+| BASF, "Polystyrene and Styrolux" (R-BASF-POLYSTYRENE-STYROLUX), fetched again | Styrolux: modulus 900 to 1,800 MPa, HDT B 62 to 77 °C, a lamellar two-phase structure | Hashes to the recorded 0ae31d22…, and is cached with its text now. No density for S/B/S and no morphology class, so **no polymers.csv row** (§14) |
+| LEHVOSS PAHT 9936 BK/L preliminary sheet; FormFutura's copy of the LUVOCOM 9825 NT sheet | A pellet sheet on moulded ISO 3167 bars, HDT A only; the same bytes as the moulded sheet already applied | Nothing to import |
+| Spectrum's download page; FormFutura's newer sheet layout (ApolloX Foaming); Fiberlogy's FAQ; Fillamentum's PETG print guide; SIDDAMENT's PLA Carbon Fiber and Nylon pages; 3DXTECH's store | Every Spectrum sheet behind an answer is the one Spectrum serves today; the others say nothing of the bar; SIDDAMENT prints "HDT (typical) ~53°C" with no load; 3DXSTAT ESD PA12 is no longer listed | Nothing to import |
+| ABC3D PA66-CF, 3DAMSS PA66-CF20, Matter3D PA66 CF (target 2) | A density and "Technical Data Sheets: Coming Soon"; a marketing heat deflection at 1.8 MPa; a page that is gone. No PA612-GF filament sheet exists that a search finds (Polymaker makes PA612-CF) | PA66-CF and PA612-GF still have no product (§5) |
+
+**Two changes the fetches led to, without a new document.**
+- **m181**: the four PROGRAFEN graphene sheets print "Specific Gravity 1.29 D792" (PET-G) and "1.24" (PLA), which the
+  reader skipped for want of a unit. Recorded as V002176 (m16) records one, each checked on its page: PETG-GR and PLA-GR
+  are no longer "not published" on density.
+- **m182**: making Extrudr's copies moulded with no direction, as m63 made its own sheets, brought seven of them under
+  MEAS-CROSS-SOURCE-TWIN, which ignores a value more than ten sources share; QIDI's two loads did the same for two
+  Spectrum copies. Their 81 repeated rows are retired naming the row that stays, and six copies with nothing left
+  become corroboration. One pair surfaced that is not a copy (FormFutura's HDglass and ReForm rPET print one table,
+  R053) and is accepted for the twin lane. Five window acceptances on retired rows were removed.
+
+A defer in `ingest:batch` wrote "it waited on: deferred" for a document nothing had held, because it read the status
+after setting it; it now reads it first, and the one row it wrote is corrected.
+
+**The decision diff** (`build/snapshot/templates.csv`, against `ca25c37`): **10 answers moved, 3 of them in Explore**.
+
+| Template | Explore | Strict | Explore with estimates |
+|---|---|---|---|
+| Lightweight structure | PETG-GR UNKNOWN → FAIL (1,290 kg/m³ against 1,250; m181) | — | the same |
+| Warm environment | PETG-GF UNKNOWN → FAIL (QIDI's 76 °C at 0.45 MPa); PLA family-CF, polymer not stated PASS → FAIL | PLA family-CF, polymer not stated PASS → FAIL | the same 2; PET now screened at 80 °C, PLA-PHA no longer |
+| Outdoor structural part | — | — | PLA-PHA no longer screened at 100 °C |
+
+PLA family-CF fails because its one passing product, Extrudr GREENTEC PRO CF, passed on a 115 °C heat deflection that
+Extrudr says was measured on a moulded bar: that product is untested now, and the other (BigRep HI-TEMP CF) fails,
+so none passes (D83). Counts moved inside three passing answers: ASA-CF and PLA each lose a failing Extrudr product
+to untested, and PLA family, polymer not stated loses a passing one. BLOCKING-GAPS: answers that change when
+as-published values are admitted fell from 107 to 98; behind them stand 199 values on 165 sheets (Fiberlogy 34, Spectrum 31, FormFutura 25, purefil 25, Nanovia 15,
+Fillamentum 14, 3DJake 11, SIDDAMENT 6, 3DXTECH 4, iSANMATE 4 and 30 among thirteen others). Product values fell from
+3,599 to 3,533 (a moulded bar is no product value), active measurements from 11,147 to 11,070 (81 retired, 4 added),
+and the estimate model recalibrated (`build/snapshot/grades.csv`); no screening end changed side. 18 of the 66 views
+changed, with no layout failure.
+
+**Left, each needing something other than a fetch** (OPEN-PROBLEMS §5, §14, §15):
+- **The 199 values**: no maker document states their bars. Recommend one short question to each of the ten makers
+  (printed or moulded, the build orientation, the heat deflection load), starting with Fiberlogy, Spectrum, FormFutura
+  and purefil (115 values); until an answer, they stay as published, which the page already shows with its own count.
+- **LEHVOSS's printed PAHT 9825 NT sheet**: a reader for its condition cell and two headings, or the owner's leave to
+  transcribe it by a migration that checks each figure on its page. Recommend the migration: one sheet, the stiffness PAHT lacks in three templates.
+- **colorFabb's Lightweight PET and PET FLEX**: their cached sheets print XY moduli in two columns, unfoamed and foamed.
+  The owner decides which print condition is a lightweight product's value; recommend the foamed one, which is what
+  the product is for, with the unfoamed recorded beside it.
+- **SBC's polymer row**: a Styrolux grade sheet from INEOS Styrolution for its density, and the owner's word on the
+  class (stiff amorphous styrenic, as R200 argues, or an elastomer).
+- **PA66-CF and PA612-GF**: no maker publishes a sheet. Recommend keeping them as materials without products and
+  asking again when ABC3D publishes its TDS.
+
+**Checks.** `data:check` 0 issues; `data:lint` 216 findings, all accepted, 0 new; m180, m181 and m182 each a no-op on
+a second run. `npm run verify` passed in 3 min 43 s at load 7 to 14: `npm test` 301, `test:ingest` 167, the scale check
+(97 s), `audit:data` 0 errors, the snapshot current, 66 views matching, 300 fuzzed scenarios in agreement.
+`verify:fast` took 136 s on its first run after the change (an empty build cache, load 9) and 69 s with
+the build cached, at load 21 to 23 while other lanes ran their own checks.

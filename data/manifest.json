@@ -18,8 +18,8 @@
       "sha256": "5533fe64925e6737e2812efb88e07b692c6e1009650e267a6f856582639fddb3"
     },
     "measurements": {
-      "rows": 11364,
-      "sha256": "95e9d5b9500cc948ffd70ad0d121fb71b42ebb6b8cdeda84059c9418b005ab91"
+      "rows": 11368,
+      "sha256": "6e8fb55e43ef981bff18e87c3c4aa5f991ab7f0a1e17660ec6ca5eaec375dd10"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -46,8 +46,8 @@
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1481,
-      "sha256": "26f3e9dd2d1e7c8610ebc395ec161499329e325887b5664636dded44901eb138"
+      "rows": 1482,
+      "sha256": "bb88d2f3b95f862a8a7b09ec00d70758ac9e1c4ffe978009d585efde42146ca9"
     },
     "coverage": {
       "rows": 865,

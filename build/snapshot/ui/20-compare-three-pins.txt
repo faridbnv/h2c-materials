@@ -1,5 +1,5 @@
-COUNT 43 shown PASS + UNKNOWN
-STATUS ☑ PASS 18 | ☑ UNKNOWN 38 | ☐ FAIL 97 | ☐ SCREENED 13
+COUNT 44 shown PASS + UNKNOWN
+STATUS ☑ PASS 18 | ☑ UNKNOWN 38 | ☐ FAIL 97 | ☐ SCREENED 12
 Requirements: In the H2C research scope; A build material, not a support; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Candidate confidence: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Database snapshot 2026-09-21, build <date>. Values are recorded for each material and may come from different grades; check the exact grade before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
@@ -24,8 +24,8 @@ ASA-AF
 1,070
 1,070–1,070 · 3
 ASA-CF
-1,100
-1,020–1,170 · 15
+1,095
+1,020–1,170 · 14
 ASA-EC
 1,170
 810
@@ -34,49 +34,49 @@ all 153 candidates
 Stiffness GPa
 Stiffness at least 3 GPa
 ASA-AF
-~0.9–3.4†
+~1.0–3.5†
 ASA-CF
 3.91
 0.85–5.36 · 6
 ASA-EC
 ~2.1–4.1†
-0.00132
+0.00129
 log scale
-21.6
+22.1
 all 153 candidates
 Strength MPa
 ASA-AF
-~23–55†
+~24–56†
 ASA-CF
 41.3
 34–50.1 · 6
 ASA-EC
-~29–49†
-3.8
+~30–49†
+3.79
 292
 all 153 candidates
 Stretch before breaking %
 ASA-AF
-~1–14†
+~1–13†
 ASA-CF
 3
 1.64–15.5 · 5
 ASA-EC
-~0.9–5.4†
-0.351
+~0.9–5.3†
+0.344
 log scale
-1,400
+1,300
 all 153 candidates
 Heat resistance °C
 Heat resistance at least 100 °C
 ASA-AF
-~70–94†
+~71–95†
 ASA-CF
-98.8
-86–110 · 8
+101
+86–110 · 7
 ASA-EC
-~91–104†
-41.8
+~88–105†
+41.5
 300
 all 153 candidates
 Price CAD/kg
@@ -89,6 +89,6 @@ ASA-EC yes yes not recorded required guidance published
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
 ASA-AF 1 of 6 4† 3 21
-ASA-CF 5 of 6 — 18 165
+ASA-CF 5 of 6 — 18 154
 ASA-EC 1 of 6 4† 1 10
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

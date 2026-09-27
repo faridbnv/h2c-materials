@@ -1,7 +1,7 @@
 COUNT 26 shown PASS
-STATUS ☑ PASS 26 | ☐ UNKNOWN 32 | ☐ FAIL 95
+STATUS ☑ PASS 26 | ☐ UNKNOWN 31 | ☐ FAIL 96
 26 of the 153 materials in this database meet these requirements
-32 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
+31 more could not be checked for missing data, and are left out under Confirmed only. From the Lightweight structure template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
@@ -69,16 +69,16 @@ ABS-GF PASS
  39↗ ☆
 ASA-CF PASS
 4 of 6
- 1,100
-1,020–1,170 · 15
+ 1,095
+1,020–1,170 · 14
  3.91
 0.85–5.36 · 6
  41.3
 34–50.1 · 6
  3
 1.64–15.5 · 5
- 98.8
-86–110 · 8
+ 101
+86–110 · 7
  no price↗ ☆
 ASA-GF PASS
 1 of 2
@@ -90,8 +90,8 @@ ASA-GF PASS
 34.2–40.8 · 3
  5.55
 5.3–5.8 · 2
- 93
-86–99 · 4
+ 88
+86–98 · 3
  — ☆
 Nylon, polymer not stated
 Nylon / Polyamide
@@ -120,8 +120,8 @@ Nylon / Polyamide
 50–86 · 7
  3.6
 2.1–14.8 · 7
- 150
-48–185 · 11
+ 159
+48–185 · 10
  — ☆
 PA12-GF
 Nylon / Polyamide
@@ -142,8 +142,8 @@ Nylon / Polyamide
 53–112 · 6
  7.35
 2.1–16.5 · 6
- 183
-140–215 · 10
+ 185
+140–215 · 9
  110↗ ☆
 PA6-GF
 Nylon / Polyamide
@@ -213,7 +213,7 @@ Polycarbonate
  PASS
 1 of 12
  1,200
-1,150–1,230 · 21
+1,150–1,230 · 20
  2.24
 1.8–2.63 · 12
  61
@@ -265,7 +265,7 @@ PETG PASS
  8.5
 4.1–90 · 24
  70
-63–80 · 29
+63–80 · 30
  25.5
 25–26 · 2
 ↗ ☆
@@ -280,7 +280,7 @@ PLA PASS
  7.23
 1.2–65 · 53
  55
-50–135 · 68
+50–135 · 67
  28
 27–30 · 4
 ↗ ☆
