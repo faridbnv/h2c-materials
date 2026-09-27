@@ -266,7 +266,9 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
   L.push('');
   L.push('| Entity | Records |');
   L.push('|---|---:|');
-  for (const [k, v] of Object.entries(c)) L.push(`| ${k} | ${v} |`);
+  // A count kept per table (retiredDuplicates) is written out, not printed as "[object Object]".
+  const cellOf = (v) => (v && typeof v === 'object' ? Object.entries(v).map(([t, n]) => `${t} ${n}`).join(', ') : v);
+  for (const [k, v] of Object.entries(c)) L.push(`| ${k} | ${cellOf(v)} |`);
   L.push('');
 
   L.push('## Headline coverage');
@@ -296,7 +298,8 @@ export function formatReport(db, reference, issues, { snapshot, build, sections 
 
   // What the chamber evidence is made of. A temperature, a statement in words and an estimate are
   // three different kinds of answer, and a count that mixed them would overstate what is known.
-  const inScope = db.materials.filter((m) => !m.excluded);
+  // In scope means a candidate: a family entry owns no product and publishes nothing (D44), as counts.md counts it.
+  const inScope = db.materials.filter((m) => !m.excluded && !m.familyEntry);
   const kinds = { numeric: 0, 'not-required': 0, recommended: 0, 'no-setpoint': 0, nothing: 0 };
   let withEstimate = 0;
   for (const m of inScope) {
