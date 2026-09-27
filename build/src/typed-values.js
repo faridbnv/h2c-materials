@@ -73,11 +73,11 @@ const reviewed = (r) => r['Parse review'] != null && r['Parse review'] !== NA;
 
 /**
  * Overlay the stored typed values on the parsers' output for a profile, and report every difference a
- * Parse review does not explain. Key order of the parsed objects is kept, so the compiled record is
+ * Parse review does not explain. A printer maker's guide row (print_guide.csv, D88) has a profile's columns and is
+ * checked the same way, under its own `where`. Key order of the parsed objects is kept, so the compiled record is
  * unchanged wherever the two agree.
  */
-export function applyProfileTyped(r, parsed, issues) {
-  const where = `profiles ${r.ProfileID}`;
+export function applyProfileTyped(r, parsed, issues, where = `profiles ${r.ProfileID}`) {
   const mismatch = (field, stored, read) => {
     if (reviewed(r)) return;
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where, message: `${field} is ${stored ?? 'empty'} but the parser reads the raw text as ${read ?? 'nothing'}; correct the typed value, or explain it in Parse review` });

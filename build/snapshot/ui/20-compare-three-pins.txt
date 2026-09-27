@@ -22,10 +22,10 @@ Density kg/m³
 Density at most 1500 kg/m³
 ASA-AF
 1,070
-1,070–1,070 · 2
+1,070–1,070 · 3
 ASA-CF
-1,095
-1,020–1,170 · 14
+1,100
+1,020–1,170 · 15
 ASA-EC
 1,170
 810
@@ -57,12 +57,12 @@ ASA-EC
 all 153 candidates
 Stretch before breaking %
 ASA-AF
-~1–15†
+~1–14†
 ASA-CF
 3
 1.64–15.5 · 5
 ASA-EC
-~0.8–5.7†
+~0.9–5.4†
 0.351
 log scale
 1,400
@@ -70,7 +70,7 @@ all 153 candidates
 Heat resistance °C
 Heat resistance at least 100 °C
 ASA-AF
-~71–94†
+~70–94†
 ASA-CF
 98.8
 86–110 · 8

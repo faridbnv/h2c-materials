@@ -209,6 +209,7 @@ const ID_FORMATS = {
   prices: { prefix: 'CA', width: 4 },
   coverage: { prefix: 'C', width: 5 },
   polymer_environment: { prefix: 'PB', width: 5 },
+  print_guide: { prefix: 'PG', width: 3 },
 };
 
 export function nextId(name, ids, { materialId, study = false } = {}) {

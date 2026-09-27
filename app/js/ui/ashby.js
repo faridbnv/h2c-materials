@@ -391,7 +391,8 @@ function productPoints(rows, xDef, yDef, state) {
       pts.push({
         id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value, material: m,
         evaluation: { ...e, verdict, eligible: verdict === 'PASS' || (e.eligible && verdict !== 'FAIL'), needsVerification: verdict === 'UNKNOWN' && e.needsVerification },
-        label: `${m.name}: ${g.manufacturer} ${g.product}`,
+        // A twin's point sits on its sibling's, from the same sheet (D89); its label says so.
+        label: `${m.name}: ${g.manufacturer} ${g.product}${(vx.from ?? vy.from) ? ` (${(vx.from ?? vy.from).label})` : ''}`,
         x: vx.value, y: vy.value,
         xh: { measurementId: vx.measurementId, gradeId: g.id }, yh: { measurementId: vy.measurementId, gradeId: g.id, direction: vy.direction ?? '' },
         assumed: false, notes: [], relaxed: [], product: true,

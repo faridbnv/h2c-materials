@@ -12,7 +12,7 @@ that settles the most answers first, not the most data.
 | Outdoor structural part | 136 | 18 | 80 | 38 | not published 54; published, not comparable 19 | 17 |
 | Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
 | Lightweight structure | 136 | 26 | 78 | 32 | not published 27; published, not comparable 16 | 26 |
-| Warm environment | 136 | 33 | 38 | 65 | print setting not recorded 62; not published 30 | 1 |
+| Warm environment | 136 | 34 | 37 | 65 | print setting not recorded 62; not published 30 | 1 |
 | High-stiffness fixture | 136 | 19 | 68 | 49 | published, not comparable 29; not published 20 | 30 |
 | Flexible component | 136 | 16 | 73 | 47 | published, not comparable 29; not published 18 | 33 |
 
@@ -211,7 +211,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 840 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 879 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|

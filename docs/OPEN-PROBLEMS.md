@@ -306,10 +306,22 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   those products stay unknown on them. Query: products whose `knowHow.recipe.chamber` or `.drying` is `collected` while
   `print.chamber.state` and `print.enclosure`, or `print.drying`, are unknown.
 
-- **Seventy-five products have no recipe of their own by rule.** The import recorded them as another product's twin
-  (R053) or reprint (R166): a grade each, the values once, on the other product. Their printing tables went with the
-  values, so under D83 they are unknown on every print gate although their own sheets print a recipe. A ruling: record
-  the recipe per product, or let a product read its twin's.
+- **Thirty products with no value of their own have no twin to read.** D89 lets a product whose sheet prints a
+  same-material sibling's table (R053) read that sibling's values and recipe; the 47 such twins now do. The others are
+  reprints of another material's table (R166 and its like) or products whose sibling holds nothing: no formulation key
+  spans two materials, so they read nothing, and 27 of them have no profile of their own either. Their sheets print a
+  recipe the import rejected with the values. Query: active products with no measurement and no same-key sibling.
+- **The printer maker's guide cannot settle the chamber where it asks for an enclosure** (D88). Bambu Lab's guide ticks
+  "Print with Enclosure" for ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and PPS-CF and gives no temperature,
+  so their silent products stay unknown on the chamber. In Warm environment 24 unknown materials have a product that
+  meets everything but the chamber; for PC (11 products) and PPA-CF (6) that product's only word on it is the guide's
+  tick. Whether "print with an enclosure", from the maker of the printer, is enough for the H2C's 65 °C chamber is the
+  owner's question. Query: products whose `print.from.chamber.origin` is `guide` and `print.chamber.verdict` unknown.
+- **What the guide prints and the tables do not use.** Its January 2025 revision (B-GUIDE) also heads ASA-CF, PC FR
+  and TPU for AMS, which the current revision dropped; only the current revision is read, so those three materials'
+  silent products read nothing. The guide's drying line is recorded and fills no recipe, and its annealing row,
+  AMS compatibility, adhesion, desiccant, speed and fan rows are not recorded. Its TPU 95A HF nozzle row ("Hardened
+  Steel / Stainless Steel") settles no hardened-nozzle question.
 - **Wordings the parsers cannot read**, left out of m136 rather than typed against the parser: Polymaker's "Closure
   chamber | Needed" and "No Needed" (7 products), Eryone's "Sealed printing | Supports open/closed printing" (35
   sheets), "printable on non-heated chamber FFF 3D printers" in prose. `parseEnclosure` would need the words.

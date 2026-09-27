@@ -141,3 +141,24 @@ test("a reader's assumption stands in for a product with no value that may decid
   assert.equal(productView(m, m.__grades[0], { evidence: EVIDENCE.AS_PUBLISHED }).headline.tensileModulusXY.value, 3.4, 'admitted, the published value decides');
   assert.equal(productView(m, m.__grades[1]).headline.tensileModulusXY.value, 3.2, 'a comparable value is never overridden');
 });
+
+test("a value or a print gate read from a twin's sheet or a printer maker's guide decides like the product's own, and says where it came from (D88, D89)", () => {
+  const twin = { origin: 'twin', gradeId: 'G1', label: 'same sheet as Maker One' };
+  const guide = { origin: 'guide', guideId: 'PG001', sourceId: 'S-GUIDE', guide: "Maker's Filament Guide for T", label: "per Maker's Filament Guide for T, not this maker's sheet" };
+  const read = { profileIds: [], nozzle: { ...within, reason: `${within.reason} (${guide.label})`, state: 'range', min: 200, max: 230, profileId: null },
+    bed: { verdict: 'unknown', reason: 'No print profile recorded for this product', state: 'unknown', min: null, max: null, profileId: null },
+    chamber: { verdict: 'unknown', reason: 'No print profile recorded for this product', state: 'unknown', min: null, max: null, profileId: null },
+    enclosure: 'unknown', hardenedNozzle: true, drying: null, anneal: [], from: { nozzle: guide, hardenedNozzle: guide } };
+  const m = withGrades([grade('G1', { tensileModulusXY: v(3.4) }, null), grade('G2', { tensileModulusXY: { ...v(3.4), from: twin } }, read)]);
+  const e = run(m, [stiff, { kind: 'gate', gate: 'nozzle' }], STRICT);
+  assert.equal(e.verdict, STATUS.PASS, "the twin passes on its sibling's value and the guide's nozzle window");
+  assert.deepEqual(e.counts, { products: 2, pass: 1, fail: 0, untested: 1, screened: 0 });
+  const view = productView(m, m.__grades[1]);
+  assert.match(view.gates.nozzle.reason, /per Maker's Filament Guide for T, not this maker's sheet/);
+  assert.equal(view.gates.bed.verdict, 'unknown', 'a part neither its own sheet nor the guide states stays unknown');
+  const abrasive = evaluateProducts(m, m.__grades.slice(1), [{ kind: 'gate', gate: 'abrasive' }], STRICT);
+  assert.equal(abrasive.verdict, STATUS.FAIL);
+  assert.match(abrasive.results[0].reason, /per Maker's Filament Guide for T/);
+  const value = evaluateProducts(m, m.__grades.slice(1), [stiff], STRICT);
+  assert.match(value.results[0].reason, /same sheet as Maker One/);
+});

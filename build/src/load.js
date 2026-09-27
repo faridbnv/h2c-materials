@@ -31,6 +31,8 @@ export const TABLES = [
   { file: 'fatigue_tests', sheet: 'Fatigue tests' },
   { file: 'polymer_environment', sheet: 'Polymer environment' },
   { file: 'know_how_reads', sheet: 'Know-how reads' },
+  { file: 'print_guide', sheet: 'Print guide' },
+  { file: 'print_guide_materials', sheet: 'Print guide materials' },
 ];
 
 const NUMBER_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?$/i;

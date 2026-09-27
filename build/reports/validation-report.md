@@ -123,8 +123,8 @@ its plausible range wholly fails.
 | density | 857 | 116 | 80% | 96% | ×1.11 | 0.0251 (15644 pairs) |
 | tensileModulusXY | 1182 | 80 | 80% | 95% | ×1.5 | 0.317 (1270 pairs) |
 | tensileStrengthXY | 1299 | 63 | 81% | 95% | ×1.44 | 0.25 (2556 pairs) |
-| elongationXY | 1009 | 82 | 81% | 95% | ×4.24 | 0.716 (2416 pairs) |
-| hdt045 | 1253 | 81 | 80% | 95% | 16.7 °C | 4.19 (3940 pairs) |
+| elongationXY | 1009 | 82 | 81% | 95% | ×3.64 | 0.716 (2416 pairs) |
+| hdt045 | 1253 | 81 | 80% | 95% | 17.3 °C | 4.19 (3940 pairs) |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -147,12 +147,12 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileStrengthXY | this-grade | 57 | 2 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | this-material | 56 | 0 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | family | 63 | 0 | 97.5% point | 3 | 1.67% point |
-| elongationXY | this-grade | 37 | 1 | 98.22% point | 0 | 2.5% point |
+| elongationXY | this-grade | 38 | 1 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-material | 68 | 1 | 97.5% point | 2 | 2.5% point |
 | elongationXY | family | 82 | 2 | 97.5% point | 1 | 2.5% point |
-| hdt045 | this-grade | 56 | 4 | 99.18% point | 1 | 2.5% point |
+| hdt045 | this-grade | 58 | 4 | 99.18% point | 1 | 2.5% point |
 | hdt045 | this-material | 62 | 6 | 99.99% point | 1 | 2.5% point |
-| hdt045 | family | 81 | 4 | 97.5% point | 0 | 2.5% point |
+| hdt045 | family | 81 | 3 | 97.5% point | 0 | 2.5% point |
 
 Grade estimates (D81): each grade predicted at its own row and calibrated by hiding its own published values.
 
@@ -402,7 +402,7 @@ Every one of the 174 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (3401 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (3561 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

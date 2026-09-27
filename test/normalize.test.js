@@ -80,6 +80,10 @@ test('enclosure wording separates "not needed" from "recommended"', () => {
     assert.equal(parseEnclosure(t).state, 'recommended', t);
   }
   assert.equal(parseEnclosure('Not published').state, 'unknown');
+  // A comparison table may answer with a drawn mark: Bambu Lab's guide ticks or crosses "Print with Enclosure" (D88).
+  assert.equal(parseEnclosure('✓').state, 'recommended');
+  assert.equal(parseEnclosure('✗').state, 'not-needed');
+  assert.equal(parseEnclosure('✓ see notes').unparsed, true, 'a mark is read only as the whole answer');
 });
 
 test('ambient as the lower end of a stated range, and "up to"', () => {
@@ -185,6 +189,12 @@ test('nozzle, drying and abrasion text', () => {
   // And a statement that names the nozzle it wants is still a statement, whatever word it ends on.
   assert.equal(parseAbrasion('Hardened steel, diamond, tungsten carbide, etc').requiresHardened, true);
   assert.equal(parseAbrasion('Abrasive milled carbon fibre; accelerated brass wear').requiresHardened, true);
+  // Bambu Lab's guide lists the nozzles each filament prints on (D88): any nozzle is no requirement, hardened steel
+  // alone is one, and hardened or stainless steel is stated but settles nothing about brass.
+  assert.equal(parseAbrasion('All Size/Material').requiresHardened, false);
+  assert.equal(parseAbrasion('0.6 mm (recommended) / 0.4 mm / 0.8 mm Hardened Steel').requiresHardened, true);
+  const both = parseAbrasion('0.4 mm / 0.6 mm / 0.8 mm Hardened Steel / Stainless Steel');
+  assert.deepEqual([both.requiresHardened, both.state], [null, 'stated']);
 });
 
 // Every temperature the app shows carries its unit. The gate reasons were the one place that

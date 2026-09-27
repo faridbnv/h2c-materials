@@ -49,6 +49,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `fatigue_tests.csv` | The loading of each Fatigue life measurement: stresses, frequency, load ratio, run-out (m31) |
 | `polymers.csv` | The polymer identities the estimate model knows: group, morphology, melting point, how it solidifies in a print, water uptake, neat density, and where they come from (D60). `materials.csv` Estimate identity names one |
 | `polymer_environment.csv` | A base polymer's published environmental behaviour, one row per polymer, category and agent, from a retrieved reference (D64). The build attaches it, marked polymer-level and inferred, to each material whose Estimate identity it is and that has no `evidence.csv` record in the category; shown, may screen, never passes |
+| `print_guide.csv` | What a printer maker's filament guide states for printing a material type, one row per type it heads a column with, in a print profile's columns (D88): no product's profile |
+| `print_guide_materials.csv` | Which material each guide type is, with why and who mapped it: the same material type only (D88) |
 
 `data/review/accepted-findings.csv` is not data: it holds each accepted lint finding with its reason (D50).
 `data/review/removed-records.csv` is not data either: it is the ledger of records that left a table because the
@@ -240,17 +242,29 @@ a material's headline is derived from them, and no product stands for a material
   lowest ID. A row of `headlines.csv` on the product pins it (`pinned`), with its Reason; on 2026-09-25 the rule alone
   reproduced all 477 hand picks (`docs/audits/2026-09-25-re-center/rule-vs-hand-picks.md`), which m137 retired. A value measured on an
   annealed part carries the schedule (`anneal`). `priceCADkg` is the median of the product's own sample listings.
+  Where the product has no value of its own for a headline and a **twin** does, it reads the twin's own value, marked
+  `from: { origin: "twin", gradeId, label }` (D89). A twin is another active product of the same material under the
+  same Shared formulation key: the products whose sheets print one table the import recorded once (R053). It is
+  derived; no table holds it. A price is never read from a twin, and a product that reprints another material's table
+  (R166) has no twin.
 - **`grades[].print`**: the product's own recipe from its own profiles, never a union across a material: per axis the
   gate against the H2C and the window of the profile that decided it, the enclosure, whether it wants a hardened
-  nozzle, drying, and the annealing its sheets state. Null for a product with neither a profile nor an annealing
-  schedule.
+  nozzle, drying, and the annealing its sheets state. Where its own profiles say nothing on a part, its twin's own
+  (D89) are read; where those say nothing either on a part of the print gate (nozzle, bed, chamber, enclosure, hardened
+  nozzle), its material's printer maker's guide row (`print_guide.csv`, D88). `print.from[part]` and the gate's reason
+  say which, with the label a reader is shown. What a product's own sheet says, even words the parser cannot read,
+  always stands; a guide that asks for an enclosure and gives no chamber temperature leaves the chamber unknown.
+  Null for a product with nothing on any part. `db.printGuide` holds the guide's rows, each with its materials.
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
   variants (a material whose every product is a variant, PP Lightweight, is its variants). `products` counts them, `n` those with a comparable value, whose range, median, quartiles (from four
   values) and `typical` product (nearest the median) these are. Values published without the direction or load
   (`asPublished`) and variants (`variants`) are counted apart. It is the spread of different products, never
-  uncertainty about one; PEBA's 7.5, 25 and 30 MPa are three products.
+  uncertainty about one; PEBA's 7.5, 25 and 30 MPa are three products. A twin counts as the product it is, and
+  `twins` says how many of the `n` values are a twin's; a twin reading a declared variant's sheet is set apart with it,
+  and where a twin ties its sibling the typical product is the sibling.
 
-`build/snapshot/products.csv` and `summaries.csv` hold every value; `npm run sql` has `products_compiled` and
+`build/snapshot/products.csv` and `summaries.csv` hold every value (their From and Twins columns name a twin's reading),
+and `print.csv` every product's print gates and where each part came from; `npm run sql` has `products_compiled` and
 `summaries_compiled`.
 
 ### A headline value

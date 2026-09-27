@@ -71,11 +71,18 @@ test('provoked errors carry the code a reader looks up', () => {
   // A pin of a tensile modulus as a density.
   wb.Headlines.rows.push({ MaterialID: 'M020', HeadlineKey: 'density', MeasurementID: 'V000384', Reason: 'test' });
   wb.Grades.rows.find((g) => g.GradeID === 'G020-01').Role = 'study';
+  // A printer maker's guide read from a source kept only to corroborate, and mapped to a family entry (D88).
+  const guide = wb['Print guide'].rows[0];
+  wb['Print guide'].rows.push({ ...guide, PrintGuideID: 'PG999', SourceID: 'B-GUIDE' });
+  const family = wb.Materials.rows.find((m) => m.Scope === 'Family entry').MaterialID;
+  wb['Print guide materials'].rows.push({ MaterialID: family, PrintGuideID: guide.PrintGuideID, Reason: 'test', 'Reviewed by': 'test' });
   // The core database: both codes are the compiler's, which the estimate stage cannot remove.
   const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates: false });
   const codes = new Set(issues.filter((i) => i.level === 'error').map((i) => i.code));
   assert.ok(codes.has('HEADLINE-SELECTION-INVALID'), [...codes].join(' '));
   assert.ok(codes.has('GRADE-ROLE-ID'), [...codes].join(' '));
+  assert.ok(codes.has('PRINT-GUIDE-REFERENCE'), [...codes].join(' '));
+  assert.ok(codes.has('PRINT-GUIDE-MATERIAL'), [...codes].join(' '));
   const schema = checkData(join(root, 'data'), join(root, 'schema')).issues;
   assert.deepEqual(schema, []);
 });

@@ -557,9 +557,12 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   const win = (a) => (!a ? '' : a.state === 'range' ? `${a.min ?? ''}-${a.max ?? ''}` : a.state);
+  // Where a value or a part of the recipe is not the product's own sheet's: a twin's (D89) or a printer maker's guide's
+  // (D88), named in the columns that say so.
+  const readFrom = (entries) => entries.filter(([, f]) => f).map(([what, f]) => `${what}: ${f.label}`).join('; ');
   const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements',
-    ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]),
-    'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Source'];
+    ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]), 'Values read from',
+    'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source'];
   const header = [
     '# H2C Material Selector: products of the materials on screen',
     `# database snapshot ${db.meta.snapshot}, application build ${db.meta.build}`,
@@ -574,10 +577,11 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
       lines.push([m.id, m.name, g.id, g.manufacturer, g.product, g.variant ?? '',
         scenario?.constraints?.length ? verdict.get(g.id) ?? '' : 'not tested',
         ...KEYS.flatMap((k) => { const v = g.headline?.[k]; return [v?.value ?? '', v?.level ?? '', v?.measurementId ?? (v?.priceIds ?? []).join(' ')]; }),
-        p?.profileIds.length ? win(p.nozzle) : '', p?.profileIds.length ? win(p.bed) : '', p?.profileIds.length ? win(p.chamber) : '',
+        readFrom(KEYS.map((k) => [k, g.headline?.[k]?.from])),
+        ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
         p?.enclosure ?? '', p?.hardenedNozzle === true ? 'required' : p?.hardenedNozzle === false ? 'not needed' : '',
         p?.drying ? `${p.drying.tempC ?? ''} C ${p.drying.hours ?? ''} h` : '',
-        (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), g.sourceId,
+        (p?.anneal ?? []).map((x) => `${x.tempC ?? '?'} C ${x.hours ?? '?'} h`).join('; '), readFrom(Object.entries(p?.from ?? {})), g.sourceId,
       ].map(q).join(','));
     }
   }

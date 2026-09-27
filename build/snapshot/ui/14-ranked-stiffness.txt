@@ -48,15 +48,15 @@ Nylon / Polyamide
  PASS
 1 of 5
  1,170
-1,090–1,250 · 12
+1,090–1,250 · 13
  4.3
 3.8–8.64 · 5
  82.5
 53–112 · 6
  7.35
 2.1–16.5 · 6
- 185
-140–215 · 9
+ 183
+140–215 · 10
  110↗ ☆
 PA12-CF
 Nylon / Polyamide
@@ -64,7 +64,7 @@ Nylon / Polyamide
  PASS
 1 of 4
  1,070
-1,030–1,230 · 11
+1,030–1,230 · 12
  3.32
 3.3–8 · 4
  72
@@ -74,45 +74,45 @@ Nylon / Polyamide
  150
 48–185 · 11
  — ☆
-PPA-CF
-High-Performance Engineering
-#3 · best: Bambu Lab PPA-CF
- PASS
-3 of 3
- 1,210
-1,150–1,250 · 7
- 8.2
-7.1–11.8 · 3
- 108
-87–168 · 3
- 3.2
-1.9–3.5 · 3
- 220
-84.5–240 · 5
- 255↗ ☆
 PA12-GF
 Nylon / Polyamide
-#4 · best: 3DXTECH FIBREX PA12 GF30
+#3 · best: 3DXTECH FIBREX PA12 GF30
  PASS
 1 of 1
  1,230 7.8 82 4.5 163
 150–175 · 2
  — ☆
+PPA-CF
+High-Performance Engineering
+#4 · best: Bambu Lab PPA-CF
+ PASS
+4 of 4
+ 1,210
+1,150–1,250 · 8
+ 7.65
+7.1–11.8 · 4
+ 108
+87–168 · 4
+ 3.35
+1.9–3.5 · 4
+ 220
+84.5–240 · 6
+ 255↗ ☆
 PPS-CF
 High-Performance Engineering
 #5 · best: Bambu Lab PPS-CF
  PASS
-4 of 4
- 1,290
-1,260–1,510 · 5
- 7.73
-5.45–8.23 · 4
- 75
-59.4–95 · 4
- 1.8
-1.2–4 · 4
- 253
-245–264 · 3
+5 of 5
+ 1,295
+1,260–1,510 · 6
+ 8
+5.45–8.23 · 5
+ 87
+59.4–95 · 5
+ 2.2
+1.2–4 · 5
+ 249
+245–264 · 4
  221↗ ☆
 PP-GF
 Polyolefins
@@ -180,8 +180,8 @@ ASA-CF
 #11 · best: 3DXTECH CarbonX CF ASA
  PASS
 1 of 6
- 1,095
-1,020–1,170 · 14
+ 1,100
+1,020–1,170 · 15
  3.91
 0.85–5.36 · 6
  41.3
@@ -217,16 +217,16 @@ Nylon / Polyamide
 #14 · best: Polymaker FIBERON PA6 GF25
  PASS
 1 of 4
- 1,290
-1,140–1,370 · 8
+ 1,310
+1,140–1,370 · 9
  4.35
 2.85–5.36 · 4
  82.3
 62.8–98.9 · 6
  4.95
 2.4–12.5 · 6
- 186
-161–210 · 9
+ 184
+161–210 · 10
  77↗ ☆
 PPS-GF
 High-Performance Engineering

@@ -38,6 +38,8 @@ function productValueHeadline(base, grade, v, measurementById) {
   if (v.caveat) h.caveat = v.caveat;
   if (v.anneal) h.anneal = v.anneal;
   if (v.priceIds) Object.assign(h, { priceIds: v.priceIds, observations: v.observations });
+  // A twin's value is its sibling's, from the same sheet (D89); the reason says so.
+  if (v.from) h.from = v.from;
   return h;
 }
 
@@ -72,16 +74,23 @@ export function productHeadline(material, grade, key, ctx = {}) {
 
 const NO_PROFILE = { verdict: 'unknown', reason: 'No print profile recorded for this product' };
 
-/** A product's print gates, from its own recipe; a product with none is unknown on each, never a pass. */
+/**
+ * A product's print gates, from its own recipe; a product with none is unknown on each, never a pass. Where its own
+ * profiles are silent on a part, the build read its twin's (D89) or its material's printer maker's guide (D88); that
+ * part decides like the product's own, and its reason and `…From` label say where it came from.
+ */
 export function productGates(material, grade) {
   const p = grade.print;
-  const axis = (a) => (p?.profileIds.length ? { verdict: p[a].verdict, reason: p[a].reason } : NO_PROFILE);
-  return {
+  const axis = (a) => (p?.profileIds.length || p?.from?.[a] ? { verdict: p[a].verdict, reason: p[a].reason } : NO_PROFILE);
+  const gates = {
     ...material.gates,
     nozzle: axis('nozzle'), bed: axis('bed'), chamber: axis('chamber'),
     abrasive: p?.hardenedNozzle === true ? 'requires-hardened' : p?.hardenedNozzle === false ? 'no-special-concern' : 'unknown',
     drying: p?.drying ? 'required' : 'unknown',
   };
+  if (p?.from?.hardenedNozzle && p.hardenedNozzle != null) gates.abrasiveFrom = p.from.hardenedNozzle.label;
+  if (p?.from?.drying && p.drying) gates.dryingFrom = p.from.drying.label;
+  return gates;
 }
 
 /**

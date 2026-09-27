@@ -44,6 +44,8 @@ export const RULES = {
   'POLYMER-ENV-CATEGORY': r('error', 'compile', 'A polymer_environment row uses a category that is not filterable, or is fatigue or creep.', 'Use a filterable environment category; a resin reference cannot speak for a printed part under load (D64).'),
   'POLYMER-ENV-VERDICT': r('error', 'compile', 'A polymer_environment row has a verdict outside schema/vocab/polymer-verdicts.csv.', 'Use a verdict from the vocabulary, or add one there with its Meaning and whether it Screens.'),
   'POLYMER-ENV-DUPLICATE': r('error', 'compile', 'Two polymer_environment rows name the same polymer, category and agent.', 'Keep one row per polymer, category and agent; put a second condition in Conditions or Notes.'),
+  'PRINT-GUIDE-REFERENCE': r('error', 'compile', 'A print_guide row cites a source that is not in sources.csv, was not retrieved, or is not cited.', 'Register the guide, fetched and hash-checked, with Citation role cited; nothing enters from a guide that was not read (D88).'),
+  'PRINT-GUIDE-MATERIAL': r('error', 'compile', 'A print_guide_materials row names a guide row or a material that does not exist, or a family entry, which owns no product.', 'Map a guide type to the one material it is (D88).'),
   'POLYMER-ENV-PRECEDENCE': r('error', 'integrity', 'A polymer-level record is attached where the material has a grade-level record in the category, cites a row that does not exist, or names another material or polymer.', 'The build attaches these; report the compiler defect (D64).'),
 
   // ---- registry (build/src/registry.js) -----------------------------------------------------------------
@@ -71,7 +73,7 @@ export const RULES = {
   'OWN-GRADE-MATERIAL': r('error', 'ownership', 'A record is filed under a material its grade does not belong to.', 'File it under the grade\'s material, or use that material\'s grade.'),
   'OWN-RETIRED-GRADE': r('error', 'ownership', 'An active record uses a retired grade.', 'Retire or quarantine the record, or move it to the active grade.'),
   'GRADES-LIST': r('error', 'ownership', 'A material\'s grade list is inconsistent with its grades.', 'Check grade Role, Status and MaterialID.'),
-  'HEADLINE-CITATION': r('error', 'ownership', 'A product value cites a missing, quarantined or another product\'s measurement, or a material names a typical product that is not its own.', 'A defect in build/src/products.js: a product value is chosen from that product\'s own active measurements.'),
+  'HEADLINE-CITATION': r('error', 'ownership', 'A product value cites a missing, quarantined or another product\'s measurement (other than a twin\'s: an active product of the same material under the same formulation key, D89), or a material names a typical product that is not its own.', 'A defect in build/src/products.js: a product value is chosen from that product\'s own active measurements, or read from its twin\'s where it publishes none.'),
   'HEADLINE-DIRECTION': r('error', 'comparability', 'A product value decides as a comparable XY value but its measurement states another direction.', 'A defect in build/src/products.js (assess): an unstated direction is as published, never XY.'),
   'LINK-CITATION': r('error', 'ownership', 'A material link or headline evidence cites a record that does not exist, is the wrong kind, or belongs to another material.', 'Correct the RecordID or the Link kind.'),
   'GUIDANCE-MISMATCH': r('error', 'ownership', 'Printing guidance does not quote its first cited profile.', 'Cite the right profile first.'),

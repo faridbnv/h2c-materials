@@ -190,6 +190,10 @@ export function parseEnclosure(raw) {
   if (!text || /^not published$/i.test(text)) return { text, state: 'unknown' };
   // A table with a column headed "Enclosed Space" answers it in one word, and "no" is the whole answer.
   if (/\bnot\s+(necessary|needed|required)\b|^no\s+enclosure\b|^(no|none)$/i.test(text)) return { text, state: 'not-needed' };
+  // A comparison table may answer the row with a mark instead of a word: Bambu Lab's filament guide draws a tick or a
+  // cross in its "Print with Enclosure" row, where its January 2025 revision printed "Required" and "Optional" (D88).
+  if (/^[✗✘]$/.test(text)) return { text, state: 'not-needed' };
+  if (/^[✓✔]$/.test(text)) return { text, state: 'recommended' };
   // "for larger components" is the same statement as "recommended for larger prints", which this already reads:
   // a condition on when an enclosure helps, not a refusal. The raw column keeps the condition.
   if (/\b(recommended|yes|active\s+heated|required)\b/i.test(text) || /^for\s+(larger|large|big)\b/i.test(text)) return { text, state: 'recommended' };
@@ -217,6 +221,11 @@ export function parseAbrasion(raw) {
   const text = raw == null ? '' : String(raw).trim();
   if (!text || /^not published$/i.test(text)) return { text, requiresHardened: null, state: PROCESS_STATE.UNKNOWN };
   if (/no special concerns/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  // Bambu Lab's filament guide answers "Nozzle Size/Material" per filament (D88). "All Size/Material" is any nozzle,
+  // brass included. A list that allows stainless steel beside hardened steel (its TPU) names the nozzles it prints on,
+  // not an abrasion requirement, and says nothing either way about brass: stated, and no reading.
+  if (/^all\s+size\s*\/\s*material$/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
+  if (/hardened\s+steel\s*\/\s*stainless\s+steel|stainless\s+steel\s*\/\s*hardened\s+steel/i.test(text)) return { text, requiresHardened: null, state: 'stated' };
   // A sheet that asks the question and answers it is answering it: Spectrum prints "Ruby or hardened nozzle
   // recommended | No" for its unfilled filaments and "| Yes" for its carbon-filled ones, one row of a table
   // whose label is the question. Read by its words alone, the "No" row says hardened — which is the opposite of

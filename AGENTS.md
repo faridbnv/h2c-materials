@@ -141,6 +141,21 @@ with its conditions is all it takes. Nobody selects a material's number: the rep
 retired in m137 (archived in `docs/audits/2026-09-25-re-center/retired-representative-picks.csv`), after the rule alone
 reproduced every one of them (`rule-vs-hand-picks.md` beside it).
 
+**A twin needs no row either.** Products of one material whose sheets print one table are a grade each under one Shared
+formulation key, with the values recorded once (R053). The build lets each read its sibling's values and print recipe
+wherever its own are silent, labelled "same sheet as …" (D89); a price is never read, and a product that reprints
+another material's table (R166) shares no key and reads nothing. Record a twin's own statement on its own grade: it
+always wins.
+
+**Add a printer maker's guide row.** Where a product's own sheet and its twin's are silent on its print gate, the build
+reads its material's row of `print_guide.csv` (D88). A guide is a source like any other: fetched, its SHA-256 recorded,
+Citation role `cited`, and a new revision is a new source row. A row is one type the guide heads a column with, in a
+profile's columns: the guide's words in the raw columns (a drawn mark as its glyph, ✓ or ✗), the parsers' reading in the
+typed ones, and a Locator naming the column and rows. Map it in `print_guide_materials.csv` only to the material that is
+the same type, with a Reason naming the neighbours it is not, and who mapped it. A migration reads every cell on the
+hash-checked page (`scripts/lib/comparison-table.mjs`; m150 is the example). Never enter a product's own statement
+there: that is a profile, and it wins.
+
 **Pin a product's value.** Only where the rule chooses the wrong measurement for one product: a row in `headlines.csv`
 with MaterialID, HeadlineKey, MeasurementID and a Reason a reviewer can check against the source. The measurement must
 be that product's own and able to be the headline's value (property, unit, direction or load, a printed or unstated
