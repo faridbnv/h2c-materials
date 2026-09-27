@@ -40,41 +40,41 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D28 | Limited resistance is not resistance | A chemical-resistance requirement passes only on a plain "resistant" record, not on "limited". | In force |
 | D29 | A template names what it cannot check | Each ready-made scenario lists what it does not check, and promises nothing it does not test. | In force |
 | D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | The data's date is read from the Method table, not written in code; prices keep their own sampling date. | In force |
-| D31 | A quarantined observation backs nothing | A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing. | In force |
+| D31 | A quarantined observation backs nothing | A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing. | In force; amended by D47 (a price median is computed from its sample, so no stored citation is left to check) and m32 (quarantine is a typed column) |
 | D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end. | In force |
-| D33 | "Enclosure not needed" clears the chamber; "enclosure recommended" does not | A sheet saying no enclosure is needed settles the chamber question; one recommending an enclosure does not. | In force |
+| D33 | "Enclosure not needed" clears the chamber; "enclosure recommended" does not | A sheet saying no enclosure is needed settles the chamber question; one recommending an enclosure does not. | Amended by D90 and D93: for the nine types Bambu Lab's Filament Guide asks an enclosure for, an enclosure asked for with no temperature, by the guide or by the maker's own sheet, reads as within the H2C's chamber; for every other type the reverse inference is still not made |
 | D34 | An estimated chamber band decides nothing | Researched guesses of a chamber temperature are shown, marked, and never pass or exclude a material. | In force |
 | D35 | A research report is re-read against its sources, never transcribed | Every value is entered from its original document, re-read and hash-checked, never copied from a report or a summary. | In force |
 | D36 | Referential integrity includes ownership, not just existence | The build checks that every record belongs to the material it is filed under, not merely that its identifiers exist. | In force |
 | D37 | A headline belongs to the representative grade; study grades are not procurement grades | A material's numbers must not mix products, and a research-only grade is never a buyable product. | Amended by D83: the representative grade retired and each product is judged on its own values; the rule on research grades stands |
-| D38 | Environmental evidence is owned by the material; family evidence stays context | A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material. | In force |
+| D38 | Environmental evidence is owned by the material; family evidence stays context | A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material. | In force; extended by D64 (where a material has no record of its own in a category, a resin reference for its base polymer is shown, labelled polymer-level, and may screen but never pass) |
 | D39 | Coverage is terminal, but it must agree with the records | The findings on what data a material has never change a result, but the build stops if they contradict the records. | In force; extended by D74 (a finding that only restates the records is derived) |
 | D40 | Peer observations are context, not exclusion bounds | For a short time, estimates drawn from similar materials were allowed to decide nothing at all. | Superseded by D42, then D43 |
 | D41 | Raw values, endpoints and archived identities are enforced | The build stops when a raw value, its unit and its converted value disagree, and a retired product stays out of every active list. | In force |
 | D42 | An estimate is a prediction interval from like-for-like evidence, and may only screen | The second estimate design: like-for-like evidence and 95% intervals, allowed to rule out and never to qualify. | Superseded by D43 |
-| D43 | An estimate is a calibrated model of every observation, and says how far to trust it | Missing values are estimated by one statistical model per property, checked against known values it had hidden, labelled with how far to trust them, and never allowed to pass a material. | Amended by D48 (which estimates may rule a material out) and D83 (a material is estimated only where none of its products publishes the value) |
+| D43 | An estimate is a calibrated model of every observation, and says how far to trust it | Missing values are estimated by one statistical model per property, checked against known values it had hidden, labelled with how far to trust them, and never allowed to pass a material. | Amended by D48 (which estimates may rule a material out), D83 (a material is estimated only where none of its products publishes the value) and D87 (a family's "polymer not stated" home is not estimated) |
 | D44 | Each product has one home; a family is an entry, not a material | Each product is recorded once, under the most specific material it is; a family name such as PA or TPE only leads to its members. | In force |
-| D45 | The source of truth is CSV tables under a declared schema | All data is edited in CSV tables checked against a declared schema; the Excel workbooks were retired. | In force; narrowed by D72 (a record may leave through the removal ledger), and its open question on SQLite answered by D75 |
-| D46 | A property is a registry row, and may apply to some filaments only | What each property means, its units and which filaments it applies to are rows in a table, so adding one needs no code. | In force |
-| D47 | What can be calculated is not stored | Anything the build can compute from the records (medians, per-kg prices, grade lists) is computed, never stored beside them. | In force; extended by D70 and D74 |
-| D48 | Evidence screens only where a back-test shows it screens reliably | An estimate may rule a material out only where hiding known values shows that kind of estimate to be reliable. | Amended by D55, D59 and D83 |
+| D45 | The source of truth is CSV tables under a declared schema | All data is edited in CSV tables checked against a declared schema; the Excel workbooks were retired. | In force; narrowed by D72 (the pre-commit hook's refusal of a removed record admits one the build now derives, through the removal ledger), and its open question on SQLite answered by D75 |
+| D46 | A property is a registry row, and may apply to some filaments only | What each property means, its units and which filaments it applies to are rows in a table, so adding one needs no code. | In force; amended by D83, D92 and D94: a new selectable headline is a row alone, each product's value is chosen by rule, and what a value must be (direction, load, notch, test temperature, standard) is a column of the row |
+| D47 | What can be calculated is not stored | Anything the build can compute from the records (medians, per-kg prices, grade lists) is computed, never stored beside them. | In force; extended by D70 and D74, and amended by D83: a product's value is chosen by rule, and headlines.csv only pins one |
+| D48 | Evidence screens only where a back-test shows it screens reliably | An estimate may rule a material out only where hiding known values shows that kind of estimate to be reliable. | Amended by D55, D58 (the back-test moved to `build/src/estimate/`, and the implied bounds to headline_definitions.csv), D59 and D83 |
 | D49 | The values the build decides on are typed columns; raw text stays, and the parsers check it | Decisions read typed columns; the source's own words stay beside them, and the build stops if the two disagree. | In force |
 | D50 | Every check has a code, and quality findings are fixed or accepted with a reason | Every check has a stable code, and every data-quality finding is fixed or accepted with a written reason. | In force; its "nothing is deleted" narrowed by D72 |
-| D51 | Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on | Hand-kept lookup tables use record identifiers, not names, so renaming something cannot silently break them. | In force |
+| D51 | Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on | Hand-kept lookup tables use record identifiers, not names, so renaming something cannot silently break them. | In force; amended by D60: the estimate model's configuration names no material, grade or polymer any more, so EST-MODEL-REFERENCE is retired |
 | D52 | The transfer is proven cell by cell; every later correction is re-read, guarded and replayable | The move out of Excel was proven cell by cell, and every correction since is a re-runnable script that refuses to run if the data moved. | In force |
-| D53 | The estimate model reads declared states, not wording; and every change shows its downstream effect | Estimates read declared states (dry, conditioned, a declared variant) rather than wording, and every change commits a snapshot of what it did. | Amended by D68: the state is a column on the row, not an entry of the vocabulary |
+| D53 | The estimate model reads declared states, not wording; and every change shows its downstream effect | Estimates read declared states (dry, conditioned, a declared variant) rather than wording, and every change commits a snapshot of what it did. | Amended by D68 (the state is a column on the row, not an entry of the vocabulary), D73 (EST-WIDE asks only whether the model ignored a value the material publishes; a merely wide estimate is EST-THIN, informational) and D83 (the representative grade retired, and a variant is counted apart from its material's spread) |
 | D54 | A published mean ± band is judged on its mean; the band flags a result close to the limit | A value published as "35 ± 4 MPa" is judged as 35; the band only marks a result close to the limit. | In force |
-| D55 | A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline | A published number physics rules out is kept and flagged, and decides nothing; only a printed part's value can set a lower bound. | In force; extended by D82 |
-| D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | Estimates follow printing physics: slow-crystallising plastics, water in nylons, filler density, and what an elastomer cannot have. | Amended by D68 (states are columns on the row) and D83 (heat deflection does not apply to an elastomer) |
-| D57 | Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed | Unusual products are declared in the data, a replaced property name keeps its record, and every build warning is reviewed. | In force |
+| D55 | A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline | A published number physics rules out is kept and flagged, and decides nothing; only a printed part's value can set a lower bound. | In force; extended by D82, and amended by D83: nothing selects a headline now, and a flagged value is no product's value (a pin on one stops the build) |
+| D56 | The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have | Estimates follow printing physics: slow-crystallising plastics, water in nylons, filler density, and what an elastomer cannot have. | Amended by D60 (how a polymer solidifies in a print, its water uptake and its neat density are columns of polymers.csv), D68 (states are columns on the row) and D83 (heat deflection does not apply to an elastomer) |
+| D57 | Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed | Unusual products are declared in the data, a replaced property name keeps its record, and every build warning is reviewed. | In force; amended by D73 (an estimate wide for want of data is EST-THIN, not reviewed) and D83 (the representative grade retired, and the unstated-load finding with the bracket) |
 | D58 | Estimates are an overlay on a complete core, and grow by data, not by special cases | The database works without estimates, which only add to it, and the model grows by declaring cases in the data rather than by new code. | In force |
-| D59 | A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence | An estimate may rule a material out only on a side of its range that testing has shown to be reliable, and never against the material's own data. | In force |
+| D59 | A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence | An estimate may rule a material out only on a side of its range that testing has shown to be reliable, and never against the material's own data. | In force; amended by D83 (m137): the unstated-load bracket is gone, and the back-test hides each material's typical product's value |
 | D60 | What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables | What the estimate model knows about a polymer, a variant or a product's hardness lives in tables, not in its configuration. | In force |
 | D61 | No meaning lives only in a tooltip | No meaning is available only on mouse hover: every such mark is also a button that explains it, for touch and keyboard. | In force |
 | D62 | A narrow screen scrolls what does not fit inside its own box, and never squeezes it | On tablets and phones, tables scroll sideways inside their box rather than squeezing, and the detail panel becomes a proper dialog. | In force |
 | D63 | A source's Title is what the publisher printed, and a specimen's print parameters are the tested conditions, not the guide | A source's title is the heading the document prints, never a file name or page chrome, and a specimen's print parameters are only the tested conditions. | In force; extended in phase 5, part 5 (m149): page furniture read as a title is flagged too |
 | D64 | Polymer-level behaviour is shown and may screen, never passes | What a resin handbook says about a plastic's chemical resistance is shown where a product has no record of its own; it can rule out but never qualify. | In force |
-| D65 | A test method that defines its load states that load; the typed value says so in Parse review | A heat deflection labelled Method A or Method B has the load those standards define, recorded with the reason. | In force |
+| D65 | A test method that defines its load states that load; the typed value says so in Parse review | A heat deflection labelled Method A or Method B has the load those standards define, recorded with the reason. | In force; amended by D83 and D84 (m137): a heat deflection with no stated load is its product's value as published, and HDT-LOAD-UNSTATED is gone |
 | D66 | A templated safety data sheet is evidence only where it speaks about the product | Boilerplate in a safety data sheet that contradicts the product's own data sheet is not recorded; its composition always is. | In force |
 | D67 | A property is a row, not a pair of columns: the reference envelopes are long | Each generic reference material's property ranges are rows, one per property, so a new property needs no new column. | In force; amended in phase 5, part 5 (its dead offset removed, three misspelled names corrected) |
 | D68 | A datasheet sentence is data, not a vocabulary: the state is a column on the row | A sheet's sentence is copied as printed, and the state it means (dry, annealed) is a typed column beside it. | In force |
@@ -82,25 +82,25 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D70 | A constant is not a per-material fact, and a summary of the data is not data | A sentence true of every material is one Method rule, and anything computable from the data is computed, not stored. | In force |
 | D71 | How a source was classed and how it was reached are states, not sentences | A source's kind and whether it was retrieved are values from fixed lists, with the particulars in notes. | In force |
 | D72 | A record may leave a table only where the build derives it, and only through a ledger | Records are never deleted, except one the build now derives, and then only with a ledger row naming the migration and where it went. | In force |
-| D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | A reviewer's conclusion is written into the data row, and an estimate that is wide only because data is thin is reported, not reviewed. | In force |
+| D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | A reviewer's conclusion is written into the data row, and an estimate that is wide only because data is thin is reported, not reviewed. | In force; amended by D83: EST-WIDE reads a usable value of any of the material's products, not of its representative grade |
 | D74 | A coverage row is a judgement; that a material has records is derived | The build works out which kinds of data each material has; stored coverage rows are kept only for human judgements. | In force |
 | D75 | A generated SQLite file for asking questions, with the schema's types in it | The build writes a SQLite copy of the tables for asking questions, with missing values as empty beside their reason, and nothing reads it back. | In force |
-| D76 | The standards a measurement names are a typed list, and a fragment is not a standard | The standards a measurement names are a checked list beside the source's wording, and a garbled fragment is never read as a standard. | In force |
+| D76 | The standards a measurement names are a typed list, and a fragment is not a standard | The standards a measurement names are a checked list beside the source's wording, and a garbled fragment is never read as a standard. | In force; the fragment rows it counted were re-read, the last by m101 (2026-09-21), but for twenty whose sheets print the fragment themselves (OPEN-PROBLEMS §1) |
 | D77 | The spread search sees a sample; the model still sees everything | To stay fast, one step of the estimate fit uses a fixed sample of at most 400 values; every other step uses all the data. | In force; extended by D79 (the block solve) |
 | D78 | A limit a material's own grades publish is a floor for its shown range | An estimated range never goes past a limit the material's own data sheets publish. | In force |
 | D79 | The kernel is solved by block, and the estimates are the dense solve's | The estimate model's large matrix is solved one chemical group at a time, about nine times faster, with the same results to floating-point precision. | In force |
-| D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | A product declared heavily filled (metal-filled, foamed) is checked against the physical limits of that kind of filler, and the product's declaration comes before its material's. | In force; extended by D82 |
-| D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Each product gets its own estimate from the same model, shown for information and deciding nothing. | Amended by D83: only a product without a comparable value of its own gets one |
+| D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | A product declared heavily filled (metal-filled, foamed) is checked against the physical limits of that kind of filler, and the product's declaration comes before its material's. | In force; extended by D82, and by R095: a powder load the maker names is the grade Variant "declared dense filler", judged by the same dense windows, not a modifier ruling |
+| D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Each product gets its own estimate from the same model, shown for information and deciding nothing. | Amended by D83: only a product without a comparable value of its own gets one, and with the representative grade gone every grade takes the bounds its own sheets publish |
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | Every property with thirty or more values has plausibility limits drawn from physics, and each value outside them is checked against its sheet. | In force |
 | D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate) and D89 (a twin reads its sibling's values and recipe) |
-| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature) |
+| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it) and D95 (a bar printed off the product's recipe is no product value) |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
 | D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber) |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types) |
-| D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
+| D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone; extended by m199 (2026-09-27): the ±45° tab's "Ultimate strength" is each of twelve Nanovia products' XY tensile strength |
 | D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts |
 | D93 | A maker's own "enclosure needed", with no temperature, reads as the guide's tick | For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides. | In force; it extends D90 |
 | D94 | Notched Izod is a second impact filter, beside notched Charpy, and the two are never mixed | You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m. | In force |
@@ -171,6 +171,11 @@ real evidence. With the precedence corrected, all six excluded materials trip th
 their own published requirements, independently agreeing with the workbook's own `Scope` column.
 PPS-GF still reports "within", because one of its grades genuinely fits.
 
+*Counted again on 2026-09-27:* the six were the excluded materials of the 2026-09-13 snapshot. Seventeen are out of
+scope now ([counts.md](../build/snapshot/counts.md)), and nine of them trip the gate on their own published
+requirements. Five industrial high-temperature materials publish no print window at all, and the sintering filaments'
+sheets print within the H2C's limits (D87). Scope, not the gate, is what excludes each.
+
 ## D6. A recommendation is not a requirement
 
 > **In plain words:** A maker's "recommended if possible" setting above what the H2C gives warns, and never rules a material out.
@@ -239,6 +244,9 @@ PA, PA6/66 and CoPA all draw their headline from a single PolyMide datasheet. Co
 peers produced an "estimate" of 2.223 to 2.223 GPa: a precise value dressed as a range, claiming
 three corroborations where there is one. The Method sheet states the rule directly.
 
+*Since D44 (2026-09-13), PA and CoPA are family entries that own no product, and the PolyMide CoPA sheet is a product
+of PA6/66 alone.*
+
 ## D13. The reference layer is separate and off by default
 
 > **In plain words:** The generic reference materials (steels, woods, moulded plastics) are drawn on the chart only when asked for, and are never candidates.
@@ -272,6 +280,9 @@ not: it needs WebGL, which fails outright on many machines, so that lens is hand
 Raw `db.json` is about 3 MB, almost all repeated condition strings; gzipped it is under 200 KB,
 inflated at boot with `DecompressionStream`. No schema change, no interning, and the plotting
 library rather than the data becomes what the file weighs.
+
+*Measured again on 2026-09-27, after the V2 import:* `db.json` is 24 MB, 1.6 MB gzipped, and 2.2 MB of a 6.8 MB page as
+base64. The plotting library is still the larger part.
 
 
 ## D17. One vocabulary module, and no second way to name anything
@@ -450,6 +461,9 @@ criterion screens on a recorded requirement, and the rail says a missing record 
 filament is safe for brass. Treating every unrecorded material as UNKNOWN would leave Strict with no
 material at all, because no source in the snapshot states "no special nozzle concern".
 
+*Counted again on 2026-09-27:* sources say it now, 110 print profiles and 5 rows of Bambu Lab's guide (Hardened nozzle
+`FALSE`), and the criterion still screens only on a recorded requirement.
+
 ## D28. Limited resistance is not resistance
 
 > **In plain words:** A chemical-resistance requirement passes only on a plain "resistant" record, not on "limited".
@@ -489,6 +503,7 @@ is true and "2026-09-13" would not be. `meta.pricesSampled` carries it.
 ## D31. A quarantined observation backs nothing
 
 > **In plain words:** A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing.
+> **Status:** in force; amended by D47 (a price median is computed from its sample, so no stored citation is left to check) and m32 (quarantine is a typed column).
 
 The workbook marks a wrong-product price listing by starting its price basis with "Quarantined" and
 clearing its CAD/kg. The build keeps the row, so the audit trail survives, and excludes it from the
@@ -497,6 +512,10 @@ buy link and from the evidence that a material is in stock. The Price tab shows 
 A price headline must cite only observations in its headline sample. When CA0069 was quarantined the
 ABS median moved to 25.99, but the Materials row still cited CA0069 and still said "2 observations",
 and the build did not notice because it checked only the value. It checks the citation now.
+
+*Amended by D47 (2026-09-14) and m32 (2026-09-15):* a listing is quarantined by `prices.csv` Quarantined `TRUE`,
+with the reason in its Regular price basis, not by the basis's first word, and the price median is computed from the
+observations in its Headline sample, so no stored citation is left to go stale.
 
 ## D32. A chamber window the printer only partly reaches is partial, and only the chamber has one
 
@@ -516,9 +535,12 @@ maximum, 350 °C or 120 °C, which is not a margin anyone should run at by defau
 out-of-scope materials trip the gate on exactly those rows: PEKK's nozzle is 345–375 °C, PSU's
 350–380 °C. Applying `partial` everywhere would turn three of those exclusions into caveats.
 
+*The six are the out-of-scope materials of 2026-09-13; D5's note says how the seventeen of 2026-09-27 stand.*
+
 ## D33. "Enclosure not needed" clears the chamber; "enclosure recommended" does not
 
 > **In plain words:** A sheet saying no enclosure is needed settles the chamber question; one recommending an enclosure does not.
+> **Status:** amended by D90 and D93: for the nine types Bambu Lab's Filament Guide asks an enclosure for, an enclosure asked for with no temperature, by the guide or by the maker's own sheet, reads as within the H2C's chamber; for every other type the reverse inference is still not made.
 
 Five Spectrum data sheets answer the chamber question only in their enclosure row. A material that
 does not need to be enclosed does not need a heated chamber, so "not necessary" clears the chamber
@@ -528,6 +550,12 @@ The reverse inference is not made. An enclosure being recommended says nothing a
 enough, and an enclosure is not an actively heated chamber, so it leaves the chamber unknown. The same
 goes for "Recommended" with no number in the chamber row, and for a data sheet that prints "-", which
 is its own state: not zero, and not "not required".
+
+*Amended by D90 (2026-09-26) and D93 (2026-09-27):* for the nine types Bambu Lab's Filament Guide asks an enclosure for
+(ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF, PPS-CF), the owner ruled that the H2C's heated, enclosed chamber
+is that enclosure. A product of those types whose own sheet is silent reads the guide's tick as within (D90), and one
+whose own sheet asks for an enclosure and states no temperature reads the same, in its maker's words (D93). A
+temperature a sheet states still decides, and for every other type the reverse inference is still not made.
 
 ## D34. An estimated chamber band decides nothing
 
@@ -599,6 +627,7 @@ the second half stands: a study or reference grade is no procurement product, an
 ## D38. Environmental evidence is owned by the material; family evidence stays context
 
 > **In plain words:** A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material.
+> **Status:** in force; extended by D64 (where a material has no record of its own in a category, a resin reference for its base polymer is shown, labelled polymer-level, and may screen but never pass).
 
 The Environmental evidence column had become a copy of family application notes for 31 materials.
 That made PC FR look chemically evidenced by records written for another polycarbonate material,
@@ -621,80 +650,6 @@ profiles, while several environmental rows claimed evidence that belonged only t
 `coverage-rules.js` defines “own data” once for mechanical, thermal, print, environmental and price
 domains. The audit planner and validator both use it. A `Gap` beside data, an evidence claim without
 own records, or an incorrect procurement-manufacturer count now stops the build.
-
----
-
-# Bugs worth remembering
-
-Each is pinned by a test. They are listed because all of them produced plausible-looking wrong
-answers rather than failing.
-
-| Bug | What it did | Pinned by |
-|---|---|---|
-| Leading minus in the number pattern | Read the dash in `255-275C` as the sign of -275, which failed the plausibility window and collapsed the range to 255 | `normalize.test.js` |
-| Annealing text scraped as a chamber requirement | `Room Temp. Annealing temp. and time 100 °C/16H` wrongly excluded four printable support materials | `normalize.test.js` |
-| Silence outranking evidence in gates | Reported PEEK as "unknown" despite two profiles demanding 430 and 480 °C | `database.test.js` |
-| Excel booleans | SheetJS renders them `TRUE`/`FALSE` while the stored XML holds `1`/`0`; every price headline failed to verify | `normalize.test.js` |
-| `String.replace` with a string payload | `$&` in minified library source scattered the placeholder tag through the bundle 30 times | asserted in `bundle.js` |
-| Plotly shape coordinates on log axes | Are in log space; passing raw values put the steel reference rectangle at 10^215 | visual |
-| Policy drift | An unrecognised policy made verdict and eligibility disagree, so a shared Explore link rendered as Strict | `constraints.test.js` |
-| `text-overflow: ellipsis` on table cells | Clipped the UNKNOWN chip to a stray dot and "Not published" to "Not publis…" | visual |
-| Cross-grade estimate ranges | Turned one PolyMide datasheet into "2.223 to 2.223 GPa" | `database.test.js` |
-| Compare bar fill was a `span` | An empty inline element ignores width and height, so the lens whose entire purpose is aligned bars drew empty tracks for every material, for as long as it existed | visual |
-| Search ran over the filtered set | Setting a heat requirement and searching "PLA" returned nothing, which reads as "PLA is not in this database" | visual |
-| A second path describing a constraint | Printed `hdt045 >= 100` in the explain panel while the pill beside it read "Heat resistance at least 100 °C". Found twice more after the first fix | visual, swept per `PIPELINE.md` |
-| Degree symbols dropped in gate reasons | "Needs up to 290 C" beside every other temperature in the app written "°C" | `normalize.test.js` |
-| Substring search | "PLA" matched "thermo**pla**stic", so searching the most common filament returned every TPU and TPE | `search.test.js` |
-| Estimates absent from every chart | A quarter of the in-scope set vanished from the Ashby lens, and Compare printed "Not published" for a value the engine was actively using to exclude the material | visual |
-| Any remark treated as a relaxation | Strict measurement mode warned that it had mixed conditions, and drew comparable points hollow, because the source had not named a specimen form | visual |
-| Unmatched search diagnosed as hidden results | Searching a name the database does not hold reported "102 materials match, but you have hidden them" and offered a button that changed nothing | visual |
-| Scenario import skipped half the state | Loading a file set the requirements but not the lens, columns, baseline or estimates switch, so the screen and the file disagreed | `scenario.test.js` |
-| Invalid scenario committed before rendering | `{"constraints":null}` replaced the session and then threw | `scenario.test.js` |
-| `location.origin` on a file | Is the string "null", so every link copied from a local file was unusable | visual |
-| Compare evidence dots | Rendered by the shared value renderer and never wired, so the dot did nothing exactly where a difference needed checking | visual |
-| Chamber rows dropped at a page break | Fourteen Bambu data sheets carry a chamber window as the first row of page 2, and none was transcribed, so PC FR, PAHT-CF and every Bambu PLA and PETG reported "no chamber requirement published" | `database.test.js` |
-| A chamber window read by its upper end | ABS-CF's 50–70 °C failed the chamber criterion, though 50–65 °C is reachable | `normalize.test.js` |
-| A class envelope used for screening | Would have screened CPE out of "elongation at least 100%" though its data sheet reports 150%; found in the prototype, never shipped | `constraints.test.js` |
-| Another grade's value taken as the material's | One PLA grade at 46 MPa screened generic PLA out of "strength at least 60 MPa"; found while building D42, never shipped | `database.test.js` |
-| Hardcoded rail counts | "45 of 102 state an abrasion requirement" counted profiles, not materials; the true figure is 27 | derived from data now |
-| Bambu chemical table rows omitted | The shared “Other Physical and Chemical Properties” table disappeared for 19 exact grades, leaving 98 source-backed findings out of the database | `database.test.js`, coverage-consolidation plan |
-| Environmental evidence copied from family notes | 31 materials appeared to own another material's exposure evidence, while some exact-grade records were omitted | `database.test.js`, `validate.js` |
-| Coverage contradicted the records | Rows said `Gap` beside measured/profile data or `Evidence recorded` with no record owned by the material | `database.test.js`, `coverage-rules.js` |
-| Existence-only referential checks | A valid measurement and a valid grade could be joined under the wrong material without an error | mutation tests in `database.test.js` |
-| Estimates blind to the material's own related evidence | PA-CF strength shown as 38–204 MPa beside its own 72 MPa break strength; the table then showed the 72* and hid the estimate the filter was using | `database.test.js`, D43 |
-| A heat load lost at a line break | 22 3DXTECH values printed "at 0.45 MPa (66psi)" were recorded as load not stated, so PLA, PP, PA12-CF, PVDF and 14 more could neither pass nor fail a heat requirement | `database.test.js` |
-| A standard number read into its value | iSANMATE's "ISO 11357 80°C" became a glass transition of 1135780 °C | `database.test.js`, plausibility screen in `estimates.js` |
-| A decimal comma and a film method | iSANMATE PLA "110,3 MPa" under ASTM D882, a thin-film test, was recorded as 3 MPa for a printed part | `database.test.js` |
-| A method designation read as the value | iSANMATE PETG-GF "Vicat A/120 … 72" was recorded as 120 °C | `database.test.js` |
-| An unstated heat load read as open-ended | PLA Lite's 53 °C stayed a candidate for "heat resistance at least 100 °C": a value at an unknown load was bounded below only, though the 0.45 and 1.8 MPa values of an amorphous polymer sit within about 10 °C | `constraints.test.js`, `database.test.js` |
-| A conditioned value read as dry | The wet conversion matched the word "wet", so 84 "Conditioned: 70% RH" rows counted as dry; dry nylon stiffness was estimated about 10% low | `database.test.js` (kindOf), D53 |
-| Two tables of one data sheet given one set of conditions | PolyMide PA6-GF's dry values said "Conditioned" and its conditioned values carried the dry note; the lint's "duplicate" was the dry and the conditioned result | lint MEAS-CONDITIONS-INDISTINCT, `lint.test.js` |
-| Un-notched impacts filed as notched | Every Fiberon block prints notched, then un-notched X-Y and Z; 18 un-notched rows said Notched | m13; source audit |
-| Values printed after a separator never transcribed | Bambu's "32.0 kJ/m²; 8.2 kJ/m² (notched)" kept only the first; no Bambu melt index and many Spectrum and Fiberon heat deflections were entered | `npm run audit:sources` |
-| A bound treated as an exact value | "> 16.5 MPa" pinned PEBA's strength estimate to 16.4–16.6 MPa; excluding bounds instead dropped OBC's elongation from 868% to 38% | `database.test.js`, D53 |
-| A lightweight grade pulling its family | HyperLite PP's 0.81 g/cc was a model outlier and lifted nothing but noise into polypropylene | `database.test.js` (grade variant), D53 |
-| HDT load spellings missed | "1.81 MN/m²", "1.820 MPa", "ISO 75-2, HDT A" and "0,45 MPa" read as load not stated | `normalize.test.js`, D49 |
-| Moulded values filed as printed | Spectrum PPS AM230 and PEBA values marked "*injection moulding" entered the model as printed specimens | m14; source audit |
-| A single bracket gap for every matrix | The unstated-load bracket's top missed 4 of 54 true values, all semicrystalline | screening back-test, D48 |
-| Number-only completeness scan | Values printed "ISO 527 MPa 48" or "Specific Gravity 1.22" were invisible; iSANMATE CF-ABS had one of its eight values | label pass in `audit:sources` |
-| A resin reference vetoing a screen | Zytel 101L's moulded 3.1 GPa kept PA66, estimated at 1.5–2.6 GPa, among candidates for "stiffness at least 3 GPa" | `database.test.js` |
-| One data sheet under two or three materials | PolyMide CoPA's numbers shown for PA, PA6/66 and CoPA; PA-CF's headline was PA12-CF's; PLA Silk and CoPE shared one formulation key, so the estimate model read CoPE's evidence as PLA Silk's product | `database.test.js`, D44 |
-| Heat-deflection physics learned backwards | With too few unfilled nylons, the model's melting-point slope fitted negative and put PA66 at 15–91 °C; found in development, never shipped | `database.test.js` |
-| Z results coded as unknown direction | 18 IPCON rows printed "Z" taught the unknown-direction conversions offsets of +0.31 to +0.46; PA6 strength was estimated 88 MPa beside its sheet's 78 | m20, lint MEAS-LOCATOR-DIRECTION, offset cap (D56) |
-| Annealed and as-printed values averaged as repeats | PET-GF15's 81.6 and 133.7 °C became one precise 107.65 °C, an outlier warning and a conflict | `database.test.js`, post-processing State (D56) |
-| An annealed value as the headline | PPA's heat headline was the "(annealed)" 131 °C; the as-printed 103 °C was never entered, so PPA passed Strict for 104–131 °C | m20, m21, HEADLINE-SELECTION-INVALID |
-| A film strength as a lower bound | iSANMATE's ASTM D882 film values (110, 145 MPa) kept PLA a candidate for strength at least 140 MPa | `database.test.js` (implied bounds), D55 |
-| Value + SD as a lower bound | 30 ± 23 % read as "at least 53 %"; an unstated moulded-looking 125 MPa kept PA12-CF in searches for 95 MPa | `database.test.js`, D55 |
-| A physically impossible value deciding a requirement | TPU for AMS's 1.19 GPa on a 68D elastomer passed Strict for rigid-part stiffness; PC's HDT at 0.45 MPa sat below its HDT at 1.8 MPa | m24, lint MEAS-PHYSICS-*, D55 |
-| A heat deflection estimated for an elastomer | TPU's 74 °C, from a 26 MPa sheet, gave an estimate of 70–85 °C that could screen | `database.test.js`, D56 |
-| Slow crystallisers treated as crystallised | PET's heat deflection estimate reached 132 °C beside its own Vicat of 65.9 °C | `database.test.js` (printing physics), D56 |
-| A material's only evidence down-weighted | PP's own 0.39 GPa and 460 % gave way to PP-CF, PP-GF and two variants: 1.5–4.5 GPa | `database.test.js`, D56 |
-| A mean ± spread read as hard limits | "35 ± 4 MPa" never passed 33 MPa; 128 of 362 headlines decided nothing near their own value | `constraints.test.js`, D54 |
-| Display rounding across a threshold | PC's price of 50.99 read "51" while passing "price < 51"; 300 contradictions in 174,159 checks | `format.test.js`, UI fuzz |
-| An assumption read as published | A scenario assumption's reason said "Published" and its point could lead the Pareto front; a `*` assumption gave an elastomer a passing heat deflection | `scenario.test.js`, UI fuzz |
-| A Plotly listener per redraw | 800 chart renders held 1,408 resize listeners and 569 MB; the first fix, purging, raced Plotly's redraw and threw in 187 of 200 fuzz scenarios | UI fuzz, heap probe |
-| Replacing a headline refused as a deletion | The no-deletion guard keyed headline rows on every column, so the AGENTS.md recipe "replace the old value row" failed the pre-commit hook | `data-check.test.js` (identity, replacedWithin) |
-| Unreviewed build warnings | Outliers, wide estimates and unstated loads were summed into warnings, so a new one never failed verify | `lint.test.js`, `audit:data` (D57) |
 
 ## D40. Peer observations are context, not exclusion bounds (superseded by D42, then D43)
 
@@ -762,7 +717,7 @@ the elastomers. The user chose screening, the evidence rungs and the 95% level w
 ## D43. An estimate is a calibrated model of every observation, and says how far to trust it
 
 > **In plain words:** Missing values are estimated by one statistical model per property, checked against known values it had hidden, labelled with how far to trust them, and never allowed to pass a material.
-> **Status:** amended by D48 (which estimates may rule a material out) and D83 (a material is estimated only where none of its products publishes the value).
+> **Status:** amended by D48 (which estimates may rule a material out), D83 (a material is estimated only where none of its products publishes the value) and D87 (a family's "polymer not stated" home is not estimated).
 
 D42 was honest and too wide to use: PA-CF strength 38–204 MPa beside its own 72 MPa break strength,
 TPE elongation 73–4695%, and nothing at all for PA66, PA612 or POM. It had two blind spots. It used
@@ -820,6 +775,15 @@ Reversing any part brings back a failure seen in this snapshot: exact-semantics-
 38–204 MPa; no shared structure lets PA66-CF sit below PA66; learned physics slopes reverse; no
 calibration makes every width a guess; hard caps collapse ranges to a point.
 
+*Amended by D83 (phase 4, m137, 2026-09-25) and D87 (2026-09-25):* a material is estimated only where none of its
+products publishes a comparable value, and "nothing left blank" holds for the five headlines the model estimates
+(density, stiffness, strength, elongation and heat deflection) on a material that names an Estimate identity
+(HEADLINE-BLANK). The layer strength, the impact strengths and the glass transition are not estimated (D92, D94), and
+a family's "polymer not stated" home is not estimated at all: what none of its products publishes is not published
+(HEADLINE-UNESTIMATED, at info). Since D44 no product is filed under two materials, so the CarbonX case cannot arise.
+The resin sheets that anchor PA66, PA612 and POM are grades of Role `reference` (m04), and no material's value comes
+from one (D37).
+
 ## D44. Each product has one home; a family is an entry, not a material
 
 > **In plain words:** Each product is recorded once, under the most specific material it is; a family name such as PA or TPE only leads to its members.
@@ -843,7 +807,7 @@ agreeing with itself. See [the duplicate-products audit](audits/2026-09-13-dupli
 ## D45. The source of truth is CSV tables under a declared schema
 
 > **In plain words:** All data is edited in CSV tables checked against a declared schema; the Excel workbooks were retired.
-> **Status:** in force; narrowed by D72 (a record may leave through the removal ledger), and its open question on SQLite answered by D75.
+> **Status:** in force; narrowed by D72 (the pre-commit hook's refusal of a removed record admits one the build now derives, through the removal ledger), and its open question on SQLite answered by D75.
 
 The workbook had become hard to govern, not too big. Git saw each audited change as a binary blob, so
 a 25-cell correction needed a 70,000-line evidence package to be reviewable. Relationships were
@@ -857,6 +821,11 @@ references, including identifiers inside lists and prose. `build/src/schema.js` 
 compile in about 200 ms and names the file, line, record and field. Files are kept in one canonical
 form, so a diff shows only what changed, and `data/manifest.json` makes every row-count change
 visible in its commit. `npm run verify` is the one gate for people, agents, the pre-commit hook and CI.
+
+*Corrected on 2026-09-27:* the pre-commit hook never ran `verify`. It runs the data gate alone, when a commit touches
+`data/` or `schema/`: canonical form, the schema and its references, and no removed record (the rule D72 narrows).
+`npm run verify` is the gate before a commit and in CI, and since 2026-09-15 `npm run verify:fast` is the tier for
+work in progress.
 
 No database sits in the build path. SQLite was the assessment's recommendation; for one person and
 two agents editing a few thousand rows, a schema over text files gives the same integrity checks
@@ -875,6 +844,7 @@ names a sheet row rather than a field.
 ## D46. A property is a registry row, and may apply to some filaments only
 
 > **In plain words:** What each property means, its units and which filaments it applies to are rows in a table, so adding one needs no code.
+> **Status:** in force; amended by D83, D92 and D94: a new selectable headline is a row alone, each product's value is chosen by rule, and what a value must be (direction, load, notch, test temperature, standard) is a column of the row.
 
 A property's meaning was hardcoded in about a dozen places across the build and the app, differently:
 the drawer's Mechanical tab and the coverage rules disagreed about five properties, and the Overview
@@ -885,6 +855,10 @@ property meant 12 to 16 coordinated edits.
 headline means, and the build and the interface derive their lists from them. A new property is a row;
 a new selectable headline is a row plus its selections. `test/new-property.test.js` adds an
 elastomer-only Shore A hardness with data alone and follows it to every view.
+
+*Amended by D83 (2026-09-25), D92 (2026-09-26) and D94 (2026-09-27):* a new selectable headline is a row alone.
+Nothing selects its values: the build chooses each product's value by rule, and what a value must be is a column of
+the row (its direction and what an unstated one is, its load, notch and test temperature, D92, and its standard, D94).
 
 "Applies to" makes sparsity a statement. Outside it a property is not applicable, with a reason, not
 missing: the drawer does not report it unmeasured, the filter rail counts availability only against
@@ -899,7 +873,7 @@ not.
 ## D47. What can be calculated is not stored
 
 > **In plain words:** Anything the build can compute from the records (medians, per-kg prices, grade lists) is computed, never stored beside them.
-> **Status:** in force; extended by D70 and D74.
+> **Status:** in force; extended by D70 and D74, and amended by D83: a product's value is chosen by rule, and headlines.csv only pins one.
 
 The workbook stored conclusions beside the evidence for them and then checked they agreed: headline
 values beside their measurements, price medians beside their observations, per-kg prices beside list
@@ -917,11 +891,16 @@ Two compiled values moved, and both are listed in the migration record. PAHT-CF'
 (the median 124.485 rounded half up, where the typed 124.48 was a floating-point display). Two materials
 list the same environmental records in table order rather than typed order.
 
+*Amended by D83 (phase 4, m137, 2026-09-25):* which measurement a headline shows is no longer stored either. The build
+chooses each product's value by rule, and `headlines.csv` holds a pin, with a reason, only where the rule chooses
+wrongly; it holds none. The 477 selections and the 16 context rows, the four materials' among them, are archived in
+`docs/audits/2026-09-25-re-center/retired-representative-picks.csv`.
+
 
 ## D48. Evidence screens only where a back-test shows it screens reliably
 
 > **In plain words:** An estimate may rule a material out only where hiding known values shows that kind of estimate to be reliable.
-> **Status:** amended by D55, D59 and D83.
+> **Status:** amended by D55, D58 (the back-test moved to `build/src/estimate/`, and the implied bounds to headline_definitions.csv), D59 and D83.
 
 D42 and D43 decided by rule which estimates may screen: the material's own evidence, or an identity
 measured on at least two products. The rule was a judgement, and the leak sweep of the 2026-09-14
@@ -989,8 +968,12 @@ never pass, and Strict still neither shows nor uses them (D43).
 
 *Amended by D55 (2026-09-15):* an implied bound comes only from a printed specimen at its published value, never
 from a film, filament, moulded or unstated specimen, value + SD, an annealed twin or a conditioned elongation, and it
-also limits the estimate's own range. The certification table above is the 2026-09-14 snapshot; the build records
-the current one in `meta.estimateModel.properties.*.screening`.
+also limits the estimate's own range. The certification table above is the one measured on 2026-09-15; the build
+records the current one in `meta.estimateModel.properties.*.screening`.
+
+*Amended by D58 (2026-09-15):* the estimates became a stage of their own. The back-test is in
+`build/src/estimate/screening.js` (`build/src/estimates.js` is gone), and which measurements imply a bound is
+`headline_definitions.csv` Lower bound properties (m27), no longer `estimate-model.json impliedBounds`.
 
 *Amended by D59 (2026-09-15):* a class is no longer certified by failing to disprove it. Each end of its screening
 range is a distribution-free tolerance limit of honest hold-outs (at most 10% beyond it, with 90% confidence; 22 cases
@@ -1058,6 +1041,7 @@ Reversing it brings back message-matching tests, and warnings nobody can tell ap
 ## D51. Hand-maintained mappings are keyed by ID and checked at the gate; so are names the code relies on
 
 > **In plain words:** Hand-kept lookup tables use record identifiers, not names, so renaming something cannot silently break them.
+> **Status:** in force; amended by D60: the estimate model's configuration names no material, grade or polymer any more, so EST-MODEL-REFERENCE is retired.
 
 Three mappings were JSON keyed by material name: family entries and their members, chamber bands, and the
 environment topic vocabulary. A renamed material broke them, and only the build noticed, by a name.
@@ -1072,6 +1056,10 @@ Some code is about a specific property by name (HDT's load, the strength endpoin
 such name is declared in `build/src/property-references.js`; the build fails if one is not a registered property
 (REGISTRY-CODE-REFERENCE), a test fails if code uses a registered name not declared there, and every material, grade
 and property the estimate model names is checked the same way (EST-MODEL-REFERENCE).
+
+*Amended by D60 (m28, m29, 2026-09-15):* the polymer identities, variant classes and Shore hardnesses the
+configuration held are tables and measurements now, which the schema gate checks. The configuration names no material,
+grade or polymer (`test/references.test.js`), and EST-MODEL-REFERENCE is retired; REGISTRY-CODE-REFERENCE stands.
 
 Reversing it makes a rename a silent break.
 
@@ -1108,7 +1096,7 @@ Reversing it lets a transcription error that looks like data stand, and makes a 
 ## D53. The estimate model reads declared states, not wording; and every change shows its downstream effect
 
 > **In plain words:** Estimates read declared states (dry, conditioned, a declared variant) rather than wording, and every change commits a snapshot of what it did.
-> **Status:** amended by D68: the state is a column on the row, not an entry of the vocabulary.
+> **Status:** amended by D68 (the state is a column on the row, not an entry of the vocabulary), D73 (EST-WIDE asks only whether the model ignored a value the material publishes; a merely wide estimate is EST-THIN, informational) and D83 (the representative grade retired, and a variant is counted apart from its material's spread).
 
 **Moisture.** A value was converted from wet to dry only if its moisture label contained "wet", so 84 rows labelled
 "Conditioned: 70% RH", nylons among them, were read as dry. Each Moisture condition value now declares its State
@@ -1142,6 +1130,11 @@ path.
 Reversing any part brings back a failure seen in this snapshot: wet nylon read as dry, a lightweight PP pulling
 polypropylene's density, PEBA's strength pinned to its bound, or a change whose effect nobody saw until a user did.
 
+*Amended by D73 (2026-09-17) and D83 (phase 4, m137, 2026-09-25):* an estimate that is wide because its material
+publishes nothing is EST-THIN, informational, and EST-WIDE fires only on an imprecise estimate for a headline one of
+the material's products publishes a usable value for. The representative grade retired, so no variant can be one: a
+declared variant's values are its own product's, counted apart from its material's spread.
+
 ## D54. A published mean ± band is judged on its mean; the band flags a result close to the limit
 
 > **In plain words:** A value published as "35 ± 4 MPa" is judged as 35; the band only marks a result close to the limit.
@@ -1163,7 +1156,7 @@ rounds a pass into a visible failure.
 ## D55. A value physics rules out is kept, flagged and decides nothing; only a printed part bounds a printed headline
 
 > **In plain words:** A published number physics rules out is kept and flagged, and decides nothing; only a printed part's value can set a lower bound.
-> **Status:** in force; extended by D82.
+> **Status:** in force; extended by D82, and amended by D83: nothing selects a headline now, and a flagged value is no product's value (a pin on one stops the build).
 
 Some sheets publish what cannot be: PC's HDT at 0.45 MPa below its HDT at 1.8 MPa, a 1.19 GPa modulus on a 68D
 elastomer that stretches 650 %, a PA12 glass transition of 158 °C, an HDT on a 26 MPa TPU. They are faithful
@@ -1184,10 +1177,18 @@ the material's own estimate: no plausible range reaches below a value its own pr
 Reversing it lets a sheet's impossible number decide a requirement, and a stronger specimen than a printed part keep
 a material in searches its printed parts fail.
 
+*Amended by D83 (phase 4, m137, 2026-09-25):* no headline selects a measurement any more. The rule that chooses each
+product's value passes over a flagged one, and a pin on one in `headlines.csv` stops the build
+(HEADLINE-SELECTION-INVALID); a material's estimate still rests on the evidence that remains.
+
 ## D56. The estimate model follows printing physics: crystallisation, water uptake, mixing, and what an elastomer cannot have
 
 > **In plain words:** Estimates follow printing physics: slow-crystallising plastics, water in nylons, filler density, and what an elastomer cannot have.
-> **Status:** amended by D68 (states are columns on the row) and D83 (heat deflection does not apply to an elastomer).
+> **Status:** amended by D60 (how a polymer solidifies in a print, its water uptake and its neat density are columns of polymers.csv), D68 (states are columns on the row) and D83 (heat deflection does not apply to an elastomer).
+
+*Amended by D60 (m28, 2026-09-15):* the per-polymer facts below (which polymers print amorphous, how much water each
+takes up, its neat density range) are columns of `data/tables/polymers.csv`, no longer entries of `estimate-model.json`.
+The conversions, offsets and limits stay configuration.
 
 *Amended by D83 (phase 4, 2026-09-25):* heat deflection of an elastomer is not applicable by its headline definition
 (`headline_definitions.csv` Applies to, on the polymer's Morphology), for its products as for its estimate. A value an
@@ -1227,6 +1228,7 @@ any item brings back a failure seen in this snapshot.
 ## D57. Identity is a record's job: compounds are declared, a replaced name keeps its record, and every build finding is reviewed
 
 > **In plain words:** Unusual products are declared in the data, a replaced property name keeps its record, and every build warning is reviewed.
+> **Status:** in force; amended by D73 (an estimate wide for want of data is EST-THIN, not reviewed) and D83 (the representative grade retired, and the unstated-load finding with the bracket).
 
 - **Compounds and variants.** HyperLite PP is its own material, PP Lightweight, as PLA Aero is (m25); PP describes
   iSANMATE PP. Spectrum PA6 Neat (1.25 g/cm³) is declared an undisclosed dense filler, as Spectrum HDPE is, and both
@@ -1245,6 +1247,13 @@ any item brings back a failure seen in this snapshot.
 
 Reversing any of these lets a lightweight or filled product speak for its polymer, a duplicate property name split
 evidence, a new outlier reach the page unreviewed, or an interface defect pass every unit test.
+
+*Amended since it was written:* `npm run verify` runs 300 scenarios since the fast tier split from it (2026-09-15), and
+CI runs 2,000 on a new seed every night (`npm run ui:fuzz:full`). Since D73 (2026-09-17) and m137 (D83, 2026-09-25)
+the findings reviewed per record are the outliers, the imprecise estimates beside a usable published value, the
+family-order breaks and the materials with no measurements; the unstated loads went with the bracket. The
+representative grade retired in m137 too, so PC-GF is the spread of its products, BASF's printed, dry data set among
+them.
 
 ## D58. Estimates are an overlay on a complete core, and grow by data, not by special cases
 
@@ -1275,6 +1284,7 @@ can switch off to check.
 ## D59. A screen rests on an end the back-test has shown, one end at a time, never against the material's own evidence
 
 > **In plain words:** An estimate may rule a material out only on a side of its range that testing has shown to be reliable, and never against the material's own data.
+> **Status:** in force; amended by D83 (m137): the unstated-load bracket is gone, and the back-test hides each material's typical product's value.
 
 The owner kept screening and asked that its weaknesses be resolved (2026-09-15). D48's back-test certified an evidence
 class unless it could *disprove* it: over at least 20 hidden headlines, neither side missed significantly more than
@@ -1331,6 +1341,10 @@ term, so PA12's own 94.7 °C read as "about 108 °C as this headline".
 
 Reversing it lets a thin class screen on the strength of a test that cannot fail it, lets a material's own data sheet be
 overruled by its family, and lets calibration grade itself on values it has seen.
+
+*Amended by D83 (phase 4, m137, 2026-09-25):* the unstated-load bracket is gone, with its top and its bottom above: a
+heat deflection whose load the sheet leaves unstated is its product's value as published and is counted apart (D84).
+The hold-outs hide each material's typical product's value, where they hid its representative grade's headline.
 
 ## D60. What the estimate model knows about a polymer, a variant or a product's hardness is data, in tables
 
@@ -1533,6 +1547,7 @@ evidence, and the evidence is not about this grade.
 ## D65. A test method that defines its load states that load; the typed value says so in Parse review
 
 > **In plain words:** A heat deflection labelled Method A or Method B has the load those standards define, recorded with the reason.
+> **Status:** in force; amended by D83 and D84 (m137): a heat deflection with no stated load is its product's value as published, and HDT-LOAD-UNSTATED is gone.
 
 Two Siraya Tech sheets print heat deflection as `93 ℃ / 97 ℃ Method A/B` and `73.5 ℃ / 81 ℃ Method A/B`, naming the
 method and never the load. Read literally, neither row carries a load, and `hdt045` cannot use a value whose load is
@@ -1562,6 +1577,11 @@ Reversing it would throw away a load the source does state, in the one class the
 `hdt045` would lose the cases these rows carry, and a reader would be told the load is unknown when the sheet named
 the test that fixes it. Extending it — typing a load from a bare standard, or from a temperature that looks like a
 0.45 MPa result — would be the real error, and is what the "method must be named" clause forbids.
+
+*Amended by D83 and D84 (phase 4, m137, 2026-09-25):* HDT-LOAD-UNSTATED is gone with the unstated-load bracket. A
+heat deflection whose sheet names no load, or a standard without its method, is its product's value as published:
+shown, counted apart, and deciding only where a scenario admits such values. The rule above still types a named
+method's load, so a Method B value is its product's comparable value at 0.45 MPa.
 
 ## D66. A templated safety data sheet is evidence only where it speaks about the product
 
@@ -1651,7 +1671,8 @@ their headers.
 - **A new wording is data.** Adding a measurement whose sheet phrases its annealing differently is now a row, not a
   vocabulary entry and a second declaration of a state that is already in the row.
 - **Specimen type keeps its vocabulary.** Its ten wordings are the database's own, not a publisher's, so declaring
-  the Form there still makes a new one a deliberate act.
+  the Form there still makes a new one a deliberate act. *(Eleven since D95 added "Printed off the product's recipe",
+  2026-09-27.)*
 
 Reversing it brings back a build that stops on a sentence, and the pressure that creates to reuse a wording that is
 close enough rather than record what the sheet says.
@@ -1671,7 +1692,7 @@ overhangs could not see it, and a curator had no reason to record any more of it
 - **A note is a row.** `profile_notes.csv` holds one per profile and topic, the shape used everywhere else here
   (`headlines.csv`, `material_links.csv`, `fatigue_tests.csv`). A topic a source says nothing about has no row.
 - **The topic is a vocabulary.** `schema/vocab/profile-topics.csv` names the eleven. A new one is a row there and
-  the notes that use it; it was a column on every profile and a schema change.
+  the notes that use it; it was a column on every profile and a schema change. *(Fourteen topics on 2026-09-27.)*
 - **The notes are shown.** The Printing tab renders each profile's notes under its typed fields, so all 363 reach
   the reader. That is the point of recording them.
 - **An empty column is not a fact.** The three that were never once filled are gone. If a source ever publishes a
@@ -1716,8 +1737,8 @@ four are exactly the four materials with `fatigue_tests.csv` rows. The ten print
 One sentence was lost text rather than a constant: M077, Support for PLA, said "mechanical values not published".
 That is true and specific, so it moved to its Identity notes, which the drawer shows as "About this entry".
 
-`materials.csv` is 16 columns. Reversing this brings back a table where a reader cannot tell which cells are facts
-about the material and which are the same sentence 103 times.
+`materials.csv` is 16 columns *(15 since m137 dropped Representative grade)*. Reversing this brings back a table
+where a reader cannot tell which cells are facts about the material and which are the same sentence 103 times.
 
 ## D71. How a source was classed and how it was reached are states, not sentences
 
@@ -1775,6 +1796,7 @@ record of what was removed or why.
 ## D73. A reviewed fact belongs in the row, and "not enough data" is not a defect to review
 
 > **In plain words:** A reviewer's conclusion is written into the data row, and an estimate that is wide only because data is thin is reported, not reviewed.
+> **Status:** in force; amended by D83: EST-WIDE reads a usable value of any of the material's products, not of its representative grade.
 
 Two checks had been answered by suppression rather than by the data, and both suppressions were hiding the check.
 
@@ -1796,7 +1818,9 @@ would matter had nowhere to fire.
 - **EST-WIDE now asks whether the model ignored evidence it has**: an imprecise estimate for a headline the
   material's own representative grade publishes a usable value for, which would mean the value should have been the
   headline, or the model should have used it. It is reviewed, and it fires on nothing in this snapshot. That is the
-  point: a build that raises it again has found something.
+  point: a build that raises it again has found something. *(Since D83, m137, 2026-09-25: a usable value any of the
+  material's products publishes, its declared variants apart unless it has only those; it fires on nothing on
+  2026-09-27 either.)*
 - **EST-THIN reports the rest**, at level info, with its records. Nobody accepts it, and a new one is not noise.
 
 Thirteen acceptances of each retired. `build/snapshot/warnings.csv` lost thirteen rows.
@@ -1839,7 +1863,8 @@ None was a judgement about a particular material. Each asserted that the materia
 
 The 541 rows left through the removal ledger (D72) into
 [audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md), which holds them verbatim with their
-IDs. `coverage.csv` is 673 rows, and every one of them says something a reader could not work out.
+IDs. `coverage.csv` is 673 rows *(866 on 2026-09-27)*, and every one of them says something a reader could not work
+out.
 
 Reversing it brings back a table where the eight sentences nobody wrote for a material outnumber the findings
 somebody did.
@@ -1886,6 +1911,7 @@ Reversing it brings back the one-off script, and the temptation to read a column
 ## D76. The standards a measurement names are a typed list, and a fragment is not a standard
 
 > **In plain words:** The standards a measurement names are a checked list beside the source's wording, and a garbled fragment is never read as a standard.
+> **Status:** in force; the fragment rows it counted were re-read, the last by m101 (2026-09-21), but for twenty whose sheets print the fragment themselves (OPEN-PROBLEMS §1).
 
 `Standard / load` is the source's own words, and by this snapshot it held 301 spellings for a few dozen tests:
 "ISO 527, GB/T 1040", "ISO527,GB/T1040", "ISO 527-2/50", "ISO 527 (testing speed 5 mm/min)", "D 638". Nothing could
@@ -1909,6 +1935,8 @@ typed thing ever taken out of it was the HDT load (D49), and that took a parser 
   source and correct the raw text (D35), not to infer a standard from the property. They are listed in
   [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) and in
   [audits/2026-09-17-model-freeze/](audits/2026-09-17-model-freeze/README.md), with what the cached sheets show.
+  *(Closed on 2026-09-21 by m101, after sheets re-read in between had brought the 133 down; each row now holds the
+  method its sheet prints, the twenty left print the fragment themselves, and OPEN-PROBLEMS §1 lists them.)*
 
 Guessing would have been easy and would have looked like an improvement: every one of those rows has a property
 whose usual standard is obvious. A standard nobody read off the sheet is exactly the kind of value this database
@@ -2046,7 +2074,7 @@ block. `npm run scale` still has something to say, which is the point of keeping
 ## D80. A grade's declared load is a fill class of its own, and the grade declares it before the material does
 
 > **In plain words:** A product declared heavily filled (metal-filled, foamed) is checked against the physical limits of that kind of filler, and the product's declaration comes before its material's.
-> **Status:** in force; extended by D82.
+> **Status:** in force; extended by D82, and by R095: a powder load the maker names is the grade Variant "declared dense filler", judged by the same dense windows, not a modifier ruling.
 
 D57 and R078 say what to do with a filament denser than its named polymer can reach: keep it under that polymer
 and declare the load as a grade `Variant`, so its values stay its own and a bronze-filled PLA cannot pull ordinary
@@ -2093,13 +2121,20 @@ What this does not do is name the filler. A maker who declares the load in words
 — has named a filler `schema/vocab/modifiers.csv` has no value for, and that is a ruling and a modifier value, as
 graphene and natural fibre were (R080). `dense` is for the load a maker declares and does not name.
 
+*Extended by R095 (2026-09-21), the same day:* a powder load the maker names is not a modifier value either. It is the
+grade Variant "declared dense filler", with the sheet's words for the load in Composition / filler, and `fillOf` reads
+it as `dense`, as it reads "undisclosed dense filler". m161 (2026-09-25) applied it to Spectrum's three PLA Metal
+grades.
+
 ## D81. Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing
 
 > **In plain words:** Each product gets its own estimate from the same model, shown for information and deciding nothing.
-> **Status:** amended by D83: only a product without a comparable value of its own gets one.
+> **Status:** amended by D83: only a product without a comparable value of its own gets one, and with the representative grade gone every grade takes the bounds its own sheets publish.
 
 *Amended by D83 (phase 4, 2026-09-25):* a grade estimate is attached only to a product without a comparable value of
-its own; beside its own value it said less than the value and read as a second answer.
+its own; beside its own value it said less than the value and read as a second answer. The representative grade
+retired with m137, so no grade takes the material's bounds: every grade takes the physical limits and the bounds its
+own sheets publish (`build/src/estimate/grades.js`).
 
 *Asked for by the owner on 2026-09-21: "hierarchical: polymer group, material, grade, all measurements".*
 
@@ -2195,13 +2230,13 @@ which products are that; so does this now.
   nearest the median; values published without direction or load, and variants, are counted apart. It is the spread
   of different products, never uncertainty about one, and it is labelled that way: PEBA's 7.5, 25 and 30 MPa are three
   products, which is what D8 feared a range would hide.
-- **A verdict is judged product by product** (`app/js/engine/products.js`, `evaluateProducts`): each product is
-  judged on every requirement at once, through a view of the material with that product's values and its own print
-  recipe, so D37's concern (a property set for a formulation that does not exist) cannot reach a verdict. A material
-  passes when one product passes, and says whether all the products that could be judged pass or only some; it fails
-  when none passes and one fails; it is unknown when none could be judged. A product with no data is counted as
-  untested and does not count against its material. Print gates are the product's own: a product with no profile is
-  unknown on them, never a pass.
+- **A verdict is judged product by product** (the product view in `app/js/engine/products.js`, `evaluateProducts` in
+  `app/js/engine/constraints.js`): each product is judged on every requirement at once, through a view of the material
+  with that product's values and its own print recipe, so D37's concern (a property set for a formulation that does
+  not exist) cannot reach a verdict. A material passes when one product passes, and says whether all the products that
+  could be judged pass or only some; it fails when none passes and one fails; it is unknown when none could be judged.
+  A product with no data is counted as untested and does not count against its material. Print gates are the
+  product's own: a product with no profile is unknown on them, never a pass.
 - **The material's estimate stands in only where no product publishes a comparable value**, which is the case it was
   calibrated for (D43). A silent product beside siblings that publish is untested, not estimated.
 - **Performance indices are computed per product** and a material ranks by the median over its passing products,
@@ -2241,13 +2276,17 @@ TPU-CF gained a second reason.
 ## D84. Two evidence levels: comparable decides; a value published without its direction or load is counted apart
 
 > **In plain words:** Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked.
-> **Status:** amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature).
+> **Status:** amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it) and D95 (a bar printed off the product's recipe is no product value).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md). Built in re-center phases 1 and 2.*
 
 *Amended by D92 (2026-09-26): a headline says what a value with no stated direction is to it. For the XY headlines it
 stays as published; for the layer strength, along Z, it is no value at all. And a headline may set a notch and a test
 temperature, which a value must meet as it meets the direction and the load.*
+
+*Amended by D94 and D95 (2026-09-27): a headline may name its test standard, and a value whose standards name others
+and not this one is no value of it (notched Izod, ISO 180); and a bar a sheet prints at a setting the product is not
+meant for (Specimen type "Printed off the product's recipe") is no product value at either level.*
 
 A value is **comparable** when it is what the headline says: a printed or unstated specimen, the headline's direction,
 dry or unstated, at the headline's load. It is **as published** when the source leaves the direction or the test load
@@ -2569,7 +2608,7 @@ saying the guide's tick needs more than 65 °C for a type.
 ## D91. A tensile value labelled only by a ±45° raster is an XY value
 
 > **In plain words:** A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart.
-> **Status:** in force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone.
+> **Status:** in force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone; extended by m199 (2026-09-27): the ±45° tab's "Ultimate strength" is each of twelve Nanovia products' XY tensile strength.
 
 *Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 4); supersedes, for
 such values, the reading m33 gave Essentium's "45/45" and m155 gave Nanovia's ±45° tabs. Built in m168.*
@@ -2596,7 +2635,8 @@ owner chose to count them.
   page prints a ±45° tab the database lacked, its modulus and its strain at the ultimate strength are added as XY, read
   from the page's hash-checked bytes (20 values on 12 pages); the 0° rows stay recorded with their raster stated, and
   the 90° tabs stay in the record tier. PETG's page repeats the 0° sentence under all three tabs and is left, as m155
-  left it. The "Ultimate strength" each tab prints was never read on any tab and waits (OPEN-PROBLEMS §15).
+  left it. The "Ultimate strength" each tab prints was never read on any tab and waits (OPEN-PROBLEMS §15). *(m199,
+  2026-09-27, read the ±45° tab's: see the end of this entry.)*
 - **What the sheets that print both show.** Essentium's carbon-fibre PPS-CF: the 45/45 bar reaches 71 % of the XY bar's
   strength and 61 % of its stiffness. Nanovia's ±45° moduli run from 66 % (PETG-GF) to 117 % (PLA EF) of their 0° ones.
   DSM's elastomer prints the same modulus for both rasters. A ±45° value is a flat bar's value, not the stiffest a
@@ -2671,7 +2711,7 @@ estimated: the estimate model has no conversion for them, and a registry row can
   J/m, an unnotched bar or an in-plane strength is another quantity, and an XY strength in a Z column would read as a
   bound it is not. A headline with no direction never gives a direction as the reason a value is not compared (HDT's
   M066 now says "measured at 1.8 MPa"), and a row recorded with direction Not applicable is, to a headline with a
-  direction, a direction not stated (PC-ESD's modulus, M049).
+  direction, a direction not stated (Spectrum PA6 Neat's modulus on PA6, M049, V002078).
 - **A value at or below zero** has no logarithm, and the glass transition is the first headline with such values (an
   elastomer's is below 0 °C). On a Log axis the chart leaves off a candidate whose value or estimated range reaches
   one, counts it apart from the plotted, and says so; the rendered-page check models it (`ui-fuzz`, I4-log-count).
@@ -2796,3 +2836,77 @@ foamed, where it was "not published". Across the six templates PET-LW goes from 
 structure, High-stiffness fixture, Outdoor structural part and Flexible component (Explore, with and without estimates;
 `build/snapshot/templates.csv`). Reversing it either leaves the product's values unread, or lets a PET printed as an
 ordinary PET stand for a foamed one, which is the lighter, weaker part the product exists to make.
+
+---
+
+# Bugs worth remembering
+
+Each is pinned by a test. They are listed because all of them produced plausible-looking wrong
+answers rather than failing.
+
+| Bug | What it did | Pinned by |
+|---|---|---|
+| Leading minus in the number pattern | Read the dash in `255-275C` as the sign of -275, which failed the plausibility window and collapsed the range to 255 | `normalize.test.js` |
+| Annealing text scraped as a chamber requirement | `Room Temp. Annealing temp. and time 100 °C/16H` wrongly excluded four printable support materials | `normalize.test.js` |
+| Silence outranking evidence in gates | Reported PEEK as "unknown" despite two profiles demanding 430 and 480 °C | `database.test.js` |
+| Excel booleans | SheetJS renders them `TRUE`/`FALSE` while the stored XML holds `1`/`0`; every price headline failed to verify | `normalize.test.js` |
+| `String.replace` with a string payload | `$&` in minified library source scattered the placeholder tag through the bundle 30 times | asserted in `bundle.js` |
+| Plotly shape coordinates on log axes | Are in log space; passing raw values put the steel reference rectangle at 10^215 | visual |
+| Policy drift | An unrecognised policy made verdict and eligibility disagree, so a shared Explore link rendered as Strict | `constraints.test.js` |
+| `text-overflow: ellipsis` on table cells | Clipped the UNKNOWN chip to a stray dot and "Not published" to "Not publis…" | visual |
+| Cross-grade estimate ranges | Turned one PolyMide datasheet into "2.223 to 2.223 GPa" | `database.test.js` |
+| Compare bar fill was a `span` | An empty inline element ignores width and height, so the lens whose entire purpose is aligned bars drew empty tracks for every material, for as long as it existed | visual |
+| Search ran over the filtered set | Setting a heat requirement and searching "PLA" returned nothing, which reads as "PLA is not in this database" | visual |
+| A second path describing a constraint | Printed `hdt045 >= 100` in the explain panel while the pill beside it read "Heat resistance at least 100 °C". Found twice more after the first fix | visual, swept per `ARCHITECTURE.md` |
+| Degree symbols dropped in gate reasons | "Needs up to 290 C" beside every other temperature in the app written "°C" | `normalize.test.js` |
+| Substring search | "PLA" matched "thermo**pla**stic", so searching the most common filament returned every TPU and TPE | `search.test.js` |
+| Estimates absent from every chart | A quarter of the in-scope set vanished from the Ashby lens, and Compare printed "Not published" for a value the engine was actively using to exclude the material | visual |
+| Any remark treated as a relaxation | Strict measurement mode warned that it had mixed conditions, and drew comparable points hollow, because the source had not named a specimen form | visual |
+| Unmatched search diagnosed as hidden results | Searching a name the database does not hold reported "102 materials match, but you have hidden them" and offered a button that changed nothing | visual |
+| Scenario import skipped half the state | Loading a file set the requirements but not the lens, columns, baseline or estimates switch, so the screen and the file disagreed | `scenario.test.js` |
+| Invalid scenario committed before rendering | `{"constraints":null}` replaced the session and then threw | `scenario.test.js` |
+| `location.origin` on a file | Is the string "null", so every link copied from a local file was unusable | visual |
+| Compare evidence dots | Rendered by the shared value renderer and never wired, so the dot did nothing exactly where a difference needed checking | visual |
+| Chamber rows dropped at a page break | Fourteen Bambu data sheets carry a chamber window as the first row of page 2, and none was transcribed, so PC FR, PAHT-CF and every Bambu PLA and PETG reported "no chamber requirement published" | `database.test.js` |
+| A chamber window read by its upper end | ABS-CF's 50–70 °C failed the chamber criterion, though 50–65 °C is reachable | `normalize.test.js` |
+| A class envelope used for screening | Would have screened CPE out of "elongation at least 100%" though its data sheet reports 150%; found in the prototype, never shipped | `constraints.test.js` |
+| Another grade's value taken as the material's | One PLA grade at 46 MPa screened generic PLA out of "strength at least 60 MPa"; found while building D42, never shipped | `database.test.js` |
+| Hardcoded rail counts | "45 of 102 state an abrasion requirement" counted profiles, not materials; the true figure is 27 | derived from data now |
+| Bambu chemical table rows omitted | The shared “Other Physical and Chemical Properties” table disappeared for 19 exact grades, leaving 98 source-backed findings out of the database | `database.test.js`, coverage-consolidation plan |
+| Environmental evidence copied from family notes | 31 materials appeared to own another material's exposure evidence, while some exact-grade records were omitted | `database.test.js`, `validate.js` |
+| Coverage contradicted the records | Rows said `Gap` beside measured/profile data or `Evidence recorded` with no record owned by the material | `database.test.js`, `coverage-rules.js` |
+| Existence-only referential checks | A valid measurement and a valid grade could be joined under the wrong material without an error | mutation tests in `database.test.js` |
+| Estimates blind to the material's own related evidence | PA-CF strength shown as 38–204 MPa beside its own 72 MPa break strength; the table then showed the 72* and hid the estimate the filter was using | `database.test.js`, D43 |
+| A heat load lost at a line break | 22 3DXTECH values printed "at 0.45 MPa (66psi)" were recorded as load not stated, so PLA, PP, PA12-CF, PVDF and 14 more could neither pass nor fail a heat requirement | `database.test.js` |
+| A standard number read into its value | iSANMATE's "ISO 11357 80°C" became a glass transition of 1135780 °C | `database.test.js`, plausibility screen in `build/src/estimate/observations.js` |
+| A decimal comma and a film method | iSANMATE PLA "110,3 MPa" under ASTM D882, a thin-film test, was recorded as 3 MPa for a printed part | `database.test.js` |
+| A method designation read as the value | iSANMATE PETG-GF "Vicat A/120 … 72" was recorded as 120 °C | `database.test.js` |
+| An unstated heat load read as open-ended | PLA Lite's 53 °C stayed a candidate for "heat resistance at least 100 °C": a value at an unknown load was bounded below only, though the 0.45 and 1.8 MPa values of an amorphous polymer sit within about 10 °C | `constraints.test.js`, `database.test.js` |
+| A conditioned value read as dry | The wet conversion matched the word "wet", so 84 "Conditioned: 70% RH" rows counted as dry; dry nylon stiffness was estimated about 10% low | `database.test.js` (kindOf), D53 |
+| Two tables of one data sheet given one set of conditions | PolyMide PA6-GF's dry values said "Conditioned" and its conditioned values carried the dry note; the lint's "duplicate" was the dry and the conditioned result | lint MEAS-CONDITIONS-INDISTINCT, `lint.test.js` |
+| Un-notched impacts filed as notched | Every Fiberon block prints notched, then un-notched X-Y and Z; 18 un-notched rows said Notched | m13; source audit |
+| Values printed after a separator never transcribed | Bambu's "32.0 kJ/m²; 8.2 kJ/m² (notched)" kept only the first; no Bambu melt index and many Spectrum and Fiberon heat deflections were entered | `npm run audit:sources` |
+| A bound treated as an exact value | "> 16.5 MPa" pinned PEBA's strength estimate to 16.4–16.6 MPa; excluding bounds instead dropped OBC's elongation from 868% to 38% | `database.test.js`, D53 |
+| A lightweight grade pulling its family | HyperLite PP's 0.81 g/cc was a model outlier and lifted nothing but noise into polypropylene | `database.test.js` (grade variant), D53 |
+| HDT load spellings missed | "1.81 MN/m²", "1.820 MPa", "ISO 75-2, HDT A" and "0,45 MPa" read as load not stated | `normalize.test.js`, D49 |
+| Moulded values filed as printed | Spectrum PPS AM230 and PEBA values marked "*injection moulding" entered the model as printed specimens | m14; source audit |
+| A single bracket gap for every matrix | The unstated-load bracket's top missed 4 of 54 true values, all semicrystalline | screening back-test, D48; the bracket itself retired in m137 (D83) |
+| Number-only completeness scan | Values printed "ISO 527 MPa 48" or "Specific Gravity 1.22" were invisible; iSANMATE CF-ABS had one of its eight values | label pass in `audit:sources` |
+| A resin reference vetoing a screen | Zytel 101L's moulded 3.1 GPa kept PA66, estimated at 1.5–2.6 GPa, among candidates for "stiffness at least 3 GPa" | `database.test.js` |
+| One data sheet under two or three materials | PolyMide CoPA's numbers shown for PA, PA6/66 and CoPA; PA-CF's headline was PA12-CF's; PLA Silk and CoPE shared one formulation key, so the estimate model read CoPE's evidence as PLA Silk's product | `database.test.js`, D44 |
+| Heat-deflection physics learned backwards | With too few unfilled nylons, the model's melting-point slope fitted negative and put PA66 at 15–91 °C; found in development, never shipped | `database.test.js` |
+| Z results coded as unknown direction | 18 IPCON rows printed "Z" taught the unknown-direction conversions offsets of +0.31 to +0.46; PA6 strength was estimated 88 MPa beside its sheet's 78 | m20, lint MEAS-LOCATOR-DIRECTION, offset cap (D56) |
+| Annealed and as-printed values averaged as repeats | PET-GF15's 81.6 and 133.7 °C became one precise 107.65 °C, an outlier warning and a conflict | `database.test.js`, post-processing State (D56) |
+| An annealed value as the headline | PPA's heat headline was the "(annealed)" 131 °C; the as-printed 103 °C was never entered, so PPA passed Strict for 104–131 °C | m20, m21, HEADLINE-SELECTION-INVALID |
+| A film strength as a lower bound | iSANMATE's ASTM D882 film values (110, 145 MPa) kept PLA a candidate for strength at least 140 MPa | `database.test.js` (implied bounds), D55 |
+| Value + SD as a lower bound | 30 ± 23 % read as "at least 53 %"; an unstated moulded-looking 125 MPa kept PA12-CF in searches for 95 MPa | `database.test.js`, D55 |
+| A physically impossible value deciding a requirement | TPU for AMS's 1.19 GPa on a 68D elastomer passed Strict for rigid-part stiffness; PC's HDT at 0.45 MPa sat below its HDT at 1.8 MPa | m24, lint MEAS-PHYSICS-*, D55 |
+| A heat deflection estimated for an elastomer | TPU's 74 °C, from a 26 MPa sheet, gave an estimate of 70–85 °C that could screen | `database.test.js`, D56 |
+| Slow crystallisers treated as crystallised | PET's heat deflection estimate reached 132 °C beside its own Vicat of 65.9 °C | `database.test.js` (printing physics), D56 |
+| A material's only evidence down-weighted | PP's own 0.39 GPa and 460 % gave way to PP-CF, PP-GF and two variants: 1.5–4.5 GPa | `database.test.js`, D56 |
+| A mean ± spread read as hard limits | "35 ± 4 MPa" never passed 33 MPa; 128 of 362 headlines decided nothing near their own value | `constraints.test.js`, D54 |
+| Display rounding across a threshold | PC's price of 50.99 read "51" while passing "price < 51"; 300 contradictions in 174,159 checks | `format.test.js`, UI fuzz |
+| An assumption read as published | A scenario assumption's reason said "Published" and its point could lead the Pareto front; a `*` assumption gave an elastomer a passing heat deflection | `scenario.test.js`, UI fuzz |
+| A Plotly listener per redraw | 800 chart renders held 1,408 resize listeners and 569 MB; the first fix, purging, raced Plotly's redraw and threw in 187 of 200 fuzz scenarios | UI fuzz, heap probe |
+| Replacing a headline refused as a deletion | The no-deletion guard keyed headline rows on every column, so the AGENTS.md recipe "replace the old value row" failed the pre-commit hook | `data-check.test.js` (identity, replacedWithin) |
+| Unreviewed build warnings | Outliers, wide estimates and unstated loads were summed into warnings, so a new one never failed verify | `lint.test.js`, `audit:data` (D57) |

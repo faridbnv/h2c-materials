@@ -11,7 +11,7 @@ Database snapshot 2026-09-21 · build 2026-09-27
 | materials | 174 |
 | h2cRelevant | 136 |
 | familyEntries | 21 |
-| retiredDuplicates | [object Object] |
+| retiredDuplicates | measurements 298, evidence 16 |
 | excluded | 17 |
 | grades | 1160 |
 | measurements | 11158 |
@@ -59,7 +59,7 @@ Nozzle and bed are read by the upper end of the window.
 
 ## Chamber evidence
 
-What the 157 in-scope materials publish about the chamber, strongest kind first. A statement
+What the 136 in-scope materials publish about the chamber, strongest kind first. A statement
 in words is manufacturer evidence but never a temperature. An estimated band is inference from
 data/tables/chamber_bands.csv; it is shown beside the chamber question and changes no verdict.
 
@@ -69,8 +69,8 @@ data/tables/chamber_bands.csv; it is shown beside the chamber question and chang
 | No heated chamber needed, in words | 24 |
 | Chamber recommended, no temperature | 1 |
 | Data sheet lists no setpoint | 4 |
-| Nothing published | 69 |
-| Carrying an estimated band (any of the last three) | 17 |
+| Nothing published | 48 |
+| Carrying an estimated band (any of the last three) | 12 |
 
 26 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes 25-60 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
 
