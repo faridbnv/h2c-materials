@@ -37,10 +37,10 @@ as semicolon lists inside cells, headline values were typed twice, and every row
 patch script and a hand-edited row count. The tables under `data/tables/` hold the same records with
 none of that: each change is a readable row diff, each fact has one home, and `schema/tables/`
 declares every column, type, missing state, vocabulary and reference so a mistake is reported at
-its file, line and field in under a second (DECISIONS D45).
+its file, line and field in about a second (DECISIONS D45).
 
-No database server or SQLite file sits in the build path. For one person and two agents editing a few
-thousand rows, text files under a schema give the same integrity checks with none of the operations,
+No database server or SQLite file sits in the build path. For one person and two agents editing some tens of
+thousands of rows, text files under a schema give the same integrity checks with none of the operations,
 and the build is where those checks run anyway.
 
 A SQLite file is generated beside it, for reading only: `npm run db:sqlite` writes `dist/h2c.sqlite`
@@ -67,8 +67,8 @@ no backend and no network. That rules out CDN references, which is why the libra
 the dependency versions are pinned.
 
 The compiled database ships gzipped and base64-encoded, inflated at boot with `DecompressionStream`.
-At the 2026-09-21 build it is 21 MB raw, most of it measurements, and about 1.3 MB gzipped (1.7 MB once
-base64-encoded). The plotting library is still most of what the file weighs: 4.3 of the page's 6.3 MB.
+At the 2026-09-27 build it is about 24 MB raw, most of it measurements, and about 1.6 MB gzipped (2.2 MB once
+base64-encoded). The plotting library is still most of what the file weighs: 4.3 of the page's 6.8 MB.
 
 ## Module map
 
@@ -78,29 +78,32 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 |---|---|
 | `csv.js` | The canonical CSV format: parse, and write in the one form every table is kept in. |
 | `schema.js` | Check every table against `schema/tables/`: columns, types, missing states, patterns, vocabularies, uniqueness, references (including IDs inside lists and prose), canonical format and `data/manifest.json`. |
-| `load.js` / `source.js` | Read the tables into raw row objects. No interpretation. |
-| `registry.js` | The property registry: what each property and headline means, which materials it applies to, and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57). |
+| `load.js` / `source.js` | Read the tables into raw row objects, and (`source.js`) each file's SHA-256 for the audit record. No interpretation. |
+| `registry.js` | The property registry: what each property and headline means, which materials it applies to (Applies to may test the material's columns and its polymer's Morphology), and which property replaces a retired name (`properties.csv`, `headline_definitions.csv`; D57). |
 | `normalize/values.js` | Numbers, missing states, operators, intervals. Everything downstream depends on these staying distinct. |
-| `normalize/direction.js` | The ten spellings of build direction (a source's own label and a ±45° raster get their own values), and which may be compared with which. |
+| `normalize/direction.js` | Twelve spellings of build direction onto ten canonical values (a source's own label and a ±45° raster get their own values; three spellings are unknown), and which may be compared with which. |
 | `normalize/thermal.js` | HDT standard and load out of about twenty spellings of free text, MPa, psi and kgf/cm²; a text naming both loads states neither. |
-| `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying, abrasion. The chamber's partial window and its answers in words. |
-| `normalize/chemical.js` | 73 environment topics onto canonical categories; findings onto verdicts. |
-| `normalize/moisture.js` | The declared State (dry, conditioned, not-stated) of each Moisture condition wording, from its vocabulary (D53). |
-| `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament) and State of each Post-processing wording (as-printed, annealed, not-stated), and whether an annealed value has an as-printed twin (D56). |
+| `normalize/standards.js` | The standards a Standard / load text names, at family level and one spelling each; it checks the typed Standards column (D76). |
+| `normalize/process.js` | Nozzle, bed and chamber temperatures, enclosure wording, nozzle diameters, drying, abrasion. The chamber's partial window, its answers in words, and an enclosure the H2C's chamber meets (`enclosed`, D90, D93). |
+| `normalize/chemical.js` | Environment topics onto canonical categories (`schema/vocab/environment-topics.csv`); findings onto verdicts. |
+| `normalize/moisture.js` | The moisture state at test (dry, conditioned, not-stated): the typed Moisture state column, and a reader of what the Moisture condition wording plainly says, which checks it (D53, D68). |
+| `normalize/specimen.js` | The declared Form of each Specimen type (printed, not-stated, moulded, film, filament, off-recipe), the typed Post-processing state (as-printed, annealed, not-stated) and anneal schedule with the readers that check them, and whether an annealed value has an as-printed twin (D56, D68, D95). |
 | `typed-values.js` | The typed profile and measurement columns the build decides on, and the parser check that they agree with the raw text (PARSE-MISMATCH, D49). |
-| `recipe.js` | One print recipe read from a profile's columns: the typed windows, enclosure, drying and hardened nozzle checked against the raw text, the chamber a "no enclosure needed" clears, and the gates against the H2C. |
+| `recipe.js` | One print recipe read from a profile's or a guide row's columns: the typed windows, enclosure, drying and hardened nozzle checked against the raw text, the chamber a "no enclosure needed" clears, where a chamber may be declared `enclosed` (PROCESS-ENCLOSED, D90, D93), and the gates against the H2C. |
 | `print-guide.js` | A printer maker's filament guide (D88): its rows of `print_guide.csv` read as recipes, the material each speaks for (`print_guide_materials.csv`), and the refusals (PRINT-GUIDE-REFERENCE, PRINT-GUIDE-MATERIAL). `products.js` reads a material's row where a product and its twin are silent. |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database. A material's headline starts missing, with its related evidence and implied bounds (from printed values only, D55); products.js fills each one its products publish comparably. |
 | `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Where a product is silent, its twin's (same material and formulation key, D89), then for the print gate its material's guide row (D88), each so read labelled. Checks the pins in `headlines.csv`. The engine judges the products. |
 | `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
-| `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; used by planning and validation. |
+| `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; compile derives coverage rows from it (D74), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
-| `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (conversions, limits, the fit's judgements) and the tables it reads (`polymers.csv`, a material's Estimate identity and Variant class, Shore hardness measurements; D43, D53, D60), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `calibration.js`, `bounds.js` ranges and their limits, `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. `grades.js` predicts every active grade at its own row and calibrates those ranges at grade level (D81); a grade estimate decides nothing. |
+| `build-cache.js` | The result of `buildDatabase` stored in `.cache/build/` under a SHA-256 of everything it depends on, so the callers that compile the same tables run the estimate stage once (below, "Scale"). |
+| `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (conversions, limits, the fit's judgements) and the tables it reads (`polymers.csv`, a material's Estimate identity and Variant class, Shore hardness measurements; D43, D53, D60), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `solver.js` the kernel solved block by chemical group (D79), `calibration.js`, `bounds.js` ranges and their limits, `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. `grades.js` predicts every active grade at its own row and calibrates those ranges at grade level (D81); a grade estimate decides nothing. |
 | `chamber-estimates.js` | The research's chamber bands, from `data/tables/chamber_bands.csv`. Attached only where nothing better exists; they decide nothing. |
 | `polymer-environment.js` | A base polymer's published environmental behaviour, from `data/tables/polymer_environment.csv` (D64): compiled with its refusals, one verdict per category by the documented rule, attached as inferred records (`db.polymerEvidence`, `evidenceIds.polymer`) only where a material has no record of its own. Core evidence, not the estimate stage, but marked inferred and removable: an empty table leaves the database untouched. |
 | `know-how.js` | Makers' know-how (D85, lane 3): moves the statements (evidence rows in the non-filterable `know-how` category) out of `db.evidence` into `db.knowHow`, so nothing that screens reads one, and derives each product's and material's know-how state (collected, sheet silent, searched, no document read) and the recipe's, from the statements and `data/tables/know_how_reads.csv`. The product panel is the one reader. |
 | `reference.js` | The generic-material baseline layer, compiled separately on purpose. |
+| `reference-properties.js` | The reference envelopes' properties and units, read from `schema/vocab/reference-properties.csv` (D67). |
 | `validate.js` | Every invariant, plus the human-readable report. |
 | `rules.js` | The catalogue of every issue code, its level (error, warn, info, lint), meaning and fix (D50); generates `docs/RULES.md`. |
 | `lint-rules.js` | Data quality the schema cannot express, as coded findings with a record each (D50): text artefacts, duplicates, indistinct conditions, directions named in locators, and physics one sheet must not contradict (MEAS-PHYSICS-*, D55). |
@@ -115,23 +118,33 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 
 | Script | Responsibility |
 |---|---|
-| `data/table-io.mjs` | The scripted-edit API: open, find, set (with an expected-value guard), update a row of a keyless table by its fields, append, add or drop a column, save in canonical form with a fresh manifest. Nothing is deleted. |
+| `data/table-io.mjs` | The scripted-edit API: open, find, set (with an expected-value guard), update a row of a keyless table by its fields, append, add or drop a column, create a table, the next ID, save in canonical form with a fresh manifest. A record leaves a table (`remove`, `removeWhere`) only with a row in `data/review/removed-records.csv` naming its migration and where it went (D72). |
 | `data/fmt.mjs` | `npm run data:fmt`: rewrite tables and vocabularies canonically and refresh `data/manifest.json`; `--check` changes nothing. |
-| `data/check.mjs` | `npm run data:check`: the schema gate on its own, in under a second. |
+| `data/check.mjs` | `npm run data:check`: the schema gate on its own, in about a second. |
 | `data/new-id.mjs` | `npm run data:new-id`: the next free ID for a table, or a material's next grade. |
 | `data/new-material.mjs` | `npm run data:new-material`: a material and its first grade in one write, and a list of the records it still needs. |
 | `lib/cdp.mjs` | Headless Chrome for `ui-probe.mjs` and `ui-fuzz.mjs`: where it is, how it is launched, the debugging port. |
+| `lib/pdf-text.mjs` | A source document's bytes, digest and text page by page, cached by SHA-256 in `.cache/`: the reader the audits, the import and the migrations prove a number on its page with. |
+| `lib/html-text.mjs` | A data sheet that is a web page read into the same lines and columns a PDF reads into; a page whose table is drawn by script is not run. |
 | `lib/comparison-table.mjs` | Reading a one-page comparison table by column heading and row label, and a mark drawn in a cell by its fill colour: how m150 proves each guide cell stands where its Locator says (D88). |
+| `lib/nanovia-tabs.mjs` | Nanovia's tensile tables, one tab per raster, read from the page's own hash-checked bytes (m155, m167, m168). |
 | `docs-decisions.mjs` | The index at the head of `docs/DECISIONS.md`: every decision, its line in plain words, and whether it still holds. |
-| `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed. |
+| `data/new.mjs`, `data/retire.mjs`, `data/records.mjs` | `npm run data:new`: a complete new row (next ID, template, missing states); `npm run data:retire`: a grade retired with every dependent record listed; `records.mjs` holds both, and `moveGrade`, which moves a product and every record filed under it to another material (D86). |
 | `data/lint.mjs` | `npm run data:lint`: quality findings (`build/src/lint-rules.js`) against the reasoned baseline `data/review/accepted-findings.csv`; `--accept` also accepts per-record build findings. |
 | `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
+| `audit/blocking-gaps.mjs` | `npm run audit:gaps`: what keeps a material from an answer in each template, and what could turn one, into `docs/audits/2026-09-25-re-center/BLOCKING-GAPS.md`. |
+| `audit/know-how-worklist.mjs` | `npm run audit:know-how`: the maker-site search worklist, every product whose documents were read for makers' know-how and said nothing, into `KNOW-HOW-WORKLIST.md` beside it; `--check` fails if it is stale. |
+| `audit/spot-check.mjs` | `npm run audit:spot-check`: a fixed, seeded sample of what the page shows, for a person to check against the source page, into `SPOT-CHECK.md` beside it. |
+| `audit/rule-vs-hand-picks.mjs` | The product rule against the retired hand picks, from their archive, into `rule-vs-hand-picks.md` beside it (D83, m137). |
+| `audit/final-round-sample.mjs` | A seeded sample of the rows phase 6's final round wrote, each checked again on its cached page. |
 | `build-diff.mjs` | `npm run build:diff`: builds HEAD (or `--ref`) in a temporary worktree and the working tree, and prints every difference in `dist/db.json`. |
+| `data/db-diff.mjs` | Every difference by path between two `dist/db.json` files (`--summary` groups them); what `build-diff.mjs` prints with. |
+| `ensure-db.mjs` | Runs `npm run build` before `npm test`, so the database tests read current inputs. |
 | `snapshot.mjs`, `ui-probe.mjs` | `npm run snapshot`, `npm run ui:check`: the committed review snapshot and interface views. |
 | `ui-fuzz.mjs` | `npm run ui:fuzz`: seeded random scenarios through the built page in headless Chrome, in every Strict/Explore/estimates setting, table and chart compared with the engine in Node (D57). |
 | `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. Both are checked by `verify:fast`, with the decisions index. |
-| `data/diff.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses deletions. A keyless table's declared `identity` and `replacedWithin` make a re-pointed citation an edit. It replaces hand-written audit changelogs. |
+| `data/diff.mjs`, `data/diff-lib.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses a deletion that `data/review/removed-records.csv` does not name. A keyless table's declared `identity` and `replacedWithin` make a re-pointed citation an edit. It replaces hand-written audit changelogs. |
 | `trace.mjs` | `npm run trace`: a headline back to its measurement, grade and source, with file and line. |
 | `data/synthesize.mjs` | A multiple of today's data under new IDs, for the scale test. |
 | `data/export-xlsx.mjs` | The read-only review workbook. |
@@ -139,13 +152,14 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
 | `data/sqlite.mjs` | `npm run db:sqlite`, `npm run sql -- "..."`: the compiled database as a SQLite file with the schema's types, the compiled headlines, and a robust z-score per measurement against its material's others (`v_measurement_z`, D75). |
 | `data/record-tier.mjs` | The record tier in the same file (D85): `source_facts`, the lines the import reader read without them becoming data, and `documents_fts`, a full-text index of the cached documents (built only where `.cache/text` is present). |
-| `ingest/` | The import pipeline (`docs/audits/2026-09-18-v2-import/`): a ledger of every document, fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). The rules are in `docs/IMPORTING.md`. |
+| `ingest/` | The import pipeline: fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. Its proposals are in `archive/ingest-2026-09-18/proposals` (`archive.mjs` names the path); the ledger of every document, STATUS, BLOCKERS and READINGS stay in `docs/audits/2026-09-18-v2-import/`. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). The rules are in `docs/IMPORTING.md`. |
 
 `npm run verify:fast` runs format, schema, lint, generated docs, build and tests while you work: about 75 seconds after a
 change and 30 when nothing the build reads changed, because the build result is cached by content
 (`build/src/build-cache.js`, `.cache/build/`); its budget is 90 seconds (docs/GOALS.md). The import pipeline's tests
 run in `verify` (`npm run test:ingest`), not here, while imports are paused.
-`npm run verify` adds the audit, review snapshot, interface views and 300 rendered scenarios, before a commit. The
+`npm run verify` adds the import tests, the scale and reproducible-build checks (`npm run scale`, `npm run
+reproducible`), the audit, review snapshot, interface views and 300 rendered scenarios, before a commit. The
 pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit touching `data/` or
 `schema/`, CI runs `verify` on every push and 2,000 rendered scenarios on a new seed every night, and
 `npm run build:diff` shows what a change did to the compiled database. `AGENTS.md` is the editing guide.
@@ -169,6 +183,7 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 | `registry.js` | Builds the interface's property definitions from the database's registry at start-up: labels, filters, axes, table columns, export headers and the drawer's property tabs. |
 | `labels.js` | The single vocabulary. What every property, criterion, gate verdict and chamber statement is called, in plain words with the technical name behind it. Nothing else names them. |
 | `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated, and never rounds a value across a requirement's threshold (D54). |
+| `popover.js` | One explanation popover for every mark whose meaning is more than its glyph: each such mark is a button (`explainButton` in `format.js`) that opens it, from touch and keyboard too, never a title alone (D61). |
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
 | `table.js` | The results grid and the client-side export. |
 | `ashby.js` / `axes.js` | Property-property plots, constraint overlays, index lines, the reference layer. |
@@ -206,9 +221,9 @@ Every lens draws from the same `rows`. Switching lens never changes membership.
 **A new material.** [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) chains the AGENTS.md
 recipes once, with a real product, from the source row to the commit.
 
-**A new table.** Its schema in `schema/tables/<name>.schema.json`, and the four places the build learns
-about it, in the same commit: `TABLE_ORDER` (`build/src/schema.js`), `TABLES` (`build/src/load.js`),
-`inputs` (`build/src/source.js`) and `TEXT_TABLES` (`build/src/lint-rules.js`). A table missing from
+**A new table.** Its schema in `schema/tables/<name>.schema.json`, and the places the build learns about it, in the
+same commit: `TABLE_ORDER` (`build/src/schema.js`), `TABLES` (`build/src/load.js`) and, if it holds free text,
+`TEXT_TABLES` (`build/src/lint-rules.js`); `inputs` in `build/src/source.js` follows `TABLES`. A table missing from
 `TABLE_ORDER` sorts to the front of the review workbook. If it is a child of a per-material table, add it
 to `scripts/data/synthesize.mjs` too, or the scale test loses its rows. `reference_envelopes` (m42) and
 `profile_notes` (m44) are the two worked examples.
@@ -216,8 +231,8 @@ to `scripts/data/synthesize.mjs` too, or the scale test loses its rows. `referen
 **A typed column beside raw text.** The raw column keeps the source's words; the typed one is what the
 build reads; a reader in `build/src/normalize/` says what the words plainly mean, and `typed-values.js`
 stops the build where the two disagree with no Parse review (D49). Use it wherever a decision would
-otherwise be read out of prose on every build. Moisture state, Post-processing state and Standards are
-the recent ones (D68, D76).
+otherwise be read out of prose on every build. Moisture state and Post-processing state (D68), Anneal °C and Anneal h
+(m30), Standards (D76) and Test temperature °C (m175, D92) are examples.
 
 **A new lens that draws numbers.** Decide what it does with an estimate before you write it. Three
 lenses drew only measured headlines and silently dropped a quarter of the candidates; an estimate is
@@ -262,13 +277,16 @@ category without importing anything from `ui/`.
 
 ```
 npm run verify:fast    while you work: format, schema, lint, generated docs, build and tests
-npm run verify         before a commit: verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
+npm run verify         before a commit: verify:fast, the import tests, the scale and reproducible-build checks,
+                       audit, review snapshot, interface views, 300 rendered scenarios
 npm run ui:fuzz:full   2,000 random scenarios through the built page, compared with the engine (nightly in CI)
 npm run build:diff     every difference a change made to dist/db.json, against HEAD or --ref
-npm run data:check     the schema gate alone, in under a second
+npm run data:check     the schema gate alone, in about a second
 npm run build          full build, ending in a distributable HTML file and its manifest
 npm run validate       stops after the report; writes no dist artefacts
-npm test               builds, then engine, data, registry, contract, scale and database tests
+npm test               builds, then engine, data gate, registry, contract, database and interface-logic tests;
+                       the import tests (test:ingest) and the scale and reproducible-build checks (*.check.js)
+                       run in verify
 ```
 
 Everything runs from `build/src/index.js`, and every caller (the build, the snapshot, the audit, the trace and the tests)
@@ -285,7 +303,8 @@ the explicit missing states a field accepts, patterns, controlled vocabularies (
 uniqueness, and references between tables, including each item of a list and each grade ID written
 into prose. Files must be in canonical CSV form and `data/manifest.json` (row count and SHA-256 per
 table) must be current, so a count change is visible in the commit that makes it. Any violation stops
-the build with the file, line, record and field. The whole check takes about 200 ms.
+the build with the file, line, record and field. The whole check takes about a second; `npm run data:check` prints
+its time.
 
 ### Stage 1: Load — `load.js`
 
@@ -307,9 +326,10 @@ uncertainty, or a bound from a `>` or `<` operator. The engine judges a value pl
 flags a threshold inside the spread (D54); a range and a bound stay intervals. Unbounded ends are `null`, not `Infinity`,
 because this is serialised to JSON and `JSON.stringify` would turn Infinity into null anyway.
 
-**Direction** (`direction.js`). Ten spellings onto canonical values. Three of them are the source's
-own words rather than a confirmed build orientation, so `Horizontal (source label)` gets its own
-value and never merges into XY, in the engine or in the estimate model. A tensile value a sheet labels only by a ±45°
+**Direction** (`direction.js`). Twelve spellings onto ten canonical values. Some are the source's own words rather
+than a confirmed build orientation, so `Horizontal (source label)` gets its own value and never merges into XY, in the
+engine or in the estimate model; `Not published`, `Unstated` and `Stated, not a usable direction` are all unknown to
+the build, and differ only in whether someone has read the source. A tensile value a sheet labels only by a ±45°
 raster is XY (D91); `45/45` is a ±45° bar the sheet labels beside its own XY bar, its own value.
 The Method table's rule: an unknown direction is not XY. A locator naming a direction the Direction column does not
 record is a lint finding (MEAS-LOCATOR-DIRECTION): 18 Z results coded unknown once skewed every estimate.
@@ -328,8 +348,8 @@ A text naming none reads as none, which is what a melt-flow condition or a study
 
 **Declared states** (`moisture.js`, `specimen.js`). A measurement carries its Moisture state (dry, conditioned,
 not-stated) and Post-processing state (as-printed, annealed, not-stated) as typed columns, and each Specimen type
-declares a Form (printed, not-stated, moulded, film, filament) in its vocabulary, because those ten wordings are the
-database's own. The build reads the state, never the words. Where the words plainly say otherwise the build stops
+declares a Form (printed, not-stated, moulded, film, filament, off-recipe) in its vocabulary, because those wordings
+are the database's own. The build reads the state, never the words. Where the words plainly say otherwise the build stops
 (PARSE-MISMATCH); where they say nothing the column decides, so a new datasheet sentence is data rather than a
 schema change (D53, D56, D68).
 
@@ -355,9 +375,11 @@ The chamber has two more answers the other axes do not (DECISIONS D32, D33):
 - A chamber answered in words stays words. "Not required" and room temperature are `not-required`;
   "Recommended" with no number is `recommended`; a data sheet's "-" is `no-setpoint`. The Enclosure
   column is parsed too, and "not necessary" there means no heated chamber is needed. An enclosure
-  being recommended means nothing about 65 °C.
+  being recommended means nothing about 65 °C, except where a row declares Chamber state `enclosed`: a printer
+  maker's guide row (D90), or a maker's own profile for one of the nine types that guide asks an enclosure for (D93),
+  which reads as within (PROCESS-ENCLOSED says where it may be declared).
 
-**Chemical** (`chemical.js`). 73 environment topics onto canonical categories, via a hand-maintained
+**Chemical** (`chemical.js`). Environment topics onto canonical categories, via a hand-maintained
 vocabulary, `schema/vocab/environment-topics.csv`, that `evidence.Topic` must match, so an unmapped topic fails at the schema gate. `environment-categories.csv` carries
 each category's display names, which is why it is the only place a category is named. The evidence runs
 two overlapping source vocabularies for the same chemistry, `Resistance to Acid` alongside `Effect
@@ -371,9 +393,13 @@ Assembles the relational runtime database, and does the one thing that matters m
 > **A number is read from its measurement, never typed a second time, and nobody selects it.**
 
 Each product's value for a headline is chosen by rule from its own measurements (`products.js`): an active numeric
-measurement of an allowed property, in the headline's unit, from a printed or unstated specimen, not conditioned, not
-flagged physically implausible, not annealed where the product publishes the property as printed, and in the
-headline's direction and at its load ("comparable"), or with either unstated ("as published", D84). A material's
+measurement of an allowed property, in the headline's unit, from a printed or unstated specimen (not a bar printed off
+the product's recipe, D95), not conditioned, not flagged physically implausible, not annealed where the product
+publishes the property as printed, of the headline's notch and at its test temperature where it sets them (D92), to
+its standard where it names one and the value names others (D94), and in the headline's direction and at its load
+("comparable"), or with either unstated ("as published", D84). The layer strength takes no value whose direction is
+unstated: its Unstated direction is `excluded`. Where a product has no value of its own and its twin does, it reads the
+twin's, labelled (D89). A material's
 headline is its products' spread: the median of their comparable values, their range and count, and the typical
 product (D83). `headlines.csv` only pins one product's value where the rule chooses wrongly, and the build checks a pin
 against the same definition. Until m137 the table held 477 hand picks on each material's "representative grade"; the
@@ -381,8 +407,9 @@ rule reproduced every one, and they are archived in `docs/audits/2026-09-25-re-c
 A selection that fails any of these is a build error naming the material and the reason (HEADLINE-SELECTION-INVALID). A headline limited by "Applies to" is not
 applicable, with its reason, for every other material.
 
-The price headline is calculated: the median regular CAD/kg (list price over net mass, to the cent)
-of the material's headline-sample observations. A material's grades are its active procurement
+The price is calculated: a product's is the median regular CAD/kg (list price over net mass, to the cent)
+of its own headline-sample observations, and a material's is its products' spread, as for any headline (where none of
+its plain products is priced, the median of its own listings). A material's grades are its active procurement
 grades; its environmental evidence is its own exposure, solubility and moisture records; its nozzle,
 bed and chamber guidance is its first cited profile's text. None of these is stored, so none can
 disagree with what it summarises. Editorial citations (printing, H2C status, use, durability, safety)
@@ -396,13 +423,15 @@ Compile also derives, each tagged with its origin so the interface can tell them
   against the printer's 350 °C plus one that publishes nothing; letting the silent profile decide
   would have reported PEEK as "unknown". Among unknowns, a profile that said something in words
   supplies the reason.
-- **Related evidence** for headlines with no value: one real measurement of the same property that
-  was never promoted, with the reason (another direction or endpoint, a moulded, film or filament specimen, an
-  annealed twin, a physically implausible value). Never a cross-grade range.
+- **Related evidence** for headlines with no value: the real measurements of the same property that are no product's
+  value, in the headline's unit: how many, the closest one, and up to ten, each with why (another direction or
+  endpoint, a moulded, film, filament or off-recipe specimen, an annealed twin, another load or one not stated, a notch
+  not stated, another standard or test temperature, a physically implausible value). Never pooled into a range.
 - **Implied bounds** for headlines with no value: the material's own printed measurements that bound the headline from
   below (a yield or break strength under the ultimate, a strain at yield under the strain at break, HDT at 1.8 MPa
   under 0.45 MPa), at their published value. They veto a screen that would be wrong and limit the estimate (D55).
-  A moulded, film, filament or unstated specimen, an annealed twin and a conditioned elongation bound nothing.
+  A moulded, film, filament, off-recipe or unstated specimen, an annealed twin and a conditioned elongation bound
+  nothing.
 - **Facets** the Materials table does not carry directly, marked `derived`.
 - **What a material's headline values represent**, and the sentence describing its price sample. Both were columns
   of `materials.csv` until m45: the first is now one of three sentences chosen by Scope and whether any of its
@@ -440,18 +469,21 @@ transition and learns nothing from annealed values; an annealed value is never a
 repeats under different schedules keep their spread; the wet offset follows water uptake; density is bounded by the
 neat polymer and the rule of mixtures; an unfilled bar is capped by its own Vicat; an elastomer has no heat deflection
 estimate; an unknown direction never converts upwards past its documented offset; a material's only evidence is never
-down-weighted; its implied bounds limit its range from below (D55). Film, filament and physically implausible values
-enter nothing. Every build then back-tests screening: each measured headline is hidden as far as an evidence
-class requires (this grade, this material, family) and predicted honestly with the production ranges, the conversions
-refitted without it, and each end of the class's screening range is set at a distribution-free tolerance limit of where
+down-weighted; its implied bounds limit its range from below (D55). Film, filament, off-recipe (D95) and physically
+implausible values enter nothing. Every build then back-tests screening: each measured headline is hidden as far as an
+evidence class requires (this grade, this material, family) and predicted honestly with the production ranges, the
+conversions refitted without it, and each end of the class's screening range is set at a distribution-free tolerance limit of where
 the true values fell (at most 10% beyond it, with 90% confidence; never inside the plausible range). A class with fewer
 than 22 cases screens an end only where the family model agrees, and no end screens against the material's own
-evidence (D48, D59). Every missing
-headline gets an estimate with its evidence, precision and the range it may screen on, or a not-applicable reason. Diagnostics (calibration, conversions, spreads, rejected values, conflicting
+evidence (D48, D59). A missing headline the registry marks Estimated (density, stiffness, strength, stretch, heat
+deflection) gets an estimate with its evidence, precision and the range it may screen on, or a not-applicable reason;
+the layer strength, the two notched impact strengths and the glass transition are not estimated. A material declared
+not estimated (Estimate identity Not applicable, D87) is listed as HEADLINE-UNESTIMATED, not an error. Diagnostics
+(calibration, conversions, spreads, rejected values, conflicting
 evidence, outlying headlines) go to `meta.estimateModel`. `docs/DATA-MODEL.md` explains the model
 under "Estimates"; DECISIONS D43 says why.
 
-`estimate/print.js` then infers a nozzle and bed window for a material that publishes neither, from
+`estimate/print.js` then infers a nozzle or bed window for a material whose profiles publish none on that axis, from
 the same polymer or its chemical group, shifted for fibre and kept above the melting point.
 
 Chamber bands are not computed. They are read from `data/tables/chamber_bands.csv`, one row per material by MaterialID, where
@@ -473,12 +505,13 @@ Checked: identifier uniqueness; referential integrity across every table; every 
 registered property that no other property replaces, in one of its units, of a material the property applies to;
 raw value, uncertainty and upper bound each reconciled with the conversion factor; quarantined measurements
 staying out of every numeric summary; XY never merging with Z; impact in J/m never reconciled with
-kJ/m² without specimen geometry; an excluded material (Scope, the one place exclusion is recorded) carrying the excluded scope gate; a product value that decides as XY being an XY measurement; every in-scope headline carrying a value,
-an estimate or a not-applicable reason; every estimate nesting its likely range inside its plausible
+kJ/m² without specimen geometry; an excluded material (Scope, the one place exclusion is recorded) carrying the excluded scope gate; a product value that decides as XY being an XY measurement; every estimated headline of an
+in-scope material that names an Estimate identity carrying a value, an estimate or a not-applicable reason
+(HEADLINE-BLANK); every estimate nesting its likely range inside its plausible
 range and citing only its own material's or its products' measurements; each headline's
 likely range holding 80% (±10 points) and its plausible range at least 90% of the hidden values of materials'
 typical products; grade roles agreeing with the -R#
-ID suffix; every chamber band naming a real, in-scope material
+ID suffix; every chamber band naming a real material that is not out of scope,
 once, with a basis and a real range; and every free-text value that failed to parse, including
 enclosure wording, reported by value and count so the mapping files can absorb it deliberately.
 
@@ -492,8 +525,8 @@ It also checks **cross-record consistency**, not just whether referenced identif
 - every measurement, profile, price and use record is filed under the material its grade belongs to;
 - a material's grade list is its active procurement grades; study and resin-reference grades (Role,
   and an `-R#` suffix) remain outside it;
-- every product value cites a measurement of that product, not quarantined, and a material's typical product is one of
-  its own;
+- every product value cites a measurement of that product, or of its twin where it reads its twin (D89), not
+  quarantined, and a material's typical product is one of its own;
 - each cited record exists and belongs to the material, except deliberately labelled family context
   in use, durability and safety notes;
 - each material link cites the right kind of record: a profile or evidence for printing, a source
@@ -501,8 +534,8 @@ It also checks **cross-record consistency**, not just whether referenced identif
 - coverage does not claim absence beside the material's own records or claim evidence it does not
   have, and each Grades coverage row states the true procurement-manufacturer count.
 
-These checks use `coverage-rules.js`, the same domain definitions used by the coverage-consolidation
-planner. A correction and its future validator therefore cannot disagree about what “has data” means.
+These checks use `coverage-rules.js`, the same domain definitions compile derives coverage rows from (D74). A derived
+row and the validator therefore cannot disagree about what “has data” means.
 
 The report counts the chamber gate with its partial-window column, and breaks chamber evidence down
 by kind: a published window, a statement in words, no setpoint, nothing, and how many materials carry
@@ -511,8 +544,11 @@ a band. It lists every band the evidence superseded.
 `build/reports/validation-report.md` is regenerated every build and is a deliverable in its own
 right. It tells you what the tool cannot yet see.
 
-An unestimated in-scope headline says why when the cause is known: a material with no Estimate identity, or one with no
-row in `data/tables/polymers.csv`, is reported with that fix.
+An estimated headline left blank says why: a material whose Estimate identity has no row in
+`data/tables/polymers.csv` stops the build with that fix (HEADLINE-BLANK). A material declared not estimated
+(Estimate identity Not applicable, D87) is not an error: what none of its products publishes is Not published, judged
+unknown, and listed as HEADLINE-UNESTIMATED. The layer strength, the two notched impact strengths, the glass transition
+and the price are never estimated.
 
 ### Stage 6: Contract — `contract.js`
 
@@ -538,16 +574,18 @@ output. Pages publishes it beside the page.
 ### Verifying a build
 
 ```bash
-npm run verify                   # verify:fast, audit, review snapshot, interface views, 300 rendered scenarios
+npm run verify                   # verify:fast, import tests, scale and reproducible-build checks, audit, review
+                                 # snapshot, interface views, 300 rendered scenarios
 npm run build:diff               # what the change did to dist/db.json
 open dist/H2C_Material_Selector_*.html
 npm run trace -- PETG            # any headline back to its measurement, grade and source
 ```
 
 The end-to-end check is the worked example from the architecture brief: H2C-relevant, HDT at least
-100 °C, modulus at least 3 GPa, density at most 1500 kg/m3, Strict mode. It returns nine candidates,
-all reinforced engineering polymers. Every one should explain itself and trace to a MeasurementID, a
-GradeID and a SourceID.
+100 °C, modulus at least 3 GPa, density at most 1500 kg/m3, Strict mode: the "Outdoor structural part" template, which
+adds a build material and an optional price. Its candidates are that template's Strict rows in
+`build/snapshot/templates.csv`, nearly all fibre-reinforced engineering polymers. Every one should explain itself and
+trace to a MeasurementID, a GradeID and a SourceID.
 
 One more check is worth running by hand, because it fails silently rather than loudly. Set several
 criteria of different kinds, open every tab, and read the text. No screen may show an internal key
@@ -565,8 +603,8 @@ URLs is not a substitute for actually running it without a network.
 then reuses the production loader/compiler/validator and writes `build/reports/data-audit/`.
 Pass an output directory to archive a review. The audit independently reconciles numeric raw values,
 checks explicit source-grade scope, recompiles both payloads from the tables, and decompresses the HTML
-to prove it embeds those exact payloads. It produces a full record index and 103-filament / 19-family
-matrix. It does not assert that all external documents were re-read; live checks belong in the
+to prove it embeds those exact payloads. It produces a full record index and a matrix of every material and
+family. It does not assert that all external documents were re-read; live checks belong in the
 review's source log. `measurement-rules.js` adds build-stopping numeric and endpoint checks. It also reviews every
 per-record build finding against `data/review/accepted-findings.csv` (AUDIT-REVIEW-FINDING, AUDIT-REVIEW-STALE).
 
@@ -610,9 +648,10 @@ independent rebuild and the reproducibility test do, and CI starts with it empty
 `test/scale.check.js` (`npm run scale`) doubles the data (every material and its records cloned under new IDs) and runs the
 gate, compile and validate. On 2026-09-21 the build was 0.07 s to compile, 13.5 s for the estimate stage and 0.06 s
 to validate at 158 materials and 11,096 measurements; doubled, the estimate stage took about 59 s against a budget of
-150 s (`test/scale.check.js` keeps the history, and 66 s on 2026-09-25 after phase 5's taxonomy). What the database
-holds today is in `build/snapshot/counts.md`. The estimate model dominates, because its Gaussian process is
-cubic in observations (D77, D79).
+150 s (`test/scale.check.js` keeps the history). What the database holds today is in `build/snapshot/counts.md`. The
+estimate model dominates. Its Gaussian process is cubic in the size of each chemical group rather than in all the
+observations, because `estimate/solver.js` solves the kernel block by block, so the largest group sets the pace (D77,
+D79).
 
 ## Further reading
 
