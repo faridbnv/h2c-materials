@@ -60,6 +60,9 @@ export function synthesize(factor, outRoot) {
     copy('material_links', originals.material_links.filter(own), ['MaterialID', 'RecordID'], (r) => (familyRecords.has(r.RecordID) ? { RecordID: r.RecordID } : {}));
     const materialOf = new Map(originals.measurements.map((m) => [m.MeasurementID, m.MaterialID]));
     copy('fatigue_tests', originals.fatigue_tests.filter((r) => !familyEntries.has(materialOf.get(r.MeasurementID))), ['MeasurementID']);
+    // A copy is the same type as its original, so its printer maker's guide row speaks for it too (D88): a profile that
+    // declares its chamber "enclosed" for that type (D93) is only valid where the material has that guide.
+    copy('print_guide_materials', (originals.print_guide_materials ?? []).filter(own), ['MaterialID']);
   }
   t.save();
   return Object.fromEntries(t.tables().map((n) => [n, t.rows(n).length]));

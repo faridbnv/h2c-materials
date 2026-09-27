@@ -15,7 +15,8 @@ export const PROCESS_STATE = {
   // which is neither zero nor "not required", so it must not read as either.
   NO_SETPOINT: 'no-setpoint',
   // A printer maker's guide that asks for an enclosure on its own enclosed printers and states no temperature: the
-  // H2C's heated, enclosed chamber is that enclosure (D90). Declared on a print guide row, never read from words.
+  // H2C's heated, enclosed chamber is that enclosure (D90). Declared on a print guide row, and on a maker's own profile
+  // that asks for one with no temperature, for a type that guide asks it for (D93); never read from words.
   ENCLOSED: 'enclosed',
   UNKNOWN: 'unknown',
 };
@@ -158,7 +159,7 @@ export function parseTemperature(raw, opts = {}) {
  * there the bottom of a window sits at the hardware's rated maximum, and the six out-of-scope
  * materials trip the gate on exactly those rows (docs/DECISIONS.md, D32).
  */
-export function withinH2C(parsed, limitC, { partialWindow = false } = {}) {
+export function withinH2C(parsed, limitC, { partialWindow = false, makerEnclosure = null } = {}) {
   if (!parsed) return { verdict: 'unknown', reason: 'No requirement published' };
 
   if (parsed.state === PROCESS_STATE.NOT_REQUIRED || parsed.state === PROCESS_STATE.AMBIENT) {
@@ -167,7 +168,10 @@ export function withinH2C(parsed, limitC, { partialWindow = false } = {}) {
       : 'No heated requirement stated' };
   }
   if (parsed.state === PROCESS_STATE.ENCLOSED) {
-    return { verdict: 'within', reason: `Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (${limitC} °C) is that enclosure` };
+    // A filament maker's own words (D93), or its printer maker's guide's (D90).
+    return { verdict: 'within', reason: makerEnclosure
+      ? `Its maker asks for an enclosure, in its words "${makerEnclosure}", and states no temperature; for a type the printer maker's guide asks an enclosure for, the H2C's heated, enclosed chamber (${limitC} °C) is that enclosure`
+      : `Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (${limitC} °C) is that enclosure` };
   }
   if (parsed.state === PROCESS_STATE.NO_SETPOINT) {
     return { verdict: 'unknown', categorical: true, reason: 'The source lists no setpoint ("-"), which is not the same as not required' };

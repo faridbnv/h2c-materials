@@ -99,9 +99,10 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
 | D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber) |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
-| D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88 |
+| D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types) |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
 | D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | In force |
+| D93 | A maker's own "enclosure needed", with no temperature, reads as the guide's tick | For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides. | In force; it extends D90 |
 
 <!-- end index -->
 
@@ -2524,10 +2525,14 @@ untested, and the count of products that pass undercounts every maker that sells
 ## D90. Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it
 
 > **In plain words:** For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach.
-> **Status:** in force; it amends D88.
+> **Status:** in force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types).
 
 *Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 1); amends D88.
 Built in m165.*
+
+*Extended by D93 (2026-09-27): a maker's own profile that asks for an enclosure and prints no chamber temperature, for
+one of these nine types, may declare its chamber "enclosed" too, and reads as within in the maker's words. "Only a
+printer maker's guide may say it" and the twenty-three left unknown, below, are the reading this replaced.*
 
 D88 let a product whose own sheet, and its twin's, say nothing on its print gate read Bambu Lab's Filament Guide for its
 type. For nine types (ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF, PPS-CF) the guide draws a tick under
@@ -2666,3 +2671,46 @@ a glass transition (70 in-scope materials a spread). Across the six templates no
 changed (`build/snapshot/templates.csv`); the templates ask none of the three. Reversing it takes the three questions
 away again, and a cold or unnotched value, or an in-plane one, would decide the first time anyone added them without
 the conditions.
+
+## D93. A maker's own "enclosure needed", with no temperature, reads as the guide's tick
+
+> **In plain words:** For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides.
+> **Status:** in force; it extends D90.
+
+*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 5); extends D90.
+Built in m190.*
+
+D90 read Bambu Lab's "print with an enclosure", for ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and PPS-CF, as
+within the H2C's 65 °C heated chamber for a product whose own sheet is silent. A product whose own sheet asked for an
+enclosure had spoken about the chamber (D88), so it never read the guide, and stayed unknown: Polymaker ABS and ASA's
+"Closure chamber | Needed" left them unknown where a silent sheet of the same type passed. The owner ruled that the
+maker's plain words read as the guide's tick does.
+
+- **It is data, a declared state, as D90's is.** A profile whose sheet asks for an enclosure (Enclosure state
+  recommended) and prints no chamber row declares Chamber state `enclosed` and says why in Parse review; its raw Chamber
+  °C stays "Not published" and its Enclosure keeps the sheet's words. Chamber requirement is `recommended` where the
+  words recommend ("Closed chamber recommended for larger prints", "we strongly recommend printing ABS material inside an
+  enclosed printer") and `required` where they say needed, yes, or to print it closed ("Closure chamber | Needed",
+  "Enclosed Space | yes", "Sealed printing | Closed printing"). The gate reads it as within, with the reason "Its maker
+  asks for an enclosure, in its words "Needed", and states no temperature; for a type the printer maker's guide asks an
+  enclosure for, the H2C's heated, enclosed chamber (65 °C) is that enclosure". The print card says "an enclosure its
+  maker asks for", and the Printing tab quotes the row. A twin that reads the profile (D89) says "same sheet as …" after
+  it. Nothing in the code names a type.
+- **Where it may be declared** (PROCESS-ENCLOSED, across rows): only on a chamber, only where the row asks for an
+  enclosure and prints no chamber temperature, only for a material whose printer maker's guide row declares `enclosed`
+  (the nine types, by `print_guide_materials.csv`), and only where no other profile of the product states its chamber.
+- **A maker's temperature still decides.** A sheet that prints a chamber, stricter or looser, is read as it is: the
+  sixteen products D90 listed keep their windows, and two Polymaker PCs are left out of this reading because their
+  sheets print "Needed (70°C-100°C)" (PolyLite PC Transparent) and "Not needed (70°C-100°C)" (PolyMax PC, P0276, which
+  the parser leaves unread).
+- **A product's own opposite statement wins too.** The re-read found FormFutura's STYX PA6-CF15 and PA6-GF30 sheets
+  saying "No enclosure, or heated chamber needed." Their profiles had missed it and read the "Closed chamber
+  recommended" of the Spectrum sheet they share a table with; they now hold their own words.
+
+What it did (m190): 29 profiles on 28 products declare the H2C's chamber in their maker's words (ABS 11, ASA 10, PC 3,
+PA6-CF 3, PA6-GF 2), and Kratos PC reads it from its twin, Spectrum PC 275; the two STYX products read their own "not
+needed". Products unknown on the chamber fell from 438 to 407. Only Warm environment screens on the chamber, and no
+material's answer moved: the products that pass rose from 109 to 120 in each mode (ABS 17 to 18, ASA 14 to 16, PC 6 to
+9, PA6-CF 6 to 9, PA6-GF 7 to 9); the other twenty are still untested on a value the template asks for. Reversing it sends 29 products back to
+unknown on the chamber while silent sheets of the same types pass. Revisit it with D90 if the owner reads a type's
+stated windows (Bambu Lab's own PPA-CF and PPS-CF sheets) as saying the enclosure needs more than 65 °C.

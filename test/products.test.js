@@ -372,12 +372,39 @@ test("a guide's enclosure is the H2C's chamber only where its row declares it, a
       }
     }
   }
-  // A product's chamber is "enclosed" only as its guide's reading: its own sheet and its twin's cannot declare it, and
-  // where either speaks the guide is not read (the test above holds the guide to silent products).
-  for (const g of db.grades.filter((x) => isProduct(x) && x.print?.chamber?.state === 'enclosed')) {
-    assert.equal(g.print.from?.chamber?.origin, 'guide', `${g.id}: only a guide row declares the chamber enclosed`);
-  }
   assert.ok(read > 100, `only ${read} products read the guide's enclosure as the H2C's chamber`);
+});
+
+// D93: a maker's own "enclosure needed" or "recommended", with no temperature, reads as the guide's tick does, for the
+// types the guide asks an enclosure for, labelled as the maker's words; a stated chamber still decides.
+test("a maker's own enclosure with no temperature is the H2C's chamber for the guide's enclosure types, in its words", () => {
+  const profileById = new Map(db.profiles.map((p) => [p.id, p]));
+  const guideOf = (materialId) => db.printGuide.find((x) => x.materials.some((y) => y.materialId === materialId));
+  const printed = (c) => !/^(not published)?$/i.test(String(c.text ?? '').trim());
+  const own = (id) => db.profiles.filter((p) => p.gradeId === id && !p.retired);
+  let makers = 0;
+  for (const g of db.grades.filter(isProduct)) {
+    if (g.print?.chamber?.state !== 'enclosed' || g.print.from?.chamber?.origin === 'guide') continue;
+    // Where it is not the guide's, it is a profile of the product's own, or of its twin's, that asks for an enclosure,
+    // prints no chamber row, and is of a type the guide declares enclosed; the reason quotes its words.
+    const p = profileById.get(g.print.chamber.profileId);
+    const holder = g.print.from?.chamber?.origin === 'twin' ? g.print.from.chamber.gradeId : g.id;
+    assert.equal(p?.gradeId, holder, `${g.id}: its enclosed chamber is not a profile of ${holder}`);
+    assert.equal(p.enclosureState, 'recommended', `${g.id} ${p.id}`);
+    assert.ok(!printed(p.chamber), `${g.id} ${p.id}: its chamber row prints "${p.chamber.text}"`);
+    assert.equal(guideOf(g.materialId)?.chamber.state, 'enclosed', `${g.id}: its type's guide asks no enclosure`);
+    assert.ok(g.print.chamber.reason.includes(`"${p.enclosure}"`), `${g.id}: the reason does not quote the maker's words`);
+    assert.equal(g.print.chamber.verdict, 'within', g.id);
+    assert.ok(own(holder).every((q) => q === p || (!printed(q.chamber) && ['unknown', 'enclosed'].includes(q.chamber.state))), `${g.id}: another of its profiles states the chamber`);
+    makers++;
+  }
+  // The converse: no product of those types whose own sheets ask for an enclosure and print no chamber stays unknown.
+  for (const g of db.grades.filter((x) => isProduct(x) && guideOf(x.materialId)?.chamber.state === 'enclosed')) {
+    const mine = own(g.id);
+    if (!mine.some((p) => p.enclosureState === 'recommended') || mine.some((p) => printed(p.chamber) || !['unknown', 'enclosed'].includes(p.chamber.state))) continue;
+    assert.notEqual(g.print.chamber.verdict, 'unknown', `${g.id}: its maker asks for an enclosure and states no temperature, and it stays unknown`);
+  }
+  assert.ok(makers > 20, `only ${makers} products read their maker's enclosure as the H2C's chamber`);
 });
 
 test("a material's spread counts each twin as the product it is, and says how many", () => {

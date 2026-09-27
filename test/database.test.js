@@ -511,7 +511,13 @@ test('every profile\'s gate is its own published window against the H2C', () => 
         assert.equal(verdict, expected, `${p.id} ${axis}: at least ${w.min} °C against ${limit[axis]} °C`);
         continue;
       }
-      if (w.state !== 'range' || w.max === null) { assert.ok(!['within', 'partial', 'exceeds', 'exceeds-recommended'].includes(verdict) || ['not-required', 'ambient'].includes(w.state), `${p.id} ${axis}: ${verdict} with no window`); continue; }
+      // Within with no window: a statement that nothing is needed, or (D93) a chamber the maker asks to enclose, which
+      // the H2C's heated chamber is, and nothing else.
+      if (w.state !== 'range' || w.max === null) {
+        const cleared = ['not-required', 'ambient'].includes(w.state) || (axis === 'chamber' && w.state === 'enclosed' && verdict === 'within');
+        assert.ok(!['within', 'partial', 'exceeds', 'exceeds-recommended'].includes(verdict) || cleared, `${p.id} ${axis}: ${verdict} with no window`);
+        continue;
+      }
       const expected = w.max <= limit[axis] ? 'within'
         : axis === 'chamber' && w.min !== null && w.min <= limit[axis] ? 'partial'
         : w.requirement === 'recommended' ? 'exceeds-recommended' : 'exceeds';
@@ -543,7 +549,8 @@ test('a "-" in a data sheet is no setpoint, not zero and not "not required"', ()
 });
 
 // A source that says an enclosure is not necessary has said no heated chamber is needed. One that
-// recommends an enclosure has said nothing about 65 °C.
+// recommends an enclosure has said nothing about 65 °C, unless its row declares the chamber "enclosed" for a type its
+// printer maker's guide asks an enclosure for (D93; products.test.js holds those).
 test('enclosure guidance clears the chamber only when it says an enclosure is not needed', () => {
   for (const p of db.profiles.filter((x) => x.chamber.fromEnclosure)) {
     assert.equal(p.enclosureState, 'not-needed', p.id);

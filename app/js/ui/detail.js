@@ -688,11 +688,13 @@ function printCard(g) {
   const from = p?.from ?? {};
   const some = !!p?.profileIds.length || Object.keys(from).some((a) => a !== 'anneal');
   if (!some && !p?.anneal?.length) return '<div class="print-card fine">No print settings recorded for this product. Its maker\'s other products may be similar, but that is not this product\'s data.</div>';
-  const win = (a) => (a.state === 'range' && a.max == null && a.min != null ? `at least ${fmtNumber(a.min)} °C`
+  // An enclosure with no temperature is the H2C's heated chamber: the guide's (D90) or, for the same types, its maker's
+  // own words (D93), which the gate's reason quotes.
+  const win = (a, key) => (a.state === 'range' && a.max == null && a.min != null ? `at least ${fmtNumber(a.min)} °C`
     : a.state === 'range' ? `${a.min != null && a.min !== a.max ? `${fmtNumber(a.min)}–` : ''}${fmtNumber(a.max)} °C`
     : a.state === 'not-required' || a.state === 'ambient' ? 'not required' : a.state === 'unknown' ? 'not published'
-      : a.state === 'enclosed' ? "an enclosure, which the H2C's heated chamber is" : a.state.replace(/-/g, ' '));
-  const axis = (label, key) => (some ? `<dt>${label}</dt><dd>${esc(win(p[key]))} ${gateChip(p[key], label)}${fromNote(from[key])}</dd>` : '');
+      : a.state === 'enclosed' ? `an enclosure${from[key]?.origin === 'guide' ? '' : ' its maker asks for'}, which the H2C's heated chamber is` : a.state.replace(/-/g, ' '));
+  const axis = (label, key) => (some ? `<dt>${label}</dt><dd>${esc(win(p[key], key))} ${gateChip(p[key], label)}${fromNote(from[key])}</dd>` : '');
   const anneal = (p.anneal ?? []).map((x) => `${x.tempC != null ? `${fmtNumber(x.tempC)} °C` : 'temperature not stated'}${x.hours != null ? ` for ${fmtNumber(x.hours)} h` : ''}`);
   return `<div class="print-card"><div class="shared-head">How to print it</div><dl class="kv small">
     ${axis('Nozzle', 'nozzle')}${axis('Bed', 'bed')}${axis('Chamber', 'chamber')}
@@ -1041,6 +1043,7 @@ function tabBody(tab, c) {
         <dt>Bed</dt><dd>${esc(p.bed.text)} ${gateChip(p.gates.bed, 'Bed')}</dd>
         <dt>Chamber</dt><dd>${esc(p.chamber.text)} ${gateChip(p.gates.chamber, 'Chamber')}
           ${p.chamber.fromEnclosure ? `<br><span class="missing" style="font-size:11px">Read from the enclosure row: "${esc(p.enclosure)}". Not needing an enclosure means not needing a heated chamber.</span>` : ''}
+          ${p.chamber.state === 'enclosed' ? `<br><span class="missing" style="font-size:11px">Read from the enclosure row, in its maker's words: "${esc(p.enclosure)}", with no temperature. For a type the printer maker's guide asks an enclosure for, the H2C's heated chamber is that enclosure.</span>` : ''}
           ${p.chamber.strippedTail ? `<br><span class="missing" style="font-size:11px">Trailing text not read as a chamber requirement: ${esc(p.chamber.strippedTail)}</span>` : ''}</dd>
         <dt>Nozzle material</dt><dd>${esc(p.nozzleMaterial ?? '')}</dd>
         <dt>Nozzle diameter</dt><dd>${esc(p.nozzleDiameter.text)}</dd>

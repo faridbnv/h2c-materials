@@ -318,10 +318,12 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   the nine types Bambu Lab's guide asks an enclosure for, a silent product's chamber is within the H2C, labelled as the
   guide's; 123 products read it. Sixteen products of those types state a chamber above 65 °C on their own sheets and
   keep that reading, Bambu Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets among them, which the owner
-  named as the reason to revisit. Twenty-three whose own sheet, or twin's, asks for an enclosure without a temperature
-  stay unknown, because a maker's own statement wins and only the printer maker's guide means its own enclosed
-  printers; the owner ruled on 2026-09-26 that those read as the guide does (GOALS). Query: products of those nine materials whose `print.chamber.verdict` is `exceeds`, `partial` or
-  `exceeds-recommended`, and those unknown with `print.enclosure` recommended.
+  named as the reason to revisit. Since D93 (m190, 2026-09-27) a maker's own "enclosure needed" or "recommended" with
+  no temperature reads as the guide's tick does: 28 products' own sheets and one twin's (Kratos PC, whose own sheet says
+  "Enclosure recommended for large(r) prints" and holds no profile of its own). One product of those types is still
+  unknown with an enclosure asked for: Polymaker PolyMax PC (G035-06), whose "Closure chamber | Not needed
+  (70°C-100°C)" is recorded unread (below). Query: products of those nine materials whose `print.chamber.verdict` is
+  `exceeds`, `partial` or `exceeds-recommended`, and those unknown with `print.enclosure` recommended.
 - **What the guide prints and the tables do not use.** Its January 2025 revision (B-GUIDE) also heads ASA-CF, PC FR
   and TPU for AMS, which the current revision dropped; only the current revision is read, so those three materials'
   silent products read nothing. The guide's drying line is recorded and fills no recipe, and its annealing row,
