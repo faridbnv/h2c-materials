@@ -16,10 +16,10 @@ export const LINT_RULES = {
   'MEAS-DUPLICATE': 'Two active measurements with the same grade, property, value, unit, direction, conditions, source and locator; retire the copy.',
   'MEAS-CONDITIONS-INDISTINCT': 'Different values of one property, from one place in one source, with identical test conditions; a source that prints two tables (dry and conditioned, as printed and annealed, two print speeds) must say which table each row came from.',
   'MEAS-PRINTED-NO-DIRECTION': 'A printed-specimen mechanical measurement with no stated direction, which can never back an XY headline.',
-  'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY.',
+  'MEAS-LOCATOR-DIRECTION': 'The locator names a build direction (X-Y, XY, Z) that the Direction column does not record; a Z result coded as unknown taught the estimate model that unknown directions sit far below XY. A thermal or physical row recorded with no direction (Not applicable) is left alone: there the locator names how the bar was printed.',
   'MEAS-PHYSICS-HDT-LOADS': 'One grade, source and state publish HDT at 0.45 MPa below HDT at 1.8 MPa; a lighter load cannot deflect a bar at a lower temperature. Flag the pair physically implausible, or accept with the reason.',
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
-  'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round. A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. Re-read the rows and correct whichever is on the wrong line.',
+  'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round. A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. A Vicat whose own words name the heavy load (50 N, method B) is not ordered against the glass transition, because that needle sinks into a glassy bar once it yields. Re-read the rows and correct whichever is on the wrong line.',
   'MEAS-PHYSICS-WINDOW': 'A value outside what its polymer can do (data/tables/plausibility_windows.csv). Beyond a hard bound it is impossible and the row is a defect: re-read the sheet, and if the sheet really prints it, flag it Published value (physically implausible) with the reason (D55). Beyond a soft bound it is surprising: check it, and accept it with what makes it credible.',
   'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
   'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
@@ -32,7 +32,7 @@ export const LINT_RULES = {
   'SOURCE-LOCAL-PATH': 'A source whose location is a path on one computer, not a URL anyone can open.',
   'SOURCE-TITLE-NOT-TITLE': 'A source Title that is not the document\'s own title: a shop page\'s chrome (payment or store words), a file name ("B pla basic", an underscore, .xlsx or .pdf) or "untitled"; write the title the publisher printed on the sheet or page.',
   'COVERAGE-DUPLICATE': 'Two coverage rows for one material and domain with the same status and finding.',
-  'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same status; an older finding may have been overtaken by a newer one.',
+  'COVERAGE-SUPERSEDED': 'Several coverage rows for one material and domain with the same open status; an older finding may have been overtaken by a newer one. Resolved rows are closed events and may stand side by side.',
   'HEADLINE-FAMILY-UNLISTED': 'A headline limited to named families leaves out a family with candidate materials that nobody named: a new rigid family would have no heat deflection at all, and no warning. Name the family in Applies to, or accept with why the headline means nothing for it (an elastomer, D56).',
 };
 
@@ -141,8 +141,14 @@ export function lintData(tables, schemas) {
   // A direction the locator names and the Direction column does not record (audit 2026-09-15, B-03). Mixed labels
   // (X-Z, ZX, "XY and Z") name no single direction and are left to the reader.
   const NAMED = [['XY', /(^|[^A-Za-z-])(X-Y|XY)([^A-Za-z-]|$)/], ['Z', /(^|[^A-Za-z-])Z([^A-Za-z-]|$)/]];
+  // A thermal or physical property carries no build direction (the Direction vocabulary's Not applicable: density,
+  // thermal transitions), and nothing reads one: heat deflection's headline has none. Where such a row says so, the
+  // locator's "XY" is how the bar was printed, not a test axis; a mechanical row, or one whose property is unknown, is
+  // still held to its locator.
+  const domainOf = new Map((tables.properties?.rows ?? []).map((p) => [p.Property, p.Domain]));
+  const directionless = (r) => r.Direction === 'Not applicable' && ['thermal', 'physical'].includes(domainOf.get(r.Property));
   for (const r of tables.measurements?.rows ?? []) {
-    if (r['Data status'] === 'Retired duplicate record') continue;
+    if (r['Data status'] === 'Retired duplicate record' || directionless(r)) continue;
     const named = NAMED.filter(([, re]) => re.test(r.Locator ?? '')).map(([d]) => d);
     if (named.length !== 1 || /X-?Z|Z-?X/.test(r.Locator ?? '')) continue;
     if (r.Direction !== named[0]) add('MEAS-LOCATOR-DIRECTION', 'measurements', r.MeasurementID, 'Direction', `${r.Locator} is recorded as ${r.Direction}`);
@@ -342,11 +348,22 @@ export function lintData(tables, schemas) {
   // them on the wrong line. The window check already leaves those forms out (below) for the same reason.
   const unlikeBar = (r) => /^(Film|Filament)/.test(r['Specimen type'] ?? '');
   const sameSpecimen = (a, b) => unlikeBar(a) === unlikeBar(b);
+  // A Vicat point is where a loaded needle sinks 1 mm, and the load decides where that is. Under the light load
+  // (10 N, method A) the needle waits for the polymer to go rubbery, so the Vicat sits at or above the glass
+  // transition. Under the heavy one (50 N on a 1 mm² tip, method B) it presses at 50 MPa and sinks as soon as a glassy
+  // bar has softened enough to yield, which on a printed PLA or ABS is below the glass transition, by as much as the
+  // polymer's hot strength allows. So the order holds for the light load and a Vicat whose own words name the heavy
+  // one ("5 kg", "50 N", ISO 306's "B50" or "B120") is not ordered against the glass transition; a load the row does
+  // not state is still ordered. ASTM D1525's "Rate B" is a heating rate, not a load, and names nothing here. The Vicat
+  // is still ordered against the melting point, which no load moves a needle past.
+  const HEAVY_VICAT = /\b5\s?kg\b|\b50\s?N\b|(?<!Rate\s?)\bB\s?\/?\s?(50|120)\b/i;
+  const heavyVicat = (r) => r.Property === 'Vicat softening temperature' && HEAVY_VICAT.test(r['Standard / load'] ?? '');
   for (const rows of groups.values()) {
     const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
     for (const [lower, higher, why] of ORDERED) {
       for (const a of of(lower)) {
         for (const b of of(higher, (r) => r['Normalized unit'] === a['Normalized unit'] && r.Direction === a.Direction && sameSpecimen(a, r))) {
+          if (lower === 'Glass transition temperature' && heavyVicat(b)) continue;
           if (num(a) > num(b) * (1 + ORDER_MARGIN)) add('MEAS-PHYSICS-ORDER', 'measurements', a.MeasurementID, 'Normalized value', `${lower} ${num(a)} above ${higher} ${num(b)} (${b.MeasurementID}): ${why}`);
         }
       }
@@ -397,7 +414,9 @@ export function lintData(tables, schemas) {
     for (const r of rows) { if (!byStatus.has(r.Status)) byStatus.set(r.Status, []); byStatus.get(r.Status).push(r); }
     for (const [status, same] of byStatus) {
       const distinct = [...new Map(same.map((r) => [r.Finding, r])).values()];
-      if (distinct.length > 1 && !MISSING.test(status)) add('COVERAGE-SUPERSEDED', 'coverage', distinct.map((r) => r.CoverageID).join(' | '), '', `${k}: ${distinct.length} "${status}" findings`);
+      // A Resolved row is closed: it records one thing that was fixed (a unit corrected, a grade retired), so several
+      // in one domain are a log of separate events, and a closed finding has nothing left to go stale.
+      if (distinct.length > 1 && !MISSING.test(status) && status !== 'Resolved') add('COVERAGE-SUPERSEDED', 'coverage', distinct.map((r) => r.CoverageID).join(' | '), '', `${k}: ${distinct.length} "${status}" findings`);
     }
   }
 

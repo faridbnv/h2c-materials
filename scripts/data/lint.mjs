@@ -69,8 +69,14 @@ if (process.argv[1]?.endsWith('lint.mjs')) {
   const show = args.includes('--all') ? findings : fresh;
   for (const f of show.slice(0, 300)) console.log(`${f.code.padEnd(26)} ${f.table} ${f.record}${f.field ? ` [${f.field}]` : ''}  ${f.message}`);
   for (const b of stale) console.log(`STALE ACCEPTANCE           ${b.Code} ${b.Table} ${b.Record}${b.Field ? ` [${b.Field}]` : ''}: no longer occurs; remove it from data/review/accepted-findings.csv`);
+  // One finding, one reason: a second row for the same key is never read (the baseline keeps the last), so its reason
+  // is invisible and may contradict the one that is.
+  const keyOf = (b) => findingKey({ code: b.Code, table: b.Table, record: b.Record, field: b.Field ?? '' });
+  const seen = new Set();
+  const repeated = all.filter((b) => (seen.has(keyOf(b)) ? true : (seen.add(keyOf(b)), false)));
+  for (const b of repeated) console.log(`REPEATED ACCEPTANCE        ${b.Code} ${b.Table} ${b.Record}${b.Field ? ` [${b.Field}]` : ''}: accepted twice; keep one reason in data/review/accepted-findings.csv`);
   const byCode = {};
   for (const f of fresh) byCode[f.code] = (byCode[f.code] ?? 0) + 1;
-  console.log(`${findings.length} finding(s): ${accepted.length} accepted, ${fresh.length} new ${JSON.stringify(byCode)}, ${stale.length} stale acceptance(s)`);
-  if (fresh.length || stale.length) process.exitCode = 1;
+  console.log(`${findings.length} finding(s): ${accepted.length} accepted, ${fresh.length} new ${JSON.stringify(byCode)}, ${stale.length} stale acceptance(s)${repeated.length ? `, ${repeated.length} repeated` : ''}`);
+  if (fresh.length || stale.length || repeated.length) process.exitCode = 1;
 }

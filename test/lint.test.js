@@ -58,6 +58,9 @@ test('a superseded coverage row is history, not a duplicate', () => {
   const run = (rows) => lintData({ coverage: { header: Object.keys(rows[0]), rows } }, { coverage: { primaryKey: 'CoverageID', fields: [] } }).map((f) => f.code);
   assert.deepEqual(run([row('C1', 'Gap', 'x'), row('C2', 'Gap', 'x')]), ['COVERAGE-DUPLICATE']);
   assert.deepEqual(run([row('C1', 'Superseded', 'Superseded by C2: x'), row('C2', 'Gap', 'x')]), []);
+  // Two open findings in one domain may be one overtaken by the other; two closed ones are a log of what was fixed.
+  assert.deepEqual(run([row('C1', 'Gap', 'no HDT'), row('C2', 'Gap', 'no HDT at 0.45 MPa')]), ['COVERAGE-SUPERSEDED']);
+  assert.deepEqual(run([row('C1', 'Resolved', 'V1 resolved: unit corrected'), row('C2', 'Resolved', 'V2 resolved: unit corrected')]), []);
 });
 
 test('a headline limited to named families names every family with candidates, or a reason is accepted', () => {
@@ -81,6 +84,16 @@ test('a locator that names one direction must agree with the Direction column; m
     f('V5', 'p. 2: Bending modulus (Z)', 'Z'), f('V6', 'Zytel resin sheet', 'Not published'),
   ]).filter((c) => c.startsWith('MEAS-LOCATOR-DIRECTION'));
   assert.deepEqual(found, ['MEAS-LOCATOR-DIRECTION V1', 'MEAS-LOCATOR-DIRECTION V3']);
+  // A thermal row carries no direction by convention, and there the locator's "XY" is how the bar was printed. A
+  // mechanical row with the same locator is still held to it.
+  const properties = { header: ['Property', 'Domain'], rows: [{ Property: 'HDT', Domain: 'thermal' }, { Property: 'Tensile modulus', Domain: 'mechanical' }] };
+  const withDomains = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows }, properties }, schemas)
+    .filter((x) => x.code === 'MEAS-LOCATOR-DIRECTION').map((x) => x.record);
+  assert.deepEqual(withDomains([
+    row({ MeasurementID: 'V1', Property: 'HDT', Locator: '94.7 °C (XY)', Direction: 'Not applicable', 'Normalized value': '94.7' }),
+    row({ MeasurementID: 'V2', Property: 'HDT', Locator: 'p. 2: HDT (Z)', Direction: 'Not published', 'Normalized value': '80' }),
+    row({ MeasurementID: 'V3', Locator: 'Young\'s modulus (X-Y)', Direction: 'Not applicable' }),
+  ]), ['V2', 'V3']);
 });
 
 test('HDT at 0.45 MPa below HDT at 1.8 MPa on one grade and state is caught, unless the pair is flagged implausible', () => {
@@ -246,6 +259,18 @@ test('two values a sheet orders the wrong way round are a swapped line, unless t
 
   // A needle cannot sink into a bar below the temperature at which its polymer goes rubbery.
   assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 145), thermal('V2', 'Vicat softening temperature', 119)]), ['V1']);
+  // Under the light load, that is. A needle pressed at 50 N sinks into a glassy bar once it yields, below the glass
+  // transition, so a Vicat whose own words name the heavy load is not ordered against it; a load the row does not
+  // state, the light load, and ASTM's "Rate B" (a heating rate) still are.
+  const vicat = (standard, value = 54) => ({ ...thermal('V2', 'Vicat softening temperature', value), 'Standard / load': standard });
+  for (const heavy of ['5kg ISO 306', '5kg ASTM D1525', 'ISO 306/B50', 'ISO 306, 50 N, 50 °C/h', '50N ASTM D1525', 'ISO 306 B120']) {
+    assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 63), vicat(heavy)]), [], heavy);
+  }
+  for (const light of ['ISO 306', 'VST 10N ISO 306', 'ISO 306/A50', '1 kg load D 1525', 'Rate B ASTM D1525', '150 N']) {
+    assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 63), vicat(light)]), ['V1'], light);
+  }
+  // The heavy load does not move a Vicat past the melting point.
+  assert.deepEqual(run([vicat('5kg ISO 306', 190), thermal('V3', 'Melting temperature', 160)]), ['V2']);
   // But two different tests cross by a little where the polymer puts them close: a PLA's Vicat and its glass
   // transition sit within a couple of degrees, and which comes first is scatter, not a swapped line.
   assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 60), thermal('V2', 'Vicat softening temperature', 57)]), []);
