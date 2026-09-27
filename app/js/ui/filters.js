@@ -29,7 +29,6 @@ import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 // A reader narrows by family first ("a nylon", "a PETG"), and then by the polymer inside it, so that group leads.
 const GROUPS = ['Material family', 'Mechanical', 'Thermal', 'Cost', 'Environment', 'Manufacturing', 'Evidence', 'Compatibility'];
 const OPEN_BY_DEFAULT = new Set(['Material family', 'Mechanical', 'Thermal']);
-const FAMILY_NAME = (f) => (f ?? '').replace(' - Outside H2C Practical Envelope', '');
 
 const H2C_STATUSES = ['Official Bambu product', 'Officially listed family', 'Conditional', 'Theoretical'];
 const REINFORCEMENT = [
@@ -124,7 +123,7 @@ function body(group, materials, cs, db, ctx = {}) {
       if (eligible.has(m.id)) pe.open++;
       e.polymers.set(p, pe);
     }
-    const ordered = [...families].sort((a, b) => b[1].total - a[1].total || FAMILY_NAME(a[0]).localeCompare(FAMILY_NAME(b[0])));
+    const ordered = [...families].sort((a, b) => b[1].total - a[1].total || a[0].localeCompare(b[0]));
     out.push(`<div class="control family-facet" data-active="${famSel.length > 0}">
       <div class="avail">Each count is how many of a family the other requirements leave. Choose a family to see its polymers.</div>
       <div class="checks">${ordered.map(([f, e]) => {
@@ -135,7 +134,7 @@ function body(group, materials, cs, db, ctx = {}) {
           ${esc(p.split(' › ').pop())}<span class="n" title="${pe.open} of ${pe.total} left by the other requirements">${pe.open}</span></label>`).join('')}</div>` : '';
         return `<div class="family-chip">
           <label title="${e.open} of ${e.total} left by the other requirements"><input type="checkbox" data-family="${esc(f)}" data-polymers="${esc(polymers.map(([p]) => p).join('|'))}" ${on ? 'checked' : ''}>
-          ${esc(FAMILY_NAME(f))}<span class="n">${e.open}</span></label>${sub}</div>`;
+          ${esc(f)}<span class="n">${e.open}</span></label>${sub}</div>`;
       }).join('')}</div>
     </div>`);
   }

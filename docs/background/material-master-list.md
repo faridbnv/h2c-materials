@@ -123,12 +123,12 @@ These high-temperature polymers were discussed in the chat specifically as mater
 
 | Abbreviation / Name | Full Name | Category |
 |---|---|---|
-| PEEK | Polyether Ether Ketone | Industrial High-Temperature - Outside H2C Practical Envelope |
-| PEKK | Polyether Ketone Ketone | Industrial High-Temperature - Outside H2C Practical Envelope |
-| PEI / ULTEM | Polyetherimide | Industrial High-Temperature - Outside H2C Practical Envelope |
-| PSU | Polysulfone | Industrial High-Temperature - Outside H2C Practical Envelope |
-| PESU / PES | Polyethersulfone | Industrial High-Temperature - Outside H2C Practical Envelope |
-| PPSU | Polyphenylsulfone | Industrial High-Temperature - Outside H2C Practical Envelope |
+| PEEK | Polyether Ether Ketone | Industrial High-Temperature |
+| PEKK | Polyether Ketone Ketone | Industrial High-Temperature |
+| PEI / ULTEM | Polyetherimide | Industrial High-Temperature |
+| PSU | Polysulfone | Industrial High-Temperature |
+| PESU / PES | Polyethersulfone | Industrial High-Temperature |
+| PPSU | Polyphenylsulfone | Industrial High-Temperature |
 
 ## Primary source types used in the chat
 

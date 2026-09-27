@@ -839,8 +839,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Flexible Elastomers |  |
 | Fluoropolymers |  |
 | High-Performance Engineering |  |
-| Industrial High-Temperature - Outside H2C Practical Envelope |  |
-| Metal and Ceramic Sintering - Outside H2C Scope |  |
+| Industrial High-Temperature |  |
+| Metal and Ceramic Sintering |  |
 | Nylon / Polyamide |  |
 | PET Engineering |  |
 | PETG |  |

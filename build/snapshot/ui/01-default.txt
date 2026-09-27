@@ -58,7 +58,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 316L stainless steel sintering filament
-Metal and Ceramic Sintering - Outside H2C Scope
+Metal and Ceramic Sintering
  not tested 7,190 — — — n/a — ☆
 ABS not tested 1,050
 1,020–1,150 · 43
@@ -108,7 +108,7 @@ ABS-GF not tested 1,100
 82–100 · 8
  39↗ ☆
 Alumina sintering filament
-Metal and Ceramic Sintering - Outside H2C Scope
+Metal and Ceramic Sintering
  not tested 3,776 — — — n/a — ☆
 ASA not tested 1,070
 1,040–1,150 · 35
@@ -518,7 +518,7 @@ Flexible Elastomers
 520–1,107 · 3
  n/a — ☆
 PEEK
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,300
 1,197–1,300 · 4
  3.72 88.5
@@ -529,7 +529,7 @@ Industrial High-Temperature - Outside H2C Practical Envelope
 140–147 · 2
  — ☆
 PEEK-CF
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,390
 1,340–1,390 · 3
  9.1
@@ -540,10 +540,10 @@ Industrial High-Temperature - Outside H2C Practical Envelope
 1.9–3 · 2
  265 — ☆
 PEEK-GF
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,440 7.25 105 2.5 300 — ☆
 PEI
-also called ULTEM · Industrial High-Temperature - Outside H2C Practical Envelope
+also called ULTEM · Industrial High-Temperature
  not tested 1,340
 1,270–1,380 · 9
  2.18
@@ -556,7 +556,7 @@ also called ULTEM · Industrial High-Temperature - Outside H2C Practical Envelop
 158–217 · 4
  no price↗ ☆
 PEI-CF
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,310
 1,270–1,390 · 3
  8.15
@@ -569,7 +569,7 @@ Industrial High-Temperature - Outside H2C Practical Envelope
 165–205 · 3
  — ☆
 PEI-ESD
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,340
 1,340–1,340 · 2
  2.71
@@ -580,10 +580,10 @@ Industrial High-Temperature - Outside H2C Practical Envelope
 4–4 · 2
  205 — ☆
 PEI-GF
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,510 8.79 145 2 212 — ☆
 PEKK
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,270
 1,270–1,290 · 3
  2.98
@@ -596,15 +596,15 @@ Industrial High-Temperature - Outside H2C Practical Envelope
 150–182 · 2
  — ☆
 PEKK-CF
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,325
 1,320–1,330 · 2
  9.13 126 3.15 285 — ☆
 PEKK-ESD
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,340 3.3 109 4 185 — ☆
 PESU
-also called PES · Industrial High-Temperature - Outside H2C Practical Envelope
+also called PES · Industrial High-Temperature
  not tested 1,370 2.64* 86* 6.9* 205* — ☆
 PET
 PET Engineering
@@ -918,12 +918,12 @@ High-Performance Engineering
 236–241 · 2
  — ☆
 PPSU
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,290
 1,280–1,290 · 4
  2.31 55 3 190 — ☆
 PSU
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,240 2.1 52 8 172 — ☆
 PVA
 Support / Soluble
@@ -971,7 +971,7 @@ SBC
 Styrenics
  not tested 1,010 — 26* 230* — — ☆
 Silicon carbide sintering filament
-Metal and Ceramic Sintering - Outside H2C Scope
+Metal and Ceramic Sintering
  not tested 2,660 — — — n/a — ☆
 Support for ABS
 Support / Interface
@@ -1003,7 +1003,7 @@ Flexible Elastomers
 1,000–1,250 · 11
  0.0344* 22* 250* n/a — ☆
 TPI
-Industrial High-Temperature - Outside H2C Practical Envelope
+Industrial High-Temperature
  not tested 1,300 2.95 74 6 237 — ☆
 TPS
 Flexible Elastomers

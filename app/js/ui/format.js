@@ -372,8 +372,6 @@ export function keepInView(strip, item) {
 export const chip = (status, label) =>
   `<span class="chip chip-${esc(status)}">${esc(label ?? status)}</span>`;
 
-export const FAMILY_LABEL = (f) => (f ?? '').replace(' - Outside H2C Practical Envelope', '');
-
 /** Marker shapes by filler class: colour is never the only channel. */
 export const FILLER_SYMBOL = {
   'carbon-fibre': 'diamond',

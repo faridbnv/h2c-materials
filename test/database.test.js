@@ -159,9 +159,10 @@ test('quarantined measurements stay out of headlines and related evidence', () =
 });
 
 test('the six excluded materials trip the envelope gate on their own evidence', () => {
-  // Excluded for the H2C's envelope: the industrial high-temperature family. The sintering filaments are excluded by
-  // scope, not by the envelope (D87): they print at 170 to 250 °C, and their part is the sintered metal's.
-  const excluded = db.materials.filter((m) => m.excluded && /Outside H2C Practical Envelope/.test(m.family));
+  // Excluded, and beyond the H2C's limits: the industrial high-temperature materials, whose H2C status says so once
+  // (m146). The sintering filaments are excluded by scope, not by the envelope (D87): they print at 170 to 250 °C, and
+  // their part is the sintered metal's.
+  const excluded = db.materials.filter((m) => m.excluded && m.h2cStatus === 'Exceeds H2C limits');
   assert.ok(excluded.length >= 6, 'the six audited exclusions are still excluded');
   for (const m of excluded) {
     assert.equal(m.gates.nozzle.verdict, 'exceeds', `${m.name} nozzle gate`);
