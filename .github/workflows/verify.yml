@@ -24,10 +24,17 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: build/package-lock.json
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
 
       - name: Install build dependencies
         run: npm ci --prefix build
+
+      # The import tools' own dependencies (pdfjs-dist, which the text reader imports): `verify` runs the import
+      # pipeline's tests (test:ingest), which failed on every push from 2026-09-21 without them.
+      - name: Install the import tools' dependencies
+        run: npm ci
 
       # The build cache (.cache/build, build/src/build-cache.js) is never restored in CI: every result this job uses
       # is built cold once, and the audit and the reproducibility test build again with the cache off.
@@ -54,10 +61,17 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: build/package-lock.json
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
 
       - name: Install build dependencies
         run: npm ci --prefix build
+
+      # The import tools' own dependencies (pdfjs-dist, which the text reader imports): `verify` runs the import
+      # pipeline's tests (test:ingest), which failed on every push from 2026-09-21 without them.
+      - name: Install the import tools' dependencies
+        run: npm ci
 
       - name: Build
         run: npm run build

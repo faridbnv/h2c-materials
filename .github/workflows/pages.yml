@@ -31,10 +31,17 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: build/package-lock.json
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
 
       - name: Install build dependencies
         run: npm ci --prefix build
+
+      # The import tools' own dependencies (pdfjs-dist, which the text reader imports): `verify` runs the import
+      # pipeline's tests (test:ingest), which failed on every push from 2026-09-21 without them.
+      - name: Install the import tools' dependencies
+        run: npm ci
 
       # The build cache starts empty, so every build result in this job, the published one included, is computed here
       # from the tables (build/src/build-cache.js).
