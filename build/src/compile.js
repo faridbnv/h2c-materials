@@ -284,6 +284,7 @@ const directionNote = (m, def) => (!def.direction || m.direction === def.directi
 function conditionNote(m, def, props) {
   if (def.notch && !def.valueProperties.includes(m.property)) return `${m.property}, not ${props[0]}: the source names another test on another bar, or none`;
   if (def.notch && m.notch !== def.notch) return 'the source does not state whether the bar was notched';
+  if (def.standard && m.standards?.length && !m.standards.includes(def.standard)) return `measured to ${m.standards.join(', ')}, not ${def.standard}: another test's bar, or its value converted by the maker`;
   if (def.testTemperatureC != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - def.testTemperatureC) > TEST_TEMPERATURE_TOLERANCE_C) return `struck at ${m.testTemperatureC} °C, not at room temperature`;
   return null;
 }
@@ -317,6 +318,7 @@ const FORM_NOTE = {
   moulded: 'raw-material supplier value, not a printed or product specimen',
   film: 'film specimen, not a printed part',
   filament: 'filament strand, not a printed part',
+  'off-recipe': 'printed at a setting its sheet prints beside the one the product is meant for, not the product as it is printed (D95)',
 };
 
 /**

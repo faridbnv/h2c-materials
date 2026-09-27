@@ -27,7 +27,8 @@ export function useRegistry(registry) {
     // The conditions a measurement must meet to be drawn on the axis: the headline's own (D84, D92), each only where set.
     measurement: h.kind === 'measurement'
       ? { properties: h.valueProperties, direction: h.direction, ...(h.loadMPa != null ? { loadMPa: h.loadMPa } : {}),
-        ...(h.notch ? { notch: h.notch } : {}), ...(h.testTemperatureC != null ? { testTemperatureC: h.testTemperatureC } : {}) }
+        ...(h.notch ? { notch: h.notch } : {}), ...(h.testTemperatureC != null ? { testTemperatureC: h.testTemperatureC } : {}),
+        ...(h.standard ? { standard: h.standard } : {}) }
       : null,
   })));
 }

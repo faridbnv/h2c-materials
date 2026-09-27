@@ -42,11 +42,12 @@ test('every headline the registry holds reaches every list, in registry order, a
   assert.deepEqual(keys.filter((k) => LEGACY.has(k)), legacy.CSV_KEYS);
   assert.deepEqual(COLUMN_SETS.properties.columns.filter((c) => c.kind === 'headline' || c.kind === 'price').map((c) => c.key),
     db.registry.headlines.filter((h) => h.tableColumn).map((h) => h.key));
-  // An axis carries the conditions its headline sets, and no others: a notch and a test temperature only where set.
+  // An axis carries the conditions its headline sets, and no others: a notch, a test temperature and a standard only where set.
   for (const h of db.registry.headlines.filter((x) => x.kind === 'measurement')) {
     const m = AXIS_DEFS.find((a) => a.key === h.key).measurement;
     assert.equal(m.notch ?? null, h.notch, h.key);
     assert.equal(m.testTemperatureC ?? null, h.testTemperatureC, h.key);
+    assert.equal(m.standard ?? null, h.standard, h.key);
   }
 });
 

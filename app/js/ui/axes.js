@@ -39,6 +39,9 @@ export function measurementMatches(m, axis, mode) {
   if (axis.unit && m.unit !== axis.unit) return null;
   const notch = axis.measurement.notch;
   if (notch && ['Notched', 'Unnotched'].includes(m.notch) && m.notch !== notch) return null;
+  // A value to another test standard is another test's, in either mode (D94): ASTM D256 in kJ/m² is not ISO 180.
+  const standard = axis.measurement.standard;
+  if (standard && m.standards?.length && !m.standards.includes(standard)) return null;
 
   const relaxed = [];
   const notes = [];

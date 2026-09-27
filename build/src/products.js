@@ -24,7 +24,8 @@
 // A headline may set more of what it is (D92), each a column of headline_definitions.csv: a notch (the notched impact
 // strength takes only a bar stated to be notched), a test temperature (and no bar struck away from 23 ± 2 °C), and
 // whether a value with no stated direction is as published or none of its values (the layer strength, along Z, takes
-// only a bar the source says it pulled along Z).
+// only a bar the source says it pulled along Z). And a test standard (D94): the notched Izod strength takes no value that
+// names ASTM D256 and not ISO 180.
 //
 // A material's range is the spread of its products, never uncertainty about one of them: PEBA's three products at
 // 7.5, 25 and 30 MPa are three products (D8's example, which D83 answers by counting them, not by pooling them).
@@ -54,7 +55,10 @@ export function assess(m, def, gradeMeasurements) {
   if (!def.valueProperties.includes(m.property)) return { excluded: `measures ${m.property}` };
   if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}` };
   if (m.implausible) return { excluded: 'flagged physically implausible' };
-  if (!isPartSpecimen(m.specimenType)) return { excluded: `a ${m.specimenForm} specimen, not a printed part` };
+  if (!isPartSpecimen(m.specimenType)) {
+    // A bar printed at a setting the product is not meant for (D95) is printed, but not the product as it is printed.
+    return { excluded: m.specimenForm === 'off-recipe' ? 'printed at a setting the product is not meant for (D95)' : `a ${m.specimenForm} specimen, not a printed part` };
+  }
   if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
   if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed' };
   // An impact headline is defined on a notched bar at room temperature (D92). An unnotched bar absorbs several times the
@@ -66,6 +70,12 @@ export function assess(m, def, gradeMeasurements) {
   }
   if (def.testTemperatureC != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - def.testTemperatureC) > TEST_TEMPERATURE_TOLERANCE_C) {
     return { excluded: `tested at ${m.testTemperatureC} °C, not ${def.testTemperatureC} °C` };
+  }
+  // A headline may name its test standard (D94): a value that names only others is another test's, even in the
+  // headline's unit (an Izod value to ASTM D256 printed in kJ/m² is that test's energy per metre of notch, converted by
+  // its maker). A value that names no standard is not refused for it.
+  if (def.standard && m.standards?.length && !m.standards.includes(def.standard)) {
+    return { excluded: `measured to ${m.standards.join(', ')}, not ${def.standard}` };
   }
   let caveat = null;
   if (def.direction && m.direction !== def.direction) {

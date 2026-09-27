@@ -193,8 +193,8 @@ printed, its page, the reader's reason, the document's source and grades, and th
                                  // exclusion is recorded; h2cStatus says how it relates to the printer (m146)
   familyEntry,                   // null, or { kind: 'family' | 'alias', members: [{ id, name }], why }
   gradeIds: [],
-  headline: { density, tensileModulusXY, tensileStrengthXY, tensileStrengthZ, elongationXY, charpyNotched, hdt045,
-              glassTransition, priceCADkg },   // one per row of headline_definitions.csv, in its order
+  headline: { density, tensileModulusXY, tensileStrengthXY, tensileStrengthZ, elongationXY, charpyNotched, izodNotched,
+              hdt045, glassTransition, priceCADkg },   // one per row of headline_definitions.csv, in its order
                                  // its products' spread where they publish comparably (below); decides nothing
   summary:  { [headline]: { products, n, min, q1, median, q3, max, typical, asPublished, variants } },
   headlineBasis,                 // the data's own statement of what the headline is
@@ -276,20 +276,23 @@ and `print.csv` every product's print gates and where each part came from; `npm 
 ### What each selectable property compares
 
 A headline's row says what a value must be to be a product's value for it (the rule above). What that means for each
-of the nine:
+of the ten:
 
 | Headline | Comparable | As published (counted apart) | Never its value |
 |---|---|---|---|
 | Density, heat deflection (0.45 MPa) | a printed or unstated specimen; heat deflection at 0.45 MPa | heat deflection with no load stated | a moulded, film or filament specimen; heat deflection at another load |
 | Stiffness, strength, stretch (XY) | direction XY | no direction stated | Z, XZ, ZX or a source's own label |
 | **Layer strength** (`tensileStrengthZ`) | direction Z, the source's own word | none | no direction stated (almost always a flat or moulded bar); XY; XZ or ZX, whose use by sheets is not settled |
-| **Notched impact** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated | no direction stated | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
+| **Notched impact, Charpy** (`charpyNotched`) | Charpy (ISO 179, GB/T 1043), notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated | no direction stated | Izod, in either unit; J/m; unnotched, or notch not stated; struck at another temperature |
+| **Notched impact, Izod** (`izodNotched`, D94) | Izod, notched, kJ/m², XY, at 23 ± 2 °C or no temperature stated, to ISO 180 or no standard named | no direction stated | Charpy, in either unit; J/m; ASTM D256 printed in kJ/m² (a J/m value its maker converted); unnotched, or notch not stated; struck at another temperature |
 | **Glass transition** (`glassTransition`) | the product's own value, any method (almost all DSC) | none: it has no direction or load | a resin supplier's value (Specimen type Raw material value) |
 
-Every headline also leaves out a conditioned or implausible value, and an annealed one where the product publishes it
-as printed. The glass transition is a property of the plastic, not of a bar, which is why a printed and an unstated
-specimen are the same to it; a raw material value is still not the product's, as for every headline. Each of the three
-new rows carries a Comparison note, which the drawer shows above the values it leaves out (D92).
+Every headline also leaves out a conditioned or implausible value, an annealed one where the product publishes it
+as printed, and a bar printed at a setting the product is not meant for (Specimen type "Printed off the product's
+recipe", Form off-recipe: colorFabb's lightweight PETs printed unfoamed, D95). The glass transition is a property of the plastic, not of a bar, which is why a printed and an unstated
+specimen are the same to it; a raw material value is still not the product's, as for every headline. Each of the four
+rows added since D92 carries a Comparison note, which the drawer shows above the values it leaves out (D92, D94); a row
+may also name its test Standard, which a value naming only other standards does not meet (the Izod row's ISO 180, D94).
 
 ### A headline value
 

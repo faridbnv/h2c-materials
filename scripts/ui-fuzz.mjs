@@ -76,7 +76,7 @@ const subset = (a) => a.filter(() => chance(0.4));
 
 /** The display rounding step of fmtNumber (app/js/ui/format.js) at a magnitude. */
 const roundStep = (v) => { const a = Math.abs(v); return a >= 100 ? 1 : a >= 10 ? 0.1 : a >= 1 ? 0.01 : a > 0 ? 10 ** (Math.floor(Math.log10(a)) - 2) : 0.001; };
-const RANGES = { density: [800, 1800], tensileModulusXY: [0.01, 12], tensileStrengthXY: [5, 170], tensileStrengthZ: [2, 90], elongationXY: [1, 700], charpyNotched: [0.5, 80], hdt045: [40, 270], glassTransition: [-60, 240], priceCADkg: [20, 300] };
+const RANGES = { density: [800, 1800], tensileModulusXY: [0.01, 12], tensileStrengthXY: [5, 170], tensileStrengthZ: [2, 90], elongationXY: [1, 700], charpyNotched: [0.5, 80], izodNotched: [0.5, 80], hdt045: [40, 270], glassTransition: [-60, 240], priceCADkg: [20, 300] };
 const edges = Object.fromEntries(KEYS.map((k) => {
   const s = new Set();
   const add = (v) => { if (Number.isFinite(v)) s.add(v); };

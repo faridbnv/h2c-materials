@@ -404,13 +404,15 @@ deferred.
   3D4Makers PI Z2, which stays TPI by the owner's confirmation of R193), two languages (Smartfil FLEX 77A in Spanish,
   a TPU; Flashforge FABRIAL-R in Japanese), BigRep HI-TEMP's mis-mapped text layer, Markforged's four-product
   Composites table, FKuR's Fibrolon trial-grade sheet, a resin maker's that names no filament, and QIDI S-White.
-- **Batch b36 deferred one sheet on a reader gap** (lane 4's targeted fetches, 2026-09-26): LEHVOSS's filament data
-  sheet for LUVOCOM 3F PAHT 9825 NT, the printed-specimen edition of the injection moulded sheet PAHT (M147) holds
-  (url:e0449d7a872e6ec0, SHA-256 ce40603f…). It prints the modulus at 3.1 GPa in XY at three rasters and 2.8 GPa in
-  ZX, under two headings ("Printed using Ultimaker S5 Pro and Engineering settings", "... Fast settings"); the reader
-  takes its specimen shape ("ISO 3167:2014 Typ A") for a moulded bar and 100 % infill for an elongation, so nothing
-  was accepted. It alone would give PAHT a comparable stiffness, the requirement that holds it up in three templates. A reader for the condition cell and the two
-  headings frees it, or the owner may allow it to be transcribed by a migration that checks each figure on its page.
+- **Batch b36 deferred one sheet on a reader gap**, and m198 entered it by the owner's leave (decision 7 of 2026-09-26):
+  LEHVOSS's printed-specimen sheet for LUVOCOM 3F PAHT 9825 NT is a second source of G147-01, checked line by line on
+  its hash-checked page. PAHT (M147) has its comparable stiffness now, 3.1 GPa: it passes Lightweight structure and
+  fails High-stiffness fixture. Left on the sheet, in the record tier: the thermal expansion it prints as 0.5 × 10⁻⁵/K,
+  a tenth of an unfilled polyamide's, which wants LEHVOSS's word before it is a number here; the 200 h service
+  temperature and the insulation resistance, which the registry has no property for; and its processing window (265
+  to 290 °C, bed ≥ 50 °C, drying 110 °C for 6 to 8 h), which differs from the moulded sheet's (270 to 290 °C) that
+  G147-01's profile holds. The reader gap itself (a condition cell and two headings) is not closed; a second sheet of
+  this layout would need the same kind of migration, or the reader.
 - **QIDI S-White is Support for ABS (R202) and did not enter.** QIDI's bilingual layout holds it, as it holds
   QIDI's other sheets: the reader read no profile, so the seven materials the sheet lists as suitable (its Support
   pairing) have no row to go in, and it misread the water absorption (b35). The bilingual reader, or a profile read
@@ -471,22 +473,25 @@ count.
   than the pages: its bars were printed "Along the tension stress", "Successively at 45° and – 45°, close to 3D
   printing standards" and "Perpendicular to the tension stress", to ISO 527-2/1A, drawn in plan. Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states
   "ISO 3167 A test specimens" (a shape, not how it was made), and Flex prints no sentence.
-- **Nanovia's "Ultimate strength" was never read.** Each tensile tab prints it (the maximum stress, which the registry
-  holds as Tensile strength (endpoint unspecified)), and the reader has no property for the words, so it sits in the
-  record tier (`source_facts`) on every page. The ±45° tab's would be the XY tensile strength of the twelve products
-  whose ±45° modulus m168 recorded; entering it is a re-read like m168's.
+- **Nanovia's "Ultimate strength" is read on the ±45° tab only.** m199 added the ±45° tab's ultimate strength as the
+  XY tensile strength of the twelve products whose ±45° modulus m168 recorded (16 to 77 MPa). The 0° and 90° tabs'
+  strengths stay in the record tier (`source_facts`), as their other rows do, and the six pages that print a 0° tab
+  alone (above) still give their products no XY value.
 - **A ±45° bar beside the sheet's own XY bar stays apart** (D91). Essentium's PPS-CF prints XY, 45/45 and ZX columns;
   its 45/45 tensile, flexural and Izod rows keep Direction 45/45, and its 45/45 bar reaches 71 % of the XY strength and
   61 % of the XY stiffness: it is the one sheet held that labels both an XY and a ±45° bar. The ruling named tensile
   values; a flexural or impact bar labelled only by its raster, of which the database holds none today, is not decided.
 - **Values a cached sheet prints and nobody read, behind a "not published" blocker.** colorFabb's Lightweight PET and
-  Lightweight PET FLEX sheets print their modulus in the XY plane in two columns, "Value unfoamed @ 210 °C" and "Value
-  foamed @ 260 °C, flow: 60%" (2,290 and 1,290 MPa; 2,520 and 1,500 MPa); the reader reads no row with two value
-  columns (source_facts), so PET-LW (M141) is "not published" on stiffness in three templates. Which print condition
-  is a lightweight product's value is the owner's question before anyone records it: at 2.5 GPa the FLEX passes
-  unfoamed and fails foamed. FormFutura's ApolloX Kevlar prints "Elastic tensile modulus 2200 MPa ISO 527-1", a label
-  the lexicon lacks; with no direction it would be as published and settle nothing. The four graphene sheets' specific
-  gravity was the same kind of gap and m181 recorded it.
+  Lightweight PET FLEX sheets print their mechanical table in two columns, unfoamed and foamed; the owner ruled the
+  foamed one the product's (D95), and m197 recorded both columns of all six rows, the unfoamed one as "Printed off the
+  product's recipe". PET-LW (M141) now fails the three stiffness templates rather than being unknown. Left: colorFabb's
+  LW-PLA and LW-PLA-HT sheets print the same two columns ("Value @ 210˚C; 100%" and "foaming 230%; 60%"), and
+  source_facts holds their seven rows; D95 reads them the same way, and a migration like m197 would record them. The
+  two PET products' profiles (P0495, P0508) took the unfoamed column's 210 °C as their nozzle window, where the sheet's
+  print guideline gives 210 °C unfoamed and 260 °C foamed: the H2C reaches both, so no gate moves, but the recipe should
+  read 260 °C. FormFutura's ApolloX Kevlar prints "Elastic tensile modulus 2200 MPa ISO 527-1", a label the lexicon
+  lacks; with no direction it would be as published and settle nothing. The four graphene sheets' specific gravity was
+  the same kind of gap and m181 recorded it.
 - **Copies registered beside the maker's own sheet hid behind a count.** MEAS-CROSS-SOURCE-TWIN ignores a value more
   than ten sources share, so a copy whose values are common is not seen as a copy until a neighbour moves. m180
   brought nine such copies under it (3DJake's copies and the German and Italian editions of Extrudr's sheets, 3DJake's
@@ -499,7 +504,7 @@ count.
 ```bash
 npm run audit:gaps   # the answers that still change when as-published values are admitted
 npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and (notes like '%m155%' or notes like '%m168%') group by 1"
-npm run sql --silent -- "select sourceid, text from source_facts where sourceid like 'R-NANOVIA-%' and text like 'Ultimate strength %'"
+npm run sql --silent -- "select sourceid, raw_value, locator from measurements where sourceid like 'R-NANOVIA-%' and property like 'Tensile strength%' and locator like '%Ultimate%strength (+45%'"
 ```
 
 ---
@@ -557,19 +562,34 @@ The layer strength, the notched impact strength and the glass transition (D92, m
 say. What stays out is recorded and shown, under each headline's comparison note in the drawer. Counts are active
 procurement products, 2026-09-26:
 
-- **75 products publish a Charpy value with no notch stated** and no notched one, most of them Chinese makers' sheets
-  under GB/T 1043, which covers both bars. Their sheets may say which in a heading the import did not read. A re-read
-  settles each; nothing else should.
-- **161 products publish a notched Izod value and no notched Charpy one** (115 of them in kJ/m², 52 in J/m, some in
-  both), so they have no notched impact value. An Izod headline beside the Charpy one (ISO 180, kJ/m²: 45 products comparably, 26 materials)
-  would give them one; the J/m values need the bar's thickness, which no sheet here prints.
+- **65 products publish a Charpy value with no notch stated** and no notched one (75 before m196). m196 re-read the
+  heading of every Charpy row with no notch (164) on its cached page and set the notch on the 17 whose page states it:
+  12 notched (Bambu Lab's "(notched)" under the second value of its X-Y cell, BASF's extended sheets, QIDI's 缺口冲击强度,
+  Fillamentum's "notched", a 1eA method) and 5 unnotched ("unnotched", an eU method); six products gained a notched
+  value, four of them comparable. The rest print "Impact strength" or "Charpy impact strength" with ISO 179 or GB/T
+  1043 and nothing more (Bambu Lab's Z values and the first value of each X-Y pair, Raise3D, SIRAYA, eryone, CreatBot,
+  IPCON, PROGRAFEN, Braskem, Spectrum, and Polymaker's plain "(X-Y)" rows beside a separate "(X-Y) notched" one), and
+  stay as they are. colorFabb's Economy PLA prints "Impact Strength (Ch-N 23ºC)": Ch-N is commonly Charpy notched, but
+  no colorFabb page spells it out, so it is left for a reader who can confirm it. BASF's three extended sheets print a
+  full impact table (Charpy and Izod, notched and unnotched, dry and conditioned, in XY, XZ and ZX) of which the import
+  kept one number each; the others are in the record tier and wait for a re-read.
+- **Notched Izod is its own filter now** (D94, m195): 116 products have a notched Izod value in kJ/m², 45 of them
+  comparable, and 26 materials a spread. Still without a notched impact value of either test: **47 products whose only
+  notched impact value is Izod in J/m** (ASTM D256, energy per metre of notch, which needs the bar's thickness no sheet
+  here prints), and **13 whose only notched Izod in kJ/m² names ASTM D256**: their makers converted a J/m value with a
+  thickness they do not give, which the owner ruled out (D94). Both are shown, never compared. Three notched Charpy rows
+  cite a tensile or film standard (ASTM D882 twice, ISO 527 once) and still count, since the Charpy row names no
+  standard; a re-read of those sheets would say whether the citation is a slip.
 - **38 products publish their across-layer tensile strength only under an XZ or ZX label**, 27 of them Eryone's "X-Z"
   (8.7 to 47 MPa). ISO/ASTM 52921 names a bar by the axis along its length first, which makes ZX an upright bar, and the
   vocabulary's own meanings for the two labels ("Upright in the XZ plane", "Flat, loaded along Z-X") say otherwise.
   Until the owner rules which labels are upright bars, only Z counts.
 - **Nine notched Charpy rows cite the unnotched method** (ISO 179/1eU): Spectrum's PA6 Low Warp and PA12-CF15 sheets,
-  FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. Each sheet's label says notched, which is what the row
-  keeps; none states a direction, so all nine are counted apart and decide only when asked.
+  FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. m196 re-read each: every page labels the row notched,
+  and all but Nanovia PLA VX print an unnotched row beside it several times higher, so the label stands and the method
+  is the sheet's slip; each row says so in its notes. The mirror case was wrong and is corrected: Nanovia PLA XRS's
+  "Charpy full 12 kJ/m² ISO 179-1eA" had been recorded notched from its method; it is unnotched, by its own word. None
+  states a direction, so all nine are counted apart and decide only when asked.
 - **Four glass transition rows cite a Vicat or heat deflection standard** (ASTM D1525, ISO 75), as their sheets print
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Eight products' only glass transition is a resin supplier's value** (Specimen type Raw material value), which is

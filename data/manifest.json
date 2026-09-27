@@ -7,7 +7,7 @@
     },
     "grades": {
       "rows": 1160,
-      "sha256": "6ad33831ac868cda8220fa48d89906fdbc0da6d37c198647ddd8b4f85c6c9dfe"
+      "sha256": "f2afebf12a4a7bcb2aad51d33695ed352e8497fbec4e2681b622fd85fbc6af4a"
     },
     "profiles": {
       "rows": 1274,
@@ -18,8 +18,8 @@
       "sha256": "5533fe64925e6737e2812efb88e07b692c6e1009650e267a6f856582639fddb3"
     },
     "measurements": {
-      "rows": 11388,
-      "sha256": "482cd278463e3dbd44724b0ae4af78379eef83e373a88c1884b812318e364b01"
+      "rows": 11456,
+      "sha256": "272fd62ca578c713b25a25c4dc028ee8430387aa090989454170371588f6aaa1"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -46,8 +46,8 @@
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1482,
-      "sha256": "aa5d0875ff66ccf6e376ef18c1b0ee292beed20e56485c7cb8e76cb69f8474d7"
+      "rows": 1483,
+      "sha256": "c3fb17b4e6e48dc38fd442a2cb7ea076e8e0f37f08450b3a6b5e506304617a7d"
     },
     "coverage": {
       "rows": 866,
@@ -82,8 +82,8 @@
       "sha256": "5b2d58aacd9c9be82fd49a5fc93f2f1224bcff821fac5a96fcd7bf83721fd5bb"
     },
     "headline_definitions": {
-      "rows": 9,
-      "sha256": "89da1e1adb03aad6330b9257efb243bc0a26835ea68f30a4fed13349b7d321ad"
+      "rows": 10,
+      "sha256": "5f74cbf521d397fb02a2fa162dacb3a54cc079335740202ef940808a60d9c7cd"
     },
     "polymers": {
       "rows": 48,

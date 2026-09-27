@@ -160,6 +160,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Load MPa | canonical | number | yes | Not applicable |  | Test load the headline is defined at; a backing measurement with an unstated load is flagged. |
 | Notch | canonical | string | yes |  | [notches](#vocab-notches) | The notch a backing impact measurement must state (D92): a value with another notch, or none stated, is no value of the headline and stays evidence. Not applicable: the headline is not an impact test. |
 | Test temperature °C | canonical | number | yes | Not applicable |  | The test temperature the headline is defined at (D92): a backing measurement whose Test temperature °C is stated and more than 2 °C from it (the standard laboratory atmosphere of ISO 291 and ASTM D618 is 23 ± 2 °C) is no value of the headline; one that states none counts. Not applicable: any. |
+| Standard | canonical | string | yes | Not applicable | [standards](#vocab-standards) | The test standard a backing measurement that names one must name (D94): a value whose Standards name others and not this one is no value of the headline and stays evidence (an Izod value to ASTM D256, even printed in kJ/m², is that test's energy per metre of notch converted by its maker, not an ISO 180 bar); one that names no standard counts. Not applicable: any. |
 | Evidence group | canonical | string | yes | Not applicable | mechanical, thermal | Which citation list the headline's evidence joins. |
 | Endpoint note | canonical | boolean | yes |  |  | Whether related evidence of a non-first property is labelled as a different endpoint. |
 | Comparison note | prose | string | yes | Not applicable |  | What the headline compares, and why its related values that are not its own (another test, unit, notch, direction or temperature) are left out, in a reader's words. The drawer shows it beside those values (D92). Not applicable: the per-value reason says enough. |
@@ -1283,6 +1284,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Not published |  | not-stated |
 | Not published (density specimen form not explicitly established) |  | not-stated |
 | Not published (do not assume printed) |  | not-stated |
+| Printed off the product's recipe | A bar printed at a print setting its sheet prints beside the one the product is meant to be printed at, and not that one: colorFabb's lightweight PETs foam at 260 °C and are printed unfoamed at 210 °C for a second column (D95). Recorded and shown; never a product value, a bound or an estimate observation. | off-recipe |
 | Printed part |  | printed |
 | Printed part / TDS material-property section |  | printed |
 | Printed specimen |  | printed |
@@ -1292,7 +1294,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-standards"></a>
 ### standards
 
-`schema/vocab/standards.csv`, used by measurements.Standards.
+`schema/vocab/standards.csv`, used by headline_definitions.Standard, measurements.Standards.
 
 | Value | Meaning |
 |---|---|
@@ -1361,6 +1363,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ISO 1798 | Tensile strength and elongation at break of flexible cellular polymeric materials; Siraya Tech cites it for the foamed PEBA Air. |
 | ISO 180 | Izod impact strength. |
 | ISO 2039 | Hardness by ball indentation. |
+| ISO 22007 | Thermal conductivity and diffusivity of plastics; its part 2 is the transient plane source (hot disk) method, which LEHVOSS cites. |
 | ISO 2577 | Shrinkage of thermosetting moulding materials; colorFabb cites it for the mould shrinkage of its copperFill. |
 | ISO 2781 | Density by immersion. |
 | ISO 294 | Injection moulding of test specimens, including moulding shrinkage. |

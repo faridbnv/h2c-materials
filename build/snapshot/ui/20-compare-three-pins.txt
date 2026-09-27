@@ -1,5 +1,5 @@
 COUNT 43 shown PASS + UNKNOWN
-STATUS ☑ PASS 18 | ☑ UNKNOWN 38 | ☐ FAIL 97 | ☐ SCREENED 13
+STATUS ☑ PASS 18 | ☑ UNKNOWN 37 | ☐ FAIL 98 | ☐ SCREENED 12
 Requirements: In the H2C research scope; A build material, not a support; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Candidate confidence: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Database snapshot 2026-09-21, build <date>. Values are recorded for each material and may come from different grades; check the exact grade before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
@@ -34,27 +34,27 @@ all 153 candidates
 Stiffness GPa
 Stiffness at least 3 GPa
 ASA-AF
-~0.9–3.5†
+~0.9–3.6†
 ASA-CF
 3.91
 0.85–5.36 · 6
 ASA-EC
-~2.1–4.1†
-0.00132
+~2.0–4.2†
+0.00136
 log scale
-21.4
+21
 all 153 candidates
 Strength MPa
 ASA-AF
-~24–56†
+~23–55†
 ASA-CF
 41.3
 34–50.1 · 6
 ASA-EC
-~30–49†
-2.12
+~29–49†
+2.4
 log scale
-292
+270
 all 153 candidates
 Strength across layers MPa
 ASA-AF
@@ -75,11 +75,11 @@ ASA-CF
 1.64–15.5 · 5
 ASA-EC
 ~0.9–5.5†
-0.352
+0.351
 log scale
-1,610
+1,570
 all 153 candidates
-Notched impact strength kJ/m²
+Notched impact, Charpy kJ/m²
 ASA-AF
 7.5*
 ASA-CF
@@ -87,8 +87,18 @@ ASA-CF
 5.5–6.2 · 3
 ASA-EC
 1.5*
-1.5
+0.55
 33
+all 153 candidates
+Notched impact, Izod kJ/m²
+ASA-AF
+Not published
+ASA-CF
+100*
+ASA-EC
+Not published
+2.5
+100
 widened to a value shown
 Heat resistance °C
 Heat resistance at least 100 °C
@@ -99,7 +109,7 @@ ASA-CF
 86–110 · 7
 ASA-EC
 ~89–105†
-41.3
+42.2
 300
 all 153 candidates
 Glass transition °C
@@ -122,7 +132,7 @@ ASA-CF yes yes yes required guidance published
 ASA-EC yes yes not recorded required guidance published
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
-ASA-AF 1 of 9 4† 3 21
-ASA-CF 8 of 9 — 18 154
-ASA-EC 1 of 9 4† 1 10
+ASA-AF 1 of 10 4† 3 21
+ASA-CF 8 of 10 — 18 154
+ASA-EC 1 of 10 4† 1 10
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

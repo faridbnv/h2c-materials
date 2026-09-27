@@ -457,7 +457,8 @@
               "not-stated",
               "moulded",
               "film",
-              "filament"
+              "filament",
+              "off-recipe"
             ]
           },
           "direction": {
@@ -1451,6 +1452,7 @@
         "loadMPa",
         "notch",
         "testTemperatureC",
+        "standard",
         "evidenceGroup",
         "endpointNote",
         "comparisonNote",
@@ -1565,6 +1567,13 @@
           "description": "The test temperature the headline is defined at (D92); a value stated at another is no value of it. Null: any.",
           "type": [
             "number",
+            "null"
+          ]
+        },
+        "standard": {
+          "description": "The test standard a backing measurement that names one must name (D94), or null: any.",
+          "type": [
+            "string",
             "null"
           ]
         },
