@@ -213,6 +213,13 @@ test('a new record gets the next ID, its template\'s columns and declared missin
     // The next free identifier of that material, not a fixed one: a batch that adds grades moves it.
     assert.equal(bare.row.GradeID, nextId('grades', t.rows('grades').map((r) => r.GradeID), { materialId: 'M020' }));
     assert.ok(bare.unset.includes('Manufacturer') && bare.unset.includes('Product name'), bare.unset.join(', '));
+    // A table whose IDs are chosen by hand takes the one given, and refuses one already used or none at all.
+    const src = t.rows('sources')[0].SourceID;
+    assert.equal(newRecord(t, 'sources', { like: src, set: { SourceID: 'S-NEW-EXAMPLE-TDS' } }).row.SourceID, 'S-NEW-EXAMPLE-TDS');
+    assert.throws(() => newRecord(t, 'sources', { like: src, set: { SourceID: src } }), /already exists/);
+    assert.throws(() => newRecord(t, 'sources', { like: src }), /pass --set SourceID=/);
+    // --material names the material of any table that has one, a profile as much as a grade.
+    assert.equal(newRecord(t, 'profiles', { material: 'M020' }).row.MaterialID, 'M020');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

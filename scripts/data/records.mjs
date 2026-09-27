@@ -20,8 +20,15 @@ export function newRecord(t, table, { like, material, study = false, set = {} } 
   const row = { ...base, ...set };
   if (pk) {
     const materialId = material ?? row.MaterialID;
-    row[pk] = nextId(table, t.rows(table).map((r) => r[pk]), table === 'grades' ? { materialId, study } : {});
-    if (table === 'grades' && materialId) row.MaterialID = materialId;
+    try {
+      row[pk] = nextId(table, t.rows(table).map((r) => r[pk]), table === 'grades' ? { materialId, study } : {});
+    } catch (e) {
+      // A table whose IDs are chosen by hand (sources: S-..., R-...) takes the one given, if no record has it yet.
+      if (!set[pk]) throw new Error(`${e.message}; pass --set ${pk}=...`);
+      if (t.find(table, set[pk])) throw new Error(`${table}: ${set[pk]} already exists`);
+      row[pk] = set[pk];
+    }
+    if (materialId && schema.fields.some((f) => f.name === 'MaterialID')) row.MaterialID = materialId;
   }
   const unset = [];
   for (const f of schema.fields) {
