@@ -1,7 +1,7 @@
 // The specimen form and the post-processing state of a measurement, as the estimate model, the implied bounds and
 // the headline check need them.
 //
-// Specimen type is a curated list: each value of schema/vocab/specimen-types.csv declares its Form, because the ten
+// Specimen type is a curated list: each value of schema/vocab/specimen-types.csv declares its Form, because its
 // wordings are the database's own, not a datasheet's. Post-processing is a datasheet sentence, so its state is a
 // typed column on the row (Post-processing state, m43) and readPostProcessingState below reads the sentence only as
 // a check (typed-values.js, PARSE-MISMATCH), the pattern of normalize/moisture.js.

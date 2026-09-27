@@ -27,8 +27,8 @@
 // only a bar the source says it pulled along Z). And a test standard (D94): the notched Izod strength takes no value that
 // names ASTM D256 and not ISO 180.
 //
-// A material's range is the spread of its products, never uncertainty about one of them: PEBA's three products at
-// 7.5, 25 and 30 MPa are three products (D8's example, which D83 answers by counting them, not by pooling them).
+// A material's range is the spread of its products, never uncertainty about one of them: PEBA's three products are
+// three products (D8's example, which D83 answers by counting them, not by pooling them).
 
 import { isPartSpecimen, annealedBesideAsPrinted } from './normalize/specimen.js';
 import { median, cents } from './normalize/values.js';
