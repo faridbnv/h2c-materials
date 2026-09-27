@@ -49,7 +49,9 @@ if (!html) { console.error(`No built page for snapshot ${snapshot} in dist/; run
 const pageUrl = pathToFileURL(join(root, 'dist', html)).href;
 
 const profile = mkdtempSync(join(tmpdir(), 'h2c-ui-'));
-const { proc, port } = await launchChrome(chrome, profile);
+// As the fuzz does: a machine left idle (display asleep) throttles a background renderer's timers, and a probe that took
+// 36 s took 16 minutes on 2026-09-27 before its first view.
+const { proc, port } = await launchChrome(chrome, profile, ['--disable-background-timer-throttling', '--disable-renderer-backgrounding']);
 
 let ws, nextId = 0;
 const pending = new Map(), errors = [];
