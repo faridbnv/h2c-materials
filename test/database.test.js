@@ -159,9 +159,10 @@ test('quarantined measurements stay out of headlines and related evidence', () =
 });
 
 test('the six excluded materials trip the envelope gate on their own evidence', () => {
-  // Excluded for the H2C's envelope: the industrial high-temperature family. The sintering filaments are excluded by
-  // scope, not by the envelope (D87): they print at 170 to 250 °C, and their part is the sintered metal's.
-  const excluded = db.materials.filter((m) => m.excluded && /Outside H2C Practical Envelope/.test(m.family));
+  // Excluded, and beyond the H2C's limits: the industrial high-temperature materials, whose H2C status says so once
+  // (m146). The sintering filaments are excluded by scope, not by the envelope (D87): they print at 170 to 250 °C, and
+  // their part is the sintered metal's.
+  const excluded = db.materials.filter((m) => m.excluded && m.h2cStatus === 'Exceeds H2C limits');
   assert.ok(excluded.length >= 6, 'the six audited exclusions are still excluded');
   for (const m of excluded) {
     assert.equal(m.gates.nozzle.verdict, 'exceeds', `${m.name} nozzle gate`);
@@ -812,9 +813,30 @@ test('a strain at another endpoint is never an elongation at break, and a retire
   // validator, below), and related evidence is always its column's property (above). A retired duplicate (V000894)
   // is audit trail only.
   assert.ok(!db.measurements.some((m) => m.dataStatus === 'Retired duplicate record'), 'a retired duplicate reached db.measurements');
-  const strain = db.measurements.find((m) => m.property === 'Tensile strain at strength' && /at max\.? force|at yield|at strength/i.test(m.locator ?? ''));
-  assert.ok(strain, 'no strain at another endpoint to test against');
-  assert.ok(errorsFor((c) => { c.measurements.find((m) => m.id === strain.id).property = 'Elongation at break'; }).some((e) => e.includes(strain.id) && /endpoint/.test(e)), strain.id);
+  // Nanovia's "Elongation ultimate strength" is the strain at the maximum stress (m167): an ultimate strength is an
+  // endpoint too.
+  for (const shape of [/at max\.? force|at yield|at strength/i, /ultimate (tensile )?strength/i]) {
+    const strain = db.measurements.find((m) => m.property === 'Tensile strain at strength' && shape.test(m.locator ?? ''));
+    assert.ok(strain, `no strain at another endpoint (${shape}) to test against`);
+    assert.ok(errorsFor((c) => { c.measurements.find((m) => m.id === strain.id).property = 'Elongation at break'; }).some((e) => e.includes(strain.id) && /endpoint/.test(e)), strain.id);
+  }
+});
+
+test('a tensile value labelled only by a ±45° raster is XY; a ±45° bar beside the sheet\'s own XY bar is not (D91)', () => {
+  const TENSILE = new Set(['Tensile modulus', 'Tensile strength (endpoint unspecified)', 'Tensile yield strength', 'Tensile break strength',
+    'Elongation at break', 'Elongation at yield', 'Tensile strain at strength']);
+  const RASTER_45 = /±\s?45|\+\s?\/\s?-\s?45|45°?\s?(?:and|\/)\s?-45|45°?-45°|45\/45/i;
+  const BUILD = new Set(['XY', 'Z', 'XZ', 'ZX']);
+  const sheetXY = (m) => db.measurements.some((x) => x !== m && x.sourceId === m.sourceId && x.gradeId === m.gradeId && x.property === m.property && x.direction === 'XY');
+  let xy = 0;
+  for (const m of db.measurements.filter((x) => TENSILE.has(x.property))) {
+    const raster = m.direction === 'raster-45' || RASTER_45.test(`${m.printParameters ?? ''} ${m.locator ?? ''}`);
+    if (!raster) continue;
+    if (m.direction === 'XY') { xy++; continue; }
+    if (BUILD.has(m.direction)) continue;
+    assert.ok(sheetXY(m), `${m.id}: labelled only by a ±45° raster, so XY (${m.directionText})`);
+  }
+  assert.ok(xy > 20, `only ${xy} tensile values on a ±45° raster are XY`);
 });
 
 test('a retired grade or profile is archival, never active procurement or printing evidence', () => {

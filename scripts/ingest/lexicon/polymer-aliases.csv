@@ -9,7 +9,7 @@ copa,PA6/66,Nylon / Polyamide,"a copolymer of nylon 6 and 6,6; CoPA is an alias 
 cope,CoPE,Copolyesters,
 cpe,CPE,Copolyesters,
 epla,PLA,PLA,
-extem,TPI,Industrial High-Temperature - Outside H2C Practical Envelope,SABIC's brand of thermoplastic polyimide
+extem,TPI,Industrial High-Temperature,SABIC's brand of thermoplastic polyimide
 filaflex,,Flexible Elastomers,Recreus's elastomer line is a TPU except its SEBS grade: a ruling
 greentec,,PLA,Extrudr's PLA-based biopolymer; which grade is a ruling
 hdpe,PE,Polyolefins,
@@ -30,7 +30,7 @@ pa6-66,PA6/66,Nylon / Polyamide,"the slash form cannot survive tokenisation, bec
 pa6/66,PA6/66,Nylon / Polyamide,
 pa612,PA612,Nylon / Polyamide,
 pa66,PA66,Nylon / Polyamide,
-paek,PAEK,Industrial High-Temperature - Outside H2C Practical Envelope,no polymers.csv row yet
+paek,PAEK,Industrial High-Temperature,no polymers.csv row yet
 paht,PAHT,Nylon / Polyamide,
 pbat,PBAT,PVB / Specialty Polymers,
 pbt,PBT,Polymer Blends,
@@ -43,11 +43,11 @@ pcl,PCL,PVB / Specialty Polymers,
 pctg,PCTG,Copolyesters,
 pe,PE,Polyolefins,
 peba,PEBA,Flexible Elastomers,
-peek,PEEK,Industrial High-Temperature - Outside H2C Practical Envelope,
-pei,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,
-pekk,PEKK,Industrial High-Temperature - Outside H2C Practical Envelope,
-pes,PESU,Industrial High-Temperature - Outside H2C Practical Envelope,"polyethersulfone. Without this row the tokeniser reads PES as PE plus a letter, and a 225 °C sulfone is filed as polyethylene"
-pesu,PESU,Industrial High-Temperature - Outside H2C Practical Envelope,
+peek,PEEK,Industrial High-Temperature,
+pei,PEI,Industrial High-Temperature,
+pekk,PEKK,Industrial High-Temperature,
+pes,PESU,Industrial High-Temperature,"polyethersulfone. Without this row the tokeniser reads PES as PE plus a letter, and a 225 °C sulfone is filed as polyethylene"
+pesu,PESU,Industrial High-Temperature,
 pet,PET,PET Engineering,
 pet-g,PETG,PETG,
 petg,PETG,PETG,
@@ -64,9 +64,9 @@ ppa,PPA,High-Performance Engineering,
 ppe,PPE-PS,Polymer Blends,"polyphenylene ether is sold as a blend with polystyrene, which is what 3DXTECH prints on its sheet (ruling R018); it is not polypropylene"
 ppe-ps,PPE-PS,Polymer Blends,as above
 pps,PPS,High-Performance Engineering,
-ppsf,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
-ppsu,PPSU,Industrial High-Temperature - Outside H2C Practical Envelope,
-psu,PSU,Industrial High-Temperature - Outside H2C Practical Envelope,
+ppsf,PPSU,Industrial High-Temperature,
+ppsu,PPSU,Industrial High-Temperature,
+psu,PSU,Industrial High-Temperature,
 pva,PVA,Support / Soluble,
 pvb,PVB,PVB / Specialty Polymers,
 pvc,PVC,PVB / Specialty Polymers,
@@ -80,10 +80,10 @@ tarfuse,POM,Acetals,Grupa Azoty's acetal line
 tpc,TPC,Flexible Elastomers,
 tpe,,Flexible Elastomers,"TPE is a family here, not a polymer: M044 is a Family entry and owns no product (D44). Which elastomer it is comes from the sheet"
 tpee,TPC,Flexible Elastomers,
-tpi,TPI,Industrial High-Temperature - Outside H2C Practical Envelope,"thermoplastic polyimide (SABIC EXTEM): a polymer with no row in polymers.csv, and a 300 C extrusion temperature (ruling R019)"
+tpi,TPI,Industrial High-Temperature,"thermoplastic polyimide (SABIC EXTEM): a polymer with no row in polymers.csv, and a 300 C extrusion temperature (ruling R019)"
 tps,TPS,Flexible Elastomers,a styrenic thermoplastic elastomer; no polymers.csv row yet
 tpu,TPU,Flexible Elastomers,
-ultem,PEI,Industrial High-Temperature - Outside H2C Practical Envelope,
+ultem,PEI,Industrial High-Temperature,
 xpetg,PETG,PETG,
 polylactic,PLA,PLA,"a sheet may spell the polymer out: Fillamentum heads its Chemical properties table ""Polymer base"" and prints polylactic acid"
 polyolefin,,Polyolefins,"which polyolefin is a ruling: a polyolefin elastomer is not polyethylene, and the family owns no product (D44)"
@@ -92,4 +92,4 @@ polycarbonate,PC,Polycarbonate,"the name spelled out, as a composition row print
 polypropylene,PP,Polyolefins,"as above"
 polyvinylidene,PVDF,Fluoropolymers,"polyvinylidene fluoride, as Fillamentum's Fluorodur sheet spells it"
 polyoxymethylene,POM,Acetals,"as above"
-polyetheretherketone,PEEK,Industrial High-Temperature - Outside H2C Practical Envelope,"as above"
+polyetheretherketone,PEEK,Industrial High-Temperature,"as above"

@@ -314,12 +314,14 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   reprints of another material's table (R166 and its like) or products whose sibling holds nothing: no formulation key
   spans two materials, so they read nothing, and 27 of them have no profile of their own either. Their sheets print a
   recipe the import rejected with the values. Query: active products with no measurement and no same-key sibling.
-- **The printer maker's guide cannot settle the chamber where it asks for an enclosure** (D88). Bambu Lab's guide ticks
-  "Print with Enclosure" for ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and PPS-CF and gives no temperature,
-  so their silent products stay unknown on the chamber. In Warm environment 24 unknown materials have a product that
-  meets everything but the chamber; for PC (11 products) and PPA-CF (6) that product's only word on it is the guide's
-  tick. Whether "print with an enclosure", from the maker of the printer, is enough for the H2C's 65 °C chamber is the
-  owner's question. Query: products whose `print.from.chamber.origin` is `guide` and `print.chamber.verdict` unknown.
+- **The guide's enclosure is the H2C's chamber, and some makers ask for more** (D90, m165). The owner ruled that for
+  the nine types Bambu Lab's guide asks an enclosure for, a silent product's chamber is within the H2C, labelled as the
+  guide's; 123 products read it. Sixteen products of those types state a chamber above 65 °C on their own sheets and
+  keep that reading, Bambu Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets among them, which the owner
+  named as the reason to revisit. Twenty-three whose own sheet, or twin's, asks for an enclosure without a temperature
+  stay unknown, because a maker's own statement wins and only the printer maker's guide means its own enclosed
+  printers. Query: products of those nine materials whose `print.chamber.verdict` is `exceeds`, `partial` or
+  `exceeds-recommended`, and those unknown with `print.enclosure` recommended.
 - **What the guide prints and the tables do not use.** Its January 2025 revision (B-GUIDE) also heads ASA-CF, PC FR
   and TPU for AMS, which the current revision dropped; only the current revision is read, so those three materials'
   silent products read nothing. The guide's drying line is recorded and fills no recipe, and its annealing row,
@@ -443,30 +445,29 @@ print guides say nothing of it, SIDDAMENT's product pages print "HDT (typical)" 
 3DXSTAT ESD PA12, and iSANMATE's library refuses fetching tools (R084). What is left is an answer from each maker (a
 short question: printed or moulded, the build orientation, the heat deflection load), or the owner's word that a
 silent sheet stays as published. BLOCKING-GAPS lists the answers; [the lane 4 responses](audits/2026-09-25-re-center/RESPONSE.md),
-"Phase 6, lane 4: the values that decide, re-read" and "... targeted fetches (batch b36)", list the makers.
+"Phase 6, lane 4: the values that decide, re-read" and "... targeted fetches (batch b36)", list the makers. The owner's rulings of 2026-09-26 (D91, m167, m168) settled more of them; BLOCKING-GAPS gives the current
+count.
 
 - **Some sheets look like resin data and do not say so.** purefil prints ISO 294-4 mould shrinkage, Spectrum's PA6
   sheets "Linear mould shrinkage", Fiberlogy "gathered from standard reference materials and/or supplier test data",
   and 3D-Fuel's Pro PCTG "measurements from injection molded and 3D printed parts" without saying which. None is a
   statement about a row, so none was recorded.
 - **Nanovia's 0° and 90° rasters are a direction the vocabulary has no value for.** Its pages state each tensile tab's
-  raster ("3D printed test specimins at 0°, along with the tension stress") and not the bar's build orientation, so
-  those rows are "Stated, not a usable direction" and stay as published; its ±45° rows are 45/45 (m33). Nanovia's
-  article "Mechanical data on 3D printed test specimens at 3 different angles" (read 2026-09-26, not imported) does
-  not say more: its bars were printed "Along the tension stress, to obtain the maximal resistance", "Successively at
-  45° and – 45°, close to 3D printing standards" and "Perpendicular to the tension stress, to obtain the minimal
-  resistance", to ISO 527-2/1A, and its figure draws the three bars in plan with their rasters. It names the ±45° bar
-  as the standard one, which is the owner's decision 4 of 2026-09-26, and the 0° and 90° bars as the extremes, not
-  the XY value. Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states "ISO 3167
-  A test specimens" (a shape, not how it was made), and Flex prints no sentence.
-- **Nanovia's "Elongation ultimate strength" is filed as Elongation at break** on 14 rows of 13 products. It reads as the
-  strain at the ultimate (maximum) stress, which the registry has as Tensile strain at strength, a lower bound of the
-  elongation headline and not its value. For these brittle filled grades the two may coincide; a property ruling
-  (R-series) should decide, and a re-filing moves the Flexible component answers of the materials concerned.
-- **The ±45° convention decides more than it did.** A value a sheet labels only by its ±45° raster is 45/45 and no
-  product value (m33); Nanovia's ABS ESD prints no 0° tab, so its product lost its stiffness and elongation. Many
-  makers' "XY" bars are printed at ±45°, so whether a raster-only label should count as XY is a question for the
-  owner, not a data fix.
+  raster and not the bar's build orientation. The ±45° tab is each product's XY value (D91, m168); the 0° rows stay
+  "Stated, not a usable direction" and the 90° tabs are in the record tier only. Six pages print a 0° tab alone (PC,
+  PC-ABS, PC-ABS Rail, PC-CF, PC-PTFE, PP-CF), so those products still have no XY value. Nanovia's article
+  "Mechanical data on 3D printed test specimens at 3 different angles" (read 2026-09-26, not imported) says no more
+  than the pages: its bars were printed "Along the tension stress", "Successively at 45° and – 45°, close to 3D
+  printing standards" and "Perpendicular to the tension stress", to ISO 527-2/1A, drawn in plan. Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states
+  "ISO 3167 A test specimens" (a shape, not how it was made), and Flex prints no sentence.
+- **Nanovia's "Ultimate strength" was never read.** Each tensile tab prints it (the maximum stress, which the registry
+  holds as Tensile strength (endpoint unspecified)), and the reader has no property for the words, so it sits in the
+  record tier (`source_facts`) on every page. The ±45° tab's would be the XY tensile strength of the twelve products
+  whose ±45° modulus m168 recorded; entering it is a re-read like m168's.
+- **A ±45° bar beside the sheet's own XY bar stays apart** (D91). Essentium's PPS-CF prints XY, 45/45 and ZX columns;
+  its 45/45 tensile, flexural and Izod rows keep Direction 45/45, and its 45/45 bar reaches 71 % of the XY strength and
+  61 % of the XY stiffness: it is the one sheet held that labels both an XY and a ±45° bar. The ruling named tensile
+  values; a flexural or impact bar labelled only by its raster, of which the database holds none today, is not decided.
 - **Values a cached sheet prints and nobody read, behind a "not published" blocker.** colorFabb's Lightweight PET and
   Lightweight PET FLEX sheets print their modulus in the XY plane in two columns, "Value unfoamed @ 210 °C" and "Value
   foamed @ 260 °C, flow: 60%" (2,290 and 1,290 MPa; 2,520 and 1,500 MPa); the reader reads no row with two value
@@ -486,7 +487,8 @@ silent sheet stays as published. BLOCKING-GAPS lists the answers; [the lane 4 re
 
 ```bash
 npm run audit:gaps   # the answers that still change when as-published values are admitted
-npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and notes like '%m155%' group by 1"
+npm run sql --silent -- "select direction, count(*) from measurements where sourceid like 'R-NANOVIA-%' and (notes like '%m155%' or notes like '%m168%') group by 1"
+npm run sql --silent -- "select sourceid, text from source_facts where sourceid like 'R-NANOVIA-%' and text like 'Ultimate strength %'"
 ```
 
 ---

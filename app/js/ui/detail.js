@@ -689,7 +689,8 @@ function printCard(g) {
   const some = !!p?.profileIds.length || Object.keys(from).some((a) => a !== 'anneal');
   if (!some && !p?.anneal?.length) return '<div class="print-card fine">No print settings recorded for this product. Its maker\'s other products may be similar, but that is not this product\'s data.</div>';
   const win = (a) => (a.state === 'range' ? `${a.min != null && a.min !== a.max ? `${fmtNumber(a.min)}–` : ''}${fmtNumber(a.max)} °C`
-    : a.state === 'not-required' || a.state === 'ambient' ? 'not required' : a.state === 'unknown' ? 'not published' : a.state.replace(/-/g, ' '));
+    : a.state === 'not-required' || a.state === 'ambient' ? 'not required' : a.state === 'unknown' ? 'not published'
+      : a.state === 'enclosed' ? "an enclosure, which the H2C's heated chamber is" : a.state.replace(/-/g, ' '));
   const axis = (label, key) => (some ? `<dt>${label}</dt><dd>${esc(win(p[key]))} ${gateChip(p[key], label)}${fromNote(from[key])}</dd>` : '');
   const anneal = (p.anneal ?? []).map((x) => `${x.tempC != null ? `${fmtNumber(x.tempC)} °C` : 'temperature not stated'}${x.hours != null ? ` for ${fmtNumber(x.hours)} h` : ''}`);
   return `<div class="print-card"><div class="shared-head">How to print it</div><dl class="kv small">
@@ -805,7 +806,8 @@ function guideBlock(m, c) {
     <dl class="kv">
       <dt>Nozzle</dt><dd>${esc(guide.nozzle.text)} ${gateChip(guide.gates.nozzle, 'Nozzle')}</dd>
       <dt>Bed</dt><dd>${esc(guide.bed.text)} ${gateChip(guide.gates.bed, 'Bed')}</dd>
-      <dt>Chamber</dt><dd>${guide.chamber.state === 'unknown' ? 'No chamber temperature stated' : esc(guide.chamber.text)} ${gateChip(guide.gates.chamber, 'Chamber')}</dd>
+      <dt>Chamber</dt><dd>${guide.chamber.state === 'unknown' ? 'No chamber temperature stated'
+        : guide.chamber.state === 'enclosed' ? "No chamber temperature stated; the enclosure it asks for on its maker's own printers is the H2C's heated chamber" : esc(guide.chamber.text)} ${gateChip(guide.gates.chamber, 'Chamber')}</dd>
       <dt>Enclosure</dt><dd>${esc(guide.enclosure)}: ${esc(enclosure)}</dd>
       <dt>Nozzle</dt><dd>${esc(guide.nozzleSizeMaterial)}: hardened nozzle ${esc(hardened)}</dd>
       <dt>Drying</dt><dd>${longText(guide.drying.text)} <span class="fine">(recorded; fills no product's recipe)</span></dd>

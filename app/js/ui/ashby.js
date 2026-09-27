@@ -11,7 +11,7 @@
 
 import { INDICES, indexById, indexValue, selectionLine, countAbove, rankByIndex, PRICE_CAVEAT, priceCaveat } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
-import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, FAMILY_LABEL, esc, fmtNumber, fmtRange } from './format.js';
+import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange } from './format.js';
 import { AXIS_DEFS, axisByKey, measurementMatches, pairable } from './axes.js';
 import { prop, describeConstraint, POLICY_LABELS } from './labels.js';
 
@@ -666,9 +666,8 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   const drawnGroups = new Set([...pts, ...envelopes].map((q) => colourGroup(q.family)));
   for (const family of [...colors.named, 'Other families']) {
     if (!drawnGroups.has(family)) continue;
-    const name = family === 'Other families' ? family : FAMILY_LABEL(family);
     traces.push({
-      type: 'scatter', mode: 'markers', x: [null], y: [null], name, legendgroup: family, showlegend: true,
+      type: 'scatter', mode: 'markers', x: [null], y: [null], name: family, legendgroup: family, showlegend: true,
       marker: { size: 10, symbol: 'circle', color: family === 'Other families' ? colors.color(null) : colors.color(family) },
       hoverinfo: 'skip',
     });

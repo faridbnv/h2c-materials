@@ -49,6 +49,7 @@ what it means and how to fix it.
 | `POLYMER-ENV-DUPLICATE` | error | Two polymer_environment rows name the same polymer, category and agent. | Keep one row per polymer, category and agent; put a second condition in Conditions or Notes. |
 | `PRINT-GUIDE-REFERENCE` | error | A print_guide row cites a source that is not in sources.csv, was not retrieved, or is not cited. | Register the guide, fetched and hash-checked, with Citation role cited; nothing enters from a guide that was not read (D88). |
 | `PRINT-GUIDE-MATERIAL` | error | A print_guide_materials row names a guide row or a material that does not exist, or a family entry, which owns no product. | Map a guide type to the one material it is (D88). |
+| `PROCESS-ENCLOSED` | error | A nozzle, bed or chamber state is "enclosed" where it may not be: on a print profile, on a nozzle or bed, or on a print guide row that does not ask for an enclosure. | Only a printer maker's guide row that asks for an enclosure on its own enclosed printers declares its chamber "enclosed" (D90); a maker's own sheet that asks for an enclosure is Enclosure state recommended, and its chamber stays as it reads. |
 
 ## Integrity
 
@@ -77,7 +78,7 @@ what it means and how to fix it.
 | Code | Level | Means | Fix |
 |---|---|---|---|
 | `MEAS-PUBLISHED-NON-NUMERIC` | error | A Published value status with no numeric value. | Record the number, or classify the result (qualitative, not published). |
-| `MEAS-ENDPOINT-LOCATOR` | error | An elongation-at-break row whose locator names another endpoint. | File it under the endpoint the source names. |
+| `MEAS-ENDPOINT-LOCATOR` | error | An elongation-at-break row whose locator names another endpoint: maximum force, yield, strength or ultimate strength. | File it under the endpoint the source names. |
 | `MEAS-RAW-RECONCILE` | error | Raw value, raw numeric, factor and normalized value do not agree. | Re-read the source; correct the raw number, the factor or the normalized value. |
 | `MEAS-UNIT-UNKNOWN` | error | A raw unit and a normalized unit the raw-value reconciliation has no conversion between, so the value is not independently checked. | Add the conversion to CONVERSIONS in build/src/measurement-rules.js, or write the raw unit as the source prints it and the normalized unit it converts to. |
 | `MEAS-HEADLINE-TYPE` | error | A product value and its measurement disagree in property, unit or value. | A defect in build/src/products.js: a product value is read from its measurement, never typed. |

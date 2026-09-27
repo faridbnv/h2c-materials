@@ -1,5 +1,5 @@
-COUNT 44 shown PASS + UNKNOWN
-STATUS ☑ PASS 18 | ☑ UNKNOWN 38 | ☐ FAIL 97 | ☐ SCREENED 12
+COUNT 43 shown PASS + UNKNOWN
+STATUS ☑ PASS 18 | ☑ UNKNOWN 38 | ☐ FAIL 97 | ☐ SCREENED 13
 Requirements: In the H2C research scope; A build material, not a support; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Candidate confidence: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Database snapshot 2026-09-21, build <date>. Values are recorded for each material and may come from different grades; check the exact grade before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
@@ -17,7 +17,7 @@ ABS
 ASA
 PC
 Print summary
-Each track spans all 153 candidate materials in the database, their estimated ranges included: the numbers under it are the lowest and highest, so a bar's length is where a material sits among them. Where the candidates span more than a hundredfold (here stiffness and stretch before breaking) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude. An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so. A * value is a measurement that is not comparable, drawn as a tick, not a bar; select it for why.
+Each track spans all 153 candidate materials in the database, their estimated ranges included: the numbers under it are the lowest and highest, so a bar's length is where a material sits among them. Where the candidates span more than a hundredfold (here stiffness and strength and stretch before breaking) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude. An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so. A * value is a measurement that is not comparable, drawn as a tick, not a bar; select it for why.
 Density kg/m³
 Density at most 1500 kg/m³
 ASA-AF
@@ -34,15 +34,15 @@ all 153 candidates
 Stiffness GPa
 Stiffness at least 3 GPa
 ASA-AF
-~1.0–3.5†
+~0.9–3.5†
 ASA-CF
 3.91
 0.85–5.36 · 6
 ASA-EC
 ~2.1–4.1†
-0.00129
+0.00133
 log scale
-22.1
+21.3
 all 153 candidates
 Strength MPa
 ASA-AF
@@ -52,20 +52,21 @@ ASA-CF
 34–50.1 · 6
 ASA-EC
 ~30–49†
-3.79
-292
+2.2
+log scale
+290
 all 153 candidates
 Stretch before breaking %
 ASA-AF
-~1–13†
+~1–14†
 ASA-CF
 3
 1.64–15.5 · 5
 ASA-EC
-~0.9–5.3†
-0.344
+~0.9–5.5†
+0.354
 log scale
-1,300
+1,430
 all 153 candidates
 Heat resistance °C
 Heat resistance at least 100 °C

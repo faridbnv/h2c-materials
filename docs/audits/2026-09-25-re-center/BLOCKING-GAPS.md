@@ -9,12 +9,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 136 | 18 | 80 | 38 | not published 55; published, not comparable 18 | 15 |
+| Outdoor structural part | 136 | 18 | 80 | 38 | not published 55; published, not comparable 17 | 15 |
 | Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
-| Lightweight structure | 136 | 26 | 79 | 31 | not published 27; published, not comparable 14 | 23 |
-| Warm environment | 136 | 33 | 39 | 64 | print setting not recorded 62; not published 31 | 0 |
-| High-stiffness fixture | 136 | 19 | 68 | 49 | published, not comparable 28; not published 21 | 29 |
-| Flexible component | 136 | 16 | 73 | 47 | published, not comparable 26; not published 21 | 31 |
+| Lightweight structure | 136 | 27 | 79 | 30 | not published 27; published, not comparable 13 | 21 |
+| Warm environment | 136 | 35 | 38 | 63 | print setting not recorded 61; not published 31 | 0 |
+| High-stiffness fixture | 136 | 19 | 71 | 46 | published, not comparable 25; not published 21 | 26 |
+| Flexible component | 136 | 16 | 73 | 47 | published, not comparable 25; not published 22 | 30 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -56,9 +56,7 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PA66-CF (M056) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | TPU harder than 95A (M162) | 14 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PP (M082) | 12 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| PA6 (M049) | 9 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PCL (M149) | 4 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| ABS-AF (M106) | 3 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
 | ASA-AF (M113) | 3 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PE-GF (M138) | 3 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
 | COC (M137) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
@@ -90,8 +88,10 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PA12-AF (M154) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PA12-AF (M154) | 1 | density | not published | <= 1500, <= 1250 | 2 |
 | PA6-CE (M104) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
+| PA6-CE (M104) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
+| PA6-GS (M108) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 
-And 140 more, each holding up one template.
+And 136 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -127,7 +127,6 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Lightweight structure | PE | FAIL | PASS |
 | Lightweight structure | PVB | FAIL | PASS |
 | Lightweight structure | PC-ABS | FAIL | PASS |
-| Lightweight structure | ABS-AF | UNKNOWN | FAIL |
 | Lightweight structure | PA6-GS | UNKNOWN | PASS |
 | Lightweight structure | TPU-CF | UNKNOWN | FAIL |
 | Lightweight structure | SAN | UNKNOWN | PASS |
@@ -135,16 +134,13 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Lightweight structure | PE-GF | UNKNOWN | PASS |
 | Lightweight structure | PLA-PHB | UNKNOWN | FAIL |
 | Lightweight structure | PCL | UNKNOWN | FAIL |
-| Lightweight structure | PLA-NF | FAIL | PASS |
 | Lightweight structure | PA12-AF | UNKNOWN | FAIL |
 | Lightweight structure | PLA-GR | UNKNOWN | PASS |
 | High-stiffness fixture | PLA-CF | FAIL | PASS |
-| High-stiffness fixture | PA6 | UNKNOWN | FAIL |
 | High-stiffness fixture | PA12 | UNKNOWN | FAIL |
 | High-stiffness fixture | PA-ESD | UNKNOWN | PASS |
 | High-stiffness fixture | PP | UNKNOWN | FAIL |
 | High-stiffness fixture | PA6-CE | UNKNOWN | PASS |
-| High-stiffness fixture | ABS-AF | UNKNOWN | FAIL |
 | High-stiffness fixture | PA6-GS | UNKNOWN | FAIL |
 | High-stiffness fixture | PETG-PTFE | UNKNOWN | FAIL |
 | High-stiffness fixture | PCTG-GF | UNKNOWN | FAIL |
@@ -157,7 +153,6 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | High-stiffness fixture | PBT | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-PHB | UNKNOWN | FAIL |
 | High-stiffness fixture | PCL | UNKNOWN | FAIL |
-| High-stiffness fixture | PLA-NF | UNKNOWN | FAIL |
 | High-stiffness fixture | PETG-GR | UNKNOWN | FAIL |
 | High-stiffness fixture | PA12-AF | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-GR | UNKNOWN | FAIL |
@@ -189,7 +184,6 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Flexible component | PCTG-CF | UNKNOWN | FAIL |
 | Flexible component | PLA-PHB | UNKNOWN | FAIL |
 | Flexible component | TPU-LW | UNKNOWN | PASS |
-| Flexible component | PLA-NF | UNKNOWN | FAIL |
 | Flexible component | PETG-GR | UNKNOWN | FAIL |
 | Flexible component | PA12-AF | UNKNOWN | FAIL |
 | Flexible component | PLA-GR | UNKNOWN | FAIL |
@@ -202,7 +196,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 877 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 882 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|

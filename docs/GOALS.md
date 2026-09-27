@@ -81,7 +81,7 @@ describes a tool that does not exist yet. D83 and D84 are entered (the build and
 them from phase 3; phase 4 retired the representative grade and its hand picks, m137). D85 is entered with the record
 tier's first lane: `source_facts` and the full-text index `documents_fts` in `dist/h2c.sqlite`. Makers' know-how in the
 panel is built with lane 3 (m140; D85, its last part). Phase 5's decisions are D86 (m141) and D87 (m142, m143). Phase
-6's decisions 1 and 2 are D88 (m150) and D89.
+6's decisions 1 and 2 are D88 (m150) and D89. Of those of 2026-09-26, decisions 1 and 4 are D90 (m165) and D91 (m168), and 2 and 3 are data (m166, m167).
 
 - **D83. A material is the range of its products.**
   - Each product's values are derived by rule, and `headlines.csv` becomes an override.

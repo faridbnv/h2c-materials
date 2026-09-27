@@ -5,7 +5,9 @@
 // guide's, never the maker's.
 //
 // A guide row is read exactly as a profile is (recipe.js): the typed columns decide, the parsers check them. It is
-// never a product's profile: it has no GradeID, and a material's own gates and print summary do not see it.
+// never a product's profile: it has no GradeID, and a material's own gates and print summary do not see it. One state
+// is a guide row's alone: a row that asks for an enclosure on its maker's own enclosed printers may declare its chamber
+// "enclosed", which the H2C's heated chamber meets (D90), and says why in Parse review.
 
 import { readRecipe } from './recipe.js';
 
@@ -32,7 +34,7 @@ export function compilePrintGuide(rows, materialRows, { sources, materials, issu
     if (!s || s.accessState !== 'retrieved' || s.citationRole !== 'cited') {
       issues.push({ level: 'error', code: 'PRINT-GUIDE-REFERENCE', where, message: `${r.SourceID} is ${!s ? 'not in sources.csv' : `${s.accessState}, citation role ${s.citationRole}`}; a guide row cites a retrieved, cited source` });
     }
-    const recipe = readRecipe(r, issues, { where, unreadWhere: where, abrasionColumn: 'Nozzle size / material' });
+    const recipe = readRecipe(r, issues, { where, unreadWhere: where, abrasionColumn: 'Nozzle size / material', guide: true });
     const name = `${guideName(s)} for ${r['Guide type']}`;
     return {
       id: r.PrintGuideID, sourceId: r.SourceID, guideType: r['Guide type'], name, locator: r.Locator,

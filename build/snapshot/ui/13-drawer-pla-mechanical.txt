@@ -1,5 +1,5 @@
 Tensile modulus
-168 values
+169 values
 Tensile strength (endpoint unspecified)
 194 values
 Tensile yield strength
@@ -7,11 +7,11 @@ Tensile yield strength
 Tensile break strength
 35 values
 Elongation at break
-213 values
+212 values
 Elongation at yield
 18 values
 Tensile strain at strength
-6 values
+8 values
 Flexural modulus
 155 values
 Flexural strength
@@ -32,4 +32,4 @@ Flexural stress at conventional deflection · Izod strength · Compression stren
 Absent from the sampled sources. Not zero, and not a low value.
 COVERAGE
 Sparse properties — Gap. Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction
-Mechanical — Evidence recorded. 1195 mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.
+Mechanical — Evidence recorded. 1197 mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.

@@ -261,14 +261,36 @@ test("a part read from a printer maker's guide is its material's guide row, only
   assert.ok(read > 500, `only ${read} parts read from the guide`);
 });
 
-test('a guide that asks for an enclosure and states no chamber temperature leaves the chamber unknown', () => {
-  for (const guide of db.printGuide.filter((x) => x.enclosureState === 'recommended' && x.chamber.state === 'unknown')) {
+// D90: where a printer maker's guide asks for an enclosure on its own enclosed printers, its row declares the chamber
+// "enclosed" and the H2C's heated chamber meets it; a row that asks without declaring it leaves the chamber unknown.
+test("a guide's enclosure is the H2C's chamber only where its row declares it, and never over a product's own statement", () => {
+  let read = 0;
+  for (const guide of db.printGuide) {
+    if (guide.chamber.state === 'enclosed') {
+      assert.equal(guide.enclosureState, 'recommended', `${guide.id}: declares the chamber enclosed but asks for no enclosure`);
+      assert.equal(guide.gates.chamber.verdict, 'within', guide.id);
+    }
     for (const { materialId } of guide.materials) {
-      for (const g of db.grades.filter((x) => isProduct(x) && x.materialId === materialId && x.print?.from?.chamber?.origin === 'guide')) {
-        assert.equal(g.print.chamber.verdict, 'unknown', `${g.id}: an enclosure is not proof that 65 °C is enough`);
+      for (const g of db.grades.filter((x) => isProduct(x) && x.materialId === materialId)) {
+        const from = g.print?.from?.chamber;
+        if (from?.origin !== 'guide') continue;
+        const expected = guide.chamber.state === 'enclosed' ? 'within'
+          : guide.enclosureState === 'recommended' && guide.chamber.state === 'unknown' ? 'unknown' : guide.gates.chamber.verdict;
+        assert.equal(g.print.chamber.verdict, expected, `${g.id}: its chamber is the guide row's`);
+        if (guide.chamber.state === 'enclosed') {
+          read++;
+          assert.match(g.print.chamber.reason, /enclosure/, g.id);
+          assert.ok(g.print.chamber.reason.endsWith(`(${from.label})`), `${g.id}: the reason names the guide`);
+        }
       }
     }
   }
+  // A product's chamber is "enclosed" only as its guide's reading: its own sheet and its twin's cannot declare it, and
+  // where either speaks the guide is not read (the test above holds the guide to silent products).
+  for (const g of db.grades.filter((x) => isProduct(x) && x.print?.chamber?.state === 'enclosed')) {
+    assert.equal(g.print.from?.chamber?.origin, 'guide', `${g.id}: only a guide row declares the chamber enclosed`);
+  }
+  assert.ok(read > 100, `only ${read} products read the guide's enclosure as the H2C's chamber`);
 });
 
 test("a material's spread counts each twin as the product it is, and says how many", () => {

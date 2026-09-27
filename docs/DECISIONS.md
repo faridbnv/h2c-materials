@@ -97,8 +97,10 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
-| D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | In force |
+| D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber) |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
+| D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88 |
+| D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
 
 <!-- end index -->
 
@@ -2413,9 +2415,14 @@ Reversing it sends the 44 sheets back to deferred, and a family-only product has
 ## D88. Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's
 
 > **In plain words:** Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for.
+> **Status:** amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 1). Built in re-center phase 6, lane 2 (the
 owner's decisions), m150.*
+
+*Amended by D90 (2026-09-26): where the guide asks for an enclosure, its row declares the chamber "enclosed", which
+the H2C's heated chamber meets, so a silent product of those nine types is within on the chamber, labelled as the
+guide's. "What it cannot decide" below is the reading this replaced.*
 
 Since D83 a product's own profiles screen it, and a part its sheet leaves out is unknown. After lane 2 (m136) and the
 twins (D89) that was still most of them: of 1,131 products, 286 were unknown on the nozzle, 389 on the bed and 818 on
@@ -2507,3 +2514,89 @@ Flexible component 29 to 30), and the untested fell by 1 to 8 in each. Fifty mat
 their median: PLA Silk's tensile strength 47.4 to 50 MPa on 17 products where it was 10, four of them SUNLU's Silk
 PLA+ packs. 119 estimate ranges moved with the medians; no screen moved. Reversing it sends 47 products back to
 untested, and the count of products that pass undercounts every maker that sells one table under several names.
+
+## D90. Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it
+
+> **In plain words:** For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach.
+> **Status:** in force; it amends D88.
+
+*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 1); amends D88.
+Built in m165.*
+
+D88 let a product whose own sheet, and its twin's, say nothing on its print gate read Bambu Lab's Filament Guide for its
+type. For nine types (ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF, PPS-CF) the guide draws a tick under
+"Print with Enclosure", which its January 2025 revision prints as "Required", and gives no chamber temperature, so
+those products stayed unknown on the chamber: an enclosure is not proof that 65 °C is enough, the rule every profile
+follows. The owner ruled that for these types it is. The guide is written for Bambu Lab's own enclosed printers (its
+drying rows name the X1 Series), and the H2C is one of them, with a heated, enclosed chamber to 65 °C.
+
+- **It is data, a declared state.** Each of the nine rows of `print_guide.csv` declares Chamber state `enclosed`
+  (requirement required) and says why in Parse review; its raw Chamber °C stays "Not published", because the guide
+  prints no chamber row. The chamber gate reads `enclosed` as within the H2C, with the reason "Asks for its printer
+  maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (65 °C) is that enclosure", followed
+  by the guide's label, in the result panel, the print card and the exports. Nothing in the code names a type.
+- **Only a printer maker's guide may say it** (PROCESS-ENCLOSED). A profile is a maker's own sheet: one that asks for
+  an enclosure without a temperature has not said 65 °C is enough, and it keeps Enclosure state recommended and an
+  unknown chamber. A guide row may declare `enclosed` only where it asks for an enclosure, and only for its chamber.
+- **A maker's own chamber statement always wins,** stricter or looser, as D88 has it: the guide is read only where the
+  product's own profiles and its twin's say nothing on the chamber or the enclosure. Sixteen products of these types
+  state a chamber above 65 °C on their own sheets and keep that reading: PolyMax PC FR, PolyLite PC Transparent and
+  Nanovia PC V0 (100 °C), Nanovia ABS EF and ASA (90 °C), PolyLite and PolyMax PC (80 °C recommended), and nine windows
+  the H2C reaches only in part, among them Bambu Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets.
+  Twenty-three whose own sheet, or twin's, asks for an enclosure and states no temperature stay unknown.
+
+What it did (m165): 123 products (and two study grades) read the chamber as within from the guide, labelled as its:
+ABS 44, ASA 31, PC 15, ABS-GF 10, PA6-CF 6, PPA-CF 6, PAHT-CF 4, PA6-GF 4, PPS-CF 3. Products unknown on the chamber fell
+from 574 to 451. Only Warm environment screens on the chamber: PC (FAIL) and PPA-CF (UNKNOWN) now pass, PC on 7 of its
+26 products and PPA-CF on 3 of 9, and the products that pass rose from 64 to 117 (ABS 4 to 19, ASA 3 to 17, ABS-GF 2 to 8, PA6-GF 3
+to 7, PA6-CF 4 to 7, PAHT-CF 1 to 2). Reversing it sends the 123 products back to unknown on the chamber, and PC and PPA-CF
+to their earlier answers. Revisit it if the owner reads the sixteen higher statements, Bambu Lab's own among them, as
+saying the guide's tick needs more than 65 °C for a type.
+
+## D91. A tensile value labelled only by a ±45° raster is an XY value
+
+> **In plain words:** A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart.
+> **Status:** in force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone.
+
+*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 4); supersedes, for
+such values, the reading m33 gave Essentium's "45/45" and m155 gave Nanovia's ±45° tabs. Built in m168.*
+
+A raster is the direction of the lines inside each layer; a build direction is how the bar lies on the plate. m33 read a
+±45° raster as neither XY nor Z (Direction `45/45`), and m155 read Nanovia's 0°, ±45° and 90° tabs the same way, so no
+value labelled that way could be a product's value. Makers commonly print their flat XY bars with an alternating ±45°
+raster: 3DXTECH's sheets state "Infill: 100%, +/- 45°" beside "Specimen Orientation: XY", QIDI's a ±45° infill angle
+beside XY and Z columns. The lane 4 recommendation was to keep m33 until a sheet printing both showed they agree; the
+owner chose to count them.
+
+- **The rule.** A tensile value (modulus, strength, elongation, strain at strength) that its sheet labels only by a ±45°
+  raster is Direction XY, with the raster kept in Specimen / print parameters. Where the sheet labels a bar XY beside its
+  ±45° bar for the same product and property, the ±45° one keeps Direction `45/45` and is not the XY value: Essentium's
+  PPS-CF prints XY, 45/45 and ZX columns, and its 45/45 tensile, flexural and Izod rows stay. A test holds every record
+  to it. A 0°, 90° or 0°-90° raster is still "Stated, not a usable direction".
+- **Found everywhere.** Every row whose Direction, Locator, Specimen / print parameters or Notes names a ±45° raster was
+  read, and every cached page for such wording (90 documents): the others already carry the build orientation their
+  sheet states. Thirteen rows were 45/45: DSM's Arnitel ID 2045 (3), which says "The mechanical data is tested on printed
+  tensile bars, printed in two directions: 0°-90° and 45°-45°" (its bytes, not cached on this machine, were re-fetched
+  and matched their SHA-256); Nanovia (4); Essentium (6, which stay).
+- **Where a sheet prints several raster tabs, the ±45° one is the product's XY value.** Nanovia's product pages print a
+  tensile tab per raster: 0° (along the load), ±45° and 90° (across). The import had taken the first tab only, so where a
+  page prints a ±45° tab the database lacked, its modulus and its strain at the ultimate strength are added as XY, read
+  from the page's hash-checked bytes (20 values on 12 pages); the 0° rows stay recorded with their raster stated, and
+  the 90° tabs stay in the record tier. PETG's page repeats the 0° sentence under all three tabs and is left, as m155
+  left it. The "Ultimate strength" each tab prints was never read on any tab and waits (OPEN-PROBLEMS §15).
+- **What the sheets that print both show.** Essentium's carbon-fibre PPS-CF: the 45/45 bar reaches 71 % of the XY bar's
+  strength and 61 % of its stiffness. Nanovia's ±45° moduli run from 66 % (PETG-GF) to 117 % (PLA EF) of their 0° ones.
+  DSM's elastomer prints the same modulus for both rasters. A ±45° value is a flat bar's value, not the stiffest a
+  fibre-filled filament can be printed.
+
+What it did (m168): 7 rows became XY and 20 were added. Thirteen products gained a comparable XY modulus (twelve of
+Nanovia's, and DSM's Arnitel ID 2045, which gains its XY strength and elongation too); each replaced a value published
+without a usable direction but ABS ESD's, which had none, so product values rose from 3,587 to 3,588. Across the six
+templates: in Lightweight
+structure PLA-NF passes on Nanovia PLA Flax (2.83 GPa) where it failed, ABS-AF fails (Nanovia ABS AF, 1.89 GPa) where it
+was unknown, and PLA, ABS-CF and PA6-CF pass on one product more; in High-stiffness fixture PA6, ABS-AF and PLA-NF go from
+unknown to fail (their only XY moduli are 3.59, 1.89 and 2.83 GPa); TPC / TPEE passes the Flexible component on DSM's
+Arnitel ID 2045 (390 %) as well; PA6-CF passes the Outdoor structural part on one product more. With estimates, COC is
+screened out of Lightweight structure and PLA-PHB out of the Outdoor structural part. Reversing it sends 7 rows back to
+45/45 and the 20 added values out, and the flat bars of the makers who label them by their raster stop counting.
+Revisit it if a sheet printing both an XY and a ±45° bar of an unfilled filament shows them far apart.

@@ -14,6 +14,9 @@ export const PROCESS_STATE = {
   // A data sheet that prints "-" in the chamber row. It is a statement that no setpoint is given,
   // which is neither zero nor "not required", so it must not read as either.
   NO_SETPOINT: 'no-setpoint',
+  // A printer maker's guide that asks for an enclosure on its own enclosed printers and states no temperature: the
+  // H2C's heated, enclosed chamber is that enclosure (D90). Declared on a print guide row, never read from words.
+  ENCLOSED: 'enclosed',
   UNKNOWN: 'unknown',
 };
 
@@ -142,6 +145,9 @@ export function withinH2C(parsed, limitC, { partialWindow = false } = {}) {
     return { verdict: 'within', reason: parsed.fromEnclosure
       ? 'The source says an enclosure is not needed, so no heated chamber is required'
       : 'No heated requirement stated' };
+  }
+  if (parsed.state === PROCESS_STATE.ENCLOSED) {
+    return { verdict: 'within', reason: `Asks for its printer maker's enclosure and states no temperature; the H2C's heated, enclosed chamber (${limitC} °C) is that enclosure` };
   }
   if (parsed.state === PROCESS_STATE.NO_SETPOINT) {
     return { verdict: 'unknown', categorical: true, reason: 'The source lists no setpoint ("-"), which is not the same as not required' };
