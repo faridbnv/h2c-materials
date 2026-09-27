@@ -2103,3 +2103,66 @@ re-fetched bytes, since this machine's cache does not hold the sheet.
 - *Kratos PC's own enclosure words* sit on no profile; it reads its twin's identical ones. Recommendation: give it a
   profile when its sheet's printing rows are read.
 - *The sixteen higher chamber statements* D90 listed are unchanged; D93 reads only a maker's words with no temperature.
+
+## Phases 5 and 6: where they end (2026-09-27)
+
+*In plain words: everything the plan gave phases 5 and 6 is built and merged on `v2`, except what only people can do:
+check a sample of the numbers against their pages, run the team test, and ask four makers how they printed their test
+bars. The scorecard is re-scored in GOALS; nothing is pushed or merged to `main`.*
+
+Written by Claude (an agent) from the build of `v2` after the last merge; every figure below is from that build
+(`build/snapshot/`, `dist/db.json`). The reviews behind this phase's data were all agents', each named on its rows.
+
+**The plan's outcome measures** (REPORT.md §8):
+
+| Measure | At the plan (2026-09-25) | Now |
+|---|---|---|
+| Live values that back a product's value | 20 % (one hand-picked product per material) | 37 % (4,094 of 10,982 usable measurements) |
+| UNKNOWN among answers not ruled out, six templates, Explore | 78 % | 71 %; 66 % without the price template, which waits on prices by the owner's decision |
+| PLA's stiffness | one product's 2.87 GPa decided | 38 comparable products, 0.95 to 4.24 GPa, typical 2.45, and 41 published without a direction counted apart |
+| Products with their print gate decided (nozzle / bed / chamber) | 762 / 668 / 140 of 1,098, own sheet only | 997 / 942 / 719 of 1,125: own sheet 899 / 810 / 394, then a twin's, then Bambu's guide, each labelled |
+| Products with a drying recipe | 181 | 428 |
+| Products with at least one maker statement | 87, mostly chemical | 881 (4,502 statements, shown in the panel only) |
+| Skipped facts searchable | 0 of 39,468 | 41,460 facts and 4,482 cached pages (`dist/h2c.sqlite`) |
+| Materials whose know-how gap is labelled | 0 | all |
+| `verify:fast` | about 4 min | 23 to 65 s (budget 90 s); `verify` about 4 min |
+| Team test | not run | not run (team-test.md) |
+| Scorecard C5, C7, C9 at 4 or more | 1, 2, 2 | 4, 3, 4: C7 waits on the team test |
+
+**Phase 5, as planned:** tests that pinned records became rules (294 then 318 tests, each a rule over all records or a
+fixture that proves a check fires); bulk acceptances became rules (299 to 219, each left with its own reason); the
+proposals moved to `archive/`; counts are generated (`build/snapshot/counts.md`); ARCHITECTURE holds the pipeline;
+every decision opens in plain words; AGENTS.md keeps the rules and IMPORTING.md the paused procedure; the taxonomy has
+a home for everything (D86, D87); the reference layer's misspellings and `offset` are gone; the two stored copies are
+gone (m146, m147).
+
+**Phase 6, as planned:** lane 1 (the record, D85), lane 2 (each product's own recipe, then a twin's and Bambu's guide:
+D88 to D90, D93; 177 test-bar profiles corrected), lane 3 (makers' know-how, m140), lane 4 (the values that decide
+re-read, 0 of 80 close calls wrong; targeted fetches; five new filters: layer strength, notched Charpy and Izod, glass
+transition, D92, D94). Price waits, by the owner's decision.
+
+**The owner decided** twelve questions in these phases (GOALS, "Decided on 2026-09-25, for phase 6" and "Decided on
+2026-09-26, for phase 6"); two of them against the recommendation (±45° raster as XY; Izod beside Charpy).
+
+**What waits on people:**
+- **The spot-check** (`SPOT-CHECK.md`, `npm run audit:spot-check`): 50 decision values drawn by seed, 30 print gates,
+  30 statements, 30 record-tier facts, and every value a material's pass rests on (118, where one to four products
+  meet a template's limit; PLA's two products above 3 GPa among them). It gives C3 its first error rate measured by a
+  person.
+- **The team test** (`team-test.md`): two engineers, five tasks. It gives C7 its evidence.
+- **Four makers' answers**: Fiberlogy, Spectrum, FormFutura and purefil hold 115 of the 199 values still published
+  without their test conditions (BLOCKING-GAPS.md); one short question each settles them.
+- **The DSM Arnitel ID 2045 sheet** (hash-checked) sits outside the project's cache; m168 needs it only to re-run from
+  an empty cache. Copying it in is the owner's call.
+
+**Open, with a recommendation each** (details in OPEN-PROBLEMS §12 to §18):
+- colorFabb's LW-PLA and LW-PLA-HT print the same foamed and unfoamed columns: apply D95 to them (needs the owner's nod,
+  since the ruling named the PETs).
+- Eryone's 25 other "X-Z" sheets: two of its own sentences call X-Z the Z-axis strength; a ruling would give 25
+  products a layer strength.
+- Polymaker's newer sheets print "How to make specimens" letter by letter, so 376 test-bar rows still read "do not
+  assume printed": extend m192's reading, with its own decision diff.
+- Two agents went past their briefs, each with a checked reason: PolyMax PC's two sheets merged as one product (m193),
+  and FormFutura's STYX PA6-CF15 and GF30 corrected to their own "no enclosure needed" (m190). The owner may confirm.
+- PA66-CF and PA612-GF have no product: no maker publishes a sheet; look again when ABC3D does.
+- Merge `v2` into `main` when the owner asks.

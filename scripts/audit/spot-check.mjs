@@ -7,6 +7,7 @@
 //                    the numbers a verdict turns on;
 //   print gates      30 product print gates the product's own profile decided (lane 2);
 //   know-how         30 makers' statements the drawer shows (lane 3, D85);
+//   lone values      every product value a material's pass rests on (one to four products meet a template's limit);
 //   record tier      30 facts the reader skipped (lane 1, D85), from dist/h2c.sqlite when it has been built.
 //
 // Generated from dist/db.json (run `npm run build` first) with a fixed seed, so the same data gives the same sample;
@@ -18,6 +19,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from 'node:sqlite';
+import { TEMPLATES } from '../../app/js/ui/templates.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const out = join(root, 'docs/audits/2026-09-25-re-center/SPOT-CHECK.md');
@@ -64,6 +66,30 @@ if (existsSync(sqlitePath)) {
   sql.close();
 }
 
+// Values a verdict rests on: for a template's numeric limit, a material whose products' comparable values straddle
+// it, and where one to four products are all that meet it. A misread there turns the material's answer (PLA's 3 GPa
+// stiffness rests on colorFabb PLA-HP and Nanovia's PLA EF 3D850, for example). Every such value is listed, not drawn.
+const lone = [];
+const seen = new Set();
+for (const t of TEMPLATES) {
+  for (const c of t.constraints.filter((x) => x.kind === 'numeric' && x.mandatory !== false && x.property !== 'priceCADkg')) {
+    const meets = (v) => (c.operator === '>=' ? v >= c.value : v <= c.value);
+    for (const m of db.materials.filter((x) => !x.familyEntry && !x.excluded)) {
+      const vals = products.filter((g) => g.materialId === m.id && g.headline?.[c.property]?.level === 'comparable' && !g.headline[c.property].from)
+        .map((g) => ({ g, h: g.headline[c.property] }));
+      const pass = vals.filter((x) => meets(x.h.value));
+      if (!pass.length || pass.length > 4 || pass.length === vals.length) continue;
+      for (const x of pass) {
+        const k = `${x.g.id}|${c.property}`;
+        if (seen.has(k)) continue;
+        seen.add(k);
+        lone.push({ ...x, key: c.property, material: m.name, limit: `${c.operator} ${c.value}`, template: t.name, of: vals.length, v: measurements.get(x.h.measurementId) });
+      }
+    }
+  }
+}
+lone.sort((a, b) => a.material.localeCompare(b.material) || a.key.localeCompare(b.key));
+
 const L = [
   '# Spot-check: what a person should verify against the page',
   '',
@@ -102,7 +128,16 @@ const L = [
   '|---:|---|---|---|---|---|',
   ...knowHow.map((k, i) => { const g = db.grades.find((x) => x.id === k.gradeId); return `| ${i + 1} | ${cell(g ? product(g) : k.gradeId)} | ${cell(k.topic)} | ${cell(k.text).slice(0, 220)} | ${where(k.sourceId, k.locator)} | |`; }),
   '',
-  `## 4. The record tier (${facts.length})`,
+  `## 4. Values a verdict rests on (${lone.length})`,
+  '',
+  'Not drawn: every product that is one of at most four in its material meeting a template\'s limit while others miss it,',
+  'so the material passes on these few numbers. Check these first.',
+  '',
+  '| # | Product | Material | Property | Value | Limit (template) | Conditions as recorded | Where | Checked |',
+  '|---:|---|---|---|---|---|---|---|---|',
+  ...lone.map(({ g, h, key, material, limit, template, of, v }, i) => `| ${i + 1} | ${cell(product(g))} | ${cell(material)} (${of} with a value) | ${cell(label[key] ?? key)} | ${h.value} ${cell(v?.unit)} (${h.measurementId}) | ${limit} (${cell(template)}) | ${conditions(v ?? {})} | ${where(v?.sourceId, v?.locator)} | |`),
+  '',
+  `## 5. The record tier (${facts.length})`,
   '',
   facts.length ? 'Lines the reader skipped, kept as printed with their page (never used in a verdict). Check the text stands on that page.' : 'dist/h2c.sqlite was not built when this was generated (`npm run db:sqlite`), so no record-tier sample.',
   '',
@@ -117,4 +152,4 @@ const L = [
   '',
 ];
 writeFileSync(out, `${L.join('\n')}\n`);
-console.log(`spot-check: ${values.length} decision values, ${gates.length} print gates, ${knowHow.length} statements, ${facts.length} record-tier facts -> ${out}`);
+console.log(`spot-check: ${values.length} decision values, ${gates.length} print gates, ${knowHow.length} statements, ${lone.length} lone values, ${facts.length} record-tier facts -> ${out}`);

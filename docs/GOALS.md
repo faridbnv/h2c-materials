@@ -56,23 +56,27 @@ It is queued for a later search, never hidden.
 
 Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-scored at the end of every phase.
 
-| # | Component | 2026-09-25 |
-|---|---|:-:|
-| C1 | Translate requirements (limits engineers use, a goal to rank by) | 2 |
-| C2 | Classification (family → polymer → material → product, a home for everything) | 2 |
-| C3 | Evidence store, decision tier (values with their conditions) | 3 |
-| C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 |
-| C5 | Material summary (range and typical value across products) | 1 |
-| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 |
-| C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 |
-| C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 |
-| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 |
-| C10 | Makers' know-how (in the panel, gaps visible) | 1 |
-| C11 | The record (everything published, searchable, never deciding) | 1 |
-| C12 | Estimates (a marked hint where nothing is published) | 3, over-built |
-| C13 | Data operations (a product in minutes, verify in about a minute) | 2 |
-| C14 | Team layer (shared scenarios, approved list, own tests); later | 1 |
-| C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 |
+| # | Component | 2026-09-25 | 2026-09-27 | What moved it, and what holds it back |
+|---|---|:-:|:-:|---|
+| C1 | Translate requirements (limits engineers use, a goal to rank by) | 2 | 4 | Ten limits (layer strength, notched Charpy and Izod, glass transition added) and Rank by; no template uses the new four |
+| C2 | Classification (family → polymer → material → product, a home for everything) | 2 | 4 | Product lines are products, TPU by hardness, a "polymer not stated" home per family; 20 held sheets and 2 materials without a product remain |
+| C3 | Evidence store, decision tier (values with their conditions) | 3 | 3 | The values that decide were re-read (0 of 80 close calls wrong); 199 still lack their test conditions, and no person has measured the error rate (SPOT-CHECK.md) |
+| C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | Comparable and as published on every headline, the user admits the second |
+| C5 | Material summary (range and typical value across products) | 1 | 4 | Every material is its products' spread, variants and twins placed by rule |
+| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | All / some / none per product, printability included; 71 % of the answers not ruled out are unknown (66 % without the price template) |
+| C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 | 3 | Rank by goal, bubbles, a product-level chart; untested with the team |
+| C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | The Products tab, passing products first, search by maker and product |
+| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | Each product's own recipe, then its twin's, then Bambu's guide, labelled: chamber decided for 719 of 1,125 products (was 140), nozzle 997 |
+| C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4,502 statements on 881 products in the maker's words, every gap stated; the maker-site search is later |
+| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 41,460 skipped facts and 4,482 cached pages searchable in `dist/h2c.sqlite` |
+| C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | Estimated only where no product publishes (153 material cells); the special cases went with the representative grade |
+| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | `verify:fast` 23 to 65 s, `verify` about 4 min; a product still takes the pipeline or a checked migration |
+| C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | Later, as planned |
+| C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | Tests are rules, counts generated, every decision in plain words, 219 acceptances each with its reason; the audit record is long |
+
+Re-scored on 2026-09-27, at the end of phases 5 and 6, by Claude (an agent) from the build and the record
+([RESPONSE.md](audits/2026-09-25-re-center/RESPONSE.md), "Phases 5 and 6: where they end"). The owner may re-score.
+Two lines wait on people, not code: C3 on the spot-check, C7 on the team test.
 
 ## Decided on 2026-09-25
 
