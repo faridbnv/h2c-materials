@@ -9,9 +9,9 @@ In the H2C research scope
 ×
 A build material, not a support
 ×
-Chamber temperature is within range
+Chamber temperature the H2C reaches
 ×
-Nozzle temperature is within range
+Nozzle temperature the H2C reaches
 ×
 Heat resistance at least 80 °C
 ×

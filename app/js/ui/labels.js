@@ -31,9 +31,9 @@ export const GATE = {
   // "Printable on an H2C" was a promise this criterion never tested: it only reads the research
   // scope list, not temperatures, nozzles or feed paths.
   scope: { plain: 'In the H2C research scope', hint: 'leaves out materials the database places outside the printer\'s envelope; it does not check print settings' },
-  nozzle: { plain: 'Nozzle temperature is within range', hint: 'the H2C reaches 350 °C' },
-  bed: { plain: 'Bed temperature is within range', hint: 'the H2C reaches 120 °C' },
-  chamber: { plain: 'Chamber temperature is within range', hint: 'the H2C reaches 65 °C' },
+  nozzle: { plain: 'Nozzle temperature the H2C reaches', hint: 'the H2C reaches 350 °C' },
+  bed: { plain: 'Bed temperature the H2C reaches', hint: 'the H2C reaches 120 °C' },
+  chamber: { plain: 'Chamber temperature the H2C reaches', hint: 'the H2C reaches 65 °C' },
   abrasive: { plain: 'No hardened nozzle', hint: 'hides filaments a source says need one' },
   dryingKnown: { plain: 'Drying guidance is published', hint: '' },
   h2cStatus: { plain: 'Bambu support level', hint: '' },
