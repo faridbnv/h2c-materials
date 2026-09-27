@@ -805,9 +805,11 @@ function defer(keys, gap, why, by) {
     const row = ledger.find((r) => r.doc_key === key);
     if (!row) { console.error(`no ledger row is keyed ${key}`); process.exitCode = 1; continue; }
     if (!['held', 'extracted', 'twin-check', 'unreadable', 'needs-ocr'].includes(row.status)) { console.error(`${key} is ${row.status}; only a waiting document is deferred`); process.exitCode = 1; continue; }
-    const was = String(row.status_note ?? '').replace(/^held: /, '').slice(0, 200);
+    // What it waited on is its hold, or, for a document nothing held yet, the state it was in: read before the
+    // status is overwritten, or a document read in the same session that defers it "waited on: deferred".
+    const was = String(row.status_note ?? '').replace(/^held: /, '').slice(0, 200) || row.status;
     row.status = 'deferred';
-    row.status_note = `deferred: ${gap} — ${why} (${by}, ${today}; it waited on: ${was || row.status})`;
+    row.status_note = `deferred: ${gap} — ${why} (${by}, ${today}; it waited on: ${was})`;
     row.updated = today;
     n++;
   }

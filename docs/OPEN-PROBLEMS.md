@@ -137,8 +137,11 @@ npm run sql --silent -- "select coverageid, materialid, domain, finding from cov
 ## 5. Materials with nothing, or with no product that publishes
 
 - **PA66-CF (M056)** and **PA612-GF (M060)** have no measurement of any kind. Their estimates are family-only and
-  say so. No filament data sheet with published properties was found in the sampled manufacturers. **PA-GF (M063)**
-  has none either, and needs none: it is a family entry, and a family owns no product (D44).
+  say so. No filament data sheet with published properties was found in the sampled manufacturers, nor in lane 4's
+  search of 2026-09-26: ABC3D's PA66-CF page prints a density and "Technical Data Sheets: Coming Soon", 3DAMSS's
+  PA66-CF20 page a marketing heat deflection at 1.8 MPa, Matter3D's PA66 carbon fibre page is gone, and Polymaker
+  makes PA612 with carbon fibre, not glass. **PA-GF (M063)** has none either, and needs none: it is a family entry,
+  and a family owns no product (D44).
 - **Four in-scope materials have no product**, so nothing can be their value even where a study grade or a resin
   reference publishes a number: PA66 (M055), PA66-CF (M056), PA612 (M058), PA612-GF (M060). Their values are
   estimates, and say so. The family entries (PA, CoPA, PA-CF, PA-GF and the rest) own no product by design (D44).
@@ -388,16 +391,27 @@ deferred.
   3D4Makers PI Z2, which stays TPI by the owner's confirmation of R193), two languages (Smartfil FLEX 77A in Spanish,
   a TPU; Flashforge FABRIAL-R in Japanese), BigRep HI-TEMP's mis-mapped text layer, Markforged's four-product
   Composites table, FKuR's Fibrolon trial-grade sheet, a resin maker's that names no filament, and QIDI S-White.
+- **Batch b36 deferred one sheet on a reader gap** (lane 4's targeted fetches, 2026-09-26): LEHVOSS's filament data
+  sheet for LUVOCOM 3F PAHT 9825 NT, the printed-specimen edition of the injection moulded sheet PAHT (M147) holds
+  (url:e0449d7a872e6ec0, SHA-256 ce40603f…). It prints the modulus at 3.1 GPa in XY at three rasters and 2.8 GPa in
+  ZX, under two headings ("Printed using Ultimaker S5 Pro and Engineering settings", "... Fast settings"); the reader
+  takes its specimen shape ("ISO 3167:2014 Typ A") for a moulded bar and 100 % infill for an elongation, so nothing
+  was accepted. It alone would give PAHT a comparable stiffness, the requirement that holds it up in three templates. A reader for the condition cell and the two
+  headings frees it, or the owner may allow it to be transcribed by a migration that checks each figure on its page.
 - **QIDI S-White is Support for ABS (R202) and did not enter.** QIDI's bilingual layout holds it, as it holds
   QIDI's other sheets: the reader read no profile, so the seven materials the sheet lists as suitable (its Support
   pairing) have no row to go in, and it misread the water absorption (b35). The bilingual reader, or a profile read
   from the page, frees it.
 - **SBC (M174) is not estimated**, and Crystal Flex publishes its strength and elongation without a direction, so
   SBC's answers are unknown until a scenario admits values as published (D84) or a resin reference gives it a
-  polymers.csv row (R199). The reference the database already cites, BASF's "Polystyrene and Styrolux"
-  (R-BASF-POLYSTYRENE-STYROLUX, SHA-256 0ae31d22…), is not in this machine's cache: neither its bytes under
-  `.cache/sources/by-sha` nor its text, so lane 4 could not re-read its S/B/S density or classification and wrote no
-  row (m155). Re-fetching it from its recorded URL, hash-checked, is the first step.
+  polymers.csv row (R199). The reference the database cites, BASF's "Polystyrene and Styrolux"
+  (R-BASF-POLYSTYRENE-STYROLUX), was fetched again from its recorded URL on 2026-09-26 (lane 4, batch b36): it hashes
+  to the recorded 0ae31d22…, and its bytes and text are in the cache now. It does not give what a row needs. For
+  Styrolux it prints a modulus of 900 to 1,800 MPa, HDT B of 62 to 77 °C and Vicat A/50 of 67 to 90 °C (Tables 3 and
+  6), and "a lamellar structure" of polystyrene and polybutadiene phases; it prints no density for S/B/S (only a
+  pellet bulk density) and names no morphology class for it ("amorphous structure" is said of Polystyrene). No row
+  was written. What frees it: a Styrolux grade data sheet from INEOS Styrolution that prints its density, and the
+  owner's word on the class (a stiff amorphous styrenic, as R200 and M174's note argue, or an elastomer like SEBS).
 - **purefil's GreenTEC (d299af0d689965eb) is answered and not imported.** R179 names GreenTEC; the sheet was held
   before b34 and is not among the 74 the owner freed, so it waits for imports to resume.
 - **A TPU rated only in prose needs a ruling.** The reader files a TPU by the rating in its name or its sheet's Shore
@@ -417,11 +431,19 @@ npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) 
 
 Lane 4 re-read the 251 product values behind the 124 answers that change when as-published values are admitted
 (BLOCKING-GAPS, D84), on their 199 cached sheets (m155, 2026-09-25). 24 sheets state how their bars were made or
-tested, and 18 answers moved; the other 175 sheets print a standard ("ISO 527") and nothing about the bar. 107
-answers still change when as-published values are admitted. They wait for a document that states the specimen's
-build direction, or that it was moulded, or the heat deflection load: a newer data sheet, a maker's test-method page,
-or an answer from the maker. BLOCKING-GAPS lists them; the maker-by-maker list for the targeted fetches is in
-[the lane 4 response](audits/2026-09-25-re-center/RESPONSE.md), "Phase 6, lane 4: the values that decide, re-read".
+tested, and 18 answers moved; the other 175 sheets print a standard ("ISO 527") and nothing about the bar. The
+targeted fetches of 2026-09-26 (batch b36, m180) settled two makers from their own documents: Extrudr's Additional
+Information Sheet says every value on its sheets is from an injection moulded bar (17 values), and QIDI's Filament
+Guide labels the figures its sheets print bare (PETG-GF's heat deflection at 0.45 MPa). **98 answers still change**
+when as-published values are admitted, on **199 values of 165 sheets**: Fiberlogy 34, Spectrum 31, FormFutura 25,
+purefil 25, Nanovia 15, Fillamentum 14, 3DJake 11, SIDDAMENT 6, 3DXTECH 4, iSANMATE 4, and 30 among thirteen others.
+None of those makers publishes, on its site or in a newer revision, how its bars were made: Spectrum's download page
+serves the very sheets the database holds, FormFutura's newer layout says no more, Fiberlogy's FAQ and Fillamentum's
+print guides say nothing of it, SIDDAMENT's product pages print "HDT (typical)" with no load, 3DXTECH no longer lists
+3DXSTAT ESD PA12, and iSANMATE's library refuses fetching tools (R084). What is left is an answer from each maker (a
+short question: printed or moulded, the build orientation, the heat deflection load), or the owner's word that a
+silent sheet stays as published. BLOCKING-GAPS lists the answers; [the lane 4 responses](audits/2026-09-25-re-center/RESPONSE.md),
+"Phase 6, lane 4: the values that decide, re-read" and "... targeted fetches (batch b36)", list the makers.
 
 - **Some sheets look like resin data and do not say so.** purefil prints ISO 294-4 mould shrinkage, Spectrum's PA6
   sheets "Linear mould shrinkage", Fiberlogy "gathered from standard reference materials and/or supplier test data",
@@ -430,9 +452,12 @@ or an answer from the maker. BLOCKING-GAPS lists them; the maker-by-maker list f
 - **Nanovia's 0° and 90° rasters are a direction the vocabulary has no value for.** Its pages state each tensile tab's
   raster ("3D printed test specimins at 0°, along with the tension stress") and not the bar's build orientation, so
   those rows are "Stated, not a usable direction" and stay as published; its ±45° rows are 45/45 (m33). Nanovia's
-  article "Mechanical data on 3D printed test specimens at 3 different angles"
-  (nanovia.tech/en/mechanical-data-on-3d-printed-test-specimens-at-3-different-angles/, not fetched) may state it.
-  Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states "ISO 3167
+  article "Mechanical data on 3D printed test specimens at 3 different angles" (read 2026-09-26, not imported) does
+  not say more: its bars were printed "Along the tension stress, to obtain the maximal resistance", "Successively at
+  45° and – 45°, close to 3D printing standards" and "Perpendicular to the tension stress, to obtain the minimal
+  resistance", to ISO 527-2/1A, and its figure draws the three bars in plan with their rasters. It names the ±45° bar
+  as the standard one, which is the owner's decision 4 of 2026-09-26, and the 0° and 90° bars as the extremes, not
+  the XY value. Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states "ISO 3167
   A test specimens" (a shape, not how it was made), and Flex prints no sentence.
 - **Nanovia's "Elongation ultimate strength" is filed as Elongation at break** on 14 rows of 13 products. It reads as the
   strain at the ultimate (maximum) stress, which the registry has as Tensile strain at strength, a lower bound of the
@@ -442,6 +467,20 @@ or an answer from the maker. BLOCKING-GAPS lists them; the maker-by-maker list f
   product value (m33); Nanovia's ABS ESD prints no 0° tab, so its product lost its stiffness and elongation. Many
   makers' "XY" bars are printed at ±45°, so whether a raster-only label should count as XY is a question for the
   owner, not a data fix.
+- **Values a cached sheet prints and nobody read, behind a "not published" blocker.** colorFabb's Lightweight PET and
+  Lightweight PET FLEX sheets print their modulus in the XY plane in two columns, "Value unfoamed @ 210 °C" and "Value
+  foamed @ 260 °C, flow: 60%" (2,290 and 1,290 MPa; 2,520 and 1,500 MPa); the reader reads no row with two value
+  columns (source_facts), so PET-LW (M141) is "not published" on stiffness in three templates. Which print condition
+  is a lightweight product's value is the owner's question before anyone records it: at 2.5 GPa the FLEX passes
+  unfoamed and fails foamed. FormFutura's ApolloX Kevlar prints "Elastic tensile modulus 2200 MPa ISO 527-1", a label
+  the lexicon lacks; with no direction it would be as published and settle nothing. The four graphene sheets' specific
+  gravity was the same kind of gap and m181 recorded it.
+- **Copies registered beside the maker's own sheet hid behind a count.** MEAS-CROSS-SOURCE-TWIN ignores a value more
+  than ten sources share, so a copy whose values are common is not seen as a copy until a neighbour moves. m180
+  brought nine such copies under it (3DJake's copies and the German and Italian editions of Extrudr's sheets, 3DJake's
+  copies of two Spectrum sheets), and m182 retired their 81 repeated rows. One pair is left, accepted: FormFutura's HDglass and ReForm
+  rPET print one table for two PETG products (R053), and recording it once under one Shared formulation key is the
+  twin lane's (D89). More pairs may be waiting under the same threshold.
 - **Two raw cells on MakerBot Tough** hold the metric column ("63.3 MPa") where the test method belongs; the sheet names
   "ASTM D628" (sic) and D790 in a footnote. The values are moulded (m155) and decide nothing.
 

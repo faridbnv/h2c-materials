@@ -2,10 +2,10 @@
 ACROSS ITS PRODUCTS
 Property Typical Range Products Set apart
 Density kg/m³ 1,070 1,030–1,230 12 of 16 —
-Stiffness GPa 3.32 3.3–8 4 of 16 7 without direction or load (0.5–9.5)
-Strength MPa 72 50–86 7 of 16 8 without direction or load (52–125)
-Stretch before breaking % 3.6 2.1–14.8 7 of 16 7 without direction or load (4.5–103)
-Heat resistance °C 150 48–185 11 of 16 —
+Stiffness GPa 3.32 3.3–8 4 of 16 6 without direction or load (0.5–9.5)
+Strength MPa 72 50–86 7 of 16 7 without direction or load (52–125)
+Stretch before breaking % 3.6 2.1–14.8 7 of 16 6 without direction or load (4.5–103)
+Heat resistance °C 159 48–185 10 of 16 —
 Price CAD/kg — — 0 of 16 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
 WHAT MAKERS SAY

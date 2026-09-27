@@ -47,17 +47,17 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ASA-CF PASS
-3 of 7
- 1,100
-1,020–1,170 · 15
+3 of 6
+ 1,095
+1,020–1,170 · 14
  3.91
 0.85–5.36 · 6
  41.3
 34–50.1 · 6
  3
 1.64–15.5 · 5
- 98.8
-86–110 · 8
+ 101
+86–110 · 7
  no price↗ ☆
 PA12-CF
 Nylon / Polyamide
@@ -71,8 +71,8 @@ Nylon / Polyamide
 50–86 · 7
  3.6
 2.1–14.8 · 7
- 150
-48–185 · 11
+ 159
+48–185 · 10
  — ☆
 PA12-GF
 Nylon / Polyamide
@@ -93,8 +93,8 @@ Nylon / Polyamide
 53–112 · 6
  7.35
 2.1–16.5 · 6
- 183
-140–215 · 10
+ 185
+140–215 · 9
  110↗ ☆
 PA6-GF
 Nylon / Polyamide

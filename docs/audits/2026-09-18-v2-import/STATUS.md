@@ -9,22 +9,22 @@ can go stale without the command that made it saying so.
 |---|---:|
 | materials | 174 |
 | grades | 1,159 |
-| measurements | 11,363 |
-| sources | 1,481 |
+| measurements | 11,368 |
+| sources | 1,482 |
 | profiles | 1,196 |
 | profile notes | 2,061 |
 | headlines | 0 |
 
 ## The corpus
 
-2,089 documents in the ledger.
+2,091 documents in the ledger.
 
 | Status | Documents |
 |---|---:|
 | applied | 1,310 |
-| duplicate-of | 302 |
+| duplicate-of | 303 |
 | registered | 179 |
-| deferred | 124 |
+| deferred | 125 |
 | safety-data-sheet | 49 |
 | held | 38 |
 | not-a-data-sheet | 37 |
@@ -146,6 +146,7 @@ npm run ingest:propose -- --compare --all
 | [b32](batches/b32/README.md) | b32: every held document, once more | m124-batch-b32, 2026-09-21 |
 | [b33](batches/b33/README.md) | b33: the optical readings a reader could still sign | m125-batch-b33, 2026-09-21 |
 | [b34](batches/b34/README.md) | b34: the held sheets get a home | m143-batch-b34, 2026-09-25 |
+| [b35](batches/b35/README.md) | b35: the owner's answers to what b34 left | m145-batch-b35, 2026-09-25 |
 
 ## By provider
 
@@ -162,12 +163,12 @@ npm run ingest:propose -- --compare --all
 | Fabru / purefil | 67 | 44 | 2 | 17 |  | 2 |  |  |  |  | 2 |
 | SUNLU | 53 | 46 |  |  |  | 2 |  | 5 |  |  |  |
 | Fiberlogy | 51 | 41 |  | 8 |  |  |  | 2 |  |  |  |
-| colorFabb | 47 | 41 | 1 | 5 |  |  |  |  |  |  |  |
+| colorFabb | 48 | 41 | 2 | 5 |  |  |  |  |  |  |  |
 | Filament2Print | 44 | 17 | 12 | 6 |  | 4 | 2 | 3 |  |  |  |
 | Bambu Lab | 42 | 42 |  |  |  |  |  |  |  |  |  |
 | Flashforge | 42 | 35 | 5 | 1 |  | 1 |  |  |  |  |  |
+| QIDI | 40 | 14 | 21 | 4 |  | 1 |  |  |  |  |  |
 | Eryone | 39 | 36 |  |  |  |  |  | 1 |  |  | 2 |
-| QIDI | 39 | 14 | 21 | 3 |  | 1 |  |  |  |  |  |
 | iSANMATE | 38 | 34 |  | 1 |  |  |  |  |  |  | 3 |
 | Fillamentum | 37 | 25 | 1 | 11 |  |  |  |  |  |  |  |
 | INTAMSYS | 33 |  |  |  | 33 |  |  |  |  |  |  |

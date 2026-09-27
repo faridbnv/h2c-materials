@@ -26,8 +26,8 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 153 materials, 136 of them in H2C scope
-11147 measurements, each traceable to a source
-141 have a density, 96 a modulus, 33 a Canadian price
+11070 measurements, each traceable to a source
+142 have a density, 96 a modulus, 33 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -68,8 +68,8 @@ ABS not tested 1,050
 15.7–45 · 17
  10
 3.9–40 · 16
- 93.5
-78.9–104 · 22
+ 94
+78.9–104 · 21
  26↗ ☆
 ABS-AF not tested 1,050
 1,040–1,050 · 3
@@ -135,16 +135,16 @@ ASA Aero not tested 1,010
 ASA-AF not tested 1,070
 1,070–1,070 · 3
  2.2* 40* 6* 89* — ☆
-ASA-CF not tested 1,100
-1,020–1,170 · 15
+ASA-CF not tested 1,095
+1,020–1,170 · 14
  3.91
 0.85–5.36 · 6
  41.3
 34–50.1 · 6
  3
 1.64–15.5 · 5
- 98.8
-86–110 · 8
+ 101
+86–110 · 7
  no price↗ ☆
 ASA-EC not tested 1,170 3.57* 48.7* 3* 101* — ☆
 ASA-GF not tested 1,150
@@ -155,8 +155,8 @@ ASA-GF not tested 1,150
 34.2–40.8 · 3
  5.55
 5.3–5.8 · 2
- 93
-86–99 · 4
+ 88
+86–98 · 3
  — ☆
 BVOH
 Support / Soluble
@@ -268,8 +268,8 @@ Nylon / Polyamide
 50–86 · 7
  3.6
 2.1–14.8 · 7
- 150
-48–185 · 11
+ 159
+48–185 · 10
  — ☆
 PA12-GF
 Nylon / Polyamide
@@ -296,8 +296,8 @@ Nylon / Polyamide
 53–112 · 6
  7.35
 2.1–16.5 · 6
- 183
-140–215 · 10
+ 185
+140–215 · 9
  110↗ ☆
 PA6-GF
 Nylon / Polyamide
@@ -390,7 +390,7 @@ Polymer Blends
 PC
 Polycarbonate
  not tested 1,200
-1,150–1,230 · 21
+1,150–1,230 · 20
  2.24
 1.8–2.63 · 12
  61
@@ -463,12 +463,10 @@ Polycarbonate
  134 — ☆
 PC-PBT
 Polymer Blends
- not tested 1,200
-1,200–1,200 · 2
- 1.85 43.2 4.6 107 — ☆
+ not tested 1,200 1.85 43.2 4.6 107 — ☆
 PC-PBT-CF
 Polymer Blends
- not tested 1,200 4.52* 70.2* 35* 115 — ☆
+ not tested 1,200* 4.52* 70.2* 35* 89* — ☆
 PC-PTFE
 Polycarbonate
  not tested 1,290
@@ -484,7 +482,7 @@ Copolyesters
  not tested 1,230
 1,230–1,230 · 5
  1.75 45 24 76
-76–76 · 5
+76–76 · 4
  48↗ ☆
 PCTG-CF
 Copolyesters
@@ -655,7 +653,7 @@ PETG not tested 1,270
  8.5
 4.1–90 · 24
  70
-63–80 · 29
+63–80 · 30
  25.5
 25–26 · 2
 ↗ ☆
@@ -667,7 +665,7 @@ PETG-CF not tested 1,290
 32–59.8 · 6
  6.6
 1.9–14 · 6
- 71.5
+ 72
 68–77 · 10
  41↗ ☆
 PETG-ESD not tested 1,240
@@ -683,8 +681,12 @@ PETG-ESD not tested 1,240
  — ☆
 PETG-GF not tested 1,330
 1,250–1,420 · 5
- 2.33 53.6 1.9 80 — ☆
-PETG-GR not tested — 1.4* 55.2* 5.62* — — ☆
+ 2.33 53.6 1.9 78
+76–80 · 2
+ — ☆
+PETG-GR not tested 1,290
+1,290–1,290 · 2
+ 1.4* 55.2* 5.62* — — ☆
 PETG-PTFE not tested 1,320 1.85* 40* 100* — — ☆
 PLA not tested 1,240
 1,170–1,329 · 147
@@ -695,7 +697,7 @@ PLA not tested 1,240
  7.23
 1.2–65 · 53
  55
-50–135 · 68
+50–135 · 67
  28
 27–30 · 4
 ↗ ☆
@@ -712,13 +714,11 @@ PLA Aero not tested 1,150
  58↗ ☆
 PLA family-CF, polymer not stated not tested 1,280
 1,200–1,360 · 2
- 7.12* 65* 2.5* 94.5
-74–115 · 2
- — ☆
+ 7.12* 65* 2.5* 74 — ☆
 PLA family, polymer not stated not tested 1,340
 1,300–1,540 · 7
- 4.4* 52* 3.4* 87
-54–115 · 5
+ 4.3* 58* 14* 85.5
+54–115 · 4
  — ☆
 PLA Galaxy not tested 1,225
 1,190–1,240 · 4
@@ -812,10 +812,12 @@ PLA-ESD not tested 1,210
 PLA-GF not tested 1,280
 1,200–1,337 · 4
  3.79 50.1 2.77 75.5 — ☆
-PLA-GR not tested — 3.6* 65* 4.19* — — ☆
+PLA-GR not tested 1,240
+1,240–1,240 · 2
+ 3.6* 65* 4.19* — — ☆
 PLA-NF not tested 1,350
 1,250–1,450 · 2
- 2.83* 43* 2.5* 80 — ☆
+ 2.83* 43* 22.3* 80 — ☆
 PLA-PHA
 Polymer Blends
  not tested 1,240 3.29 57.7 6.1 51* — ☆

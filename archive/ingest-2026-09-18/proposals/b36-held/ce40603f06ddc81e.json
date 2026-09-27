@@ -1,0 +1,1625 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-27"
+  },
+  "document": {
+    "sha256": "ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7",
+    "url": "https://colorfabb.com/media/datasheets/tds/lehvoss/TDS_LUVOCOM_3F_Filaments_9825_NT.PDF",
+    "pages": 2,
+    "provider": "colorFabb",
+    "manufacturer": "LEHVOSS",
+    "docKey": "url:e0449d7a872e6ec0"
+  },
+  "identity": {
+    "polymer": "PAHT",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: paht"
+    ],
+    "materialId": "M147",
+    "materialName": "PAHT",
+    "estimateIdentity": "PAHT",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+      "Publisher": "LEHVOSS",
+      "Title": "LUVOCOM 3F Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-27",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Hosted by colorFabb; the sheet is LEHVOSS's.",
+      "Citation role": "cited",
+      "URL": "https://colorfabb.com/media/datasheets/tds/lehvoss/TDS_LUVOCOM_3F_Filaments_9825_NT.PDF",
+      "Locator": "Document / product page",
+      "Applicable grades": "${grade:main}",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "ce40603f06ddc81effd4a7ac26bd7e3e162c427013aa60aa18eabb6677397eb7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "LUVOCOM 3F Filament"
+    },
+    "review": {
+      "status": "proposed"
+    }
+  },
+  "grades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "proposed"
+      },
+      "row": {
+        "MaterialID": "M147",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "LEHVOSS",
+        "Product name": "PA 9825 NT",
+        "Shared formulation key": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "retaining 50% of its mechanical properties. Its water uptake takes about 4 times longer to reach the saturation point compared (p. 2, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "LUVOCOM 3F Filament"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.20 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 1183-3",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Specific gravity ISO 1183-3 g/cm³",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific gravity ISO 1183-3 g/cm³ 1.20"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Water absorption",
+        "Raw value": "0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "<",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Standard / load": "23°C / 24h MPTS A ISO 62 ISO 3167",
+        "Standards": "ISO 62; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Water absorption 23°C / 24h ISO 62 MPTS ISO 3167 A %",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Water absorption 23°C / 24h ISO 62 MPTS ISO 3167 A % <0.3"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "3.6 g/10min",
+        "Raw unit": "g/10min",
+        "Raw numeric": "3.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "250°C",
+        "Standard / load": "MFR 250°C / 2.16kg Pellet ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Melt flow rates (MFR) 250°C / 2.16kg Pellet g/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow rates (MFR) 250°C / 2.16kg Pellet g/10min 3.6"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Melt volume-flow rate",
+        "Raw value": "3.5 cm³/10min",
+        "Raw unit": "cm³/10min",
+        "Raw numeric": "3.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "cm³/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "250°C",
+        "Standard / load": "MVR 250°C / 2.16kg Pellet ISO 1133",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Melt volume rate (MVR) 250°C / 2.16kg ISO 1133 Pellet cm³/10min",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt volume rate (MVR) 250°C / 2.16kg ISO 1133 Pellet cm³/10min 3.5"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Continuous service temperature",
+        "Raw value": "100 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "20 000 h MPTS A IEC 60216 ISO 3167",
+        "Standards": "IEC 60216; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Continuous service temperature 20,000 h IEC 60216 MPTS ISO 3167 A °C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Continuous service temperature 20,000 h IEC 60216 MPTS ISO 3167 A °C 100"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "10¹² Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "1000000000000",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "1000000000000",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Surface resistance Ω",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Surface resistance Ω >10¹²"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "69.1 ± 2.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "69.1",
+        "Raw uncertainty ±": "2.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "69.1",
+        "Normalized uncertainty ±": "2.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 0 ° - XY Typ A ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Tensile strength 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A MPa 69.1 ± 2.9"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3.1 ± 0.1 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "3.1",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 0 ° - XY Typ A ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Modulus of elasticity 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 3.1 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3.1 ± 0.1 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "3.1",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 45/135° - XY Typ A ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Modulus of elasticity 100% infill - 45/135° - XY ISO 527-2 ISO 3167:2014 Typ A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 100% infill - 45/135° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 3.1 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Elongation at maximum force",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A % 3.7 ± 0.0"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3.1 ± 0.0 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "3.1",
+        "Raw uncertainty ±": "0",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "0",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 90° - X",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Modulus of elasticity 100% infill - 90° - X GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 100% infill - 90° - X GPa 3.1 ± 0.0"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "26.3 ± 2.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "26.3",
+        "Raw uncertainty ±": "2.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26.3",
+        "Normalized uncertainty ±": "2.7",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Tensile strength MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength MPa 26.3 ± 2.7"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Elongation at maximum force",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force 100% infill - ZX ISO 527-2 ISO 3167:2014 Typ A % 1.1 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2.8 ± 0.1 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "2.8",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.8",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Modulus of elasticity GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity GPa 2.8 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "54.8 ± 1.7 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "54.8",
+        "Raw uncertainty ±": "1.7",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "54.8",
+        "Normalized uncertainty ±": "1.7",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 0 ° - XY Typ A ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Tensile strength 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A MPa 54.8 ± 1.7"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Elongation at maximum force",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A % 2.6 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2.8 ± 0.1 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "2.8",
+        "Raw uncertainty ±": "0.1",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.8",
+        "Normalized uncertainty ±": "0.1",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 0 ° - XY Typ A ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Modulus of elasticity 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 100% infill - 0 ° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 2.8 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "51.2 ± 1.9 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "51.2",
+        "Raw uncertainty ±": "1.9",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "51.2",
+        "Normalized uncertainty ±": "1.9",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 45/135° - XY ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Tensile strength 100% infill - 45/135° - XY ISO 527-2 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 100% infill - 45/135° - XY ISO 527-2 MPa 51.2 ± 1.9"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m19",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Elongation at maximum force",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force 100% infill - 45/135° - X % 2.8 ± 0.1"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m20",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2.9 ± 0.2 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "2.9",
+        "Raw uncertainty ±": "0.2",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.9",
+        "Normalized uncertainty ±": "0.2",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 45/135° - XY ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Modulus of elasticity 100% infill - 45/135° - XY ISO 527-2 GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 100% infill - 45/135° - XY ISO 527-2 GPa 2.9 ± 0.2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m21",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "66.2 ± 2.6 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "66.2",
+        "Raw uncertainty ±": "2.6",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "66.2",
+        "Normalized uncertainty ±": "2.6",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Tensile strength ISO 527-2 MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength ISO 527-2 MPa 66.2 ± 2.6"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m22",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Elongation at maximum force",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A % 3.2 ± 0.2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m23",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "2.8 ± 0.3 GPa",
+        "Raw unit": "GPa",
+        "Raw numeric": "2.8",
+        "Raw uncertainty ±": "0.3",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.8",
+        "Normalized uncertainty ±": "0.3",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - 90° - XY Typ A ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Modulus of elasticity 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A GPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Modulus of elasticity 100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A GPa 2.8 ± 0.3"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m24",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "22.2 ± 3.5 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "22.2",
+        "Raw uncertainty ±": "3.5",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22.2",
+        "Normalized uncertainty ±": "3.5",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Raw material value",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "100% infill - ZX Typ A ISO 527-2 ISO 3167:2014",
+        "Standards": "ISO 527; ISO 3167",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Tensile strength 100% infill - ZX ISO 527-2 ISO 3167:2014 Typ A MPa",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength 100% infill - ZX ISO 527-2 ISO 3167:2014 Typ A MPa 22.2 ± 3.5"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "m25",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Property": "Tensile strain at strength",
+        "Raw value": "100 %",
+        "Raw unit": "%",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Standard / load": "ISO 527-2",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "Locator": "p. 1: Elongation at maximum force",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at maximum force 100% infill - ZX ISO 527-2 1.0 ± 0.2"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M147",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "265 -290 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "265",
+        "Nozzle max °C": "290",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "≥ 0.2 mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-TDS-LUVOCOM-3F-Filaments-9825-NT",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 2: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "≥ 0.1 mm"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "s 30 - 80"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 2,
+        "text": "Printing temperature °C 265 - 290"
+      },
+      "review": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 2,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "265 -290 °C",
+      "fromBelow": false,
+      "line": "Printing temperature °C 265 - 290"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer thickness",
+      "raw": "≥ 0.1 mm",
+      "fromBelow": false,
+      "line": "Layer thickness mm ≥ 0.1"
+    },
+    {
+      "page": 2,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle diameter",
+      "raw": "≥ 0.2 mm",
+      "fromBelow": false,
+      "line": "Nozzle diameter mm ≥ 0.2"
+    },
+    {
+      "page": 2,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing speed",
+      "raw": "s 30 - 80",
+      "fromBelow": false,
+      "line": "Printing speeds mm/s 30 - 80"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "LUVOCOM 3F Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA ® 9825 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 1133",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat distortion temperature ISO 75 °C",
+      "reason": "the line names HDT and states no value in a unit the database keeps it in (°C)"
+    },
+    {
+      "page": 1,
+      "text": "HDT A – 1.8 MPa Printed specimen 80",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "°C 120",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "during lifetime max. 200h MPTS ISO 3167 A",
+      "reason": "properties.csv carries no property for \"during lifetime max. 200h\""
+    },
+    {
+      "page": 1,
+      "text": "Coefficient of thermal expansion ISO 11359 10x8x4mm 10ˉ⁵/K 0.5",
+      "reason": "the sheet states Coefficient of thermal expansion in 10ˉ⁵/K, and the database keeps it in µm/m/K"
+    },
+    {
+      "page": 1,
+      "text": "hot disk W/mK 0.3",
+      "reason": "properties.csv carries no property for \"hot disk\" (W/mK)"
+    },
+    {
+      "page": 1,
+      "text": "DIN IEC 60167 MPTS ISO 3167 A Ω",
+      "reason": "properties.csv carries no property for \"DINIEC 60167 MPTS\""
+    },
+    {
+      "page": 1,
+      "text": "Insulation resistance strip electrode R25 >10¹²",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ROB DIN IEC 60093 Ronde 60x4mm",
+      "reason": "properties.csv carries no property for \"ROB\""
+    },
+    {
+      "page": 1,
+      "text": "Thermal conductivity in plane ISO 22007 || 60x60x3mm",
+      "reason": "the line names Thermal conductivity and states no value in a unit the database keeps it in (W/(m·K))"
+    },
+    {
+      "page": 1,
+      "text": "Mechanical properties at 23°C / 50% rh *Printed using Ultimak er S5 Pro and Engineering settings",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% infill - 0 ° - XY ISO 3167:2014 Typ A % 2.7 ± 0.3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at maximum force ISO 527-2",
+      "reason": "the line names Tensile strain at strength and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "100% infill - 45/135° - XY ISO 527-2 ISO 3167:2014 Typ A MPa",
+      "reason": "properties.csv carries no property for \"100% infill - 45/135° - XY\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength 82.1 ± 0.9",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "100% infill - 45/135° - XY ISO 3167:2014 Typ A % 3.7 ± 0.0",
+      "reason": "properties.csv carries no property for \"100% infill - 45/135° - XY\""
+    },
+    {
+      "page": 1,
+      "text": "Elongation at maximum force ISO 527-2",
+      "reason": "the line names Tensile strain at strength and states no value in a unit the database keeps it in (%)"
+    },
+    {
+      "page": 1,
+      "text": "100% infill - 90° - XY ISO 527-2 ISO 3167:2014 Typ A MPa",
+      "reason": "properties.csv carries no property for \"100% infill - 90° - XY\""
+    },
+    {
+      "page": 1,
+      "text": "Tensile strength 81.6 ± 0.9",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Y ISO 527-2 ISO 3167:2014 Typ A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% infill - ZX ISO 527-2 ISO 3167:2014 Typ A",
+      "reason": "properties.csv carries no property for \"100% infill - ZX\""
+    },
+    {
+      "page": 1,
+      "text": "100% infill - ZX ISO 527-2 ISO 3167:2014 Typ A",
+      "reason": "properties.csv carries no property for \"100% infill - ZX\""
+    },
+    {
+      "page": 1,
+      "text": "Mechanical properties at 23°C / 50% rh *Printed using Ultima er S5 Pro and Fast settings",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 3167:2014 Typ A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Y ISO 527-2 ISO 3167:2014 Typ A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 3167:2014 Typ A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% infill - 90° - XY ISO 3167:2014 Typ A",
+      "reason": "properties.csv carries no property for \"100% infill - 90° - XY\""
+    },
+    {
+      "page": 1,
+      "text": "ISO 3167:2014 Typ A %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% infill - ZX ISO 527-2 ISO 3167:2014 Typ A GPa",
+      "reason": "properties.csv carries no property for \"100% infill - ZX\""
+    },
+    {
+      "page": 1,
+      "text": "1/2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Modulus of elasticity 2.8 ± 0.1",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 2,
+      "text": "LUVOCOM 3F Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "PA ® 9825 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "LUVOCOM 3F Filament PAHT® 9825 NT is an unreinforced polyamide based formulation with the ability to be printable on",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "non-heated chamber machines. It has excellent tensile and impact strength and allows continues use up to 100°C while",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "retaining 50% of its mechanical properties. Its water uptake takes about 4 times longer to reach the saturation point compared",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "to unmodified PA6, also its saturation point is 5 times lower than conventional PA6 materials.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Geometric accuracy was measured according VDI3405:Part 7 (length = 24 - 150 mm) and achieved 0.32 mm for the Engineering settings.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Dehumidifying dryer 110 6 - 8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Vacuum dryer 100 4 - 6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Print bed temperature °C ≥ 50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Unless indicated otherwise, the material is delivered as ø 1.75mm and ø 2.85mm filaments in re-sealable aluminum bags.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Alsterufer 19 185 South Broad Street Unit 4805, 8 Xingyi Road",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "20354 Hamburg Pawcatuck, CT 06379 Changning District, Shanghai 200336",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tel +49 40 44 197-530 Tel +1-855-681-3226 Tel +86 21 62785181",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2/2",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "proposed"
+  }
+}
