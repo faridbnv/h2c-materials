@@ -12,7 +12,7 @@ that settles the most answers first, not the most data.
 | Outdoor structural part | 136 | 18 | 80 | 38 | not published 55; published, not comparable 17 | 15 |
 | Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
 | Lightweight structure | 136 | 27 | 79 | 30 | not published 27; published, not comparable 13 | 21 |
-| Warm environment | 136 | 35 | 38 | 63 | print setting not recorded 61; not published 31 | 0 |
+| Warm environment | 136 | 34 | 38 | 64 | print setting not recorded 69; not published 31 | 0 |
 | High-stiffness fixture | 136 | 19 | 71 | 46 | published, not comparable 25; not published 21 | 26 |
 | Flexible component | 136 | 16 | 73 | 47 | published, not comparable 25; not published 22 | 30 |
 
@@ -91,7 +91,7 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PA6-CE (M104) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PA6-GS (M108) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 
-And 136 more, each holding up one template.
+And 144 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -196,7 +196,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 882 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 880 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|
@@ -218,7 +218,7 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | PLA | eSUN PLA-Rock | density <= 1250 | 1250 | 0 % pass | V006712 |
 | Lightweight structure | PLA | eSUN PLA UV Color Change | density <= 1250 | 1250 | 0 % pass | V007248 |
 | Lightweight structure | PLA | eSUN ePLA ST | density <= 1250 | 1250 | 0 % pass | V007941 |
-| Lightweight structure | PLA | Elegoo S.I. | density <= 1250 | 1250 | 0 % pass | V009061 |
+| Lightweight structure | PLA | Elegoo Not published | density <= 1250 | 1250 | 0 % pass | V009061 |
 | Lightweight structure | PLA | MatterHackers MH Build Series PLA | density <= 1250 | 1250 | 0 % pass | V009113 |
 | Lightweight structure | PLA | Extrudr BIOFUSION | density <= 1250 | 1250 | 0 % pass | V010040 |
 | Lightweight structure | PLA | Extrudr PEARL | density <= 1250 | 1250 | 0 % pass | V010091 |
@@ -234,10 +234,9 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | PLA-CF | Spectrum THE FILAMENT PLA CF | density <= 1250 | 1250 | 0 % pass | V003018 |
 | Lightweight structure | PLA-CF | QIDI PLA-CF | density <= 1250 | 1250 | 0 % pass | V008113 |
 | Lightweight structure | PLA-GF | iSANMATE PLA Glass Fiber | density <= 1250 | 1250 | 0 % pass | V000377 |
-| Lightweight structure | PETG | Polymaker PolyLite PETG | density <= 1250 | 1250 | 0 % pass | V000390 |
 | Lightweight structure | PETG | Bambu Lab PETG Basic | density <= 1250 | 1250 | 0 % pass | V000423 |
 | Lightweight structure | PETG | Bambu Lab PETG Translucent | density <= 1250 | 1250 | 0 % pass | V007777 |
-| Lightweight structure | PETG | Polymaker Polymaker PolyLite PETG | density <= 1250 | 1250 | 0 % pass | V003401 |
+| Lightweight structure | PETG | Polymaker PolyLite PETG | density <= 1250 | 1250 | 0 % pass | V003401 |
 | Lightweight structure | PETG | Polymaker PolyMax PETG | density <= 1250 | 1250 | 0 % pass | V003749 |
 | Lightweight structure | PETG | Eryone Standard PETG | density <= 1250 | 1250 | 0 % pass | V005029 |
 | Lightweight structure | PETG-CF | Bambu Lab PETG-CF | density <= 1250 | 1250 | 0 % pass | V000484 |
@@ -280,4 +279,5 @@ are the first values a person should check against the page: the 80 closest of 8
 | Outdoor structural part | PA6-CE | Spectrum PA6 CS20 FR V0 | density <= 1500 | 1490 | -0.7 % pass | V002733 |
 | Outdoor structural part | PAHT-CE | LEHVOSS LUVOCOM 3F PAHT KK 50056 BK | density <= 1500 | 1490 | -0.7 % pass | V009738 |
 | Lightweight structure | PLA | 3DXTECH ECOMAX PLA | density <= 1250 | 1240 | -0.8 % pass | V000001 |
+| Lightweight structure | PLA | iSANMATE PLA | density <= 1250 | 1240 | -0.8 % pass | V000038 |
 

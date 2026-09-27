@@ -1617,3 +1617,180 @@ M141's headline basis, which now has a comparable value to describe).
 | `npm run build:diff` | 2,912 differences: the three headlines' product values, summaries and material headlines; the registry; `testTemperatureC` on 1,144 measurements (m175 alone: that and nothing else); two corrected reasons; M141's headline basis |
 | `verify:fast` | paired on this machine at load 12 to 20: 38 s with the build cached, as at `ca25c37`, and the same CPU time (178 s); 79 s after a change with the cache empty (480 s CPU), against 129 s (495 s CPU) for `ca25c37` under a heavier load. Three headlines cost the build nothing measurable: compile is 0.13 to 0.17 s either way, and the estimate stage does not read them |
 | `verify` | passing in 302 s at load 13 to 22: 308 tests, 167 ingest, the scale check (compile and validate at twice the data 99 s of its 150 s budget), the audit, the snapshot current, 66 views (3 rewritten: the Products tab's spreads and Compare), 300 fuzzed scenarios. The first run failed only on the Log axis (above); 1,000 more scenarios on seed 7 pass |
+
+## Phase 6, lane 2, finished: the recipes the sheets state, and product identities (2026-09-26)
+
+*In plain words: a product's print settings were sometimes the settings its maker's test bars were printed at; they are
+now the settings the maker recommends, or nothing where it recommends none. The printing rows the earlier read could not
+parse, the hardened-nozzle rows, and the nozzle and bed rows it never tried are now read from each product's own sheet.
+Five products that sat twice on the list, once per revision of their sheet, now sit once.*
+
+GOALS step 2 (screen, printability) and step 5 (drill down), scorecard lines C9, C8 and C2. Two commits: the parsers
+learn the wordings (`build:diff` 0 differences), then the data, migrations m170 to m174, with two more parser readings
+the data needs and the tests as rules. The reviewer of every row is an agent, claude-opus-5.5 (agent reviewer), reading
+each candidate on its cached, hash-checked page; no person has reviewed them. Every statement is pinned in its
+migration's CSV with its page and the label of its row, and each migration checks the words stand on that page before it
+writes (`scripts/migrate/printed-on.mjs`, m136's check shared).
+
+**The test bars are not the recipe (m170, OPEN-PROBLEMS §12).** Lane 2 found 35 Polymaker profiles holding the "How to
+make specimens" block. Reading every sheet with a specimen block found the same defect on 177 profiles of 165 products
+from seven makers: Polymaker 59 profiles, 3DXTECH 38, Flashforge 31, eSUN 24, Raise3D 20, AzureFilm 4, SIDDAMENT 1.
+The import had taken the specimen row where it read a nozzle or bed temperature:
+- "Printing temperature 260°C" where the sheet recommends "Nozzle temperature 245-265°C" (Polymaker);
+- "Nozzle Temperature 285 °C" beside "270~300℃ (285℃ recommended)" (Flashforge);
+- "Extruder Temperature 220℃" from eSUN's test block, and an eSUN eABS HS bed of 45 °C where the sheet recommends
+  100-110 °C.
+
+136 cells now hold the recommended row, as printed. 92 hold Not published, because the sheet recommends nothing:
+3DXTECH's sheets print only "Printed Specimen Conditions", and so do Raise3D's Hyper Speed and Industrial lines and three
+older Polymaker sheets. One PLA-CF bed held the drying row's "55°C/6H". The Locator of each names the row it now holds
+(146 rewritten). PolySonic's second profile holds the sheet's High-speed window beside the Classic one. One coverage row
+that rested on the specimens' settings (PP Lightweight's "Print setup") is superseded by a Gap.
+
+**Fragments (m171).** 24 drying cells held a piece of the page ("before Printing", "Diameter accuracy (2.85/1.75
+mm):", "to", "2-4"). Each now holds its row's schedule; two Eryone temperatures printed without a unit are explained in
+Parse review. Four cells that say drying is not needed are statements and stay. The nine products named by a sentence
+fragment have the name their sheet prints as its heading (eABS-GF, PLA+CMYK, eSilk-PLA, PLA+, Premium PLA, Premium PC,
+Premium TPU-95A, PETG+, PolyMax PLA), and the nine sources whose titles carried the same fragment have their printed
+title.
+
+**Wordings the parser could not read (parser commit, m172).** Each is read as the state it states, with a test per
+wording:
+
+| Wording | Read as |
+|---|---|
+| Polymaker's "Closure chamber \| Needed" | enclosure recommended |
+| Polymaker's "Closure chamber \| No Needed" | enclosure not needed |
+| Polymaker's "Closure chamber \| Needed (90-100°C)" | the chamber window |
+| Eryone's "Sealed printing \| Supports open/closed printing", "Open printing", "supports open printing, and the sealing effect is better if it is sealed" | enclosure not needed: the maker prints it open |
+| Eryone's "Closed printing", "Box Sealing Print" | enclosure recommended |
+| BASF's "Build Chamber Temperature -" | no setpoint |
+| CreatBot's "OFF"; the prose "can be used on 3D printers in non-heated chambers" | chamber not required |
+| eSUN's "we highly recommend printing PC-HT material within a closed chamber printer" | enclosure recommended |
+| Polymaker ABS Max's "65˚C+"; LEHVOSS's "> 120 °C" | a lower end with no upper end: the chamber is partial where the H2C reaches it, never within by an upper end |
+| "No hardened nozzle required", "Hardened nozzle not required" | not required (it had read as required) |
+
+- Where a sheet prints the prose and a chamber row, the row is recorded: SIDDAMENT's PPA-CF and PPS CF, "Room temperature
+  ~80℃".
+- Two eSUN sheets print the PC-HT sentence naming ABS-CF, another product, and are left.
+- BASF PC GF30's "Not required / '-' in TDS" became the sheet's "-", which is no setpoint.
+- Eleven at-least cells ("> 100 °C", "≥ 50°C") lost the upper end nobody printed.
+
+**What m172 filled from the products' own sheets:**
+- 162 nozzle cells on 141 products: SUNLU 72, each speed tier of its table listed, since each is the recommendation;
+  SIDDAMENT 20; QIDI 9; eSUN 9.
+- 149 bed cells on 144 products.
+- 62 enclosure cells (44 not needed, 18 recommended) and 35 chamber cells.
+- 127 hardened-nozzle cells on 112 products: 37 required and 90 not, including Spectrum's "Ruby or hardened nozzle not
+  necessary" (54) and Extrudr's "Hardened Nozzle | no" (29).
+- 78 products got a profile, citing a sheet of their own they had none from.
+
+**Treatments (m173).** 17 Flashforge sheets and 5 SIDDAMENT sheets say to dry the printed model in an oven to increase
+its strength ("After the printing process, it is recommended to dry the model in the oven at 80-100°C for 1-3 hours").
+Each is a Post-processing statement in `evidence.csv`, like m136's annealing. Three print 120-130 °C for 6-8 hours, TPU
+64D's among them; they are recorded as printed and listed in OPEN-PROBLEMS §12. Of the four annealing statements lane 2
+left, three name another product and stay out. Bambu PETG-CF's is recorded as printed, "65 to 70 hours", with a note that
+every other Bambu sheet gives 6 to 12.
+
+**Product identities (m174).**
+- Anycubic PLA+ has a grade of its own (G001-199); its sheet's 8 values, profile and note moved there from Anycubic
+  PLA, IDs kept.
+- ELEGOO's PLA (G001-129) is named Not published: page 1, rendered, is ELEGOO's logo over a table, and no cached
+  document names the product. The grade says so.
+- The four "Product card" sheets filed as Prusa Research PET-G, PLA, ABS and ABS-ESD VE are Buddy3D's: the logo heads
+  each card, and the PET-G and ABS ESD cards name "Buddy3D PET-G" and "Buddy3D ABS ESD". Each is named as its card
+  names it, and the Manufacturer stays as 3DJake lists it.
+- Five products sat on two grades, one per revision of their sheet. In each pair the newer sheet continues the older's
+  version number and prints the same product and description:
+  - PolyLite PETG V3, V5.2 and V5.3, and V6.0;
+  - PolySonic PLA V5.3 and V6.0;
+  - PolyLite ABS V5.6 and Polymaker ABS v6.0, which renames it with the same description and the same numbers to the
+    decimal;
+  - Raise3D Premium PC V4.0 and V6.0;
+  - PolyMax PLA v1 and V5.5.
+
+  **All five are one product each**: the older grade retires in favour of the newer, and its 126 records move there
+  with their IDs. The first three are the pairs OPEN-PROBLEMS §17 asked about; the last two were found by naming the
+  fragments above. Two kept grades drop the maker's name the import put before the product's ("Polymaker PolyLite
+  PETG" is "PolyLite PETG", "Polymaker PolyMax PLA" is "PolyMax PLA", as their sheets print them).
+- Not merged: eSUN's G001-142 ("PLA") prints PLA+ on its 2021 V4.0 sheet, as G001-78 does on its 2026 V1.0 sheet. The
+  numbering restarts and the descriptions differ, so it is left open in OPEN-PROBLEMS §16. The GRADE-PRODUCT-DUPLICATE
+  findings for it, for Anycubic PLA+ and PLA, and for eSUN PETG+ and PETG (the rule's key drops the "+") are accepted
+  with those reasons.
+
+**Products (of the active ones) with each print axis stated by their own profiles**, from the tables:
+
+| Axis | Before (1,138 products) | After (1,134) |
+|---|---:|---:|
+| A profile at all | 932 | 1,001 |
+| Nozzle | 811 | 901 |
+| Bed | 706 | 812 |
+| Chamber state | 206 | 237 |
+| Chamber decided (a temperature, or "not needed") | 298 | 364 |
+| Enclosure | 171 | 230 |
+| Drying | 410 | 409 (one merged product had two) |
+| Hardened nozzle | 224 | 336 |
+| A treatment of the part (annealing, drying the part) | 61 | 84 |
+
+The nozzle row counts both the products that lost a specimen temperature (the 3DXTECH and Raise3D products above) and
+those that gained a recommended one.
+
+**Each product's print gate, by where it was read** (`build/snapshot/print.csv`: 1,131 products before, 1,127 after;
+"decided" is a verdict other than unknown):
+
+| Part | Before: own / twin / guide / unknown | After |
+|---|---|---|
+| Nozzle | 811 / 34 / 126 / 160 | 901 / 13 / 85 / 128 |
+| Bed | 706 / 36 / 175 / 214 | 812 / 8 / 124 / 183 |
+| Chamber | 298 / 15 / 244 / 574 | 364 / 4 / 216 / 543 |
+| Enclosure stated | 171 / 17 / 446 / 497 | 230 / 7 / 415 / 475 |
+| Hardened nozzle stated | 224 / 12 / 417 / 478 | 336 / 8 / 362 / 421 |
+| Drying | 410 / 19 / 0 / 702 | 409 / 19 / 0 / 699 |
+
+**The decision diff** (`build/snapshot/templates.csv` against the base, `ca25c37`): 46 of 1,045 rows changed. Only Warm
+environment moved a material's answer:
+
+| Warm environment (Explore) | Before | After |
+|---|---:|---:|
+| Materials PASS / FAIL / UNKNOWN | 34 / 0 / 65 | 33 / 0 / 66 |
+| Products PASS / FAIL / UNKNOWN | 64 / 123 / 628 | 68 / 124 / 620 |
+
+- PC-GF goes PASS → UNKNOWN. BASF Ultrafuse PC GF30 passed on a chamber read as "not required" from a cell that said
+  "Not required / '-' in TDS"; its sheet prints "-", no setpoint, and it now waits for a chamber like any silent product.
+- Five products pass that did not: SUNLU ABS, SUNLU ASA and SUNLU Easy PA (their sheets' "Room Temp. | Room
+  Temperature"), and Eryone Glass Fiber ABS and ASA-GF ("supports open printing").
+- PolySonic PLA, PolyLite PETG and Polymaker ABS now carry their older sheets' values and fail where the older grade
+  failed; each counts once.
+- Elsewhere only product counts moved, by the five merges (Indoor prototype 3 fewer unknown; Lightweight structure one
+  fewer of each). Three estimate screens flipped with the medians the merges moved (PLA-PHB, TPU-CF and COC screened
+  out, PLA-PHA back in; all UNKNOWN).
+
+**Sample check.** 30 of the 830 statements were drawn with a fixed seed (20260926, `mulberry32`, a shuffle of m170's,
+m171's, m172's and m173's rows), and each was re-read beside its page's lines: **30 agree** on the value. The read found
+one mislabel, fixed before the final run: Extrudr's "Hardened Nozzle | no" rows had been given Spectrum's label, "Ruby
+or hardened nozzle", in their Locator.
+
+**Left, and why** (OPEN-PROBLEMS §12, §16):
+- The specimen blocks m170 took out of the profiles are not yet on the measurements (332 measurements of 50 sheets).
+  Five excluded high-temperature materials now publish no nozzle window, and their exclusion is their H2C status.
+- Rows the rules could not place with confidence (Fabru's and iSANMATE's two-column tables, LEHVOSS's "> 50 °C" beds),
+  sentences naming another product, the specimens' nozzle diameters (display only), and drying "not needed" read as
+  drying stated.
+- **For the owner:** a maker's own "Closure chamber | Needed", with no temperature, now wins over Bambu's guide for
+  Polymaker ABS (with PolyLite ABS merged into it) and Polymaker ASA, as a product's own statement always does (D88).
+  Under the owner's decision 1 of 2026-09-26, the guide's enclosure tick counts as within the chamber for ABS, ASA and
+  seven other types. So these products would read the guide's "within" had their sheets stayed silent, and their own
+  identical statement leaves them unknown. Recommendation: read a maker's own "enclosure needed" with no temperature the
+  same way the owner reads the guide's, for the same nine types; revisit when a maker states a chamber above 65 °C for
+  one of them.
+
+| | Result |
+|---|---|
+| `npm run data:check` / `data:lint` | 26 tables, 0 issues / 223 findings, all accepted, 0 new (3 GRADE-PRODUCT-DUPLICATE accepted with reasons) |
+| `npm run build` | 0 errors, the same 4 warnings; no PARSE-UNREAD, no PARSE-MISMATCH |
+| `npm run build:diff` | parser commit: 0 differences; data: 17,458, downstream of the profiles, the moved records and the merges (`db.profiles` windows and locators, `db.grades[].print`, product values, spreads and the grade estimates that follow them, `db.materials[].gradeIds`) |
+| Migrations | m170 375 cells, m171 42, m172 548 statements (78 new profiles), m173 23 treatments, m174 149 changes; each re-run is a no-op, and the five run in order from the base give these tables |
+| Tests | `npm test` 308: rules for every wording (enclosure, chamber states, at-least, "none needed", hardened negations), no profile holds a specimen's setting, an at-least chamber is never within; two database rules restated for the data (an excluded material publishing no window is unknown rather than exceeding; an at-least window is judged by its lower end); `test:ingest` 167, one check that borrowed a retired grade's formulation key now borrows any active product's |
+| `ui:check -- --write` | 15 of 66 views rewritten; no layout failures |
+| `audit:gaps` / `audit:know-how` | regenerated: Warm environment 66 unknown; "print setting not recorded" 62 → 70 (the specimen settings removed) |
+| `verify:fast` / `verify` | 64 s at load 16 to 18 / passing in 4 min at load 14 to 24: the scale check (73 s at twice the data), the audit (one EST-OUTLIER acceptance, PA6-CE's density, no longer occurred once the merges moved the medians, and is removed), the snapshot current, 66 views, 300 fuzzed scenarios |

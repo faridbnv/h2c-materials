@@ -1,30 +1,30 @@
 ACROSS ITS PRODUCTS
 Property Typical Range Products Set apart
-Density kg/m³ 1,240 1,170–1,329 147 of 184 17 variants (800–4,000)
-Stiffness GPa 2.53 0.95–4.24 39 of 184 41 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
-Strength MPa 45.3 26–70.4 56 of 184 50 without direction or load (30–71); 12 variants (12.6–65)
-Strength across layers MPa 31 14.3–43.5 29 of 184 1 variant (14.5–14.5)
-Stretch before breaking % 7.23 1.2–65 53 of 184 43 without direction or load (2.9–84); 11 variants (2.4–40)
-Notched impact strength kJ/m² 17.1 4.94–72.3 10 of 184 20 without direction or load (1.8–29.8); 4 variants (1.8–2.97)
-Heat resistance °C 55 50–135 67 of 184 28 without direction or load (53–108); 6 variants (55–89)
-Glass transition °C 59 54–67.5 64 of 184 6 variants (55–62.4)
-Price CAD/kg 28 27–30 4 of 184 —
+Density kg/m³ 1,240 1,170–1,329 147 of 183 17 variants (800–4,000)
+Stiffness GPa 2.45 0.95–4.24 38 of 183 41 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
+Strength MPa 45 26–70.4 55 of 183 50 without direction or load (30–71); 12 variants (12.6–65)
+Strength across layers MPa 30.8 14.3–43.5 28 of 183 1 variant (14.5–14.5)
+Stretch before breaking % 6.76 1.2–65 52 of 183 43 without direction or load (2.9–84); 11 variants (2.4–40)
+Notched impact strength kJ/m² 17.1 4.94–72.3 10 of 183 20 without direction or load (1.8–29.8); 4 variants (1.8–2.97)
+Heat resistance °C 55 50–135 68 of 183 28 without direction or load (53–108); 6 variants (55–89)
+Glass transition °C 59 54–67.5 64 of 183 6 variants (55–62.4)
+Price CAD/kg 28 27–30 4 of 183 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
 WHAT MAKERS SAY
-174 of its 202 products carry statements from their makers, in the makers' words under each product below; 27 products' data sheets say nothing beyond their numbers; 1 product has no document read. The makers' websites have not been searched yet.
+173 of its 201 products carry statements from their makers, in the makers' words under each product below; 27 products' data sheets say nothing beyond their numbers; 1 product has no document read. The makers' websites have not been searched yet.
 Good for: 18 of 39 makers (61 products)
-Benefits: 30 of 39 makers (127 products)
+Benefits: 30 of 39 makers (126 products)
 Pitfalls and limitations: 10 of 39 makers (13 products)
 Warping and shrinkage: 16 of 39 makers (33 products)
 Precision and tolerance: 7 of 39 makers (13 products)
 Surface finish: 23 of 39 makers (78 products)
-Adhesion between layers: 8 of 39 makers (17 products)
+Adhesion between layers: 8 of 39 makers (16 products)
 Moisture sensitivity: 9 of 39 makers (30 products)
 Nozzle wear: 9 of 39 makers (34 products)
 Odour and emissions: 13 of 39 makers (25 products)
 Supports and removal: 8 of 39 makers (38 products)
 Printing advice: 12 of 39 makers (19 products)
-Of the products whose documents were read, 146 give no chamber or enclosure need, 148 no drying schedule and 187 no annealing schedule.
+Of the products whose documents were read, 125 give no chamber or enclosure need, 147 no drying schedule and 186 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
 3DXTECH
 3 products
@@ -69,9 +69,9 @@ Glass transition
 55 °C
 HOW TO PRINT IT
 Nozzle
-220 °C yes
+190–230 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Bed
-23 °C yes
+35–65 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Chamber
 not required yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Enclosure

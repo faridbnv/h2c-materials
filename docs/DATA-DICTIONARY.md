@@ -437,17 +437,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Nozzle °C | raw | string | yes |  |  | Nozzle °C as published; parsed by the build. |
 | Nozzle state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Nozzle °C: range, not-required, ambient, no-setpoint, recommended or unknown. |
 | Nozzle min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not published for an up-to value; Not applicable unless the state is range. |
-| Nozzle max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
+| Nozzle max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not published for an at-least value ("65˚C+", "> 120 °C"); Not applicable unless the state is range. |
 | Nozzle requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
 | Bed °C | raw | string | yes |  |  | Bed °C as published; parsed by the build. |
 | Bed state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Bed °C: range, not-required, ambient, no-setpoint, recommended or unknown. |
 | Bed min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not published for an up-to value; Not applicable unless the state is range. |
-| Bed max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
+| Bed max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not published for an at-least value ("65˚C+", "> 120 °C"); Not applicable unless the state is range. |
 | Bed requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
 | Chamber °C | raw | string | yes |  |  | Chamber °C as published; parsed by the build. |
 | Chamber state | canonical | string | yes |  | [process-states](#vocab-process-states) | Reviewed reading of Chamber °C: range, not-required, ambient, no-setpoint, recommended or unknown. |
 | Chamber min °C | canonical | number | yes | Not applicable, Not published |  | Lower end of the window; Not published for an up-to value; Not applicable unless the state is range. |
-| Chamber max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not applicable unless the state is range. |
+| Chamber max °C | canonical | number | yes | Not applicable, Not published |  | Upper end of the window; Not published for an at-least value ("65˚C+", "> 120 °C"); Not applicable unless the state is range. |
 | Chamber requirement | canonical | string | yes |  | [process-requirements](#vocab-process-requirements) | required, recommended, none or unknown. |
 | Enclosure | raw | string | yes |  |  | Enclosure as published; parsed by the build. |
 | Enclosure state | canonical | string | yes |  | [enclosure-states](#vocab-enclosure-states) | Reviewed reading of Enclosure. |
@@ -1171,7 +1171,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | enclosed | A printer maker's guide asks for an enclosure on its own enclosed printers and states no temperature: the H2C's heated, enclosed chamber (65 °C) meets it (D90). A print guide row's chamber only, where the row asks for an enclosure; a maker's own sheet that asks for one says Enclosure state recommended. |
 | no-setpoint | The source prints '-': no setpoint given, which is neither zero nor not required. |
 | not-required | The source says it is not required. |
-| range | A temperature window; min and max hold it (min may be Not published for 'up to'). |
+| range | A temperature window; min and max hold it (min may be Not published for 'up to', max for 'at least'). |
 | recommended | Recommended, with no temperature. |
 | unknown | Not published, or text the parser could not read. |
 

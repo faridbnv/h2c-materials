@@ -132,3 +132,24 @@ test('the standards a row names are a typed list the source\'s words check', asy
   assert.ok(mismatches.some((m) => m.startsWith(`measurements ${row.MeasurementID}: Standards is ISO 178`)), mismatches.join(' | '));
 });
 
+
+// D63 and m170: a print profile is the maker's printing guidance. How its test bars were printed is a condition of the
+// measurements, and a profile that once held those settings holds none, and says so.
+test('a print profile holds guidance, never how the test bars were printed', () => {
+  const temps = ['Nozzle °C', 'Bed °C', 'Chamber °C'];
+  for (const p of base['Print setup'].rows) {
+    for (const c of temps) assert.doesNotMatch(p[c], /specimen|test (bar|piece|sample)|spline/i, `${p.ProfileID} ${c}`);
+    if (/not printing guidance/.test(p.Locator)) for (const c of temps) assert.equal(p[c], 'Not published', `${p.ProfileID} ${c}`);
+  }
+});
+
+// An at-least value ("65˚C+", "> 100 °C") has no upper end: no gate reads it as within by one.
+test('an at-least window is never within the chamber by its upper end', () => {
+  const { db } = run(() => {});
+  const open = db.profiles.filter((p) => p.chamber.state === 'range' && p.chamber.max == null && p.chamber.min != null);
+  assert.ok(open.length, 'no at-least chamber window to hold the rule to');
+  for (const p of open) {
+    const expected = p.chamber.min > 65 ? /^exceeds/ : /^partial$/;
+    assert.match(p.gates.chamber.verdict, expected, `${p.id}: ${p.chamber.text}`);
+  }
+});

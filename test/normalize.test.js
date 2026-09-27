@@ -86,6 +86,75 @@ test('enclosure wording separates "not needed" from "recommended"', () => {
   assert.equal(parseEnclosure('✓ see notes').unparsed, true, 'a mark is read only as the whole answer');
 });
 
+// Phase 6, lane 2, finished (m172): the wordings the sheets print for a closed printer, each read as the state it
+// states, and never as a temperature. A wording that states no state stays unread, so a new one shows as PARSE-UNREAD.
+test('every enclosure wording the sheets print reads as the state it states', () => {
+  const says = {
+    'not-needed': [
+      'No Needed', 'No needed', // Polymaker's "Closure chamber" row
+      'Supports open/closed printing', 'Open printing', 'Open Printing/closed printing', 'enclosed printing/open printing',
+      'supports open printing, and the sealing effect is better if it is sealed', 'Supports open printing; better results with enclosure.',
+      'Sealing print quality is better, supporting open printing', // Eryone's "Sealed printing" row: it prints open
+      'The surface is delicate, with no obvious layer lines, easy to use, and does not require sealed printing.',
+    ],
+    recommended: [
+      'Needed', 'Needed (90-100°C)', 'Needed (ambient temperature)', // Polymaker's "Closure chamber" row
+      'Closed printing', 'closed printing', 'enclosed printing', 'Box Sealing Print', // Eryone's row, for the ones that need it
+      'Due to its high shrinkage rate, we highly recommend printing PC-HT material within a closed chamber printer.',
+      'The shrinkage rate of ABS+ material is large, so you should pay attention to heat preservation when printing, and print in a printer with a closed chamber.',
+    ],
+  };
+  for (const [state, texts] of Object.entries(says)) for (const t of texts) assert.equal(parseEnclosure(t).state, state, t);
+  // A sentence that is about something else says nothing about an enclosure.
+  assert.equal(parseEnclosure('Printing speed 30-150mm/s').unparsed, true);
+});
+
+test('a chamber cell that states no temperature is read as the state it states, never as a number', () => {
+  const read = (t) => parseTemperature(t, { plausible: [0, 200] });
+  // BASF's lone dash is no setpoint, which is neither zero nor not required.
+  assert.deepEqual([read('-').state, withinH2C(read('-'), 65).verdict], [PROCESS_STATE.NO_SETPOINT, 'unknown']);
+  // CreatBot's "OFF", and a maker's word that its filament prints on non-heated chamber printers, want no heated chamber.
+  for (const t of ['OFF', 'printable on non-heated chamber FFF 3D printers', 'can be used on 3D printers in non-heated chambers', 'can be used on FFF 3D printers in non-heated chambers']) {
+    const p = read(t);
+    assert.deepEqual([p.state, p.min, p.max, withinH2C(p, 65).verdict], [PROCESS_STATE.NOT_REQUIRED, null, null, 'within'], t);
+  }
+});
+
+test('"none needed" is not required, with the window the sheet gives if one is used', () => {
+  const p = parseTemperature('None needed (or 50-70°C if applicable)', { plausible: [0, 250] });
+  assert.deepEqual([p.state, p.min, p.max, p.requirement], [PROCESS_STATE.RANGE, 50, 70, REQUIREMENT.NONE]);
+  assert.equal(withinH2C(p, H2C_BASELINE.bedC).verdict, 'within');
+});
+
+test('an at-least value is a lower end with no upper end, never within by its upper end', () => {
+  const chamber = parseTemperature('65˚C+', { plausible: [0, 200] });
+  assert.deepEqual([chamber.state, chamber.min, chamber.max, chamber.openHigh], [PROCESS_STATE.RANGE, 65, null, true]);
+  // The H2C's 65 °C chamber reaches the bottom of an open window and no more: partial, as a window it partly reaches.
+  assert.equal(withinH2C(chamber, H2C_BASELINE.chamberC, { partialWindow: true }).verdict, 'partial');
+  assert.equal(withinH2C(parseTemperature('70°C+', { plausible: [0, 200] }), H2C_BASELINE.chamberC, { partialWindow: true }).verdict, 'exceeds');
+  // A bed or nozzle the printer reaches is met; one it does not is exceeded.
+  assert.equal(withinH2C(parseTemperature('140 ºC +', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'exceeds');
+  assert.equal(withinH2C(parseTemperature('100 ºC +', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'within');
+  // LEHVOSS prints the same as "> 120 °C".
+  const bed = parseTemperature('> 120 °C', { plausible: [0, 250] });
+  assert.deepEqual([bed.min, bed.max, withinH2C(bed, H2C_BASELINE.bedC).verdict], [120, null, 'within']);
+  assert.equal(withinH2C(parseTemperature('> 130 °C', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'exceeds');
+});
+
+// m172: the hardened-nozzle statements on the products' own sheets. A negation is read as one wherever the word
+// "required" falls, and a wear-resistant nozzle is the hardened one by another name.
+test('a hardened-nozzle statement reads as what it says, a negation included', () => {
+  const says = {
+    false: ['Hardened nozzle not required', 'No hardened nozzle required', 'Nozzle: High quality metal nozzle, harden steel nozzle is not needed',
+      'Ruby or hardened nozzle not necessary', 'Ruby or hardened nozzle recommended No', 'Hardened Nozzle no'],
+    true: ['When using PolyMide™ CoPA, we recommend to switch to a wear resistant nozzle', 'Nozzle & Gear Material Hardened steel',
+      'A reinforced nozzle, suitable for abrasive materials is recommended.', 'It is recommended to use hardening steel nozzle, tungsten steel or ruby nozzle to avoid nozzle abrasion.',
+      'Hardened Nozzle Recommended', 'Ruby or hardened nozzle recommended Yes', 'We recommend to use ruby nozzles or hardened steel nozzles.',
+      'nozzle material: abbrasion resistant'],
+  };
+  for (const [want, texts] of Object.entries(says)) for (const t of texts) assert.equal(parseAbrasion(t).requiresHardened, want === 'true', t);
+});
+
 test('ambient as the lower end of a stated range, and "up to"', () => {
   const r = parseTemperature('Room temperature - 50 (˚C)', { plausible: [0, 200] });
   assert.equal(r.state, PROCESS_STATE.RANGE);

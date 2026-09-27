@@ -1,0 +1,549 @@
+Fill,GradeID,SourceID,Page,Axis,Label,Raw,Target,Replaces,State,Min,Max,Requirement,Hardened,Parse review
+F001,G085-02,R-BRASKEM-FL300PE-PDS,1,nozzle,Extruder Temperature ℃,210 - 230,new,Not published,range,210,230,required,Not applicable,Not applicable
+F002,G087-03,R-YOUSU-POM-TDS,2,nozzle,Printing Temp,220-240℃,new,Not published,range,220,240,required,Not applicable,Not applicable
+F003,G008-04,R-SUNLU-27be2474-b2dd-45b3-8a14-5f742b314e33,2,nozzle,Nozzle Temp.,210-230,P0396,Not published,range,210,230,required,Not applicable,Not applicable
+F004,G008-04,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,2,nozzle,Nozzle Print Temp.,205-215; 215-230,P0802,Not published,range,205,230,required,Not applicable,Not applicable
+F005,G001-36,R-SUNLU-bbf6d99b-179f-4eee-a7d6-505d125658cd,2,nozzle,Nozzle Temp.,200-260,P0397,Not published,range,200,260,required,Not applicable,Not applicable
+F006,G008-05,R-SUNLU-56889371789540318047,2,nozzle,喷嘴温度 Nozzle Temp.,205-215°C; 215-235°C,P1105,Not published,range,205,235,required,Not applicable,Not applicable
+F007,G020-18,R-SUNLU-30522971789539747056,2,nozzle,喷嘴温度 Nozzle Temp.,230-240; 240-270,P1114,Not published,range,230,270,required,Not applicable,Not applicable
+F008,G020-19,R-SUNLU-PETG,2,nozzle,Nozzle Print Temp.,230-240℃,P0784,Not published,range,230,240,required,Not applicable,Not applicable
+F009,G020-19,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,2,nozzle,喷嘴温度 Nozzle Temp.,240-260,new,Not published,range,240,260,required,Not applicable,Not applicable
+F010,G082-04,R-SUNLU-25182761789529093884,2,nozzle,喷嘴温度 Nozzle Temp.,240-260,P1153,Not published,range,240,260,required,Not applicable,Not applicable
+F011,G001-37,R-SUNLU-65301701781747847057,2,nozzle,Nozzle Temp.,205-215; 215-245,P0399,Not published,range,205,245,required,Not applicable,Not applicable
+F012,G001-37,R-SUNLU-73632671781747576290,2,nozzle,Nozzle Temp.,200-210; 210-240,P0398,Not published,range,200,240,required,Not applicable,Not applicable
+F013,G001-37,R-SUNLU-PLA-0,2,nozzle,Nozzle Print Temp.,200-210℃,P0767,Not published,range,200,210,required,Not applicable,Not applicable
+F014,G001-37,R-SUNLU-SUNLU-PLA-Vivid-Yellow,2,nozzle,Nozzle Print Temp.,205-215℃,P0771,Not published,range,205,215,required,Not applicable,Not applicable
+F015,G028-04,R-SUNLU-ABS-GF-TDS,2,nozzle,Nozzle Print Temp.,260-280,P0795,Not published,range,260,280,required,Not applicable,Not applicable
+F016,G028-04,R-SUNLU-b74bf860-1989-443e-b917-58f7a97096a0,2,nozzle,Nozzle Temp. ℃,260-280,P0400,Not published,range,260,280,required,Not applicable,Not applicable
+F017,G039-18,R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b,2,nozzle,Nozzle Temp.,220-240,P0401,Not published,range,220,240,required,Not applicable,Not applicable
+F018,G094-04,R-SUNLU-PC-ABS-TDS,2,nozzle,Nozzle Print Temp.,260-280,P0781,Not published,range,260,280,required,Not applicable,Not applicable
+F019,G094-04,R-SUNLU-d7bcafe0-f102-4dcb-a87a-59f458f0358d,2,nozzle,Nozzle Temp.,260-280,P0402,Not published,range,260,280,required,Not applicable,Not applicable
+F020,G001-38,R-SUNLU-1cc08af0-45a6-41af-9b5a-07533ce567f3,2,nozzle,Nozzle Temp.,210-230,P0416,Not published,range,210,230,required,Not applicable,Not applicable
+F021,G001-38,R-SUNLU-High-Speed-PLA,2,nozzle,Nozzle Print Temp.,205-215℃,P0794,Not published,range,205,215,required,Not applicable,Not applicable
+F022,G001-38,R-SUNLU-b129fd4c-7d50-46be-874e-84e0bb6ff1ae,2,nozzle,Nozzle Temp.,210-230,P0403,Not published,range,210,230,required,Not applicable,Not applicable
+F023,G053-05,R-SUNLU-93d827f4-50e9-45b4-8b24-bf5ddaf8273f,2,nozzle,Nozzle Temp.,260-280,P0404,Not published,range,260,280,required,Not applicable,Not applicable
+F024,G053-05,R-SUNLU-PA12-CF-TDS,2,nozzle,Nozzle Print Temp.,260-280,P0765,Not published,range,260,280,required,Not applicable,Not applicable
+F025,G017-05,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,2,nozzle,Nozzle Temp.,190-210,P0405,Not published,range,190,210,required,Not applicable,Not applicable
+F026,G050-06,R-SUNLU-68c0ccf4-9059-4b50-ad40-95ba3634f0ae,2,nozzle,Nozzle Temp.,270-290,P0406,Not published,range,270,290,required,Not applicable,Not applicable
+F027,G050-06,R-SUNLU-PA6-CF-TDS,2,nozzle,Nozzle Print Temp.,270-290,P0801,Not published,range,270,290,required,Not applicable,Not applicable
+F028,G097-03,R-SUNLU-ddb6b06d-707f-4226-9c00-cc16ef778873,2,nozzle,Nozzle Temp.,390; 420,P0407,Not published,range,390,420,required,Not applicable,Not applicable
+F029,G027-12,R-SUNLU-High-Speed-ABS-TDS,2,nozzle,Nozzle Print Temp.,260-280; 280-290,P0808,Not published,range,260,290,required,Not applicable,Not applicable
+F030,G027-12,R-SUNLU-ef443c43-b15b-4242-8884-dcce385e8f02,2,nozzle,Nozzle Temp.,260-280; 280-290,P0408,Not published,range,260,290,required,Not applicable,Not applicable
+F031,G014-03,R-SUNLU-9ecc53a5-f50a-4687-97fc-fab43b1db35b,2,nozzle,Nozzle Temp.,200-220,P0410,Not published,range,200,220,required,Not applicable,Not applicable
+F032,G051-06,R-SUNLU-PA6-GF-TDS,2,nozzle,Nozzle Print Temp.,270-290,P0768,Not published,range,270,290,required,Not applicable,Not applicable
+F033,G051-06,R-SUNLU-e5f16b43-cef6-4f3e-ad93-3cc86f93f7e4,2,nozzle,Nozzle Temp.,270-290,P0411,Not published,range,270,290,required,Not applicable,Not applicable
+F034,G001-39,R-SUNLU-19364171789540194308,2,nozzle,喷嘴温度 Nozzle Temp. ℃,200-230,P1103,Not published,range,200,230,required,Not applicable,Not applicable
+F035,G001-40,R-SUNLU-a47cd225-7892-4788-9c73-bd27bfd791f5,2,nozzle,Nozzle Temp.,205-215; 215-245,P0412,Not published,range,205,245,required,Not applicable,Not applicable
+F036,G075-02,R-SUNLU-6f3c0e89-fa56-46b2-ab3d-601ee6b70cf9,2,nozzle,Nozzle Temp.,200-210; 210-230,P0413,Not published,range,200,230,required,Not applicable,Not applicable
+F037,G018-08,R-SUNLU-75a39c51-7d4c-40c4-839d-58f88cbbbf94,2,nozzle,Nozzle Temp.,215-225; 225-245,P0414,Not published,range,215,245,required,Not applicable,Not applicable
+F038,G018-08,R-SUNLU-PLA-Carbon-Fiber,2,nozzle,Nozzle Print Temp.,215-225℃,P0792,Not published,range,215,225,required,Not applicable,Not applicable
+F039,G012-02,R-SUNLU-02f59eef-2adc-4bae-8b08-bfd1a8a278fe,2,nozzle,Nozzle Temp.,210-230; 230-260,P0415,Not published,range,210,260,required,Not applicable,Not applicable
+F040,G031-08,R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801,2,nozzle,Nozzle Temp.,250-260; 260-280,P0417,Not published,range,250,280,required,Not applicable,Not applicable
+F041,G082-05,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,2,nozzle,Nozzle Print Temp.,210-230,P0793,Not published,range,210,230,required,Not applicable,Not applicable
+F042,G082-05,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,2,nozzle,Nozzle Temp.,210-230,P0418,Not published,range,210,230,required,Not applicable,Not applicable
+F043,G027-14,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,2,nozzle,喷嘴温度 Nozzle Temp.,240-250; 250-260,new,Not published,range,240,260,required,Not applicable,Not applicable
+F044,G027-14,R-SUNLU-ABS-FR-TDS-0,2,nozzle,Nozzle Print Temp.,240-250; 250-260,P0798,Not published,range,240,260,required,Not applicable,Not applicable
+F045,G035-12,R-SUNLU-46dca9d5-d877-4a9d-b416-3ad38450204a,2,nozzle,Nozzle Temp.,260-280,P0419,Not published,range,260,280,required,Not applicable,Not applicable
+F046,G035-12,R-SUNLU-PC-TDS,2,nozzle,Nozzle Print Temp.,260-280,P0810,Not published,range,260,280,required,Not applicable,Not applicable
+F047,G001-41,R-SUNLU-bbd3e778-b424-49b7-b203-058327f2f6fc,2,nozzle,Nozzle Temp.,185-195; 195-225,P0420,Not published,range,185,225,required,Not applicable,Not applicable
+F048,G001-42,R-SUNLU-225ab1bc-a40a-435b-8d20-a2745303674b,2,nozzle,Nozzle Temp.,200-215; 215-230; 230-260,P0421,Not published,range,200,260,required,Not applicable,Not applicable
+F049,G020-20,R-SUNLU-High-Speed-Matte-PETG-TDS,2,nozzle,Nozzle Print Temp.,240-255; 255-270,P0786,Not published,range,240,270,required,Not applicable,Not applicable
+F050,G020-20,R-SUNLU-ccf53a55-5b58-49fa-b1d9-08f94c0a4b28,2,nozzle,Nozzle Temp.,240-260,P0422,Not published,range,240,260,required,Not applicable,Not applicable
+F051,G015-02,R-SUNLU-PLA-Galaxy-TDS,2,nozzle,Nozzle Print Temp.,200-230,P0773,Not published,range,200,230,required,Not applicable,Not applicable
+F052,G015-02,R-SUNLU-cc96ba09-b739-4afb-851f-bcdd5f02dc2b,2,nozzle,Nozzle Temp.,200-230,P0423,Not published,range,200,230,required,Not applicable,Not applicable
+F053,G024-06,R-SUNLU-433432a8-dfcb-485e-bd8e-a7be94dda4ce,2,nozzle,Nozzle Temp.,240-250,P0424,Not published,range,240,250,required,Not applicable,Not applicable
+F054,G039-19,R-SUNLU-e8b9c06a-4b93-46cb-9532-d9deb185a7c8,2,nozzle,Nozzle Temp.,190-210; 210-230,P0425,Not published,range,190,230,required,Not applicable,Not applicable
+F055,G013-03,R-SUNLU-581a2c53-a377-4a1a-8fa4-f864aa683bd2,2,nozzle,Nozzle Temp.,200-210; 210-240,P0426,Not published,range,200,240,required,Not applicable,Not applicable
+F056,G093-03,R-SUNLU-042608c3-25e5-4515-a83e-f2220185296c,2,nozzle,Nozzle Temp.,200-210; 210-230,P0427,Not published,range,200,230,required,Not applicable,Not applicable
+F057,G093-03,R-SUNLU-PVB-TDS,2,nozzle,Nozzle Print Temp.,200-210; 210-230,P0778,Not published,range,200,230,required,Not applicable,Not applicable
+F058,G008-07,R-ERYONE-eryone-silk-rainbow-pla-tds,1,nozzle,Nozzle temperature,190-220 ℃,P0432,Not published,range,190,220,required,Not applicable,Not applicable
+F059,G087-04,R-FABRU-PUREFIL-3519-Material-data-sheet-POM-purefil,1,nozzle,Printing temperature,190-210 °C,new,Not published,range,190,210,required,Not applicable,Not applicable
+F060,G098-04,R-3D4MAKERS-TDS-LUVOCOM-3F-PEKK-50082-Filament,1,nozzle,Nozzle temperature,360°C (340-380°C),P0593,Not published,range,340,380,required,Not applicable,Not applicable
+F061,G020-31,R-3D-FUEL-TDS-3DFuel-PETG,1,nozzle,nozzle temp,245 - 265C,P0643,Not published,range,245,265,required,Not applicable,Not applicable
+F062,G001-93,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,nozzle,Hot End Temperature,190-230°C,new,Not published,range,190,230,required,Not applicable,Not applicable
+F063,G086-02,R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI,1,nozzle,printing temperature,200 °C,new,Not published,range,200,200,required,Not applicable,Not applicable
+F064,G049-07,S-PCGF-PA-TDS-Siddament,2,nozzle,Nozzle Temperature,260-280°C,P1141,Not published,range,260,280,required,Not applicable,Not applicable
+F065,G029-07,S-PCGF-ABS-Carbon-Fiber-TDS-Siddament,2,nozzle,Nozzle Temperature,240-260°C,P1127,Not published,range,240,260,required,Not applicable,Not applicable
+F066,G001-103,S-PCGF-PLA-TDS-Siddament,2,nozzle,Nozzle Temperature,195-220°C,P1098,Not published,range,195,220,required,Not applicable,Not applicable
+F067,G024-14,S-PCGF-PETG-Carbon-Fiber-TDS-Siddament,2,nozzle,Nozzle Temperature,240-260°C,P1119,Not published,range,240,260,required,Not applicable,Not applicable
+F068,G039-49,S-PCGF-TPU-95A-TDS-Siddament,2,nozzle,Nozzle Temperature,210-240°C,P1137,Not published,range,210,240,required,Not applicable,Not applicable
+F069,G037-08,S-PCGF-PC-Carbon-Fiber-TDS-Siddament,2,nozzle,Nozzle Temperature,260-280°C,P1136,Not published,range,260,280,required,Not applicable,Not applicable
+F070,G018-12,S-PCGF-PLA-Carbon-Fiber-TDS-Siddament,2,nozzle,Nozzle Temperature,200-220°C,P1112,Not published,range,200,220,required,Not applicable,Not applicable
+F071,G008-14,S-PCGF-PLA-Silk-TDS-Siddament,2,nozzle,Nozzle Temperature,200-220°C,P1106,Not published,range,200,220,required,Not applicable,Not applicable
+F072,G020-42,S-PCGF-PETG-TDS-Siddament,2,nozzle,Nozzle Temperature,240-260°C,P1115,Not published,range,240,260,required,Not applicable,Not applicable
+F073,G001-106,S-PCGF-PLA-Matte-TDS-Siddament,2,nozzle,Nozzle Temperature,200-230°C,P1099,Not published,range,200,230,required,Not applicable,Not applicable
+F074,G016-03,S-PCGF-PLA-Glow-in-the-Dark-TDS-Siddament,2,nozzle,Nozzle Temperature,195-220°C,P1111,Not published,range,195,220,required,Not applicable,Not applicable
+F075,G020-43,S-PCGF-PETG-Matte-TDS-Siddament,2,nozzle,Nozzle Temperature,240-260°C,P1116,Not published,range,240,260,required,Not applicable,Not applicable
+F076,G033-13,S-PCGF-ASA-Carbon-Fiber-TDS-Siddament,2,nozzle,Nozzle Temperature,250-270°C,P1132,Not published,range,250,270,required,Not applicable,Not applicable
+F077,G027-31,S-PCGF-ABS-TDS-Siddament,2,nozzle,Nozzle Temperature,240-260°C,P1121,Not published,range,240,260,required,Not applicable,Not applicable
+F078,G035-20,S-PCGF-PC-TDS-Siddament,2,nozzle,Nozzle Temperature,260-280°C,P1134,Not published,range,260,280,required,Not applicable,Not applicable
+F079,G012-04,S-PCGF-PLA-Marble-TDS-Siddament,2,nozzle,Nozzle Temperature,180-210°C,P1107,Not published,range,180,210,required,Not applicable,Not applicable
+F080,G031-24,S-PCGF-ASA-TDS-Siddament,2,nozzle,Nozzle Temperature,250-270°C,P1128,Not published,range,250,270,required,Not applicable,Not applicable
+F081,G014-09,S-PCGF-PLA-Wood-TDS-Siddament,2,nozzle,Nozzle Temperature,195-220°C,P1109,Not published,range,195,220,required,Not applicable,Not applicable
+F082,G028-10,R-QIDI-ABS-GF25,5,nozzle,Nozzle temperature,250-270°C,P1126,Not published,range,250,270,required,Not applicable,Not applicable
+F083,G027-32,R-QIDI-ODORLESS-ABS,4,nozzle,Nozzle Temperature,240-260°C,P1122,Not published,range,240,260,required,Not applicable,Not applicable
+F084,G032-04,R-QIDI-ASA-AERO,3,nozzle,Nozzle temperature,240-280°C,new,Not published,range,240,280,required,Not applicable,Not applicable
+F085,G033-14,R-QIDI-ASA-CF20-CORE,4,nozzle,Nozzle Temperature,250-280°C,P0760,Not published,range,250,280,required,Not applicable,Not applicable
+F086,G031-25,R-QIDI-ASA,4,nozzle,Nozzle temperature,240-260°C,new,Not published,range,240,260,required,Not applicable,Not applicable
+F087,G039-50,R-QIDI-TPU95A-HF,3,nozzle,Nozzle temperature,210-230°C,P1138,Not published,range,210,230,required,Not applicable,Not applicable
+F088,G018-13,R-QIDI-PLA-CF,2,nozzle,Nozzle Temperature,210-240 °C,P1113,Not published,range,210,240,required,Not applicable,Not applicable
+F089,G020-45,R-QIDI-PETG-TOUGH,3,nozzle,Nozzle temperature,230-260°C,new,Not published,range,230,260,required,Not applicable,Not applicable
+F090,G068-05,R-QIDI-PET-GF,3,nozzle,Nozzle Temperature,280-320°C,P1145,Not published,range,280,320,required,Not applicable,Not applicable
+F091,G057-06,R-SUNLU-TDS-EASY-PA,2,nozzle,Nozzle Print Temp.,255-265℃,P0763,Not published,range,255,265,required,Not applicable,Not applicable
+F092,G057-06,R-SUNLU-a5909dda-0573-4f11-a34a-00d495b1ea09,2,nozzle,Nozzle Temp.,250-270; 270-280,P0903,Not published,range,250,280,required,Not applicable,Not applicable
+F093,G001-107,R-SUNLU-PLA-Matte-0,2,nozzle,Nozzle Print Temp.,205-215℃,P0764,Not published,range,205,215,required,Not applicable,Not applicable
+F094,G014-10,R-SUNLU-PLA-WOOD,2,nozzle,Nozzle Print Temp.,205-215℃,P0769,Not published,range,205,215,required,Not applicable,Not applicable
+F095,G012-05,R-SUNLU-TDS-High-speed-PLA-marble,2,nozzle,Nozzle Print Temp.,190-210; 210-230; 230-260,P1108,Not published,range,190,260,required,Not applicable,Not applicable
+F096,G016-04,R-SUNLU-PLA-Glow-in-the-Dark,2,nozzle,Nozzle Print Temp.,205-215℃,P0790,Not published,range,205,215,required,Not applicable,Not applicable
+F097,G001-109,R-SUNLU-APLA,2,nozzle,Nozzle Print Temp.,205-215℃,P0791,Not published,range,205,215,required,Not applicable,Not applicable
+F098,G001-111,R-SUNLU-PLA-Classic-TDS,2,nozzle,Nozzle Print Temp.,210-230; 230-260,P0799,Not published,range,210,260,required,Not applicable,Not applicable
+F099,G008-15,R-SUNLU-SILK-PLA,2,nozzle,Nozzle Print Temp.,205-215℃,P0804,Not published,range,205,215,required,Not applicable,Not applicable
+F100,G001-112,R-SUNLU-PLA-Meta,2,nozzle,Nozzle Print Temp.,185- 195℃,P0805,Not published,range,185,195,required,Not applicable,Not applicable
+F101,G039-51,R-SUNLU-SUNLU-TPU-95A-Gray,2,nozzle,Nozzle Print Temp.,195-205℃,P0811,Not published,range,195,205,required,Not applicable,Not applicable
+F102,G020-48,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PETG-V3-0,2,nozzle,Nozzle Temperature,230-250,P0823,Not published,range,230,250,required,Not applicable,Not applicable
+F103,G027-36,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-ABS-V3-0,2,nozzle,Nozzle Temperature,240-280,P0832,Not published,range,240,280,required,Not applicable,Not applicable
+F104,G039-55,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-TPU-V3-0,2,nozzle,Nozzle Temperature,195-230,P0840,Not published,range,195,230,required,Not applicable,Not applicable
+F105,G031-30,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-ASA-V3-0,2,nozzle,Nozzle Temperature,255-275,P0864,Not published,range,255,275,required,Not applicable,Not applicable
+F106,G011-06,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-Metal-V3-0,2,nozzle,Nozzle Temperature,200-230,P0866,Not published,range,200,230,required,Not applicable,Not applicable
+F107,G008-17,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-silk-V3-0,2,nozzle,Nozzle Temperature,210-240,P0877,Not published,range,210,240,required,Not applicable,Not applicable
+F108,G001-132,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-HS-V3-0,2,nozzle,Nozzle Temperature,190-260,P0880,Not published,range,190,260,required,Not applicable,Not applicable
+F109,G070-07,S-PCGF-PPA-CF-TDS-EN,2,nozzle,Nozzle Temperature,255~275℃( Recommend 270℃),new,Not published,range,255,275,required,Not applicable,Not applicable
+F110,G039-58,S-PEBA-eSUN-TPU-HS-Filament-TDS,2,nozzle,Extruder Temperature,220 - 250℃,new,Not published,range,220,250,required,Not applicable,Not applicable
+F111,G001-142,S-PEBA-eSUN-PLA-Filament-TDS-V4-0,2,nozzle,Extruder Temperature,210- 230℃,new,Not published,range,210,230,required,Not applicable,Not applicable
+F112,G073-06,S-PCGF-PPS-CF-TDS-EN,2,nozzle,Nozzle Temperature,300~350℃(Recommend 320℃),new,Not published,range,300,350,required,Not applicable,Not applicable
+F113,G035-22,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V4,1,nozzle,Nozzle temperature,250 - 270,new,Not published,range,250,270,required,Not applicable,Not applicable
+F114,G001-143,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,2,nozzle,Nozzle Temp.,205-215; 215-245,new,Not published,range,205,245,required,Not applicable,Not applicable
+F115,G001-144,S-PVB-prusament-pla-technical-data-sheet,1,nozzle,Nozzle Temperature [°C],210 ± 10,new,Not published,range,200,220,required,Not applicable,Not applicable
+F116,G001-145,R-SUNLU-689d1925-acad-4de8-9079-c8eee9c3081e,2,nozzle,Nozzle Temp.,200-260,new,Not published,range,200,260,required,Not applicable,Not applicable
+F117,G001-146,S-PEBA-eSUN-PLA-Clear-Filament-TDS-V4-0,2,nozzle,Extruder Temperature,190 - 230℃,new,Not published,range,190,230,required,Not applicable,Not applicable
+F118,G001-148,S-POLYCN-TDS-Polymaker-PolyLite-CosPLA-Version-B-V5-5-2025-12-30-EN,1,nozzle,Nozzle temperature,190-230°C,new,Not published,range,190,230,required,Not applicable,Not applicable
+F119,G001-149,R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo,2,nozzle,Nozzle temperature,195 – 220 ºC,new,Not published,range,195,220,required,Not applicable,Not applicable
+F120,G008-19,R-SUNLU-91c03fbc-a5c0-4711-b3ae-10d0efd19f27,2,nozzle,Nozzle Temp.,210-230,new,Not published,range,210,230,required,Not applicable,Not applicable
+F121,G008-20,R-ERYONE-eryone-silk-pla-tri-color-tds,1,nozzle,Nozzle temperature,190-220 ℃,new,Not published,range,190,220,required,Not applicable,Not applicable
+F122,G039-60,R-COLORFABB-TDS-varioShore-Prosthetic-TPU,2,nozzle,Nozzle Temp. ˚C,195-260,new,Not published,range,195,260,required,Not applicable,Not applicable
+F123,G039-61,R-ERYONE-eryone-standard-tpu-tds,1,nozzle,Nozzle temperature,200-220 ℃,new,Not published,range,200,220,required,Not applicable,Not applicable
+F124,G057-07,S-PEBA-eSUN-ePA-Filament-TDS-V4-0,2,nozzle,Extruder Temperature,250 - 290℃,new,Not published,range,250,290,required,Not applicable,Not applicable
+F125,G020-58,D-RAISE3D-Raise3d-Premium-PETG-TDS-V3,2,nozzle,Nozzle temperature,230 - 240,new,Not published,range,230,240,required,Not applicable,Not applicable
+F126,G008-22,R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,1,nozzle,Nozzle temperature,190℃-220℃,new,Not published,range,190,220,required,Not applicable,Not applicable
+F127,G008-23,R-ERYONE-eryone-silk-pla-dual-color-tds,1,nozzle,Nozzle temperature,190-220 ℃,new,Not published,range,190,220,required,Not applicable,Not applicable
+F128,G001-151,R-ERYONE-eryone-burnt-titanium-pla-tds,1,nozzle,Nozzle temperature,190-220 ℃,new,Not published,range,190,220,required,Not applicable,Not applicable
+F129,G020-59,S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,1,nozzle,Nozzle Temperature [°C],250 ± 10,new,Not published,range,240,260,required,Not applicable,Not applicable
+F130,G008-25,R-SUNLU-63d55fe5-d33b-47f2-8930-520f193ade51,2,nozzle,Nozzle Temp.,210-230,new,Not published,range,210,230,required,Not applicable,Not applicable
+F131,G008-26,R-SUNLU-5156fe91-c7a8-48bd-9d1a-e753bf9c53a1,2,nozzle,Nozzle Temp.,210-230,new,Not published,range,210,230,required,Not applicable,Not applicable
+F132,G008-27,R-SUNLU-5644650b-5633-42fb-b06a-6d1e125c9114,2,nozzle,Nozzle Temp.,210-230,new,Not published,range,210,230,required,Not applicable,Not applicable
+F133,G039-69,D-SIRAYA-siraya-tech-flex-tpu-air-tds,1,nozzle,Nozzle Temperature,230−270°C,P0977,Not published,range,230,270,required,Not applicable,Not applicable
+F134,G024-24,R-RECREUS-PETG-CF,1,nozzle,Printing temperatures,245-260°C,new,Not published,range,245,260,required,Not applicable,Not applicable
+F135,G020-70,R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0,1,nozzle,Printing temperatures,230 - 260°C,new,Not published,range,230,260,required,Not applicable,Not applicable
+F136,G082-13,R-FIBERLOGY-FIBERLOGY-R-PP-TDS,1,nozzle,Print Temperature,220°C - 250°C,new,Not published,range,220,250,required,Not applicable,Not applicable
+F137,G001-188,R-RECREUS-PLA,1,nozzle,Printing temperatures,215 - 225°C,new,Not published,range,215,225,required,Not applicable,Not applicable
+F138,G008-30,S-PEBA-eSUN-ePLA-Silk-Magic-Filament-TDS-V4-02,2,nozzle,Extruder Temperature,190- 230℃,new,Not published,range,190,230,required,Not applicable,Not applicable
+F139,G008-31,S-PEBA-eSUN-ePLA-Silk-Mystic-Filament-TDS-V4-0,2,nozzle,Extruder Temperature,190- 230℃,new,Not published,range,190,230,required,Not applicable,Not applicable
+F140,G001-191,R-ERYONE-eryone-standard-pla-tds,1,nozzle,Nozzle temperature,190-220 ℃,new,Not published,range,190,220,required,Not applicable,Not applicable
+F141,G099-12,R-NANOVIA-PEI-Ultem-1010,1,nozzle,Extrusion temperature,370 – 390 °C,new,Not published,range,370,390,required,Not applicable,Not applicable
+F142,G037-10,S-PVB-TDS-Prusament-PCCF-2023-EN,1,nozzle,Nozzle Temperature [°C],285 ± 10,new,Not published,range,275,295,required,Not applicable,Not applicable
+F143,G001-192,R-3DJAKE-KINGROON-PLA-Basic-Technical-Data-Sheet-V1-0,1,nozzle,Nozzle Temperature,190 - 230 °C,new,Not published,range,190,230,required,Not applicable,Not applicable
+F144,G016-05,S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,1,nozzle,Nozzle temperature,185-225°C,new,Not published,range,185,225,required,Not applicable,Not applicable
+F145,G020-72,R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0,1,nozzle,Nozzle Temperature,230 - 270 °C,new,Not published,range,230,270,required,Not applicable,Not applicable
+F146,G008-32,I-PLA-PLA-Silk-TDS,2,nozzle,Nozzle Temperature,200 -220 ºC,new,Not published,range,200,220,required,Not applicable,Not applicable
+F147,G016-06,S-PEBA-eSUN-PLA-Luminous-Filament-TDS-V4-01,2,nozzle,Extruder Temperature,190 - 230℃,new,Not published,range,190,230,required,Not applicable,Not applicable
+F148,G039-70,R-3DJAKE-KINGROON-TPU-95A-Technical-Data-Sheet-V1-0,1,nozzle,Nozzle Temperature,200- 250 °C,new,Not published,range,200,250,required,Not applicable,Not applicable
+F149,G001-193,S-PEBA-eSUN-eTwinkling-Filament-TDS-V4-0,2,nozzle,Extruder Temperature,200- 230℃,new,Not published,range,200,230,required,Not applicable,Not applicable
+F150,G008-33,R-3DJAKE-SILK-TDS-4,1,nozzle,Nozzle temperature,210 – 240°C,new,Not published,range,210,240,required,Not applicable,Not applicable
+F151,G001-195,R-YOUSU-YOUSUPLATDS-8e09,1,nozzle,Printing Temp,190-240℃,new,Not published,range,190,240,required,Not applicable,Not applicable
+F152,G113-03,R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS,1,nozzle,Print Temperature,255°C - 280°C,new,Not published,range,255,280,required,Not applicable,Not applicable
+F153,G016-07,S-PEBA-eSUN-Luminous-PLA-Rainbow-Filament-TDS-V4-01,2,nozzle,Extruder Temperature,210 - 230℃,new,Not published,range,210,230,required,Not applicable,Not applicable
+F154,G014-19,R-ERYONE-eryone-wood-pla-tds,1,nozzle,Nozzle temperature,190℃-220℃,new,Not published,range,190,220,required,Not applicable,Not applicable
+F155,G031-43,R-3DJAKE-EN-TDS-The-Filament-ASA,1,nozzle,Nozzle temperature,230-265°C,new,Not published,range,230,265,required,Not applicable,Not applicable
+F156,G001-196,R-3DJAKE-EN-TDS-The-Filament-HT-PLA,1,nozzle,Nozzle temperature,195-220°C,new,Not published,range,195,220,required,Not applicable,Not applicable
+F157,G033-18,R-3DJAKE-EN-TDS-The-Filament-ASA-CF,1,nozzle,Nozzle temperature,230-270°C,new,Not published,range,230,270,required,Not applicable,Not applicable
+F158,G001-197,R-3DJAKE-EN-TDS-The-Filament-PLA-Matte,1,nozzle,Nozzle temperature,195-220°C,new,Not published,range,195,220,required,Not applicable,Not applicable
+F159,G001-198,R-3DJAKE-EN-TDS-The-Filament-PLA-Lite,1,nozzle,Nozzle temperature,195-220°C,new,Not published,range,195,220,required,Not applicable,Not applicable
+F160,G020-73,R-3DJAKE-EN-TDS-The-Filament-PETG-Lite,1,nozzle,Nozzle temperature,235-255°C,new,Not published,range,235,255,required,Not applicable,Not applicable
+F161,G020-74,S-SPECTRUM-en-tds-spectrum-petg-fx120,1,nozzle,Nozzle temperature,240-260°C,new,Not published,range,240,260,required,Not applicable,Not applicable
+F162,G017-14,R-RECREUS-PLA-LW,1,nozzle,Printing temperatures,240-260°C,new,Not published,range,240,260,required,Not applicable,Not applicable
+F163,G087-03,R-YOUSU-POM-TDS,2,bed,Bed Temp,100-120℃,new,Not published,range,100,120,required,Not applicable,Not applicable
+F164,G008-05,R-SUNLU-56889371789540318047,2,bed,平台温度 Plate Temp.,50-60℃,P1105,Not published,range,50,60,required,Not applicable,Not applicable
+F165,G020-18,R-SUNLU-30522971789539747056,2,bed,平台温度 Plate Temp.,70-80,P1114,Not published,range,70,80,required,Not applicable,Not applicable
+F166,G020-19,R-SUNLU-PETG,2,bed,Print Platform Temp.,60-70℃,P0784,Not published,range,60,70,required,Not applicable,Not applicable
+F167,G020-19,R-SUNLU-f27808f0-3a19-49e3-bd79-6e846d6f4c15,2,bed,平台温度 Plate Temp.,60-70℃,new,Not published,range,60,70,required,Not applicable,Not applicable
+F168,G082-04,R-SUNLU-25182761789529093884,2,bed,平台温度 Plate Temp.,40℃,P1153,Not published,range,40,40,required,Not applicable,Not applicable
+F169,G001-39,R-SUNLU-19364171789540194308,2,bed,平台温度 Plate Temp.,50-60℃,P1103,Not published,range,50,60,required,Not applicable,Not applicable
+F170,G082-05,R-SUNLU-PP-TDS-7b4ac3a3-751e-42d8-9b0b-bff0d1fc0a3b,2,bed,Print Platform Temp.,50-60℃,P0793,Not published,range,50,60,required,Not applicable,Not applicable
+F171,G082-05,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,2,bed,Plate Temp.,50-60℃(When using 3M adhesive to bond PP sheets),P0418,Not published,range,3,60,required,Not applicable,Not applicable
+F172,G027-14,R-SUNLU-48f9a499-b97a-4844-be4b-35ca349b5b64,2,bed,平台温度 Plate Temp.,80-100℃,new,Not published,range,80,100,required,Not applicable,Not applicable
+F173,G027-14,R-SUNLU-ABS-FR-TDS-0,2,bed,Print Platform Temp.,80-100℃,P0798,Not published,range,80,100,required,Not applicable,Not applicable
+F174,G008-06,R-ERYONE-eryone-silk-pla-tds,1,bed,Bed temperature,55-70℃,P0428,Not published,range,55,70,required,Not applicable,Not applicable
+F175,G008-07,R-ERYONE-eryone-silk-rainbow-pla-tds,1,bed,Bed temperature,55-70℃,P0432,Not published,range,55,70,required,Not applicable,Not applicable
+F176,G031-18,R-BIGREP-EU3iphIQD9hGhUQXiWWOXbYBhjDcb7BNHD3k8dPwoQCsQg,1,bed,Bed Temperature,60 - 100 °C,P0603,Not published,range,60,100,required,Not applicable,Not applicable
+F177,G027-23,R-BIGREP-EamZRWAunoxKoIYZCacNr0YBllxjtWjQ2wi-t2bk8dMrZQ,1,bed,Bed Temperature,80 - 110 °C,P0605,Not published,range,80,110,required,Not applicable,Not applicable
+F178,G082-08,R-YOUSU-YOUSU3DPPTDS-4872,1,bed,Bed Temp,80℃~100℃,P0647,Not published,range,80,100,required,Not applicable,Not applicable
+F179,G027-26,R-YOUSU-YOUSUABSTDS-cc2f,1,bed,Bed Temp,80-120℃,P0659,Not published,range,80,120,required,Not applicable,Not applicable
+F180,G057-05,R-BIGREP-EVMGxLYZZHtFnUXJyVdjMDkBNtXAN2Bj7nRmZ37F91wPdQ,1,bed,Bed Temperature,40 - 60 °C,P0664,Not published,range,40,60,required,Not applicable,Not applicable
+F181,G053-11,R-BIGREP-EWGmERRaxthJq-JOsmzhLY0BOTiqFYed5n0DaVMe-iZ1cQ,1,bed,Bed Temperature,40 - 60 °C,P0677,Not published,range,40,60,required,Not applicable,Not applicable
+F182,G008-13,R-YOUSU-YOUSUSILKPLATDS-81c3,1,bed,Bed Temp,None needed(or 50℃ if applicable),P0685,Not published,range,50,50,none,Not applicable,Not applicable
+F183,G039-42,R-RECREUS-FILAFLEX-Reciflex,1,bed,bed temperature,50-60ºC,P0689,Not published,range,50,60,required,Not applicable,Not applicable
+F184,G039-42,R-RECREUS-RECIFLEX-TECHNICAL-DATA-SHEET-TDS-2021,1,bed,bed temperature,50-60ºC,P0812,Not published,range,50,60,required,Not applicable,Not applicable
+F185,G001-93,R-3D-FUEL-TDS-3DFuel-Pro-PLA,1,bed,Bed Temperature,None needed (or 50-70°C if applicable),new,Not published,range,50,70,none,Not applicable,Not applicable
+F186,G086-02,R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI,1,bed,bed temperature,65 °C,new,Not published,range,65,65,required,Not applicable,Not applicable
+F187,G049-07,S-PCGF-PA-TDS-Siddament,2,bed,Bed Temperature,90-110°C,P1141,Not published,range,90,110,required,Not applicable,Not applicable
+F188,G029-07,S-PCGF-ABS-Carbon-Fiber-TDS-Siddament,2,bed,Bed Temperature,80-100°C,P1127,Not published,range,80,100,required,Not applicable,Not applicable
+F189,G001-103,S-PCGF-PLA-TDS-Siddament,2,bed,Bed Temperature,60°C,P1098,Not published,range,60,60,required,Not applicable,Not applicable
+F190,G024-14,S-PCGF-PETG-Carbon-Fiber-TDS-Siddament,2,bed,Bed Temperature,70°C,P1119,Not published,range,70,70,required,Not applicable,Not applicable
+F191,G039-49,S-PCGF-TPU-95A-TDS-Siddament,2,bed,Bed Temperature,60°C,P1137,Not published,range,60,60,required,Not applicable,Not applicable
+F192,G037-08,S-PCGF-PC-Carbon-Fiber-TDS-Siddament,2,bed,Bed Temperature,90-110°C,P1136,Not published,range,90,110,required,Not applicable,Not applicable
+F193,G018-12,S-PCGF-PLA-Carbon-Fiber-TDS-Siddament,2,bed,Bed Temperature,60°C,P1112,Not published,range,60,60,required,Not applicable,Not applicable
+F194,G008-14,S-PCGF-PLA-Silk-TDS-Siddament,2,bed,Bed Temperature,60°C,P1106,Not published,range,60,60,required,Not applicable,Not applicable
+F195,G020-42,S-PCGF-PETG-TDS-Siddament,2,bed,Bed Temperature,70°C,P1115,Not published,range,70,70,required,Not applicable,Not applicable
+F196,G001-106,S-PCGF-PLA-Matte-TDS-Siddament,2,bed,Bed Temperature,60°C,P1099,Not published,range,60,60,required,Not applicable,Not applicable
+F197,G016-03,S-PCGF-PLA-Glow-in-the-Dark-TDS-Siddament,2,bed,Bed Temperature,60°C,P1111,Not published,range,60,60,required,Not applicable,Not applicable
+F198,G020-43,S-PCGF-PETG-Matte-TDS-Siddament,2,bed,Bed Temperature,70°C,P1116,Not published,range,70,70,required,Not applicable,Not applicable
+F199,G033-13,S-PCGF-ASA-Carbon-Fiber-TDS-Siddament,2,bed,Bed Temperature,80-100°C,P1132,Not published,range,80,100,required,Not applicable,Not applicable
+F200,G027-31,S-PCGF-ABS-TDS-Siddament,2,bed,Bed Temperature,80-100°C,P1121,Not published,range,80,100,required,Not applicable,Not applicable
+F201,G035-20,S-PCGF-PC-TDS-Siddament,2,bed,Bed Temperature,90-110°C,P1134,Not published,range,90,110,required,Not applicable,Not applicable
+F202,G012-04,S-PCGF-PLA-Marble-TDS-Siddament,2,bed,Bed Temperature,60°C,P1107,Not published,range,60,60,required,Not applicable,Not applicable
+F203,G031-24,S-PCGF-ASA-TDS-Siddament,2,bed,Bed Temperature,80-100°C,P1128,Not published,range,80,100,required,Not applicable,Not applicable
+F204,G014-09,S-PCGF-PLA-Wood-TDS-Siddament,2,bed,Bed Temperature,60°C,P1109,Not published,range,60,60,required,Not applicable,Not applicable
+F205,G028-10,R-QIDI-ABS-GF25,5,bed,Build plate temperature,100-110°C,P1126,Not published,range,100,110,required,Not applicable,Not applicable
+F206,G027-32,R-QIDI-ODORLESS-ABS,4,bed,Build plate temperature,100-110°C,P1122,Not published,range,100,110,required,Not applicable,Not applicable
+F207,G032-04,R-QIDI-ASA-AERO,3,bed,Build plate temperature,80-110℃,new,Not published,range,80,110,required,Not applicable,Not applicable
+F208,G033-14,R-QIDI-ASA-CF20-CORE,4,bed,Build plate temperature,100-110°C,P0760,Not published,range,100,110,required,Not applicable,Not applicable
+F209,G031-25,R-QIDI-ASA,4,bed,Build plate temperature,100-110°C,new,Not published,range,100,110,required,Not applicable,Not applicable
+F210,G039-50,R-QIDI-TPU95A-HF,3,bed,Build plate temperature,20-50°C,P1138,Not published,range,20,50,required,Not applicable,Not applicable
+F211,G018-13,R-QIDI-PLA-CF,2,bed,Build plate temperature,40-60°C,P1113,Not published,range,40,60,required,Not applicable,Not applicable
+F212,G020-45,R-QIDI-PETG-TOUGH,3,bed,Build plate temperature,70-80°C,new,Not published,range,70,80,required,Not applicable,Not applicable
+F213,G068-05,R-QIDI-PET-GF,4,bed,Build plate temperature,60-80°C,P1145,Not published,range,60,80,required,Not applicable,Not applicable
+F214,G001-107,R-SUNLU-PLA-Matte-0,2,bed,Print Platform Temp.,50-60℃,P0764,Not published,range,50,60,required,Not applicable,Not applicable
+F215,G014-10,R-SUNLU-PLA-WOOD,2,bed,Print Platform Temp.,50-60℃,P0769,Not published,range,50,60,required,Not applicable,Not applicable
+F216,G012-05,R-SUNLU-TDS-High-speed-PLA-marble,2,bed,打印平台温度 Print Platform Temp.,50-60℃,P1108,Not published,range,50,60,required,Not applicable,Not applicable
+F217,G031-27,R-SUNLU-SUNLU-ASA-Purple,2,bed,Print Platform Temp.,90-110℃,P0777,Not published,range,90,110,required,Not applicable,Not applicable
+F218,G016-04,R-SUNLU-PLA-Glow-in-the-Dark,2,bed,Print Platform Temp.,50-60℃,P0790,Not published,range,50,60,required,Not applicable,Not applicable
+F219,G001-109,R-SUNLU-APLA,2,bed,Print Platform Temp.,50-60℃,P0791,Not published,range,50,60,required,Not applicable,Not applicable
+F220,G001-111,R-SUNLU-PLA-Classic-TDS,2,bed,Print Platform Temp.,50-60℃,P0799,Not published,range,50,60,required,Not applicable,Not applicable
+F221,G008-15,R-SUNLU-SILK-PLA,2,bed,Print Platform Temp.,50-60℃,P0804,Not published,range,50,60,required,Not applicable,Not applicable
+F222,G001-112,R-SUNLU-PLA-Meta,2,bed,Print Platform Temp.,50-60℃,P0805,Not published,range,50,60,required,Not applicable,Not applicable
+F223,G039-51,R-SUNLU-SUNLU-TPU-95A-Gray,2,bed,Print Platform Temp.,50-60℃,P0811,Not published,range,50,60,required,Not applicable,Not applicable
+F224,G024-17,R-3DJAKE-3DJAKE-TDS-3DJAKE-PETG-CF,1,bed,Heated bed,60 – 90 °C,P0819,Not published,range,60,90,required,Not applicable,Not applicable
+F225,G001-117,R-3DJAKE-3DJAKE-15-TDS-Hyper-RFID-PLA-EN,1,bed,Hot Bed Temperature,60°C,P0820,Not published,range,60,60,required,Not applicable,Not applicable
+F226,G020-48,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PETG-V3-0,2,bed,Bed Temperature,60-70,P0823,Not published,range,60,70,required,Not applicable,Not applicable
+F227,G001-121,R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0,1,bed,Heated Bed,20-60 °C,P0830,Not published,range,20,60,required,Not applicable,Not applicable
+F228,G027-36,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-ABS-V3-0,2,bed,Bed Temperature,80-100,P0832,Not published,range,80,100,required,Not applicable,Not applicable
+F229,G097-07,R-FILAMENT2PRINT-PEEK-EV-Nat,1,bed,bed temperature,160 - 250 °C,P0837,Not published,range,160,250,required,Not applicable,Not applicable
+F230,G039-55,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-TPU-V3-0,2,bed,Bed Temperature,50-60,P0840,Not published,range,50,60,required,Not applicable,Not applicable
+F231,G001-122,R-3DJAKE-3DJAKE-13-TDS-hyper-PLA-EN,1,bed,Hot Bed Temperature,60℃,P0843,Not published,range,60,60,required,Not applicable,Not applicable
+F232,G027-38,R-3DJAKE-3DJAKE-TDS-hyper-ABS-EN,1,bed,Hot Bed Temperature,70 - 90°C,P0845,Not published,range,70,90,required,Not applicable,Not applicable
+F233,G098-05,R-FILAMENT2PRINT-Tecafil-PEKK,1,bed,bed temperature,140 - 160 °C,P0850,Not published,range,140,160,required,Not applicable,Not applicable
+F234,G031-30,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-ASA-V3-0,2,bed,Bed Temperature,80-100,P0864,Not published,range,80,100,required,Not applicable,Not applicable
+F235,G011-06,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-Metal-V3-0,2,bed,Bed Temperature,50-60,P0866,Not published,range,50,60,required,Not applicable,Not applicable
+F236,G020-53,R-3DJAKE-3DJAKE-23-TDS-HYPER-PETG-EN,1,bed,Hot Bed Temperature,70-80 ˚C,P0867,Not published,range,70,80,required,Not applicable,Not applicable
+F237,G008-17,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-silk-V3-0,2,bed,Bed Temperature,55-65,P0877,Not published,range,55,65,required,Not applicable,Not applicable
+F238,G001-132,R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-HS-V3-0,2,bed,Bed Temperature,55-65,P0880,Not published,range,55,65,required,Not applicable,Not applicable
+F239,G070-07,S-PCGF-PPA-CF-TDS-EN,2,bed,Bed Temperature,80~100℃(Recommend 90℃),new,Not published,range,80,100,required,Not applicable,Not applicable
+F240,G039-58,S-PEBA-eSUN-TPU-HS-Filament-TDS,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F241,G001-142,S-PEBA-eSUN-PLA-Filament-TDS-V4-0,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F242,G073-06,S-PCGF-PPS-CF-TDS-EN,2,bed,Bed Temperature,90~110℃( Recommend 100℃),new,Not published,range,90,110,required,Not applicable,Not applicable
+F243,G035-22,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V4,2,bed,Build plate temperature,80 - 105,new,Not published,range,80,105,required,Not applicable,Not applicable
+F244,G001-143,R-SUNLU-81b1d361-0bd9-4783-ba0f-283a311c6870,2,bed,Plate Temp.,50-60℃,new,Not published,range,50,60,required,Not applicable,Not applicable
+F245,G001-144,S-PVB-prusament-pla-technical-data-sheet,1,bed,Heatbed Temperature [°C],40–60,new,Not published,range,40,60,required,Not applicable,Not applicable
+F246,G001-145,R-SUNLU-689d1925-acad-4de8-9079-c8eee9c3081e,2,bed,Plate Temp.,50-60℃,new,Not published,range,50,60,required,Not applicable,Not applicable
+F247,G001-146,S-PEBA-eSUN-PLA-Clear-Filament-TDS-V4-0,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F248,G001-147,S-SPECTRUM-en-tds-spectrum-pla-thermoactive,1,bed,Bed temperature,0-45°C,new,Not published,range,0,45,required,Not applicable,Not applicable
+F249,G001-148,S-POLYCN-TDS-Polymaker-PolyLite-CosPLA-Version-B-V5-5-2025-12-30-EN,1,bed,Build plate temperature,30-60°C,new,Not published,range,30,60,required,Not applicable,Not applicable
+F250,G001-149,R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo,2,bed,Bed temperature,50 – 60 ºC,new,Not published,range,50,60,required,Not applicable,Not applicable
+F251,G008-19,R-SUNLU-91c03fbc-a5c0-4711-b3ae-10d0efd19f27,2,bed,Plate Temp.,50-60℃,new,Not published,range,50,60,required,Not applicable,Not applicable
+F252,G008-20,R-ERYONE-eryone-silk-pla-tri-color-tds,1,bed,Bed temperature,55-70℃,new,Not published,range,55,70,required,Not applicable,Not applicable
+F253,G039-60,R-COLORFABB-TDS-varioShore-Prosthetic-TPU,2,bed,Bed Temp. ˚C,50-60,new,Not published,range,50,60,required,Not applicable,Not applicable
+F254,G008-21,S-SPECTRUM-en-tds-spectrum-pla-silk-93646a,1,bed,Bed temperature,40-60°C,new,Not published,range,40,60,required,Not applicable,Not applicable
+F255,G039-61,R-ERYONE-eryone-standard-tpu-tds,1,bed,Bed temperature,0-60℃,new,Not published,range,0,60,required,Not applicable,Not applicable
+F256,G057-07,S-PEBA-eSUN-ePA-Filament-TDS-V4-0,2,bed,Build Platform Temperature,70-90°C,new,Not published,range,70,90,required,Not applicable,Not applicable
+F257,G020-58,D-RAISE3D-Raise3d-Premium-PETG-TDS-V3,2,bed,Build plate temperature,80,new,Not published,range,80,80,required,Not applicable,Not applicable
+F258,G008-22,R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,1,bed,Bed temperature,55-70℃,new,Not published,range,55,70,required,Not applicable,Not applicable
+F259,G008-23,R-ERYONE-eryone-silk-pla-dual-color-tds,1,bed,Bed temperature,55-70℃,new,Not published,range,55,70,required,Not applicable,Not applicable
+F260,G001-151,R-ERYONE-eryone-burnt-titanium-pla-tds,1,bed,Bed temperature,55-70℃,new,Not published,range,55,70,required,Not applicable,Not applicable
+F261,G020-59,S-PVB-8-PETG-RECYCLED-Prusament-TDS-2022,1,bed,Heatbed Temperature [°C],80 ± 10,new,Not published,range,70,90,required,Not applicable,Not applicable
+F262,G008-25,R-SUNLU-63d55fe5-d33b-47f2-8930-520f193ade51,2,bed,Plate Temp.,50-60℃,new,Not published,range,50,60,required,Not applicable,Not applicable
+F263,G008-26,R-SUNLU-5156fe91-c7a8-48bd-9d1a-e753bf9c53a1,2,bed,Plate Temp.,50-60℃,new,Not published,range,50,60,required,Not applicable,Not applicable
+F264,G008-27,R-SUNLU-5644650b-5633-42fb-b06a-6d1e125c9114,2,bed,Plate Temp.,50-60℃,new,Not published,range,50,60,required,Not applicable,Not applicable
+F265,G059-02,R-QIDI-PA12-CF,3,bed,Build plate temperature,40-70℃,P0922,Not published,range,40,70,required,Not applicable,Not applicable
+F266,G029-10,R-3DJAKE-TDS-3DJAKE-ABS-CF,1,bed,Heated bed,100 – 110 °C,P0923,Not published,range,100,110,required,Not applicable,Not applicable
+F267,G033-16,R-3DJAKE-TDS-3DJAKE-ASA-CF,1,bed,Heated bed,110 °C,P0924,Not published,range,110,110,required,Not applicable,Not applicable
+F268,G070-09,D-SIRAYA-siraya-tech-fibreheart-paht-cf-ppa-based-tds,1,bed,Recommended build plate temperature,70-90°C,P0925,Not published,range,70,90,required,Not applicable,Not applicable
+F269,G018-17,R-FILAMENT2PRINT-CreatBot-PLA,1,bed,bed temperature,45-65℃,P0929,Not published,range,45,65,required,Not applicable,Not applicable
+F270,G031-34,R-FILAMENT2PRINT-F2P-ASA-EN,1,bed,Bed Temperature,90 ºC - 100 ºC,P0931,Not published,range,90,100,required,Not applicable,Not applicable
+F271,G031-35,R-FILAMENT2PRINT-CreatBot-ASA,1,bed,bed temperature,100-110℃,P0948,Not published,range,100,110,required,Not applicable,Not applicable
+F272,G020-63,R-FILAMENT2PRINT-F2P-PETG-EN,1,bed,Bed Temperature,70ºC - 90ºC,P0950,Not published,range,70,90,required,Not applicable,Not applicable
+F273,G031-36,S-PET-formfutura-tds-apollox2024,1,bed,Bed temperature,90-110°C,P1129,Not published,range,90,110,required,Not applicable,Not applicable
+F274,G039-69,D-SIRAYA-siraya-tech-flex-tpu-air-tds,1,bed,Build Plate Temperature,30−45°C,P0977,Not published,range,30,45,required,Not applicable,Not applicable
+F275,G020-65,R-YOUSU-YOUSUPETGTDS-8fb4,2,bed,Bed Temp,100-110℃,P0988,Not published,range,100,110,required,Not applicable,Not applicable
+F276,G018-19,R-3DJAKE-TDS-3DJAKE-ecoPLA-CF,1,bed,Heated bed,20 – 60 °C,P0989,Not published,range,20,60,required,Not applicable,Not applicable
+F277,G053-14,D-FILLAMENTUM-NYLON-CF15-PAGE,1,bed,Heated bed,80–110 °C,new,Not published,range,80,110,required,Not applicable,Not applicable
+F278,G093-05,R-YOUSU-YOUSUPVBTDS-9c2c,2,bed,Bed Temp,25-70℃,P1013,Not published,range,25,70,required,Not applicable,Not applicable
+F279,G001-179,D-BIGREP-PLX-PAGE,1,bed,Bed Temperature,50 - 70 °C,new,Not published,range,50,70,required,Not applicable,Not applicable
+F280,G001-179,R-BIGREP-EWhVOcddlrlPg7E8EnfbuAEBF9-1smBh1nDh-WKBmBCTmA,1,bed,Bed Temperature,50 - 70 °C,P1019,Not published,range,50,70,required,Not applicable,Not applicable
+F281,G035-25,R-YOUSU-YOUSUPCTDS-535a,2,bed,Bed Temp,100-110℃,P1023,Not published,range,100,110,required,Not applicable,Not applicable
+F282,G001-184,R-RECREUS-PLA-Purifier,1,bed,bed temperature,40-60°C,new,Not published,range,40,60,required,Not applicable,Not applicable
+F283,G001-188,R-RECREUS-PLA,1,bed,bed temperature,40-60°C,new,Not published,range,40,60,required,Not applicable,Not applicable
+F284,G001-189,R-BIGREP-ETc3xC8Tf1xLsCQNb96LTKcBFORK1-vyseiwkW-aUdjaJw,1,bed,Bed Temperature,50-70°C,P1102,Not published,range,50,70,required,Not applicable,Not applicable
+F285,G008-30,S-PEBA-eSUN-ePLA-Silk-Magic-Filament-TDS-V4-02,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F286,G008-31,S-PEBA-eSUN-ePLA-Silk-Mystic-Filament-TDS-V4-0,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F287,G001-191,R-ERYONE-eryone-standard-pla-tds,1,bed,Bed temperature,50-75℃,new,Not published,range,50,75,required,Not applicable,Not applicable
+F288,G099-12,R-NANOVIA-PEI-Ultem-1010,1,bed,Plate temperature,120 – 160 °C,new,Not published,range,120,160,required,Not applicable,Not applicable
+F289,G037-10,S-PVB-TDS-Prusament-PCCF-2023-EN,1,bed,Heatbed Temperature [°C],110 ± 10,new,Not published,range,100,120,required,Not applicable,Not applicable
+F290,G001-192,R-3DJAKE-KINGROON-PLA-Basic-Technical-Data-Sheet-V1-0,1,bed,Bed Temperature,35 - 45 °C,new,Not published,range,35,45,required,Not applicable,Not applicable
+F291,G020-72,R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0,1,bed,Bed Temperature,65 - 75 °C,new,Not published,range,65,75,required,Not applicable,Not applicable
+F292,G008-32,I-PLA-PLA-Silk-TDS,2,bed,Bed Temperature,35-60 ºC,new,Not published,range,35,60,required,Not applicable,Not applicable
+F293,G016-06,S-PEBA-eSUN-PLA-Luminous-Filament-TDS-V4-01,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F294,G039-70,R-3DJAKE-KINGROON-TPU-95A-Technical-Data-Sheet-V1-0,1,bed,Bed Temperature,30- 35°C,new,Not published,range,30,35,required,Not applicable,Not applicable
+F295,G001-193,S-PEBA-eSUN-eTwinkling-Filament-TDS-V4-0,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F296,G001-195,R-YOUSU-YOUSUPLATDS-8e09,1,bed,Bed Temp,None needed(or 60℃ if applicable),new,Not published,range,60,60,none,Not applicable,Not applicable
+F297,G113-03,R-FIBERLOGY-FIBERLOGY-ASA-AF-TDS,1,bed,Bed Temperature,90°C - 110°C,new,Not published,range,90,110,required,Not applicable,Not applicable
+F298,G016-07,S-PEBA-eSUN-Luminous-PLA-Rainbow-Filament-TDS-V4-01,2,bed,Build Platform Temperature,45-60°C,new,Not published,range,45,60,required,Not applicable,Not applicable
+F299,G014-19,R-ERYONE-eryone-wood-pla-tds,1,bed,Bed temperature,55-70℃,new,Not published,range,55,70,required,Not applicable,Not applicable
+F300,G031-43,R-3DJAKE-EN-TDS-The-Filament-ASA,1,bed,Bed temperature,75-100°C,new,Not published,range,75,100,required,Not applicable,Not applicable
+F301,G001-196,R-3DJAKE-EN-TDS-The-Filament-HT-PLA,1,bed,Bed temperature,40-50°C,new,Not published,range,40,50,required,Not applicable,Not applicable
+F302,G033-18,R-3DJAKE-EN-TDS-The-Filament-ASA-CF,1,bed,Bed temperature,75-100°C,new,Not published,range,75,100,required,Not applicable,Not applicable
+F303,G001-197,R-3DJAKE-EN-TDS-The-Filament-PLA-Matte,1,bed,Bed temperature,40-50°C,new,Not published,range,40,50,required,Not applicable,Not applicable
+F304,G001-198,R-3DJAKE-EN-TDS-The-Filament-PLA-Lite,1,bed,Bed temperature,40-50°C,new,Not published,range,40,50,required,Not applicable,Not applicable
+F305,G020-73,R-3DJAKE-EN-TDS-The-Filament-PETG-Lite,1,bed,Bed temperature,60°C,new,Not published,range,60,60,required,Not applicable,Not applicable
+F306,G017-14,R-RECREUS-PLA-LW,1,bed,bed temperature,0-40°C,new,Not published,range,0,40,required,Not applicable,Not applicable
+F307,G162-01,S-PET-TDS-MDflex,4,bed,BED TEMP.,0°-60°C,P1159,Not published,range,0,60,required,Not applicable,Not applicable
+F308,G049-09,X-ECOMAX-wearx-tds-FW-PA6-Copolymer-v1-0,1,bed,Bed Temp,80-95°C,P1169,Not published,range,80,95,required,Not applicable,Not applicable
+F309,G169-02,R-BIGREP-EZBYxVrNV7NGt4xXE3UWWuwBPYBbMpjmGobs-fcxZTeadg,1,bed,Bed Temperature,50 - 80°C,P1188,Not published,range,50,80,required,Not applicable,Not applicable
+F310,G164-08,R-YOUSU-YOUSUNylonTDS-38ef,1,bed,Bed Temp,80-120℃,P1192,Not published,range,80,120,required,Not applicable,Not applicable
+F311,G164-09,R-FILAMENT2PRINT-CreatBot-UltraPA,1,bed,bed temperature,70-80℃,P1194,Not published,range,70,80,required,Not applicable,Not applicable
+F312,G019-01,S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1,5,enclosure,Closure chamber,Not needed,P0019,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F313,G019-01,S-POLYCN-TDS-Polymaker-HT-PLA-GF-V1-2-2025-12-09-EN,1,enclosure,Closure chamber,Not Needed,P0296,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F314,G094-02,S-POLYCN-TDS-Polymaker-PC-ABS-V5-5-2025-12-10-EN,1,chamber,Closure chamber,Needed (90-100°C),P0307,Not published,range,90,100,required,Not applicable,Not applicable
+F315,G095-01,S-POLYCN-TDS-Polymaker-PC-PBT-V5-5-2025-12-10-EN,1,chamber,Closure chamber,Needed (100-110°C),P0314,Not published,range,100,110,required,Not applicable,Not applicable
+F316,G025-02,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5,1,enclosure,Sealed printing,closed printing,P0441,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F317,G093-02,S-POLYCN-PolySmooth-TDS-V5-4,4,enclosure,Closure chamber,No Needed,P1155,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F318,G076-02,S-BVOH-ULTRAFUSE-TDS-v1-3,2,chamber,Build Chamber Temperature,-,P1152,Not published,no-setpoint,Not applicable,Not applicable,unknown,Not applicable,Not applicable
+F319,G035-06,S-POLYCN-TDS-Polymaker-PolyMax-PC-V5-5-2026-01-05-EN,1,chamber,Closure chamber,Not needed (70°C-100°C),P0276,Not published,unknown,Not applicable,Not applicable,unknown,Not applicable,"m172: the Closure chamber row prints ""Not needed"" with a 70-100 °C window in one cell, and the note beside it recommends an enclosure, and a heated chamber for large parts; the cell states no reading, and is recorded as printed."
+F320,G031-06,S-POLYCN-TDS-Polymaker-ASA-V6-0-2025-12-02-EN,1,enclosure,Closure chamber,Needed,P0278,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F321,G001-20,S-POLYCN-TDS-Polymaker-PolySonic-PLA-Pro-6-0-2026-06-08-EN,1,enclosure,Closure chamber,No Needed,P0286,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F322,G027-07,S-POLYCN-TDS-Polymaker-ABS-Max-V1-1-2026-06-01-EN,1,chamber,Chamber temperature,65˚C+,P0288,Not published,range,65,Not published,required,Not applicable,Not applicable
+F323,G001-23,S-POLYCN-TDS-PolyTerra-PLA-V6-0-2026-06-08-EN,1,enclosure,Closure chamber,No Needed,P0340,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F324,G001-25,S-POLYCN-TDS-PolySonic-PLA-V6-0-2026-06-08-EN,1,enclosure,Closure chamber,No Needed,P0329,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F325,G027-09,S-POLYCN-TDS-Polymaker-ABS-v6-0-2025-12-04,1,enclosure,Closure chamber,Needed,P0338,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F326,G027-10,S-POLYCN-TDS-Polymaker-PolyLite-ABS-V5-6-2025-12-30-EN,1,enclosure,Closure chamber,Needed,P0356,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F327,G020-19,R-SUNLU-PETG,2,chamber,Room Temp.,Room Temperature,P0784,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F328,G001-37,R-SUNLU-PLA-0,2,chamber,Room Temp.,Room Temperature,P0767,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F329,G001-37,R-SUNLU-SUNLU-PLA-Vivid-Yellow,2,chamber,Room Temp.,Room Temperature,P0771,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F330,G001-38,R-SUNLU-High-Speed-PLA,2,chamber,Room Temp.,Room Temperature,P0794,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F331,G027-13,R-SUNLU-SUNLU-ABS-Blue,2,chamber,Room Temp.,Room Temperature,P0788,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F332,G018-08,R-SUNLU-PLA-Carbon-Fiber,2,chamber,Room Temp.,Room Temperature,P0792,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F333,G008-06,R-ERYONE-eryone-silk-pla-tds,1,enclosure,Sealed printing,"supports open printing, and the sealing effect is better if it is sealed",P0428,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F334,G017-06,R-ERYONE-eryone-pla-light-weight-tds,1,enclosure,Sealed printing,Open printing,P0429,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F335,G031-09,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--1d9fed,1,enclosure,Sealed printing,enclosed printing,P0430,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F336,G053-06,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--25961c,1,enclosure,Sealed printing,Closed printing,P0431,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F337,G008-07,R-ERYONE-eryone-silk-rainbow-pla-tds,1,enclosure,Sealed printing,"supports open printing, and the sealing effect is better if it is sealed",P0432,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F338,G008-08,R-ERYONE-eryone-hyper-speed-dual-color-silk-pla-tds,1,enclosure,Sealed printing,Open Printing/closed printing,P0433,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F339,G033-06,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--41b571,1,enclosure,Sealed printing,Box Sealing Print,P0434,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F340,G012-03,R-ERYONE-eryone-marble-pla-tds,1,enclosure,Sealed printing,Open Printing/closed printing,P0435,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F341,G015-03,R-ERYONE-eryone-galaxy-pla-tds,1,enclosure,Sealed printing,Open Printing/closed printing,P0436,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F342,G039-20,R-ERYONE-eryone-tpu-90a-tds,1,enclosure,Sealed printing,Supports open/closed printing,P0437,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F343,G029-04,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--6b5ac4,1,enclosure,Sealed printing,Closed printing,P0438,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F344,G001-43,R-ERYONE-eryone-hs-pla-tds,1,enclosure,Sealed printing,"supports open printing, and the sealing effect is better if it is sealed",P0439,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F345,G001-44,R-ERYONE-eryone-matte-pla-tds,1,enclosure,Sealed printing,Open printing / closed printing,P0440,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F346,G039-21,R-ERYONE-eryone-tpu-hs-tds,1,enclosure,Sealed printing,Supports open/closed printing,P0442,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F347,G034-06,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--92f474,1,enclosure,Sealed printing,"supports open printing, and the sealing effect is better if it is sealed",P0443,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F348,G001-45,R-ERYONE-eryone-pla-tds,1,enclosure,Sealed printing,Open Printing/closed printing,P0444,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F349,G031-10,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9a96a3,1,enclosure,Sealed printing,Box Sealing Print,P0445,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F350,G024-07,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--9af0d6,1,enclosure,Sealed printing,open printing/closed printing,P0446,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F351,G020-21,R-ERYONE-eryone-petg-tds,1,enclosure,Sealed printing,enclosed printing/open printing,P0447,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F352,G020-22,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--b99816,1,enclosure,Sealed printing,"supports open printing, and the sealing effect is better if it is sealed",P0448,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F353,G001-46,R-ERYONE-eryone-hs-matte-pla-tds,1,enclosure,Sealed printing,open printing/closed printing,P0449,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F354,G018-09,R-ERYONE-eryone-pla-cf-tds,1,enclosure,Sealed printing,"Supports open printing, and the sealing effect is better.",P0450,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F355,G016-02,R-ERYONE-eryone-glow-in-the-dark-pla-tds,1,enclosure,Sealed printing,open printing/closed printing,P0451,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F356,G001-47,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250909-eryone-,1,enclosure,Sealed printing,Supports open printing; better results with enclosure.,P0452,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F357,G028-05,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f2fe15,1,enclosure,Sealed printing,"Sealing print quality is better, supporting open printing",P0453,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F358,G050-07,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f94f65,1,enclosure,Sealed printing,Closed printing,P0454,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F359,G027-15,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--fbbd78,1,enclosure,Sealed printing,closed printing,P0455,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F360,G001-75,S-PEBA-PLA-Matte-Dual-Filament-TDS-V4-0,1,enclosure,Description,does not require sealed printing,P0587,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F361,G098-04,R-3D4MAKERS-TDS-LUVOCOM-3F-PEKK-50082-Filament,1,chamber,Description,printable in non-heated chambers,P0593,Not published,not-required,Not applicable,Not applicable,none,Not applicable,Not applicable
+F362,G027-22,S-PEBA-ABS-TDS-EN-docx,4,enclosure,Printing note,we strongly recommend printing ABS material inside an enclosed printer,P0660,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F363,G035-17,S-PEBA-PC-HT-TDS,3,enclosure,Printing note,we highly recommend printing PC-HT material within a closed chamber printer,P0624,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F364,G027-27,S-PEBA-eSUN-eABS-Max-Filament-TDS-V4-0,2,enclosure,Printing note,printed in a printer with closed chamber,P0668,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F365,G057-06,R-SUNLU-TDS-EASY-PA,2,chamber,Room Temp.,Room Temperature,P0763,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F366,G001-107,R-SUNLU-PLA-Matte-0,2,chamber,Room Temp.,Room Temperature,P0764,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F367,G014-10,R-SUNLU-PLA-WOOD,2,chamber,Room Temp.,Room Temperature,P0769,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F368,G031-27,R-SUNLU-SUNLU-ASA-Purple,2,chamber,Room Temp.,Room Temperature,P0777,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F369,G016-04,R-SUNLU-PLA-Glow-in-the-Dark,2,chamber,Room Temp.,Room Temperature,P0790,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F370,G001-109,R-SUNLU-APLA,2,chamber,Room Temp.,Room Temperature,P0791,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F371,G008-15,R-SUNLU-SILK-PLA,2,chamber,Room Temp.,Room Temperature,P0804,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F372,G001-112,R-SUNLU-PLA-Meta,2,chamber,Room Temp.,Room Temperature,P0805,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F373,G039-51,R-SUNLU-SUNLU-TPU-95A-Gray,2,chamber,Room Temp.,Room Temperature,P0811,Not published,ambient,Not applicable,Not applicable,required,Not applicable,Not applicable
+F374,G001-140,R-ERYONE-eryone-pla-lite-tds,1,enclosure,Sealed printing,Supports open/closed printing,P0905,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F375,G001-147,S-SPECTRUM-en-tds-spectrum-pla-thermoactive,1,enclosure,Closed chamber,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F376,G001-148,S-POLYCN-TDS-Polymaker-PolyLite-CosPLA-Version-B-V5-5-2025-12-30-EN,1,enclosure,Closure chamber,Not needed,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F377,G008-20,R-ERYONE-eryone-silk-pla-tri-color-tds,1,enclosure,Sealed printing,"supports open printing, and the sealing effect is better if it is sealed",new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F378,G008-21,S-SPECTRUM-en-tds-spectrum-pla-silk-93646a,1,enclosure,Closed chamber,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F379,G039-61,R-ERYONE-eryone-standard-tpu-tds,1,enclosure,Sealed printing,Supports open/closed printing,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F380,G001-150,S-SPECTRUM-en-tds-spectrum-safeguard-pla,1,enclosure,Closed chamber,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F381,G008-22,R-ERYONE-eryone-hyper-speed-triple-color-silk-pla-tds,1,enclosure,Sealed printing,Open Printing/closed printing,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F382,G008-23,R-ERYONE-eryone-silk-pla-dual-color-tds,1,enclosure,Sealed printing,"supports open printing, and the sealing effect is better if it is sealed",new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F383,G001-151,R-ERYONE-eryone-burnt-titanium-pla-tds,1,enclosure,Sealed printing,Supports open printing; better results with enclosure.,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F384,G018-17,R-FILAMENT2PRINT-CreatBot-PLA,1,chamber,Chamber temperature,OFF,P0929,Not published,not-required,Not applicable,Not applicable,none,Not applicable,Not applicable
+F385,G081-09,R-BASF-Ultrafuse-HiPS-TDS-EN-v2-2,2,chamber,Build Chamber Temperature,-,P0987,Not published,no-setpoint,Not applicable,Not applicable,unknown,Not applicable,Not applicable
+F386,G001-191,R-ERYONE-eryone-standard-pla-tds,1,enclosure,Sealed printing,Supports open/closed printing,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F387,G001-192,R-3DJAKE-KINGROON-PLA-Basic-Technical-Data-Sheet-V1-0,1,chamber,Chamber Temperature,25 - 45 °C,new,Not published,range,25,45,required,Not applicable,Not applicable
+F388,G016-05,S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,1,enclosure,Closed chamber,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F389,G020-72,R-3DJAKE-KINGROON-PETG-Basic-Technical-Data-Sheet-V1-0,1,chamber,Chamber Temperature,35 - 50 °C,new,Not published,range,35,50,required,Not applicable,Not applicable
+F390,G008-32,I-PLA-PLA-Silk-TDS,2,chamber,Chamber Temperature,0-40 °C,new,Not published,range,0,40,required,Not applicable,Not applicable
+F391,G039-70,R-3DJAKE-KINGROON-TPU-95A-Technical-Data-Sheet-V1-0,1,chamber,Chamber Temperature,25- 45°C,new,Not published,range,25,45,required,Not applicable,Not applicable
+F392,G014-19,R-ERYONE-eryone-wood-pla-tds,1,enclosure,Sealed printing,Open Printing/closed printing,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F393,G031-43,R-3DJAKE-EN-TDS-The-Filament-ASA,1,enclosure,Closed chamber for printing,recommended for larger prints,new,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F394,G001-196,R-3DJAKE-EN-TDS-The-Filament-HT-PLA,1,enclosure,Closed chamber for printing,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F395,G033-18,R-3DJAKE-EN-TDS-The-Filament-ASA-CF,1,enclosure,Closed chamber for printing,recommended for larger prints,new,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F396,G001-197,R-3DJAKE-EN-TDS-The-Filament-PLA-Matte,1,enclosure,Closed chamber for printing,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F397,G001-198,R-3DJAKE-EN-TDS-The-Filament-PLA-Lite,1,enclosure,Closed chamber for printing,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F398,G020-73,R-3DJAKE-EN-TDS-The-Filament-PETG-Lite,1,enclosure,Closed chamber for printing,not necessary,new,Not published,not-needed,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F399,G020-74,S-SPECTRUM-en-tds-spectrum-petg-fx120,1,enclosure,Closed chamber,recommended,new,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F400,G171-02,R-BASF-Ultrafuse-316L-TDS-EN-v1-1,2,chamber,Build Chamber Temperature,-,P1178,Not published,no-setpoint,Not applicable,Not applicable,unknown,Not applicable,Not applicable
+F401,G170-02,R-BASF-Ultrafuse-TPS-90A-TDS-EN-v1-1,2,chamber,Build Chamber Temperature,-,P1193,Not published,no-setpoint,Not applicable,Not applicable,unknown,Not applicable,Not applicable
+F402,G067-08,S-PCGF-PET-CF-TDS,1,chamber,Description,used on non-heated chamber FDM 3D printers,P1144,Not published,not-required,Not applicable,Not applicable,none,Not applicable,Not applicable
+F403,G050-14,S-PCGF-PA6CF,1,chamber,Description,FFF 3D printers in non-heated chambers,P1142,Not published,not-required,Not applicable,Not applicable,none,Not applicable,Not applicable
+F404,G081-05,S-PEBA-eSUN-HIPS-Filament-TDS-V4-0-1,2,enclosure,Printing notes,print in a printer with a closed chamber,P0676,Not published,recommended,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable
+F405,G027-32,R-QIDI-ODORLESS-ABS,5,chamber,Additional Suggestions,it is recommended to set the temperature of heated chamber between 60-80°C,P1122,Not published,range,60,80,recommended,Not applicable,"m172: the sheet recommends 60-80 °C where the printer has a heated chamber, after asking for the printer to be kept closed; a recommendation, not a requirement."
+F406,G031-25,R-QIDI-ASA,4,chamber,Additional Suggestions,please keep the chamber temperature between 60-80°C,new,Not published,range,60,80,recommended,Not applicable,"m172: the sheet asks for 60-80 °C where the printer has a heated enclosure already, after asking for the chamber to be kept closed; a recommendation, not a requirement."
+F407,G046-01,S-TPC,2,chamber,Build Chamber Temperature,-,P0059,No setpoint published ('-' in TDS),no-setpoint,Not applicable,Not applicable,unknown,Not applicable,Not applicable
+F408,G038-02,R-BASF-PCGF30-TDS,2,chamber,Build Chamber Temperature,-,P0158,Not required / '-' in TDS,no-setpoint,Not applicable,Not applicable,unknown,Not applicable,Not applicable
+F409,G070-07,S-PCGF-PPA-CF-TDS-EN,2,chamber,Printing Environmental Temperature,Room temperature ~80℃,new,Not published,range,25,80,required,Not applicable,Not applicable
+F410,G073-06,S-PCGF-PPS-CF-TDS-EN,2,chamber,Printing Environmental Temperature,Room Temperature ~80℃,new,Not published,range,25,80,required,Not applicable,Not applicable
+F411,G049-01,S-SPECTRUM-en-tds-spectrum-pa6-neat-bk,1,hardened,Nozzle note,Dry box recommended Ruby or hardened nozzle not necessary,P0064,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F412,G057-01,S-POLYCN-PolyMide-CoPA-PIS-EN,4,hardened,Nozzle note,"When using PolyMide™ CoPA, we recommend to switch to a wear resistant nozzle",P0324,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F413,G057-01,S-POLYCN-PolyMide-CoPA-TDS-V5-2,5,hardened,Nozzle note,"A wear-resistant nozzle, such as hardened steel and ruby nozzle, is highly recommended to be used with PolyMide™ CoPA.",P0072,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F414,G065-01,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,1,hardened,Nozzle note,"A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended to be used with Fiberon™ PA612-ESD.",P0084,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F415,G072-02,S-SPECTRUM-en-tds-spectrum-pps-am230,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0092,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F416,G081-02,S-SPECTRUM-en-tds-spectrum-hipsx,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0102,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F417,G088-02,S-SPECTRUM-en-tds-spectrum-pctg,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0111,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F418,G094-03,S-SPECTRUM-en-tds-spectrum-pc-abs-fr-v0,2,hardened,Nozzle note,Excellent interlayer adhesion Ruby or hardened nozzle not necessary,P0120,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F419,G024-02,R-FIBERON-PETGRCF08-TDS,1,hardened,Nozzle note,"A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended to be used with Fiberon™ PETG-rCF08.",P1117,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F420,G028-02,D-SIRAYA-Fibreheart-ABS-GF-TDS,3,hardened,Nozzle note,use a hardened steel or diamond-tipped nozzle,P1125,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F421,G069-02,D-SIRAYA-Fibreheart-PPA-TDS,4,hardened,Nozzle note,harden steel nozzle is not needed,P1146,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F422,G070-02,D-SIRAYA-Fibreheart-PPA-CF-TDS,3,hardened,Nozzle note,Use a hardened steel nozzle or higher grade,P1147,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F423,G070-04,D-RAISE3D-Industrial-PPA-CF-TDS-V2-0,2,hardened,Nozzle note,"Using abrasion resistance nozzle, as hardened steel and above grade nozzle is highly recommended.",P1149,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F424,G020-04,S-SPECTRUM-en-tds-spectrum-petg-premium,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0173,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F425,G082-03,S-SPECTRUM-en-tds-spectrum-pp,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle not necessary,P0175,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F426,G082-03,S-SPECTRUM-en-tds-spectrum-pp-42aa71,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle not necessary,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F427,G020-05,S-SPECTRUM-en-tds-petg-frv0,1,hardened,Nozzle note,"If you have any questions or experience any issues, Ruby or hardened nozzle not necessary",P0176,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F428,G001-04,S-SPECTRUM-en-tds-spectrum-pla-tough,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0177,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F429,G001-05,S-SPECTRUM-en-tds-spectrum-high-speed,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0179,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F430,G039-04,S-SPECTRUM-EN-TDS-Spectrum-SFLEX-90A-4,1,hardened,Nozzle note,Dry box recommended temperature range -30 to + 60°C Ruby or hardened nozzle not necessary,P0572,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F431,G039-04,S-SPECTRUM-en-tds-spectrum-sflex-90a,1,hardened,Nozzle note,Dry box recommended temperature range -30 to + 60°C Ruby or hardened nozzle not necessary,P0185,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F432,G001-06,S-SPECTRUM-en-tds-spectrum-pla-matt,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0189,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F433,G001-07,S-SPECTRUM-en-tds-spectrum-pla-huracan,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0190,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F434,G027-03,S-SPECTRUM-en-tds-spectrum-abs-gp450,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0191,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F435,G031-03,S-SPECTRUM-en-tds-spectrum-asa-275,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0192,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F436,G020-07,S-SPECTRUM-EN-TDS-Spectrum-PETG-Premium-High-Speed,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle No,P0720,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F437,G020-07,S-SPECTRUM-en-tds-spectrum-petg-premium-high-speed,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle No,P0196,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F438,G017-02,S-SPECTRUM-EN-TDS-Spectrum-LW-PLA-UltraFoam,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0198,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F439,G017-02,S-SPECTRUM-en-tds-spectrum-lw-pla-ultrafoam,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle No,P0217,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F440,G020-08,S-SPECTRUM-en-tds-spectrum-petg-ht100,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0199,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F441,G035-03,S-SPECTRUM-en-tds-spectrum-pc-275,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0203,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F442,G027-04,S-SPECTRUM-en-tds-spectrum-medical,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0204,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F443,G008-03,S-SPECTRUM-en-tds-spectrum-pla-magic-silk,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0205,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F444,G001-10,S-SPECTRUM-en-tds-spectrum-rpla,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0206,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F445,G066-02,S-SPECTRUM-EN-TDS-Spectrum-ecoPET-9021,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0207,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F446,G109-01,S-SPECTRUM-en-tds-spectrum-petg-ptfe,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0208,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F447,G020-09,S-SPECTRUM-en-tds-petg-matt,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0214,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F448,G039-07,S-SPECTRUM-en-tds-spectrum-sflex-85a,1,hardened,Nozzle note,Dry box recommended Ruby or hardened nozzle not necessary,P0215,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F449,G049-03,S-SPECTRUM-en-tds-spectrum-pa6-low-warp,1,hardened,Nozzle note,Dry box recommended Ruby or hardened nozzle not necessary,P0218,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F450,G027-05,S-SPECTRUM-en-tds-spectrum-smart-abs,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0220,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F451,G049-04,S-SPECTRUM-en-tds-pa6-neat-nt,1,hardened,Nozzle note,Dry box recommended Ruby or hardened nozzle not necessary,P0221,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F452,G001-14,S-SPECTRUM-en-tds-spectrum-flameguard-pla,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0223,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F453,G032-02,S-SPECTRUM-en-tds-spectrum-lw-asa-ultrafoam,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle No,P0225,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F454,G039-08,S-SPECTRUM-EN-TDS-Spectrum-SFLEX-98A,1,hardened,Nozzle note,Dry box recommended Ruby or hardened nozzle not necessary,P0546,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F455,G039-08,S-SPECTRUM-en-tds-spectrum-sflex-98a,1,hardened,Nozzle note,Dry box recommended Ruby or hardened nozzle not necessary,P0226,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F456,G112-01,S-SPECTRUM-en-tds-spectrum-pc-ptfe,1,hardened,Nozzle note,"If you have any questions or experience any issues, Ruby or hardened nozzle not necessary",P0228,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F457,G020-11,S-SPECTRUM-en-tds-spectrum-rpetg,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0231,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F458,G001-15,S-SPECTRUM-en-tds-spectrum-pla-crystal,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0234,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F459,G001-16,S-SPECTRUM-EN-TDS-Spectrum-PLA-Pro-2,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0776,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F460,G001-16,S-SPECTRUM-en-tds-spectrum-pla-pro,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0235,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F461,G001-17,S-SPECTRUM-en-tds-spectrum-pla-pastello,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0237,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F462,G057-03,S-POLYCN-TDS-Polymaker-PolyMide-CoPA-V5-5-2026-01-06-EN,1,hardened,Nozzle note,"A wear-resistant nozzle, such as hardened steel and ruby nozzle, is highly recommended",P0327,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F463,G013-02,S-SPECTRUM-en-tds-spectrum-pla-glitter,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0360,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F464,G014-02,S-SPECTRUM-en-tds-spectrum-wood,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0361,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F465,G088-03,R-EXTRUDR-pctg-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0372,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F466,G039-15,R-EXTRUDR-flex-semisoft-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0377,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F467,G039-15,R-EXTRUDR-flex-semisoft-TDS-en-f4e958,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0809,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F468,G031-07,R-EXTRUDR-durapro-asa-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0378,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F469,G020-17,R-EXTRUDR-petg-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0565,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F470,G020-17,R-EXTRUDR-petg-bundle-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0380,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F471,G052-02,R-EXTRUDR-durapro-pa12-TDS-en,2,hardened,Hardened Nozzle,Hardened Nozzle no,P0381,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F472,G039-16,R-EXTRUDR-flex-hard-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0382,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F473,G039-16,R-EXTRUDR-flex-hard-TDS-en-cbd667,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0797,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F474,G095-02,R-EXTRUDR-durapro-pc-pbt-TDS-en,2,hardened,Hardened Nozzle,Hardened Nozzle no,P0384,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F475,G001-32,R-EXTRUDR-pla-tough-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle No,P0385,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F476,G001-33,R-EXTRUDR-pla-nx2-matt-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0386,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F477,G001-34,R-EXTRUDR-pla-basic-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0387,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F478,G001-34,R-EXTRUDR-pla-basic-cmyk-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0563,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F479,G035-11,R-EXTRUDR-durapro-pc-fr-v0-TDS-en,2,hardened,Hardened Nozzle,Hardened nozzle No,P0389,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F480,G001-35,R-EXTRUDR-pla-high-speed-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0564,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F481,G001-35,R-EXTRUDR-pla-hs-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0390,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F482,G001-35,R-EXTRUDR-pla-hs-TDS-en-8f08c1,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0785,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F483,G039-17,R-EXTRUDR-flex-medium-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0392,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F484,G039-17,R-EXTRUDR-flex-medium-TDS-en-d2c5e4,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0800,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F485,G126-02,R-EXTRUDR-flex-medium-esd-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0393,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F486,G126-02,R-EXTRUDR-flex-medium-esd-TDS-en-eb4012,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0807,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F487,G039-23,D-FLASH-TPU-64D-TDS-EN,2,hardened,Nozzle & Gear Material,Nozzle & Gear Material Hardened steel,P0487,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F488,G051-08,R-FABRU-PUREFIL-3494-Material-data-sheet-PA6-GF10-purefil,1,hardened,Nozzle note,Hardened steel nozzle recommended,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F489,G031-15,S-SPECTRUM-en-tds-spectrum-flameguard-asa-275,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0555,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F490,G001-69,S-SPECTRUM-en-tds-spectrum-pla-premium,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P0557,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F491,G071-04,D-RAISE3D-Raise3D-Industrial-PPA-GF-TDS-v2-1,2,hardened,Nozzle note,"Using abrasion resistance nozzle, as hardened steel and above grade nozzle is highly recommended.",P1151,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F492,G113-02,S-PET-TDS-ApolloX-Kevlar,2,hardened,Nozzle note,We recommend to use ruby nozzles or hardened steel nozzles.,P1157,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F493,G033-12,S-PET-formfutura-tds-apolloxcf10,2,hardened,Nozzle note,We recommend to use ruby nozzles or hardened steel nozzles.,P1131,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F494,G144-01,S-PET-formfutura-tds-athenaxcf10,1,hardened,Nozzle note,We recommend to use ruby nozzles or hardened steel nozzles.,P1158,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F495,G024-14,S-PCGF-PETG-Carbon-Fiber-TDS-Siddament,2,hardened,Nozzle Diameter,(Hardened Nozzle Recommended),P1119,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F496,G028-10,R-QIDI-ABS-GF25,6,hardened,Nozzle note,"It is recommended to use hardened steel nozzles or nozzles with greater abrasion resistance, which can effectively improve the printing quality.",P1126,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F497,G001-110,R-EXTRUDR-pla-nx2-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0796,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F498,G001-121,R-3DJAKE-3DJAKE-Technical-Data-Sheet-nice-essentials-PLA-Basic-V1-0,1,hardened,Hardened nozzle,Hardened nozzle not required,P0830,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F499,G020-56,R-EXTRUDR-xpetg-matt-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0881,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F500,G001-137,R-COLORFABB-TDS-E-ColorFabb-SteelFill,2,hardened,Nozzle note,"it is recommended to print with abrasive resistant nozzles, such as E3D hardened steel nizzle",P0895,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F501,G028-11,R-FABRU-3491-Material-data-sheet-ABS-GF10-purefil,1,hardened,Nozzle note,We therefore recommend using a hardened steel nozzle to print large objects.,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F502,G050-13,S-PET-formfutura-tds-styxpacf15,2,hardened,Nozzle note,We recommend to use ruby nozzles or hardened steel nozzles.,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F503,G051-10,S-PET-formfutura-tds-styxpagf30,2,hardened,Nozzle note,We recommend to use ruby nozzles or hardened steel nozzles.,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F504,G053-12,R-FABRU-3495-Material-data-sheet-PA12-CF15-purefil,1,hardened,Nozzle note,The increased wear in the printing nozzle must be taken into account and can be minimized by using hardened steel nozzles.,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F505,G001-147,S-SPECTRUM-en-tds-spectrum-pla-thermoactive,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F506,G008-21,S-SPECTRUM-en-tds-spectrum-pla-silk-93646a,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F507,G110-02,S-PET-TDS-AthenaX-GF10,1,hardened,Nozzle note,We recommend to use ruby nozzles or hardened steel nozzles.,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F508,G070-08,D-RAISE3D-Raise3D-Hyper-Core-PPA-CF25-TDS-V2-0,2,hardened,Nozzle note,"Using abrasion resistance nozzle, as hardened steel and above grade nozzle is highly recommended.",new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F509,G001-150,S-SPECTRUM-en-tds-spectrum-safeguard-pla,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle No,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F510,G001-152,D-RAISE3D-Raise3D-Hyper-Speed-PLA-Pro-TDS-V1-0-1,2,hardened,Nozzle note,"Using abrasion resistance nozzle, such as hardened steel and above grade nozzle is highly recommended.",P0907,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F511,G001-172,R-EXTRUDR-biofusion-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0985,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F512,G001-173,R-EXTRUDR-pearl-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P0992,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F513,G080-02,S-POLYCN-TDS-Polymaker-PolySupport-PA12-v5-5-2026-01-14-EN,1,hardened,Nozzle note,"A wear-resistance nozzle, such as hardened steel and ruby nozzle, is highly recommended",P1002,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F514,G080-03,D-RAISE3D-Raise3D-Industrial-PET-Support-TDS-V1,1,hardened,Nozzle note,"It is recommended to use hardening steel nozzle, tungsten steel or ruby nozzle to avoid nozzle abrasion.",new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F515,G014-18,R-EXTRUDR-wood-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P1025,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F516,G157-01,R-RECREUS-Conductive-Filaflex,1,hardened,Nozzle note,No hardened nozzle required,P1032,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F517,G016-05,S-SPECTRUM-EN-TDS-Spectrum-PLA-Glow-in-the-Dark-0,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle recommended,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F518,G016-06,S-PEBA-eSUN-PLA-Luminous-Filament-TDS-V4-01,2,hardened,Nozzle note,"it is recommended to use steel nozzle or ruby nozzle, hardened steel extruder gear",new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F519,G016-07,S-PEBA-eSUN-Luminous-PLA-Rainbow-Filament-TDS-V4-01,2,hardened,Nozzle note,"it is recommended to use steel nozzle or ruby nozzle, hardened steel extruder gear",new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F520,G031-43,R-3DJAKE-EN-TDS-The-Filament-ASA,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle recommended No,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F521,G001-196,R-3DJAKE-EN-TDS-The-Filament-HT-PLA,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle recommended No,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F522,G033-18,R-3DJAKE-EN-TDS-The-Filament-ASA-CF,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle recommended Yes,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F523,G001-197,R-3DJAKE-EN-TDS-The-Filament-PLA-Matte,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle recommended No,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F524,G001-198,R-3DJAKE-EN-TDS-The-Filament-PLA-Lite,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle recommended No,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F525,G020-73,R-3DJAKE-EN-TDS-The-Filament-PETG-Lite,1,hardened,Ruby or hardened nozzle,Ruby or hardened nozzle recommended No,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F526,G020-74,S-SPECTRUM-en-tds-spectrum-petg-fx120,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,new,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F527,G164-03,S-SPECTRUM-en-tds-spectrum-thermatech-pa,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P1163,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F528,G164-07,R-NANOVIA-PA-Food-Industry,1,hardened,Nozzle note,"A reinforced nozzle, suitable for abrasive materials is recommended.",P1172,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F529,G168-03,R-EXTRUDR-greentec-pro-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P1174,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F530,G168-04,R-EXTRUDR-greentec-TDS-en,1,hardened,Hardened Nozzle,Hardened Nozzle no,P1175,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F531,G171-01,R-NANOVIA-Mt-316L,1,hardened,Nozzle note,"A reinforced nozzle, suitable for abrasive materials is recommended.",P1176,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F532,G168-05,S-SPECTRUM-en-tds-spectrum-greeny-pro,1,hardened,Nozzle note,Dry box not necessary Ruby or hardened nozzle not necessary,P1182,Not published,Not applicable,Not applicable,Not applicable,Not applicable,FALSE,Not applicable
+F533,G167-07,R-NANOVIA-Flex-B4C,1,hardened,Nozzle note,"A reinforced nozzle, suitable for abrasive materials is recommended.",P1183,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F534,G172-01,R-NANOVIA-SiC,1,hardened,Nozzle note,"A reinforced nozzle, suitable for abrasive materials is recommended.",P1195,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F535,G099-05,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,2,hardened,Processing: nozzle material,nozzle material: abrasion resistant,P0632,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F536,G148-01,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,2,hardened,Processing: nozzle material,nozzle material: abbrasion resistant,P0953,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F537,G148-02,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,2,hardened,Processing: nozzle material,nozzle material: abbrasion resistant,P0954,Not published,Not applicable,Not applicable,Not applicable,Not applicable,TRUE,Not applicable
+F538,G066-02,S-SPECTRUM-EN-TDS-Spectrum-ecoPET-9021,Not applicable,bed,retype,≥ 50°C,P0207,≥ 50°C,range,50,Not published,required,Not applicable,Not applicable
+F539,G110-01,S-SPECTRUM-en-tds-spectrum-pctg-gf10,Not applicable,bed,retype,> 50°C,P0209,> 50°C,range,50,Not published,required,Not applicable,Not applicable
+F540,G037-02,S-SPECTRUM-EN-TDS-Spectrum-PC-CF-3,Not applicable,bed,retype,>80°C,P0551,>80°C,range,80,Not published,required,Not applicable,Not applicable
+F541,G053-03,S-SPECTRUM-EN-TDS-Spectrum-PA12-CF15,Not applicable,bed,retype,>80°C,P0573,>80°C,range,80,Not published,required,Not applicable,Not applicable
+F542,G037-07,R-NANOVIA-PC-CF,Not applicable,chamber,retype,> 100 °C,P0713,> 100 °C,range,100,Not published,required,Not applicable,Not applicable
+F543,G035-19,R-NANOVIA-PC,Not applicable,chamber,retype,> 100 °C,P0742,> 100 °C,range,100,Not published,required,Not applicable,Not applicable
+F544,G112-02,R-NANOVIA-PC-PTFE,Not applicable,chamber,retype,> 90 °C,P0743,> 90 °C,range,90,Not published,required,Not applicable,Not applicable
+F545,G118-03,R-NANOVIA-PEI-CF-Ultem-1010,Not applicable,bed,retype,> 150 °C,P0885,> 150 °C,range,150,Not published,required,Not applicable,Not applicable
+F546,G118-03,R-NANOVIA-PEI-CF-Ultem-1010,Not applicable,chamber,retype,> 120 °C,P0885,> 120 °C,range,120,Not published,required,Not applicable,Not applicable
+F547,G122-02,R-NANOVIA-PEKK-A-CF,Not applicable,chamber,retype,> 90 °C,P0897,> 90 °C,range,90,Not published,required,Not applicable,Not applicable
+F548,G099-11,R-FIBERLOGY-Fiberlogy-PEI-9085-TDS,Not applicable,chamber,retype,>80°C,P1071,>80°C,range,80,Not published,required,Not applicable,Not applicable

@@ -1,6 +1,6 @@
 # Validation report
 
-Database snapshot 2026-09-21 · build 2026-09-26
+Database snapshot 2026-09-21 · build 2026-09-27
 
 **No errors.**
 
@@ -13,19 +13,19 @@ Database snapshot 2026-09-21 · build 2026-09-26
 | familyEntries | 21 |
 | retiredDuplicates | [object Object] |
 | excluded | 17 |
-| grades | 1159 |
+| grades | 1160 |
 | measurements | 11090 |
 | numericMeasurements | 10914 |
 | quarantined | 19 |
-| profiles | 1196 |
-| evidence | 542 |
+| profiles | 1274 |
+| evidence | 565 |
 | prices | 104 |
 | sources | 1482 |
-| coverage | 865 |
+| coverage | 866 |
 | knowHow | 4502 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 345 |
-| coverageDerived | 705 |
+| coverageDerived | 693 |
 
 ## Headline coverage
 
@@ -49,9 +49,9 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 
 | Axis | within | partial window | exceeds | exceeds (recommendation only) | unknown |
 |---|---:|---:|---:|---:|---:|
-| nozzle | 125 | n/a | 14 | 0 | 35 |
-| bed | 118 | n/a | 14 | 0 | 42 |
-| chamber | 77 | 5 | 9 | 2 | 81 |
+| nozzle | 117 | n/a | 9 | 0 | 48 |
+| bed | 113 | n/a | 7 | 0 | 54 |
+| chamber | 78 | 5 | 9 | 1 | 81 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
 Nozzle and bed are read by the upper end of the window.
@@ -64,14 +64,14 @@ data/tables/chamber_bands.csv; it is shown beside the chamber question and chang
 
 | Kind | Materials |
 |---|---:|
-| Published temperature window | 60 |
+| Published temperature window | 59 |
 | No heated chamber needed, in words | 24 |
 | Chamber recommended, no temperature | 1 |
-| Data sheet lists no setpoint | 1 |
-| Nothing published | 71 |
+| Data sheet lists no setpoint | 4 |
+| Nothing published | 69 |
 | Carrying an estimated band (any of the last three) | 17 |
 
-26 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes 25-100 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
+26 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes 25-60 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
 
 ## Environment evidence
 
@@ -123,11 +123,11 @@ its plausible range wholly fails.
 
 | Headline | Observations | Hidden headlines | Likely range holds | Plausible range holds | Median likely width | Spread between products |
 |---|---:|---:|---:|---:|---:|---:|
-| density | 857 | 117 | 80% | 96% | ×1.11 | 0.0251 (15613 pairs) |
-| tensileModulusXY | 1188 | 82 | 81% | 95% | ×1.5 | 0.322 (1344 pairs) |
-| tensileStrengthXY | 1283 | 63 | 81% | 95% | ×1.44 | 0.25 (2556 pairs) |
-| elongationXY | 1011 | 82 | 81% | 95% | ×3.64 | 0.716 (2416 pairs) |
-| hdt045 | 1231 | 80 | 80% | 95% | 17.6 °C | 4.19 (3818 pairs) |
+| density | 855 | 117 | 80% | 96% | ×1.1 | 0.0251 (15517 pairs) |
+| tensileModulusXY | 1180 | 82 | 81% | 95% | ×1.48 | 0.326 (1276 pairs) |
+| tensileStrengthXY | 1281 | 63 | 81% | 95% | ×1.44 | 0.253 (2475 pairs) |
+| elongationXY | 1007 | 82 | 81% | 95% | ×3.73 | 0.72 (2338 pairs) |
+| hdt045 | 1228 | 80 | 80% | 95% | 17.1 °C | 4.3 (3889 pairs) |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -143,14 +143,14 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 |---|---|---:|---:|---:|---:|---:|
 | density | this-grade | 5 | 1 | cannot screen | 0 | cannot screen |
 | density | this-material | 87 | 0 | 97.5% point | 1 | 2.5% point |
-| density | family | 117 | 8 | 97.72% point | 2 | 2.5% point |
+| density | family | 117 | 8 | 97.76% point | 2 | 2.5% point |
 | tensileModulusXY | this-grade | 74 | 3 | 97.5% point | 1 | 2.5% point |
 | tensileModulusXY | this-material | 66 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | family | 82 | 0 | 97.5% point | 2 | 2.5% point |
 | tensileStrengthXY | this-grade | 57 | 2 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | this-material | 56 | 0 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | family | 63 | 0 | 97.5% point | 2 | 2.5% point |
-| elongationXY | this-grade | 39 | 0 | 97.5% point | 0 | 2.5% point |
+| elongationXY | this-grade | 38 | 1 | 97.5% point | 0 | 2.5% point |
 | elongationXY | this-material | 68 | 2 | 97.5% point | 2 | 2.5% point |
 | elongationXY | family | 82 | 2 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 56 | 4 | 99.28% point | 1 | 2.5% point |
@@ -161,11 +161,11 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 
 | Headline | Hidden values | Likely scale | Plausible scale | Likely coverage | Plausible coverage | Shipped |
 |---|---:|---:|---:|---:|---:|---|
-| density | 773 | 1.41 | 1.99 | 0.798 | 0.951 | yes |
-| tensileModulusXY | 267 | 1.09 | 1.2 | 0.787 | 0.944 | yes |
-| tensileStrengthXY | 280 | 1.06 | 1.1 | 0.793 | 0.943 | yes |
-| elongationXY | 325 | 1.05 | 1.16 | 0.8 | 0.945 | yes |
-| hdt045 | 367 | 1.84 | 3 | 0.779 | 0.926 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
+| density | 771 | 1.38 | 1.86 | 0.798 | 0.951 | yes |
+| tensileModulusXY | 264 | 1.1 | 1.21 | 0.795 | 0.939 | yes |
+| tensileStrengthXY | 278 | 1.08 | 1.12 | 0.802 | 0.946 | yes |
+| elongationXY | 323 | 1.05 | 1.16 | 0.799 | 0.947 | yes |
+| hdt045 | 368 | 1.83 | 3 | 0.783 | 0.927 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
 EST-GRADE-OUTLIER, 29 grades: PLA 9, PLA Wood 3, PLA Aero 3, PA12-CF 3, ABS 2, PPA-CF 2, PLA Marble 1, PP 1, POM / Acetal 1, TPU 85A class and softer 1, PETG 1, PET-GF 1, PPA-GF 1.
 
@@ -401,7 +401,7 @@ Every one of the 174 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (4164 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (4149 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;
@@ -420,4 +420,4 @@ interface can say so rather than implying a certainty it does not have.
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 8 values are physically impossible for their property and were kept out of the estimate model: V009231 PLA Density 3900 kg/m³; V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009275 PLA Density 3130 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
 - `EST-OUTLIER` **materials** — 3 measured headlines sit far outside what every other observation predicts; check the source and the grade: PA6-CE density 1490 (expected about 1170); PA6-GS density 1010 (expected about 1330); PLA-EC density 1240 (expected about 1520)
-- `EST-FAMILY-ORDER` **materials** — 3 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2233; ASA-AF tensileModulusXY 1.84 (estimate) < ASA 2.2458; PA12-AF hdt045 112 (estimate) < PA12 135
+- `EST-FAMILY-ORDER` **materials** — 3 reinforced materials sit below their unfilled sibling: ABS-AF tensileModulusXY 1.89 < ABS 2.2; ASA-AF tensileModulusXY 1.84 (estimate) < ASA 2.2458; PA12-AF hdt045 112 (estimate) < PA12 135

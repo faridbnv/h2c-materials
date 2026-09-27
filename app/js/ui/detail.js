@@ -688,7 +688,8 @@ function printCard(g) {
   const from = p?.from ?? {};
   const some = !!p?.profileIds.length || Object.keys(from).some((a) => a !== 'anneal');
   if (!some && !p?.anneal?.length) return '<div class="print-card fine">No print settings recorded for this product. Its maker\'s other products may be similar, but that is not this product\'s data.</div>';
-  const win = (a) => (a.state === 'range' ? `${a.min != null && a.min !== a.max ? `${fmtNumber(a.min)}–` : ''}${fmtNumber(a.max)} °C`
+  const win = (a) => (a.state === 'range' && a.max == null && a.min != null ? `at least ${fmtNumber(a.min)} °C`
+    : a.state === 'range' ? `${a.min != null && a.min !== a.max ? `${fmtNumber(a.min)}–` : ''}${fmtNumber(a.max)} °C`
     : a.state === 'not-required' || a.state === 'ambient' ? 'not required' : a.state === 'unknown' ? 'not published'
       : a.state === 'enclosed' ? "an enclosure, which the H2C's heated chamber is" : a.state.replace(/-/g, ' '));
   const axis = (label, key) => (some ? `<dt>${label}</dt><dd>${esc(win(p[key]))} ${gateChip(p[key], label)}${fromNote(from[key])}</dd>` : '');

@@ -302,49 +302,60 @@ select * from v_measurement_z where abs(z) > 3 order by abs(z) desc;
 Found by re-center lane 2 (m136, 2026-09-25), which filled what the products' own cached sheets state and the parsers
 read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". Still open:
 
-- **Thirty-three products state a recipe part only in words.** Lane 3's statements give 26 products a chamber or
-  enclosure need (Siraya Tech's "An enclosure is crucial…", Bambu's "No enclosure, or heated chamber needed") and 7 a
-  drying schedule (Raise3D's "Dry PA12 CF at 80°C for 12 hours before printing") that their print profiles do not hold.
-  The panel quotes them and the know-how state counts them, but the chamber and drying gates read the profiles, so
-  those products stay unknown on them. Query: products whose `knowHow.recipe.chamber` or `.drying` is `collected` while
-  `print.chamber.state` and `print.enclosure`, or `print.drying`, are unknown.
+- **Ten products state a recipe part only in words** (recounted on 2026-09-26 by the query below: 11 before m170 to
+  m174, 10 after; the 33 this line said was counted before the guide filled parts, D88). Lane 3's statements give 5
+  of them a chamber or enclosure need (Siraya Tech Fibreheart PPA, SUNLU PP, 3D-Fuel, two QIDI sheets) and 5 a drying
+  schedule (Raise3D's "Dry PA12 CF at 80°C for 12 hours before printing") that their print profiles do not hold. The panel quotes them and the know-how state counts them, but the chamber and drying gates
+  read the profiles, so those products stay unknown on them. Query: products whose `knowHow.recipe.chamber` or
+  `.drying` is `collected` while `print.chamber.state` and `print.enclosure`, or `print.drying`, are unknown.
 
-- **Thirty products with no value of their own have no twin to read.** D89 lets a product whose sheet prints a
+- **Twenty-nine products with no value of their own have no twin to read.** D89 lets a product whose sheet prints a
   same-material sibling's table (R053) read that sibling's values and recipe; the 47 such twins now do. The others are
   reprints of another material's table (R166 and its like) or products whose sibling holds nothing: no formulation key
-  spans two materials, so they read nothing, and 27 of them have no profile of their own either. Their sheets print a
-  recipe the import rejected with the values. Query: active products with no measurement and no same-key sibling.
+  spans two materials, so they read nothing. Since m172 read their sheets' printing rows, 5 of them have no profile of
+  their own. Query: active products with no measurement and no same-key sibling.
 - **The guide's enclosure is the H2C's chamber, and some makers ask for more** (D90, m165). The owner ruled that for
   the nine types Bambu Lab's guide asks an enclosure for, a silent product's chamber is within the H2C, labelled as the
   guide's; 123 products read it. Sixteen products of those types state a chamber above 65 °C on their own sheets and
   keep that reading, Bambu Lab's own PPA-CF (50 to 80 °C) and PPS-CF (60 to 90 °C) sheets among them, which the owner
   named as the reason to revisit. Twenty-three whose own sheet, or twin's, asks for an enclosure without a temperature
   stay unknown, because a maker's own statement wins and only the printer maker's guide means its own enclosed
-  printers. Query: products of those nine materials whose `print.chamber.verdict` is `exceeds`, `partial` or
+  printers; the owner ruled on 2026-09-26 that those read as the guide does (GOALS). Query: products of those nine materials whose `print.chamber.verdict` is `exceeds`, `partial` or
   `exceeds-recommended`, and those unknown with `print.enclosure` recommended.
 - **What the guide prints and the tables do not use.** Its January 2025 revision (B-GUIDE) also heads ASA-CF, PC FR
   and TPU for AMS, which the current revision dropped; only the current revision is read, so those three materials'
   silent products read nothing. The guide's drying line is recorded and fills no recipe, and its annealing row,
   AMS compatibility, adhesion, desiccant, speed and fan rows are not recorded. Its TPU 95A HF nozzle row ("Hardened
   Steel / Stainless Steel") settles no hardened-nozzle question.
-- **Wordings the parsers cannot read**, left out of m136 rather than typed against the parser: Polymaker's "Closure
-  chamber | Needed" and "No Needed" (7 products), Eryone's "Sealed printing | Supports open/closed printing" (35
-  sheets), "printable on non-heated chamber FFF 3D printers" in prose. `parseEnclosure` would need the words.
-- **Thirty-five Polymaker profiles are the "How to make specimens" block**, read as manufacturer guidance: the nozzle
-  and bed a test bar was printed at (P0339: "Printing temperature 260°C"), beside the product's real recommended
-  profile from the same sheet. They widen nothing today (the recommended profile decides), but they are not guidance.
-- **Twenty-six drying cells hold a fragment, not a schedule**, and count as drying stated: "to", "use", "2-4",
-  "before Printing", "Diameter accuracy (2.85/1.75 mm):", "X1 Series & P Series & H2 Series Printer".
-- **Nine grades are named by a sentence fragment** the import took for the product: "and prevents nozzle jams."
-  (G001-82), "colors." (G035-16), "to print as PLA." (G001-76), "Technical Data" (G020-35), and five more.
 - **A PolyTerra PLA+ sheet** (S-POLYCN-PolyTerra-PLA-Plus-EN-V5-1) is cited by a PolyTerra PLA profile (P0316).
-- **Not yet read:** the hardened-nozzle statements (180 products' sheets), nozzle and bed for products that already had
-  a profile, and drying the printed part after printing (16 products), a treatment like annealing.
+- **What the finishing reads (m170 to m173) left** (RESPONSE.md, "Phase 6, lane 2, finished"):
+  - *Rows the rules did not reach with confidence.* Fabru / purefil's and iSANMATE's two-column tables, where a value
+    cannot be placed beside its label from the text alone ("Hea5ng bed temperature" with no value on its line);
+    LEHVOSS's "print bed temperature: > 50 °C" beds; Siraya Tech's "An enclosure is crucial …" and Fabru's "Needs a warm
+    room, or closed pressure" (the lane 3 know-how quotes them; no profile reads them); Siraya Tech Rebound PEBA's
+    "0.4mm brass nozzle works well".
+  - *Sentences on a sheet that name another product,* left out: eSUN's PETG-ESD and TPU-64D sheets print "we highly
+    recommend printing ABS-CF material within a closed chamber printer", and the eStars-PLA sheet the Luminous PLA
+    nozzle advice.
+  - *One cell recorded unread:* PolyMax PC's "Closure chamber | Not needed (70°C-100°C)", beside a note that recommends an
+    enclosure and a heated chamber for large parts (P0276, Parse review).
+  - *A drying cell that says drying is not needed* ("Not needed", "drying is not necessary", 4 profiles) counts as
+    drying stated, with no schedule: the drying states are stated or unknown, and nothing says "not needed".
+  - *The specimen blocks m170 took out of the profiles are not yet on the measurements.* D63 puts a sheet's specimen
+    printing conditions in its measurements' Specimen / print parameters; 332 measurements of the 50 sheets whose
+    profiles lost a specimen value say Not published there (3DXTECH's "Printed Specimen Conditions", Raise3D's "All
+    testing specimens were printed under the following conditions", and the like). Five excluded high-temperature
+    materials (PEKK-ESD, PEI-GF, PEI-ESD, TPI, PEEK-GF) now publish no nozzle window at all; their exclusion is their H2C
+    status.
+  - *The specimens' nozzle diameter* is still the profile's on Flashforge's, AzureFilm's and SIDDAMENT's sheets ("0.4mm"
+    where the recommended row prints "φ0.4/0.6mm (φ0.4mm recommended)"). It decides no gate; the Printing tab shows it.
+  - *A part-drying schedule that may be another sheet's:* Flashforge's PET-GF and TPU 64D and SIDDAMENT's PET CF all say
+    to dry the printed model at 120-130°C for 6-8 hours, a schedule that would soften a TPU part; recorded as printed
+    (m173).
 
 ```bash
-npm run sql --silent -- "select profileid, sourceid, locator from profiles where sourceid like 'S-POLYCN-TDS-%' and locator like '%: Printing temperature'"
-npm run sql --silent -- "select profileid, drying from profiles where drying_state = 'stated' and drying_c = 'Not published' and drying_hours = 'Not published'"
-npm run sql --silent -- "select gradeid, product_name from grades where status = 'active' and (product_name like '%.' or product_name = 'Technical Data')"
+npm run sql --silent -- "select profileid, drying from profiles where drying_state = 'stated' and drying_c_state = 'Not published' and drying_hours_state = 'Not published'"
+npm run sql --silent -- "select profileid, sourceid, nozzle_diameter from profiles where nozzle_diameter = '0.4mm'"
 ```
 
 ---
@@ -496,16 +507,20 @@ npm run sql --silent -- "select sourceid, text from source_facts where sourceid 
 ## 16. What re-reading seventy sheets' heads found
 
 m149 re-read the head of every source whose title was page furniture ("supported by", "TM", "TECHNICAL", "Page: 1",
-"Version: 3.0") and wrote the title each prints; SOURCE-TITLE-NOT-TITLE now catches that class. Reading them found two
-product identities that are wrong and one kind of title the lint leaves alone:
+"Version: 3.0") and wrote the title each prints; SOURCE-TITLE-NOT-TITLE now catches that class. m174 fixed the two
+product identities it found (Anycubic PLA+ has its own grade; ELEGOO's PLA is named Not published, since its sheet prints
+no name). Still open:
 
-- **Anycubic PLA+ is filed as Anycubic PLA.** `R-3DJAKE-3DJAKE-ANYCUBIC-TDS-PLA-V3-0` is the PLA+ sheet ("Product Name:
-  Anycubic PLA+"), and its eight values (a density of 1.21 g/cm³ among them) are on G001-116, Anycubic PLA, beside
-  the PLA sheets' own. PLA+ is a product of its own: a grade for it and its rows moved there, a product identity
-  decision for a migration.
-- **ELEGOO's PLA grade is called "S.I."** G001-129's Product name is the "S.I." column heading of a sheet (hosted by
-  3DJake) that prints no product name and no title, only a table under ELEGOO's logo. The retailer's product page the
-  sheet was linked from names the product; it is not cached, so the name waits for that page.
+- **ELEGOO's PLA has no name on record.** G001-129's sheet prints only ELEGOO's logo over a table of typical values, and
+  the retailer's page that linked it (3djake.com/elegoo/pla-sea-green) is not cached. The name waits for a cached page
+  that prints it.
+- **eSUN's older sheets print a "+" the grades do not carry.** G027-22 ("ABS") holds two sheets that both print "ABS+"
+  (2021 V4.0 and 2025 V1.0). G001-142 ("PLA") is the 2021 V4.0 sheet of "PLA+", which G001-78 names from its 2026 V1.0
+  sheet; the version numbering restarts and the descriptions differ, so whether they are one product is not settled
+  (the GRADE-PRODUCT-DUPLICATE finding is accepted with that reason).
+- **The Buddy3D cards name no maker.** The four "Product card" sheets 3DJake files under Prusa (G001-108, G020-46,
+  G027-33, G030-08) carry only the Buddy3D logo; m174 named each product as its card does and kept the Manufacturer as
+  the retailer lists it.
 - **A title that is only the kind of document is not flagged**: 45 "Technical Data Sheet", 3 "Technical
   Specifications", "TECHNICAL DATA SHEET", "Technical Data Sheet TM TM", and Polymaker's slogan "Innovators in 3D
   printing". Some sheets print exactly that as their heading, so a rule would not be precise; the product name beside
@@ -513,6 +528,9 @@ product identities that are wrong and one kind of title the lint leaves alone:
 
 ```bash
 npm run sql --silent -- "select sourceid, title from sources where lower(title) in ('technical data sheet', 'technical specifications', 'technical data sheet tm tm', 'innovators in 3d printing')"
+```
+
+---
 
 ## 17. What the tests found when they became rules
 
@@ -520,15 +538,10 @@ Phase 5, part 4 rewrote the tests that named records as rules over every record.
 today, so they are recorded here rather than asserted (RESPONSE.md, phase 5, part 4):
 
 - **Nineteen unfilled products publish a density outside their polymer's neat range and declare no Variant**, which
-  R078 asks for where a density is beyond the neat polymer: PolyLite ABS 1,120 (neat ABS to 1,110), Spectrum PET-G MATT
-  and eSUN PETG-Matte 1,350 (neat PETG to 1,300), SUNLU PVA 1,010 and PolyDissolve S1 1,370 (neat PVA 1,180 to 1,340),
-  Recreus RECIFLEX 1,000, and thirteen more. Some neat ranges are narrow (ABS, ASA), so each needs its sheet re-read
+  R078 asks for where a density is beyond the neat polymer: Polymaker ABS 1,120, from the PolyLite ABS sheets m174
+  merged into it (neat ABS to 1,110), Spectrum PET-G MATT and eSUN PETG-Matte 1,350 (neat PETG to 1,300), SUNLU PVA
+  1,010 and PolyDissolve S1 1,370 (neat PVA 1,180 to 1,340), Recreus RECIFLEX 1,000, and thirteen more. Some neat ranges are narrow (ABS, ASA), so each needs its sheet re-read
   before it is declared, not a bulk Variant.
-- **Three pairs of sheet revisions sit on two grades each**: PolyLite PETG (G020-02, G020-13), PolySonic PLA (G001-02,
-  G001-25), and Polymaker ABS beside PolyLite ABS (G027-09, G027-10). Their `MEAS-CROSS-SOURCE-TWIN` acceptances call
-  them one product's sheet republished; if so, each product is counted twice in its material's spread, and
-  `GRADE-PRODUCT-DUPLICATE` misses it because the names differ by the maker's prefix or a revision suffix. Merging them
-  needs the owner's word that they are one product.
 - **Two heat deflection estimates reach past their polymer's melting point** at the upper end, with their centres below
   it: PCL (likely to 62.2 °C, plausible to 66.5, melting 60) and PA612-GF (plausible to 220, melting 218).
 - **A study grade carries product values**: G052-R1 (Stratasys, PA12) has a density and a heat deflection of its own.

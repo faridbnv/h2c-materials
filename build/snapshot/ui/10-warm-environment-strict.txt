@@ -1,7 +1,7 @@
-COUNT 35 shown PASS
-STATUS ☑ PASS 35 | ☐ UNKNOWN 63 | ☐ FAIL 55
-35 of the 153 materials in this database meet these requirements
-63 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+COUNT 34 shown PASS
+STATUS ☑ PASS 34 | ☐ UNKNOWN 64 | ☐ FAIL 55
+34 of the 153 materials in this database meet these requirements
+64 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -44,13 +44,13 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS
-19 of 21
+17 of 19
  1,050
-1,020–1,150 · 43
- 2.22
-1.77–2.38 · 12
- 34.9
-15.7–45 · 17
+1,020–1,150 · 42
+ 2.2
+1.77–2.38 · 11
+ 35
+15.7–45 · 16
  10
 3.9–40 · 16
  94
@@ -88,7 +88,7 @@ ABS-GF PASS
 82–100 · 8
  39↗ ☆
 ASA PASS
-17 of 18
+14 of 15
  1,070
 1,040–1,150 · 35
  2.25
@@ -127,7 +127,7 @@ ASA-CF PASS
 86–110 · 7
  no price↗ ☆
 ASA-GF PASS
-2 of 2
+3 of 3
  1,150
 1,110–1,170 · 5
  2.31
@@ -196,7 +196,7 @@ Nylon / Polyamide
 PA6-CF
 Nylon / Polyamide
  PASS
-7 of 7
+6 of 6
  1,170
 1,090–1,250 · 13
  4.37
@@ -226,7 +226,7 @@ Nylon / Polyamide
 PA6/66
 Nylon / Polyamide
  PASS
-2 of 2
+3 of 3
  1,120
 1,100–1,120 · 7
  2.22
@@ -279,7 +279,7 @@ PVB / Specialty Polymers
 PC
 Polycarbonate
  PASS
-7 of 10
+6 of 9
  1,200
 1,150–1,230 · 20
  2.24
@@ -336,17 +336,6 @@ Polycarbonate
  128
 119–140 · 4
  — ☆
-PC-GF
-Polycarbonate
- PASS
-1 of 1
- 1,228
-1,176–1,280 · 2
- 2.67 38
-36.1–40 · 2
- 5.95
-2.4–9.5 · 2
- 134 — ☆
 PET-CF
 PET Engineering
  PASS
@@ -380,30 +369,30 @@ PET Engineering
 PETG PASS
 1 of 30
  1,270
-1,180–1,350 · 57
- 1.67
-0.5–3.5 · 18
- 47.3
-31.7–68.4 · 24
- 8.5
-4.1–90 · 24
+1,180–1,350 · 56
+ 1.65
+0.5–3.5 · 17
+ 47
+31.7–68.4 · 23
+ 8.6
+4.1–90 · 23
  70
 63–80 · 30
  25.5
 25–26 · 2
 ↗ ☆
 PLA PASS
-8 of 72
+8 of 73
  1,240
 1,170–1,329 · 147
- 2.53
-0.95–4.24 · 39
- 45.3
-26–70.4 · 56
- 7.23
-1.2–65 · 53
+ 2.45
+0.95–4.24 · 38
+ 45
+26–70.4 · 55
+ 6.76
+1.2–65 · 52
  55
-50–135 · 67
+50–135 · 68
  28
 27–30 · 4
 ↗ ☆

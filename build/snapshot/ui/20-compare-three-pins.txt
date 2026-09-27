@@ -40,9 +40,9 @@ ASA-CF
 0.85–5.36 · 6
 ASA-EC
 ~2.1–4.1†
-0.00133
+0.00132
 log scale
-21.3
+21.4
 all 153 candidates
 Strength MPa
 ASA-AF
@@ -52,9 +52,9 @@ ASA-CF
 34–50.1 · 6
 ASA-EC
 ~30–49†
-2.2
+2.12
 log scale
-290
+292
 all 153 candidates
 Strength across layers MPa
 ASA-AF
@@ -75,9 +75,9 @@ ASA-CF
 1.64–15.5 · 5
 ASA-EC
 ~0.9–5.5†
-0.354
+0.352
 log scale
-1,430
+1,610
 all 153 candidates
 Notched impact strength kJ/m²
 ASA-AF
@@ -98,8 +98,8 @@ ASA-CF
 101
 86–110 · 7
 ASA-EC
-~88–105†
-41.5
+~89–105†
+41.3
 300
 all 153 candidates
 Glass transition °C
