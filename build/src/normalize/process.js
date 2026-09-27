@@ -45,6 +45,15 @@ export const REQUIREMENT = {
 const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|for printing not necessary)\b/i;
 const RECOMMENDED_RE = /^recommended\b/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
+// BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT.
+const DASH_RE = /^-$/;
+// CreatBot prints "Chamber temperature OFF": the heater is to be off, so no heated chamber is wanted.
+const OFF_RE = /^off$/i;
+// Flashforge, SIDDAMENT and LEHVOSS say a filament prints "on non-heated chamber FFF 3D printers" or "in non-heated
+// chambers" in their prose. It is read before any number, because "3D" would otherwise be taken for a 3 °C chamber.
+const NON_HEATED_RE = /\bnon-?heated\s+chambers?\b/i;
+// "65˚C+" (Polymaker ABS Max's chamber) and "140 ºC +" are at-least values: a lower end, with no upper end published.
+const AT_LEAST_RE = /^(\d+(?:\.\d+)?)\s*[^\d\s+]{0,3}\s*\+$/;
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?)\b/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
 
@@ -62,8 +71,17 @@ export function parseTemperature(raw, opts = {}) {
   if (/^not published$/i.test(s)) {
     return { text, state: PROCESS_STATE.UNKNOWN, requirement: REQUIREMENT.UNKNOWN, min: null, max: null };
   }
-  if (NO_SETPOINT_RE.test(s)) {
+  if (NO_SETPOINT_RE.test(s) || DASH_RE.test(s)) {
     return { text, state: PROCESS_STATE.NO_SETPOINT, requirement: REQUIREMENT.UNKNOWN, min: null, max: null };
+  }
+  if (OFF_RE.test(s) || NON_HEATED_RE.test(s)) {
+    return { text, state: PROCESS_STATE.NOT_REQUIRED, requirement: REQUIREMENT.NONE, min: null, max: null };
+  }
+  const atLeast = s.match(AT_LEAST_RE);
+  if (atLeast) {
+    const [lo, hi] = opts.plausible || [0, 500];
+    const min = Number(atLeast[1]);
+    if (min >= lo && min <= hi) return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min, max: null, openHigh: true };
   }
 
   // Cut trailing clauses that are not about this process parameter.
@@ -152,6 +170,20 @@ export function withinH2C(parsed, limitC, { partialWindow = false } = {}) {
   if (parsed.state !== PROCESS_STATE.RANGE) {
     return { verdict: 'unknown', reason: 'No numeric requirement published' };
   }
+  // An at-least value ("65˚C+") has no upper end, so it is never within by its upper end: the printer reaches it if it
+  // reaches the lower end, and for the chamber that is the bottom of an open window, which is partial.
+  if (parsed.openHigh && parsed.max == null) {
+    const over = parsed.min - limitC;
+    if (over > 0) {
+      return parsed.requirement === REQUIREMENT.RECOMMENDED
+        ? { verdict: 'exceeds-recommended', reason: `Recommends at least ${parsed.min} °C, above the H2C's ${limitC} °C, but does not require it`, over }
+        : { verdict: 'exceeds', reason: `Requires at least ${parsed.min} °C, the H2C provides ${limitC} °C`, over };
+    }
+    if (partialWindow) {
+      return { verdict: 'partial', reason: `Publishes at least ${parsed.min} °C, with no upper end; the H2C reaches only ${parsed.min}–${limitC} °C of that`, reachable: { min: parsed.min, max: limitC }, over: null };
+    }
+    return { verdict: 'within', reason: `Needs at least ${parsed.min} °C, which the H2C's ${limitC} °C reaches` };
+  }
   if (parsed.max <= limitC) {
     return { verdict: 'within', reason: `Needs up to ${parsed.max} \u00b0C, within the H2C's ${limitC} \u00b0C` };
   }
@@ -188,8 +220,22 @@ export function withinH2C(parsed, limitC, { partialWindow = false } = {}) {
 export function parseEnclosure(raw) {
   const text = raw == null ? '' : String(raw).trim();
   if (!text || /^not published$/i.test(text)) return { text, state: 'unknown' };
-  // A table with a column headed "Enclosed Space" answers it in one word, and "no" is the whole answer.
-  if (/\bnot\s+(necessary|needed|required)\b|^no\s+enclosure\b|^(no|none)$/i.test(text)) return { text, state: 'not-needed' };
+  // A table with a column headed "Enclosed Space" answers it in one word, and "no" is the whole answer. Polymaker's
+  // "Closure chamber" row answers "No Needed" on some sheets, and PEBA's prose says a filament "does not require sealed
+  // printing".
+  if (/\bnot\s+(necessary|needed|required)\b|^no\s+(enclosure|needed)\b|^(no|none)$|\bdoes\s+not\s+require\b/i.test(text)) return { text, state: 'not-needed' };
+  // Eryone's "Sealed printing" row says whether the filament prints open: "Supports open/closed printing", "Open
+  // printing", "enclosed printing/open printing", "supports open printing, and the sealing effect is better if it is
+  // sealed". A filament its maker prints open needs no enclosure; that an enclosure improves it is a preference the
+  // raw column keeps, and the H2C is enclosed anyway. The same row answers "Closed printing" or "Box Sealing Print"
+  // for the filaments that need one (below).
+  if (/^open\s+print|\bsupport(s|ing)?\s+open\b|\bopen\s+print\w*\s*\/\s*(closed|enclosed)\s+print|\b(closed|enclosed)\s+print\w*\s*\/\s*open\s+print/i.test(text)) return { text, state: 'not-needed' };
+  if (/^(closed|enclosed)\s+print|^box\s+sealing\s+print/i.test(text)) return { text, state: 'recommended' };
+  // Polymaker's "Closure chamber | Needed", with or without the temperatures it wants in brackets (read as the chamber).
+  if (/^needed\b/i.test(text)) return { text, state: 'recommended' };
+  // A sentence that recommends printing in a closed printer: eSUN's "we highly recommend printing PC-HT material within
+  // a closed chamber printer", or "print in a printer with a closed chamber".
+  if (/\brecommend\w*\b[^.]*\b(closed|enclosed)\s+(chamber|printer)|\bprint\w*\s+in\s+a\s+printer\s+with\s+(a\s+)?closed\s+chamber/i.test(text)) return { text, state: 'recommended' };
   // A comparison table may answer the row with a mark instead of a word: Bambu Lab's filament guide draws a tick or a
   // cross in its "Print with Enclosure" row, where its January 2025 revision printed "Required" and "Optional" (D88).
   if (/^[✗✘]$/.test(text)) return { text, state: 'not-needed' };
