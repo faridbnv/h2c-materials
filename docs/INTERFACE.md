@@ -6,8 +6,9 @@ Two readers share one screen: someone who wants a shortlist, and an engineer who
 behind it. Progressive disclosure answers that.
 
 This dataset adds a harder problem. It is sparse, and deliberately honest about being sparse.
-Tensile strength exists for 78 of 153 candidate materials, price for 38, and most process fields for almost
-none. A conventional filter interface renders that as a tool that looks broken. **Making absence
+Tensile strength is published for about two in three of the materials, a price was sampled for about one in five, and
+most process fields for almost none (the filter rail states each count, from the build it ships with). A conventional
+filter interface renders that as a tool that looks broken. **Making absence
 legible and useful, rather than invisible, is the design problem.** Most of what follows is
 downstream of it.
 
@@ -17,7 +18,8 @@ downstream of it.
 1 Set requirements  ›  2 Read the candidates  ›  3 Compare trade-offs  ›  4 Check the evidence
 ```
 
-Named on the opening panel, because opening on every row of everything (153 today) gave no entry point.
+Named on the opening panel, because opening on every row of everything (every material in the database) gave no
+entry point.
 
 The panel offers six application templates. A template **populates controls and then gets out of the
 way**: every value it sets stays editable, and the header afterwards says which template was used and
@@ -34,11 +36,14 @@ bare table and no statement of the query.
 
 The heading above the pills adds up to the rows under it. It counts against the materials in the database that are
 not family entries or aliases, the same denominator the start panel and the rail use (a family name is never a
-candidate, so none counts; the current numbers are in `build/snapshot/counts.md`). Under **Confirmed only** it reads,
-for example, "15 of the 142 materials in this database meet these requirements" and says how many more
-could not be checked and are left out. Under **Include uncertain** those materials are listed, so the heading counts
-them too ("… and 16 more could not be checked for missing data"), and the sentence under it says how many an
-estimate screened out of the list. "15 meet these requirements" above 23 rows had read as a contradiction.
+candidate, so none counts; the current numbers are in [build/snapshot/counts.md](../build/snapshot/counts.md)). Under
+**Confirmed only** it reads, for the Indoor prototype template, "15 of the 153 materials in this database meet these
+requirements" and says how many more could not be checked and are left out. Under **Include uncertain** those
+materials are listed, so the heading counts them too ("… and 100 more could not be checked for missing data"), and the
+sentence under it says how many an estimate screened out of the list. "15 meet these requirements" above 23 rows had
+read as a contradiction. Both headings, as the current build words them, are in
+[build/snapshot/ui/10-indoor-prototype-strict.txt](../build/snapshot/ui/10-indoor-prototype-strict.txt) and
+`11-indoor-prototype-explore-estimates.txt` beside it.
 
 ## One candidate set, five lenses
 
@@ -139,28 +144,36 @@ chart, so a family asked about is never in the grey "other families".
 **Every numeric control states its own data availability before it is touched.**
 
 ```
-HDT at 0.45 MPa                          88 of 153 have data
-[>=] [ 100 ] °C
-     2 of those 88 cite a source that states the standard but not the load
+Heat resistance
+temperature where it starts to soften under load
+97 of 134 have data
+Applies only to Morphology amorphous | semicrystalline | … ; 19 other materials are not applicable
+[at least ▾] [ 100 ] °C
 ```
+
+(The counts are the build of 27 September 2026; a property that applies to some filaments only counts those.) Until
+m137 (D84) the heat control added a line counting the values whose source named no load; those are now values
+published without their conditions, counted apart like a value with no stated direction.
 
 This single pattern does most of the work. It says what a criterion can and cannot decide before
 anyone relies on it, and it turns the build's audit findings into everyday guidance.
 
 The numeric controls are the registry's measured headlines, in its order (D46): under **Mechanical** density,
-stiffness, strength, **strength across layers** (tensile strength along Z), stretch before breaking and **notched impact
-strength** (Charpy, ISO 179, kJ/m²); under **Thermal** heat resistance and **glass transition**; under **Cost** the
-price. The three in bold came with D92 and are filters, chart axes, drawer key numbers, Compare rows and export
-columns, but not default table columns: the Properties table fits a 1440 px screen with the filters open with the
-columns it has, and one more made it scroll. What each compares, and what it leaves out, is in DATA-MODEL, "What each
-selectable property compares"; the drawer says it beside the values left out (below).
+stiffness, strength, **strength across layers** (tensile strength along Z), stretch before breaking, **notched impact,
+Charpy** (ISO 179, kJ/m²) and **notched impact, Izod** (ISO 180, kJ/m²), never mixed or converted; under **Thermal**
+heat resistance and **glass transition**; under **Cost** the price. The four in bold came with D92 and D94 and are
+filters, chart axes, drawer key numbers, Compare rows and export columns, but not default table columns: the
+Properties table fits a 1440 px screen with the filters open with the columns it has, and one more made it scroll.
+What each compares, and what it leaves out, is in DATA-MODEL, "What each selectable property compares"; the drawer
+says it beside the values left out (below).
 
 A group's badge says what it counts ("2 set"): a bare number beside "Mechanical" read as a count of results. The
 support filter is called **Bambu support level**, as its requirement pill is, and the temperature checks are "within
 the H2C limit of 350 °C": "baseline" means the reference row in the table and nothing else.
 
 **A field that cannot discriminate is not built as a filter.** H2C routing and AMS read "verify the
-exact grade" on 1,051 of 1,077 profiles, and printing difficulty is unpublished on all 1,077. They appear
+exact grade" on nearly every profile, and printing difficulty is unpublished on all of them (the rail's note under
+Compatibility gives the counts). They appear
 in a material's Printing tab as evidence. A filter that passes everything teaches the reader to
 trust something that checked nothing.
 
@@ -189,11 +202,13 @@ window the H2C only partly reaches, which stay unresolved rather than passing.
 **In the H2C research scope** is what the pinned checkbox says, because that is all it reads. It
 used to say "Printable on an H2C", a promise about temperatures and feed paths it never tested.
 
-Environment criteria split by what the data can answer. Six categories carry reducible verdicts and
-are offered as filters. Six others have records but no reducible verdict among them, UV and outdoor
-being the sharpest at seven records and zero verdicts; offering those as constraints would return
-UNKNOWN for all 153 candidate materials while looking like a working filter. Among the six that are offered,
-only an unqualified record passes: "limited resistance" is unresolved, never a PASS.
+Environment criteria split by what the data can answer. A category is offered as a filter ("Resists acids") where a
+grade-level record states a verdict (acids, alkalis, solvents, oils and grease, water, fire), or where the base
+polymer's published behaviour covers some materials (sunlight and weather, moisture, hot water and steam: no record of
+a material's own states a verdict in these, so they pass nothing and only screen, below). Food contact, creep and
+fatigue have records but no reducible verdict among them, and are named under the filters as evidence only: offered as
+constraints they would return UNKNOWN for every material while looking like a working filter. Among the categories
+offered, only an unqualified record passes: "limited resistance" is unresolved, never a PASS.
 
 A material's Environment tab counts every record it lists, and its first line says how many of them are in
 categories the filters can use. The tab used to count only those, so ABS read 8 over thirteen records and BVOH read
@@ -206,8 +221,8 @@ what they do: the record is shown in the drawer, it never passes the requirement
 polymer resistant to nothing in the class (attacked or dissolved by what it reports, with no agent rated resistant) it
 screens the material out under Include uncertain with **Use estimates and polymer data** on. A polymer attacked only by
 the concentrated acid beside a resistant dilute one is `limited`, not screened: that is what a grade sheet's "resistant
-to acids" means too (D64). A category with polymer-level records is offered as a filter even where no grade-level record states a
-verdict; it cannot pass there, and its line says "0 records state a verdict".
+to acids" means too (D64). A category with polymer-level records is offered as a filter even where no grade-level
+record states a verdict; it cannot pass there, and its line says "0 records state a verdict".
 
 ## What to do with missing data
 
@@ -236,18 +251,20 @@ back-test of every measured headline (DECISIONS D48, D59): an end may screen onl
 true value lies beyond it at most 10% of the time, it is never inside the plausible (95%) range, and an end the
 material's own evidence lies beyond is open and screens nothing. A printed measurement of the material that bounds
 the headline from below and meets the requirement vetoes a screen; a resin supplier's moulded value is not one of
-those and vetoes nothing. The drawer says, for each estimate, which ends may screen and why. A heat value whose load
-the source never stated never passes a heat requirement, and it is bracketed rather than open-ended:
-PLA Lite's 53 °C means 53 to about 63 °C at 0.45 MPa, so with estimates on it is screened out of
-"at least 100 °C". A property
-that is not applicable (`n/a`), such as heat deflection of an elastomer, screens the same way. A
-screened material's result is still UNKNOWN and it is counted there; the Why excluded tab says how
-many each requirement screened.
+those and vetoes nothing. The drawer says, for each estimate, which ends may screen and why. A heat value whose source
+does not state the load is published without its conditions (D84): marked not comparable, it decides nothing unless
+*Also count values published without their test direction or load* is on. (Until m137 it was read as a bracket that
+could screen.) A property that is not applicable (`n/a`), such as heat deflection of an elastomer, screens as an
+estimate that wholly fails a requirement does. A screened material's result is still UNKNOWN and it is counted there;
+the Why excluded tab says how many each requirement screened.
 
-Five canonical names are families, not materials: PA, PA-CF, PA-GF, TPE, and CoPA (another name for
-PA6/66). They are never rows. Searching one lists its members, with a line saying what the family is,
-and its members link to their drawers. The family's own name opens its entry: what it is, why it has no tabs (its
-measurements, profiles, grades and prices are recorded under each member), and its members, each opening its drawer.
+Some canonical names are families or aliases, not materials: a family groups materials (PA, PA-CF, PA-GF, TPE, TPU),
+and an alias names another material's products (CoPA, another name for PA6/66; a Bambu Lab product line such as PLA
+Basic; a Bambu Lab TPU, filed under its hardness class). How many there are is in
+[build/snapshot/counts.md](../build/snapshot/counts.md). They are never rows. Searching one lists its members, with a
+line saying what it is ("a family in this database, not one material", or "another name for" the material), and its
+members link to their drawers. Its own name opens its entry: what it is, why it has no tabs (its measurements,
+profiles, grades and prices are recorded under each member), and its members, each opening its drawer.
 
 With estimates on, the table cell shows the estimate rather than the related `*` value, because the
 estimate already contains that measurement converted to the headline. Sorting then counts it: a column sorts an
@@ -281,7 +298,7 @@ exports. Always icon plus text, never colour alone.
 | PASS | check | Evidence satisfies the criterion |
 | FAIL | cross | Evidence violates it |
 | UNKNOWN | question | No comparable evidence |
-| INDETERMINATE | half circle | A published range straddles the threshold, or the source leaves it unsettled (a load not stated, a chamber window only partly reachable) |
+| INDETERMINATE | half circle | A published range straddles the threshold, or the source leaves it unsettled (a chamber window only partly reachable, a recommended window above the H2C's) |
 
 A published mean with its spread is not a range: it passes or fails on its mean, and a threshold inside the spread
 marks the value `≈` "close to the limit" (D54).
@@ -312,12 +329,11 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 
 | Looks like | Is |
 |---|---|
-| `2.27` over `0.95–2.95 · 27` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. Select it for the details and **Open its products** |
+| `2.45` over `0.95–4.24 · 38` | A material as the spread of its products (D83): their typical value (median), their range, and how many publish it comparably. Select it for the details and **Open its products** |
 | `4.43` | A measured value of the material's one product that publishes it comparably |
 | `PASS` over `1 of 4` | One of the four products that could be judged meets every requirement together. Select it for the untested count |
 | `46*` | A real measurement that no product publishes comparably. Select it for why, and **Open the measurement** |
 | `~1.9–5.3†` | An estimate: the likely (80%) range of a calibrated model of every observation. Never passes; select it for its evidence and which ends may screen, and **Open the estimate** |
-| `80?` | A heat value whose source states the standard but not the load. It can neither pass nor fail a heat requirement outright |
 | `35≈` | A published mean ± spread whose spread contains the requirement's threshold. Judged on the mean (D54); select the mark for the spread |
 | `50.99` | A number beside a requirement on its column keeps the digits that put it on its own side of the threshold, where rounding would cross it |
 | `—` | Not published. Select it for which kind of absence |
@@ -353,35 +369,38 @@ cards, and the estimate's explanation) a stiffness under 1 GPa reads in MPa, `8�
 the column's unit too. The screening range in that text keeps a single number's three significant digits: its ends are
 where a screen starts. A measured value is printed as before.
 
-One line above the table names these marks, always the same entries in the same order: `—` not published, `*`
-measured but not the headline, `~a–b†` estimate (italic = rough), `?` heat load not stated, `≈` close to the limit,
-`n/a` not applicable. The estimate entry shows whenever estimates do, in both column sets, since the Printing columns
-show estimated windows too. Each entry opens its definition. It replaced a paragraph whose entries came and went with
-the rows and told the reader to hover.
+One line above the table names these marks, always the same entries in the same order: `—` not published, `2.3` over
+`1.0–3.0 · 27` typical and range, `*` measured, not comparable, `~a–b†` estimate (italic = rough), `≈` close to the
+limit, `n/a` not applicable. The `?` entry for a heat value whose load was not stated went with m137 (D84), since such
+a value is now counted apart like any other published without its conditions. The estimate entry shows whenever
+estimates do, in both column sets, since the Printing columns show estimated windows too. Each entry opens its
+definition. It replaced a paragraph whose entries came and went with the rows and told the reader to hover.
 
-Every measured number is itself a button, marked by a small dot, at least 24 px each way and reachable by keyboard: it
-opens the measurement with its direction, specimen, conditioning, standard, post-processing, test temperature,
-print parameters, notes, grade and source, and the source's original is a link. It works in
-the table, the Overview and Compare. It opens the Sources tab, scrolls that
-measurement into view, opens whatever of it is collapsed and marks it, because PA6-CF has 21 and "one click to the
-evidence" was otherwise one click plus a hunt. Only the six-pixel dot used to be the button, while the drawer said "click any
-number".
+Every number measured on one product is itself a button, marked by a small dot, at least 24 px each way and reachable
+by keyboard: it opens the measurement with its direction, specimen, conditioning, standard, post-processing, test
+temperature, print parameters, notes, grade and source, and the source's original is a link. It works in the table,
+the Overview, Compare and the Products tab. It opens the Sources tab, scrolls that measurement into view, opens
+whatever of it is collapsed and marks it, because PA6-CF has well over a hundred measurements and "one click to the
+evidence" was otherwise one click plus a hunt. Only the six-pixel dot used to be the button, while the drawer said
+"click any number". A material's typical value over several products is no one measurement: selecting it explains the
+spread (the median, the range, how many products and which are set apart) and offers **Open its products**, as the
+table under Reading a number says.
 
 ## Explanations on the page
 
 A tooltip may repeat what is on screen; it may not be the only place a meaning is said (D61). Every mark whose meaning
-is more than its glyph is a real button that opens one explanation popover: an estimate, a `*` value, `?`, `≈`,
-`n/a`, a dash or a missing-state word, the Also needs chips and "none recorded", a chamber word or band, a print
-window, "no price" and "out of stock", the screened, assumed and baseline chips, each legend entry, Use estimates, the drawer's gate
-chips, its "recorded 240–270 °C" caveat, a quarantined price listing and a physically implausible measurement, and in
-Compare each result, gate and estimate.
+is more than its glyph is a real button that opens one explanation popover: a material's typical value, an estimate, a
+`*` value, `≈`, `n/a`, a "not comparable" mark on a product's value, a dash or a missing-state word, the Also needs
+chips and "none recorded", a chamber word or band, a print window, "no price" and "out of stock", the screened, assumed
+and baseline chips, each legend entry, Use estimates, the drawer's gate chips, its "recorded 240–270 °C" caveat, a
+quarantined price listing and a physically implausible measurement, and in Compare each result, gate and estimate.
 
 - Click, tap, Enter or Space opens it beside the mark, inside the screen at any width; Escape, the close button, the
   mark again or a click elsewhere closes it, and focus returns to the mark. Tabbing past either end closes it and
   carries on from the mark.
 - Where there is a natural next step it ends with one action: an estimate or a screened chip offers **Open the
-  estimate** (the material's Overview), a `*` value **Open the measurement**, a print window or need **Open the Printing
-  tab**.
+  estimate** (the material's Overview), a `*` value **Open the measurement**, a material's typical value **Open its
+  products**, a print window or need **Open the Printing tab**.
 - Inside a table row a mark does only its own job: the row's drawer does not open behind it.
 - The words come from the functions that wrote the tooltips (`estimateTitle` and the rest), and each mark keeps its
   title, so a mouse still gets it on hover and the wording cannot fork.
@@ -424,23 +443,28 @@ still Evidence, which a measured value's button, links and saved scenarios use. 
 recorded for this material", gives the coverage record's reason where there is one, and offers the Coverage tab, where it
 had been a dashed box and a dead end.
 
-**Measurements** in Mechanical, Thermal and Sources are grouped by the source that published them. A condition the
-source states once for its sheet (post-processing, test temperature, print parameters, notes) is said once at the top of
-its block, "For every measurement below from this source", when more than half of the block's measurements, and at least
-two, state it in the same words; a measurement whose wording differs shows its own, and one that states none where the
-others do says so ("Except where one says otherwise"). ABS had repeated one 60-word print-parameter paragraph under all 20
-of its measurements. A paragraph longer than about 140 characters shows its first words and **Show all**; a native
+**Measurements** in Sources are grouped by the source that published them; Mechanical and Thermal lead with the
+property instead (see "The drawer on 21 September 2026" below). A condition the source states once for its sheet
+(post-processing, test temperature, print parameters, notes) is said once at the top of its block, "For every
+measurement below from this source", when more than half of the block's measurements, and at least two, state it in the
+same words; a measurement whose wording differs shows its own, and one that states none where the others do says so
+("Except where one says otherwise"). ABS had repeated one 60-word print-parameter paragraph under all 20 of its
+measurements. A paragraph longer than about 140 characters shows its first words and **Show all**; a native
 disclosure, so it works from the keyboard and the browser's find opens it. A property the sheet names without a value is
 not an entry: it goes on one line at the end of its block, "Also on this sheet, not published: glass transition
-temperature, crystallization temperature". Mechanical and Thermal still count those, as the measurement records they are.
+temperature, crystallization temperature", and in Mechanical and Thermal on one line at the end of the tab, "Named on a
+sheet, not published", with each product's name. Mechanical and Thermal still count those, as the measurement records
+they are.
 
-**From a value to its source.** Each measurement ends in labelled parts, "Measurement V000554 · grade G027-01 · source:
-Bambu Lab, B abs filament, p. 2: Young's Modulus (X-Y)", and the source's name is a button that opens the Sources tab at
-that source's block, marked, with focus on its heading. In Sources a block is headed by the source's publisher and title,
-then its class and access date, and **Open the original (PDF)** or **(web page)**, where the raw URL had been the link;
-the source ID is a small tag. The source's title is the one the sources table records, which is sometimes a file's name.
-A measured value opened from the table, the Overview or Compare lands on its measurement, opened and marked, whatever is
-collapsed around it.
+**From a value to its source.** Each measurement ends in labelled parts. In Mechanical and Thermal, where it is led by
+its product's name, it ends "Measurement V000554 · source: Bambu Lab, Bambu Filament Technical Data Sheet - ABS, p. 2:
+Young's Modulus (X-Y)", and the source's name is a button that opens the Sources tab at that source's block, marked,
+with focus on its heading. In Sources, under that heading, it ends "Measurement V000554 · grade G027-01 · on the source:
+p. 2: Young's Modulus (X-Y)". A block there is headed by the source's publisher and title, then its class and access
+date, and **Open the original (PDF)** or **(web page)**, where the raw URL had been the link; the source ID is a small
+tag. The source's title is the one the sources table records: the heading the document prints, not a file name (D63). A
+measured value opened from the table, the Overview, Compare or the Products tab lands on its measurement, opened and
+marked, whatever is collapsed around it.
 
 **From the base polymer.** Where a material has no environment record of its own in a category, the Environment tab
 ends with a section headed "From the base polymer PLA" (D64): one line saying that no source tested this material or its
@@ -452,14 +476,16 @@ notes and the source by name. The tab's count includes these records and its fir
 polymer's. Nothing here is only in a tooltip (D61). The section shows in both modes: it is published evidence, labelled
 for what it is, not a model's output.
 
-**Headings name things, not IDs.** Printing profiles are headed by the grade's product and the profile's kind ("Bambu Lab
-ABS · Manufacturer published guidance"), Grades by the product, and each has its IDs as tags; Coverage rows lead with the
-domain and status and end with the record's ID as a tag; Environment records end in labelled parts with the source by
-name. `P0032 · G027-01 · MANUFACTURER PUBLISHED GUIDANCE` and `B-ABS-FILAMENT-TDS` had been the headings.
+**Headings name things, not IDs.** Printing profiles are headed by the grade's product and the profile's kind ("Bambu
+Lab ABS · Manufacturer published guidance"), products by the product's name, and each has its IDs as tags; Coverage
+rows lead with the domain and status and end with the record's ID as a tag; Environment records end in labelled parts
+with the source by name. `P0032 · G027-01 · MANUFACTURER PUBLISHED GUIDANCE` and `B-ABS-FILAMENT-TDS` had been the
+headings.
 
-**Grades** say once, above the grades, that the colours a grade is sold in are not in this database and pigment can change
-strength and stiffness; a grade shows the colour its specimens were printed in only where that is recorded. The same
-sentence under every grade had read as something different about each.
+**Products** (the Grades tab until phase 3) says once, above the products, that the colours a product is sold in are
+not in this database and pigment can change strength and stiffness; a product shows the colour its specimens were
+printed in only where that is recorded. The same sentence under every grade had read as something different about
+each.
 
 A family entry has no tabs, and its drawer says why in one line (its measurements, profiles, grades and prices are
 recorded under each member) above the list of members.
@@ -467,9 +493,11 @@ recorded under each member) above the list of members.
 ## Search
 
 Matching is by word, not by substring: a query term has to begin a word of the material's name,
-family, full name, abbreviation, base polymer, modifier or one of its grade identifiers. "pa6"
-finds PA6-CF, "cf" finds every carbon-filled grade, "support" finds the support materials through
-their family. Slashes separate, so "Support for PLA/PETG" answers to either name.
+family, full name, abbreviation, base polymer, modifier, one of its grade identifiers, or the maker or name of one of
+its active products ("Polymaker", "PolyLite", "Prusament"). "pa6" finds PA6-CF, "cf" finds every carbon-filled grade,
+"support" finds the support materials through their family. Slashes separate, so "Support for PLA/PETG" answers to
+either name. Searching a brand was the first thing a first-time reader tried (audit 2026-09-11, F1), and it had found
+nothing.
 
 A substring test would be simpler and is wrong in a way that is hard to see: "PLA" sits inside
 "thermoplastic", so searching for the most common filament there is returned every TPU and TPE in
@@ -478,16 +506,18 @@ the database, looking for all the world like a deliberate classification.
 Search runs over the whole database, never only over what survived the filters. Hits the
 requirements removed are listed separately, each with the criterion that removed it. The heading over them gives the
 reason: the requirements rule them out, the result chips hide them, or, when both apply, how many of each. A search that
-matches nothing says so and offers **Clear the search**; brand and product names are not indexed,
-and the empty screen says that too.
+matches nothing says so, says what search looks at, suggests searching the polymer instead, and offers **Clear the
+search**.
 
 ## Words
 
 Property names come from one module, `app/js/ui/labels.js`. The plain name leads and the technical
 name is the tooltip: "Stiffness", not "Tensile modulus XY". Constraints are described by one
 function, used by the requirement pills, the explain panel, the per-candidate why list, the
-excluded-search group and the CSV export, so the panel can never print `hdt045 >= 100` while the
-pill beside it says "Heat resistance at least 100 °C".
+excluded-search group, the Products tab's "Fails:" line under a product and the CSV export, so the panel can never
+print `hdt045 >= 100` while the pill beside it says "Heat resistance at least 100 °C". The Products tab had printed
+the engine's criteria as they were ("Fails: hdt045 >= 100", "Nozzle temperature within H2C baseline") until
+September 2026.
 
 Environment category names are authored in `schema/vocab/environment-categories.csv` and compiled
 into the snapshot, in a heading form ("Acid resistance") and a sentence form ("acids"). The engine
@@ -501,13 +531,14 @@ headline, then whatever has a price. A listing with no usable price reads "no pr
 one line; the words open who lists it, when it was seen and whether it was in stock. A dash with a link arrow had read as
 nothing to buy, and "listed, no price" over "out of stock" took three lines of a desktop column and doubled the row. Under
 a price, "out of stock" is a small second line. A material with no Canadian observation says "No Canadian price", not "No CA
-price". The Price tab lists every observation with retailer, pack
-size, stock and the date it was seen. A listing with a displayed price but no regular price the sample could rely on
-(44 of 104) shows the displayed price per kilogram marked "offer", which opens who lists it, at what shelf price, and why
-it is not a regular price; it backs no headline. A listing with no price at all reads "no price" the same way, where it
-had read "n/a". A quarantined listing is struck through
-and its reason is a line under its row, where it had been only the row's title and a button. An optional filter shows only materials a sampled retailer
-listed, and optionally only those in stock.
+price". The Price tab lists every observation with its retailer, variant, pack size, price per kilogram, stock and
+whether it is in the sample, under one line giving the date the prices were sampled (a listing's own date is in the
+explanation its "offer" or "no price" opens). A listing with a displayed price but no regular price the sample could
+rely on (44 of the 104 sampled in September 2026) shows the displayed price per kilogram marked "offer", which opens
+who lists it, at what shelf price, and why it is not a regular price; it backs no headline. A listing with no price at
+all reads "no price" the same way, where it had read "n/a". A quarantined listing is struck through and its reason is
+a line under its row, where it had been only the row's title and a button. An optional filter shows only materials a
+sampled retailer listed, and optionally only those in stock.
 
 A material no sampled retailer listed is reported UNKNOWN, not FAIL. Three Canadian retailers on a
 single day is not evidence that something cannot be bought.
@@ -548,7 +579,8 @@ warnings and banners · the chart · the guide-line card · reading this chart
 - The axis picker reports the **point count for the chosen pair before drawing**. Some pairs are
   genuinely thin, and below ten points the count becomes a warning.
 - **Each point shows** is one ordered choice of what a mark means, replacing two switches that
-  overlapped. *One material* uses one headline point per material. *One matched measurement pair*
+  overlapped. *One material* uses one headline point per material. *One product* plots every product that publishes
+  both values comparably, in its material's colour. *One matched measurement pair*
   draws one point per grade per compatible pair. *One mixed-condition pair* also admits looser
   matches, draws them hollow, and names in a banner exactly what it mixed.
 
@@ -593,12 +625,12 @@ warnings and banners · the chart · the guide-line card · reading this chart
   dotted line for one estimated axis, a dotted box for two, a cross for the familiar filament. The legend used to carry
   shape as 40-odd family and filler rows in 10 px type, and nothing said what a hollow point or a dotted box was. Point
   labels, range labels and requirement lines are 11 px.
-- **Compare with** adds one familiar filament, PLA by default, as a labelled cross. It is a
-  reference, not a candidate: excluded from the front, from the counts and from the index tally,
+- **Compare with** adds one familiar filament of the reader's choosing, none until one is chosen, as a labelled cross.
+  It is a reference, not a candidate: excluded from the front, from the counts and from the index tally,
   exactly like the steel and aluminium envelopes.
 - **Encoding**: colour is polymer family, marker shape is filler class, outline carries evidence
-  status; the key under the chart names each. There are 19 families, past what a categorical palette can separate, so the eight largest
-  get their own hue and the rest group as Other.
+  status; the key under the chart names each. There are more families than a categorical palette can separate (twenty
+  in September 2026), so the eight largest get their own hue and the rest group as Other.
 - A requirement on either axis is drawn as a dashed line labelled in the pill's words, "Density at most 1500 kg/m³",
   where the chart had printed "Density <= 1500". On a Log axis the line is at its value: Plotly 4 reads a shape's
   position in data units and an annotation's in log units, and the line had been drawn at the log of its value (3 GPa at
@@ -725,31 +757,79 @@ the material passes when one product passes. The table's Result says how many (`
 products' typical value with their range under it, and **Rank by** orders the results by a goal: a performance index
 worked out for each passing product, the material placed by the median of its products, its best product named under
 its name. A column sort clears the ranking. The drawer's **Products** tab (the Grades tab before) opens with the
-material's spread per property and, with requirements set, the products that meet all of them; each product shows its
-own values, marked where not comparable, **How to print it** from its own profiles, and **What the maker says** (its
-print notes on warping, tolerance and adhesion, and its evidence records), or says that nothing has been collected
-from its data sheet yet and its maker's site has not been searched. The Overview counts, axis by axis, how many
-products the H2C can print. The Ashby chart draws each material as a bubble (the middle half of its products, whiskers
-to the extremes) behind its typical point, and **One product** plots every product that publishes both values
-comparably. Compare draws each material's product range behind its bar. **Export their products** writes every
-product of the materials on screen with its values, levels, print settings and verdict. **Also count values published
-without their test direction or load**, under Evidence, lets such values decide (D84); it travels in the link.
+material's spread per property and, with requirements set, the products that meet all of them; a product that fails
+says which requirements, in the pills' words. Each product shows its own values, marked where not comparable, **How
+to print it** from its own profiles, and **What the maker says**: since phase 6 (D85), its maker's own statements about
+printing and using it, quoted and grouped by topic (warping, precision, nozzle wear and the rest), each with the
+document and page it is on and a product page marked as marketing text, then a line naming the maker and what its
+documents leave out (a topic, a chamber, drying or annealing need) and whether its website has been searched; its
+other evidence records follow, folded. Above the products, **What makers say** counts, topic by topic, how many makers
+say something. The Overview counts, axis by axis, how many products the H2C can print. The Ashby chart draws each
+material as a bubble (the middle half of its products, whiskers to the extremes) behind its typical point, and **One
+product** plots every product that publishes both values comparably. Compare draws each material's product range
+behind its bar. **Export their products** writes every product of the materials on screen with its values, levels,
+print settings and verdict. **Also count values published without their test direction or load**, under Evidence,
+lets such values decide (D84); it travels in the link.
 
 Measured on 2026-09-25 in headless Chrome on the owner's laptop: the page renders its first result in about 0.36 s
 from a cached file, with a 104 MB heap, well inside the 1.5 s at which measurements would move to a second payload.
 
-## The drawer at 1,119 grades
+## The drawer on 21 September 2026, at 1,119 products
 
-PLA has 198 grades and 700 measurements, and the drawer listed both flat. Its long tabs are now groups that open one
-at a time. **Grades**, **Printing** and **Sources** group by maker (by publisher, for sources): each maker is one
-collapsed line saying how many grades, profiles or sources it holds, the maker of the material's typical product
-open, and a search box above filters by grade, product, maker or source and opens what it finds. (Until phase 4 a
-"representative grade" was marked "stands for this material"; since D83 no product stands for it.) **Mechanical** and **Thermal** lead with the property: each is a collapsed line
-with its count, and inside it every value with its grade and source, largest first, keeping the two short conditions
+On 21 September 2026 PLA had 198 products and 700 measurements, and the drawer listed both flat. Its long tabs became
+groups that open one at a time, as they still are. **Products** (then Grades), **Printing** and **Sources** group by
+maker (by publisher, for sources): each maker is one collapsed line saying how many products, profiles or sources it
+holds, the maker of the material's typical product open (in Products, with requirements set, the products that meet
+them all are a group of their own above, open instead), and a search box above filters by product, grade, maker or
+source and opens what it finds. (Until phase 4 a "representative grade" was marked "stands for this material"; since
+D83 no product stands for it.) **Mechanical** and **Thermal** lead with the property: each is a collapsed line with its
+count, and inside it every value with its product and source, largest first, keeping the two short conditions
 (post-processing, test temperature) and leaving the print-parameter paragraphs to the Sources tab. No range is drawn
-across a property's values (D46). Where a selectable property compares only some of a property's values, its
-comparison note opens the property's block and says which, and why the rest are shown but not compared: under Charpy,
-Izod and Impact strength, that only a notched Charpy bar in kJ/m² at room temperature is; under each tensile strength,
-that only a bar the source says it pulled along Z is a layer strength; under the glass transition, that a resin
-supplier's value is the raw material's (D92). With estimates on, each grade block ends with what the model says of that grade,
-one line per headline (D81); in Confirmed only it shows nothing, as the layout probe asserts.
+across a property's values. Where a selectable property compares only some of a property's values, its comparison
+note opens the property's block and says which, and why the rest are shown but not compared: under Charpy strength,
+that only a notched Charpy bar (ISO 179) in kJ/m² at room temperature is; under Izod impact strength, the same of a
+notched Izod bar (ISO 180, D94); under Impact strength, both; under each tensile strength, that only a bar the source
+says it pulled along Z is a layer strength; under the glass transition, that a resin supplier's value is the raw
+material's (D92). With estimates on, each product ends with what the model says of it, one line per headline it
+publishes no comparable value for (D81); in Confirmed only it shows nothing. (The layout probe's check for estimates in
+a Confirmed-only drawer opens ABS-CF's Overview, not this tab.)
+
+## Where a product's own sheet is silent (re-center phase 6)
+
+A product whose own sheet says nothing on a value, or on a part of how to print it, may be answered by another sheet,
+and the page says which wherever the answer is shown (D88, D89). Its own sheet always wins, stricter or looser.
+
+**A twin's sheet** (D89). Products of one material whose sheets print one table are recorded once. A product reads
+its twin's value for a key number it publishes none of, and its twin's recipe for a part of printing its own profiles
+are silent on (nozzle, bed, chamber, enclosure, hardened nozzle, drying, annealing). Each value or setting read so
+carries, in small type beside it, "same sheet as" and the sibling's maker and product ("same sheet as Spectrum PC 275"
+on FormFutura's Kratos PC): in the Products tab's values and in its **How to print it**. The engine's reason ends with
+the same words, so the results panel and the exports carry them; a point under **One product** has them in its label;
+a material's typical value, selected, says how many of its products are such twins and that each counts as the
+product it is; and **Export their products** names them under Values read from and Recipe read from. A price is never
+read from a twin.
+
+**The printer maker's guide** (D88). Where a product's own sheet and its twin's are both silent on a part of its print
+gate (nozzle, bed, chamber, enclosure, hardened nozzle), it reads its material's row of Bambu Lab's Filament Guide,
+if the guide names the material's type. The setting in **How to print it** then carries "per Bambu Lab's Filament
+Guide for PLA, not this maker's sheet" ("not this product's data sheet" on Bambu Lab's own products); the gate's reason
+ends with the same words in brackets, so the results panel and the exports carry them; and the products export names
+the guide under Recipe read from. The guide never fills drying or annealing. For the nine types it asks an enclosure
+for, a chamber so read says "an enclosure, which the H2C's heated chamber is" (D90); where the product's own maker asks
+for one and states no temperature, it says "an enclosure its maker asks for, which the H2C's heated chamber is" (D93).
+
+**Counted on the Overview.** Under "Can the H2C print it?", the counts of how many products the H2C can print, axis by
+axis, say how many of those answers came from a twin's sheet and how many from a printer maker's guide, and that each
+product in the Products tab says which.
+
+**The guide's row in the Printing tab.** For a material the guide names, the Printing tab opens with the guide's row,
+above the profiles. It is headed by the guide's name ("Bambu Lab's Filament Guide for PLA") with the row's ID as a
+tag. A line says what it is: what the printer maker's guide states for its type, standing in for a product's print
+gate only where the product's own sheet, and a twin's, say nothing on that part, labelled there as the guide's and
+never the maker's; how many of the material's products read a part from it; and why the row speaks for this
+material. Then its nozzle and bed, each with its gate chip; its chamber (for the nine enclosure types, "No chamber
+temperature stated; the enclosure it asks for on its maker's own printers is the H2C's heated chamber"); its enclosure
+mark as the guide draws it, with its reading ("✗: not needed"); its nozzle line, with whether a hardened nozzle is
+required; its drying line, marked "recorded; fills no product's recipe"; and its source, with the column and rows. A
+material the guide does not name has no such block, and a material with a guide row but no profile of its own shows
+the block alone.

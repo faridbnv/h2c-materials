@@ -7,7 +7,7 @@
 
 import { renderValue, chip, esc, fmtNumber, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView } from './format.js';
 import { renderWhy } from './explain.js';
-import { materialName, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS } from './labels.js';
+import { materialName, describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
 import { evidenceSummary } from '../engine/coverage.js';
 
@@ -1096,6 +1096,11 @@ function tabBody(tab, c) {
   if (tab === 'Grades') {
     if (!grades.length) return empty('Grades');
     const judged = new Map((evaluation?.products ?? []).map((x) => [x.gradeId, x]));
+    // What a product fails, in the pills' words. A product's entry carries the engine's criterion strings, which had
+    // printed as they were ("Fails: hdt045 >= 100", "Nozzle temperature within H2C baseline"). A criterion is one
+    // requirement's, the same for every product, and the material's own results pair each with its requirement.
+    const requirementOf = new Map((evaluation?.results ?? []).map((r) => [r.criterion, r.constraint]));
+    const failText = (criteria) => criteria.map((k) => (requirementOf.has(k) ? describeConstraint(requirementOf.get(k)) : k)).join('; ');
     const typicalOf = new Set(Object.values(m.summary ?? {}).map((s) => s.typical).filter(Boolean));
     // Colour. The field was collected on every grade, but it does not hold what a buyer wants: on 132 of 144 grades it
     // is the same sentence saying properties may vary by colour, and on the others it names the colour of the specimen
@@ -1107,7 +1112,7 @@ function tabBody(tab, c) {
       const verdictChip = c.tested && j ? ` ${chip(j.verdict)}` : '';
       return `<div class="grade-block" data-search-item="${esc([gradeName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
       <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Product')}${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}</h3>
-      ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why">Fails: ${esc(j.failedBy.join('; '))}</div>` : ''}
+      ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why">Fails: ${esc(failText(j.failedBy))}</div>` : ''}
       ${productValues(g, c)}
       ${printCard(g)}
       ${makerSays(g, c)}
