@@ -140,6 +140,23 @@ Asked with the facts and a recommendation each; the owner took each recommendati
 4. **Lane 4 fetches new documents only where one settles a blocking answer**, through the import pipeline and named
    reviews. The general pause on imports stays, and no new reader rules are built for the held sheets.
 
+## Decided on 2026-09-26, for phase 6
+
+Raised by the lanes' findings; asked with the facts and a recommendation each:
+
+1. **Bambu's "print with an enclosure" counts as within the H2C's chamber** for the nine types its guide asks it for
+   (ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF, PPS-CF), where a product's own sheet is silent, labelled as
+   the guide's. The guide is written for Bambu's own enclosed printers. A maker's own chamber statement always wins;
+   revisit if one states a higher chamber for these types. (Recommended; taken.)
+2. **Out of scope is said once.** Scope holds the exclusion; the fourteen industrial high-temperature materials' H2C
+   status is "Exceeds H2C limits"; the two families drop their "- Outside H2C …" suffixes. (Recommended; taken.)
+3. **Nanovia's "Elongation ultimate strength" is the strain at the ultimate strength**, not an elongation at break:
+   its 14 values are refiled as that property, shown and kept, and no longer fill elongation at break. (Recommended;
+   taken.)
+4. **A tensile value labelled only by a ±45° raster counts as an XY value.** Makers commonly print their flat XY bars
+   with a ±45° raster; this supersedes m33's reading for such values. (The recommendation was to keep m33 until a
+   sheet printing both showed they agree; the owner chose to count them.)
+
 ## Working rules
 
 1. **Goal first.** Name the step and scorecard line a piece of work improves.
