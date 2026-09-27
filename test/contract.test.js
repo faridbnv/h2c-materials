@@ -1,9 +1,8 @@
-// The runtime contract (schema/db.schema.json, schema/reference.schema.json) and the reproducible build.
+// The runtime contract (schema/db.schema.json, schema/reference.schema.json). The reproducible build is
+// test/reproducible.check.js, in `npm run verify`.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
-import { execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { contractIssues } from '../build/src/contract.js';
@@ -85,19 +84,4 @@ test('a renamed, dropped, retyped or unexpected field is reported at its path', 
     `dist/db.json/materials/${pla}/headline/density  must have required property 'unit'`,
     'dist/db.json/measurements/0  must NOT have additional properties ("valeu")',
   ].sort());
-});
-
-test('building the same tree twice produces the same bytes', () => {
-  const hashes = () => Object.fromEntries(['db.json', 'reference.json', 'manifest.json'].map((f) => [f, createHash('sha256').update(readFileSync(join(root, 'dist', f))).digest('hex')]));
-  const before = hashes();
-  // Rebuilt with the build cache off, so the stages really run again; dist/ may have come from the cache, and then this
-  // also proves a stored result gives the bytes a cold build gives.
-  execFileSync(process.execPath, ['build/src/index.js'], { cwd: root, stdio: 'ignore', env: { ...process.env, H2C_NO_BUILD_CACHE: '1' } });
-  assert.deepEqual(hashes(), before);
-  // And through the cache, which the build uses by default.
-  execFileSync(process.execPath, ['build/src/index.js'], { cwd: root, stdio: 'ignore' });
-  assert.deepEqual(hashes(), before);
-  const manifest = read('manifest.json');
-  assert.equal(manifest.outputs['db.json'], before['db.json']);
-  assert.match(manifest.commit ?? '', /^[0-9a-f]{40}$/);
 });

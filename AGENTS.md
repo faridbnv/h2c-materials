@@ -22,7 +22,7 @@ generated and never edited, and the retired Excel workbooks are history. Before 
 
 ```bash
 npm run verify:fast   # format, schema, lint, generated docs, build and tests: while you work (about 75 s after a change, 30 s when nothing the build reads changed; budget 90 s)
-npm run verify        # verify:fast, then audit, review snapshot, interface views, 300 rendered scenarios: before a commit
+npm run verify        # verify:fast, then the reproducible rebuild, audit, snapshot, interface views, 300 rendered scenarios: before a commit
 npm run build:diff    # what the change did to the compiled database, against HEAD
 ```
 
