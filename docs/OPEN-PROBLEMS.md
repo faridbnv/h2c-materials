@@ -404,13 +404,15 @@ deferred.
   3D4Makers PI Z2, which stays TPI by the owner's confirmation of R193), two languages (Smartfil FLEX 77A in Spanish,
   a TPU; Flashforge FABRIAL-R in Japanese), BigRep HI-TEMP's mis-mapped text layer, Markforged's four-product
   Composites table, FKuR's Fibrolon trial-grade sheet, a resin maker's that names no filament, and QIDI S-White.
-- **Batch b36 deferred one sheet on a reader gap** (lane 4's targeted fetches, 2026-09-26): LEHVOSS's filament data
-  sheet for LUVOCOM 3F PAHT 9825 NT, the printed-specimen edition of the injection moulded sheet PAHT (M147) holds
-  (url:e0449d7a872e6ec0, SHA-256 ce40603f…). It prints the modulus at 3.1 GPa in XY at three rasters and 2.8 GPa in
-  ZX, under two headings ("Printed using Ultimaker S5 Pro and Engineering settings", "... Fast settings"); the reader
-  takes its specimen shape ("ISO 3167:2014 Typ A") for a moulded bar and 100 % infill for an elongation, so nothing
-  was accepted. It alone would give PAHT a comparable stiffness, the requirement that holds it up in three templates. A reader for the condition cell and the two
-  headings frees it, or the owner may allow it to be transcribed by a migration that checks each figure on its page.
+- **Batch b36 deferred one sheet on a reader gap**, and m198 entered it by the owner's leave (decision 7 of 2026-09-26):
+  LEHVOSS's printed-specimen sheet for LUVOCOM 3F PAHT 9825 NT is a second source of G147-01, checked line by line on
+  its hash-checked page. PAHT (M147) has its comparable stiffness now, 3.1 GPa: it passes Lightweight structure and
+  fails High-stiffness fixture. Left on the sheet, in the record tier: the thermal expansion it prints as 0.5 × 10⁻⁵/K,
+  a tenth of an unfilled polyamide's, which wants LEHVOSS's word before it is a number here; the 200 h service
+  temperature and the insulation resistance, which the registry has no property for; and its processing window (265
+  to 290 °C, bed ≥ 50 °C, drying 110 °C for 6 to 8 h), which differs from the moulded sheet's (270 to 290 °C) that
+  G147-01's profile holds. The reader gap itself (a condition cell and two headings) is not closed; a second sheet of
+  this layout would need the same kind of migration, or the reader.
 - **QIDI S-White is Support for ABS (R202) and did not enter.** QIDI's bilingual layout holds it, as it holds
   QIDI's other sheets: the reader read no profile, so the seven materials the sheet lists as suitable (its Support
   pairing) have no row to go in, and it misread the water absorption (b35). The bilingual reader, or a profile read

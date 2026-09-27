@@ -8,10 +8,10 @@ can go stale without the command that made it saying so.
 | Table | Rows |
 |---|---:|
 | materials | 174 |
-| grades | 1,159 |
-| measurements | 11,368 |
-| sources | 1,482 |
-| profiles | 1,196 |
+| grades | 1,160 |
+| measurements | 11,444 |
+| sources | 1,483 |
+| profiles | 1,274 |
 | profile notes | 2,061 |
 | headlines | 0 |
 
@@ -21,10 +21,10 @@ can go stale without the command that made it saying so.
 
 | Status | Documents |
 |---|---:|
-| applied | 1,310 |
+| applied | 1,311 |
 | duplicate-of | 303 |
 | registered | 179 |
-| deferred | 125 |
+| deferred | 124 |
 | safety-data-sheet | 49 |
 | held | 38 |
 | not-a-data-sheet | 37 |
@@ -163,7 +163,7 @@ npm run ingest:propose -- --compare --all
 | Fabru / purefil | 67 | 44 | 2 | 17 |  | 2 |  |  |  |  | 2 |
 | SUNLU | 53 | 46 |  |  |  | 2 |  | 5 |  |  |  |
 | Fiberlogy | 51 | 41 |  | 8 |  |  |  | 2 |  |  |  |
-| colorFabb | 48 | 41 | 2 | 5 |  |  |  |  |  |  |  |
+| colorFabb | 48 | 42 | 1 | 5 |  |  |  |  |  |  |  |
 | Filament2Print | 44 | 17 | 12 | 6 |  | 4 | 2 | 3 |  |  |  |
 | Bambu Lab | 42 | 42 |  |  |  |  |  |  |  |  |  |
 | Flashforge | 42 | 35 | 5 | 1 |  | 1 |  |  |  |  |  |
