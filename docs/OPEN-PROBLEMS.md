@@ -560,9 +560,13 @@ procurement products, 2026-09-26:
 - **75 products publish a Charpy value with no notch stated** and no notched one, most of them Chinese makers' sheets
   under GB/T 1043, which covers both bars. Their sheets may say which in a heading the import did not read. A re-read
   settles each; nothing else should.
-- **161 products publish a notched Izod value and no notched Charpy one** (115 of them in kJ/m², 52 in J/m, some in
-  both), so they have no notched impact value. An Izod headline beside the Charpy one (ISO 180, kJ/m²: 45 products comparably, 26 materials)
-  would give them one; the J/m values need the bar's thickness, which no sheet here prints.
+- **Notched Izod is its own filter now** (D94, m195): 116 products have a notched Izod value in kJ/m², 45 of them
+  comparable, and 26 materials a spread. Still without a notched impact value of either test: **47 products whose only
+  notched impact value is Izod in J/m** (ASTM D256, energy per metre of notch, which needs the bar's thickness no sheet
+  here prints), and **13 whose only notched Izod in kJ/m² names ASTM D256**: their makers converted a J/m value with a
+  thickness they do not give, which the owner ruled out (D94). Both are shown, never compared. Three notched Charpy rows
+  cite a tensile or film standard (ASTM D882 twice, ISO 527 once) and still count, since the Charpy row names no
+  standard; a re-read of those sheets would say whether the citation is a slip.
 - **38 products publish their across-layer tensile strength only under an XZ or ZX label**, 27 of them Eryone's "X-Z"
   (8.7 to 47 MPa). ISO/ASTM 52921 names a bar by the axis along its length first, which makes ZX an upright bar, and the
   vocabulary's own meanings for the two labels ("Upright in the XZ plane", "Flat, loaded along Z-X") say otherwise.

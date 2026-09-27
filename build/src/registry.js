@@ -107,6 +107,9 @@ export function compileRegistry(wb, issues) {
       // The conditions an impact value is defined at (D92): the notch it must state, and the test temperature a stated
       // one must be.
       notch: orNull(r.Notch), testTemperatureC: numOrNull(r['Test temperature °C']),
+      // The test standard a value that names one must name (D94): an Izod value to ASTM D256 printed in kJ/m² is that
+      // test's energy per metre of notch, converted by its maker, not an ISO 180 bar. A value naming no standard counts.
+      standard: orNull(r.Standard),
       evidenceGroup: orNull(r['Evidence group']),
       endpointNote: bool(r['Endpoint note']),
       comparisonNote: orNull(r['Comparison note']),
@@ -128,7 +131,7 @@ export function compileRegistry(wb, issues) {
       }
       // A headline with a direction says what a value without one is; a headline without a direction has nothing to say.
       if (!!h.direction !== !!h.unstatedDirection) err('REGISTRY-HEADLINE', where, h.direction ? `Direction ${h.direction} needs an Unstated direction (as-published or excluded)` : 'Unstated direction is set, but the headline has no Direction');
-    } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null) {
+    } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null || h.standard) {
       err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties and its test conditions must be Not applicable');
     }
     return h;

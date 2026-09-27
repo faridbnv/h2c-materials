@@ -101,7 +101,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88 |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
-| D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | In force |
+| D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence) |
+| D94 | Notched Izod is a second impact filter, beside notched Charpy, and the two are never mixed | You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m. | In force |
 
 <!-- end index -->
 
@@ -2610,9 +2611,13 @@ Revisit it if a sheet printing both an XY and a ±45° bar of an unfilled filame
 ## D92. Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition
 
 > **In plain words:** You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared.
+> **Status:** amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence).
 
 *Built in re-center phase 6, lane 4 (docs/audits/2026-09-25-re-center/REPORT.md, lane 4, item 3; scorecard C1), with
 m175 and m176. It amends D84.*
+
+*Amended by D94 (2026-09-27): the owner chose a notched Izod filter beside the Charpy one; each names its test and says
+the other is never mixed or converted, and a Charpy cell with no Charpy value no longer shows an Izod value in its place.*
 
 The requirements an engineer states for a printed part include how well its layers hold, how brittle it is and where
 it softens. The database held the values, 11,000 rows of them, and none could be asked for: 135 products publish a
@@ -2666,3 +2671,38 @@ a glass transition (70 in-scope materials a spread). Across the six templates no
 changed (`build/snapshot/templates.csv`); the templates ask none of the three. Reversing it takes the three questions
 away again, and a cold or unnotched value, or an in-plane one, would decide the first time anyone added them without
 the conditions.
+
+## D94. Notched Izod is a second impact filter, beside notched Charpy, and the two are never mixed
+
+> **In plain words:** You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m.
+
+*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 8; the
+recommendation was one impact filter until a requirement asked for Izod). Built in phase 6, final round, with m195. It
+amends D92.*
+
+D92 made the notched Charpy impact strength selectable and left Izod out, because two impact filters invite mixing them:
+161 products published a notched Izod value and no notched Charpy one. The owner chose both. Izod clamps a notched bar
+upright and strikes its free end; Charpy supports a bar at both ends and strikes its middle. The bars, the notches and the
+numbers differ, and no conversion between them holds across plastics.
+
+- **The headline** (`izodNotched`, kJ/m²) is D92's Charpy row with Izod's test: Izod impact strength, notched, XY, at
+  23 ± 2 °C or none stated, an unstated direction counted apart (D84). Not estimated, not a table column, and asked by
+  no template.
+- **Its standard is ISO 180.** A value in J/m (ASTM D256) is energy per metre of notch, and one to ASTM D256 printed in
+  kJ/m² is that value divided by a bar thickness its maker chose and the sheet does not give: a conversion, which the
+  owner ruled out. So `headline_definitions.csv` gains a column, **Standard**: a value whose Standards name others and
+  not this one is no value of the headline and stays evidence; a value naming no standard counts, as for Charpy, whose
+  Standard is Not applicable (every other row's is too). Thirteen products whose only notched Izod in kJ/m² names ASTM
+  D256 are shown and not compared.
+- **Each says so.** The filter's hint and the drawer's comparison note of each name the other test as never mixed or
+  converted; the Charpy row's labels name Charpy ("Notched impact, Charpy") now that "notched impact strength" names two
+  filters. Izod leaves the Charpy headline's related properties, and Charpy is not among Izod's: a cell with no value of
+  its own test no longer offers the other test's number as its nearest evidence (11 materials' Charpy cells had only
+  that to show, and show nothing now; 5 more show a Charpy or unspecified impact value instead).
+
+What it did: 116 products have a notched Izod value, 45 of them comparable (71 published without a direction, counted
+apart); 26 in-scope materials have a spread, and 12 more only values published without a direction. The Charpy values
+are unchanged (191 products). Across the six templates no answer moved (`build/snapshot/templates.csv` unchanged).
+Reversing it leaves Izod-only products without an impact value again, or, if the two were one filter, compares numbers
+from two tests as if they were one.
+

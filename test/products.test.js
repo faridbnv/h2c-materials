@@ -86,10 +86,12 @@ test('an impact value is a notched bar of the headline\'s own test, in its unit,
   assert.ok(impact.length, 'a headline sets a notch');
   for (const def of impact) {
     const values = valuesOf(def);
-    assert.ok(values.length > 150, `${def.key}: only ${values.length} product values`);
+    assert.ok(values.length > 100, `${def.key}: only ${values.length} product values`);
     for (const { g, v, m } of values) {
       const where = `${g.id} ${def.key} ${m.id}`;
-      assert.ok(def.valueProperties.includes(m.property), `${where} is ${m.property}: an Izod value is never a Charpy value`);
+      assert.ok(def.valueProperties.includes(m.property), `${where} is ${m.property}: an Izod value is never a Charpy value, nor a Charpy value an Izod one`);
+      // A value that names a standard names the headline's own (D94): ASTM D256 in kJ/m² is a J/m value converted.
+      if (def.standard && m.standards.length) assert.ok(m.standards.includes(def.standard), `${where} is to ${m.standards.join(', ')}`);
       assert.equal(m.unit, def.unit, `${where}: J/m does not become kJ/m² without the bar's thickness`);
       assert.equal(m.notch, def.notch, `${where} is ${m.notch}`);
       assert.ok(m.testTemperatureC == null || Math.abs(m.testTemperatureC - def.testTemperatureC) <= 2, `${where} was struck at ${m.testTemperatureC} °C`);
@@ -155,6 +157,18 @@ test('the notch, the test temperature and an excluded unstated direction are con
   assert.match(assess(bar({ notch: 'Not published' }), impact, []).excluded, /does not state whether the bar was notched/);
   assert.ok(assess(bar({ property: 'Izod impact strength' }), impact, []).excluded);
   assert.ok(assess(bar({ property: 'Izod impact strength', unit: 'J/m' }), impact, []).excluded);
+  // The two impact tests are never mixed (D94): each headline refuses the other's property, and one naming its standard
+  // refuses a value that names only another.
+  const tests = [...defs.values()].filter((d) => d.notch);
+  assert.equal(new Set(tests.flatMap((d) => d.valueProperties)).size, tests.flatMap((d) => d.valueProperties).length, 'two impact headlines share a property');
+  for (const def of tests) {
+    for (const other of tests.filter((d) => d !== def)) assert.ok(assess(bar({ property: other.valueProperties[0] }), def, []).excluded, `${def.key} takes ${other.valueProperties[0]}`);
+    if (!def.standard) continue;
+    const own = (over) => bar({ property: def.valueProperties[0], unit: def.unit, ...over });
+    assert.equal(assess(own({ standards: [def.standard] }), def, []).level, LEVEL.COMPARABLE);
+    assert.equal(assess(own({ standards: [] }), def, []).level, LEVEL.COMPARABLE, 'a value naming no standard counts');
+    assert.match(assess(own({ standards: ['ASTM D256'] }), def, []).excluded, /ASTM D256/);
+  }
   const pulled = (over) => bar({ property: layer.valueProperties[0], unit: layer.unit, value: 20, notch: 'Not applicable', direction: layer.direction, ...over });
   assert.deepEqual(assess(pulled({}), layer, []), { level: LEVEL.COMPARABLE, caveat: null });
   for (const direction of ['unknown', 'not-applicable', 'XY', 'XZ', 'ZX']) assert.ok(assess(pulled({ direction }), layer, []).excluded, direction);
