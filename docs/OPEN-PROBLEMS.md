@@ -557,9 +557,17 @@ The layer strength, the notched impact strength and the glass transition (D92, m
 say. What stays out is recorded and shown, under each headline's comparison note in the drawer. Counts are active
 procurement products, 2026-09-26:
 
-- **75 products publish a Charpy value with no notch stated** and no notched one, most of them Chinese makers' sheets
-  under GB/T 1043, which covers both bars. Their sheets may say which in a heading the import did not read. A re-read
-  settles each; nothing else should.
+- **65 products publish a Charpy value with no notch stated** and no notched one (75 before m196). m196 re-read the
+  heading of every Charpy row with no notch (164) on its cached page and set the notch on the 17 whose page states it:
+  12 notched (Bambu Lab's "(notched)" under the second value of its X-Y cell, BASF's extended sheets, QIDI's 缺口冲击强度,
+  Fillamentum's "notched", a 1eA method) and 5 unnotched ("unnotched", an eU method); six products gained a notched
+  value, four of them comparable. The rest print "Impact strength" or "Charpy impact strength" with ISO 179 or GB/T
+  1043 and nothing more (Bambu Lab's Z values and the first value of each X-Y pair, Raise3D, SIRAYA, eryone, CreatBot,
+  IPCON, PROGRAFEN, Braskem, Spectrum, and Polymaker's plain "(X-Y)" rows beside a separate "(X-Y) notched" one), and
+  stay as they are. colorFabb's Economy PLA prints "Impact Strength (Ch-N 23ºC)": Ch-N is commonly Charpy notched, but
+  no colorFabb page spells it out, so it is left for a reader who can confirm it. BASF's three extended sheets print a
+  full impact table (Charpy and Izod, notched and unnotched, dry and conditioned, in XY, XZ and ZX) of which the import
+  kept one number each; the others are in the record tier and wait for a re-read.
 - **Notched Izod is its own filter now** (D94, m195): 116 products have a notched Izod value in kJ/m², 45 of them
   comparable, and 26 materials a spread. Still without a notched impact value of either test: **47 products whose only
   notched impact value is Izod in J/m** (ASTM D256, energy per metre of notch, which needs the bar's thickness no sheet
@@ -572,8 +580,11 @@ procurement products, 2026-09-26:
   vocabulary's own meanings for the two labels ("Upright in the XZ plane", "Flat, loaded along Z-X") say otherwise.
   Until the owner rules which labels are upright bars, only Z counts.
 - **Nine notched Charpy rows cite the unnotched method** (ISO 179/1eU): Spectrum's PA6 Low Warp and PA12-CF15 sheets,
-  FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. Each sheet's label says notched, which is what the row
-  keeps; none states a direction, so all nine are counted apart and decide only when asked.
+  FormFutura's STYX and ApolloX Kevlar, and Nanovia's two PLAs. m196 re-read each: every page labels the row notched,
+  and all but Nanovia PLA VX print an unnotched row beside it several times higher, so the label stands and the method
+  is the sheet's slip; each row says so in its notes. The mirror case was wrong and is corrected: Nanovia PLA XRS's
+  "Charpy full 12 kJ/m² ISO 179-1eA" had been recorded notched from its method; it is unnotched, by its own word. None
+  states a direction, so all nine are counted apart and decide only when asked.
 - **Four glass transition rows cite a Vicat or heat deflection standard** (ASTM D1525, ISO 75), as their sheets print
   it; one of them (Raise3D Premium PC Transparent) names DSC in the same line. They stand as published.
 - **Eight products' only glass transition is a resin supplier's value** (Specimen type Raw material value), which is

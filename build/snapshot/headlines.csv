@@ -174,7 +174,7 @@ M018,PLA-CF,tensileModulusXY,value,2.8725,GPa,,,,,8,G018-06,V003971
 M018,PLA-CF,tensileStrengthXY,value,41,MPa,,,,,9,G018-17,V009474
 M018,PLA-CF,tensileStrengthZ,value,24.09,MPa,,,,,5,G018-13,V008123
 M018,PLA-CF,elongationXY,value,8.4,%,,,,,9,G018-01,V000335
-M018,PLA-CF,charpyNotched,value,7.6,kJ/m²,,,,,1,G018-01,V000342
+M018,PLA-CF,charpyNotched,value,7.125,kJ/m²,,,,,2,G018-13,V008122
 M018,PLA-CF,izodNotched,value,3.5,kJ/m²,,,,,1,G018-08,V004633
 M018,PLA-CF,hdt045,value,55.35,°C,,,,,10,G018-13,V008115
 M018,PLA-CF,glassTransition,value,61.8,°C,,,,,7,G018-06,V003966
@@ -264,7 +264,7 @@ M027,ABS,tensileModulusXY,value,2.2,GPa,,,,,11,G027-01,V000554
 M027,ABS,tensileStrengthXY,value,34.97,MPa,,,,,16,G027-08,V003514
 M027,ABS,tensileStrengthZ,value,28,MPa,,,,,9,G027-01,V000557
 M027,ABS,elongationXY,value,10,%,,,,,16,G027-06,V003192
-M027,ABS,charpyNotched,value,21.5,kJ/m²,,,,,3,G027-01,V000565
+M027,ABS,charpyNotched,value,20.765,kJ/m²,,,,,4,G027-32,V008063
 M027,ABS,izodNotched,value,13,kJ/m²,,,,,3,G027-14,V008581
 M027,ABS,hdt045,value,94,°C,,,,,21,G027-52,V010455
 M027,ABS,glassTransition,value,105,°C,,,,,17,G027-06,V003195
@@ -304,7 +304,7 @@ M031,ASA,tensileModulusXY,value,2.2458,GPa,,,,,10,G031-02,V002372
 M031,ASA,tensileStrengthXY,value,38.6,MPa,,,,,11,G031-02,V002374
 M031,ASA,tensileStrengthZ,value,30.5,MPa,,,,,4,G031-02,V002375
 M031,ASA,elongationXY,value,6.5,%,,,,,11,G031-13,V005931
-M031,ASA,charpyNotched,value,12.9,kJ/m²,,,,,3,G031-25,V008107
+M031,ASA,charpyNotched,value,11.6,kJ/m²,,,,,4,G031-06,V003453
 M031,ASA,izodNotched,value,7,kJ/m²,,,,,1,G031-08,V004671
 M031,ASA,hdt045,value,95,°C,,,,,18,G031-05,V003294
 M031,ASA,glassTransition,value,104,°C,,,,,12,G031-30,V009056
@@ -664,7 +664,7 @@ M067,PET-CF,tensileModulusXY,value,5.481,GPa,,,,,3,G067-02,V002423
 M067,PET-CF,tensileStrengthXY,value,74.5,MPa,,,,,4,G067-01,V001274
 M067,PET-CF,tensileStrengthZ,value,34,MPa,,,,,3,G067-05,V007062
 M067,PET-CF,elongationXY,value,2.4,%,,,,,3,G067-02,V002427
-M067,PET-CF,charpyNotched,value,6.85,kJ/m²,,,,,2,G067-02,V002433
+M067,PET-CF,charpyNotched,value,5.4,kJ/m²,,,,,3,G067-06,V007696
 M067,PET-CF,izodNotched,none,,kJ/m²,,,,,,,
 M067,PET-CF,hdt045,value,123.75,°C,,,,,4,G067-04,V005316
 M067,PET-CF,glassTransition,value,79,°C,,,,,3,G067-06,V007701
