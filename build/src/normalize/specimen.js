@@ -9,7 +9,10 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readCsv } from '../csv.js';
 
-export const SPECIMEN_FORMS = ['printed', 'not-stated', 'moulded', 'film', 'filament'];
+// off-recipe: a bar printed at a setting its sheet prints beside the one the product is meant for (D95: colorFabb's
+// lightweight PETs, which foam at 260 °C, printed unfoamed at 210 °C). A printed bar, but not of the product as it is
+// printed, so it is no part specimen of it, bounds nothing and is no estimate observation.
+export const SPECIMEN_FORMS = ['printed', 'not-stated', 'moulded', 'film', 'filament', 'off-recipe'];
 export const POST_PROCESSING_STATES = ['as-printed', 'annealed', 'not-stated'];
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -25,7 +28,7 @@ const declared = (file, column, allowed) => {
   };
 };
 
-/** The declared form of a Specimen type value: printed, not-stated, moulded (a raw-material value), film or filament. */
+/** The declared form of a Specimen type value: printed, not-stated, moulded (a raw-material value), film, filament or off-recipe. */
 export const specimenForm = declared('specimen-types.csv', 'Form', SPECIMEN_FORMS);
 
 /** The declared post-processing state of a measurement row's typed column. */

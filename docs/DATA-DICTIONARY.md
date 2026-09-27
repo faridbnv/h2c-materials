@@ -1284,6 +1284,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Not published |  | not-stated |
 | Not published (density specimen form not explicitly established) |  | not-stated |
 | Not published (do not assume printed) |  | not-stated |
+| Printed off the product's recipe | A bar printed at a print setting its sheet prints beside the one the product is meant to be printed at, and not that one: colorFabb's lightweight PETs foam at 260 °C and are printed unfoamed at 210 °C for a second column (D95). Recorded and shown; never a product value, a bound or an estimate observation. | off-recipe |
 | Printed part |  | printed |
 | Printed part / TDS material-property section |  | printed |
 | Printed specimen |  | printed |

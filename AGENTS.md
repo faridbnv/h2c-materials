@@ -124,7 +124,9 @@ note saying what was wrong.
 and locator, the direction, specimen, moisture and standard as published. A sheet that prints two tables
 (dry and conditioned, as printed and annealed, two print speeds) must say in each row which table it came
 from; MEAS-CONDITIONS-INDISTINCT catches rows that do not. A value marked as injection moulded is Specimen type
-"Raw material value"; a film or a filament strand says so too (each Specimen type declares its Form). Post-processing
+"Raw material value"; a film or a filament strand says so too (each Specimen type declares its Form), and so does a bar
+a sheet prints at a setting the product is not meant for, beside the one it is (the unfoamed column of a foaming
+filament: "Printed off the product's recipe", D95). Post-processing
 is copied as printed ("As printed", the sheet's annealing sentence) and Post-processing state beside it says what it
 means (as-printed, annealed, not-stated); Moisture condition and Moisture state work the same way. The build reads the
 state, and stops if the words plainly say otherwise (PARSE-MISMATCH); an unseen wording is data, not a schema change.
@@ -227,7 +229,7 @@ and units. If it only means something for some filaments, set "Applies to", for 
 product's value is chosen from its measurements by rule. The filter rail, charts, table, export and drawer pick it up. Leave
 Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise. What a value must be is
 a column of the row, never a branch in `products.js`: its direction and what a value with none is (Unstated direction),
-its load, its notch and its test temperature (D92). Say in Comparison note what it leaves out; the drawer shows it.
+its load, its notch and its test temperature (D92), and the test standard a value that names one must name (D94). Say in Comparison note what it leaves out; the drawer shows it.
 
 ## Importing a batch of data sheets
 

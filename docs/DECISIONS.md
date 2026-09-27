@@ -103,6 +103,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone |
 | D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence) |
 | D94 | Notched Izod is a second impact filter, beside notched Charpy, and the two are never mixed | You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m. | In force |
+| D95 | A product is judged as it is meant to be printed: colorFabb's lightweight PETs, foamed | When a sheet prints a product's values at two print settings and the product is made to be printed at one of them (a foaming filament, foamed), that one is the product's value; the other is kept and shown beside it, and never decides. | In force |
 
 <!-- end index -->
 
@@ -2706,3 +2707,33 @@ are unchanged (191 products). Across the six templates no answer moved (`build/s
 Reversing it leaves Izod-only products without an impact value again, or, if the two were one filter, compares numbers
 from two tests as if they were one.
 
+
+## D95. A product is judged as it is meant to be printed: colorFabb's lightweight PETs, foamed
+
+> **In plain words:** When a sheet prints a product's values at two print settings and the product is made to be printed at one of them (a foaming filament, foamed), that one is the product's value; the other is kept and shown beside it, and never decides.
+
+*Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 6; recommended and
+taken). Built in phase 6, final round, with m197.*
+
+colorFabb's sheets for Lightweight PET and Lightweight PET FLEX print their "Mechanical Properties – 3D Printed" in two
+columns, "Value unfoamed @ 210 °C" and "Value foamed @ 260 °C, flow: 60%". The filament carries a foaming agent that
+works at 260 °C; printed at 210 °C it is an ordinary PET. The FLEX's modulus is 2.52 GPa unfoamed and 1.50 foamed:
+at 2.5 GPa it passes unfoamed and fails foamed, so which column is the product's is a decision, not a reading. A foamed
+part is what a buyer of the product prints.
+
+- **The rule is a declared state, not a branch.** The foamed column is Specimen type Printed specimen, the product's
+  value by the rule of D83. The unfoamed column is Specimen type **Printed off the product's recipe**, a new value of
+  `schema/vocab/specimen-types.csv` whose Form, **off-recipe**, says what the build does with it: like a moulded, film
+  or filament value it is no part specimen of the product (products.js), bounds nothing (implied bounds take a printed
+  form only) and is no estimate observation; unlike them it is printed, so the physics lint orders it only against
+  values of its own column. It is recorded, shown in the drawer with its reason, and counted as the product's evidence.
+- **Only where the sheet names the setting the product is meant for.** Two settings a maker offers alike (LEHVOSS's
+  "Engineering" and "Fast" profiles, Polymaker's classic and high printing speed) are both the product as printed, and
+  both stay Printed specimen.
+
+What it did (m197): 24 values on two sheets, six rows in two columns each (tensile modulus, strength and elongation at
+break, flexural modulus and strength, notched Charpy). PET-LW (M141) now publishes its stiffness, 1.29 and 1.50 GPa
+foamed, where it was "not published". Across the six templates PET-LW goes from UNKNOWN to FAIL in Lightweight
+structure, High-stiffness fixture, Outdoor structural part and Flexible component (Explore, with and without estimates;
+`build/snapshot/templates.csv`). Reversing it either leaves the product's values unread, or lets a PET printed as an
+ordinary PET stand for a foamed one, which is the lighter, weaker part the product exists to make.

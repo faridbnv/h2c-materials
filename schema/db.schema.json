@@ -457,7 +457,8 @@
               "not-stated",
               "moulded",
               "film",
-              "filament"
+              "filament",
+              "off-recipe"
             ]
           },
           "direction": {

@@ -357,8 +357,10 @@ export function lintData(tables, schemas) {
   // Physics orders two values of one specimen. A film or a filament strand is not the bar the sheet's other rows
   // were measured on — FormFutura prints Ingeo's film tensile strength (110 MPa, ASTM D882) beside its own printed
   // bars' flexural strength (55) — so a pair across two specimen forms is two claims about two things, not one of
-  // them on the wrong line. The window check already leaves those forms out (below) for the same reason.
-  const unlikeBar = (r) => /^(Film|Filament)/.test(r['Specimen type'] ?? '');
+  // them on the wrong line. The window check already leaves those forms out (below) for the same reason. So is a bar
+  // printed at a setting its product is not meant for (D95): colorFabb's unfoamed PET column is ordered against its own
+  // column, never against the foamed bar beside it.
+  const unlikeBar = (r) => (/^(Film|Filament)/.test(r['Specimen type'] ?? '') ? 'strand' : r['Specimen type'] === "Printed off the product's recipe" ? 'off-recipe' : 'bar');
   const sameSpecimen = (a, b) => unlikeBar(a) === unlikeBar(b);
   // A Vicat point is where a loaded needle sinks 1 mm, and the load decides where that is. Under the light load
   // (10 N, method A) the needle waits for the polymer to go rubbery, so the Vicat sits at or above the glass

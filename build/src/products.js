@@ -55,7 +55,10 @@ export function assess(m, def, gradeMeasurements) {
   if (!def.valueProperties.includes(m.property)) return { excluded: `measures ${m.property}` };
   if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}` };
   if (m.implausible) return { excluded: 'flagged physically implausible' };
-  if (!isPartSpecimen(m.specimenType)) return { excluded: `a ${m.specimenForm} specimen, not a printed part` };
+  if (!isPartSpecimen(m.specimenType)) {
+    // A bar printed at a setting the product is not meant for (D95) is printed, but not the product as it is printed.
+    return { excluded: m.specimenForm === 'off-recipe' ? 'printed at a setting the product is not meant for (D95)' : `a ${m.specimenForm} specimen, not a printed part` };
+  }
   if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
   if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed' };
   // An impact headline is defined on a notched bar at room temperature (D92). An unnotched bar absorbs several times the

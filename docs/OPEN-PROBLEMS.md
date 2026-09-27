@@ -480,13 +480,16 @@ count.
   61 % of the XY stiffness: it is the one sheet held that labels both an XY and a ±45° bar. The ruling named tensile
   values; a flexural or impact bar labelled only by its raster, of which the database holds none today, is not decided.
 - **Values a cached sheet prints and nobody read, behind a "not published" blocker.** colorFabb's Lightweight PET and
-  Lightweight PET FLEX sheets print their modulus in the XY plane in two columns, "Value unfoamed @ 210 °C" and "Value
-  foamed @ 260 °C, flow: 60%" (2,290 and 1,290 MPa; 2,520 and 1,500 MPa); the reader reads no row with two value
-  columns (source_facts), so PET-LW (M141) is "not published" on stiffness in three templates. Which print condition
-  is a lightweight product's value is the owner's question before anyone records it: at 2.5 GPa the FLEX passes
-  unfoamed and fails foamed. FormFutura's ApolloX Kevlar prints "Elastic tensile modulus 2200 MPa ISO 527-1", a label
-  the lexicon lacks; with no direction it would be as published and settle nothing. The four graphene sheets' specific
-  gravity was the same kind of gap and m181 recorded it.
+  Lightweight PET FLEX sheets print their mechanical table in two columns, unfoamed and foamed; the owner ruled the
+  foamed one the product's (D95), and m197 recorded both columns of all six rows, the unfoamed one as "Printed off the
+  product's recipe". PET-LW (M141) now fails the three stiffness templates rather than being unknown. Left: colorFabb's
+  LW-PLA and LW-PLA-HT sheets print the same two columns ("Value @ 210˚C; 100%" and "foaming 230%; 60%"), and
+  source_facts holds their seven rows; D95 reads them the same way, and a migration like m197 would record them. The
+  two PET products' profiles (P0495, P0508) took the unfoamed column's 210 °C as their nozzle window, where the sheet's
+  print guideline gives 210 °C unfoamed and 260 °C foamed: the H2C reaches both, so no gate moves, but the recipe should
+  read 260 °C. FormFutura's ApolloX Kevlar prints "Elastic tensile modulus 2200 MPa ISO 527-1", a label the lexicon
+  lacks; with no direction it would be as published and settle nothing. The four graphene sheets' specific gravity was
+  the same kind of gap and m181 recorded it.
 - **Copies registered beside the maker's own sheet hid behind a count.** MEAS-CROSS-SOURCE-TWIN ignores a value more
   than ten sources share, so a copy whose values are common is not seen as a copy until a neighbour moves. m180
   brought nine such copies under it (3DJake's copies and the German and Italian editions of Extrudr's sheets, 3DJake's

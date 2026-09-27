@@ -318,6 +318,7 @@ const FORM_NOTE = {
   moulded: 'raw-material supplier value, not a printed or product specimen',
   film: 'film specimen, not a printed part',
   filament: 'filament strand, not a printed part',
+  'off-recipe': 'printed at a setting its sheet prints beside the one the product is meant for, not the product as it is printed (D95)',
 };
 
 /**
