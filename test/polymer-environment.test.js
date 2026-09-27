@@ -32,7 +32,10 @@ const row = (polymer, category, agent, verdict, extra = {}) => ({
   __file: 'data/tables/polymer_environment.csv', __row: n + 1, __numbers: {}, ...extra,
 });
 
-function built(rows, { estimates = true } = {}) {
+// The core database: the layer is attached and validated there, and the estimate stage neither reads nor writes it
+// (build/src/estimate/ never names it). The real tables carry the layer through the whole build, which the database
+// tests check on dist/db.json; a whole build per fixture here cost two estimate stages on every change.
+function built(rows, { estimates = false } = {}) {
   const wb = structuredClone(base);
   wb['Polymer environment'].rows = rows;
   const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test', estimates });

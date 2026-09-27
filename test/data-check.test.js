@@ -57,7 +57,8 @@ test('a repeated primary key is caught', () => {
     writeFileSync(path, text + text.split('\n')[2] + '\n');
     const m = messages(check(dir));
     const line = text.split('\n').length;
-    assert.ok(m.some((x) => x === `data/tables/coverage.csv:${line}  C00002 CoverageID "C00002" repeats line 3; it must be unique`), m.join('\n'));
+    const id = text.split('\n')[2].split(',')[0];
+    assert.ok(m.some((x) => x === `data/tables/coverage.csv:${line}  ${id} CoverageID "${id}" repeats line 3; it must be unique`), m.join('\n'));
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -110,7 +111,8 @@ test('scripted edits refuse to overwrite data that moved, and never duplicate a 
   const dir = copy();
   try {
     const t = openTables(dir);
-    assert.throws(() => t.set('measurements', 'V000384', 'Normalized value', '2', { expect: '9.99' }), /expected "9\.99", found "1\.4"; the data moved/);
+    const now = t.get('measurements', 'V000384')['Normalized value'];
+    assert.throws(() => t.set('measurements', 'V000384', 'Normalized value', '2', { expect: '9.99' }), (e) => e.message.includes(`expected "9.99", found "${now}"; the data moved`));
     assert.throws(() => t.append('coverage', { CoverageID: 'C00002' }), /CoverageID C00002 already exists/);
     assert.throws(() => t.append('coverage', { CoverageID: 'C99999', Reviewer: 'x' }), /unknown columns Reviewer/);
     assert.equal(t.changes().length, 0);
@@ -202,7 +204,7 @@ test('a new record gets the next ID, its template\'s columns and declared missin
     const { row, unset } = newRecord(t, 'measurements', { like: 'V000384', set: { 'Raw value': '2.1 GPa' } });
     assert.deepEqual(unset, []);
     assert.equal(row.MeasurementID, nextId('measurements', t.rows('measurements').map((r) => r.MeasurementID)));
-    assert.equal(row.GradeID, 'G020-01');
+    assert.equal(row.GradeID, t.get('measurements', 'V000384').GradeID, 'the template\'s grade');
     t.append('measurements', row);
     t.save();
     assert.deepEqual(messages(check(dir)), []);
@@ -221,13 +223,17 @@ test('retiring a grade sets both fields and lists every record left to resolve',
   const dir = copy();
   try {
     const t = openTables(dir);
-    const todo = retireGrade(t, 'G020-03');
-    assert.equal(t.get('grades', 'G020-03').Status, 'retired');
-    assert.equal(t.get('grades', 'G020-03').Availability, RETIRED_AVAILABILITY);
+    // An active grade that measurements, a profile and a source's Applicable grades all stand on, chosen by that shape.
+    const on = (table, id) => t.rows(table).some((r) => r.GradeID === id);
+    const id = t.rows('grades').find((g) => g.Status === 'active' && on('measurements', g.GradeID) && on('profiles', g.GradeID)
+      && t.rows('sources').some((s) => String(s['Applicable grades'] ?? '').includes(g.GradeID))).GradeID;
+    const todo = retireGrade(t, id);
+    assert.equal(t.get('grades', id).Status, 'retired');
+    assert.equal(t.get('grades', id).Availability, RETIRED_AVAILABILITY);
     const tables = new Set(todo.map((x) => x.table));
-    assert.ok(tables.has('measurements') && tables.has('profiles') && tables.has('sources'), [...tables].join(', '));
+    assert.ok(tables.has('measurements') && tables.has('profiles') && tables.has('sources'), `${id}: ${[...tables].join(', ')}`);
     assert.ok(todo.every((x) => x.action.length > 10));
-    assert.deepEqual(retireGrade(t, 'G020-03').length, todo.length, 'a second run changes nothing and lists the same');
+    assert.deepEqual(retireGrade(t, id).length, todo.length, 'a second run changes nothing and lists the same');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

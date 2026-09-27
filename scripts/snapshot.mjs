@@ -15,6 +15,8 @@
 //                                   what qualifies it, and whether headlines.csv pins it (re-center phase 1)
 //   build/snapshot/summaries.csv   every material's spread per headline across its products: n, range, quartiles,
 //                                   the typical product, the values published without direction or load, the variants
+//   build/snapshot/environment.csv every verdict an environment requirement screens on: a material's own records in a
+//                                   filterable category, and the polymer-level ones attached where it has none (D64)
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -114,6 +116,16 @@ for (const m of db.materials) {
   }
 }
 
+// Every verdict an environment requirement can screen on: a material's own records in a filterable category, and the
+// polymer-level ones attached where it has none (D64). A test once pinned four of them by name (the recovered Bambu
+// chemical records); a change to any of them now shows here, in the diff of the change that made it.
+const environmentRows = [
+  ...db.evidence.filter((e) => e.filterable).map((e) => ({ MaterialID: e.materialId, Category: e.category, Record: e.id, GradeID: e.gradeId ?? '',
+    Level: 'own', Verdict: e.verdict ?? '', Qualified: e.qualified ? 'yes' : '', Screens: '' })),
+  ...(db.polymerEvidence ?? []).map((p) => ({ MaterialID: p.materialId, Category: p.category, Record: p.id, GradeID: '',
+    Level: 'polymer', Verdict: p.verdict ?? '', Qualified: '', Screens: p.screens ? 'yes' : 'no' })),
+].sort((a, b) => a.MaterialID.localeCompare(b.MaterialID, 'en', { numeric: true }) || a.Category.localeCompare(b.Category) || a.Record.localeCompare(b.Record, 'en', { numeric: true }));
+
 // The numbers the docs would otherwise repeat and let go stale (re-center phase 5; GOALS rule 9, "counts are
 // generated"): what the database holds, counted from the build the snapshot compares. Docs link here.
 // Products are the active procurement grades; a study or reference grade (-R#) is not one.
@@ -153,6 +165,7 @@ const files = {
   'grades.csv': csvText(['GradeID', 'MaterialID', 'Product', 'Headline', 'Strength', 'Precision', 'Centre', 'Likely', 'Plausible', 'Unit', 'Own'], gradeRows),
   'products.csv': csvText(Object.keys(productRows[0]), productRows),
   'summaries.csv': csvText(Object.keys(summaryRows[0]), summaryRows),
+  'environment.csv': csvText(['MaterialID', 'Category', 'Record', 'GradeID', 'Level', 'Verdict', 'Qualified', 'Screens'], environmentRows),
 };
 
 if (process.argv.includes('--check')) {
