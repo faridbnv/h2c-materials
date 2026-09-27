@@ -813,9 +813,13 @@ test('a strain at another endpoint is never an elongation at break, and a retire
   // validator, below), and related evidence is always its column's property (above). A retired duplicate (V000894)
   // is audit trail only.
   assert.ok(!db.measurements.some((m) => m.dataStatus === 'Retired duplicate record'), 'a retired duplicate reached db.measurements');
-  const strain = db.measurements.find((m) => m.property === 'Tensile strain at strength' && /at max\.? force|at yield|at strength/i.test(m.locator ?? ''));
-  assert.ok(strain, 'no strain at another endpoint to test against');
-  assert.ok(errorsFor((c) => { c.measurements.find((m) => m.id === strain.id).property = 'Elongation at break'; }).some((e) => e.includes(strain.id) && /endpoint/.test(e)), strain.id);
+  // Nanovia's "Elongation ultimate strength" is the strain at the maximum stress (m167): an ultimate strength is an
+  // endpoint too.
+  for (const shape of [/at max\.? force|at yield|at strength/i, /ultimate (tensile )?strength/i]) {
+    const strain = db.measurements.find((m) => m.property === 'Tensile strain at strength' && shape.test(m.locator ?? ''));
+    assert.ok(strain, `no strain at another endpoint (${shape}) to test against`);
+    assert.ok(errorsFor((c) => { c.measurements.find((m) => m.id === strain.id).property = 'Elongation at break'; }).some((e) => e.includes(strain.id) && /endpoint/.test(e)), strain.id);
+  }
 });
 
 test('a retired grade or profile is archival, never active procurement or printing evidence', () => {

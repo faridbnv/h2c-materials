@@ -7,11 +7,11 @@ Tensile yield strength
 Tensile break strength
 35 values
 Elongation at break
-213 values
+212 values
 Elongation at yield
 18 values
 Tensile strain at strength
-6 values
+7 values
 Flexural modulus
 155 values
 Flexural strength

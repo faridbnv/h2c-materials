@@ -73,7 +73,7 @@ ABS not tested 1,050
  26↗ ☆
 ABS-AF not tested 1,050
 1,040–1,050 · 3
- 2.41* 35* 1.7* 88 — ☆
+ 2.41* 35* 6* 88 — ☆
 ABS-CF not tested 1,085
 1,050–1,110 · 10
  4.66
@@ -280,7 +280,7 @@ PA6
 Nylon / Polyamide
  not tested 1,150
 1,130–1,200 · 7
- 3.4* 78* 1.6* 142
+ 3.4* 78* 1.9* 142
 140–143 · 2
  163↗ ☆
 PA6-CE
@@ -473,7 +473,7 @@ PC-PTFE
 Polycarbonate
  not tested 1,290
 1,260–1,320 · 2
- 1.77* 55* 4.4* 140 — ☆
+ 1.77* 55* 8* 140 — ☆
 PCL
 PVB / Specialty Polymers
  not tested 1,100
@@ -815,7 +815,7 @@ PLA-GF not tested 1,280
 PLA-GR not tested — 3.6* 65* 4.19* — — ☆
 PLA-NF not tested 1,350
 1,250–1,450 · 2
- 2.83* 43* 2.5* 80 — ☆
+ 2.83* 43* 22.3* 80 — ☆
 PLA-PHA
 Polymer Blends
  not tested 1,240 3.29 57.7 6.1 51* — ☆

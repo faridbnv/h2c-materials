@@ -123,7 +123,7 @@ its plausible range wholly fails.
 | density | 857 | 116 | 80% | 96% | ×1.11 | 0.0251 (15644 pairs) |
 | tensileModulusXY | 1182 | 80 | 80% | 95% | ×1.5 | 0.317 (1270 pairs) |
 | tensileStrengthXY | 1299 | 63 | 81% | 95% | ×1.44 | 0.25 (2556 pairs) |
-| elongationXY | 1009 | 82 | 81% | 95% | ×3.64 | 0.716 (2416 pairs) |
+| elongationXY | 1009 | 82 | 81% | 95% | ×3.62 | 0.716 (2416 pairs) |
 | hdt045 | 1253 | 81 | 80% | 95% | 17.3 °C | 4.19 (3940 pairs) |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
@@ -161,7 +161,7 @@ Grade estimates (D81): each grade predicted at its own row and calibrated by hid
 | density | 773 | 1.42 | 1.99 | 0.798 | 0.951 | yes |
 | tensileModulusXY | 254 | 1.07 | 1.19 | 0.795 | 0.945 | yes |
 | tensileStrengthXY | 279 | 1.1 | 1.13 | 0.799 | 0.943 | yes |
-| elongationXY | 324 | 1.06 | 1.16 | 0.796 | 0.948 | yes |
+| elongationXY | 324 | 1.06 | 1.17 | 0.802 | 0.948 | yes |
 | hdt045 | 375 | 1.79 | 3 | 0.789 | 0.928 | no: its grade scales reach the calibration clamp: a product's published value scatters about its material more than the model can say, so no grade range is shown |
 
 EST-GRADE-OUTLIER, 30 grades: PLA 9, PLA Wood 3, PLA Aero 3, PA12-CF 3, ABS 2, PPA-CF 2, PLA Marble 1, PP 1, POM / Acetal 1, PEBA 1, TPU 85A class and softer 1, PETG 1, PET-GF 1, PPA-GF 1.
@@ -402,7 +402,7 @@ Every one of the 174 materials was checked, and any failure below stops the buil
 
 - each measurement, profile, price and use record sits under the material its grade belongs to;
 - GradeIDs lists every procurement grade;
-- every product value cites a measurement of that product that is not quarantined (3561 checked), and a material's typical product is one of its own;
+- every product value cites a measurement of that product that is not quarantined (3549 checked), and a material's typical product is one of its own;
 - every cited measurement, profile and use record exists and belongs to that material, except use, durability and safety notes, which may cite family context;
 - nozzle, bed and chamber guidance quote the profile the row cites;
 - Environmental evidence cites exactly the material's own exposure, solubility and moisture records;

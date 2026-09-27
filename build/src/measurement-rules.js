@@ -95,7 +95,8 @@ export function measurementIssues(db, wb) {
   const error = (code, where, message) => issues.push(issue(code, where, message));
   for (const m of db.measurements) {
     if (/^Published value/.test(m.dataStatus) && !m.numeric) error('MEAS-PUBLISHED-NON-NUMERIC', `measurements ${m.id}`, 'Published numeric status has no numeric value; classify a qualitative result explicitly');
-    if (m.property === 'Elongation at break' && /at max\.? force|at yield|at strength/i.test(m.locator)) error('MEAS-ENDPOINT-LOCATOR', `measurements ${m.id}`, 'Elongation endpoint disagrees with its source locator');
+    // "Ultimate strength" is the maximum stress: Nanovia's "Elongation ultimate strength" is the strain there (m167).
+    if (m.property === 'Elongation at break' && /at max\.? force|at yield|at strength|ultimate (tensile )?strength/i.test(m.locator)) error('MEAS-ENDPOINT-LOCATOR', `measurements ${m.id}`, 'Elongation endpoint disagrees with its source locator');
   }
   for (const r of wb?.Properties?.rows ?? []) {
     if (!/^Published value/.test(r['Data status'])) continue;

@@ -63,9 +63,9 @@ ASA-CF
 1.64–15.5 · 5
 ASA-EC
 ~0.9–5.4†
-0.351
+0.353
 log scale
-1,400
+1,420
 all 153 candidates
 Heat resistance °C
 Heat resistance at least 100 °C

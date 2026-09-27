@@ -78,7 +78,7 @@ what it means and how to fix it.
 | Code | Level | Means | Fix |
 |---|---|---|---|
 | `MEAS-PUBLISHED-NON-NUMERIC` | error | A Published value status with no numeric value. | Record the number, or classify the result (qualitative, not published). |
-| `MEAS-ENDPOINT-LOCATOR` | error | An elongation-at-break row whose locator names another endpoint. | File it under the endpoint the source names. |
+| `MEAS-ENDPOINT-LOCATOR` | error | An elongation-at-break row whose locator names another endpoint: maximum force, yield, strength or ultimate strength. | File it under the endpoint the source names. |
 | `MEAS-RAW-RECONCILE` | error | Raw value, raw numeric, factor and normalized value do not agree. | Re-read the source; correct the raw number, the factor or the normalized value. |
 | `MEAS-UNIT-UNKNOWN` | error | A raw unit and a normalized unit the raw-value reconciliation has no conversion between, so the value is not independently checked. | Add the conversion to CONVERSIONS in build/src/measurement-rules.js, or write the raw unit as the source prints it and the normalized unit it converts to. |
 | `MEAS-HEADLINE-TYPE` | error | A product value and its measurement disagree in property, unit or value. | A defect in build/src/products.js: a product value is read from its measurement, never typed. |

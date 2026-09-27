@@ -436,10 +436,6 @@ or an answer from the maker. BLOCKING-GAPS lists them; the maker-by-maker list f
   (nanovia.tech/en/mechanical-data-on-3d-printed-test-specimens-at-3-different-angles/, not fetched) may state it.
   Three Nanovia pages were left: PETG repeats the 0° sentence under all three tabs, PA Food Industry states "ISO 3167
   A test specimens" (a shape, not how it was made), and Flex prints no sentence.
-- **Nanovia's "Elongation ultimate strength" is filed as Elongation at break** on 14 rows of 13 products. It reads as the
-  strain at the ultimate (maximum) stress, which the registry has as Tensile strain at strength, a lower bound of the
-  elongation headline and not its value. For these brittle filled grades the two may coincide; a property ruling
-  (R-series) should decide, and a re-filing moves the Flexible component answers of the materials concerned.
 - **The ±45° convention decides more than it did.** A value a sheet labels only by its ±45° raster is 45/45 and no
   product value (m33); Nanovia's ABS ESD prints no 0° tab, so its product lost its stiffness and elongation. Many
   makers' "XY" bars are printed at ±45°, so whether a raster-only label should count as XY is a question for the
