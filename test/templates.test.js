@@ -39,13 +39,9 @@ test('no template recommends a support or interface material', () => {
   }
 });
 
-// Regression: the indoor template gated on chamber data, which PLA Basic does not publish, so the
-// most ordinary cheap filament was missing from the cheap-and-easy template.
-test('the indoor prototype template includes ordinary PLA', () => {
-  const names = candidates(TEMPLATES.find((t) => t.name === 'Indoor prototype')).map((m) => m.name);
-  // Since m141 Bambu's PLA Basic is a product of PLA, and PLA carries its price.
-  assert.ok(names.includes('PLA'), names.join(', '));
-});
+// Every template's answer, material by material and mode by mode, is build/snapshot/templates.csv, which verify
+// compares on every change: that is where ordinary PLA's place in Indoor prototype is held (the regression that the
+// template once gated on chamber data PLA Basic does not publish).
 
 test('every template names what it does not check, and survives validation', () => {
   for (const t of TEMPLATES) {

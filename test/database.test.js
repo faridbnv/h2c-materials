@@ -10,10 +10,12 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { validate } from '../build/src/validate.js';
 import { validateEstimates } from '../build/src/estimate/validate.js';
+import { readCsv } from '../build/src/csv.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');
 let db = null;
+const readCsvRows = (table) => readCsv(join(root, 'data/tables', table)).records.map((r) => r.values);
 
 before(() => {
   if (!existsSync(dbPath)) throw new Error('dist/db.json is missing. Run `npm run build` first.');
@@ -165,9 +167,24 @@ test('the six excluded materials trip the envelope gate on their own evidence', 
   }
 });
 
-test('a material with one fitting grade is printable even when another grade is not', () => {
-  const ppsgf = db.materials.find((m) => m.name === 'PPS-GF');
-  assert.equal(ppsgf.gates.nozzle.verdict, 'within');
+test('a material is printable where one of its products is: each gate is the best of its profiles\', each window spans theirs', () => {
+  // A rule over every material, where a test once pinned the case that found it (PPS-GF, one grade within the nozzle
+  // limit beside one that is not; re-center phase 5). Precedence is GATE_PRECEDENCE: within first, unknown last.
+  const PRECEDENCE = ['within', 'partial', 'exceeds-recommended', 'exceeds', 'unknown'];
+  let mixed = 0;
+  for (const m of db.materials) {
+    const own = db.profiles.filter((p) => p.materialId === m.id && !p.retired);
+    for (const axis of ['nozzle', 'bed', 'chamber']) {
+      const verdicts = own.map((p) => p.gates[axis].verdict);
+      assert.equal(m.gates[axis].verdict, PRECEDENCE.find((v) => verdicts.includes(v)) ?? 'unknown', `${m.name} ${axis}`);
+      if (verdicts.includes('within') && verdicts.some((v) => v !== 'within')) mixed++;
+      const ranges = own.map((p) => p[axis]).filter((t) => t.state === 'range' && t.max !== null);
+      const window = m.print[`${axis}C`];
+      if (!ranges.length) { assert.equal(window, null, `${m.name} ${axis} window`); continue; }
+      assert.deepEqual([window.min, window.max], [Math.min(...ranges.map((r) => r.min ?? r.max)), Math.max(...ranges.map((r) => r.max))], `${m.name} ${axis} window`);
+    }
+  }
+  assert.ok(mixed > 0, 'no material has a printable product beside one that is not, so the rule is untested');
 });
 
 test('every product HDT is a stated 0.45 MPa value, or as published with its load unstated', () => {
@@ -234,10 +251,8 @@ test('the likely and plausible ranges hold hidden measured headlines as often as
     assert.ok(Math.abs(c.likelyCoverage - 0.8) <= 0.05, `${key}: likely range holds ${c.likelyCoverage}`);
     assert.ok(c.plausibleCoverage >= 0.93, `${key}: plausible range holds ${c.plausibleCoverage}`);
   }
-  // The complaint that started the model: PA-CF strength 38-204 MPa. The product behind that number,
-  // CarbonX CF PA12, now lives only under PA12-CF, whose products publish their own strengths.
-  const cf = byName('PA12-CF').headline.tensileStrengthXY;
-  assert.ok(cf.known && cf.spread.min > 40 && cf.spread.max < 130, `PA12-CF strength ${cf.spread?.min}-${cf.spread?.max}`);
+  // PA12-CF's strength range, the complaint that started the model, is its products' spread now, and
+  // build/snapshot/summaries.csv holds it.
 });
 
 // --- 2026-09-13 duplicate products: docs/audits/2026-09-13-duplicate-products/ ------------------
@@ -250,61 +265,52 @@ test('every commercial product has exactly one home: no data sheet is filed unde
   }
   const shared = [...homes].filter(([, ms]) => ms.size > 1).map(([k, ms]) => `${k}: ${[...ms].join(', ')}`);
   assert.deepEqual(shared, []);
-  // Panchroma Silk PLA and Panchroma CoPE are two columns of one data sheet, not one product.
-  assert.equal(byName('CoPE').headline.elongationXY.estimate.sharedWith, null);
+  // Two columns of one sheet (Panchroma Silk PLA and Panchroma CoPE) are two products, each with its own key:
+  // FORMULATION-KEY-SPANS-MATERIALS stops a key shared across materials in the lint.
 });
 
-test('PA, PA-CF, PA-GF, TPE and CoPA are family entries: no product, no value, never a candidate', () => {
-  const families = { PA: 'family', 'PA-CF': 'family', 'PA-GF': 'family', TPE: 'family', CoPA: 'alias' };
-  for (const [n, kind] of Object.entries(families)) {
-    const m = byName(n);
-    assert.equal(m.familyEntry?.kind, kind, n);
-    assert.ok(m.familyEntry.members.length && m.familyEntry.members.every((x) => x.id && !byName(x.name).familyEntry), n);
+test('every family entry and alias owns no product, carries no value, is never a candidate, and has its members', () => {
+  // A rule over every row of family_entries.csv, where the test once named five (PA, PA-CF, PA-GF, TPE, CoPA).
+  const table = readCsvRows('family_entries.csv');
+  const members = readCsvRows('family_members.csv');
+  const entries = db.materials.filter((m) => m.familyEntry);
+  assert.equal(entries.length, table.length);
+  assert.equal(db.meta.counts.familyEntries, table.length);
+  const kinds = new Map(table.map((r) => [r.MaterialID, r.Kind]));
+  for (const m of entries) {
+    const n = m.name;
+    assert.equal(m.scope, 'Family entry', n);
+    assert.equal(m.familyEntry.kind, kinds.get(m.id), n);
+    const listed = members.filter((r) => r.FamilyMaterialID === m.id).map((r) => r.MemberMaterialID).sort();
+    assert.deepEqual(m.familyEntry.members.map((x) => x.id).sort(), listed, `${n} members`);
+    assert.ok(listed.length && m.familyEntry.members.every((x) => x.id && !byName(x.name)?.familyEntry), `${n}: a member is missing or is itself a family`);
     assert.ok(ESTIMATED.every((k) => !m.headline[k].known && !m.headline[k].estimate), `${n} carries a value`);
     assert.equal(db.grades.filter((g) => g.materialId === m.id && !g.retired).length, 0, `${n} owns a grade`);
-    assert.equal(m.print.nozzleC, null);
+    assert.equal(m.print.nozzleC, null, n);
+    assert.notEqual(m.gates.scope, 'within', `${n} is a candidate`);
   }
-  assert.deepEqual(byName('CoPA').familyEntry.members.map((x) => x.name), ['PA6/66']);
-  assert.equal(db.meta.counts.familyEntries, readFileSync(join(root, 'data/tables/family_entries.csv'), 'utf8').trim().split('\n').length - 1);
+  assert.ok(entries.some((m) => m.familyEntry.kind === 'family') && entries.some((m) => m.familyEntry.kind === 'alias'));
   assert.equal(db.meta.counts.h2cRelevant, db.materials.filter((m) => m.scope === 'H2C-relevant').length);
 });
 
-test('mis-filed products moved to the material they are, with everything recorded against them', () => {
-  const at = (gid) => db.grades.find((g) => g.id === gid);
-  assert.equal(at('G050-02').product, 'PA6 CF');
-  // The three re-filed grades are its own; later batches add more beside them, which is not a re-filing.
-  for (const id of ['G051-01', 'G051-02', 'G051-03']) assert.ok(byName('PA6-GF').gradeIds.includes(id), id);
-  // PolyFlex TPU90 came to TPU from TPE; since m141 TPU is read by hardness, and it is a 90A.
-  assert.ok(byName('TPU 90A class').gradeIds.includes('G039-03'));
-  for (const gid of ['G050-02', 'G051-02', 'G051-03', 'G039-03']) {
-    const mid = at(gid).materialId;
-    assert.ok(db.measurements.filter((x) => x.gradeId === gid).every((x) => x.materialId === mid), gid);
+test('every record moves with its product: it sits under its grade\'s material, and a retired grade keeps none', () => {
+  // A rule over every measurement, where the test once named the re-filed and retired grades of the 2026-09-13
+  // duplicate-products audit (G050-02, G051-01 to -03, G039-03; G062-03 and eight more retired). What each product
+  // publishes is in build/snapshot/products.csv; this is what a re-filing (moveGrade, D86) must leave behind.
+  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
+  const retired = new Set(db.grades.filter((g) => g.retired).map((g) => g.id));
+  assert.ok(retired.size > 0, 'no retired grade to check');
+  for (const x of db.measurements.filter((m) => m.gradeId)) {
+    assert.equal(x.materialId, gradeById.get(x.gradeId)?.materialId, `${x.id} is filed under ${x.materialId}, its grade ${x.gradeId} under another`);
+    assert.ok(!retired.has(x.gradeId), `${x.id} is an active measurement of retired grade ${x.gradeId}`);
   }
-  for (const gid of ['G062-03', 'G063-01', 'G063-02', 'G044-02', 'G047-01', 'G061-01', 'G062-01', 'G064-02', 'G044-01']) {
-    assert.ok(at(gid).retired, gid);
-    assert.equal(db.measurements.filter((x) => x.gradeId === gid).length, 0, `${gid} still carries measurements`);
-  }
-  // Moving a price must not move a price headline with it.
-  assert.equal(byName('PA6-GF').headline.priceCADkg.value, 76.99);
-  // PA-ESD keeps its own product, and the print window it gets is that product's.
-  assert.deepEqual(byName('PA-ESD').gradeIds, ['G064-01']);
-  assert.deepEqual([byName('PA-ESD').print.nozzleC.min, byName('PA-ESD').print.nozzleC.max], [265, 285]);
   // Every re-filing and every republished sheet adds retired duplicates (m25's eight, m80's twenty, m113's
   // eighteen), so a fixed number measured the history rather than the rule. The rule is that the build counts
   // what the tables hold, and that nothing retired is lost: the count never falls below the 175 of 2026-09-20.
   const retiredIn = (table) => readFileSync(join(root, `data/tables/${table}.csv`), 'utf8').split('\n').filter((l) => /,Retired duplicate record,/.test(l)).length;
   assert.equal(db.meta.counts.retiredDuplicates.measurements, retiredIn('measurements'));
   assert.ok(db.meta.counts.retiredDuplicates.measurements >= 175);
-  assert.equal(db.meta.counts.retiredDuplicates.evidence, 16);
-});
-
-test('a heat deflection whose load the sheet leaves unstated is as published, and counted apart in its material', () => {
-  // eSUN PLA-Lite's 53 °C names ISO 75 but no load. It is counted apart (D84) and decides only when the reader asks.
-  const lite = db.grades.find((g) => g.id === 'G004-01');
-  assert.deepEqual([lite.headline.hdt045.level, lite.headline.hdt045.caveat], ['as-published', 'load-not-stated']);
-  const pla = db.materials.find((m) => m.id === lite.materialId);
-  assert.equal(pla.name, 'PLA');
-  assert.ok(pla.summary.hdt045.asPublished.n >= 1 && pla.summary.hdt045.asPublished.min <= 53, 'counted apart in PLA');
+  assert.equal(db.meta.counts.retiredDuplicates.evidence, retiredIn('evidence'));
 });
 
 // Regression: Zytel 101L's moulded 3.1 GPa vetoed screening PA66 out of "stiffness at least 3 GPa".
@@ -333,37 +339,55 @@ test('a resin reference never vetoes a screen: implied bounds are the filament\'
 });
 
 test('the validator rejects a family entry that owns a product or that the mapping does not describe', () => {
-  assert.ok(errorsFor((c) => { mat(c, 'PA-CF').familyEntry = null; mat(c, 'PA-CF').headline.density = { known: false, missing: 'not-published' }; }).some((e) => /no value, no estimate/.test(e)));
+  // Any family entry will do: the fixture is the first, whatever its name.
+  const name = db.materials.find((m) => m.familyEntry?.kind === 'family').name;
+  assert.ok(errorsFor((c) => { mat(c, name).familyEntry = null; mat(c, name).headline.density = { known: false, missing: 'not-published' }; }).some((e) => /no value, no estimate/.test(e)), name);
 });
 
 // Estimates must make sense in tandem across a family, not only one at a time.
-test('estimates follow the physics of printing: slow crystallisers deflect near Tg, a Vicat caps an unfilled bar, density mixes', () => {
-  const est = (n, k) => byName(n).headline[k].estimate;
-  // PET prints amorphous: its as-printed heat deflection sits near its own Vicat (65.9 °C), not near a crystalline bar's.
-  assert.ok(est('PET', 'hdt045').plausible.hi < 90, `PET plausible to ${est('PET', 'hdt045').plausible.hi}`);
-  // BVOH's own Vicat is 90 °C.
-  assert.ok(est('BVOH', 'hdt045').plausible.hi <= 100, `BVOH plausible to ${est('BVOH', 'hdt045').plausible.hi}`);
-  // Neat PA12 is 990-1040 kg/m³, and its products publish their own.
-  const pa12 = byName('PA12').headline.density;
-  assert.ok(pa12.known && pa12.value >= 990 && pa12.value <= 1100, `PA12 density ${pa12.value}`);
-  // Carbon fibre cannot make PA66 lighter than PA66.
-  assert.ok(est('PA66-CF', 'density').centre >= est('PA66', 'density').centre, 'PA66-CF lighter than PA66');
-});
-
-test('polyamide estimates follow the physics: melting point orders heat resistance, fibre raises stiffness', () => {
-  // PA66 and PA612 have no products, so both are estimates; PA12's products publish their own.
-  const hdt = (n) => valueOf(byName(n), 'hdt045');
-  assert.ok(hdt('PA66') > hdt('PA612'), `PA66 ${hdt('PA66')}, PA612 ${hdt('PA612')}`);
-  assert.ok(hdt('PA66-CF') > hdt('PA66') + 50 && hdt('PA612-GF') > hdt('PA612') + 40);
-  assert.ok(hdt('PA66-CF') < 262 && hdt('PA612-GF') < 218, 'a semicrystalline bar cannot hold above its melting point');
-  const stiff = (n) => valueOf(byName(n), 'tensileModulusXY');
-  assert.ok(stiff('PA66-CF') > stiff('PA66') * 1.5 && stiff('PA612-GF') > stiff('PA612') * 1.3);
-  const stretch = (n) => valueOf(byName(n), 'elongationXY');
-  assert.ok(stretch('PA66-CF') < stretch('PA66') && stretch('PA612-GF') < stretch('PA612'));
+test('estimates follow the physics of printing: under the melting point and the bar\'s own Vicat; fibre adds weight and stiffness and takes stretch', () => {
+  // Rules over every estimate, where two tests once pinned the cases that found them (PET, BVOH, PA12, and the
+  // polyamides PA66, PA66-CF, PA612, PA612-GF). The values are in build/snapshot/headlines.csv; a published value
+  // that breaks the family order is EST-FAMILY-ORDER's, reviewed per record.
+  const polymer = new Map(db.polymers.map((p) => [p.id, p]));
+  const held = { melting: 0, vicat: 0, fibre: 0 };
+  for (const m of db.materials) {
+    const e = m.headline.hdt045?.estimate;
+    if (!e) continue;
+    // A semicrystalline bar cannot hold its shape above its melting point.
+    const tm = polymer.get(m.estimateIdentity)?.meltingPointC;
+    if (tm != null) { held.melting++; assert.ok(e.centre < tm, `${m.name} is estimated to deflect at ${e.centre} °C, at or above its polymer's melting point ${tm} °C`); }
+    // An unfilled bar is capped by the highest Vicat its own products publish (D56): a slow crystalliser such as PET
+    // deflects near its own Vicat, not near a crystalline bar's.
+    if (m.modifier !== 'Unfilled / unspecified') continue;
+    const vicat = db.measurements.filter((x) => x.materialId === m.id && x.property === 'Vicat softening temperature' && x.numeric && !x.implausible).map((x) => x.value);
+    if (vicat.length) { held.vicat++; assert.ok(e.centre <= Math.max(...vicat), `${m.name} is estimated to deflect at ${e.centre} °C, above its own Vicat ${Math.max(...vicat)} °C`); }
+  }
+  // Fibre in a polymer: estimated no lighter, stiffer, and stretching less than the same polymer unfilled.
+  const ORDER = { density: (f, u) => f >= u, tensileModulusXY: (f, u) => f > u, elongationXY: (f, u) => f < u };
+  for (const m of db.materials.filter((x) => ['Carbon fibre', 'Glass fibre'].includes(x.modifier) && !x.familyEntry)) {
+    const base = db.materials.find((x) => x.estimateIdentity && x.estimateIdentity === m.estimateIdentity && x.modifier === 'Unfilled / unspecified' && !x.familyEntry);
+    for (const [key, ordered] of Object.entries(ORDER)) {
+      const [f, u] = [m, base].map((x) => x?.headline[key]?.estimate?.centre);
+      if (f == null || u == null) continue;
+      held.fibre++;
+      assert.ok(ordered(f, u), `${m.name} ${key} is estimated at ${f} beside unfilled ${base.name}'s ${u}`);
+    }
+  }
+  for (const [rule, n] of Object.entries(held)) assert.ok(n > 0, `no estimate to check the ${rule} rule on`);
 });
 
 test('an elastomer\'s heat deflection and a support product\'s properties are not applicable, not estimated', () => {
-  for (const n of ['TPU 85A', 'TPU 90A', 'TPC / TPEE', 'PEBA', 'OBC']) assert.ok(byName(n).headline.hdt045.notApplicable, n);
+  // Every material whose polymer is an elastomer, where the test once named five (TPU 85A, TPU 90A, TPC / TPEE, PEBA,
+  // OBC). ISO 75 ends at 0.2 % outer-fibre strain, which needs a modulus near 225 MPa; heat deflection does not apply to
+  // an elastomer by its headline definition (D56 as amended by D83), whatever its own sheet publishes.
+  const morphology = new Map(db.polymers.map((p) => [p.id, p.morphology]));
+  const elastomers = db.materials.filter((m) => morphology.get(m.estimateIdentity) === 'elastomer');
+  assert.ok(elastomers.length > 0, 'no elastomer to check');
+  for (const m of elastomers) {
+    const h = m.headline.hdt045;
+    assert.ok(h.notApplicable && !h.known && !h.estimate, `${m.name} has a heat deflection`);
+  }
   // A support product is not characterised as a structural material: its values are shown where its own sources
   // publish them and nowhere else. So a support material with no measurements of its own carries no estimate at
   // all, and one whose maker publishes something is read like any other material from that point on. BVOH has
@@ -376,11 +400,6 @@ test('an elastomer\'s heat deflection and a support product\'s properties are no
     if (own) continue;
     assert.ok(ESTIMATED.filter((k) => !m.headline[k].known).every((k) => m.headline[k].notApplicable), m.name);
   }
-  // A published value no longer beats the rule (owner ruling, audit 2026-09-15, B-08): ISO 75 ends at 0.2 % outer-fibre
-  // strain, which needs a modulus near 225 MPa. TPU's sheet gives 74 °C on a 26 MPa elastomer; it is evidence, not an estimate.
-  for (const m of db.materials.filter((x) => ['TPU', 'TPU for AMS', 'TPU 95A HF', 'PEBA', 'TPC / TPEE', 'OBC'].includes(x.name))) {
-    assert.ok(m.headline.hdt045.known || m.headline.hdt045.notApplicable, `${m.name} has a heat deflection estimate`);
-  }
 });
 
 test('estimated nozzle and bed windows appear only where nothing is published, and decide nothing', () => {
@@ -392,25 +411,22 @@ test('estimated nozzle and bed windows appear only where nothing is published, a
       assert.ok(m.print[est].lo < m.print[est].hi && m.print[est].peers.length, m.name);
     }
   }
-  assert.ok(byName('PA66').print.nozzleEstimate.lo > 262, 'a PA66 nozzle window starts above its melting point');
-  assert.ok(byName('PA612-GF').print.nozzleEstimate);
+  // An estimated nozzle window starts above the polymer's melting point, or nothing melts: a rule over every one,
+  // where the test once named PA66's.
+  const meltingPoint = new Map(db.polymers.map((p) => [p.id, p.meltingPointC]));
+  const estimated = db.materials.filter((m) => m.print.nozzleEstimate && meltingPoint.get(m.estimateIdentity) != null);
+  assert.ok(estimated.length > 0, 'no estimated nozzle window on a polymer with a melting point');
+  for (const m of estimated) assert.ok(m.print.nozzleEstimate.lo > meltingPoint.get(m.estimateIdentity), `${m.name}'s nozzle window starts at ${m.print.nozzleEstimate.lo} °C, not above its melting point`);
 });
 
 // --- 2026-09-13 estimate evidence: docs/audits/2026-09-13-estimate-evidence/ ---------------------
-test('values the registered sources publish are recorded as published', () => {
-  const x = (id) => db.measurements.find((m) => m.id === id);
-  assert.equal(x('V000605').value, 80, 'ISO 11357 80 °C, not 1135780');
-  assert.equal(x('V000039').value, 110.3);
-  assert.match(x('V000039').specimenType, /^Film specimen/);
-  assert.equal(x('V000507').value, 72, 'Vicat A/120 at 72 °C');
-  // PLA's 3DXTECH value (V000008, 80 °C) states its load but is flagged physically implausible (m24): PLA's heat
-  // deflection is estimated.
-  assert.equal(x('V000008').implausible, true);
-  // HyperLite PP's 3DXTECH value belongs to PP Lightweight since m25.
-  for (const n of ['PP Lightweight', 'PP-GF', 'PA12-CF', 'PVDF', 'PC-ABS']) {
-    const t = db.measurements.find((m) => m.id === byName(n).headline.hdt045.typical.measurementId).thermal;
-    assert.ok(t.loadStated && Math.abs(t.loadMPa - 0.45) <= 0.01, `${n}: its typical product states 0.45 MPa`);
-  }
+test('a value the estimate model keeps out is explained on its grade', () => {
+  // The 2026-09-13 transcription pins that once opened this test are guarded elsewhere: a glass transition of
+  // 1135780 °C (ISO 11357 read as the value, V000605) is outside its physics window (MEAS-PHYSICS-WINDOW); a film
+  // (V000039) is never a product value (products.test.js); a flag (V000008) is its row's Data status, which a
+  // migration sets; a Vicat (V000507) caps its material's heat deflection estimate, so a change to it moves
+  // build/snapshot/headlines.csv; and every product heat deflection states 0.45 MPa or is as published (above).
+  //
   // A value the estimate model keeps out is not necessarily a wrong one. A bronze-filled PLA weighs 3.9 g/cm³
   // and that is a true fact about the product, which belongs in the database and on the page; what the model has
   // no covariate for is the load, so it excludes the value from the family's density rather than learning a PLA
@@ -427,62 +443,69 @@ test('values the registered sources publish are recorded as published', () => {
   }
 });
 
-test('resin references are study grades whose moulded values never become headlines', () => {
-  for (const id of ['G055-R1', 'G058-R1', 'G087-R1']) {
-    const grade = db.grades.find((x) => x.id === id);
-    const m = db.materials.find((x) => x.id === grade.materialId);
-    assert.ok(!m.gradeIds.includes(id), `${id} is not a procurement grade`);
-    const rows = db.measurements.filter((x) => x.gradeId === id);
-    assert.ok(rows.length && rows.every((x) => x.specimenType === 'Raw material value'), id);
-    for (const k of ESTIMATED) assert.ok(!rows.some((x) => x.id === m.headline[k].measurementId), `${id} backs ${k}`);
+test('a study or reference grade is no product of its material and backs none of its values', () => {
+  // A rule over every -R# grade, where the test once named three resin references (G055-R1, G058-R1, G087-R1). A
+  // moulded value is never any product's value (products.test.js); a study grade's printed bars are its own record.
+  const study = db.grades.filter((g) => /-R\d+$/.test(g.id));
+  assert.ok(study.length > 0, 'no study or reference grade to check');
+  for (const g of study) {
+    const m = db.materials.find((x) => x.id === g.materialId);
+    assert.ok(!m.gradeIds.includes(g.id), `${g.id} is listed as a procurement grade of ${m.name}`);
+    const own = new Set(db.measurements.filter((x) => x.gradeId === g.id).map((x) => x.id));
+    for (const [k, h] of Object.entries(m.headline)) {
+      assert.ok(!own.has(h?.measurementId) && !own.has(h?.typical?.measurementId), `${g.id} backs ${m.name}'s ${k}`);
+    }
   }
-  assert.equal(byName('PA66').headline.tensileModulusXY.estimate.strength, 'this-material');
 });
 
 // --- 2026-09-13 manufacturer audit --------------------------------------------------------------
 // docs/audits/2026-09-13-manufacturer-evidence/. Each test pins one change from its CHANGELOG.csv, so
 // a later data edit that silently undoes one fails here rather than in front of a user.
 
-test('the four audited grades, their profiles and their properties are compiled', () => {
-  for (const [grade, material, profile] of [['G077-01', 'M077', 'P0157'], ['G038-02', 'M038', 'P0158'], ['G045-03', 'M045', 'P0159'], ['G073-02', 'M073', 'P0160']]) {
-    assert.equal(db.grades.find((g) => g.id === grade)?.materialId, material, grade);
-    assert.equal(db.profiles.find((p) => p.id === profile)?.gradeId, grade, profile);
-  }
-  const added = db.measurements.filter((m) => m.id >= 'V001808' && m.id <= 'V001899');
-  assert.equal(added.length, 92);
-});
-
 // Regression: the quarantine moved the ABS median but the row still cited CA0069, and a wrong-product
-// listing could still have been the buy link or the proof that ABS was in stock.
-test('a quarantined price observation backs no headline, buy link or stock claim', () => {
-  const q = db.prices.find((p) => p.id === 'CA0069');
-  assert.ok(q.quarantined);
-  const abs = db.materials.find((m) => m.id === q.materialId);
-  assert.ok(!abs.headline.priceCADkg.priceIds.includes('CA0069'));
-  assert.equal(abs.headline.priceCADkg.value, 25.99);
+// listing could still have been the buy link or the proof that ABS was in stock. Now a rule over every price.
+test('a quarantined price observation backs no headline, buy link or stock claim, and a price moves with its product', () => {
+  const prices = new Map(db.prices.map((p) => [p.id, p]));
+  const quarantined = db.prices.filter((p) => p.quarantined);
+  assert.ok(quarantined.length > 0, 'no quarantined price to check');
+  for (const x of [...db.materials, ...db.grades]) {
+    for (const id of x.headline?.priceCADkg?.priceIds ?? []) {
+      assert.ok(!prices.get(id)?.quarantined, `${x.name ?? x.id}'s price cites quarantined ${id}`);
+      // Moving a product moves its listings, and a material's price is its own products' (m25, D86).
+      assert.equal(prices.get(id)?.materialId, x.materialId ?? x.id, `${x.name ?? x.id}'s price cites ${id}, another material's listing`);
+    }
+  }
   for (const m of db.materials) {
-    if (m.buy) assert.ok(!db.prices.some((p) => p.quarantined && p.url === m.buy.url && p.materialId === m.id), m.name);
+    if (m.buy) assert.ok(!quarantined.some((p) => p.url === m.buy.url && p.materialId === m.id), m.name);
   }
 });
 
 test('a qualitative result is evidence, never a number', () => {
-  const noBreak = db.measurements.find((m) => m.id === 'V001899');
-  assert.equal(noBreak.qualitative, true);
-  assert.equal(noBreak.numeric, false);
-  assert.equal(noBreak.value, null);
+  const qualitative = db.measurements.filter((m) => m.qualitative);
+  assert.ok(qualitative.length > 0, 'no qualitative result to check');
+  for (const m of qualitative) assert.deepEqual([m.numeric, m.value], [false, null], m.id);
 });
 
-test('the corrected Bambu notch records carry their corrected state', () => {
-  const byId = (id) => db.measurements.find((m) => m.id === id);
-  assert.equal(byId('V000342').notch, 'Notched');
-  assert.equal(byId('V000343').notch, 'Not published');
-  assert.match(byId('V000717').locator, /notched/i);
-});
-
-// The Essentium profile needs 400 °C. The material stays printable through its other grade, but the
-// profile itself must say it exceeds the printer rather than borrow the material's verdict.
-test('an over-temperature audited profile exceeds the nozzle gate on its own', () => {
-  assert.equal(db.profiles.find((p) => p.id === 'P0160').gates.nozzle.verdict, 'exceeds');
+// The Essentium profile needs 400 °C (P0160): it exceeds the nozzle gate on its own, while its material stays
+// printable through another grade. A rule over every profile and axis now: the verdict is its own window's.
+test('every profile\'s gate is its own published window against the H2C', () => {
+  const limit = { nozzle: db.meta.h2cBaseline.nozzleC, bed: db.meta.h2cBaseline.bedC, chamber: db.meta.h2cBaseline.chamberC };
+  const seen = new Set();
+  for (const p of db.profiles) {
+    for (const axis of ['nozzle', 'bed', 'chamber']) {
+      const w = p[axis];
+      const { verdict, reason } = p.gates[axis];
+      seen.add(verdict);
+      if (w.state !== 'range' || w.max === null) { assert.ok(!['within', 'partial', 'exceeds', 'exceeds-recommended'].includes(verdict) || ['not-required', 'ambient'].includes(w.state), `${p.id} ${axis}: ${verdict} with no window`); continue; }
+      const expected = w.max <= limit[axis] ? 'within'
+        : axis === 'chamber' && w.min !== null && w.min <= limit[axis] ? 'partial'
+        : w.requirement === 'recommended' ? 'exceeds-recommended' : 'exceeds';
+      assert.equal(verdict, expected, `${p.id} ${axis}: ${w.min}-${w.max} °C against ${limit[axis]} °C`);
+      // A window the H2C reaches only in part says how much, and is never within and never a failure (ABS-CF, PPA-CF).
+      if (verdict === 'partial') assert.match(reason, /reaches only/, p.id);
+    }
+  }
+  for (const v of ['within', 'partial', 'exceeds']) assert.ok(seen.has(v), `no profile is ${v}, so that branch is untested`);
 });
 
 test('the snapshot comes from the Method sheet', () => {
@@ -492,45 +515,16 @@ test('the snapshot comes from the Method sheet', () => {
 });
 
 // --- 2026-09-13 missing-data research -----------------------------------------------------------
-// docs/audits/2026-09-13-missing-data-research/. Each test pins one decision from RESPONSE.md.
-
-// The chamber row in every Bambu data sheet is the first row after a page break, and none was
-// transcribed. The re-fetched files match the recorded SHA-256, so these are omissions, not new
-// evidence. PC FR and PAHT-CF reach their whole window. The window is the Bambu product's own (D83): the material's
-// union widens when another maker's product publishes a wider one, as Polymaker's PolyMax PC-FR (90-100 °C) did in m136.
-test('chamber windows recovered from the cited Bambu data sheets are compiled', () => {
-  // Each is the Bambu product's own window (D83); PLA Basic and PETG HF are products of PLA and PETG since m141.
-  for (const [id, min, max] of [['G002-01', 25, 45], ['G022-01', 35, 50], ['G036-01', 45, 60], ['G048-01', 45, 60], ['G080-01', 45, 60]]) {
-    const g = db.grades.find((x) => x.id === id);
-    assert.equal(g.manufacturer, 'Bambu Lab', id);
-    assert.deepEqual([g.print?.chamber?.min, g.print?.chamber?.max], [min, max], id);
-    assert.equal(g.print.chamber.verdict, 'within', id);
-  }
-  for (const name of ['PC FR', 'PAHT-CF', 'Support for PA/PET']) assert.equal(byName(name).gates.chamber.verdict, 'within', name);
-});
-
-// Regression: a 60-90 °C chamber window was read by its upper end alone, so a material whose own
-// window starts below the H2C's 65 °C failed outright. ABS-CF (50-70 °C) did, before this research.
-test('a chamber window the H2C only partly reaches is partial, never within and never a failure', () => {
-  for (const name of ['PPA-CF', 'ABS-CF']) {
-    const g = db.materials.find((m) => m.name === name).gates.chamber;
-    assert.equal(g.verdict, 'partial', name);
-    assert.match(g.reason, /reaches only/, name);
-  }
-  // The verdict is the profile's, and a material's is the best of its profiles (GATE_PRECEDENCE): PPS-CF was
-  // this test's third example until a grade arrived that prints at room temperature, which makes the material
-  // printable and says nothing about the 60-90 °C window the third grade still publishes. So the window is
-  // checked where it is decided, on every profile that states one.
-  const partial = db.profiles.filter((p) => p.gates?.chamber?.verdict === 'partial');
-  assert.ok(partial.length, 'some profile publishes a window the H2C only partly reaches');
-  for (const p of partial) assert.match(p.gates.chamber.reason, /reaches only/);
-});
+// docs/audits/2026-09-13-missing-data-research/. Its recovered chamber windows (the Bambu sheets' row after a page
+// break) are profiles.csv's; a product's window is its own profile's (products.test.js), each profile's verdict is its
+// window's (above), and the materials' chamber verdicts are in build/snapshot/gates.csv.
 
 test('a "-" in a data sheet is no setpoint, not zero and not "not required"', () => {
-  const tpc = db.materials.find((m) => m.name === 'TPC / TPEE');
-  assert.equal(tpc.gates.chamber.verdict, 'unknown');
-  assert.equal(tpc.print.chamberGuidance.state, 'no-setpoint');
-  assert.equal(tpc.print.chamberC, null);
+  // Every profile and material that lists no setpoint, where the test once named TPC / TPEE's.
+  const profiles = db.profiles.filter((p) => p.chamber.state === 'no-setpoint');
+  assert.ok(profiles.length > 0, 'no profile lists a "-" to check');
+  for (const p of profiles) assert.deepEqual([p.gates.chamber.verdict, p.chamber.min, p.chamber.max], ['unknown', null, null], p.id);
+  // A material's window and verdict are its profiles' (above), so a "-" never becomes a material's temperature either.
 });
 
 // A source that says an enclosure is not necessary has said no heated chamber is needed. One that
@@ -549,10 +543,9 @@ test('enclosure guidance clears the chamber only when it says an enclosure is no
 // on record and the headline is the one a printed part has.
 test('an annealed value is not averaged with its as-printed twin, and mixed schedules are not a precise mean', () => {
   // PET-GF15's 81.6 and 133.7 °C once became one observation of 107.65 °C, an outlier warning and a conflict; PPS-GF's
-  // HDT after annealing at 130 and at 230 °C became one precise mean (audit 2026-09-15, C-01).
+  // HDT after annealing at 130 and at 230 °C became one precise mean (audit 2026-09-15, C-01). The rule below covers
+  // every conflict, so the four measurements that found it are no longer named.
   const { conflicts, outliers } = db.meta.estimateModel;
-  const flagged = conflicts.flatMap((c) => c.measurementIds);
-  for (const id of ['V001933', 'V001932', 'V000353', 'V000352']) assert.ok(!flagged.includes(id), `${id} (annealed) is still averaged into an observation`);
   // What this guards is that no HDT observation mixes two states, which shows as a group holding more than one
   // measurement. Whether such a group also conflicts is a separate thing: an honest single-state value may
   // contradict its family and be down-weighted on purpose (fitWithConflicts), and PLA-GF's as-printed pair does,
@@ -592,19 +585,8 @@ test('a physically implausible value is kept and flagged, and backs no headline,
       for (const e of h.estimate?.evidence ?? []) for (const i of e.items) assert.ok(!ids.has(i.measurementId), `${m.name} ${key} estimate uses ${i.measurementId}`);
     }
   }
-  // TPU for AMS's 1.19 GPa on a 68D elastomer no longer passes a rigid-part stiffness requirement.
-  const ams = db.materials.find((m) => m.name === 'TPU for AMS').headline.tensileModulusXY;
-  assert.ok(!ams.known && (ams.estimate?.plausible.hi ?? 0) < 1, `TPU for AMS stiffness ${JSON.stringify(ams.estimate?.plausible)}`);
-});
-
-test('HyperLite PP is its own material, and PP describes unfilled polypropylene', () => {
-  const pp = byName('PP'), light = byName('PP Lightweight');
-  assert.ok(pp.headline.density.spread.max < 1000, `unfilled PP products publish up to ${pp.headline.density.spread.max} kg/m³`);
-  assert.ok(pp.headline.tensileModulusXY.estimate.plausible.hi < 2.5, 'unfilled PP stiffness estimate');
-  // PP Lightweight's one product is a declared variant, and so the material's own range.
-  assert.equal(light.headline.density.value, 810);
-  assert.ok(!db.measurements.some((m) => m.gradeId === 'G082-01'), 'the retired HyperLite grade still holds active measurements');
-
+  // No product value is one either (products.test.js). TPU for AMS's flagged 1.19 GPa, the case that found it, left its
+  // stiffness an estimate, which build/snapshot/headlines.csv holds.
 });
 
 // The nGen TDS footnotes its density and HDT as raw-material supplier data. The printed XY values
@@ -624,29 +606,28 @@ test('no product value is an annealed bar where the product publishes the proper
       if (m.postProcessingState === 'annealed') { annealed++; assert.ok(v.anneal, `${g.id} ${key} does not say it is reached after annealing`); }
     }
   }
-  assert.equal(db.grades.find((g) => g.id === 'G069-01').headline.hdt045.value, 103, 'IPCON PPA, the case that found it');
+  // IPCON PPA's 103 °C, the case that found it, is in build/snapshot/products.csv.
   assert.ok(annealed > 0, 'no product value is annealed at all, so the second half of the rule is untested');
 });
 
-test('raw-material supplier values never become a product\'s value', () => {
-  // nGen's resin sheet (G092-01) prints a moulded density and heat deflection; they stay evidence.
-  const g = db.grades.find((x) => x.id === 'G092-01');
-  assert.equal(g.headline.tensileModulusXY.value, 1.7);
-  assert.ok(!g.headline.density && !g.headline.hdt045, 'a moulded value became G092-01\'s');
+// Flexural is not tensile: eSUN PLA-Lite publishes a flexural modulus and no tensile one, and has no stiffness of its
+// own. A rule over every product value now: it is a measurement of a property its headline takes.
+test('a product value is always a property its headline takes: a flexural modulus never fills the stiffness headline', () => {
   const byId = new Map(db.measurements.map((m) => [m.id, m]));
-  for (const x of db.grades) {
-    for (const [key, v] of Object.entries(x.headline ?? {})) {
-      if (v.measurementId) assert.ok(!['moulded', 'film', 'filament'].includes(byId.get(v.measurementId).specimenForm), `${x.id} ${key}`);
+  const takes = new Map(db.registry.headlines.map((d) => [d.key, d.valueProperties]));
+  let flexuralOnly = 0;
+  for (const g of db.grades) {
+    for (const [key, v] of Object.entries(g.headline ?? {})) {
+      if (!v.measurementId) continue;
+      assert.ok(takes.get(key)?.includes(byId.get(v.measurementId).property), `${g.id} ${key} is a ${byId.get(v.measurementId).property}`);
+    }
+    const own = db.measurements.filter((m) => m.gradeId === g.id);
+    if (own.some((m) => m.property === 'Flexural modulus') && !own.some((m) => m.property === 'Tensile modulus')) {
+      flexuralOnly++;
+      assert.equal(g.headline?.tensileModulusXY, undefined, `${g.id} publishes no tensile modulus and has a stiffness value`);
     }
   }
-});
-
-// Flexural is not tensile: PLA Lite publishes a flexural modulus and no tensile one.
-test('a flexural modulus never fills the stiffness headline', () => {
-  // eSUN PLA-Lite publishes a flexural modulus and no tensile one: it has no stiffness value of its own.
-  const lite = db.grades.find((g) => g.id === 'G004-01');
-  assert.equal(lite.headline.tensileModulusXY, undefined);
-  assert.ok(db.measurements.some((m) => m.gradeId === lite.id && m.property === 'Flexural modulus'));
+  assert.ok(flexuralOnly > 0, 'no product publishes a flexural modulus alone, so the rule is untested');
 });
 
 // A research band is inference about a setpoint. It is shown only where no source says anything
@@ -661,9 +642,8 @@ test('an estimated chamber band never sits beside published evidence and never d
     assert.ok(e.lo < e.hi && e.basis, m.name);
     assert.ok(['unknown'].includes(m.gates.chamber.verdict), `${m.name}: a band sits on a material whose gate says ${m.gates.chamber.verdict}`);
   }
-  const ppa = db.materials.find((m) => m.name === 'PPA');
-  assert.equal(ppa.print.chamberEstimate.lo, 80);
-  assert.equal(ppa.gates.chamber.verdict, 'unknown');
+  // PPA's band (80 °C upward), the case that found it, is chamber_bands.csv's; its gate is in build/snapshot/gates.csv.
+  assert.ok(db.materials.some((m) => m.print?.chamberEstimate), 'no estimated chamber band, so the rule is untested');
 });
 
 test('a band is attached by MaterialID, so renaming a material does not detach it', async () => {
@@ -694,49 +674,59 @@ test('the consolidated snapshot passes every consistency check', () => {
   assert.deepEqual(errorsFor(() => {}), []);
 });
 
+// Each fixture below is chosen from the data by what it must be, not by its ID, so a re-filing or a new batch never
+// breaks the proof that the check still fires.
 test('a product value citing another product, or a material naming another\'s typical product, is an error', () => {
+  const a = db.grades.find((g) => g.headline?.hdt045?.measurementId);
+  const b = db.grades.find((g) => g.id !== a.id && g.headline?.density?.measurementId);
   const grade = (c, id) => c.grades.find((g) => g.id === id);
-  assert.ok(errorsFor((c) => { grade(c, 'G068-02').headline.hdt045.measurementId = grade(c, 'G025-02').headline.density.measurementId; })
-    .some((e) => /G068-02 hdt045 cites V\d+, a measurement of G025-02/.test(e)));
-  assert.ok(errorsFor((c) => { mat(c, 'PET-GF').headline.hdt045.typical.gradeId = 'G025-02'; })
-    .some((e) => /names G025-02 as its typical product/.test(e)));
+  assert.ok(errorsFor((c) => { grade(c, a.id).headline.hdt045.measurementId = grade(c, b.id).headline.density.measurementId; })
+    .some((e) => e.includes(`${a.id} hdt045 cites ${b.headline.density.measurementId}, a measurement of ${b.id}`)), `${a.id} citing ${b.id}`);
+  const m = db.materials.find((x) => x.headline.hdt045?.typical?.gradeId);
+  const stranger = db.grades.find((g) => !g.retired && g.materialId !== m.id).id;
+  assert.ok(errorsFor((c) => { mat(c, m.name).headline.hdt045.typical.gradeId = stranger; })
+    .some((e) => e.includes(`names ${stranger} as its typical product`)), m.name);
 });
 
 test('a record filed under the wrong material is an error', () => {
-  assert.ok(errorsFor((c) => { c.measurements.find((m) => m.gradeId === 'G036-01').materialId = 'M035'; })
-    .some((e) => /its grade G036-01 belongs to M036/.test(e)));
+  const x = db.measurements.find((m) => m.gradeId && db.grades.some((g) => g.id === m.gradeId && !g.retired));
+  const other = db.materials.find((m) => m.id !== x.materialId).id;
+  assert.ok(errorsFor((c) => { c.measurements.find((m) => m.id === x.id).materialId = other; })
+    .some((e) => e.includes(`its grade ${x.gradeId} belongs to ${x.materialId}`)), x.id);
 });
 
 test('a procurement grade missing from GradeIDs is an error; a study grade is not', () => {
-  assert.ok(errorsFor((c) => { mat(c, 'CoPE').gradeIds = []; }).some((e) => /G091-02 belongs to this material/.test(e)));
-  assert.ok(!db.materials.find((m) => m.name === 'PA12').gradeIds.some((g) => /-R\d+$/.test(g)));
+  const m = db.materials.find((x) => x.gradeIds.length > 0);
+  assert.ok(errorsFor((c) => { mat(c, m.name).gradeIds = []; }).some((e) => e.includes(`${m.gradeIds[0]} belongs to this material`)), m.name);
+  // That a study grade is never listed is the rule over every -R# grade above.
 });
 
 test('guidance that does not quote its printing evidence is an error', () => {
-  assert.ok(errorsFor((c) => { mat(c, 'PC FR').guidance.chamber = 'Not published'; })
-    .some((e) => /chamber guidance "Not published" is not what its printing evidence P0044 says/.test(e)));
+  const quoted = (x) => x.printingEvidence.map((id) => db.profiles.find((p) => p.id === id)).find(Boolean);
+  const m = db.materials.find((x) => quoted(x) && x.guidance.chamber !== 'Not published' && quoted(x).chamber.text !== 'Not published');
+  assert.ok(errorsFor((c) => { mat(c, m.name).guidance.chamber = 'Not published'; })
+    .some((e) => e.includes(`chamber guidance "Not published" is not what its printing evidence ${quoted(m).id} says`)), m.name);
 });
 
 // Regression: the Environmental evidence column held a copy of family application notes for 31
-// materials, and PC FR's coverage said "Evidence recorded" on the strength of polycarbonate's notes.
+// materials, and PC FR's coverage said "Evidence recorded" on the strength of polycarbonate's notes. The recovered
+// Bambu chemical records (audit 2026-09-13) differ by material for the same reason: each is its own sheet's, and every
+// verdict an environment requirement screens on is in build/snapshot/environment.csv, which verify compares.
 test('environmental evidence and coverage describe only the material\'s own records', () => {
-  const pcfr = db.materials.find((m) => m.name === 'PC FR');
-  const own = db.evidence.filter((e) => e.materialId === pcfr.id);
-  assert.deepEqual(own.filter((e) => e.category === 'acid').map((e) => e.finding), ['Not resistant']);
-  assert.ok(pcfr.evidenceIds.environmental.every((id) => own.some((e) => e.id === id)));
-  assert.ok(errorsFor((c) => { mat(c, 'PC FR').evidenceIds.environmental = ['Q00290']; }).some((e) => /Environmental evidence cites "Q00290"/.test(e)));
-  assert.ok(errorsFor((c) => { c.coverage.find((x) => x.id === 'C00435').status = 'Gap'; }).some((e) => /C00435.*Print setup says "Gap" beside/.test(e)));
-  assert.ok(errorsFor((c) => { c.coverage.find((x) => x.id === 'C00428').status = 'Evidence recorded'; }).some((e) => /C00428.*has no record of its own/.test(e)));
-});
-
-// The recovered chemical rows differ by material; a family default would have been wrong for these.
-test('recovered Bambu chemical records keep each data sheet\'s own verdict', () => {
-  const finding = (name, topic) => db.evidence.find((e) => e.materialId === db.materials.find((m) => m.name === name).id && e.topic === topic)?.finding;
-  assert.equal(finding('ABS-GF', 'Resistance to Acid'), 'Resistant');
-  assert.equal(finding('PPS-CF', 'Resistance to Organic Solvent'), 'Resistant');
-  assert.equal(finding('PVA', 'Solubility'), 'Soluble in water');
-  // PLA Tough+ is a product of PLA since m141, and its record went with it.
-  assert.equal(db.evidence.find((e) => e.gradeId === 'G006-01' && e.topic === 'Resistance to Alkali')?.finding, 'Not resistant');
+  for (const m of db.materials) {
+    const own = new Set(db.evidence.filter((e) => e.materialId === m.id).map((e) => e.id));
+    for (const id of m.evidenceIds.environmental) assert.ok(own.has(id), `${m.name} cites ${id}, another material's record, as its environmental evidence`);
+  }
+  const m = db.materials.find((x) => x.evidenceIds.environmental.length);
+  const foreign = db.evidence.find((e) => e.materialId !== m.id).id;
+  assert.ok(errorsFor((c) => { mat(c, m.name).evidenceIds.environmental = [foreign]; }).some((e) => e.includes(`Environmental evidence cites "${foreign}"`)), m.name);
+  // A coverage row may not say Gap beside the material's own records, nor claim records it does not have.
+  const stored = db.coverage.filter((x) => !x.derived && x.status !== 'Superseded');
+  const dataOf = (c) => domainData(db, db.materials.find((x) => x.id === c.materialId))[c.domain];
+  const beside = stored.find((c) => c.status === 'Evidence recorded' && dataOf(c)?.length > 0);
+  assert.ok(errorsFor((c) => { c.coverage.find((x) => x.id === beside.id).status = 'Gap'; }).some((e) => e.includes(beside.id) && /says "Gap" beside/.test(e)), beside.id);
+  const without = stored.find((c) => c.status === 'Gap' && dataOf(c) && dataOf(c).length === 0);
+  assert.ok(errorsFor((c) => { c.coverage.find((x) => x.id === without.id).status = 'Evidence recorded'; }).some((e) => e.includes(without.id) && /has no record of its own/.test(e)), without.id);
 });
 
 // Systematic data audit: use the actual source tables, then introduce independent corruption.
@@ -748,17 +738,23 @@ import { annealedBesideAsPrinted } from '../build/src/normalize/specimen.js';
 import { domainData } from '../build/src/coverage-rules.js';
 import { moistureState } from '../build/src/normalize/moisture.js';
 
+// A published row whose raw value is written with a decimal comma ("4,30%"), chosen from the data by that shape.
+const decimalComma = (wb) => wb.Properties.rows.find((r) => /^Published value/.test(r['Data status']) && /^\d+,\d{1,2}\D*$/.test(r['Raw value']) && r['Conversion factor'] === '1');
+
 test('raw values reconcile, including decimal commas and grouped cycle counts', () => {
-  const wb=loadTables(join(root,'data'));
-  assert.deepEqual(measurementIssues(db,wb),[]);
-  assert.equal(rawNumber('4,30%'),4.3);
-  assert.equal(rawNumber('123,460'),123460);
-  assert.equal(rawNumber('24 000 kg/cm2'),24000);
-  wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Normalized value']='4';
-  assert.ok(measurementIssues(db,wb).some(e=>e.where.includes('V000539')));
-  wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Normalized value']='4.3';
-  wb.Properties.rows.find(r=>r.MeasurementID==='V000539')['Raw numeric']='4';
-  assert.ok(measurementIssues(db,wb).some(e=>/cached normalized formula/.test(e.message)));
+  const wb = loadTables(join(root, 'data'));
+  assert.deepEqual(measurementIssues(db, wb), []);
+  assert.equal(rawNumber('4,30%'), 4.3);
+  assert.equal(rawNumber('123,460'), 123460);
+  assert.equal(rawNumber('24 000 kg/cm2'), 24000);
+  const row = decimalComma(wb);
+  assert.ok(row, 'no published value written with a decimal comma to test against');
+  const [normalized, raw] = [row['Normalized value'], row['Raw numeric']];
+  row['Normalized value'] = String(Number(normalized) + 1);
+  assert.ok(measurementIssues(db, wb).some((e) => e.where.includes(row.MeasurementID)), row.MeasurementID);
+  row['Normalized value'] = normalized;
+  row['Raw numeric'] = String(Number(raw) + 1);
+  assert.ok(measurementIssues(db, wb).some((e) => e.where.includes(row.MeasurementID) && /cached normalized formula/.test(e.message)), row.MeasurementID);
 });
 
 test('a number written with an E is a power of ten, signed or not', () => {
@@ -802,39 +798,43 @@ test('a unit is its meaning, not its spelling, and a pair with no conversion say
   assert.equal(unitsKnown({ 'Raw unit': 'furlongs', 'Normalized unit': 'MPa' }), false);
   assert.equal(unitsKnown({ 'Raw unit': 'Not published', 'Normalized unit': 'Shore (scale not specified by source)' }), true);
   const wb = loadTables(join(root, 'data'));
-  const row = wb.Properties.rows.find((r) => r.MeasurementID === 'V000539');
+  const row = decimalComma(wb);
   const before = row['Raw unit'];
   row['Raw unit'] = 'furlongs';
-  assert.ok(measurementIssues(db, wb).some((e) => e.code === 'MEAS-UNIT-UNKNOWN' && e.where.includes('V000539')));
+  assert.ok(measurementIssues(db, wb).some((e) => e.code === 'MEAS-UNIT-UNKNOWN' && e.where.includes(row.MeasurementID)), row.MeasurementID);
   row['Raw unit'] = before;
 });
 
-test('corrected source endpoints and qualitative outcomes stay distinct', () => {
-  // V000894 was the same record filed under PA; it is a retired duplicate since 2026-09-13.
-  assert.ok(!db.measurements.some((m) => m.id === 'V000894'));
-  for(const id of ['V000920']){
-    const m=db.measurements.find(m=>m.id===id);
-    assert.equal(m.property,'Tensile strain at strength'); assert.equal(m.value,4.4);
-    assert.ok(!db.materials.flatMap(m=>m.headline.elongationXY.related?.items??[]).some(i=>i.measurementId===id));
-  }
-  assert.equal(db.measurements.find(m=>m.id==='V001349').value,1.3);
-  assert.equal(db.measurements.find(m=>m.id==='V000419').qualitative,true);
-  assert.ok(errorsFor(c=>{c.measurements.find(m=>m.id==='V000920').property='Elongation at break';}).some(e=>/endpoint/.test(e)));
+test('a strain at another endpoint is never an elongation at break, and a retired duplicate never reaches the database', () => {
+  // The 2026-09-13 endpoint corrections (V000920 and its kin, a strain at maximum force filed as an elongation at
+  // break) are a rule now: a strain whose own locator names another endpoint cannot be an Elongation at break (the
+  // validator, below), and related evidence is always its column's property (above). A retired duplicate (V000894)
+  // is audit trail only.
+  assert.ok(!db.measurements.some((m) => m.dataStatus === 'Retired duplicate record'), 'a retired duplicate reached db.measurements');
+  const strain = db.measurements.find((m) => m.property === 'Tensile strain at strength' && /at max\.? force|at yield|at strength/i.test(m.locator ?? ''));
+  assert.ok(strain, 'no strain at another endpoint to test against');
+  assert.ok(errorsFor((c) => { c.measurements.find((m) => m.id === strain.id).property = 'Elongation at break'; }).some((e) => e.includes(strain.id) && /endpoint/.test(e)), strain.id);
 });
 
-test('retired CoPE identity is archival, never active procurement or printing evidence', () => {
-  const m=mat(db,'CoPE');
-  assert.deepEqual(m.gradeIds,['G091-02']);
-  assert.ok(!m.profileIds.includes('P0115'));
-  assert.equal(db.grades.find(g=>g.id==='G091-01').retired,true);
-  assert.equal(db.profiles.find(p=>p.id==='P0115').retired,true);
-  assert.ok(errorsFor(c=>{mat(c,'CoPE').gradeIds.push('G091-01');}).some(e=>/retired mapping/.test(e)));
+test('a retired grade or profile is archival, never active procurement or printing evidence', () => {
+  // A rule over every material, where the test once named CoPE's retired grade and profile (G091-01, P0115).
+  const retiredGrades = new Set(db.grades.filter((g) => g.retired).map((g) => g.id));
+  const retiredProfiles = new Set(db.profiles.filter((p) => p.retired).map((p) => p.id));
+  assert.ok(retiredGrades.size > 0 && retiredProfiles.size > 0, 'nothing retired to check');
+  for (const m of db.materials) {
+    assert.deepEqual(m.gradeIds.filter((id) => retiredGrades.has(id)), [], `${m.name} lists a retired grade`);
+    assert.deepEqual(m.profileIds.filter((id) => retiredProfiles.has(id)), [], `${m.name} lists a retired profile`);
+  }
+  const g = db.grades.find((x) => x.retired);
+  const owner = db.materials.find((m) => m.id === g.materialId);
+  assert.ok(errorsFor((c) => { mat(c, owner.name).gradeIds.push(g.id); }).some((e) => e.includes(`retired mapping ${g.id}`)), g.id);
 });
 
 test('a headline cannot borrow another property simply because its value matches', () => {
-  const value = (c) => c.grades.find((g) => g.id === 'G002-01').headline.tensileStrengthXY;
-  assert.ok(errorsFor(c=>{const h=value(c);c.measurements.find(m=>m.id===h.measurementId).property='Flexural strength';}).some(e=>/inconsistent property/.test(e)));
-  assert.ok(errorsFor(c=>{const h=value(c);c.measurements.find(m=>m.id===h.measurementId).unit='GPa';}).some(e=>/inconsistent property/.test(e)));
+  const id = db.grades.find((g) => g.headline?.tensileStrengthXY?.measurementId).id;
+  const value = (c) => c.grades.find((g) => g.id === id).headline.tensileStrengthXY;
+  assert.ok(errorsFor((c) => { const h = value(c); c.measurements.find((m) => m.id === h.measurementId).property = 'Flexural strength'; }).some((e) => /inconsistent property/.test(e)), id);
+  assert.ok(errorsFor((c) => { const h = value(c); c.measurements.find((m) => m.id === h.measurementId).unit = 'GPa'; }).some((e) => /inconsistent property/.test(e)), id);
 });
 
 test('the estimate numerics: normal quantiles, soft limits and hardness', () => {
@@ -873,11 +873,16 @@ test('evidence kinds: a moulded amorphous bar is converted as amorphous, a Z val
 });
 
 test('the validator rejects a blank headline, a range that does not nest, and evidence from another material', () => {
-  assert.ok(errorsFor((c) => { delete mat(c, 'PA66').headline.tensileModulusXY.estimate; }).some((e) => /no value, no estimate/.test(e)));
-  assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.lo = 99; }).some((e) => /outside the likely range/.test(e)));
-  assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileStrengthXY.estimate.plausible.hi = 1; }).some((e) => /not inside the plausible range/.test(e)));
-  const foreign = db.measurements.find((m) => m.materialId === byName('PLA').id).id;
-  assert.ok(errorsFor((c) => { mat(c, 'PA66').headline.tensileModulusXY.estimate.evidence[0].items[0].measurementId = foreign; }).some((e) => /neither this material/.test(e)));
+  // Any material estimated for stiffness and strength from evidence of its own will do; PA66 was the first.
+  const name = db.materials.find((m) => !m.familyEntry && m.estimateIdentity
+    && m.headline.tensileModulusXY?.estimate?.evidence?.[0]?.items?.[0]?.measurementId && m.headline.tensileStrengthXY?.estimate).name;
+  const own = byName(name);
+  assert.ok(errorsFor((c) => { delete mat(c, name).headline.tensileModulusXY.estimate; }).some((e) => /no value, no estimate/.test(e)), name);
+  assert.ok(errorsFor((c) => { mat(c, name).headline.tensileModulusXY.estimate.lo = own.headline.tensileModulusXY.estimate.hi + 99; }).some((e) => /outside the likely range/.test(e)), name);
+  assert.ok(errorsFor((c) => { mat(c, name).headline.tensileStrengthXY.estimate.plausible.hi = own.headline.tensileStrengthXY.estimate.lo - 1; }).some((e) => /not inside the plausible range/.test(e)), name);
+  const keys = new Set(db.grades.filter((g) => g.materialId === own.id).map((g) => g.formulationKey));
+  const foreign = db.measurements.find((m) => m.materialId !== own.id && !keys.has(db.grades.find((g) => g.id === m.gradeId)?.formulationKey)).id;
+  assert.ok(errorsFor((c) => { mat(c, name).headline.tensileModulusXY.estimate.evidence[0].items[0].measurementId = foreign; }).some((e) => /neither this material/.test(e)), name);
   assert.ok(errorsFor((c) => { c.meta.estimateModel.properties.density.calibration.likelyCoverage = 0.5; }).some((e) => /likely range contains 50%/.test(e)));
 });
 
@@ -906,7 +911,7 @@ test('no estimate reaches past a physical limit, and calibration still holds', (
 test('a declared grade variant explains its own offset instead of moving its family', async () => {
   const { loadTables } = await import('../build/src/load.js');
   const { Worker } = await import('node:worker_threads');
-  // PA66's estimated stiffness after setting some fields of one grade in a fresh copy of the tables. The four builds
+  // PA66's estimated stiffness after setting some fields of one grade in a fresh copy of the tables. The three builds
   // below are whole builds and independent of each other, so each runs in a worker thread of its own and together they
   // take about as long as one.
   const pa66Stiffness = (gradeId, set) => new Promise((resolve, reject) => {
@@ -939,9 +944,16 @@ test('a declared grade variant explains its own offset instead of moving its fam
   // PA66 by as much as retiring the declared compound does. The invariant is that the declared grade is no more
   // disturbing to its family than an ordinary sibling, which is what "explains its own offset" means; comparing it
   // with a fixed tolerance measured the model's sensitivity to its own data instead, and grew with the corpus.
-  const sibling = loadTables(join(root, 'data')).Grades.rows.find((g) => g.MaterialID === 'M049' && g.GradeID !== 'G049-01' && g.Status === 'active' && !g.Variant.startsWith('undisclosed') && !g.Variant.startsWith('lightweight')).GradeID;
-  const [declared, undeclared, without, control] = await Promise.all([
-    pa66Stiffness(),                                          // the variant declared, as the tables have it
+  // The fixture is a real compound (Spectrum PA6 Neat, G049-01, a grade of PA6 that declares an undisclosed dense
+  // filler); if the data stops saying so, the comparison below would compare a grade with itself, so it says so first.
+  const grades = loadTables(join(root, 'data')).Grades.rows;
+  const fixture = grades.find((g) => g.GradeID === 'G049-01');
+  assert.ok(fixture?.Status === 'active' && /dense filler$/.test(fixture.Variant), 'G049-01 no longer declares a dense filler: choose another declared compound of PA6 for this test');
+  const sibling = grades.find((g) => g.MaterialID === fixture.MaterialID && g.GradeID !== fixture.GradeID && g.Status === 'active' && g.Variant === 'Not applicable').GradeID;
+  // The variant declared, as the tables have it, is the database this file already read: the build is deterministic
+  // (contract.test.js builds it twice), so a fourth whole build would only repeat it.
+  const declared = byName('PA66').headline.tensileModulusXY.estimate.centre;
+  const [undeclared, without, control] = await Promise.all([
     pa66Stiffness('G049-01', { Variant: 'Not applicable' }),  // undeclared
     pa66Stiffness('G049-01', retire),                         // without the grade
     pa66Stiffness(sibling, retire),                           // the control: without an ordinary sibling instead

@@ -1,6 +1,7 @@
 // Data lint rules: each catches the defect it names, and leaves legitimate look-alikes alone.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { fileURLToPath } from 'node:url';
 import { lintData } from '../build/src/lint-rules.js';
 
 const schemas = { measurements: { primaryKey: 'MeasurementID' } };
@@ -66,6 +67,9 @@ test('a superseded coverage row is history, not a duplicate', () => {
   const run = (rows) => lintData({ coverage: { header: Object.keys(rows[0]), rows } }, { coverage: { primaryKey: 'CoverageID', fields: [] } }).map((f) => f.code);
   assert.deepEqual(run([row('C1', 'Gap', 'x'), row('C2', 'Gap', 'x')]), ['COVERAGE-DUPLICATE']);
   assert.deepEqual(run([row('C1', 'Superseded', 'Superseded by C2: x'), row('C2', 'Gap', 'x')]), []);
+  // Two open findings in one domain may be one overtaken by the other; two closed ones are a log of what was fixed.
+  assert.deepEqual(run([row('C1', 'Gap', 'no HDT'), row('C2', 'Gap', 'no HDT at 0.45 MPa')]), ['COVERAGE-SUPERSEDED']);
+  assert.deepEqual(run([row('C1', 'Resolved', 'V1 resolved: unit corrected'), row('C2', 'Resolved', 'V2 resolved: unit corrected')]), []);
 });
 
 test('a headline limited to named families names every family with candidates, or a reason is accepted', () => {
@@ -89,6 +93,16 @@ test('a locator that names one direction must agree with the Direction column; m
     f('V5', 'p. 2: Bending modulus (Z)', 'Z'), f('V6', 'Zytel resin sheet', 'Not published'),
   ]).filter((c) => c.startsWith('MEAS-LOCATOR-DIRECTION'));
   assert.deepEqual(found, ['MEAS-LOCATOR-DIRECTION V1', 'MEAS-LOCATOR-DIRECTION V3']);
+  // A thermal row carries no direction by convention, and there the locator's "XY" is how the bar was printed. A
+  // mechanical row with the same locator is still held to it.
+  const properties = { header: ['Property', 'Domain'], rows: [{ Property: 'HDT', Domain: 'thermal' }, { Property: 'Tensile modulus', Domain: 'mechanical' }] };
+  const withDomains = (rows) => lintData({ measurements: { header: Object.keys(rows[0]), rows }, properties }, schemas)
+    .filter((x) => x.code === 'MEAS-LOCATOR-DIRECTION').map((x) => x.record);
+  assert.deepEqual(withDomains([
+    row({ MeasurementID: 'V1', Property: 'HDT', Locator: '94.7 °C (XY)', Direction: 'Not applicable', 'Normalized value': '94.7' }),
+    row({ MeasurementID: 'V2', Property: 'HDT', Locator: 'p. 2: HDT (Z)', Direction: 'Not published', 'Normalized value': '80' }),
+    row({ MeasurementID: 'V3', Locator: 'Young\'s modulus (X-Y)', Direction: 'Not applicable' }),
+  ]), ['V2', 'V3']);
 });
 
 test('HDT at 0.45 MPa below HDT at 1.8 MPa on one grade and state is caught, unless the pair is flagged implausible', () => {
@@ -254,6 +268,18 @@ test('two values a sheet orders the wrong way round are a swapped line, unless t
 
   // A needle cannot sink into a bar below the temperature at which its polymer goes rubbery.
   assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 145), thermal('V2', 'Vicat softening temperature', 119)]), ['V1']);
+  // Under the light load, that is. A needle pressed at 50 N sinks into a glassy bar once it yields, below the glass
+  // transition, so a Vicat whose own words name the heavy load is not ordered against it; a load the row does not
+  // state, the light load, and ASTM's "Rate B" (a heating rate) still are.
+  const vicat = (standard, value = 54) => ({ ...thermal('V2', 'Vicat softening temperature', value), 'Standard / load': standard });
+  for (const heavy of ['5kg ISO 306', '5kg ASTM D1525', 'ISO 306/B50', 'ISO 306, 50 N, 50 °C/h', '50N ASTM D1525', 'ISO 306 B120']) {
+    assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 63), vicat(heavy)]), [], heavy);
+  }
+  for (const light of ['ISO 306', 'VST 10N ISO 306', 'ISO 306/A50', '1 kg load D 1525', 'Rate B ASTM D1525', '150 N']) {
+    assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 63), vicat(light)]), ['V1'], light);
+  }
+  // The heavy load does not move a Vicat past the melting point.
+  assert.deepEqual(run([vicat('5kg ISO 306', 190), thermal('V3', 'Melting temperature', 160)]), ['V2']);
   // But two different tests cross by a little where the polymer puts them close: a PLA's Vicat and its glass
   // transition sit within a couple of degrees, and which comes first is scatter, not a swapped line.
   assert.deepEqual(run([thermal('V1', 'Glass transition temperature', 60), thermal('V2', 'Vicat softening temperature', 57)]), []);
@@ -270,4 +296,23 @@ test('two values a sheet orders the wrong way round are a swapped line, unless t
   assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, film)]), []);
   // The same two values measured on one kind of specimen are still one of them on the wrong line.
   assert.deepEqual(run([strength('V1', 'Flexural strength', 55, bar), strength('V2', 'Tensile strength (endpoint unspecified)', 110, bar)]), ['V1']);
+});
+
+test('a Shore number whose scale the sheet does not publish is judged against both scales, and no wider', async () => {
+  // The unit records the missing scale (m160), so the window says only whether the number could be a Shore reading
+  // at all: its bounds are the union of the A and D windows it could belong to, and drift in either shows here.
+  const { readCsv } = await import('../build/src/csv.js');
+  const windows = readCsv(fileURLToPath(new URL('../data/tables/plausibility_windows.csv', import.meta.url))).records.map((r) => r.values)
+    .filter((w) => w.Property === 'Hardness');
+  const unsettled = windows.filter((w) => w['Normalized unit'] === 'Shore (scale not specified by source)');
+  assert.ok(unsettled.length > 0, 'no window for a hardness whose scale is not published');
+  const n = (x, f) => Number(x[f]);
+  for (const w of unsettled) {
+    const scales = windows.filter((x) => ['Shore A', 'Shore D'].includes(x['Normalized unit']) && x['Matrix class'] === w['Matrix class'] && x['Fill class'] === w['Fill class']);
+    assert.equal(scales.length, 2, `${w.WindowID}: the Shore A and Shore D windows it is drawn from`);
+    assert.equal(w['Always flag'], 'FALSE', `${w.WindowID} flags every value, which the unit already does`);
+    const lowest = (f) => Math.min(...scales.map((x) => n(x, f)));
+    const highest = (f) => Math.max(...scales.map((x) => n(x, f)));
+    assert.deepEqual(['Hard low', 'Soft low', 'Soft high', 'Hard high'].map((f) => n(w, f)), [lowest('Hard low'), lowest('Soft low'), highest('Soft high'), highest('Hard high')], w.WindowID);
+  }
 });

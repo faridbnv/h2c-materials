@@ -16,27 +16,33 @@ const run = (edit) => {
   return { db, mismatches: issues.filter((i) => i.code === 'PARSE-MISMATCH').map((i) => `${i.where}: ${i.message}`) };
 };
 const profile = (wb, id) => wb['Print setup'].rows.find((r) => r.ProfileID === id);
+// A profile whose typed nozzle and chamber windows the parser reads from its raw text, with nothing reviewed: chosen
+// from the data by that shape, not by ID, so a re-read of one sheet cannot break the proof that the check fires.
+const fixture = base['Print setup'].rows.find((r) => r['Parse review'] === 'Not applicable' && /^\d+$/.test(r['Nozzle max °C']) && Number(r['Nozzle max °C']) < 300
+  && r['Chamber state'] === 'range');
+const nozzleMax = Number(fixture?.['Nozzle max °C']);
 
 test('the stored values reproduce every parser reading today', () => {
   assert.deepEqual(run(() => {}).mismatches, []);
+  assert.ok(fixture, 'no profile with a parsed nozzle and chamber window to test against');
 });
 
 test('a typed value that disagrees with the raw text stops the build', () => {
-  const { mismatches } = run((wb) => { profile(wb, 'P0003')['Nozzle max °C'] = '260'; });
-  assert.deepEqual(mismatches, ['profiles P0003: Nozzle max is 260 but the parser reads the raw text as 220; correct the typed value, or explain it in Parse review']);
+  const { mismatches } = run((wb) => { profile(wb, fixture.ProfileID)['Nozzle max °C'] = String(nozzleMax + 40); });
+  assert.deepEqual(mismatches, [`profiles ${fixture.ProfileID}: Nozzle max is ${nozzleMax + 40} but the parser reads the raw text as ${nozzleMax}; correct the typed value, or explain it in Parse review`]);
 });
 
 test('a raw text edit the typed value does not follow stops the build too', () => {
-  const { mismatches } = run((wb) => { profile(wb, 'P0003')['Chamber °C'] = 'Not required'; });
-  assert.ok(mismatches.some((m) => /P0003: Chamber state is range but the parser reads the raw text as not-required/.test(m)), mismatches.join(' | '));
+  const { mismatches } = run((wb) => { profile(wb, fixture.ProfileID)['Chamber °C'] = 'Not required'; });
+  assert.ok(mismatches.some((m) => m.includes(`${fixture.ProfileID}: Chamber state is range but the parser reads the raw text as not-required`)), mismatches.join(' | '));
 });
 
 test('a reviewed correction is accepted and decides the gate', () => {
   const { db, mismatches } = run((wb) => {
-    Object.assign(profile(wb, 'P0003'), { 'Nozzle max °C': '360', 'Parse review': 'The data sheet table reads 190-360 °C; the PDF text layer drops the 3.' });
+    Object.assign(profile(wb, fixture.ProfileID), { 'Nozzle max °C': '360', 'Parse review': 'The data sheet table reads a maximum of 360 °C; the PDF text layer drops the 3.' });
   });
   assert.deepEqual(mismatches, []);
-  const p = db.profiles.find((x) => x.id === 'P0003');
+  const p = db.profiles.find((x) => x.id === fixture.ProfileID);
   assert.equal(p.nozzle.max, 360);
   assert.equal(p.gates.nozzle.verdict, 'exceeds');
 });

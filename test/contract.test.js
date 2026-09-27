@@ -72,7 +72,8 @@ test('a grade estimate agrees with its material\'s, and exists only where its ca
 test('a renamed, dropped, retyped or unexpected field is reported at its path', () => {
   const db = read('db.json');
   const reference = read('reference.json');
-  const pla = db.materials.findIndex((m) => m.name === 'PLA');
+  // Any material with a density headline: the contract is the same for every one.
+  const pla = db.materials.findIndex((m) => m.headline.density?.unit);
   delete db.materials[pla].headline.density.unit;
   db.measurements[0].valeu = db.measurements[0].value;
   db.grades[2].retired = 'no';

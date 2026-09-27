@@ -116,7 +116,7 @@ nGen-CF
 Copolyesters
  UNKNOWN
 none judged
- ~1,100–1,390† 2.52 44.7 3.1 78 — ☆
+ ~1,100–1,350† 2.52 44.7 3.1 78 — ☆
 Nylon-GF, polymer not stated
 Nylon / Polyamide
  UNKNOWN
@@ -207,7 +207,7 @@ PA6-GS
 Nylon / Polyamide
  UNKNOWN
 none judged
- 1,010 ~3.1–5.3† ~56–103† ~2–14† ~96–174† — ☆
+ 1,010 ~3.1–5.3† ~57–104† ~2–14† ~96–174† — ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -230,7 +230,7 @@ none judged
  1,240 ~3.1–5.5† ~98–156† ~0.6–4.6† ~124–185† — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.0–3.8† ~35–87† ~4–48† ~89–159† — ☆
+ UNKNOWN ~990–1,080† ~1.0–3.8† ~35–87† ~4–48† ~89–159† — ☆
 PA612-CF
 Nylon / Polyamide
  PASS
@@ -251,13 +251,13 @@ Nylon / Polyamide
  1,100 4.29 84.3 3 157 — ☆
 PA612-GF
 Nylon / Polyamide
- UNKNOWN ~1,050–1,290† ~2.1–8.8† ~50–129† ~1–12† ~159–214† — ☆
+ UNKNOWN ~1,050–1,270† ~2.1–8.8† ~50–129† ~1–12† ~159–214† — ☆
 PA66
 Nylon / Polyamide
  UNKNOWN ~1,070–1,170† ~1.1–4.5† ~35–88† ~4–46† ~106–184† — ☆
 PA66-CF
 Nylon / Polyamide
- UNKNOWN ~1,080–1,280† ~2.7–12.0† ~56–146† ~1–12† ~176–252† — ☆
+ UNKNOWN ~1,080–1,270† ~2.7–12.0† ~56–146† ~1–12† ~176–252† — ☆
 PAHT
 Nylon / Polyamide
  UNKNOWN
@@ -340,7 +340,7 @@ PET-LW
 PET Engineering
  UNKNOWN
 none judged
- ~1,240–1,400† ~0.6–2.8† ~21–92† ~2–37† ~46–66† — ☆
+ ~1,240–1,390† ~0.6–2.8† ~21–93† ~2–37† ~46–66† — ☆
 PETG PASS
 1 of 48
  1,270
@@ -358,7 +358,7 @@ PETG PASS
 ↗ ☆
 PETG-GR UNKNOWN
 none judged
- ~1,180–1,300† ~1.4–4.8† ~28–68† ~3–32† ~51–107† — ☆
+ ~1,180–1,310† ~1.4–4.8† ~28–68† ~3–32† ~51–107† — ☆
 PLA PASS
 14 of 62
  1,240
@@ -389,7 +389,7 @@ PLA Aero PASS
  58↗ ☆
 PLA-CE UNKNOWN
 none judged
- ~1,150–1,320† ~2.6–4.5† ~35–59† ~6–21† 55 — ☆
+ ~1,150–1,310† ~2.6–4.5† ~35–59† ~6–21† 55 — ☆
 PLA-CF PASS
 3 of 12
  1,250
@@ -405,7 +405,7 @@ PLA-CF PASS
  41↗ ☆
 PLA-GR UNKNOWN
 none judged
- ~1,150–1,320† ~2.0–6.4† ~29–69† ~1–17† ~49–99† — ☆
+ ~1,150–1,310† ~2.0–6.4† ~29–69† ~1–17† ~49–99† — ☆
 PLA-PHA
 Polymer Blends
  PASS

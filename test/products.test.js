@@ -96,24 +96,28 @@ test("a material's summary is the spread of its procurement products that are no
     const all = m.gradeIds.map((id) => gradeById.get(id));
     const products = all.every((g) => g.variant) ? all : all.filter((g) => !g.variant);
     for (const [key, s] of Object.entries(m.summary)) {
-      const values = products.map((g) => g.headline?.[key]).filter((v) => v?.level === LEVEL.COMPARABLE).map((v) => v.value);
+      const values = products.map((g) => g.headline?.[key]).filter((v) => v?.level === LEVEL.COMPARABLE).map((v) => v.value).sort((a, b) => a - b);
       assert.equal(s.products, products.length, `${m.id} ${key}`);
       assert.equal(s.n, values.length, `${m.id} ${key}`);
+      // What is counted apart: a value published without its direction or load (D84), and a declared variant's (D57).
+      const span = (list) => (list.length ? { n: list.length, min: Math.min(...list), max: Math.max(...list) } : undefined);
+      const asPublished = products.map((g) => g.headline?.[key]).filter((v) => v?.level === LEVEL.AS_PUBLISHED).map((v) => v.value);
+      assert.deepEqual(s.asPublished, span(asPublished), `${m.id} ${key}: as published, counted apart`);
+      const variants = all.every((g) => g.variant) ? [] : all.filter((g) => g.variant && g.headline?.[key]).map((g) => g.headline[key].value);
+      assert.deepEqual(s.variants, span(variants), `${m.id} ${key}: variants, counted apart`);
       if (!values.length) { assert.equal(s.median, undefined); continue; }
-      assert.equal(s.min, Math.min(...values));
-      assert.equal(s.max, Math.max(...values));
-      assert.ok(s.min <= s.median && s.median <= s.max, `${m.id} ${key}`);
+      assert.equal(s.min, values[0]);
+      assert.equal(s.max, values.at(-1));
+      const mid = values.length % 2 ? values[(values.length - 1) / 2] : (values[values.length / 2 - 1] + values[values.length / 2]) / 2;
+      assert.equal(s.median, Number(mid.toPrecision(12)), `${m.id} ${key}: the median of its products' comparable values`);
       assert.equal(values.length >= 4, s.q1 !== undefined, `${m.id} ${key}: quartiles from four values`);
       assert.ok(products.includes(gradeById.get(s.typical)), `${m.id} ${key}: typical ${s.typical}`);
     }
   }
-});
-
-test("a declared variant stays out of its material's range, and is counted apart", () => {
-  const pla = db.materials.find((m) => m.id === 'M001');
-  const variantDensities = pla.gradeIds.map((id) => gradeById.get(id)).filter((g) => g.variant && g.headline?.density).map((g) => g.headline.density.value);
-  assert.ok(variantDensities.some((v) => v > pla.summary.density.max), 'a metal-filled PLA is denser than any plain one');
-  assert.equal(pla.summary.density.variants.n, variantDensities.length);
+  // The rule once had a test per case that found it: PETG's median (headlines.test.js), eSUN PLA-Lite's unstated-load
+  // heat deflection counted apart in PLA, and PLA's metal-filled grades counted apart from its range.
+  const counted = (part) => db.materials.some((m) => Object.values(m.summary ?? {}).some((s) => s[part]?.n > 0));
+  assert.ok(counted('asPublished') && counted('variants'), 'nothing is counted apart, so that half of the rule is untested');
 });
 
 test("a product's print recipe comes from its own profiles, never a union across its material", () => {
