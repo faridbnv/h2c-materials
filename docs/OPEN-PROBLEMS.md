@@ -405,6 +405,11 @@ read: the record is `docs/audits/2026-09-25-re-center/RESPONSE.md`, "Lane 2". St
   - *A part-drying schedule that may be another sheet's:* Flashforge's PET-GF and TPU 64D and SIDDAMENT's PET CF all say
     to dry the printed model at 120-130°C for 6-8 hours, a schedule that would soften a TPU part; recorded as printed
     (m173).
+- **Five aliases still carry a researched chamber band.** PLA Basic, PLA Matte, PLA Lite, PETG Basic and PETG HF became
+  aliases of PLA and PETG in m141, and their rows in `chamber_bands.csv` stayed; the build refuses a band only on an
+  excluded material, not on a family entry or alias. An alias is never a candidate, so no answer depends on it, and a
+  band decides nothing anyway (D34). The rows should leave through the removal ledger, and the build should refuse a
+  band on a family entry as it does on an excluded material.
 
 ```bash
 npm run sql --silent -- "select profileid, drying from profiles where drying_state = 'stated' and drying_c_state = 'Not published' and drying_hours_state = 'Not published'"
