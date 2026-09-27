@@ -128,8 +128,11 @@ test('a document, a product or a formulation already recorded is not recorded tw
   revision.grades[0].row['Product name'] = 'PolyLite PETG';
   assert.ok(!codes(revision).includes('APPLY-PRODUCT-DUPLICATE'));
 
+  // Any active product's formulation key, borrowed by a product of another material. (A key once named here retired with
+  // its grade when m174 put PolyLite PETG's sheets on one grade.)
+  const owned = world.grades.find((g) => g.Status === 'active' && g.MaterialID !== 'M024' && g['Shared formulation key']);
   const borrowed = proposal();
-  borrowed.grades[0].row['Shared formulation key'] = 'S-POLYCN-PolyLite-PETG-TDS-V5-3';
+  borrowed.grades[0].row['Shared formulation key'] = owned['Shared formulation key'];
   borrowed.grades[0].row.MaterialID = 'M024';
   assert.ok(codes(borrowed).includes('APPLY-KEY'));
 });

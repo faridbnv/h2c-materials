@@ -26,7 +26,7 @@ Impact strength
 13 values
 Hardness
 14 values
-Named on a sheet, not published: flexural modulus (Polymaker PolySonic PLA EN V5 3), flexural strength (Polymaker PolySonic PLA EN V5 3), charpy strength (Polymaker PolySonic PLA EN V5 3).
+Named on a sheet, not published: flexural modulus (Polymaker PolySonic PLA), flexural strength (Polymaker PolySonic PLA), charpy strength (Polymaker PolySonic PLA).
 NOT MEASURED FOR THIS MATERIAL
 Flexural stress at conventional deflection · Izod strength · Compression strength · Interlayer adhesion strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio
 Absent from the sampled sources. Not zero, and not a low value.

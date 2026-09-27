@@ -1,0 +1,43 @@
+Edit,Kind,Record,SourceID,Page,Label,Replaces,Raw,Drying °C,Drying hours,Parse review,Gap
+F01,drying,P0007,B-pla-tough-upgrade-TDS,1,Drying Settings before Printing: Blast Drying Oven,X1 Series & H2D SeriesPrinter Heatbed:,"Blast Drying Oven: 55 °C, 8 h",55,8,Not applicable,6
+F02,drying,P0024,B-petg-basic-TDS,1,Drying Settings before Printing: Blast Drying Oven,X1 Series & P Series & H2 Series Printer,"Blast Drying Oven: 65 °C, 8 h",65,8,Not applicable,6
+F03,drying,P0089,B-ppa-cf-TDS,1,Drying Settings before Printing: Blast Drying Oven,drying result),"Blast Drying Oven: 100 - 140 °C, 8 - 12 h",140,12,Not applicable,6
+F04,drying,P0313,S-POLYCN-PolyLite-PC-PIS-EN,6,Drying settings,Diameter accuracy (2.85/1.75 mm):,80˚C for 8h,80,8,Not applicable,6
+F05,drying,P0319,S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2,6,Drying settings,Diameter accuracy (2.85/1.75 mm):,70˚C for 12h,70,12,Not applicable,6
+F06,drying,P0324,S-POLYCN-PolyMide-CoPA-PIS-EN,6,Drying settings,Diameter accuracy (2.85/1.75 mm):,80˚C for 12h,80,12,Not applicable,6
+F07,drying,P1028,S-POLYCN-PolyWood-PIS-EN,6,Drying settings,Diameter accuracy (2.85/1.75 mm):,70˚C for 8h,70,8,Not applicable,6
+F08,drying,P1034,S-POLYCN-PolyDissolve-S1-PIS-EN,6,Drying settings,Diameter accuracy (2.85/1.75 mm):,80˚C for 12h,80,12,Not applicable,6
+F09,drying,P0441,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--881af5,1,Drying conditions,60 -65,"60 -65 ,6-8h",65,8,"m171: the sheet prints the drying temperature without its unit (""60 -65 ,6-8h""); it is °C, as every temperature on the sheet.",6
+F10,drying,P0444,R-ERYONE-eryone-pla-tds,1,Drying conditions,50 -60,"50 -60 ,6h",60,6,"m171: the sheet prints the drying temperature without its unit (""50 -60 ,6h""); it is °C, as every temperature on the sheet.",6
+F11,drying,P0591,R-3D4MAKERS-TDS-PEKK-A-Filament-3D4Makers,1,Dryingrecommendations,6-8,"6-8hours,120°C",120,8,Not applicable,6
+F12,drying,P0626,R-3D4MAKERS-TDS-R-PEEK-Filament-3D4Makers,1,Dryingrecommendations,6-8,"6-8hours,120°C",120,8,Not applicable,6
+F13,drying,P0608,R-3D4MAKERS-TDS-ABS-ESD-3D4Makers,1,Dryingrecommendations,2-4,"2-4hours,80°C",80,4,Not applicable,6
+F14,drying,P0609,R-3D4MAKERS-TDS-ABS-ESD-3D4Makers,1,Dryingrecommendations,2-4,"2-4hours,80°C",80,4,Not applicable,6
+F15,drying,P0610,R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers,1,Dryingrecommendations,2-4,"2-4hours,65°C",65,4,Not applicable,6
+F16,drying,P0611,R-3D4MAKERS-TDS-PETG-Carbon-Filament-3D4Makers,1,Dryingrecommendations,2-4,"2-4hours,65°C",65,4,Not applicable,6
+F17,drying,P0714,B-PC-Bambu-PLA-Matte-Technical-Data-Sheet,1,Drying Settings before Printing: Blast Drying Oven,before Printing,"Blast Drying Oven: 55 °C, 8 h",55,8,Not applicable,6
+F18,drying,P0724,B-PC-Bambu-PLA-Basic-Technical-Data-Sheet,1,Drying Settings before Printing: Blast Drying Oven,before Printing,"Blast Drying Oven: 55 °C, 8 h",55,8,Not applicable,6
+F19,drying,P0744,B-PC-new-Bambu-PLA-Tough-Technical-Data-Sheet,1,Drying Settings before Printing: Blast Drying Oven,before Printing,"Blast Drying Oven: 55 °C, 8 h",55,8,Not applicable,6
+F20,drying,P0746,B-PC-Bambu-PETG-Translucent-Technical-Data-Sheet,1,Drying Settings before Printing: Blast Drying Oven,before Printing,"Blast Drying Oven: 65 °C, 8 h",65,8,Not applicable,6
+F21,drying,P0732,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,4,Drying recommendations,to,80 °C in a hot air dryer or vacuum oven for at least 4 to 16 hours,80,16,Not applicable,8
+F22,drying,P0747,R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,4,Drying recommendations,to,Ultrafuse ASA can be dried at 60°C in a hot air dryer or vacuum oven for 4 to 16 hours,60,16,Not applicable,8
+F23,drying,P0987,R-BASF-Ultrafuse-HiPS-TDS-EN-v2-2,2,Drying recommendations,to,60 °C in a hot air dryer or vacuum oven for 4 to 16 hours,60,16,Not applicable,6
+F24,drying,P0973,I-PLA-PLA-i6-TDS,1,Dry before use: Blower type oven,use,"Blower type oven: 50℃,5-8H",50,8,Not applicable,6
+N01,name,G028-09,S-PEBA-ABS-GF-TDS-V1-2024-07-02,1,heading,and fixtures.,eABS-GF,Not applicable,Not applicable,Not applicable,6
+N02,name,G001-74,S-PEBA-PLA-CMYK-TDS-2024-06-30,1,heading,more color options to play with.,PLA+CMYK,Not applicable,Not applicable,Not applicable,6
+N03,name,G001-76,S-PEBA-eSUN-eSilk-PLA-Filament-TDS-V4-0,1,heading,to print as PLA.,eSilk-PLA,Not applicable,Not applicable,Not applicable,6
+N04,name,G001-78,S-PEBA-PLA-TDS-en,1,heading,betterperformance to your 3D printing projects.,PLA+,Not applicable,Not applicable,Not applicable,6
+N05,name,G001-82,D-RAISE3D-Raise3D-Premium-PLA-TDS-V6-0-EN,1,heading,and prevents nozzle jams.,Premium PLA,Not applicable,Not applicable,Not applicable,6
+N06,name,G035-16,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V6,1,heading,colors.,Premium PC,Not applicable,Not applicable,Not applicable,6
+N07,name,G039-36,D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2,1,heading,"such as insoles, tubes, seals, and bushings.",Premium TPU-95A,Not applicable,Not applicable,Not applicable,6
+N08,name,G020-35,S-PEBA-PETG-TDS-en,1,heading,Technical Data,PETG+,Not applicable,Not applicable,Not applicable,6
+N09,name,G001-26,S-POLYCN-PolyMax-PLA-TDS-v1,1,heading,TM TM,PolyMax PLA,Not applicable,Not applicable,Not applicable,6
+T01,title,S-PEBA-ABS-GF-TDS-V1-2024-07-02,S-PEBA-ABS-GF-TDS-V1-2024-07-02,1,heading,Technical Data Sheet and fixtures.,eABS-GF Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T02,title,S-PEBA-PLA-CMYK-TDS-2024-06-30,S-PEBA-PLA-CMYK-TDS-2024-06-30,1,heading,Technical Data Sheet more color options to play with.,PLA+CMYK Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T03,title,S-PEBA-eSUN-eSilk-PLA-Filament-TDS-V4-0,S-PEBA-eSUN-eSilk-PLA-Filament-TDS-V4-0,1,heading,Technical Data Sheet to print as PLA.,eSilk-PLA Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T04,title,S-PEBA-PLA-TDS-en,S-PEBA-PLA-TDS-en,1,heading,Technical Data Sheet betterperformance to your 3D printing projects.,PLA+ Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T05,title,D-RAISE3D-Raise3D-Premium-PLA-TDS-V6-0-EN,D-RAISE3D-Raise3D-Premium-PLA-TDS-V6-0-EN,1,heading,Raise3D Premium PLA Technical Data Sheet and prevents nozzle jams.,Raise3D Premium PLA Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T06,title,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V6,D-RAISE3D-Raise3d-Premium-PC-Transparent-TDS-V6,1,heading,Raise3D Premium PC Technical Data Sheet colors.,Raise3D Premium PC Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T07,title,D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2,D-RAISE3D-Raise3D-Premium-TPU95A-TDS-V2-2,1,heading,"Raise3D Premium TPU-95A Technical Data Sheet such as insoles, tubes, seals, and bushings.",Raise3D Premium TPU-95A Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T08,title,S-PEBA-PETG-TDS-en,S-PEBA-PETG-TDS-en,1,heading,Nov.2025 Version1.0,PETG+ Technical Data Sheet,Not applicable,Not applicable,Not applicable,6
+T09,title,S-POLYCN-PolyMax-PLA-TDS-v1,S-POLYCN-PolyMax-PLA-TDS-v1,1,heading,Technical Data Sheet TM TM,PolyMax PLA Technical Data Sheet,Not applicable,Not applicable,Not applicable,6

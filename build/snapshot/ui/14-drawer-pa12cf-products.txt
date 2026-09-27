@@ -22,7 +22,7 @@ Nozzle wear: 7 of 15 makers (8 products)
 Odour and emissions: 1 of 15 makers (1 product)
 Supports and removal: 4 of 15 makers (5 products)
 Printing advice: 4 of 15 makers (4 products)
-Of the products whose documents were read, 11 give no chamber or enclosure need, 8 no drying schedule and 13 no annealing schedule.
+Of the products whose documents were read, 10 give no chamber or enclosure need, 8 no drying schedule and 13 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
 Meet every requirement
 1 product

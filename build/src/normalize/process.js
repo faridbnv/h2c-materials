@@ -42,7 +42,8 @@ export const REQUIREMENT = {
   UNKNOWN: 'unknown',
 };
 
-const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|for printing not necessary)\b/i;
+// Yousu and 3D-Fuel print the bed as "None needed (or 50-70°C if applicable)": not required, with the window if one is used.
+const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary)\b/i;
 const RECOMMENDED_RE = /^recommended\b/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
 // BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT.
@@ -52,8 +53,9 @@ const OFF_RE = /^off$/i;
 // Flashforge, SIDDAMENT and LEHVOSS say a filament prints "on non-heated chamber FFF 3D printers" or "in non-heated
 // chambers" in their prose. It is read before any number, because "3D" would otherwise be taken for a 3 °C chamber.
 const NON_HEATED_RE = /\bnon-?heated\s+chambers?\b/i;
-// "65˚C+" (Polymaker ABS Max's chamber) and "140 ºC +" are at-least values: a lower end, with no upper end published.
-const AT_LEAST_RE = /^(\d+(?:\.\d+)?)\s*[^\d\s+]{0,3}\s*\+$/;
+// "65˚C+" (Polymaker ABS Max's chamber), "140 ºC +" and LEHVOSS's "> 120 °C" are at-least values: a lower end, with no
+// upper end published.
+const AT_LEAST_RE = /^(?:(\d+(?:\.\d+)?)\s*[^\d\s+]{0,3}\s*\+|(?:>|≥|>=)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3})$/;
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?)\b/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
 
@@ -80,7 +82,7 @@ export function parseTemperature(raw, opts = {}) {
   const atLeast = s.match(AT_LEAST_RE);
   if (atLeast) {
     const [lo, hi] = opts.plausible || [0, 500];
-    const min = Number(atLeast[1]);
+    const min = Number(atLeast[1] ?? atLeast[2]);
     if (min >= lo && min <= hi) return { text, state: PROCESS_STATE.RANGE, requirement: REQUIREMENT.REQUIRED, min, max: null, openHigh: true };
   }
 
@@ -276,13 +278,18 @@ export function parseAbrasion(raw) {
   // recommended | No" for its unfilled filaments and "| Yes" for its carbon-filled ones, one row of a table
   // whose label is the question. Read by its words alone, the "No" row says hardened — which is the opposite of
   // what the sheet says, and would put twenty ordinary PLAs and PETGs behind a hardened nozzle.
+  // A statement that one is not needed says so whatever word it ends on: nice's "Hardened nozzle not required",
+  // Recreus's "No hardened nozzle required", Siraya Tech's "harden steel nozzle is not needed". Read by its last word
+  // alone, "required" said the opposite.
+  if (/(harden\w*|ruby|abrasi\w*)[^.;]*\bnot\s+(needed|required|necessary)\b|\bno\s+(harden\w*|ruby|abrasi\w*)\b[^.;]*\b(required|needed|necessary)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   const answer = /\b(yes|no|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
   if (answer && /abrasi|hardened|carbide|diamond|ruby/i.test(text)) {
     const says = answer[1].toLowerCase();
     if (says === 'no' || says === 'not necessary' || says === 'none') return { text, requiresHardened: false, state: 'stated' };
     return { text, requiresHardened: true, state: 'stated' };
   }
-  if (/abrasi|hardened|carbide|diamond/i.test(text)) return { text, requiresHardened: true, state: 'stated' };
+  // Polymaker asks for "a wear resistant nozzle" where others say hardened; Raise3D writes "hardening steel".
+  if (/abb?rasi|harden|carbide|diamond|wear[- ]resist\w*\s+nozzle/i.test(text)) return { text, requiresHardened: true, state: 'stated' };
   return { text, requiresHardened: null, state: PROCESS_STATE.UNKNOWN, unparsed: true };
 }
 

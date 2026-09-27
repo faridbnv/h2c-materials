@@ -158,14 +158,20 @@ test('quarantined measurements stay out of headlines and related evidence', () =
   }
 });
 
-test('the six excluded materials trip the envelope gate on their own evidence', () => {
+test('the excluded materials never read as printable, and trip the envelope gate on any window they publish', () => {
   // Excluded for the H2C's envelope: the industrial high-temperature family. The sintering filaments are excluded by
   // scope, not by the envelope (D87): they print at 170 to 250 °C, and their part is the sintered metal's.
+  // A material whose sheets publish no printing guidance, only the temperature its test bars were printed at, has no
+  // window of its own (D63, m170): its gate is unknown, and its exclusion is its H2C status.
   const excluded = db.materials.filter((m) => m.excluded && /Outside H2C Practical Envelope/.test(m.family));
   assert.ok(excluded.length >= 6, 'the six audited exclusions are still excluded');
+  let published = 0;
   for (const m of excluded) {
+    if (m.gates.nozzle.verdict === 'unknown') continue;
+    published++;
     assert.equal(m.gates.nozzle.verdict, 'exceeds', `${m.name} nozzle gate`);
   }
+  assert.ok(published >= 6, 'the six audited exclusions trip the gate on a window they publish');
 });
 
 test('a material is printable where one of its products is: each gate is the best of its profiles\', each window spans theirs', () => {
@@ -497,6 +503,13 @@ test('every profile\'s gate is its own published window against the H2C', () => 
       const w = p[axis];
       const { verdict, reason } = p.gates[axis];
       seen.add(verdict);
+      // An at-least window ("65˚C+", "> 100 °C") has a lower end and no upper: it is judged by its lower end, and the
+      // chamber the H2C reaches only the bottom of is partial.
+      if (w.state === 'range' && w.max === null && w.min !== null) {
+        const expected = w.min > limit[axis] ? (w.requirement === 'recommended' ? 'exceeds-recommended' : 'exceeds') : axis === 'chamber' ? 'partial' : 'within';
+        assert.equal(verdict, expected, `${p.id} ${axis}: at least ${w.min} °C against ${limit[axis]} °C`);
+        continue;
+      }
       if (w.state !== 'range' || w.max === null) { assert.ok(!['within', 'partial', 'exceeds', 'exceeds-recommended'].includes(verdict) || ['not-required', 'ambient'].includes(w.state), `${p.id} ${axis}: ${verdict} with no window`); continue; }
       const expected = w.max <= limit[axis] ? 'within'
         : axis === 'chamber' && w.min !== null && w.min <= limit[axis] ? 'partial'

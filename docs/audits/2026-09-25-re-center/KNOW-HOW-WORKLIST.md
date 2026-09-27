@@ -12,7 +12,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 887 | 198 | 0 | 46 | 1131 |
+| Products | 883 | 198 | 0 | 46 | 1127 |
 | Materials | 119 | 20 | 0 | 14 | 153 |
 
 4502 statements; 1262 sources read for know-how; 0 makers' sites searched.
@@ -24,62 +24,62 @@ documents were read and give none of one is listed under "Recipe silent".
 
 | Material | Candidate in | Know-how | Products silent | Recipe silent (chamber / drying / annealing) | Makers to search |
 |---|---|---|---:|---|---|
-| ASA-CF (M033) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 4 of 18 | 9 / 10 / 17 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fabru (purefil.de); Fabru / purefil (no address held) |
-| PA12-CF (M053) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 4 of 16 | 11 / 8 / 13 | 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com) |
-| PA6-CF (M050) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 14 | 6 / 5 / 12 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| ASA-CF (M033) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 4 of 18 | 8 / 10 / 17 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fabru (purefil.de); Fabru / purefil (no address held) |
+| PA12-CF (M053) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 4 of 16 | 10 / 8 / 13 | 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com) |
+| PA6-CF (M050) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 14 | 4 / 5 / 12 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6-GF (M051) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 11 | 4 / 6 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PP-CF (M083) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 5 | 3 / 3 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA612-CF (M059) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 2 | 1 / 0 / 0 | — |
 | PAHT-CF (M048) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 4 / 3 / 3 | — |
-| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 27 of 202 | 146 / 148 / 187 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); BigRep (bigrep.com); Elegoo (no address held); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com); Prusa Research (prusament.com); Recreus (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
-| PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 17 of 77 | 55 / 52 / 71 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); FormFutura (formfutura.com); MatterHackers (matterhackers.com); Nobufil (no address held); Prusa Research (prusament.com); Recreus (no address held); Yousu (ysfilament.com) |
-| ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 12 | 8 / 6 / 11 | 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com) |
-| PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 19 | 13 / 11 / 18 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); CreatBot (no address held) |
+| PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 27 of 201 | 125 / 147 / 186 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); BigRep (bigrep.com); Elegoo (no address held); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com); Prusa Research (prusament.com); Recreus (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
+| PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 17 of 76 | 48 / 51 / 70 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com); FormFutura (formfutura.com); MatterHackers (matterhackers.com); Nobufil (no address held); Prusa Research (prusament.com); Recreus (no address held); Yousu (ysfilament.com) |
+| ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 12 | 7 / 6 / 11 | 3DXTECH (3dxtech.com, trinity3ds.com); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com) |
+| PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 19 | 10 / 11 / 18 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); CreatBot (no address held) |
 | PA12-GF (M054) | High-stiffness fixture; Lightweight structure; Outdoor structural part | collected | 2 of 3 | 2 / 2 / 3 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
 | PC-CF (M037) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 2 of 10 | 7 / 4 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PA6/66 (M057) | Flexible component; Lightweight structure; Warm environment | collected | 1 of 7 | 4 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PA6/66 (M057) | Flexible component; Lightweight structure; Warm environment | collected | 1 of 7 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS-CF (M128) | High-stiffness fixture; Lightweight structure; Outdoor structural part | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PP-GF (M084) | High-stiffness fixture; Lightweight structure; Outdoor structural part | collected | 1 of 2 | 2 / 2 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
-| PPA-CF (M070) | High-stiffness fixture; Lightweight structure; Outdoor structural part | collected | 1 of 9 | 6 / 3 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PPA-CF (M070) | High-stiffness fixture; Lightweight structure; Outdoor structural part | collected | 1 of 9 | 5 / 3 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PET-CF (M067) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 2 / 5 | — |
-| PPS-CF (M073) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 7 | 4 / 3 / 5 | — |
+| PPS-CF (M073) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 7 | 3 / 3 / 5 | — |
 | PPS-GF (M074) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 2 | 0 / 0 / 1 | — |
-| ABS (M027) | Indoor prototype; Warm environment | collected | 12 of 58 | 39 / 42 / 56 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); BigRep (bigrep.com); Fiberlogy (fiberlogy.com); FormFutura (formfutura.com); MatterHackers (matterhackers.com); Polymaker (polymaker.com, fiberon.polymaker.com); Yousu (ysfilament.com) |
-| ASA (M031) | Indoor prototype; Warm environment | collected | 7 of 43 | 30 / 25 / 42 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); CreatBot (no address held); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com) |
-| PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 4 of 24 | 16 / 13 / 23 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
-| ABS-CF (M029) | High-stiffness fixture; Lightweight structure | collected | 3 of 11 | 7 / 5 / 11 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com) |
-| HIPS (M081) | Indoor prototype; Warm environment | collected | 2 of 12 | 7 / 8 / 12 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
-| ASA-GF (M034) | Lightweight structure; Warm environment | collected | 0 of 6 | 2 / 3 / 6 | — |
+| ABS (M027) | Indoor prototype; Warm environment | collected | 12 of 57 | 34 / 42 / 55 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); BigRep (bigrep.com); Fiberlogy (fiberlogy.com); FormFutura (formfutura.com); MatterHackers (matterhackers.com); Polymaker (polymaker.com, fiberon.polymaker.com); Yousu (ysfilament.com) |
+| ASA (M031) | Indoor prototype; Warm environment | collected | 7 of 43 | 25 / 25 / 42 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); CreatBot (no address held); Fabru / purefil (no address held); Fiberlogy (fiberlogy.com) |
+| PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 4 of 24 | 15 / 13 / 23 | 3D4Makers (no address held); 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
+| ABS-CF (M029) | High-stiffness fixture; Lightweight structure | collected | 3 of 11 | 6 / 5 / 11 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com) |
+| HIPS (M081) | Indoor prototype; Warm environment | collected | 2 of 12 | 6 / 8 / 12 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
+| ASA-GF (M034) | Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 3 / 6 | — |
 | PBAT (M133) | Flexible component; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC FR (M036) | Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 1 / 0 | — |
-| PC-GF (M038) | Lightweight structure; Warm environment | collected | 0 of 3 | 2 / 2 / 3 | — |
 | PPA-GF (M071) | High-stiffness fixture; Outdoor structural part | collected | 0 of 5 | 2 / 1 / 3 | — |
 | ABS-ESD (M030) | Warm environment | collected | 5 of 11 | 9 / 5 / 10 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com) |
 | PET (M066) | Flexible component | collected | 5 of 7 | 5 / 6 / 7 | 3D4Makers (no address held); FormFutura (formfutura.com); colorFabb (downloads.colorfabb.com, colorfabb.com) |
-| PC (M035) | Lightweight structure | collected | 4 of 26 | 13 / 14 / 18 | 3DXTECH (3dxtech.com, trinity3ds.com); Yousu (ysfilament.com) |
-| PLA Silk (M008) | Indoor prototype | collected | 4 of 35 | 29 / 23 / 33 | Fabru (purefil.de); Polymaker (polymaker.com, fiberon.polymaker.com); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com) |
+| PC (M035) | Lightweight structure | collected | 4 of 25 | 12 / 13 / 17 | 3DXTECH (3dxtech.com, trinity3ds.com); Yousu (ysfilament.com) |
+| PLA Silk (M008) | Indoor prototype | collected | 4 of 35 | 20 / 23 / 33 | Fabru (purefil.de); Polymaker (polymaker.com, fiberon.polymaker.com); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com) |
 | PC-ABS (M094) | Warm environment | collected | 3 of 13 | 7 / 6 / 12 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
 | PP (M082) | Flexible component | collected | 3 of 12 | 9 / 10 / 12 | Fiberlogy (fiberlogy.com); Yousu (ysfilament.com) |
 | CPE (M089) | Warm environment | collected | 2 of 5 | 4 / 4 / 5 | Fiberlogy (fiberlogy.com) |
 | PCL (M149) | Flexible component | collected | 2 of 4 | 4 / 4 / 4 | 3D4Makers (no address held); iSANMATE (isanmate.com) |
-| PLA Wood (M014) | Indoor prototype | collected | 2 of 20 | 15 / 14 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
+| PLA Wood (M014) | Indoor prototype | collected | 2 of 20 | 13 / 14 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | ABS-AF (M106) | Warm environment | collected | 1 of 3 | 1 / 2 / 1 | 3D4Makers (no address held) |
-| PLA Marble (M012) | Indoor prototype | collected | 1 of 7 | 6 / 2 / 6 | Spectrum (spectrumfilaments.com) |
+| PLA Marble (M012) | Indoor prototype | collected | 1 of 7 | 5 / 2 / 6 | Spectrum (spectrumfilaments.com) |
 | TPC / TPEE (M046) | Flexible component | collected | 1 of 7 | 5 / 5 / 6 | Kimya (samaro.fr) |
 | TPU 95A class (M161) | Flexible component | collected | 1 of 25 | 15 / 12 / 24 | Polymaker (polymaker.com, fiberon.polymaker.com) |
 | TPU harder than 95A (M162) | Flexible component | collected | 1 of 14 | 6 / 9 / 12 | NinjaTek (ninjatek.com) |
-| TPU, hardness not stated (M163) | Flexible component | collected | 1 of 8 | 8 / 4 / 8 | MatterHackers (matterhackers.com) |
+| TPU, hardness not stated (M163) | Flexible component | collected | 1 of 8 | 5 / 4 / 8 | MatterHackers (matterhackers.com) |
 | ASA Aero (M032) | Warm environment | collected | 0 of 5 | 2 / 3 / 4 | — |
 | CPE-CF (M090) | High-stiffness fixture | collected | 0 of 3 | 1 / 2 / 3 | — |
 | OBC (M086) | Flexible component | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PA6 (M049) | Warm environment | collected | 0 of 9 | 3 / 2 / 8 | — |
 | PBT-GF (M132) | Outdoor structural part | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PC-GF (M038) | Lightweight structure | collected | 0 of 3 | 2 / 2 / 3 | — |
 | PE (M085) | Flexible component | collected | 0 of 2 | 1 / 2 / 2 | — |
 | PEBA (M045) | Flexible component | collected | 0 of 10 | 6 / 5 / 9 | — |
 | PET-GF (M068) | Warm environment | collected | 0 of 4 | 2 / 0 / 2 | — |
-| PLA Aero (M017) | Lightweight structure | collected | 0 of 14 | 9 / 8 / 13 | — |
-| PLA Galaxy (M015) | Indoor prototype | collected | 0 of 4 | 3 / 1 / 3 | — |
-| PLA Glow (M016) | Indoor prototype | collected | 0 of 7 | 6 / 3 / 6 | — |
+| PLA Aero (M017) | Lightweight structure | collected | 0 of 14 | 8 / 8 / 13 | — |
+| PLA Galaxy (M015) | Indoor prototype | collected | 0 of 4 | 2 / 1 / 3 | — |
+| PLA Glow (M016) | Indoor prototype | collected | 0 of 7 | 3 / 3 / 6 | — |
 | PLA Metal (M011) | Indoor prototype | collected | 0 of 9 | 5 / 7 / 8 | — |
 | PLA Sparkle (M013) | Indoor prototype | collected | 0 of 4 | 2 / 2 / 3 | — |
 | PLA family, polymer not stated (M168) | Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
@@ -87,7 +87,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA-PHA (M145) | Lightweight structure | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PPA (M069) | Lightweight structure | collected | 0 of 2 | 0 / 0 / 1 | — |
 | TPU 85A class and softer (M159) | Flexible component | collected | 0 of 16 | 9 / 11 / 16 | — |
-| TPU 90A class (M160) | Flexible component | collected | 0 of 12 | 8 / 7 / 12 | — |
+| TPU 90A class (M160) | Flexible component | collected | 0 of 12 | 6 / 7 / 12 | — |
 | nGen FLEX (M143) | Flexible component | collected | 0 of 1 | 1 / 1 / 1 | — |
 
 ## Every other material
@@ -96,7 +96,7 @@ documents were read and give none of one is listed under "Recipe silent".
 |---|---|---|---:|---|---|
 | PEI / ULTEM (M099) | — | collected | 7 of 13 | 10 / 11 / 13 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
 | PCTG (M088) | — | collected | 3 of 8 | 4 / 5 / 8 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com) |
-| PEKK (M098) | — | collected | 3 of 5 | 2 / 2 / 5 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PEKK (M098) | — | collected | 3 of 5 | 1 / 2 / 5 | 3D4Makers (no address held); 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PETG-ESD (M026) | — | collected | 3 of 10 | 4 / 5 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com); Fiberlogy (fiberlogy.com); MatterHackers (matterhackers.com) |
 | PA12 (M052) | — | collected | 2 of 7 | 5 / 5 / 6 | Fiberlogy (fiberlogy.com) |
 | PBT (M140) | — | sheet-silent | 2 of 2 | 2 / 2 / 2 | Fabru (purefil.de); Fabru / purefil (no address held) |
@@ -108,7 +108,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PET-LW (M141) | — | sheet-silent | 2 of 2 | 2 / 2 / 2 | colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | PVDF (M096) | — | collected | 2 of 3 | 3 / 2 / 3 | 3DXTECH (3dxtech.com, trinity3ds.com); Filament2Print (filament2print.com) |
 | ASA-AF (M113) | — | collected | 1 of 3 | 1 / 3 / 3 | Fiberlogy (fiberlogy.com) |
-| BVOH (M076) | — | collected | 1 of 4 | 4 / 3 / 4 | Fiberlogy (fiberlogy.com) |
+| BVOH (M076) | — | collected | 1 of 4 | 3 / 3 / 4 | Fiberlogy (fiberlogy.com) |
 | CPE-LW (M134) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | Fiberlogy (fiberlogy.com) |
 | CoPE (M091) | — | sheet-silent | 1 of 1 | 0 / 0 / 1 | Polymaker (polymaker.com, fiberon.polymaker.com) |
 | PC-ASA (M119) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
@@ -130,7 +130,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PPSU (M102) | — | collected | 1 of 4 | 3 / 3 / 4 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PSU (M100) | — | sheet-silent | 1 of 1 | 1 / 0 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PVA (M075) | — | collected | 1 of 11 | 9 / 8 / 11 | Yousu (ysfilament.com) |
-| PVB (M093) | — | collected | 1 of 6 | 5 / 2 / 6 | Prusa Research (prusament.com) |
+| PVB (M093) | — | collected | 1 of 6 | 4 / 2 / 6 | Prusa Research (prusament.com) |
 | PVC (M135) | — | collected | 1 of 2 | 2 / 2 / 2 | Fabru / purefil (no address held) |
 | PVDF-ESD (M120) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | SAN (M136) | — | collected | 1 of 2 | 2 / 2 / 2 | Fabru / purefil (no address held) |
@@ -189,7 +189,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | CreatBot | no address held | 2 | G018-17 PLA-CF; G031-35 ASA |
 | Filament2Print | filament2print.com | 2 | G014-16 COFFEE; G096-03 KOLTRON |
 | Recreus | no address held | 2 | G001-188 PLA; G020-70 PET-G |
-| Elegoo | no address held | 1 | G001-129 S.I. |
+| Elegoo | no address held | 1 | G001-129 Not published |
 | Kimya | samaro.fr | 1 | G046-02 Kimya TPC-91A |
 | NinjaTek | ninjatek.com | 1 | G039-39 Armadillo |
 | Nobufil | no address held | 1 | G020-51 PETG |

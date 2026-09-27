@@ -651,7 +651,7 @@ C01186,M039,Grades,Superseded,Not applicable,"Superseded by C01400 (2026-09-25; 
 C01187,M064,Print setup,Evidence recorded,Not applicable,"3DXSTAT ESD PA12 TDS: extrusion 265-285 °C, bed 90-110 °C (P0082), recovered 2026-09-13 from the hash-matched data sheet. The earlier window came from the retired Fiberon PA612-ESD duplicate."
 C01188,M008,Identity,Resolved,Not applicable,G008-01 and CoPE G091-02 are two columns of the Panchroma TDS V2.1 and shared one formulation key; separated 2026-09-13.
 C01189,M103,Grades,Gap,1,1 distinct manufacturer documented (3DXTECH HyperLite PP) against target 3.
-C01192,M103,Print setup,Evidence recorded,Not applicable,HyperLite PP specimens were printed at 235 °C nozzle and 60 °C bed (P0172). No recommended window or chamber temperature is published.
+C01192,M103,Print setup,Superseded,Not applicable,"Superseded by C01407 (2026-09-26; was ""Evidence recorded""): HyperLite PP specimens were printed at 235 °C nozzle and 60 °C bed (P0172). No recommended window or chamber temperature is published."
 C01195,M103,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C01196,M103,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
 C01197,M103,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -864,3 +864,4 @@ C01403,M008,Moisture / environmental,Resolved,Not applicable,"PLA Silk's product
 C01404,M008,Canadian price,Resolved,Not applicable,"PLA Silk's products now include Bambu Lab PLA Silk+ and PLA Silk Dual Color, and their sampled Canadian prices are PLA Silk's (m141-product-lines-and-tpu-hardness, 2026-09-25)."
 C01405,M020,Canadian price,Resolved,Not applicable,"PETG's products now include Bambu Lab PETG Basic, HF and Translucent, and their sampled Canadian prices are PETG's (m141-product-lines-and-tpu-hardness, 2026-09-25)."
 C01406,M049,Grades,Resolved,6,"6 distinct manufacturer(s) documented against target 3: 3DXTECH, Fillamentum, FormFutura, Nanovia, SIDDAMENT, Spectrum. Recounted 2026-09-25 (m143-batch-b34) after the grades this batch added."
+C01407,M103,Print setup,Gap,Not applicable,"No printing settings published: the only settings on record were the conditions its specimens were printed under, which are not printing guidance (m170-the-test-bars-are-not-the-recipe, 2026-09-26)."

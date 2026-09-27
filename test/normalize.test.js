@@ -120,6 +120,12 @@ test('a chamber cell that states no temperature is read as the state it states, 
   }
 });
 
+test('"none needed" is not required, with the window the sheet gives if one is used', () => {
+  const p = parseTemperature('None needed (or 50-70°C if applicable)', { plausible: [0, 250] });
+  assert.deepEqual([p.state, p.min, p.max, p.requirement], [PROCESS_STATE.RANGE, 50, 70, REQUIREMENT.NONE]);
+  assert.equal(withinH2C(p, H2C_BASELINE.bedC).verdict, 'within');
+});
+
 test('an at-least value is a lower end with no upper end, never within by its upper end', () => {
   const chamber = parseTemperature('65˚C+', { plausible: [0, 200] });
   assert.deepEqual([chamber.state, chamber.min, chamber.max, chamber.openHigh], [PROCESS_STATE.RANGE, 65, null, true]);
@@ -129,6 +135,24 @@ test('an at-least value is a lower end with no upper end, never within by its up
   // A bed or nozzle the printer reaches is met; one it does not is exceeded.
   assert.equal(withinH2C(parseTemperature('140 ºC +', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'exceeds');
   assert.equal(withinH2C(parseTemperature('100 ºC +', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'within');
+  // LEHVOSS prints the same as "> 120 °C".
+  const bed = parseTemperature('> 120 °C', { plausible: [0, 250] });
+  assert.deepEqual([bed.min, bed.max, withinH2C(bed, H2C_BASELINE.bedC).verdict], [120, null, 'within']);
+  assert.equal(withinH2C(parseTemperature('> 130 °C', { plausible: [0, 250] }), H2C_BASELINE.bedC).verdict, 'exceeds');
+});
+
+// m172: the hardened-nozzle statements on the products' own sheets. A negation is read as one wherever the word
+// "required" falls, and a wear-resistant nozzle is the hardened one by another name.
+test('a hardened-nozzle statement reads as what it says, a negation included', () => {
+  const says = {
+    false: ['Hardened nozzle not required', 'No hardened nozzle required', 'Nozzle: High quality metal nozzle, harden steel nozzle is not needed',
+      'Ruby or hardened nozzle not necessary', 'Ruby or hardened nozzle recommended No', 'Hardened Nozzle no'],
+    true: ['When using PolyMide™ CoPA, we recommend to switch to a wear resistant nozzle', 'Nozzle & Gear Material Hardened steel',
+      'A reinforced nozzle, suitable for abrasive materials is recommended.', 'It is recommended to use hardening steel nozzle, tungsten steel or ruby nozzle to avoid nozzle abrasion.',
+      'Hardened Nozzle Recommended', 'Ruby or hardened nozzle recommended Yes', 'We recommend to use ruby nozzles or hardened steel nozzles.',
+      'nozzle material: abbrasion resistant'],
+  };
+  for (const [want, texts] of Object.entries(says)) for (const t of texts) assert.equal(parseAbrasion(t).requiresHardened, want === 'true', t);
 });
 
 test('ambient as the lower end of a stated range, and "up to"', () => {

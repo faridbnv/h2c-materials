@@ -87,7 +87,7 @@
       "name": "Nozzle max °C",
       "type": "number",
       "role": "canonical",
-      "description": "Upper end of the window; Not applicable unless the state is range.",
+      "description": "Upper end of the window; Not published for an at-least value (\"65˚C+\", \"> 120 °C\"); Not applicable unless the state is range.",
       "missing": [
         "Not applicable",
         "Not published"
@@ -142,7 +142,7 @@
       "name": "Bed max °C",
       "type": "number",
       "role": "canonical",
-      "description": "Upper end of the window; Not applicable unless the state is range.",
+      "description": "Upper end of the window; Not published for an at-least value (\"65˚C+\", \"> 120 °C\"); Not applicable unless the state is range.",
       "missing": [
         "Not applicable",
         "Not published"
@@ -197,7 +197,7 @@
       "name": "Chamber max °C",
       "type": "number",
       "role": "canonical",
-      "description": "Upper end of the window; Not applicable unless the state is range.",
+      "description": "Upper end of the window; Not published for an at-least value (\"65˚C+\", \"> 120 °C\"); Not applicable unless the state is range.",
       "missing": [
         "Not applicable",
         "Not published"

@@ -44,22 +44,22 @@ COC
 PVB / Specialty Polymers
  UNKNOWN
 none judged
- 1,020 ~0.4–1.6† ~29–84† ~2–39† ~73–143† — ☆
+ 1,020 ~0.4–1.7† ~29–85† ~2–40† ~72–145† — ☆
 CoPE
 Copolyesters
  UNKNOWN
 none judged
- 1,300 2.52 51.6 ~7–67† ~52–70† — ☆
+ 1,300 2.52 51.6 ~7–70† ~52–70† — ☆
 CPE-LW
 Copolyesters
  UNKNOWN
 none judged
- 1,160 ~0.12–0.35† ~15–39† ~120–440† 70 — ☆
+ 1,160 ~0.12–0.35† ~15–40† ~120–450† 70 — ☆
 nGen FLEX
 Copolyesters
  PASS
 1 of 1
- 1,130 0.15 19.3 320 ~79–134† — ☆
+ 1,130 0.15 19.3 320 ~78–133† — ☆
 Nylon-CF, polymer not stated
 Nylon / Polyamide
  UNKNOWN
@@ -83,7 +83,7 @@ Nylon / Polyamide
 none judged
  1,011
 1,000–1,020 · 4
- ~0.6–2.0† ~51–82† ~200–340† 135
+ ~0.6–2.1† ~51–83† ~200–350† 135
 100–135 · 3
  — ☆
 PA6/66
@@ -103,10 +103,10 @@ Nylon / Polyamide
  — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,080† ~1.0–3.8† ~35–87† ~5–44† ~88–160† — ☆
+ UNKNOWN ~990–1,080† ~1.0–3.9† ~34–88† ~4–44† ~89–162† — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,070–1,170† ~1.1–4.5† ~35–88† ~4–43† ~105–186† — ☆
+ UNKNOWN ~1,070–1,170† ~1.1–4.5† ~34–89† ~4–43† ~107–188† — ☆
 PBAT
 PVB / Specialty Polymers
  PASS
@@ -118,7 +118,7 @@ PVB / Specialty Polymers
 1 of 1
  1,100
 1,100–1,130 · 3
- ~0.24–1.14† ~14–73† 800 57 — ☆
+ ~0.24–1.15† ~14–74† 800 57 — ☆
 PE
 Polyolefins
  PASS
@@ -150,7 +150,7 @@ PET Engineering
  ~47–65† — ☆
 PETG-PTFE UNKNOWN
 none judged
- 1,320 ~0.9–3.0† ~25–61† ~104–190† ~48–71† — ☆
+ 1,320 ~0.9–3.0† ~25–62† ~104–191† ~48–72† — ☆
 PLA family-CF, polymer not stated UNKNOWN
 none judged
  1,280
@@ -171,7 +171,7 @@ Polyolefins
 2 of 2
  900
 890–960 · 8
- ~0.43–1.24† 19 850 80
+ ~0.42–1.25† 19 850 80
 58.5–85 · 3
  — ☆
 PVC
@@ -180,7 +180,7 @@ PVB / Specialty Polymers
 none judged
  1,310
 1,269–1,350 · 2
- ~0.1–8.0† ~18–54† ~10–140† ~52–76† — ☆
+ ~0.1–8.0† ~18–54† ~10–140† ~52–75† — ☆
 SBC
 Styrenics
  UNKNOWN
@@ -197,7 +197,7 @@ TPC-ESD
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,280 1.4 70 ~120–540† n/a — ☆
+ 1,280 1.4 70 ~120–620† n/a — ☆
 TPE, polymer not stated
 Flexible Elastomers
  UNKNOWN
@@ -268,26 +268,26 @@ Flexible Elastomers
 none judged
  1,230
 1,220–1,230 · 3
- ~0.01–0.72† ~16–96† ~42–125† n/a — ☆
+ ~0.01–0.72† ~15–97† ~39–120† n/a — ☆
 TPU-EC
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,330 ~0.074–0.131† ~7–45† ~170–770† n/a — ☆
+ 1,330 ~0.074–0.131† ~7–45† ~170–820† n/a — ☆
 TPU-ESD
 Flexible Elastomers
  UNKNOWN
 none judged
  1,190
 1,180–1,200 · 2
- ~0.007–0.36† 12 ~140–520† n/a — ☆
+ ~0.007–0.36† 12 ~140–550† n/a — ☆
 TPU-LW
 Flexible Elastomers
  UNKNOWN
 none judged
  1,120
 1,120–1,200 · 3
- ~0.004–0.18† ~12–73† ~230–790† n/a — ☆
+ ~0.004–0.18† ~12–74† ~230–800† n/a — ☆
 TPU, hardness not stated
 Flexible Elastomers
  PASS
