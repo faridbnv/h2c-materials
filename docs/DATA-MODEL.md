@@ -195,7 +195,9 @@ printed, its page, the reader's reason, the document's source and grades, and th
 `documents_fts` is a full-text index of every cached document's text, one row per page, built only where
 `.cache/text` is present. For example:
 `select sourceid, page, text from source_facts where text like '%shrinkage%'`, or
-`select doc_key, sourceid, page from documents_fts where documents_fts match 'anneal*'`.
+`select doc_key, sourceid, page from documents_fts where documents_fts match 'anneal*'`. `_generation` says which
+release the file is of and how much of the corpus the full-text index holds (`fulltext`); `v_sources_without_text` names
+each retrieved source whose text is not in it (D105).
 
 ### A material
 

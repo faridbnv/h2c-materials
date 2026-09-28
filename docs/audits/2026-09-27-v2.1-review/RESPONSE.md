@@ -199,17 +199,86 @@ counted by products made actionable, never by documents.
 - Not done: a clean-clone run in CI with empty caches, and splitting the long reference docs further; the routes and the
   doctor are the short path in the meantime.
 
+### F14: a save is one transaction, a fetch is bounded (D104)
+
+Built by a second agent in a worktree of its own, merged after `verify:fast` passed on the merge.
+
+- **A save is written whole or not at all**, and refused, naming the files, when another writer saved since the tables
+  were opened; the next open finishes a save that stopped after its journal. An applied batch writes its tables,
+  acceptance baseline and ledger in one save. Tested by interrupting a save before its journal and at every rename, by
+  a second writer, and by a hand edit between open and save; the agent compared the files with the old save's and found
+  them byte-identical (A04).
+- **A fetch gives up after set limits and resumes**: 30 s, 120 s, 30 s of silence, 64 MB, four tries, six in flight;
+  each finished document journalled. Tested by killing a fetch run and resuming it without a second download (A06).
+- **The pipeline's live paths are named once** (`scripts/ingest/context.mjs`) and can be moved for a new campaign (A07).
+- **The source store** (`npm run data:sources`): 1,512 of 1,648 sources' bytes present and verified here, 123 absent,
+  12 with no digest, and one cached file that is not its digest's document (R-KIMYA-PEBA-S-TDS), now in OPEN-PROBLEMS
+  §19 (A08).
+
+Answers moved: none (`build:diff` 0 differences). Not done: a refetch still overwrites an applied document's digest,
+`audit:sources` keeps its own fetch, the reader was not split into adapters (OPEN-PROBLEMS §19).
+
+### F13: a query is of one generation, a decision can be traced (D105)
+
+Built by a third agent in a worktree of its own, merged with F16.
+
+- **`dist/h2c.sqlite` is stamped** with the release it is of, and never sets the tables as they are beside an older
+  compiled database: a query rewrites the file when it is stale and refuses while `dist/db.json` is of another release
+  (`--build` builds first; `--snapshot` answers from the file and says which release it holds). Tested by editing
+  V002780 in a copy of the tables: against the old `dist/db.json` the query refused and wrote nothing while the snapshot
+  still answered 116, not current; with no compiled database it rewrote the file first and answered 117 (A05).
+- **A partial full-text search says so**: 1,500 of 1,642 retrieved sources are indexed; `v_sources_without_text` names
+  the other 142.
+- **`npm run trace -- --scenario <file> --product <GradeID>`** traces one decision as the page makes it. Tested on the
+  acceptance portfolio's S04: Spectrum PLA Matt passes with annealing permitted, in the 90 °C, 4 h state, citing V002780
+  ("116 °C") with its SHA-256, and is unknown as printed, citing the same row as published in the other state.
+
+Answers moved: none. Not done: the trace does not report the product's rank.
+
+### F16: the loop measured (D105)
+
+`npm run verify:fast` prints each step's time against its budget, and `npm run bench` measures the build cold and warm by
+stage, memory, sizes, selection and the largest chemical group's growth. On 2026-09-28 (Apple M4, Node 26, other agents'
+processes running): cold build 15.9 s, of which the estimate stage 14.0 s; warm 1.9 s; peak memory 721 MB; the page
+6.6 MB (`db.json` 24.4 MB, 1.6 MB gzipped); each template's selection 3.5 to 8.3 ms. `verify:fast` took 24.3 s warm on
+the merged branch (399 tests) and 77.8 s with the build cache emptied, as CI starts: both inside 90 s. Grown to two and
+three times its 335 products, polylactide's estimate stage took 36 to 51 s and about 88 s, well inside the scale check's
+150 s, and steeper than linear; the intervention, if it is needed, is splitting the group's solve, not raising the budget.
+Node 24 was not measured (only Node 26 is installed on this machine).
+
 ### What people do: the team trial and the decisive-value sample
 
 Two of the plan's gates are people's work, and an agent has prepared them without claiming them:
 
 - **The team trial** ([TEAM-TRIAL.md](TEAM-TRIAL.md)): six tasks, each an acceptance question with a known answer (the
   outdoor bracket with its brief, the Spectrum PC 275 bed, PET-GF15 without an oven, the humid nylon fixture, PETG-ESD
-  and acids, handing a choice on), how to run them, and an empty findings table. It has not been run; C7 and C15 wait on it.
+  and acids, handing a choice on), how to run them, and an empty findings table. It has not been run; C7 waits on it.
 - **The decisive-value sample** ([SPOT-CHECK-DECISIVE.md](SPOT-CHECK-DECISIVE.md), `npm run audit:decisive-sample`):
   the re-center's spot-check samples what the page shows; this samples what now decides, the measurements the passing
   products' verdicts cite in the six templates (as printed and with annealing permitted) and the portfolio's questions,
   in the state each permits. 310 measurements back a pass; 32 are drawn, eight per headline, with a fixed seed, each with
   its specimen, direction, moisture, treatment and test conditions to check on the page its SHA-256 identifies. No row
   has been checked by a person; C3 waits on it.
+
+## Where version 2.1 ends
+
+Every work package of the plan, F01 to F17, is built on `v2`; nothing is on `main` and nothing is pushed, as the owner
+asked. F13, F14 and F16 were built by two further agents in worktrees of their own and merged here.
+
+- **Answers.** Strict, as printed, the six templates answer 126 materials (131 before 2.1): the five with a requirement
+  beyond printing 56 (116 before), because every template now asks the H2C's print gates and a product passes only on
+  its own records; the prototype 70 (15), because it tracks its price instead of requiring one. With annealing permitted,
+  145. Every material lost is unresolved, not failed, and Include uncertain keeps it. `build/snapshot/templates.csv`
+  lists each one; each step above names its own.
+- **The oracle.** All 46 expectations of the acceptance portfolio hold, 34 of which failed on the baseline; the seven
+  metamorphic relations hold. They were written by the same agent that built the code, from the source records, before
+  the code changed: independent of the engine, not of the agent. A person should review them (ACCEPTANCE.md).
+- **The loop.** `verify:fast` 24 s warm and 78 s cold, inside its 90 s budget; the full `verify` passes with the
+  interface probe and 300 rendered scenarios required.
+- **The scorecard** is re-scored in [GOALS.md](../../GOALS.md) (C13, C14 and C15 up one; the rest unchanged), by the
+  agent. The owner may re-score.
+- **What waits on people**: the team trial (C7, [TEAM-TRIAL.md](TEAM-TRIAL.md)), the decisive-value spot-check (C3,
+  [SPOT-CHECK-DECISIVE.md](SPOT-CHECK-DECISIVE.md)), a review of the acceptance portfolio's answers, a print on the H2C
+  of a chosen product, and the owner's decision to merge `v2` into `main`, which is also when the Pages workflow first
+  keeps a release's page. What 2.1 leaves open in the data and the code is in OPEN-PROBLEMS §19.
 

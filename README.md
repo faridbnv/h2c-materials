@@ -32,9 +32,11 @@ npm run build:diff             # what a change did to the compiled database, aga
 npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
 npm run data:check             # the schema gate alone, under a second
 npm run trace -- PETG          # any headline back to its measurement, grade and source
+npm run trace -- --scenario saved.json --product G001-06   # one decision as the page made it, and the records it rests on
+npm run bench                  # what the loop costs: build cold and warm by stage, memory, sizes, selection
 npm run data:new-material -- --name PA11 --polymer PA11   # a material (and its first grade, given --manufacturer, --product and --source), and what it still needs
 npm run data:export-xlsx       # read-only review workbook in dist/review/
-npm run db:sqlite              # dist/h2c.sqlite; then npm run sql -- "select ..." to ask across records
+npm run sql -- "select ..."    # ask across records (dist/h2c.sqlite, rewritten first when it is not of the tables)
 ```
 
 Changing data? Read [AGENTS.md](AGENTS.md) first. A new data sheet enters only through the import pipeline

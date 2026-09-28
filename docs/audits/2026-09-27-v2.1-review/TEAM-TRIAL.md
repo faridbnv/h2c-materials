@@ -45,4 +45,4 @@ Record the date, the release ID and each person's role at the top when the trial
 | | | | | | | | |
 
 A finding that needs a change goes to the owner, who decides whether it becomes work (GOALS, working rule 8). The
-scorecard's C7 and C15 wait on this trial.
+scorecard's C7 waits on this trial, and so do the plan's "practical workflow" line and its before-and-after timings.

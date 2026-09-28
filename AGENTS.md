@@ -61,7 +61,7 @@ import { openTables } from './scripts/data/table-io.mjs';
 const t = openTables();
 t.set('measurements', 'V000539', 'Normalized value', '4.3', { expect: '4.1' }); // refuses if the data moved
 t.append('sources', { SourceID: 'X-NEW-TDS', /* every column */ });
-t.save();   // canonical CSV and a fresh data/manifest.json
+t.save();   // canonical CSV and a fresh data/manifest.json, in one transaction; refused if another writer saved since openTables
 ```
 
 Then:
@@ -248,10 +248,11 @@ a table by hand, are in [docs/IMPORTING.md](docs/IMPORTING.md).
 
 ```bash
 npm run trace -- M020                  # every headline of a material, back to its source
-npm run sql -- "select ..."             # ask a question across records (dist/h2c.sqlite, D75)
+npm run sql -- "select ..."             # ask a question across records (dist/h2c.sqlite, D75; refuses while dist/db.json is stale: --build)
 npm run sql -- "select sourceid, page, text, reason from source_facts where text like '%shrinkage%'"   # what a sheet printed that no row holds (D85)
 npm run sql -- "select doc_key, sourceid, page from documents_fts where documents_fts match 'anneal*'" # every cached sheet's text, page by page (D85)
 npm run trace -- V000384               # a measurement, and the headlines that cite it
+npm run trace -- --scenario saved.json --product G001-06   # one product's decision in a saved scenario, record by record
 npm run build && open dist/H2C_Material_Selector_*.html
 git diff build/snapshot                  # what the change did to headlines, estimates, gates, templates, warnings
 npm run ui:fuzz -- --n 3000 --seed 7     # the rendered page against the engine, more scenarios or another seed

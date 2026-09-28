@@ -5,7 +5,8 @@ What is known to be wrong or missing in this database, as of 2026-09-28. What it
 a reader can tell a gap that is being worked on from one nobody has noticed.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
-so a stale number here is findable rather than believable. Run `npm run db:sqlite` first for the SQL ones.
+so a stale number here is findable rather than believable. `npm run sql` rewrites its file first when it is not of the
+tables, and refuses while `dist/db.json` is older than them: `npm run sql -- --build` builds first.
 
 Two things this page is not. It is not the check list: every rule the build enforces is in [RULES.md](RULES.md),
 generated. It is not the audit history: what each review found and what happened to it is in [audits/](audits/).
@@ -764,10 +765,22 @@ narrower and more honest, and leave these, each with where it is counted:
   of that is a person using it.
 - **The Pages step that keeps each release's page** (`h2c-<release>` GitHub releases) runs only on `main`, so it has not
   run yet.
+- **One source's cached file is not the document its digest names**, and 135 more cannot be re-read here: the file
+  cached for R-KIMYA-PEBA-S-TDS hashes to another digest, 123 registered sources have no bytes in this checkout's cache
+  and 12 record no digest (`npm run data:sources -- --manifest`, D104). Restoring the private store closes the second;
+  the first needs the document fetched again through the pipeline and compared.
+- **The full-text index is partial** (1,500 of 1,642 retrieved sources on 2026-09-28; `v_sources_without_text` names
+  the rest, D105). Its test checks only that `.cache/text` exists, so in a fresh worktree where `npm run test:ingest`
+  has written one fixture's text there, `npm test` fails it; point `H2C_DOCUMENT_CACHE` at the full cache.
+- **What F14 and F13 left** (D104, D105): `ingest:fetch --refetch --recheck` still overwrites an applied document's
+  digest rather than recording a new revision; `audit:sources` has its own unbounded fetch; the reader was not split
+  into adapters; a source bundle does not record parser versions; a traced decision does not report its rank; and the
+  loop was measured on Node 26 only, not Node 24.
 
 ```bash
 npm run sql --silent -- "select count(*) annealed_no_schedule from measurements where data_status in ('Published value','Published value (transcription corrected)') and post_processing_state = 'annealed' and (anneal_c_state is not null or anneal_h_state is not null)"
 npm run sql --silent -- "select count(*) conditioned from measurements where data_status in ('Published value','Published value (transcription corrected)') and moisture_state = 'conditioned'"
+npm run sql --silent -- "select count(*) not_indexed from v_sources_without_text"
 ```
 
 ---

@@ -57,27 +57,28 @@ It is queued for a later search, never hidden.
 
 Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-scored at the end of every phase.
 
-| # | Component | 2026-09-25 | 2026-09-27 | What moved it, and what holds it back |
-|---|---|:-:|:-:|---|
-| C1 | Translate requirements (limits engineers use, a goal to rank by) | 2 | 4 | Ten limits (layer strength, notched Charpy and Izod, glass transition added) and Rank by; no template uses the new four |
-| C2 | Classification (family → polymer → material → product, a home for everything) | 2 | 4 | Product lines are products, TPU by hardness, a "polymer not stated" home per family; 20 held sheets and 4 materials with no product to buy (2 with only a resin reference) remain |
-| C3 | Evidence store, decision tier (values with their conditions) | 3 | 3 | The values that decide were re-read (0 of 80 close calls wrong); 199 still lack their test conditions, and no person has measured the error rate (SPOT-CHECK.md) |
-| C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | Comparable and as published on every headline, the user admits the second |
-| C5 | Material summary (range and typical value across products) | 1 | 4 | Every material is its products' spread, variants and twins placed by rule |
-| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | All / some / none per product, printability included; 71 % of the answers not ruled out are unknown (66 % without the price template) |
-| C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 | 3 | Rank by goal, bubbles, a product-level chart; untested with the team |
-| C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | The Products tab, passing products first, search by maker and product |
-| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | Each product's own recipe, then its twin's, then Bambu's guide, labelled: chamber decided for 719 of 1,125 products (was 140), nozzle 997. On 2026-09-27 the guide is the revision Bambu Lab's page links (m209), and 35 recipe cells the research package found on the sheets are typed (m204) |
-| C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4,659 statements on 1,039 products in the maker's words, every gap stated; the makers' sites searched for 153 products (m206, from the research package of 2026-09-26); 45 left sheet-silent, each with a question for the owner or the maker |
-| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | The facts no row holds and every cached page's text, searchable in `dist/h2c.sqlite` (`npm run db:sqlite` counts them) |
-| C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | Estimated only where no product publishes (153 material cells); the special cases went with the representative grade |
-| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | `verify:fast` 23 to 65 s, `verify` about 4 min; a product still takes the pipeline or a checked migration |
-| C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | Later, as planned |
-| C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | Tests are rules, counts generated, every decision in plain words, every acceptance with its reason; the audit record is long |
+| # | Component | 2026-09-25 | 2026-09-27 | 2026-09-28 | What moved it, and what holds it back |
+|---|---|:-:|:-:|:-:|---|
+| C1 | Translate requirements (limits engineers use, a goal to rank by) | 2 | 4 | 4 | Ten limits and Rank by; since 2.1 the question also says the state the part is used in: as printed or annealed (with the oven's limit), dry or humid (D99). No template uses the four newest limits |
+| C2 | Classification (family → polymer → material → product, a home for everything) | 2 | 4 | 4 | Product lines are products, TPU by hardness, a "polymer not stated" home per family; 20 held sheets and 4 materials with no product to buy (2 with only a resin reference) remain |
+| C3 | Evidence store, decision tier (values with their conditions) | 3 | 3 | 3 | A deciding value must be a number its evidence line prints, in one role (D97), and decides only in the state it was measured in (D99); no person has measured the error rate: 32 of the 310 values that decide are drawn for one (SPOT-CHECK-DECISIVE.md) |
+| C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | 4 | Comparable and as published on every headline, and each value's state; a verdict names what it admitted unstated |
+| C5 | Material summary (range and typical value across products) | 1 | 4 | 4 | Every material is its products' spread, variants and twins placed by rule |
+| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | A product passes on its own records (D98), in a state it can be made in (D99), and a material is unknown while any product is (D100): no false confirmation in the acceptance portfolio. 82 % of the answers not ruled out are unknown (90 % without the prototype template), because every template now asks the print gates; the 3,475 facts one step from an answer are listed (SCENARIO-GAPS.md) |
+| C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); untested with the team (TEAM-TRIAL.md) |
+| C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | 4 | Passing products first, in the drawer's first view on a laptop; a product can be chosen, with its state, and its decision brief written (D103) |
+| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks each product's nozzle, bed and chamber against the H2C (D101), from its own recipe, its twin's, then Bambu's guide, labelled: chamber decided for 736 of 1,128 products (23 a window the H2C partly reaches), nozzle 1,007; annealing is a state with its schedule. 392 products' chamber is still unknown |
+| C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | 4,659 statements on 1,039 products in the maker's words, every gap stated; 45 products left sheet-silent, each with a question for the owner or the maker |
+| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | The facts no row holds and every cached page's text in `dist/h2c.sqlite`, now stamped with its release and never mixing two (D105); the full-text index holds 1,500 of 1,642 retrieved sources and says so |
+| C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | 3 | Estimated only where no product publishes (150 material cells, `build/snapshot/counts.md`); the special cases went with the representative grade |
+| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | `verify:fast` 24 s warm and 78 s cold, timed by step; a save is one transaction, a fetch bounded and resumable (D104); a decision traced from the command line and the loop measured (D105). A product still takes the pipeline, which stays paused |
+| C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | 2 | A chosen product keeps its state, release, note and the team's own test results with the scenario, and its brief is written (D103); no shared list, account or server, as decided |
+| C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | 4 | An independent acceptance portfolio (46 expectations) and seven metamorphic relations guard the decisions; a release is its content (D96); `verify` fails without Chrome; `npm run doctor` and three routes start a reader. The audit record is still long |
 
-Re-scored on 2026-09-27, at the end of phases 5 and 6, by Claude (an agent) from the build and the record
-([RESPONSE.md](audits/2026-09-25-re-center/RESPONSE.md), "Phases 5 and 6: where they end"). The owner may re-score.
-Two lines wait on people, not code: C3 on the spot-check, C7 on the team test.
+Re-scored on 2026-09-28, at the end of version 2.1, by Claude (an agent) from the build and the record
+([RESPONSE.md](audits/2026-09-27-v2.1-review/RESPONSE.md)). The owner may re-score. Two lines wait on people, not code:
+C3 on the decisive-value spot-check ([SPOT-CHECK-DECISIVE.md](audits/2026-09-27-v2.1-review/SPOT-CHECK-DECISIVE.md)), C7
+on the team trial ([TEAM-TRIAL.md](audits/2026-09-27-v2.1-review/TEAM-TRIAL.md)).
 
 ## Decided on 2026-09-25
 

@@ -113,6 +113,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D101 | Every template asks whether the H2C can print the product; browsing without it is research mode | Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing. | In force |
 | D102 | One ranking: the table, the chart's guide, its line and the export rank a question the same way | When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking. | In force |
 | D103 | A chosen product is a local decision record: its brief, its state, its release, and the team's own tests | An engineer can choose the exact product the team will print; the page keeps it with the scenario, with the state and release it was chosen on, and writes a decision brief with its evidence, recipe, open questions and a test plan, where the team records its own results. | In force |
+| D104 | A save is one transaction, a fetch is bounded, and a source's bytes are kept by their digest | Editing the tables from a script either writes every file of the change or none, and refuses to overwrite another writer's save; downloading a source gives up after set limits and resumes without starting over; and the downloaded source files can be listed, backed up and restored by their fingerprint. | In force |
+| D105 | A query is of one generation; a decision can be traced; the loop is measured | The SQL file you query says which release of the data it is of and never mixes the tables as they are with an older compiled database; one product's decision in a saved scenario can be traced record by record from the command line; and what the build and checks cost is measured step by step. | In force |
 
 <!-- end index -->
 
@@ -3112,6 +3114,77 @@ of the materials on screen, and nothing recorded "we chose this product, in this
   no approval workflow, account or server exists: that waits until the team has used this (GOALS, decision 7).
 
 Answers moved: none. Reversing it leaves the choice of a product, and the test that confirms it, outside the tool.
+
+
+## D104. A save is one transaction, a fetch is bounded, and a source's bytes are kept by their digest
+
+> **In plain words:** Editing the tables from a script either writes every file of the change or none, and refuses to overwrite another writer's save; downloading a source gives up after set limits and resumes without starting over; and the downloaded source files can be listed, backed up and restored by their fingerprint.
+
+*Built in version 2.1, F14 of the review of 2026-09-27 (A04, A06, A07, A08), under the plan the owner asked on
+2026-09-28 to be built on the `v2` branch. Built by an agent in a worktree of its own and merged; no person has reviewed
+the code.*
+
+The data changed file by file. A migration that stopped part-way left some tables new and the rest old, and two scripts
+that had read the same tables could each save, the second over the first without knowing. A fetch had no time or size
+limit, and a run that stopped lost what it had fetched. The pipeline's live folders were spelled out in sixteen scripts.
+And a re-read needs the source's bytes, which were in one private cache with no way to list, back up or restore them.
+
+- **A save is one transaction** (`scripts/data/table-io.mjs`). `openTables` records the digest of the manifest and of
+  every table it read; `save` refuses, writing nothing, when any file it would replace moved since, and names them. It
+  stages every file whole, takes a journal (`data/.save-journal.json`, linked into place so it appears whole and only
+  once), renames the files into place with the manifest last, and drops the journal. The next `openTables`, `save` or
+  `data:fmt` finishes a journal a stopped save left, so after an interruption the world is the old one or the new one,
+  whole; `data:check` fails while one is pending. An applied batch writes its tables, acceptance baseline and ledger in
+  the same save. The files written are byte for byte what the old save wrote.
+- **A fetch is bounded and resumable** (`scripts/ingest/fetch.mjs`): 30 s to answer, 120 s for the body, 30 s of silence,
+  64 MB, four tries for a timeout, reset, 408, 425, 429 or 5xx, at most six requests in flight. What still fails is
+  `unreachable` or `too-large`, its reason first in the note. Each finished document is journalled as it finishes, and
+  bytes are stored whole under their digest, so a stopped run resumes without fetching a finished one again.
+- **The live paths are named once** (`scripts/ingest/context.mjs`), where they always were; `H2C_INGEST_ROOT`,
+  `H2C_PROPOSALS` and `H2C_DOCUMENT_CACHE` move them for a campaign of its own.
+- **The source store** (`npm run data:sources`): `--manifest` says, per registered source, whether its bytes are present
+  and hash to its digest and whether its text is cached; `--export` copies the verified bytes out by digest with their
+  provenance; `--restore` takes back only bytes that hash to a registered digest. It never fetches. On 2026-09-28: of
+  1,648 sources, 1,512 have their bytes and they verify, 123 have none here, 12 record no digest, and one's cached file
+  hashes to another digest (OPEN-PROBLEMS §19).
+
+Answers moved: none (`build:diff` 0 differences). Reversing it lets a stopped or concurrent edit leave the tables half
+changed, and a stalled download stop an import run.
+
+## D105. A query is of one generation; a decision can be traced; the loop is measured
+
+> **In plain words:** The SQL file you query says which release of the data it is of and never mixes the tables as they are with an older compiled database; one product's decision in a saved scenario can be traced record by record from the command line; and what the build and checks cost is measured step by step.
+
+*Built in version 2.1, F13 and F16 of the review of 2026-09-27 (A05, A11; the plan's 3.3), under the plan the owner asked
+on 2026-09-28 to be built on the `v2` branch. Built by an agent in a worktree of its own and merged; no person has
+reviewed the code.*
+
+`dist/h2c.sqlite` set the tables as they are beside whatever `dist/db.json` was on disk, so after an edit and before a
+build it showed the new measurement beside the old product value, and a query was answered from any file already
+written, however old. A decision could be explained only on the page. And `verify:fast` reported one total, so what
+spent the budget was a guess.
+
+- **One generation** (`scripts/data/sqlite.mjs`). `_generation` stamps the release the tables, rules and engine make
+  (D96), the compiled database it read and its release, the record tier's inputs and the writer's own code; `_tables`
+  names each table's tier and release. `dist/db.json` is read only when it is of the release the tables make now;
+  otherwise nothing is written and the command says to build (`--build` does). A plain query rewrites a file that is not
+  of the inputs, or refuses; `--snapshot` answers from the file as written and says which release it holds. The file is
+  written aside and renamed into place.
+- **A partial search says so.** The full-text index is measured against every retrieved source: `fulltext` is complete,
+  partial or unavailable, `v_sources_without_text` names each missing one and why, and a query of `documents_fts` while
+  it is partial says so. On 2026-09-28, 1,500 of 1,642 are indexed.
+- **A decision traced** (`npm run trace -- --scenario <file> --product <GradeID>`, `--json`): the saved scenario read
+  as the page reads it and the selection run as the page runs it; for the product, the release, the policy, the states
+  permitted and each state's verdict, and per requirement its status and reason, what was admitted unstated, and every
+  record it rests on with its own words, typed conditions, locator and SHA-256.
+- **The loop measured.** `npm run verify:fast` times each step against the 90 s budget (`--enforce-budget` fails over it);
+  `npm run bench` measures the build cold and warm by stage, peak memory, sizes, each template's selection and, with
+  `--growth`, the largest chemical group grown two and three times (`build/reports/bench.json`). On 2026-09-28, on an
+  Apple M4 with Node 26 and other processes running: cold build 15.9 s (the estimate stage 14.0 s), warm 1.9 s, peak
+  721 MB, the page 6.6 MB; `verify:fast` 24 to 28 s warm and 78 s cold; polylactide's 335 products grown to 670 took the
+  estimate stage 36 to 51 s, to 1,005 about 88 s. Node 24 was not measured.
+
+Answers moved: none. Reversing it lets a query mix two releases without saying so.
 
 ---
 

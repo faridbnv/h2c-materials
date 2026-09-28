@@ -48,7 +48,12 @@ from the same tables and the same schema, with numbers typed, missing states in 
 every CSV header recoverable from `_columns` (DECISIONS D75). `npm run sql -- "select ..."` queries it.
 Nothing reads it back, and it is gitignored with the rest of `dist/`, so data still changes in one
 place; it exists because a question that spans records is a join, not a script. It also carries the record tier
-(D85): what the sources publish that no row holds, and a full-text index of the cached documents.
+(D85): what the sources publish that no row holds, and a full-text index of the cached documents. The file is one
+generation (D105): `_generation` stamps the release its tables, rules and engine make, the compiled database it read and
+the record tier's inputs, and `_tables` the tier and release of every table. A query rewrites a file that is not of the
+tables as they are, and refuses while `dist/db.json` is of another release; `--snapshot` answers from the file as written
+and says which release it holds. How much of the corpus the full-text index holds is stamped too
+(`fulltext` complete, partial or unavailable; `v_sources_without_text` names what is missing).
 
 ## Why a build step, rather than reading the tables in the browser
 
@@ -119,7 +124,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 
 | Script | Responsibility |
 |---|---|
-| `data/table-io.mjs` | The scripted-edit API: open, find, set (with an expected-value guard), update a row of a keyless table by its fields, append, add or drop a column, create a table, the next ID, save in canonical form with a fresh manifest. A record leaves a table (`remove`, `removeWhere`) only with a row in `data/review/removed-records.csv` naming its migration and where it went (D72). |
+| `data/table-io.mjs` | The scripted-edit API: open, find, set (with an expected-value guard), update a row of a keyless table by its fields, append, add or drop a column, create a table, the next ID, save in canonical form with a fresh manifest, as one transaction that refuses a second writer and is finished by the next open if it stopped part-way (D104); `stageFile` puts another file in the same save. A record leaves a table (`remove`, `removeWhere`) only with a row in `data/review/removed-records.csv` naming its migration and where it went (D72). |
 | `data/fmt.mjs` | `npm run data:fmt`: rewrite tables and vocabularies canonically and refresh `data/manifest.json`; `--check` changes nothing. |
 | `data/check.mjs` | `npm run data:check`: the schema gate on its own, in about a second. |
 | `data/new-id.mjs` | `npm run data:new-id`: the next free ID for a table, or a material's next grade. |
@@ -148,17 +153,20 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `ui-fuzz.mjs` | `npm run ui:fuzz`: seeded random scenarios through the built page in headless Chrome, in every Strict/Explore/estimates setting, table and chart compared with the engine in Node (D57). |
 | `docs-rules.mjs`, `docs-dictionary.mjs` | `docs/RULES.md` from the rule catalogue; `docs/DATA-DICTIONARY.md` from the schema. Both are checked by `verify:fast`, with the decisions index. |
 | `data/diff.mjs`, `data/diff-lib.mjs` | `npm run data:diff`: a record-level changelog between two versions; `--fail-on-removed` refuses a deletion that `data/review/removed-records.csv` does not name. A keyless table's declared `identity` and `replacedWithin` make a re-pointed citation an edit. It replaces hand-written audit changelogs. |
-| `trace.mjs` | `npm run trace`: a headline back to its measurement, grade and source, with file and line. |
+| `trace.mjs` | `npm run trace`: a headline back to its measurement, grade and source, with file and line; `--scenario <file> --product <GradeID>` one decision as the page makes it, with its states, requirements and the records each rests on (D105). |
+| `bench.mjs`, `verify-fast.mjs` | `npm run bench`: the build cold and warm by stage, peak memory, sizes, each template's selection, and `--growth` for the largest chemical group (`build/reports/bench.json`). `npm run verify:fast` runs its steps timed against the 90 s budget (D105). |
 | `data/synthesize.mjs` | A multiple of today's data under new IDs, for the scale test. |
 | `data/export-xlsx.mjs` | The read-only review workbook. |
 | `migrate/` | The source corrections and table changes, m10 onwards; each names the value it replaces through `source-edits.mjs`, so a re-run is a no-op. The 2026-09-14 workbook conversion (m01 to m09, its ledger and replay) is in `archive/workbook-conversion/`, which no longer runs: the workbooks were deleted with the cutover. |
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
-| `data/sqlite.mjs` | `npm run db:sqlite`, `npm run sql -- "..."`: the compiled database as a SQLite file with the schema's types, the compiled headlines, and a robust z-score per measurement against its material's others (`v_measurement_z`, D75). |
+| `data/sqlite.mjs` | `npm run db:sqlite`, `npm run sql -- "..."`: the compiled database as a SQLite file with the schema's types, the compiled headlines, and a robust z-score per measurement against its material's others (`v_measurement_z`, D75), stamped as one generation (`_generation`, `_tables`, D105). |
+| `data/source-store.mjs` | `npm run data:sources`: every registered source's cached bytes and text, listed (`--manifest`), backed up by digest (`--export`), restored only where they hash to a registered digest (`--restore`); it never fetches (D104). |
 | `data/record-tier.mjs` | The record tier in the same file (D85): `source_facts`, the lines the import reader read without them becoming data, and `documents_fts`, a full-text index of the cached documents (built only where `.cache/text` is present). |
-| `ingest/` | The import pipeline: fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. Its proposals are in `archive/ingest-2026-09-18/proposals` (`archive.mjs` names the path); the ledger of every document, STATUS, BLOCKERS and READINGS stay in `docs/audits/2026-09-18-v2-import/`. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). `witness.mjs` records a maker's page beside a sheet, fetched, or staged from the copy its reader saved (`--from`, checked against the digest recorded when it was read). The rules are in `docs/IMPORTING.md`. |
+| `ingest/` | The import pipeline: fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. Its proposals are in `archive/ingest-2026-09-18/proposals` (`archive.mjs` names the path); the ledger of every document, STATUS, BLOCKERS and READINGS stay in `docs/audits/2026-09-18-v2-import/`. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). `witness.mjs` records a maker's page beside a sheet, fetched, or staged from the copy its reader saved (`--from`, checked against the digest recorded when it was read). `context.mjs` names every live path (`H2C_INGEST_ROOT`, `H2C_PROPOSALS`, `H2C_DOCUMENT_CACHE` move them); `fetch.mjs` bounds each request and journals each finished document (D104). The rules are in `docs/IMPORTING.md`. |
 
-`npm run verify:fast` runs format, schema, lint, generated docs, build and tests while you work: about 75 seconds after a
-change and 30 when nothing the build reads changed, because the build result is cached by content
+`npm run verify:fast` runs format, schema, lint, generated docs, build and tests while you work, and prints each step's
+time against the budget: about 75 seconds after a change and 25 to 30 when nothing the build reads changed
+(`npm run bench` measures the parts), because the build result is cached by content
 (`build/src/build-cache.js`, `.cache/build/`); its budget is 90 seconds (docs/GOALS.md). The import pipeline's tests
 run in `verify` (`npm run test:ingest`), not here, while imports are paused.
 `npm run verify` adds the import tests, the scale and reproducible-build checks (`npm run scale`, `npm run
