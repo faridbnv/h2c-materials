@@ -1,0 +1,8 @@
+
+> h2c-fdm-material-selector@1.0.0 data:diff
+> node scripts/data/diff.mjs
+
+table,record,action,field,before,after
+know_how_reads,X-RECREUS-PET-G-TDS-2023 | document,Added,,,
+measurements,V011511,Added,,,
+sources,X-RECREUS-PET-G-TDS-2023,Added,,,

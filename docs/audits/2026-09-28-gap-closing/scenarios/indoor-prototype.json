@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "unknownPolicy": "strict",
+  "constraints": [
+    {
+      "kind": "gate",
+      "gate": "scope",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "facet",
+      "facet": "supportMaterial",
+      "equals": false,
+      "__group": "Manufacturing"
+    },
+    {
+      "kind": "gate",
+      "gate": "nozzle",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "gate",
+      "gate": "bed",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "gate",
+      "gate": "chamber",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "numeric",
+      "property": "priceCADkg",
+      "operator": "<=",
+      "value": 45,
+      "mandatory": false,
+      "__group": "Cost"
+    }
+  ]
+}

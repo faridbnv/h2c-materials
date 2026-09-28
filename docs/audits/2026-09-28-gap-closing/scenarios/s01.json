@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "unknownPolicy": "strict",
+  "constraints": [
+    {
+      "kind": "gate",
+      "gate": "scope"
+    },
+    {
+      "kind": "facet",
+      "facet": "supportMaterial",
+      "equals": false
+    },
+    {
+      "kind": "numeric",
+      "property": "hdt045",
+      "operator": ">=",
+      "value": 100
+    },
+    {
+      "kind": "numeric",
+      "property": "tensileModulusXY",
+      "operator": ">=",
+      "value": 3
+    },
+    {
+      "kind": "numeric",
+      "property": "density",
+      "operator": "<=",
+      "value": 1500
+    },
+    {
+      "kind": "gate",
+      "gate": "nozzle"
+    },
+    {
+      "kind": "gate",
+      "gate": "bed"
+    },
+    {
+      "kind": "gate",
+      "gate": "chamber"
+    }
+  ]
+}

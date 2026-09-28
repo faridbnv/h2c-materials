@@ -1,0 +1,6 @@
+Question,Kind,ID,Before,After
+Outdoor structural part,product,G020-70,UNKNOWN,FAIL
+Warm environment,product,G020-70,UNKNOWN,FAIL
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G020-70,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G020-70,UNKNOWN,FAIL
+"S04: A PLA Matt part that must not soften below 100 °C (heat deflection at 0.45 MPa), with and without a permitted 90 °C, 4 h anneal.",product,G020-70,UNKNOWN,FAIL

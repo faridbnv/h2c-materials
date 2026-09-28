@@ -231,6 +231,23 @@ portfolio (twelve source-grounded questions whose expected answers were written 
 [ACCEPTANCE.md](audits/2026-09-27-v2.1-review/ACCEPTANCE.md); its answers were written by an agent, and wait for a
 person's review.
 
+## Decided on 2026-09-28, for source backup and targeted gap closure
+
+The owner asked Codex to execute `lively-gliding-allen.md` on `v2`, and confirmed all generated targets rather than
+only the 32 multi-question facts. GOALS steps 2 and 5, C6/C9/C13: back up source bytes and derived evidence to the
+private OneDrive store first; re-read cached sheets; mine held documents only where they settle a frozen target;
+then search the makers' product pages, downloads and print guides for remaining print-settings targets. Print tests
+stay out, unknown conditions are never inferred, and a bounded unsuccessful search remains a recorded result.
+
+- **b38** permits the held Recreus PET-G sheet (2023 revision, cached digest `9cb0b12cb848a735875ffac3e8b059902bc6d7c12584d3d6414d8d9d4558eb38`)
+  for G020-70's heat-deflection targets. Its printed page identifies PET-G, not the ledger's unsupported High Flow
+  label. Its broken glyph mapping requires optical extraction and visual row review. Other held sheets enter only
+  if their exact identity and question-specific fact are established; the general import pause remains.
+- **b39** permits maker-site witnesses for the 65 chamber targets in
+  [TARGETS.csv](audits/2026-09-28-gap-closing/TARGETS.csv), minus those settled in A/B. The frozen file names every
+  authorized product. New retrievals retain their own bytes, date and digest; searches that find no applicable
+  chamber statement are recorded without treating silence, an unavailable site or an unresolved identity as a value.
+
 ## Working rules
 
 1. **Goal first.** Name the step and scorecard line a piece of work improves.

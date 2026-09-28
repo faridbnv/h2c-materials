@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "unknownPolicy": "strict",
+  "constraints": [
+    {
+      "kind": "numeric",
+      "property": "tensileModulusXY",
+      "operator": ">=",
+      "value": 6
+    }
+  ]
+}

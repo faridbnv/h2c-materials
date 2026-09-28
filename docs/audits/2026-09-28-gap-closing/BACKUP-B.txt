@@ -1,0 +1,6 @@
+
+> h2c-fdm-material-selector@1.0.0 data:sources
+> node scripts/data/source-store.mjs --export $H2C_SOURCE_BACKUP --derived
+
+2267 source(s) in 2267 file(s) -> $H2C_SOURCE_BACKUP (0 copied, 2267 already there, 2712 derived files), manifest.csv beside them
+124 inventory entry/entries with no verified bytes to export: 123 absent, 1 mismatch (npm run data:sources -- --manifest lists them)

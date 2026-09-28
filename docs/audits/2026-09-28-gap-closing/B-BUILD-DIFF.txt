@@ -1,0 +1,35 @@
+
+> h2c-fdm-material-selector@1.0.0 build:diff
+> node scripts/build-diff.mjs
+
+     3  db.materials[].headline.hdt045.estimate.screenRange.hi
+     3  db.materials[].headline.hdt045.estimate.plausible.lo
+     3  db.materials[].headline.hdt045.estimate.screenRange.lo
+     3  db.materials[].headline.hdt045.estimate.centre
+     2  db.materials[].headline.hdt045.estimate.plausible.hi
+     2  db.materials[].headline.hdt045.estimate.lo
+     2  db.materials[].headline.hdt045.estimate.hi
+     1  db.meta.counts.measurements
+     1  db.meta.counts.numericMeasurements
+     1  db.meta.counts.sources
+     1  db.meta.knowHow.documentsRead
+     1  db.meta.estimateModel.properties.hdt045.observations
+     1  db.meta.estimateModel.properties.hdt045.formulations
+     1  db.meta.estimateModel.properties.hdt045.betweenProduct.pairs
+     1  db.meta.estimateModel.properties.hdt045.calibration.plausibleCoverage
+     1  db.meta.estimateModel.properties.hdt045.gradeCalibration.held
+     1  db.meta.estimateModel.properties.hdt045.gradeCalibration.grades
+     1  db.meta.estimateModel.properties.hdt045.gradeCalibration.likelyCoverage
+     1  db.meta.estimateModel.outliers[].expected
+     1  db.meta.consistency.headlineCitations
+     1  db.materials[].headline.hdt045.spread.n
+     1  db.materials[].headline.hdt045.spread.q3
+     1  db.materials[].summary.hdt045.n
+     1  db.materials[].summary.hdt045.q3
+     1  db.grades[].headline.hdt045
+     1  db.grades[].states[].values.hdt045
+     1  db.grades[].knowHow.readOn
+     1  db.measurements[]
+     1  db.sources[]
+release 830b56528862 -> b13b750d0429
+40 difference(s) between HEAD and the working tree

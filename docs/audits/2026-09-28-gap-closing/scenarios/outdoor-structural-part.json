@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "unknownPolicy": "strict",
+  "constraints": [
+    {
+      "kind": "gate",
+      "gate": "scope",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "facet",
+      "facet": "supportMaterial",
+      "equals": false,
+      "__group": "Manufacturing"
+    },
+    {
+      "kind": "gate",
+      "gate": "nozzle",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "gate",
+      "gate": "bed",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "gate",
+      "gate": "chamber",
+      "__group": "Compatibility"
+    },
+    {
+      "kind": "numeric",
+      "property": "hdt045",
+      "operator": ">=",
+      "value": 100,
+      "mandatory": true,
+      "__group": "Thermal"
+    },
+    {
+      "kind": "numeric",
+      "property": "tensileModulusXY",
+      "operator": ">=",
+      "value": 3,
+      "mandatory": true,
+      "__group": "Mechanical"
+    },
+    {
+      "kind": "numeric",
+      "property": "density",
+      "operator": "<=",
+      "value": 1500,
+      "mandatory": true,
+      "__group": "Mechanical"
+    },
+    {
+      "kind": "numeric",
+      "property": "priceCADkg",
+      "operator": "<=",
+      "value": 100,
+      "mandatory": false,
+      "__group": "Cost"
+    }
+  ]
+}

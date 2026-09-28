@@ -1,0 +1,15 @@
+
+> h2c-fdm-material-selector@1.0.0 trace
+> node scripts/trace.mjs V011511
+
+measurement V011511  (data/tables/measurements.csv:11512)  HDT
+  raw "68,0 °C" [°C] -> numeric 68 × factor 1 = 68 °C
+  status Published value · operator = · direction Not applicable · specimen Not published (do not assume printed)
+  moisture Not published · standard/load HDT (0,45MPa); ISO 75-2 · locator p. 1: HDT (0,45MPa) 68,0 °C ISO 75-2
+  notes: Added 2026-09-28 (m220-batch-b38): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Specimen, direction, moisture and post-processing are not stated. Source spelling and row read against original image; no printed-coupon assumption.
+  grade G020-70  (data/tables/grades.csv:1055)  Recreus PET-G · material M020
+  source X-RECREUS-PET-G-TDS-2023  (data/tables/sources.csv:1650)
+    Recreus — TECHNICAL DATA SHEET PET-G, 26.09.2023
+    https://drive.google.com/file/d/1V6XdIixjhVUCm8J_6B5drqDEJtrudsHO/view
+    accessed 2026-09-28 · retrieved · sha256 9cb0b12cb848a735875ffac3e8b059902bc6d7c12584d3d6414d8d9d4558eb38
+the value of G020-70 Recreus PET-G for hdt045, comparable

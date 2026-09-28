@@ -114,7 +114,7 @@ ABS-AF
 ABS-CF
 78
 76–95 · 3
-41.9
+42
 300
 all 153 candidates
 Glass transition °C

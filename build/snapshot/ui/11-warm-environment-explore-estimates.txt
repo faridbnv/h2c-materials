@@ -1,7 +1,7 @@
-COUNT 108 shown PASS + UNKNOWN
-STATUS ☑ PASS 30 | ☑ UNKNOWN 96 | ☐ FAIL 27 | ☐ SCREENED 18
+COUNT 109 shown PASS + UNKNOWN
+STATUS ☑ PASS 30 | ☑ UNKNOWN 96 | ☐ FAIL 27 | ☐ SCREENED 17
 30 of the 153 materials meet these requirements
-Warm environment template · 96 more could not be checked, listed flagged, except 18 screened out
+Warm environment template · 96 more could not be checked, listed flagged, except 17 screened out
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -575,6 +575,19 @@ none judged
  1,080
 1,020–1,080 · 3
  ~1.3–4.8† ~18–39† ~3–32† 85 — ☆
+PET
+PET Engineering
+ UNKNOWN
+none judged
+ 1,335
+1,300–1,360 · 4
+ 2.25
+2.08–2.41 · 2
+ 58.4
+52.6–64.2 · 2
+ 7.8
+7–8.6 · 2
+ ~47–66† — ☆
 PET-CF
 PET Engineering
  PASS
@@ -619,7 +632,7 @@ none judged
 30.3–33.2 · 2
  ~53–141† — ☆
 PETG UNKNOWN
-0 of 29
+0 of 30
  1,270
 1,180–1,350 · 56
  1.65
@@ -629,7 +642,7 @@ PETG UNKNOWN
  8.6
 4.1–90 · 23
  70
-63–80 · 31
+63–80 · 32
  25.5
 25–26 · 2
 ↗ ☆

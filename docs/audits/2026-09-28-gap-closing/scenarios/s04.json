@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "unknownPolicy": "strict",
+  "constraints": [
+    {
+      "kind": "numeric",
+      "property": "hdt045",
+      "operator": ">=",
+      "value": 100
+    }
+  ]
+}

@@ -1516,6 +1516,7 @@ G020-69,M020,MATTE PET-G,tensileStrengthXY,44,as-published,unstated-direction,V0
 G020-69,M020,MATTE PET-G,izodNotched,2,as-published,unstated-direction,V010550,,,,
 G020-69,M020,MATTE PET-G,hdt045,68,comparable,,V010924,,,,
 G020-69,M020,MATTE PET-G,glassTransition,80,comparable,,V010553,,,,
+G020-70,M020,PET-G,hdt045,68,comparable,,V011511,,,,
 G020-71,M020,R PET-G,tensileModulusXY,2.8,as-published,unstated-direction,V010727,,,,
 G020-71,M020,R PET-G,tensileStrengthXY,51,as-published,unstated-direction,V010726,,,,
 G020-71,M020,R PET-G,elongationXY,29,as-published,unstated-direction,V010729,,,,

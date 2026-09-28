@@ -34,13 +34,13 @@ source-before-derived refusal all pass. `doctor` reports backup age and missing/
 `audit:scenario-gaps --csv` froze **3,464 non-print-test facts** across 1,039 exact products and 11 questions,
 including 32 facts affecting multiple questions. The owner confirmed that all targets are in scope.
 `TARGETS.csv` names the requirements, expected movement, stop rules, tranches and prior research handoffs;
-`BASELINE.json` preserves the question-specific treatment/moisture policy and `BASELINE-ANSWERS.json` preserves
+`BASELINE.json` preserves the generator's default as-printed/dry policy for each question and `BASELINE-ANSWERS.json` preserves
 product and material answers. Existing source-unavailability and unresolved identities are never labelled publisher
 silence. A prior NEEDS_VENDOR or limited search is not interpreted as a finding that nothing is published.
 
 ## Tranche A: cached-source re-read
 
-The record-tier SQL queries searched unused source facts and full-text chamber/enclosure/direction/load wording.
+The retained SQL queries searched unused source facts and full-text chamber/enclosure/direction/load wording (A-UNUSED-FACTS.txt and A-FTS-HITS.txt).
 `gap-cached-evidence.mjs` mapped the frozen products to their own sources and records and inspected every cached page
 of 1,392 relevant registered documents, 1,360 with verified bytes. It retained 14,166 candidate lines and 14
 held/deferred product-name matches for source-specific review. A candidate is a lead, not a decision value.
@@ -68,3 +68,15 @@ Against the original frozen questions, **38 product answers on 20 distinct produ
 The 127 agent re-reads are listed for a person in SPOT-CHECK-DECISIVE.csv. None is signed off by a person. A-READ-LIMITS.md separates the complete cached-text lead scan from source-specific acceptance and from publisher silence.
 
 Full final A verification passed (VERIFY-A3.txt): 401 main tests, 186 import tests, the 46 acceptance expectations, scale and reproducibility, audit with no errors, current snapshot, 67 interface views and 300 rendered scenarios / 2,586 readings. The isolated verify:fast run took 57.3 s, within 90 s. Earlier failed runs are superseded: one fixture diagnostic was corrected; a commit during a running check changed only the manifest commit stamp, so verification was repeated with HEAD stable. A-BUILD-DIFF.txt reports 14,617 paths, including condition/headline/model changes and updated recorded text; A-DATA-DIFF.txt lists every source-table edit. No record is deleted.
+
+## Tranche B: held-document intake
+
+B-HELD-OUTCOMES.csv retains 14 product/document leads, including the PET-G sheet that moved from deferred to extracted after its optical repair. Only the exact Recreus PET-G 2023 revision settles an authorized fact. b38/m220 retains that original and its distinct source row, adding V011511: HDT 68.0 °C at 0.45 MPa, ISO 75-2, with specimen, direction, moisture and treatment unstated. Its initial optical reading of 63 was corrected against the original page; the source bytes are unchanged. The optical PDF, text and original page images are backed up. Other automatic rows are rejected.
+
+Adjacent Glow-in-the-Dark PETG, PETG Marble, Lightweight PET FLEX MAX, PA12 CF Support and neat HI-TEMP sheets do not become their similarly named targets. Existing Panchroma values are retained, and mixed PolyWood weak/strong-acid ratings do not settle a general acid requirement. The exact target scope is dated in GOALS; the general import pause remains. BACKUP-B.txt records the post-batch incremental export.
+
+State scope: the original worklist runs the portfolio's default policy. S03/S04 also have annealed expectation overrides, and S05 also has conditioned overrides in the acceptance tests. Those override variants are verified by the acceptance portfolio, but are not separate research questions in the frozen 11-question queue. S05 movement above refers to its default dry run; it is not a claim of humid-service suitability. The owner confirmed: finish the frozen targets and record the additional state variants for a follow-up. They are listed separately in STATE-VARIANTS-FOLLOWUP.csv; no additional source research is claimed for them.
+
+B-MOVEMENT.csv/B-CHANGES.csv show **five newly definite product failures**, all on G020-70, and no material-level answer movement. These are Outdoor, Warm environment, S01, S03 and S04. The below-limit 68 °C datum rejects those heat requirements; it does not certify a printed coupon. B-HDT-TRACE.txt and B-DECISION-TRACE.json trace the numeric row and the Warm decision to the original digest. The compiled diff has 40 paths (B-BUILD-DIFF.txt), including the product value and three downstream HDT estimate spreads; B-DATA-DIFF.txt records the source-table additions.
+
+Full B verification passed (VERIFY-B.txt): 401 main and 186 import tests, 46 acceptance expectations, scale/reproducibility, audit with no errors, current snapshot, 67 views and 300 rendered scenarios / 2,586 readings. verify:fast took 60.6 s. The initial run caught a stale generated know-how worklist after recording the new sheet read; it was regenerated and verification repeated.
