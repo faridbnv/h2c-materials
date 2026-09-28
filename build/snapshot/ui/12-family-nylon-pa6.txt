@@ -5,6 +5,7 @@ Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Each product is judged as printed, and dry.
+Research mode: whether the H2C can print a product is not checked, so a pass here says nothing about printing it. Check printability
 Family: Nylon / Polyamide
 ×
 Polymer: PA6

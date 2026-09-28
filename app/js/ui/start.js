@@ -4,7 +4,7 @@
 // was for. This appears only while no constraint is set: it names the workflow in one line and
 // offers the application templates as the first move. It disappears the moment a filter is applied.
 
-import { TEMPLATES, templateByName } from './templates.js';
+import { TEMPLATES, templateByName, asksPrintable } from './templates.js';
 import { esc } from './format.js';
 import { describeConstraint, POLICY_LABELS } from './labels.js';
 
@@ -149,6 +149,7 @@ export function renderActive(state, actions) {
     </div>
     ${template ? `<p class="not-checked"><b>Not checked by this template.</b> ${esc(template.notChecked)}</p>` : ''}
     ${stateLine}
+    ${asksPrintable(cs) ? '' : `<p class="state-line research-line"><b>Research mode:</b> whether the H2C can print a product is not checked, so a pass here says nothing about printing it. <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></p>`}
     <div class="pills">
       ${hard.map((c) => pill(c, cs.indexOf(c))).join('')}
       ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
@@ -164,4 +165,5 @@ export function wireActive(host, state, actions) {
   host.querySelector('[data-act="explain"]')?.addEventListener('click', () => actions.setLens('explain'));
   host.querySelector('[data-act="reset"]')?.addEventListener('click', () => actions.reset());
   host.querySelector('[data-act="anneal"]')?.addEventListener('click', () => actions.allowAnnealing());
+  host.querySelector('[data-act="printable"]')?.addEventListener('click', () => actions.checkPrintable());
 }

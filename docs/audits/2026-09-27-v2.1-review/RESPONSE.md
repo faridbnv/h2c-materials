@@ -100,3 +100,16 @@ Answers moved: Strict none. Include uncertain, 263 FAIL → UNKNOWN across the s
 candidates, Lightweight 55 → 107, High-stiffness 63 → 113, Flexible 65 → 116, Warm 92 → 126, Indoor 115 → 130), and as
 many with estimates on. Acceptance S08 met, after its premise was corrected before the code changed (PLA now has four
 products above 3 GPa; the question moved to PETG and 100 °C, re-derived from the tables).
+
+### F03 and F12: every template asks the H2C's print gates; the prototype tracks its price (D101)
+
+Every template asks each product's nozzle, bed and chamber against the H2C's (`PRINTABLE`), so Warm environment now asks
+the bed too. The rail's "Printable on the H2C" sets the three together; without them the results header says research
+mode, with a button that asks them. The Indoor prototype asks printability and tracks its price instead of requiring
+one: 38 of 1,077 in-scope products have a sampled Canadian price.
+
+Answers moved, Strict as printed: Outdoor 14 → 5 materials, Lightweight 26 → 11, High-stiffness 15 → 5, Flexible 16 → 6,
+Warm 29 unchanged, Indoor 15 → 70. Every material lost is unresolved, not failed (its passing products have no recipe, or
+a window the H2C only partly reaches), and Include uncertain keeps it; with annealing permitted: 10, 16, 10, 7, 32. The
+interface probe's drawer step now opens the first-ranked material (PA12-CF's passing product has no recipe).
+Acceptance: S01.7, S02 (three) and S11 (two) met.

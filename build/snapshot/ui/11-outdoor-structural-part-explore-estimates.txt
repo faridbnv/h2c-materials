@@ -1,14 +1,20 @@
 COUNT 92 shown PASS + UNKNOWN
-STATUS ☑ PASS 14 | ☑ UNKNOWN 99 | ☐ FAIL 40 | ☐ SCREENED 21
-14 of the 153 materials in this database meet these requirements, and 99 more could not be checked for missing data
-Include uncertain lists those 99 flagged, except the 21 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Outdoor structural part template. Click any criterion to remove it.
+STATUS ☑ PASS 5 | ☑ UNKNOWN 108 | ☐ FAIL 40 | ☐ SCREENED 21
+5 of the 153 materials in this database meet these requirements, and 108 more could not be checked for missing data
+Include uncertain lists those 108 flagged, except the 21 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
-Each product is judged as printed, and dry. Allow annealing 3 more materials would pass: PAHT-CF, PET-CF, PET-GF
+Each product is judged as printed, and dry. Allow annealing 5 more materials would pass: PAHT-CF, PA12-CF, PET-CF, PET-GF, PPS-CF
 In the H2C research scope
 ×
 A build material, not a support
+×
+Nozzle temperature the H2C reaches
+×
+Bed temperature the H2C reaches
+×
+Chamber temperature the H2C reaches
 ×
 Heat resistance at least 100 °C
 ×
@@ -49,7 +55,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS UNKNOWN
-0 of 24
+0 of 25
  1,050
 1,020–1,150 · 42
  2.2
@@ -106,7 +112,7 @@ ABS-GF UNKNOWN
 82–100 · 8
  39↗ ☆
 ASA UNKNOWN
-0 of 17
+0 of 18
  1,070
 1,040–1,150 · 35
  2.25
@@ -190,7 +196,7 @@ Copolyesters
 HIPS
 Styrenics
  UNKNOWN
-0 of 6
+0 of 7
  1,045
 1,023–1,080 · 10
  1.59
@@ -248,8 +254,8 @@ none judged
  — ☆
 PA12-CF
 Nylon / Polyamide
- PASS
-1 of 3
+ UNKNOWN
+0 of 2
  1,070
 1,030–1,230 · 12
  3.32
@@ -263,8 +269,8 @@ Nylon / Polyamide
  — ☆
 PA12-GF
 Nylon / Polyamide
- PASS
-1 of 1
+ UNKNOWN
+0 of 1
  1,230 7.8 82 4.5 163
 150–175 · 2
  — ☆
@@ -403,13 +409,13 @@ none judged
  — ☆
 PBT-GF
 Polymer Blends
- PASS
-1 of 1
+ UNKNOWN
+none judged
  1,320 3.7 65 2 175 — ☆
 PC
 Polycarbonate
  UNKNOWN
-0 of 11
+0 of 14
  1,200
 1,150–1,230 · 19
  2.18
@@ -439,7 +445,7 @@ Polycarbonate
 PC-ABS
 Polymer Blends
  UNKNOWN
-0 of 4
+0 of 6
  1,140
 1,070–1,210 · 10
  1.84
@@ -453,13 +459,13 @@ Polymer Blends
  — ☆
 PC-ABS-CF
 Polymer Blends
- PASS
-1 of 1
+ UNKNOWN
+none judged
  1,240 5.9 62 2 130 — ☆
 PC-CF
 Polycarbonate
- PASS
-2 of 2
+ UNKNOWN
+0 of 2
  1,235
 1,180–1,360 · 8
  6.59
@@ -504,7 +510,7 @@ none judged
 PC-PTFE
 Polycarbonate
  UNKNOWN
-none judged
+0 of 1
  1,290
 1,260–1,320 · 2
  ~1.0–3.4† ~33–77† ~5–22† 140 — ☆
@@ -801,7 +807,7 @@ none judged
 POM
 also called Acetal · Acetals
  UNKNOWN
-0 of 1
+0 of 2
  1,340
 1,140–1,420 · 3
  1.87 50 11 100 — ☆
@@ -816,13 +822,13 @@ Polyolefins
  — ☆
 PP-GF
 Polyolefins
- PASS
-1 of 1
+ UNKNOWN
+none judged
  1,120 6.75 65 1.7 139 — ☆
 PPA-CF
 High-Performance Engineering
  PASS
-4 of 6
+1 of 3
  1,210
 1,150–1,250 · 8
  7.65
@@ -836,8 +842,8 @@ High-Performance Engineering
  255↗ ☆
 PPA-GF
 High-Performance Engineering
- PASS
-2 of 3
+ UNKNOWN
+0 of 1
  1,285
 1,270–1,310 · 4
  6.56
@@ -858,8 +864,8 @@ High-Performance Engineering
  2.65 50 18 90 no price↗ ☆
 PPS-CF
 High-Performance Engineering
- PASS
-3 of 4
+ UNKNOWN
+0 of 2
  1,295
 1,260–1,510 · 6
  8
@@ -873,8 +879,8 @@ High-Performance Engineering
  221↗ ☆
 PPS-GF
 High-Performance Engineering
- PASS
-1 of 1
+ UNKNOWN
+0 of 1
  1,360
 1,360–1,360 · 2
  5.16

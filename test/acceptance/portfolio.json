@@ -29,7 +29,7 @@
           "because": "Bambu Lab PA6-CF's sheet measures every property after annealing at 80 °C for 12 h; nothing says how the part performs as printed." },
         { "product": "G050-01", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 80, "hours": 12 }, "records": ["V000928", "V000930", "P0065"],
           "because": "With annealing available, the annealed state meets every limit (HDT 186 °C, XY modulus 4.43 GPa) and the recipe is within the H2C: the verdict names the 80 °C, 12 h treatment." },
-        { "template": "Outdoor structural part", "includesGates": ["nozzle", "bed", "chamber"], "todo": "F03",
+        { "template": "Outdoor structural part", "includesGates": ["nozzle", "bed", "chamber"],
           "because": "A standard template asks whether the H2C can print the product (GOALS, 2026-09-28, decision 4)." }
       ]
     },
@@ -39,11 +39,11 @@
       "template": "Warm environment",
       "policy": { "unknownPolicy": "strict" },
       "expect": [
-        { "template": "Warm environment", "includesGates": ["nozzle", "bed", "chamber"], "todo": "F03",
+        { "template": "Warm environment", "includesGates": ["nozzle", "bed", "chamber"],
           "because": "The bed is part of printing it; the template checked the nozzle and the chamber only." },
-        { "product": "G035-03", "verdict": "FAIL", "failedBy": "Bed", "records": ["P0203"], "todo": "F03",
+        { "product": "G035-03", "verdict": "FAIL", "failedBy": "Bed", "records": ["P0203"],
           "because": "Spectrum PC 275's sheet asks for a 90-130 °C bed; the H2C's reaches 120 °C." },
-        { "product": "G035-21", "verdict": "FAIL", "failedBy": "Bed", "records": ["P0203"], "todo": "F03",
+        { "product": "G035-21", "verdict": "FAIL", "failedBy": "Bed", "records": ["P0203"],
           "because": "FormFutura Kratos PC prints PC 275's sheet (the same Shared formulation key, D89), so its bed is PC 275's." }
       ]
     },
@@ -171,9 +171,9 @@
       "template": "Indoor prototype",
       "policy": { "unknownPolicy": "strict" },
       "expect": [
-        { "template": "Indoor prototype", "priceMandatory": false, "todo": "F12",
+        { "template": "Indoor prototype", "priceMandatory": false,
           "because": "Price sits late in the funnel (GOALS): a missing sample is a sourcing task, not a reason to hold a prototype material out." },
-        { "product": "G001-01", "notUnresolvedBy": "Price", "todo": "F12",
+        { "product": "G001-01", "notUnresolvedBy": "Price",
           "because": "ECOMAX PLA has no sampled offer; its answer must not rest on that." }
       ]
     },

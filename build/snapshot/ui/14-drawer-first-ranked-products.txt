@@ -1,0 +1,75 @@
+1 of the 1 products that could be judged meet every requirement together; 8 publish too little to judge.
+ACROSS ITS PRODUCTS
+Property Typical Range Products Set apart
+Density kg/m³ 1,210 1,150–1,250 8 of 9 —
+Stiffness GPa 7.65 7.1–11.8 4 of 9 2 without direction or load (7.8–9.3)
+Strength MPa 108 87–168 4 of 9 2 without direction or load (95–112)
+Strength across layers MPa 57 57 1 of 9 —
+Stretch before breaking % 3.35 1.9–3.5 4 of 9 2 without direction or load (2–2.25)
+Notched impact, Charpy kJ/m² 6.5 6.5 1 of 9 —
+Notched impact, Izod kJ/m² — — 0 of 9 —
+Heat resistance °C 220 84.5–240 6 of 9 —
+Glass transition °C 82.5 80–125 4 of 9 —
+Price CAD/kg 255 255 1 of 9 —
+Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
+WHAT MAKERS SAY
+9 of its 9 products carry statements from their makers, in the makers' words under each product below. The makers' websites were searched for 1 of them; for the others, not yet.
+Good for: 4 of 6 makers (6 products)
+Benefits: 4 of 6 makers (6 products)
+Pitfalls and limitations: 0 of 6 makers
+Warping and shrinkage: 2 of 6 makers (4 products)
+Precision and tolerance: 2 of 6 makers (2 products)
+Surface finish: 0 of 6 makers
+Adhesion between layers: 1 of 6 makers (1 product)
+Moisture sensitivity: 2 of 6 makers (5 products)
+Nozzle wear: 4 of 6 makers (7 products)
+Odour and emissions: 2 of 6 makers (3 products)
+Supports and removal: 4 of 6 makers (5 products)
+Printing advice: 3 of 6 makers (4 products)
+Of the products whose documents were read, 5 give no chamber or enclosure need, 2 no drying schedule and 5 no annealing schedule.
+Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
+Meet every requirement
+1 product
+3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) G070-05 PASS
+Density
+1,240 kg/m³
+Stiffness
+8.2 GPa
+Strength
+87 MPa
+Stretch before breaking
+1.9 %
+Heat resistance
+240 °C
+Glass transition
+125 °C
+HOW TO PRINT IT
+Nozzle
+280–310 °C yes per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+Bed
+100–120 °C yes per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+Chamber
+an enclosure, which the H2C's heated chamber is yes per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+Enclosure
+recommended per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
+Hardened nozzle
+required
+Drying
+not published
+WHAT THE MAKER SAYS
+Good for
+“Excels in high-performance parts, tools, and fixtures” the maker's product page (marketing text), p. 1
+3DXTECH's data sheet says nothing about its benefits, pitfalls, warping, precision, surface finish, layer adhesion, moisture, nozzle wear, odour, supports or printing advice; it gives no chamber or enclosure need, drying schedule or annealing schedule; its website, searched on 2026-09-26, says nothing more.
+About this product
+Bambu Lab
+1 product
+Siraya Tech
+3 products
+Raise3D
+2 products
+3DXTECH
+1 product
+Flashforge
+1 product
+SIDDAMENT
+1 product

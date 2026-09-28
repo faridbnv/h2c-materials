@@ -1,14 +1,20 @@
-COUNT 16 shown PASS
-STATUS ☑ PASS 16 | ☐ UNKNOWN 100 | ☐ FAIL 37
-16 of the 153 materials in this database meet these requirements
-100 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+COUNT 6 shown PASS
+STATUS ☑ PASS 6 | ☐ UNKNOWN 110 | ☐ FAIL 37
+6 of the 153 materials in this database meet these requirements
+110 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
-Each product is judged as printed, and dry.
+Each product is judged as printed, and dry. Allow annealing 1 more material would pass: TPU harder than 95A
 In the H2C research scope
 ×
 A build material, not a support
+×
+Nozzle temperature the H2C reaches
+×
+Bed temperature the H2C reaches
+×
+Chamber temperature the H2C reaches
 ×
 Stretch before breaking at least 100 %
 ×
@@ -40,18 +46,6 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-nGen FLEX
-Copolyesters
- PASS
-1 of 1
- 1,130 0.15 19.3 320 100* — ☆
-OBC
-Polyolefins
- PASS
-1 of 1
- 905
-905–905 · 2
- — 14 700 n/a — ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -72,75 +66,10 @@ PVB / Specialty Polymers
  PASS
 1 of 1
  1,250 0.006 27 400 90 — ☆
-PCL
-PVB / Specialty Polymers
- PASS
-1 of 1
- 1,100
-1,100–1,130 · 3
- 0.35* 45* 800 57 — ☆
-PE
-Polyolefins
- PASS
-1 of 1
- 954 0.752 18.5 208 66 — ☆
-PEBA
-Flexible Elastomers
- PASS
-4 of 4
- 1,010
-1,000–1,020 · 6
- 0.09 16.5
-9.17–30 · 3
- 905
-520–1,107 · 3
- n/a — ☆
-PET
-PET Engineering
- PASS
-1 of 3
- 1,335
-1,300–1,360 · 4
- 2.25
-2.08–2.41 · 2
- 58.4
-52.6–64.2 · 2
- 7.8
-7–8.6 · 2
- 65.7* — ☆
-PP
-Polyolefins
- PASS
-2 of 2
- 900
-890–960 · 8
- 1.2* 19 850 80
-58.5–85 · 3
- — ☆
-TPC
-also called TPEE · Flexible Elastomers
- PASS
-2 of 2
- 1,150
-1,100–1,220 · 7
- 0.048
-0.029–0.067 · 2
- 12.7
-7.6–17.7 · 2
- 445
-390–500 · 2
- n/a — ☆
-TPS
-Flexible Elastomers
- PASS
-1 of 1
- 1,132
-1,044–1,220 · 2
- 0.054 — 280 n/a — ☆
 TPU 85A class and softer
 Flexible Elastomers
  PASS
-3 of 3
+1 of 1
  1,180
 1,070–1,210 · 12
  0.0159
@@ -153,7 +82,7 @@ Flexible Elastomers
 TPU 90A class
 Flexible Elastomers
  PASS
-4 of 4
+3 of 3
  1,210
 1,120–1,240 · 9
  0.0162
@@ -176,17 +105,6 @@ Flexible Elastomers
  483
 265–900 · 8
  n/a 54↗ ☆
-TPU harder than 95A
-Flexible Elastomers
- PASS
-2 of 2
- 1,190
-1,090–1,260 · 13
- 1.19* 30
-22.4–39 · 3
- 540
-140–650 · 3
- n/a 47.5↗ ☆
 TPU, hardness not stated
 Flexible Elastomers
  PASS

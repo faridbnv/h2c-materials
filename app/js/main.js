@@ -16,7 +16,7 @@ import { renderCompare } from './ui/compare.js';
 import { renderDrawer } from './ui/detail.js';
 import { renderExclusions, renderNoResults } from './ui/explain.js';
 import { esc, markTableOverflow, keepInView } from './ui/format.js';
-import { TEMPLATES } from './ui/templates.js';
+import { TEMPLATES, PRINTABLE } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive, candidateCount } from './ui/start.js';
 import { setEnvironmentLabels, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel } from './ui/labels.js';
 import { initPopover, popoverOpen } from './ui/popover.js';
@@ -325,6 +325,12 @@ const actions = {
   setEvidence(level) { state.scenario.evidence = level; actions.changed(); },
   // Judge products annealed where their sheets state a schedule (D99), from the line that says what it would add.
   allowAnnealing() { state.scenario.anneal = true; actions.changed(); },
+  // Leave research mode: ask the H2C's print gates, all three (D101).
+  checkPrintable() {
+    state.scenario.constraints = state.scenario.constraints.filter((c) => !(c.kind === 'gate' && PRINTABLE.some((p) => p.gate === c.gate)));
+    state.scenario.constraints.push(...PRINTABLE.map((c) => ({ ...c })));
+    actions.changed();
+  },
   selectSubset(ids) { state.subset = ids; render(); },
   // A template's result is read in the table, which is the only lens with the requirements
   // header. Applied from Compare or a chart it used to change nothing visible.

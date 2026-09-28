@@ -14,17 +14,17 @@ Check the evidence
 Start from a typical part, or set your own requirements in Filters.
 A template only fills in the controls. Every value it sets stays editable, and nothing is decided for you.
 Outdoor structural part
-A bracket that lives outside. Screens for heat resistance of at least 100 °C, stiffness and weight.
+A bracket that lives outside. Screens for heat resistance of at least 100 °C, stiffness and weight, on a product the H2C can print.
 Indoor prototype
-A shape you want to hold in your hand tomorrow. Screens for a build material under 45 CAD/kg.
+A shape you want to hold in your hand tomorrow. Screens for a build material the H2C can print; the price is tracked, at most 45 CAD/kg.
 Lightweight structure
-A drone arm or a moving part. Screens for density under 1250 kg/m³ with stiffness of at least 2.5 GPa.
+A drone arm or a moving part. Screens for density under 1250 kg/m³ with stiffness of at least 2.5 GPa, on a product the H2C can print.
 Warm environment
-A part near a motor or in a car. Screens for heat resistance of at least 80 °C and a nozzle and chamber temperature the H2C can reach.
+A part near a motor or in a car. Screens for heat resistance of at least 80 °C, on a product whose nozzle, bed and chamber temperatures the H2C can reach.
 High-stiffness fixture
-A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is tracked, not required.
+A jig or a fixture. Screens for stiffness of at least 5 GPa on a product the H2C can print; heat resistance is tracked, not required.
 Flexible component
-A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
+A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking, on a product the H2C can print.
 153 materials, 136 of them in H2C scope
 11211 measurements, each traceable to a source
 145 have a density, 101 a modulus, 33 a Canadian price

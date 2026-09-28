@@ -13,6 +13,7 @@ import { runSelection } from '../engine/constraints.js';
 import { esc } from './format.js';
 import { prop, envLabel, envNoun, GATE } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
+import { PRINTABLE, asksPrintable } from './templates.js';
 
 // Labels come from the one vocabulary. The rail used to speak materials science on its own
 // ("Tensile modulus XY", "HDT at 0.45 MPa") while the detail drawer three clicks away said
@@ -47,7 +48,7 @@ const find = (cs, pred) => cs.find(pred) ?? null;
 // operator chosen before a number was typed was thrown away because no constraint held it yet.
 const openGroups = new Map();
 const draftOps = new Map();
-const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'family', 'polymer', 'env', 'buy', 'evidence', 'buildMaterial', 'clear', 'anneal', 'annealMax', 'moisture'];
+const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'family', 'polymer', 'env', 'buy', 'evidence', 'buildMaterial', 'clear', 'anneal', 'annealMax', 'moisture', 'printable'];
 
 function availLine(a, extra, estimated = 0) {
   let s = `<div class="avail">${a.withData} of ${a.total} have data${estimated ? `, ${estimated} more estimated` : ''}`;
@@ -72,11 +73,16 @@ export function renderFilters(host, state, actions) {
   // changes the candidate set for most sessions.
   const scopeOn = !!find(cs, (c) => c.gate === 'scope');
   const outOfScope = materials.filter((m) => m.excluded).length;
+  // Printable on the H2C: the three print gates together, which every template asks (D101). Off is research mode.
+  const printable = asksPrintable(cs);
   parts.push(`<div class="rail-pinned">
     <label class="toggle"><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}>
       <span>In the H2C research scope only</span></label>
-    <div class="avail">Hides the ${outOfScope} materials the database places outside the printer's envelope.
-      It does not check print settings; those are under Compatibility.</div>
+    <div class="avail">Hides the ${outOfScope} materials the database places outside the printer's envelope.</div>
+    <label class="toggle printable"><input type="checkbox" data-printable ${printable ? 'checked' : ''}>
+      <span>Printable on the H2C</span></label>
+    <div class="avail">Each product's own nozzle, bed and chamber against the H2C's (350, 120 and 65 °C), from its sheet, a twin's or
+      the printer maker's guide, said which. Off is research mode: a pass then says nothing about printing it.</div>
   </div>`);
 
   parts.push(stateControls(scenario, db));
@@ -361,6 +367,11 @@ function body(group, materials, cs, db, ctx = {}) {
 
 function wire(host, state, actions) {
   const { scenario } = state;
+  host.querySelector('[data-printable]')?.addEventListener('change', (e) => {
+    scenario.constraints = scenario.constraints.filter((c) => !(c.kind === 'gate' && PRINTABLE.some((p) => p.gate === c.gate)));
+    if (e.target.checked) scenario.constraints.push(...PRINTABLE.map((c) => ({ ...c })));
+    actions.changed();
+  });
   host.querySelector('[data-anneal]')?.addEventListener('change', (e) => {
     scenario.anneal = e.target.checked;
     if (!scenario.anneal) scenario.annealMaxC = null;

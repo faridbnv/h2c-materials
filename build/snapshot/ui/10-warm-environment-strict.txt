@@ -10,9 +10,11 @@ In the H2C research scope
 ×
 A build material, not a support
 ×
-Chamber temperature the H2C reaches
-×
 Nozzle temperature the H2C reaches
+×
+Bed temperature the H2C reaches
+×
+Chamber temperature the H2C reaches
 ×
 Heat resistance at least 80 °C
 ×
@@ -45,7 +47,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS
-16 of 18
+16 of 19
  1,050
 1,020–1,150 · 42
  2.2
@@ -267,7 +269,7 @@ PVB / Specialty Polymers
 PC
 Polycarbonate
  PASS
-8 of 11
+6 of 11
  1,200
 1,150–1,230 · 19
  2.18
@@ -297,7 +299,7 @@ Polymer Blends
 PC-CF
 Polycarbonate
  PASS
-1 of 2
+1 of 3
  1,235
 1,180–1,360 · 8
  6.59

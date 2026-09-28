@@ -306,21 +306,22 @@ try {
   results['13-drawer-pla-mechanical'] = await drawerText();
 
   // A material answered by its products (D83): the stiff-fixture template ranked by specific stiffness, each row its
-  // place and best product; then PA12-CF's Products tab, where the one product that passes comes first with how to
-  // print it and what its maker says.
+  // place and best product; then the first-ranked material's Products tab, where the products that pass come first with
+  // how to print them and what their makers say. (It was PA12-CF's until D101 asked every template the print gates, and
+  // PA12-CF's passing product has no recipe the H2C can be judged by.)
   await open(pageUrl);
   await click('[data-template="4"]');
   await evaluate(`(() => { const s = document.querySelector('[data-rank-by]'); s.value = 'tie-stiffness'; s.dispatchEvent(new Event('change')); return true; })()`);
   await sleep(200);
   results['14-ranked-stiffness'] = await view();
-  await click('#lens tr[data-material="M053"]');
-  await until(`!!document.querySelector('.drawer')`, 'the PA12-CF drawer');
+  await click('#lens tbody tr[data-material]:not(.baseline-row)');
+  await until(`!!document.querySelector('.drawer')`, 'the first-ranked material\'s drawer');
   await click('.drawer [data-tab="Grades"]');
   await sleep(200);
-  results['14-drawer-pa12cf-products'] = await drawerText();
+  results['14-drawer-first-ranked-products'] = await drawerText();
   // What makers say (re-center lane 3): the material's count per topic, then each product's statements in its maker's
   // words with source and page, or the sentence that names the maker whose sheet is silent.
-  results['15-drawer-pa12cf-maker-says'] = await evaluate(`[...document.querySelectorAll('.drawer-body .print-counts, .drawer-body .maker-says, .drawer-body .maker-says-gap')].map((e) => e.innerText || e.textContent).join('\\n').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n')`);
+  results['15-drawer-first-ranked-maker-says'] = await evaluate(`[...document.querySelectorAll('.drawer-body .print-counts, .drawer-body .maker-says, .drawer-body .maker-says-gap')].map((e) => e.innerText || e.textContent).join('\\n').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n')`);
 
   // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
   // counts are the only ones in the rail that follow the other requirements.

@@ -38,7 +38,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D26 | The verdict describes the evidence; the policy decides eligibility | A requirement nobody could check is unknown in every mode; the mode only decides whether unknowns are shown. | In force |
 | D27 | The nozzle question asks what the user lacks | The hardened-nozzle filter asks "I don't have one", so owning more hardware can never remove materials. | In force |
 | D28 | Limited resistance is not resistance | A chemical-resistance requirement passes only on a plain "resistant" record, not on "limited". | In force |
-| D29 | A template names what it cannot check | Each ready-made scenario lists what it does not check, and promises nothing it does not test. | In force |
+| D29 | A template names what it cannot check | Each ready-made scenario lists what it does not check, and promises nothing it does not test. | In force; extended by D101 (every template also asks the H2C's print gates; without them the page is in research mode, and says so) |
 | D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | The data's date is read from the Method table, not written in code; prices keep their own sampling date. | In force; narrowed by D96 (the date is for a reader; a release ID over what decides identifies a page, a scenario and an export) |
 | D31 | A quarantined observation backs nothing | A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing. | In force; amended by D47 (a price median is computed from its sample, so no stored citation is left to check) and m32 (quarantine is a typed column) |
 | D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end. | In force |
@@ -110,6 +110,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D98 | A product's verdict rests on its own records: its evidence, its offers, its conflicts | A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it. | In force |
 | D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | In force |
 | D100 | A material fails only when every product fails; while one is unresolved, it is unresolved | A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it. | In force |
+| D101 | Every template asks whether the H2C can print the product; browsing without it is research mode | Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing. | In force |
 
 <!-- end index -->
 
@@ -486,6 +487,7 @@ and the reason says so. Choosing the exact agent first needs data most records d
 ## D29. A template names what it cannot check
 
 > **In plain words:** Each ready-made scenario lists what it does not check, and promises nothing it does not test.
+> **Status:** in force; extended by D101 (every template also asks the H2C's print gates; without them the page is in research mode, and says so).
 
 Each template carries `notChecked`, shown beside the result count, and screens out support
 materials. The descriptions used to promise outcomes no criterion tested: "survives a hot day in the
@@ -3030,6 +3032,35 @@ siblings that publish is untested, not estimated (D83). The acceptance portfolio
 45 publish nothing) failed on the old rule and holds. Three tests that pinned the old clause were rewritten to it, and
 `test/metamorphic.test.js` holds the counterexample: adding a failing product cannot remove an unresolved one. Reversing
 it lets a measured failure of one product rule out products nobody has measured.
+
+## D101. Every template asks whether the H2C can print the product; browsing without it is research mode
+
+> **In plain words:** Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing.
+
+*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 4; recommended
+and taken). Built in version 2.1, F03 of the review of 2026-09-27 (D02). Extends D29.*
+
+GOALS step 2 asks that a product meet every requirement at once, whether the H2C can print it included. Five of the six
+templates asked no print gate, and Warm environment asked the nozzle and the chamber but not the bed: FIBREX PA12 GF30
+passed the outdoor bracket with a chamber up to 120 °C, and Spectrum's PC 275 and FormFutura's Kratos PC passed the warm
+part on a 90-130 °C bed the H2C cannot reach.
+
+- **Every template asks the three print gates** (`PRINTABLE` in `app/js/ui/templates.js`): each product's own nozzle,
+  bed and chamber against the H2C's 350, 120 and 65 °C, from its own sheet, its twin's or its material's printer maker's
+  guide (D88, D89), labelled which. A partly reachable window or a recommendation above the H2C is unresolved, never a
+  failure (D6, D32); a product with no recipe is unknown on them, never a pass.
+- **Off is research mode, and says so.** The rail's "Printable on the H2C" sets the three together; without them the
+  results header says "Research mode: whether the H2C can print a product is not checked", with a button that asks them.
+- **The Indoor prototype tracks its price.** It required a sampled Canadian price at most 45 CAD/kg, and 38 of 1,077
+  in-scope products have one, so a general prototype started from 100 unknown materials. Price sits late in the funnel
+  (GOALS): it is reported beside each material and product, a sourcing task, never a reason to hold one out.
+
+What it did, Strict (as printed): Outdoor 14 → 5 materials, Lightweight 26 → 11, High-stiffness 15 → 5, Flexible 16 → 6,
+Warm 29 unchanged (its nozzle and chamber were asked already, and no material's only passing products exceeded the bed);
+Indoor 15 → 70, now asking printability and no longer a price. Every material lost is unresolved, not failed: its
+passing products have no recipe, or a window the H2C only partly reaches, and Include uncertain keeps it. With annealing
+permitted: 10, 16, 10, 7 and 32. The acceptance portfolio's S01.7, S02 and S11 hold. Reversing it lets a template confirm a
+product the printer the tool is for cannot print.
 
 ---
 

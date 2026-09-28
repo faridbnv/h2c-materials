@@ -64,7 +64,9 @@ function checkProduct(c, e) {
   if (e.notUnresolvedBy) {
     assert.ok(p.results, `${e.product} carries its own results`);
     const by = new RegExp(e.notUnresolvedBy, 'i');
-    const held = (p.results ?? []).filter((r) => (r.status === 'UNKNOWN' || r.status === 'INDETERMINATE') && (by.test(r.criterion ?? '') || by.test(r.constraint?.property ?? '') || by.test(r.constraint?.gate ?? '')));
+    // A tracked requirement is reported and holds nothing; only a mandatory one can hold a product.
+    const held = (p.results ?? []).filter((r) => r.constraint?.mandatory !== false && (r.status === 'UNKNOWN' || r.status === 'INDETERMINATE')
+      && (by.test(r.criterion ?? '') || by.test(r.constraint?.property ?? '') || by.test(r.constraint?.gate ?? '')));
     assert.deepEqual(held, [], `${e.product} is not held by ${e.notUnresolvedBy}`);
   }
 }
