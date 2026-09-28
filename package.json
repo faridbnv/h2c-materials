@@ -44,6 +44,7 @@
     "audit:spot-check": "node scripts/audit/spot-check.mjs",
     "audit:witness": "node scripts/audit/witness-binding.mjs",
     "audit:scenario-gaps": "node scripts/audit/scenario-gaps.mjs",
+    "audit:decisive-sample": "node scripts/audit/decisive-sample.mjs",
     "doctor": "node scripts/doctor.mjs",
     "data:new": "node scripts/data/new.mjs",
     "data:new-material": "node scripts/data/new-material.mjs",

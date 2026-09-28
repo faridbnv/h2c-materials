@@ -198,3 +198,18 @@ counted by products made actionable, never by documents.
   scoped findings), AGENTS (the two new headline columns), and OPEN-PROBLEMS §19 (what 2.1 leaves open, with queries).
 - Not done: a clean-clone run in CI with empty caches, and splitting the long reference docs further; the routes and the
   doctor are the short path in the meantime.
+
+### What people do: the team trial and the decisive-value sample
+
+Two of the plan's gates are people's work, and an agent has prepared them without claiming them:
+
+- **The team trial** ([TEAM-TRIAL.md](TEAM-TRIAL.md)): six tasks, each an acceptance question with a known answer (the
+  outdoor bracket with its brief, the Spectrum PC 275 bed, PET-GF15 without an oven, the humid nylon fixture, PETG-ESD
+  and acids, handing a choice on), how to run them, and an empty findings table. It has not been run; C7 and C15 wait on it.
+- **The decisive-value sample** ([SPOT-CHECK-DECISIVE.md](SPOT-CHECK-DECISIVE.md), `npm run audit:decisive-sample`):
+  the re-center's spot-check samples what the page shows; this samples what now decides, the measurements the passing
+  products' verdicts cite in the six templates (as printed and with annealing permitted) and the portfolio's questions,
+  in the state each permits. 310 measurements back a pass; 32 are drawn, eight per headline, with a fixed seed, each with
+  its specimen, direction, moisture, treatment and test conditions to check on the page its SHA-256 identifies. No row
+  has been checked by a person; C3 waits on it.
+
