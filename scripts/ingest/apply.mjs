@@ -26,7 +26,7 @@
 // A batch is also a migration: scripts/migrate/mNN-batch-<name>.mjs calls this with the batch it pins, so the
 // sequence of migrations stays the one history of how the data got here.
 
-import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
@@ -35,13 +35,12 @@ import { lintData, findingKey } from '../../build/src/lint-rules.js';
 import { loadTables, snapshotDate } from '../../build/src/load.js';
 import { buildDatabase } from '../../build/src/pipeline.js';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
-import { PROPOSALS } from './archive.mjs';
+import { INGEST_ROOT as AUDIT, LEDGER, PROPOSALS } from './context.mjs';
 import { sha256, numberOnPage, cachedText, valueInEvidence, countInEvidence } from '../lib/pdf-text.mjs';
 import { documentPath } from './extract.mjs';
 import { recountGrades } from '../data/records.mjs';
 import { testTemperatureCell } from '../../build/src/typed-values.js';
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const SEP = String.fromCharCode(0);
 // The numbers that must be printed on the page the row cites. Test load MPa is not among them: it is typed from
 // the sheet's own words by the build's own reader, which maps a stated load to the class it belongs to, so a sheet
@@ -65,7 +64,7 @@ export class Refusal extends Error {
 }
 
 export const proposalsOf = (batch) => {
-  const dir = join(projectRoot, PROPOSALS, batch);
+  const dir = join(PROPOSALS, batch);
   if (!existsSync(dir)) throw new Error(`no proposals at ${dir.replace(projectRoot + '/', '')}`);
   return readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
     .map((f) => ({ file: f, ...JSON.parse(readFileSync(join(dir, f), 'utf8')) }));
@@ -400,9 +399,10 @@ export function writeBatch(t, proposals, { migration, date, root = projectRoot }
     if (made) note(`coverage ${made} (recounted ${materialId})`);
   }
 
+  // Written by the tables' save, in its transaction: a batch whose tables are refused leaves no acceptances behind.
   if (accepting.length) {
     const { header, records } = readCsv(acceptanceFile);
-    writeFileSync(acceptanceFile, csvText(header, [...records.map((r) => r.values), ...accepting]));
+    t.stageFile(acceptanceFile, csvText(header, [...records.map((r) => r.values), ...accepting]));
   }
   return log;
 }
@@ -453,19 +453,19 @@ export function applyBatch(batch, { migration = batch, date = new Date().toISOSt
 
   const t = openTables();
   const log = writeBatch(t, proposals, { migration, date });
-  t.save();
   // The ledger is the one place that says where a document stands, and until now it never learned that a
   // document had entered the database: five batches' worth of sheets still read "extracted". A document is
-  // applied when a source carries its digest.
+  // applied when a source carries its digest. The ledger is written by the same save as the tables (A04), so a batch
+  // is in the database and the ledger says so, or neither.
   const applied = markApplied(proposals, t);
+  t.save();
   return { log, written: true, applied };
 }
 
 /** Every document of this batch, in the ledger, as applied, with the SourceID its bytes were registered under. */
 function markApplied(proposals, t) {
-  const path = join(AUDIT, 'ledger.csv');
-  if (!existsSync(path)) return 0;
-  const { records } = readCsv(path);
+  if (!existsSync(LEDGER)) return 0;
+  const { records } = readCsv(LEDGER);
   const rows = records.map((r) => r.values);
   const head = Object.keys(rows[0] ?? {});
   const bySha = new Map(t.rows('sources').filter((x) => x.SHA256).map((x) => [x.SHA256, x.SourceID]));
@@ -485,7 +485,7 @@ function markApplied(proposals, t) {
     row.updated = new Date().toISOString().slice(0, 10);
     n++;
   }
-  if (n) writeFileSync(path, csvText(head, rows));
+  if (n) t.stageFile(LEDGER, csvText(head, rows));
   return n;
 }
 

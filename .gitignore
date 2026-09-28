@@ -17,6 +17,11 @@ build/reports/data-audit/
 # Documents fetched by `npm run audit:sources`; each is checked against its SHA-256 in sources.csv.
 .cache/
 
+# A save of the data tables in progress (scripts/data/table-io.mjs). Left only by a save that stopped; the next
+# openTables or `npm run data:fmt` finishes it, and `npm run data:check` fails until then.
+data/.save/
+data/.save-journal.json
+
 # Owner-supplied source documents staged for a migration; cached under .cache/sources by SourceID.
 temp_Fillaments Docs/
 

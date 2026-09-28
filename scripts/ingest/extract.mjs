@@ -16,13 +16,11 @@
 // Writes .cache/text/<sha>.json (gitignored) and records twins in the ledger. Nothing here touches data/.
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
-import { projectRoot } from '../data/table-io.mjs';
 import { documentText, allLines, joinDigits, statementRe, unitFirstStatementRe, cacheDir, sha256 } from '../lib/pdf-text.mjs';
 import { HEADER } from './inventory.mjs';
+import { LEDGER } from './context.mjs';
 
-const LEDGER = join(projectRoot, 'docs/audits/2026-09-18-v2-import/ledger.csv');
 const MIN_STATEMENTS = 8;   // below this, two sheets agreeing about their numbers is a coincidence
 
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 ? process.argv[i + 1] : null; };

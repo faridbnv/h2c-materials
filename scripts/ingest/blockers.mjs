@@ -13,10 +13,8 @@
 import { existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
-import { projectRoot } from '../data/table-io.mjs';
 import { readLedger } from './inventory.mjs';
-
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
+import { INGEST_ROOT as AUDIT } from './context.mjs';
 
 /**
  * What each way of waiting needs, and from whom. `whose` is the thing to be honest about: a blocker nobody owns
@@ -93,6 +91,9 @@ const BLOCKERS = [
     uncertain: 'how many of the 64 rewrite to a direct download has not been tested' },
   { id: 'needs-staging', whose: 'the owner', match: (r) => r.status === 'needs-staging',
     needs: 'the bytes, staged by hand; the pipeline hashes what it is given (R084)', uncertain: '' },
+  { id: 'too-large', whose: 'the owner', match: (r) => r.status === 'too-large',
+    needs: 'a fetch with a larger --max-mb, or the file staged by hand (R084)',
+    uncertain: 'whether a document over the limit is a data sheet at all, or a video or an archive behind a data sheet\'s link' },
   { id: 'inventoried', whose: 'the pipeline', match: (r) => r.status === 'inventoried',
     needs: 'a fetch. INTAMSYS serves its sheets behind a request form',
     uncertain: 'whether the form can be satisfied without an account has not been tested' },

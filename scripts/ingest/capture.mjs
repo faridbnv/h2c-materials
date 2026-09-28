@@ -23,13 +23,11 @@ import { existsSync, mkdirSync, writeFileSync, rmSync, mkdtempSync } from 'node:
 import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { csvText, readCsv } from '../../build/src/csv.js';
-import { projectRoot } from '../data/table-io.mjs';
 import { sha256, cacheDir } from '../lib/pdf-text.mjs';
 import { findChrome, launchChrome } from '../lib/cdp.mjs';
 import { HEADER } from './inventory.mjs';
+import { LEDGER } from './context.mjs';
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const LEDGER = join(AUDIT, 'ledger.csv');
 const arg = (name, fallback = null) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : fallback; };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
