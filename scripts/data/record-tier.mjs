@@ -24,6 +24,12 @@
 //   documents_fts  the cached text of each of those documents, one row per page, in an FTS5 index. Built only when
 //                  .cache/text is present, and never committed: the text is the makers', and dist/ is gitignored.
 //
+// How much of the corpus that index holds is said beside it, because a search that finds nothing in a partial cache
+// reads exactly like a search of every sheet that finds nothing (F13; review finding A08). The corpus is the sources
+// registered as retrieved (Access state retrieved or retrieved-copy: a copy was fetched and read); the view
+// v_sources_without_text names each one whose text the index does not hold, and why, and writeRecordTier returns the
+// counts that sqlite.mjs writes into _generation (fulltext: complete, partial or unavailable).
+//
 // Which known property a fact names is a heuristic, and says which one it used (property_by):
 //   'reader'  the reader's own reason names a property of data/tables/properties.csv ("the line names HDT and
 //             states no value in a unit the database keeps it in", "the sheet publishes no value for Density"), or
@@ -33,7 +39,8 @@
 //             longest name that does wins. A replaced property is never named.
 // It finds what the registry calls by its own name and misses a synonym ("heat deflection" is not "HDT").
 
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, relative, sep } from 'node:path';
 import { readCsv } from '../../build/src/csv.js';
 import { cacheDir, cachedText } from '../lib/pdf-text.mjs';
@@ -41,9 +48,34 @@ import { PROPOSALS } from '../ingest/archive.mjs';
 
 export { PROPOSALS };
 export const LEDGER = 'docs/audits/2026-09-18-v2-import/ledger.csv';
+/** The Access states that mean a copy was fetched and read: the corpus the full-text index is measured against. */
+export const RETRIEVED = ['retrieved', 'retrieved-copy'];
 
 const rows = (path) => readCsv(path).records.map((r) => r.values);
 const present = (v) => (v == null || v === '' ? null : String(v));
+const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
+
+/**
+ * What the record tier is read from, as one digest, so a SQLite file can tell whether it is still of it: the ledger's
+ * and every proposal's bytes, and the text cache's listing. The cache is some 90 MB of the makers' words, read to be
+ * indexed rather than compared, so its files stand in by name, size and time, the way make judges a file; a re-read
+ * rewrites a file, which is what moves them. Absent when the ledger is: a checkout without the import's history
+ * writes no record tier, and says so.
+ */
+export function recordInputs(root) {
+  if (!existsSync(join(root, LEDGER))) return { state: 'absent', digest: null };
+  const lines = [`${sha256(readFileSync(join(root, LEDGER)))}  ${LEDGER}`];
+  const dir = join(root, PROPOSALS);
+  for (const rel of proposalFiles(dir)) lines.push(`${sha256(readFileSync(join(dir, rel)))}  ${PROPOSALS}/${rel}`);
+  const text = cacheDir('text');
+  if (existsSync(text)) {
+    for (const f of readdirSync(text).sort()) {
+      const s = statSync(join(text, f));
+      lines.push(`${f} ${s.size} ${Math.round(s.mtimeMs)}`);
+    }
+  }
+  return { state: 'present', digest: sha256(lines.join('\n')) };
+}
 
 /** Every proposal file under the folder, as a path relative to it, in a fixed order. */
 export function proposalFiles(dir) {
@@ -243,6 +275,22 @@ export function writeRecordTier(db, root) {
     fulltext = { documents: texts.size, pages };
   }
 
+  // Every retrieved source whose text the index does not hold, and why. A source with no digest cannot be looked up in
+  // the cache at all; one with a digest was not read into it on this machine (.cache/ is not committed).
+  const retrieved = RETRIEVED.map((s) => `'${s}'`).join(', ');
+  const notRead = cached ? 'its text is not in the text cache (.cache/text)' : 'there was no text cache (.cache/text) where this file was written';
+  db.exec(`CREATE VIEW v_sources_without_text AS SELECT s.sourceid, s.publisher, s.title, s.access_state, s.sha256,
+      CASE WHEN s.sha256 IS NULL OR length(s.sha256) != 64 THEN 'no SHA-256 recorded, so its text cannot be looked up'
+        ELSE '${notRead}' END AS reason
+    FROM sources s LEFT JOIN documents d ON d.sha256 = s.sha256
+    WHERE s.access_state IN (${retrieved}) AND d.text_pages IS NULL`);
+  const [{ sources }] = db.prepare(`SELECT COUNT(*) AS sources FROM sources WHERE access_state IN (${retrieved})`).all();
+  const [{ missing }] = db.prepare('SELECT COUNT(*) AS missing FROM v_sources_without_text').all();
+  const corpus = {
+    state: !fulltext ? 'unavailable' : missing === 0 ? 'complete' : 'partial',
+    sources, indexed: sources - missing,
+  };
+
   const kinds = {};
   for (const f of facts) kinds[f.kind] = (kinds[f.kind] ?? 0) + 1;
   return {
@@ -250,6 +298,6 @@ export function writeRecordTier(db, root) {
     factDocuments: new Set(facts.map((f) => f.sha256)).size,
     factSources: new Set(facts.map((f) => f.sourceid).filter(Boolean)).size,
     factGrades: new Set(facts.flatMap((f) => (f.gradeids ? f.gradeids.split(',') : []))).size,
-    fulltext, ms: Date.now() - started,
+    fulltext, corpus, ms: Date.now() - started,
   };
 }
