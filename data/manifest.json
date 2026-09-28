@@ -6,20 +6,20 @@
       "sha256": "e78c4dc177cdd274e63ea4dc3d39edb1c8a9ec7114a8f335824ee78f69dd8979"
     },
     "grades": {
-      "rows": 1161,
-      "sha256": "df180e7d967b87ab71a25a5400cb3796ffc123fbdc9c96625f423e9763babc6f"
+      "rows": 1163,
+      "sha256": "e19e6bfaf6e72ba5432a8efdf1c0000cd154b8d9702bddc9a47bf268a2dd0e57"
     },
     "profiles": {
-      "rows": 1280,
-      "sha256": "d0eeddbbb391d901fb74c836b44e9984715bbe367cbc235e849b1252e88acd2e"
+      "rows": 1281,
+      "sha256": "8e08c0c12043732c7e2e09c3e7c6225fd7b4a1c29a6aa1a629ca0d12a678f347"
     },
     "profile_notes": {
       "rows": 2061,
       "sha256": "5533fe64925e6737e2812efb88e07b692c6e1009650e267a6f856582639fddb3"
     },
     "measurements": {
-      "rows": 11494,
-      "sha256": "5a053b351288fde5861e5dcc5708e000229c57d4d2c6c36c8128184e842a2a5d"
+      "rows": 11509,
+      "sha256": "78370213fa56fe1715e8b9ecbb0d8bc9bd51443c7a44a5adf850795ea1858c6f"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -46,8 +46,8 @@
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1638,
-      "sha256": "4198442650ad4b723b3dba65069fe4fbe66dfc48cd78caf8102884ad00b072e8"
+      "rows": 1640,
+      "sha256": "c7fa675d563d4617d85da50932a392e08a80c35ad4c284bb92986b001edb6f6a"
     },
     "coverage": {
       "rows": 867,

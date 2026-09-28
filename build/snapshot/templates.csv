@@ -65,7 +65,7 @@ Outdoor structural part,Explore,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,yes,
 Outdoor structural part,Explore,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,yes,
 Outdoor structural part,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 Outdoor structural part,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-Outdoor structural part,Explore,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,yes,
+Outdoor structural part,Explore,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,yes,
 Outdoor structural part,Explore,M162,TPU harder than 95A,UNKNOWN,,0,0,14,14,G040-01,yes,
 Outdoor structural part,Explore,M165,"Nylon-CF, polymer not stated",UNKNOWN,,0,0,1,1,G165-01,yes,
 Outdoor structural part,Explore,M166,"Nylon-GF, polymer not stated",UNKNOWN,,0,0,1,1,G166-01,yes,
@@ -118,7 +118,7 @@ Outdoor structural part,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G15
 Outdoor structural part,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,screened,tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 Outdoor structural part,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-Outdoor structural part,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,screened,hdt045 >= 100; tensileModulusXY >= 3
+Outdoor structural part,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,screened,hdt045 >= 100; tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M162,TPU harder than 95A,UNKNOWN,,0,0,14,14,G040-01,screened,hdt045 >= 100; tensileModulusXY >= 3
 Outdoor structural part,Explore with estimates,M165,"Nylon-CF, polymer not stated",UNKNOWN,,0,0,1,1,G165-01,yes,
 Outdoor structural part,Explore with estimates,M166,"Nylon-GF, polymer not stated",UNKNOWN,,0,0,1,1,G166-01,yes,
@@ -128,7 +128,7 @@ Indoor prototype,Strict,M008,PLA Silk,PASS,all,2,0,33,35,G009-01,yes,
 Indoor prototype,Strict,M011,PLA Metal,PASS,all,1,0,8,9,G011-01,yes,
 Indoor prototype,Strict,M012,PLA Marble,PASS,all,1,0,6,7,G012-01,yes,
 Indoor prototype,Strict,M013,PLA Sparkle,PASS,all,1,0,3,4,G013-01,yes,
-Indoor prototype,Strict,M014,PLA Wood,PASS,all,1,0,19,20,G014-01,yes,
+Indoor prototype,Strict,M014,PLA Wood,PASS,all,1,0,20,21,G014-01,yes,
 Indoor prototype,Strict,M015,PLA Galaxy,PASS,all,1,0,3,4,G015-01,yes,
 Indoor prototype,Strict,M016,PLA Glow,PASS,all,1,0,6,7,G016-01,yes,
 Indoor prototype,Strict,M018,PLA-CF,PASS,all,1,0,18,19,G018-01,yes,
@@ -143,7 +143,7 @@ Indoor prototype,Explore,M008,PLA Silk,PASS,all,2,0,33,35,G009-01,yes,
 Indoor prototype,Explore,M011,PLA Metal,PASS,all,1,0,8,9,G011-01,yes,
 Indoor prototype,Explore,M012,PLA Marble,PASS,all,1,0,6,7,G012-01,yes,
 Indoor prototype,Explore,M013,PLA Sparkle,PASS,all,1,0,3,4,G013-01,yes,
-Indoor prototype,Explore,M014,PLA Wood,PASS,all,1,0,19,20,G014-01,yes,
+Indoor prototype,Explore,M014,PLA Wood,PASS,all,1,0,20,21,G014-01,yes,
 Indoor prototype,Explore,M015,PLA Galaxy,PASS,all,1,0,3,4,G015-01,yes,
 Indoor prototype,Explore,M016,PLA Glow,PASS,all,1,0,6,7,G016-01,yes,
 Indoor prototype,Explore,M018,PLA-CF,PASS,all,1,0,18,19,G018-01,yes,
@@ -241,7 +241,7 @@ Indoor prototype,Explore,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,yes,
 Indoor prototype,Explore,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,yes,
 Indoor prototype,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 Indoor prototype,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-Indoor prototype,Explore,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,yes,
+Indoor prototype,Explore,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,yes,
 Indoor prototype,Explore,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,yes,
 Indoor prototype,Explore,M159,TPU 85A class and softer,UNKNOWN,,0,0,16,16,G043-01,yes,
 Indoor prototype,Explore,M163,"TPU, hardness not stated",UNKNOWN,,0,0,8,8,G039-21,yes,
@@ -258,7 +258,7 @@ Indoor prototype,Explore with estimates,M008,PLA Silk,PASS,all,2,0,33,35,G009-01
 Indoor prototype,Explore with estimates,M011,PLA Metal,PASS,all,1,0,8,9,G011-01,yes,
 Indoor prototype,Explore with estimates,M012,PLA Marble,PASS,all,1,0,6,7,G012-01,yes,
 Indoor prototype,Explore with estimates,M013,PLA Sparkle,PASS,all,1,0,3,4,G013-01,yes,
-Indoor prototype,Explore with estimates,M014,PLA Wood,PASS,all,1,0,19,20,G014-01,yes,
+Indoor prototype,Explore with estimates,M014,PLA Wood,PASS,all,1,0,20,21,G014-01,yes,
 Indoor prototype,Explore with estimates,M015,PLA Galaxy,PASS,all,1,0,3,4,G015-01,yes,
 Indoor prototype,Explore with estimates,M016,PLA Glow,PASS,all,1,0,6,7,G016-01,yes,
 Indoor prototype,Explore with estimates,M018,PLA-CF,PASS,all,1,0,18,19,G018-01,yes,
@@ -356,7 +356,7 @@ Indoor prototype,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,ye
 Indoor prototype,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,yes,
 Indoor prototype,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 Indoor prototype,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-Indoor prototype,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,yes,
+Indoor prototype,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,yes,
 Indoor prototype,Explore with estimates,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,yes,
 Indoor prototype,Explore with estimates,M159,TPU 85A class and softer,UNKNOWN,,0,0,16,16,G043-01,yes,
 Indoor prototype,Explore with estimates,M163,"TPU, hardness not stated",UNKNOWN,,0,0,8,8,G039-21,yes,
@@ -628,7 +628,7 @@ Warm environment,Explore,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,yes,
 Warm environment,Explore,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,yes,
 Warm environment,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 Warm environment,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-Warm environment,Explore,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,yes,
+Warm environment,Explore,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,yes,
 Warm environment,Explore,M159,TPU 85A class and softer,UNKNOWN,,0,0,16,16,G043-01,yes,
 Warm environment,Explore,M160,TPU 90A class,UNKNOWN,,0,0,12,12,G042-01,yes,
 Warm environment,Explore,M161,TPU 95A class,UNKNOWN,,0,0,25,25,G039-01,yes,
@@ -725,7 +725,7 @@ Warm environment,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,ye
 Warm environment,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,yes,
 Warm environment,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 Warm environment,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-Warm environment,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,screened,hdt045 >= 80
+Warm environment,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M159,TPU 85A class and softer,UNKNOWN,,0,0,16,16,G043-01,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M160,TPU 90A class,UNKNOWN,,0,0,12,12,G042-01,screened,hdt045 >= 80
 Warm environment,Explore with estimates,M161,TPU 95A class,UNKNOWN,,0,0,25,25,G039-01,screened,hdt045 >= 80
@@ -810,7 +810,7 @@ High-stiffness fixture,Explore,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,yes,
 High-stiffness fixture,Explore,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,yes,
 High-stiffness fixture,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 High-stiffness fixture,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-High-stiffness fixture,Explore,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,yes,
+High-stiffness fixture,Explore,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,yes,
 High-stiffness fixture,Explore,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,yes,
 High-stiffness fixture,Explore,M162,TPU harder than 95A,UNKNOWN,,0,0,14,14,G040-01,yes,
 High-stiffness fixture,Explore,M165,"Nylon-CF, polymer not stated",UNKNOWN,,0,0,1,1,G165-01,yes,
@@ -872,7 +872,7 @@ High-stiffness fixture,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153
 High-stiffness fixture,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 High-stiffness fixture,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-High-stiffness fixture,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,screened,tensileModulusXY >= 5
+High-stiffness fixture,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,yes,
 High-stiffness fixture,Explore with estimates,M162,TPU harder than 95A,UNKNOWN,,0,0,14,14,G040-01,screened,tensileModulusXY >= 5
 High-stiffness fixture,Explore with estimates,M165,"Nylon-CF, polymer not stated",UNKNOWN,,0,0,1,1,G165-01,yes,
@@ -944,7 +944,7 @@ Flexible component,Explore,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,yes,
 Flexible component,Explore,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,yes,
 Flexible component,Explore,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,yes,
 Flexible component,Explore,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,yes,
-Flexible component,Explore,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,yes,
+Flexible component,Explore,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,yes,
 Flexible component,Explore,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,yes,
 Flexible component,Explore,M159,TPU 85A class and softer,PASS,all,3,0,13,16,G043-01,yes,
 Flexible component,Explore,M160,TPU 90A class,PASS,all,4,0,8,12,G042-01,yes,
@@ -959,12 +959,12 @@ Flexible component,Explore,M170,TPS,PASS,all,1,0,1,2,G170-02,yes,
 Flexible component,Explore,M174,SBC,UNKNOWN,,0,0,1,1,G174-01,yes,
 Flexible component,Explore with estimates,M045,PEBA,PASS,all,4,0,6,10,G045-01,yes,
 Flexible component,Explore with estimates,M046,TPC / TPEE,PASS,all,2,0,5,7,G046-02,yes,
-Flexible component,Explore with estimates,M049,PA6,UNKNOWN,,0,0,9,9,G049-01,screened,elongationXY >= 100
+Flexible component,Explore with estimates,M049,PA6,UNKNOWN,,0,0,9,9,G049-01,yes,
 Flexible component,Explore with estimates,M052,PA12,UNKNOWN,,0,0,7,7,G052-01,yes,
-Flexible component,Explore with estimates,M055,PA66,UNKNOWN,,,,,,,yes,
+Flexible component,Explore with estimates,M055,PA66,UNKNOWN,,,,,,,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M056,PA66-CF,UNKNOWN,,,,,,,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M057,PA6/66,PASS,some,1,3,3,7,G057-02,yes,
-Flexible component,Explore with estimates,M058,PA612,UNKNOWN,,,,,,,yes,
+Flexible component,Explore with estimates,M058,PA612,UNKNOWN,,,,,,,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M060,PA612-GF,UNKNOWN,,,,,,,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M064,PA-ESD,UNKNOWN,,0,0,1,1,G064-01,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M066,PET,PASS,some,1,2,4,7,G066-05,yes,
@@ -992,7 +992,7 @@ Flexible component,Explore with estimates,M136,SAN,UNKNOWN,,0,0,2,2,G136-01,scre
 Flexible component,Explore with estimates,M137,COC,UNKNOWN,,0,0,2,2,G137-01,yes,
 Flexible component,Explore with estimates,M138,PE-GF,UNKNOWN,,0,0,3,3,G138-01,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M139,LCP,UNKNOWN,,0,0,1,1,G139-01,screened,elongationXY >= 100
-Flexible component,Explore with estimates,M140,PBT,UNKNOWN,,0,0,2,2,G140-01,yes,
+Flexible component,Explore with estimates,M140,PBT,UNKNOWN,,0,0,2,2,G140-01,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M143,nGen FLEX,PASS,all,1,0,0,1,G143-01,yes,
 Flexible component,Explore with estimates,M144,PCTG-CF,UNKNOWN,,0,0,3,3,G144-01,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M146,PLA-PHB,UNKNOWN,,0,0,1,1,G146-01,screened,elongationXY >= 100
@@ -1005,7 +1005,7 @@ Flexible component,Explore with estimates,M153,PETG-GR,UNKNOWN,,0,0,2,2,G153-01,
 Flexible component,Explore with estimates,M154,PA12-AF,UNKNOWN,,0,0,1,1,G154-01,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M155,PLA-GR,UNKNOWN,,0,0,2,2,G155-01,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M156,PA6/66-CF,UNKNOWN,,0,0,1,1,G156-01,screened,elongationXY >= 100
-Flexible component,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,1,1,G157-01,yes,
+Flexible component,Explore with estimates,M157,TPU-EC,UNKNOWN,,0,0,2,2,G157-01,yes,
 Flexible component,Explore with estimates,M158,PLA-CE,UNKNOWN,,0,0,1,1,G158-01,screened,elongationXY >= 100
 Flexible component,Explore with estimates,M159,TPU 85A class and softer,PASS,all,3,0,13,16,G043-01,yes,
 Flexible component,Explore with estimates,M160,TPU 90A class,PASS,all,4,0,8,12,G042-01,yes,

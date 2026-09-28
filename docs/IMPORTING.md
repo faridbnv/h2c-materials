@@ -8,7 +8,10 @@ lifted it for the 74 sheets deferred for their identity (batch b34, and batch b3
 D87). The documents already fetched may be mined for the record tier, print recipes and makers' know-how under the
 re-center plan (`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is not a batch, and it does not travel
 this pipeline. Phase 6 fetched new documents only where one settled a blocking answer, and those did travel it
-(batch b36; GOALS, phase 6, decision 4). What follows is how a batch was run, kept for when imports resume.
+(batch b36; GOALS, phase 6, decision 4). On 2026-09-27 the owner lifted it for two held sheets whose makers' pages,
+found by the research package of 2026-09-26, name the polymer (batch b37: Timberfill and NinjaTek Eel), and the
+package's saved pages entered as witnesses from their copies (`ingest:witness --from`). What follows is how a batch was
+run, kept for when imports resume.
 
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
 in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.
