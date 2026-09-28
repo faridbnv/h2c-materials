@@ -196,7 +196,7 @@ M020,PETG,tensileStrengthZ,value,29.4,MPa,,,,,12,G020-14,V003754
 M020,PETG,elongationXY,value,8.6,%,,,,,23,G022-01,V000455
 M020,PETG,charpyNotched,value,8.6,kJ/m²,,,,,3,G023-01,V000482
 M020,PETG,izodNotched,value,3,kJ/m²,,,,,3,G020-19,V004411
-M020,PETG,hdt045,value,70,°C,,,,,30,G020-01,V000389
+M020,PETG,hdt045,value,70,°C,,,,,31,G020-01,V000389
 M020,PETG,glassTransition,value,80,°C,,,,,25,G020-01,V000388
 M020,PETG,priceCADkg,value,25.49,CAD/kg,,,,,2,G021-01,
 M021,PETG Basic,density,none,,kg/m³,,,,,,,
@@ -483,10 +483,10 @@ M049,PA6,density,value,1150,kg/m³,,,,,7,G049-02,V002336
 M049,PA6,tensileModulusXY,estimate,2.44,GPa,1.39-4.28,0.979-6.09,0.979-6.09,this-material,,,
 M049,PA6,tensileStrengthXY,estimate,52,MPa,35.7-77.3,30.4-94.1,open-94.1,this-material,,,
 M049,PA6,tensileStrengthZ,none,,MPa,,,,,,,
-M049,PA6,elongationXY,estimate,8.42,%,3.13-23.7,2.05-44,no,this-material,,,
+M049,PA6,elongationXY,estimate,8.43,%,3.13-23.7,2.05-44,no,this-material,,,
 M049,PA6,charpyNotched,none,,kJ/m²,,,,,,,
 M049,PA6,izodNotched,none,,kJ/m²,,,,,,,
-M049,PA6,hdt045,value,141.5,°C,,,,,2,G049-06,V007666
+M049,PA6,hdt045,value,140,°C,,,,,3,G049-06,V007666
 M049,PA6,glassTransition,value,65.5,°C,,,,,2,G049-05,V006018
 M049,PA6,priceCADkg,value,162.65,CAD/kg,,,,,,,
 M050,PA6-CF,density,value,1170,kg/m³,,,,,13,G050-02,V001155
@@ -513,7 +513,7 @@ M052,PA12,density,value,1011,kg/m³,,,,,4,G052-07,V011057
 M052,PA12,tensileModulusXY,estimate,1.19,GPa,0.672-2.1,0.471-2.99,0.471-2.99,this-material,,,
 M052,PA12,tensileStrengthXY,estimate,59.5,MPa,51-79.5,49.3-94.1,open-94.1,this-material,,,
 M052,PA12,tensileStrengthZ,none,,MPa,,,,,,,
-M052,PA12,elongationXY,estimate,242,%,206-363,201-526,open-526,this-material,,,
+M052,PA12,elongationXY,estimate,242,%,206-364,201-526,open-526,this-material,,,
 M052,PA12,charpyNotched,none,,kJ/m²,,,,,,,
 M052,PA12,izodNotched,none,,kJ/m²,,,,,,,
 M052,PA12,hdt045,value,135,°C,,,,,3,G052-06,V010790
@@ -543,20 +543,20 @@ M055,PA66,density,estimate,1120,kg/m³,1070-1170,1050-1190,1050-1190,this-materi
 M055,PA66,tensileModulusXY,estimate,2.29,GPa,1.13-4.61,0.732-7.15,0.732-7.15,this-material,,,
 M055,PA66,tensileStrengthXY,estimate,54.2,MPa,34.9-83.9,28-105,28-105,this-material,,,
 M055,PA66,tensileStrengthZ,none,,MPa,,,,,,,
-M055,PA66,elongationXY,estimate,14,%,4.19-47,2.06-95.4,2.06-95.4,this-material,,,
+M055,PA66,elongationXY,estimate,14.1,%,4.19-47.1,2.06-95.6,2.06-95.6,this-material,,,
 M055,PA66,charpyNotched,none,,kJ/m²,,,,,,,
 M055,PA66,izodNotched,none,,kJ/m²,,,,,,,
-M055,PA66,hdt045,estimate,145,°C,104-185,61.9-236,61.9-252,this-material,,,
+M055,PA66,hdt045,estimate,151,°C,108-194,57.7-248,57.7-266,this-material,,,
 M055,PA66,glassTransition,none,,°C,,,,,,,
 M055,PA66,priceCADkg,none,,CAD/kg,,,,,,,
-M056,PA66-CF,density,estimate,1170,kg/m³,1080-1270,1050-1330,1050-1330,family,,,
+M056,PA66-CF,density,estimate,1170,kg/m³,1090-1270,1060-1330,1060-1330,family,,,
 M056,PA66-CF,tensileModulusXY,estimate,5.71,GPa,2.61-12.5,1.6-20,1.6-20,family,,,
 M056,PA66-CF,tensileStrengthXY,estimate,90.7,MPa,58.3-142,46.6-177,38.7-177,family,,,
 M056,PA66-CF,tensileStrengthZ,none,,MPa,,,,,,,
-M056,PA66-CF,elongationXY,estimate,3.21,%,0.923-11.2,0.444-23.2,0.444-23.2,family,,,
+M056,PA66-CF,elongationXY,estimate,3.21,%,0.922-11.2,0.444-23.2,0.444-23.2,family,,,
 M056,PA66-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M056,PA66-CF,izodNotched,none,,kJ/m²,,,,,,,
-M056,PA66-CF,hdt045,estimate,219,°C,174-252,103-261,103-261,family,,,
+M056,PA66-CF,hdt045,estimate,213,°C,164-250,72.8-261,72.8-261,family,,,
 M056,PA66-CF,glassTransition,none,,°C,,,,,,,
 M056,PA66-CF,priceCADkg,none,,CAD/kg,,,,,,,
 M057,PA6/66,density,value,1120,kg/m³,,,,,7,G057-01,V003460
@@ -569,14 +569,14 @@ M057,PA6/66,izodNotched,value,11,kJ/m²,,,,,1,G057-06,V009287
 M057,PA6/66,hdt045,value,114.75,°C,,,,,4,G057-01,V001021
 M057,PA6/66,glassTransition,value,66,°C,,,,,5,G057-03,V003790
 M057,PA6/66,priceCADkg,none,,CAD/kg,,,,,,,
-M058,PA612,density,estimate,1030,kg/m³,996-1070,975-1100,975-1100,this-material,,,
+M058,PA612,density,estimate,1030,kg/m³,994-1070,976-1100,976-1100,this-material,,,
 M058,PA612,tensileModulusXY,estimate,2.02,GPa,1.02-3.98,0.67-6.09,0.67-6.09,this-material,,,
 M058,PA612,tensileStrengthXY,estimate,54.8,MPa,35.8-83.7,28.9-104,28.9-104,this-material,,,
 M058,PA612,tensileStrengthZ,none,,MPa,,,,,,,
-M058,PA612,elongationXY,estimate,15.5,%,4.63-51.8,2.28-105,2.28-105,this-material,,,
+M058,PA612,elongationXY,estimate,15.5,%,4.64-51.9,2.28-106,2.28-106,this-material,,,
 M058,PA612,charpyNotched,none,,kJ/m²,,,,,,,
 M058,PA612,izodNotched,none,,kJ/m²,,,,,,,
-M058,PA612,hdt045,estimate,123,°C,87.9-159,55.2-201,55.2-213,this-material,,,
+M058,PA612,hdt045,estimate,131,°C,94.3-167,54.3-208,54.3-223,this-material,,,
 M058,PA612,glassTransition,none,,°C,,,,,,,
 M058,PA612,priceCADkg,none,,CAD/kg,,,,,,,
 M059,PA612-CF,density,value,1060,kg/m³,,,,,2,G059-01,V001052
@@ -589,14 +589,14 @@ M059,PA612-CF,izodNotched,none,,kJ/m²,,,,,,,
 M059,PA612-CF,hdt045,value,175,°C,,,,,1,G059-01,V001054
 M059,PA612-CF,glassTransition,none,,°C,,,,,,,
 M059,PA612-CF,priceCADkg,none,,CAD/kg,,,,,,,
-M060,PA612-GF,density,estimate,1150,kg/m³,1050-1260,1000-1330,1000-1340,family,,,
+M060,PA612-GF,density,estimate,1170,kg/m³,1060-1280,1000-1340,1000-1340,family,,,
 M060,PA612-GF,tensileModulusXY,estimate,4.29,GPa,2.03-9.06,1.27-14.5,1.27-14.5,family,,,
 M060,PA612-GF,tensileStrengthXY,estimate,81.7,MPa,52.9-127,42.4-158,35.3-158,family,,,
 M060,PA612-GF,tensileStrengthZ,none,,MPa,,,,,,,
 M060,PA612-GF,elongationXY,estimate,3.58,%,1.02-12.6,0.488-26.3,0.488-26.3,family,,,
 M060,PA612-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M060,PA612-GF,izodNotched,none,,kJ/m²,,,,,,,
-M060,PA612-GF,hdt045,estimate,192,°C,157-214,95.2-220,95.2-220,family,,,
+M060,PA612-GF,hdt045,estimate,190,°C,153-213,74.1-218,74.1-218,family,,,
 M060,PA612-GF,glassTransition,none,,°C,,,,,,,
 M060,PA612-GF,priceCADkg,none,,CAD/kg,,,,,,,
 M061,CoPA,density,none,,kg/m³,,,,,,,
@@ -633,7 +633,7 @@ M064,PA-ESD,density,value,1140,kg/m³,,,,,1,G064-01,V001200
 M064,PA-ESD,tensileModulusXY,estimate,6.35,GPa,4.87-8.27,4.13-9.75,4.13-9.75,this-grade,,,
 M064,PA-ESD,tensileStrengthXY,estimate,54.1,MPa,41.8-69.8,36.8-79.4,36.8-79.4,this-grade,,,
 M064,PA-ESD,tensileStrengthZ,none,,MPa,,,,,,,
-M064,PA-ESD,elongationXY,estimate,4.32,%,2.32-8.04,1.61-11.6,1.61-11.6,this-grade,,,
+M064,PA-ESD,elongationXY,estimate,4.32,%,2.31-8.04,1.61-11.6,1.61-11.6,this-grade,,,
 M064,PA-ESD,charpyNotched,none,,kJ/m²,,,,,,,
 M064,PA-ESD,izodNotched,none,,kJ/m²,,,,,,,
 M064,PA-ESD,hdt045,value,142,°C,,,,,1,G064-01,V001207
@@ -656,7 +656,7 @@ M066,PET,tensileStrengthZ,none,,MPa,,,,,,,
 M066,PET,elongationXY,value,7.8,%,,,,,2,G066-04,V005808
 M066,PET,charpyNotched,none,,kJ/m²,,,,,,,
 M066,PET,izodNotched,none,,kJ/m²,,,,,,,
-M066,PET,hdt045,estimate,56.3,°C,47.4-65.8,42.2-72.6,42.2-75.9,this-material,,,
+M066,PET,hdt045,estimate,56.7,°C,47.8-65.9,41.9-73,41.9-79.9,this-material,,,
 M066,PET,glassTransition,value,70,°C,,,,,2,G066-01,V001764
 M066,PET,priceCADkg,none,,CAD/kg,,,,,,,
 M067,PET-CF,density,value,1340,kg/m³,,,,,5,G067-02,V002414
@@ -756,7 +756,7 @@ M076,BVOH,tensileStrengthZ,value,8.7,MPa,,,,,1,G076-02,V002263
 M076,BVOH,elongationXY,value,14.8,%,,,,,1,G076-02,V002264
 M076,BVOH,charpyNotched,none,,kJ/m²,,,,,,,
 M076,BVOH,izodNotched,none,,kJ/m²,,,,,,,
-M076,BVOH,hdt045,estimate,69.7,°C,59.2-79.3,47.6-84.6,47.6-88.6,this-material,,,
+M076,BVOH,hdt045,estimate,70.1,°C,59.8-79.5,46.2-84.7,46.2-92.9,this-material,,,
 M076,BVOH,glassTransition,value,68,°C,,,,,3,G076-01,V001425
 M076,BVOH,priceCADkg,none,,CAD/kg,,,,,,,
 M077,Support for PLA,density,value,1275,kg/m³,,,,,2,G077-02,V010075
@@ -796,7 +796,7 @@ M080,Support for PA/PET,tensileStrengthZ,none,,MPa,,,,,,,
 M080,Support for PA/PET,elongationXY,not applicable,,%,,,,,,,
 M080,Support for PA/PET,charpyNotched,none,,kJ/m²,,,,,,,
 M080,Support for PA/PET,izodNotched,none,,kJ/m²,,,,,,,
-M080,Support for PA/PET,hdt045,estimate,96,°C,65-130,49.1-165,49.1-174,this-material,,,
+M080,Support for PA/PET,hdt045,estimate,96.9,°C,66-130,48.6-168,48.6-182,this-material,,,
 M080,Support for PA/PET,glassTransition,none,,°C,,,,,,,
 M080,Support for PA/PET,priceCADkg,none,,CAD/kg,,,,,,,
 M081,HIPS,density,value,1045,kg/m³,,,,,10,G081-01,V001470
@@ -903,10 +903,10 @@ M091,CoPE,density,value,1300,kg/m³,,,,,1,G091-02,V001919
 M091,CoPE,tensileModulusXY,value,2.515,GPa,,,,,1,G091-02,V001921
 M091,CoPE,tensileStrengthXY,value,51.6,MPa,,,,,1,G091-02,V001922
 M091,CoPE,tensileStrengthZ,value,36.1,MPa,,,,,1,G091-02,V001923
-M091,CoPE,elongationXY,estimate,25.9,%,7.46-90.3,3.59-188,3.59-188,family,,,
+M091,CoPE,elongationXY,estimate,26,%,7.46-90.4,3.59-188,3.59-188,family,,,
 M091,CoPE,charpyNotched,none,,kJ/m²,,,,,,,
 M091,CoPE,izodNotched,none,,kJ/m²,,,,,,,
-M091,CoPE,hdt045,estimate,60.9,°C,51.8-69.5,44.2-74.9,44.2-78.4,this-grade,,,
+M091,CoPE,hdt045,estimate,60.9,°C,51.9-69.4,43.3-75.3,43.3-76.7,this-grade,,,
 M091,CoPE,glassTransition,none,,°C,,,,,,,
 M091,CoPE,priceCADkg,none,,CAD/kg,,,,,,,
 M092,nGen / Amphora,density,value,1200,kg/m³,,,,,1,G092-02,V005917
@@ -1030,23 +1030,23 @@ M103,PP Lightweight,hdt045,value,94,°C,,,,,1,G103-01,V002232
 M103,PP Lightweight,glassTransition,none,,°C,,,,,,,
 M103,PP Lightweight,priceCADkg,none,,CAD/kg,,,,,,,
 M104,PA6-CE,density,value,1490,kg/m³,,,,,1,G104-01,V002733
-M104,PA6-CE,tensileModulusXY,estimate,5.51,GPa,4.25-7.15,3.62-8.41,3.62-8.41,this-grade,,,
+M104,PA6-CE,tensileModulusXY,estimate,5.52,GPa,4.25-7.15,3.62-8.41,3.62-8.41,this-grade,,,
 M104,PA6-CE,tensileStrengthXY,estimate,60,MPa,45.3-79.4,39.4-91.4,39.4-91.4,this-grade,,,
 M104,PA6-CE,tensileStrengthZ,none,,MPa,,,,,,,
-M104,PA6-CE,elongationXY,estimate,3.87,%,1.72-8.67,1.07-14,1.07-14,this-grade,,,
+M104,PA6-CE,elongationXY,estimate,3.87,%,1.72-8.67,1.07-13.9,1.07-13.9,this-grade,,,
 M104,PA6-CE,charpyNotched,none,,kJ/m²,,,,,,,
 M104,PA6-CE,izodNotched,none,,kJ/m²,,,,,,,
-M104,PA6-CE,hdt045,estimate,136,°C,96.6-176,58-211,58-220,this-grade,,,
+M104,PA6-CE,hdt045,estimate,131,°C,92.5-171,53.5-213,53.5-217,this-grade,,,
 M104,PA6-CE,glassTransition,none,,°C,,,,,,,
 M104,PA6-CE,priceCADkg,none,,CAD/kg,,,,,,,
 M105,ASA-EC,density,value,1170,kg/m³,,,,,1,G105-01,V002742
 M105,ASA-EC,tensileModulusXY,estimate,2.94,GPa,2.08-4.16,1.67-5.16,1.67-5.16,this-grade,,,
 M105,ASA-EC,tensileStrengthXY,estimate,38.2,MPa,30.2-48.3,26.9-54.3,26.9-54.3,this-grade,,,
 M105,ASA-EC,tensileStrengthZ,none,,MPa,,,,,,,
-M105,ASA-EC,elongationXY,estimate,2.02,%,0.764-5.32,0.432-9.39,0.432-9.39,this-grade,,,
+M105,ASA-EC,elongationXY,estimate,2.01,%,0.763-5.32,0.432-9.39,0.432-9.39,this-grade,,,
 M105,ASA-EC,charpyNotched,none,,kJ/m²,,,,,,,
 M105,ASA-EC,izodNotched,none,,kJ/m²,,,,,,,
-M105,ASA-EC,hdt045,estimate,97.4,°C,89-105,75.7-111,75.7-114,this-grade,,,
+M105,ASA-EC,hdt045,estimate,97.3,°C,89-105,70.9-111,70.9-112,this-grade,,,
 M105,ASA-EC,glassTransition,none,,°C,,,,,,,
 M105,ASA-EC,priceCADkg,none,,CAD/kg,,,,,,,
 M106,ABS-AF,density,value,1050,kg/m³,,,,,3,G106-01,V002752
@@ -1073,20 +1073,20 @@ M108,PA6-GS,density,value,1010,kg/m³,,,,,1,G108-01,V002854
 M108,PA6-GS,tensileModulusXY,estimate,4.07,GPa,3.14-5.28,2.67-6.21,2.67-6.21,this-grade,,,
 M108,PA6-GS,tensileStrengthXY,estimate,77.5,MPa,58.5-103,50.8-118,50.8-118,this-grade,,,
 M108,PA6-GS,tensileStrengthZ,none,,MPa,,,,,,,
-M108,PA6-GS,elongationXY,estimate,6.12,%,2.73-13.8,1.7-22.1,1.7-22.1,this-grade,,,
+M108,PA6-GS,elongationXY,estimate,6.12,%,2.73-13.8,1.7-22,1.7-22,this-grade,,,
 M108,PA6-GS,charpyNotched,none,,kJ/m²,,,,,,,
 M108,PA6-GS,izodNotched,none,,kJ/m²,,,,,,,
-M108,PA6-GS,hdt045,estimate,136,°C,96.6-176,58-211,58-220,this-grade,,,
+M108,PA6-GS,hdt045,estimate,131,°C,92.5-171,53.5-213,53.5-217,this-grade,,,
 M108,PA6-GS,glassTransition,none,,°C,,,,,,,
 M108,PA6-GS,priceCADkg,none,,CAD/kg,,,,,,,
 M109,PETG-PTFE,density,value,1320,kg/m³,,,,,1,G109-01,V002921
-M109,PETG-PTFE,tensileModulusXY,estimate,1.66,GPa,0.892-3.08,0.606-4.54,0.606-4.54,this-material,,,
+M109,PETG-PTFE,tensileModulusXY,estimate,1.66,GPa,0.893-3.09,0.606-4.55,0.606-4.55,this-material,,,
 M109,PETG-PTFE,tensileStrengthXY,estimate,40.2,MPa,26.7-60.3,21.7-74.1,open-74.1,this-material,,,
 M109,PETG-PTFE,tensileStrengthZ,none,,MPa,,,,,,,
-M109,PETG-PTFE,elongationXY,estimate,132,%,105-221,102-351,open-351,this-material,,,
+M109,PETG-PTFE,elongationXY,estimate,132,%,105-222,102-351,open-351,this-material,,,
 M109,PETG-PTFE,charpyNotched,none,,kJ/m²,,,,,,,
 M109,PETG-PTFE,izodNotched,none,,kJ/m²,,,,,,,
-M109,PETG-PTFE,hdt045,estimate,60,°C,48.8-71.2,42.7-78.3,42.7-81.9,this-material,,,
+M109,PETG-PTFE,hdt045,estimate,61.1,°C,49.9-72.1,42.6-78.8,42.6-86.4,this-material,,,
 M109,PETG-PTFE,glassTransition,none,,°C,,,,,,,
 M109,PETG-PTFE,priceCADkg,none,,CAD/kg,,,,,,,
 M110,PCTG-GF,density,value,1310,kg/m³,,,,,2,G110-01,V002927
@@ -1100,40 +1100,40 @@ M110,PCTG-GF,hdt045,value,78,°C,,,,,3,G110-01,V002932
 M110,PCTG-GF,glassTransition,value,88,°C,,,,,1,G110-03,V010977
 M110,PCTG-GF,priceCADkg,none,,CAD/kg,,,,,,,
 M111,PLA-EC,density,value,1295,kg/m³,,,,,2,G111-02,V009037
-M111,PLA-EC,tensileModulusXY,estimate,2.01,GPa,1.05-3.82,0.708-5.7,0.708-5.7,this-material,,,
+M111,PLA-EC,tensileModulusXY,estimate,2.01,GPa,1.05-3.82,0.709-5.71,0.709-5.71,this-material,,,
 M111,PLA-EC,tensileStrengthXY,estimate,40.4,MPa,27-60.5,22-74.2,open-74.2,this-material,,,
 M111,PLA-EC,tensileStrengthZ,none,,MPa,,,,,,,
 M111,PLA-EC,elongationXY,estimate,4.81,%,1.45-15.9,0.724-32,0.724-32,this-material,,,
 M111,PLA-EC,charpyNotched,none,,kJ/m²,,,,,,,
 M111,PLA-EC,izodNotched,none,,kJ/m²,,,,,,,
-M111,PLA-EC,hdt045,estimate,70.4,°C,49.7-103,45-160,45-160,family,,,
+M111,PLA-EC,hdt045,estimate,70.1,°C,49.6-102,45.6-179,45.6-179,family,,,
 M111,PLA-EC,glassTransition,none,,°C,,,,,,,
 M111,PLA-EC,priceCADkg,none,,CAD/kg,,,,,,,
 M112,PC-PTFE,density,value,1290,kg/m³,,,,,2,G112-02,V007732
-M112,PC-PTFE,tensileModulusXY,estimate,1.87,GPa,1.01-3.47,0.688-5.1,0.688-5.1,this-material,,,
+M112,PC-PTFE,tensileModulusXY,estimate,1.87,GPa,1.01-3.48,0.688-5.11,0.688-5.11,this-material,,,
 M112,PC-PTFE,tensileStrengthXY,estimate,50.2,MPa,33.2-75.8,27-93.4,27-93.4,this-material,,,
 M112,PC-PTFE,tensileStrengthZ,none,,MPa,,,,,,,
-M112,PC-PTFE,elongationXY,estimate,9.51,%,5.17-25.1,4.57-47.3,4.57-47.3,this-material,,,
+M112,PC-PTFE,elongationXY,estimate,9.52,%,5.17-25.1,4.57-47.3,4.57-47.3,this-material,,,
 M112,PC-PTFE,charpyNotched,none,,kJ/m²,,,,,,,
 M112,PC-PTFE,izodNotched,none,,kJ/m²,,,,,,,
 M112,PC-PTFE,hdt045,value,140,°C,,,,,1,G112-01,V003067
 M112,PC-PTFE,glassTransition,none,,°C,,,,,,,
 M112,PC-PTFE,priceCADkg,none,,CAD/kg,,,,,,,
 M113,ASA-AF,density,value,1070,kg/m³,,,,,3,G113-01,V003116
-M113,ASA-AF,tensileModulusXY,estimate,1.84,GPa,0.957-3.55,0.635-5.35,0.635-5.35,this-material,,,
+M113,ASA-AF,tensileModulusXY,estimate,1.88,GPa,1-3.49,0.684-5.15,0.684-5.15,this-material,,,
 M113,ASA-AF,tensileStrengthXY,estimate,35.9,MPa,23.8-53.9,19.4-66.2,19.4-66.2,this-material,,,
 M113,ASA-AF,tensileStrengthZ,none,,MPa,,,,,,,
 M113,ASA-AF,elongationXY,estimate,4.22,%,1.33-13.4,0.678-26.3,0.678-26.3,this-material,,,
 M113,ASA-AF,charpyNotched,none,,kJ/m²,,,,,,,
 M113,ASA-AF,izodNotched,none,,kJ/m²,,,,,,,
-M113,ASA-AF,hdt045,estimate,83.8,°C,71.2-94.6,54.1-101,54.1-105,this-material,,,
+M113,ASA-AF,hdt045,estimate,84.6,°C,72.4-94.9,51.4-102,51.4-110,this-material,,,
 M113,ASA-AF,glassTransition,none,,°C,,,,,,,
 M113,ASA-AF,priceCADkg,none,,CAD/kg,,,,,,,
 M114,TPC-ESD,density,value,1280,kg/m³,,,,,1,G114-01,V003134
 M114,TPC-ESD,tensileModulusXY,value,1.4,GPa,,,,,1,G114-01,V003136
 M114,TPC-ESD,tensileStrengthXY,value,70,MPa,,,,,1,G114-01,V003135
 M114,TPC-ESD,tensileStrengthZ,none,,MPa,,,,,,,
-M114,TPC-ESD,elongationXY,estimate,188,%,74.7-474,43.4-813,43.4-813,family,,,
+M114,TPC-ESD,elongationXY,estimate,188,%,74.6-473,43.4-813,43.4-813,family,,,
 M114,TPC-ESD,charpyNotched,none,,kJ/m²,,,,,,,
 M114,TPC-ESD,izodNotched,none,,kJ/m²,,,,,,,
 M114,TPC-ESD,hdt045,not applicable,,°C,,,,,,,
@@ -1250,7 +1250,7 @@ M125,PEEK-CF,hdt045,value,265,°C,,,,,1,G125-01,V003325
 M125,PEEK-CF,glassTransition,value,143,°C,,,,,4,G125-01,V003324
 M125,PEEK-CF,priceCADkg,none,,CAD/kg,,,,,,,
 M126,TPU-ESD,density,value,1190,kg/m³,,,,,2,G126-01,V003326
-M126,TPU-ESD,tensileModulusXY,estimate,0.0534,GPa,0.00742-0.385,0.00226-1.34,0.00226-1.34,this-material,,,
+M126,TPU-ESD,tensileModulusXY,estimate,0.0534,GPa,0.00741-0.385,0.00226-1.34,0.00226-1.34,this-material,,,
 M126,TPU-ESD,tensileStrengthXY,value,12,MPa,,,,,1,G126-01,V003327
 M126,TPU-ESD,tensileStrengthZ,none,,MPa,,,,,,,
 M126,TPU-ESD,elongationXY,estimate,172,%,75.3-393,46.4-637,46.4-637,this-material,,,
@@ -1280,7 +1280,7 @@ M128,PC-ABS-CF,hdt045,value,130,°C,,,,,1,G128-01,V003384
 M128,PC-ABS-CF,glassTransition,value,137,°C,,,,,1,G128-01,V003383
 M128,PC-ABS-CF,priceCADkg,none,,CAD/kg,,,,,,,
 M129,TPU-CF,density,value,1230,kg/m³,,,,,3,G129-01,V004074
-M129,TPU-CF,tensileModulusXY,estimate,0.109,GPa,0.0153-0.776,0.00449-2.65,0.00449-2.65,this-material,,,
+M129,TPU-CF,tensileModulusXY,estimate,0.109,GPa,0.0153-0.776,0.00448-2.65,0.00448-2.65,this-material,,,
 M129,TPU-CF,tensileStrengthXY,estimate,39.8,MPa,11.4-134,6.16-233,6.16-233,this-material,,,
 M129,TPU-CF,tensileStrengthZ,none,,MPa,,,,,,,
 M129,TPU-CF,elongationXY,estimate,32.5,%,17.5-60.3,12.1-86.6,open-86.6,this-material,,,
@@ -1296,7 +1296,7 @@ M130,PPE-PS,tensileStrengthZ,none,,MPa,,,,,,,
 M130,PPE-PS,elongationXY,value,12,%,,,,,1,G130-01,V004085
 M130,PPE-PS,charpyNotched,none,,kJ/m²,,,,,,,
 M130,PPE-PS,izodNotched,none,,kJ/m²,,,,,,,
-M130,PPE-PS,hdt045,estimate,120,°C,114-127,112-135,112-138,this-grade,,,
+M130,PPE-PS,hdt045,estimate,120,°C,114-127,112-137,112-139,this-grade,,,
 M130,PPE-PS,glassTransition,value,128,°C,,,,,1,G130-01,V004088
 M130,PPE-PS,priceCADkg,none,,CAD/kg,,,,,,,
 M131,PC-PBT-CF,density,estimate,1200,kg/m³,1170-1220,1150-1250,1110-1420,this-grade,,,
@@ -1306,7 +1306,7 @@ M131,PC-PBT-CF,tensileStrengthZ,none,,MPa,,,,,,,
 M131,PC-PBT-CF,elongationXY,estimate,2,%,0.739-5.43,0.411-9.75,0.411-9.75,this-grade,,,
 M131,PC-PBT-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M131,PC-PBT-CF,izodNotched,none,,kJ/m²,,,,,,,
-M131,PC-PBT-CF,hdt045,estimate,116,°C,101-131,81.1-151,81.1-159,this-grade,,,
+M131,PC-PBT-CF,hdt045,estimate,115,°C,101-130,73.7-157,73.7-162,this-grade,,,
 M131,PC-PBT-CF,glassTransition,none,,°C,,,,,,,
 M131,PC-PBT-CF,priceCADkg,none,,CAD/kg,,,,,,,
 M132,PBT-GF,density,value,1320,kg/m³,,,,,1,G132-01,V005262
@@ -1330,7 +1330,7 @@ M133,PBAT,hdt045,value,90,°C,,,,,1,G133-01,V005369
 M133,PBAT,glassTransition,none,,°C,,,,,,,
 M133,PBAT,priceCADkg,none,,CAD/kg,,,,,,,
 M134,CPE-LW,density,value,1160,kg/m³,,,,,1,G134-01,V005542
-M134,CPE-LW,tensileModulusXY,estimate,0.211,GPa,0.125-0.358,0.0901-0.496,open-0.496,this-grade,,,
+M134,CPE-LW,tensileModulusXY,estimate,0.211,GPa,0.125-0.357,0.0901-0.496,open-0.496,this-grade,,,
 M134,CPE-LW,tensileStrengthXY,estimate,24.6,MPa,16.1-37.7,13-46.8,open-46.8,this-grade,,,
 M134,CPE-LW,tensileStrengthZ,none,,MPa,,,,,,,
 M134,CPE-LW,elongationXY,estimate,341,%,182-636,126-917,126-917,this-grade,,,
@@ -1340,40 +1340,40 @@ M134,CPE-LW,hdt045,value,70,°C,,,,,1,G134-01,V005551
 M134,CPE-LW,glassTransition,none,,°C,,,,,,,
 M134,CPE-LW,priceCADkg,none,,CAD/kg,,,,,,,
 M135,PVC,density,value,1309.5,kg/m³,,,,,2,G135-01,V005618
-M135,PVC,tensileModulusXY,estimate,1.13,GPa,0.139-8.43,0.0372-21.8,0.0372-21.8,family,,,
+M135,PVC,tensileModulusXY,estimate,1.13,GPa,0.139-8.44,0.0371-21.8,0.0371-21.8,family,,,
 M135,PVC,tensileStrengthXY,estimate,31.7,MPa,18.9-53,14.5-68.8,14.5-68.8,this-material,,,
 M135,PVC,tensileStrengthZ,none,,MPa,,,,,,,
-M135,PVC,elongationXY,estimate,40.9,%,11.7-143,5.64-297,5.64-open,this-material,,,
+M135,PVC,elongationXY,estimate,41,%,11.7-144,5.65-298,5.65-open,this-material,,,
 M135,PVC,charpyNotched,none,,kJ/m²,,,,,,,
 M135,PVC,izodNotched,none,,kJ/m²,,,,,,,
-M135,PVC,hdt045,estimate,64.1,°C,52.2-75.1,43.8-80.3,43.8-84.1,this-material,,,
+M135,PVC,hdt045,estimate,64.6,°C,52.4-75.4,43.1-80.4,43.1-88.3,this-material,,,
 M135,PVC,glassTransition,none,,°C,,,,,,,
 M135,PVC,priceCADkg,none,,CAD/kg,,,,,,,
 M136,SAN,density,value,1080,kg/m³,,,,,2,G136-01,V005630
-M136,SAN,tensileModulusXY,estimate,2.18,GPa,1.09-4.35,0.714-6.68,0.714-6.68,this-material,,,
+M136,SAN,tensileModulusXY,estimate,2.19,GPa,1.09-4.35,0.715-6.68,0.715-6.68,this-material,,,
 M136,SAN,tensileStrengthXY,estimate,36.7,MPa,23.7-56.8,19-70.7,19-open,this-material,,,
 M136,SAN,tensileStrengthZ,none,,MPa,,,,,,,
-M136,SAN,elongationXY,estimate,10.7,%,3.07-37.1,1.48-76.8,1.48-76.8,family,,,
+M136,SAN,elongationXY,estimate,10.7,%,3.07-37.1,1.48-76.9,1.48-76.9,family,,,
 M136,SAN,charpyNotched,none,,kJ/m²,,,,,,,
 M136,SAN,izodNotched,none,,kJ/m²,,,,,,,
-M136,SAN,hdt045,estimate,94.1,°C,77.9-108,56.1-116,56.1-121,this-material,,,
+M136,SAN,hdt045,estimate,95.9,°C,82.3-109,56.5-117,56.5-125,this-material,,,
 M136,SAN,glassTransition,none,,°C,,,,,,,
 M136,SAN,priceCADkg,none,,CAD/kg,,,,,,,
 M137,COC,density,value,1020,kg/m³,,,,,1,G137-01,V005676
-M137,COC,tensileModulusXY,estimate,0.822,GPa,0.402-1.68,0.257-2.63,open-2.63,this-material,,,
+M137,COC,tensileModulusXY,estimate,0.822,GPa,0.401-1.68,0.257-2.63,open-2.63,this-material,,,
 M137,COC,tensileStrengthXY,estimate,49.2,MPa,29.4-82.3,22.7-107,22.7-107,this-material,,,
 M137,COC,tensileStrengthZ,none,,MPa,,,,,,,
-M137,COC,elongationXY,estimate,10.5,%,2.68-40.9,1.2-90.8,1.2-open,this-material,,,
+M137,COC,elongationXY,estimate,14.4,%,4.01-51.4,1.9-109,1.9-open,this-material,,,
 M137,COC,charpyNotched,none,,kJ/m²,,,,,,,
 M137,COC,izodNotched,none,,kJ/m²,,,,,,,
-M137,COC,hdt045,estimate,139,°C,122-154,96.8-162,open-167,this-material,,,
+M137,COC,hdt045,value,160,°C,,,,,1,G137-01,V011484
 M137,COC,glassTransition,none,,°C,,,,,,,
 M137,COC,priceCADkg,none,,CAD/kg,,,,,,,
 M138,PE-GF,density,value,1080,kg/m³,,,,,3,G138-01,V005692
 M138,PE-GF,tensileModulusXY,estimate,2.51,GPa,1.32-4.76,0.887-7.1,0.887-7.1,this-material,,,
 M138,PE-GF,tensileStrengthXY,estimate,26.7,MPa,17.3-40.9,14-50.8,14-50.8,this-material,,,
 M138,PE-GF,tensileStrengthZ,none,,MPa,,,,,,,
-M138,PE-GF,elongationXY,estimate,10.6,%,3.47-32.3,1.8-62.1,1.8-62.1,this-material,,,
+M138,PE-GF,elongationXY,estimate,10.6,%,3.46-32.3,1.8-62,1.8-62,this-material,,,
 M138,PE-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M138,PE-GF,izodNotched,none,,kJ/m²,,,,,,,
 M138,PE-GF,hdt045,value,85,°C,,,,,1,G138-02,V008436
@@ -1383,33 +1383,33 @@ M139,LCP,density,value,1400,kg/m³,,,,,1,G139-01,V005732
 M139,LCP,tensileModulusXY,estimate,11.3,GPa,8.56-14.9,7.21-17.7,7.21-17.7,this-grade,,,
 M139,LCP,tensileStrengthXY,estimate,177,MPa,134-235,116-270,116-270,this-grade,,,
 M139,LCP,tensileStrengthZ,none,,MPa,,,,,,,
-M139,LCP,elongationXY,estimate,4.56,%,2.59-8.02,1.86-11.2,1.86-11.2,this-grade,,,
+M139,LCP,elongationXY,estimate,4.57,%,2.59-8.03,1.86-11.2,1.86-11.2,this-grade,,,
 M139,LCP,charpyNotched,none,,kJ/m²,,,,,,,
 M139,LCP,izodNotched,none,,kJ/m²,,,,,,,
-M139,LCP,hdt045,estimate,128,°C,98.7-147,57.7-152,57.7-open,this-grade,,,
+M139,LCP,hdt045,estimate,128,°C,99.5-147,53.8-152,53.8-open,this-grade,,,
 M139,LCP,glassTransition,none,,°C,,,,,,,
 M139,LCP,priceCADkg,none,,CAD/kg,,,,,,,
 M140,PBT,density,value,1310,kg/m³,,,,,1,G140-01,V005738
 M140,PBT,tensileModulusXY,estimate,2.17,GPa,1.09-4.29,0.714-6.58,0.714-6.58,this-material,,,
 M140,PBT,tensileStrengthXY,estimate,45.4,MPa,29.1-70.7,23.3-88.5,23.3-88.5,this-material,,,
 M140,PBT,tensileStrengthZ,none,,MPa,,,,,,,
-M140,PBT,elongationXY,estimate,14.9,%,4.53-49,2.25-98.4,2.25-98.4,this-material,,,
+M140,PBT,elongationXY,estimate,14.9,%,4.52-49,2.25-98.3,2.25-98.3,this-material,,,
 M140,PBT,charpyNotched,none,,kJ/m²,,,,,,,
 M140,PBT,izodNotched,none,,kJ/m²,,,,,,,
-M140,PBT,hdt045,estimate,87.1,°C,55.6-129,47.1-192,47.1-192,family,,,
+M140,PBT,hdt045,value,180,°C,,,,,2,G140-01,V011486
 M140,PBT,glassTransition,none,,°C,,,,,,,
 M140,PBT,priceCADkg,none,,CAD/kg,,,,,,,
-M141,PET-LW,density,estimate,1310,kg/m³,1240-1390,1210-1430,1210-1430,family,,,
+M141,PET-LW,density,value,520,kg/m³,,,,,2,G141-01,V011491
 M141,PET-LW,tensileModulusXY,value,1.395,GPa,,,,,2,G141-01,V011390
 M141,PET-LW,tensileStrengthXY,value,13.2,MPa,,,,,2,G141-02,V011404
 M141,PET-LW,tensileStrengthZ,none,,MPa,,,,,,,
 M141,PET-LW,elongationXY,value,31.75,%,,,,,2,G141-01,V011394
 M141,PET-LW,charpyNotched,value,0.55,kJ/m²,,,,,2,G141-02,V011412
 M141,PET-LW,izodNotched,none,,kJ/m²,,,,,,,
-M141,PET-LW,hdt045,estimate,91.9,°C,53.8-156,46.8-233,46.8-233,family,,,
+M141,PET-LW,hdt045,estimate,87.7,°C,53.3-141,46.6-233,46.6-233,family,,,
 M141,PET-LW,glassTransition,none,,°C,,,,,,,
 M141,PET-LW,priceCADkg,none,,CAD/kg,,,,,,,
-M142,nGen-CF,density,estimate,1210,kg/m³,1090-1330,985-1480,985-1490,family,,,
+M142,nGen-CF,density,estimate,1220,kg/m³,1100-1350,995-1500,995-1500,family,,,
 M142,nGen-CF,tensileModulusXY,value,2.52,GPa,,,,,1,G142-01,V005758
 M142,nGen-CF,tensileStrengthXY,value,44.7,MPa,,,,,1,G142-01,V005759
 M142,nGen-CF,tensileStrengthZ,none,,MPa,,,,,,,
@@ -1426,11 +1426,11 @@ M143,nGen FLEX,tensileStrengthZ,none,,MPa,,,,,,,
 M143,nGen FLEX,elongationXY,value,320,%,,,,,1,G143-01,V005861
 M143,nGen FLEX,charpyNotched,none,,kJ/m²,,,,,,,
 M143,nGen FLEX,izodNotched,none,,kJ/m²,,,,,,,
-M143,nGen FLEX,hdt045,estimate,107,°C,76.7-138,52-166,52-173,this-grade,,,
+M143,nGen FLEX,hdt045,estimate,108,°C,77.3-139,50.8-169,50.8-172,this-grade,,,
 M143,nGen FLEX,glassTransition,none,,°C,,,,,,,
 M143,nGen FLEX,priceCADkg,none,,CAD/kg,,,,,,,
 M144,PCTG-CF,density,value,1280,kg/m³,,,,,2,G144-01,V007706
-M144,PCTG-CF,tensileModulusXY,estimate,3.1,GPa,1.59-6.02,1.05-9.13,1.05-9.13,this-material,,,
+M144,PCTG-CF,tensileModulusXY,estimate,3.09,GPa,1.59-6.02,1.04-9.13,1.04-9.13,this-material,,,
 M144,PCTG-CF,tensileStrengthXY,estimate,49.5,MPa,32.7-74.9,26.6-92.3,26.6-92.3,this-material,,,
 M144,PCTG-CF,tensileStrengthZ,none,,MPa,,,,,,,
 M144,PCTG-CF,elongationXY,estimate,5.37,%,1.72-16.7,0.889-32.5,0.889-32.5,this-material,,,
@@ -1446,14 +1446,14 @@ M145,PLA-PHA,tensileStrengthZ,none,,MPa,,,,,,,
 M145,PLA-PHA,elongationXY,value,6.1,%,,,,,1,G145-01,V009458
 M145,PLA-PHA,charpyNotched,none,,kJ/m²,,,,,,,
 M145,PLA-PHA,izodNotched,none,,kJ/m²,,,,,,,
-M145,PLA-PHA,hdt045,estimate,58.6,°C,48-71.8,43.2-93.4,43.2-102,this-grade,,,
+M145,PLA-PHA,hdt045,estimate,58.3,°C,48-71.5,43.1-102,43.1-106,this-grade,,,
 M145,PLA-PHA,glassTransition,none,,°C,,,,,,,
 M145,PLA-PHA,priceCADkg,none,,CAD/kg,,,,,,,
 M146,PLA-PHB,density,value,1200,kg/m³,,,,,1,G146-01,V009497
 M146,PLA-PHB,tensileModulusXY,estimate,1.92,GPa,1.47-2.5,1.24-2.95,1.24-2.95,this-grade,,,
 M146,PLA-PHB,tensileStrengthXY,estimate,40.8,MPa,31.7-52.4,28-59.4,28-59.4,this-grade,,,
 M146,PLA-PHB,tensileStrengthZ,none,,MPa,,,,,,,
-M146,PLA-PHB,elongationXY,estimate,9.36,%,5.04-17.4,3.5-25,3.5-25,this-grade,,,
+M146,PLA-PHB,elongationXY,estimate,9.36,%,5.04-17.4,3.51-25,3.51-25,this-grade,,,
 M146,PLA-PHB,charpyNotched,none,,kJ/m²,,,,,,,
 M146,PLA-PHB,izodNotched,none,,kJ/m²,,,,,,,
 M146,PLA-PHB,hdt045,value,119,°C,,,,,1,G146-01,V009504
@@ -1463,20 +1463,20 @@ M147,PAHT,density,value,1200,kg/m³,,,,,1,G147-01,V011438
 M147,PAHT,tensileModulusXY,value,3.1,GPa,,,,,1,G147-01,V011415
 M147,PAHT,tensileStrengthXY,value,82.1,MPa,,,,,1,G147-01,V011413
 M147,PAHT,tensileStrengthZ,none,,MPa,,,,,,,
-M147,PAHT,elongationXY,estimate,5.94,%,4.11-10.2,3.84-14.6,open-14.6,this-grade,,,
+M147,PAHT,elongationXY,estimate,5.94,%,4.12-10.3,3.84-14.6,open-14.6,this-grade,,,
 M147,PAHT,charpyNotched,none,,kJ/m²,,,,,,,
 M147,PAHT,izodNotched,none,,kJ/m²,,,,,,,
-M147,PAHT,hdt045,estimate,127,°C,98.8-153,83.5-164,83.5-169,this-grade,,,
+M147,PAHT,hdt045,estimate,127,°C,98.7-154,83.3-165,83.3-167,this-grade,,,
 M147,PAHT,glassTransition,none,,°C,,,,,,,
 M147,PAHT,priceCADkg,none,,CAD/kg,,,,,,,
 M148,PAHT-CE,density,value,1370,kg/m³,,,,,2,G148-01,V009726
-M148,PAHT-CE,tensileModulusXY,estimate,2.99,GPa,1.55-5.77,1.03-8.69,1.03-8.69,this-material,,,
+M148,PAHT-CE,tensileModulusXY,estimate,2.99,GPa,1.55-5.77,1.03-8.7,1.03-8.7,this-material,,,
 M148,PAHT-CE,tensileStrengthXY,estimate,70.1,MPa,44.7-110,35.6-138,35.6-138,this-material,,,
 M148,PAHT-CE,tensileStrengthZ,none,,MPa,,,,,,,
 M148,PAHT-CE,elongationXY,estimate,7.42,%,2.09-26.3,0.998-55.2,0.998-55.2,family,,,
 M148,PAHT-CE,charpyNotched,none,,kJ/m²,,,,,,,
 M148,PAHT-CE,izodNotched,none,,kJ/m²,,,,,,,
-M148,PAHT-CE,hdt045,estimate,125,°C,78.6-174,52.1-215,52.1-215,family,,,
+M148,PAHT-CE,hdt045,estimate,123,°C,75.7-172,50.6-217,50.6-217,family,,,
 M148,PAHT-CE,glassTransition,none,,°C,,,,,,,
 M148,PAHT-CE,priceCADkg,none,,CAD/kg,,,,,,,
 M149,PCL,density,value,1100,kg/m³,,,,,3,G149-02,V010142
@@ -1490,10 +1490,10 @@ M149,PCL,hdt045,value,57,°C,,,,,1,G149-04,V010322
 M149,PCL,glassTransition,value,-60,°C,,,,,1,G149-04,V010323
 M149,PCL,priceCADkg,none,,CAD/kg,,,,,,,
 M150,TPU-LW,density,value,1120,kg/m³,,,,,3,G150-02,V010078
-M150,TPU-LW,tensileModulusXY,estimate,0.0261,GPa,0.00372-0.189,0.00127-0.657,0.00127-0.657,this-material,,,
+M150,TPU-LW,tensileModulusXY,estimate,0.0261,GPa,0.00371-0.189,0.00127-0.657,0.00127-0.657,this-material,,,
 M150,TPU-LW,tensileStrengthXY,estimate,28.1,MPa,8.33-92.9,4.48-170,4.48-170,this-material,,,
 M150,TPU-LW,tensileStrengthZ,none,,MPa,,,,,,,
-M150,TPU-LW,elongationXY,estimate,463,%,246-868,170-1260,170-1260,this-material,,,
+M150,TPU-LW,elongationXY,estimate,463,%,246-869,170-1260,170-1260,this-material,,,
 M150,TPU-LW,charpyNotched,none,,kJ/m²,,,,,,,
 M150,TPU-LW,izodNotched,none,,kJ/m²,,,,,,,
 M150,TPU-LW,hdt045,not applicable,,°C,,,,,,,
@@ -1520,33 +1520,33 @@ M152,PLA-NF,hdt045,value,80,°C,,,,,1,G152-02,V010287
 M152,PLA-NF,glassTransition,none,,°C,,,,,,,
 M152,PLA-NF,priceCADkg,none,,CAD/kg,,,,,,,
 M153,PETG-GR,density,value,1290,kg/m³,,,,,2,G153-01,V011366
-M153,PETG-GR,tensileModulusXY,estimate,2.6,GPa,1.39-4.84,0.948-7.13,0.948-7.13,this-material,,,
+M153,PETG-GR,tensileModulusXY,estimate,2.6,GPa,1.39-4.85,0.949-7.14,0.949-7.14,this-material,,,
 M153,PETG-GR,tensileStrengthXY,estimate,42.1,MPa,27.9-63.2,22.7-77.7,22.7-77.7,this-material,,,
 M153,PETG-GR,tensileStrengthZ,none,,MPa,,,,,,,
-M153,PETG-GR,elongationXY,estimate,9.31,%,2.97-29.1,1.52-56.8,1.52-56.8,this-material,,,
+M153,PETG-GR,elongationXY,estimate,9.31,%,2.97-29.2,1.52-56.8,1.52-56.8,this-material,,,
 M153,PETG-GR,charpyNotched,none,,kJ/m²,,,,,,,
 M153,PETG-GR,izodNotched,none,,kJ/m²,,,,,,,
-M153,PETG-GR,hdt045,estimate,74.6,°C,51.4-110,45.7-169,45.7-169,family,,,
+M153,PETG-GR,hdt045,estimate,75.6,°C,51.9-111,45.9-192,45.9-192,family,,,
 M153,PETG-GR,glassTransition,none,,°C,,,,,,,
 M153,PETG-GR,priceCADkg,none,,CAD/kg,,,,,,,
-M154,PA12-AF,density,estimate,1020,kg/m³,976-1060,940-1070,940-1070,family,,,
-M154,PA12-AF,tensileModulusXY,estimate,0.61,GPa,0.47-0.791,0.399-0.931,0.399-0.931,this-grade,,,
+M154,PA12-AF,density,estimate,1020,kg/m³,976-1060,941-1070,941-1070,family,,,
+M154,PA12-AF,tensileModulusXY,estimate,0.61,GPa,0.47-0.792,0.399-0.931,0.399-0.931,this-grade,,,
 M154,PA12-AF,tensileStrengthXY,estimate,58.3,MPa,41-82.8,34.3-98.9,34.3-98.9,this-grade,,,
 M154,PA12-AF,tensileStrengthZ,none,,MPa,,,,,,,
 M154,PA12-AF,elongationXY,estimate,6.95,%,3.74-13,2.6-18.6,2.6-18.6,this-grade,,,
 M154,PA12-AF,charpyNotched,none,,kJ/m²,,,,,,,
 M154,PA12-AF,izodNotched,none,,kJ/m²,,,,,,,
-M154,PA12-AF,hdt045,estimate,112,°C,70.6-155,50.3-174,50.3-174,family,,,
+M154,PA12-AF,hdt045,estimate,112,°C,70.1-154,48.6-175,48.6-175,family,,,
 M154,PA12-AF,glassTransition,none,,°C,,,,,,,
 M154,PA12-AF,priceCADkg,none,,CAD/kg,,,,,,,
 M155,PLA-GR,density,value,1240,kg/m³,,,,,2,G155-01,V011367
-M155,PLA-GR,tensileModulusXY,estimate,3.55,GPa,1.91-6.56,1.3-9.63,1.3-9.63,this-material,,,
+M155,PLA-GR,tensileModulusXY,estimate,3.55,GPa,1.92-6.57,1.3-9.64,1.3-9.64,this-material,,,
 M155,PLA-GR,tensileStrengthXY,estimate,43,MPa,28.7-64.4,23.4-78.9,23.4-78.9,this-material,,,
 M155,PLA-GR,tensileStrengthZ,none,,MPa,,,,,,,
 M155,PLA-GR,elongationXY,estimate,4.97,%,1.6-15.4,0.827-29.9,0.827-29.9,this-material,,,
 M155,PLA-GR,charpyNotched,none,,kJ/m²,,,,,,,
 M155,PLA-GR,izodNotched,none,,kJ/m²,,,,,,,
-M155,PLA-GR,hdt045,estimate,70.4,°C,49.7-103,45-160,45-160,family,,,
+M155,PLA-GR,hdt045,estimate,70.1,°C,49.6-102,45.6-179,45.6-179,family,,,
 M155,PLA-GR,glassTransition,none,,°C,,,,,,,
 M155,PLA-GR,priceCADkg,none,,CAD/kg,,,,,,,
 M156,PA6/66-CF,density,value,1240,kg/m³,,,,,1,G156-01,V010359
@@ -1556,7 +1556,7 @@ M156,PA6/66-CF,tensileStrengthZ,none,,MPa,,,,,,,
 M156,PA6/66-CF,elongationXY,estimate,1.67,%,0.634-4.4,0.359-7.76,0.359-7.76,this-grade,,,
 M156,PA6/66-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M156,PA6/66-CF,izodNotched,none,,kJ/m²,,,,,,,
-M156,PA6/66-CF,hdt045,estimate,154,°C,120-184,73.7-198,73.7-203,this-grade,,,
+M156,PA6/66-CF,hdt045,estimate,151,°C,116-183,61-198,61-200,this-grade,,,
 M156,PA6/66-CF,glassTransition,none,,°C,,,,,,,
 M156,PA6/66-CF,priceCADkg,none,,CAD/kg,,,,,,,
 M157,TPU-EC,density,value,1330,kg/m³,,,,,1,G157-01,V010383
@@ -1569,7 +1569,7 @@ M157,TPU-EC,izodNotched,none,,kJ/m²,,,,,,,
 M157,TPU-EC,hdt045,not applicable,,°C,,,,,,,
 M157,TPU-EC,glassTransition,none,,°C,,,,,,,
 M157,TPU-EC,priceCADkg,none,,CAD/kg,,,,,,,
-M158,PLA-CE,density,estimate,1240,kg/m³,1150-1310,1110-1340,1110-1350,family,,,
+M158,PLA-CE,density,estimate,1240,kg/m³,1150-1310,1110-1340,1110-1340,family,,,
 M158,PLA-CE,tensileModulusXY,estimate,3.44,GPa,2.66-4.46,2.26-5.24,2.26-5.24,this-grade,,,
 M158,PLA-CE,tensileStrengthXY,estimate,45.8,MPa,36-58.1,31.9-65.6,31.9-65.6,this-grade,,,
 M158,PLA-CE,tensileStrengthZ,none,,MPa,,,,,,,
@@ -1610,7 +1610,7 @@ M161,TPU 95A class,hdt045,not applicable,,°C,,,,,,,
 M161,TPU 95A class,glassTransition,value,-24,°C,,,,,1,G039-02,V002178
 M161,TPU 95A class,priceCADkg,value,53.99,CAD/kg,,,,,1,G041-01,
 M162,TPU harder than 95A,density,value,1190,kg/m³,,,,,13,G039-17,V008604
-M162,TPU harder than 95A,tensileModulusXY,estimate,0.0488,GPa,0.00702-0.339,0.00219-1.15,0.00219-1.15,this-material,,,
+M162,TPU harder than 95A,tensileModulusXY,estimate,0.0488,GPa,0.00702-0.339,0.00218-1.15,0.00218-1.15,this-material,,,
 M162,TPU harder than 95A,tensileStrengthXY,value,30,MPa,,,,,3,G039-23,V005472
 M162,TPU harder than 95A,tensileStrengthZ,value,18.1,MPa,,,,,2,G039-44,V007366
 M162,TPU harder than 95A,elongationXY,value,540,%,,,,,3,G039-23,V005473
@@ -1649,11 +1649,11 @@ M165,"Nylon-CF, polymer not stated",izodNotched,none,,kJ/m²,,,,,,,
 M165,"Nylon-CF, polymer not stated",hdt045,none,,°C,,,,,,,
 M165,"Nylon-CF, polymer not stated",glassTransition,none,,°C,,,,,,,
 M165,"Nylon-CF, polymer not stated",priceCADkg,none,,CAD/kg,,,,,,,
-M166,"Nylon-GF, polymer not stated",density,none,,kg/m³,,,,,,,
-M166,"Nylon-GF, polymer not stated",tensileModulusXY,none,,GPa,,,,,,,
-M166,"Nylon-GF, polymer not stated",tensileStrengthXY,none,,MPa,,,,,,,
+M166,"Nylon-GF, polymer not stated",density,value,1210,kg/m³,,,,,1,G166-01,V011465
+M166,"Nylon-GF, polymer not stated",tensileModulusXY,value,3.1,GPa,,,,,1,G166-01,V011472
+M166,"Nylon-GF, polymer not stated",tensileStrengthXY,value,60.4,MPa,,,,,1,G166-01,V011470
 M166,"Nylon-GF, polymer not stated",tensileStrengthZ,none,,MPa,,,,,,,
-M166,"Nylon-GF, polymer not stated",elongationXY,none,,%,,,,,,,
+M166,"Nylon-GF, polymer not stated",elongationXY,value,5.5,%,,,,,1,G166-01,V011473
 M166,"Nylon-GF, polymer not stated",charpyNotched,none,,kJ/m²,,,,,,,
 M166,"Nylon-GF, polymer not stated",izodNotched,none,,kJ/m²,,,,,,,
 M166,"Nylon-GF, polymer not stated",hdt045,none,,°C,,,,,,,

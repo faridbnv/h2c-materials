@@ -1315,6 +1315,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM D570 | Water absorption of plastics. |
 | ASTM D638 | Tensile properties of plastics. |
 | ASTM D648 | Deflection temperature under flexural load. |
+| ASTM D695 | Compressive properties of rigid plastics. |
 | ASTM D738 | Test methods for natural rubber; cited by a maker beside its elastomer values. |
 | ASTM D7426 | Glass transition temperature by DSC. |
 | ASTM D782 | Cited by a source; kept as the source prints it. |
@@ -1324,8 +1325,10 @@ lists the missing states a column accepts instead of a value; a blank required c
 | ASTM D882 | Tensile properties of thin plastic sheeting. |
 | ASTM D955 | Moulding shrinkage from mould dimensions. |
 | ASTM E1356 | Glass transition temperatures by DSC. |
+| ASTM E1530 | Resistance to thermal transmission by the guarded heat flow meter technique (thermal conductivity). |
 | ASTM E2092 | Distortion temperature in three-point bending by thermomechanical analysis. |
 | ASTM E2402 | Mass loss and residue of a material by thermogravimetry; a sheet cites it for the temperature at which its filament has lost five per cent of its mass. |
+| ASTM E831 | Linear thermal expansion of solid materials by thermomechanical analysis. |
 | DSC | Differential scanning calorimetry, where the source names the method but no standard. |
 | GB/T 1033 | Density of plastics. |
 | GB/T 1033.1 | Density and relative density of plastics by immersion; the Chinese counterpart of ISO 1183-1. |
