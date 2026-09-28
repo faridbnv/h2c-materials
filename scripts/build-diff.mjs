@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // What a change did to the compiled database. Builds a git revision (HEAD by default) in a temporary worktree, builds
-// the working tree here, and prints every difference between the two dist/db.json files by path (meta.build excluded).
+// the working tree here, and prints every difference between the two dist/db.json files by path (meta.build excluded,
+// and meta.release, which names the inputs rather than what they built: it is printed on its own line).
 // A structural change (code moved, a column retyped, a table split) must show no difference; a change of behaviour
 // shows exactly the paths it meant to move, and the output belongs in its commit message.
 //
@@ -31,9 +32,14 @@ function buildAt(dir, label) {
   }
   const db = JSON.parse(readFileSync(join(dir, 'dist/db.json'), 'utf8'));
   delete db.meta?.build;
+  // A change to the rules or the engine is a new release even where it builds the same database (D96); that the
+  // release moved is said once, below, and is not a difference in what was built.
+  releases.push(db.meta?.release?.id ?? 'unidentified');
+  delete db.meta?.release;
   return db;
 }
 
+const releases = [];
 const tmp = mkdtempSync(join(tmpdir(), 'h2c-build-diff-'));
 let before;
 try {
@@ -54,5 +60,6 @@ if (process.argv.includes('--full')) {
   for (const d of diffs) { const k = d.path.replace(/\[[^\]]+\]/g, '[]'); groups.set(k, (groups.get(k) ?? 0) + 1); }
   for (const [k, n] of [...groups].sort((p, q) => q[1] - p[1])) console.log(`${String(n).padStart(6)}  ${k}`);
 }
+console.log(releases[0] === releases[1] ? `release ${releases[1]}, unchanged` : `release ${releases[0]} -> ${releases[1]}`);
 console.log(`${diffs.length} difference(s) between ${ref} and the working tree`);
 if (expect != null && diffs.length !== Number(expect)) { console.error(`expected ${expect}`); process.exit(1); }

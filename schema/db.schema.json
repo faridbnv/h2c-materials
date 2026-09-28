@@ -44,6 +44,17 @@
           "type": "string",
           "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
         },
+        "release": {
+          "description": "The release this database is (build/src/release.js, D96): a digest of the tables, schema, rules, engine and locked dependencies, and its twelve-character ID. Absent only where a tool builds the database without the build entry point.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "digest", "inputs"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^[0-9a-f]{12}$" },
+            "digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+            "inputs": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" } }
+          }
+        },
         "pricesSampled": {
           "type": [
             "string",

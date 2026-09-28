@@ -39,7 +39,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D27 | The nozzle question asks what the user lacks | The hardened-nozzle filter asks "I don't have one", so owning more hardware can never remove materials. | In force |
 | D28 | Limited resistance is not resistance | A chemical-resistance requirement passes only on a plain "resistant" record, not on "limited". | In force |
 | D29 | A template names what it cannot check | Each ready-made scenario lists what it does not check, and promises nothing it does not test. | In force |
-| D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | The data's date is read from the Method table, not written in code; prices keep their own sampling date. | In force |
+| D30 | The snapshot date comes from the workbook (now `data/tables/method.csv`) | The data's date is read from the Method table, not written in code; prices keep their own sampling date. | In force; narrowed by D96 (the date is for a reader; a release ID over what decides identifies a page, a scenario and an export) |
 | D31 | A quarantined observation backs nothing | A record marked doubtful, such as a price listing for the wrong product, is kept for the record and backs nothing. | In force; amended by D47 (a price median is computed from its sample, so no stored citation is left to check) and m32 (quarantine is a typed column) |
 | D32 | A chamber window the printer only partly reaches is partial, and only the chamber has one | A chamber window that starts below the H2C's 65 °C and ends above it is partial, not a failure; nozzle and bed are read by their upper end. | In force |
 | D33 | "Enclosure not needed" clears the chamber; "enclosure recommended" does not | A sheet saying no enclosure is needed settles the chamber question; one recommending an enclosure does not. | Amended by D90 and D93: for the nine types Bambu Lab's Filament Guide asks an enclosure for, an enclosure asked for with no temperature, by the guide or by the maker's own sheet, reads as within the H2C's chamber; for every other type the reverse inference is still not made |
@@ -105,6 +105,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D93 | A maker's own "enclosure needed", with no temperature, reads as the guide's tick | For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides. | In force; it extends D90. Read for ASA-CF since 2026-09-27 (m210): the guide the build reads (D88, amended) asks an enclosure for it, and the owner's answer of that day reads that ask as D90 does |
 | D94 | Notched Izod is a second impact filter, beside notched Charpy, and the two are never mixed | You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m. | In force |
 | D95 | A product is judged as it is meant to be printed: colorFabb's lightweight PETs, foamed | When a sheet prints a product's values at two print settings and the product is made to be printed at one of them (a foaming filament, foamed), that one is the product's value; the other is kept and shown beside it, and never decides. | In force |
+| D96 | A release is its content: an ID over what decides travels with every page, scenario and export | Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept. | In force |
 
 <!-- end index -->
 
@@ -491,6 +492,7 @@ a chamber temperature.
 ## D30. The snapshot date comes from the workbook (now `data/tables/method.csv`)
 
 > **In plain words:** The data's date is read from the Method table, not written in code; prices keep their own sampling date.
+> **Status:** in force; narrowed by D96 (the date is for a reader; a release ID over what decides identifies a page, a scenario and an export).
 
 The build used to carry the snapshot date as a constant. The 2026-09-13 manufacturer audit moved the
 Method sheet to a new snapshot, and every filename, "data" label and export would have kept naming
@@ -2849,6 +2851,37 @@ foamed, where it was "not published". Across the six templates PET-LW goes from 
 structure, High-stiffness fixture, Outdoor structural part and Flexible component (Explore, with and without estimates;
 `build/snapshot/templates.csv`). Reversing it either leaves the product's values unread, or lets a PET printed as an
 ordinary PET stand for a foamed one, which is the lighter, weaker part the product exists to make.
+
+## D96. A release is its content: an ID over what decides travels with every page, scenario and export
+
+> **In plain words:** Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept.
+
+*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 6;
+recommended and taken). Built in version 2.1, F07 of the review of 2026-09-27.*
+
+The page, its file name, every export and every saved scenario named the database by the date in `method.csv`'s
+Scope / Snapshot row, 2026-09-21, which stayed while a week of migrations moved answers. Two pages of one date could
+disagree, a scenario saved on one opened on the other with no word, and Pages overwrote the "pinned" page of that date
+on each publish.
+
+- **A release ID is a digest of what decides** (`build/src/release.js`): the tables, the schema, the build's rules and
+  mappings, the selection engine and the templates' questions, and the build's dependency lockfile, each part digested
+  apart with its file names. Twelve hex characters name it; the full digest and each part's are in `db.meta.release` and
+  `dist/manifest.json`. The same inputs give the same ID on any day and machine. The interface around the engine is not
+  in it: two pages that draw the same answers differently share their release.
+- **It travels.** The page shows it (top bar, *Save / share*); its file is `H2C_Material_Selector_<date>_<release>.html`;
+  a saved scenario and a link carry it (`release`, and `i` in the link); every CSV export states it.
+- **A scenario reopened on another release says so** before its question is asked again, even on the same date, and
+  names where the page it was saved on is kept. The same release raises nothing. A scenario from before releases says its
+  identity was only a date. Saved again, a scenario records the release its answers now come from.
+- **Every release published from `main` is kept** as the GitHub release `h2c-<release>`, with its page and manifest
+  (`pages.yml`). The site serves the current release.
+- **The date stays, as a date.** `method.csv` still gives the data's date for a reader; D30 holds for where it is
+  read from. It no longer identifies anything.
+
+`npm run build:diff` reports the release apart from the database's differences, so a change meant to move nothing
+still shows 0 differences while its release moves. Reversing it returns a date as the only identity, and a same-date
+change to the evidence is again invisible to anyone holding a saved decision.
 
 ---
 

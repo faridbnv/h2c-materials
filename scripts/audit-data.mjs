@@ -12,6 +12,7 @@ import { buildDatabase } from '../build/src/pipeline.js';
 import { normalizedRawValue } from '../build/src/measurement-rules.js';
 import { compileReference } from '../build/src/reference.js';
 import { issue } from '../build/src/rules.js';
+import { releaseIdentity, pageName } from '../build/src/release.js';
 import { REVIEW_CODES, reviewFindings } from './data/review-findings.mjs';
 import { readBaseline, compareWithBaseline } from './data/lint.mjs';
 
@@ -23,6 +24,8 @@ const { wb, referenceRows, referenceWhere, inputs } = readSource(resolve('.'));
 const stored = JSON.parse(readFileSync('dist/db.json'));
 // A fresh compile, never the build cache's stored result: this is the independent rebuild dist/ is compared with below.
 const { db, issues } = buildDatabase(wb, { snapshot: snapshotDate(wb.Method.rows), build: stored.meta.build, cache: false });
+// The build entry point stamps the release it is (D96); the fresh compile is stamped from the same tree.
+db.meta.release = releaseIdentity(resolve('.'));
 issues.push(...checkData(resolve('data'), resolve('schema')).issues);
 const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 {
@@ -30,7 +33,7 @@ const identical = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   for (const f of fresh) issues.push(issue('AUDIT-REVIEW-FINDING', `${f.code} ${f.record}`, `${f.message}. Fix it, or: npm run data:lint -- --accept ${f.code} "reason"`));
   for (const b of stale) issues.push(issue('AUDIT-REVIEW-STALE', `${b.Code} ${b.Record}`, 'No longer occurs; remove it from data/review/accepted-findings.csv'));
 }
-const htmlPath = `dist/H2C_Material_Selector_${db.meta.snapshot}.html`;
+const htmlPath = `dist/${pageName(db.meta)}`;
 const html = readFileSync(htmlPath, 'utf8');
 const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
 const unpack = (id) => JSON.parse(gunzipSync(Buffer.from(html.match(new RegExp(`id="${id}"[^>]*>([^<]+)</script>`))?.[1] ?? '', 'base64')));

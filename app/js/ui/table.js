@@ -515,7 +515,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
 
   const header = [
     '# H2C Material Selector export',
-    `# database snapshot ${meta.snapshot}, application build ${meta.build}`,
+    `# release ${meta.release?.id ?? 'unidentified'} (database snapshot ${meta.snapshot}, application build ${meta.build})`,
   ];
   if (scenario) {
     header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates and polymer data ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
@@ -565,7 +565,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
     'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source'];
   const header = [
     '# H2C Material Selector: products of the materials on screen',
-    `# database snapshot ${db.meta.snapshot}, application build ${db.meta.build}`,
+    `# release ${db.meta.release?.id ?? 'unidentified'} (database snapshot ${db.meta.snapshot}, application build ${db.meta.build})`,
     '# a value is comparable (printed or unstated specimen, stated direction, dry or unstated, at the load) or as-published (direction or load not stated)',
     ...(scenario?.constraints ?? []).map((c) => `# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`),
   ];

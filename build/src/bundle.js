@@ -7,10 +7,11 @@
 // DecompressionStream. Raw it is tens of megabytes, most of it measurements, and gzip takes it to about a
 // sixteenth of that. The plotting library is still most of what the page weighs (docs/ARCHITECTURE.md).
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { build as esbuild } from 'esbuild';
+import { pageName } from './release.js';
 
 const escapeForScript = (s) => s.replace(/<\/script/gi, '<\\/script');
 
@@ -51,15 +52,19 @@ export async function bundle({ projectRoot, buildRoot, db, reference, meta }) {
     `<script>${escapeForScript(app)}</script>`,
   ].join('\n'));
   out = put(out, '<title>H2C Material Selector</title>',
-    `<title>H2C Material Selector</title>\n<meta name="generator" content="H2C selector build ${meta.build}, database snapshot ${meta.snapshot}">`);
+    `<title>H2C Material Selector</title>\n<meta name="generator" content="H2C selector release ${meta.release?.id ?? 'unidentified'}, database snapshot ${meta.snapshot}, build ${meta.build}">`);
 
   // The placeholder must be gone exactly once, and no fragment of it may survive anywhere.
   if (out.includes('js/main.js') || out.includes('css/app.css')) {
     throw new Error('bundle: a source path survived into the output, so a replacement misfired');
   }
 
-  const name = `H2C_Material_Selector_${meta.snapshot}.html`;
+  // Named by its data date and its release (D96): two pages of one date with different answers never share a name.
+  const name = pageName(meta);
   mkdirSync(join(projectRoot, 'dist'), { recursive: true });
+  // One page in dist/, this build's: an older release's page left beside it was the one `open dist/H2C_*.html` and the
+  // Pages copy could pick. A release's page is kept where it is published, not here (README, "Releases").
+  for (const f of readdirSync(join(projectRoot, 'dist'))) if (/^H2C_Material_Selector_.*\.html$/.test(f) && f !== name) rmSync(join(projectRoot, 'dist', f));
   const path = join(projectRoot, 'dist', name);
   writeFileSync(path, out);
   return { path, bytes: Buffer.byteLength(out) };

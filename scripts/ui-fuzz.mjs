@@ -23,6 +23,7 @@
 // and empty reasons, I7 link round trip, I8 monotonicity across policies and when a mandatory requirement is added.
 
 import { findChrome, launchChrome, skipWithoutChrome } from './lib/cdp.mjs';
+import { pageName } from '../build/src/release.js';
 import { fmtNumber } from '../app/js/ui/format.js';
 import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -57,8 +58,8 @@ const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
 // As the page does: a material is judged by its products (D83); the build gives its headline as their spread.
 const productsOf = productsByMaterial(db);
 // The current snapshot's page, never whichever older page sorts first in dist/ (see ui-probe.mjs).
-const html = readdirSync(join(root, 'dist')).find((f) => f === `H2C_Material_Selector_${db.meta.snapshot}.html`);
-if (!html) { console.error(`No built page for snapshot ${db.meta.snapshot} in dist/; run npm run build`); process.exit(1); }
+const html = readdirSync(join(root, 'dist')).find((f) => f === pageName(db.meta));
+if (!html) { console.error(`No built page for release ${db.meta.release?.id} (data ${db.meta.snapshot}) in dist/; run npm run build`); process.exit(1); }
 const pageUrl = pathToFileURL(join(root, 'dist', html)).href;
 const candidates = db.materials.filter((m) => !m.familyEntry);
 const KEYS = db.registry.headlines.map((h) => h.key);

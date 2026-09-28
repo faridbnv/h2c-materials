@@ -181,13 +181,13 @@
       "id": "S12",
       "question": "A decision saved against one release and reopened against another made the same day.",
       "expect": [
-        { "release": "different-same-date", "warns": true, "todo": "F07",
+        { "release": "different-same-date", "warns": true,
           "because": "Two releases with the same data date are different evidence; the reopened scenario says so." },
-        { "release": "same", "warns": false, "todo": "F07",
+        { "release": "same", "warns": false,
           "because": "The same release built again is the same evidence; no false alarm." },
-        { "release": "legacy", "warns": true, "todo": "F07",
+        { "release": "legacy", "warns": true,
           "because": "A scenario saved before releases were identified carries only a date; it says its identity cannot be checked." },
-        { "release": "link", "carries": true, "todo": "F07",
+        { "release": "link", "carries": true,
           "because": "A shared link carries the release it was made on." }
       ]
     }

@@ -12,7 +12,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  # contents: write keeps each release's page as a GitHub release (D96, "Keep this release's page" below).
+  contents: write
   pages: write
   id-token: write
 
@@ -53,12 +54,29 @@ jobs:
       - name: Verify
         run: npm run verify
 
+      # A release's page is kept for good where a saved scenario can find it (D96): a GitHub release named by its ID,
+      # created once, with the page and its manifest attached. The site below always serves the current release, so
+      # the page of an older one is fetched from its release, never from the site.
+      - name: Keep this release's page
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          id=$(node -p "require('./dist/manifest.json').release")
+          snapshot=$(node -p "require('./dist/manifest.json').snapshot")
+          if gh release view "h2c-$id" >/dev/null 2>&1; then
+            echo "Release h2c-$id is kept already"
+          else
+            gh release create "h2c-$id" dist/H2C_Material_Selector_*.html dist/manifest.json --target "$GITHUB_SHA" \
+              --title "H2C Material Selector, release $id" \
+              --notes "The page of release $id (data $snapshot), built and verified from $GITHUB_SHA. Download it and open it from disk; it needs no network."
+          fi
+
       - name: Assemble the site
         run: |
           mkdir -p _site
           # The tool is the page: serve it at the root so the domain opens straight into it.
           cp dist/H2C_Material_Selector_*.html _site/index.html
-          # Keep the snapshot-stamped name too, so a link can pin a specific database snapshot.
+          # Keep the release-stamped name too; an older release's page is its GitHub release's, above.
           cp dist/H2C_Material_Selector_*.html _site/
           # The validation report is a deliverable; publish it alongside.
           cp build/reports/validation-report.md _site/validation-report.md

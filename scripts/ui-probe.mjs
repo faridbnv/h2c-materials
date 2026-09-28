@@ -29,6 +29,7 @@
 // "skipped" and exits 0, unless --require is given (CI).
 
 import { findChrome, launchChrome, skipWithoutChrome } from './lib/cdp.mjs';
+import { pageName } from '../build/src/release.js';
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
@@ -43,9 +44,9 @@ const chrome = findChrome();
 if (!chrome) skipWithoutChrome('ui:check');
 // The page of the current snapshot, as audit-data.mjs names it. "The first H2C_Material_Selector_*.html" picked an older
 // page left in dist/ after the snapshot moved (2026-09-10 sorts before 2026-09-16), so the checks tested a stale build.
-const snapshot = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8')).meta.snapshot;
-const html = readdirSync(join(root, 'dist')).find((f) => f === `H2C_Material_Selector_${snapshot}.html`);
-if (!html) { console.error(`No built page for snapshot ${snapshot} in dist/; run npm run build`); process.exit(1); }
+const builtMeta = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8')).meta;
+const html = readdirSync(join(root, 'dist')).find((f) => f === pageName(builtMeta));
+if (!html) { console.error(`No built page for release ${builtMeta.release?.id} (data ${builtMeta.snapshot}) in dist/; run npm run build`); process.exit(1); }
 const pageUrl = pathToFileURL(join(root, 'dist', html)).href;
 
 const profile = mkdtempSync(join(tmpdir(), 'h2c-ui-'));
@@ -405,7 +406,9 @@ try {
 // When the page was built is not something a reader's view should be pinned to: the Compare export preamble prints
 // it, so a snapshot written yesterday failed every run today, on this branch and on main alike. build-diff already
 // drops meta.build for the same reason. The database snapshot date stays, because that is a fact about the data.
-for (const k of Object.keys(results)) results[k] = results[k].replace(/\bbuild \d{4}-\d{2}-\d{2}\b/g, 'build <date>');
+// A release ID changes with every change to what decides (D96), which a view's text is not about: it is masked as the
+// build date is, and a change of release shows in the views only where it changes what they say.
+for (const k of Object.keys(results)) results[k] = results[k].replace(/\bbuild \d{4}-\d{2}-\d{2}\b/g, 'build <date>').replace(/\b([Rr]elease) [0-9a-f]{12}\b/g, '$1 <id>');
 
 if (errors.length) { console.error(`ui:check: ${errors.length} page error(s)\n  ${errors.join('\n  ')}`); process.exit(1); }
 const empty = Object.entries(results).filter(([, text]) => text.split('\n').length < 3).map(([k]) => k);

@@ -30,6 +30,7 @@ import { formatReport } from './validate.js';
 import { estimateReportLines } from './estimate/validate.js';
 import { polymerEnvironmentReportLines } from './polymer-environment.js';
 import { bundle } from './bundle.js';
+import { releaseIdentity } from './release.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(here, '../..');
@@ -69,6 +70,9 @@ async function main() {
 
   const { db, issues: buildIssues, timing, cached } = buildDatabase(wb, { snapshot: SNAPSHOT, build: BUILD, estimates: withEstimates });
   issues.push(...buildIssues);
+  // What this build is, by its content rather than its date (D96): every scenario, link and export carries it.
+  const RELEASE = releaseIdentity(projectRoot);
+  db.meta.release = RELEASE;
 
   const reference = compileReference(referenceRows, issues, referenceWhere, db.registry);
   issues.push(...contractIssues({ db, reference }));
@@ -80,7 +84,8 @@ async function main() {
   const errors = issues.filter((i) => i.level === 'error');
   const warnings = issues.filter((i) => i.level === 'warn');
 
-  console.log(`\nmaterials ${db.meta.counts.materials}  measurements ${db.meta.counts.measurements}  profiles ${db.meta.counts.profiles}  reference ${reference.meta.count}`);
+  console.log(`\nrelease ${RELEASE.id} (data ${SNAPSHOT})`);
+  console.log(`materials ${db.meta.counts.materials}  measurements ${db.meta.counts.measurements}  profiles ${db.meta.counts.profiles}  reference ${reference.meta.count}`);
   console.log(`errors ${errors.length}   warnings ${warnings.length}`);
   const stages = (t) => Object.entries(t).map(([name, ms]) => `${name} ${ms} ms`).join('   ');
   console.log(cached
@@ -102,27 +107,33 @@ async function main() {
   console.log(`db.json -> ${(JSON.stringify(db).length / 1024 / 1024).toFixed(2)} MB`);
   console.log(`reference.json -> ${(JSON.stringify(reference).length / 1024).toFixed(0)} KB`);
 
-  const out = await bundle({ projectRoot, buildRoot, db, reference, meta: { snapshot: SNAPSHOT, build: BUILD } });
+  const out = await bundle({ projectRoot, buildRoot, db, reference, meta: { snapshot: SNAPSHOT, build: BUILD, release: RELEASE } });
   console.log(`\n${out.path.split('/').pop()} -> ${(out.bytes / 1024 / 1024).toFixed(2)} MB self-contained`);
 
-  writeFileSync(join(projectRoot, 'dist/manifest.json'), JSON.stringify(releaseManifest(out.path, SNAPSHOT), null, 2) + '\n');
+  writeFileSync(join(projectRoot, 'dist/manifest.json'), JSON.stringify(releaseManifest(out.path, SNAPSHOT, RELEASE), null, 2) + '\n');
   console.log('manifest -> dist/manifest.json');
 }
 
 /**
  * What this release was built from and what it produced, so a published page can be traced to the
- * exact data, schema, rules and code: commit, whether the tree was clean, input hashes and output hashes.
+ * exact data, schema, rules and code: its release ID and the digests it is made of (D96), the commit, whether the tree
+ * was clean, the runtime and locked dependencies, input hashes and output hashes.
  */
-function releaseManifest(htmlPath, snapshot) {
+function releaseManifest(htmlPath, snapshot, release) {
   const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
   const git = (...args) => { try { return execFileSync('git', args, { cwd: projectRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); } catch { return null; } };
   const tree = (dir, filter = () => true) => sha(readdirSync(join(projectRoot, dir), { recursive: true }).filter((f) => filter(f) && !f.endsWith('/')).sort()
     .map((f) => { try { return `${sha(readFileSync(join(projectRoot, dir, f)))}  ${dir}/${f}`; } catch { return ''; } }).join('\n'));
   const file = (p) => sha(readFileSync(join(projectRoot, p)));
   return {
+    release: release.id, releaseDigest: release.digest, releaseInputs: release.inputs,
     snapshot, build: BUILD,
     commit: git('rev-parse', 'HEAD'),
-    sourceTreeClean: git('status', '--porcelain', '--', 'data', 'schema', 'build/src', 'build/mappings', 'app') === '',
+    sourceTreeClean: git('status', '--porcelain', '--', 'data', 'schema', 'build/src', 'build/mappings', 'app', 'build/package-lock.json', 'package-lock.json') === '',
+    // The runtime and the dependency lockfiles the page was built with. The lockfiles pin what `npm ci` installs; the
+    // installed tree itself is not hashed, so a hand-edited node_modules is outside this record.
+    runtime: { node: process.version },
+    dependencies: { build: file('build/package-lock.json'), tools: file('package-lock.json') },
     inputs: {
       dataManifest: file('data/manifest.json'),
       schema: tree('schema'),

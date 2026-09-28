@@ -21,7 +21,7 @@ What the database holds (materials, products, measurements, sources) is counted 
 ```bash
 npm install --prefix build     # once
 npm run hooks                  # once per clone: the pre-commit data check
-npm run build                  # -> dist/H2C_Material_Selector_<snapshot>.html and dist/manifest.json
+npm run build                  # -> dist/H2C_Material_Selector_<snapshot>_<release>.html and dist/manifest.json
 npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about a minute after a change, half that when nothing the build reads changed)
 npm run verify                 # before a commit: verify:fast, the import tests, the scale and reproducible-build checks, audit, review snapshot, interface views, 300 rendered scenarios
 npm run build:diff             # what a change did to the compiled database, against HEAD
@@ -51,14 +51,27 @@ cannot drift from the source of truth, and a database that fails validation stop
 reaches the site.
 
 The page is served at the site root, so the address opens straight into the tool. The
-snapshot-stamped filename and the validation report are published alongside it:
+release-stamped filename and the validation report are published alongside it:
 
 | Address | What |
 |---|---|
-| [`/h2c-materials/`](https://pdynamics.ca/h2c-materials/) | The tool |
-| `/h2c-materials/H2C_Material_Selector_<snapshot>.html` | The same build, pinned to its database snapshot date (the `Scope / Snapshot` row of `method.csv`, `2026-09-21` today) |
+| [`/h2c-materials/`](https://pdynamics.ca/h2c-materials/) | The tool, at its current release |
+| `/h2c-materials/H2C_Material_Selector_<snapshot>_<release>.html` | The same page under its own name: its data date, and its release |
 | `/h2c-materials/validation-report.md` | What the compiled database cannot support |
-| `/h2c-materials/manifest.json` | The commit, input hashes and output hashes the page was built from |
+| `/h2c-materials/manifest.json` | The release, the digests it is made of, the commit, the runtime, input hashes and output hashes the page was built from |
+
+### Releases
+
+A **release** is the content that decides every answer: the tables, the schema, the build's rules, the selection
+engine and the templates, and the locked dependencies (D96). Its twelve-character ID is a digest of them, so the same
+inputs give the same ID on any day, and a change to any of them gives another even on the same data date (the date in
+`method.csv` is for a reader, and stayed one date while the data changed). The page shows its release in the top bar and
+under *Save / share*; every saved scenario, link, CSV export and decision brief carries it, and a scenario reopened on
+another release says so before it asks its question again.
+
+Every release published from `main` is kept for good as a GitHub release named `h2c-<release>`, with its page and
+manifest attached: download the page and open it from disk to see the answers a scenario was saved with, offline. The
+site itself always serves the current release.
 
 ## Documentation
 

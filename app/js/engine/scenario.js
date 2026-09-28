@@ -15,6 +15,9 @@ export const SCENARIO_VERSION = 1;
 export function newScenario(meta) {
   return {
     version: SCENARIO_VERSION,
+    // The release the answers were computed on (D96): what the scenario's evidence and rules were. The data date beside
+    // it is for a reader; it stayed one date while the data changed, so it identifies nothing.
+    release: meta?.release?.id ?? null,
     dbSnapshot: meta?.snapshot ?? null,
     appBuild: meta?.build ?? null,
     created: new Date().toISOString(),
@@ -149,11 +152,39 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
     out[key] = typeof id === 'string' && known(id) ? id : null;
   }
 
-  if (meta && raw.dbSnapshot && raw.dbSnapshot !== meta.snapshot) {
-    warnings.push(`This selection was made against database snapshot ${raw.dbSnapshot}; this build embeds ${meta.snapshot}. Results may differ.`);
-  }
-  out.dbSnapshot = raw.dbSnapshot ?? base.dbSnapshot;
+  const release = releaseNote(raw, meta);
+  if (release) warnings.push(release);
+  // Reopened, the question is asked of this page's release, and saving it again records that release, so a second
+  // opening does not warn about a difference already said.
+  out.release = base.release ?? (typeof raw.release === 'string' ? raw.release : null);
+  out.dbSnapshot = base.dbSnapshot ?? raw.dbSnapshot ?? null;
   return { scenario: out, warnings };
+}
+
+/**
+ * What a reader must be told when a scenario is reopened on another release (D96): its answers were computed on other
+ * evidence or rules, and are computed again here. The same data date is no reassurance, because data changed under one
+ * date for a week. A scenario from before releases carried only a date, and says that its identity cannot be checked.
+ * Null when there is nothing to say.
+ */
+function releaseNote(raw, meta) {
+  const current = meta?.release?.id ?? null;
+  const saved = typeof raw.release === 'string' && raw.release ? raw.release : null;
+  const date = (d) => (d ? ` (data of ${d})` : '');
+  if (current && saved && saved !== current) {
+    return `This selection was saved on release ${saved}${date(raw.dbSnapshot)}; this page is release ${current}${date(meta.snapshot)}. `
+      + `Its requirements are asked again of this release's evidence and rules, so its answers may differ. The page of release ${saved} `
+      + `is kept as the project's release h2c-${saved}, and opens the answers it was saved with.`;
+  }
+  if (current && !saved && raw.dbSnapshot) {
+    return `This selection was saved before pages carried a release${date(raw.dbSnapshot)}, so whether its evidence has changed cannot be checked. `
+      + `Its requirements are asked of this page's release ${current}${date(meta.snapshot)}.`;
+  }
+  // Neither side identified: the date is all there is to compare, as before releases.
+  if (!current && meta && raw.dbSnapshot && raw.dbSnapshot !== meta.snapshot) {
+    return `This selection was made against database snapshot ${raw.dbSnapshot}; this build embeds ${meta.snapshot}. Results may differ.`;
+  }
+  return null;
 }
 
 export function deserialize(text, meta, options) {
@@ -172,6 +203,8 @@ export function toHash(scenario) {
     // different result, silently, after a database update or whenever an assumption was in play.
     a: scenario.assumptions?.length ? scenario.assumptions : undefined,
     d: scenario.dbSnapshot ?? undefined,
+    // The release the link's answers were computed on (D96).
+    i: scenario.release ?? undefined,
     // Only when set, so a link without them reads as it always did.
     r: scenario.rankBy ?? undefined,
     v: scenario.evidence === 'as-published' ? 'as-published' : undefined,
@@ -191,7 +224,7 @@ export function fromHash(hash, meta, options) {
   return validateScenario({
     version: SCENARIO_VERSION, constraints: c.c, unknownPolicy: c.u, shortlist: c.s, plot: c.p,
     template: c.t, lens: c.l, openMaterial: c.m, useEstimates: c.e, columnSet: c.k, baseline: c.b,
-    assumptions: c.a, dbSnapshot: c.d, rankBy: c.r, evidence: c.v,
+    assumptions: c.a, dbSnapshot: c.d, release: c.i, rankBy: c.r, evidence: c.v,
   }, meta, options);
 }
 

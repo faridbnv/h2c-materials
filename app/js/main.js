@@ -66,6 +66,9 @@ const state = {
   selection: null, rows: [], subset: null, searchExcluded: [],
 };
 
+/** What an exported file is named by: its data date, and the release its answers were computed on (D96). */
+const fileStamp = (meta) => `${meta.snapshot}${meta.release ? `-${meta.release.id}` : ''}`;
+
 /** Materials everyone already has a feel for, offered as the comparison anchor. */
 export const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 
@@ -779,6 +782,7 @@ function renderScenario(host) {
 
       <h3 class="sec">About this build</h3>
       <dl class="kv small">
+        <dt>Release</dt><dd>${esc(db.meta.release?.id ?? 'unidentified')} <span class="fine">what decides every answer here: the data, its rules and the engine. A saved selection carries it, and says so when it is reopened on another</span></dd>
         <dt>Database snapshot</dt><dd>${esc(db.meta.snapshot)}</dd>
         <dt>Application build</dt><dd>${esc(db.meta.build)}</dd>
         <dt>Materials</dt><dd>${candidateCount(db)}, ${db.meta.counts.h2cRelevant} of them in H2C scope; plus ${db.meta.counts.familyEntries} family names that are never candidates</dd>
@@ -792,10 +796,10 @@ function renderScenario(host) {
     actions.applyTemplate(TEMPLATES[Number(b.dataset.template)]);
   }));
   host.querySelector('#sc-csv').addEventListener('click', () =>
-    download(`h2c-candidates-${db.meta.snapshot}.csv`,
+    download(`h2c-candidates-${fileStamp(db.meta)}.csv`,
       toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates }), 'text/csv'));
   host.querySelector('#sc-products').addEventListener('click', () =>
-    download(`h2c-products-${db.meta.snapshot}.csv`,
+    download(`h2c-products-${fileStamp(db.meta)}.csv`,
       productsCSV(sortRows(state.rows, state), db, { scenario, productsByMaterial: state.ctx.productsByMaterial }), 'text/csv'));
   host.querySelector('#sc-json').addEventListener('click', () =>
     download(`h2c-scenario-${new Date().toISOString().slice(0, 10)}.json`, serialize(scenario), 'application/json'));
@@ -852,8 +856,8 @@ function renderScenario(host) {
   // Provenance matters, but not more than everything else in the top bar. The full record is in
   // the Scenario panel, which already carried it.
   const meta = document.getElementById('meta');
-  meta.textContent = `data ${db.meta.snapshot}`;
-  meta.title = `Database snapshot ${db.meta.snapshot}, application build ${db.meta.build}, `
+  meta.textContent = `data ${db.meta.snapshot}${db.meta.release ? ` · release ${db.meta.release.id}` : ''}`;
+  meta.title = `Release ${db.meta.release?.id ?? 'unidentified'}, database snapshot ${db.meta.snapshot}, application build ${db.meta.build}, `
     + `${candidateCount(db)} materials, ${db.meta.counts.measurements} measurements. `
     + 'Open Save / share for the full record.';
 
