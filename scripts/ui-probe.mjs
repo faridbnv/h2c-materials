@@ -343,6 +343,23 @@ try {
 
       await open(pageUrl);
       await recordLayout(screen, 'default');
+      // Below 1100 px the filter rail covers the results when open, so it is a modal dialog (F10): Shift+Tab from its
+      // close button stays inside it, and Escape closes it and returns focus to Filters.
+      if (screen.width < 1100) {
+        await click('#btn-filters');
+        const inside = await evaluate(`(() => { const r = document.getElementById('rail'); return r.getAttribute('aria-modal') === 'true' && document.querySelector('.topbar').inert && r.contains(document.activeElement); })()`);
+        for (let i = 0; i < 3; i++) {
+          await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9, modifiers: 8 });
+          await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9, modifiers: 8 });
+        }
+        const kept = await evaluate(`document.getElementById('rail').contains(document.activeElement)`);
+        await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+        await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+        const back = await evaluate(`document.activeElement?.id === 'btn-filters' && !document.querySelector('.topbar').inert && document.getElementById('rail').getAttribute('aria-modal') === null`);
+        if (!inside) layoutProblems.push(`${screen.name}-filters: the open filter rail is not a modal dialog over an inert page`);
+        if (!kept) layoutProblems.push(`${screen.name}-filters: Shift+Tab left the open filter rail`);
+        if (!back) layoutProblems.push(`${screen.name}-filters: Escape did not close the rail and return focus to Filters`);
+      }
       // Still a fresh page in Confirmed only: the drawer there must hold no estimate.
       const opened = await evaluate(`(() => { const tr = [...document.querySelectorAll('#lens tr[data-material]')].find((row) => row.cells[0]?.innerText.trim().startsWith('ABS-CF')); tr?.click(); return !!tr; })()`);
       if (!opened) throw new Error(`${screen.name}: no ABS-CF row in the default table`);

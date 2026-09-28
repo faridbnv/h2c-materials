@@ -617,12 +617,23 @@ function wireChrome() {
   initPopover(actions);
 
   // The filter rail becomes a drawer on a narrow window or at high zoom. It used to become a fixed
-  // overlay with no way to close it, covering the results it was meant to filter.
+  // overlay with no way to close it, covering the results it was meant to filter. Open there, it covers the results, so
+  // it is a modal dialog as the material drawer is (the review of 2026-09-27, F10): the page behind it is inert, Tab
+  // cycles inside it, and Escape, its close button and the backdrop return focus to Filters.
   const main = document.getElementById('main');
   const railButton = document.getElementById('btn-filters');
+  const rail = document.getElementById('rail');
+  const behindRail = ['.topbar', '.workspace', '.statusbar', '#tray', '#skip-link'].map((s) => document.querySelector(s)).filter(Boolean);
+  const syncRailModal = () => {
+    const modal = narrowScreen.matches && main.dataset.railOpen === 'true';
+    if (modal) { rail.setAttribute('role', 'dialog'); rail.setAttribute('aria-modal', 'true'); }
+    else { rail.removeAttribute('role'); rail.removeAttribute('aria-modal'); }
+    for (const el of behindRail) el.inert = modal;
+  };
   const setRail = (open) => {
     main.dataset.railOpen = String(open);
     railButton.setAttribute('aria-expanded', String(open));
+    syncRailModal();
     // The close button, not the first button in the header: that is Clear requirements, and Enter on it wiped the
     // question the moment the drawer opened.
     if (open) document.getElementById('btn-rail-close').focus();
@@ -658,7 +669,7 @@ function wireChrome() {
   document.getElementById('drawer-host').addEventListener('click', (e) => {
     if (e.target === e.currentTarget && state.panel) actions.closeDrawer();
   });
-  narrowScreen.addEventListener('change', syncDrawerModal);
+  narrowScreen.addEventListener('change', () => { syncDrawerModal(); syncRailModal(); });
   // A table that fits keeps its column headings sticky; one that does not scrolls sideways in its box (format.js).
   let resizeTimer;
   window.addEventListener('resize', () => {
@@ -671,9 +682,9 @@ function wireChrome() {
       if (state.panel) { actions.closeDrawer(); return; }
       if (main.dataset.railOpen === 'true') { setRail(false); return; }
     }
-    // Inside a modal drawer Tab cycles through the drawer. An open explanation keeps its own Tab handling (popover.js),
-    // which may already have moved focus back to its mark; the cycle then carries on from there.
-    const drawer = e.key === 'Tab' && document.querySelector('#drawer-host .drawer[aria-modal="true"]');
+    // Inside a modal drawer, or the rail while it is one, Tab cycles through it. An open explanation keeps its own Tab
+    // handling (popover.js), which may already have moved focus back to its mark; the cycle then carries on from there.
+    const drawer = e.key === 'Tab' && (document.querySelector('#drawer-host .drawer[aria-modal="true"]') ?? document.querySelector('#rail[aria-modal="true"]'));
     if (drawer && !(popoverOpen() && document.getElementById('explain-popover').contains(document.activeElement))) {
       const items = focusablesIn(drawer);
       if (items.length) {

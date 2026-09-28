@@ -124,3 +124,12 @@ and its Pareto front ("of typical values") are labelled as context.
 Answers moved: none (ranking changes order, not eligibility; `test/metamorphic.test.js` holds that). Acceptance S09 met:
 for Warm environment by a light, stiff beam, the table, the guide and the export give one order; the review found them
 disagreeing (PPA-CF, PP-CF, PA612-CF against PP-CF, PAHT-CF, PPA-CF). With this, every expectation in the portfolio holds.
+
+## Phase 2: the practical workflow
+
+### F10: the narrow filter rail is a modal dialog
+
+Below 1100 px the open filter rail covers the results, so it is now a modal dialog as the material drawer is: the page
+behind it is inert, Tab and Shift+Tab cycle inside it, and Escape, its close button and the backdrop return focus to
+Filters. `npm run ui:check` checks it on the tablet and phone screens every run; on the old page it reports the two
+failures the review found (Shift+Tab reached the background), and Escape already returned focus.
