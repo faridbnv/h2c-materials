@@ -97,9 +97,9 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
-| D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber) |
+| D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types) |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
-| D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types) |
+| D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209) |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone; extended by m199 (2026-09-27): the ±45° tab's "Ultimate strength" is each of twelve Nanovia products' XY tensile strength |
 | D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts |
 | D93 | A maker's own "enclosure needed", with no temperature, reads as the guide's tick | For the nine material types Bambu Lab's guide says to print in an enclosure, a product whose own sheet says an enclosure is needed or recommended, and gives no chamber temperature, counts as printable in the H2C's heated chamber, in the maker's own words; a temperature the maker states still decides. | In force; it extends D90 |
@@ -2463,10 +2463,18 @@ Reversing it sends the 44 sheets back to deferred, and a family-only product has
 ## D88. Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's
 
 > **In plain words:** Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for.
-> **Status:** amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber).
+> **Status:** amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 1). Built in re-center phase 6, lane 2 (the
 owner's decisions), m150.*
+
+*Amended on 2026-09-27 (the owner's answer of that day; m209): the research package of 2026-09-26 reported that Bambu
+Lab's Filament Guide page links the ".../250123/..." file, and the page, loaded in headless Chrome, does: its one link
+to a filament guide PDF hashes to B-GUIDE's digest. So B-GUIDE, eighteen types in words (Required, Optional), is the
+revision Bambu Lab publishes, and `print_guide.csv` rows PG016 to PG033 read it. ASA-CF and PC FR, which only it heads,
+are mapped to their materials; TPU for AMS is not, because its material is an alias. The 15-column copy (R-BAMBU-GUIDE-202609),
+still served at a token URL no page links, keeps its rows PG001 to PG015 as a record that no material reads. Below,
+"current revision" and "January 2025 revision" are m150's reading of the two copies, which this replaced.*
 
 *Amended by D90 (2026-09-26): where the guide asks for an enclosure, its row declares the chamber "enclosed", which
 the H2C's heated chamber meets, so a silent product of those nine types is within on the chamber, labelled as the
@@ -2566,10 +2574,15 @@ untested, and the count of products that pass undercounts every maker that sells
 ## D90. Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it
 
 > **In plain words:** For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach.
-> **Status:** in force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types).
+> **Status:** in force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209).
 
 *Decided by the owner on 2026-09-26 (docs/GOALS.md, "Decided on 2026-09-26, for phase 6", decision 1); amends D88.
 Built in m165.*
+
+*Extended on 2026-09-27 (the owner's answer of that day; m209): the revision the build now reads (D88, amended) prints
+"Required" for eleven types, ASA-CF and PC FR besides the nine. Their rows declare the chamber "enclosed" with the same
+Parse review, so a silent ASA-CF or PC FR product is within on the chamber, labelled as the guide's: ASA-CF passes Warm
+environment on 6 products where it passed on 3. D93 still names the nine.*
 
 *Extended by D93 (2026-09-27): a maker's own profile that asks for an enclosure and prints no chamber temperature, for
 one of these nine types, may declare its chamber "enclosed" too, and reads as within in the maker's words. "Only a

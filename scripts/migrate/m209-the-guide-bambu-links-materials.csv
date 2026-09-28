@@ -1,0 +1,18 @@
+MaterialID,PrintGuideID,Reason
+M001,PG016,"The guide's PLA is Bambu Lab's unfilled PLA, and M001 is unfilled PLA with no variant class. Not PLA Silk, the particle-filled PLAs, PLA Aero, PLA-ESD or the PLA family's home, which the guide does not name, nor PLA-CF, which it names apart."
+M020,PG017,"The guide's only unfilled PETG is Bambu Lab's PETG HF, a product of PETG since m141 (D86); a high-flow PETG is PETG. Not PETG-CF, which it names apart, nor PETG-GF, -ESD, -PTFE, -GR, PCTG, CPE or PET, which it does not name."
+M027,PG018,"The same material type. Not ABS-GF, which the guide names apart, nor ABS-CF, -ESD, -AF, PC-ABS or Support for ABS."
+M028,PG019,The same material type. Not ABS or any other filled ABS.
+M031,PG020,"The same material type. Not ASA Aero, ASA-CF (which the guide names apart), ASA-GF, -EC, -AF or PC-ASA."
+M035,PG022,"The same material type. Not PC FR (which the guide names apart), PC-CF, -GF, -PTFE, -ESD, or a PC blend (PC-ABS, PC-PBT, PC-ASA), which the guide does not name."
+M161,PG024,"Bambu Lab rates TPU 95A HF 95A, in the 93 to 97A class (D86). Not the other hardness classes, TPU-CF, -GF, -LW, -EC, -ESD, TPE, TPS or TPC."
+M018,PG026,"The same material type. Not PLA, PLA-GF or the PLA family-CF home."
+M024,PG027,"The same material type. Not PETG, PETG-GF or PCTG-CF."
+M067,PG028,"The same material type. Not PET, PET-GF, PET-LW or another CF polyester."
+M048,PG029,"The same material type, as the guide and the material name it. Not PAHT, PAHT-CE or another nylon with carbon fibre (PA6-CF, PA12-CF, PA66-CF, PA6/66-CF, the Nylon-CF home)."
+M050,PG030,"The same material type. Not PA6/66-CF, PA12-CF, PA66-CF, PAHT-CF or the Nylon-CF home."
+M051,PG031,"The same material type. Not PA6, PA12-GF, PA612-GF or the Nylon-GF home."
+M070,PG032,The same material type. Not PPA or PPA-GF.
+M073,PG033,"The same material type. Not PPS, PPS-GF or PPS-ESD."
+M033,PG021,"The same material type, which the guide heads ASA-CF. Not ASA, which it names apart, nor ASA-GF, -EC, -AF, ASA Aero or PC-ASA."
+M036,PG023,"The same material type, which the guide heads PC FR: a flame-retardant polycarbonate. Not PC, which it names apart, nor PC-CF, -GF, -PTFE, -ESD or a PC blend."

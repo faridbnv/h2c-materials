@@ -38,16 +38,16 @@
       "sha256": "e40011199958e55374b5b4fb48f373d9c6f9aab626c0416d83e21b022223b88d"
     },
     "print_guide": {
-      "rows": 15,
-      "sha256": "b98405be5dcf1aebd2f75f8f43567c8a8fad0262897d89f47e4cd43bc9e104d1"
+      "rows": 33,
+      "sha256": "b46ad25ee402effbef2b6b0dd95cae51c5962424e164121da49ca48c877f1f20"
     },
     "prices": {
       "rows": 104,
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1647,
-      "sha256": "a373bea320e1186a4cde069d2edaad3c2f93be7fc28cdd3841d2a77f58d411d0"
+      "rows": 1648,
+      "sha256": "4b8556f26d4923f7b5ff755e38fcad8626d53ca7e879a58f926e3e17b1d8a559"
     },
     "coverage": {
       "rows": 873,
@@ -74,8 +74,8 @@
       "sha256": "7a553d3732341b96ceec5385eac00e83ca9556e808106310bff719a286cd8211"
     },
     "print_guide_materials": {
-      "rows": 15,
-      "sha256": "be62279a47e9e7f2a47066c66fac564dab4a85ce41b9c75edca65fe4cad8948c"
+      "rows": 17,
+      "sha256": "57098444745f30c043a85818375165c17f607b3479ba27d0404f9e066b2c6464"
     },
     "properties": {
       "rows": 44,
