@@ -826,7 +826,7 @@ G067-06,M067,Ultrafuse PET CF15,within,within,within,not-needed,requires-hardene
 G067-07,M067,Hyper Speed PET CF,within,within,within,not-needed,requires-hardened,unknown,nozzle: guide PG010; bed: guide PG010; chamber: guide PG010; enclosure: guide PG010
 G067-08,M067,PET CF,within,within,within,not-needed,requires-hardened,required,nozzle: guide PG010; bed: guide PG010; enclosure: guide PG010; hardenedNozzle: guide PG010
 G068-01,M068,PET-GF,within,within,within,unknown,requires-hardened,required,
-G068-02,M068,Fiberon PET-GF15,within,within,within,unknown,requires-hardened,required,
+G068-02,M068,Fiberon PET-GF15,within,within,within,recommended,requires-hardened,required,
 G068-04,M068,Industrial PET GF,unknown,unknown,unknown,unknown,requires-hardened,required,
 G068-05,M068,PET-GF,within,within,unknown,unknown,requires-hardened,required,
 G069-01,M069,PPA Pure Resin,within,within,unknown,recommended,unknown,required,
