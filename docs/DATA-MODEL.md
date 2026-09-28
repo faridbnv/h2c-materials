@@ -279,9 +279,10 @@ a material's headline is derived from them, and no product stands for a material
   nozzle), its material's printer maker's guide row (`print_guide.csv`, D88). `print.from[part]` and the gate's reason
   say which, with the label a reader is shown. What a product's own sheet says, even words the parser cannot read,
   always stands. A guide row that asks for an enclosure and gives no chamber temperature leaves the chamber unknown,
-  unless it declares Chamber state `enclosed`: Bambu Lab's rows for the nine types it asks an enclosure for, written for
-  its own enclosed printers, whose enclosure the H2C's heated chamber is (D90). Since D93 a maker's own profile may
-  declare it too, for one of those nine types, where its sheet asks for an enclosure and prints no chamber temperature
+  unless it declares Chamber state `enclosed`: Bambu Lab's rows for the eleven types its guide asks an enclosure for,
+  written for its own enclosed printers, whose enclosure the H2C's heated chamber is (D90; ASA-CF and PC FR since m209).
+  Since D93 a maker's own profile may declare it too, for one of those types, where its sheet asks for an enclosure and
+  prints no chamber temperature
   and no other profile of the product states its chamber (PROCESS-ENCLOSED says where it may stand).
   Null for a product with nothing on any part. `db.printGuide` holds the guide's rows, each with its materials.
 - **`materials[].summary[key]`**: the spread across the material's procurement products that are not declared
@@ -566,7 +567,7 @@ The chamber question has four kinds of answer, and only the first is a temperatu
 |---|---|---|---|
 | A published window | Bambu PC FR, 45–60 °C | `print.chamberC` | within, **partial** where only the bottom of the window is reachable, or exceeds |
 | A statement in words | "Not required", "enclosure not necessary", "Recommended", a data sheet's "-" | `print.chamberGuidance`: `not-required`, `recommended` or `no-setpoint` | within for `not-required`; unknown for the other two |
-| An enclosure asked for, with no temperature, for one of the nine types Bambu Lab's guide asks an enclosure for | Bambu Lab's guide row for ABS (D90); Polymaker ABS's "Closure chamber \| Needed" (D93) | a guide row's or a profile's chamber state `enclosed` | within: the H2C's heated chamber is that enclosure |
+| An enclosure asked for, with no temperature, for one of the eleven types Bambu Lab's guide asks an enclosure for | Bambu Lab's guide row for ABS (D90); Polymaker ABS's "Closure chamber \| Needed" (D93) | a guide row's or a profile's chamber state `enclosed` | within: the H2C's heated chamber is that enclosure |
 | An estimated band | PPA, ~80–120 °C† | `print.chamberEstimate` | **none**: a band changes no verdict |
 
 How many in-scope materials give each kind, and how many carry a band, is in the validation report's "Chamber
@@ -576,8 +577,9 @@ A **partial** window (DECISIONS D32) is chamber-only. Bambu Lab's PPS-CF publish
 60–65 °C of it, which is neither within nor a failure, so a chamber requirement reports INDETERMINATE.
 
 "Enclosure not necessary" counts as not required, because a material that need not be enclosed needs
-no heated chamber. "Enclosure recommended" alone does not count as anything (D33), with one exception: for the nine
-types Bambu Lab's guide asks an enclosure for (ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and PPS-CF), a
+no heated chamber. "Enclosure recommended" alone does not count as anything (D33), with one exception: for the eleven
+types Bambu Lab's guide asks an enclosure for (ABS, ABS-GF, ASA, ASA-CF, PC, PC FR, PAHT-CF, PA6-CF, PA6-GF, PPA-CF and
+PPS-CF; ASA-CF and PC FR since m209), a
 guide row (D90) or a maker's own profile (D93) that asks for an enclosure and states no temperature declares Chamber
 state `enclosed`, and the gate reads it as within. Where it may be declared is checked across rows (PROCESS-ENCLOSED),
 and a temperature the maker states still decides. A data sheet's "-" is its own state: not zero, and not "not
@@ -687,7 +689,8 @@ no statement may be silent, or unread), so it is recorded in `know_how_reads.csv
 parts of the print recipe a sheet may leave out, `recipe.chamber` (a chamber state or an enclosure need), `recipe.drying`
 and `recipe.annealing` (a schedule from the product's measurements or an annealing statement). `materials[].knowHow` counts
 its procurement products by state and, per topic, how many makers and products have a statement ("7 of 12 makers mention
-warping"); a material is collected when any product is. The Products tab shows both, and a silent product says so in
+warping"), and `sitesSearched`, how many of its products' makers' sites were searched; a material is collected when any
+product is. The Products tab shows both, and a silent product says so in
 place of an empty section, naming its maker. `npm run audit:know-how` writes the maker-site search worklist,
 `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md`, from the same states.
 

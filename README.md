@@ -116,6 +116,7 @@ scripts/docs-*.mjs                      the generated rule catalogue, data dicti
 scripts/migrate/                        source corrections and table changes since the conversion (m10 onwards), each guarded and re-runnable
 archive/workbook-conversion/            the 2026-09-14 workbook conversion (m01-m09, ledger, replay, baseline); history, no longer runs
 archive/ingest-2026-09-18/              the V2 import's proposals, still read by the batch migrations (scripts/ingest/archive.mjs)
+archive/research-2026-09-26/            what became of each finding of the 2026-09-26 research package, and its questions for makers
 .githooks/pre-commit                    format, schema and no-deletion check on data commits
 .github/workflows/                      verify on every push; build, verify, publish on main
 dist/                                   build output, not committed

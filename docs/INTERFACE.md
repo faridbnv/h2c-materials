@@ -764,7 +764,7 @@ printing and using it, quoted and grouped by topic (warping, precision, nozzle w
 document and page it is on and a product page marked as marketing text, then a line naming the maker and what its
 documents leave out (a topic, a chamber, drying or annealing need) and whether its website has been searched; its
 other evidence records follow, folded. Above the products, **What makers say** counts, topic by topic, how many makers
-say something. The Overview counts, axis by axis, how many products the H2C can print. The Ashby chart draws each
+say something, and for how many of the products the makers' websites were searched. The Overview counts, axis by axis, how many products the H2C can print. The Ashby chart draws each
 material as a bubble (the middle half of its products, whiskers to the extremes) behind its typical point, and **One
 product** plots every product that publishes both values comparably. Compare draws each material's product range
 behind its bar. **Export their products** writes every product of the materials on screen with its values, levels,
@@ -814,8 +814,8 @@ gate (nozzle, bed, chamber, enclosure, hardened nozzle), it reads its material's
 if the guide names the material's type. The setting in **How to print it** then carries "per Bambu Lab's Filament
 Guide for PLA, not this maker's sheet" ("not this product's data sheet" on Bambu Lab's own products); the gate's reason
 ends with the same words in brackets, so the results panel and the exports carry them; and the products export names
-the guide under Recipe read from. The guide never fills drying or annealing. For the nine types it asks an enclosure
-for, a chamber so read says "an enclosure, which the H2C's heated chamber is" (D90); where the product's own maker asks
+the guide under Recipe read from. The guide never fills drying or annealing. For the eleven types it asks an
+enclosure for, a chamber so read says "an enclosure, which the H2C's heated chamber is" (D90); where the product's own maker asks
 for one and states no temperature, it says "an enclosure its maker asks for, which the H2C's heated chamber is" (D93).
 
 **Counted on the Overview.** Under "Can the H2C print it?", the counts of how many products the H2C can print, axis by
@@ -827,9 +827,9 @@ above the profiles. It is headed by the guide's name ("Bambu Lab's Filament Guid
 tag. A line says what it is: what the printer maker's guide states for its type, standing in for a product's print
 gate only where the product's own sheet, and a twin's, say nothing on that part, labelled there as the guide's and
 never the maker's; how many of the material's products read a part from it; and why the row speaks for this
-material. Then its nozzle and bed, each with its gate chip; its chamber (for the nine enclosure types, "No chamber
+material. Then its nozzle and bed, each with its gate chip; its chamber (for the eleven enclosure types, "No chamber
 temperature stated; the enclosure it asks for on its maker's own printers is the H2C's heated chamber"); its enclosure
-mark as the guide draws it, with its reading ("✗: not needed"); its nozzle line, with whether a hardened nozzle is
+answer as the guide prints it, with its reading ("Optional: not needed"); its nozzle line, with whether a hardened nozzle is
 required; its drying line, marked "recorded; fills no product's recipe"; and its source, with the column and rows. A
 material the guide does not name has no such block, and a material with a guide row but no profile of its own shows
 the block alone.

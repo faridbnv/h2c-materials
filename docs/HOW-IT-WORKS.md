@@ -401,10 +401,10 @@ D89), then Bambu Lab's Filament Guide for its type (D88), each labelled as such 
 always wins, and a part none of them states is unknown, never a pass. A material's printability is its products': the
 drawer counts how many of them the H2C can print on each axis, and a requirement on printing is met by a product that
 meets it together with every other requirement. A recommendation ("chamber recommended if possible") is not a
-requirement and never fails a product. Where a source says a heated chamber is not needed, that counts. For the nine
-types the guide asks an enclosure for (ABS, ABS-GF, ASA, PC, PAHT-CF, PA6-CF, PA6-GF, PPA-CF, PPS-CF), an enclosure
-asked for with no temperature, by the guide or by the product's own maker, is met by the H2C's heated chamber (D90,
-D93); for any other type "enclosure recommended" counts as nothing. A material whose sources publish no nozzle or bed
+requirement and never fails a product. Where a source says a heated chamber is not needed, that counts. For the eleven
+types the guide asks an enclosure for (ABS, ABS-GF, ASA, ASA-CF, PC, PC FR, PAHT-CF, PA6-CF, PA6-GF, PPA-CF, PPS-CF), an
+enclosure asked for with no temperature, by the guide or by the product's own maker, is met by the H2C's heated chamber
+(D90, D93); for any other type "enclosure recommended" counts as nothing. A material whose sources publish no nozzle or bed
 window shows an estimated one, marked as such, that decides nothing.
 
 ## How to check a number yourself

@@ -67,3 +67,8 @@ The [filtering, estimates and data audit](audits/2026-09-15-filtering-estimates-
 The [architecture review](audits/2026-09-15-architecture-review/REPORT.md) judged the whole pipeline after that audit and its
 [response](audits/2026-09-15-architecture-review/RESPONSE.md) records what changed (the estimate stage, screening ends, records
 out of configuration, typed conditions, the verification tiers; D58 to D60), what was deferred and why, and what is open.
+
+The [re-center review](audits/2026-09-25-re-center/REPORT.md) set the plan now followed (phases 0 to 6), and its
+[response](audits/2026-09-25-re-center/RESPONSE.md) records each phase by commit. It also records the intake of the
+external research package of 2026-09-26 (m200 to m211, batch b37, D88 amended), whose findings are accounted for one
+by one in [archive/research-2026-09-26/](../archive/research-2026-09-26/).

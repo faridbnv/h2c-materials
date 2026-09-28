@@ -152,7 +152,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `audit-data.mjs` | Reproducible source-to-HTML verification and record inventories, and the review of per-record build findings. |
 | `data/sqlite.mjs` | `npm run db:sqlite`, `npm run sql -- "..."`: the compiled database as a SQLite file with the schema's types, the compiled headlines, and a robust z-score per measurement against its material's others (`v_measurement_z`, D75). |
 | `data/record-tier.mjs` | The record tier in the same file (D85): `source_facts`, the lines the import reader read without them becoming data, and `documents_fts`, a full-text index of the cached documents (built only where `.cache/text` is present). |
-| `ingest/` | The import pipeline: fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. Its proposals are in `archive/ingest-2026-09-18/proposals` (`archive.mjs` names the path); the ledger of every document, STATUS, BLOCKERS and READINGS stay in `docs/audits/2026-09-18-v2-import/`. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). The rules are in `docs/IMPORTING.md`. |
+| `ingest/` | The import pipeline: fetch, extract, propose, review, batch, apply through a migration, and the generated STATUS, BLOCKERS and READINGS. Its proposals are in `archive/ingest-2026-09-18/proposals` (`archive.mjs` names the path); the ledger of every document, STATUS, BLOCKERS and READINGS stay in `docs/audits/2026-09-18-v2-import/`. `second-read.mjs` draws an independent sample and keeps the findings register (R085, R165). `witness.mjs` records a maker's page beside a sheet, fetched, or staged from the copy its reader saved (`--from`, checked against the digest recorded when it was read). The rules are in `docs/IMPORTING.md`. |
 
 `npm run verify:fast` runs format, schema, lint, generated docs, build and tests while you work: about 75 seconds after a
 change and 30 when nothing the build reads changed, because the build result is cached by content
@@ -376,7 +376,7 @@ The chamber has two more answers the other axes do not (DECISIONS D32, D33):
   "Recommended" with no number is `recommended`; a data sheet's "-" is `no-setpoint`. The Enclosure
   column is parsed too, and "not necessary" there means no heated chamber is needed. An enclosure
   being recommended means nothing about 65 °C, except where a row declares Chamber state `enclosed`: a printer
-  maker's guide row (D90), or a maker's own profile for one of the nine types that guide asks an enclosure for (D93),
+  maker's guide row (D90), or a maker's own profile for one of the types that guide asks an enclosure for (D93),
   which reads as within (PROCESS-ENCLOSED says where it may be declared).
 
 **Chemical** (`chemical.js`). Environment topics onto canonical categories, via a hand-maintained

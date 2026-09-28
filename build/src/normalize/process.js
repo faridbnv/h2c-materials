@@ -251,8 +251,9 @@ export function parseEnclosure(raw) {
   // Advice to use one, with no temperature: Siraya Tech's "Use an enclosure to maintain consistent temperature and reduce
   // potential warping, especially for larger prints."
   if (/^use\s+an?\s+(enclosure|enclosed\s+printer)\b/i.test(text)) return { text, state: 'recommended' };
-  // A comparison table may answer the row with a mark instead of a word: Bambu Lab's filament guide draws a tick or a
-  // cross in its "Print with Enclosure" row, where its January 2025 revision printed "Required" and "Optional" (D88).
+  // A comparison table may answer the row with a mark instead of a word: one copy of Bambu Lab's filament guide draws a
+  // tick or a cross in its "Print with Enclosure" row, where the revision its page links prints "Required" and
+  // "Optional" (D88, m209).
   if (/^[✗✘]$/.test(text)) return { text, state: 'not-needed' };
   // The guide's revision that prints the row in words says "Optional" where the other draws the cross (m150 checked each
   // type both carry): an enclosure the maker calls optional is not needed.
