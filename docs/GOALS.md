@@ -1,6 +1,7 @@
 # What this tool is for
 
-The owner set this on 2026-09-25, after a step back from V2 ([the review and plan](audits/2026-09-25-re-center/REPORT.md)).
+The owner set this on 2026-09-25, after a step back from V2 ([the review and plan](audits/2026-09-25-re-center/REPORT.md)),
+and extended it on 2026-09-28 for version 2.1 (below).
 Every piece of work names the step and the scorecard line below that it improves. Work that names neither waits.
 A change of direction changes this page first.
 
@@ -189,6 +190,43 @@ and the owner took each:
    polyester home is decided.
 3. **The documents the package saved enter from their copies**: staged by digest, with the URL and the date the
    research agents read them (`ingest:witness --from`). Every quotation is re-checked on those bytes.
+
+## Decided on 2026-09-28, for version 2.1
+
+A review of 2026-09-27 ([REVIEW.md](audits/2026-09-27-v2.1-review/REVIEW.md), with its
+[plan](audits/2026-09-27-v2.1-review/V2.1-PLAN.md)) found the decision contract less complete than the data's: a
+product could pass on another product's evidence or offer, on values from two treatment states, or without a print gate
+the H2C could meet. The owner asked for version 2.1 to be built from that plan on the `v2` branch, not `main`, and took
+its recommended answer to each of the seven questions it put. Each becomes a DECISIONS entry in the change that builds it.
+
+1. **A product's verdict rests on its own evidence.** The exact product decides; a twin that prints the same sheet
+   (D89) reads its sibling's; a record filed under the material with no product, or a polymer's published behaviour, is
+   context and never passes. An offer is that product's own, never a sibling's. A conflict finding names the product it
+   is about, and holds out only that product.
+2. **A product is judged in a state it can be made in.** As printed is the default. An annealed value decides only
+   where the scenario permits annealing, at the schedule its sheet states, and every verdict and export names the
+   treatment it needs. Dry and conditioned values stay apart: the scenario says which service state it asks about. An
+   unstated condition is admitted under the screening policy and said so, never invented.
+3. **A material passes when one product passes, is unknown while one is unresolved, and fails only when every product
+   fails.** This revises D83's "fails when none passes and one fails", deliberately: one measured failure no longer
+   removes a material whose other products nobody has measured. The counts of products passing, failing and untested
+   stay beside every verdict.
+4. **Every standard template asks whether the H2C can print the product** (nozzle, bed and chamber, on the product's own
+   recipe, as D88 and D89 read it). Browsing materials without that check is a research mode, labelled as one.
+5. **"Comparable" is a screening policy, not an equivalence.** A verdict says which conditions are stated and which
+   the policy admits unstated (specimen, moisture, treatment), and heat deflection names its method.
+6. **A release is its content.** A deterministic release ID over the data, the rules and the engine travels with the
+   page, every saved scenario, link and export; a scenario saved against another release says so when reopened, even
+   on the same data date. The page of every release stays available.
+7. **The team layer starts as a local decision brief.** A chosen product, its state, what it passed, what is still
+   unverified, its print recipe and treatment, and the test the team will run, exported beside the release it was
+   chosen on. Shared approvals and a team test registry wait until the team has used this.
+
+The plan's order holds: decisions true first, then the practical workflow, then operations. What each step did, and
+the scenario answers it moved, is in [RESPONSE.md](audits/2026-09-27-v2.1-review/RESPONSE.md). The acceptance
+portfolio (twelve source-grounded questions whose expected answers were written before the code that meets them) is
+[ACCEPTANCE.md](audits/2026-09-27-v2.1-review/ACCEPTANCE.md); its answers were written by an agent, and wait for a
+person's review.
 
 ## Working rules
 

@@ -1,0 +1,277 @@
+{
+  "review_date": "2026-09-27",
+  "original_repo_changes": false,
+  "findings": [
+    {
+      "id": "A01",
+      "priority": "P1",
+      "title": "Import numeric guard does not bind a value to its source row",
+      "evidence_status": "reproduced mechanism defect",
+      "goal_scorecard": "C3 C6 C9",
+      "effort": "M-L",
+      "evidence": [
+        "scripts/lib/pdf-text.mjs:227",
+        "scripts/ingest/apply.mjs:180"
+      ],
+      "recommendation": "Bind decision values to bounded source tokens, row/column and condition anchors; visual review when association cannot be verified.",
+      "acceptance_criteria": [
+        "52-to-5 fixture corruption refused",
+        "Digit fragments in standards and other values refused",
+        "Wrong row or condition requires explicit review",
+        "Existing typography fixtures still supported"
+      ],
+      "dependencies": [],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A02",
+      "priority": "P1",
+      "title": "Snapshot date cannot pin a changed database",
+      "evidence_status": "code-established design defect",
+      "goal_scorecard": "C14 C15",
+      "effort": "M",
+      "evidence": [
+        "build/src/bundle.js:61",
+        "app/js/engine/scenario.js:152",
+        "app/js/engine/scenario.js:167",
+        "data/tables/method.csv:2"
+      ],
+      "recommendation": "Use content-based release IDs in artifacts, scenario links and exports; preserve exact release artifacts and migration diffs.",
+      "acceptance_criteria": [
+        "Same-date decision changes get distinct IDs",
+        "Saved scenario opens exact release or visible migration",
+        "Manifest declares dependency/runtime identity"
+      ],
+      "dependencies": [],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A03",
+      "priority": "P1",
+      "title": "Consistency tests need independent engineering acceptance fixtures",
+      "evidence_status": "known human-review debt and test limitation",
+      "goal_scorecard": "C3 C6 C7",
+      "effort": "L",
+      "evidence": [
+        "scripts/ui-fuzz.mjs:50",
+        "scripts/ui-fuzz.mjs:186",
+        "scripts/audit-data.mjs:24",
+        "test/selection-products.test.js:33"
+      ],
+      "recommendation": "Add a small independently reviewed source-backed engineering scenario set and task sessions.",
+      "acceptance_criteria": [
+        "Every requirement has reviewed four-state examples",
+        "Shared engine mutation detected",
+        "Source anchors and outcomes survive release migration"
+      ],
+      "dependencies": [
+        "A01",
+        "A02"
+      ],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A04",
+      "priority": "P2",
+      "title": "Multi-table writes and ledger updates lack recoverable transaction semantics",
+      "evidence_status": "code-established risk, no data loss reproduced",
+      "goal_scorecard": "C13 C15",
+      "effort": "M",
+      "evidence": [
+        "scripts/data/table-io.mjs:184",
+        "scripts/data/table-io.mjs:55",
+        "scripts/ingest/apply.mjs:399"
+      ],
+      "recommendation": "Stage validated changes, check pre-image hashes under a write lock and journal recovery including ledger updates.",
+      "acceptance_criteria": [
+        "Failure injection leaves previous or next complete world",
+        "Concurrent stale writer refused",
+        "Exact reapply is no-op and divergent reapply reported"
+      ],
+      "dependencies": [],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A05",
+      "priority": "P2",
+      "title": "SQLite debugging may mix current CSVs with stale compiled values",
+      "evidence_status": "code-established debugger integrity defect",
+      "goal_scorecard": "C11 C13 C15",
+      "effort": "S-M",
+      "evidence": [
+        "scripts/data/sqlite.mjs:184",
+        "scripts/data/sqlite.mjs:240"
+      ],
+      "recommendation": "Generate/query views against one input identity; refuse or refresh stale compiled/SQLite inputs.",
+      "acceptance_criteria": [
+        "Measurement edit refreshes or refuses current query",
+        "Raw and compiled views share identity",
+        "Partial text index labelled"
+      ],
+      "dependencies": [
+        "A02"
+      ],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A06",
+      "priority": "P2",
+      "title": "Fetches need bounded execution and durable progress",
+      "evidence_status": "code-established operational limitation",
+      "goal_scorecard": "C3 C9 C13",
+      "effort": "M",
+      "evidence": [
+        "scripts/ingest/fetch.mjs:70",
+        "scripts/ingest/fetch.mjs:220",
+        "scripts/ingest/fetch.mjs:322"
+      ],
+      "recommendation": "Add explicit connection/body deadlines, size limits, transient retry handling and per-document progress journal.",
+      "acceptance_criteria": [
+        "Stall/reset/429/oversize/interruption recoverable",
+        "Rerun resumes immutable digests",
+        "New revision distinct from original"
+      ],
+      "dependencies": [
+        "A04"
+      ],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A07",
+      "priority": "P2",
+      "title": "Live ingestion remains tied to dated campaign and broad reader",
+      "evidence_status": "maintenance design limitation",
+      "goal_scorecard": "C2 C3 C13 C15",
+      "effort": "L",
+      "evidence": [
+        "scripts/ingest/archive.mjs:1",
+        "scripts/ingest/propose.mjs:37",
+        "scripts/data/record-tier.mjs:43"
+      ],
+      "recommendation": "Introduce explicit context/proposal/state contracts and modularize by evidence responsibility while retaining history.",
+      "acceptance_criteria": [
+        "Fixture works under isolated new context",
+        "Path-only migration moves zero decisions",
+        "Adapters have scoped parity and independent source fixtures"
+      ],
+      "dependencies": [
+        "A01",
+        "A04"
+      ],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A08",
+      "priority": "P2",
+      "title": "Source replay relies on local cache without stated durable recovery contract",
+      "evidence_status": "documented limitation; external backups not inventoried",
+      "goal_scorecard": "C3 C11 C15",
+      "effort": "M",
+      "evidence": [
+        "scripts/data/record-tier.mjs:24",
+        "scripts/data/record-tier.mjs:194",
+        ".gitignore:22"
+      ],
+      "recommendation": "Document and implement private digest-addressed evidence bundle/store and restore manifest.",
+      "acceptance_criteria": [
+        "Independent offline evidence replay",
+        "Absent bytes named by source/digest",
+        "Text-index completeness exposed"
+      ],
+      "dependencies": [
+        "A02"
+      ],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A09",
+      "priority": "P2",
+      "title": "Quick start omits root dependencies and release browser checks may skip",
+      "evidence_status": "documentation omission and gate limitation",
+      "goal_scorecard": "C13 C15",
+      "effort": "S-M",
+      "evidence": [
+        "README.md:21",
+        "scripts/lib/pdf-text.mjs:17",
+        "scripts/lib/cdp.mjs:17",
+        "package.json:13"
+      ],
+      "recommendation": "Provide executable clean-clone bootstrap/doctor and require browser checks for release verification.",
+      "acceptance_criteria": [
+        "README-only fresh clone builds/verifies",
+        "Missing required browser cannot pass release gate",
+        "Toolchain support explicit"
+      ],
+      "dependencies": [],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A10",
+      "priority": "P2",
+      "title": "Current operations are obscured by history and a manual import walkthrough",
+      "evidence_status": "onboarding design limitation and instruction conflict",
+      "goal_scorecard": "C13 C15",
+      "effort": "M",
+      "evidence": [
+        "docs/IMPORTING.md:19",
+        "docs/WALKTHROUGH-ADD-A-MATERIAL.md:29",
+        "data/tables/method.csv:2"
+      ],
+      "recommendation": "Provide short engineer/correction/authorized-import routes; mark historical examples and smoke-test current examples.",
+      "acceptance_criteria": [
+        "Correct route identified in one page",
+        "Examples run isolated without hidden personal inputs",
+        "Routes obey import restrictions"
+      ],
+      "dependencies": [
+        "A07"
+      ],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A11",
+      "priority": "P2",
+      "title": "Measure complete fast loop and realistic corpus growth before optimizing",
+      "evidence_status": "performance recommendation; current timing supplied by root",
+      "goal_scorecard": "C13",
+      "effort": "M",
+      "evidence": [
+        "scripts/ensure-db.mjs:9",
+        "test/scale.check.js:20",
+        "test/scale.check.js:63",
+        "build/src/pipeline.js:39"
+      ],
+      "recommendation": "Measure cold/warm/decision-edit loops, strict fast budgets and targeted freshness-safe routes; optimize observed model and browser bottlenecks.",
+      "acceptance_criteria": [
+        "verify:fast <=90s on named baseline",
+        "Subset checks distinguished from release gate",
+        "Structure/performance changes preserve decision diffs"
+      ],
+      "dependencies": [
+        "A03"
+      ],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    },
+    {
+      "id": "A12",
+      "priority": "P3",
+      "title": "Cache promise needs a supported process/installation contract",
+      "evidence_status": "isolated key probe; no wrong decision established",
+      "goal_scorecard": "C13 C15",
+      "effort": "S",
+      "evidence": [
+        "build/src/build-cache.js:126",
+        "build/src/build-cache.js:204",
+        "build/src/build-cache.js:34"
+      ],
+      "recommendation": "Declare immutable one-shot loaded code contract or revalidate supported dynamic inputs before cache hits.",
+      "acceptance_criteria": [
+        "Changed supported inputs cannot use old entry",
+        "Unsupported mutable installation clearly bypasses",
+        "Cold/cached bytes agree"
+      ],
+      "dependencies": [],
+      "full_detail": "reviews/ARCHITECTURE-OPERATIONS.md"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "reviewDate": "2026-09-27",
+  "reviewer": "AI independent lane; source-targeted sample, not human certification",
+  "activeInScopeProcurementProducts": 1077,
+  "findings": [
+    {
+      "id": "D01",
+      "title": "A product can inherit another product's environmental proof, offer, or exact-grade evidence",
+      "severity": "P1, decision correctness.",
+      "classification": "new reproduced consequence of the D83 product transition, rooted in a known D38 material-level policy; amend the policy explicitly rather than treating it as a typographical bug.",
+      "goalStepsAndScorecard": "Screen, Drill down, Practicalities; C3, C6, C8.",
+      "evidenceFiles": [
+        "app/js/engine/products.js:96-103",
+        "constraints.js:245-263",
+        "constraints.js:334",
+        "constraints.js:399-404",
+        "coverage.csv",
+        "data/tables/grades.csv:30-31",
+        "evidence.csv:108"
+      ],
+      "recommendation": "Build a product evaluation context with explicitly scoped measurements, evidence, offers, and findings. An exact product fact may decide only for that product, a declared shared formulation where the source explicitly applies, or a separately labelled family/polymer inference that never supplies a positive proof. Material summaries should aggregate product results. Keep a family observation for context without making it proof for every grade. Add typed scope to coverage findings before enforcing product-level conflicts. Update D38 and the explanation of D83 in the same behavior change.",
+      "acceptanceTests": "G026-01 acid becomes UNKNOWN absent its own/declaratively shared evidence; G026-02 remains evaluated from its own weak/strong ratings. ECOMAX PLA buyable is UNKNOWN; the recorded Bambu product uses the Bambu offer. One grade's conflict does not reject unimplicated siblings. A declared twin can share only the fact kinds expressly permitted; prices never share. Add two-product fixtures with conflicting evidence, one offer, and one material-context record; changing a sibling must not alter an unrelated product's proof.",
+      "dependencies": "explicit fact scope and product identity; D05 exposure semantics. Parent architecture work should own one implementation rather than several patches to these three functions.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D02",
+      "title": "Printer compatibility is not consistently part of the default application verdict",
+      "severity": "P1.",
+      "classification": "new reproduced contract gap; templates deliberately test only their written criteria, but this falls short of `GOALS.md:24` saying a product must meet its H2C print requirements.",
+      "goalStepsAndScorecard": "Screen, Practicalities; C6, C9.",
+      "evidenceFiles": [
+        "GOALS.md:24",
+        "app/js/ui/templates.js"
+      ],
+      "recommendation": "Establish a single H2C manufacturing baseline, enforced before application requirements, with nozzle, bed, chamber and equipment capability. Keep compatibility result separate from property adequacy so a useful material with missing recipes can be explored honestly. A requirement such as \u201chigh modulus\u201d should not become an H2C-compatible recommendation by omitting a gate. Guide fallback may remain, but its origin should remain visible and it must not be counted as a maker-specific validated recipe. D88-D93 are sensible scoped fallbacks; their distinction from actual H2C testing matters.",
+      "acceptanceTests": "Every template has the same baseline, and each PASS product has every mandatory baseline axis PASS. Unknown recipe is UNKNOWN, not measured failure. A material may still appear in Explore via an unresolved product. Warm environment catches an unreachable bed. Test this with one small independent fixture plus the saved real-database scenarios, then report material and product decision diffs. Do not silently tighten data interpretations while adding the baseline.",
+      "dependencies": "owner-approved alignment of templates with the goal; product-state work D03; engine roll-up work in parent review.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D03",
+      "title": "The evidence must describe one consistent printed/treatment state",
+      "severity": "P1.",
+      "classification": "known policy permits annealed-only values; newly reproduced decision/label inconsistency across properties.",
+      "goalStepsAndScorecard": "Screen, Drill down, Confirm; C3, C4, C6, C9.",
+      "evidenceFiles": [
+        "app/js/engine/products.js:39",
+        "build/src/products.js:140-150",
+        "constraints.js:156-185",
+        "measurements.csv:1935",
+        "measurements.csv:2781"
+      ],
+      "recommendation": "Introduce a small product-state identity: as printed or a named anneal schedule, plus moisture condition and print-route linkage when known. Pick decision values within that state. Users should be able to choose as printed, annealing available, or unspecified exploration. An unknown annealing schedule cannot be presented as an executable treatment. A state transition should show dimensional/process implications without inventing a universal shrinkage correction. Support unknown state explicitly; do not infer one from a nearby number.",
+      "acceptanceTests": "As-printed PET-GF15 has HDT81.6 but no unverified as-printed mechanical modulus; its annealed120\u00b0C16h state uses the matching133.7 HDT and annealed mechanics. With annealing unavailable, PLA Matt's116 cannot produce an unconditional heat PASS. With annealing permitted, every decision/export reason names required treatment and its source. Two properties under different anneal schedules cannot be joined unless a reviewed relationship says they are equivalent. Measurement IDs and raw records remain intact.",
+      "dependencies": "product evaluation contract, scenario schema, treatment UI. Do this before adding further advanced state filters.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D04",
+      "title": "Comparable means a screening policy, not identical tests or expected service condition",
+      "severity": "P1 for misleading decision semantics, P2 for the additional controls.",
+      "classification": "declared D84 tradeoff, with quantified limits and a newly identified cross-method overstatement.",
+      "goalStepsAndScorecard": "Translate, Screen, Understand; C1, C3, C4.",
+      "evidenceFiles": [
+        "build/src/products.js:42-44",
+        "build/src/products.js:62"
+      ],
+      "recommendation": "Replace one assurance flag with visible compatibility dimensions: form, orientation/raster, moisture, treatment, temperature, endpoint, method and load. Keep a convenient default *screening policy*; offer a stricter user policy where the scenario requires it. Distinguish dry-coupon adequacy, service-state evidence, and team-confirmed performance. Avoid creating general wet/dry or method conversion factors without paired evidence and back-tests. Present HDT as its test property rather than a continuous use temperature.",
+      "acceptanceTests": "A requirement explicitly naming ISO75 cannot silently use D648/E2092; the default approximate screen can include them with a method caveat. A humid-service scenario can select published conditioned product values without estimating them into dry points. Missing service-state evidence is visible UNKNOWN. A drying recipe cannot satisfy service moisture compatibility. All comparisons and exports preserve policy/state; thresholds near differing methods are visibly provisional.",
+      "dependencies": "D03 state identities; scenario schema and evidence explanation. Amendment to D84, not weakening the missing-state rules.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D05",
+      "title": "Environmental screening should answer the exposure the user actually means",
+      "severity": "P1.",
+      "classification": "known category-level design limitation plus a new reproduced parser/aggregation consequence.",
+      "goalStepsAndScorecard": "Translate, Screen, Drill down; C1, C3, C6.",
+      "evidenceFiles": [
+        "build/src/normalize/chemical.js",
+        "constraints.js:348-364"
+      ],
+      "recommendation": "For a broad category keep an evidence-presence screen, accurately named. For a positive suitability result require a matched exposure target or a scope-limited statement the user explicitly accepts. Put interpretation in typed fields beside the maker's exact wording, including ambiguous/limited state; do not proliferate ad hoc regular expressions for prose. Preserve polymer-level guidance as a useful negative/contextual hint, never product proof. Unknown concentration/duration remains unknown; no fill-in defaults.",
+      "acceptanceTests": "Own-grade weak-acid Good can support a weak-acid evidence query; broad \u201cresists acids\u201d with strong-acid Fair-Poor cannot become unconditional PASS. A requested acetone exposure cannot pass on oils/grease or an unspecified solvent claim. An unmapped limiting statement makes a relevant decision unresolved rather than being discarded in a positive roll-up. The source wording and interpretation are both visible.",
+      "dependencies": "D01 product scope; exposure mapping and a small typed verdict field. Detailed chemical compatibility database expansion is not necessary for the first fix.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D06",
+      "title": "Collect decision-complete shortlists before increasing catalogue breadth",
+      "severity": "P2, practical usefulness.",
+      "classification": "known coverage gaps, quantified again; not a collection of newly discovered data defects.",
+      "goalStepsAndScorecard": "Screen, Rank, Practicalities; C2-C9.",
+      "evidenceFiles": [
+        "OPEN-PROBLEMS.md:161-173",
+        "archive/research-2026-09-26/owner-handoffs.csv"
+      ],
+      "recommendation": "Define a small benchmark portfolio with the team: indoor prototype; humid structural part; stiff fixture; warm motor bracket; flexible seal/strap; exposed outdoor bracket. For each, select a few traceable H2C products to make decision-complete where makers publish the necessary evidence. Rank collection by how many requested answers a fact settles. Separate \u201csource silent\u201d, \u201ccondition unresolved\u201d, \u201cproduct identity unresolved\u201d, \u201cneeds manufacturer\u201d, and \u201cneeds team test\u201d. Material-only research homes should be clearly nonprocurement exploration entries. Do not invent products to remove unknowns.",
+      "acceptanceTests": "The next data backlog is a generated scenario-to-gap worklist with source, expected decision changes, acquisition route, and stop condition. Each new collection change reports product answers and material answers moved, not just new rows. Vendor handoffs already in `archive/research-2026-09-26/owner-handoffs.csv` are reused rather than re-searching them. The no-product materials never present a buyable final shortlist product. Retain coverage reports by scenario and by product, using explicit denominators.",
+      "dependencies": "D01-D05 meaning fixes first; then benchmark scenarios. New imports remain subject to the owner's pause/exception process.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D07",
+      "title": "Numerical/source witnesses cannot certify the semantic role of a condition",
+      "severity": "P2 for validation design; P3 for the two currently affected cells.",
+      "classification": "known absence of a human source error-rate audit, plus two new source-verified condition defects.",
+      "goalStepsAndScorecard": "Screen, Confirm; C3, C15.",
+      "evidenceFiles": [
+        "docs/audits/2026-09-25-re-center/SPOT-CHECK.md",
+        "measurements.csv:2781-2782",
+        "scripts/ingest/propose.mjs:2145-2149"
+      ],
+      "recommendation": "Keep automated reconciliation, but add a small independent stratified source audit focused on decisive roles and borderline verdicts: identity, value/unit, specimen, direction/raster, moisture, treatment, test temperature/load/notch, and scope. Store checker identity/date and the conclusion. Use independent synthetic PDF/table fixtures with different role temperatures, not tests copied from current outputs. The owner or domain reviewer should sample the final proof, especially acceptances marked \u201cphysically implausible\u201d versus \u201cunusual but retained\u201d. Distinguish an empirical plausibility window from a hard contradiction.",
+      "acceptanceTests": "A fixture \u201cHDT 116\u00b0C after 4 h@ 90\u00b0C\u201d produces anneal90/4 and no constant test-temperature 90. An impact row \u201cnotched@-40\u00b0C\u201d still produces test-temperature -40; a nozzle/preparation temperature cannot enter either field. Retained audit results identify reviewer and whether values *and conditions* matched. Failures open class-level investigations; a sample never claims universal truth.",
+      "dependencies": "pipeline truth fixtures and source review manifest format; no broad re-extraction is needed for the immediate two-row repair.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D08",
+      "title": "Product identity and document revision must remain separate entities",
+      "severity": "P2, ranking/coverage bias and procurement traceability.",
+      "classification": "known in OPEN-PROBLEMS16, not a new duplicate discovery.",
+      "goalStepsAndScorecard": "Screen, Rank, Drill down; C2, C3, C5.",
+      "evidenceFiles": [
+        "OPEN-PROBLEMS.md:642-650"
+      ],
+      "recommendation": "Preserve stable procurement ProductID/GradeID. Attach explicit document revisions and measurement-set provenance, with supersedes/current-selection relationships and product aliases. Do not merge on identical numbers alone or on a normalized product-name string. The shared-formulation relationship is a separate, source-supported claim and should continue to be distinct from a document copy or product rename. Resolve known items before expanding the identity heuristics.",
+      "acceptanceTests": "A new revision of a known product creates a new source/measurement set without increasing product counts; a materially distinct PLA+ remains separate. A retired revision remains traceable and cannot win an active decision by a smaller MeasurementID unless explicitly chosen. Ambiguous composition/name remains an unresolved identity, not a guessed grade. Snapshot product counts and medians show only intended changes.",
+      "dependencies": "source revision relationships; product-scoped findings from D01. Owner/manufacturer identity rulings remain authoritative.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    },
+    {
+      "id": "D09",
+      "title": "The final shortlist needs a compact engineering confirmation brief",
+      "severity": "P2, usefulness for the intended team.",
+      "classification": "explicitly deferred team layer (GOALS C14), proposed narrow v2.1 improvement rather than a missing implemented requirement.",
+      "goalStepsAndScorecard": "Translate, Confirm; C1, C7, C14.",
+      "evidenceFiles": [],
+      "recommendation": "Export a small confirmation brief with scenario intent, exact shortlisted product/state, source IDs, passed requirements, unresolved limits, assumed facts, achievable route, and a suggested experiment *defined by the team's application*. Include load direction, exposure, time/temperature, thickness/tolerance, and repeatability questions when they govern. This can be a local scenario artifact and a manually entered test reference; a large shared team database and FE solver are unnecessary for v2.1. Prioritize a usable decision record over an unvalidated universal easy-to-print score.",
+      "acceptanceTests": "A warm loaded-bracket brief identifies HDT as a coupon screen and leaves sustained load/service endurance for confirmation. A flexible-seal brief names recovery/compression set and geometry as unresolved if the maker does not publish them. The team can reopen a saved scenario and find exact product/state and source witnesses. If a future own-test row decides, its print route, batch, condition, method and reviewer are recorded, and datasheets remain accessible beside it.",
+      "dependencies": "Stable scenario serialization, D01/D03 provenance, and a team pilot. A fuller tested-result tier remains a separately approved later increment if the owner keeps C14 deferred.",
+      "fullDossier": "reviews/DATA-ENGINEERING.md"
+    }
+  ]
+}

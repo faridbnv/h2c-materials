@@ -1,0 +1,769 @@
+{
+  "schema_version": 1,
+  "reviewed_commit": "eb695b8328b369986341491d948d793abdfcb995",
+  "review_date": "2026-09-27 America/Vancouver",
+  "implementation_authorized": false,
+  "scope": "Proposed version2.1 work; original repository unchanged",
+  "priorities": {
+    "P1": "Decision correctness or release-critical evidence/acceptance",
+    "P2": "Practical workflow, coverage operations and maintenance"
+  },
+  "effort_bands": {
+    "S": "1-2 focused person-days",
+    "M": "3-5 focused person-days",
+    "L": "6-10 focused person-days; source/human work may dominate"
+  },
+  "recommended_order": [
+    "F15",
+    "F06",
+    "F07",
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F08",
+    "F09",
+    "F10",
+    "F11",
+    "F12",
+    "F13",
+    "F14",
+    "F16",
+    "F17"
+  ],
+  "findings": [
+    {
+      "id": "F01",
+      "title": "Product and exposure evidence applicability",
+      "priority": "P1",
+      "phase": "1",
+      "goal_steps": "Screen, Drill down, Practicalities",
+      "scorecard_lines": [
+        "C3",
+        "C6",
+        "C8"
+      ],
+      "dependencies": [],
+      "effort_person_days_band": "L",
+      "implementation_anchors": [
+        "build/src/compile.js",
+        "app/js/engine/products.js",
+        "app/js/engine/constraints.js",
+        "schema/tables/evidence.schema.json",
+        "schema/tables/coverage.schema.json"
+      ],
+      "changes": [
+        "Declare grade/formulation/material/polymer/context applicability and scope coverage findings",
+        "Evaluate own applicable environment, exact-grade evidence and offers; preserve broad context without positive proof",
+        "Match named exposure conditions; typed limiting statements remain in verdict basis"
+      ],
+      "acceptance_criteria": [
+        "ECOMAX cannot inherit Bambu in-stock offer",
+        "G026-01 cannot inherit Q00107 without declared applicability",
+        "Weak-acid Good cannot confirm strong-acid Fair-Poor exposure",
+        "A grade conflict does not reject an unimplicated sibling"
+      ],
+      "related_specialist_findings": [
+        "D01",
+        "D05"
+      ],
+      "evidence": [
+        "evidence/data-engineering/product-scope-results.json",
+        "evidence/data-engineering/SOURCE-REREAD.md"
+      ],
+      "evidence_status": "Declared D38 material policy with newly reproduced D83 scope consequence",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F02",
+      "title": "Compatible product and treatment/service states",
+      "priority": "P1",
+      "phase": "1",
+      "goal_steps": "Screen, Drill down, Confirm",
+      "scorecard_lines": [
+        "C3",
+        "C4",
+        "C6",
+        "C9"
+      ],
+      "dependencies": [
+        "F01"
+      ],
+      "effort_person_days_band": "L",
+      "implementation_anchors": [
+        "build/src/products.js",
+        "build/src/recipe.js",
+        "app/js/engine/products.js",
+        "app/js/engine/scenario.js",
+        "schema/tables/measurements.schema.json"
+      ],
+      "changes": [
+        "Derive product/state bundles from existing typed conditions; add only nonderivable state assertions",
+        "Capture permitted treatments and service moisture/direction in scenario policy",
+        "Show required schedule and unknown condition dimensions in every verdict/export",
+        "Correct V002780/V002781 condition role only by source-checked guarded migration"
+      ],
+      "acceptance_criteria": [
+        "No-anneal PLA Matt does not use116C as untreated proof",
+        "PET-GF15 asprintedHDT81.6 is not joined to annealed mechanics as one state",
+        "Annealed PET-GF15 can use matching133.7HDT under permitted120C16h treatment",
+        "Missing state stays explicit; no generic wet/dry correction invented"
+      ],
+      "related_specialist_findings": [
+        "D03",
+        "D04",
+        "D07"
+      ],
+      "evidence": [
+        "evidence/data-engineering/source-reread-manifest.json",
+        "evidence/data-engineering/coverage-results.json"
+      ],
+      "evidence_status": "Known policy admission; new compatible-state/label defect and two source-role errors",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F03",
+      "title": "H2C manufacturing feasibility in standard selection",
+      "priority": "P1",
+      "phase": "1",
+      "goal_steps": "Screen",
+      "scorecard_lines": [
+        "C6",
+        "C9"
+      ],
+      "dependencies": [
+        "F02"
+      ],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "app/js/ui/templates.js",
+        "app/js/engine/constraints.js",
+        "build/src/recipe.js",
+        "app/js/ui/filters.js"
+      ],
+      "changes": [
+        "Apply common machine/route/treatment baseline to normal templates",
+        "Separate material-research mode from H2C feasibility",
+        "Keep partial/recommended-higher unknown; label guide fallback vs exact recipe"
+      ],
+      "acceptance_criteria": [
+        "Warm tests bed as well as nozzle/chamber",
+        "All standard PASS product/states meet mandatory baseline axes",
+        "Exceeds recipe products in retained examples cannot be confirmed",
+        "Guide fallback remains traced and is not presented as a local coupon validation"
+      ],
+      "related_specialist_findings": [
+        "D02"
+      ],
+      "evidence": [
+        "evidence/selection-probe-results.json"
+      ],
+      "evidence_status": "New demonstrated goal/template contract gap",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F04",
+      "title": "Material aggregation preserves viable unknown alternatives",
+      "priority": "P1",
+      "phase": "1",
+      "goal_steps": "Screen",
+      "scorecard_lines": [
+        "C6"
+      ],
+      "dependencies": [
+        "F01",
+        "F02"
+      ],
+      "effort_person_days_band": "S",
+      "implementation_anchors": [
+        "app/js/engine/constraints.js",
+        "test/selection-products.test.js",
+        "docs/DECISIONS.md"
+      ],
+      "changes": [
+        "Approve and document intentional D83 policy revision",
+        "Roll up PASS if any passes; UNKNOWN if any viable unresolved remains; FAIL only all fail",
+        "Report tested-fail/untested and screened counts separately"
+      ],
+      "acceptance_criteria": [
+        "One FAIL plus one unscreened UNKNOWN remains exploration candidate",
+        "All fail remains FAIL; one pass remains PASS",
+        "Adding a failing grade cannot remove an unresolved viable grade",
+        "Snapshot decision diff explains every moved scenario answer"
+      ],
+      "related_specialist_findings": [],
+      "evidence": [
+        "evidence/selection-probe-results.json"
+      ],
+      "evidence_status": "Explicit challenged D83 policy, not accidental implementation regression",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F05",
+      "title": "One product/state ranking across lenses",
+      "priority": "P1",
+      "phase": "1",
+      "goal_steps": "Rank, Understand",
+      "scorecard_lines": [
+        "C7"
+      ],
+      "dependencies": [
+        "F02",
+        "F03",
+        "F04"
+      ],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "app/js/engine/indices.js",
+        "app/js/ui/ashby.js",
+        "app/js/ui/table.js",
+        "app/js/ui/compare.js"
+      ],
+      "changes": [
+        "Create common ranked result with eligible product/state and input record IDs",
+        "Drive table/chart-guide/export from the same score basis",
+        "Label full material distributions and contextual Pareto separately"
+      ],
+      "acceptance_criteria": [
+        "Warm beam-stiffness table/chart/export same order and values",
+        "Nonpassing product inputs cannot improve candidate rank",
+        "Unavailable inputs produce explicit unranked status",
+        "Product-state assumptions and index caveats travel with result"
+      ],
+      "related_specialist_findings": [],
+      "evidence": [
+        "evidence/selection-probe-results.json",
+        "evidence/ux/03-warm-table-rank.png",
+        "evidence/ux/05-warm-ashby-index.png"
+      ],
+      "evidence_status": "Confirmed numerical and rendered ranking defect",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F06",
+      "title": "Source row/token/condition-role witness guard",
+      "priority": "P1",
+      "phase": "1",
+      "goal_steps": "Screen, Drill down",
+      "scorecard_lines": [
+        "C3",
+        "C9"
+      ],
+      "dependencies": [],
+      "effort_person_days_band": "L",
+      "implementation_anchors": [
+        "scripts/lib/pdf-text.mjs",
+        "scripts/ingest/apply.mjs",
+        "scripts/ingest/propose.mjs",
+        "test/ingest-apply.test.js"
+      ],
+      "changes": [
+        "Bind exact numeric/unit tokens to row/property/column/direction/condition role",
+        "Reject contradictory line evidence instead of page-wide substring matches",
+        "Retain explicit reviewed visual exceptions and lightweight record tier"
+      ],
+      "acceptance_criteria": [
+        "52to5MPa fixture refused",
+        "Digits inside52 or D638 do not witness5/6/2MPa",
+        "Anneal90C cannot become constant testTemperature90C by shared token",
+        "Legitimate decimal commas/spread/bounds/scans supported with retained fixtures"
+      ],
+      "related_specialist_findings": [
+        "A01",
+        "D07"
+      ],
+      "evidence": [
+        "probes/import-number-guard-results.jsonl",
+        "evidence/data-engineering/SOURCE-REREAD.md"
+      ],
+      "evidence_status": "Reproduced mechanism weakness plus observed condition-role error; no production52to5 corruption asserted",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F07",
+      "title": "Immutable content release and scenario migration",
+      "priority": "P1",
+      "phase": "1",
+      "goal_steps": "Confirm, Practicalities",
+      "scorecard_lines": [
+        "C14",
+        "C15"
+      ],
+      "dependencies": [],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "build/src/index.js",
+        "build/src/bundle.js",
+        "app/js/engine/scenario.js",
+        ".github/workflows/pages.yml"
+      ],
+      "changes": [
+        "Derive deterministic data/rules/contract release ID; carry in embedded data/scenario/export",
+        "Retain immutable offline artifacts",
+        "Warn or open exact artifact on changed release, including same-date changes",
+        "Declare relevant runtime/dependency identities in manifest"
+      ],
+      "acceptance_criteria": [
+        "Same-date modified evidence gets distinct release ID",
+        "Same inputs retain same ID/bytes",
+        "Old scenario visibly warns before current-release recomputation",
+        "Legacy links migrate with explicit limitations"
+      ],
+      "related_specialist_findings": [
+        "A02"
+      ],
+      "evidence": [
+        "evidence/ux-focused/ux-probe.json"
+      ],
+      "evidence_status": "Code-established replay defect confirmed through no-warning probe",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F08",
+      "title": "Scenario-weighted data closure",
+      "priority": "P1",
+      "phase": "2",
+      "goal_steps": "Translate, Screen, Confirm",
+      "scorecard_lines": [
+        "C1",
+        "C2",
+        "C3",
+        "C6",
+        "C9"
+      ],
+      "dependencies": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F15"
+      ],
+      "effort_person_days_band": "L",
+      "implementation_anchors": [
+        "scripts/audit/blocking-gaps.mjs",
+        "data/tables/coverage.csv",
+        "docs/OPEN-PROBLEMS.md"
+      ],
+      "changes": [
+        "Generate exact product/state scenario gaps with impact/stop conditions",
+        "Prioritize named products for agreed tasks; reuse existing owner/maker handoffs",
+        "Separate sourcesilent/unresolvedidentity/unresolvedcondition/needsmaker/needstest",
+        "Report products made actionable and answers settled, not document count"
+      ],
+      "acceptance_criteria": [
+        "Every proposed intake names affected scenario and expected answer movement",
+        "No silent product fabricated for no-product material",
+        "Source searched and absent result recorded honestly",
+        "Data changes source-checked and pipeline-authorized"
+      ],
+      "related_specialist_findings": [
+        "D06",
+        "D08"
+      ],
+      "evidence": [
+        "evidence/decision-coverage.json",
+        "evidence/data-engineering/coverage-results.json"
+      ],
+      "evidence_status": "Known coverage debt requantified; scenario-centered improvement",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F09",
+      "title": "Practical results and product-first drill-down",
+      "priority": "P2",
+      "phase": "2",
+      "goal_steps": "Translate, Understand, Drill down",
+      "scorecard_lines": [
+        "C1",
+        "C7",
+        "C8"
+      ],
+      "dependencies": [
+        "F01",
+        "F02",
+        "F03",
+        "F05"
+      ],
+      "effort_person_days_band": "L",
+      "implementation_anchors": [
+        "app/js/main.js",
+        "app/js/ui/start.js",
+        "app/js/ui/table.js",
+        "app/js/ui/detail.js",
+        "app/js/ui/compare.js",
+        "app/css/app.css"
+      ],
+      "changes": [
+        "Compact active requirements and optional method context",
+        "Put passing product/state cards with recipe/treatment first",
+        "Compare product-state gates separately from material spread",
+        "Make discovery search context explicit; add exact maker/product scope",
+        "Differentiate all-missing/unsupported evidence from measured failure in recovery text"
+      ],
+      "acceptance_criteria": [
+        "Proposed laptop target3 useful candidates visible without exposition scroll",
+        "Product verdict/required treatment/recipe starts in first drawer view",
+        "Maker match supported by another maker is explicit or filtered",
+        "Material context remains accessible; no unlabeled eligibility changes on view switch",
+        "Sunlight strict allUNKNOWN message identifies lack of confirmation evidence, not material unsuitability"
+      ],
+      "related_specialist_findings": [],
+      "evidence": [
+        "evidence/ux-focused/ux-probe.json",
+        "evidence/ux/17-laptop-products.png"
+      ],
+      "evidence_status": "Measured task/layout burden and reproduced context mismatch; layout targets proposed",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F10",
+      "title": "Keyboard overlay behavior",
+      "priority": "P2",
+      "phase": "2",
+      "goal_steps": "Translate, Drill down",
+      "scorecard_lines": [
+        "C1",
+        "C8"
+      ],
+      "dependencies": [],
+      "effort_person_days_band": "S",
+      "implementation_anchors": [
+        "app/js/main.js",
+        "app/js/ui/filters.js",
+        "app/css/app.css"
+      ],
+      "changes": [
+        "Use shared modal/inert/focus management for narrow Filters and drawers",
+        "Preserve Escape, focus restoration and native control labels"
+      ],
+      "acceptance_criteria": [
+        "ShiftTab/Tab cannot reach background while Filters open",
+        "Escape closes and returns focus to trigger",
+        "Modal roles/state are correct at laptop and phone breakpoints",
+        "Keyboard-only requirement/product/export task succeeds"
+      ],
+      "related_specialist_findings": [],
+      "evidence": [
+        "evidence/ux-focused/ux-probe.json"
+      ],
+      "evidence_status": "Confirmed keyboard defect; screen reader certification unexecuted",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F11",
+      "title": "Exact product-state print/test handoff",
+      "priority": "P2",
+      "phase": "2",
+      "goal_steps": "Practicalities, Confirm",
+      "scorecard_lines": [
+        "C8",
+        "C9",
+        "C14"
+      ],
+      "dependencies": [
+        "F01",
+        "F02",
+        "F03",
+        "F07",
+        "F09"
+      ],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "app/js/engine/scenario.js",
+        "app/js/ui/table.js",
+        "app/js/ui/detail.js",
+        "app/js/main.js"
+      ],
+      "changes": [
+        "Add product/state selections and portable decision brief",
+        "Include limits/goal/policy/source IDs/recipe/treatment/gaps/test plan",
+        "Capture local operator/coupon observations as distinct team evidence with scope"
+      ],
+      "acceptance_criteria": [
+        "Saved handoff identifies exact grade/state/release",
+        "Unresolved needs are actionable and never called verified",
+        "Local tests preserve printer/recipe/orientation/conditioning/method provenance",
+        "Broad shared-account backend unnecessary for initial flow"
+      ],
+      "related_specialist_findings": [
+        "D09"
+      ],
+      "evidence": [
+        "reviews/DATA-ENGINEERING.md",
+        "reviews/PRACTICAL-UX.md"
+      ],
+      "evidence_status": "Known GOALS team layer; narrow proposed extension",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F12",
+      "title": "Product-specific sourcing and prototype starting path",
+      "priority": "P2",
+      "phase": "2",
+      "goal_steps": "Practicalities",
+      "scorecard_lines": [
+        "C1",
+        "C8",
+        "C14"
+      ],
+      "dependencies": [
+        "F01",
+        "F09"
+      ],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "app/js/ui/templates.js",
+        "app/js/ui/detail.js",
+        "data/tables/prices.csv"
+      ],
+      "changes": [
+        "Remove price absence as the default general prototype eligibility gate",
+        "Refresh prioritized shortlist offers by exact SKU/variant/mass/currency/date",
+        "Separate observed spool price from landed/process cost when supplied"
+      ],
+      "acceptance_criteria": [
+        "No sampled price becomes visible sourcing task",
+        "Product source/stock/date belong to chosen grade",
+        "Price refresh reports age/source and cannot fabricate availability",
+        "Canadian price/tax/shipping assumptions are separate inputs"
+      ],
+      "related_specialist_findings": [
+        "D06"
+      ],
+      "evidence": [
+        "evidence/decision-coverage.json",
+        "evidence/ux/01-template-1-strict.txt"
+      ],
+      "evidence_status": "Known sparse market sample; practical starting-path improvement",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F13",
+      "title": "Generation-aware SQL and decision tracing",
+      "priority": "P2",
+      "phase": "3",
+      "goal_steps": "Drill down, Confirm",
+      "scorecard_lines": [
+        "C11",
+        "C13",
+        "C15"
+      ],
+      "dependencies": [
+        "F01",
+        "F02",
+        "F07"
+      ],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "scripts/data/sqlite.mjs",
+        "scripts/trace.mjs",
+        "scripts/data/record-tier.mjs"
+      ],
+      "changes": [
+        "Stamp raw/compiled/query input identities and reject mixed generations",
+        "Trace scenario/product/state/requirement through source/rules/acceptances",
+        "Expose unavailable source text coverage in query metadata"
+      ],
+      "acceptance_criteria": [
+        "CSV measurement edit refreshes or refuses stale SQL",
+        "Raw/compiled tables report same generation",
+        "Machine-readable trace cites exact reason and record IDs",
+        "Missing source bytes/text are explicit"
+      ],
+      "related_specialist_findings": [
+        "A05"
+      ],
+      "evidence": [
+        "reviews/ARCHITECTURE-OPERATIONS.md"
+      ],
+      "evidence_status": "Code-established debugger freshness defect",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F14",
+      "title": "Recoverable edits and bounded reusable ingestion",
+      "priority": "P2",
+      "phase": "3",
+      "goal_steps": "Drill down, Confirm",
+      "scorecard_lines": [
+        "C3",
+        "C11",
+        "C13",
+        "C15"
+      ],
+      "dependencies": [
+        "F06",
+        "F07"
+      ],
+      "effort_person_days_band": "L",
+      "implementation_anchors": [
+        "scripts/data/table-io.mjs",
+        "scripts/ingest/apply.mjs",
+        "scripts/ingest/fetch.mjs",
+        "scripts/ingest/archive.mjs",
+        "scripts/ingest/propose.mjs"
+      ],
+      "changes": [
+        "Stage/journal multi-file generation with manifest preimage lock and ledger recovery",
+        "Bound fetch time/size/retries with per-document durable progress",
+        "Separate live ingest context from historical audit directory and refactor tested adapters",
+        "Define private digest source-byte backup/restore and text-index completeness"
+      ],
+      "acceptance_criteria": [
+        "Injected interruption leaves old or new complete world, not mixture",
+        "Concurrent stale append refused",
+        "Stall/reset429oversize resumes without digest rewrite",
+        "Independent source restore names absent digests and respects provenance",
+        "Pure refactor moves0decision answers"
+      ],
+      "related_specialist_findings": [
+        "A04",
+        "A06",
+        "A07",
+        "A08"
+      ],
+      "evidence": [
+        "reviews/ARCHITECTURE-OPERATIONS.md"
+      ],
+      "evidence_status": "Failure-mode/maintenance risk; no actual data-loss incident established",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F15",
+      "title": "Independent engineering acceptance and team evidence",
+      "priority": "P1",
+      "phase": "0",
+      "goal_steps": "All selection steps",
+      "scorecard_lines": [
+        "C3",
+        "C6",
+        "C7",
+        "C15"
+      ],
+      "dependencies": [],
+      "effort_person_days_band": "L",
+      "implementation_anchors": [
+        "test/selection-products.test.js",
+        "test/templates.test.js",
+        "scripts/ui-fuzz.mjs",
+        "docs/audits/2026-09-25-re-center/SPOT-CHECK.md"
+      ],
+      "changes": [
+        "Create12source-grounded scenarios with independently reviewed expected product/state answers",
+        "Retain small counterexample and metamorphic tests for critical findings",
+        "Run stratified human source spot-check and formative engineer task trials",
+        "Report parity vs independent semantic/source validation separately"
+      ],
+      "acceptance_criteria": [
+        "Counterexamples fail old semantics and pass approved new ones",
+        "Oracle does not simply invoke production selection for expected answers",
+        "Human reviewers/date/sample definition/error findings retained",
+        "Unknown outcomes accepted when correct and actionable"
+      ],
+      "related_specialist_findings": [
+        "A03"
+      ],
+      "evidence": [
+        "evidence/selection-probe-results.json",
+        "reviews/DATA-ENGINEERING.md",
+        "reviews/PRACTICAL-UX.md"
+      ],
+      "evidence_status": "Known C3/C7 human debt and demonstrated shared-oracle limitation",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F16",
+      "title": "Measured fast loop, scaling and release efficiency",
+      "priority": "P2",
+      "phase": "3",
+      "goal_steps": "Data operations",
+      "scorecard_lines": [
+        "C13"
+      ],
+      "dependencies": [
+        "F07",
+        "F15"
+      ],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "build/src/pipeline.js",
+        "build/src/build-cache.js",
+        "test/scale.check.js",
+        ".github/workflows/verify.yml",
+        ".github/workflows/pages.yml",
+        "build/src/bundle.js"
+      ],
+      "changes": [
+        "Benchmark Node24cold/warm/edit loop plus stage/RSS/browser payload cost",
+        "Add dominant-group growth case; retain existing uncached audit/repro gate",
+        "Reuse verified deployment artifact and avoid needless duplicate CI",
+        "Optimize measured model/browser bottleneck without behavior change"
+      ],
+      "acceptance_criteria": [
+        "Fast<=90s on stated baseline",
+        "Scale150sbudget retained; worst-group trend reported",
+        "Structure/performance changes0decision diff",
+        "Offline runtime noHTTPfetch and cache/cold outputs equal"
+      ],
+      "related_specialist_findings": [
+        "A11"
+      ],
+      "evidence": [
+        "evidence/verification-results.json",
+        "evidence/verify-full-browser-enabled.log"
+      ],
+      "evidence_status": "Budget currently met; targeted efficiency improvement rather than emergency rewrite",
+      "implementation_status": "proposed, unimplemented"
+    },
+    {
+      "id": "F17",
+      "title": "Executable concise onboarding and current docs",
+      "priority": "P2",
+      "phase": "3",
+      "goal_steps": "Translate, Data operations",
+      "scorecard_lines": [
+        "C1",
+        "C13",
+        "C15"
+      ],
+      "dependencies": [
+        "F01",
+        "F02",
+        "F07",
+        "F13",
+        "F14"
+      ],
+      "effort_person_days_band": "M",
+      "implementation_anchors": [
+        "README.md",
+        "docs/README.md",
+        "docs/HOW-IT-WORKS.md",
+        "docs/IMPORTING.md",
+        "docs/WALKTHROUGH-ADD-A-MATERIAL.md",
+        "data/tables/method.csv"
+      ],
+      "changes": [
+        "Exercise clean-clone setup installing both dependency groups and required browser checks",
+        "Separate engineer tasks/data-correction/import/developer routes with current examples",
+        "Generate recurring policy/count information; reconcile outdated current statements",
+        "Keep historical rationale available but out of operational path"
+      ],
+      "acceptance_criteria": [
+        "README-only clean clone builds/verifies supported toolchain",
+        "Missing release browser fails explicitly",
+        "Import walkthrough obeys owner pause/pipeline restrictions",
+        "Current docs match state/scope/release/UI semantics"
+      ],
+      "related_specialist_findings": [
+        "A09",
+        "A10"
+      ],
+      "evidence": [
+        "reviews/ARCHITECTURE-OPERATIONS.md"
+      ],
+      "evidence_status": "Confirmed bootstrap omission/current-instruction conflict plus navigation cost",
+      "implementation_status": "proposed, unimplemented"
+    }
+  ]
+}
