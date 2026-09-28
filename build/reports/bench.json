@@ -1,0 +1,232 @@
+{
+  "date": "2026-09-28",
+  "machine": {
+    "node": "v26.9.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "cores": 10,
+    "memoryGB": 24,
+    "loadAtStart": [
+      7.9,
+      6.8,
+      5.8
+    ],
+    "loadAtEnd": [
+      3.2,
+      5.8,
+      5.6
+    ]
+  },
+  "cold": {
+    "release": "5e002d0a253d",
+    "totalMs": 15502,
+    "steps": {
+      "gate": 460,
+      "load": 288,
+      "database": 14257,
+      "release": 12,
+      "reference": 98,
+      "report": 1,
+      "serialize": 61,
+      "bundle": 313
+    },
+    "stages": {
+      "compile": 141,
+      "estimate": 14046,
+      "validate": 67,
+      "validateEstimates": 3
+    },
+    "cache": {
+      "hit": false
+    },
+    "peakRssMB": 721,
+    "errors": 0,
+    "counts": {
+      "materials": 174,
+      "h2cRelevant": 136,
+      "familyEntries": 21,
+      "retiredDuplicates": {
+        "measurements": 298,
+        "evidence": 16
+      },
+      "excluded": 17,
+      "grades": 1163,
+      "measurements": 11211,
+      "numericMeasurements": 11035,
+      "quarantined": 19,
+      "profiles": 1282,
+      "evidence": 565,
+      "prices": 104,
+      "sources": 1648,
+      "coverage": 873,
+      "knowHow": 4659,
+      "polymerEnvironment": 353,
+      "polymerEvidence": 345,
+      "coverageDerived": 696
+    },
+    "sizes": {
+      "dbJsonBytes": 25629065,
+      "dbGzipBytes": 1701317,
+      "dbEmbeddedBytes": 2268424,
+      "referenceJsonBytes": 65750,
+      "pageBytes": 6922332
+    },
+    "processMs": 15864
+  },
+  "release": "5e002d0a253d",
+  "primedFromCache": true,
+  "warm": {
+    "release": "5e002d0a253d",
+    "totalMs": 1362,
+    "steps": {
+      "gate": 465,
+      "load": 288,
+      "database": 196,
+      "release": 11,
+      "reference": 95,
+      "report": 1,
+      "serialize": 21,
+      "bundle": 273
+    },
+    "stages": {
+      "compile": 149,
+      "estimate": 13962,
+      "validate": 63,
+      "validateEstimates": 3
+    },
+    "cache": {
+      "hit": true,
+      "readMs": 73
+    },
+    "peakRssMB": 627.5,
+    "errors": 0,
+    "counts": {
+      "materials": 174,
+      "h2cRelevant": 136,
+      "familyEntries": 21,
+      "retiredDuplicates": {
+        "measurements": 298,
+        "evidence": 16
+      },
+      "excluded": 17,
+      "grades": 1163,
+      "measurements": 11211,
+      "numericMeasurements": 11035,
+      "quarantined": 19,
+      "profiles": 1282,
+      "evidence": 565,
+      "prices": 104,
+      "sources": 1648,
+      "coverage": 873,
+      "knowHow": 4659,
+      "polymerEnvironment": 353,
+      "polymerEvidence": 345,
+      "coverageDerived": 696
+    },
+    "sizes": {
+      "dbJsonBytes": 25629065,
+      "dbGzipBytes": 1701317,
+      "dbEmbeddedBytes": 2268424,
+      "referenceJsonBytes": 65750,
+      "pageBytes": 6922332
+    },
+    "selection": [
+      {
+        "template": "Outdoor structural part",
+        "requirements": 9,
+        "firstMs": 12,
+        "medianMs": 8.3,
+        "pass": 5,
+        "unknown": 108,
+        "fail": 40
+      },
+      {
+        "template": "Indoor prototype",
+        "requirements": 6,
+        "firstMs": 4,
+        "medianMs": 3.5,
+        "pass": 70,
+        "unknown": 60,
+        "fail": 23
+      },
+      {
+        "template": "Lightweight structure",
+        "requirements": 7,
+        "firstMs": 6,
+        "medianMs": 5.6,
+        "pass": 11,
+        "unknown": 95,
+        "fail": 47
+      },
+      {
+        "template": "Warm environment",
+        "requirements": 6,
+        "firstMs": 4,
+        "medianMs": 3.8,
+        "pass": 29,
+        "unknown": 97,
+        "fail": 27
+      },
+      {
+        "template": "High-stiffness fixture",
+        "requirements": 7,
+        "firstMs": 5,
+        "medianMs": 5.6,
+        "pass": 5,
+        "unknown": 108,
+        "fail": 40
+      },
+      {
+        "template": "Flexible component",
+        "requirements": 6,
+        "firstMs": 5,
+        "medianMs": 3.9,
+        "pass": 6,
+        "unknown": 110,
+        "fail": 37
+      }
+    ],
+    "processMs": 1922
+  },
+  "growth": [
+    {
+      "group": "polylactide",
+      "factor": 2,
+      "products": 335,
+      "productsAfter": 670,
+      "measurementsBefore": 3172,
+      "measurementsAfter": 6344,
+      "totalMs": 49083,
+      "stages": {
+        "compile": 193,
+        "estimate": 48804,
+        "validate": 83,
+        "validateEstimates": 3
+      },
+      "peakRssMB": 808.7,
+      "errors": 0,
+      "firstErrors": [],
+      "processMs": 49908
+    },
+    {
+      "group": "polylactide",
+      "factor": 3,
+      "products": 335,
+      "productsAfter": 1005,
+      "measurementsBefore": 3172,
+      "measurementsAfter": 9516,
+      "totalMs": 90588,
+      "stages": {
+        "compile": 304,
+        "estimate": 90188,
+        "validate": 93,
+        "validateEstimates": 4
+      },
+      "peakRssMB": 880.2,
+      "errors": 0,
+      "firstErrors": [],
+      "processMs": 91452
+    }
+  ]
+}

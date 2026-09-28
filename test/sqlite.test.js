@@ -4,15 +4,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
-import { readFileSync, rmSync, mkdtempSync, existsSync } from 'node:fs';
+import { readFileSync, rmSync, mkdtempSync, existsSync, cpSync, mkdirSync, symlinkSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { writeSqlite, sqlName } from '../scripts/data/sqlite.mjs';
-import { PROPOSALS, LEDGER, proposalFiles } from '../scripts/data/record-tier.mjs';
+import { writeSqlite, sqlName, readStamp, currentInputs, askCurrent, queryFile, StaleCompiledError } from '../scripts/data/sqlite.mjs';
+import { PROPOSALS, LEDGER, RETRIEVED, proposalFiles } from '../scripts/data/record-tier.mjs';
 import { cacheDir } from '../scripts/lib/pdf-text.mjs';
-import { readCsv } from '../build/src/csv.js';
+import { readCsv, writeCsv } from '../build/src/csv.js';
+import { releaseIdentity, RELEASE_INPUTS } from '../build/src/release.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dir = mkdtempSync(join(tmpdir(), 'h2c-sqlite-'));
@@ -187,4 +188,115 @@ test('the full-text index finds a document by its words, page by page', { skip: 
   assert.ok(hits.length > 0, 'no cached document mentions annealing');
   const [{ strays }] = all('SELECT COUNT(*) AS strays FROM documents_fts f LEFT JOIN documents d USING (sha256) WHERE d.text_pages IS NULL');
   assert.equal(strays, 0);
+});
+
+// One generation (F13; review finding A05). The file used to set the tables as they are beside whatever dist/db.json was
+// on disk, and a query was answered from any file already written. Now the file is stamped with what it was written
+// from, the compiled tables go in only from a dist/db.json of the same release, and a plain query is of the tables as
+// they are or refused.
+test('the file is stamped with the release it was written from, and its raw and compiled tables are of that one release', () => {
+  const stamp = readStamp(out);
+  const release = releaseIdentity(root);
+  const built = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8')).meta.release;
+  assert.equal(stamp['release.digest'], release.digest);
+  assert.equal(stamp.compiled, 'current');
+  assert.equal(stamp['compiled.release.digest'], built.digest, 'the compiled tables name the release dist/db.json was built from');
+  assert.equal(stamp['compiled.sha256'], hashOf(join(root, 'dist/db.json')));
+  assert.equal(stamp.generation, currentInputs(root).generation, 'a file just written is of the inputs as they are');
+  const tables = all('SELECT table_name, tier, release_id FROM _tables');
+  for (const tier of ['raw', 'derived', 'compiled', 'record']) assert.ok(tables.some((t) => t.tier === tier), `no ${tier} table is listed`);
+  assert.deepEqual([...new Set(tables.map((t) => t.release_id))], [release.id], 'two generations in one file');
+});
+
+test('every compiled product value is its own measurement\'s value in the raw table beside it', () => {
+  const [{ n }] = all('SELECT COUNT(*) AS n FROM products_compiled WHERE measurementid IS NOT NULL');
+  assert.ok(n > 0);
+  const apart = all(`SELECT p.gradeid, p.headline_key, p.value, m.normalized_value FROM products_compiled p
+    LEFT JOIN measurements m ON m.measurementid = p.measurementid
+    WHERE p.measurementid IS NOT NULL AND (m.measurementid IS NULL OR abs(p.value - m.normalized_value) > 1e-9) LIMIT 5`);
+  assert.deepEqual(apart, [], 'a product value that is not its measurement\'s: the compiled and raw tables are of two generations');
+});
+
+// A copy of what the release is read from: the tables copied, to be edited, and every other input linked, so before
+// any edit the copy makes this checkout's release and its dist/db.json is current for it.
+const copies = [];
+function projectCopy({ compiled }) {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-sqlite-generation-'));
+  copies.push(dir);
+  cpSync(join(root, 'data'), join(dir, 'data'), { recursive: true });
+  for (const p of Object.values(RELEASE_INPUTS).flat().filter((p) => p !== 'data/tables')) {
+    mkdirSync(dirname(join(dir, p)), { recursive: true });
+    symlinkSync(join(root, p), join(dir, p));
+  }
+  if (compiled) {
+    mkdirSync(join(dir, 'dist'));
+    symlinkSync(join(root, 'dist/db.json'), join(dir, 'dist/db.json'));
+  }
+  return dir;
+}
+test.after(() => { for (const dir of copies) rmSync(dir, { recursive: true, force: true }); });
+
+function editMeasurement(dir, id, column, value) {
+  const path = join(dir, 'data/tables/measurements.csv');
+  const { header, records } = readCsv(path);
+  const rows = records.map((r) => r.values);
+  rows.find((r) => r.MeasurementID === id)[column] = value;
+  writeCsv(path, header, rows);
+}
+
+const V = 'V002780'; // Spectrum PLA Matt's heat deflection, 116 °C, the value of its annealed state (S04)
+const valueOf = `SELECT normalized_value AS value FROM measurements WHERE measurementid = '${V}'`;
+
+test('after a measurement is edited, a plain query refuses while dist/db.json is of the old tables, and never answers from them', () => {
+  const dir = projectCopy({ compiled: true });
+  const file = join(dir, 'dist/h2c.sqlite');
+  assert.equal(releaseIdentity(dir).digest, releaseIdentity(root).digest, 'the copy does not make this checkout\'s release');
+
+  const before = askCurrent(dir, file, valueOf);
+  assert.ok(before.written, 'the first question writes the file');
+  assert.equal(before.rows[0].value, 116);
+  assert.equal(queryFile(file, `SELECT value FROM products_compiled WHERE measurementid = '${V}'`).rows[0].value, 116);
+
+  editMeasurement(dir, V, 'Normalized value', '117');
+  assert.throws(() => askCurrent(dir, file, valueOf), (e) => e instanceof StaleCompiledError && /npm run build/.test(e.message));
+  assert.throws(() => writeSqlite(dir, file), StaleCompiledError);
+  // Nothing was written: the file is the one of the old tables, and says so to a reader who asks it as a snapshot.
+  const stamp = readStamp(file);
+  assert.equal(stamp.generation, before.stamp.generation);
+  assert.notEqual(stamp['release.digest'], releaseIdentity(dir).digest);
+  assert.equal(queryFile(file, valueOf).rows[0].value, 116);
+});
+
+test('without a compiled database the raw tables are still asked, the stamp says so, and an edit is answered at once', () => {
+  const dir = projectCopy({ compiled: false });
+  const file = join(dir, 'h2c.sqlite');
+  const first = askCurrent(dir, file, valueOf);
+  assert.equal(first.rows[0].value, 116);
+  assert.equal(first.stamp.compiled, 'absent');
+  assert.equal(queryFile(file, "SELECT COUNT(*) AS n FROM _tables WHERE tier = 'compiled'").rows[0].n, 0);
+  assert.throws(() => queryFile(file, 'SELECT * FROM products_compiled'), /no dist\/db\.json.*npm run build/);
+  assert.equal(askCurrent(dir, file, valueOf).written, null, 'a file of the inputs as they are is asked as it is');
+
+  editMeasurement(dir, V, 'Normalized value', '117');
+  const after = askCurrent(dir, file, valueOf);
+  assert.ok(after.written, 'the edit is not seen until the file is written again');
+  assert.equal(after.rows[0].value, 117);
+  assert.equal(after.stamp['release.digest'], releaseIdentity(dir).digest);
+});
+
+test('the full-text index says how much of the retrieved corpus it holds, and names the sources it does not', () => {
+  const stamp = readStamp(out);
+  const retrieved = RETRIEVED.map((s) => `'${s}'`).join(', ');
+  const [{ sources }] = all(`SELECT COUNT(*) AS sources FROM sources WHERE access_state IN (${retrieved})`);
+  const [{ missing }] = all('SELECT COUNT(*) AS missing FROM v_sources_without_text');
+  assert.equal(Number(stamp['fulltext.sources']), sources);
+  assert.equal(Number(stamp['fulltext.sources_indexed']), sources - missing);
+  assert.equal(stamp.fulltext, !result.record.fulltext ? 'unavailable' : missing ? 'partial' : 'complete');
+  if (stamp.fulltext === 'unavailable') {
+    assert.equal(Number(stamp['fulltext.sources_indexed']), 0);
+    assert.throws(() => queryFile(out, "SELECT * FROM documents_fts WHERE documents_fts MATCH 'annealing'"), /no text cache/);
+  }
+  const [{ nodigest }] = all("SELECT COUNT(*) AS nodigest FROM v_sources_without_text WHERE reason LIKE 'no SHA-256%'");
+  const [{ expected }] = all(`SELECT COUNT(*) AS expected FROM sources WHERE access_state IN (${retrieved}) AND (sha256 IS NULL OR length(sha256) != 64)`);
+  assert.equal(nodigest, expected, 'a retrieved source with no digest is named as one, not as one whose text was not read');
 });
