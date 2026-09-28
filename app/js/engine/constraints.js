@@ -644,7 +644,7 @@ function productEntry(x) {
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
 const productResult = (r) => {
   const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere']) if (r[k] !== undefined) out[k] = r[k];
+  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished']) if (r[k] !== undefined) out[k] = r[k];
   return out;
 };
 

@@ -168,3 +168,17 @@ are chosen. A link carries the choice; the saved file carries the notes and test
 
 Answers moved: none. The interface probe chooses the first-ranked stiff-fixture product and records its decision record.
 No account, server or approval workflow was built (GOALS, decision 7).
+
+### F08: the facts that would settle an answer, by product
+
+`npm run audit:scenario-gaps` judges the six templates and the acceptance portfolio's questions as the page does
+(Confirmed only, each in the state it permits) and lists every product left unresolved by exactly one requirement: the
+fact, the kind of work it needs (another state, conditions, source silent, print test, treatment), when to stop looking,
+the questions it would settle, and the research package's owner handoff where one already asks it
+([SCENARIO-GAPS.md](SCENARIO-GAPS.md)). On 2026-09-28: 3,475 product facts one step from an answer across 11 questions
+(2,584 source silent, 701 conditions, 179 another state, 11 print tests); the table lists every fact that settles more than
+one question and the first three per material. The first rows are print gates: IPCON PPA-GF's chamber settles five
+questions at once, and four products' chamber windows the H2C only partly reaches need a test print, not a search.
+
+No data was collected: imports stay paused except within the owner's exceptions (GOALS), and this change is the worklist,
+counted by products made actionable, never by documents.
