@@ -34,6 +34,7 @@ npm run ingest:harvest -- --provider "BASF Forward AM / Ultrafuse"   # a page th
 npm run ingest:extract -- --provider "SUNLU"                # the text, cached by digest, and the twins
 npm run ingest:ocr -- --all                                 # a scan: an optical reading, and its page images
 npm run ingest:witness                                      # the maker's product page, for a sheet naming no polymer
+npm run ingest:witness -- --from <manifest.csv>             # pages a reader saved, staged from their copies by digest
 ```
 
 **Running a batch.** `scripts/ingest/batch.mjs` is the program; the steps are in the order they must happen.
