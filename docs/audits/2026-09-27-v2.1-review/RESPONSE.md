@@ -46,3 +46,22 @@ ten of them corrected against their page since, one a value printed against its 
 
 m212 corrects the two rows the review found: V002780 and V002781 keep their 90 °C, 4 h anneal and no longer claim a
 test at 90 °C, re-read on the hash-checked page. Answers moved: none (HDT has no test-temperature condition).
+
+### F01: a product's verdict rests on its own records (D98)
+
+The engine judges a product's environment requirements on its own records (or a twin's, the same sheet), its stock on
+its own offers (`grades[].buy`), "a product-specific measurement" on its own or its twin's, and conflicts on the
+findings about it: `coverage.csv` has a GradeID (m213), and the seven conflicts about one product are scoped to it. A
+sibling's record or a material-wide note is named as context and never passes. The maker's "Fair" and "Fair-Poor" read
+as limited resistance, and a record in words no verdict is read from, beside a positive one, leaves the requirement
+unresolved (D05). Each product's own results and cited records travel with the evaluation.
+
+Answers moved (old and new engine, same database, 1,077 in-scope products): products passing acids 142 → 7, alkalis
+142 → 7, solvents 7 → 1, oils and grease 44 → 6, water 709 → 41; in stock 726 → 41 (the review's 685 inherited stock
+passes, exactly); listed 752 → 46; a product-specific measurement 1,077 → 1,050; no unresolved conflict 936 → 1,067.
+Materials: oils and grease 5 → 6, no conflict 128 → 135. No template screens on these, so `templates.csv` did not move;
+`environment.csv` shows the two re-read ratings. Acceptance: S06 and S07 met (7 expectations), and two invariants.
+
+Left: the engine is not told which acid, alkali or solvent a part meets (the review's acetone example). Category
+separation already keeps oils from answering solvents, and the reason names the records' exposures; asking for an
+agent is an interface question for when a team needs it (OPEN-PROBLEMS).

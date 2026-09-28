@@ -60,6 +60,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|---|---|---|---|---|
 | CoverageID | key | string | yes |  | `^C\d{5}$` | Stable coverage identifier. |
 | MaterialID | canonical | string | yes |  | → materials.MaterialID | Material reviewed. |
+| GradeID | canonical | string | yes | Not applicable | → grades.GradeID | The product the finding is about, where it is one product's: a conflict or a quarantine then holds out that product and its twins only, never its siblings (D98). Not applicable: the finding is about the material as a whole. |
 | Domain | canonical | string | yes |  | [coverage-domains](#vocab-coverage-domains) | Domain reviewed. |
 | Status | editorial | string | yes |  | [coverage-status](#vocab-coverage-status) | Coverage status; must agree with the records. |
 | Manufacturer count | canonical | number | yes | Not applicable |  | For a current Grades finding: how many distinct manufacturers its procurement grades name. The validator checks it against the grades, and checks the Finding's own words against it. Not applicable elsewhere. |

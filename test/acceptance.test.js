@@ -63,7 +63,8 @@ function checkProduct(c, e) {
   if (e.admits) for (const a of e.admits) assert.ok((p.admitted ?? []).includes(a), `${e.product} says the policy admitted an unstated ${a}: ${JSON.stringify(p.admitted)}`);
   if (e.notUnresolvedBy) {
     assert.ok(p.results, `${e.product} carries its own results`);
-    const held = (p.results ?? []).filter((r) => (r.status === 'UNKNOWN' || r.status === 'INDETERMINATE') && r.criterion?.includes(e.notUnresolvedBy));
+    const by = new RegExp(e.notUnresolvedBy, 'i');
+    const held = (p.results ?? []).filter((r) => (r.status === 'UNKNOWN' || r.status === 'INDETERMINATE') && (by.test(r.criterion ?? '') || by.test(r.constraint?.property ?? '') || by.test(r.constraint?.gate ?? '')));
     assert.deepEqual(held, [], `${e.product} is not held by ${e.notUnresolvedBy}`);
   }
 }
@@ -154,7 +155,7 @@ for (const c of portfolio.cases) {
     if (e.product) {
       test(name, opts, () => checkProduct(c, e));
       if (e.records?.some((id) => /^[VQ]\d|^CA\d/.test(id)) && e.verdict === 'PASS') {
-        test(`${c.id}.${i + 1} ${e.product} cites the records its answer rests on`, { todo: `waits on ${e.todo ?? 'F02'}` }, () => {
+        test(`${c.id}.${i + 1} ${e.product} cites the records its answer rests on`, opts, () => {
           const { p } = productResult(c, e);
           const cites = cited(p);
           for (const id of e.records.filter((x) => /^[VQ]\d|^CA\d/.test(x))) assert.ok(cites.has(id), `${e.product} cites ${id}: ${[...cites].join(', ')}`);

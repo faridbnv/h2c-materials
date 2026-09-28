@@ -111,7 +111,7 @@ M018,organic-solvent,Q00070,G018-01,own,limited,yes,
 M018,water-solubility,Q00067,G018-01,own,insoluble,,
 M019,acid,Q00074,G019-01,own,resistant,,
 M019,acid,Q00075,G019-01,own,not-resistant,,
-M019,alkali,Q00076,G019-01,own,narrative,,
+M019,alkali,Q00076,G019-01,own,limited,,
 M019,alkali,Q00077,G019-01,own,not-resistant,,
 M019,fatigue,Q00319,Not applicable,own,narrative,,
 M019,flammability,M019-flammability,,polymer,not-resistant,,yes
@@ -154,7 +154,7 @@ M025,oil-grease,M025-oil-grease,,polymer,limited,,no
 M025,organic-solvent,M025-organic-solvent,,polymer,limited,,no
 M025,water-solubility,M025-water-solubility,,polymer,resistant,,no
 M026,acid,Q00107,G026-02,own,resistant,,
-M026,acid,Q00108,G026-02,own,narrative,,
+M026,acid,Q00108,G026-02,own,limited,,
 M026,alkali,Q00109,G026-02,own,not-resistant,,
 M026,alkali,Q00110,G026-02,own,not-resistant,,
 M026,oil-grease,Q00111,G026-02,own,resistant,,

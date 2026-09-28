@@ -240,8 +240,9 @@ function body(group, materials, cs, db, ctx = {}) {
       <label class="sub-check"><input type="checkbox" data-buy="stock" ${buy?.inStock ? 'checked' : ''} ${buy ? '' : 'disabled'}>
         and it was in stock when sampled</label>
       <div class="avail">${inStock} had stock on ${esc(db.meta.pricesSampled ?? db.meta.snapshot)}. Not live stock.</div>
-      <div class="eg">Three retailers, one sampling date. A material with no offer here is not
-        necessarily unavailable, so it is held as unknown rather than failed.</div>
+      <div class="eg">Three retailers, one sampling date, and each product's own listings: another product's stock is
+        not this one's. A product with no offer here is not necessarily unavailable, so it is held as unknown rather
+        than failed.</div>
     </div>`);
   }
 
@@ -261,9 +262,10 @@ function body(group, materials, cs, db, ctx = {}) {
     }
     if (verdict.length) {
       const anyPolymer = verdict.some(([, v]) => v.polymerMaterials);
-      out.push(`<div class="eg">A pass means a source reported resistance to the exposures it tested,
-        not to every chemical in the class. "Limited resistance" counts as unresolved. Open the
-        material's Environment tab for the exact agent and conditions.${anyPolymer ? ` Where a material has no record of its
+      out.push(`<div class="eg">A product passes on its own records (or its twin's, the same sheet), never another
+        product's. A pass means its source reported resistance to the exposures it tested, not to every chemical in
+        the class; "limited resistance", or a limit stated in words, counts as unresolved. Open the material's
+        Environment tab for the exact agent and conditions.${anyPolymer ? ` Where a material has no record of its
         own, its base polymer's published behaviour is shown there too: it never passes, and with "Use estimates and polymer
         data" on, a polymer the reference reports attacked or dissolved screens the material out.` : ''}</div>`);
     }
@@ -310,11 +312,11 @@ function body(group, materials, cs, db, ctx = {}) {
     const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
     out.push(`<div class="control" data-active="${!!g?.exactGrade}">
       <label><input type="checkbox" data-evidence="exactGrade" ${g?.exactGrade ? 'checked' : ''}> Has a product-specific measurement</label>
-      <div class="avail">Any numeric property on any recorded grade. ${unmeasured} of ${materials.length} materials have no property measurements at all</div>
+      <div class="avail">A numeric property of the product itself, or of its twin (the same sheet). ${unmeasured} of ${materials.length} materials have no property measurements at all</div>
     </div>`);
     out.push(`<div class="control" data-active="${!!g?.noConflicts}">
       <label><input type="checkbox" data-evidence="noConflicts" ${g?.noConflicts ? 'checked' : ''}> Exclude unresolved conflicts</label>
-      <div class="avail">${plural(conflicts, 'coverage record')} flagged as a conflict or quarantined in this snapshot</div>
+      <div class="avail">${plural(conflicts, 'coverage record')} flagged as a conflict or quarantined in this snapshot; one about a single product holds out that product only</div>
     </div>`);
     // Which values decide (D84). Values whose source leaves the test direction or load unstated read like moulded bars
     // and flatter a printed part, so they are counted apart unless the reader admits them.

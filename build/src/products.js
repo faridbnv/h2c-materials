@@ -468,6 +468,8 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
     }
     const guide = guideByMaterial.get(g.materialId) ?? null;
     g.print = productPrint(g, recipeOf(g), siblings.map(recipeOf), guide, guide && sourceById.get(guide.sourceId)?.publisher);
+    // Who prints the same sheet (D89): the engine reads their records of that sheet for this product too (D98).
+    if (siblings.length) g.twins = siblings.map((x) => x.id);
   }
 
   const keys = [...defs.map((d) => d.key), 'priceCADkg'];

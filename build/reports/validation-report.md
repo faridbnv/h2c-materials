@@ -82,8 +82,8 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 | Category | Kind | Records | With a verdict | Materials | From the base polymer |
 |---|---|---:|---:|---:|---:|
-| alkali | verdict | 63 | 61 | 40 | 53 |
-| acid | verdict | 67 | 59 | 41 | 53 |
+| alkali | verdict | 63 | 62 | 40 | 53 |
+| acid | verdict | 67 | 60 | 41 | 53 |
 | organic-solvent | verdict | 63 | 45 | 43 | 57 |
 | oil-grease | verdict | 57 | 45 | 42 | 51 |
 | water-solubility | verdict | 42 | 41 | 34 | 35 |

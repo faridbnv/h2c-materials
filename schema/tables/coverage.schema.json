@@ -29,6 +29,22 @@
       }
     },
     {
+      "name": "GradeID",
+      "type": "string",
+      "role": "canonical",
+      "description": "The product the finding is about, where it is one product's: a conflict or a quarantine then holds out that product and its twins only, never its siblings (D98). Not applicable: the finding is about the material as a whole.",
+      "reference": {
+        "table": "grades",
+        "field": "GradeID"
+      },
+      "missing": [
+        "Not applicable"
+      ],
+      "constraints": {
+        "required": true
+      }
+    },
+    {
       "name": "Domain",
       "type": "string",
       "role": "canonical",

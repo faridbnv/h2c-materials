@@ -241,24 +241,25 @@ function evaluateGate(material, c) {
   // "Only show what I can buy." Absence of an offer is not proof a material is unavailable, only
   // that the three sampled Canadian retailers did not list it on the snapshot date, so it returns
   // UNKNOWN rather than FAIL. An offer that was sampled and is out of stock is positive evidence
-  // and does fail.
+  // and does fail. A product is judged on its own offers (D98): another product's stock is not its own.
   if (c.gate === 'buyable') {
     const buy = material.buy;
     const label = c.inStock ? 'In stock in Canada' : 'Available from a Canadian retailer';
+    const what = material.product ? 'this product' : 'this material';
     if (!buy) {
       return {
         status: STATUS.UNKNOWN, criterion: label,
-        reason: 'None of the three sampled Canadian retailers listed this material on the snapshot date',
+        reason: `None of the three sampled Canadian retailers listed ${what} on the snapshot date`,
       };
     }
     if (c.inStock && !buy.anyInStock) {
       return {
-        status: STATUS.FAIL, criterion: label,
-        reason: `${buy.retailer} lists it, but no sampled offer was in stock on ${buy.accessDate}`,
+        status: STATUS.FAIL, criterion: label, priceIds: buy.priceIds ?? [],
+        reason: `${buy.retailer} lists it, but no sampled offer of ${what} was in stock on ${buy.accessDate}`,
       };
     }
     return {
-      status: STATUS.PASS, criterion: label,
+      status: STATUS.PASS, criterion: label, priceIds: buy.priceIds ?? [],
       reason: `${buy.retailer}${buy.perKg ? `, about ${buy.perKg} CAD/kg` : ''}, seen ${buy.accessDate}`,
     };
   }
@@ -331,41 +332,75 @@ function evaluateEnvironment(material, c, ctx) {
       indicatorOnly: true,
     };
   }
-  const records = (ctx?.evidenceByMaterial?.get(material.id) ?? []).filter((e) => e.category === c.category);
+  const all = (ctx?.evidenceByMaterial?.get(material.id) ?? []).filter((e) => e.category === c.category);
+  // A product is judged on its own records (D98): its own, else those of a twin that prints the same sheet (D89). A
+  // sibling's record, and one filed under the material with no product, are context: shown, never a pass for it.
+  const product = material.product;
+  let records = all;
+  let from = '';
+  if (product) {
+    const own = all.filter((e) => e.gradeId === product.id);
+    const twin = own.length ? null : (product.twins ?? []).map((id) => ({ id, list: all.filter((e) => e.gradeId === id) })).find((t) => t.list.length);
+    records = own.length ? own : twin?.list ?? [];
+    if (twin) from = `, same sheet as ${gradeName(ctx, twin.id)}`;
+  }
   if (!records.length) {
     // No record of this material. Its base polymer's published behaviour, where the build attached it (D64), is
     // inference about the neat resin, not a test of this grade: it never passes, and where the reference says the
     // polymer is attacked or dissolved it screens the material out under inference, exactly as an estimate does.
     const polymer = (ctx?.polymerEvidenceByMaterial?.get(material.id) ?? []).find((e) => e.category === c.category);
     if (polymer) return evaluatePolymerLevel(polymer, label, ctx);
-    return { status: STATUS.UNKNOWN, criterion: label, reason: 'No evidence record for this material' };
+    if (product && all.length) {
+      const others = all.filter((e) => e.verdict !== 'no-data');
+      return {
+        status: STATUS.UNKNOWN, criterion: label, contextIds: all.map((e) => e.id),
+        reason: `No record of this product's own. ${others.length ? `${others.length} record(s) of ${others.some((e) => !e.gradeId || /^Not /.test(e.gradeId)) ? 'its material or ' : ''}other products (${others.slice(0, 3).map((e) => e.id).join(', ')}${others.length > 3 ? ', ...' : ''}) are context, not this product's` : 'Its material has records that state no verdict'}`,
+      };
+    }
+    return { status: STATUS.UNKNOWN, criterion: label, reason: `No evidence record for this ${product ? 'product' : 'material'}` };
   }
 
   // Only an unqualified positive record satisfies "resists". A source that reports *limited*
   // resistance has said something weaker than the checkbox asks, and the old default accepted it
   // as a clean PASS, so PLA passed a solvent screen on one "limited" record. Limited is now
-  // unresolved, which Strict leaves out and Explore keeps flagged.
+  // unresolved, which Strict leaves out and Explore keeps flagged. So is a record in words the build does not reduce
+  // to a verdict, beside a positive one (D98): it may be the limit ("resistant to weak acids, but ..."), and a positive
+  // roll-up that set it aside claimed more than the source.
   const accept = c.require ?? POSITIVE_VERDICTS;
   const matching = records.filter((e) => accept.includes(e.verdict));
   const limited = records.filter((e) => e.verdict === 'limited' && !accept.includes('limited'));
   const contrary = records.filter((e) => ['not-resistant', 'soluble', 'flammable'].includes(e.verdict));
+  const words = records.filter((e) => e.verdict === 'narrative');
   const ids = (list) => list.map((e) => e.id);
+  const quote = (e) => `"${String(e.finding).slice(0, 60)}${String(e.finding).length > 60 ? '...' : ''}" (${e.id})`;
   if (contrary.length && !matching.length) {
-    return { status: STATUS.FAIL, criterion: label, reason: `${contrary.length} record(s) report ${contrary[0].verdict}`, evidenceIds: ids(contrary) };
+    return { status: STATUS.FAIL, criterion: label, reason: `${contrary.length} record(s) report ${contrary[0].verdict}${from}`, evidenceIds: ids(contrary) };
   }
   if (matching.length && contrary.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: 'Evidence is mixed across exposures or grades', evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `Evidence is mixed across exposures: ${matching.length} record(s) report ${matching[0].verdict}, ${contrary.length} ${contrary[0].verdict}${from}`, evidenceIds: ids(records) };
   }
   if (matching.length && limited.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}, ${limited.length} only limited resistance. Check which exposure matters to you`, evidenceIds: ids(records) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}, ${limited.length} only limited resistance (${limited.map(quote).join('; ')})${from}. Check which exposure matters to you`, evidenceIds: ids(records) };
+  }
+  if (matching.length && words.length) {
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}, and ${words.length} more say, in words no verdict is read from, ${words.map(quote).join('; ')}${from}. Read them before relying on it`, evidenceIds: ids(records) };
   }
   if (matching.length) {
-    return { status: STATUS.PASS, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}. Resistance applies to the recorded exposures, not every chemical in the class`, evidenceIds: ids(matching) };
+    return { status: STATUS.PASS, criterion: label, reason: `${matching.length} record(s) report ${matching[0].verdict}${from}. Resistance applies to the recorded exposures, not every chemical in the class`, evidenceIds: ids(matching) };
   }
   if (limited.length) {
-    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${limited.length} record(s) report only limited resistance`, evidenceIds: ids(limited) };
+    return { status: STATUS.INDETERMINATE, criterion: label, reason: `${limited.length} record(s) report only limited resistance${from}`, evidenceIds: ids(limited) };
   }
-  return { status: STATUS.UNKNOWN, criterion: label, reason: 'Records exist but none state a verdict', evidenceIds: ids(records) };
+  return { status: STATUS.UNKNOWN, criterion: label, reason: `Records exist but none state a verdict${from}`, evidenceIds: ids(records) };
+}
+
+/** A product as a reason names it: its maker and product, from the database the context carries. */
+function gradeName(ctx, id) {
+  const g = ctx?.gradeById?.get(id) ?? ctx?.db?.grades?.find((x) => x.id === id);
+  if (!g) return id;
+  const product = g.product && !/^Not /.test(g.product) ? g.product : '';
+  const maker = g.manufacturer && !/^Not /.test(g.manufacturer) ? g.manufacturer : '';
+  return !product ? maker || id : maker && !product.toLowerCase().startsWith(maker.toLowerCase()) ? `${maker} ${product}` : product;
 }
 
 /** A polymer-level verdict in words: "not resistant", "soluble". */
@@ -398,15 +433,28 @@ function evaluatePolymerLevel(polymer, label, ctx) {
  */
 function evaluateEvidence(material, c, ctx) {
   const checks = [];
+  // A product's own measurement, or its twin's, which is the same sheet (D89, D98); a sibling's is not this product's.
+  const product = material.product;
+  const measured = (list) => list.filter((m) => m.numeric && m.gradeId && m.gradeId !== 'Not applicable');
   if (c.exactGrade) {
-    const ms = ctx?.measurementsByMaterial?.get(material.id) ?? [];
-    const has = ms.some((m) => m.numeric && m.gradeId && m.gradeId !== 'Not applicable');
-    checks.push({ ok: has, label: 'exact-grade measurement', detail: has ? `${ms.length} measurements on record` : 'No grade-specific measurement in the sampled sources' });
+    const all = ctx?.measurementsByMaterial?.get(material.id) ?? [];
+    if (product) {
+      const own = measured(all.filter((m) => m.gradeId === product.id));
+      const twin = own.length ? null : (product.twins ?? []).find((id) => measured(all.filter((m) => m.gradeId === id)).length);
+      checks.push({ ok: own.length > 0 || !!twin, label: 'exact-grade measurement',
+        detail: own.length ? `${own.length} measurement(s) of this product` : twin ? `measured on the same sheet as ${gradeName(ctx, twin)}` : 'No measurement of this product in the sampled sources; its siblings\' are theirs' });
+    } else {
+      const has = measured(all).length > 0;
+      checks.push({ ok: has, label: 'exact-grade measurement', detail: has ? `${all.length} measurements on record` : 'No grade-specific measurement in the sampled sources' });
+    }
   }
   if (c.noConflicts) {
+    // A finding about one product holds out that product and its twins, never its siblings (D98, m213); one about the
+    // material holds out every product of it.
     const cov = ctx?.coverageByMaterial?.get(material.id) ?? [];
-    const bad = cov.filter((r) => r.status === 'Conflict' || r.status === 'Quarantined');
-    checks.push({ ok: bad.length === 0, label: 'no unresolved conflict', detail: bad.length ? `${bad.length} unresolved: ${bad.map((b) => b.domain).join(', ')}` : 'No unresolved conflict recorded' });
+    const mine = (r) => !product || !r.gradeId || r.gradeId === product.id || (product.twins ?? []).includes(r.gradeId);
+    const bad = cov.filter((r) => (r.status === 'Conflict' || r.status === 'Quarantined') && mine(r));
+    checks.push({ ok: bad.length === 0, label: 'no unresolved conflict', detail: bad.length ? `${bad.length} unresolved: ${bad.map((b) => `${b.domain} (${b.id})`).join(', ')}` : 'No unresolved conflict recorded' });
   }
   if (!checks.length) return { status: STATUS.PASS, criterion: 'Evidence', reason: 'No evidence criterion set' };
   const failed = checks.filter((x) => !x.ok);
@@ -506,10 +554,19 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
     failedBy: verdict === STATUS.FAIL ? best.e.failedBy : [],
     share,
     counts: { products: products.length, pass: pass.length, fail: fail.length, untested: unknown.length, screened: unknown.filter((x) => x.e.screened).length },
-    products: judged.map((x) => ({ gradeId: x.grade.id, verdict: x.e.verdict, screened: x.e.screened, failedBy: x.e.failedBy })),
+    // Each product's own answer and the records it rests on (D98): the product cards, the decision brief and the
+    // acceptance portfolio read a product's reasons, not its material's best product's.
+    products: judged.map((x) => ({ gradeId: x.grade.id, verdict: x.e.verdict, screened: x.e.screened, failedBy: x.e.failedBy, results: x.e.results.map(productResult) })),
     gradeId: best.grade.id,
   };
 }
+
+/** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
+const productResult = (r) => {
+  const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
+  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer']) if (r[k] !== undefined) out[k] = r[k];
+  return out;
+};
 
 /** Evaluate one material: by its products when the context carries them (D83), else on its own headline. */
 function evaluateOne(material, constraints, ctx) {
@@ -520,8 +577,9 @@ function evaluateOne(material, constraints, ctx) {
 
 /** Run the whole set. Returns evaluations plus the counts the status bar needs. */
 export function runSelection(materials, constraints, ctx = {}) {
-  // A product value cites its measurement; the reason names that measurement's source.
+  // A product value cites its measurement; the reason names that measurement's source, and a twin's record names it.
   if (ctx.productsByMaterial && !ctx.measurementById && ctx.db) ctx = { ...ctx, measurementById: new Map(ctx.db.measurements.map((m) => [m.id, m])) };
+  if (ctx.productsByMaterial && !ctx.gradeById && ctx.db) ctx = { ...ctx, gradeById: new Map(ctx.db.grades.map((g) => [g.id, g])) };
   const evaluations = materials.map((m) => evaluateOne(m, constraints, ctx));
   const counts = { pass: 0, fail: 0, unknown: 0, screened: 0, total: evaluations.length };
   for (const e of evaluations) {

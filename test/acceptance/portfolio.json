@@ -104,9 +104,9 @@
       ],
       "policy": { "unknownPolicy": "strict" },
       "expect": [
-        { "product": "G026-02", "verdict": "UNKNOWN", "records": ["Q00107", "Q00108"], "todo": "F01",
+        { "product": "G026-02", "verdict": "UNKNOWN", "records": ["Q00107", "Q00108"],
           "because": "PolyMax PETG-ESD's sheet rates weak acids Good and strong acids Fair-Poor (p. 2, re-read 2026-09-27). The Good cannot answer 'acids' while the strong-acid rating limits it." },
-        { "product": "G026-01", "verdict": "UNKNOWN", "todo": "F01",
+        { "product": "G026-01", "verdict": "UNKNOWN",
           "because": "3DXTECH 3DXSTAT ESD PETG has no acid record of its own; Q00107 is Polymaker's product's." }
       ]
     },
@@ -114,15 +114,15 @@
       "id": "S07",
       "question": "ECOMAX PLA: does it resist water, and can it be bought in stock in Canada?",
       "expect": [
-        { "product": "G001-01", "constraints": [{ "kind": "environment", "category": "water-solubility" }], "verdict": "UNKNOWN", "todo": "F01",
+        { "product": "G001-01", "constraints": [{ "kind": "environment", "category": "water-solubility" }], "verdict": "UNKNOWN",
           "because": "3DXTECH ECOMAX PLA has no water record of its own; the insolubility records are Bambu Lab's products'." },
         { "product": "G002-01", "constraints": [{ "kind": "environment", "category": "water-solubility" }], "verdict": "PASS", "records": ["Q00007"],
           "because": "Bambu Lab PLA Basic's own sheet: insoluble in water." },
-        { "product": "G001-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "UNKNOWN", "todo": "F01",
+        { "product": "G001-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "UNKNOWN",
           "because": "No sampled Canadian offer is ECOMAX PLA's." },
         { "product": "G002-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "PASS", "records": ["CA0001"],
           "because": "Bambu Lab Canada listed PLA Basic in stock." },
-        { "product": "G005-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "FAIL", "records": ["CA0006"], "todo": "F01",
+        { "product": "G005-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "FAIL", "records": ["CA0006"],
           "because": "PLA Basic Gradient's one sampled offer was out of stock; another product's stock is not its own." }
       ],
       "policy": { "unknownPolicy": "strict" }

@@ -46,6 +46,9 @@ const VERDICT_RULES = [
   { re: /^resistant$/i,                             verdict: VERDICT.RESISTANT },
   { re: /^good$/i,                                  verdict: VERDICT.RESISTANT, vague: true },
   { re: /^poor$/i,                                  verdict: VERDICT.NOT_RESISTANT, vague: true },
+  // The same maker's scale between them: "Fair", and "Fair-Poor" for a strong acid beside a weak acid's "Good"
+  // (PolyMax PETG-ESD, Q00108). Resistance with a limit is limited, never unqualified (D28, D98).
+  { re: /^fair(?:\s*[-–/]\s*poor)?$/i,               verdict: VERDICT.LIMITED, vague: true },
   { re: /^insoluble\b/i,                            verdict: VERDICT.INSOLUBLE },
   { re: /^soluble\b/i,                              verdict: VERDICT.SOLUBLE },
   { re: /^self[- ]exting/i,                         verdict: VERDICT.SELF_EXTINGUISHING },

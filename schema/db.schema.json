@@ -191,6 +191,15 @@
               "null"
             ]
           },
+          "buy": {
+            "description": "The product's own sampled Canadian offers (build/src/compile.js, D98): the best listing, how many, whether any was in stock, and their PriceIDs. Null where no sampled offer is this product's; only this, never another product's, says whether it can be bought.",
+            "anyOf": [{ "type": "object" }, { "type": "null" }]
+          },
+          "twins": {
+            "description": "The products that print the same sheet as this one (D89): active products of the same material under the same Shared formulation key. The engine reads their records of that sheet for this product where its own are silent (D98).",
+            "type": "array",
+            "items": { "type": "string", "pattern": "^G\\d{3}-\\d{2,3}$" }
+          },
           "estimate": {
             "type": "object",
             "description": "The grade's own estimate per headline (D81): added by the estimate stage, absent from the core build. It decides nothing.",
@@ -1065,6 +1074,10 @@
           },
           "finding": {
             "type": "string"
+          },
+          "gradeId": {
+            "description": "The product the finding is about (coverage.csv GradeID, D98), or null where it is the material's.",
+            "type": ["string", "null"]
           },
           "derived": {
             "type": "boolean"

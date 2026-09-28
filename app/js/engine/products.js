@@ -94,11 +94,12 @@ export function productGates(material, grade) {
 }
 
 /**
- * The material with one product's values and recipe. It keeps the material's ID, facets, scope and records, so the
- * criteria that are the material's (its family, its environment evidence, its scope) read what they always read.
+ * The material with one product's values, recipe and offers. It keeps the material's ID, facets and scope, which are
+ * the material's; a criterion that reads records (environment, offers, conflicts, exact-grade evidence) reads the
+ * product's own through `product`, never its siblings' (D98).
  */
 export function productView(material, grade, ctx = {}) {
   const headline = {};
   for (const key of Object.keys(material.headline ?? {})) headline[key] = productHeadline(material, grade, key, ctx);
-  return { ...material, headline, gates: productGates(material, grade), product: grade };
+  return { ...material, headline, gates: productGates(material, grade), buy: grade.buy ?? null, product: grade };
 }

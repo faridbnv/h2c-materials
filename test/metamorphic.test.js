@@ -49,7 +49,7 @@ test('every product failing is a failure', () => {
   assert.equal(e.verdict, STATUS.FAIL);
 });
 
-test("a sibling's positive record cannot confirm a product that has none", { todo: 'waits on F01' }, () => {
+test("a sibling's positive record cannot confirm a product that has none (D98)", () => {
   const grades = [grade('G1'), grade('G2')];
   const e = judge(grades, [acid], STRICT, evidence({ id: 'Q1', gradeId: 'G2', verdict: 'resistant' }));
   const g1 = e.products.find((p) => p.gradeId === 'G1');
@@ -57,7 +57,7 @@ test("a sibling's positive record cannot confirm a product that has none", { tod
   assert.equal(e.products.find((p) => p.gradeId === 'G2').verdict, STATUS.PASS);
 });
 
-test("a product's own contrary record is not hidden by a sibling's positive one", { todo: 'waits on F01' }, () => {
+test("a product's own contrary record is not hidden by a sibling's positive one (D98)", () => {
   const grades = [grade('G1'), grade('G2')];
   const e = judge(grades, [acid], STRICT, evidence({ id: 'Q1', gradeId: 'G1', verdict: 'not-resistant' }, { id: 'Q2', gradeId: 'G2', verdict: 'resistant' }));
   assert.equal(e.products.find((p) => p.gradeId === 'G1').verdict, STATUS.FAIL);

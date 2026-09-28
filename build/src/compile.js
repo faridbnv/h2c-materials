@@ -193,10 +193,15 @@ function chamberGuidance(profiles) {
   return null;
 }
 
-function buySummary(materialId, prices) {
+/**
+ * Where to buy from a set of sampled offers: the best listing, how many there are and whether any was in stock. A
+ * material's is its products' offers together, shown as context; a product's is its own, and only a product's decides
+ * whether it can be bought (D98): another product's stock is not its own.
+ */
+function offerSummary(offers) {
   // A quarantined observation is a different product. It can be neither the buy link nor the
   // evidence that a material is in stock.
-  const mine = prices.filter((p) => p.materialId === materialId && p.url && !p.quarantined);
+  const mine = offers.filter((p) => p.url && !p.quarantined);
   if (!mine.length) return null;
   // Prefer something you can actually buy today at a price the headline was built from.
   const rank = (p) => (p.stock === 'In stock' ? 4 : 0) + (p.headlineSample ? 2 : 0) + (p.regularPerKg !== null ? 1 : 0);
@@ -206,8 +211,10 @@ function buySummary(materialId, prices) {
     netMassKg: best.netMassKg, perKg: best.regularPerKg, stock: best.stock, accessDate: best.accessDate,
     offers: mine.length,
     anyInStock: mine.some((p) => p.stock === 'In stock'),
+    priceIds: mine.map((p) => p.id),
   };
 }
+const buySummary = (materialId, prices) => offerSummary(prices.filter((p) => p.materialId === materialId));
 
 // ---------------------------------------------------------------------------- headlines
 
@@ -566,6 +573,8 @@ export function compile(wb, { snapshot, build }) {
     quarantined: parseBoolean(r.Quarantined) === true,
     };
   });
+  // Each product's own offers, which alone say whether that product can be bought (D98).
+  for (const g of grades) g.buy = g.retired ? null : offerSummary(prices.filter((p) => p.gradeId === g.id));
   const pricesByMaterial = new Map();
   for (const p of prices) {
     if (!pricesByMaterial.has(p.materialId)) pricesByMaterial.set(p.materialId, []);
@@ -588,6 +597,8 @@ export function compile(wb, { snapshot, build }) {
 
   const coverage = wb.Coverage.rows.map((r) => ({
     id: r.CoverageID, materialId: r.MaterialID, domain: r.Domain, status: r.Status, manufacturerCount: num(r['Manufacturer count']), finding: r.Finding,
+    // The product the finding is about, or null where it is the material's (D98, m213).
+    gradeId: r.GradeID && r.GradeID !== 'Not applicable' ? r.GradeID : null,
     // A stored row is somebody's judgement. The build adds rows of its own for the pairs no judgement speaks for
     // and the records prove (m48), and they say so, so a reader is never shown an ID that is not in the tables.
     derived: false,

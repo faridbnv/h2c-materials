@@ -28,7 +28,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D16 | The data is embedded gzipped | The single HTML page carries its data compressed and unpacks it when it opens. | In force |
 | D17 | One vocabulary module, and no second way to name anything | Every property and requirement takes its on-screen name from one place, so nothing is called two different things. | In force |
 | D18 | The familiar baseline is a reference, never a candidate | A familiar material you pick for comparison is drawn beside the results and never counted as one of them. | In force |
-| D19 | No sampled offer is UNKNOWN, not FAIL | A material no sampled shop listed is unknown for "can I buy it"; only one listed and out of stock fails. | In force |
+| D19 | No sampled offer is UNKNOWN, not FAIL | A material no sampled shop listed is unknown for "can I buy it"; only one listed and out of stock fails. | In force; narrowed by D98 (a product is judged on its own offers, never another product's) |
 | D20 | Category names are authored with the rules that create them | Environment category names are written in the data beside the rules that define them, not assembled by the page. | In force |
 | D21 | One control for how much evidence the chart draws | The chart's two overlapping evidence switches became one three-way choice. | In force |
 | D22 | Search matches words, never substrings | Search matches the start of words, so "PLA" does not find thermoplastic polyurethane. | In force |
@@ -47,7 +47,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D35 | A research report is re-read against its sources, never transcribed | Every value is entered from its original document, re-read and hash-checked, never copied from a report or a summary. | In force |
 | D36 | Referential integrity includes ownership, not just existence | The build checks that every record belongs to the material it is filed under, not merely that its identifiers exist. | In force |
 | D37 | A headline belongs to the representative grade; study grades are not procurement grades | A material's numbers must not mix products, and a research-only grade is never a buyable product. | Amended by D83: the representative grade retired and each product is judged on its own values; the rule on research grades stands |
-| D38 | Environmental evidence is owned by the material; family evidence stays context | A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material. | In force; extended by D64 (where a material has no record of its own in a category, a resin reference for its base polymer is shown, labelled polymer-level, and may screen but never pass) |
+| D38 | Environmental evidence is owned by the material; family evidence stays context | A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material. | In force; extended by D64 (where a material has no record of its own in a category, a resin reference for its base polymer is shown, labelled polymer-level, and may screen but never pass); narrowed by D98 (a product is judged on its own records, or its twin's; the material's other records are context) |
 | D39 | Coverage is terminal, but it must agree with the records | The findings on what data a material has never change a result, but the build stops if they contradict the records. | In force; extended by D74 (a finding that only restates the records is derived) |
 | D40 | Peer observations are context, not exclusion bounds | For a short time, estimates drawn from similar materials were allowed to decide nothing at all. | Superseded by D42, then D43 |
 | D41 | Raw values, endpoints and archived identities are enforced | The build stops when a raw value, its unit and its converted value disagree, and a retired product stays out of every active list. | In force |
@@ -107,6 +107,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D95 | A product is judged as it is meant to be printed: colorFabb's lightweight PETs, foamed | When a sheet prints a product's values at two print settings and the product is made to be printed at one of them (a foaming filament, foamed), that one is the product's value; the other is kept and shown beside it, and never decides. | In force |
 | D96 | A release is its content: an ID over what decides travels with every page, scenario and export | Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept. | In force |
 | D97 | A decision value is bound to its own row: its number is one its evidence line prints, and a number has one role | A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough. | In force |
+| D98 | A product's verdict rests on its own records: its evidence, its offers, its conflicts | A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it. | In force |
 
 <!-- end index -->
 
@@ -320,6 +321,7 @@ out of `db.json` with its own citations, while the reference layer is uncited bu
 ## D19. No sampled offer is UNKNOWN, not FAIL
 
 > **In plain words:** A material no sampled shop listed is unknown for "can I buy it"; only one listed and out of stock fails.
+> **Status:** in force; narrowed by D98 (a product is judged on its own offers, never another product's).
 
 The availability criterion answers "only show me what I can buy". A material that no sampled
 retailer listed reports UNKNOWN; one that was listed and out of stock reports FAIL.
@@ -630,7 +632,7 @@ the second half stands: a study or reference grade is no procurement product, an
 ## D38. Environmental evidence is owned by the material; family evidence stays context
 
 > **In plain words:** A chemical or moisture requirement is judged on the material's own records, never on notes written for a related material.
-> **Status:** in force; extended by D64 (where a material has no record of its own in a category, a resin reference for its base polymer is shown, labelled polymer-level, and may screen but never pass).
+> **Status:** in force; extended by D64 (where a material has no record of its own in a category, a resin reference for its base polymer is shown, labelled polymer-level, and may screen but never pass); narrowed by D98 (a product is judged on its own records, or its twin's; the material's other records are context).
 
 The Environmental evidence column had become a copy of family application notes for 31 materials.
 That made PC FR look chemically evidenced by records written for another polycarbonate material,
@@ -2917,6 +2919,40 @@ PLA Matt and found V002780 and V002781 tested at 90 °C, which the sheet prints 
 
 Reversing it returns the page-wide test as the only proof, which a corrupted digit, a fragment of another number or a
 standard's designation satisfies.
+
+## D98. A product's verdict rests on its own records: its evidence, its offers, its conflicts
+
+> **In plain words:** A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it.
+
+*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 1; recommended
+and taken). Built in version 2.1, F01 of the review of 2026-09-27 (D01, D05). Amends D38 and D19.*
+
+D83 judged each product on its own values and recipe, and left three criteria reading the material: its environment
+records (D38), its offers (D19) and its evidence and conflict findings. So 3DXTECH's 3DXSTAT ESD PETG passed "resists
+acids" on Q00107, a record of Polymaker's PolyMax PETG-ESD; ECOMAX PLA was insoluble on Bambu Lab's records and in stock
+on Bambu Lab Canada's listing; and one iSANMATE sheet's filler question (C01409) held out every PLA-GF.
+
+- **A product's own records decide**; where it has none, a twin's (D89), which is the same sheet, labelled "same sheet
+  as ...". A sibling's record, and one filed under the material with no product (a register note), are context: the
+  reason names them, and the product is unknown on that requirement. The base polymer's behaviour (D64) stands where the
+  material has no record at all, as before.
+- **An offer is the product's own** (`grades[].buy`), never read from a twin or a sibling: another product's stock is not
+  this one's. A material's offers together are what the table shows beside its price; they decide nothing.
+- **A product's own measurement, or its twin's,** is what "has a product-specific measurement" asks.
+- **A coverage finding names the product it is about** (`coverage.csv` GradeID, m213); a conflict about one product
+  holds out that product and its twins, never its siblings. C01411, about which resin nGen is, stays the material's.
+- **A limit stays in the answer** (D05). The maker's "Fair" and "Fair-Poor" read as limited resistance, as "Good" and
+  "Poor" already read as resistant and not; and a record in words the build reduces to no verdict, beside a positive
+  one, makes the requirement unresolved rather than being set aside: PolyMax PETG-ESD's weak-acid "Good" beside its
+  strong-acid "Fair-Poor" no longer answers "resists acids". The engine is still not told which acid or solvent a part
+  meets; a verdict names the records and their exposures.
+
+What it did, over the 136 in-scope materials' 1,077 products (the old and new engine on one database): products passing
+acids 142 → 7, alkalis 142 → 7, solvents 7 → 1, oils and grease 44 → 6, water 709 → 41; in stock in Canada 726 → 41,
+listed 752 → 46; a product-specific measurement 1,077 → 1,050 (the 27 that have neither their own nor a twin's); no
+unresolved conflict 936 → 1,067. Material verdicts moved only where a product's own record decides (oils and grease 5 →
+6 materials; no unresolved conflict 128 → 135). No template screens on these, so `build/snapshot/templates.csv` did not
+move. Reversing it lets one product's record or stock stand for every product of its material again.
 
 ---
 
