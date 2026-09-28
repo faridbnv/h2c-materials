@@ -234,8 +234,8 @@ export function parseEnclosure(raw) {
   if (!text || /^not published$/i.test(text)) return { text, state: 'unknown' };
   // A table with a column headed "Enclosed Space" answers it in one word, and "no" is the whole answer. Polymaker's
   // "Closure chamber" row answers "No Needed" on some sheets, and PEBA's prose says a filament "does not require sealed
-  // printing".
-  if (/\bnot\s+(necessary|needed|required)\b|^no\s+(enclosure|needed)\b|^(no|none)$|\bdoes\s+not\s+require\b/i.test(text)) return { text, state: 'not-needed' };
+  // printing", and 3D-Fuel's that its Pro PCTG "typically doesn’t require an enclosure".
+  if (/\bnot\s+(necessary|needed|required)\b|^no\s+(enclosure|needed)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
   // Eryone's "Sealed printing" row says whether the filament prints open: "Supports open/closed printing", "Open
   // printing", "enclosed printing/open printing", "supports open printing, and the sealing effect is better if it is
   // sealed". A filament its maker prints open needs no enclosure; that an enclosure improves it is a preference the
@@ -248,6 +248,9 @@ export function parseEnclosure(raw) {
   // A sentence that recommends printing in a closed printer: eSUN's "we highly recommend printing PC-HT material within
   // a closed chamber printer", or "print in a printer with a closed chamber".
   if (/\brecommend\w*\b[^.]*\b(closed|enclosed)\s+(chamber|printer)|\bprint\w*\s+in\s+a\s+printer\s+with\s+(a\s+)?closed\s+chamber/i.test(text)) return { text, state: 'recommended' };
+  // Advice to use one, with no temperature: Siraya Tech's "Use an enclosure to maintain consistent temperature and reduce
+  // potential warping, especially for larger prints."
+  if (/^use\s+an?\s+(enclosure|enclosed\s+printer)\b/i.test(text)) return { text, state: 'recommended' };
   // A comparison table may answer the row with a mark instead of a word: Bambu Lab's filament guide draws a tick or a
   // cross in its "Print with Enclosure" row, where its January 2025 revision printed "Required" and "Optional" (D88).
   if (/^[✗✘]$/.test(text)) return { text, state: 'not-needed' };
@@ -291,6 +294,9 @@ export function parseAbrasion(raw) {
   // A statement that one is not needed says so whatever word it ends on: nice's "Hardened nozzle not required",
   // Recreus's "No hardened nozzle required", Siraya Tech's "harden steel nozzle is not needed". Read by its last word
   // alone, "required" said the opposite.
+  // A filled filament its maker says is not abrasive: FormFutura's Galaxy PLA, "Even though its high
+  // silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer."
+  if (/\b(is|are)\s+not\s+abrasive\b|\bnon-?abrasive\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   if (/(harden\w*|ruby|abrasi\w*)[^.;]*\bnot\s+(needed|required|necessary)\b|\bno\s+(harden\w*|ruby|abrasi\w*)\b[^.;]*\b(required|needed|necessary)\b/i.test(text)) return { text, requiresHardened: false, state: 'stated' };
   const answer = /\b(yes|no|not necessary|none|required|recommended)\s*[.:]?$/i.exec(text);
   if (answer && /abrasi|hardened|carbide|diamond|ruby/i.test(text)) {

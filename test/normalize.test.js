@@ -96,12 +96,14 @@ test('every enclosure wording the sheets print reads as the state it states', ()
       'supports open printing, and the sealing effect is better if it is sealed', 'Supports open printing; better results with enclosure.',
       'Sealing print quality is better, supporting open printing', // Eryone's "Sealed printing" row: it prints open
       'The surface is delicate, with no obvious layer lines, easy to use, and does not require sealed printing.',
+      'Pro PCTG typically doesn’t require an enclosure', "Pro PCTG typically doesn't require an enclosure",
     ],
     recommended: [
       'Needed', 'Needed (90-100°C)', 'Needed (ambient temperature)', // Polymaker's "Closure chamber" row
       'Closed printing', 'closed printing', 'enclosed printing', 'Box Sealing Print', // Eryone's row, for the ones that need it
       'Due to its high shrinkage rate, we highly recommend printing PC-HT material within a closed chamber printer.',
       'The shrinkage rate of ABS+ material is large, so you should pay attention to heat preservation when printing, and print in a printer with a closed chamber.',
+      'Use an enclosure to maintain consistent temperature and reduce potential warping, especially for larger prints.',
     ],
   };
   for (const [state, texts] of Object.entries(says)) for (const t of texts) assert.equal(parseEnclosure(t).state, state, t);
@@ -146,7 +148,8 @@ test('an at-least value is a lower end with no upper end, never within by its up
 test('a hardened-nozzle statement reads as what it says, a negation included', () => {
   const says = {
     false: ['Hardened nozzle not required', 'No hardened nozzle required', 'Nozzle: High quality metal nozzle, harden steel nozzle is not needed',
-      'Ruby or hardened nozzle not necessary', 'Ruby or hardened nozzle recommended No', 'Hardened Nozzle no'],
+      'Ruby or hardened nozzle not necessary', 'Ruby or hardened nozzle recommended No', 'Hardened Nozzle no',
+      'Even though its high silver-aluminium-flaked content Galaxy PLA is not abrasive to the nozzle of your 3D printer.'],
     true: ['When using PolyMide™ CoPA, we recommend to switch to a wear resistant nozzle', 'Nozzle & Gear Material Hardened steel',
       'A reinforced nozzle, suitable for abrasive materials is recommended.', 'It is recommended to use hardening steel nozzle, tungsten steel or ruby nozzle to avoid nozzle abrasion.',
       'Hardened Nozzle Recommended', 'Ruby or hardened nozzle recommended Yes', 'We recommend to use ruby nozzles or hardened steel nozzles.',
