@@ -2287,3 +2287,6 @@ admit more as-published values.
   - 300 fuzzed scenarios in agreement.
 - `npm run ui:fuzz -- --n 2000 --seed 11`: 2,000 scenarios in agreement.
 - `verify:fast` ran in 45 to 58 s.
+
+**Merged** into `v2` and `main` and pushed on 2026-09-27, at the owner's request; `main` publishes the page (README,
+"Publishing").
