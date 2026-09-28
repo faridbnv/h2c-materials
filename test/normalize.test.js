@@ -83,6 +83,9 @@ test('enclosure wording separates "not needed" from "recommended"', () => {
   // A comparison table may answer with a drawn mark: Bambu Lab's guide ticks or crosses "Print with Enclosure" (D88).
   assert.equal(parseEnclosure('✓').state, 'recommended');
   assert.equal(parseEnclosure('✗').state, 'not-needed');
+  // The revision that prints the row in words: Required for the tick, Optional for the cross.
+  assert.equal(parseEnclosure('Optional').state, 'not-needed');
+  assert.equal(parseEnclosure('Required').state, 'recommended');
   assert.equal(parseEnclosure('✓ see notes').unparsed, true, 'a mark is read only as the whole answer');
 });
 

@@ -254,6 +254,9 @@ export function parseEnclosure(raw) {
   // A comparison table may answer the row with a mark instead of a word: Bambu Lab's filament guide draws a tick or a
   // cross in its "Print with Enclosure" row, where its January 2025 revision printed "Required" and "Optional" (D88).
   if (/^[✗✘]$/.test(text)) return { text, state: 'not-needed' };
+  // The guide's revision that prints the row in words says "Optional" where the other draws the cross (m150 checked each
+  // type both carry): an enclosure the maker calls optional is not needed.
+  if (/^optional$/i.test(text)) return { text, state: 'not-needed' };
   if (/^[✓✔]$/.test(text)) return { text, state: 'recommended' };
   // "for larger components" is the same statement as "recommended for larger prints", which this already reads:
   // a condition on when an enclosure helps, not a refusal. The raw column keeps the condition.
