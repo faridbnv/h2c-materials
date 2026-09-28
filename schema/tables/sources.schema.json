@@ -100,10 +100,9 @@
       "name": "URL",
       "type": "string",
       "role": "raw",
-      "description": "URL, or local path for a local reference.",
+      "description": "Retrieval URL, or local path for a local reference. A maker URL may serve later originals: the URL and digest pair is unique; each later retrieval has its own SourceID and access date, with explicit prior-source review pins in the import proposal.",
       "constraints": {
-        "required": true,
-        "unique": true
+        "required": true
       }
     },
     {
@@ -163,5 +162,11 @@
         "pattern": "^([a-f0-9]{64}|Not recorded|Not applicable)$"
       }
     }
+  ],
+  "uniqueKeys": [
+    [
+      "URL",
+      "SHA256"
+    ]
   ]
 }

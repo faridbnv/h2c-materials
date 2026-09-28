@@ -26,7 +26,7 @@
 // A batch is also a migration: scripts/migrate/mNN-batch-<name>.mjs calls this with the batch it pins, so the
 // sequence of migrations stays the one history of how the data got here.
 
-import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
@@ -148,7 +148,9 @@ export function guard(proposals, world) {
     // npm run audit:witness, for a person to read, not refused after the fact.
     const reapplied = registered?.SHA256 === sha;
     const url = proposal.source?.row?.URL;
-    if (url && seenUrl.has(url) && seenUrl.get(url) !== proposal.source?.row?.SourceID) fail('APPLY-URL-DUPLICATE', where, `${url} is already registered as ${seenUrl.get(url)}`);
+    if (url && seenUrl.has(url) && seenUrl.get(url) !== proposal.source?.row?.SourceID && !reapplied && !reviewedRetrievalRevision(proposal, world.sources)) {
+      fail('APPLY-URL-DUPLICATE', where, `${url} is already registered as ${seenUrl.get(url)}; a changed retrieval needs an explicit review pinning its earlier SourceID, digest and access date`);
+    }
 
     // Identity: a material that exists, or a ruling that creates one. Never a family entry.
     // A grade of a material this batch creates carries no MaterialID until the material is written. On a second
@@ -232,6 +234,20 @@ export function guard(proposals, world) {
     }
   }
   return problems;
+}
+
+// The same maker URL can serve a later original. Keep the earlier registration intact and require the reviewer
+// to name its digest; this exception cannot admit a duplicate of the same bytes or reuse a source identifier.
+export function reviewedRetrievalRevision(proposal, sources) {
+  const pin = proposal.review?.retrievalRevision;
+  const current = proposal.source?.row;
+  if (!pin?.by || !pin.previousSourceID || !/^\d{4}-\d{2}-\d{2}$/.test(pin.accessed ?? '')) return false;
+  const previous = sources.find((s) => s.SourceID === pin.previousSourceID);
+  const priorDigest = /^[0-9a-f]{64}$/.test(pin.previousSHA256 ?? '')
+    || (pin.previousSHA256 === 'Not recorded' && !!pin.previousDigestNotRecorded && ['corroboration', 'provenance', 'register'].includes(previous?.['Citation role']));
+  return !!previous && priorDigest && previous.URL === current?.URL && previous.SHA256 === pin.previousSHA256
+    && previous.SourceID !== current.SourceID && previous.SHA256 !== current.SHA256
+    && pin.accessed === current['Access date'] && pin.accessed > previous['Access date'];
 }
 
 /** The tables as the guard reads them, from a checkout or a copy. */
@@ -459,6 +475,11 @@ export function applyBatch(batch, { migration = batch, date = new Date().toISOSt
   // is in the database and the ledger says so, or neither.
   const applied = markApplied(proposals, t);
   t.save();
+  const backupManifest = process.env.H2C_SOURCE_BACKUP && join(process.env.H2C_SOURCE_BACKUP, 'manifest.csv');
+  const newest = Math.max(...readdirSync(join(PROPOSALS, batch)).filter((f) => f.endsWith('.json')).map((f) => statSync(join(PROPOSALS, batch, f)).mtimeMs));
+  if (!backupManifest || !existsSync(backupManifest) || statSync(backupManifest).mtimeMs < newest || applied) {
+    console.warn('Source backup: re-export after this batch: npm run data:sources -- --export "$H2C_SOURCE_BACKUP" --derived');
+  }
   return { log, written: true, applied };
 }
 

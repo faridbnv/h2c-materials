@@ -290,3 +290,10 @@ test('the material scaffold writes a material and its grade, and names what it c
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
+
+test('later originals can share a retrieval URL, but the URL/digest pair cannot repeat',()=>{
+ const different=seeded(t=>{const s=t.rows('sources')[0];t.append('sources',{...s,SourceID:'X-RETRIEVAL-SCHEMA-TEST',SHA256:'f'.repeat(64),'Access date':'2026-09-28'});});
+ assert.deepEqual(different,[]);
+ const repeated=seeded(t=>{const s=t.rows('sources')[0];t.append('sources',{...s,SourceID:'X-RETRIEVAL-SCHEMA-TEST'});});
+ assert.ok(repeated.some(m=>m.includes('(URL, SHA256)')));
+});

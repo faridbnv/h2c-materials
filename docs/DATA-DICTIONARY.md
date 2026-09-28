@@ -525,7 +525,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Source class | canonical | string | yes |  | [source-classes](#vocab-source-classes) | What kind of document it is. A fact about this one document goes in Source note, not in the class. |
 | Source note | prose | string | yes | Not applicable |  | What is particular about this document: where it is hosted, what it covers, why it is kept. Not applicable where the class says it all. |
 | Citation role | editorial | string | yes |  | [citation-roles](#vocab-citation-roles) | Why the source is registered: cited by records, or kept to corroborate, to register scope or prices, as provenance, or recorded as not retrieved. |
-| URL | raw | string | yes |  |  | URL, or local path for a local reference. |
+| URL | raw | string | yes |  |  | Retrieval URL, or local path for a local reference. A maker URL may serve later originals: the URL and digest pair is unique; each later retrieval has its own SourceID and access date, with explicit prior-source review pins in the import proposal. |
 | Locator | raw | string | yes |  |  | Default locator. |
 | Applicable grades | editorial | string | yes |  |  | Grades or scope the source applies to, in words. Every grade ID it mentions must exist. |
 | Access state | canonical | string | yes |  | [access-states](#vocab-access-states) | How it was reached: retrieved, retrieved-copy, read-only or not-retrieved. Nothing may cite a source that was not retrieved. |

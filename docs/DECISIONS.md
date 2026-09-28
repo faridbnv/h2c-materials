@@ -3159,6 +3159,8 @@ The first export and an empty-cache restore rehearsal are recorded in
 [audit response](audits/2026-09-28-gap-closing/RESPONSE.md). Reviews and the restore rehearsal were performed by a Codex
 AI agent; no human evidence review is implied.
 
+**Amended 2026-09-28, later originals at one URL.** URL alone identified a source in the schema/import guard, so a new hash-verified retrieval at an unchanged maker URL could not enter without replacing the old source or inventing a URL. The schema now makes (URL, SHA256) unique. A later retrieval needs a distinct SourceID and digest, a later access date, and an explicit named review pinning the earlier SourceID and its recorded digest. A metadata-only corroboration/register/provenance entry with `Not recorded` needs a written missing-digest reason; it is preserved, never claimed recovered. Same-byte duplicates and reused identifiers remain refused. Sources continue to be joined by SourceID/digest. Tests cover wrong pins, duplicate bytes, reused IDs, missing reviewer and the schema pair. This fixes the custody check; no requirement rule changes.
+
 Answers moved: none: source-store operations change no decision data. Reversing it lets a stopped or concurrent edit leave the tables half
 changed, and a stalled download stop an import run.
 

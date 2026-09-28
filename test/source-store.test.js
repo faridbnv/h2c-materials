@@ -77,7 +77,7 @@ test('a restore takes back only bytes that hash to a registered digest, and name
   writeFileSync(join(bundle, `${sha(B)}.html`), Buffer.from('<html>not the page that was read</html>'));
   const r = restoreBundle(bundle, root);
   assert.deepEqual(r.restored.map((x) => x.sources.join()).sort(), ['S-A', 'S-C']);
-  assert.deepEqual(r.refused.map((x) => x.why).sort(), [`hashes to no registered source`, `named for ${sha(B)} but hashes to ${sha(Buffer.from('<html>not the page that was read</html>'))}`].sort());
+  assert.deepEqual(r.refused.map((x) => x.why).sort(), [`hashes to no source-register or ledger digest`, `named for ${sha(B)} but hashes to ${sha(Buffer.from('<html>not the page that was read</html>'))}`].sort());
   assert.deepEqual(r.absent.map((m) => `${m.SourceID} ${m.SHA256}`), [`S-B ${sha(B)}`, `S-E ${sha(E)}`]);
   // Restored by digest, where the pipeline reads a document: C is now held under its digest, not its old name.
   assert.ok(readFileSync(join(cache, 'sources/by-sha', `${sha(C)}.pdf`)).equals(C));

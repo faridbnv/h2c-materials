@@ -57,9 +57,15 @@ export function pageLinesFromHtml(html) {
       continue;
     }
     // Everything outside a table: a heading sets the path, a block becomes a line.
-    for (const m of piece.matchAll(/<(h[1-4]|p|li|dt|dd|caption|figcaption|strong|div)\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+    // A consuming match on an outer div hid its paragraphs, and the length cutoff then dropped them.
+    // Inspect nested blocks without consuming their children. Keep leaf wrappers and semantic paragraphs;
+    // an inline strong inside a retained paragraph is already represented by that paragraph.
+    const blocks = [...piece.matchAll(/(?=<(h[1-4]|p|li|dt|dd|caption|figcaption|strong|div)\b[^>]*>([\s\S]*?)<\/\1>)/gi)]
+      .filter((m) => !/<(?:h[1-4]|p|li|dt|dd|caption|figcaption|div)\b/i.test(m[2]));
+    for (const m of blocks) {
+      if (m[1].toLowerCase() === 'strong' && blocks.some((parent) => parent !== m && parent.index < m.index && parent.index + parent[2].length > m.index)) continue;
       const text = plainText(m[2].replace(/<[^>]+>/g, ' '));
-      if (!text || text.length > 400) continue;
+      if (!text) continue;
       if (/^h[1-4]$/i.test(m[1])) { heading = text; push([text]); continue; }
       push([text]);
     }
