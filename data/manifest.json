@@ -6,12 +6,12 @@
       "sha256": "e78c4dc177cdd274e63ea4dc3d39edb1c8a9ec7114a8f335824ee78f69dd8979"
     },
     "grades": {
-      "rows": 1160,
-      "sha256": "d2d2c8ef20b585f87c19716ae9ee3894b05893a76edaf9453ea75bf54fc1d89d"
+      "rows": 1161,
+      "sha256": "df180e7d967b87ab71a25a5400cb3796ffc123fbdc9c96625f423e9763babc6f"
     },
     "profiles": {
-      "rows": 1279,
-      "sha256": "cc7a0b6fba1c116d37a6d4809e4dab1752d91aa5cfc2acde3e81fbff8249c6ac"
+      "rows": 1280,
+      "sha256": "d0eeddbbb391d901fb74c836b44e9984715bbe367cbc235e849b1252e88acd2e"
     },
     "profile_notes": {
       "rows": 2061,
@@ -19,7 +19,7 @@
     },
     "measurements": {
       "rows": 11494,
-      "sha256": "f31d1df5fe3dd4fa33847aa8ce77be927d1bd7879cf98fa8afce34eb941a0715"
+      "sha256": "5a053b351288fde5861e5dcc5708e000229c57d4d2c6c36c8128184e842a2a5d"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -27,7 +27,7 @@
     },
     "evidence": {
       "rows": 5083,
-      "sha256": "c67ebc966060732cb1102215e443de2f51ac36c74ff33c7e5996fde2462860ad"
+      "sha256": "863c3019b2374887634f064195870016c79e8f435d2ae433981773308e21ef81"
     },
     "know_how_reads": {
       "rows": 1262,
@@ -46,12 +46,12 @@
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1486,
-      "sha256": "591c19bf45d45491d0ff681f317248fbcae1936d7f0df7fd736fff5635252bcf"
+      "rows": 1487,
+      "sha256": "26a98c0ea3a5ced61c3b03de6848b4a44ca00d5934115260565a149c0cab54f1"
     },
     "coverage": {
-      "rows": 866,
-      "sha256": "0e7be38c5547b6e62b60313d198166ce0466beaff82fdb94865ce16c5e18e719"
+      "rows": 867,
+      "sha256": "a1bf1d5dbb8a86dd62dd44dbfb3c132645722b793775c95dd4c47e1eb4959e10"
     },
     "method": {
       "rows": 50,

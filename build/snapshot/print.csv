@@ -125,7 +125,7 @@ G001-125,M001,mysteryPLA,within,within,within,not-needed,no-special-concern,unkn
 G001-126,M001,PLAx,within,within,within,not-needed,requires-hardened,required,chamber: guide PG001; enclosure: guide PG001
 G001-127,M001,Quantum Dots (HTPLA),within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-128,M001,ecoPLA,within,within,within,not-needed,no-special-concern,unknown,bed: guide PG001; chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
-G001-129,M001,Not published,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
+G001-129,M001,PLA,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-130,M001,MH Build Series PLA,within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-131,M001,Opaque HTPLA (v3),within,within,within,not-needed,no-special-concern,unknown,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
 G001-132,M001,PLA High Speed,within,within,within,not-needed,no-special-concern,required,chamber: guide PG001; enclosure: guide PG001; hardenedNozzle: guide PG001
@@ -786,7 +786,7 @@ G053-05,M053,PA12-CF,within,within,unknown,unknown,requires-hardened,required,
 G053-06,M053,PA12-CF,within,within,unknown,recommended,requires-hardened,required,
 G053-07,M053,Polyamid 12 Carbonfaser 15% (PA12 CF15),unknown,unknown,unknown,unknown,requires-hardened,unknown,hardenedNozzle: twin G053-12
 G053-08,M053,FIBERON PA12 CF10,within,within,within,unknown,requires-hardened,required,
-G053-09,M053,Industrial PA12 CF,unknown,unknown,unknown,unknown,requires-hardened,unknown,
+G053-09,M053,Industrial PA12 CF,unknown,unknown,unknown,unknown,requires-hardened,required,
 G053-10,M053,PA12-CF,within,within,within,unknown,requires-hardened,required,
 G053-11,M053,PA12 CF,within,within,unknown,unknown,requires-hardened,required,
 G053-12,M053,Polyamid 12 carbon fiber 15% (PA12 CF15),unknown,unknown,unknown,unknown,requires-hardened,unknown,
@@ -806,6 +806,7 @@ G057-06,M057,Easy PA,within,within,within,unknown,unknown,required,
 G057-07,M057,ePA,within,within,unknown,unknown,unknown,required,drying: twin G057-04
 G059-01,M059,Fiberon PA612-CF15,within,within,within,unknown,requires-hardened,required,
 G059-02,M059,PA612-CF,within,within,unknown,unknown,requires-hardened,required,
+G059-03,M059,Industrial PA12 CF+,unknown,unknown,unknown,unknown,requires-hardened,unknown,
 G064-01,M064,3DXSTAT ESD PA12,within,within,unknown,unknown,unknown,unknown,
 G065-01,M065,Fiberon PA612-ESD,within,within,within,unknown,requires-hardened,required,
 G066-01,M066,High Precision PET,within,within,unknown,recommended,unknown,required,

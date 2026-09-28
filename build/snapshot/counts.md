@@ -9,19 +9,19 @@ rather than repeat a number.
 | … in scope for the H2C | 136 | candidates the templates judge |
 | … family entries and aliases | 21 | names that own no product (D44, D86) |
 | … out of scope | 17 | recorded, never a candidate |
-| Products | 1,125 | active procurement grades |
-| … with a comparable value for at least one property | 1,009 | D84 |
-| … with a print profile of their own | 1,004 |  |
+| Products | 1,126 | active procurement grades |
+| … with a comparable value for at least one property | 1,010 | D84 |
+| … with a print profile of their own | 1,005 |  |
 | … reading values from a twin's sheet | 45 | the same table, recorded once (D89) |
 | … reading part of the print gate from a printer maker's guide | 459 | where their own sheet is silent (D88); 15 guide rows |
-| … with a maker's know-how statement | 881 | lane 3 |
+| … with a maker's know-how statement | 882 | lane 3 |
 | Measurements | 11,196 | active rows |
 | … with a usable number | 11,020 |  |
-| Product values | 4,340 | one per product and headline, chosen by rule (D83) |
+| Product values | 4,344 | one per product and headline, chosen by rule (D83) |
 | Material values from products | 662 | headline cells of in-scope materials |
 | Material values estimated | 150 | where no product publishes (D43) |
-| Print profiles | 1,279 |  |
+| Print profiles | 1,280 |  |
 | Evidence records | 565 | exposure, flammability, post-processing and the rest |
 | Know-how statements | 4,502 | the makers' words, shown in the panel only (D85) |
 | Price observations | 104 | sampled 2026-09-10 |
-| Sources | 1,486 |  |
+| Sources | 1,487 |  |
