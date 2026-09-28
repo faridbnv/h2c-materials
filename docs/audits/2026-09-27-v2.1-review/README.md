@@ -12,9 +12,14 @@ its plan to be built on the `v2` branch.
 | [reviews/](reviews/) | The three specialist dossiers (data and engineering, architecture and operations, practical use) and their structured findings |
 | [PACKAGE-README.md](PACKAGE-README.md) | The package's own index, which lists what it verified and where its evidence is |
 | [ACCEPTANCE.md](ACCEPTANCE.md) | The acceptance portfolio written for phase 0: twelve questions and their source-grounded answers |
-| RESPONSE.md | What was done about each finding, with the scenario answers each change moved (written as the work lands) |
+| [RESPONSE.md](RESPONSE.md) | What was done about each work package, the scenario answers each change moved, and where 2.1 ends |
+| [WITNESS-BINDING.md](WITNESS-BINDING.md) | Generated (`npm run audit:witness`): every decision value checked against its evidence line (F06, D97) |
+| [SCENARIO-GAPS.md](SCENARIO-GAPS.md) | Generated (`npm run audit:scenario-gaps`): the product facts one step from an answer, by question (F08) |
+| [SPOT-CHECK-DECISIVE.md](SPOT-CHECK-DECISIVE.md) | Generated (`npm run audit:decisive-sample`): 32 of the values that decide, for a person to check (F15) |
+| [TEAM-TRIAL.md](TEAM-TRIAL.md) | The team trial's protocol and its empty findings table (F15, phase 2's gate) |
 
-The report's links to `evidence/`, `probes/` and `replay/` point into the delivered package, which is not copied here:
+The report's links to `evidence/`, `probes/`, `replay/`, `REPRODUCE.md` and `PACKAGE-MANIFEST.json` point into the
+delivered package, which is not copied here:
 its logs, screenshots, frozen pages and probe results are about 28 MB. The owner holds it at
 `H2C-v2.1-Review-2026-09-27/`; `PACKAGE-README.md` lists its contents. The owner's answers to the report's seven
 questions are in [docs/GOALS.md](../../GOALS.md), "Decided on 2026-09-28, for version 2.1".

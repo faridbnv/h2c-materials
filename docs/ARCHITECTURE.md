@@ -15,7 +15,7 @@ Three layers, separated on purpose, each with a rule about what it may not do.
             |
             |   BUNDLE  gzip the data, inline the libraries
             v
-  dist/H2C_Material_Selector_<snapshot>.html    one file, no server, works offline
+  dist/H2C_Material_Selector_<snapshot>_<release>.html    one file, no server, works offline
 ```
 
 Inside the application, the same separation again:
@@ -144,6 +144,8 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `audit/witness-binding.mjs` | `npm run audit:witness`: the evidence binding (D97) asked of the rows already recorded, into `docs/audits/2026-09-27-v2.1-review/WITNESS-BINDING.md`. |
 | `audit/know-how-worklist.mjs` | `npm run audit:know-how`: the maker-site search worklist, every product whose documents were read for makers' know-how and said nothing, into `KNOW-HOW-WORKLIST.md` beside it; `--check` fails if it is stale. |
 | `audit/spot-check.mjs` | `npm run audit:spot-check`: a fixed, seeded sample of what the page shows, for a person to check against the source page, into `SPOT-CHECK.md` beside it. |
+| `audit/decisive-sample.mjs` | `npm run audit:decisive-sample`: a seeded sample of the measurements the passing products' verdicts cite, state by state, for a person to check role by role against the hashed page, into `docs/audits/2026-09-27-v2.1-review/SPOT-CHECK-DECISIVE.md` (F15). |
+| `doctor.mjs` | `npm run doctor`: what this checkout can run (Node, both dependency groups, Chrome, the hooks, the cached sources) and what each missing piece needs (F17). |
 | `audit/rule-vs-hand-picks.mjs` | The product rule against the retired hand picks, from their archive, into `rule-vs-hand-picks.md` beside it (D83, m137). |
 | `audit/final-round-sample.mjs` | A seeded sample of the rows phase 6's final round wrote, each checked again on its cached page. |
 | `build-diff.mjs` | `npm run build:diff`: builds HEAD (or `--ref`) in a temporary worktree and the working tree, and prints every difference in `dist/db.json`. |

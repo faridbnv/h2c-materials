@@ -3180,9 +3180,9 @@ spent the budget was a guess.
 - **The loop measured.** `npm run verify:fast` times each step against the 90 s budget (`--enforce-budget` fails over it);
   `npm run bench` measures the build cold and warm by stage, peak memory, sizes, each template's selection and, with
   `--growth`, the largest chemical group grown two and three times (`build/reports/bench.json`). On 2026-09-28, on an
-  Apple M4 with Node 26 and other processes running: cold build 15.9 s (the estimate stage 14.0 s), warm 1.9 s, peak
-  721 MB, the page 6.6 MB; `verify:fast` 24 to 28 s warm and 78 s cold; polylactide's 335 products grown to 670 took the
-  estimate stage 36 to 51 s, to 1,005 about 88 s. Node 24 was not measured.
+  Apple M4 with Node 26: cold build 15.9 s (the estimate stage 14.0 s), warm 2.0 s, peak 709 MB, the page 6.6 MB;
+  `verify:fast` 24 s warm and 78 s cold, and on Node 24, 25 s and 65 s; polylactide's 335 products grown to 670 took the
+  estimate stage 37 s, to 1,005 90 s.
 
 Answers moved: none. Reversing it lets a query mix two releases without saying so.
 

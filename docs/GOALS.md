@@ -71,7 +71,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | 4,659 statements on 1,039 products in the maker's words, every gap stated; 45 products left sheet-silent, each with a question for the owner or the maker |
 | C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | The facts no row holds and every cached page's text in `dist/h2c.sqlite`, now stamped with its release and never mixing two (D105); the full-text index holds 1,500 of 1,642 retrieved sources and says so |
 | C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | 3 | Estimated only where no product publishes (150 material cells, `build/snapshot/counts.md`); the special cases went with the representative grade |
-| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | `verify:fast` 24 s warm and 78 s cold, timed by step; a save is one transaction, a fetch bounded and resumable (D104); a decision traced from the command line and the loop measured (D105). A product still takes the pipeline, which stays paused |
+| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | `verify:fast` 24 s warm and 78 s cold (25 s and 65 s on Node 24), timed by step; a save is one transaction, a fetch bounded and resumable (D104); a decision traced from the command line and the loop measured (D105). A product still takes the pipeline, which stays paused |
 | C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | 2 | A chosen product keeps its state, release, note and the team's own test results with the scenario, and its brief is written (D103); no shared list, account or server, as decided |
 | C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | 4 | An independent acceptance portfolio (46 expectations) and seven metamorphic relations guard the decisions; a release is its content (D96); `verify` fails without Chrome; `npm run doctor` and three routes start a reader. The audit record is still long |
 
@@ -198,7 +198,9 @@ A review of 2026-09-27 ([REVIEW.md](audits/2026-09-27-v2.1-review/REVIEW.md), wi
 [plan](audits/2026-09-27-v2.1-review/V2.1-PLAN.md)) found the decision contract less complete than the data's: a
 product could pass on another product's evidence or offer, on values from two treatment states, or without a print gate
 the H2C could meet. The owner asked for version 2.1 to be built from that plan on the `v2` branch, not `main`, and took
-its recommended answer to each of the seven questions it put. Each becomes a DECISIONS entry in the change that builds it.
+its recommended answer to each of the seven questions it put. Each is a DECISIONS entry, made in the change that built
+it: 1 is D98, 2 and 5 are D99, 3 is D100, 4 is D101, 6 is D96, and 7 is D103. The plan's other findings, which put no
+question to the owner, are D97, D102, D104 and D105.
 
 1. **A product's verdict rests on its own evidence.** The exact product decides; a twin that prints the same sheet
    (D89) reads its sibling's; a record filed under the material with no product, or a polymer's published behaviour, is

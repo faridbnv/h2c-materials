@@ -29,7 +29,8 @@ going to question a number.
   products first, choose the one to print, and take its decision brief (Save / share).
 - **A maintainer correcting one value of a registered source:** [AGENTS.md](../AGENTS.md), "Correct a published value":
   re-read the hash-checked page, write a guarded migration (m212 is a short one), then `npm run verify:fast`,
-  `npm run snapshot` and `npm run build:diff`, and `npm run trace -- <MeasurementID>` to see what it decides.
+  `npm run snapshot` and `npm run build:diff`, and `npm run trace -- <MeasurementID>` to see what it decides
+  (`npm run trace -- --scenario <saved file> --product <GradeID>` for one product's decision).
 - **An authorized import of a new document:** [IMPORTING.md](IMPORTING.md). Imports are paused except within the owner's
   exceptions ([GOALS.md](GOALS.md)); a document never enters by hand.
 
@@ -42,9 +43,9 @@ Three places, in the order to try them.
 2. **[DECISIONS.md](DECISIONS.md).** Numbered, with an index at the head saying which still hold, each saying what
    would break if it were reversed, and a table of bugs worth remembering, with what pins each one now.
 3. **[audits/](audits/).** Each audit pass in its own dated folder: the report as it was delivered, and the outcome
-   of every finding. The latest, the [version 2.1 review](audits/2026-09-27-v2.1-review/REVIEW.md), holds the plan now
-   being followed on the `v2` branch; what is decided from it is in [GOALS.md](GOALS.md), and what was done in its
-   [response](audits/2026-09-27-v2.1-review/RESPONSE.md).
+   of every finding. The latest, the [version 2.1 review](audits/2026-09-27-v2.1-review/REVIEW.md), holds the plan built
+   on the `v2` branch; what is decided from it is in [GOALS.md](GOALS.md), and what was done, and what waits on people,
+   in its [response](audits/2026-09-27-v2.1-review/RESPONSE.md).
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
 is the way it is because of what the data can and cannot support, DECISIONS says so. If neither

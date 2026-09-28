@@ -8,39 +8,39 @@
     "cores": 10,
     "memoryGB": 24,
     "loadAtStart": [
-      7.9,
-      6.8,
-      5.8
+      11.9,
+      7.3,
+      4.3
     ],
     "loadAtEnd": [
-      3.2,
+      4.2,
       5.8,
-      5.6
+      4.2
     ]
   },
   "cold": {
-    "release": "5e002d0a253d",
-    "totalMs": 15502,
+    "release": "9e9182f8e206",
+    "totalMs": 15507,
     "steps": {
-      "gate": 460,
-      "load": 288,
-      "database": 14257,
-      "release": 12,
-      "reference": 98,
+      "gate": 475,
+      "load": 290,
+      "database": 14235,
+      "release": 10,
+      "reference": 106,
       "report": 1,
       "serialize": 61,
-      "bundle": 313
+      "bundle": 314
     },
     "stages": {
-      "compile": 141,
-      "estimate": 14046,
-      "validate": 67,
+      "compile": 145,
+      "estimate": 14022,
+      "validate": 65,
       "validateEstimates": 3
     },
     "cache": {
       "hit": false
     },
-    "peakRssMB": 721,
+    "peakRssMB": 709.1,
     "errors": 0,
     "counts": {
       "materials": 174,
@@ -67,39 +67,39 @@
     },
     "sizes": {
       "dbJsonBytes": 25629065,
-      "dbGzipBytes": 1701317,
-      "dbEmbeddedBytes": 2268424,
+      "dbGzipBytes": 1701309,
+      "dbEmbeddedBytes": 2268412,
       "referenceJsonBytes": 65750,
-      "pageBytes": 6922332
+      "pageBytes": 6942745
     },
-    "processMs": 15864
+    "processMs": 15875
   },
-  "release": "5e002d0a253d",
+  "release": "9e9182f8e206",
   "primedFromCache": true,
   "warm": {
-    "release": "5e002d0a253d",
-    "totalMs": 1362,
+    "release": "9e9182f8e206",
+    "totalMs": 1407,
     "steps": {
-      "gate": 465,
-      "load": 288,
-      "database": 196,
+      "gate": 492,
+      "load": 296,
+      "database": 198,
       "release": 11,
       "reference": 95,
       "report": 1,
-      "serialize": 21,
-      "bundle": 273
+      "serialize": 22,
+      "bundle": 279
     },
     "stages": {
-      "compile": 149,
-      "estimate": 13962,
-      "validate": 63,
+      "compile": 143,
+      "estimate": 14040,
+      "validate": 67,
       "validateEstimates": 3
     },
     "cache": {
       "hit": true,
-      "readMs": 73
+      "readMs": 74
     },
-    "peakRssMB": 627.5,
+    "peakRssMB": 627.6,
     "errors": 0,
     "counts": {
       "materials": 174,
@@ -126,17 +126,17 @@
     },
     "sizes": {
       "dbJsonBytes": 25629065,
-      "dbGzipBytes": 1701317,
-      "dbEmbeddedBytes": 2268424,
+      "dbGzipBytes": 1701309,
+      "dbEmbeddedBytes": 2268412,
       "referenceJsonBytes": 65750,
-      "pageBytes": 6922332
+      "pageBytes": 6942745
     },
     "selection": [
       {
         "template": "Outdoor structural part",
         "requirements": 9,
-        "firstMs": 12,
-        "medianMs": 8.3,
+        "firstMs": 13,
+        "medianMs": 9.1,
         "pass": 5,
         "unknown": 108,
         "fail": 40
@@ -144,8 +144,8 @@
       {
         "template": "Indoor prototype",
         "requirements": 6,
-        "firstMs": 4,
-        "medianMs": 3.5,
+        "firstMs": 5,
+        "medianMs": 4,
         "pass": 70,
         "unknown": 60,
         "fail": 23
@@ -153,8 +153,8 @@
       {
         "template": "Lightweight structure",
         "requirements": 7,
-        "firstMs": 6,
-        "medianMs": 5.6,
+        "firstMs": 7,
+        "medianMs": 6.5,
         "pass": 11,
         "unknown": 95,
         "fail": 47
@@ -162,8 +162,8 @@
       {
         "template": "Warm environment",
         "requirements": 6,
-        "firstMs": 4,
-        "medianMs": 3.8,
+        "firstMs": 6,
+        "medianMs": 4.3,
         "pass": 29,
         "unknown": 97,
         "fail": 27
@@ -171,8 +171,8 @@
       {
         "template": "High-stiffness fixture",
         "requirements": 7,
-        "firstMs": 5,
-        "medianMs": 5.6,
+        "firstMs": 6,
+        "medianMs": 6.3,
         "pass": 5,
         "unknown": 108,
         "fail": 40
@@ -181,13 +181,13 @@
         "template": "Flexible component",
         "requirements": 6,
         "firstMs": 5,
-        "medianMs": 3.9,
+        "medianMs": 4.6,
         "pass": 6,
         "unknown": 110,
         "fail": 37
       }
     ],
-    "processMs": 1922
+    "processMs": 2000
   },
   "growth": [
     {
@@ -197,17 +197,17 @@
       "productsAfter": 670,
       "measurementsBefore": 3172,
       "measurementsAfter": 6344,
-      "totalMs": 49083,
+      "totalMs": 37114,
       "stages": {
-        "compile": 193,
-        "estimate": 48804,
-        "validate": 83,
+        "compile": 204,
+        "estimate": 36822,
+        "validate": 85,
         "validateEstimates": 3
       },
-      "peakRssMB": 808.7,
+      "peakRssMB": 726.1,
       "errors": 0,
       "firstErrors": [],
-      "processMs": 49908
+      "processMs": 37854
     },
     {
       "group": "polylactide",
@@ -216,17 +216,17 @@
       "productsAfter": 1005,
       "measurementsBefore": 3172,
       "measurementsAfter": 9516,
-      "totalMs": 90588,
+      "totalMs": 90242,
       "stages": {
-        "compile": 304,
-        "estimate": 90188,
-        "validate": 93,
+        "compile": 296,
+        "estimate": 89843,
+        "validate": 98,
         "validateEstimates": 4
       },
-      "peakRssMB": 880.2,
+      "peakRssMB": 890.6,
       "errors": 0,
       "firstErrors": [],
-      "processMs": 91452
+      "processMs": 91058
     }
   ]
 }

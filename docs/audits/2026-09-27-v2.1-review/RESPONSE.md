@@ -238,13 +238,14 @@ Answers moved: none. Not done: the trace does not report the product's rank.
 ### F16: the loop measured (D105)
 
 `npm run verify:fast` prints each step's time against its budget, and `npm run bench` measures the build cold and warm by
-stage, memory, sizes, selection and the largest chemical group's growth. On 2026-09-28 (Apple M4, Node 26, other agents'
-processes running): cold build 15.9 s, of which the estimate stage 14.0 s; warm 1.9 s; peak memory 721 MB; the page
-6.6 MB (`db.json` 24.4 MB, 1.6 MB gzipped); each template's selection 3.5 to 8.3 ms. `verify:fast` took 24.3 s warm on
-the merged branch (399 tests) and 77.8 s with the build cache emptied, as CI starts: both inside 90 s. Grown to two and
-three times its 335 products, polylactide's estimate stage took 36 to 51 s and about 88 s, well inside the scale check's
-150 s, and steeper than linear; the intervention, if it is needed, is splitting the group's solve, not raising the budget.
-Node 24 was not measured (only Node 26 is installed on this machine).
+stage, memory, sizes, selection and the largest chemical group's growth. On 2026-09-28, release 9e9182f8e206 (Apple M4,
+Node 26; `build/reports/bench.json`): cold build 15.9 s, of which the estimate stage 14.0 s; warm 2.0 s; peak memory
+709 MB; the page 6.6 MB (`db.json` 24.4 MB, 1.6 MB gzipped); each template's selection 4 to 9 ms. `verify:fast` took
+24.3 s warm on the merged branch (399 tests) and 77.8 s with the build cache emptied, as CI starts; on Node 24.21, the
+version CI runs, 25.4 s warm and 65.4 s cold, and the full `verify` passes there too. Grown to two and three times its
+335 products, polylactide's estimate stage took 37 s and 90 s (36 to 51 s at twice, in earlier runs under load), inside
+the scale check's 150 s and steeper than linear; the intervention, if it is needed, is splitting the group's solve, not
+raising the budget.
 
 ### What people do: the team trial and the decisive-value sample
 
@@ -273,8 +274,8 @@ asked. F13, F14 and F16 were built by two further agents in worktrees of their o
 - **The oracle.** All 46 expectations of the acceptance portfolio hold, 34 of which failed on the baseline; the seven
   metamorphic relations hold. They were written by the same agent that built the code, from the source records, before
   the code changed: independent of the engine, not of the agent. A person should review them (ACCEPTANCE.md).
-- **The loop.** `verify:fast` 24 s warm and 78 s cold, inside its 90 s budget; the full `verify` passes with the
-  interface probe and 300 rendered scenarios required.
+- **The loop.** `verify:fast` 24 s warm and 78 s cold on Node 26, 25 s and 65 s on Node 24, inside its 90 s budget;
+  the full `verify` passes on both, with the interface probe and 300 rendered scenarios required.
 - **The scorecard** is re-scored in [GOALS.md](../../GOALS.md) (C13, C14 and C15 up one; the rest unchanged), by the
   agent. The owner may re-score.
 - **What waits on people**: the team trial (C7, [TEAM-TRIAL.md](TEAM-TRIAL.md)), the decisive-value spot-check (C3,

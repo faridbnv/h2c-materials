@@ -736,7 +736,7 @@ npm run sql --silent -- "with pv as (select m.* from measurements m join grades 
 
 ## 19. What version 2.1 leaves open
 
-The version 2.1 changes (D96 to D103; [the response](audits/2026-09-27-v2.1-review/RESPONSE.md)) make several answers
+The version 2.1 changes (D96 to D105; [the response](audits/2026-09-27-v2.1-review/RESPONSE.md)) make several answers
 narrower and more honest, and leave these, each with where it is counted:
 
 - **Nobody has reviewed the acceptance portfolio's answers.** Its twelve questions were answered by an agent from the
@@ -774,8 +774,7 @@ narrower and more honest, and leave these, each with where it is counted:
   has written one fixture's text there, `npm test` fails it; point `H2C_DOCUMENT_CACHE` at the full cache.
 - **What F14 and F13 left** (D104, D105): `ingest:fetch --refetch --recheck` still overwrites an applied document's
   digest rather than recording a new revision; `audit:sources` has its own unbounded fetch; the reader was not split
-  into adapters; a source bundle does not record parser versions; a traced decision does not report its rank; and the
-  loop was measured on Node 26 only, not Node 24.
+  into adapters; a source bundle does not record parser versions; and a traced decision does not report its rank.
 
 ```bash
 npm run sql --silent -- "select count(*) annealed_no_schedule from measurements where data_status in ('Published value','Published value (transcription corrected)') and post_processing_state = 'annealed' and (anneal_c_state is not null or anneal_h_state is not null)"
