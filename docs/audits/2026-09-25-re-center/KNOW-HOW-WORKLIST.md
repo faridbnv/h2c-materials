@@ -25,52 +25,51 @@ documents were read and give none of one is listed under "Recipe silent".
 | Material | Candidate in | Know-how | Products silent | Recipe silent (chamber / drying / annealing) | Makers to search |
 |---|---|---|---:|---|---|
 | PA12-CF (M053) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 16 | 7 / 6 / 10 | MatterHackers (matterhackers.com) |
-| PA6-GF (M051) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 1 of 11 | 4 / 6 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA-CF (M033) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 18 | 4 / 6 / 13 | — |
-| PA6-CF (M050) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 3 / 4 / 11 | — |
-| PA612-CF (M059) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 3 | 2 / 0 / 0 | — |
-| PAHT-CF (M048) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 4 / 3 / 3 | — |
 | PP-CF (M083) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 3 / 3 / 4 | — |
 | PPA-CF (M070) | High-stiffness fixture; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 9 | 4 / 1 / 4 | — |
 | PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 200 | 101 / 122 / 162 | Elegoo (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com) |
-| PETG (M020) | Indoor prototype; Lightweight structure; Warm environment | collected | 2 of 76 | 33 / 37 / 55 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (no address held) |
 | ABS-GF (M028) | Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 12 | 5 / 4 / 9 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6/66 (M057) | Flexible component; Lightweight structure; Warm environment | collected | 1 of 7 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS-CF (M128) | High-stiffness fixture; Lightweight structure; Outdoor structural part | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PP-GF (M084) | High-stiffness fixture; Lightweight structure; Outdoor structural part | collected | 1 of 2 | 2 / 2 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA12-GF (M054) | High-stiffness fixture; Lightweight structure; Outdoor structural part | collected | 0 of 3 | 1 / 1 / 1 | — |
+| PA6-CF (M050) | Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 3 / 4 / 11 | — |
 | PC-CF (M037) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 10 | 5 / 3 / 8 | — |
-| PET-CF (M067) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 8 | 3 / 2 / 5 | — |
 | PLA-CF (M018) | Indoor prototype; Lightweight structure; Warm environment | collected | 0 of 19 | 8 / 9 / 15 | — |
-| PPS-CF (M073) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 7 | 3 / 3 / 5 | — |
-| PPS-GF (M074) | High-stiffness fixture; Outdoor structural part; Warm environment | collected | 0 of 2 | 0 / 0 / 1 | — |
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 57 | 27 / 35 / 47 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
+| PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 76 | 33 / 37 / 55 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (no address held) |
 | ABS-CF (M029) | High-stiffness fixture; Lightweight structure | collected | 1 of 11 | 4 / 4 / 9 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PA6-GF (M051) | Outdoor structural part; Warm environment | collected | 1 of 11 | 4 / 6 / 8 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC (M035) | Lightweight structure; Warm environment | collected | 1 of 24 | 8 / 9 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ASA (M031) | Indoor prototype; Warm environment | collected | 0 of 43 | 19 / 19 / 35 | — |
 | ASA-GF (M034) | Lightweight structure; Warm environment | collected | 0 of 6 | 1 / 3 / 6 | — |
 | HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 7 / 10 | — |
+| PA612-CF (M059) | Lightweight structure; Warm environment | collected | 0 of 3 | 2 / 0 / 0 | — |
+| PAHT-CF (M048) | High-stiffness fixture; Warm environment | collected | 0 of 5 | 4 / 3 / 3 | — |
 | PBAT (M133) | Flexible component; Warm environment | collected | 0 of 1 | 0 / 0 / 1 | — |
-| PC FR (M036) | Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 1 / 0 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 11 / 10 / 19 | — |
 | PLA-NF (M152) | Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 1 / 2 | — |
 | PPA-GF (M071) | High-stiffness fixture; Outdoor structural part | collected | 0 of 5 | 2 / 1 / 3 | — |
+| PPS-CF (M073) | High-stiffness fixture; Outdoor structural part | collected | 0 of 7 | 3 / 3 / 5 | — |
+| PPS-GF (M074) | High-stiffness fixture; Outdoor structural part | collected | 0 of 2 | 0 / 0 / 1 | — |
 | ABS-ESD (M030) | Warm environment | collected | 2 of 11 | 6 / 4 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
 | PLA Wood (M014) | Indoor prototype | collected | 2 of 21 | 13 / 13 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PC-ABS (M094) | Warm environment | collected | 1 of 13 | 6 / 5 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PCL (M149) | Flexible component | collected | 1 of 4 | 3 / 3 / 3 | iSANMATE (isanmate.com) |
 | PET (M066) | Flexible component | collected | 1 of 7 | 2 / 3 / 3 | colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | ABS-AF (M106) | Warm environment | collected | 0 of 3 | 0 / 1 / 1 | — |
-| ASA Aero (M032) | Warm environment | collected | 0 of 5 | 2 / 3 / 4 | — |
 | CPE (M089) | Warm environment | collected | 0 of 5 | 2 / 2 / 3 | — |
 | CPE-CF (M090) | High-stiffness fixture | collected | 0 of 3 | 1 / 2 / 3 | — |
 | OBC (M086) | Flexible component | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PA6 (M049) | Warm environment | collected | 0 of 9 | 3 / 2 / 8 | — |
 | PAHT (M147) | Lightweight structure | collected | 0 of 1 | 1 / 1 / 1 | — |
 | PBT-GF (M132) | Outdoor structural part | collected | 0 of 1 | 0 / 0 / 1 | — |
+| PC FR (M036) | Lightweight structure | collected | 0 of 2 | 0 / 1 / 0 | — |
 | PC-GF (M038) | Lightweight structure | collected | 0 of 3 | 2 / 2 / 3 | — |
 | PE (M085) | Flexible component | collected | 0 of 2 | 1 / 2 / 2 | — |
 | PEBA (M045) | Flexible component | collected | 0 of 10 | 6 / 5 / 9 | — |
+| PET-CF (M067) | Warm environment | collected | 0 of 8 | 3 / 2 / 5 | — |
 | PET-GF (M068) | Warm environment | collected | 0 of 4 | 2 / 0 / 2 | — |
 | PLA Aero (M017) | Lightweight structure | collected | 0 of 14 | 8 / 8 / 13 | — |
 | PLA Galaxy (M015) | Indoor prototype | collected | 0 of 4 | 2 / 1 / 3 | — |
@@ -113,6 +112,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | TPC-ESD (M114) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPI (M121) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPU-ESD (M126) | — | collected | 1 of 2 | 1 / 2 / 2 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| ASA Aero (M032) | — | collected | 0 of 5 | 2 / 3 / 4 | — |
 | ASA-AF (M113) | — | collected | 0 of 3 | 0 / 2 / 2 | — |
 | ASA-EC (M105) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | BVOH (M076) | — | collected | 0 of 4 | 2 / 2 / 3 | — |

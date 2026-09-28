@@ -172,6 +172,13 @@ function genScenario(i, prior) {
     s.plot = { x, y, xLog: chance(0.3), yLog: chance(0.3), index: null, showReference: false, comparability: 'strict', pointLevel: 'headline', showEstimates: chance(0.6) };
   }
   s.columnSet = s.parent === null ? (chance(0.15) ? 'printing' : 'properties') : prior[s.parent].columnSet;
+  // The states a product may be judged in (D99): annealing permitted, sometimes up to an oven temperature, and the
+  // conditioned service state. A child keeps its parent's, so it adds exactly one requirement.
+  if (s.parent === null) {
+    s.anneal = chance(0.3);
+    s.annealMaxC = s.anneal && chance(0.4) ? pick([60, 80, 90, 100, 120, 150]) : null;
+    s.moisture = chance(0.15) ? 'conditioned' : 'dry';
+  } else Object.assign(s, { anneal: prior[s.parent].anneal, annealMaxC: prior[s.parent].annealMaxC, moisture: prior[s.parent].moisture });
   s.start = pick(['S1', 'S0', 'X0', 'X1']);
   s.startLens = chance(0.5) ? 'table' : 'ashby';
   s.path = chance(IMPORT_SHARE) ? 'import' : 'url';
@@ -181,7 +188,8 @@ function genScenario(i, prior) {
 }
 
 const SETTINGS = { S1: { u: 'strict', e: true }, S0: { u: 'strict', e: false }, X0: { u: 'exploration', e: false }, X1: { u: 'exploration', e: true } };
-const hashFor = (s, setting, lens) => toHash({ constraints: s.constraints, unknownPolicy: SETTINGS[setting].u, shortlist: [], plot: s.plot, template: s.template ?? null, lens, openMaterial: null, useEstimates: SETTINGS[setting].e, columnSet: s.columnSet ?? 'properties', baseline: null, assumptions: s.assumptions });
+const hashFor = (s, setting, lens) => toHash({ constraints: s.constraints, unknownPolicy: SETTINGS[setting].u, shortlist: [], plot: s.plot, template: s.template ?? null, lens, openMaterial: null, useEstimates: SETTINGS[setting].e, columnSet: s.columnSet ?? 'properties', baseline: null, assumptions: s.assumptions,
+  anneal: !!s.anneal, annealMaxC: s.annealMaxC ?? null, moisture: s.moisture ?? 'dry' });
 const urlFor = (s, setting, lens, n = s.i) => `${pageUrl}?n=${n}#${hashFor(s, setting, lens)}`;
 
 // ------------------------------------------------------------------ oracle (the engine, as main.js composes it)
@@ -190,7 +198,7 @@ const fmtEngine = (v) => (Number.isFinite(v) ? String(Number(v.toFixed(6))) : St
 function oracle(s, setting, { screened = false, fail = false } = {}) {
   const { u, e } = SETTINGS[setting];
   const explore = u === UNKNOWN_POLICY.EXPLORATION;
-  const ctx = { ...baseCtx, unknownPolicy: u, useEstimates: explore && e, showEstimates: explore && e };
+  const ctx = { ...baseCtx, unknownPolicy: u, useEstimates: explore && e, showEstimates: explore && e, anneal: !!s.anneal, annealMaxC: s.annealMaxC ?? null, moisture: s.moisture ?? 'dry' };
   const units = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.unit]));
   const materials = s.assumptions.length ? candidates.map((m) => applyAssumptions(m, s.assumptions, units).material) : candidates;
   const sel = runSelection(materials, s.constraints, ctx);
@@ -614,7 +622,7 @@ async function openTab(k) {
   t.file = join(tmpRoot, `tab${k}.json`);
   t.importScenario = async (s, setting, lens) => {
     const { u, e } = SETTINGS[setting];
-    writeFileSync(t.file, JSON.stringify({ version: 1, constraints: s.constraints, unknownPolicy: u, useEstimates: e, assumptions: s.assumptions, plot: s.plot, lens, template: s.template ?? null, shortlist: [], columnSet: s.columnSet }));
+    writeFileSync(t.file, JSON.stringify({ version: 1, constraints: s.constraints, unknownPolicy: u, useEstimates: e, assumptions: s.assumptions, plot: s.plot, lens, template: s.template ?? null, shortlist: [], columnSet: s.columnSet, anneal: !!s.anneal, annealMaxC: s.annealMaxC ?? null, moisture: s.moisture ?? 'dry' }));
     let timer;
     const opened = new Promise((r, j) => { t.chooser = r; timer = setTimeout(() => j(new Error('no file chooser')), 5000); });
     opened.catch(() => {});   // a failed click must not leave an unhandled rejection behind (it killed a 3000-scenario run)

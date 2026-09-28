@@ -46,11 +46,22 @@ const LOAD_TOLERANCE_MPA = 0.01;
 // at -30 °C was not (D92).
 export const TEST_TEMPERATURE_TOLERANCE_C = 2;
 
+/** Two annealing schedules are one where both parts agree, an unstated part with an unstated part (D99). */
+const sameSchedule = (a, t) => (a?.tempC ?? null) === (t?.tempC ?? null) && (a?.hours ?? null) === (t?.hours ?? null);
+/** A schedule as a reader says it: "at 120 °C for 16 h", with what the sheet does not state said so. */
+export const scheduleText = (t) => `at ${t?.tempC != null ? `${t.tempC} °C` : 'a temperature not stated'} for ${t?.hours != null ? `${t.hours} h` : 'a time not stated'}`;
+
 /**
  * Whether a measurement can be a product's value for a headline, and at which level. Returns { excluded } with the
  * reason when it cannot, else { level, caveat }.
+ *
+ * With a `state` (D99: { treatment: null | { tempC, hours }, moisture: 'dry' | 'conditioned' }) it asks whether the value
+ * is the product's in that state: for a headline annealing changes, a value as printed or unstated is the as-printed
+ * state's and one annealed at a schedule is that schedule's only; for one water changes, a conditioned value is the
+ * conditioned state's and a dry or unstated one the dry state's. Without a state it is the product's published value,
+ * as the table and the material's spread show it (an annealed value where the product publishes none as printed).
  */
-export function assess(m, def, gradeMeasurements) {
+export function assess(m, def, gradeMeasurements, state = null) {
   if (!m.numeric) return { excluded: `no usable numeric value (${m.dataStatus})` };
   if (!def.valueProperties.includes(m.property)) return { excluded: `measures ${m.property}` };
   if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}` };
@@ -59,8 +70,14 @@ export function assess(m, def, gradeMeasurements) {
     // A bar printed at a setting the product is not meant for (D95) is printed, but not the product as it is printed.
     return { excluded: m.specimenForm === 'off-recipe' ? 'printed at a setting the product is not meant for (D95)' : `a ${m.specimenForm} specimen, not a printed part` };
   }
-  if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
-  if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed' };
+  if (state && def.changesWithMoisture) {
+    if (state.moisture === 'conditioned' && m.moistureState !== 'conditioned') return { excluded: 'not measured after moisture conditioning' };
+    if (state.moisture !== 'conditioned' && m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
+  } else if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning' };
+  if (state && def.changesWithAnnealing) {
+    if (state.treatment && (m.postProcessingState !== 'annealed' || !sameSchedule(m.anneal, state.treatment))) return { excluded: `not measured after annealing ${scheduleText(state.treatment)}` };
+    if (!state.treatment && m.postProcessingState === 'annealed') return { excluded: `measured after annealing ${scheduleText(m.anneal)}, not as printed` };
+  } else if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed' };
   // An impact headline is defined on a notched bar at room temperature (D92). An unnotched bar absorbs several times the
   // energy, and a notch the source does not state may be either, so neither is ever the headline's value; nor is a
   // bar struck cold. A temperature the source does not state is the laboratory's, as it is for every other headline.
@@ -123,6 +140,15 @@ const compareKeys = (a, b) => {
 function productValue(m, a, def, pinned) {
   // The source, grade and conditions are the measurement's, read through its ID: nothing here copies them.
   const v = { value: m.value, level: a.level, measurementId: m.id };
+  // What the screening policy admitted unstated (D99; GOALS 2026-09-28, decision 5): a "comparable" value is a policy,
+  // not an equivalence, and a verdict says which of the conditions that could change this value its source left open.
+  const admitted = [];
+  if ((def.changesWithAnnealing || def.changesWithMoisture) && m.specimenForm === 'not-stated') admitted.push('specimen');
+  if (def.changesWithMoisture && m.moistureState === 'not-stated') admitted.push('moisture');
+  if (def.changesWithAnnealing && m.postProcessingState === 'not-stated') admitted.push('treatment');
+  if (admitted.length) v.admitted = admitted;
+  // The method, which a reason names: an ISO 75 and an ASTM D648 heat deflection are pooled by the screen, not equal.
+  if (m.standards?.length) v.standards = m.standards;
   if (a.caveat) v.caveat = a.caveat;
   if (def.direction) v.direction = m.direction;
   if (m.interval && m.interval.kind !== 'point') v.interval = m.interval;
@@ -137,10 +163,10 @@ function productValue(m, a, def, pinned) {
  * A product's own value for one headline: a pinned measurement (a row of headlines.csv on this product) if it
  * qualifies, else the most preferred candidate. Null when the product publishes nothing that qualifies.
  */
-function chooseValue(grade, def, gradeMeasurements, pinnedIds) {
+function chooseValue(grade, def, gradeMeasurements, pinnedIds, state = null) {
   const candidates = [];
   for (const m of gradeMeasurements) {
-    const a = assess(m, def, gradeMeasurements);
+    const a = assess(m, def, gradeMeasurements, state);
     if (!a.excluded) candidates.push({ m, a });
   }
   if (!candidates.length) return null;
@@ -285,6 +311,27 @@ function productPrint(grade, own, twins, guide, publisher) {
   return out;
 }
 
+/**
+ * A product's states with its twin's where its own are silent (D89, D99): a state a twin publishes and it does not is
+ * its state too, and a value its own state lacks is the twin's of the same state, labelled. The first state stays first.
+ */
+function twinStates(own, siblings) {
+  if (!siblings.length) return own;
+  const out = own.map((s) => ({ ...s, values: { ...s.values } }));
+  for (const { grade: t, states } of siblings) {
+    for (const s of states) {
+      let mine = out.find((x) => x.id === s.id);
+      if (!mine) { mine = { ...s, values: {} }; out.push(mine); }
+      for (const [key, v] of Object.entries(s.values)) {
+        if (mine.values[key] || v.from) continue;
+        const { pinned, ...value } = v;
+        mine.values[key] = { ...value, from: twinOrigin(t) };
+      }
+    }
+  }
+  return out;
+}
+
 // A quartile by linear interpolation between order statistics (Hyndman and Fan's type 7), to twelve significant digits
 // so a binary remainder never reaches the snapshot.
 const tidy = (x) => Number(x.toPrecision(12));
@@ -403,6 +450,44 @@ function twinsOf(grades, measurementsByGrade) {
   return out;
 }
 
+/** A state's identifier: "as-printed", "annealed:120:16", "conditioned", "annealed:120:16+conditioned" (x: not stated). */
+export const stateId = (treatment, moisture) => [treatment ? `annealed:${treatment.tempC ?? 'x'}:${treatment.hours ?? 'x'}` : null,
+  moisture === 'conditioned' ? 'conditioned' : null].filter(Boolean).join('+') || 'as-printed';
+
+/**
+ * A product's decision states (D99): the states it can be made in that its own sheets publish values for. As printed
+ * and dry, always and first; each annealing schedule its annealed values state; conditioned, where it publishes a
+ * conditioned value; and each combination the values reach. A state holds, for each headline that state changes, the
+ * value the rule chooses among the measurements of that state only; the first state holds every headline. Two
+ * properties measured in different states are never joined as one part: a state has only its own values, and a headline
+ * the state does not change (a density) is read from the first. Where a state lacks a value it is unknown, never filled
+ * from another state; the engine says which state does have one.
+ */
+function productStates(grade, defs, own, pinnedIds) {
+  const schedules = [];
+  for (const m of own) {
+    if (!m.numeric || m.postProcessingState !== 'annealed') continue;
+    const t = { tempC: m.anneal?.tempC ?? null, hours: m.anneal?.hours ?? null };
+    if (!schedules.some((s) => sameSchedule(s, t))) schedules.push(t);
+  }
+  schedules.sort((a, b) => (a.tempC ?? Infinity) - (b.tempC ?? Infinity) || (a.hours ?? Infinity) - (b.hours ?? Infinity));
+  const moistures = ['dry', ...(own.some((m) => m.numeric && m.moistureState === 'conditioned') ? ['conditioned'] : [])];
+  const states = [];
+  for (const treatment of [null, ...schedules]) {
+    for (const moisture of moistures) {
+      const first = !treatment && moisture === 'dry';
+      const values = {};
+      for (const def of defs) {
+        if (!first && !((treatment && def.changesWithAnnealing) || (moisture === 'conditioned' && def.changesWithMoisture))) continue;
+        const v = chooseValue(grade, def, own, pinnedIds, { treatment, moisture });
+        if (v) values[def.key] = v;
+      }
+      if (first || Object.keys(values).length) states.push({ id: stateId(treatment, moisture), treatment, moisture, values });
+    }
+  }
+  return states;
+}
+
 /**
  * Attach every product's own values and print recipe, every material's summary, and the headline its products give
  * it. `materialRows` are the materials table's rows (a headline's Applies to tests them); `selections` its
@@ -431,20 +516,22 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
   const pinnedIds = checkPins(selections, { defs, measurementById: new Map(measurements.map((m) => [m.id, m])), measurementsByGrade, gradeById, rowById, issues });
 
   // Each product's own values first, then what its twin's stand for: a twin reads only a sibling's own value, never
-  // one the sibling itself read.
+  // one the sibling itself read. The same for its decision states (D99).
   const ownValues = new Map();
+  const ownStates = new Map();
   for (const g of grades) {
     if (g.retired) continue;
     const row = rowById.get(g.materialId);
     const own = measurementsByGrade.get(g.id) ?? [];
     const headline = {};
-    for (const def of defs) {
-      // A headline that does not apply to the material (heat deflection of an elastomer) has no product values either.
-      if (row && !applies(def.appliesTo, row)) continue;
+    // A headline that does not apply to the material (heat deflection of an elastomer) has no product values either.
+    const applicable = defs.filter((def) => !row || applies(def.appliesTo, row));
+    for (const def of applicable) {
       const v = chooseValue(g, def, own, pinnedIds);
       if (v) headline[def.key] = v;
     }
     ownValues.set(g.id, { ...headline });
+    ownStates.set(g.id, productStates(g, applicable, own, pinnedIds));
     const price = productPrice(pricesByGrade.get(g.id) ?? []);
     if (price) headline.priceCADkg = price;
     g.headline = headline;
@@ -455,6 +542,9 @@ export function attachProducts({ grades, materials, materialRows, measurements, 
   for (const g of grades) {
     if (g.retired) continue;
     const siblings = twins.get(g.id) ?? [];
+    g.states = twinStates(ownStates.get(g.id), siblings.map((t) => ({ grade: t, states: ownStates.get(t.id) ?? [] })));
+    // The first state holds every headline, the product's own price too: a price is never a state's, nor a twin's.
+    if (g.headline.priceCADkg) g.states[0].values.priceCADkg = g.headline.priceCADkg;
     if (siblings.length) {
       const headline = {};
       for (const def of defs) {

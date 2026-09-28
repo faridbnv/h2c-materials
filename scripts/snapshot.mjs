@@ -20,6 +20,9 @@
 //                                   filterable category, and the polymer-level ones attached where it has none (D64)
 //   build/snapshot/print.csv       every product's print gates as the engine judges them, and which parts of its recipe
 //                                   were read from a twin's sheet (D89) or a printer maker's guide (D88), not its own
+//   build/snapshot/states.csv      every product's decision states (D99) where a state's value is not the product's
+//                                   published value the table shows: an annealed or conditioned state's own values, and
+//                                   an as-printed state without the annealed value the table shows
 //
 //   npm run snapshot            rewrite the files
 //   npm run snapshot -- --check exit 1 if they are out of date (run by npm run verify)
@@ -65,7 +68,9 @@ const gates = db.materials.map((m) => ({ MaterialID: m.id, Material: m.name, ...
 const group = (list) => { const out = new Map(); for (const x of list) { if (!out.has(x.materialId)) out.set(x.materialId, []); out.get(x.materialId).push(x); } return out; };
 const ctx = { db, productsByMaterial: productsByMaterial(db), evidenceByMaterial: group(db.evidence), polymerEvidenceByMaterial: group(db.polymerEvidence ?? []), measurementsByMaterial: group(db.measurements), coverageByMaterial: group(db.coverage) };
 const mats = db.materials.filter((m) => !m.familyEntry);
-const modes = { Strict: { unknownPolicy: UNKNOWN_POLICY.STRICT }, Explore: { unknownPolicy: UNKNOWN_POLICY.EXPLORATION }, 'Explore with estimates': { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates: true } };
+// Every template as printed and dry (D99), and in Strict with annealing permitted, which shows what annealing adds.
+const modes = { Strict: { unknownPolicy: UNKNOWN_POLICY.STRICT }, 'Strict, annealing permitted': { unknownPolicy: UNKNOWN_POLICY.STRICT, anneal: true },
+  Explore: { unknownPolicy: UNKNOWN_POLICY.EXPLORATION }, 'Explore with estimates': { unknownPolicy: UNKNOWN_POLICY.EXPLORATION, useEstimates: true } };
 const templates = [];
 for (const t of TEMPLATES) {
   for (const [mode, c] of Object.entries(modes)) {
@@ -73,7 +78,7 @@ for (const t of TEMPLATES) {
     for (const e of evaluations.filter((x) => x.eligible || x.screened)) {
       templates.push({ Template: t.name, Mode: mode, MaterialID: e.materialId, Material: db.materials.find((m) => m.id === e.materialId).name,
         Verdict: e.verdict, Share: e.share ?? '', Pass: e.counts?.pass ?? '', Fail: e.counts?.fail ?? '', Untested: e.counts?.untested ?? '',
-        Products: e.counts?.products ?? '', Best: e.gradeId ?? '', Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; ') });
+        Products: e.counts?.products ?? '', Best: e.gradeId ?? '', State: e.state?.id ?? '', Candidate: e.eligible ? 'yes' : 'screened', ScreenedBy: e.screenedBy.join('; ') });
     }
   }
 }
@@ -140,6 +145,22 @@ for (const g of [...db.grades].filter((x) => !x.retired && !/-R\d+$/.test(x.id))
     Enclosure: g.print?.enclosure ?? 'unknown', Abrasive: gates.abrasive, Drying: gates.drying, From: from });
 }
 
+// Every decision state's value that is not the product's published value (D99): what an annealed or conditioned state
+// decides with, and what an as-printed state lacks.
+const stateRows = [];
+for (const g of [...db.grades].filter((x) => !x.retired && x.states).sort((a, b) => a.id.localeCompare(b.id, 'en', { numeric: true }))) {
+  for (const s of g.states) {
+    const keys = new Set([...Object.keys(s.values), ...(s === g.states[0] ? Object.keys(g.headline ?? {}) : [])]);
+    for (const key of [...keys].sort()) {
+      const v = s.values[key];
+      const shown = g.headline?.[key];
+      if (s === g.states[0] && (v?.measurementId ?? v?.priceIds?.join(' ')) === (shown?.measurementId ?? shown?.priceIds?.join(' '))) continue;
+      stateRows.push({ GradeID: g.id, MaterialID: g.materialId, Product: g.product, State: s.id, Headline: key,
+        Value: v?.value ?? '', Measurement: v?.measurementId ?? '', Shown: shown?.value ?? '', From: v?.from ? `twin ${v.from.gradeId}` : '' });
+    }
+  }
+}
+
 // The numbers the docs would otherwise repeat and let go stale (re-center phase 5; GOALS rule 9, "counts are
 // generated"): what the database holds, counted from the build the snapshot compares. Docs link here.
 // Products are the active procurement grades; a study or reference grade (-R#) is not one.
@@ -183,6 +204,7 @@ const files = {
   'summaries.csv': csvText(Object.keys(summaryRows[0]), summaryRows),
   'environment.csv': csvText(['MaterialID', 'Category', 'Record', 'GradeID', 'Level', 'Verdict', 'Qualified', 'Screens'], environmentRows),
   'print.csv': csvText(Object.keys(printRows[0]), printRows),
+  'states.csv': csvText(['GradeID', 'MaterialID', 'Product', 'State', 'Headline', 'Value', 'Measurement', 'Shown', 'From'], stateRows),
 };
 
 if (process.argv.includes('--check')) {
@@ -192,5 +214,5 @@ if (process.argv.includes('--check')) {
 } else {
   mkdirSync(dir, { recursive: true });
   for (const [f, text] of Object.entries(files)) writeFileSync(join(dir, f), text);
-  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates, ${productRows.length} product values, ${summaryRows.length} material summaries, ${printRows.length} product print gates`);
+  console.log(`build/snapshot: ${headlines.length} headlines, ${gates.length} gate rows, ${templates.length} template rows, ${warnings.length} warnings, ${screening.length} screening ends, ${gradeRows.length} grade estimates, ${productRows.length} product values, ${summaryRows.length} material summaries, ${printRows.length} product print gates, ${stateRows.length} state values`);
 }

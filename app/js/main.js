@@ -157,6 +157,10 @@ function recompute() {
   state.ctx.useEstimates = scenario.unknownPolicy === UNKNOWN_POLICY.EXPLORATION && state.useEstimates;
   // Which values decide (D84): comparable only unless the reader admits values published without direction or load.
   state.ctx.evidence = scenario.evidence ?? 'comparable';
+  // The states a product may be judged in (D99): as printed unless annealing is available, dry unless asked otherwise.
+  state.ctx.anneal = scenario.anneal === true;
+  state.ctx.annealMaxC = scenario.annealMaxC ?? null;
+  state.ctx.moisture = scenario.moisture === 'conditioned' ? 'conditioned' : 'dry';
   state.ctx.showEstimates = state.ctx.useEstimates;
 
   // A family entry (PA, PA-CF, PA-GF, TPE; CoPA for PA6/66) owns no product and is never a candidate.
@@ -167,6 +171,14 @@ function recompute() {
     : candidates;
 
   state.selection = runSelection(materials, scenario.constraints, state.ctx);
+  // What annealing would add (D99), said beside the question and one press away: the materials that pass only once a
+  // product may be judged annealed at the schedule its sheet states.
+  state.annealGain = null;
+  if (scenario.constraints.length && !state.ctx.anneal) {
+    const now = new Set(state.selection.evaluations.filter((e) => e.verdict === 'PASS').map((e) => e.materialId));
+    state.annealGain = runSelection(materials, scenario.constraints, { ...state.ctx, anneal: true, annealMaxC: null }).evaluations
+      .filter((e) => e.verdict === 'PASS' && !now.has(e.materialId)).map((e) => e.materialId);
+  }
 
   const q = state.search.trim();
   const byId = new Map(materials.map((m) => [m.id, m]));
@@ -311,6 +323,8 @@ const actions = {
   // chosen afterwards takes over, and ranking by nothing returns to it.
   setRankBy(id) { state.scenario.rankBy = id || null; state.sortNotice = null; renderLens(); pushHash(); },
   setEvidence(level) { state.scenario.evidence = level; actions.changed(); },
+  // Judge products annealed where their sheets state a schedule (D99), from the line that says what it would add.
+  allowAnnealing() { state.scenario.anneal = true; actions.changed(); },
   selectSubset(ids) { state.subset = ids; render(); },
   // A template's result is read in the table, which is the only lens with the requirements
   // header. Applied from Compare or a chart it used to change nothing visible.

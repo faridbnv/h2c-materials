@@ -653,6 +653,24 @@ export function renderDrawer(host, state, actions) {
 
 // ------------------------------------------------------------------ a material's products (D83)
 
+const scheduleWords = (t) => `at ${t?.tempC != null ? `${fmtNumber(t.tempC)} °C` : 'a temperature its sheet does not state'} for ${t?.hours != null ? `${fmtNumber(t.hours)} h` : 'a time its sheet does not state'}`;
+
+/** The state a product's verdict is in (D99): annealed at its sheet's schedule, conditioned, or as printed and dry. */
+function stateNote(j) {
+  const s = j.state;
+  if (!s || (!s.treatment && s.moisture !== 'conditioned')) return '';
+  const bits = [s.treatment ? `after annealing ${scheduleWords(s.treatment)}, as its sheet states` : null, s.moisture === 'conditioned' ? 'conditioned by moisture' : null].filter(Boolean);
+  return `<div class="fact-why state-note">Judged ${esc(bits.join(', '))}. ${s.treatment ? 'The values below that its sheet measured after annealing are the ones this verdict uses.' : ''}</div>`;
+}
+
+/** What keeps an unresolved product from an answer (D99): the first requirement it could not settle, and why. */
+function unsettled(j, requirementOf) {
+  const r = (j.results ?? []).find((x) => x.status === 'UNKNOWN' || x.status === 'INDETERMINATE');
+  if (!r) return '';
+  const what = requirementOf.has(r.criterion) ? describeConstraint(requirementOf.get(r.criterion)) : r.criterion;
+  return `<div class="fact-why unsettled">Not settled: ${esc(what)}. ${esc(r.reason)}.</div>`;
+}
+
 const LEVEL_NOTE = {
   'unstated-direction': 'The source does not state the test direction, so this value may be a moulded or differently oriented bar. It is not compared unless you admit such values.',
   'load-not-stated': 'The source does not state the heat test load, so this value is not compared unless you admit such values.',
@@ -1119,7 +1137,9 @@ function tabBody(tab, c) {
       const verdictChip = c.tested && j ? ` ${chip(j.verdict)}` : '';
       return `<div class="grade-block" data-search-item="${esc([gradeName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
       <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Product')}${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}</h3>
+      ${c.tested && j ? stateNote(j) : ''}
       ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why">Fails: ${esc(failText(j.failedBy))}</div>` : ''}
+      ${c.tested && j?.verdict === 'UNKNOWN' ? unsettled(j, requirementOf) : ''}
       ${productValues(g, c)}
       ${printCard(g)}
       ${makerSays(g, c)}

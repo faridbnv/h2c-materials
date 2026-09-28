@@ -37,6 +37,11 @@ export function newScenario(meta) {
     rankBy: null,
     // Which values decide: comparable only, or also those published without their direction or load (D84).
     evidence: 'comparable',
+    // The states a product may be judged in (D99): used as printed unless annealing is available (up to an oven
+    // temperature, or any), and asked about dry unless the part will live conditioned by the air's moisture.
+    anneal: false,
+    annealMaxC: null,
+    moisture: 'dry',
   };
 }
 
@@ -147,6 +152,9 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
   out.template = typeof raw.template === 'string' ? raw.template : null;
   out.rankBy = INDICES.some((i) => i.id === raw.rankBy) ? raw.rankBy : null;
   out.evidence = normalizeEvidence(raw.evidence);
+  out.anneal = raw.anneal === true;
+  out.annealMaxC = out.anneal && typeof raw.annealMaxC === 'number' && Number.isFinite(raw.annealMaxC) && raw.annealMaxC > 0 ? raw.annealMaxC : null;
+  out.moisture = raw.moisture === 'conditioned' ? 'conditioned' : 'dry';
   for (const key of ['openMaterial', 'baseline']) {
     const id = raw[key];
     out[key] = typeof id === 'string' && known(id) ? id : null;
@@ -208,6 +216,9 @@ export function toHash(scenario) {
     // Only when set, so a link without them reads as it always did.
     r: scenario.rankBy ?? undefined,
     v: scenario.evidence === 'as-published' ? 'as-published' : undefined,
+    // Annealing permitted (true, or the oven's highest temperature) and a conditioned service state (D99).
+    n: scenario.anneal ? (scenario.annealMaxC ?? true) : undefined,
+    w: scenario.moisture === 'conditioned' ? 'conditioned' : undefined,
   };
   return encodeURIComponent(JSON.stringify(compact));
 }
@@ -225,6 +236,7 @@ export function fromHash(hash, meta, options) {
     version: SCENARIO_VERSION, constraints: c.c, unknownPolicy: c.u, shortlist: c.s, plot: c.p,
     template: c.t, lens: c.l, openMaterial: c.m, useEstimates: c.e, columnSet: c.k, baseline: c.b,
     assumptions: c.a, dbSnapshot: c.d, release: c.i, rankBy: c.r, evidence: c.v,
+    anneal: c.n === true || typeof c.n === 'number', annealMaxC: typeof c.n === 'number' ? c.n : null, moisture: c.w,
   }, meta, options);
 }
 

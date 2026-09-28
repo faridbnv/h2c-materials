@@ -4,6 +4,7 @@ STATUS ☑ PASS 24 | ☐ UNKNOWN 0 | ☐ FAIL 129
 Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
+Each product is judged as printed, and dry.
 Family: Nylon / Polyamide
 ×
 What this database cannot answer

@@ -1,10 +1,11 @@
-COUNT 18 shown PASS
-STATUS ☑ PASS 18 | ☐ UNKNOWN 35 | ☐ FAIL 100
-18 of the 153 materials in this database meet these requirements
-35 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
+COUNT 14 shown PASS
+STATUS ☑ PASS 14 | ☐ UNKNOWN 38 | ☐ FAIL 101
+14 of the 153 materials in this database meet these requirements
+38 more could not be checked for missing data, and are left out under Confirmed only. From the Outdoor structural part template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. UV and weathering are not verified: the database holds narrative notes on them, never a verdict. Check the Environment tab of anything you pick.
+Each product is judged as printed, and dry. Allow annealing 3 more materials would pass: PAHT-CF, PET-CF, PET-GF
 In the H2C research scope
 ×
 A build material, not a support
@@ -47,7 +48,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ASA-CF PASS
-3 of 6
+2 of 5
  1,095
 1,020–1,170 · 14
  3.91
@@ -62,7 +63,7 @@ ASA-CF PASS
 PA12-CF
 Nylon / Polyamide
  PASS
-3 of 5
+1 of 3
  1,070
 1,030–1,230 · 12
  3.32
@@ -84,7 +85,7 @@ Nylon / Polyamide
 PA6-CF
 Nylon / Polyamide
  PASS
-6 of 6
+4 of 4
  1,170
 1,090–1,250 · 13
  4.37
@@ -99,7 +100,7 @@ Nylon / Polyamide
 PA6-GF
 Nylon / Polyamide
  PASS
-3 of 4
+1 of 1
  1,310
 1,140–1,370 · 9
  4.35
@@ -111,39 +112,6 @@ Nylon / Polyamide
  184
 161–210 · 10
  77↗ ☆
-PA612-CF
-Nylon / Polyamide
- PASS
-1 of 1
- 1,060
-1,030–1,090 · 2
- 4.88
-3.5–5.14 · 3
- 83.3
-68–91.9 · 3
- 3.16
-2.6–3.5 · 3
- 175 — ☆
-PA612-ESD
-Nylon / Polyamide
- PASS
-1 of 1
- 1,100 4.29 84.3 3 157 — ☆
-PAHT-CF
-Nylon / Polyamide
- PASS
-1 of 1
- 1,240
-1,060–1,250 · 3
- 8.39
-3.86–8.62 · 3
- 103
-92–123 · 3
- 1.98
-1.8–8.4 · 3
- 170
-145–194 · 2
- 124↗ ☆
 PBT-GF
 Polymer Blends
  PASS
@@ -169,21 +137,6 @@ Polycarbonate
  128
 119–140 · 4
  — ☆
-PET-CF
-PET Engineering
- PASS
-2 of 3
- 1,340
-1,290–1,400 · 5
- 5.48
-4.73–6.03 · 3
- 74.5
-65.9–87 · 4
- 2.4
-2.01–4.5 · 3
- 124
-74–205 · 4
- 116↗ ☆
 PP-CF
 Polyolefins
  PASS
@@ -231,7 +184,7 @@ High-Performance Engineering
 PPS-CF
 High-Performance Engineering
  PASS
-4 of 5
+3 of 4
  1,295
 1,260–1,510 · 6
  8
@@ -246,7 +199,7 @@ High-Performance Engineering
 PPS-GF
 High-Performance Engineering
  PASS
-2 of 2
+1 of 1
  1,360
 1,360–1,360 · 2
  5.16

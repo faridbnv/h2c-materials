@@ -10,7 +10,7 @@
 // INDETERMINATE means evidence exists and the threshold cuts through it, so the source cannot
 // settle the question either way.
 
-import { productView, SHARE } from './products.js';
+import { productView, scenarioStates, SHARE } from './products.js';
 
 export { SHARE };
 
@@ -143,6 +143,10 @@ function evaluateNumeric(material, c, ctx = {}) {
         reason: `Published ${fmt(h.asPublished.value)} ${h.unit} without stating ${what}, so it is not compared (include values published that way to use it)`,
       };
     }
+    // Published in a state this scenario does not judge the product in (D99): said, with what would let it decide.
+    if (h?.elsewhere?.length) {
+      return { status: STATUS.UNKNOWN, criterion: label, missing: 'other-state', elsewhere: h.elsewhere, reason: elsewhereReason(h, material.state) };
+    }
     return {
       status: STATUS.UNKNOWN,
       reason: h?.missing === 'not-available-in-market'
@@ -173,8 +177,13 @@ function evaluateNumeric(material, c, ctx = {}) {
     // A value whose sheet leaves the load or direction unstated decides only when the reader includes such values (D84).
     if (h.caveat) reason += `, its test ${h.caveat === 'load-not-stated' ? 'load' : 'direction'} not stated (counted because values published that way are included)`;
     else if (h.direction && h.direction !== 'not-applicable') reason += ` (${h.direction})`;
+    // The state the value is the product's in (D99), and the method it was measured to: a pooled method is not an equal one.
+    if (h.anneal) reason += `, after annealing ${schedule(h.anneal)}`;
+    if (h.standards?.length) reason += ` (${h.standards.join(', ')})`;
     // A twin's value is printed on its sibling's sheet too, and recorded there once (D89).
     if (h.from?.label) reason += `, ${h.from.label}`;
+    // What the screening policy admitted unstated (GOALS 2026-09-28, decision 5).
+    if (h.admitted?.length) reason += `; ${listWords(h.admitted.map((a) => ADMITTED_WORDS[a]))} not stated, admitted for screening`;
     if (closeToLimit) reason += `; close to the limit: the threshold lies within the published spread, so ${status === STATUS.PASS ? 'some parts may fall below it' : 'some parts may meet it'}`;
   }
   return {
@@ -182,8 +191,46 @@ function evaluateNumeric(material, c, ctx = {}) {
     observed: h.value, unit: h.unit, interval,
     measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
     direction: h.direction,
+    ...(h.admitted?.length ? { admitted: h.admitted } : {}),
   };
 }
+
+const ADMITTED_WORDS = { specimen: 'specimen form', moisture: 'moisture state', treatment: 'treatment' };
+const listWords = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
+/** An annealing schedule in a reader's words, the parts its sheet does not state said so. */
+export const schedule = (t) => `at ${t?.tempC != null ? `${fmt(t.tempC)} °C` : 'a temperature its sheet does not state'} for ${t?.hours != null ? `${fmt(t.hours)} h` : 'a time its sheet does not state'}`;
+const stateWords = (s) => (s?.treatment ? `after annealing ${schedule(s.treatment)}` : 'as printed') + (s?.moisture === 'conditioned' ? ', conditioned' : '');
+
+/** Why a value the product publishes in another state does not decide in this one, and what would let it (D99). */
+function elsewhereReason(h, state) {
+  const e = h.elsewhere[0];
+  const where = `${e.measurementId ? `${e.measurementId}: ` : ''}${fmt(e.value)} ${h.unit}`;
+  if (e.treatment && !state?.treatment) {
+    return `Published only after annealing ${schedule(e.treatment)} (${where}); this product is judged as printed. Permit annealing to judge it in that state`;
+  }
+  if (e.moisture === 'conditioned' && state?.moisture !== 'conditioned') return `Published only after moisture conditioning (${where}), not for the dry state this scenario asks about`;
+  if (e.moisture !== 'conditioned' && state?.moisture === 'conditioned') {
+    return `Published only dry or with moisture unstated (${where}); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one`;
+  }
+  return `Published ${stateWords(e)} (${where}), not ${stateWords(state)}; two states are never joined as one part`;
+}
+
+// ---------------------------------------------------------------- treatment
+
+/**
+ * The treatment a state needs (D99). A product judged in an annealed state is judged on values reached only after that
+ * annealing, which the scenario permits: the verdict says so. An annealing its sheet does not state in full cannot be
+ * carried out as tested, so it settles nothing.
+ */
+function evaluateTreatment(material) {
+  const t = material.state?.treatment;
+  if (!t) return { status: STATUS.PASS, criterion: 'Treatment', reason: 'Used as printed' };
+  if (t.tempC == null || t.hours == null) {
+    return { status: STATUS.UNKNOWN, criterion: 'Annealing', treatment: t, reason: `Its values in this state are of bars annealed ${schedule(t)}; an annealing its sheet does not state cannot be repeated, so it settles nothing` };
+  }
+  return { status: STATUS.PASS, criterion: 'Annealing', treatment: t, reason: `Needs annealing ${schedule(t)}, as its sheet states; this scenario permits annealing` };
+}
+export const TREATMENT = { kind: 'treatment', mandatory: true, __group: 'Manufacturing' };
 
 // ---------------------------------------------------------------- process gates
 
@@ -472,6 +519,7 @@ export function evaluateConstraint(material, constraint, ctx = {}) {
     case 'facet': return { ...evaluateFacet(material, constraint), constraint };
     case 'environment': return { ...evaluateEnvironment(material, constraint, ctx), constraint };
     case 'evidence': return { ...evaluateEvidence(material, constraint, ctx), constraint };
+    case 'treatment': return { ...evaluateTreatment(material), constraint };
     default: throw new Error(`Unsupported constraint kind "${constraint.kind}"`);
   }
 }
@@ -523,17 +571,35 @@ export function evaluateMaterial(material, constraints, ctx = {}) {
 }
 
 /**
+ * A product judged in each state the scenario may make it in (D99), as printed first, and answered by the best: a state
+ * that passes, else one that is unresolved (unscreened before screened), else a failure. A product used in an annealed
+ * state carries the treatment it needs as a requirement of its own, so the verdict and every export name it.
+ */
+function judgeProduct(material, grade, constraints, ctx) {
+  const tries = scenarioStates(grade, ctx).map((state) => ({
+    state, e: evaluateMaterial(productView(material, grade, ctx, state), state.treatment ? [...constraints, TREATMENT] : constraints, ctx),
+  }));
+  const rank = (t) => (t.e.verdict === STATUS.PASS ? 0 : t.e.verdict === STATUS.UNKNOWN ? (t.e.screened ? 2 : 1) : 3);
+  const best = tries.reduce((a, b) => (rank(b) < rank(a) ? b : a));
+  return { grade, e: best.e, state: best.state, tries };
+}
+
+/** A state as an answer names it: its identifier, treatment and moisture, never its values. */
+const stateRef = (s) => ({ id: s.id, treatment: s.treatment ?? null, moisture: s.moisture ?? 'dry' });
+
+/**
  * A material answered by its products (D83): each product is judged on every constraint at once, through a view of the
- * material with that product's values and print recipe (products.js). The material passes when at least one product
- * passes, and says whether all the products that could be judged pass or only some; it fails when none passes and at
- * least one fails; it is unknown when none could be judged. A product with no data does not count against its material,
- * and is counted as untested. The evaluation's reasons are its best product's: the first that passes, else the first
- * that fails, else the first. A material with no product is judged as it always was, on its own headline.
+ * material with that product's values and print recipe (products.js), in the states the scenario permits (D99). The
+ * material passes when at least one product passes, and says whether all the products that could be judged pass or only
+ * some; it fails when none passes and at least one fails; it is unknown when none could be judged. A product with no data
+ * does not count against its material, and is counted as untested. The evaluation's reasons are its best product's: the
+ * first that passes, else the first that fails, else the first. A material with no product is judged as it always was, on
+ * its own headline.
  */
 export function evaluateProducts(material, products, constraints, ctx = {}) {
   if (!products?.length) return { ...evaluateMaterial(material, constraints, ctx), share: null, counts: null, products: [] };
   const policy = normalizePolicy(ctx.unknownPolicy);
-  const judged = products.map((g) => ({ grade: g, e: evaluateMaterial(productView(material, g, ctx), constraints, ctx) }));
+  const judged = products.map((g) => judgeProduct(material, g, constraints, ctx));
   const pass = judged.filter((x) => x.e.verdict === STATUS.PASS);
   const fail = judged.filter((x) => x.e.verdict === STATUS.FAIL);
   const unknown = judged.filter((x) => x.e.verdict === STATUS.UNKNOWN);
@@ -554,17 +620,28 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
     failedBy: verdict === STATUS.FAIL ? best.e.failedBy : [],
     share,
     counts: { products: products.length, pass: pass.length, fail: fail.length, untested: unknown.length, screened: unknown.filter((x) => x.e.screened).length },
-    // Each product's own answer and the records it rests on (D98): the product cards, the decision brief and the
-    // acceptance portfolio read a product's reasons, not its material's best product's.
-    products: judged.map((x) => ({ gradeId: x.grade.id, verdict: x.e.verdict, screened: x.e.screened, failedBy: x.e.failedBy, results: x.e.results.map(productResult) })),
+    // Each product's own answer, the state it was judged in, and the records it rests on (D98, D99): the product cards,
+    // the decision brief and the acceptance portfolio read a product's reasons, not its material's best product's.
+    products: judged.map((x) => productEntry(x)),
     gradeId: best.grade.id,
+    state: stateRef(best.state),
+  };
+}
+
+function productEntry(x) {
+  const admitted = [...new Set(x.e.results.flatMap((r) => (r.status === STATUS.PASS ? r.admitted ?? [] : [])))];
+  return {
+    gradeId: x.grade.id, verdict: x.e.verdict, screened: x.e.screened, failedBy: x.e.failedBy,
+    state: stateRef(x.state), results: x.e.results.map(productResult),
+    ...(admitted.length ? { admitted } : {}),
+    ...(x.tries.length > 1 ? { states: x.tries.map((t) => ({ ...stateRef(t.state), verdict: t.e.verdict })) } : {}),
   };
 }
 
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
 const productResult = (r) => {
   const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer']) if (r[k] !== undefined) out[k] = r[k];
+  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere']) if (r[k] !== undefined) out[k] = r[k];
   return out;
 };
 
@@ -603,9 +680,14 @@ export function explainExclusions(materials, constraints, ctx = {}) {
     const recovered = runSelection(materials, without, ctx).candidates.length - base;
     let removed = 0, held = 0, screened = 0, screenedByPolymer = 0, productsRemoved = 0;
     for (const m of materials) {
-      // Judged by its products, a requirement removes a material when no product meets it and one fails it.
+      // Judged by its products, a requirement removes a material when no product meets it and one fails it; a product
+      // meets it in the best state the scenario permits (D99).
       const products = ctx.productsByMaterial?.get(m.id);
-      const rs = products?.length ? products.map((g) => evaluateConstraint(productView(m, g, ctx), c, ctx)) : [evaluateConstraint(m, c, ctx)];
+      const inBestState = (g) => {
+        const rs = scenarioStates(g, ctx).map((st) => evaluateConstraint(productView(m, g, ctx, st), c, ctx));
+        return rs.find((x) => x.status === STATUS.PASS) ?? rs.find((x) => x.status !== STATUS.FAIL) ?? rs[0];
+      };
+      const rs = products?.length ? products.map(inBestState) : [evaluateConstraint(m, c, ctx)];
       if (products?.length) productsRemoved += rs.filter((r) => r.status === STATUS.FAIL).length;
       const r = rs.find((x) => x.status === STATUS.PASS) ?? rs.find((x) => x.status === STATUS.FAIL) ?? rs[0];
       if (r.status === STATUS.FAIL) removed++;

@@ -65,3 +65,25 @@ Materials: oils and grease 5 → 6, no conflict 128 → 135. No template screens
 Left: the engine is not told which acid, alkali or solvent a part meets (the review's acetone example). Category
 separation already keeps oils from answering solvents, and the reason names the records' exposures; asking for an
 agent is an interface question for when a team needs it (OPEN-PROBLEMS).
+
+### F02: a product is judged in a state it can be made in (D99)
+
+Each product has decision states (`grades[].states`): as printed and dry; each annealing schedule its sheets state;
+conditioned where it publishes conditioned values; and their combinations, each holding only that state's values. Which
+headlines a state changes is data (`headline_definitions.csv`, "Changes with annealing", "Changes with moisture", m214).
+A scenario says whether the team can anneal (and up to what oven temperature) and whether the part lives conditioned; the
+rail asks it, and the results header says the state every product is judged in and how many more materials annealing
+would pass, one press away. A verdict in an annealed state carries the annealing it needs; a value from another state is
+named in the reason, never used; a value's unstated conditions and standards are said ("specimen form, moisture state and
+treatment not stated, admitted for screening"). Exports carry each product's state and what it is not settled by. The UI
+fuzz now randomises annealing and the service state.
+
+m215 records Fiberon PET-GF15's annealed heat deflections on the one schedule its sheet states, 120 °C for 16 h (a
+reading, for a person to confirm; ACCEPTANCE.md). m212 (with F06) corrected V002780 and V002781.
+
+Answers moved, Strict, as printed and dry: Outdoor 18 → 14 materials, Lightweight 29 → 26, Warm 34 → 29, High-stiffness
+19 → 15; Indoor 15 and Flexible 16 unchanged. With annealing permitted: 17, 29, 32 and 19. Every loss rested on a value
+measured after an annealing the scenario never said it could do (`templates.csv`, new mode "Strict, annealing
+permitted"; `states.csv`, 638 state values that are not the published one). In Explore some FAIL rows are the old rollup
+at work (a sibling's failure beside an annealed-only pass); F04 answers those. Acceptance: S01.2, S01.5-6, S03, S04, S05
+met (13 expectations), and a new invariant (forbidding a treatment never creates a pass).

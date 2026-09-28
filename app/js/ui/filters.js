@@ -47,7 +47,7 @@ const find = (cs, pred) => cs.find(pred) ?? null;
 // operator chosen before a number was typed was thrown away because no constraint held it yet.
 const openGroups = new Map();
 const draftOps = new Map();
-const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'family', 'polymer', 'env', 'buy', 'evidence', 'buildMaterial', 'clear'];
+const FOCUS_KEYS = ['valueFor', 'opFor', 'soft', 'gate', 'status', 'facet', 'family', 'polymer', 'env', 'buy', 'evidence', 'buildMaterial', 'clear', 'anneal', 'annealMax', 'moisture'];
 
 function availLine(a, extra, estimated = 0) {
   let s = `<div class="avail">${a.withData} of ${a.total} have data${estimated ? `, ${estimated} more estimated` : ''}`;
@@ -79,6 +79,8 @@ export function renderFilters(host, state, actions) {
       It does not check print settings; those are under Compatibility.</div>
   </div>`);
 
+  parts.push(stateControls(scenario, db));
+
   for (const group of GROUPS) {
     const n = activeIn(group);
     const open = openGroups.has(group) ? openGroups.get(group) : OPEN_BY_DEFAULT.has(group) || n > 0;
@@ -96,6 +98,32 @@ export function renderFilters(host, state, actions) {
     const attr = focusKey === 'clear' ? 'data-value-for' : `data-${focusKey.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase())}`;
     host.querySelector(`[${attr}="${CSS.escape(focusValue)}"]`)?.focus();
   }
+}
+
+/**
+ * How the part is made and used (D99): whether the team can anneal it, and whether it lives dry or takes up the air's
+ * moisture. A product is judged in a state it can be made in, so these decide which of its values may decide. Pinned
+ * beside the scope, because they change what every other requirement reads.
+ */
+function stateControls(scenario, db) {
+  const annealed = db.grades.filter((g) => !g.retired && g.states?.some((s) => s.treatment)).length;
+  const conditioned = db.grades.filter((g) => !g.retired && g.states?.some((s) => s.moisture === 'conditioned')).length;
+  const on = scenario.anneal === true;
+  const dry = scenario.moisture !== 'conditioned';
+  return `<div class="rail-pinned rail-state">
+    <div class="rail-state-head">How the part is made and used</div>
+    <label class="toggle"><input type="checkbox" data-anneal ${on ? 'checked' : ''}><span>We can anneal parts</span></label>
+    <div class="avail">${annealed} products publish values measured only after annealing. Off, every product is judged as printed;
+      on, one may be judged annealed at the schedule its sheet states, and its verdict names the treatment.</div>
+    ${on ? `<label class="sub-check anneal-max">Oven reaches <input type="number" data-anneal-max min="0" step="5" value="${scenario.annealMaxC ?? ''}"
+      placeholder="any" aria-label="The highest annealing temperature your oven reaches, in °C"> °C</label>` : ''}
+    <fieldset class="service-state"><legend>In service the part is</legend>
+      <label><input type="radio" name="service-moisture" data-moisture="dry" ${dry ? 'checked' : ''}> dry, as the sheets test it</label>
+      <label><input type="radio" name="service-moisture" data-moisture="conditioned" ${dry ? '' : 'checked'}> conditioned by the air's moisture</label>
+    </fieldset>
+    <div class="avail">${conditioned} products publish values measured after moisture conditioning. A nylon print takes up water
+      after it is printed: conditioned, only those values decide, and nothing is inferred from a dry one.</div>
+  </div>`;
 }
 
 function body(group, materials, cs, db, ctx = {}) {
@@ -333,6 +361,21 @@ function body(group, materials, cs, db, ctx = {}) {
 
 function wire(host, state, actions) {
   const { scenario } = state;
+  host.querySelector('[data-anneal]')?.addEventListener('change', (e) => {
+    scenario.anneal = e.target.checked;
+    if (!scenario.anneal) scenario.annealMaxC = null;
+    actions.changed();
+  });
+  host.querySelector('[data-anneal-max]')?.addEventListener('change', (e) => {
+    const v = Number(e.target.value);
+    scenario.annealMaxC = e.target.value.trim() !== '' && Number.isFinite(v) && v > 0 ? v : null;
+    actions.changed();
+  });
+  host.querySelectorAll('[data-moisture]').forEach((el) => el.addEventListener('change', () => {
+    if (!el.checked) return;
+    scenario.moisture = el.dataset.moisture === 'conditioned' ? 'conditioned' : 'dry';
+    actions.changed();
+  }));
   const cs = () => scenario.constraints;
   const drop = (pred) => { scenario.constraints = cs().filter((c) => !pred(c)); };
 

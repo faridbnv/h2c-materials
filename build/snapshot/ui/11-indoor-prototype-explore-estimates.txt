@@ -5,6 +5,7 @@ Include uncertain lists those 100 flagged. From the Indoor prototype template. C
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Ease of printing is not rated: no source publishes it. Materials with no sampled Canadian price are held out.
+Each product is judged as printed, and dry.
 In the H2C research scope
 ×
 A build material, not a support

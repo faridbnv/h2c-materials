@@ -92,8 +92,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | A product declared heavily filled (metal-filled, foamed) is checked against the physical limits of that kind of filler, and the product's declaration comes before its material's. | In force; extended by D82, and by R095: a powder load the maker names is the grade Variant "declared dense filler", judged by the same dense windows, not a modifier ruling |
 | D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Each product gets its own estimate from the same model, shown for information and deciding nothing. | Amended by D83: only a product without a comparable value of its own gets one, and with the representative grade gone every grade takes the bounds its own sheets publish |
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | Every property with thirty or more values has plausibility limits drawn from physics, and each value outside them is checked against its sheet. | In force |
-| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate) and D89 (a twin reads its sibling's values and recipe) |
-| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it) and D95 (a bar printed off the product's recipe is no product value) |
+| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) and D99 (a product is judged in one state it can be made in) |
+| D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it), D95 (a bar printed off the product's recipe is no product value) and D99 (comparable is a screening policy: a verdict names the conditions it admitted unstated, and an annealed or conditioned value decides only in its own state) |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
@@ -108,6 +108,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D96 | A release is its content: an ID over what decides travels with every page, scenario and export | Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept. | In force |
 | D97 | A decision value is bound to its own row: its number is one its evidence line prints, and a number has one role | A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough. | In force |
 | D98 | A product's verdict rests on its own records: its evidence, its offers, its conflicts | A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it. | In force |
+| D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | In force |
 
 <!-- end index -->
 
@@ -2209,7 +2210,7 @@ and W0080's redrawing, and the findings they raise; the two flags would need the
 ## D83. A material is the spread of its products, and passes when one of its products meets every requirement
 
 > **In plain words:** A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values.
-> **Status:** amended by D88 (a printer maker's guide answers a product's silent print gate) and D89 (a twin reads its sibling's values and recipe).
+> **Status:** amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) and D99 (a product is judged in one state it can be made in).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md); supersedes D8's refusal of a range and amends D2 and D37.
 Built in re-center phases 1 and 2; the page reads it from phase 3.*
@@ -2281,7 +2282,7 @@ TPU-CF gained a second reason.
 ## D84. Two evidence levels: comparable decides; a value published without its direction or load is counted apart
 
 > **In plain words:** Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked.
-> **Status:** amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it) and D95 (a bar printed off the product's recipe is no product value).
+> **Status:** amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it), D95 (a bar printed off the product's recipe is no product value) and D99 (comparable is a screening policy: a verdict names the conditions it admitted unstated, and an annealed or conditioned value decides only in its own state).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md). Built in re-center phases 1 and 2.*
 
@@ -2953,6 +2954,51 @@ listed 752 → 46; a product-specific measurement 1,077 → 1,050 (the 27 that h
 unresolved conflict 936 → 1,067. Material verdicts moved only where a product's own record decides (oils and grease 5 →
 6 materials; no unresolved conflict 128 → 135). No template screens on these, so `build/snapshot/templates.csv` did not
 move. Reversing it lets one product's record or stock stand for every product of its material again.
+
+## D99. A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked
+
+> **In plain words:** A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs.
+
+*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decisions 2 and 5;
+recommended and taken). Built in version 2.1, F02 of the review of 2026-09-27 (D03, D04). Amends D83 and D84.*
+
+D83 chose each product's value per headline on its own, preferring as printed, and admitted an annealed value where no
+as-printed one existed. So one product's verdict could join values of two states no part is in at once: Fiberon
+PET-GF15 passed "XY stiffness at least 4 GPa and heat deflection at least 80 °C" on a modulus measured after annealing
+at 120 °C for 16 h and a heat deflection measured as printed; Spectrum PLA Matt passed 100 °C on a bar annealed for 4 h
+at 90 °C; Bambu Lab's PA6-CF passed every structural template on values all measured after 80 °C for 12 h, with no
+word that the part must be annealed.
+
+- **A product has decision states** (`grades[].states`, `build/src/products.js`): as printed and dry, first and
+  always; each annealing schedule its annealed values state; conditioned, where it publishes a conditioned value; and
+  their combinations. A state holds the value the rule chooses among that state's measurements only. Which headlines a
+  state changes is a column of `headline_definitions.csv` ("Changes with annealing", "Changes with moisture", m214): a
+  density is the resin's in every state, a glass transition moves with water but not with annealing.
+- **A scenario says what it can do and ask** (`anneal`, `annealMaxC`, `moisture`): used as printed unless annealing is
+  permitted, up to an oven temperature or any; dry unless the conditioned service state is asked. A product is judged in
+  each state the scenario permits and answered by the best; a verdict in an annealed state carries the annealing it
+  needs as a requirement of its own, so every verdict and export names it, and an annealing whose schedule the sheet
+  does not state in full settles nothing, because nobody can repeat it.
+- **A value in another state is named, never used.** "Published only after annealing at 90 °C for 4 h (V002780: 116
+  °C); this product is judged as printed. Permit annealing to judge it in that state." Conditioned asks for conditioned
+  values only: nothing is inferred from a dry one, and no correction factor exists.
+- **What the screening policy admitted is said** (decision 5). A value carries the conditions that could change it and
+  its source left unstated (specimen form, moisture, treatment) and the standards it names; the reason says both, so
+  "comparable" reads as a policy, not an equivalence.
+- The product's published value, which the table, the chart and the material's spread show, is unchanged: it is what
+  the sheet publishes, labelled with its annealing. The states are what decide.
+
+The page asks it in the rail ("How the part is made and used"), and the results header says which state every product
+is judged in and how many more materials would pass with annealing, one press away. m215 records Fiberon PET-GF15's
+annealed heat deflections on the one schedule its sheet states (a reading, for a person to confirm); m212 is the review's
+other correction.
+
+What it did, as printed and dry, in Strict: Outdoor 18 → 14 materials, Lightweight 29 → 26, Warm 34 → 29,
+High-stiffness 19 → 15; Indoor and Flexible unchanged. With annealing permitted: 17, 29, 32 and 19. The losses are passes
+that rested on an annealed value the scenario never said it could make: PA6-CF, PA6-GF, PA612-CF, PET-CF, PAHT-CF,
+PA612-ESD, PC FR, PPS-CF, PPS-GF, ASA Aero and PETG, by their products. `build/snapshot/templates.csv` has a
+"Strict, annealing permitted" mode and each row's state; `build/snapshot/states.csv` lists every state value that is not
+the published one (638). Reversing it lets a verdict rest again on a set of values no one part has.
 
 ---
 

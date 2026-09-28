@@ -1,10 +1,11 @@
 COUNT 16 shown PASS
-STATUS ☑ PASS 16 | ☐ UNKNOWN 45 | ☐ FAIL 92
+STATUS ☑ PASS 16 | ☐ UNKNOWN 49 | ☐ FAIL 88
 16 of the 153 materials in this database meet these requirements
-45 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
+49 more could not be checked for missing data, and are left out under Confirmed only. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
+Each product is judged as printed, and dry.
 In the H2C research scope
 ×
 A build material, not a support
@@ -165,7 +166,7 @@ Flexible Elastomers
 TPU 95A class
 Flexible Elastomers
  PASS
-8 of 8
+7 of 7
  1,200
 1,000–1,240 · 22
  0.0132
@@ -178,7 +179,7 @@ Flexible Elastomers
 TPU harder than 95A
 Flexible Elastomers
  PASS
-3 of 3
+2 of 2
  1,190
 1,090–1,260 · 13
  1.19* 30

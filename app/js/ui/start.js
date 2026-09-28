@@ -128,6 +128,12 @@ export function renderActive(state, actions) {
       ? `, except the ${screened} screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them` : ''}. `
     : `${counts.unknown} more could not be checked for missing data, and are left out under ${POLICY_LABELS.strict}. `;
 
+  // How the products are judged (D99): the state every verdict below is in, and what annealing would add.
+  const gain = state.annealGain ?? [];
+  const judgedAs = `${scenario.anneal ? `as printed, or annealed at the schedule its sheet states${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, and ${scenario.moisture === 'conditioned' ? 'conditioned by the air\'s moisture' : 'dry'}`;
+  const stateLine = `<p class="state-line"><b>Each product is judged</b> ${esc(judgedAs)}.${gain.length
+    ? ` <button type="button" class="btn btn-sm" data-act="anneal">Allow annealing</button> <span class="fine">${gain.length} more material${gain.length === 1 ? '' : 's'} would pass: ${esc(gain.map((id) => state.db.materials.find((m) => m.id === id)?.name ?? id).join(', '))}</span>` : ''}</p>`;
+
   return `
   <section class="active">
     <div class="active-head">
@@ -142,6 +148,7 @@ export function renderActive(state, actions) {
       </div>
     </div>
     ${template ? `<p class="not-checked"><b>Not checked by this template.</b> ${esc(template.notChecked)}</p>` : ''}
+    ${stateLine}
     <div class="pills">
       ${hard.map((c) => pill(c, cs.indexOf(c))).join('')}
       ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
@@ -156,4 +163,5 @@ export function wireActive(host, state, actions) {
   }));
   host.querySelector('[data-act="explain"]')?.addEventListener('click', () => actions.setLens('explain'));
   host.querySelector('[data-act="reset"]')?.addEventListener('click', () => actions.reset());
+  host.querySelector('[data-act="anneal"]')?.addEventListener('click', () => actions.allowAnnealing());
 }

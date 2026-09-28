@@ -110,6 +110,9 @@ export function compileRegistry(wb, issues) {
       // The test standard a value that names one must name (D94): an Izod value to ASTM D256 printed in kJ/m² is that
       // test's energy per metre of notch, converted by its maker, not an ISO 180 bar. A value naming no standard counts.
       standard: orNull(r.Standard),
+      // Whether annealing, or absorbed water, changes the part's value (D99): a value measured in one of those states is
+      // the product's in that state only. False: the product's in every state (a density is the resin's).
+      changesWithAnnealing: bool(r['Changes with annealing']), changesWithMoisture: bool(r['Changes with moisture']),
       evidenceGroup: orNull(r['Evidence group']),
       endpointNote: bool(r['Endpoint note']),
       comparisonNote: orNull(r['Comparison note']),
@@ -131,7 +134,7 @@ export function compileRegistry(wb, issues) {
       }
       // A headline with a direction says what a value without one is; a headline without a direction has nothing to say.
       if (!!h.direction !== !!h.unstatedDirection) err('REGISTRY-HEADLINE', where, h.direction ? `Direction ${h.direction} needs an Unstated direction (as-published or excluded)` : 'Unstated direction is set, but the headline has no Direction');
-    } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null || h.standard) {
+    } else if (h.valueProperties.length || h.relatedProperties.length || h.unstatedDirection || h.notch || h.testTemperatureC != null || h.standard || h.changesWithAnnealing || h.changesWithMoisture) {
       err('REGISTRY-HEADLINE', where, 'A price headline is not backed by measurements; its value and related properties and its test conditions must be Not applicable');
     }
     return h;

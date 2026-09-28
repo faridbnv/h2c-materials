@@ -747,6 +747,14 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
 .rail-pinned { padding: 14px 16px; border-bottom: 1px solid var(--border); background: var(--surface-2); }
 .toggle { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: var(--t-body); cursor: pointer; }
 .rail-pinned .avail { font-size: var(--t-label); color: var(--ink-3); margin: 5px 0 0 26px; }
+/* How the part is made and used (D99): annealing and the service state, beside the scope. */
+.state-line { margin: 8px 0 0; font-size: var(--t-body); color: var(--ink-2); }
+.state-line .btn { margin: 0 6px; }
+.rail-state-head { font-size: var(--t-label); font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+.rail-state .anneal-max { display: block; margin: 6px 0 0 26px; font-size: var(--t-label); }
+.rail-state .anneal-max input { width: 5.5em; }
+.rail-state .service-state { border: 0; padding: 0; margin: 12px 0 0; display: grid; gap: 4px; font-size: var(--t-body); }
+.rail-state .service-state legend { font-weight: 600; padding: 0; margin-bottom: 4px; }
 
 /* Status chips that filter the table are buttons and must read as buttons. */
 button.chip { border: 1px solid transparent; cursor: pointer; font-family: inherit; }

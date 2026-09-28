@@ -83,6 +83,19 @@ test('a stricter limit never creates a pass, on the compiled database', () => {
   assert.deepEqual([...strict].filter((id) => !loose.has(id)), []);
 });
 
+test('forbidding a treatment never creates a pass; permitting one never removes one (D99)', () => {
+  const db = compiled();
+  const ctx = contextOf(db);
+  const materials = db.materials.filter((m) => !m.familyEntry);
+  const passing = (extra) => new Set(TEMPLATES.flatMap((t) => runSelection(materials, t.constraints, { ...ctx, ...extra }).evaluations
+    .flatMap((e) => (e.products ?? []).filter((p) => p.verdict === STATUS.PASS).map((p) => `${t.name}|${p.gradeId}`))));
+  const printed = passing({}), annealed = passing({ anneal: true }), cool = passing({ anneal: true, annealMaxC: 60 });
+  assert.ok(annealed.size > printed.size, 'annealing permitted adds passes somewhere');
+  assert.deepEqual([...printed].filter((k) => !annealed.has(k)), [], 'every product passing as printed still passes with annealing permitted');
+  assert.deepEqual([...cool].filter((k) => !annealed.has(k)), [], 'a cooler oven permits no more than any oven');
+  assert.deepEqual([...printed].filter((k) => !cool.has(k)), [], 'and no fewer than none');
+});
+
 test('ranking the answer never changes it', () => {
   const db = compiled();
   const ctx = contextOf(db);

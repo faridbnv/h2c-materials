@@ -229,7 +229,8 @@ and units. If it only means something for some filaments, set "Applies to", for 
 
 **Add a selectable headline.** A row in `headline_definitions.csv` (the schema describes every column); each
 product's value is chosen from its measurements by rule. The filter rail, charts, table, export and drawer pick it up. Leave
-Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise. What a value must be is
+Estimated `FALSE` unless the estimate model has been extended for it; the build refuses otherwise. Say whether annealing or absorbed water changes the value ("Changes with annealing", "Changes with moisture", D99):
+a value measured in such a state then decides only for a product judged in that state. What a value must be is
 a column of the row, never a branch in `products.js`: its direction and what a value with none is (Unstated direction),
 its load, its notch and its test temperature (D92), and the test standard a value that names one must name (D94). Say in Comparison note what it leaves out; the drawer shows it.
 

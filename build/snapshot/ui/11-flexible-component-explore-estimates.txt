@@ -1,10 +1,11 @@
-COUNT 32 shown PASS + UNKNOWN
-STATUS ☑ PASS 16 | ☑ UNKNOWN 45 | ☐ FAIL 92 | ☐ SCREENED 29
-16 of the 153 materials in this database meet these requirements, and 45 more could not be checked for missing data
-Include uncertain lists those 45 flagged, except the 29 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
+COUNT 36 shown PASS + UNKNOWN
+STATUS ☑ PASS 16 | ☑ UNKNOWN 49 | ☐ FAIL 88 | ☐ SCREENED 29
+16 of the 153 materials in this database meet these requirements, and 49 more could not be checked for missing data
+Include uncertain lists those 49 flagged, except the 29 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
+Each product is judged as printed, and dry.
 In the H2C research scope
 ×
 A build material, not a support
@@ -105,6 +106,24 @@ Nylon / Polyamide
  115
 110–140 · 4
  — ☆
+PA612-CF
+Nylon / Polyamide
+ UNKNOWN
+none judged
+ 1,060
+1,030–1,090 · 2
+ 4.88
+3.5–5.14 · 3
+ 83.3
+68–91.9 · 3
+ 3.16
+2.6–3.5 · 3
+ 175 — ☆
+PA612-ESD
+Nylon / Polyamide
+ UNKNOWN
+none judged
+ 1,100 4.29 84.3 3 157 — ☆
 PBAT
 PVB / Specialty Polymers
  PASS
@@ -146,6 +165,21 @@ PET Engineering
  7.8
 7–8.6 · 2
  ~47–66† — ☆
+PET-CF
+PET Engineering
+ UNKNOWN
+none judged
+ 1,340
+1,290–1,400 · 5
+ 5.48
+4.73–6.03 · 3
+ 74.5
+65.9–87 · 4
+ 2.4
+2.01–4.5 · 3
+ 124
+74–205 · 4
+ 116↗ ☆
 PETG-PTFE UNKNOWN
 none judged
  1,320 ~0.9–3.1† ~26–61† ~104–198† ~49–73† — ☆
@@ -161,6 +195,13 @@ none judged
  4.3* 58* 14* 85.5
 54–115 · 4
  — ☆
+PLA Metal UNKNOWN
+none judged
+ 1,225
+1,200–1,250 · 3
+ 2.01 34 14.7 60
+58–62 · 2
+ 32↗ ☆
 PP
 Polyolefins
  PASS
@@ -243,7 +284,7 @@ Flexible Elastomers
 TPU 95A class
 Flexible Elastomers
  PASS
-8 of 8
+7 of 7
  1,200
 1,000–1,240 · 22
  0.0132
@@ -256,7 +297,7 @@ Flexible Elastomers
 TPU harder than 95A
 Flexible Elastomers
  PASS
-3 of 3
+2 of 2
  1,190
 1,090–1,260 · 13
  ~0.007–0.32† 30

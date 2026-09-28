@@ -19,15 +19,15 @@
       "expect": [
         { "product": "G033-11", "verdict": "PASS", "records": ["V006484", "V006485", "V006477", "P0569"],
           "because": "Polymaker FIBERON ASA CF08's own sheet: HDT 103 °C at 0.45 MPa, XY modulus 3.61 GPa, 1090 kg/m³; nozzle 260-280 °C, bed 90-100 °C, chamber room temperature. None of its values is stated as annealed." },
-        { "product": "G033-11", "state": "as-printed", "admits": ["specimen", "moisture", "treatment"], "todo": "F02",
+        { "product": "G033-11", "state": "as-printed", "admits": ["specimen", "moisture", "treatment"],
           "because": "The same values state neither the specimen form, the moisture state nor the post-processing: the screening policy admits them, and the verdict must say so." },
         { "product": "G054-01", "verdict": "FAIL", "failedBy": "Chamber", "records": ["P0141"],
           "because": "3DXTECH FIBREX PA12 GF30 meets the three limits (V001014, V001009, V001007), but its print guide asks for a chamber up to 120 °C; the H2C reaches 65 °C." },
         { "product": "G070-01", "verdict": "UNKNOWN", "records": ["P0089"],
           "because": "Bambu Lab PPA-CF's sheet asks for a 50-80 °C chamber, which the H2C only partly reaches: unresolved, not failed." },
-        { "product": "G050-01", "verdict": "UNKNOWN", "records": ["V000928", "V000930"], "todo": "F02",
+        { "product": "G050-01", "verdict": "UNKNOWN", "records": ["V000928", "V000930"],
           "because": "Bambu Lab PA6-CF's sheet measures every property after annealing at 80 °C for 12 h; nothing says how the part performs as printed." },
-        { "product": "G050-01", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 80, "hours": 12 }, "records": ["V000928", "V000930", "P0065"], "todo": "F02",
+        { "product": "G050-01", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 80, "hours": 12 }, "records": ["V000928", "V000930", "P0065"],
           "because": "With annealing available, the annealed state meets every limit (HDT 186 °C, XY modulus 4.43 GPa) and the recipe is within the H2C: the verdict names the 80 °C, 12 h treatment." },
         { "template": "Outdoor structural part", "includesGates": ["nozzle", "bed", "chamber"], "todo": "F03",
           "because": "A standard template asks whether the H2C can print the product (GOALS, 2026-09-28, decision 4)." }
@@ -56,9 +56,9 @@
       ],
       "policy": { "unknownPolicy": "strict" },
       "expect": [
-        { "product": "G068-02", "verdict": "UNKNOWN", "reasonMatches": "120 °C.*16 h", "records": ["V001931", "V001934"], "todo": "F02",
+        { "product": "G068-02", "verdict": "UNKNOWN", "reasonMatches": "120 °C.*16 h", "records": ["V001931", "V001934"],
           "because": "Fiberon PET-GF15 as printed: HDT 81.6 °C (V001931) meets the heat limit, but its only XY modulus, 4.14 GPa (V001934), is of bars annealed at 120 °C for 16 h. The two describe different states; the reason names the schedule that would settle it." },
-        { "product": "G068-02", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 120, "hours": 16 }, "records": ["V001933", "V001934"], "todo": "F02",
+        { "product": "G068-02", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 120, "hours": 16 }, "records": ["V001933", "V001934"],
           "because": "Annealed at 120 °C for 16 h (the schedule the sheet's recipe states, and the one its mechanical footnote names): XY modulus 4.14 GPa and HDT 133.7 °C, both of annealed bars." }
       ]
     },
@@ -70,9 +70,9 @@
       ],
       "policy": { "unknownPolicy": "strict" },
       "expect": [
-        { "product": "G001-06", "verdict": "UNKNOWN", "reasonMatches": "90 °C.*4 h", "records": ["V002780"], "todo": "F02",
+        { "product": "G001-06", "verdict": "UNKNOWN", "reasonMatches": "90 °C.*4 h", "records": ["V002780"],
           "because": "Spectrum PLA Matt's 116 °C is of a bar annealed for 4 h at 90 °C; the sheet gives no as-printed heat deflection." },
-        { "product": "G001-06", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 90, "hours": 4 }, "records": ["V002780"], "todo": "F02",
+        { "product": "G001-06", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 90, "hours": 4 }, "records": ["V002780"],
           "because": "With annealing available, the annealed state's 116 °C decides, and the verdict names the 90 °C, 4 h treatment." },
         { "measurement": "V002780", "testTemperatureC": null,
           "because": "The sheet prints 90 °C as the annealing temperature ('annealed (4h @ 90°C)'), not as a test temperature (re-read 2026-09-27)." },
@@ -90,9 +90,9 @@
       "expect": [
         { "product": "G048-02", "verdict": "PASS", "records": ["V002469"],
           "because": "BASF Ultrafuse PAHT CF15 dry: XY modulus 8.39 GPa (V002469)." },
-        { "product": "G048-02", "policy": { "moisture": "conditioned" }, "verdict": "FAIL", "records": ["V002495"], "todo": "F02",
+        { "product": "G048-02", "policy": { "moisture": "conditioned" }, "verdict": "FAIL", "records": ["V002495"],
           "because": "Conditioned, the same sheet prints 5.05 GPa (V002495). The dry value does not describe the humid service state." },
-        { "product": "G050-12", "policy": { "moisture": "conditioned" }, "verdict": "UNKNOWN", "todo": "F02",
+        { "product": "G050-12", "policy": { "moisture": "conditioned" }, "verdict": "UNKNOWN",
           "because": "Nanovia PA-6 CF publishes no conditioned value; nothing is inferred from its dry one." }
       ]
     },

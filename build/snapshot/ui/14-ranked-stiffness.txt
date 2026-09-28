@@ -1,10 +1,11 @@
-COUNT 19 shown PASS
-STATUS ☑ PASS 19 | ☐ UNKNOWN 43 | ☐ FAIL 91
-19 of the 153 materials in this database meet these requirements
-43 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
+COUNT 15 shown PASS
+STATUS ☑ PASS 15 | ☐ UNKNOWN 48 | ☐ FAIL 90
+15 of the 153 materials in this database meet these requirements
+48 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).
+Each product is judged as printed, and dry. Allow annealing 4 more materials would pass: PA6-CF, PA6-GF, PA612-CF, PET-CF
 In the H2C research scope
 ×
 A build material, not a support
@@ -42,27 +43,11 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-PA6-CF
-Nylon / Polyamide
-#1 · best: Polymaker FIBERON PA6 CF20
- PASS
-1 of 6
- 1,170
-1,090–1,250 · 13
- 4.37
-3.8–8.64 · 6
- 77
-53–112 · 7
- 7.35
-2.1–16.5 · 6
- 185
-140–215 · 9
- 110↗ ☆
 PA12-CF
 Nylon / Polyamide
-#2 · best: 3DXTECH CarbonX CF PA12
+#1 · best: 3DXTECH CarbonX CF PA12
  PASS
-1 of 4
+1 of 1
  1,070
 1,030–1,230 · 12
  3.32
@@ -76,7 +61,7 @@ Nylon / Polyamide
  — ☆
 PA12-GF
 Nylon / Polyamide
-#3 · best: 3DXTECH FIBREX PA12 GF30
+#2 · best: 3DXTECH FIBREX PA12 GF30
  PASS
 1 of 1
  1,230 7.8 82 4.5 163
@@ -84,7 +69,7 @@ Nylon / Polyamide
  — ☆
 PPA-CF
 High-Performance Engineering
-#4 · best: Bambu Lab PPA-CF
+#3 · best: Bambu Lab PPA-CF
  PASS
 4 of 4
  1,210
@@ -100,9 +85,9 @@ High-Performance Engineering
  255↗ ☆
 PPS-CF
 High-Performance Engineering
-#5 · best: Bambu Lab PPS-CF
+#4 · best: Bambu Lab PPS-CF
  PASS
-5 of 5
+4 of 4
  1,295
 1,260–1,510 · 6
  8
@@ -116,13 +101,13 @@ High-Performance Engineering
  221↗ ☆
 PP-GF
 Polyolefins
-#6 · best: 3DXTECH FIBREX GF PP
+#5 · best: 3DXTECH FIBREX GF PP
  PASS
 1 of 1
  1,120 6.75 65 1.7 139 — ☆
 PP-CF
 Polyolefins
-#7 · best: 3DXTECH CarbonX CF PP
+#6 · best: 3DXTECH CarbonX CF PP
  PASS
 1 of 1
  1,000
@@ -132,7 +117,7 @@ Polyolefins
  — ☆
 PPA-GF
 High-Performance Engineering
-#8 · best: Flashforge PPA-GF
+#7 · best: Flashforge PPA-GF
  PASS
 3 of 3
  1,285
@@ -146,23 +131,9 @@ High-Performance Engineering
  220
 84–227 · 3
  — ☆
-PA612-CF
-Nylon / Polyamide
-#9 · best: Polymaker Fiberon PA612-CF15
- PASS
-1 of 3
- 1,060
-1,030–1,090 · 2
- 4.88
-3.5–5.14 · 3
- 83.3
-68–91.9 · 3
- 3.16
-2.6–3.5 · 3
- 175 — ☆
 PC-CF
 Polycarbonate
-#10 · best: 3DXTECH CarbonX Carbon Fiber ezPC Polycarbonate
+#8 · best: 3DXTECH CarbonX Carbon Fiber ezPC Polycarbonate
  PASS
 2 of 2
  1,235
@@ -177,9 +148,9 @@ Polycarbonate
 119–140 · 4
  — ☆
 ASA-CF
-#11 · best: 3DXTECH CarbonX CF ASA
+#9 · best: 3DXTECH CarbonX CF ASA
  PASS
-1 of 6
+1 of 5
  1,095
 1,020–1,170 · 14
  3.91
@@ -193,12 +164,12 @@ ASA-CF
  no price↗ ☆
 PC-ABS-CF
 Polymer Blends
-#12 · best: 3DXTECH CarbonX Carbon Fiber PC/ABS
+#10 · best: 3DXTECH CarbonX Carbon Fiber PC/ABS
  PASS
 1 of 1
  1,240 5.9 62 2 130 — ☆
 ABS-CF
-#13 · best: 3DXTECH CarbonX CF ABS
+#11 · best: 3DXTECH CarbonX CF ABS
  PASS
 1 of 3
  1,085
@@ -212,27 +183,11 @@ ABS-CF
  78
 76–95 · 3
  — ☆
-PA6-GF
-Nylon / Polyamide
-#14 · best: Polymaker FIBERON PA6 GF25
- PASS
-1 of 4
- 1,310
-1,140–1,370 · 9
- 4.35
-2.85–5.36 · 4
- 82.3
-62.8–98.9 · 6
- 4.95
-2.4–12.5 · 6
- 184
-161–210 · 10
- 77↗ ☆
 PPS-GF
 High-Performance Engineering
-#15 · best: IPCON PPS-GF
+#12 · best: IPCON PPS-GF
  PASS
-1 of 2
+1 of 1
  1,360
 1,360–1,360 · 2
  5.16
@@ -244,26 +199,10 @@ High-Performance Engineering
  239
 236–241 · 2
  — ☆
-PET-CF
-PET Engineering
-#16 · best: Polymaker Fiberon PET-CF17
- PASS
-2 of 3
- 1,340
-1,290–1,400 · 5
- 5.48
-4.73–6.03 · 3
- 74.5
-65.9–87 · 4
- 2.4
-2.01–4.5 · 3
- 124
-74–205 · 4
- 116↗ ☆
 PETG-CF
-#17 · best: 3DXTECH CarbonX Carbon Fiber PETG
+#13 · best: 3DXTECH CarbonX Carbon Fiber PETG
  PASS
-1 of 6
+1 of 5
  1,290
 1,190–1,350 · 22
  3.09
@@ -285,7 +224,7 @@ Copolyesters
 PAHT-CF
 Nylon / Polyamide
  PASS
-2 of 3
+2 of 2
  1,240
 1,060–1,250 · 3
  8.39

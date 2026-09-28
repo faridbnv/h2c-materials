@@ -1,10 +1,11 @@
-COUNT 19 shown PASS
-STATUS ☑ PASS 19 | ☐ UNKNOWN 43 | ☐ FAIL 91
-19 of the 153 materials in this database meet these requirements
-43 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
+COUNT 15 shown PASS
+STATUS ☑ PASS 15 | ☐ UNKNOWN 48 | ☐ FAIL 90
+15 of the 153 materials in this database meet these requirements
+48 more could not be checked for missing data, and are left out under Confirmed only. From the High-stiffness fixture template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).
+Each product is judged as printed, and dry. Allow annealing 4 more materials would pass: PA6-CF, PA6-GF, PA612-CF, PET-CF
 In the H2C research scope
 ×
 A build material, not a support
@@ -56,7 +57,7 @@ ABS-CF PASS
 76–95 · 3
  — ☆
 ASA-CF PASS
-1 of 6
+1 of 5
  1,095
 1,020–1,170 · 14
  3.91
@@ -78,7 +79,7 @@ Copolyesters
 PA12-CF
 Nylon / Polyamide
  PASS
-1 of 4
+1 of 1
  1,070
 1,030–1,230 · 12
  3.32
@@ -97,53 +98,10 @@ Nylon / Polyamide
  1,230 7.8 82 4.5 163
 150–175 · 2
  — ☆
-PA6-CF
-Nylon / Polyamide
- PASS
-1 of 6
- 1,170
-1,090–1,250 · 13
- 4.37
-3.8–8.64 · 6
- 77
-53–112 · 7
- 7.35
-2.1–16.5 · 6
- 185
-140–215 · 9
- 110↗ ☆
-PA6-GF
-Nylon / Polyamide
- PASS
-1 of 4
- 1,310
-1,140–1,370 · 9
- 4.35
-2.85–5.36 · 4
- 82.3
-62.8–98.9 · 6
- 4.95
-2.4–12.5 · 6
- 184
-161–210 · 10
- 77↗ ☆
-PA612-CF
-Nylon / Polyamide
- PASS
-1 of 3
- 1,060
-1,030–1,090 · 2
- 4.88
-3.5–5.14 · 3
- 83.3
-68–91.9 · 3
- 3.16
-2.6–3.5 · 3
- 175 — ☆
 PAHT-CF
 Nylon / Polyamide
  PASS
-2 of 3
+2 of 2
  1,240
 1,060–1,250 · 3
  8.39
@@ -175,23 +133,8 @@ Polycarbonate
  128
 119–140 · 4
  — ☆
-PET-CF
-PET Engineering
- PASS
-2 of 3
- 1,340
-1,290–1,400 · 5
- 5.48
-4.73–6.03 · 3
- 74.5
-65.9–87 · 4
- 2.4
-2.01–4.5 · 3
- 124
-74–205 · 4
- 116↗ ☆
 PETG-CF PASS
-1 of 6
+1 of 5
  1,290
 1,190–1,350 · 22
  3.09
@@ -250,7 +193,7 @@ High-Performance Engineering
 PPS-CF
 High-Performance Engineering
  PASS
-5 of 5
+4 of 4
  1,295
 1,260–1,510 · 6
  8
@@ -265,7 +208,7 @@ High-Performance Engineering
 PPS-GF
 High-Performance Engineering
  PASS
-1 of 2
+1 of 1
  1,360
 1,360–1,360 · 2
  5.16

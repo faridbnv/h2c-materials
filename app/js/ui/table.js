@@ -471,7 +471,7 @@ export function renderTable(host, state, actions) {
  */
 export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
   const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State', 'In results',
-    'Failed', 'Could not be checked',
+    'Failed', 'Could not be checked', 'Best product', 'Judged as',
     ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
@@ -519,6 +519,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
   ];
   if (scenario) {
     header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates and polymer data ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
+    header.push(`# products judged ${stateWords(scenario)} (D99)`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
     if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
     for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);
@@ -532,6 +533,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     ...rows.map(({ material: m, evaluation: e }) => [
       m.id, m.name, m.family, m.h2cStatus, tested ? e.verdict : 'NOT TESTED', e.eligible ? 'yes' : 'no',
       why(e.failed), why(e.unresolved),
+      tested ? e.gradeId ?? '' : '', tested && e.state ? judgedAs(e.state) : '',
       ...KEYS.map((k) => val(m, k)),
       qualifiers(m), ids(m),
       range(m.print?.nozzleC), range(m.print?.bedC), range(m.print?.chamberC) || (m.print?.chamberGuidance ? CHAMBER_GUIDANCE[m.print.chamberGuidance.state]?.word ?? '' : ''),
@@ -560,7 +562,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
   // Where a value or a part of the recipe is not the product's own sheet's: a twin's (D89) or a printer maker's guide's
   // (D88), named in the columns that say so.
   const readFrom = (entries) => entries.filter(([, f]) => f).map(([what, f]) => `${what}: ${f.label}`).join('; ');
-  const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements',
+  const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements', 'Judged as', 'Not settled by',
     ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]), 'Values read from',
     'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source'];
   const header = [
@@ -568,14 +570,17 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
     `# release ${db.meta.release?.id ?? 'unidentified'} (database snapshot ${db.meta.snapshot}, application build ${db.meta.build})`,
     '# a value is comparable (printed or unstated specimen, stated direction, dry or unstated, at the load) or as-published (direction or load not stated)',
     ...(scenario?.constraints ?? []).map((c) => `# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`),
+    ...(scenario ? [`# products judged ${stateWords(scenario)} (D99)`] : []),
   ];
   const lines = [];
   for (const { material: m, evaluation: e } of rows) {
-    const verdict = new Map((e?.products ?? []).map((x) => [x.gradeId, x.verdict]));
+    const judged = new Map((e?.products ?? []).map((x) => [x.gradeId, x]));
     for (const g of productsByMaterial?.get(m.id) ?? []) {
       const p = g.print;
       lines.push([m.id, m.name, g.id, g.manufacturer, g.product, g.variant ?? '',
-        scenario?.constraints?.length ? verdict.get(g.id) ?? '' : 'not tested',
+        scenario?.constraints?.length ? judged.get(g.id)?.verdict ?? '' : 'not tested',
+        scenario?.constraints?.length && judged.get(g.id)?.state ? judgedAs(judged.get(g.id).state) : '',
+        (judged.get(g.id)?.results ?? []).filter((r) => r.status === 'UNKNOWN' || r.status === 'INDETERMINATE').map((r) => `${r.constraint ? describeConstraint(r.constraint) : r.criterion}: ${r.reason}`).join(' | '),
         ...KEYS.flatMap((k) => { const v = g.headline?.[k]; return [v?.value ?? '', v?.level ?? '', v?.measurementId ?? (v?.priceIds ?? []).join(' ')]; }),
         readFrom(KEYS.map((k) => [k, g.headline?.[k]?.from])),
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
@@ -587,6 +592,12 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
   }
   return [...header, cols.join(','), ...lines].join('\n');
 }
+
+const scheduleWords = (t) => `${t?.tempC ?? '?'} C for ${t?.hours ?? '?'} h`;
+/** The state a verdict is in (D99), as an export column says it. */
+const judgedAs = (s) => `${s.treatment ? `annealed ${scheduleWords(s.treatment)}` : 'as printed'}${s.moisture === 'conditioned' ? ', conditioned' : ', dry'}`;
+/** What the scenario permits, as the export's header says it. */
+const stateWords = (scenario) => `${scenario.anneal ? `as printed, or annealed at the schedule each sheet states${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned' : 'dry'}`;
 
 export function download(filename, text, type = 'text/plain') {
   const url = URL.createObjectURL(new Blob([text], { type }));
