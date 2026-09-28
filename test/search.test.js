@@ -57,3 +57,13 @@ test("a material is found by its products' makers and names, and a brand never m
   assert.equal(matchesQuery(pla, 'polymaker', []), false, 'without its products a material is found by its own words only');
   assert.equal(matchesQuery(pla, 'maker', products), false, 'a term begins a word; it is not a substring');
 });
+
+test('a search that finds a material by a product names that product, and one that finds it by its own name names none (U03)', async () => {
+  const { matchingProducts } = await import('../app/js/engine/search.js');
+  const abs = { name: 'ABS', fullName: 'Acrylonitrile butadiene styrene', family: 'ABS', basePolymer: 'ABS', modifier: 'Unfilled / unspecified', gradeIds: ['G027-01', 'G027-02'] };
+  const products = [{ id: 'G027-01', manufacturer: 'Bambu Lab', product: 'ABS' }, { id: 'G027-02', manufacturer: 'Polymaker', product: 'PolyLite ABS' }];
+  assert.deepEqual(matchingProducts(abs, 'polymaker', products).map((g) => g.id), ['G027-02']);
+  assert.deepEqual(matchingProducts(abs, 'abs', products), [], "the material's own name answers it");
+  assert.deepEqual(matchingProducts(abs, 'polymaker abs', products).map((g) => g.id), ['G027-02'], 'a term the material answers is not asked of the product');
+  assert.deepEqual(matchingProducts(abs, 'prusament', products), []);
+});

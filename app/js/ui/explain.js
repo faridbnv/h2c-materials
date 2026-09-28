@@ -142,13 +142,38 @@ export function renderNoResults(host, state, actions) {
     return;
   }
 
+  // Three different answers, with three different ways forward (the review of 2026-09-27, U08): no material could be
+  // confirmed at all (every one unresolved), which says the records cannot answer the question, not that nothing suits
+  // it; every material was measured and failed; or some of each. A requirement the records could not confirm for any
+  // material is named, because dropping it abandons the part's real need.
+  const { counts } = selection;
+  const unconfirmable = scenario.constraints.filter((c) => c.mandatory !== false && unconfirmed(selection, c));
+  const explore = scenario.unknownPolicy === 'exploration';
+  const next = `<ul class="next-steps">
+      ${counts.unknown ? `<li>${explore ? 'Include uncertain lists them already; the SCREENED chip brings back any an estimate held out.' : `<button type="button" class="btn btn-sm" id="to-explore">Include uncertain</button> lists the ${counts.unknown} that could not be checked, flagged, so you can see what is missing for each.`}</li>` : ''}
+      ${unconfirmable.length ? `<li>Open a material's Environment or Products tab for what its makers do say, and plan a test of your own part for ${esc(unconfirmable.map(describeConstraint).join('; '))}: no record here can confirm it.</li>` : ''}
+      <li>The ranked list below says which requirement holds out the most, and which only failed.</li>
+    </ul>`;
+  const lead = !counts.fail && counts.unknown
+    ? `<h3>No material can be confirmed from the current records: all ${counts.unknown} are unresolved</h3>
+       <p>Nothing failed. The records cannot confirm ${unconfirmable.length ? esc(unconfirmable.map(describeConstraint).join('; ')) : 'these requirements'} for any material, which says what the database lacks, not that no material suits the part. Keep the requirement if the part needs it.</p>`
+    : counts.fail && !counts.unknown
+      ? `<h3>No material meets all of these requirements: every one was measured and fails</h3>
+       <p>That is a real answer, not an error. The quickest way forward is to relax whichever requirement is costing you the most.</p>`
+      : `<h3>No material is confirmed to meet all of these requirements</h3>
+       <p>${counts.fail} failed a requirement on its own records, and ${counts.unknown} could not be checked, so not everything here is ruled out.${unconfirmable.length ? ` No material's records can confirm ${esc(unconfirmable.map(describeConstraint).join('; '))}.` : ''}</p>`;
   host.innerHTML = `
-    <div class="empty" style="max-width:820px">
-      <h3>No material meets all of these requirements</h3>
-      <p>That is a real answer, not an error: nothing in the database does everything you asked.
-         The quickest way forward is to drop whichever requirement is costing you the most.</p>
-    </div>
+    <div class="empty" style="max-width:820px">${lead}${next}</div>
     <div id="ranked" style="max-width:820px"></div>`;
+  host.querySelector('#to-explore')?.addEventListener('click', () => actions.setPolicy('exploration'));
 
   renderExclusions(host.querySelector('#ranked'), state, actions);
+}
+
+/** Whether no material's records confirm a requirement: none passes it, on any of its products. */
+function unconfirmed(selection, c) {
+  return selection.evaluations.every((e) => {
+    const results = e.products?.length ? e.products.flatMap((p) => p.results ?? []) : e.results ?? [];
+    return !results.some((r) => r.constraint === c && r.status === 'PASS');
+  });
 }

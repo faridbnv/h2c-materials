@@ -133,3 +133,25 @@ Below 1100 px the open filter rail covers the results, so it is now a modal dial
 behind it is inert, Tab and Shift+Tab cycle inside it, and Escape, its close button and the backdrop return focus to
 Filters. `npm run ui:check` checks it on the tablet and phone screens every run; on the old page it reports the two
 failures the review found (Shift+Tab reached the background), and Escape already returned focus.
+
+### F09: the answer before the exposition
+
+- **A compact results header**: the answer in one line with what could not be checked beside it; the requirements as
+  small pills, the three print gates as one ("Printable on the H2C"); one line saying how every product is judged, with
+  "Allow annealing: N more pass"; and the template's limits, the policy's detail and the database's limits one press
+  away, their first sentence showing. On a phone, "Read the candidates" jumps to the first row.
+- **Products first**: a material's Products tab opens on the products that meet every requirement, each with its state
+  (annealed at its sheet's schedule, conditioned), what is not settled and why, and its print recipe before its values; the
+  material's spread and its makers' coverage follow, one press away.
+- **Compare** shows the passing products' own print gates ("2 of 2 within"), with the material's window across every
+  product under it as context.
+- **Search** names the products a maker or product search matched, with their own verdicts, and says when the material
+  passes on another product (a Polymaker search no longer reads as a Polymaker pass).
+- **Empty answers are told apart**: no material confirmable from the records (all unresolved), every one measured and
+  failed, or some of each; a requirement no record confirms for any material is named, with a next step, instead of
+  "nothing does everything you asked".
+
+Measured at the plan's laptop, 1024 × 768 (Warm environment): the first candidate row moved from 668 to 518 px, four rows
+show without scrolling (two before); the first passing product in the Products tab from 1,274 px to 264 px, inside the
+drawer's first view. `npm run ui:check` now asserts both. The phone's first row is still below the fold (955 px); the
+"Read the candidates" button is the route there. Answers moved: none.

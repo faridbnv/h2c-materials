@@ -6,6 +6,7 @@
 import { AXIS_DEFS } from './axes.js';
 import { renderValue, esc, fmtNumber, estimateDisplay, chip, wireEvidence, explainButton, missingText, missingLabel, scrollTable, markTableOverflow } from './format.js';
 import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel } from './labels.js';
+import { productGates } from '../engine/products.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 /** A track is drawn on a log scale when its candidates' largest value is more than this many times their smallest. */
@@ -42,6 +43,9 @@ export function renderCompare(host, state, actions) {
   // useful. Showing it without its current result is not: an old pick read as a current answer.
   const tested = scenario.constraints.length > 0;
   const evalOf = (m) => state.selection.evaluations.find((e) => e.materialId === m.id);
+  // The products that passed, whose recipes passed them: Compare shows their gates, not the material's union (F09).
+  const gradeById = new Map(db.grades.map((g) => [g.id, g]));
+  const passingProducts = (m) => (tested ? (evalOf(m)?.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => gradeById.get(p.gradeId)).filter(Boolean) : []);
   const resultChip = (m) => {
     if (!tested) return '<span class="chip chip-neutral" title="No requirement is set">not tested</span>';
     const e = evalOf(m);
@@ -233,10 +237,20 @@ export function renderCompare(host, state, actions) {
       ${anyBounds ? 'The <b>|—|</b> marks on a bar are the range of the material\'s products, or the range or uncertainty a source reported. ' : ''}${anyRelated ? 'A <b>*</b> value is a measurement that is not comparable, drawn as a tick, not a bar; select it for why.' : ''}</p>
     ${blocks}
     <h3 class="sec">Process requirements</h3>
+    <p class="fine">Where a material has products that pass, each gate is theirs: their own recipes against the H2C, which is what
+      passed them. The line under it is the material's window across every recorded product, context that no product need match (F09).</p>
     ${scrollTable(`<table class="grid"><thead><tr><th class="name">Material</th><th>Nozzle within H2C</th><th>Bed within H2C</th><th>Chamber within H2C</th><th>Hardened nozzle</th><th>Drying</th></tr></thead>
-      <tbody>${picked.map((m) => `<tr><td class="name">${esc(m.name)}</td>
-        ${['nozzle', 'bed', 'chamber'].map((g) => `<td>${verdictChip(m.gates[g], g)}</td>`).join('')}
-        <td>${esc(ABRASION_WORD[m.gates.abrasive] ?? 'not recorded')}</td><td>${esc(m.gates.drying === 'required' ? 'guidance published' : 'not recorded')}</td></tr>`).join('')}</tbody></table>`)}
+      <tbody>${picked.map((m) => {
+        const passing = passingProducts(m);
+        const gatesOf = passing.map((g) => productGates(m, g));
+        const axis = (g) => (passing.length
+          ? `${passingChip(gatesOf.map((x) => x[g]), g)}<div class="fine">all products: ${verdictChip(m.gates[g], g)}</div>`
+          : verdictChip(m.gates[g], g));
+        const words = (fn) => (passing.length ? [...new Set(gatesOf.map(fn))].join(' / ') : fn(m.gates));
+        return `<tr><td class="name">${esc(m.name)}${passing.length ? `<span class="row-sub">${passing.length} passing product${passing.length === 1 ? '' : 's'}</span>` : ''}</td>
+        ${['nozzle', 'bed', 'chamber'].map((g) => `<td>${axis(g)}</td>`).join('')}
+        <td>${esc(words((x) => ABRASION_WORD[x.abrasive] ?? 'not recorded'))}</td><td>${esc(words((x) => (x.drying === 'required' ? 'guidance published' : 'not recorded')))}</td></tr>`;
+      }).join('')}</tbody></table>`)}
 
     <h3 class="sec">Evidence completeness</h3>
     ${scrollTable(`<table class="grid"><thead><tr><th class="name">Material</th><th>Measured</th><th>Estimated</th><th>Grades</th><th>Measurements</th></tr></thead>
@@ -263,6 +277,14 @@ export function renderCompare(host, state, actions) {
 }
 
 const ABRASION_WORD = { 'requires-hardened': 'required', 'no-special-concern': 'not needed', unknown: 'not recorded' };
+
+/** The passing products' verdicts on one gate, as one chip: how many are within, and the rest said. */
+function passingChip(list, what) {
+  const within = list.filter((g) => g.verdict === 'within').length;
+  const state = within === list.length ? 'PASS' : list.some((g) => g.verdict === 'exceeds') ? 'FAIL' : 'UNKNOWN';
+  const reasons = list.map((g) => g.reason).filter(Boolean);
+  return explainButton(`${within} of ${list.length} within`, [...new Set(reasons)].join('\n') || 'No recipe recorded', { cls: `chip chip-${state}`, head: `${what.charAt(0).toUpperCase()}${what.slice(1)}: the passing products' own recipes` });
+}
 
 // A gate's verdict with its reason one press away. The reason used to be the cell's title.
 const verdictChip = (g, what) => {

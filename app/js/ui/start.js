@@ -58,6 +58,15 @@ export function renderStart(state, actions) {
  * one they wanted.
  */
 function limits(db) {
+  return `
+    <details class="start-limits">
+      <summary>What this database cannot answer</summary>
+      ${limitsBody(db)}
+    </details>`;
+}
+
+/** The body of "What this database cannot answer", counted from the snapshot. */
+function limitsBody(db) {
   // Counted from the snapshot, not typed in: each new manufacturer audit moves them.
   const profiles = db.profiles.length;
   const stated = (v) => v && !/^not published$/i.test(String(v).trim());
@@ -65,8 +74,6 @@ function limits(db) {
   const enclosure = db.profiles.filter((p) => stated(p.enclosure)).length;
   const warping = db.evidence.filter((e) => /warp/i.test(e.topic ?? '')).length;
   return `
-    <details class="start-limits">
-      <summary>What this database cannot answer</summary>
       <p>Some things a printer owner often wants are barely recorded in the sources this was built
         from, so no filter can answer them. If you came for one of these, this tool will not settle it.</p>
       <ul>
@@ -82,8 +89,7 @@ function limits(db) {
           products, so no one product need have every value. Check its Products tab before buying.</li>
       </ul>
       <p>Colour choice, print speed and layer-adhesion tuning are likewise out of scope. This is a
-        materials database, not a profile library.</p>
-    </details>`;
+        materials database, not a profile library.</p>`;
 }
 
 export function wireStart(host, actions) {
@@ -128,33 +134,49 @@ export function renderActive(state, actions) {
       ? `, except the ${screened} screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them` : ''}. `
     : `${counts.unknown} more could not be checked for missing data, and are left out under ${POLICY_LABELS.strict}. `;
 
-  // How the products are judged (D99): the state every verdict below is in, and what annealing would add.
+  // How the products are judged (D99): the state every verdict below is in, and what annealing would add. The materials
+  // it would add are named in the button's title, so the line stays one line.
   const gain = state.annealGain ?? [];
-  const judgedAs = `${scenario.anneal ? `as printed, or annealed at the schedule its sheet states${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, and ${scenario.moisture === 'conditioned' ? 'conditioned by the air\'s moisture' : 'dry'}`;
-  const stateLine = `<p class="state-line"><b>Each product is judged</b> ${esc(judgedAs)}.${gain.length
-    ? ` <button type="button" class="btn btn-sm" data-act="anneal">Allow annealing</button> <span class="fine">${gain.length} more material${gain.length === 1 ? '' : 's'} would pass: ${esc(gain.map((id) => state.db.materials.find((m) => m.id === id)?.name ?? id).join(', '))}</span>` : ''}</p>`;
+  const judgedAs = `${scenario.anneal ? `as printed, or annealed at its sheet's schedule${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} °C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}`;
+  const printable = asksPrintable(cs);
+  const stateLine = `<p class="state-line"><b>Each product is judged</b> ${esc(judgedAs)}${printable ? ', and must be printable on the H2C' : ''}.${gain.length
+    ? ` <button type="button" class="btn btn-sm" data-act="anneal" title="${esc(`Would pass with annealing: ${gain.map((id) => state.db.materials.find((m) => m.id === id)?.name ?? id).join(', ')}`)}">Allow annealing: ${gain.length} more pass</button>` : ''}</p>`;
 
+  // What was asked, as compact as the answer allows (the review of 2026-09-27, F09): the answer in one line with what
+  // could not be checked beside it, the requirements as pills, how the products are judged in one line, and the
+  // template's limits, the policy's detail and the database's limits one press away, their first sentence showing. The
+  // rows are what a working engineer came for.
+  const printGates = new Set(['nozzle', 'bed', 'chamber']);
+  const shownHard = printable ? hard.filter((c) => !(c.kind === 'gate' && printGates.has(c.gate))) : hard;
+  const firstSentence = (t) => (String(t).match(/^[^.:]+[.:]/)?.[0] ?? String(t)).replace(/[.:]$/, '');
+  const beside = [scenario.template ? `${scenario.template} template${sameAsTemplate ? '' : ', changed'}` : null,
+    counts.unknown ? `${counts.unknown} more could not be checked${explore ? `, listed flagged${screened ? `, except ${screened} screened out` : ''}` : `, left out under ${POLICY_LABELS.strict}`}` : null].filter(Boolean).join(' · ');
   return `
-  <section class="active">
+  <section class="active compact">
     <div class="active-head">
       <div>
-        <h2>${counts.pass} of the ${counts.total} materials in this database meet
-          ${hard.length === 1 ? 'this requirement' : 'these requirements'}${unknownClause}</h2>
-        <p>${unknownSentence}${scenario.template ? `From the <b>${esc(scenario.template)}</b> template${sameAsTemplate ? '' : ', since changed'}. ` : ''}Click any criterion to remove it.</p>
+        <h2>${counts.pass} of the ${counts.total} materials meet ${hard.length === 1 ? 'this requirement' : 'these requirements'}</h2>
+        ${beside ? `<p>${esc(beside)}</p>` : ''}
       </div>
       <div class="active-actions">
+        <button class="btn btn-sm btn-primary read-candidates" data-act="read">Read the candidates</button>
         <button class="btn btn-sm" data-act="explain">Why the rest were excluded</button>
         <button class="btn btn-sm" data-act="reset" title="Removes every requirement. Search, shortlist and view stay as they are.">Clear requirements</button>
       </div>
     </div>
-    ${template ? `<p class="not-checked"><b>Not checked by this template.</b> ${esc(template.notChecked)}</p>` : ''}
-    ${stateLine}
-    ${asksPrintable(cs) ? '' : `<p class="state-line research-line"><b>Research mode:</b> whether the H2C can print a product is not checked, so a pass here says nothing about printing it. <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></p>`}
-    <div class="pills">
-      ${hard.map((c) => pill(c, cs.indexOf(c))).join('')}
+    <div class="pills" title="Press a requirement to remove it">
+      ${printable ? `<button class="pill" data-drop-printable title="Remove the print gates: research mode">Printable on the H2C<span class="x" aria-hidden="true">\u00d7</span></button>` : ''}
+      ${shownHard.map((c) => pill(c, cs.indexOf(c))).join('')}
       ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>
-    ${limits(state.db)}
+    ${stateLine}
+    ${printable ? '' : `<p class="state-line research-line"><b>Research mode:</b> whether the H2C can print a product is not checked, so a pass here says nothing about printing it. <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></p>`}
+    <details class="answer-notes">
+      <summary>${template ? `<b>Not checked by this template:</b> ${esc(firstSentence(template.notChecked))}` : '<b>What this database cannot answer</b>'}</summary>
+      ${template ? `<p class="not-checked">${esc(template.notChecked)}</p>` : ''}
+      ${unknownSentence ? `<p>${esc(unknownSentence)}</p>` : ''}
+      ${limitsBody(state.db)}
+    </details>
   </section>`;
 }
 
@@ -163,7 +185,17 @@ export function wireActive(host, state, actions) {
     actions.removeConstraint(state.scenario.constraints[Number(b.dataset.drop)]);
   }));
   host.querySelector('[data-act="explain"]')?.addEventListener('click', () => actions.setLens('explain'));
+  // On a phone the header is a screen tall: one press to the first candidate, which takes focus (F09).
+  host.querySelector('[data-act="read"]')?.addEventListener('click', () => {
+    const first = host.querySelector('tbody tr[data-material]') ?? host.querySelector('.empty');
+    first?.scrollIntoView({ block: 'start' });
+    first?.focus?.({ preventScroll: true });
+  });
   host.querySelector('[data-act="reset"]')?.addEventListener('click', () => actions.reset());
   host.querySelector('[data-act="anneal"]')?.addEventListener('click', () => actions.allowAnnealing());
   host.querySelector('[data-act="printable"]')?.addEventListener('click', () => actions.checkPrintable());
+  host.querySelector('[data-drop-printable]')?.addEventListener('click', () => {
+    state.scenario.constraints = state.scenario.constraints.filter((c) => !(c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate)));
+    actions.changed();
+  });
 }

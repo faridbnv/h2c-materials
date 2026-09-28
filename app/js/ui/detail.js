@@ -1140,8 +1140,8 @@ function tabBody(tab, c) {
       ${c.tested && j ? stateNote(j) : ''}
       ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why">Fails: ${esc(failText(j.failedBy))}</div>` : ''}
       ${c.tested && j?.verdict === 'UNKNOWN' ? unsettled(j, requirementOf) : ''}
-      ${productValues(g, c)}
       ${printCard(g)}
+      ${productValues(g, c)}
       ${makerSays(g, c)}
       <details class="grade-more"><summary>About this product</summary><dl class="kv">
         <dt>Manufacturer</dt><dd>${esc(g.manufacturer ?? '')}</dd>
@@ -1158,10 +1158,15 @@ function tabBody(tab, c) {
     // PLA". Then every product by maker, as before.
     const passing = c.tested ? grades.filter((g) => judged.get(g.id)?.verdict === 'PASS') : [];
     const firstMaker = passing[0]?.manufacturer ?? grades.find((g) => typicalOf.has(g.id))?.manufacturer ?? null;
-    return `${spreadTable(m, c)}${makersSayCounts(m, c)}
-      <div class="note">Which colours a product is sold in is not part of this database: check the retailer listing.
+    // The products that meet every requirement first, each with its state, its recipe and its values (the review of
+    // 2026-09-27, F09): that is the answer to "which product". The material's spread and its makers' coverage follow,
+    // one press away, open where nothing was asked.
+    const context = `<details class="spread-context"${passing.length ? '' : ' open'}><summary>Across its ${plural(grades.length, 'product')}: the spread of their values, and what their makers say</summary>
+      ${spreadTable(m, c)}${makersSayCounts(m, c)}</details>`;
+    return (passing.length ? makerBlock(`Meet every requirement`, passing.length, 'product', passing.map(block).join(''), { open: true, cls: 'maker-block pass-block' }) : '')
+      + context
+      + `<div class="note">Which colours a product is sold in is not part of this database: check the retailer listing.
       Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.</div>`
-      + (passing.length ? makerBlock(`Meet every requirement`, passing.length, 'product', passing.map(block).join(''), { open: true, cls: 'maker-block pass-block' }) : '')
       + searchBox('a product or maker') + groupByMaker(grades, null).map(([maker, group]) => makerBlock(maker, group.length, 'product', group.map(block).join(''), { open: !passing.length && maker === firstMaker })).join('');
   }
 

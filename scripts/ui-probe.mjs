@@ -376,6 +376,7 @@ try {
       await sleep(200);
       await recordLayout(screen, 'explore');
 
+
       await click('[data-lens="table"]');
       await click('[data-colset="properties"]');
       await sleep(150);
@@ -408,6 +409,21 @@ try {
         await recordLayout(screen, `drawer-${step}`, { drawer: true });
       }
     }
+    // The answer before the exposition (the review of 2026-09-27, F09), on the plan's own laptop, 1024 x 768: a template's
+    // first three candidate rows show without scrolling, and a material's Products tab opens on a product that passes,
+    // its verdict, state and recipe in the drawer's first view.
+    await send('Emulation.setDeviceMetricsOverride', { width: 1024, height: 768, deviceScaleFactor: 1, mobile: false });
+    await open(pageUrl);
+    await click('[data-template="3"]');
+    await sleep(200);
+    const rowsInView = await evaluate(`[...document.querySelectorAll('#lens tbody tr[data-material]')].filter((r) => r.getBoundingClientRect().bottom <= window.innerHeight).length`);
+    if (rowsInView < 3) layoutProblems.push(`1024x768-warm: ${rowsInView} candidate row(s) in view before scrolling; at least 3 should be`);
+    await click('#lens tbody tr[data-material]');
+    await when('.drawer');
+    await click('.drawer [data-tab="Grades"]');
+    await sleep(200);
+    const firstView = await evaluate(`(() => { const body = document.querySelector('.drawer-body'); const b = body?.querySelector('.pass-block .grade-block'); if (!b) return 'no passing product block'; const bottom = body.getBoundingClientRect().bottom; const card = b.querySelector('.print-card'); return b.getBoundingClientRect().top < bottom && (!card || card.getBoundingClientRect().top < bottom) ? 'ok' : 'below the first view'; })()`);
+    if (firstView !== 'ok') layoutProblems.push(`1024x768-warm-products: the first passing product and its recipe are ${firstView}`);
   } finally {
     await send('Emulation.clearDeviceMetricsOverride');
     await send('Emulation.setTouchEmulationEnabled', { enabled: false });

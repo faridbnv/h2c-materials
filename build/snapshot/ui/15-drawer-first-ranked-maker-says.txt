@@ -1,19 +1,8 @@
-Good for: 4 of 6 makers (6 products)
-Benefits: 4 of 6 makers (6 products)
-Pitfalls and limitations: 0 of 6 makers
-Warping and shrinkage: 2 of 6 makers (4 products)
-Precision and tolerance: 2 of 6 makers (2 products)
-Surface finish: 0 of 6 makers
-Adhesion between layers: 1 of 6 makers (1 product)
-Moisture sensitivity: 2 of 6 makers (5 products)
-Nozzle wear: 4 of 6 makers (7 products)
-Odour and emissions: 2 of 6 makers (3 products)
-Supports and removal: 4 of 6 makers (5 products)
-Printing advice: 3 of 6 makers (4 products)
 WHAT THE MAKER SAYS
 Good for
 “Excels in high-performance parts, tools, and fixtures” the maker's product page (marketing text), p. 1
 3DXTECH's data sheet says nothing about its benefits, pitfalls, warping, precision, surface finish, layer adhesion, moisture, nozzle wear, odour, supports or printing advice; it gives no chamber or enclosure need, drying schedule or annealing schedule; its website, searched on 2026-09-26, says nothing more.
+Good for: 4 of 6 makers (6 products)Benefits: 4 of 6 makers (6 products)Pitfalls and limitations: 0 of 6 makersWarping and shrinkage: 2 of 6 makers (4 products)Precision and tolerance: 2 of 6 makers (2 products)Surface finish: 0 of 6 makersAdhesion between layers: 1 of 6 makers (1 product)Moisture sensitivity: 2 of 6 makers (5 products)Nozzle wear: 4 of 6 makers (7 products)Odour and emissions: 2 of 6 makers (3 products)Supports and removal: 4 of 6 makers (5 products)Printing advice: 3 of 6 makers (4 products)
 What the maker says
  Good for“engineering applications, from mechanical prototypes to automotive components.” data sheet, p. 1Precision and tolerance“Bambu PPA-CF - a premium fiber-reinforced nylon, delivers industrial-grade printing quality with precise 1:1 reproduction.” data sheet, p. 1Odour and emissions“Odor Odorless” data sheet, p. 3Supports and removal“Support Material Support for PA/PET” data sheet, p. 2Printing advice“If higher chamber temperature were used (i.g., 70 - 80 °C), higher mechanical properties would be obtained, especially the Z-direction's.” data sheet, p. 3
  Bambu Lab's data sheet says nothing about its benefits, pitfalls, warping, surface finish, layer adhesion, moisture or nozzle wear; its website has not been searched yet.

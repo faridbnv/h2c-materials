@@ -1,24 +1,19 @@
 COUNT 108 shown PASS + UNKNOWN
 STATUS ☑ PASS 29 | ☑ UNKNOWN 97 | ☐ FAIL 27 | ☐ SCREENED 18
-29 of the 153 materials in this database meet these requirements, and 97 more could not be checked for missing data
-Include uncertain lists those 97 flagged, except the 18 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Warm environment template. Click any criterion to remove it.
+29 of the 153 materials meet these requirements
+Warm environment template · 97 more could not be checked, listed flagged, except 18 screened out
 Why the rest were excluded
 Clear requirements
-Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
-Each product is judged as printed, and dry. Allow annealing 3 more materials would pass: ASA Aero, PC FR, PPS-CF
+Printable on the H2C
+×
 In the H2C research scope
 ×
 A build material, not a support
 ×
-Nozzle temperature the H2C reaches
-×
-Bed temperature the H2C reaches
-×
-Chamber temperature the H2C reaches
-×
 Heat resistance at least 80 °C
 ×
-What this database cannot answer
+Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 3 more pass
+Not checked by this template: The H2C heats its chamber actively, up to 65 °C
 Properties
 Printing
 What the material is like

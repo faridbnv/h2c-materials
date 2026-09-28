@@ -1,13 +1,12 @@
 COUNT 24 shown PASS
 STATUS ☑ PASS 24 | ☐ UNKNOWN 0 | ☐ FAIL 129
-24 of the 153 materials in this database meet this requirement
-Click any criterion to remove it.
+24 of the 153 materials meet this requirement
 Why the rest were excluded
 Clear requirements
-Each product is judged as printed, and dry.
-Research mode: whether the H2C can print a product is not checked, so a pass here says nothing about printing it. Check printability
 Family: Nylon / Polyamide
 ×
+Each product is judged as printed, dry.
+Research mode: whether the H2C can print a product is not checked, so a pass here says nothing about printing it. Check printability
 What this database cannot answer
 Properties
 Printing

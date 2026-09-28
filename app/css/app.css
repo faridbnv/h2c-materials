@@ -906,6 +906,24 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 
 /* ---------------------------------------------------------------- active requirements header */
 .active { margin: 0 0 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+/* The answer first (F09): a tighter header, the notes one press away with their first sentence showing. */
+.active.compact { margin-bottom: 10px; padding-bottom: 10px; }
+.active.compact h2 { font-size: 17px; }
+.active.compact .pills { margin-top: 6px; gap: 5px; }
+.active.compact .pill { padding: 2px 9px; font-size: 12px; }
+.active.compact .active-head { gap: 10px; }
+.active.compact .active-head p { font-size: 12.5px; }
+.active.compact .state-line { margin-top: 6px; }
+.answer-notes { margin-top: 6px; font-size: var(--t-small); color: var(--ink-2); }
+.answer-notes > summary { cursor: pointer; padding: 3px 0; }
+.answer-notes > summary b { color: var(--ink); }
+.answer-notes .not-checked { margin-top: 6px !important; }
+.answer-notes ul { margin: 6px 0; padding-left: 18px; }
+.spread-context { margin: 10px 0; }
+/* One press from the header to the first candidate, where the header is a screen tall (F09). */
+.read-candidates { display: none; }
+@media (max-width: 600px) { .read-candidates { display: inline-flex; } }
+.spread-context > summary { cursor: pointer; font-weight: 600; font-size: var(--t-small); color: var(--ink-2); padding: 4px 0; }
 .active-head { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
 .active-head > div:first-child { flex: 1; min-width: 260px; }
 .active h2 { font-size: 19px; margin: 0 0 4px; letter-spacing: -0.015em; font-weight: 650; }

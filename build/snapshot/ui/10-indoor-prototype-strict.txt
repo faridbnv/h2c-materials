@@ -1,25 +1,20 @@
 COUNT 70 shown PASS
 STATUS ☑ PASS 70 | ☐ UNKNOWN 60 | ☐ FAIL 23
-70 of the 153 materials in this database meet these requirements
-60 more could not be checked for missing data, and are left out under Confirmed only. From the Indoor prototype template. Click any criterion to remove it.
+70 of the 153 materials meet these requirements
+Indoor prototype template · 60 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
-Not checked by this template. Ease of printing is not rated: no source publishes it. Price is tracked, not required: most products have no sampled Canadian price, which makes sourcing a later task, never a reason to hold a product out.
-Each product is judged as printed, and dry.
+Printable on the H2C
+×
 In the H2C research scope
 ×
 A build material, not a support
 ×
-Nozzle temperature the H2C reaches
-×
-Bed temperature the H2C reaches
-×
-Chamber temperature the H2C reaches
-×
 TRACKED ONLY
 Price at most 45 CAD/kg
 ×
-What this database cannot answer
+Each product is judged as printed, dry, and must be printable on the H2C.
+Not checked by this template: Ease of printing is not rated
 Properties
 Printing
 What the material is like

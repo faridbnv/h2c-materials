@@ -1,3 +1,4 @@
+Across its 200 products: the spread of their values, and what their makers say
 ACROSS ITS PRODUCTS
 Property Typical Range Products Set apart
 Density kg/m³ 1,240 1,170–1,329 146 of 182 17 variants (800–4,000)
@@ -30,16 +31,6 @@ Which colours a product is sold in is not part of this database: check the retai
 3DXTECH
 3 products
 3DXTECH ECOMAX PLA G001-01
-Density
-1,240 kg/m³
-Stiffness
-2.87 GPa
-Strength
-56 MPa
-Stretch before breaking
-8 %
-Glass transition
-55 °C
 HOW TO PRINT IT
 Nozzle
 190–220 °C yes
@@ -53,24 +44,22 @@ Hardened nozzle
 not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Drying
 45 °C for 4 h
+Density
+1,240 kg/m³
+Stiffness
+2.87 GPa
+Strength
+56 MPa
+Stretch before breaking
+8 %
+Glass transition
+55 °C
 WHAT THE MAKER SAYS
 Printing advice
 “Ideal for printing without a heated bed, no enclosure required” the maker's product page (marketing text), p. 1
 3DXTECH's data sheet says nothing about what it is good for, its benefits, pitfalls, warping, precision, surface finish, layer adhesion, moisture, nozzle wear, odour or supports; it gives no annealing schedule; its website, searched on 2026-09-26, says nothing more.
 About this product
 3DXTECH ECOMAX Tough PLA G001-18
-Density
-1,220 kg/m³
-Stiffness
-2.27 GPa
-Strength
-53 MPa
-Stretch before breaking
-65 %
-Heat resistance
-80 °C
-Glass transition
-55 °C
 HOW TO PRINT IT
 Nozzle
 190–230 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
@@ -78,3 +67,14 @@ Bed
 30–65 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Chamber
 not required yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
+Enclosure
+not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
+Hardened nozzle
+not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
+Drying
+not published
+Density
+1,220 kg/m³
+Stiffness
+2.27 GPa
+Strength

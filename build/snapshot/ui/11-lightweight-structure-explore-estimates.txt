@@ -1,26 +1,21 @@
 COUNT 97 shown PASS + UNKNOWN
 STATUS ☑ PASS 11 | ☑ UNKNOWN 95 | ☐ FAIL 47 | ☐ SCREENED 9
-11 of the 153 materials in this database meet these requirements, and 95 more could not be checked for missing data
-Include uncertain lists those 95 flagged, except the 9 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Lightweight structure template. Click any criterion to remove it.
+11 of the 153 materials meet these requirements
+Lightweight structure template · 95 more could not be checked, listed flagged, except 9 screened out
 Why the rest were excluded
 Clear requirements
-Not checked by this template. Thresholds, not an optimum: the lightest adequate material depends on your part's shape and loads. The Ashby chart's "best for a given weight" line compares them properly.
-Each product is judged as printed, and dry. Allow annealing 5 more materials would pass: PAHT-CF, PA6-GF, PA12-CF, PA612-CF, PA612-ESD
+Printable on the H2C
+×
 In the H2C research scope
 ×
 A build material, not a support
-×
-Nozzle temperature the H2C reaches
-×
-Bed temperature the H2C reaches
-×
-Chamber temperature the H2C reaches
 ×
 Density at most 1250 kg/m³
 ×
 Stiffness at least 2.5 GPa
 ×
-What this database cannot answer
+Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 5 more pass
+Not checked by this template: Thresholds, not an optimum
 Properties
 Printing
 What the material is like

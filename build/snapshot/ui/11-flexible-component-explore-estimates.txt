@@ -1,24 +1,19 @@
 COUNT 87 shown PASS + UNKNOWN
 STATUS ☑ PASS 6 | ☑ UNKNOWN 110 | ☐ FAIL 37 | ☐ SCREENED 29
-6 of the 153 materials in this database meet these requirements, and 110 more could not be checked for missing data
-Include uncertain lists those 110 flagged, except the 29 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the Flexible component template. Click any criterion to remove it.
+6 of the 153 materials meet these requirements
+Flexible component template · 110 more could not be checked, listed flagged, except 29 screened out
 Why the rest were excluded
 Clear requirements
-Not checked by this template. Stretch before breaking is not spring-back, softness or sealing. Check hardness (Shore) in the Mechanical tab.
-Each product is judged as printed, and dry. Allow annealing 1 more material would pass: TPU harder than 95A
+Printable on the H2C
+×
 In the H2C research scope
 ×
 A build material, not a support
 ×
-Nozzle temperature the H2C reaches
-×
-Bed temperature the H2C reaches
-×
-Chamber temperature the H2C reaches
-×
 Stretch before breaking at least 100 %
 ×
-What this database cannot answer
+Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 1 more pass
+Not checked by this template: Stretch before breaking is not spring-back, softness or sealing
 Properties
 Printing
 What the material is like

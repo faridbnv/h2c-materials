@@ -11,6 +11,7 @@ import { renderValue, chip, esc, fmtNumber, fmtRange, wireEvidence, explainButto
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
 import { INDICES, indexById, rankingFor } from '../engine/indices.js';
+import { matchingProducts } from '../engine/search.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -219,7 +220,13 @@ export function renderTable(host, state, actions) {
         const unranked = ranks && !ghost && !r && e?.verdict === 'PASS'
           ? `<span class="row-sub rank-line unranked">not ranked: no passing product publishes what ${esc(index.formula)} needs</span>` : '';
         const rank = r ? `<span class="row-sub rank-line" title="${esc(`${index.designCase}: ${index.formula}, the median over ${r.products} passing product${r.products === 1 ? '' : 's'}${best ? `; best ${best.manufacturer} ${best.product}` : ''}`)}">#${r.place}${best ? ` · best: ${esc(`${best.manufacturer} ${best.product}`)}` : ''}</span>` : '';
-        return `<td class="name">${esc(primary)}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}${rank}${unranked}</td>`;
+        // A search that found the material by a product says which, with that product's own verdict: the material's may
+        // rest on another maker's (U03).
+        const matched = state.search && !ghost ? matchingProducts(m, state.search, state.ctx?.productsByMaterial?.get(m.id) ?? []) : [];
+        const verdictOf = new Map((e?.products ?? []).map((p) => [p.gradeId, p.verdict]));
+        const found = matched.length
+          ? `<span class="row-sub matched">matches ${matched.slice(0, 3).map((g) => `${esc(`${g.manufacturer} ${g.product}`)}${tested && verdictOf.has(g.id) ? ` ${chip(verdictOf.get(g.id))}` : ''}`).join(', ')}${matched.length > 3 ? `, and ${matched.length - 3} more` : ''}${tested && e?.verdict === 'PASS' && !matched.some((g) => verdictOf.get(g.id) === 'PASS') ? '; the material passes on another product' : ''}</span>` : '';
+        return `<td class="name">${esc(primary)}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}${rank}${unranked}${found}</td>`;
       }
       if (c.kind === 'text') return `<td>${esc(m[c.key] ?? '')}</td>`;
       if (c.kind === 'state') {

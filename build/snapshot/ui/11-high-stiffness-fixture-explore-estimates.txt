@@ -1,27 +1,22 @@
 COUNT 99 shown PASS + UNKNOWN
 STATUS ☑ PASS 5 | ☑ UNKNOWN 108 | ☐ FAIL 40 | ☐ SCREENED 14
-5 of the 153 materials in this database meet these requirements, and 108 more could not be checked for missing data
-Include uncertain lists those 108 flagged, except the 14 screened out by an estimate or the base polymer's published behaviour; the SCREENED chip at the bottom shows them. From the High-stiffness fixture template. Click any criterion to remove it.
+5 of the 153 materials meet these requirements
+High-stiffness fixture template · 108 more could not be checked, listed flagged, except 14 screened out
 Why the rest were excluded
 Clear requirements
-Not checked by this template. How much a part bends depends on its shape, print direction and load as much as on stiffness. Measured stiffness is in the print plane (XY).
-Each product is judged as printed, and dry. Allow annealing 5 more materials would pass: PA6-CF, PA6-GF, PA612-CF, PET-CF, PPS-CF
+Printable on the H2C
+×
 In the H2C research scope
 ×
 A build material, not a support
-×
-Nozzle temperature the H2C reaches
-×
-Bed temperature the H2C reaches
-×
-Chamber temperature the H2C reaches
 ×
 Stiffness at least 5 GPa
 ×
 TRACKED ONLY
 Heat resistance at least 90 °C
 ×
-What this database cannot answer
+Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 5 more pass
+Not checked by this template: How much a part bends depends on its shape, print direction and load as much as on stiffness
 Properties
 Printing
 What the material is like

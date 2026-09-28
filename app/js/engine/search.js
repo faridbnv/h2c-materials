@@ -46,3 +46,21 @@ export function matchesQuery(material, query, products = []) {
   const hay = searchableWords(material, products);
   return terms.every((term) => hay.some((w) => w.startsWith(term)));
 }
+
+/**
+ * Which of a material's products a query found it by: those whose maker and name answer the query's terms that the
+ * material's own names do not. Empty when the material's own names answer it all. A search for a maker finds a
+ * material, and its verdict may rest on another maker's product, so the table names the products the search matched
+ * and their own verdicts (the review of 2026-09-27, U03).
+ */
+export function matchingProducts(material, query, products = []) {
+  const terms = words(query);
+  if (!terms.length) return [];
+  const own = searchableWords(material, []);
+  const byProduct = terms.filter((t) => !own.some((w) => w.startsWith(t)));
+  if (!byProduct.length) return [];
+  return products.filter((g) => {
+    const mine = [...words(g.manufacturer), ...words(g.product), ...words(g.id)];
+    return byProduct.every((t) => mine.some((w) => w.startsWith(t)));
+  });
+}
