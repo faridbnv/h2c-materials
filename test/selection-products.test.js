@@ -49,9 +49,18 @@ test('requirements are met together on one product, never one by one across prod
   assert.equal(e.share, SHARE.NONE);
 });
 
-test('none passes and one fails is a failure; nothing judged is unknown', () => {
+// D100 revises D83's "none passes and one fails is a failure": one measured failure beside an unmeasured product is
+// unresolved, and fails only when every product fails (test/metamorphic.test.js holds the counterexample).
+test('every product failing is a failure; one failing beside one unmeasured is unresolved; nothing judged is unknown', () => {
+  const allFail = withGrades([grade('G1', { tensileModulusXY: v(2.1) }), grade('G2', { tensileModulusXY: v(2.4) })]);
+  assert.equal(run(allFail, [stiff], EXPLORE).verdict, STATUS.FAIL);
   const fails = withGrades([grade('G1', { tensileModulusXY: v(2.1) }), grade('G2', {})]);
-  assert.equal(run(fails, [stiff], EXPLORE).verdict, STATUS.FAIL);
+  const mixed = run(fails, [stiff], EXPLORE);
+  assert.equal(mixed.verdict, STATUS.UNKNOWN);
+  assert.equal(mixed.someFail, true, 'no demonstrated pass, and one product that was judged fails');
+  assert.deepEqual([mixed.counts.pass, mixed.counts.fail, mixed.counts.untested], [0, 1, 1]);
+  assert.equal(mixed.eligible, true, 'Include uncertain keeps it');
+  assert.equal(run(fails, [stiff], STRICT).eligible, false, 'Confirmed only does not');
   const silent = withGrades([grade('G1', {}), grade('G2', {})]);
   const e = run(silent, [stiff], EXPLORE);
   assert.equal(e.verdict, STATUS.UNKNOWN);
@@ -72,7 +81,8 @@ test("a product is judged on its own print recipe, and one without a profile is 
   const hotNozzle = recipe({ nozzle: { verdict: 'exceeds', reason: 'Requires up to 400 °C, the H2C provides 350 °C', state: 'range', min: 380, max: 400, profileId: 'P2' } });
   const m = withGrades([grade('G1', { tensileModulusXY: v(3.4) }, hotNozzle), grade('G2', { tensileModulusXY: v(3.2) }, null)]);
   const e = run(m, [stiff, nozzle], STRICT);
-  assert.equal(e.verdict, STATUS.FAIL, 'the stiff product cannot be printed; the other has no recipe');
+  // The stiff product cannot be printed; the other has no recipe, so it is unresolved and holds the material (D100).
+  assert.equal(e.verdict, STATUS.UNKNOWN, 'the stiff product cannot be printed; the other has no recipe');
   assert.deepEqual(e.counts, { products: 2, pass: 0, fail: 1, untested: 1, screened: 0 });
   const view = productView(m, m.__grades[1]);
   assert.equal(view.gates.nozzle.verdict, 'unknown');
@@ -86,7 +96,8 @@ test("the material's estimate stands in only where none of its products publishe
   assert.equal(e.screened, true, 'no product publishes, so the estimate screens for all of them');
   const some = withGrades([grade('G1', { tensileModulusXY: v(2.0) }), grade('G2', {})], { headline, summary: { tensileModulusXY: { products: 2, n: 1 } } });
   const f = run(some, [stiff], { ...EXPLORE, useEstimates: true });
-  assert.equal(f.verdict, STATUS.FAIL);
+  assert.equal(f.verdict, STATUS.UNKNOWN, 'one product fails; the silent one is untested, which leaves the material unresolved (D100)');
+  assert.equal(f.screened, false, 'and an untested product is not screened by an estimate that stands for none of them');
   assert.equal(productView(some, some.__grades[1]).headline.tensileModulusXY.estimate, undefined, 'a silent product beside a sibling that publishes is untested, not estimated');
 });
 

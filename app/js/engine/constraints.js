@@ -591,10 +591,11 @@ const stateRef = (s) => ({ id: s.id, treatment: s.treatment ?? null, moisture: s
  * A material answered by its products (D83): each product is judged on every constraint at once, through a view of the
  * material with that product's values and print recipe (products.js), in the states the scenario permits (D99). The
  * material passes when at least one product passes, and says whether all the products that could be judged pass or only
- * some; it fails when none passes and at least one fails; it is unknown when none could be judged. A product with no data
- * does not count against its material, and is counted as untested. The evaluation's reasons are its best product's: the
- * first that passes, else the first that fails, else the first. A material with no product is judged as it always was, on
- * its own headline.
+ * some. It is unknown while any product is unresolved and none passes, and fails only when every product fails (D100):
+ * one measured failure does not remove a material whose other products nobody has measured. The counts of products
+ * passing, failing and untested stay beside every verdict. The evaluation's reasons are its best product's: the first that
+ * passes, else the first unresolved one (unscreened before screened), else the first that fails. A material with no
+ * product is judged as it always was, on its own headline.
  */
 export function evaluateProducts(material, products, constraints, ctx = {}) {
   if (!products?.length) return { ...evaluateMaterial(material, constraints, ctx), share: null, counts: null, products: [] };
@@ -603,11 +604,11 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
   const pass = judged.filter((x) => x.e.verdict === STATUS.PASS);
   const fail = judged.filter((x) => x.e.verdict === STATUS.FAIL);
   const unknown = judged.filter((x) => x.e.verdict === STATUS.UNKNOWN);
-  const verdict = pass.length ? STATUS.PASS : fail.length ? STATUS.FAIL : STATUS.UNKNOWN;
+  const verdict = pass.length ? STATUS.PASS : unknown.length ? STATUS.UNKNOWN : fail.length ? STATUS.FAIL : STATUS.UNKNOWN;
   const share = pass.length ? (fail.length ? SHARE.SOME : SHARE.ALL) : fail.length ? SHARE.NONE : null;
   // Every product that could not be judged shares the material's estimate (products.js), so a screen holds for all or none.
   const screened = policy === UNKNOWN_POLICY.EXPLORATION && verdict === STATUS.UNKNOWN && unknown.every((x) => x.e.screened);
-  const best = (pass[0] ?? fail[0] ?? unknown[0]);
+  const best = pass[0] ?? unknown.find((x) => !x.e.screened) ?? unknown[0] ?? fail[0];
   return {
     ...best.e,
     materialId: material.id,
@@ -620,6 +621,8 @@ export function evaluateProducts(material, products, constraints, ctx = {}) {
     failedBy: verdict === STATUS.FAIL ? best.e.failedBy : [],
     share,
     counts: { products: products.length, pass: pass.length, fail: fail.length, untested: unknown.length, screened: unknown.filter((x) => x.e.screened).length },
+    // No product demonstrates a pass, and some that were judged fail: said apart from "every product fails" (D100).
+    ...(verdict === STATUS.UNKNOWN && fail.length ? { someFail: true } : {}),
     // Each product's own answer, the state it was judged in, and the records it rests on (D98, D99): the product cards,
     // the decision brief and the acceptance portfolio read a product's reasons, not its material's best product's.
     products: judged.map((x) => productEntry(x)),
@@ -689,7 +692,8 @@ export function explainExclusions(materials, constraints, ctx = {}) {
       };
       const rs = products?.length ? products.map(inBestState) : [evaluateConstraint(m, c, ctx)];
       if (products?.length) productsRemoved += rs.filter((r) => r.status === STATUS.FAIL).length;
-      const r = rs.find((x) => x.status === STATUS.PASS) ?? rs.find((x) => x.status === STATUS.FAIL) ?? rs[0];
+      // Removed only where every product fails it (D100); one unresolved product holds the material.
+      const r = rs.find((x) => x.status === STATUS.PASS) ?? rs.find((x) => x.status !== STATUS.FAIL) ?? rs[0];
       if (r.status === STATUS.FAIL) removed++;
       else if (r.status === STATUS.UNKNOWN || r.status === STATUS.INDETERMINATE) held++;
       if (r.screened) screened++;

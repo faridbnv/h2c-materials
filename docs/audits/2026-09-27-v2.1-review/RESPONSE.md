@@ -87,3 +87,16 @@ measured after an annealing the scenario never said it could do (`templates.csv`
 permitted"; `states.csv`, 638 state values that are not the published one). In Explore some FAIL rows are the old rollup
 at work (a sibling's failure beside an annealed-only pass); F04 answers those. Acceptance: S01.2, S01.5-6, S03, S04, S05
 met (13 expectations), and a new invariant (forbidding a treatment never creates a pass).
+
+### F04: a material fails only when every product fails (D100)
+
+The rollup is PASS when one product passes, UNKNOWN while one is unresolved and none passes, FAIL only when every
+product fails; the evaluation carries `someFail` beside its counts, and the table's share says a material with no
+demonstrated pass is unresolved rather than failed when not every product fails. Why excluded counts a removal only when
+every product fails the requirement. Three tests that pinned D83's old clause were rewritten to D100, with the
+counterexample in `test/metamorphic.test.js`.
+
+Answers moved: Strict none. Include uncertain, 263 FAIL → UNKNOWN across the six templates (Outdoor 52 → 113
+candidates, Lightweight 55 → 107, High-stiffness 63 → 113, Flexible 65 → 116, Warm 92 → 126, Indoor 115 → 130), and as
+many with estimates on. Acceptance S08 met, after its premise was corrected before the code changed (PLA now has four
+products above 3 GPa; the question moved to PETG and 100 °C, re-derived from the tables).

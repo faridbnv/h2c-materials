@@ -170,6 +170,8 @@ export function shareMark(e) {
   const title = judged
     ? `${plural(c.pass, 'product')} of the ${plural(judged, 'product')} that could be judged meet${c.pass === 1 ? 's' : ''} every requirement together.`
       + `${c.untested ? ` ${c.untested} more publish${c.untested === 1 ? 'es' : ''} too little to judge; they do not count against the material.` : ''}`
+      // D100: a material fails only when every product fails; one unmeasured product leaves it unresolved.
+      + `${!c.pass && c.fail && c.untested ? ' No product demonstrates a pass, but not every product fails either, so the material is unresolved rather than failed.' : ''}`
       + ' The material\'s Products tab lists each and why.'
     : `None of its ${plural(c.products, 'product')} publishes enough to judge against these requirements.`;
   return ` ${explainButton(text, title, { cls: 'share', head: 'Products that pass', action: 'products', id: e.materialId })}`;

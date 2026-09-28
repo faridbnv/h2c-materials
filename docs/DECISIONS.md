@@ -92,7 +92,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D80 | A grade's declared load is a fill class of its own, and the grade declares it before the material does | A product declared heavily filled (metal-filled, foamed) is checked against the physical limits of that kind of filler, and the product's declaration comes before its material's. | In force; extended by D82, and by R095: a powder load the maker names is the grade Variant "declared dense filler", judged by the same dense windows, not a modifier ruling |
 | D81 | Every grade has its own estimate, from the same model at its own row, calibrated at grade level, and deciding nothing | Each product gets its own estimate from the same model, shown for information and deciding nothing. | Amended by D83: only a product without a comparable value of its own gets one, and with the representative grade gone every grade takes the bounds its own sheets publish |
 | D82 | A property with thirty values has a window, drawn from physics and checked against the rows | Every property with thirty or more values has plausibility limits drawn from physics, and each value outside them is checked against its sheet. | In force |
-| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) and D99 (a product is judged in one state it can be made in) |
+| D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) D99 (a product is judged in one state it can be made in) and D100 (a material fails only when every product fails; with one unresolved it is unknown) |
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it), D95 (a bar printed off the product's recipe is no product value) and D99 (comparable is a screening policy: a verdict names the conditions it admitted unstated, and an annealed or conditioned value decides only in its own state) |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
@@ -109,6 +109,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D97 | A decision value is bound to its own row: its number is one its evidence line prints, and a number has one role | A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough. | In force |
 | D98 | A product's verdict rests on its own records: its evidence, its offers, its conflicts | A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it. | In force |
 | D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | In force |
+| D100 | A material fails only when every product fails; while one is unresolved, it is unresolved | A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it. | In force |
 
 <!-- end index -->
 
@@ -2210,7 +2211,7 @@ and W0080's redrawing, and the findings they raise; the two flags would need the
 ## D83. A material is the spread of its products, and passes when one of its products meets every requirement
 
 > **In plain words:** A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values.
-> **Status:** amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) and D99 (a product is judged in one state it can be made in).
+> **Status:** amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) D99 (a product is judged in one state it can be made in) and D100 (a material fails only when every product fails; with one unresolved it is unknown).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md); supersedes D8's refusal of a range and amends D2 and D37.
 Built in re-center phases 1 and 2; the page reads it from phase 3.*
@@ -2999,6 +3000,36 @@ that rested on an annealed value the scenario never said it could make: PA6-CF, 
 PA612-ESD, PC FR, PPS-CF, PPS-GF, ASA Aero and PETG, by their products. `build/snapshot/templates.csv` has a
 "Strict, annealing permitted" mode and each row's state; `build/snapshot/states.csv` lists every state value that is not
 the published one (638). Reversing it lets a verdict rest again on a set of values no one part has.
+
+## D100. A material fails only when every product fails; while one is unresolved, it is unresolved
+
+> **In plain words:** A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it.
+
+*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 3; recommended
+and taken). Built in version 2.1, F04 of the review of 2026-09-27. Revises D83's third clause deliberately.*
+
+D83 made a material FAIL when no product passed and one failed, even where its other products published nothing. So one
+measured failure removed a material whose other products nobody had measured, and a newly measured failing product could
+take a material out of Include uncertain, which exists to keep what has not been ruled out. For the Outdoor template, 59
+materials failed that way (the review's count).
+
+- **PASS** when one product passes, in a state the scenario permits (D99); **UNKNOWN** when none passes and one is
+  unresolved; **FAIL** only when every product fails. A product with no data is still untested, and never counts against
+  its material.
+- **The counts say which kind of unknown it is.** The evaluation carries its products' pass, fail and untested counts, and
+  `someFail` where some were judged and failed; the table's share reads "0 of 31" and says that the material is
+  unresolved rather than failed because not every product fails. The reasons are an unresolved product's.
+- **Why excluded** counts a material removed by a requirement only when every product fails it.
+- Include uncertain is wider, on purpose: a team can see what nobody has measured. Confirmed only is unchanged, because an
+  unknown material was never a candidate there.
+
+What it did: Strict moved nothing. Include uncertain keeps 263 more material answers across the six templates, each a
+FAIL that became UNKNOWN (Outdoor 52 → 113 candidates, Lightweight 55 → 107, High-stiffness 63 → 113, Flexible 65 → 116,
+Warm 92 → 126, Indoor 115 → 130); with estimates on, as many (43 → 92 for Outdoor), because a silent product beside
+siblings that publish is untested, not estimated (D83). The acceptance portfolio's S08 (PETG for 100 °C: 31 products fail,
+45 publish nothing) failed on the old rule and holds. Three tests that pinned the old clause were rewritten to it, and
+`test/metamorphic.test.js` holds the counterexample: adding a failing product cannot remove an unresolved one. Reversing
+it lets a measured failure of one product rule out products nobody has measured.
 
 ---
 

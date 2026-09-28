@@ -129,14 +129,14 @@
     },
     {
       "id": "S08",
-      "question": "PLA for a part that must reach 3 GPa XY stiffness, in Include uncertain: several PLA products publish an XY modulus below it, and many publish none.",
+      "question": "PETG for a part that must not soften below 100 °C (heat deflection at 0.45 MPa), in Include uncertain: every PETG product that publishes the value is below it, and most publish none.",
       "constraints": [
-        { "kind": "numeric", "property": "tensileModulusXY", "operator": ">=", "value": 3 }
+        { "kind": "numeric", "property": "hdt045", "operator": ">=", "value": 100 }
       ],
       "policy": { "unknownPolicy": "exploration" },
       "expect": [
-        { "material": "M001", "verdict": "UNKNOWN", "eligible": true, "counts": { "pass": 0, "failAtLeast": 1, "untestedAtLeast": 1 }, "todo": "F04",
-          "because": "No PLA product demonstrates 3 GPa, and those measured fail it; the unmeasured ones are unresolved, so the material is unresolved, not failed, and the counts say so." }
+        { "material": "M020", "verdict": "UNKNOWN", "eligible": true, "counts": { "pass": 0, "failAtLeast": 1, "untestedAtLeast": 1 },
+          "because": "Of PETG's 76 products, the 33 that publish a heat deflection at 0.45 MPa all print 80 °C or less; the other 43 publish none. No product demonstrates 100 °C and not every product fails, so the material is unresolved, not failed, and the counts say so. (First written for PLA and 3 GPa, from D84's count of 27 PLA products under 3 GPa; four PLA products now state more, so the question was moved to PETG before the code changed.)" }
       ]
     },
     {

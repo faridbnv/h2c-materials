@@ -35,7 +35,7 @@ const stiff = { kind: 'numeric', property: 'tensileModulusXY', operator: '>=', v
 const acid = { kind: 'environment', category: 'acid' };
 const evidence = (...records) => ({ evidenceByMaterial: new Map([['M1', records.map((r) => ({ materialId: 'M1', category: 'acid', ...r }))]]) });
 
-test('a failing product cannot remove a material whose other product is unresolved', { todo: 'waits on F04' }, () => {
+test('a failing product cannot remove a material whose other product is unresolved (D100)', () => {
   const before = judge([grade('G1')], [stiff], EXPLORE);
   const after = judge([grade('G1'), grade('G2', { tensileModulusXY: v(2) })], [stiff], EXPLORE);
   assert.equal(before.verdict, STATUS.UNKNOWN);

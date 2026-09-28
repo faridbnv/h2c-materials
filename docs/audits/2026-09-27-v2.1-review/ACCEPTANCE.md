@@ -28,7 +28,7 @@ what each step settled.
 | S05 | Humid fixture: XY modulus ≥ 6 GPa after moisture uptake | BASF Ultrafuse PAHT CF15 (G048-02): dry 8.39 GPa (V002469), conditioned 5.05 GPa (V002495). Nanovia PA-6 CF (G050-12) publishes no conditioned value | Dry PASS; conditioned FAIL on V002495; G050-12 conditioned UNKNOWN, nothing inferred |
 | S06 | A part that meets acids | PolyMax PETG-ESD (G026-02): weak acids Good (Q00107), strong acids Fair-Poor (Q00108), p. 2, re-read 2026-09-27. 3DXSTAT ESD PETG (G026-01) has no acid record of its own | G026-02 UNKNOWN (the limiting rating stays in the answer); G026-01 UNKNOWN |
 | S07 | ECOMAX PLA: resists water? in stock in Canada? | ECOMAX PLA (G001-01) has no water record and no sampled offer; Bambu PLA Basic (G002-01) has both (Q00007, CA0001); PLA Basic Gradient's one offer was out of stock (CA0006) | G001-01 UNKNOWN on both; G002-01 PASS on both; G005-01 FAIL on stock |
-| S08 | PLA for a 3 GPa XY part, Include uncertain | The PLA products that state an XY modulus are below 3 GPa (D84); most PLA products publish none | PLA UNKNOWN and still explored: 0 pass, some fail, some untested, counted |
+| S08 | PETG for a part that must not soften below 100 °C, Include uncertain | Of PETG's 76 products, the 33 that publish a heat deflection at 0.45 MPa all print 80 °C or less; 43 publish none | PETG UNKNOWN and still explored: 0 pass, some fail, some untested, counted |
 | S09 | Warm environment ranked by a light, stiff beam | (a rule, not a record) | The table, the chart's guide and the export give one order from the passing products' own values |
 | S10 | A part loaded across its layers; one taking a notched impact | G033-11's Z strength 25 MPa (V006488), XY 43.5 MPa; ECOMAX PLA states XY only; PC 275 states notched Izod in J/m to ASTM D256 (V002883) | Z ≥ 40 MPa FAIL on 25; ECOMAX Z UNKNOWN; PC 275 notched Charpy and notched Izod UNKNOWN |
 | S11 | A general prototype, most products with no sampled price | 38 of 1,077 in-scope products have a sampled price (the review's count) | The Indoor prototype's price is tracked, not required; no product's answer rests on a missing price |
@@ -45,6 +45,11 @@ The invariants in `test/metamorphic.test.js`: a stricter limit never creates a p
 and rewriting record-tier text moves no answer, held on the baseline; "a failing product cannot remove an unresolved
 one", "a sibling's positive record cannot confirm a product" and "a product's own contrary record is not hidden by a
 sibling's" failed, as the review found.
+
+One answer was wrong as first written, and was corrected before the code that meets it changed: S08 first asked PLA
+for 3 GPa, from D84's count (27 PLA products state an XY modulus and none reaches 3 GPa). Four PLA products now state more
+(colorFabb PLA-HP, 4.24 GPa, and three others), so PLA passes; the question moved to PETG and 100 °C, whose premise was
+re-derived from the tables. A count in a decision's prose is its day's.
 
 ## For a person reviewing these answers
 
