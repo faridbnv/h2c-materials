@@ -581,10 +581,10 @@ G032-04,M032,ASA-Aero,within,within,unknown,unknown,unknown,unknown,
 G032-05,M032,LW-ASA,within,within,unknown,unknown,unknown,unknown,
 G033-01,M033,ASA-CF,within,within,within,recommended,requires-hardened,required,enclosure: guide PG021
 G033-02,M033,CarbonX CF ASA,within,within,within,recommended,requires-hardened,unknown,nozzle: guide PG021; bed: guide PG021; chamber: guide PG021; enclosure: guide PG021; hardenedNozzle: guide PG021
-G033-03,M033,THE FILAMENT ASA CF,within,within,unknown,recommended,requires-hardened,unknown,
+G033-03,M033,THE FILAMENT ASA CF,within,within,within,recommended,requires-hardened,unknown,
 G033-04,M033,ASA-X CF10,within,within,within,not-needed,requires-hardened,unknown,
-G033-05,M033,DURAPRO ASA CF,within,within,unknown,recommended,requires-hardened,unknown,
-G033-06,M033,ASA-CF,within,within,unknown,recommended,requires-hardened,required,
+G033-05,M033,DURAPRO ASA CF,within,within,within,recommended,requires-hardened,unknown,
+G033-06,M033,ASA-CF,within,within,within,recommended,requires-hardened,required,
 G033-07,M033,ASACF10,within,within,within,recommended,requires-hardened,required,enclosure: guide PG021
 G033-08,M033,ASA CF10,within,within,within,recommended,requires-hardened,unknown,nozzle: guide PG021; bed: guide PG021; chamber: guide PG021; enclosure: guide PG021; hardenedNozzle: guide PG021
 G033-09,M033,ASA CF10 Carbon,within,within,within,recommended,requires-hardened,unknown,nozzle: guide PG021; bed: guide PG021; chamber: guide PG021; enclosure: guide PG021; hardenedNozzle: guide PG021
@@ -596,7 +596,7 @@ G033-14,M033,ASA-CF20 Core,within,within,within,recommended,requires-hardened,re
 G033-15,M033,ASAx CF,within,within,within,recommended,requires-hardened,required,chamber: guide PG021; enclosure: guide PG021
 G033-16,M033,ASA CF,within,within,within,recommended,requires-hardened,unknown,chamber: guide PG021; enclosure: guide PG021
 G033-17,M033,ASA CF,within,within,within,recommended,requires-hardened,required,nozzle: guide PG021; bed: guide PG021; chamber: guide PG021; enclosure: guide PG021; hardenedNozzle: guide PG021
-G033-18,M033,ASA CF,within,within,unknown,recommended,requires-hardened,unknown,
+G033-18,M033,ASA CF,within,within,within,recommended,requires-hardened,unknown,
 G034-01,M034,asax x gf10,within,within,within,not-needed,requires-hardened,unknown,
 G034-02,M034,ASA Glass Fiber,unknown,unknown,unknown,unknown,requires-hardened,unknown,
 G034-03,M034,IPCON ASA GF,within,within,within,recommended,requires-hardened,required,

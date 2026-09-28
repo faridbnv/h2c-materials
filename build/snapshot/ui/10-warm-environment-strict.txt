@@ -1,7 +1,7 @@
 COUNT 34 shown PASS
-STATUS ☑ PASS 34 | ☐ UNKNOWN 64 | ☐ FAIL 55
+STATUS ☑ PASS 34 | ☐ UNKNOWN 63 | ☐ FAIL 56
 34 of the 153 materials in this database meet these requirements
-64 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
+63 more could not be checked for missing data, and are left out under Confirmed only. From the Warm environment template. Click any criterion to remove it.
 Why the rest were excluded
 Clear requirements
 Not checked by this template. The H2C heats its chamber actively, up to 65 °C. This does not check whether a material prints without that heat.
@@ -114,7 +114,7 @@ ASA Aero PASS
 70–85 · 2
  64↗ ☆
 ASA-CF PASS
-3 of 3
+6 of 6
  1,095
 1,020–1,170 · 14
  3.91
@@ -187,11 +187,11 @@ Nylon / Polyamide
 PA6
 Nylon / Polyamide
  PASS
-1 of 1
+1 of 2
  1,150
 1,130–1,200 · 7
- 3.59* 27* 1.9* 142
-140–143 · 2
+ 3.59* 27* 1.9* 140
+60–143 · 3
  163↗ ☆
 PA6-CF
 Nylon / Polyamide
@@ -244,12 +244,12 @@ Nylon / Polyamide
 1 of 1
  1,060
 1,030–1,090 · 2
- 5.01
-4.88–5.14 · 2
- 87.6
-83.3–91.9 · 2
- 2.88
-2.6–3.16 · 2
+ 4.88
+3.5–5.14 · 3
+ 83.3
+68–91.9 · 3
+ 3.16
+2.6–3.5 · 3
  175 — ☆
 PA612-ESD
 Nylon / Polyamide
@@ -279,7 +279,7 @@ PVB / Specialty Polymers
 PC
 Polycarbonate
  PASS
-9 of 12
+8 of 11
  1,200
 1,150–1,230 · 19
  2.18
@@ -367,7 +367,7 @@ PET Engineering
 81.6–200 · 3
  — ☆
 PETG PASS
-1 of 30
+1 of 31
  1,270
 1,180–1,350 · 56
  1.65
@@ -377,7 +377,7 @@ PETG PASS
  8.6
 4.1–90 · 23
  70
-63–80 · 30
+63–80 · 31
  25.5
 25–26 · 2
 ↗ ☆

@@ -12,20 +12,20 @@ Glass transition °C 59 54–67.5 64 of 182 6 variants (55–62.4)
 Price CAD/kg 28 27–30 4 of 182 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
 WHAT MAKERS SAY
-172 of its 200 products carry statements from their makers, in the makers' words under each product below; 27 products' data sheets say nothing beyond their numbers; 1 product has no document read. The makers' websites have not been searched yet.
-Good for: 18 of 39 makers (61 products)
-Benefits: 30 of 39 makers (125 products)
-Pitfalls and limitations: 10 of 39 makers (13 products)
-Warping and shrinkage: 16 of 39 makers (33 products)
-Precision and tolerance: 7 of 39 makers (13 products)
-Surface finish: 23 of 39 makers (77 products)
-Adhesion between layers: 8 of 39 makers (16 products)
+197 of its 200 products carry statements from their makers, in the makers' words under each product below; 3 products' data sheets say nothing beyond their numbers. The makers' websites were searched for 25 of them; for the others, not yet.
+Good for: 20 of 39 makers (65 products)
+Benefits: 31 of 39 makers (127 products)
+Pitfalls and limitations: 10 of 39 makers (15 products)
+Warping and shrinkage: 19 of 39 makers (37 products)
+Precision and tolerance: 8 of 39 makers (14 products)
+Surface finish: 24 of 39 makers (81 products)
+Adhesion between layers: 9 of 39 makers (17 products)
 Moisture sensitivity: 9 of 39 makers (30 products)
 Nozzle wear: 9 of 39 makers (34 products)
-Odour and emissions: 13 of 39 makers (25 products)
+Odour and emissions: 14 of 39 makers (26 products)
 Supports and removal: 8 of 39 makers (38 products)
-Printing advice: 12 of 39 makers (19 products)
-Of the products whose documents were read, 124 give no chamber or enclosure need, 146 no drying schedule and 185 no annealing schedule.
+Printing advice: 15 of 39 makers (25 products)
+Of the products whose documents were read, 124 give no chamber or enclosure need, 145 no drying schedule and 186 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
 3DXTECH
 3 products
@@ -53,7 +53,10 @@ Hardened nozzle
 not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Drying
 45 °C for 4 h
-3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no annealing schedule; its website has not been searched yet.
+WHAT THE MAKER SAYS
+Printing advice
+“Ideal for printing without a heated bed, no enclosure required” the maker's product page (marketing text), p. 1
+3DXTECH's data sheet says nothing about what it is good for, its benefits, pitfalls, warping, precision, surface finish, layer adhesion, moisture, nozzle wear, odour or supports; it gives no annealing schedule; its website, searched on 2026-09-26, says nothing more.
 About this product
 3DXTECH ECOMAX Tough PLA G001-18
 Density
@@ -72,9 +75,6 @@ HOW TO PRINT IT
 Nozzle
 190–230 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Bed
-35–65 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
+30–65 °C yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
 Chamber
 not required yes per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Enclosure
-not needed per Bambu Lab's Filament Guide for PLA, not this maker's sheet
-Hardened nozzle

@@ -26,8 +26,8 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa; heat resistance is 
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking.
 153 materials, 136 of them in H2C scope
-11158 measurements, each traceable to a source
-143 have a density, 100 a modulus, 33 a Canadian price
+11211 measurements, each traceable to a source
+145 have a density, 101 a modulus, 33 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -165,7 +165,7 @@ Support / Soluble
  2.34 33.7 14.8 — — ☆
 COC
 PVB / Specialty Polymers
- not tested 1,020 1.9* 40* 4* — — ☆
+ not tested 1,020 1.9* 40* 20* 160 — ☆
 CoPE
 Copolyesters
  not tested 1,300 2.52 51.6 — — — ☆
@@ -226,7 +226,7 @@ Nylon / Polyamide
  not tested 1,400 — 107* 2* — — ☆
 Nylon-GF, polymer not stated
 Nylon / Polyamide
- not tested — 4.2* 73.7* 5.9* — — ☆
+ not tested 1,210 3.1 60.4 5.5 138* — ☆
 Nylon, polymer not stated
 Nylon / Polyamide
  not tested 1,175
@@ -280,8 +280,8 @@ PA6
 Nylon / Polyamide
  not tested 1,150
 1,130–1,200 · 7
- 3.59* 27* 1.9* 142
-140–143 · 2
+ 3.59* 27* 1.9* 140
+60–143 · 3
  163↗ ☆
 PA6-CE
 Nylon / Polyamide
@@ -338,12 +338,12 @@ PA612-CF
 Nylon / Polyamide
  not tested 1,060
 1,030–1,090 · 2
- 5.01
-4.88–5.14 · 2
- 87.6
-83.3–91.9 · 2
- 2.88
-2.6–3.16 · 2
+ 4.88
+3.5–5.14 · 3
+ 83.3
+68–91.9 · 3
+ 3.16
+2.6–3.5 · 3
  175 — ☆
 PA612-ESD
 Nylon / Polyamide
@@ -383,7 +383,9 @@ PVB / Specialty Polymers
  not tested 1,250 0.006 27 400 90 — ☆
 PBT
 Polymer Blends
- not tested 1,310 2.6* 59* 30* — — ☆
+ not tested 1,310 2.6* 59* 30* 180
+180–180 · 2
+ — ☆
 PBT-GF
 Polymer Blends
  not tested 1,320 3.7 65 2 175 — ☆
@@ -643,7 +645,9 @@ PET Engineering
  — ☆
 PET-LW
 PET Engineering
- not tested — 1.4
+ not tested 520
+520–520 · 2
+ 1.4
 1.29–1.5 · 2
  13.2
 10.3–16.1 · 2
@@ -659,7 +663,7 @@ PETG not tested 1,270
  8.6
 4.1–90 · 23
  70
-63–80 · 30
+63–80 · 31
  25.5
 25–26 · 2
 ↗ ☆
@@ -790,16 +794,16 @@ PLA Sparkle not tested 1,255
  52.9
 50.8–55 · 2
  32↗ ☆
-PLA Wood not tested 1,200
-970–1,300 · 15
+PLA Wood not tested 1,205
+970–1,300 · 16
  1.68
 1–2.36 · 2
  30
 26–33 · 3
  10
 7.5–15.3 · 3
- 54
-50–60 · 6
+ 53
+48–60 · 7
  32↗ ☆
 PLA-CE not tested — 3.5* 45* 23* 55 — ☆
 PLA-CF not tested 1,250
@@ -978,7 +982,7 @@ SAN
 Styrenics
  not tested 1,080
 1,080–1,080 · 2
- 3.8* 72* — — — ☆
+ 3.8* 72* — 101* — ☆
 SBC
 Styrenics
  not tested 1,010 — 26* 230* — — ☆
@@ -1077,7 +1081,7 @@ Flexible Elastomers
  0.035* 61* 380* n/a — ☆
 TPU-EC
 Flexible Elastomers
- not tested 1,330 0.1* — — n/a — ☆
+ not tested 1,330 0.1* 18* 50* n/a — ☆
 TPU-ESD
 Flexible Elastomers
  not tested 1,190

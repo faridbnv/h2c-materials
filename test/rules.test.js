@@ -75,7 +75,8 @@ test('provoked errors carry the code a reader looks up', () => {
   wb.Grades.rows.find((g) => g.GradeID === 'G020-01').Role = 'study';
   // A printer maker's guide read from a source kept only to corroborate, and mapped to a family entry (D88).
   const guide = wb['Print guide'].rows[0];
-  wb['Print guide'].rows.push({ ...guide, PrintGuideID: 'PG999', SourceID: 'B-GUIDE' });
+  const corroborating = wb.Sources.rows.find((s) => s['Citation role'] === 'corroboration').SourceID;
+  wb['Print guide'].rows.push({ ...guide, PrintGuideID: 'PG999', SourceID: corroborating });
   const family = wb.Materials.rows.find((m) => m.Scope === 'Family entry').MaterialID;
   wb['Print guide materials'].rows.push({ MaterialID: family, PrintGuideID: guide.PrintGuideID, Reason: 'test', 'Reviewed by': 'test' });
   // "enclosed" declared by a maker's own profile, and by a guide row that says no enclosure is needed (D90).

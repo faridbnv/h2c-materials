@@ -13,19 +13,19 @@ Glass transition °C 55 54–99 4 of 16 —
 Price CAD/kg — — 0 of 16 —
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
 WHAT MAKERS SAY
-12 of its 16 products carry statements from their makers, in the makers' words under each product below; 4 products' data sheets say nothing beyond their numbers. The makers' websites have not been searched yet.
+15 of its 16 products carry statements from their makers, in the makers' words under each product below; 1 product' data sheets say nothing beyond their numbers. The makers' websites were searched for 3 of them; for the others, not yet.
 Good for: 8 of 15 makers (8 products)
 Benefits: 9 of 15 makers (9 products)
 Pitfalls and limitations: 0 of 15 makers
-Warping and shrinkage: 8 of 15 makers (8 products)
+Warping and shrinkage: 9 of 15 makers (9 products)
 Precision and tolerance: 2 of 15 makers (2 products)
 Surface finish: 0 of 15 makers
-Adhesion between layers: 1 of 15 makers (1 product)
-Moisture sensitivity: 4 of 15 makers (5 products)
-Nozzle wear: 7 of 15 makers (8 products)
+Adhesion between layers: 0 of 15 makers
+Moisture sensitivity: 5 of 15 makers (6 products)
+Nozzle wear: 8 of 15 makers (9 products)
 Odour and emissions: 1 of 15 makers (1 product)
 Supports and removal: 4 of 15 makers (5 products)
-Printing advice: 4 of 15 makers (4 products)
+Printing advice: 3 of 15 makers (3 products)
 Of the products whose documents were read, 10 give no chamber or enclosure need, 8 no drying schedule and 13 no annealing schedule.
 Which colours a product is sold in is not part of this database: check the retailer listing. Pigment can change strength and stiffness, and a data sheet's numbers are for the colour its specimens were printed in.
 Meet every requirement
@@ -54,7 +54,10 @@ Hardened nozzle
 required
 Drying
 90 °C for 4 h
-3DXTECH's data sheet says nothing about printing or using it beyond its numbers; it gives no chamber or enclosure need or annealing schedule; its website has not been searched yet.
+WHAT THE MAKER SAYS
+Moisture sensitivity
+“Very low moisture absorption yielding improved retention of mechanical properties even when exposed to humid environments” the maker's product page (marketing text), p. 1
+3DXTECH's data sheet says nothing about what it is good for, its benefits, pitfalls, warping, precision, surface finish, layer adhesion, nozzle wear, odour, supports or printing advice; it gives no chamber or enclosure need or annealing schedule; its website, searched on 2026-09-26, says nothing more.
 About this product
 3DXTECH
 1 product
@@ -75,6 +78,3 @@ Raise3D
 SIDDAMENT
 1 product
 BigRep
-1 product
-Fabru
-1 product
