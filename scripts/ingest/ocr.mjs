@@ -23,12 +23,11 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
-import { projectRoot } from '../data/table-io.mjs';
 import { cacheDir, documentText, sha256 } from '../lib/pdf-text.mjs';
 import { HEADER } from './inventory.mjs';
 import { documentPath } from './extract.mjs';
+import { LEDGER } from './context.mjs';
 
-const LEDGER = join(projectRoot, 'docs/audits/2026-09-18-v2-import/ledger.csv');
 const MIN_CHARACTERS = 40;   // per page: below this a "text layer" is a header and a page number
 
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 ? process.argv[i + 1] : null; };

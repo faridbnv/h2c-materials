@@ -15,9 +15,11 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
+import { DOCUMENT_CACHE } from '../ingest/context.mjs';
 
 export const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '../..');
-export const cacheDir = (...parts) => join(projectRoot, '.cache', ...parts);
+// .cache/ unless H2C_DOCUMENT_CACHE moves it (scripts/ingest/context.mjs).
+export const cacheDir = (...parts) => join(DOCUMENT_CACHE, ...parts);
 // The reader's own version travels with the extractor's, because a document's cached text is only as good as the
 // rules that built it: a change here must re-read every document rather than leave two readings in one cache.
 const READER = 'lines/gap v2';

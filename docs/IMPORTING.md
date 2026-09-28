@@ -38,7 +38,17 @@ npm run ingest:extract -- --provider "SUNLU"                # the text, cached b
 npm run ingest:ocr -- --all                                 # a scan: an optical reading, and its page images
 npm run ingest:witness                                      # the maker's product page, for a sheet naming no polymer
 npm run ingest:witness -- --from <manifest.csv>             # pages a reader saved, staged from their copies by digest
+npm run ingest:fetch -- ... --max-mb 200 --timeout-s 90     # a larger document, or a slower host, for one run
+npm run ingest:fetch -- --compact                           # fold a stopped run's journal into the ledger; fetch nothing
+npm run data:sources -- --manifest | --export <dir> | --restore <dir>   # the cached source bytes: list, back up, restore
 ```
+
+A fetch is bounded (30 s to answer, 120 s for the body, 30 s of silence inside it, 64 MB) and tries a timeout, a
+reset, a 429 (after its Retry-After) or a 5xx four times; what still fails is `unreachable` or `too-large`, the reason
+first in its note. Each document is journalled as it finishes, so a run stopped with Ctrl-C, or killed, resumes without
+fetching it again. The live paths are named in `scripts/ingest/context.mjs`, and `H2C_INGEST_ROOT`, `H2C_PROPOSALS`
+and `H2C_DOCUMENT_CACHE` move them. `data:sources` never fetches: a restore takes back only bytes that hash to a
+registered digest, and names the digests still missing.
 
 **Running a batch.** `scripts/ingest/batch.mjs` is the program; the steps are in the order they must happen.
 

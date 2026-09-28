@@ -23,7 +23,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { PROPOSALS } from './archive.mjs';
+import { INGEST_ROOT as AUDIT, PROPOSALS } from './context.mjs';
 import { cachedText, columnPositions, cellsAt, joinDigits, lineCells, spanText } from '../lib/pdf-text.mjs';
 import { parseTemperature, parseEnclosure, parseDrying, parseAbrasion } from '../../build/src/normalize/process.js';
 import { readStandards } from '../../build/src/normalize/standards.js';
@@ -34,7 +34,6 @@ import { profileCellsFromParsed, loadCellFromParsed, testTemperatureCell } from 
 import { normalizedRawValue, rawNumber } from '../../build/src/measurement-rules.js';
 import { classifyProduct, collidesWith, plainMaterialFor } from './classify.mjs';
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
 const lexicon = (name) => readCsv(join(projectRoot, 'scripts/ingest/lexicon', `${name}.csv`)).records.map((r) => r.values);
 const table = (name) => readCsv(join(projectRoot, 'data/tables', `${name}.csv`)).records.map((r) => r.values);
 
@@ -3264,7 +3263,7 @@ if (process.argv[1]?.endsWith('propose.mjs')) {
     process.exit(0);
   }
 
-  const dir = join(projectRoot, PROPOSALS, batch ?? 'unsorted');
+  const dir = join(PROPOSALS, batch ?? 'unsorted');
   mkdirSync(dir, { recursive: true });
   let values = 0;
   const made = rows.map((r) => ({ row: r, proposal: propose(r, cachedText(r.sha256), world) }));

@@ -20,10 +20,9 @@ import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
+import { INGEST_ROOT as AUDIT, LEDGER } from './context.mjs';
 
 const XLSX = createRequire(import.meta.url)('xlsx');
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const LEDGER = join(AUDIT, 'ledger.csv');
 const INVENTORY = join(AUDIT, 'research/H2C-Filament-TDS-Inventory.xlsx');
 
 export const HEADER = ['doc_key', 'sha256', 'provider', 'provider_kind', 'brand', 'manufacturer', 'product_raw',

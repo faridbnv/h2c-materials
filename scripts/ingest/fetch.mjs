@@ -5,43 +5,70 @@
 // and from a retailer is one document, read once; a file that changed is a different key, not a stale entry. The
 // ledger records the digest, and a second copy of it becomes `duplicate-of` rather than a second source.
 //
-// Politeness is deliberate: two requests at a time per host, spaced, with a few retries on the statuses that mean
+// Politeness is deliberate: two requests at a time per host, six in all, spaced, with a few retries on what means
 // "later". This walks 43 publishers' libraries, and none of them owes us their bandwidth.
+//
+// Every request is bounded (A06, the review of 2026-09-27): it has LIMITS.responseMs to answer, the body
+// LIMITS.bodyMs to arrive and never LIMITS.stallMs between two pieces of it, and a body over LIMITS.maxBytes is
+// refused rather than stored. A network error, a timeout, a stall, a 408, 425, 429 or 5xx is tried again, after
+// the host's own Retry-After where it gives one, or after a doubling pause, LIMITS.tries times in all. Each
+// document's outcome is appended to the fetch journal the moment it is known, and the journal is folded into the
+// ledger when the run ends; a run that is stopped, or killed, loses nothing it had finished, and the next run
+// folds it in before it starts and does not fetch those documents again. Ctrl-C is such a stop: the documents in
+// flight are left as they were, and the ones finished are folded in before the run exits.
 //
 //   npm run ingest:fetch -- --provider "3D-Fuel"     every document of one provider
 //   npm run ingest:fetch -- --batch b06              every document assigned to a batch
 //   npm run ingest:fetch -- --doc <doc_key>          one document
 //   npm run ingest:fetch -- --provider X --limit 5   the first few, to see what a library serves
 //   npm run ingest:fetch -- ... --refetch            fetch again even where a digest is recorded
+//   npm run ingest:fetch -- ... --max-mb 200         accept a larger document than LIMITS.maxBytes, for this run
+//   npm run ingest:fetch -- ... --timeout-s 90       wait longer for a slow host's answer, for this run
+//   npm run ingest:fetch -- --compact                fold an interrupted run's journal into the ledger, and fetch nothing
 //   npm run ingest:fetch -- --stage <file> --doc <doc_key>    a document the owner saved from a browser (R084)
 //   npm run ingest:fetch -- --stage <folder> --provider X     a folder of them, each matched to its row by file name
 //   npm run ingest:fetch -- --stage <folder> --provider X --recursive     a maker's whole library, subfolders and
 //                                                            all: its data sheets are staged and the rest counted
 //   ... --recursive --create --root-url <url of the folder>  and a data sheet no row carries gets a row of its own
 //
-// Writes .cache/sources/by-sha/<sha>.<ext> and updates the ledger. Nothing here touches data/.
+// Writes .cache/sources/by-sha/<sha>.<ext> and updates the ledger (scripts/ingest/context.mjs says where each is).
+// Nothing here touches data/.
 
-import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync, renameSync, rmSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { basename, dirname, join, relative, sep } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
-import { projectRoot } from '../data/table-io.mjs';
-import { sha256, cacheDir } from '../lib/pdf-text.mjs';
+import { sha256 } from '../lib/pdf-text.mjs';
+import { storeBytes } from '../data/source-store.mjs';
 import { HEADER } from './inventory.mjs';
+import { FETCH_JOURNAL, LEDGER } from './context.mjs';
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const LEDGER = join(AUDIT, 'ledger.csv');
 const AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36';
 const PER_HOST = 2;
+const IN_FLIGHT = 6;
 const SPACING_MS = 500;
 const RETRY_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+/**
+ * The bounds of one request. A data sheet is a few megabytes and arrives in seconds; a host that takes minutes, or a
+ * link that serves a video, is a problem to name rather than wait out.
+ */
+export const LIMITS = Object.freeze({
+  responseMs: 30_000,        // from asking to the status line and headers
+  bodyMs: 120_000,           // from the headers to the last byte
+  stallMs: 30_000,           // the longest silence inside a body
+  maxBytes: 64 * 1024 ** 2,  // 64 MB
+  tries: 4,                  // the first request and three retries of a failure that means "later"
+  backoffMs: 2_000,          // the first pause; each retry doubles it
+  maxWaitMs: 60_000,         // the longest pause, and the longest Retry-After this waits; a host asking more is tried next run
+});
 
 const arg = (name, fallback = null) => {
   const i = process.argv.indexOf(`--${name}`);
   return i >= 0 && process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : fallback;
 };
 const flag = (name) => process.argv.includes(`--${name}`);
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const seconds = (ms) => `${Math.round(ms / 100) / 10} s`;
 
 /**
  * How a host serves a document. Most serve the file; some serve a viewer around it, and the adapter rewrites the
@@ -67,19 +94,102 @@ export function adapter(url) {
   return { kind: 'page', host, url };
 }
 
-async function get(url, { tries = 3 } = {}) {
-  for (let attempt = 1; attempt <= tries; attempt++) {
-    const response = await fetch(url, { headers: { 'User-Agent': AGENT, Accept: '*/*' }, redirect: 'follow' })
-      .catch((e) => ({ ok: false, status: 0, statusText: e.message }));
-    if (response.ok) return { bytes: Buffer.from(await response.arrayBuffer()), type: response.headers?.get('content-type') ?? '' };
-    if (!RETRY_STATUS.has(response.status) || attempt === tries) return { error: `HTTP ${response.status || 0} ${response.statusText ?? ''}`.trim() };
-    await sleep(attempt * 2000);
+/** A failure with a name: the name leads the ledger's note, and decides whether the request is tried again. */
+const failure = (state, message) => ({ error: `${state}: ${message}`, state });
+const TRANSIENT = new Set(['timeout', 'stalled', 'network']);
+
+/** A pause the run's stop signal cuts short. */
+const pause = (ms, signal) => new Promise((resolve) => {
+  if (signal?.aborted) return resolve();
+  const timer = setTimeout(done, ms);
+  function done() { clearTimeout(timer); signal?.removeEventListener('abort', done); resolve(); }
+  signal?.addEventListener('abort', done, { once: true });
+});
+
+/** How long a Retry-After header asks for, in milliseconds: a number of seconds, or a date. */
+export function retryAfterMs(value, now = Date.now()) {
+  if (value == null || !String(value).trim()) return null;
+  if (/^\s*\d+\s*$/.test(value)) return Number(value) * 1000;
+  const at = Date.parse(value);
+  return Number.isFinite(at) ? Math.max(0, at - now) : null;
+}
+
+/**
+ * One request, within `limits`. Returns { bytes, type }, or { error, state } where the state names what happened:
+ * timeout (no answer in time), stalled (a body that stopped arriving, or took too long), too-large, network (the
+ * connection failed or was reset), http (a status other than success; `status` and `retryAfter` say which and when)
+ * or cancelled (the run was stopped). Each deadline is an abort of this request alone.
+ */
+export async function request(url, { accept = '*/*', limits = LIMITS, signal } = {}) {
+  if (signal?.aborted) return failure('cancelled', 'the run was stopped');
+  const controller = new AbortController();
+  const stop = (state, message) => { if (!controller.signal.aborted) controller.abort(failure(state, message)); };
+  const cancel = () => stop('cancelled', 'the run was stopped');
+  signal?.addEventListener('abort', cancel, { once: true });
+  const timers = new Set();
+  const after = (ms, state, message) => { const timer = setTimeout(() => stop(state, message), ms); timers.add(timer); return timer; };
+  const clear = (timer) => { clearTimeout(timer); timers.delete(timer); };
+  // Whatever threw, an abort this request made is the reason; anything else is the network's.
+  const why = (e) => (controller.signal.aborted ? controller.signal.reason : failure('network', `${e.cause?.code ? `${e.cause.code} ` : ''}${e.cause?.message ?? e.message}`));
+  try {
+    const answer = after(limits.responseMs, 'timeout', `no response within ${seconds(limits.responseMs)}`);
+    let response;
+    try {
+      response = await fetch(url, { headers: { 'User-Agent': AGENT, Accept: accept }, redirect: 'follow', signal: controller.signal });
+    } catch (e) { return why(e); }
+    clear(answer);
+    if (!response.ok) {
+      await response.body?.cancel().catch(() => {});
+      return { error: `HTTP ${response.status} ${response.statusText ?? ''}`.trim(), state: 'http', status: response.status, retryAfter: retryAfterMs(response.headers.get('retry-after')) };
+    }
+    const limit = limits.maxBytes >= 1024 ** 2 ? `${limits.maxBytes / 1024 ** 2} MB` : `${limits.maxBytes} bytes`;
+    const tooLarge = () => stop('too-large', `more than ${limit}, the limit a run keeps to (--max-mb raises it)`);
+    if (Number(response.headers.get('content-length')) > limits.maxBytes) {
+      tooLarge();
+      await response.body?.cancel().catch(() => {});
+      return controller.signal.reason;
+    }
+    after(limits.bodyMs, 'stalled', `the body took longer than ${seconds(limits.bodyMs)}`);
+    const silence = () => after(limits.stallMs, 'stalled', `the body stopped arriving for ${seconds(limits.stallMs)}`);
+    let quiet = silence();
+    const chunks = [];
+    let size = 0;
+    try {
+      for await (const chunk of response.body ?? []) {
+        size += chunk.byteLength;
+        if (size > limits.maxBytes) { tooLarge(); break; }
+        chunks.push(chunk);
+        clear(quiet);
+        quiet = silence();
+      }
+    } catch (e) { return why(e); }
+    if (controller.signal.aborted) return controller.signal.reason;
+    return { bytes: Buffer.concat(chunks), type: response.headers.get('content-type') ?? '' };
+  } finally {
+    for (const timer of timers) clearTimeout(timer);
+    signal?.removeEventListener('abort', cancel);
   }
-  return { error: 'unreachable' };
+}
+
+/**
+ * A request, tried again while its failure means "later": a timeout, a stall, a network error, or a 408, 425, 429 or
+ * 5xx. The pause is the host's Retry-After where it gives one, or a doubling one; a host that asks for longer than
+ * LIMITS.maxWaitMs is left for the next run rather than waited on. Returns the last answer, with `tries`.
+ */
+export async function get(url, { accept = '*/*', limits = LIMITS, signal } = {}) {
+  for (let attempt = 1; ; attempt++) {
+    const got = await request(url, { accept, limits, signal });
+    if (!got.error) return { ...got, tries: attempt };
+    const later = TRANSIENT.has(got.state) || (got.state === 'http' && RETRY_STATUS.has(got.status));
+    if (!later || attempt >= limits.tries) return { ...got, tries: attempt };
+    if (got.retryAfter > limits.maxWaitMs) return { ...got, error: `${got.error}, and the host asks for ${seconds(got.retryAfter)} before another request`, tries: attempt };
+    await pause(got.retryAfter ?? Math.min(limits.backoffMs * 2 ** (attempt - 1), limits.maxWaitMs), signal);
+    if (signal?.aborted) return { ...failure('cancelled', 'the run was stopped'), tries: attempt };
+  }
 }
 
 /** One document: fetch, hash, store, and say what happened in the ledger's words. */
-export async function fetchDocument(row, { digests, refetch = false }) {
+export async function fetchDocument(row, { digests, refetch = false, limits = LIMITS, signal } = {}) {
   // A document already in the database is fetched again only to check it is still what it was: whatever comes
   // back, the ledger goes on saying it was applied, because it was.
   const entered = ['applied', 'registered'].includes(row.status);
@@ -88,19 +198,20 @@ export async function fetchDocument(row, { digests, refetch = false }) {
   const how = adapter(row.url);
   if (how.kind === 'invalid' || how.kind === 'manual') return { status: how.kind === 'manual' ? 'needs-staging' : 'unreachable', note: how.reason };
 
-  const got = await get(how.url);
-  if (got.error) return { status: 'unreachable', note: `${got.error} on ${new Date().toISOString().slice(0, 10)}` };
+  const got = await get(how.url, { limits, signal });
+  // A document stopped in flight by the operator is not a document the host failed to serve: it is left as it was.
+  if (got.state === 'cancelled') return { cancelled: true };
+  // A document larger than a run accepts is the one fetch failure that more patience will not fix: it waits for a run
+  // with a larger --max-mb, or for the owner to stage it.
+  if (got.error) return { status: got.state === 'too-large' ? 'too-large' : 'unreachable', note: `${got.error} on ${new Date().toISOString().slice(0, 10)}` };
 
   const isPdf = got.bytes.subarray(0, 5).toString('latin1') === '%PDF-';
   if (how.kind === 'pdf' && !isPdf) {
     // A link that says .pdf and serves a page is a library that lost the file, or a consent wall.
     return { status: 'unreachable', note: `served ${got.type || 'something'} rather than a PDF` };
   }
-  const sha = sha256(got.bytes);
+  const { sha } = storeBytes(got.bytes);
   const twin = digests.get(sha);
-  const extension = isPdf ? 'pdf' : 'html';
-  const path = cacheDir('sources/by-sha', `${sha}.${extension}`);
-  if (!existsSync(path)) { mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, got.bytes); }
   if (twin && twin !== row.doc_key) return { sha256: sha, status: 'duplicate-of', duplicate_of: twin, duplicate_kind: 'identical-sha', note: '' };
   digests.set(sha, row.doc_key);
   return { sha256: sha, status: isPdf ? 'fetched' : 'fetched-page', note: isPdf ? '' : `served ${got.type || 'a page'}; it is hashed as what was read` };
@@ -117,9 +228,7 @@ export async function fetchDocument(row, { digests, refetch = false }) {
  */
 export function stageDocument(row, bytes, name, { digests, date = new Date().toISOString().slice(0, 10) }) {
   const isPdf = bytes.subarray(0, 5).toString('latin1') === '%PDF-';
-  const sha = sha256(bytes);
-  const path = cacheDir('sources/by-sha', `${sha}.${isPdf ? 'pdf' : 'html'}`);
-  if (!existsSync(path)) { mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, bytes); }
+  const { sha } = storeBytes(bytes);
   const twin = digests.get(sha);
   if (twin && twin !== row.doc_key) {
     return { sha256: sha, status: 'duplicate-of', duplicate_of: twin, duplicate_kind: 'identical-sha', note: `staged copy: ${name}, hashed ${date}; the same bytes as ${twin}` };
@@ -129,7 +238,7 @@ export function stageDocument(row, bytes, name, { digests, date = new Date().toI
 }
 
 /** The statuses a staged file may stand in for: nothing fetched, or fetched and found unreadable. */
-const STAGEABLE = new Set(['needs-staging', 'gated', 'unreachable', 'inventoried', 'unreadable']);
+const STAGEABLE = new Set(['needs-staging', 'gated', 'unreachable', 'too-large', 'inventoried', 'unreadable']);
 
 /**
  * What a file in a maker's library is, by its name. A library holds far more than data sheets — safety sheets in
@@ -217,32 +326,108 @@ function filesUnder(root) {
   return out.sort((a, b) => a.full.localeCompare(b.full));
 }
 
-/** Run with at most `PER_HOST` requests in flight per host, spaced, and any number of hosts at once. */
-async function run(rows, digests, refetch) {
+/** At most `n` of the calls it wraps run at once; the rest wait their turn, first come first served. */
+export function limiter(n) {
+  let active = 0;
+  const waiting = [];
+  const next = () => { if (active < n && waiting.length) { active++; waiting.shift()(); } };
+  return async (call) => {
+    await new Promise((resolve) => { waiting.push(resolve); next(); });
+    try { return await call(); } finally { active--; next(); }
+  };
+}
+
+/** What a fetch outcome changes on its ledger row: the digest where there is one, the status and its note, the date. */
+export function ledgerChange(result, date = new Date().toISOString().slice(0, 10)) {
+  const change = result.sha256
+    ? { sha256: result.sha256, status: result.status, ...(result.duplicate_of ? { duplicate_of: result.duplicate_of, duplicate_kind: result.duplicate_kind } : {}) }
+    : { status: result.status, status_note: result.note ?? '' };
+  if (result.note !== undefined) change.status_note = result.note ?? '';
+  return { ...change, updated: date };
+}
+
+/**
+ * Apply a fetch journal to the ledger's rows, in place: each line is one document's outcome, and the last line for a
+ * document is the one that stands. A line cut short by the kill that stopped a run is passed over, and its document is
+ * fetched again. Returns the number of lines applied.
+ */
+export function fold(rows, journalPath = FETCH_JOURNAL) {
+  if (!existsSync(journalPath)) return 0;
+  const byKey = new Map(rows.map((r) => [r.doc_key, r]));
+  let applied = 0;
+  for (const line of readFileSync(journalPath, 'utf8').split('\n')) {
+    let entry;
+    try { entry = JSON.parse(line); } catch { continue; }
+    const row = byKey.get(entry?.doc_key);
+    if (!row || !entry.change) continue;
+    Object.assign(row, entry.change);
+    applied++;
+  }
+  return applied;
+}
+
+/** The ledger written whole or not at all: a reader never sees half of it. */
+function writeLedger(rows, ledger = LEDGER) {
+  const aside = `${ledger}.${process.pid}.tmp`;
+  writeFileSync(aside, csvText(HEADER, rows));
+  renameSync(aside, ledger);
+}
+
+/**
+ * Fold the journal into the ledger as it stands on disk, then remove the journal. Reading the ledger afresh keeps
+ * whatever another command wrote to it during the run; the journal adds only this run's outcomes, and the rows keep
+ * the ledger's order, so the same outcomes fold into the same file however the run was stopped. Returns the lines folded.
+ */
+export function compact({ ledger = LEDGER, journalPath = FETCH_JOURNAL } = {}) {
+  if (!existsSync(journalPath)) return 0;
+  const rows = readCsv(ledger).records.map((r) => r.values);
+  const applied = fold(rows, journalPath);
+  writeLedger(rows, ledger);
+  rmSync(journalPath, { force: true });
+  return applied;
+}
+
+/**
+ * Fetch rows, at most PER_HOST at a time per host and IN_FLIGHT in all, spaced, each outcome applied to its row and
+ * appended to the journal the moment it is known. A stopped run (`signal`) takes no new document; one stopped in flight
+ * is left as it was, neither journalled nor changed.
+ */
+export async function fetchAll(rows, { digests, refetch = false, limits = LIMITS, signal, journalPath = FETCH_JOURNAL, spacingMs = SPACING_MS, quiet = false } = {}) {
   const byHost = new Map();
   for (const row of rows) {
     const host = adapter(row.url).host ?? 'unknown';
     if (!byHost.has(host)) byHost.set(host, []);
     byHost.get(host).push(row);
   }
+  const slot = limiter(IN_FLIGHT);
   const done = [];
+  mkdirSync(dirname(journalPath), { recursive: true });
   await Promise.all([...byHost.values()].map(async (queue) => {
     let index = 0;
     await Promise.all(Array.from({ length: Math.min(PER_HOST, queue.length) }, async () => {
-      while (index < queue.length) {
+      while (index < queue.length && !signal?.aborted) {
         const row = queue[index++];
-        const result = await fetchDocument(row, { digests, refetch });
-        Object.assign(row, result.sha256 ? result : { status: result.status, status_note: result.note ?? '' });
-        if (result.note !== undefined) row.status_note = result.note ?? '';
-        row.updated = new Date().toISOString().slice(0, 10);
+        const result = await slot(() => fetchDocument(row, { digests, refetch, limits, signal }));
+        if (result.cancelled) continue;
+        const change = ledgerChange(result);
+        Object.assign(row, change);
+        appendFileSync(journalPath, `${JSON.stringify({ doc_key: row.doc_key, change })}\n`);
         done.push(row);
-        process.stdout.write(`\r${done.length} of ${rows.length} fetched`);
-        await sleep(SPACING_MS);
+        if (!quiet) process.stdout.write(`\r${done.length} of ${rows.length} fetched`);
+        await pause(spacingMs, signal);
       }
     }));
   }));
-  process.stdout.write('\n');
+  if (!quiet) process.stdout.write('\n');
   return done;
+}
+
+// A run that was stopped left what it finished in the journal; it enters the ledger before anything reads the ledger,
+// so a document already fetched is not fetched again and a staged file never lands on a row the journal would reset.
+if (process.argv[1]?.endsWith('fetch.mjs')) {
+  const resumed = compact();
+  if (resumed) console.log(`${resumed} document(s) fetched by a run that was stopped are now in the ledger`);
+  if (flag('compact')) { if (!resumed) console.log('no stopped run to fold in'); process.exit(0); }
 }
 
 if (process.argv[1]?.endsWith('fetch.mjs') && arg('stage')) {
@@ -297,7 +482,7 @@ if (process.argv[1]?.endsWith('fetch.mjs') && arg('stage')) {
       ...(result.duplicate_of ? { duplicate_of: result.duplicate_of, duplicate_kind: result.duplicate_kind } : {}) });
     done.push(`${found.row.doc_key}  ${found.row.provider} ${found.row.product_raw}  ->  ${result.status} (${found.how})`);
   }
-  if (done.length) writeFileSync(LEDGER, csvText(HEADER, rows));
+  if (done.length) writeLedger(rows);
   console.log(`${done.length} document(s) staged (${created.length} of them new rows), ${known.length} file(s) already in the ledger, ${unmatched.length} file(s) matched no row`);
   if (passed.size) console.log(`not staged, not data sheets: ${[...passed].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(', ')}`);
   for (const line of done) console.log(`  ${line}`);
@@ -318,12 +503,24 @@ if (process.argv[1]?.endsWith('fetch.mjs') && arg('stage')) {
   if (!todo.length) { console.log('nothing to fetch'); process.exit(0); }
   console.log(`${todo.length} document(s) to fetch, ${new Set(todo.map((r) => adapter(r.url).host)).size} host(s)`);
 
+  const limits = {
+    ...LIMITS,
+    ...(arg('max-mb') ? { maxBytes: Number(arg('max-mb')) * 1024 ** 2 } : {}),
+    ...(arg('timeout-s') ? { responseMs: Number(arg('timeout-s')) * 1000 } : {}),
+  };
+  if (!(limits.maxBytes > 0 && limits.responseMs > 0)) { console.error('--max-mb and --timeout-s take a positive number'); process.exit(2); }
+  const controller = new AbortController();
+  process.once('SIGINT', () => {
+    console.log('\nstopping: the documents in flight are left as they were, and every one finished is kept');
+    controller.abort();
+  });
   const digests = new Map(rows.filter((r) => r.sha256).map((r) => [r.sha256, r.doc_key]));
-  await run(todo, digests, flag('refetch'));
-  writeFileSync(LEDGER, csvText(HEADER, rows));
+  const done = await fetchAll(todo, { digests, refetch: flag('refetch'), limits, signal: controller.signal });
+  compact();
 
   const counts = new Map();
   for (const r of todo) counts.set(r.status, (counts.get(r.status) ?? 0) + 1);
   for (const [status, n] of [...counts].sort((a, b) => b[1] - a[1])) console.log(`  ${String(n).padStart(4)}  ${status}`);
-  for (const r of todo.filter((r) => r.status === 'unreachable')) console.log(`        ${r.doc_key} ${r.product_raw}: ${r.status_note}`);
+  for (const r of todo.filter((r) => ['unreachable', 'too-large'].includes(r.status))) console.log(`        ${r.doc_key} ${r.product_raw}: ${r.status_note}`);
+  if (controller.signal.aborted) console.log(`stopped: ${todo.length - done.length} document(s) not fetched; the same command takes them up`);
 }

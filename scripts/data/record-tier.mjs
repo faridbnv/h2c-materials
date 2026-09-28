@@ -38,9 +38,11 @@ import { join, relative, sep } from 'node:path';
 import { readCsv } from '../../build/src/csv.js';
 import { cacheDir, cachedText } from '../lib/pdf-text.mjs';
 import { PROPOSALS } from '../ingest/archive.mjs';
+import { LEDGER_REL } from '../ingest/context.mjs';
 
+// Both relative to the root the record tier reads (a checkout or a copy), from the pipeline's one list of its paths.
 export { PROPOSALS };
-export const LEDGER = 'docs/audits/2026-09-18-v2-import/ledger.csv';
+export const LEDGER = LEDGER_REL;
 
 const rows = (path) => readCsv(path).records.map((r) => r.values);
 const present = (v) => (v == null || v === '' ? null : String(v));

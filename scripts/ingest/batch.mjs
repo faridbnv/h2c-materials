@@ -26,7 +26,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFile
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { projectRoot } from '../data/table-io.mjs';
-import { PROPOSALS as PROPOSALS_REL } from './archive.mjs';
+import { INGEST_ROOT as AUDIT, LEDGER, PROPOSALS } from './context.mjs';
 import { applyBatch, guard, proposalsOf, worldOf } from './apply.mjs';
 import { cachedText } from '../lib/pdf-text.mjs';
 import { holdsBack, rowsOf } from './review.mjs';
@@ -34,9 +34,6 @@ import { productName, labelFor, RATE_OR_CONDITION } from './propose.mjs';
 import { HEADER, readLedger } from './inventory.mjs';
 
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const PROPOSALS = join(projectRoot, PROPOSALS_REL);
-const LEDGER = join(AUDIT, 'ledger.csv');
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && !String(process.argv[i + 1] ?? '--').startsWith('--') ? process.argv[i + 1] : null; };
 const args = (name) => process.argv.map((a, i) => (a === `--${name}` ? process.argv[i + 1] : null)).filter((v) => v && !v.startsWith('--'));
 const flag = (name) => process.argv.includes(`--${name}`);

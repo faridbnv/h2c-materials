@@ -2,7 +2,16 @@
 // row a file belongs to. What is asserted is the matching rule, on rows written for the purpose.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { rowForStagedFile, adapter } from '../scripts/ingest/fetch.mjs';
+import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createServer } from 'node:http';
+import { tmpdir } from 'node:os';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { csvText, readCsv } from '../build/src/csv.js';
+import { rowForStagedFile, adapter, request, get, fetchDocument, limiter, fold, retryAfterMs, LIMITS } from '../scripts/ingest/fetch.mjs';
+import { HEADER } from '../scripts/ingest/inventory.mjs';
 
 const rows = [
   { doc_key: 'a', provider: 'iSANMATE', product_raw: 'ABS', url: 'https://www.isanmate.com/wp-content/uploads/2022/09/ABS_TDS.pdf' },
@@ -76,4 +85,165 @@ test('a data sheet no row carries gets a row at the address the library gives it
   // A file straight under the library's root is named by its own file name.
   assert.equal(rowForUnlistedFile(['PDS_TDS.pdf'], { rootUrl: 'https://www.isanmate.com/wp-content/uploads/2024/09', sibling, date: '2026-09-21' }).url,
     'https://www.isanmate.com/wp-content/uploads/2024/09/PDS_TDS.pdf');
+});
+
+// Bounded fetches (A06, the review of 2026-09-27), against a server this file runs on the loopback address: every
+// failure a host can give ends in a named state, the ones that mean "later" are tried again, and a run that is killed
+// part-way resumes without fetching again what it finished. Nothing here reaches the network.
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const pdf = (text) => Buffer.from(`%PDF-1.4\n% ${text}\n%%EOF\n`);
+const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const hits = new Map();
+let resumePhase = 1;
+const server = createServer((req, res) => {
+  const path = req.url.split('?')[0];
+  const n = (hits.get(path) ?? 0) + 1;
+  hits.set(path, n);
+  const send = (bytes) => { res.writeHead(200, { 'Content-Type': 'application/pdf', 'Content-Length': bytes.length }); res.end(bytes); };
+  switch (path) {
+    case '/silent.pdf': return undefined;                                           // never answers
+    case '/stall.pdf': res.writeHead(200, { 'Content-Type': 'application/pdf' }); return res.write('%PDF-1.4\n');   // answers, then goes quiet
+    case '/busy.pdf': return n === 1 ? res.writeHead(429, { 'Retry-After': '1' }).end() : send(pdf('busy, then served'));
+    case '/patient.pdf': return res.writeHead(429, { 'Retry-After': '3600' }).end();
+    case '/reset.pdf': return n === 1 ? req.socket.destroy() : send(pdf('reset, then served'));
+    case '/gone.pdf': return res.writeHead(404).end();
+    case '/declared-large.pdf': res.writeHead(200, { 'Content-Type': 'application/pdf', 'Content-Length': 4096 }); return res.end(Buffer.alloc(4096, 1));
+    case '/streamed-large.pdf': {
+      res.writeHead(200, { 'Content-Type': 'application/pdf' });
+      let sent = 0;
+      const more = () => { if (sent++ < 8) { res.write(Buffer.alloc(512, 1)); setTimeout(more, 5); } else res.end(); };
+      return more();
+    }
+    case '/a.pdf': return send(pdf('document a'));
+    case '/b.pdf': return resumePhase === 1 ? undefined : send(pdf('document b'));      // hangs until the run is killed
+    default: return res.writeHead(404).end();
+  }
+});
+await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+const base = `http://127.0.0.1:${server.address().port}`;
+test.after(() => { server.closeAllConnections(); server.close(); });
+const quick = { ...LIMITS, responseMs: 400, bodyMs: 2_000, stallMs: 200, maxBytes: 1024, tries: 2, backoffMs: 10, maxWaitMs: 5_000 };
+
+test('a host that never answers times out, and a body that stops arriving is abandoned as stalled', async () => {
+  const silent = await request(`${base}/silent.pdf`, { limits: quick });
+  assert.equal(silent.state, 'timeout');
+  assert.match(silent.error, /^timeout: no response within 0\.4 s$/);
+  const stalled = await request(`${base}/stall.pdf`, { limits: quick });
+  assert.equal(stalled.state, 'stalled');
+  assert.match(stalled.error, /^stalled: the body stopped arriving for 0\.2 s$/);
+  // Each is tried again, and what the ledger records names the state it ended in.
+  const before = hits.get('/stall.pdf');
+  const result = await fetchDocument({ doc_key: 'x', url: `${base}/stall.pdf`, status: 'inventoried', sha256: '' }, { digests: new Map(), limits: quick });
+  assert.equal(hits.get('/stall.pdf') - before, 2);
+  assert.equal(result.status, 'unreachable');
+  assert.match(result.note, /^stalled: the body stopped arriving for 0\.2 s on \d{4}-\d{2}-\d{2}$/);
+});
+
+test('a 429 is tried again after the Retry-After the host gives, and a host asking for an hour is left for the next run', async () => {
+  const started = Date.now();
+  const busy = await get(`${base}/busy.pdf`, { limits: quick });
+  assert.equal(busy.error, undefined);
+  assert.equal(busy.tries, 2);
+  assert.ok(Date.now() - started >= 950, `waited ${Date.now() - started} ms for a Retry-After of 1 s`);
+  assert.equal(busy.bytes.toString('latin1'), pdf('busy, then served').toString('latin1'));
+  const patient = await get(`${base}/patient.pdf`, { limits: quick });
+  assert.equal(patient.tries, 1);
+  assert.match(patient.error, /^HTTP 429 Too Many Requests, and the host asks for 3600 s before another request$/);
+  assert.equal(retryAfterMs('120'), 120_000);
+  assert.equal(retryAfterMs(new Date(Date.parse('2026-09-28T00:00:30Z')).toUTCString(), Date.parse('2026-09-28T00:00:00Z')), 30_000);
+});
+
+test('a connection reset is tried again; a status that means no is not', async () => {
+  const reset = await get(`${base}/reset.pdf`, { limits: quick });
+  assert.equal(reset.error, undefined);
+  assert.equal(reset.tries, 2);
+  const gone = await get(`${base}/gone.pdf`, { limits: quick });
+  assert.equal(gone.tries, 1);
+  assert.equal(gone.error, 'HTTP 404 Not Found');
+});
+
+test('a body larger than a run accepts is refused, whether the host declares its length or streams it', async () => {
+  for (const path of ['/declared-large.pdf', '/streamed-large.pdf']) {
+    const big = await get(`${base}${path}`, { limits: quick });
+    assert.equal(big.state, 'too-large', path);
+    assert.equal(big.tries, 1, `${path}: more patience does not make a document smaller`);
+    assert.match(big.error, /^too-large: more than 1024 bytes, the limit a run keeps to \(--max-mb raises it\)$/);
+  }
+  const result = await fetchDocument({ doc_key: 'x', url: `${base}/declared-large.pdf`, status: 'inventoried', sha256: '' }, { digests: new Map(), limits: quick });
+  assert.equal(result.status, 'too-large');
+});
+
+test('no more requests are in flight at once than the cap allows', async () => {
+  const slot = limiter(2);
+  let active = 0, most = 0;
+  await Promise.all(Array.from({ length: 7 }, () => slot(async () => {
+    most = Math.max(most, ++active);
+    await new Promise((r) => setTimeout(r, 15));
+    active--;
+  })));
+  assert.equal(most, 2);
+});
+
+test('a journal line cut short by a kill is passed over, and the last line for a document stands', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-journal-'));
+  try {
+    const path = join(dir, 'journal.jsonl');
+    writeFileSync(path, [
+      JSON.stringify({ doc_key: 'a', change: { status: 'unreachable', status_note: 'timeout: first try' } }),
+      JSON.stringify({ doc_key: 'a', change: { sha256: 'f'.repeat(64), status: 'fetched', status_note: '' } }),
+      '{"doc_key":"b","change":{"sha2',
+    ].join('\n'));
+    const rows = [{ doc_key: 'a', status: 'inventoried' }, { doc_key: 'b', status: 'inventoried' }];
+    assert.equal(fold(rows, path), 2);
+    assert.deepEqual(rows, [{ doc_key: 'a', sha256: 'f'.repeat(64), status: 'fetched', status_note: '' }, { doc_key: 'b', status: 'inventoried' }]);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('a run killed part-way resumes without fetching again a document it finished', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-fetch-'));
+  try {
+    const ops = join(dir, 'ops'), cache = join(dir, 'cache');
+    mkdirSync(ops, { recursive: true });
+    const row = (key, path) => ({ ...Object.fromEntries(HEADER.map((h) => [h, ''])), doc_key: key, provider: 'Fixture Maker',
+      provider_kind: 'manufacturer', manufacturer: 'Fixture Maker', product_raw: key, url: `${base}${path}`, primary: 'TRUE', status: 'inventoried' });
+    writeFileSync(join(ops, 'ledger.csv'), csvText(HEADER, [row('fixture-a', '/a.pdf'), row('fixture-b', '/b.pdf')]));
+    const ledgerBefore = readFileSync(join(ops, 'ledger.csv'), 'utf8');
+    // The campaign folder and the document cache are the test's own (scripts/ingest/context.mjs).
+    const env = { ...process.env, H2C_INGEST_ROOT: ops, H2C_DOCUMENT_CACHE: cache };
+    const run = () => {
+      const child = spawn(process.execPath, [join(root, 'scripts/ingest/fetch.mjs'), '--provider', 'Fixture Maker'], { cwd: root, env });
+      let out = '';
+      child.stdout.on('data', (d) => { out += d; });
+      child.stderr.on('data', (d) => { out += d; });
+      return { child, exited: new Promise((resolve) => child.on('exit', (code, signal) => resolve({ code, signal, out: () => out }))) };
+    };
+    const journal = join(ops, 'ledger.fetch-journal.jsonl');
+
+    // The first run finishes a and waits on b; it is killed while it waits, with no chance to write the ledger.
+    const first = run();
+    for (let waited = 0; !(existsSync(journal) && readFileSync(journal, 'utf8').includes('fixture-a')); waited += 25) {
+      if (waited > 15_000) { first.child.kill('SIGKILL'); assert.fail(`the first run never journalled a: ${(await first.exited).out()}`); }
+      await new Promise((r) => setTimeout(r, 25));
+    }
+    first.child.kill('SIGKILL');
+    assert.equal((await first.exited).signal, 'SIGKILL');
+    assert.equal(readFileSync(join(ops, 'ledger.csv'), 'utf8'), ledgerBefore, 'a killed run never wrote the ledger');
+    const a = pdf('document a');
+    assert.ok(existsSync(join(cache, 'sources/by-sha', `${digest(a)}.pdf`)), 'but a\'s bytes are stored under their digest');
+
+    // The second run folds the journal in first, so a is fetched and is not fetched again; b is.
+    resumePhase = 2;
+    const second = await run().exited;
+    assert.equal(second.code, 0, second.out());
+    assert.match(second.out(), /1 document\(s\) fetched by a run that was stopped are now in the ledger/);
+    assert.equal(hits.get('/a.pdf'), 1, 'a was downloaded once');
+    assert.equal(hits.get('/b.pdf'), 2, 'b was asked for by both runs');
+    const ledger = new Map(readCsv(join(ops, 'ledger.csv')).records.map((r) => [r.values.doc_key, r.values]));
+    assert.equal(ledger.get('fixture-a').status, 'fetched');
+    assert.equal(ledger.get('fixture-a').sha256, digest(a));
+    assert.equal(ledger.get('fixture-b').status, 'fetched');
+    assert.equal(ledger.get('fixture-b').sha256, digest(pdf('document b')));
+    assert.ok(!existsSync(journal), 'the journal is folded into the ledger and removed');
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });

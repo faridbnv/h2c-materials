@@ -11,11 +11,16 @@ import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
 import { buildManifest } from '../../build/src/schema.js';
-import { projectRoot } from './table-io.mjs';
+import { projectRoot, recoverSave, SAVE_JOURNAL } from './table-io.mjs';
 
 const check = process.argv.includes('--check');
 const dirs = [join(projectRoot, 'data/tables'), join(projectRoot, 'schema/vocab')];
 const bad = [];
+
+// A save that stopped part-way is finished before anything is read: a manifest refreshed over half-renamed tables would
+// declare a world nobody saved (table-io.mjs). A check changes nothing, and says so instead.
+if (check && existsSync(join(projectRoot, SAVE_JOURNAL))) bad.push(`${SAVE_JOURNAL}: a save stopped part-way; \`npm run data:fmt\` finishes it`);
+else if (!check && recoverSave(projectRoot)) console.log(`finished a save that had stopped part-way (${SAVE_JOURNAL})`);
 
 for (const dir of dirs) {
   for (const f of readdirSync(dir).filter((f) => f.endsWith('.csv')).sort()) {

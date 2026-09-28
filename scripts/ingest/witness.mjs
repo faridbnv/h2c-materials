@@ -23,16 +23,15 @@
 // with the kind `product-page`, which keeps it out of every batch (a page is not a data sheet to propose from)
 // and says exactly what it is for. Two requests at a time per host, spaced: these are makers' shops.
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
 import { readCsv, csvText } from '../../build/src/csv.js';
-import { projectRoot } from '../data/table-io.mjs';
-import { sha256, cacheDir, documentText } from '../lib/pdf-text.mjs';
+import { sha256, documentText } from '../lib/pdf-text.mjs';
+import { storeBytes } from '../data/source-store.mjs';
 import { HEADER, readLedger } from './inventory.mjs';
+import { get } from './fetch.mjs';
+import { INGEST_ROOT as AUDIT, LEDGER } from './context.mjs';
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const LEDGER = join(AUDIT, 'ledger.csv');
-const AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36';
 const PER_HOST = 2, SPACING_MS = 600;
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && !String(process.argv[i + 1] ?? '--').startsWith('--') ? process.argv[i + 1] : null; };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -55,17 +54,6 @@ function wanting(ledger, only = null) {
     out.push({ row, page });
   }
   return out;
-}
-
-async function get(url) {
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    const response = await fetch(url, { headers: { 'User-Agent': AGENT, Accept: 'text/html,*/*' }, redirect: 'follow' })
-      .catch((e) => ({ ok: false, status: 0, statusText: e.message }));
-    if (response.ok) return { bytes: Buffer.from(await response.arrayBuffer()), type: response.headers?.get('content-type') ?? '' };
-    if (![408, 425, 429, 500, 502, 503, 504].includes(response.status) || attempt === 3) return { error: `HTTP ${response.status || 0} ${response.statusText ?? ''}`.trim() };
-    await sleep(attempt * 2000);
-  }
-  return { error: 'unreachable' };
 }
 
 /**
@@ -98,12 +86,12 @@ export function stagedBytes(bytes, expected, name) {
 async function witness({ row, page, found = false, staged = null, reread = false }) {
   const today = new Date().toISOString().slice(0, 10);
   const base = witnessRow({ row, page, found, staged, today, reread });
-  const got = staged ? { bytes: staged.bytes, type: 'a staged copy' } : await get(page);
+  // A page is fetched within the limits every document is (fetch.mjs, LIMITS), and stored where every document is.
+  const got = staged ? { bytes: staged.bytes, type: 'a staged copy' } : await get(page, { accept: 'text/html,*/*' });
   if (got.error) return { ...base, sha256: '', access_status: got.error, status: 'unreachable', status_note: `the product page could not be fetched: ${got.error}` };
   const sha = staged ? stagedBytes(got.bytes, staged.sha, staged.name) : sha256(got.bytes);
   const isPdf = got.bytes.subarray(0, 5).toString('latin1') === '%PDF-';
-  const path = cacheDir('sources/by-sha', `${sha}.${isPdf ? 'pdf' : 'html'}`);
-  if (!existsSync(path)) { mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, got.bytes); }
+  storeBytes(got.bytes);
   const text = await documentText(got.bytes, { sha });
   const lines = (text.pages ?? []).reduce((n, p) => n + (p.lines ?? []).length, 0);
   const of = row.doc_key || `source ${staged?.forSource}, registered before the V2 import (its sheet has no ledger row)`;

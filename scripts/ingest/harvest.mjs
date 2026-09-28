@@ -20,14 +20,11 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { join } from 'node:path';
 import { csvText, readCsv } from '../../build/src/csv.js';
-import { projectRoot } from '../data/table-io.mjs';
 import { cacheDir } from '../lib/pdf-text.mjs';
 import { HEADER } from './inventory.mjs';
+import { LEDGER } from './context.mjs';
 
-const AUDIT = join(projectRoot, 'docs/audits/2026-09-18-v2-import');
-const LEDGER = join(AUDIT, 'ledger.csv');
 const arg = (name) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && process.argv[i + 1] && !process.argv[i + 1].startsWith('--') ? process.argv[i + 1] : null; };
 const flag = (name) => process.argv.includes(`--${name}`);
 
