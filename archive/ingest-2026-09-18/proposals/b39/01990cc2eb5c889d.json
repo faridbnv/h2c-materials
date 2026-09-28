@@ -1,0 +1,652 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "01990cc2eb5c889dc535d34019cfa3c95cf928f8981dc2185edd5aa85c01b966",
+    "url": "https://www.ipconpolymer.com/product/ppa-gf/",
+    "pages": 1,
+    "provider": "IPCON",
+    "manufacturer": "IPCON",
+    "docKey": "https://www.ipconpolymer.com/product/ppa-gf/#witness-for=source:D-IPCON-PPA"
+  },
+  "identity": {
+    "polymer": "PETG",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PETG",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: petg",
+      "filler: gf"
+    ],
+    "materialId": "M025",
+    "materialName": "PETG-GF",
+    "estimateIdentity": "PETG",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-IPCON-PRINT-20260928-01990cc2eb5c",
+      "Publisher": "IPCON",
+      "Title": "IPCON PPA GF – Glass Fiber Reinforced PPA Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://www.ipconpolymer.com/product/ppa-gf/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G071-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "01990cc2eb5c889dc535d34019cfa3c95cf928f8981dc2185edd5aa85c01b966"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "🎉PPA CF: Ultimate FDM Filament for Metal Replacement! Learn More >> 🎉 PC CF: No strength decline when wet and excellent surface quality! Learn More >> 🎉 TPU 95A HS: High-speed and wear-resistant, semi-transparent trendy Chinese colors! Learn More >> 🎉PLA CF: The performance king of PLA, carbon fiber aesthetics in light colors! Learn More >>"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G071-01",
+      "row": {
+        "GradeID": "G071-01",
+        "MaterialID": "M071",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "IPCON",
+        "Product name": "PPA-GF",
+        "Shared formulation key": "D-IPCON-PPA",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-IPCON-PRINT-20260928-01990cc2eb5c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G071-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M025",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "103 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "103",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "103",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PPA-PPA-GF",
+        "Locator": "p. 1: Heat Deflection Temp (0.45 MPa)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temp (0.45 MPa)  103 °C (Before Annealing) 130 °C (After Annealing)  227 °C  227 °C  227 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M025",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "280 – 310°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "280",
+        "Nozzle max °C": "310",
+        "Nozzle requirement": "required",
+        "Bed °C": "100 – 120°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Type",
+        "Drying": "Before Printing100 – 140 °C, 10 – 14 h (Blast drying oven)",
+        "Drying state": "stated",
+        "Drying °C": "140",
+        "Drying hours": "14",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.6 mm (rec.) / 0.4 mm / 0.8 mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PPA-PPA-GF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0% – 40%"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Size  0.6 mm (rec.) / 0.4 mm / 0.8 mm"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M025",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "and Humidity≤ 120 ℃, ≤ 20% RH (Sealed with desiccant)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "20",
+        "Nozzle max °C": "120",
+        "Nozzle requirement": "required",
+        "Bed °C": "100 – 120°C",
+        "Bed state": "range",
+        "Bed min °C": "100",
+        "Bed max °C": "120",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Type",
+        "Drying": "Before Printing100 – 140 °C, 10 – 14 h (Blast drying oven)",
+        "Drying state": "stated",
+        "Drying °C": "140",
+        "Drying hours": "14",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.6 mm (rec.) / 0.4 mm / 0.8 mm",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-PPA-PPA-GF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing Temp",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0% – 40%"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Size  0.6 mm (rec.) / 0.4 mm / 0.8 mm"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "gradeKey": "G071-01",
+      "row": {
+        "MaterialID": "M071",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Enclosed-frame (rec.), open-frame",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-IPCON-PRINT-20260928-01990cc2eb5c",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Exact-product chamber guidance: Printer Type Enclosed-frame (rec.), open-frame",
+        "Parse review": "Exact product is explicitly compatible with open printers, or its enclosure is explicitly not mandatory. This clears the enclosure/chamber need under D33; no temperature is inferred. Raw recommendation remains visible. Codex AI, 2026-09-28."
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Printer Type  Enclosed-frame (rec.), open-frame"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Full captured text and exact product section inspected. Only the chamber/enclosure field enters; original recipes remain. "
+      },
+      "id": "chamber-G071-01"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle-diameter",
+      "topic": "",
+      "label": "Nozzle Size",
+      "raw": "0.6 mm (rec.) / 0.4 mm / 0.8 mm",
+      "fromBelow": false,
+      "line": "Nozzle Size  0.6 mm (rec.) / 0.4 mm / 0.8 mm"
+    },
+    {
+      "page": 1,
+      "field": "plate",
+      "topic": "",
+      "label": "Plate",
+      "raw": "Type",
+      "fromBelow": false,
+      "line": "Plate Type  Smooth / Textured PEI Plate or other plate"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying Settings",
+      "raw": "Before Printing100 – 140 °C, 10 – 14 h (Blast drying oven)",
+      "fromBelow": false,
+      "line": "Drying Settings Before Printing  100 – 140 °C, 10 – 14 h (Blast drying oven)"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "280 – 310°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature  280 – 310°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "100 – 120°C",
+      "fromBelow": false,
+      "line": "Bed Temperature  100 – 120°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": "0% – 40%",
+      "fromBelow": false,
+      "line": "Fan Speed  0% – 40%"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temp",
+      "raw": "and Humidity≤ 120 ℃, ≤ 20% RH (Sealed with desiccant)",
+      "fromBelow": false,
+      "line": "Printing Temp and Humidity  ≤ 120 ℃, ≤ 20% RH (Sealed with desiccant)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "🎉PPA CF: Ultimate FDM Filament for Metal Replacement! Learn More >> 🎉 PC CF: No strength decline when wet and excellent surface quality! Learn More >> 🎉 TPU ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU CF 70D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU GF 70D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "You are here: Home 1 / Store 2 / Black 3 / PPA GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iPCON PPA GF 3D Printer Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 84.99 CAD /roll (Lowest price for 10+ rolls)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 141.59 CAD Original price was: $141.59 CAD. $ 127.49 CAD Current price is: $127.49 CAD.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shade-14  Choose an option Black Grey Red White",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Size  Choose an option 750 g 750 g Clear",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High-Speed Printing up to 250 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm +/- 0.05mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Minimum 0.4 mm Nozzle Size, 0.6mm Recommended",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dry at 100 – 140 °C for 10 – 14 h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Print sealed with desiccant (≤ 120 ℃, ≤ 20% RH)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sealed Storage with Desiccant (≤ 35 ℃, ≤ 20% RH)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Free shipping on orders over $ 80.00 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IPCON PPA GF combines insulating fiberglass for excellent stiffness, toughness, and electrical insulation. It withstands continuous use above 120°C with minimal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IPCON PPA CF filament boasts near-metallic strength, with XY-axis flexural strength exceeding 250 MPa and a modulus of up to 11 GPa. IPCON PPA GF filament offer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PPA (Polyphthalamide) material inherently possesses exceptional heat resistance and hydrolysis resistance. The IPCON PPA family can withstand long-term exposure",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Leveraging customized polymer control technology and fiber reinforcement modification technology from a century-old German materials giant , IPCON PPA CF and PP",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Strength (Flexural Strength – XY)  123 MPa  155 MPa  256 MPa  208 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Strength (Flexural Strength – Z)  66 MPa  75 MPa  80 MPa  63 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Stiffness (Flexural Modulus – XY)  2672 MPa  5920 MPa  11384 MPa  9860 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Stiffness (Flexural Modulus Z)  2576 MPa  3240 MPa  3278 MPa  3240 MPa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Toughness (Impact Strength – XY)  32.8 kJ/m³  27.5 kJ/m³  34.2 kJ/m³  41.7 kJ/m³",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Layer Adhesion (Impact Strength Z)  5.4 kJ/m²  4.8 kJ/m³  4.6 kJ/m³  4.3 kJ/m³",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Max Printing Speed  180 mm/s  250 mm/s  250 mm/s  N/A",
+      "reason": "the sheet publishes no value for \"Max Printing Speed\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "*The mechanical properties were tested on specimens printed by IPCON using a Bambu Lab XIC printer, 0.4 mm nozzle (Nozzle Temp: 290°C, Bed Temp: 100°C, Print Sp",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Storage Temp and Humidity  ≤ 35 ℃, ≤ 20% RH (Sealed with desiccant)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Max Print Speed  Up to 250mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "High-Speed Printing: PPA CF/GF supports up to 250 mm/s (infill). Set max volumetric speed to 21 mm³/s. Reduce speed to <150 mm/s for parts in liquid environment",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Filament Handling: Dry filament at 100–140°C for 10–14h before use. Store sealed with desiccant (≤35°C, ≤20% RH) to prevent defects.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "IPCON PPA GF Filament TDS 4.0",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Most bought 3D printer filaments",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$ 0.85 CAD /roll (Lowest price for 10+ rolls) View Bulk Discounts ›",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$ 0.85 CAD /roll (Lowest price for 10+ rolls) View Bulk Discounts ›",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$ 62.04 CAD /roll (Lowest price for 10+ rolls) View Bulk Discounts ›",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "$ 19.12 CAD /roll (Lowest price for 10+ rolls) View Bulk Discounts ›",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Don’t worry, this sometimes happens. Your order will likely arrive in 1-2 days. Check our Tracking Page for notes/photos. Ask neighbors and check all possible d",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Hassle-free returns within 30 days. Shop with confidence!",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "We offer fast and reliable shipping to all 50 states.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Subscribe to get $5 off $100+ , and stay updated on the latest premium 3D filaments—including new materials, exclusive colors, special promotions, and pro tips ",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Blog Download Deals Support Filament Comparison Distributor Program Become An Affiliate Corporate Purchase Rewards Program Content Creators Program Earn 10% Ref",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Check to enable permanent hiding of message bar and refuse all cookies if you do not opt in. We need 2 cookies to store this setting. Otherwise you will be prom",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Claim Your $ 5.00 CAD Coupon!",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Subscribe for exclusive updates and $ 5.00 CAD off $ 100.00 CAD +",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

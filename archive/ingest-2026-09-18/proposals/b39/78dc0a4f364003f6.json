@@ -1,0 +1,863 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "78dc0a4f364003f6f6e175cc0470fe2df074de8c59cc54c0af5f513e05627351",
+    "url": "https://fiberlogy.com/en/product/nylon-pa12gf-filament/",
+    "pages": 1,
+    "provider": "Fiberlogy",
+    "manufacturer": "Fiberlogy",
+    "docKey": "https://fiberlogy.com/en/product/nylon-pa12gf-filament/#witness-for=source:R-FIBERLOGY-FIBERLOGY-NYLONPA12GF15-TDS"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Glass fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pa12",
+      "filler: gf"
+    ],
+    "materialId": "M054",
+    "materialName": "PA12-GF",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-FIBERLOGY-PRINT-20260928-78dc0a4f3640",
+      "Publisher": "Fiberlogy",
+      "Title": "Nylon PA12+GF Filament - Fiberlogy",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://fiberlogy.com/en/product/nylon-pa12gf-filament/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G054-03",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "78dc0a4f364003f6f6e175cc0470fe2df074de8c59cc54c0af5f513e05627351"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Skip to navigation Skip to main content"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G054-03",
+      "row": {
+        "GradeID": "G054-03",
+        "MaterialID": "M054",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "Nylon PA12+GF15",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-NYLONPA12GF15-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FIBERLOGY-PRINT-20260928-78dc0a4f3640",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G054-03 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.13 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.13",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Density:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density: 1.13 g/cm³"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "16 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "16",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "16",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "23°C: ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Charpy impact strength (notched) @ 23°C:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy impact strength (notched) @ 23°C: 16 kJ/m² (ISO 179)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "165 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "165",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "165",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1.8 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Heat deflection temperature under load @ 1.8 MPa:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature under load @ 1.8 MPa: 165°C (ISO 75)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "175 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "175",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "175",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa ISO 75",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Heat deflection temperature @ 0.45 MPa:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temperature @ 0.45 MPa: 175°C (ISO 75)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "72 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "72",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "72",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Tensile strength at break:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength at break: 72 MPa (ISO 527)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3,100 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.1",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Tensile modulus:",
+        "Notes": "\"3,100\" may be a thousands separator or a decimal one; read as 3100 because the other reading is outside anything this property reaches",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus: 3,100 MPa (ISO 527)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "8 %",
+        "Raw unit": "%",
+        "Raw numeric": "8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ASTM D638",
+        "Standards": "ASTM D638",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Elongation at break:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break: 8% (ASTM D638)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "85 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "85",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "85",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "23°C: ISO 179",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "Locator": "p. 1: Charpy impact strength (unnotched) @ 23°C:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy impact strength (unnotched) @ 23°C: 85 kJ/m² (ISO 179)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "255–270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "255",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "110°C",
+        "Bed state": "range",
+        "Bed min °C": "110",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "not required",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "80°C",
+        "Drying state": "stated",
+        "Drying °C": "80",
+        "Drying hours": "Not published",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FIBERLOGY-Nylon-PA12-GF15",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Printing temperature: 255–270°C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "gradeKey": "G054-03",
+      "row": {
+        "MaterialID": "M054",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "does not require a heated print chamber",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-FIBERLOGY-PRINT-20260928-78dc0a4f3640",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Exact-product chamber guidance: does not require a heated print chamber",
+        "Parse review": "Exact manufacturer sentence explicitly says the product does not require a heated chamber. Raw prose is retained; parser misreads require after negation. Codex AI, 2026-09-28."
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "The filament is distinguished by its very low shrinkage , which ensures excellent dimensional stability. Unlike many engineering nylons, PA12+GF15 does not require a heated print chamber , which makes this material more accessible even for home use."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Full captured text and exact product section inspected. Only the chamber/enclosure field enters; original recipes remain. Explicit negative chamber statement."
+      },
+      "id": "chamber-G054-03"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing temperature",
+      "raw": "255–270°C",
+      "fromBelow": false,
+      "line": "Printing temperature: 255–270°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "110°C",
+      "fromBelow": false,
+      "line": "Bed temperature: 110°C"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying conditions",
+      "raw": "80°C",
+      "fromBelow": false,
+      "line": "Drying conditions: 80°C / 4 hours"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed chamber",
+      "raw": "not required",
+      "fromBelow": false,
+      "line": "Enclosed chamber: not required"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "SALE! 15% off",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 items 0.00 PLN",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "-15%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PC/ABS Filament 104.88 PLN gross 89.15 PLN - 104.88 PLN Price range: 89.15 PLN through 104.88 PLN gross",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 Nylon Filament 178.05 PLN - 519.51 PLN Price range: 178.05 PLN through 519.51 PLN gross 151.34 PLN - 519.51 PLN Price range: 151.34 PLN through 519.51 PLN ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nylon PA12+GF Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "198.37 PLN - 966.67 PLN Price range: 198.37 PLN through 966.67 PLN gross 168.62 PLN - 966.67 PLN Price range: 168.62 PLN through 966.67 PLN gross",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberlogy Nylon PA12+GF15 is an engineering filament reinforced with 15% glass fiber. It features high mechanical, chemical, and thermal resistance (up to 170°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight  0,5 kg 1 kg 2,5 kg Choose an option 0,5 kg 1 kg 2,5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter  1,75 mm Choose an option 1,75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nylon PA12+GF Filament quantity",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: 3S-PA12.GF Category: Nylon PA12+GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reviews (0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberlogy Nylon PA12+GF15 is an advanced engineering filament based on Nylon PA12 , further reinforced with 15% glass fiber (GF) . Thanks to this modification, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The addition of glass fiber gives the filament a stiffness of 3.6 GPa and allows it to withstand temperatures of up to 170°C . Compared to pure PA12 nylon, it o",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Unlike the carbon-fiber variants ( PA12+CF5 and PA12+CF15 ), the glass-fiber version offers greater flexibility . As a result, prints better withstand variable ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The filament is distinguished by its very low shrinkage , which ensures excellent dimensional stability. Unlike many engineering nylons, PA12+GF15 does not requ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fiberlogy PA12+GF15 is ideal for:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Temperature resistance up to 170°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The print retains its shape at temperatures up to 170°C without warping.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 is less prone to absorbing moisture than, for example, PA6 filaments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Airflow: 0–25%",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Volume resistivity: 10¹⁵ Ω*cm (IEC-62631-3-1)",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm); its value is a power of ten (\"10¹⁵\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "Surface resistivity: 10¹⁴ Ω (IEC-62631-3-2)",
+      "reason": "the line names Surface resistivity and states no value in a unit the database keeps it in (Ω); its value is a power of ten (\"10¹⁴\"), which is one number and is never read as either of its parts"
+    },
+    {
+      "page": 1,
+      "text": "Reviews (0)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nylon PA12+GF Filament - S2",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nylon / Nylon PA12+GF",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Fiberlogy",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "SALE! 15% off",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "PETG FR V0",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nylon PA12",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nylon PA12+CF",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nylon PA12+GF",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "FiberFlex 30D",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "FiberFlex 40D",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "MattFlex 40D",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "PEI 9085",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0 0 0.00 PLN",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0 items Cart",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted.",
+    "retrievalRevision": {
+      "previousSourceID": "D-FIBERLOGY-NYLON-PA12GF-FILAMENT-PAGE",
+      "previousSHA256": "c42589cfff8e1dba654aa5048b936a7ddab9f50a4b26a1f568af732c3d66044d",
+      "accessed": "2026-09-28",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

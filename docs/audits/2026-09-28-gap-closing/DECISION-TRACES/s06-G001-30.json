@@ -1,0 +1,113 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s06.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "acid"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-30",
+    "materialId": "M001",
+    "manufacturer": "Polymaker",
+    "product": "Polymaker PLA Pro",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "Acid resistance evidence"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "acid",
+      "kind": "environment",
+      "mandatory": true,
+      "constraint": {
+        "category": "acid",
+        "kind": "environment"
+      },
+      "criterion": "Acid resistance evidence",
+      "status": "FAIL",
+      "reason": "1 record(s) report not-resistant",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "evidence",
+          "id": "Q05268",
+          "role": "decides",
+          "gradeId": "G001-30",
+          "category": "acid",
+          "agent": null,
+          "verdict": "not-resistant",
+          "finding": "Poor",
+          "locator": "p. 1: Effect of strong acids Poor",
+          "source": {
+            "id": "S-POLYCN-TDS-Polymaker-PLA-Pro-v6-0-2026-01-30-EN",
+            "publisher": "Polymaker",
+            "title": "Polymaker™ PLA Pro Technical Data Sheet",
+            "url": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_Polymaker_PLA-Pro_v6.0_2026-01-30_EN.pdf",
+            "sha256": "d523258b7afbc1df10aef1d50427d69181543c60be4b39cdb548e317e0632715",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 200,
+      "pass": 0,
+      "fail": 12,
+      "untested": 188,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G001-01",
+      "state": "as-printed"
+    }
+  }
+}

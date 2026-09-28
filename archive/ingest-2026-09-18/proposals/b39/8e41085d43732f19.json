@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "8e41085d43732f196f7086469f8b94fc4decfc8c4d8c8912bd62f1a6f045d866",
+    "url": "https://spectrumfilaments.com/en/filament/hdpe/",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "https://spectrumfilaments.com/en/filament/hdpe/#witness-for=source:S-SPECTRUM-en-tds-spectrum-hdpe"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-PRINT-20260928-8e41085d4373",
+      "Publisher": "Spectrum",
+      "Title": "HDPE - Spectrum Filaments",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://spectrumfilaments.com/en/filament/hdpe/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G085-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "8e41085d43732f196f7086469f8b94fc4decfc8c4d8c8912bd62f1a6f045d866"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Select a filament category:"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G085-01",
+      "row": {
+        "GradeID": "G085-01",
+        "MaterialID": "M085",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "hdpe",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-hdpe",
+        "Composition / filler": "Not published by the manufacturer (\"Low Warp technology\"). Its 1.1 g/cm³ exceeds fully crystalline polyethylene (about 1.00 g/cm³) and its 3.5 GPa modulus is about three times neat HDPE's, so the formulation contains a dense filler.",
+        "Variant": "undisclosed dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-PRINT-20260928-8e41085d4373",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G085-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "80",
+        "Raw unit": "Rockwell M",
+        "Raw numeric": "80",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "80",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Rockwell M",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-SPECTRUM-hdpe",
+        "Locator": "p. 1: Rockwell hardness of",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Rockwell hardness of 80 HRM – high stiffness and mechanical strength"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "s, connectors, and structural parts",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "recommended",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle recommended",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-SPECTRUM-hdpe",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Housings, connectors, and structural parts"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Housing",
+      "raw": "s, connectors, and structural parts",
+      "fromBelow": false,
+      "line": "Housings, connectors, and structural parts"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Nozzle temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Bed temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "0-50%",
+      "fromBelow": true,
+      "line": "Cooling 0-50%"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "recommended for larger prints",
+      "fromBelow": true,
+      "line": "Enclosure recommended for larger prints"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Ruby or hardened nozzle",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Ruby or hardened nozzle recommended"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "+ 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+ 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spectrum HDPE is a modern filament made from high-density polyethylene (HDPE) — one of the most durable and chemically resistant thermoplastics available on the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spectrum HDPE stands out with its low density of 1.1 g/cm³, making it a lightweight, strong and rigid engineering material. This makes it ideal for producing li",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Beyond its technical and structural applications, Spectrum HDPE can also be used as a cleaning filament, effectively removing material residues from the 3D prin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "One of the world’s first HDPE filaments with Low Warp technology – printable on desktop 3D printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat resistance above 110°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cleaning filament for 3D printer maintenance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "260-290°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80-100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-200 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Wide portfolio consisting of over 50 filaments with a versatile range of properties and applications, divided into three segments: desktop easy-to-use, industri",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our qualified support team helps at every stage from material selection to the 3D printing process.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spectrum Group Sp. z o.o. Parkowa 85 05-806 Pęcice VAT EU: PL5342505042 KRS: 0000560153 REGON: 361615220",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2025 Spectrum Filaments. All rights reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

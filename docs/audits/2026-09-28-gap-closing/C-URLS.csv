@@ -1,0 +1,85 @@
+GradeID,Manufacturer,Product,for,url,Basis
+G071-01,IPCON,PPA-GF,D-IPCON-PPA,https://www.ipconpolymer.com/product/ppa-gf/,maker product/download page; identity and recipe checked after retrieval
+G053-01,3DXTECH,CarbonX CF PA12,X-CarbonX-CF-PA12-TDS-v1,https://www.3dxtech.com/products/carbonx-nylon-12-cf-1,maker product/download page; identity and recipe checked after retrieval
+G029-01,3DXTECH,CarbonX CF ABS,X-CarbonX-CF-ABS-TDS-v3,https://www.3dxtech.com/products/carbonx-abs-cf-1,maker product/download page; identity and recipe checked after retrieval
+G037-01,3DXTECH,CarbonX CF PC,X-CarbonX-CF-PC-TDSv3,https://www.3dxtech.com/products/carbonx-pc-cf-1,maker product/download page; identity and recipe checked after retrieval
+G038-02,BASF Forward AM,Ultrafuse PC GF30,R-BASF-PCGF30-TDS,https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/reinforced-filaments/ultrafuse-pc-gf30/,maker product/download page; identity and recipe checked after retrieval
+G069-01,IPCON,PPA Pure Resin,S-PPA-TDS,https://www.ipconpolymer.com/product/ppa/,maker product/download page; identity and recipe checked after retrieval
+G029-04,Eryone,ABS-CF,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--6b5ac4,https://www.eryone.com/abs-carbon-fiber-product/,maker product/download page; identity and recipe checked after retrieval
+G143-01,colorFabb,nGen_FLEX,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,https://support.colorfabb.com/hc/en-150/articles/360003023378-How-to-print-with-colorFabb-nGen-FLEX,maker product/download page; identity and recipe checked after retrieval
+G086-02,Fillamentum,OBC 905,R-FILLAMENTUM-TDS-OBC-905-EN-07102022-FI,https://fillamentum.com/wp-content/uploads/2022/11/Fillamentum-OBC-905-printing-guide.pdf,maker product/download page; identity and recipe checked after retrieval
+G064-01,3DXTECH,3DXSTAT ESD PA12,X-3DXSTAT-ESD-PA12-TDS-v1,https://www.3dxtech.com/products/3dxstat-esd-nylon-12-1,maker product/download page; identity and recipe checked after retrieval
+G054-03,Fiberlogy,Nylon PA12+GF15,R-FIBERLOGY-FIBERLOGY-NYLONPA12GF15-TDS,https://fiberlogy.com/en/product/nylon-pa12gf-filament/,maker product/download page; identity and recipe checked after retrieval
+G145-01,colorFabb,PLA/PHA,R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS,https://colorfabb.com/pla-pha-natural,maker product/download page; identity and recipe checked after retrieval
+G069-02,Siraya Tech,Fibreheart PPA,D-SIRAYA-Fibreheart-PPA-TDS,https://siraya.tech/pages/siraya-tech-fibreheart-ppa-filament-tds,maker product/download page; identity and recipe checked after retrieval
+G096-01,3DXTECH,FLUORX PVDF,X-FLUORX-PVDF-TDS-v3,https://www.3dxtech.com/products/fluorx-pvdf-1,maker product/download page; identity and recipe checked after retrieval
+G170-02,BASF Forward AM,Ultrafuse TPS 90A,R-BASF-Ultrafuse-TPS-90A-TDS-EN-v1-1,https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/flexible-filaments/ultrafuse-tps-90a/,maker product/download page; identity and recipe checked after retrieval
+G029-03,Extrudr,DURAPRO ABS CF,R-EXTRUDR-durapro-abs-cf-TDS-en,https://extrudr.com/en/shop/products/durapro-abs-cf/,maker product/download page; identity and recipe checked after retrieval
+G029-06,eSUN,ABS CF,S-PEBA-ABS-CF-TDS-V1-2024-07-02,https://www.esun3d.com/abs-cf-product/,maker product/download page; identity and recipe checked after retrieval
+G029-07,SIDDAMENT,ABS Carbon Fiber,S-PCGF-ABS-Carbon-Fiber-TDS-Siddament,https://siddament.com.au/pages/tds,maker product/download page; identity and recipe checked after retrieval
+G029-10,3DJake,ABS CF,R-3DJAKE-TDS-3DJAKE-ABS-CF,https://www.3djake.com/3djake/abs-cf-dark-grey,maker product/download page; identity and recipe checked after retrieval
+G105-01,Spectrum,ASA Conductive,S-SPECTRUM-en-tds-spectrum-asa-conductive,https://spectrumfilaments.com/en/filament/asa-electrically-conductive/,maker product/download page; identity and recipe checked after retrieval
+G090-03,colorFabb,XT-CF20,R-COLORFABB-TDS-colorFabb-XT-CF20,https://colorfabb.com/xt-cf20,maker product/download page; identity and recipe checked after retrieval
+G134-01,Fiberlogy,FiberFlex Aero,R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1,https://fiberlogy.com/en/filaments/flex-en/fiberflex-aero-en/,maker product/download page; identity and recipe checked after retrieval
+G092-01,colorFabb,nGen Amphora AM3300,S-NGEN2,https://colorfabb.com/ngen-black,maker product/download page; identity and recipe checked after retrieval
+G092-02,colorFabb,nGen,R-COLORFABB-TDS-E-ColorFabb-nGen,https://colorfabb.com/ngen-black,maker product/download page; identity and recipe checked after retrieval
+G142-01,colorFabb,nGen CF10,R-COLORFABB-TDS-nGen-CF10,https://colorfabb.com/ngen-cf10-black,maker product/download page; identity and recipe checked after retrieval
+G165-01,colorFabb,PA-CF low warp,R-COLORFABB-colorFabb-PA-CF-Low-Warp-TDS,https://colorfabb.com/pa-cf-low-warp,maker product/download page; identity and recipe checked after retrieval
+G164-02,colorFabb,PA Blue Metal Detectable,R-COLORFABB-TDS-E-colorFabbPABlueMetalDetectable,https://colorfabb.com/pa-blue-metal-detectable,maker product/download page; identity and recipe checked after retrieval
+G164-04,MatterHackers,PRO Series Nylon,R-MATTERHACKERS-RczMCr,https://www.matterhackers.com/store/l/pro-series-nylon/sk/MCR8GQZT,maker product/download page; identity and recipe checked after retrieval
+G164-06,colorFabb,PA NEAT,R-COLORFABB-TDS-E-ColorFabb-PA-neat,https://colorfabb.com/pa-neat,maker product/download page; identity and recipe checked after retrieval
+G164-09,CreatBot,Ultra PA,R-FILAMENT2PRINT-CreatBot-UltraPA,https://www.creatbot.com/filamentList/ultra-pa/,maker product/download page; identity and recipe checked after retrieval
+G086-01,Dow,EVOLV3D OBC,X-EVOLV3D-OBC-TDS,https://www.dow.com/en-us/market/mkt-consumer-goods/sub-cons-goods-sports-equip-apparel/3d-printing.html,maker product/download page; identity and recipe checked after retrieval
+G052-06,Fiberlogy,Nylon PA12,R-FIBERLOGY-FIBERLOGY-NYLONPA12-TDS,https://fiberlogy.com/en/filaments/nylon-en/nylon-pa12-en/,maker product/download page; identity and recipe checked after retrieval
+G052-07,Fiberlogy,R Nylon,R-FIBERLOGY-FIBERLOGY-RNYLON-TDS,https://fiberlogy.com/en/filaments/nylon-en/r-nylon-en/,maker product/download page; identity and recipe checked after retrieval
+G054-02,MatterHackers,NylonG,R-MATTERHACKERS-eZ4iY1,https://www.matterhackers.com/store/l/nylong-glass-fiber-filament/sk/M34G0FP3,maker product/download page; identity and recipe checked after retrieval
+G108-01,Spectrum,PA6 GK10,S-SPECTRUM-en-tds-spectrum-pa6-gk10,https://spectrumfilaments.com/en/filament/pa6-gk10/,maker product/download page; identity and recipe checked after retrieval
+G156-01,eSUN,ePA CF,S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0,https://www.esun3d.com/epa-cf-product/,maker product/download page; identity and recipe checked after retrieval
+G059-02,QIDI,PA612-CF,R-QIDI-PA12-CF,https://ca.qidi3d.com/pages/choose-the-right-filament-3d-filaments-guide-for-qidi-printers?geo_hide_market=true,maker product/download page; identity and recipe checked after retrieval
+G095-02,Extrudr,DURAPRO PC-PBT,R-EXTRUDR-durapro-pc-pbt-TDS-en,https://extrudr.com/en/shop/products/durapro-pc-pbt/,maker product/download page; identity and recipe checked after retrieval
+G131-01,Extrudr,DURAPRO PC-PBT CF,R-EXTRUDR-durapro-pc-pbt-cf-TDS-en,https://extrudr.com/en/shop/products/durapro-pc-pbt-cf/,maker product/download page; identity and recipe checked after retrieval
+G112-01,Spectrum,PC/PTFE,S-SPECTRUM-en-tds-spectrum-pc-ptfe,https://spectrumfilaments.com/en/filament/pc-ptfe/,maker product/download page; identity and recipe checked after retrieval
+G149-02,3D4Makers,Facilan PCL100,R-3D4MAKERS-TDS-Facilan-PCL100-filament-V1-4,https://www.3d4makers.com/products/facilan-pcl-100,maker product/download page; identity and recipe checked after retrieval
+G144-02,Nobufil,PCTG CF,R-3DJAKE-3DJAKE-PCTG-CF-tech-data,https://www.nobufil.com/en/product-page/pctg-cf-filament-black,maker product/download page; identity and recipe checked after retrieval
+G144-03,Fiberlogy,PCTG+CF10,R-3DJAKE-FIBERLOGY-PCTGCF-TDS,https://fiberlogy.com/en/filaments/pctg-en/pctg-cf-en/,maker product/download page; identity and recipe checked after retrieval
+G085-01,Spectrum,hdpe,S-SPECTRUM-en-tds-spectrum-hdpe,https://spectrumfilaments.com/en/filament/hdpe/,maker product/download page; identity and recipe checked after retrieval
+G045-01,eSUN,PEBA90A,S-PEBA-PEBA90A-TDS-en,https://www.esun3d.com/peba-90a-product/,maker product/download page; identity and recipe checked after retrieval
+G045-07,QIDI,PEBA 95A,R-QIDI-PEBA-95A,https://ca.qidi3d.com/pages/choose-the-right-filament-3d-filaments-guide-for-qidi-printers?geo_hide_market=true,maker product/download page; identity and recipe checked after retrieval
+G045-09,Siraya Tech,Rebound PEBA Air 70A–95A,D-SIRAYA-siraya-tech-rebound-peba-air-70a-95a-tds,https://siraya.tech/pages/siraya-tech-rebound-peba-air-70a-95a-tds,maker product/download page; identity and recipe checked after retrieval
+G045-10,Siraya Tech,Rebound PEBA 85A,D-SIRAYA-rebound-peba-85a-filament-tds,https://siraya.tech/pages/rebound-peba-85a-filament-tds,maker product/download page; identity and recipe checked after retrieval
+G066-05,colorFabb,PET Flex Max,R-COLORFABB-TDS-PET-FLEX-MAX,https://colorfabb.com/pet-flex-max-natural,maker product/download page; identity and recipe checked after retrieval
+G141-01,colorFabb,Lightweight PET,R-COLORFABB-TDS-LW-PET,https://colorfabb.com/lw-pet-natural,maker product/download page; identity and recipe checked after retrieval
+G141-02,colorFabb,Lightweight PET FLEX,R-COLORFABB-TDS-LW-PET-FLEX,https://colorfabb.com/lw-pet-flex-natural,maker product/download page; identity and recipe checked after retrieval
+G025-02,Eryone,PETG-GF,R-ERYONE-PETG-GF-TDS,https://www.eryone.com/petg-fiberglass-product/,maker product/download page; identity and recipe checked after retrieval
+G017-05,SUNLU,PLA-LW,R-SUNLU-23d648ce-7d03-45e3-a5db-ff13dda26c5d,https://www.sunlu.com/products/259,maker product/download page; identity and recipe checked after retrieval
+G158-01,Fiberlogy,PLA MINERAL,R-FIBERLOGY-FIBERLOGY-PLA-MINERAL-TDS,https://fiberlogy.com/en/filaments/pla-en/pla-mineral-en/,maker product/download page; identity and recipe checked after retrieval
+G087-03,Yousu,POM,R-YOUSU-POM-TDS,https://www.ysfilament.com/pages/documentation,maker product/download page; identity and recipe checked after retrieval
+G082-04,SUNLU,PP2.0,R-SUNLU-25182761789529093884,https://www.sunlu.com/products/PP2.0,maker product/download page; identity and recipe checked after retrieval
+G082-05,SUNLU,PP,R-SUNLU-fbfe6e74-b29f-4f0f-a9b3-84aaa6b2fc85,https://www.sunlu.com/products/pp-filament-3d,maker product/download page; identity and recipe checked after retrieval
+G084-02,Prusa Research,Prusament PP Glass Fiber by Prusa Polymers,S-PVB-512923fd-tds-pp-glass-fiber-en,https://prusament.com/materials/prusament-pp-glass-fiber/,maker product/download page; identity and recipe checked after retrieval
+G046-01,BASF Forward AM,Ultrafuse TPC 45D,S-TPC,https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/flexible-filaments/ultrafuse-tpc-45d/,maker product/download page; identity and recipe checked after retrieval
+G039-23,Flashforge,TPU 64D,D-FLASH-TPU-64D-TDS-EN,https://after-support.flashforge.jp/tds-list/,maker product/download page; identity and recipe checked after retrieval
+G039-44,eSUN,TPU-64D,S-PEBA-TPU-64D-TDS,https://www.esun3d.com/tpu64d-product,maker product/download page; identity and recipe checked after retrieval
+G151-01,Siraya Tech,Fibreheart TPU GF,D-SIRAYA-fibreheart-tpu-gf-filament-tds,https://siraya.tech/pages/fibreheart-tpu-gf-filament-tds,maker product/download page; identity and recipe checked after retrieval
+G150-02,eSUN,TPU LW,S-PEBA-TPU-LW-TDS-V1,https://www.esun3d.com/etpu-lw-product,maker product/download page; identity and recipe checked after retrieval
+G143-01,colorFabb,nGen_FLEX,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,https://colorfabb.com/ngen-flex,bounded follow-up after search/retrieval; source identity requires review
+G143-01,colorFabb,nGen_FLEX,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,https://colorfabb.com/print-support,bounded follow-up after search/retrieval; source identity requires review
+G142-01,colorFabb,nGen CF10,R-COLORFABB-TDS-nGen-CF10,https://colorfabb.com/ngen-cf10,bounded follow-up after search/retrieval; source identity requires review
+G142-01,colorFabb,nGen CF10,R-COLORFABB-TDS-nGen-CF10,https://colorfabb.com/print-support,bounded follow-up after search/retrieval; source identity requires review
+G025-02,Eryone,PETG-GF,R-ERYONE-PETG-GF-TDS,https://eryone3d.com/products/petg-fiberglass-filament,bounded follow-up after search/retrieval; source identity requires review
+G064-01,3DXTECH,3DXSTAT ESD PA12,X-3DXSTAT-ESD-PA12-TDS-v1,https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets,bounded follow-up after search/retrieval; source identity requires review
+G029-06,eSUN,ABS CF,S-PEBA-ABS-CF-TDS-V1-2024-07-02,https://www.esun3d.com/eabs-cf-product,bounded follow-up after search/retrieval; source identity requires review
+G045-01,eSUN,PEBA90A,S-PEBA-PEBA90A-TDS-en,https://www.esun3d.com/peba-product,bounded follow-up after search/retrieval; source identity requires review
+G144-03,Fiberlogy,PCTG+CF10,R-3DJAKE-FIBERLOGY-PCTGCF-TDS,https://fiberlogy.com/en/filaments/pctg-en/pctgcf-en/,bounded follow-up after search/retrieval; source identity requires review
+G149-02,3D4Makers,Facilan PCL100,R-3D4MAKERS-TDS-Facilan-PCL100-filament-V1-4,https://www.3d4makers.com/products/facilan-pcl-100-filament,bounded follow-up after search/retrieval; source identity requires review
+G029-03,Extrudr,DURAPRO ABS CF,R-EXTRUDR-durapro-abs-cf-TDS-en,https://www.extrudr.com/en/inlt/products/durapro-abs-cf/,bounded follow-up after search/retrieval; source identity requires review
+G095-02,Extrudr,DURAPRO PC-PBT,R-EXTRUDR-durapro-pc-pbt-TDS-en,https://www.extrudr.com/en/inlt/products/durapro-pc-pbt/,bounded follow-up after search/retrieval; source identity requires review
+G131-01,Extrudr,DURAPRO PC-PBT CF,R-EXTRUDR-durapro-pc-pbt-cf-TDS-en,https://www.extrudr.com/en/inlt/products/durapro-pc-pbt-cf/,bounded follow-up after search/retrieval; source identity requires review
+G052-07,Fiberlogy,R Nylon,R-FIBERLOGY-FIBERLOGY-RNYLON-TDS,https://fiberlogy.com/en/filaments/r-en/r-nylon-en/,bounded follow-up after search/retrieval; source identity requires review
+G046-01,BASF Forward AM,Ultrafuse TPC 45D,S-TPC,https://forward-am.com/wp-content/uploads/2021/07/Ultrafuse_TPC_45D_TDS_EN_v2.3.pdf,bounded follow-up after search/retrieval; source identity requires review
+G086-01,Dow,EVOLV3D OBC,X-EVOLV3D-OBC-TDS,https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets,bounded follow-up after search/retrieval; source identity requires review
+G105-01,Spectrum,ASA Conductive,S-SPECTRUM-en-tds-spectrum-asa-conductive,https://shop.spectrumfilaments.com/data/include/cms/download/tds/EN_TDS_Spectrum_ASA_Conductive.pdf?v=1756980721386,bounded follow-up after search/retrieval; source identity requires review
+G039-23,Flashforge,TPU 64D,D-FLASH-TPU-64D-TDS-EN,https://after-support.flashforge.jp/uploads/datasheet/tds/TPU_64D_TDS_EN.pdf,bounded follow-up after search/retrieval; source identity requires review
+G071-01,IPCON,PPA-GF,D-IPCON-PPA,https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf,bounded follow-up after search/retrieval; source identity requires review
+G052-07,Fiberlogy,R Nylon,R-FIBERLOGY-FIBERLOGY-RNYLON-TDS,https://fiberlogy.com/en/product/rnylon-filament/,exact maker product page found by domain search
+G029-07,SIDDAMENT,ABS Carbon Fiber,S-PCGF-ABS-Carbon-Fiber-TDS-Siddament,https://siddament.com.au/collections/all-abs/products/p3d-abs-carbon-fiber-1-75mm-1kg-abs-cf,exact maker product page found by domain search

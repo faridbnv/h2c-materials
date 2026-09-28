@@ -17,12 +17,12 @@ Database snapshot 2026-09-21 · build 2026-09-28
 | measurements | 11212 |
 | numericMeasurements | 11037 |
 | quarantined | 18 |
-| profiles | 1282 |
+| profiles | 1305 |
 | evidence | 625 |
 | prices | 104 |
-| sources | 1649 |
+| sources | 1712 |
 | coverage | 873 |
-| knowHow | 4659 |
+| knowHow | 4665 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 345 |
 | coverageDerived | 696 |
@@ -52,7 +52,7 @@ Baseline 350 C nozzle, 120 C bed, 65 C chamber.
 |---|---:|---:|---:|---:|---:|
 | nozzle | 117 | n/a | 9 | 0 | 48 |
 | bed | 113 | n/a | 7 | 0 | 54 |
-| chamber | 78 | 5 | 9 | 1 | 81 |
+| chamber | 87 | 4 | 8 | 1 | 74 |
 
 A partial window is chamber-only: part of the published window is reachable at 65 C, never all of it.
 Nozzle and bed are read by the upper end of the window.
@@ -66,13 +66,13 @@ data/tables/chamber_bands.csv; it is shown beside the chamber question and chang
 | Kind | Materials |
 |---|---:|
 | Published temperature window | 59 |
-| No heated chamber needed, in words | 24 |
-| Chamber recommended, no temperature | 1 |
+| No heated chamber needed, in words | 31 |
+| Chamber recommended, no temperature | 2 |
 | Data sheet lists no setpoint | 4 |
-| Nothing published | 48 |
-| Carrying an estimated band (any of the last three) | 12 |
+| Nothing published | 40 |
+| Carrying an estimated band (any of the last three) | 9 |
 
-26 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes 25-60 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
+29 research bands are superseded by evidence and not used: PLA Metal (20-45 °C; publishes 25-45 °C), PLA Marble (20-45 °C; publishes 25-45 °C), PLA Sparkle (20-45 °C; publishes 25-45 °C), PLA Galaxy (20-45 °C; publishes 25-45 °C), PLA Silk (20-45 °C; publishes 0-45 °C), Support for PA/PET (20-45 °C; publishes 45-60 °C), PETG-CF (20-50 °C; publishes 20-65 °C), PETG-GF (20-50 °C; publishes 20-20 °C), PEBA (20-50 °C; a source says no heated chamber is needed), PP (20-50 °C; a source says no heated chamber is needed), PP-GF (20-50 °C; a source says no heated chamber is needed), OBC (20-50 °C; a source says no heated chamber is needed), CPE (20-50 °C; a source says no heated chamber is needed), CPE-CF (20-50 °C; a source says no heated chamber is needed), CoPE (20-50 °C; a source says no heated chamber is needed), PVB (20-50 °C; a source says no heated chamber is needed), ABS-ESD (45-70 °C; publishes 25-90 °C), ASA-GF (45-70 °C; publishes 25-60 °C), PC FR (45-70 °C; publishes 45-100 °C), PC-CF (45-70 °C; publishes 25-60 °C), PAHT-CF (45-70 °C; publishes 45-60 °C), PA6 (45-70 °C; publishes 20-60 °C), PET (45-70 °C; a source says no heated chamber is needed), PET-GF (45-70 °C; publishes 25-50 °C), PPS-CF (60-90 °C; publishes 25-90 °C), PPA (80-120 °C; a source says no heated chamber is needed), PPA-CF (80-120 °C; publishes 25-80 °C), PPA-GF (80-120 °C; publishes 25-80 °C), POM / Acetal (45-80 °C; publishes 70-140 °C).
 
 ## Environment evidence
 
@@ -417,7 +417,15 @@ These are not defects. They record what the compiled database cannot support, so
 interface can say so rather than implying a certainty it does not have.
 
 - `PARSE-UNREAD` **Print setup row 176** — Chamber text not parsed: "material does not require a heated building chamber"
-- `PARSE-UNREAD` **profiles** — 1 process temperature cells were not parsed: P0175 chamber: "material does not require a heated building chamber"
+- `PARSE-UNREAD` **Print setup row 1284** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
+- `PARSE-UNREAD` **Print setup row 1286** — Enclosure text not parsed: "Enclosed-frame (rec.), open-frame"
+- `PARSE-UNREAD` **Print setup row 1288** — Enclosure text not parsed: "enclosed-chamber printing"
+- `PARSE-UNREAD` **Print setup row 1289** — Chamber text not parsed: "does not require a heated chamber"
+- `PARSE-UNREAD` **Print setup row 1295** — Chamber text not parsed: "does not require a heated print chamber"
+- `PARSE-UNREAD` **Print setup row 1299** — Enclosure text not parsed: "enclosed-chamber printing"
+- `PARSE-UNREAD` **Print setup row 1301** — Enclosure text not parsed: "It is ideal for use in open desktop 3D printers."
+- `PARSE-UNREAD` **Print setup row 1306** — Chamber text not parsed: "It is recommended to print using a heated chamber."
+- `PARSE-UNREAD` **profiles** — 4 process temperature cells were not parsed: P0175 chamber: "material does not require a heated building chamber" | P1288 chamber: "does not require a heated chamber" | P1294 chamber: "does not require a heated print chamber" | P1305 chamber: "It is recommended to print using a heated chamber."
 - `NO-MEASUREMENTS` **materials** — 2 materials have no property measurements at all: PA66-CF, PA612-GF
 - `EST-REJECTED` **measurements** — 8 values are physically impossible for their property and were kept out of the estimate model: V009231 PLA Density 3900 kg/m³; V009245 PLA Density 3130 kg/m³; V009254 PLA Density 3900 kg/m³; V009275 PLA Density 3130 kg/m³; V009486 PLA Density 4000 kg/m³; V009522 PLA Metal Density 2780 kg/m³; V009638 PLA Metal Density 3400 kg/m³; V009775 PLA Metal Density 3500 kg/m³
 - `EST-OUTLIER` **materials** — 5 measured headlines sit far outside what every other observation predicts; check the source and the grade: PA6-GS density 1010 (expected about 1400); PLA-EC density 1240 (expected about 1520); PBAT tensileModulusXY 0.006 (expected about 0.947); nGen-CF tensileStrengthXY 44.7 (expected about 54.3); PA6 hdt045 140 (expected about 85.7)

@@ -1,0 +1,387 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "6200f886fd3f1c6bdf465207c790f66be7a9424aa26970773c9e0065e89f5570",
+    "url": "https://siddament.com.au/collections/all-abs/products/p3d-abs-carbon-fiber-1-75mm-1kg-abs-cf",
+    "pages": 1,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "https://siddament.com.au/collections/all-abs/products/p3d-abs-carbon-fiber-1-75mm-1kg-abs-cf#witness-for=source:S-PCGF-ABS-Carbon-Fiber-TDS-Siddament"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SIDDAMENT-PRINT-20260928-6200f886fd3f",
+      "Publisher": "SIDDAMENT",
+      "Title": "ABS Carbon Fiber (ABS CF) 3D Printer Filament | SIDDAMENT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://siddament.com.au/collections/all-abs/products/p3d-abs-carbon-fiber-1-75mm-1kg-abs-cf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G029-07",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "6200f886fd3f1c6bdf465207c790f66be7a9424aa26970773c9e0065e89f5570"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Your cart is empty"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G029-07",
+      "row": {
+        "GradeID": "G029-07",
+        "MaterialID": "M029",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "ABS Carbon Fiber",
+        "Shared formulation key": "S-PCGF-ABS-Carbon-Fiber-TDS-Siddament",
+        "Composition / filler": "ABS Carbon Fiber - Technical Datasheet (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SIDDAMENT-PRINT-20260928-6200f886fd3f",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G029-07 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "$0.00 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SHITTAMENT V1 TRANSITION ROLLS &rarr; 📦 RESTOCKED SHOP NOW &rarr; JOIN THE DISCORD &rarr; PRUSA MK4S $850 POSTAGE INCLUDED &rarr;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SHITTAMENT V1 TRANSITION ROLLS &rarr; 📦 RESTOCKED SHOP NOW &rarr; JOIN THE DISCORD &rarr; PRUSA MK4S $850 POSTAGE INCLUDED &rarr;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cuttament-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg Pellets",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Matte PLA V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PETG V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V2 NEW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cuttament-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg Pellets",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Matte PLA V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PETG V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V2 NEW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA 677 PETG 192 ABS 41 ASA 66 TPU 18 Carbon Filled 29 Glass Filled 21 PCTG 5 PC 12 Nylon 9 All 1127",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 / of 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SIDDAMENT · SKU SKU: 3.028",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "In production Minimum 25 days from the day it ships from China.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Regular price $21.00 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Regular price $29.00 CAD Sale price $21.00 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS (Acrylonitrile Butadiene Styrene) with 15% by weight of chopped carbon fibers. Measuring 0.04mm in length, enhance the filament's strength, stiffness, and h",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "🌡️ Hotend 240-260°C ?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This temp range may not match what is printed on the spool. With the wide variety of 3D printers and platforms out there, branded machines often print at slight",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "♨️ Heated Bed 90-110°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "\"Enclosure\" = a closed chamber that holds heat - not just walls around your printer. The chamber needs to actually get warm (passively from the bed, or actively",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "💨 Drying 60-70°C / 6-8 hours ?",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Although the value above is the textbook drying recommendation for this material, Sidd's rule is: dry every roll for at least 12 hours, at a minimum of 50 °C an",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "🌡️ HDT (typical) ~95°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "📏 Length ~395 m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "🧊 Density 1.07 g/cm³",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "⚙️ Diameter 1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "🔖 SKU 3.028",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "⚖️ Net Weight (filament) 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "📦 Packaging Weight 0.2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "🚚 Shipping Weight 1.2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "📅 Next Stock In production Minimum 25 days from the day it ships from China.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&minus; 1 +",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$29.00 $21.00",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

@@ -1,0 +1,256 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/indoor-prototype.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "priceCADkg"
+    ]
+  },
+  "product": {
+    "gradeId": "G151-01",
+    "materialId": "M151",
+    "manufacturer": "Siraya Tech",
+    "product": "Fibreheart TPU GF",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 270 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0994",
+          "role": "the product's own recipe",
+          "gradeId": "G151-01",
+          "raw": "240-270°C",
+          "locator": "p. 1: Recommended printing settings; p. 1: Enclosure",
+          "source": {
+            "id": "D-SIRAYA-fibreheart-tpu-gf-filament-tds",
+            "publisher": "Siraya Tech",
+            "title": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG",
+            "url": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-tds",
+            "sha256": "521e71a2414d7304530c8a99191fc90c948785c3ff7083bf4c9e72ea84af1bee",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0994",
+          "role": "the product's own recipe",
+          "gradeId": "G151-01",
+          "raw": "40-60°C",
+          "locator": "p. 1: Recommended printing settings; p. 1: Enclosure",
+          "source": {
+            "id": "D-SIRAYA-fibreheart-tpu-gf-filament-tds",
+            "publisher": "Siraya Tech",
+            "title": "Sales Resin Filament Silicone Essentials & Accs SUPPORT BLOG",
+            "url": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-tds",
+            "sha256": "521e71a2414d7304530c8a99191fc90c948785c3ff7083bf4c9e72ea84af1bee",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1304",
+          "role": "the product's own recipe",
+          "gradeId": "G151-01",
+          "raw": "Not published",
+          "enclosure": "Not mandatory, but it is recommended",
+          "locator": "p. 1: Exact-product chamber guidance: Enclosure Not mandatory, but it is recommended",
+          "source": {
+            "id": "D-SIRAYA-TECH-PRINT-20260928-fc27f63b931a",
+            "publisher": "Siraya Tech",
+            "title": "Fibreheart TPU-GF Filament TDS | Siraya Tech 15% carbon fiber TPU",
+            "url": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-tds",
+            "sha256": "fc27f63b931aa211118e99c65981c3ffdcecbdd1096c94ae61ff5cf556b97469",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "priceCADkg",
+      "kind": "numeric",
+      "mandatory": false,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": false,
+        "operator": "<=",
+        "property": "priceCADkg",
+        "value": 45
+      },
+      "criterion": "priceCADkg <= 45",
+      "status": "UNKNOWN",
+      "reason": "No Canadian price observation in the sampled market",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    }
+  ],
+  "material": {
+    "id": "M151",
+    "name": "TPU-GF",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "all",
+    "counts": {
+      "products": 1,
+      "pass": 1,
+      "fail": 0,
+      "untested": 0,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G151-01",
+      "state": "as-printed"
+    }
+  }
+}

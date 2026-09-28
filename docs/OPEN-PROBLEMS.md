@@ -447,10 +447,14 @@ was chosen by an agent and none by a person; a sample of 50 was read against the
   - **Moved:** products with a maker's statement went from 881 to 1,039, and sheet-silent products from 198 to 45.
   - **The 45 left:** its handoffs ask the owner about 31 (a renamed product line, a 60D sheet on a 90A product, pages
     that name another product) and the maker about 14. They are in `archive/research-2026-09-26/owner-handoffs.csv`.
-  - **No product is "searched, nothing published".** A search that found nothing was never recorded against a page,
-    so none can be dated.
-  - **44 products have no document read** (state no-document-read). Most came in with batches b34, b35 and b37 after
-    lane 3 had read.
+  - **No product remains "searched, nothing published" for general know-how.** b39's chamber searches initially
+    labelled six products this way even though their captured pages contained maker claims. m222 records those
+    six exact paragraphs as record-tier know-how, without numeric/environmental decisions. The chamber-specific outcomes on
+    63 products (60 maker searches and three access/identity limits) are in
+    `docs/audits/2026-09-28-gap-closing/C-SITE-OUTCOMES.csv`; qualitative heating advice without a setpoint remains
+    unresolved. Re-derive the general counts with `npm run audit:know-how`.
+  - **38 products have no document read** (state no-document-read), down from 44 after b39. Most came in with
+    batches b34, b35 and b37 after lane 3 had read.
   - **Where the lists are:** `docs/audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md` (`npm run audit:know-how`), and
     `archive/research-2026-09-26/disposition.csv` for what became of each research finding.
 - **"Fabru" and "Fabru / purefil" hold some products twice.** The makers' pages (m206) put one statement on both
@@ -748,9 +752,9 @@ narrower and more honest, and leave these, each with where it is counted:
   meets, at what concentration or for how long; a verdict names the records and the exposures they state. Asking for an
   agent waits for a team that needs it.
 - **Annealed values whose schedule the sheet does not state never decide.** A state reached by an annealing nobody can
-  repeat settles nothing (D99); the query counts them (94 on 2026-09-28).
+  repeat settles nothing (D99); the query counts them (90 after the 2026-09-28 gap-closing re-reads).
 - **The conditioned service state is thinly published.** Asked humid, a product is judged on conditioned values only, and
-  few sheets print any (149 published values on 2026-09-28): most products are unknown there, which is the true answer.
+  few sheets print any (154 published values after the 2026-09-28 gap-closing re-reads): most products are unknown there, which is the true answer.
 - **Most products have no print recipe the H2C can be judged by.** Every template now asks printability (D101), so Strict
   answers shrank (Outdoor 5 materials); every material lost is unresolved, not failed. `npm run audit:scenario-gaps` lists
   the products one fact from an answer, most of them print recipes ([SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md)).
@@ -767,14 +771,30 @@ narrower and more honest, and leave these, each with where it is counted:
   run yet.
 - **One source's cached file is not the document its digest names**, and 135 more cannot be re-read here: the file
   cached for R-KIMYA-PEBA-S-TDS hashes to another digest, 123 registered sources have no bytes in this checkout's cache
-  and 12 record no digest (`npm run data:sources -- --manifest`, D104). Restoring the private store closes the second;
-  the first needs the document fetched again through the pipeline and compared.
-- **The full-text index is partial** (1,500 of 1,642 retrieved sources on 2026-09-28; `v_sources_without_text` names
+  and 12 record no digest (`npm run data:sources -- --manifest`, D104). The private store now backs up all 2,267
+  available originals and 2,712 derived files, but contains none of those 123 missing originals. The Kimya digest
+  was not found in the ledger and its dated targeted retrieval returned HTTP 404; no source was overwritten.
+  `docs/audits/2026-09-28-gap-closing/RESTORE-COUNTS.json` proves an empty-cache restore, with that deliberately
+  excluded mismatch becoming one additional absence. The missing originals still need an owner-held copy or a
+  separately reviewed retrieval; local backup success does not prove cloud upload completion.
+- **The full-text index is partial** (1,572 of 1,706 retrieved sources after the 2026-09-28 gap-closing work; `v_sources_without_text` names
   the rest, D105). Its test checks only that `.cache/text` exists, so in a fresh worktree where `npm run test:ingest`
   has written one fixture's text there, `npm test` fails it; point `H2C_DOCUMENT_CACHE` at the full cache.
 - **What F14 and F13 left** (D104, D105): `ingest:fetch --refetch --recheck` still overwrites an applied document's
   digest rather than recording a new revision; `audit:sources` has its own unbounded fetch; the reader was not split
-  into adapters; a source bundle does not record parser versions; and a traced decision does not report its rank.
+  into adapters; and a traced decision does not report its rank. The source bundle now preserves the cached text's
+  reader/version metadata and hashes its derived files; it does not package executable OCR/parser environments.
+- **The frozen research worklist is dry/as-printed.** Additional S01/S03/S04 annealed and S05 conditioned policies
+  occur in acceptance expectations, but were not separate questions in that worklist. The owner asked to finish
+  the frozen targets and record these variants for follow-up. `scripts/audit/gap-state-followup.mjs` writes the
+  four policy variants and their 1,538 current one-fact gaps in
+  `docs/audits/2026-09-28-gap-closing/STATE-VARIANTS-FOLLOWUP.csv`. This is a queue, not completed source research;
+  re-run it after a build when the data changes. Acceptance tests already cover the named expectation examples.
+- **Cold fast-check timing needs a performance follow-up.** After the gap-closing data changed the cached test
+  builds, `verify:fast` took 106.7 s against the 90 s goal (VERIFY-C.txt in the gap-closing audit). Functional checks
+  passed. The owner chose to record this for follow-up, rather than investigate performance in this source-research
+  run. VERIFY-FAST-C-WARM.txt records the separate isolated warm run with `--enforce-budget`; neither timing is
+  represented as the other. Reproduce cold and warm timings with stable inputs and no competing build work.
 
 ```bash
 npm run sql --silent -- "select count(*) annealed_no_schedule from measurements where data_status in ('Published value','Published value (transcription corrected)') and post_processing_state = 'annealed' and (anneal_c_state is not null or anneal_h_state is not null)"

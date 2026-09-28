@@ -1,0 +1,580 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "4c7905791366f91b71f0d96a9b6dfa7cf0b31a9a3881b2bc8fb2c343bf165901",
+    "url": "https://www.3dxtech.com/products/fluorx-pvdf-1",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "https://www.3dxtech.com/products/fluorx-pvdf-1#witness-for=source:X-FLUORX-PVDF-TDS-v3"
+  },
+  "identity": {
+    "polymer": "PVDF",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Fluoropolymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pvdf"
+    ],
+    "materialId": "M096",
+    "materialName": "PVDF",
+    "estimateIdentity": "PVDF",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "X-3DXTECH-PRINT-20260928-4c7905791366",
+      "Publisher": "3DXTECH",
+      "Title": "FLUORXTM PVDF",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://www.3dxtech.com/products/fluorx-pvdf-1",
+      "Locator": "Document / product page",
+      "Applicable grades": "G096-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "4c7905791366f91b71f0d96a9b6dfa7cf0b31a9a3881b2bc8fb2c343bf165901"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FILAMENT MAINTAINER & DRYER BUNDLE DEAL ENDS 09/30! SAVE $1,495"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G096-01",
+      "row": {
+        "GradeID": "G096-01",
+        "MaterialID": "M096",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "FLUORX PVDF",
+        "Shared formulation key": "X-FLUORX-PVDF-TDS-v3",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Current official product listing retrieved",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-3DXTECH-PRINT-20260928-4c7905791366",
+        "Source locator": "TDS / official product page; current product: XP-fluorx-pvdf-1",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G096-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M096",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "245-265C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "245",
+        "Nozzle max °C": "265",
+        "Nozzle requirement": "required",
+        "Bed °C": "90-110C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "X-ECOMAX-fluorx-pvdf-1",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Layer height",
+          "Text": "No special concerns"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder Temp 245-265C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "gradeKey": "G096-01",
+      "row": {
+        "MaterialID": "M096",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Recommended",
+        "Chamber state": "recommended",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "recommended",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "X-3DXTECH-PRINT-20260928-4c7905791366",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Exact-product chamber guidance: Heated Chamber",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Heated Chamber Recommended"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Full captured text and exact product section inspected. Only the chamber/enclosure field enters; original recipes remain. "
+      },
+      "id": "chamber-G096-01"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extruder Temp",
+      "raw": "245-265C",
+      "fromBelow": true,
+      "line": "Extruder Temp 245-265C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temp",
+      "raw": "90-110C",
+      "fromBelow": true,
+      "line": "Bed Temp 90-110C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "No special concerns",
+      "fromBelow": true,
+      "line": "Layer Height No special concerns"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FILAMENT MAINTAINER & DRYER BUNDLE DEAL ENDS 09/30! SAVE $1,495",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What is 3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu A1 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu P2S Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu X1E Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Obsidian Nylon 6 CF v2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FD1 - Filament Dryer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FM1 - Filament Maintainer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "22 IDEX v4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Altra 280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IPSO 105",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXTech News",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What is 3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu A1 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu P2S Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu X1E Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Obsidian Nylon 6 CF v2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FD1 - Filament Dryer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FM1 - Filament Maintainer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "22 IDEX v4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Altra 280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IPSO 105",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXTech News",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 0 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: PVD01UN100750NAT0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$188.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$188.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$0.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High Thermal Properties: 130C CUT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Low smoke and flame characteristics with a base resin rated V-0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm Variant sold out or unavailable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85mm Variant sold out or unavailable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "750g Variant sold out or unavailable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our 750g reels fit within the size requirements of popular automated material management systems like the Bambu AMS, Creality CFS, and Anycubic ACE Pro. That me",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXTECH is now ISO 9001:2015 certified. This internationally recognized standard for quality management systems reflects a rigorous, third-party validation of h",
+      "reason": "properties.csv carries no property for \"3DXTECH is now\""
+    },
+    {
+      "page": 1,
+      "text": "PVDF [Polyvinylidene fluoride] is a high-performance polymer which offers exceptional thermal and chemical resistances. Rated for uses up to 130C – this filamen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We manufacture all of our filaments in our 68,000 ft² manufacturing facility (located in Grand Rapids, Michigan) using state-of-the-art equipment and processes.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Triton 3D (Stratasys Compatible)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Triton 3D (Stratasys Compatible)",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 3DXTECH .",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Cart 0",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "$0.00 USD",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted.",
+    "retrievalRevision": {
+      "previousSourceID": "XP-fluorx-pvdf-1",
+      "previousSHA256": "24c99f12f4a2a3ceee09aca914147aa5bde7f2fd4cabd2204d93bec43c1efd2a",
+      "accessed": "2026-09-28",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

@@ -1,0 +1,148 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s05.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "tensileModulusXY"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-04",
+    "materialId": "M001",
+    "manufacturer": "Spectrum",
+    "product": "PLA Tough",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "tensileModulusXY >= 6"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 6
+      },
+      "criterion": "tensileModulusXY >= 6",
+      "status": "FAIL",
+      "reason": "Published 0.4328 GPa (XY) (ASTM D638); moisture state and treatment not stated, admitted for screening",
+      "observed": 0.4328,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V011510",
+          "role": "decides",
+          "gradeId": "G001-04",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "432,8 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "D638",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 0.4328,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 0.4328,
+              "hi": 0.4328,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ASTM D638"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: E-modulus, D638, 432.8 MPa; horizontal XY footnote",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 200,
+      "pass": 0,
+      "fail": 39,
+      "untested": 161,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G001-03",
+      "state": "as-printed"
+    }
+  }
+}

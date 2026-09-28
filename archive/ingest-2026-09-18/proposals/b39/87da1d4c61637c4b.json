@@ -1,0 +1,396 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "87da1d4c61637c4b26546322d525cd5dbb2ec078be31da469988dd20b2d426fc",
+    "url": "https://www.nobufil.com/en/product-page/pctg-cf-filament-black",
+    "pages": 1,
+    "provider": "Nobufil",
+    "manufacturer": "Nobufil",
+    "docKey": "https://www.nobufil.com/en/product-page/pctg-cf-filament-black#witness-for=source:R-3DJAKE-3DJAKE-PCTG-CF-tech-data"
+  },
+  "identity": {
+    "polymer": "PCTG",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Copolyesters",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pctg",
+      "filler: carbonfiber (from the sheet, not the name)"
+    ],
+    "materialId": "M088",
+    "materialName": "PCTG",
+    "estimateIdentity": "PCTG",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NOBUFIL-PRINT-20260928-87da1d4c6163",
+      "Publisher": "Nobufil",
+      "Title": "Nobufil PCTG CF Filament Black 1 kg 1.75 mm | nobufil",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://www.nobufil.com/en/product-page/pctg-cf-filament-black",
+      "Locator": "Document / product page",
+      "Applicable grades": "G144-02",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "87da1d4c61637c4b26546322d525cd5dbb2ec078be31da469988dd20b2d426fc"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "top of page"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G144-02",
+      "row": {
+        "GradeID": "G144-02",
+        "MaterialID": "M144",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nobufil",
+        "Product name": "PCTG CF",
+        "Shared formulation key": "R-3DJAKE-3DJAKE-PCTG-CF-tech-data",
+        "Composition / filler": "Nobufil PCTG CF is a sustainable 10% carbon fiber reinforced PCTG made from recycled industrial (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NOBUFIL-PRINT-20260928-87da1d4c6163",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G144-02 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "G144-02",
+      "row": {
+        "MaterialID": "M144",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "It is ideal for use in open desktop 3D printers.",
+        "Enclosure state": "not-needed",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NOBUFIL-PRINT-20260928-87da1d4c6163",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Exact-product chamber guidance: It is ideal for use in open desktop 3D printers.",
+        "Parse review": "Exact product is explicitly compatible with open printers, or its enclosure is explicitly not mandatory. This clears the enclosure/chamber need under D33; no temperature is inferred. Raw recommendation remains visible. Codex AI, 2026-09-28."
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Made from recycled industrial waste in Europe, Nobufil PCTG Carbon filament is sustainable while being extremely functional. It is ideal for use in open desktop 3D printers. Besides, it offers a perfect balance between strength and ease of handling."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Full captured text and exact product section inspected. Only the chamber/enclosure field enters; original recipes remain. "
+      },
+      "id": "chamber-G144-02"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "b2b",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCTG CF is a high-performance, eco-friendly 3D printer filament reinforced with 10% carbon fiber . It offers exceptional stiffness, tensile strength and",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Made from recycled industrial waste in Europe, Nobufil PCTG Carbon filament is sustainable while being extremely functional. It is ideal for use in open desktop",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "- Print temperature: 265°C ± 10",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "- Bed temp: 85°C ± 10",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "- Fan speed: 20-50%",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCTG CF Filament Black 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "SKU: PCTG-F-901-1-010",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "€54.90 Price",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "​ F&uuml;r Gro&szlig;h&auml;ndler & B2B-Kunden: Jetzt Angebot anfragen - wir k&uuml;mmern uns pers&ouml;nlich um Ihr Anliegen.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCTG carbon filament is made from recycled production waste and thus makes a valuable contribution to the circular economy. As an alternative to materia",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil ASAx CF Filament Black 0,85 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €49.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PLAx CF Filament Black 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €44.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCx CF Black Filament 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €69.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCTG Black Filament 1kg 1.75mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €29.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil ABSx ESD Black Filament 0,5 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €49.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCx Black Filament 1 kg 1.75",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €54.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PETG CF Filament Black 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €54.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil ASA Filament Black 1kg 1.75mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €32.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil ASAx CF Filament Anthracite 0,85 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €49.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PLAx Matt Black Filament 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €34.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PLAx CF Anthracite Filament 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €44.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCTG Stainless Steel Filament 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €31.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PETG CF Filament Dark Grey 1 kg 1.75 mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €54.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil ABSx Black Filament 1kg 1.75mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €29.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil ABSx Astro Black Filament 1kg 1.75mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €29.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil PCTG Lime Green Filament 1kg 1.75mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Price €29.90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Nobufil is the first Austrian sustainable 3D printing filament manufacturer with its own recycling and in-house filament production. We care about reducing plas",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "nobufil GmbH dr Franz Wilhelm S tra&szlig;e 2 3500 Krems an der Donau, Austria office@nobufil.com FN: 579247i UID: ATU78162328 Commercial court: Krems at the Do",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 nobufil GmbH - All rights reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

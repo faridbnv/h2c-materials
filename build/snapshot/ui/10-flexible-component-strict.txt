@@ -1,7 +1,7 @@
-COUNT 6 shown PASS
-STATUS ☑ PASS 6 | ☐ UNKNOWN 110 | ☐ FAIL 37
-6 of the 153 materials meet these requirements
-Flexible component template · 110 more could not be checked, left out under Confirmed only
+COUNT 7 shown PASS
+STATUS ☑ PASS 7 | ☐ UNKNOWN 109 | ☐ FAIL 37
+7 of the 153 materials meet these requirements
+Flexible component template · 109 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -41,6 +41,13 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+OBC
+Polyolefins
+ PASS
+1 of 1
+ 905
+905–905 · 2
+ — 14 700 n/a — ☆
 PA6/66
 Nylon / Polyamide
  PASS

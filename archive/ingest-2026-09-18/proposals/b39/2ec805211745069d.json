@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "2ec805211745069d8f288abcf48351311f8b5b7f75fa5b3830c5fce79191c394",
+    "url": "https://siddament.com.au/pages/tds",
+    "pages": 1,
+    "provider": "SIDDAMENT",
+    "manufacturer": "SIDDAMENT",
+    "docKey": "https://siddament.com.au/pages/tds#witness-for=source:S-PCGF-ABS-Carbon-Fiber-TDS-Siddament"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs"
+    ],
+    "materialId": "M027",
+    "materialName": "ABS",
+    "estimateIdentity": "ABS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SIDDAMENT-PRINT-20260928-2ec805211745",
+      "Publisher": "SIDDAMENT",
+      "Title": "Siddament TDS | Technical Data Sheets for PLA, ABS, PETG & More - SIDDAMENT",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://siddament.com.au/pages/tds",
+      "Locator": "Document / product page",
+      "Applicable grades": "G029-07",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "2ec805211745069d8f288abcf48351311f8b5b7f75fa5b3830c5fce79191c394"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Your cart is empty"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G029-07",
+      "row": {
+        "GradeID": "G029-07",
+        "MaterialID": "M029",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SIDDAMENT",
+        "Product name": "ABS Carbon Fiber",
+        "Shared formulation key": "S-PCGF-ABS-Carbon-Fiber-TDS-Siddament",
+        "Composition / filler": "ABS Carbon Fiber - Technical Datasheet (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SIDDAMENT-PRINT-20260928-2ec805211745",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G029-07 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "$0.00 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SHITTAMENT V1 TRANSITION ROLLS &rarr; 📦 RESTOCKED SHOP NOW &rarr; JOIN THE DISCORD &rarr; PRUSA MK4S $850 POSTAGE INCLUDED &rarr;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SHITTAMENT V1 TRANSITION ROLLS &rarr; 📦 RESTOCKED SHOP NOW &rarr; JOIN THE DISCORD &rarr; PRUSA MK4S $850 POSTAGE INCLUDED &rarr;",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cuttament-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg Pellets",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Matte PLA V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PETG V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V2 NEW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cuttament-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1kg Pellets",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Matte PLA V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PETG V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS V2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA V2 NEW",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA12 CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A HF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Normal Matte CF Wood Marble PETG CF V2s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6 Nylon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NATURE3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NYLON 6CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "NYLON 12CF",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

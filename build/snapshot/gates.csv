@@ -52,7 +52,7 @@ M050,PA6-CF,within,within,within,within,requires-hardened,required
 M051,PA6-GF,within,within,within,within,requires-hardened,required
 M052,PA12,within,within,within,within,no-special-concern,required
 M053,PA12-CF,within,within,within,within,requires-hardened,required
-M054,PA12-GF,within,within,within,exceeds,requires-hardened,required
+M054,PA12-GF,within,within,within,within,requires-hardened,required
 M055,PA66,within,unknown,unknown,unknown,unknown,unknown
 M056,PA66-CF,within,unknown,unknown,unknown,unknown,unknown
 M057,PA6/66,within,within,within,within,requires-hardened,required
@@ -67,9 +67,9 @@ M065,PA612-ESD,within,within,within,within,requires-hardened,required
 M066,PET,within,within,within,within,no-special-concern,required
 M067,PET-CF,within,within,within,within,requires-hardened,required
 M068,PET-GF,within,within,within,within,requires-hardened,required
-M069,PPA,within,within,within,unknown,no-special-concern,required
+M069,PPA,within,within,within,within,no-special-concern,required
 M070,PPA-CF,within,within,within,partial,requires-hardened,required
-M071,PPA-GF,within,within,within,partial,requires-hardened,required
+M071,PPA-GF,within,within,within,within,requires-hardened,required
 M072,PPS,within,within,within,partial,no-special-concern,required
 M073,PPS-CF,within,within,within,within,requires-hardened,required
 M074,PPS-GF,within,within,within,within,requires-hardened,required
@@ -82,9 +82,9 @@ M080,Support for PA/PET,within,within,within,within,requires-hardened,required
 M081,HIPS,within,within,within,within,no-special-concern,required
 M082,PP,within,within,within,within,no-special-concern,required
 M083,PP-CF,within,within,within,within,requires-hardened,required
-M084,PP-GF,within,within,within,unknown,requires-hardened,unknown
+M084,PP-GF,within,within,within,within,requires-hardened,unknown
 M085,PE,within,within,within,unknown,no-special-concern,unknown
-M086,OBC,within,within,within,unknown,unknown,unknown
+M086,OBC,within,within,within,within,unknown,unknown
 M087,POM / Acetal,within,within,within,exceeds,unknown,required
 M088,PCTG,within,within,within,within,no-special-concern,required
 M089,CPE,within,within,within,within,unknown,required
@@ -103,7 +103,7 @@ M101,PESU / PES,excluded,exceeds,exceeds,unknown,unknown,required
 M102,PPSU,excluded,exceeds,exceeds,exceeds,unknown,required
 M103,PP Lightweight,within,unknown,unknown,unknown,unknown,unknown
 M104,PA6-CE,within,within,within,within,requires-hardened,required
-M105,ASA-EC,within,within,within,unknown,requires-hardened,required
+M105,ASA-EC,within,within,within,within,requires-hardened,required
 M106,ABS-AF,within,within,within,within,requires-hardened,required
 M107,PLA-ESD,within,within,within,within,no-special-concern,unknown
 M108,PA6-GS,within,within,within,unknown,requires-hardened,required
@@ -132,7 +132,7 @@ M130,PPE-PS,within,unknown,unknown,unknown,unknown,unknown
 M131,PC-PBT-CF,within,within,within,unknown,requires-hardened,unknown
 M132,PBT-GF,within,within,within,partial,requires-hardened,required
 M133,PBAT,within,within,within,within,unknown,required
-M134,CPE-LW,within,within,within,unknown,unknown,unknown
+M134,CPE-LW,within,within,within,within,unknown,unknown
 M135,PVC,within,within,unknown,unknown,unknown,unknown
 M136,SAN,within,unknown,unknown,unknown,unknown,unknown
 M137,COC,within,unknown,unknown,unknown,unknown,unknown
@@ -149,14 +149,14 @@ M147,PAHT,within,within,unknown,unknown,unknown,unknown
 M148,PAHT-CE,within,within,unknown,unknown,requires-hardened,unknown
 M149,PCL,within,within,within,unknown,unknown,unknown
 M150,TPU-LW,within,within,within,unknown,unknown,required
-M151,TPU-GF,within,within,within,unknown,requires-hardened,unknown
+M151,TPU-GF,within,within,within,within,requires-hardened,unknown
 M152,PLA-NF,within,within,within,within,requires-hardened,required
 M153,PETG-GR,within,unknown,unknown,unknown,unknown,unknown
 M154,PA12-AF,within,within,unknown,unknown,requires-hardened,unknown
 M155,PLA-GR,within,unknown,unknown,unknown,unknown,unknown
 M156,PA6/66-CF,within,within,within,unknown,requires-hardened,unknown
 M157,TPU-EC,within,unknown,unknown,unknown,no-special-concern,required
-M158,PLA-CE,within,within,within,unknown,unknown,unknown
+M158,PLA-CE,within,within,within,within,unknown,unknown
 M159,TPU 85A class and softer,within,within,within,within,requires-hardened,required
 M160,TPU 90A class,within,within,within,within,no-special-concern,required
 M161,TPU 95A class,within,within,within,within,requires-hardened,required

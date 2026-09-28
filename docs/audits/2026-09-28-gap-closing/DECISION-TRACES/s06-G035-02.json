@@ -1,0 +1,113 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s06.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "acid"
+    ]
+  },
+  "product": {
+    "gradeId": "G035-02",
+    "materialId": "M035",
+    "manufacturer": "Polymaker",
+    "product": "PolyLite PC",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "Acid resistance evidence"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "acid",
+      "kind": "environment",
+      "mandatory": true,
+      "constraint": {
+        "category": "acid",
+        "kind": "environment"
+      },
+      "criterion": "Acid resistance evidence",
+      "status": "FAIL",
+      "reason": "1 record(s) report not-resistant",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "evidence",
+          "id": "Q05244",
+          "role": "decides",
+          "gradeId": "G035-02",
+          "category": "acid",
+          "agent": null,
+          "verdict": "not-resistant",
+          "finding": "Not resistant",
+          "locator": "p. 2: Effect of strong acids Not resistant",
+          "source": {
+            "id": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+            "publisher": "Polymaker",
+            "title": "PolyLite PC Technical Data Sheet",
+            "url": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyLite_PC_TDS_V5.3.pdf",
+            "sha256": "89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d",
+            "accessDate": "2026-09-17",
+            "accessState": "retrieved-copy",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M035",
+    "name": "PC",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 24,
+      "pass": 0,
+      "fail": 2,
+      "untested": 22,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G035-03",
+      "state": "as-printed"
+    }
+  }
+}

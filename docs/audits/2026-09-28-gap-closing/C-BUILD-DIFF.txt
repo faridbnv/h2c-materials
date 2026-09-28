@@ -1,0 +1,83 @@
+
+> h2c-fdm-material-selector@1.0.0 build:diff
+> node scripts/build-diff.mjs
+
+    63  db.sources[]
+    62  db.grades[].knowHow.readOn
+    60  db.grades[].knowHow.searchedOn
+    42  db.grades[].knowHow.recipe.annealing
+    32  db.materials[].knowHow.sitesSearched
+    31  db.grades[].knowHow.recipe.chamber
+    30  db.materials[].knowHow.recipe.annealing.searched-nothing
+    27  db.materials[].knowHow.recipe.annealing.sheet-silent
+    23  db.grades[].print.profileIds.length
+    23  db.grades[].knowHow.recipe.drying
+    23  db.profiles[]
+    20  db.materials[].gates.nozzle.profiles
+    20  db.materials[].gates.nozzle.basis
+    20  db.materials[].gates.nozzle.unpublishedProfiles
+    20  db.materials[].gates.bed.profiles
+    20  db.materials[].gates.bed.basis
+    20  db.materials[].gates.bed.unpublishedProfiles
+    20  db.materials[].gates.chamber.profiles
+    20  db.materials[].gates.chamber.basis
+    20  db.materials[].profileIds.length
+    19  db.materials[].knowHow.recipe.drying.searched-nothing
+    17  db.materials[].knowHow.recipe.chamber.searched-nothing
+    17  db.materials[].knowHow.recipe.chamber.sheet-silent
+    17  db.materials[].knowHow.recipe.drying.sheet-silent
+    16  db.meta.chamberEstimates.superseded[].material
+    14  db.grades[].print.chamber.reason
+    13  db.materials[].gates.chamber.unpublishedProfiles
+    13  db.coverage[].finding
+    12  db.grades[].print.chamber.verdict
+    12  db.grades[].print.chamber.state
+    12  db.grades[].print.chamber.profileId
+    11  db.meta.chamberEstimates.superseded[].reason
+    10  db.materials[].print.chamberGuidance
+     9  db.materials[].knowHow.recipe.chamber.collected
+     9  db.materials[].gates.chamber.verdict
+     9  db.materials[].gates.chamber.reason
+     7  db.grades[].print.enclosure
+     6  db.meta.chamberEstimates.superseded[].band
+     6  db.grades[].knowHow.state
+     6  db.grades[].knowHow.statements
+     6  db.knowHow[]
+     4  db.materials[].print.chamberGuidance.profiles
+     3  db.materials[].print.chamberEstimate
+     3  db.materials[].knowHow.state
+     3  db.materials[].knowHow.products.collected
+     3  db.materials[].knowHow.products.no-document-read
+     3  db.materials[].knowHow.recipe.annealing.no-document-read
+     2  db.materials[].gates.chamber.over
+     2  db.materials[].knowHow.topics.Benefits
+     2  db.materials[].knowHow.recipe.chamber.no-document-read
+     2  db.materials[].knowHow.recipe.drying.no-document-read
+     2  db.grades[].knowHow.topics.Benefits
+     1  db.meta.counts.profiles
+     1  db.meta.counts.sources
+     1  db.meta.counts.knowHow
+     1  db.meta.chamberEstimates.applied
+     1  db.meta.chamberEstimates.superseded.length
+     1  db.meta.knowHow.statements
+     1  db.meta.knowHow.products.collected
+     1  db.meta.knowHow.products.no-document-read
+     1  db.meta.knowHow.materials.collected
+     1  db.meta.knowHow.materials.no-document-read
+     1  db.meta.knowHow.documentsRead
+     1  db.meta.knowHow.sitesSearched
+     1  db.materials[].gates.chamber.reachable
+     1  db.materials[].print.chamberC.max
+     1  db.materials[].print.chamberC.profiles
+     1  db.materials[].knowHow.topics.Good for
+     1  db.materials[].knowHow.topics.Pitfalls and limitations
+     1  db.materials[].knowHow.topics.Moisture sensitivity
+     1  db.materials[].knowHow.topics.Warping and shrinkage
+     1  db.grades[].knowHow.topics.Pitfalls and limitations
+     1  db.grades[].knowHow.topics.Moisture sensitivity
+     1  db.grades[].knowHow.topics.Warping and shrinkage
+     1  db.grades[].print.chamber.min
+     1  db.grades[].print.chamber.max
+     1  db.grades[].knowHow.topics.Good for
+release b13b750d0429 -> ba30857bd40d
+891 difference(s) between HEAD and the working tree

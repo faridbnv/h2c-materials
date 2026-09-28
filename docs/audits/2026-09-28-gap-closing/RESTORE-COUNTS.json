@@ -1,0 +1,33 @@
+{
+  "inventoryEntries": 2403,
+  "registered": 1712,
+  "ledgerOnly": 691,
+  "liveBytes": {
+    "absent": 123,
+    "present": 2267,
+    "not-recorded": 12,
+    "mismatch": 1
+  },
+  "restoredBytes": {
+    "absent": 124,
+    "present": 2267,
+    "not-recorded": 12
+  },
+  "text": {
+    "absent": 125,
+    "cached": 2263,
+    "not-recorded": 12,
+    "stale": 3
+  },
+  "provenanceAndTextMatch": true,
+  "intentionalDifference": [
+    [
+      "R-KIMYA-PEBA-S-TDS",
+      "mismatch",
+      "absent"
+    ]
+  ],
+  "backupOriginals": 2267,
+  "backupDerived": 2712,
+  "cloudUploadVerified": false
+}

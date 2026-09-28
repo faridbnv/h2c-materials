@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "f1295dc5696cdd640ea203fa37ce5ccfd7aae97b6f1c6f9ba8db7f3185a429b4",
+    "url": "https://after-support.flashforge.jp/tds-list/",
+    "pages": 1,
+    "provider": "Flashforge",
+    "manufacturer": "Flashforge",
+    "docKey": "https://after-support.flashforge.jp/tds-list/#witness-for=source:D-FLASH-TPU-64D-TDS-EN"
+  },
+  "nameUnsupported": {
+    "read": "FAQへ",
+    "listed": "TPU 64D"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpu"
+    ],
+    "materialId": "M163",
+    "materialName": "TPU, hardness not stated",
+    "estimateIdentity": "TPU",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "D-FLASHFORGE-PRINT-20260928-f1295dc5696c",
+      "Publisher": "Flashforge",
+      "Title": "TDS一覧 | FLASHFORGE JAPAN アフターサポート",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://after-support.flashforge.jp/tds-list/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G039-23",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "f1295dc5696cdd640ea203fa37ce5ccfd7aae97b6f1c6f9ba8db7f3185a429b4"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FAQへ"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G039-23",
+      "row": {
+        "GradeID": "G039-23",
+        "MaterialID": "M162",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "TPU 64D",
+        "Shared formulation key": "D-FLASH-TPU-64D-TDS-EN",
+        "Composition / filler": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASHFORGE-PRINT-20260928-f1295dc5696c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G039-23 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "PA6_CF_TDS_EN.pdf",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6_GF_TDS_EN.pdf",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU_64D_TDS_EN.pdf",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "06-6710-9761（製品サポートに関するお問い合わせ） Copyright © FLASHFORGE JAPAN アフターサポート All Rights Reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

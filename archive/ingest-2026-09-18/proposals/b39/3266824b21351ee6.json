@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "3266824b21351ee69f6cc332fb48295a4d7fd178d45aa86fb169bd900e488561",
+    "url": "https://www.eryone.com/abs-carbon-fiber-product/",
+    "pages": 1,
+    "provider": "Eryone",
+    "manufacturer": "Eryone",
+    "docKey": "https://www.eryone.com/abs-carbon-fiber-product/#witness-for=source:R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--6b5ac4"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs",
+      "filler: carbonfiber (from the sheet, not the name)"
+    ],
+    "materialId": "M029",
+    "materialName": "ABS-CF",
+    "estimateIdentity": "ABS",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-ERYONE-PRINT-20260928-3266824b2135",
+      "Publisher": "Eryone",
+      "Title": "ABS Carbon Fiber",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.eryone.com/abs-carbon-fiber-product/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G029-04",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3266824b21351ee69f6cc332fb48295a4d7fd178d45aa86fb169bd900e488561"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Thinker X400"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G029-04",
+      "row": {
+        "GradeID": "G029-04",
+        "MaterialID": "M029",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Eryone",
+        "Product name": "ABS-CF",
+        "Shared formulation key": "R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--6b5ac4",
+        "Composition / filler": "that combine strength and rigidity.The carbon fiber content is approximately 10%. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-ERYONE-PRINT-20260928-3266824b2135",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G029-04 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M029",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240-280°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "90-110°C",
+        "Bed state": "range",
+        "Bed min °C": "90",
+        "Bed max °C": "110",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-ERYONE-ABS-CF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30-100mm/s"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Extruder temperature: 240-280ºC"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extruder temperature",
+      "raw": "240-280°C",
+      "fromBelow": false,
+      "line": "Extruder temperature: 240-280ºC"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Platform temperature",
+      "raw": "90-110°C",
+      "fromBelow": false,
+      "line": "Platform temperature: 90-110ºC"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print speed",
+      "raw": "30-100mm/s",
+      "fromBelow": false,
+      "line": "Print speed: 30-100mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Thinker X400",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LCD 3D Printer L10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Standard TPU 90A Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Standard TPU 95A Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Rainbow-95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA6/12-GF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Eryone ABS-CF is a 10% carbon fiber reinforced filament that delivers high strength, rigidity, and warp resistance with a premium matte finish - perfect for ind",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament diameter: 1.75 ± 0.03mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament weight: 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Engineered for superior strength and durability, this filament delivers high tensile strength (up to 50MPa) and impact resistance, making it ideal for functiona",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With optimized flow and minimal warping, it prints reliably at 210-230°C on most machines—no complex tuning needed, even for beginners.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Withstands temperatures up to 100°C (HDT), ensuring stability for automotive/electronics applications where thermal stress is critical.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "01 02",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DIY Maker’s 3D Printing Farm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "For inquiries about our products or pricelist, please leave your email to us and we will be in touch within 24 hours.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© Copyright 2025 : All Rights Reserved. Top Topic",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

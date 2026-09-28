@@ -1,0 +1,1 @@
+audit:witness: 7678 recorded rows, 7089 bound, 578 read on the page image, 11 listed in docs/audits/2026-09-27-v2.1-review/WITNESS-BINDING.md

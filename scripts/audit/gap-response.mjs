@@ -10,11 +10,18 @@ import { runSelection, UNKNOWN_POLICY } from '../../app/js/engine/constraints.js
 import { productsByMaterial } from '../../app/js/engine/products.js';
 import { useRegistry } from '../../app/js/ui/registry.js';
 import { projectRoot } from '../ingest/context.mjs';
+import { releaseIdentity } from '../../build/src/release.js';
 const out = join(projectRoot,'docs/audits/2026-09-28-gap-closing');
 const readCheckpoint=(path)=>JSON.parse(existsSync(path)?readFileSync(path,'utf8'):gunzipSync(readFileSync(path+'.gz')).toString());
 const baseline = JSON.parse(readFileSync(join(out,'BASELINE.json'),'utf8'));
-const wb=loadTables(join(projectRoot,'data'));
-const {db}=buildDatabase(wb,{snapshot:snapshotDate(wb.Method.rows),build:'audit'});
+let db;
+if(process.argv.includes('--compiled')){
+ db=JSON.parse(readFileSync(join(projectRoot,'dist/db.json')));
+ if(db.meta.release?.id!==releaseIdentity(projectRoot).id)throw Error('Compiled database is stale; build first.');
+}else{
+ const wb=loadTables(join(projectRoot,'data'));
+ ({db}=buildDatabase(wb,{snapshot:snapshotDate(wb.Method.rows),build:'audit'}));
+}
 useRegistry(db.registry);
 const group=(list)=>{const m=new Map();for(const x of list){if(!m.has(x.materialId))m.set(x.materialId,[]);m.get(x.materialId).push(x);}return m;};
 const ctx={db,productsByMaterial:productsByMaterial(db),evidenceByMaterial:group(db.evidence),polymerEvidenceByMaterial:group(db.polymerEvidence??[]),measurementsByMaterial:group(db.measurements),coverageByMaterial:group(db.coverage),unknownPolicy:UNKNOWN_POLICY.STRICT};

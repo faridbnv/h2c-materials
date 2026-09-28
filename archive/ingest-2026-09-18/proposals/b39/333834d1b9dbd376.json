@@ -1,0 +1,370 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "333834d1b9dbd37660b8fb0a722a797107850ccdc5f651066ce8adc43e858449",
+    "url": "https://www.esun3d.com/epa-cf-product/",
+    "pages": 1,
+    "provider": "eSUN",
+    "manufacturer": "eSUN",
+    "docKey": "https://www.esun3d.com/epa-cf-product/#witness-for=source:S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0"
+  },
+  "identity": {
+    "polymer": "PA6/66",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pa6-66",
+      "filler: carbonfiber (from the sheet, not the name)"
+    ],
+    "materialId": "M156",
+    "materialName": "PA6/66-CF",
+    "estimateIdentity": "PA6/66",
+    "confidence": 0.65,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-ESUN-PRINT-20260928-333834d1b9db",
+      "Publisher": "eSUN",
+      "Title": "PA-CF Carbon Fiber Nylon Filament for High-Strength 3D Printing | eSUN 3D Printer Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://www.esun3d.com/epa-cf-product/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G156-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "333834d1b9dbd37660b8fb0a722a797107850ccdc5f651066ce8adc43e858449"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "The store will not work correctly when cookies are disabled."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G156-01",
+      "row": {
+        "GradeID": "G156-01",
+        "MaterialID": "M156",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "ePA CF",
+        "Shared formulation key": "S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0",
+        "Composition / filler": "Developed based on nylon 6/66 copolymer, adding 20% carbon fiber greatly enhances the strength, rigidity and tough- (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-ESUN-PRINT-20260928-333834d1b9db",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G156-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "G156-01",
+      "row": {
+        "MaterialID": "M156",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "enclosed-chamber printing",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-ESUN-PRINT-20260928-333834d1b9db",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Exact-product chamber guidance: enclosed-chamber printing",
+        "Parse review": "Exact product instruction specifies enclosed printing, without a heated chamber setpoint. Recorded as an enclosure ask only. Codex AI, 2026-09-28."
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Dry at70℃/>12h，use a hardened steel nozzle，enclosed-chamber printing"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Full captured text and exact product section inspected. Only the chamber/enclosure field enters; original recipes remain. "
+      },
+      "id": "chamber-G156-01"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extruder Temperature",
+      "raw": "(°C)",
+      "fromBelow": false,
+      "line": "Extruder Temperature(°C)"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "(°C)",
+      "fromBelow": false,
+      "line": "Bed Temperature(°C)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Shipping: $ 5.99, Free Shipping Over $ 99.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shipping: $ 5.99, Free Shipping Over $ 99.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nylon carbon fiber filament is developed based on nylon 6/66 copolymer, adding 20% carbon fiber greatly enhances the strength, rigidity and toughness of nylon, ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1KG/Spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA-CF Reinforced with Carbon Fiber - Flexural strength up 137%and flexural modulus up 335% compared to PA.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA-CF Heat Deflection Temperature up to155°C 55.4°C higher than standard PA.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density(g/cm3) (unit to be confirmed)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "11.46(275℃/5kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow Index(g/10min)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "155 10/10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "84.05",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "50.34",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7.42",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "11.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "127.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "54.9",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6455.44",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1657.25",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "9.85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "260-300℃/500-572℉",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "60-90℃",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0%",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "＜150mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Dry at70℃/>12h，use a hardened steel nozzle，enclosed-chamber printing",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Download List 0",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "BLACK #272729",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Hi, because we will split the package for shipment depending on the weight and storage warehouse when we ship. If your multiple packages do not arrive within 2 ",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Our restocking cycle is usually 2-3 months. Please contact us for detailed dates. We accept pre-order, if you want to pre-order, please contact us: [email prote",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Embark on a 3D Journey",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Leading the world in 3D printing material standards since 2002. With over 20 years of expertise, eSUN provides end-to-end solutions-including FDM filaments, LCD",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ESUN易生3D打印材料",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2026 All Rights Reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "COPYRIGHT © 2026 eSUN",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

@@ -1,7 +1,7 @@
-COUNT 5 shown PASS
-STATUS ☑ PASS 5 | ☐ UNKNOWN 108 | ☐ FAIL 40
-5 of the 153 materials meet these requirements
-High-stiffness fixture template · 108 more could not be checked, left out under Confirmed only
+COUNT 6 shown PASS
+STATUS ☑ PASS 6 | ☐ UNKNOWN 107 | ☐ FAIL 40
+6 of the 153 materials meet these requirements
+High-stiffness fixture template · 107 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -113,3 +113,18 @@ High-Performance Engineering
  220
 84.5–240 · 6
  255↗ ☆
+PPA-GF
+High-Performance Engineering
+ PASS
+1 of 1
+ 1,285
+1,270–1,310 · 4
+ 6.56
+5.7–7 · 3
+ 100
+89–106 · 3
+ 2.7
+2.1–3.5 · 3
+ 220
+84–227 · 3
+ — ☆

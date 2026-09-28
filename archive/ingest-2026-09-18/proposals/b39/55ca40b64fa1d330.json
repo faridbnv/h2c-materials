@@ -1,0 +1,571 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "55ca40b64fa1d33036a214b458728a01dcf7a8cad6dffb625a5ecb721d1c0880",
+    "url": "https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets",
+    "pages": 1,
+    "provider": "3DXTECH",
+    "manufacturer": "3DXTECH",
+    "docKey": "https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets#witness-for=source:X-3DXSTAT-ESD-PA12-TDS-v1"
+  },
+  "nameUnsupported": {
+    "read": "Filaments",
+    "listed": "3DXSTAT ESD PA12"
+  },
+  "identity": {
+    "polymer": "PA12",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pa12"
+    ],
+    "materialId": "M052",
+    "materialName": "PA12",
+    "estimateIdentity": "PA12",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "X-3DXTECH-PRINT-20260928-55ca40b64fa1",
+      "Publisher": "3DXTECH",
+      "Title": "3D Printing Technical Data Sheets & Safety Data Sheets | 3DXTech",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.3dxtech.com/pages/tech-data-sheets-safety-data-sheets",
+      "Locator": "Document / product page",
+      "Applicable grades": "G064-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "55ca40b64fa1d33036a214b458728a01dcf7a8cad6dffb625a5ecb721d1c0880"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "FILAMENT MAINTAINER & DRYER BUNDLE DEAL ENDS 09/30! SAVE $1,495"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G064-01",
+      "row": {
+        "GradeID": "G064-01",
+        "MaterialID": "M064",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DXTECH",
+        "Product name": "3DXSTAT ESD PA12",
+        "Shared formulation key": "X-3DXSTAT-ESD-PA12-TDS-v1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "X-3DXTECH-PRINT-20260928-55ca40b64fa1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G064-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FILAMENT MAINTAINER & DRYER BUNDLE DEAL ENDS 09/30! SAVE $1,495",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What is 3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu A1 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu P2S Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu X1E Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Obsidian Nylon 6 CF v2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FD1 - Filament Dryer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FM1 - Filament Maintainer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "22 IDEX v4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Altra 280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IPSO 105",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXTech News",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LTS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MTS 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "What is 3DXLabs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu A1 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu P2S Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu X1E Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Obsidian Nylon 6 CF v2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FD1 - Filament Dryer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FM1 - Filament Maintainer",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "22 IDEX v4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Altra 280",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "IPSO 105",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXTech News",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 0 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXTech Technical and Safety Data Sheets",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "This data was generated on actual 3D printed ISO specimen and tested by our resin company partners. We believe that the best use of this data is to assist our c",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Disclaimer: Technical data generated on 3D printed specimen are highly dependent upon the printer and the print settings applied. This data was created using 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Novice: A beginner using an entry-level 3D printer should have minimal problems using this material.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Advanced: User has > 1 year of printing experience and is using a high quality commercial printer.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD PEKK      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD Ultem 9085      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD Ultem 1010      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD PPS      ADVANCED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD PVDF      ADVANCED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD PC      ADVANCED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD PETG      NOVICE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD ABS      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD PLA      NOVICE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CarbonX™ Carbon Fiber PEEK10      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CarbonX™ Carbon Fiber PEEK20      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CarbonX™ Carbon Fiber PEI 1010      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CarbonX™ Carbon Fiber PEI 9085      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CarbonX™ Carbon Fiber PA6 Gen3      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CarbonX™ Carbon Fiber PA12 Nylon      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Obsidian™ PA6+CF [Markforged ONYX Alternative]      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "THERMAX™ PEI [1010]      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "THERMAX™ PEI [9085]      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Evolv3D™ OBC    N/A  ADVANCED",
+      "reason": "the sheet publishes no value for \"Evolv3D™ OBC\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT™ ESD-Flex TPU (90A)      ADVANCED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXMAX® PC      ADVANCED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXMAX® PC/ASA      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXMAX® PC/ABS      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXPro™ Low Gloss PETG      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXMAX® ASA      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DXMAX® ABS Filament    N/A  INTERMEDIATE",
+      "reason": "the sheet publishes no value for \"3DXMAX® ABS Filament\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "3DXMAX® HIPS Filament      NOVICE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FibreX™ PEEK-GF20      EXPERT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FibreX™ PEI-GF30    N/A  EXPERT",
+      "reason": "the sheet publishes no value for \"FibreX™ PEI-GF30\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "FibreX™ PA6-GF30 Nylon      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FibreX™ PA12-GF30 Nylon      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FibreX™ PP+GF30    N/A  INTERMEDIATE",
+      "reason": "the sheet publishes no value for \"FibreX™ PP+GF30\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "AmideX™ Nylon 6-66      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "WearX™ Wear Resistant PA6      INTERMEDIATE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AquaTek™ X1 USM Water Soluble Support  N/A    N/A",
+      "reason": "the sheet publishes no value for \"AquaTek™ X1 USM Water Soluble SupportN/A\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "3DXSTAT ESD-Nylon 12    N/A  N/A",
+      "reason": "the sheet publishes no value for \"3DXSTAT ESD-Nylon 12\" in this row: its value column prints \"N/A\""
+    },
+    {
+      "page": 1,
+      "text": "Triton 3D (Stratasys Compatible)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Triton 3D (Stratasys Compatible)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ISO 9001:2015 Certification",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Proposition 65",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 3DXTECH .",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cart 0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$0.00 USD",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

@@ -1,0 +1,337 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/high-stiffness-fixture.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "tensileModulusXY",
+      "hdt045"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-180",
+    "materialId": "M001",
+    "manufacturer": "colorFabb",
+    "product": "stoneFill",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "tensileModulusXY >= 5"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 220 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1033",
+          "role": "the product's own recipe",
+          "gradeId": "G001-180",
+          "raw": "195 - 220°C",
+          "locator": "p. 2: Recommended printing settings",
+          "source": {
+            "id": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet stoneFill",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_ColorFabb_StoneFill.pdf",
+            "sha256": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1033",
+          "role": "the product's own recipe",
+          "gradeId": "G001-180",
+          "raw": "50 - 60°C",
+          "locator": "p. 2: Recommended printing settings",
+          "source": {
+            "id": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet stoneFill",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_ColorFabb_StoneFill.pdf",
+            "sha256": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required (per Bambu Lab's Filament Guide for PLA, not this maker's sheet)",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "guide",
+          "id": "PG016",
+          "role": "per Bambu Lab's Filament Guide for PLA, not this maker's sheet",
+          "name": "Bambu Lab's Filament Guide for PLA",
+          "raw": "Not published",
+          "enclosure": "Optional",
+          "locator": "p. 1, the column headed PLA: Nozzle Temperature; Build Plate & Bed Temperature; Print with Enclosure; Nozzle Size/Material; Dry Out Before Use; Drying Condition",
+          "source": {
+            "id": "B-GUIDE",
+            "publisher": "Bambu Lab",
+            "title": "Bambu Lab Filament Guide",
+            "url": "https://cdn1.bambulab.com/filament/filament-guide/250123/filament-guide-en.pdf",
+            "sha256": "ea799364fa4664e61632a1e87e5073c3edd0e76f93bd5524192bb018b5cfb858",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 5
+      },
+      "criterion": "tensileModulusXY >= 5",
+      "status": "FAIL",
+      "reason": "Published 3.325 GPa (XY) (ISO 527); moisture state and treatment not stated, admitted for screening",
+      "observed": 3.325,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V010387",
+          "role": "decides",
+          "gradeId": "G001-180",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "3325 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 527",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 3.325,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 3.325,
+              "hi": 3.325,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 527"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Tensile modulus MPa",
+          "source": {
+            "id": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet stoneFill",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_ColorFabb_StoneFill.pdf",
+            "sha256": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": false,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": false,
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 90
+      },
+      "criterion": "hdt045 >= 90",
+      "status": "UNKNOWN",
+      "reason": "Not published in the sampled sources",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 200,
+      "pass": 0,
+      "fail": 39,
+      "untested": 161,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G001-03",
+      "state": "as-printed"
+    }
+  }
+}

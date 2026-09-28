@@ -1,0 +1,256 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/indoor-prototype.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "priceCADkg"
+    ]
+  },
+  "product": {
+    "gradeId": "G071-01",
+    "materialId": "M071",
+    "manufacturer": "IPCON",
+    "product": "PPA-GF",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 310 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0090",
+          "role": "the product's own recipe",
+          "gradeId": "G071-01",
+          "raw": "280 - 310 °C",
+          "locator": "Recommended printing settings; p. 2: Compatible Printer Type",
+          "source": {
+            "id": "D-IPCON-PPA",
+            "publisher": "IPCON",
+            "title": "PPA-GF",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "f9a2ccb84116a13f0a798ba200f6537472ca95b7a804f2bd750a92956abb2bf4",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 120 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0090",
+          "role": "the product's own recipe",
+          "gradeId": "G071-01",
+          "raw": "100 - 120 °C",
+          "locator": "Recommended printing settings; p. 2: Compatible Printer Type",
+          "source": {
+            "id": "D-IPCON-PPA",
+            "publisher": "IPCON",
+            "title": "PPA-GF",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "f9a2ccb84116a13f0a798ba200f6537472ca95b7a804f2bd750a92956abb2bf4",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1283",
+          "role": "the product's own recipe",
+          "gradeId": "G071-01",
+          "raw": "Not published",
+          "enclosure": "Enclosed-frame (rec.), open-frame",
+          "locator": "p. 1: Exact-product chamber guidance: Printer Type Enclosed-frame (rec.), open-frame",
+          "source": {
+            "id": "D-IPCON-PRINT-20260928-01990cc2eb5c",
+            "publisher": "IPCON",
+            "title": "IPCON PPA GF – Glass Fiber Reinforced PPA Filament",
+            "url": "https://www.ipconpolymer.com/product/ppa-gf/",
+            "sha256": "01990cc2eb5c889dc535d34019cfa3c95cf928f8981dc2185edd5aa85c01b966",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "priceCADkg",
+      "kind": "numeric",
+      "mandatory": false,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": false,
+        "operator": "<=",
+        "property": "priceCADkg",
+        "value": 45
+      },
+      "criterion": "priceCADkg <= 45",
+      "status": "UNKNOWN",
+      "reason": "No Canadian price observation in the sampled market",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    }
+  ],
+  "material": {
+    "id": "M071",
+    "name": "PPA-GF",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "all",
+    "counts": {
+      "products": 5,
+      "pass": 1,
+      "fail": 0,
+      "untested": 4,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G071-01",
+      "state": "as-printed"
+    }
+  }
+}

@@ -1,0 +1,499 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "9046b58e8a4363ebab82895c169570fc8979859f30e513184e09835317963091",
+    "url": "https://www.matterhackers.com/store/l/pro-series-nylon/sk/MCR8GQZT",
+    "pages": 1,
+    "provider": "MatterHackers",
+    "manufacturer": "MatterHackers",
+    "docKey": "https://www.matterhackers.com/store/l/pro-series-nylon/sk/MCR8GQZT#witness-for=source:R-MATTERHACKERS-RczMCr"
+  },
+  "identity": {
+    "polymer": "PA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Nylon / Polyamide",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: nylon",
+      "ruling R168 on the word \"nylon\": PA"
+    ],
+    "materialId": "M164",
+    "materialName": "Nylon, polymer not stated",
+    "estimateIdentity": "Not applicable",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-MATTERHACKERS-PRINT-20260928-9046b58e8a43",
+      "Publisher": "MatterHackers",
+      "Title": "Black PRO Series Nylon Filament - 1.75mm (0.75kg) | MatterHackers",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.matterhackers.com/store/l/pro-series-nylon/sk/MCR8GQZT",
+      "Locator": "Document / product page",
+      "Applicable grades": "G164-04",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "9046b58e8a4363ebab82895c169570fc8979859f30e513184e09835317963091"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MatterHackers FREE, FAST Shipping on orders over $35 in the U.S.* Free Shipping on +$35 orders in the U.S.* Customer Service +1 (800) 613-4290"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G164-04",
+      "row": {
+        "GradeID": "G164-04",
+        "MaterialID": "M164",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "MatterHackers",
+        "Product name": "PRO Series Nylon",
+        "Shared formulation key": "R-MATTERHACKERS-RczMCr",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-MATTERHACKERS-PRINT-20260928-9046b58e8a43",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G164-04 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M164",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.14 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.14",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1140",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-MATTERHACKERS-MCR8GQZT",
+        "Locator": "p. 1: Density:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density: 1.14 g/cm3"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "MatterHackers FREE, FAST Shipping on orders over $35 in the U.S.* Free Shipping on +$35 orders in the U.S.* Customer Service +1 (800) 613-4290",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer Resins",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UltiMaker 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Metal 3D Printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer Resins",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All 3D Printer Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MatterHackers 3D Printer Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75kg Filament Spools",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer Filament on Sale",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MatterHackers Black PRO Series Nylon Filament - 1.75mm (0.75kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printer Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm PRO Series Nylon",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+6",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MatterHackers PRO Series filament is a trusted, high-quality material for 3D printing, designed for optimal performance and reliability. It's ideal for everythi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Formulated for functional 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MatterHackers PRO Series filament is all about quality. When the performance of a 3D printed component is the ultimate goal, you need to know you’re printing wi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "MatterHackers PRO Series materials are formulated for functional 3D printing. Because of its precisely detailed chemical blueprint, PRO Series 3D printing filam",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series materials are formulated with zero compromises. The base resin, and all performance-enhancing additives, are carefully sourced to include only those ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Not only is our PRO Series line of filament carefully crafted, but we have an extensive collection of materials to choose from that fit every need and specific ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Choose the material developed and guaranteed by the leader in 3D printing materials",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We know that end-use products are only as good as the materials and tools used to create them - that’s why we put our PRO Series filament through rigorous testi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With PRO Series materials , you know you’re getting the most accurate filament diameter and ovality available. Having a consistent diameter of 3D printing filam",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Since we know diameter matters, we obsess over ensuring that PRO Series materials are on the mark so you can create perfectly printed parts. MatterHackers uses ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended Extrusion Temperatures: 240±10°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Including Bambu Lab X1, P1, H2D, Creality K-Series, Elegoo Centauri, etc.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended Bed Temperature: 60±5°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spool Dimensions: 6.875\" OD x 2.125\" ID x 2.31\" Height",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dimensional Accuracy: ±0.02mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nylon Grade: PA6 / PA66 blend",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Volume: 0.66 L",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Length: 275m (1.75mm) or 100m (2.85mm)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 62 00 - $ 239 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series ASA Filament (1kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 40 00 - $ 52 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series ABS Filament (1kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 30 03 - $ 52 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series ESD-Safe ABS Filament (0.75kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 110 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series ABS Filament - High Capacity Spools (5lb)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 100 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series ABS Filament - High Capacity Spools (10lb)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 210 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series Ryno Filament (0.75kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 55 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 112 50 - $ 220 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 115 00 - $ 240 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series Flex - Flexible TPE (0.5kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 60 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series TPU (Thermoplastic Polyurethane ) (1lb)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 50 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series PVA Water-Soluble Support Material (0.75kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 125 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 65 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series Tough PLA Filament (1kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 36 83 - $ 57 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series Tough PLA Filament - High Capacity Spool (10lb)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 210 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series ESD-Safe PLA Filament (0.75kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 98 00 - $ 120 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PRO Series PLA Filament (1kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 16 76 - $ 52 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$ 90 00 - $ 195 00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+1 (800) 613-4290",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 MatterHackers Inc.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

@@ -75,8 +75,60 @@ B-HELD-OUTCOMES.csv retains 14 product/document leads, including the PET-G sheet
 
 Adjacent Glow-in-the-Dark PETG, PETG Marble, Lightweight PET FLEX MAX, PA12 CF Support and neat HI-TEMP sheets do not become their similarly named targets. Existing Panchroma values are retained, and mixed PolyWood weak/strong-acid ratings do not settle a general acid requirement. The exact target scope is dated in GOALS; the general import pause remains. BACKUP-B.txt records the post-batch incremental export.
 
-State scope: the original worklist runs the portfolio's default policy. S03/S04 also have annealed expectation overrides, and S05 also has conditioned overrides in the acceptance tests. Those override variants are verified by the acceptance portfolio, but are not separate research questions in the frozen 11-question queue. S05 movement above refers to its default dry run; it is not a claim of humid-service suitability. The owner confirmed: finish the frozen targets and record the additional state variants for a follow-up. They are listed separately in STATE-VARIANTS-FOLLOWUP.csv; no additional source research is claimed for them.
+State scope: the original worklist runs the portfolio's default policy. S01/S03/S04 also have annealed expectation overrides, and S05 also has conditioned overrides in the acceptance tests. Those override variants are verified by the acceptance portfolio, but are not separate research questions in the frozen 11-question queue. S05 movement above refers to its default dry run; it is not a claim of humid-service suitability. The owner confirmed: finish the frozen targets and record the additional state variants for a follow-up. They are listed separately in STATE-VARIANTS-FOLLOWUP.csv; no additional source research is claimed for them.
 
 B-MOVEMENT.csv/B-CHANGES.csv show **five newly definite product failures**, all on G020-70, and no material-level answer movement. These are Outdoor, Warm environment, S01, S03 and S04. The below-limit 68 °C datum rejects those heat requirements; it does not certify a printed coupon. B-HDT-TRACE.txt and B-DECISION-TRACE.json trace the numeric row and the Warm decision to the original digest. The compiled diff has 40 paths (B-BUILD-DIFF.txt), including the product value and three downstream HDT estimate spreads; B-DATA-DIFF.txt records the source-table additions.
 
 Full B verification passed (VERIFY-B.txt): 401 main and 186 import tests, 46 acceptance expectations, scale/reproducibility, audit with no errors, current snapshot, 67 views and 300 rendered scenarios / 2,586 readings. verify:fast took 60.6 s. The initial run caught a stale generated know-how worklist after recording the new sheet read; it was regenerated and verification repeated.
+
+## Tranche C: bounded maker-site print-settings search
+
+The 65 frozen chamber targets had two outcomes in A (one resolved, one converted to a print test); the remaining **63 products** received the bounded product/download/print-guide pass. C-FETCH.jsonl records 84 URL attempts: 71 successful capture rows and 13 failed requests, with 67 distinct captured originals. One empty original is excluded from deciding evidence. C-DOCUMENTS.csv records the 66 usable document identities; b39 adds 63 distinct source rows and reuses three existing sources. These custody counts are separate from answers moved.
+
+The final dispositions are **23 explicit chamber/enclosure statements**, **37 bounded searches with no usable chamber fact**, and **three access/identity limits** (Dow maker endpoint, exact 3DXTECH ESD-PA12 listing, exact Yousu POM guide). Source-only pages corroborate the search. Limited captures do not assert maker-site absence. Negative print-settings searches do not establish absence of mechanical or environmental data; that research remains limited to authorized cached/held documents.
+
+m221 records only the exact product's chamber/enclosure wording. m222 also records six exact maker paragraphs as know-how: otherwise a chamber-only search would wrongly leave those products labelled as publishing no general know-how. Benefits, limitations, moisture advice and warping words stay in the record tier and never decide numeric or environmental requirements. Five source-only citation roles change from corroboration to cited for those recorded claims; all original digests stay unchanged. The guarded migration repeats with zero changes (C-KNOW-HOW-BINDINGS.csv). Explicit open-printer compatibility or an enclosure that is not mandatory is retained under D33. A qualitative heating recommendation remains unresolved without a setpoint. CreatBot's conditional 40–60 °C tuning recommendation retains its qualifier. The original generic parser left Spectrum PC-PTFE's full recommendation sentence unread/required; its typed state was corrected to recommended with an explicit Parse review, preserving the original words and absent setpoint. No new grade or shared formulation is created.
+
+Against B, **21 product/question answers on 12 distinct products become PASS**, with **19 material/question answers on 11 materials becoming PASS**. Outdoor, High-stiffness and S01 gain IPCON PPA GF; Indoor gains ten passing materials; Lightweight gains two; Warm gains three; Flexible gains Fillamentum OBC 905. S03/S04/S05/S06 material counts do not change. C-MOVEMENT.csv and C-CHANGES.csv retain every answer; C-DATA-DIFF.txt and C-BUILD-DIFF.txt retain the changes to records and compiled paths.
+
+C-SOURCE-BINDINGS.csv verifies all 23 accepted statements against their original digest and full evidence line, with person columns blank. DECISION-TRACE-INDEX.csv links every changed frozen product answer to an end-to-end trace of the final release, its compatible state, requirements, exact records, sources and locators. No vendor contact, human approval or H2C print/coupon test was executed.
+
+## Final disposition of the frozen worklist
+
+Every one of the **3,464 targets** has a row in OUTCOMES.csv, and all **3,507 target/question pairs** are recorded in TARGET-QUESTION-OUTCOMES.csv. **41 target facts now have definite answers in all their frozen questions; 3,423 remain unresolved and have explicit handoffs.** Finishing the authorized research does not mean those missing facts have become known. Cached keyword leads do not prove publisher silence; A-READ-LIMITS.md preserves the limits. HANDOFFS.csv names the missing exact-product fact and the next maker or coupon question.
+
+Cumulatively, **64 product/question answers on 33 products changed**: 25 PASS and 39 FAIL. **21 material/question answers on 13 materials changed**: 20 PASS and one FAIL. No changes are screening-flag-only. FINAL-MOVEMENT.csv and FINAL-CHANGES.csv compare against the unchanged frozen baseline.
+
+| Frozen question | A product answers moved | B | C | Final material PASS (baseline → final) |
+|---|---:|---:|---:|---:|
+| Outdoor structural part | 1 | 1 | 1 | 5 → 6 |
+| Indoor prototype | 1 | 0 | 12 | 70 → 80 |
+| Lightweight structure | 1 | 0 | 2 | 11 → 13 |
+| Warm environment | 1 | 1 | 3 | 29 → 33 |
+| High-stiffness fixture | 4 | 0 | 1 | 5 → 6 |
+| Flexible component | 5 | 0 | 1 | 6 → 7 |
+| S01 | 1 | 1 | 1 | 5 → 6 |
+| S03 | 5 | 1 | 0 | 17 → 17 |
+| S04 | 0 | 1 | 0 | 45 → 45 |
+| S05 | 5 | 0 | 0 | 9 → 9 |
+| S06 | 14 | 0 | 0 | 6 → 6 |
+
+The additional policy variants are queued separately, at the owner's direction: S01 annealed (16 one-fact gaps), S03 annealed (76), S04 annealed (380), and S05 conditioned (1,066), **1,538 queued facts across four distinct policies**. STATE-VARIANTS-FOLLOWUP.json retains the constraints and release. No source research is claimed for that follow-up, and the frozen baseline remains dry/as-printed.
+
+## Final source custody and checks
+
+BACKUP-FINAL.txt records **2,267 original files and 2,712 derived files** in the private store. An empty-cache restore brought back every one with **zero refusals**. MANIFEST-LIVE.csv and MANIFEST-RESTORED.csv match registration, document keys, digests and text status on all 2,403 inventory rows (1,712 registered, 691 ledger-only). The single intentional difference is Kimya's mismatch becoming absent. Text status is 2,263 current, three stale, 125 absent and 12 not recorded; retaining stale reads is evidence preservation, not certification that the current reader parsed them.
+
+The witness audit on the restored cache reports **7,678 currently matchable recorded rows, 7,089 line-bound, 578 historic page-image reviews and the same 11 listed exceptions** (WITNESS-RESTORED.txt). That audit checks proposal evidence lines; the manifest/restore proves the underlying originals and derivatives separately. Historical page-image reviews were not performed anew. DOCTOR-FINAL.txt reports every prerequisite available and zero present digests missing/damaged in the configured backup.
+
+The Kimya targeted request returned **HTTP 404** (KIMYA-RETRIEVAL.txt); correct bytes were not found in the ledger and no source row or digest was replaced. **123 absent originals, 12 sources without recorded digests and that mismatch remain open.** The OneDrive folder remains retained locally; remote cloud upload completion has not been verified.
+
+Full C verification passed (VERIFY-C.txt): 401 main tests, 186 import tests, 46 acceptance expectations, scale (2× compile/validate 111.7 s within its budget), reproducibility, database audit with zero errors, current snapshot, 67 interface views and 300 rendered scenarios / 2,586 readings. Earlier C runs were stopped when final source-review corrections were identified, and this complete run verified the resulting stable data. The cold verify:fast run took 106.7 s and exceeded 90 s; the isolated warm budget check is recorded separately. All source reviews are by the agent; the person's spot-check and team validation remain pending. Work is committed on v2; main and the remote are unchanged.
+
+Final target dispositions: 41 resolved-fact, 2,511 cached-held-search-no-accepted-fact, 37 searched-print-settings-no-usable-fact, 3 access-or-identity-limited, 682 test-conditions-still-needed, 187 compatible-state-still-needed, 1 print-test-now-needed, 2 original-or-reader-unavailable. The newly bounded Siraya window is explicitly a print-test handoff, not a claim that no chamber fact was accepted.
+
+The owner explicitly chose to record the 106.7 s cold fast-check timing for a performance follow-up. OPEN-PROBLEMS §19 retains it; no budget was raised or check weakened. VERIFY-FAST-C-WARM.txt records the isolated enforced-budget warm measurement.
+
+The isolated warm `verify:fast -- --enforce-budget` run passed in **58.5 s**, within 90 s. C-BUILD-DIFF.txt reports **891 compiled paths** against B, covering source/recipe/reading records and the six record-tier claims; no numeric measurement enters in C. The current regenerated worklist has **3,452 one-fact gaps**, including 26 print-test gaps. Clearing a chamber gate also reveals products formerly blocked by two facts as now one fact from an answer, so that moving worklist is not the frozen-target closure count. The frozen 3,464-target register is unchanged.
+
+The current SQLite record tier has 44,084 source facts (42,032 skipped/mapped and 2,052 unapplied) on 1,564 documents, plus 4,810 full-text pages of 2,263 cached documents. Of the registered retrieved sources, **1,572 of 1,706** are indexed; the remaining 134 are explicit. Current source-table counts are 154 conditioned measurements and 90 annealed published values without a repeatable schedule. These are measured residual gaps, not permission to substitute other states.

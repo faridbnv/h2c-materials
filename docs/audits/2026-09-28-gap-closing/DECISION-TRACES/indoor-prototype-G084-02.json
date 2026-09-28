@@ -1,0 +1,256 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/indoor-prototype.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "priceCADkg"
+    ]
+  },
+  "product": {
+    "gradeId": "G084-02",
+    "materialId": "M084",
+    "manufacturer": "Prusa Research",
+    "product": "Prusament PP Glass Fiber by Prusa Polymers",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 255 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0698",
+          "role": "the product's own recipe",
+          "gradeId": "G084-02",
+          "raw": "[°C] 245 ± 10",
+          "locator": "p. 1: Recommended printing settings",
+          "source": {
+            "id": "S-PVB-512923fd-tds-pp-glass-fiber-en",
+            "publisher": "Prusa Research",
+            "title": "Technical datasheet Prusament PP Glass Fiber by Prusa Polymers",
+            "url": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2025/07/512923fd-tds_pp_glass_fiber_en.pdf",
+            "sha256": "df21814daab94f0f56d1582674a8d417bac60068a0142518d1da0ad6bb2aa606",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 105 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0698",
+          "role": "the product's own recipe",
+          "gradeId": "G084-02",
+          "raw": "[°C] 95 ± 10",
+          "locator": "p. 1: Recommended printing settings",
+          "source": {
+            "id": "S-PVB-512923fd-tds-pp-glass-fiber-en",
+            "publisher": "Prusa Research",
+            "title": "Technical datasheet Prusament PP Glass Fiber by Prusa Polymers",
+            "url": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2025/07/512923fd-tds_pp_glass_fiber_en.pdf",
+            "sha256": "df21814daab94f0f56d1582674a8d417bac60068a0142518d1da0ad6bb2aa606",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1284",
+          "role": "the product's own recipe",
+          "gradeId": "G084-02",
+          "raw": "Not published",
+          "enclosure": "Enclosure not required",
+          "locator": "p. 1: Exact-product chamber guidance: Enclosure not required",
+          "source": {
+            "id": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+            "publisher": "Prusa Research",
+            "title": "Prusament PP Glass Fiber | Prusament",
+            "url": "https://prusament.com/materials/prusament-pp-glass-fiber/",
+            "sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "priceCADkg",
+      "kind": "numeric",
+      "mandatory": false,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": false,
+        "operator": "<=",
+        "property": "priceCADkg",
+        "value": 45
+      },
+      "criterion": "priceCADkg <= 45",
+      "status": "UNKNOWN",
+      "reason": "No Canadian price observation in the sampled market",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    }
+  ],
+  "material": {
+    "id": "M084",
+    "name": "PP-GF",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "all",
+    "counts": {
+      "products": 2,
+      "pass": 1,
+      "fail": 0,
+      "untested": 1,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G084-02",
+      "state": "as-printed"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8",
+    "inputs": {
+      "data": "7d6831265f51dfea8adba518b23fb475b351090719d5873cfeae9bb13efb5ae3",
+      "dependencies": "9f2421e6b50856eb637b7c4e8b0c731af311d6f68aa8dda0ced7adf652d1ac63",
+      "engine": "7498ce852ba23de2698be4ee7d9d1741525dc5fc7d642bc9ab618e5be13f338d",
+      "rules": "e9ecc4e170f5cb6bc01254ad961698472f2d93f591e436b9082d59bc478318ea",
+      "schema": "ff6473454fc695aad75eae706a43e339975f526017185f2a8db1ea3434a6c67c"
+    }
+  },
+  "authorization": "Owner: finish frozen targets; record additional variants for follow-up.",
+  "variants": [
+    {
+      "question": "S01",
+      "policy": {
+        "unknownPolicy": "strict",
+        "anneal": true
+      },
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false
+        },
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 100
+        },
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 3
+        },
+        {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<=",
+          "value": 1500
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber"
+        }
+      ],
+      "counts": {
+        "pass": 11,
+        "fail": 22,
+        "unknown": 103,
+        "screened": 0,
+        "total": 136
+      },
+      "queuedFacts": 16,
+      "source": "Distinct state override in acceptance expectation; no new research performed."
+    },
+    {
+      "question": "S03",
+      "policy": {
+        "unknownPolicy": "strict",
+        "anneal": true
+      },
+      "constraints": [
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 4
+        },
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 80
+        }
+      ],
+      "counts": {
+        "pass": 19,
+        "fail": 19,
+        "unknown": 98,
+        "screened": 0,
+        "total": 136
+      },
+      "queuedFacts": 76,
+      "source": "Distinct state override in acceptance expectation; no new research performed."
+    },
+    {
+      "question": "S04",
+      "policy": {
+        "unknownPolicy": "strict",
+        "anneal": true
+      },
+      "constraints": [
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 100
+        }
+      ],
+      "counts": {
+        "pass": 45,
+        "fail": 7,
+        "unknown": 84,
+        "screened": 0,
+        "total": 136
+      },
+      "queuedFacts": 380,
+      "source": "Distinct state override in acceptance expectation; no new research performed."
+    },
+    {
+      "question": "S05",
+      "policy": {
+        "unknownPolicy": "strict",
+        "moisture": "conditioned"
+      },
+      "constraints": [
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 6
+        }
+      ],
+      "counts": {
+        "pass": 1,
+        "fail": 1,
+        "unknown": 134,
+        "screened": 0,
+        "total": 136
+      },
+      "queuedFacts": 1066,
+      "source": "Distinct state override in acceptance expectation; no new research performed."
+    }
+  ],
+  "queuedFacts": 1538
+}

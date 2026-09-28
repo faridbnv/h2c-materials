@@ -1,0 +1,828 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "5cc99e48de6db1c9ef374b2adde3b07fceb0193c7034c80796139325ed4d8271",
+    "url": "https://colorfabb.com/ngen-black",
+    "pages": 1,
+    "provider": "colorFabb",
+    "manufacturer": "colorFabb",
+    "docKey": "https://colorfabb.com/ngen-black#witness-for=source:S-NGEN2"
+  },
+  "identity": {
+    "polymer": "nGen",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Copolyesters",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: ngen"
+    ],
+    "materialId": "M143",
+    "materialName": "nGen FLEX",
+    "estimateIdentity": "nGen",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-COLORFABB-PRINT-20260928-5cc99e48de6d",
+      "Publisher": "colorFabb",
+      "Title": "colorFabb 3D printing filaments",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://colorfabb.com/ngen-black",
+      "Locator": "Document / product page",
+      "Applicable grades": "G092-01; G092-02",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5cc99e48de6db1c9ef374b2adde3b07fceb0193c7034c80796139325ed4d8271"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "The store will not work correctly in the case when cookies are disabled."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G092-01",
+      "row": {
+        "GradeID": "G092-01",
+        "MaterialID": "M092",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "nGen Amphora AM3300",
+        "Shared formulation key": "S-NGEN2",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-COLORFABB-PRINT-20260928-5cc99e48de6d",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G092-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    },
+    {
+      "key": "G092-02",
+      "row": {
+        "GradeID": "G092-02",
+        "MaterialID": "M092",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "nGen",
+        "Shared formulation key": "R-COLORFABB-TDS-E-ColorFabb-nGen",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v2.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-COLORFABB-PRINT-20260928-5cc99e48de6d",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G092-02 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 40D/85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 45D/90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "company.current === true)[0].name\" class=\"selected-company-name\" >",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ColorFabb develops high-quality 3D printing filaments for makers, professionals, and industries worldwide. From easy-to-print PLA to advanced engineering polyme",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU options like varioShore TPU and TPU 85A/95A offer a range from ultra-soft to semi-flexible, using innovative foaming tech to vary softness, density, and ela",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "allPHA is a 100% biobased and fully biodegradable filament made via bacterial fermentation, designed to minimize environmental impact without leaving microplast",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Black 41 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Blue 41 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Brown 34 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Clear 6 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Gold 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Green 49 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Gray 62 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Natural 16 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Orange 16 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Pink 6 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Purple 9 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Red 35 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silver 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "White 27 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yellow 26 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET FLEX 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET FLEX MAX 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 40D 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 45D 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET FLEX MAX 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET HIGH SPEED PRO 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET ULTRA HIGH SPEED 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "rPETG 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU varioShore 85A 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU varioShore 95A 6 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU varioShore Prosthetic 4 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA High Speed Pro 24 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "rPLA Semi-Matte 8 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Light Weight HT 5 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Vibers 4 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Light Weight 7 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Economy 7 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Regrind 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA stoneFill 4 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA woodFill 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA bronzeFill 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA copperFill 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA corkFill 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA steelFill 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA glowFill 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA-PHA 18 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Color on Demand 200 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PHA 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PETG Economy 7 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PETG Semi Matte 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA 4 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA Light Weight 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A 6 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A 6 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen_FLEX 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XT-CF20 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb_XT 8 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PA Metal Detectable 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Igus 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "600 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "650 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "700 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "750 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "900 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1000 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1500 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1800 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2000 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2200 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2500 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4000 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4200 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4500 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "8000 gr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb 351 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Igus 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Lehvoss 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "White label 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 - 12 of 543 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "You're currently reading page 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 46",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "VARIOSHORE TPU 95A BLACK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €33.28 €27.50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €33.28 €27.50",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "VARIOSHORE PEBA 40D/85A NATURAL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "VARIOSHORE PEBA 45D/90A NATURAL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €20.49 €16.93",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €20.49 €16.93",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €34.17 €28.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €34.17 €28.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €34.17 €28.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €34.17 €28.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €28.41 €23.48",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €28.41 €23.48",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €31.21 €25.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €31.21 €25.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "VARIOSHORE TPU 95A NATURAL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €54.20 €44.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €32.05 €26.49",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €32.05 €26.49",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €32.05 €26.49",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €32.05 €26.49",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 - 12 of 543 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "You're currently reading page 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Page 46",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% secure payments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 5951 DK Belfeld The Netherlands +31 (0)77 - 466 40 15",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

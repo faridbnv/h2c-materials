@@ -1,0 +1,86 @@
+Question,Kind,ID,Before,After
+Outdoor structural part,product,G001-04,UNKNOWN,FAIL
+Outdoor structural part,product,G020-70,UNKNOWN,FAIL
+Outdoor structural part,material,M071,UNKNOWN,PASS
+Outdoor structural part,product,G071-01,UNKNOWN,PASS
+Indoor prototype,material,M054,UNKNOWN,PASS
+Indoor prototype,product,G054-03,UNKNOWN,PASS
+Indoor prototype,material,M069,UNKNOWN,PASS
+Indoor prototype,product,G069-01,UNKNOWN,PASS
+Indoor prototype,material,M071,UNKNOWN,PASS
+Indoor prototype,product,G071-01,UNKNOWN,PASS
+Indoor prototype,product,G082-03,UNKNOWN,PASS
+Indoor prototype,material,M084,UNKNOWN,PASS
+Indoor prototype,product,G084-02,UNKNOWN,PASS
+Indoor prototype,material,M086,UNKNOWN,PASS
+Indoor prototype,product,G086-02,UNKNOWN,PASS
+Indoor prototype,material,M105,UNKNOWN,PASS
+Indoor prototype,product,G105-01,UNKNOWN,PASS
+Indoor prototype,material,M134,UNKNOWN,PASS
+Indoor prototype,product,G134-01,UNKNOWN,PASS
+Indoor prototype,material,M144,UNKNOWN,PASS
+Indoor prototype,product,G144-02,UNKNOWN,PASS
+Indoor prototype,product,G144-03,UNKNOWN,PASS
+Indoor prototype,material,M151,UNKNOWN,PASS
+Indoor prototype,product,G151-01,UNKNOWN,PASS
+Indoor prototype,material,M158,UNKNOWN,PASS
+Indoor prototype,product,G158-01,UNKNOWN,PASS
+Indoor prototype,product,G164-09,UNKNOWN,PASS
+Lightweight structure,product,G001-04,UNKNOWN,FAIL
+Lightweight structure,material,M069,UNKNOWN,PASS
+Lightweight structure,product,G069-01,UNKNOWN,PASS
+Lightweight structure,material,M164,UNKNOWN,PASS
+Lightweight structure,product,G164-09,UNKNOWN,PASS
+Warm environment,product,G020-70,UNKNOWN,FAIL
+Warm environment,material,M054,UNKNOWN,PASS
+Warm environment,product,G054-03,UNKNOWN,PASS
+Warm environment,material,M069,UNKNOWN,PASS
+Warm environment,product,G069-01,UNKNOWN,PASS
+Warm environment,material,M071,UNKNOWN,PASS
+Warm environment,product,G071-01,UNKNOWN,PASS
+Warm environment,material,M082,UNKNOWN,PASS
+Warm environment,product,G082-03,UNKNOWN,PASS
+High-stiffness fixture,product,G001-04,UNKNOWN,FAIL
+High-stiffness fixture,product,G001-70,UNKNOWN,FAIL
+High-stiffness fixture,product,G001-149,UNKNOWN,FAIL
+High-stiffness fixture,product,G001-180,UNKNOWN,FAIL
+High-stiffness fixture,material,M071,UNKNOWN,PASS
+High-stiffness fixture,product,G071-01,UNKNOWN,PASS
+Flexible component,product,G001-04,UNKNOWN,FAIL
+Flexible component,product,G001-70,UNKNOWN,FAIL
+Flexible component,product,G001-149,UNKNOWN,FAIL
+Flexible component,product,G001-180,UNKNOWN,FAIL
+Flexible component,product,G083-02,UNKNOWN,FAIL
+Flexible component,material,M086,UNKNOWN,PASS
+Flexible component,product,G086-02,UNKNOWN,PASS
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G001-04,UNKNOWN,FAIL
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G020-70,UNKNOWN,FAIL
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",material,M071,UNKNOWN,PASS
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G071-01,UNKNOWN,PASS
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-04,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-70,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-149,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-180,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G020-70,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G083-02,UNKNOWN,PASS
+"S04: A PLA Matt part that must not soften below 100 °C (heat deflection at 0.45 MPa), with and without a permitted 90 °C, 4 h anneal.",product,G020-70,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-04,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-70,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-149,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-180,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G083-02,UNKNOWN,PASS
+S06: A part that meets acids.,product,G001-19,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-22,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-23,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-30,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-176,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-181,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G017-04,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G018-06,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G035-02,UNKNOWN,FAIL
+S06: A part that meets acids.,material,M036,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G036-02,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G057-03,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-11,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-12,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-13,UNKNOWN,FAIL

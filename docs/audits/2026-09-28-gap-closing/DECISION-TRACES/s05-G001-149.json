@@ -1,0 +1,148 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s05.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "tensileModulusXY"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-149",
+    "materialId": "M001",
+    "manufacturer": "colorFabb",
+    "product": "PLA Vertigo",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "tensileModulusXY >= 6"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 6
+      },
+      "criterion": "tensileModulusXY >= 6",
+      "status": "FAIL",
+      "reason": "Published 3.28579 GPa (XY) (ISO 527), same sheet as colorFabb PLA Chameleon; moisture state and treatment not stated, admitted for screening",
+      "observed": 3.28579,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V006518",
+          "role": "decides",
+          "gradeId": "G001-70",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "3285,79 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 527",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 3.28579,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 3.28579,
+              "hi": 3.28579,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 527"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Tensile modulus MPa",
+          "source": {
+            "id": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet PLA Chameleon",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_E_colorFabb_PLA_Chameleon.pdf",
+            "sha256": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 200,
+      "pass": 0,
+      "fail": 39,
+      "untested": 161,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G001-03",
+      "state": "as-printed"
+    }
+  }
+}

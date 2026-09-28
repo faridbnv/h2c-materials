@@ -1,0 +1,223 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s03.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "tensileModulusXY",
+      "hdt045"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-04",
+    "materialId": "M001",
+    "manufacturer": "Spectrum",
+    "product": "PLA Tough",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "tensileModulusXY >= 4"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 4
+      },
+      "criterion": "tensileModulusXY >= 4",
+      "status": "FAIL",
+      "reason": "Published 0.4328 GPa (XY) (ASTM D638); moisture state and treatment not stated, admitted for screening",
+      "observed": 0.4328,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V011510",
+          "role": "decides",
+          "gradeId": "G001-04",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "432,8 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "D638",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 0.4328,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 0.4328,
+              "hi": 0.4328,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ASTM D638"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: E-modulus, D638, 432.8 MPa; horizontal XY footnote",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 80
+      },
+      "criterion": "hdt045 >= 80",
+      "status": "UNKNOWN",
+      "reason": "Published 55 °C without stating the test load, so it is not compared (include values published that way to use it)",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V002692",
+          "role": "published, not comparable",
+          "gradeId": "G001-04",
+          "property": "HDT",
+          "raw": {
+            "value": "55 °C",
+            "unit": "°C",
+            "specimen": "Not published (do not assume printed)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "E 2092",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 55,
+            "unit": "°C",
+            "operator": "=",
+            "interval": {
+              "lo": 55,
+              "hi": 55,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ASTM E2092"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Heat Distortion Temperature",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "some",
+    "counts": {
+      "products": 200,
+      "pass": 2,
+      "fail": 77,
+      "untested": 121,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G001-58",
+      "state": "as-printed"
+    }
+  }
+}

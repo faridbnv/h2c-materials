@@ -1,0 +1,986 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "8d7352c2d77f2a36bf76e2665c07585b329abb3d32f3c93bcf258a2f5a9966fd",
+    "url": "https://www.3d4makers.com/products/facilan-pcl-100-filament",
+    "pages": 1,
+    "provider": "3D4Makers",
+    "manufacturer": "3D4Makers",
+    "docKey": "https://www.3d4makers.com/products/facilan-pcl-100-filament#witness-for=source:R-3D4MAKERS-TDS-Facilan-PCL100-filament-V1-4"
+  },
+  "identity": {
+    "polymer": "PCL",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pcl",
+      "hardness: 46D (from the sheet)"
+    ],
+    "materialId": "M149",
+    "materialName": "PCL",
+    "estimateIdentity": "PCL",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3D4MAKERS-PRINT-20260928-8d7352c2d77f",
+      "Publisher": "3D4Makers",
+      "Title": "FacilanTM PCL 100 Filament | 3D4Makers | 3D Printing",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.3d4makers.com/products/facilan-pcl-100-filament",
+      "Locator": "Document / product page",
+      "Applicable grades": "G149-02",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "8d7352c2d77f2a36bf76e2665c07585b329abb3d32f3c93bcf258a2f5a9966fd"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Worldwide shipping with UPS & FEDEX"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G149-02",
+      "row": {
+        "GradeID": "G149-02",
+        "MaterialID": "M149",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3D4Makers",
+        "Product name": "Facilan PCL100",
+        "Shared formulation key": "R-3D4MAKERS-TDS-Facilan-PCL100-filament-V1-4",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3D4MAKERS-PRINT-20260928-8d7352c2d77f",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G149-02 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Tensile strength (endpoint unspecified)",
+        "Raw value": "45 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "45",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "45",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-facilan-pcl-100-filament",
+        "Locator": "p. 1: Tensile Strength:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Strength: 45 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Elongation at yield",
+        "Raw value": "15 %",
+        "Raw unit": "%",
+        "Raw numeric": "15",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "15",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-facilan-pcl-100-filament",
+        "Locator": "p. 1: Elongation at Yield:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at Yield: 15 %"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "350 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "350",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-facilan-pcl-100-filament",
+        "Locator": "p. 1: Tensile Modulus:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus: 350 MPa"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Izod impact strength",
+        "Raw value": "8 kJ/m2",
+        "Raw unit": "kJ/m2",
+        "Raw numeric": "8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-facilan-pcl-100-filament",
+        "Locator": "p. 1: IZOD Impact Strength (notched):",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "IZOD Impact Strength (notched): 8 kJ/m2"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "46",
+        "Raw unit": "Shore D",
+        "Raw numeric": "46",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "46",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore D",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-facilan-pcl-100-filament",
+        "Locator": "p. 1: Shore D Hardness:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore D Hardness: 46"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "57 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "57",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0,45 MPa",
+        "Standards": "Not published",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-3D4MAKERS-facilan-pcl-100-filament",
+        "Locator": "p. 1: Heat Deflection Temperature (0,45 MPa):",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat Deflection Temperature (0,45 MPa): 57 °C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M149",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "130°C (130 to 170°C)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "130",
+        "Nozzle max °C": "170",
+        "Nozzle requirement": "required",
+        "Bed °C": "30-45°C",
+        "Bed state": "range",
+        "Bed min °C": "30",
+        "Bed max °C": "45",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-3D4MAKERS-facilan-pcl-100-filament",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Ultimaker Adhesion sheets, Avery Mailing labels L7567-25, PEI Sheets"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "10 mm/s ( 10 - 30 mm/s)"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Print Temperature : 130°C (130 to 170°C)"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Print Temperature",
+      "raw": "130°C (130 to 170°C)",
+      "fromBelow": false,
+      "line": "Print Temperature : 130°C (130 to 170°C)"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "30-45°C",
+      "fromBelow": false,
+      "line": "Bed Temperature: 30-45°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "Adhesion",
+      "raw": "Ultimaker Adhesion sheets, Avery Mailing labels L7567-25, PEI Sheets",
+      "fromBelow": false,
+      "line": "Adhesion: Ultimaker Adhesion sheets, Avery Mailing labels L7567-25, PEI Sheets"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "10 mm/s ( 10 - 30 mm/s)",
+      "fromBelow": false,
+      "line": "Print Speed : 10 mm/s ( 10 - 30 mm/s)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Fan Speed",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Fan Speed: 100%"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "+31 (0) 23 820 0584",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "info@3d4makers.com",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEEK 9581 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEEK CF 9676 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEKK 50082 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEI 50236 GY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PPS CF 9938 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT 9825 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT 9936 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT CF 9891 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT CF 9742 BK Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT KK 50056 BK FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PI Z2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 1010",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 1000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ C8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LUVOCOM® 3F",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEEK 9581 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEEK CF 9676 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEKK 50082 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEI 50236 GY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PPS CF 9938 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT 9825 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT 9936 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT CF 9891 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT CF 9742 BK Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT KK 50056 BK FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PI Z2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 1010",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 1000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ C8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D4Makers.com | 3D Printing Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "All categories All categories ABS ESD Filament ABS Filament ABS Kevlar Filament Adhesive ASA Filament Facilan™ C8 Filament Facilan™ HT Filament Facilan™ Ortho F",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEEK 9581 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEEK CF 9676 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEKK 50082 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PEI 50236 GY",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PPS CF 9938 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT 9825 NT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT 9936 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT CF 9891 BK",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT CF 9742 BK Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Luvocom® 3F PAHT KK 50056 BK FR",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PI Z2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 9085",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 1010",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEI Ultem 1000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ C8",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL100",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL 100 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL 100 Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save $-173.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ SKU: FPCL1-0000-175-750-3D4M",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "750 gram",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2300 gram",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Natural / 1.75mm / 750 gram - $173.00 Natural / 1.75mm / 2300 gram - $477.00 Natural / 2.85mm / 750 gram - $173.00 Natural / 2.85mm / 2300 gram - $477.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sale price $173.00 CAD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL 100 (Polycaprolactone) Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL 100 it is perfect for high-value applications such as medical research.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL 100 is used by many leading universities and research centers worldwide for bleeding edge work in bioprinting and patient specific medical research",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL 100 is very flexible and tough with a glass transition temperature of -60 °C and a print temperature of around 120°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL100 is polycaprolactone homopolymer with a molecular weight of 50000 g/mol.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL100 is a semi-crystalline aliphatic biodegradable polyester with white final appearance.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filament produced by 3D4Makers is based on raw material produced in compliance with the European regulations EC No. 1935/2004 and EC No. 10/2011 concerning plas",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Due to the low melting point, of Facilan™ PCL100 it can be reshaped after 3D printing in water with a temperature of 55 °C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D4Makers Polycaprolactone Facilan™ PCL 100 is one of the most extensively used bioprinting and medical 3D printing research materials worldwide.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Facilan™ PCL100 Material Properties",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density: 1.1 g/ cm³",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Molecular Weight (mean): 50,000 daltonsin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Mass flow: 120%",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Note: Add M302 S120 into the beginning of the g-code to allow cold extrusion, below 170°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Extra: Minimum Layer Time considerably +/- 60 sec minimum, highly dependent of model size and complexity and enabled Lift Head.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Support : If PVA or breakaway Support = enabled; Support overhang angle = 0°; Enable Prime Tower = Enabled. Support with Facilan Ortho onto itself: not recommen",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "You can download the Technical Data Sheet for Facilan™ PCL 100 here.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "You can download the Material Safety Data Sheets for Facilan™ PCL100 here:",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "* The previous name of this product was PCL100",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Based on 3 reviews Write a review",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "100% quality warranty",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "3D4Makers B.V",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Waarderweg 56 2031 BP Haarlem The Netherlands",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Phone : +31 (0) 23 820 0584 E-mail : info@3d4makers.com",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Stay up to date on the lastest 3D printings news, product updates and blog post from 3D4Makers!",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 3D4Makers.com | 3D Printing Filament Powered by Shopify",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 3D4Makers.com | 3D Printing Filament Powered by Shopify",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted.",
+    "retrievalRevision": {
+      "previousSourceID": "D-3D4MAKERS-FACILAN-PCL-100-FILAMENT-PAGE",
+      "previousSHA256": "4a8db70aed3e582bd213ee32db118a435925ee53e2d836023e6be59adb40c438",
+      "accessed": "2026-09-28",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

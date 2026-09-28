@@ -1,0 +1,256 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/indoor-prototype.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "priceCADkg"
+    ]
+  },
+  "product": {
+    "gradeId": "G144-03",
+    "materialId": "M144",
+    "manufacturer": "Fiberlogy",
+    "product": "PCTG+CF10",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 270 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1060",
+          "role": "the product's own recipe",
+          "gradeId": "G144-03",
+          "raw": "250°C - 270°C",
+          "locator": "p. 1: Recommended printing settings",
+          "source": {
+            "id": "R-3DJAKE-FIBERLOGY-PCTGCF-TDS",
+            "publisher": "Fiberlogy",
+            "title": "‘a ioerlogy TECHNICAL DATA SHEET Fiberlogy PCTG+CF10",
+            "url": "https://3d.nice-cdn.com/upload/file/FIBERLOGY_PCTGCF_TDS.pdf",
+            "sha256": "7e162eadd6d266792d640e5a95c4463b590f389c0ec649a3ddba990c5084eca7",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 110 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1060",
+          "role": "the product's own recipe",
+          "gradeId": "G144-03",
+          "raw": "90°C - 110°C",
+          "locator": "p. 1: Recommended printing settings",
+          "source": {
+            "id": "R-3DJAKE-FIBERLOGY-PCTGCF-TDS",
+            "publisher": "Fiberlogy",
+            "title": "‘a ioerlogy TECHNICAL DATA SHEET Fiberlogy PCTG+CF10",
+            "url": "https://3d.nice-cdn.com/upload/file/FIBERLOGY_PCTGCF_TDS.pdf",
+            "sha256": "7e162eadd6d266792d640e5a95c4463b590f389c0ec649a3ddba990c5084eca7",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1296",
+          "role": "the product's own recipe",
+          "gradeId": "G144-03",
+          "raw": "Not published",
+          "enclosure": "not required",
+          "locator": "p. 1: Exact-product chamber guidance: Enclosed chamber: not required",
+          "source": {
+            "id": "R-FIBERLOGY-PRINT-20260928-7bb43c8e086b",
+            "publisher": "Fiberlogy",
+            "title": "PCTG+CF - Fiberlogy",
+            "url": "https://fiberlogy.com/en/filaments/pctg-en/pctgcf-en/",
+            "sha256": "7bb43c8e086b460e26ae8f139f6262479004517b1ddf15a02f8b54b08dcb3bef",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "priceCADkg",
+      "kind": "numeric",
+      "mandatory": false,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": false,
+        "operator": "<=",
+        "property": "priceCADkg",
+        "value": 45
+      },
+      "criterion": "priceCADkg <= 45",
+      "status": "UNKNOWN",
+      "reason": "No Canadian price observation in the sampled market",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    }
+  ],
+  "material": {
+    "id": "M144",
+    "name": "PCTG-CF",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "all",
+    "counts": {
+      "products": 3,
+      "pass": 2,
+      "fail": 0,
+      "untested": 1,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G144-02",
+      "state": "as-printed"
+    }
+  }
+}

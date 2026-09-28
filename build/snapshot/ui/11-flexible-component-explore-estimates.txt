@@ -1,7 +1,7 @@
 COUNT 89 shown PASS + UNKNOWN
-STATUS ☑ PASS 6 | ☑ UNKNOWN 110 | ☐ FAIL 37 | ☐ SCREENED 27
-6 of the 153 materials meet these requirements
-Flexible component template · 110 more could not be checked, listed flagged, except 27 screened out
+STATUS ☑ PASS 7 | ☑ UNKNOWN 109 | ☐ FAIL 37 | ☐ SCREENED 27
+7 of the 153 materials meet these requirements
+Flexible component template · 109 more could not be checked, listed flagged, except 27 screened out
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -225,8 +225,8 @@ Nylon / Polyamide
  — ☆
 OBC
 Polyolefins
- UNKNOWN
-none judged
+ PASS
+1 of 1
  905
 905–905 · 2
  ~0.009–0.42† 14 700 n/a — ☆

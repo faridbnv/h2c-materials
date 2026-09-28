@@ -1,7 +1,7 @@
 COUNT 90 shown PASS + UNKNOWN
-STATUS ☑ PASS 5 | ☑ UNKNOWN 108 | ☐ FAIL 40 | ☐ SCREENED 23
-5 of the 153 materials meet these requirements
-Outdoor structural part template · 108 more could not be checked, listed flagged, except 23 screened out
+STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 23
+6 of the 153 materials meet these requirements
+Outdoor structural part template · 107 more could not be checked, listed flagged, except 23 screened out
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -827,8 +827,8 @@ High-Performance Engineering
  255↗ ☆
 PPA-GF
 High-Performance Engineering
- UNKNOWN
-0 of 1
+ PASS
+1 of 2
  1,285
 1,270–1,310 · 4
  6.56

@@ -1,0 +1,469 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s01.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "hdt045",
+      "tensileModulusXY",
+      "density",
+      "nozzle",
+      "bed",
+      "chamber"
+    ]
+  },
+  "product": {
+    "gradeId": "G071-01",
+    "materialId": "M071",
+    "manufacturer": "IPCON",
+    "product": "PPA-GF",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": [
+      "specimen",
+      "moisture",
+      "treatment"
+    ]
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 100
+      },
+      "criterion": "hdt045 >= 100",
+      "status": "PASS",
+      "reason": "Published 227 °C (ISO 75); specimen form, moisture state and treatment not stated, admitted for screening",
+      "observed": 227,
+      "unit": "°C",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "specimen",
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V001326",
+          "role": "decides",
+          "gradeId": "G071-01",
+          "property": "HDT",
+          "raw": {
+            "value": "227 °C",
+            "unit": "°C",
+            "specimen": "Not published (do not assume printed)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 75, 0.45 MPa",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 227,
+            "unit": "°C",
+            "operator": "=",
+            "interval": {
+              "lo": 227,
+              "hi": 227,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 75"
+            ],
+            "loadMPa": 0.45,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Heat Deflection Temperature",
+          "source": {
+            "id": "D-IPCON-PPA",
+            "publisher": "IPCON",
+            "title": "PPA-GF",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "f9a2ccb84116a13f0a798ba200f6537472ca95b7a804f2bd750a92956abb2bf4",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 3
+      },
+      "criterion": "tensileModulusXY >= 3",
+      "status": "PASS",
+      "reason": "Published 6.558 GPa (XY) (ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+      "observed": 6.558,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V001329",
+          "role": "decides",
+          "gradeId": "G071-01",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "6558 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 527, GB/T 1040",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 6.558,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 6.558,
+              "hi": 6.558,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 527",
+              "GB/T 1040"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Young's Modulus XY",
+          "source": {
+            "id": "D-IPCON-PPA",
+            "publisher": "IPCON",
+            "title": "PPA-GF",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "f9a2ccb84116a13f0a798ba200f6537472ca95b7a804f2bd750a92956abb2bf4",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "density",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": "<=",
+        "property": "density",
+        "value": 1500
+      },
+      "criterion": "density <= 1500",
+      "status": "PASS",
+      "reason": "Published 1280 kg/m³ (ISO 1183)",
+      "observed": 1280,
+      "unit": "kg/m³",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V001322",
+          "role": "decides",
+          "gradeId": "G071-01",
+          "property": "Density",
+          "raw": {
+            "value": "1.28 g/cm³",
+            "unit": "g/cm³",
+            "specimen": "Not published (density specimen form not explicitly established)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 1183-3",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 1280,
+            "unit": "kg/m³",
+            "operator": "=",
+            "interval": {
+              "lo": 1280,
+              "hi": 1280,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 1183"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Density",
+          "source": {
+            "id": "D-IPCON-PPA",
+            "publisher": "IPCON",
+            "title": "PPA-GF",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "f9a2ccb84116a13f0a798ba200f6537472ca95b7a804f2bd750a92956abb2bf4",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 310 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0090",
+          "role": "the product's own recipe",
+          "gradeId": "G071-01",
+          "raw": "280 - 310 °C",
+          "locator": "Recommended printing settings; p. 2: Compatible Printer Type",
+          "source": {
+            "id": "D-IPCON-PPA",
+            "publisher": "IPCON",
+            "title": "PPA-GF",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "f9a2ccb84116a13f0a798ba200f6537472ca95b7a804f2bd750a92956abb2bf4",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 120 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0090",
+          "role": "the product's own recipe",
+          "gradeId": "G071-01",
+          "raw": "100 - 120 °C",
+          "locator": "Recommended printing settings; p. 2: Compatible Printer Type",
+          "source": {
+            "id": "D-IPCON-PPA",
+            "publisher": "IPCON",
+            "title": "PPA-GF",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2026/03/IPCON-PPA-GF_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "f9a2ccb84116a13f0a798ba200f6537472ca95b7a804f2bd750a92956abb2bf4",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1283",
+          "role": "the product's own recipe",
+          "gradeId": "G071-01",
+          "raw": "Not published",
+          "enclosure": "Enclosed-frame (rec.), open-frame",
+          "locator": "p. 1: Exact-product chamber guidance: Printer Type Enclosed-frame (rec.), open-frame",
+          "source": {
+            "id": "D-IPCON-PRINT-20260928-01990cc2eb5c",
+            "publisher": "IPCON",
+            "title": "IPCON PPA GF – Glass Fiber Reinforced PPA Filament",
+            "url": "https://www.ipconpolymer.com/product/ppa-gf/",
+            "sha256": "01990cc2eb5c889dc535d34019cfa3c95cf928f8981dc2185edd5aa85c01b966",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M071",
+    "name": "PPA-GF",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "some",
+    "counts": {
+      "products": 5,
+      "pass": 1,
+      "fail": 1,
+      "untested": 3,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G071-01",
+      "state": "as-printed"
+    }
+  }
+}

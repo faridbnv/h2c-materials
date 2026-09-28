@@ -1,0 +1,178 @@
+[
+  {
+    "gid": "G071-01",
+    "url": "/product/ppa-gf/",
+    "field": "enclosure",
+    "raw": "Enclosed-frame (rec.), open-frame",
+    "find": "Printer Type  Enclosed-frame (rec.), open-frame",
+    "open": true
+  },
+  {
+    "gid": "G069-01",
+    "url": "/product/ppa/",
+    "field": "enclosure",
+    "raw": "Enclosed-frame (rec.), open-frame",
+    "find": "Printer Type  Enclosed-frame (rec.), open-frame",
+    "open": true
+  },
+  {
+    "gid": "G144-02",
+    "url": "/pctg-cf-filament-black",
+    "field": "enclosure",
+    "raw": "It is ideal for use in open desktop 3D printers.",
+    "find": "It is ideal for use in open desktop 3D printers.",
+    "open": true
+  },
+  {
+    "gid": "G151-01",
+    "url": "/fibreheart-tpu-gf-filament-tds",
+    "field": "enclosure",
+    "raw": "Not mandatory, but it is recommended",
+    "find": "Enclosure  Not mandatory, but it is recommended",
+    "open": true
+  },
+  {
+    "gid": "G029-03",
+    "url": "durapro-abs-cf/",
+    "field": "enclosure",
+    "raw": "Yes",
+    "find": "Enclosed chamber required Yes"
+  },
+  {
+    "gid": "G095-02",
+    "url": "durapro-pc-pbt/",
+    "field": "enclosure",
+    "raw": "Yes",
+    "find": "Enclosed chamber required Yes"
+  },
+  {
+    "gid": "G131-01",
+    "url": "durapro-pc-pbt-cf/",
+    "field": "enclosure",
+    "raw": "Yes",
+    "find": "Enclosed chamber required Yes"
+  },
+  {
+    "gid": "G156-01",
+    "url": "/epa-cf-product/",
+    "field": "enclosure",
+    "raw": "enclosed-chamber printing",
+    "find": "enclosed-chamber printing",
+    "closed": true
+  },
+  {
+    "gid": "G029-06",
+    "url": "/eabs-cf-product",
+    "field": "enclosure",
+    "raw": "enclosed-chamber printing",
+    "find": "enclosed-chamber printing",
+    "closed": true
+  },
+  {
+    "gid": "G086-02",
+    "url": "Fillamentum-OBC-905-printing-guide.pdf",
+    "field": "chamber",
+    "raw": "not required, but it helps",
+    "find": "Heated chamber/enclosure: not required, but it helps"
+  },
+  {
+    "gid": "G054-03",
+    "url": "nylon-pa12gf-filament/",
+    "field": "chamber",
+    "raw": "does not require a heated print chamber",
+    "find": "does not require a heated print chamber",
+    "none": true
+  },
+  {
+    "gid": "G134-01",
+    "url": "fiberflex-aero-en/",
+    "field": "enclosure",
+    "raw": "not required",
+    "find": "Enclosed chamber: not required"
+  },
+  {
+    "gid": "G158-01",
+    "url": "pla-mineral-en/",
+    "field": "enclosure",
+    "raw": "not required",
+    "find": "Enclosed chamber: not required"
+  },
+  {
+    "gid": "G144-03",
+    "url": "pctgcf-en/",
+    "field": "enclosure",
+    "raw": "not required",
+    "find": "Enclosed chamber: not required"
+  },
+  {
+    "gid": "G105-01",
+    "url": "asa-electrically-conductive/",
+    "field": "chamber",
+    "raw": "does not require a heated chamber",
+    "find": "does not require a heated chamber",
+    "none": true
+  },
+  {
+    "gid": "G084-02",
+    "url": "prusament-pp-glass-fiber/",
+    "field": "enclosure",
+    "raw": "Enclosure not required",
+    "find": "Enclosure not required"
+  },
+  {
+    "gid": "G164-09",
+    "url": "ultra-pa/",
+    "field": "chamber",
+    "raw": "maintain chamber temperature at 40-60°C",
+    "find": "maintain chamber temperature at 40-60°C",
+    "range": true
+  },
+  {
+    "gid": "G052-06",
+    "url": "nylon-pa12-en/",
+    "field": "chamber",
+    "raw": "it is recommended to use a 3D printer with an enclosed and heated chamber",
+    "find": "it is recommended to use a 3D printer with an enclosed and heated chamber",
+    "unknown": true
+  },
+  {
+    "gid": "G112-01",
+    "url": "pc-ptfe/",
+    "field": "chamber",
+    "raw": "It is recommended to print using a heated chamber.",
+    "find": "It is recommended to print using a heated chamber.",
+    "recommendationOnly": true
+  },
+  {
+    "gid": "G053-01",
+    "url": "carbonx-nylon-12-cf-1",
+    "field": "chamber",
+    "raw": "Recommended",
+    "find": "Heated Chamber",
+    "next": true
+  },
+  {
+    "gid": "G029-01",
+    "url": "carbonx-abs-cf-1",
+    "field": "chamber",
+    "raw": "Recommended",
+    "find": "Heated Chamber",
+    "next": true
+  },
+  {
+    "gid": "G037-01",
+    "url": "carbonx-pc-cf-1",
+    "field": "chamber",
+    "raw": "Recommended",
+    "find": "Heated Chamber",
+    "next": true
+  },
+  {
+    "gid": "G096-01",
+    "url": "fluorx-pvdf-1",
+    "field": "chamber",
+    "raw": "Recommended",
+    "find": "Heated Chamber",
+    "next": true
+  }
+]

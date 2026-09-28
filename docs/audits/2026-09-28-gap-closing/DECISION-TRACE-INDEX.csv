@@ -1,0 +1,65 @@
+Question,Kind,ID,Before,After,File,Release
+Outdoor structural part,product,G001-04,UNKNOWN,FAIL,DECISION-TRACES/outdoor-structural-part-G001-04.json,ba30857bd40d
+Outdoor structural part,product,G020-70,UNKNOWN,FAIL,DECISION-TRACES/outdoor-structural-part-G020-70.json,ba30857bd40d
+Outdoor structural part,product,G071-01,UNKNOWN,PASS,DECISION-TRACES/outdoor-structural-part-G071-01.json,ba30857bd40d
+Indoor prototype,product,G054-03,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G054-03.json,ba30857bd40d
+Indoor prototype,product,G069-01,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G069-01.json,ba30857bd40d
+Indoor prototype,product,G071-01,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G071-01.json,ba30857bd40d
+Indoor prototype,product,G082-03,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G082-03.json,ba30857bd40d
+Indoor prototype,product,G084-02,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G084-02.json,ba30857bd40d
+Indoor prototype,product,G086-02,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G086-02.json,ba30857bd40d
+Indoor prototype,product,G105-01,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G105-01.json,ba30857bd40d
+Indoor prototype,product,G134-01,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G134-01.json,ba30857bd40d
+Indoor prototype,product,G144-02,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G144-02.json,ba30857bd40d
+Indoor prototype,product,G144-03,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G144-03.json,ba30857bd40d
+Indoor prototype,product,G151-01,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G151-01.json,ba30857bd40d
+Indoor prototype,product,G158-01,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G158-01.json,ba30857bd40d
+Indoor prototype,product,G164-09,UNKNOWN,PASS,DECISION-TRACES/indoor-prototype-G164-09.json,ba30857bd40d
+Lightweight structure,product,G001-04,UNKNOWN,FAIL,DECISION-TRACES/lightweight-structure-G001-04.json,ba30857bd40d
+Lightweight structure,product,G069-01,UNKNOWN,PASS,DECISION-TRACES/lightweight-structure-G069-01.json,ba30857bd40d
+Lightweight structure,product,G164-09,UNKNOWN,PASS,DECISION-TRACES/lightweight-structure-G164-09.json,ba30857bd40d
+Warm environment,product,G020-70,UNKNOWN,FAIL,DECISION-TRACES/warm-environment-G020-70.json,ba30857bd40d
+Warm environment,product,G054-03,UNKNOWN,PASS,DECISION-TRACES/warm-environment-G054-03.json,ba30857bd40d
+Warm environment,product,G069-01,UNKNOWN,PASS,DECISION-TRACES/warm-environment-G069-01.json,ba30857bd40d
+Warm environment,product,G071-01,UNKNOWN,PASS,DECISION-TRACES/warm-environment-G071-01.json,ba30857bd40d
+Warm environment,product,G082-03,UNKNOWN,PASS,DECISION-TRACES/warm-environment-G082-03.json,ba30857bd40d
+High-stiffness fixture,product,G001-04,UNKNOWN,FAIL,DECISION-TRACES/high-stiffness-fixture-G001-04.json,ba30857bd40d
+High-stiffness fixture,product,G001-70,UNKNOWN,FAIL,DECISION-TRACES/high-stiffness-fixture-G001-70.json,ba30857bd40d
+High-stiffness fixture,product,G001-149,UNKNOWN,FAIL,DECISION-TRACES/high-stiffness-fixture-G001-149.json,ba30857bd40d
+High-stiffness fixture,product,G001-180,UNKNOWN,FAIL,DECISION-TRACES/high-stiffness-fixture-G001-180.json,ba30857bd40d
+High-stiffness fixture,product,G071-01,UNKNOWN,PASS,DECISION-TRACES/high-stiffness-fixture-G071-01.json,ba30857bd40d
+Flexible component,product,G001-04,UNKNOWN,FAIL,DECISION-TRACES/flexible-component-G001-04.json,ba30857bd40d
+Flexible component,product,G001-70,UNKNOWN,FAIL,DECISION-TRACES/flexible-component-G001-70.json,ba30857bd40d
+Flexible component,product,G001-149,UNKNOWN,FAIL,DECISION-TRACES/flexible-component-G001-149.json,ba30857bd40d
+Flexible component,product,G001-180,UNKNOWN,FAIL,DECISION-TRACES/flexible-component-G001-180.json,ba30857bd40d
+Flexible component,product,G083-02,UNKNOWN,FAIL,DECISION-TRACES/flexible-component-G083-02.json,ba30857bd40d
+Flexible component,product,G086-02,UNKNOWN,PASS,DECISION-TRACES/flexible-component-G086-02.json,ba30857bd40d
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G001-04,UNKNOWN,FAIL,DECISION-TRACES/s01-G001-04.json,ba30857bd40d
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G020-70,UNKNOWN,FAIL,DECISION-TRACES/s01-G020-70.json,ba30857bd40d
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G071-01,UNKNOWN,PASS,DECISION-TRACES/s01-G071-01.json,ba30857bd40d
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-04,UNKNOWN,FAIL,DECISION-TRACES/s03-G001-04.json,ba30857bd40d
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-70,UNKNOWN,FAIL,DECISION-TRACES/s03-G001-70.json,ba30857bd40d
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-149,UNKNOWN,FAIL,DECISION-TRACES/s03-G001-149.json,ba30857bd40d
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-180,UNKNOWN,FAIL,DECISION-TRACES/s03-G001-180.json,ba30857bd40d
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G020-70,UNKNOWN,FAIL,DECISION-TRACES/s03-G020-70.json,ba30857bd40d
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G083-02,UNKNOWN,PASS,DECISION-TRACES/s03-G083-02.json,ba30857bd40d
+"S04: A PLA Matt part that must not soften below 100 °C (heat deflection at 0.45 MPa), with and without a permitted 90 °C, 4 h anneal.",product,G020-70,UNKNOWN,FAIL,DECISION-TRACES/s04-G020-70.json,ba30857bd40d
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-04,UNKNOWN,FAIL,DECISION-TRACES/s05-G001-04.json,ba30857bd40d
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-70,UNKNOWN,FAIL,DECISION-TRACES/s05-G001-70.json,ba30857bd40d
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-149,UNKNOWN,FAIL,DECISION-TRACES/s05-G001-149.json,ba30857bd40d
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-180,UNKNOWN,FAIL,DECISION-TRACES/s05-G001-180.json,ba30857bd40d
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G083-02,UNKNOWN,PASS,DECISION-TRACES/s05-G083-02.json,ba30857bd40d
+S06: A part that meets acids.,product,G001-19,UNKNOWN,FAIL,DECISION-TRACES/s06-G001-19.json,ba30857bd40d
+S06: A part that meets acids.,product,G001-22,UNKNOWN,FAIL,DECISION-TRACES/s06-G001-22.json,ba30857bd40d
+S06: A part that meets acids.,product,G001-23,UNKNOWN,FAIL,DECISION-TRACES/s06-G001-23.json,ba30857bd40d
+S06: A part that meets acids.,product,G001-30,UNKNOWN,FAIL,DECISION-TRACES/s06-G001-30.json,ba30857bd40d
+S06: A part that meets acids.,product,G001-176,UNKNOWN,FAIL,DECISION-TRACES/s06-G001-176.json,ba30857bd40d
+S06: A part that meets acids.,product,G001-181,UNKNOWN,FAIL,DECISION-TRACES/s06-G001-181.json,ba30857bd40d
+S06: A part that meets acids.,product,G017-04,UNKNOWN,FAIL,DECISION-TRACES/s06-G017-04.json,ba30857bd40d
+S06: A part that meets acids.,product,G018-06,UNKNOWN,FAIL,DECISION-TRACES/s06-G018-06.json,ba30857bd40d
+S06: A part that meets acids.,product,G035-02,UNKNOWN,FAIL,DECISION-TRACES/s06-G035-02.json,ba30857bd40d
+S06: A part that meets acids.,product,G036-02,UNKNOWN,FAIL,DECISION-TRACES/s06-G036-02.json,ba30857bd40d
+S06: A part that meets acids.,product,G057-03,UNKNOWN,FAIL,DECISION-TRACES/s06-G057-03.json,ba30857bd40d
+S06: A part that meets acids.,product,G039-11,UNKNOWN,FAIL,DECISION-TRACES/s06-G039-11.json,ba30857bd40d
+S06: A part that meets acids.,product,G039-12,UNKNOWN,FAIL,DECISION-TRACES/s06-G039-12.json,ba30857bd40d
+S06: A part that meets acids.,product,G039-13,UNKNOWN,FAIL,DECISION-TRACES/s06-G039-13.json,ba30857bd40d

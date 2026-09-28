@@ -1,7 +1,7 @@
-COUNT 11 shown PASS
-STATUS ☑ PASS 11 | ☐ UNKNOWN 95 | ☐ FAIL 47
-11 of the 153 materials meet these requirements
-Lightweight structure template · 95 more could not be checked, left out under Confirmed only
+COUNT 13 shown PASS
+STATUS ☑ PASS 13 | ☐ UNKNOWN 93 | ☐ FAIL 47
+13 of the 153 materials meet these requirements
+Lightweight structure template · 93 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -81,6 +81,21 @@ ASA-GF PASS
 5.3–5.8 · 2
  88
 86–98 · 3
+ — ☆
+Nylon, polymer not stated
+Nylon / Polyamide
+ PASS
+1 of 3
+ 1,175
+1,010–1,250 · 4
+ 3.1
+3–3.33 · 3
+ 65
+63–69.2 · 3
+ 8.5
+4.5–9.77 · 3
+ 91
+79–102 · 3
  — ☆
 PA6-CF
 Nylon / Polyamide
@@ -172,6 +187,15 @@ Polyolefins
 1.3–1.5 · 2
  124
 88–158 · 3
+ — ☆
+PPA
+High-Performance Engineering
+ PASS
+1 of 1
+ 1,175
+1,140–1,210 · 2
+ 2.86 76 3.4 92
+81–103 · 2
  — ☆
 PPA-CF
 High-Performance Engineering

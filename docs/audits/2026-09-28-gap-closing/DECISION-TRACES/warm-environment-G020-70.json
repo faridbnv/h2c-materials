@@ -1,0 +1,314 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/warm-environment.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "hdt045"
+    ]
+  },
+  "product": {
+    "gradeId": "G020-70",
+    "materialId": "M020",
+    "manufacturer": "Recreus",
+    "product": "PET-G",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "hdt045 >= 80"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1239",
+          "role": "the product's own recipe",
+          "gradeId": "G020-70",
+          "raw": "230 - 260°C",
+          "locator": "p. 1: Printing temperatures",
+          "source": {
+            "id": "R-RECREUS-PET-G-TECHNICAL-DATA-SHEET-TDS-2020-0",
+            "publisher": "Recreus",
+            "title": "TECHNICAL DATA SHEET PET-G",
+            "url": "https://3d.nice-cdn.com/upload/file/PET-G_TECHNICAL_DATA_SHEET_TDS_2020[0].pdf",
+            "sha256": "5fd5ff6e8a913129b384ce4165cb2628aeaedbc60ce2c7818e6d69ad8d092bee",
+            "accessDate": "2026-09-21",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 80 °C, within the H2C's 120 °C (per Bambu Lab's Filament Guide for PETG HF, not this maker's sheet)",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "guide",
+          "id": "PG017",
+          "role": "per Bambu Lab's Filament Guide for PETG HF, not this maker's sheet",
+          "name": "Bambu Lab's Filament Guide for PETG HF",
+          "raw": "Smooth PEI Plate (60 - 80 °C) Textured PEI Plate (60 - 80 °C) Cool Plate SuperTack (60-70 °C)",
+          "locator": "p. 1, the column headed PETG HF: Nozzle Temperature; Build Plate & Bed Temperature; Print with Enclosure; Nozzle Size/Material; Dry Out Before Use; Drying Condition",
+          "source": {
+            "id": "B-GUIDE",
+            "publisher": "Bambu Lab",
+            "title": "Bambu Lab Filament Guide",
+            "url": "https://cdn1.bambulab.com/filament/filament-guide/250123/filament-guide-en.pdf",
+            "sha256": "ea799364fa4664e61632a1e87e5073c3edd0e76f93bd5524192bb018b5cfb858",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required (per Bambu Lab's Filament Guide for PETG HF, not this maker's sheet)",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "guide",
+          "id": "PG017",
+          "role": "per Bambu Lab's Filament Guide for PETG HF, not this maker's sheet",
+          "name": "Bambu Lab's Filament Guide for PETG HF",
+          "raw": "Not published",
+          "enclosure": "Optional",
+          "locator": "p. 1, the column headed PETG HF: Nozzle Temperature; Build Plate & Bed Temperature; Print with Enclosure; Nozzle Size/Material; Dry Out Before Use; Drying Condition",
+          "source": {
+            "id": "B-GUIDE",
+            "publisher": "Bambu Lab",
+            "title": "Bambu Lab Filament Guide",
+            "url": "https://cdn1.bambulab.com/filament/filament-guide/250123/filament-guide-en.pdf",
+            "sha256": "ea799364fa4664e61632a1e87e5073c3edd0e76f93bd5524192bb018b5cfb858",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 80
+      },
+      "criterion": "hdt045 >= 80",
+      "status": "FAIL",
+      "reason": "Published 68 °C (ISO 75); specimen form, moisture state and treatment not stated, admitted for screening",
+      "observed": 68,
+      "unit": "°C",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "specimen",
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V011511",
+          "role": "decides",
+          "gradeId": "G020-70",
+          "property": "HDT",
+          "raw": {
+            "value": "68,0 °C",
+            "unit": "°C",
+            "specimen": "Not published (do not assume printed)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "HDT (0,45MPa); ISO 75-2",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 68,
+            "unit": "°C",
+            "operator": "=",
+            "interval": {
+              "lo": 68,
+              "hi": 68,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 75"
+            ],
+            "loadMPa": 0.45,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: HDT (0,45MPa) 68,0 °C ISO 75-2",
+          "source": {
+            "id": "X-RECREUS-PET-G-TDS-2023",
+            "publisher": "Recreus",
+            "title": "TECHNICAL DATA SHEET PET-G",
+            "url": "https://drive.google.com/file/d/1V6XdIixjhVUCm8J_6B5drqDEJtrudsHO/view",
+            "sha256": "9cb0b12cb848a735875ffac3e8b059902bc6d7c12584d3d6414d8d9d4558eb38",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M020",
+    "name": "PETG",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 76,
+      "pass": 0,
+      "fail": 30,
+      "untested": 46,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G022-01",
+      "state": "as-printed"
+    }
+  }
+}

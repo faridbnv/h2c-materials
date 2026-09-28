@@ -1,0 +1,21 @@
+{
+  "targets": 3464,
+  "targetQuestionPairs": 3507,
+  "allFactSettled": 41,
+  "allQuestionsAnswered": 41,
+  "handoffs": 3423,
+  "outcomes": {
+    "resolved-fact": 41,
+    "cached-held-search-no-accepted-fact": 2511,
+    "searched-print-settings-no-usable-fact": 37,
+    "access-or-identity-limited": 3,
+    "test-conditions-still-needed": 682,
+    "compatible-state-still-needed": 187,
+    "print-test-now-needed": 1,
+    "original-or-reader-unavailable": 2
+  },
+  "makerSites": 63,
+  "makerSiteLimits": 3,
+  "urlAttempts": 84,
+  "capturedDocuments": 66
+}

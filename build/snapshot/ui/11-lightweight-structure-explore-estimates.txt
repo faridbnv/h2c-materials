@@ -1,7 +1,7 @@
 COUNT 96 shown PASS + UNKNOWN
-STATUS ☑ PASS 11 | ☑ UNKNOWN 95 | ☐ FAIL 47 | ☐ SCREENED 10
-11 of the 153 materials meet these requirements
-Lightweight structure template · 95 more could not be checked, listed flagged, except 10 screened out
+STATUS ☑ PASS 13 | ☑ UNKNOWN 93 | ☐ FAIL 47 | ☐ SCREENED 10
+13 of the 153 materials meet these requirements
+Lightweight structure template · 93 more could not be checked, listed flagged, except 10 screened out
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -215,8 +215,8 @@ none judged
  1,210 3.1 60.4 5.5 138* — ☆
 Nylon, polymer not stated
 Nylon / Polyamide
- UNKNOWN
-0 of 2
+ PASS
+1 of 3
  1,175
 1,010–1,250 · 4
  3.1
@@ -818,8 +818,8 @@ none judged
  1,120 6.75 65 1.7 139 — ☆
 PPA
 High-Performance Engineering
- UNKNOWN
-none judged
+ PASS
+1 of 1
  1,175
 1,140–1,210 · 2
  2.86 76 3.4 92

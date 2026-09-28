@@ -1,7 +1,7 @@
 COUNT 130 shown PASS + UNKNOWN
-STATUS ☑ PASS 70 | ☑ UNKNOWN 60 | ☐ FAIL 23
-70 of the 153 materials meet these requirements
-Indoor prototype template · 60 more could not be checked, listed flagged
+STATUS ☑ PASS 80 | ☑ UNKNOWN 50 | ☐ FAIL 23
+80 of the 153 materials meet these requirements
+Indoor prototype template · 50 more could not be checked, listed flagged
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -144,8 +144,8 @@ ASA-CF PASS
  101
 86–110 · 7
  no price↗ ☆
-ASA-EC UNKNOWN
-none judged
+ASA-EC PASS
+1 of 1
  1,170 ~2.3–4.1† ~31–47† ~0.8–5.3† ~89–105† — ☆
 ASA-GF PASS
 4 of 4
@@ -194,8 +194,8 @@ Copolyesters
  5.15 56 2 78 no price↗ ☆
 CPE-LW
 Copolyesters
- UNKNOWN
-none judged
+ PASS
+1 of 1
  1,160 ~0.12–0.33† ~18–38† ~80–360† 70 — ☆
 HIPS
 Styrenics
@@ -251,7 +251,7 @@ none judged
 Nylon, polymer not stated
 Nylon / Polyamide
  PASS
-1 of 1
+2 of 2
  1,175
 1,010–1,250 · 4
  3.1
@@ -265,8 +265,8 @@ Nylon / Polyamide
  — ☆
 OBC
 Polyolefins
- UNKNOWN
-none judged
+ PASS
+1 of 1
  905
 905–905 · 2
  ~0.009–0.42† 14 700 n/a — ☆
@@ -306,8 +306,8 @@ Nylon / Polyamide
  — ☆
 PA12-GF
 Nylon / Polyamide
- UNKNOWN
-0 of 1
+ PASS
+1 of 2
  1,230 7.8 82 4.5 163
 150–175 · 2
  — ☆
@@ -579,8 +579,8 @@ Copolyesters
  48↗ ☆
 PCTG-CF
 Copolyesters
- UNKNOWN
-none judged
+ PASS
+2 of 2
  1,280
 1,280–1,280 · 2
  ~1.6–6.0† ~35–74† ~2–19† 77
@@ -859,8 +859,8 @@ PLA Wood PASS
  53
 48–60 · 7
  32↗ ☆
-PLA-CE UNKNOWN
-none judged
+PLA-CE PASS
+1 of 1
  ~1,150–1,310† ~2.6–4.5† ~38–58† ~5–18† 55 — ☆
 PLA-CF PASS
 19 of 19
@@ -946,13 +946,13 @@ Polyolefins
  — ☆
 PP-GF
 Polyolefins
- UNKNOWN
-none judged
+ PASS
+1 of 1
  1,120 6.75 65 1.7 139 — ☆
 PPA
 High-Performance Engineering
- UNKNOWN
-none judged
+ PASS
+1 of 1
  1,175
 1,140–1,210 · 2
  2.86 76 3.4 92
@@ -975,8 +975,8 @@ High-Performance Engineering
  255↗ ☆
 PPA-GF
 High-Performance Engineering
- UNKNOWN
-none judged
+ PASS
+1 of 1
  1,285
 1,270–1,310 · 4
  6.56
@@ -1184,8 +1184,8 @@ Flexible Elastomers
  ~0.008–0.37† 12 ~80–450† n/a — ☆
 TPU-GF
 Flexible Elastomers
- UNKNOWN
-none judged
+ PASS
+1 of 1
  1,320 0.445 32 80 n/a — ☆
 TPU-LW
 Flexible Elastomers

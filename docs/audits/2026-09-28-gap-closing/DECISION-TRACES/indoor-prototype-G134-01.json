@@ -1,0 +1,256 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/indoor-prototype.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "priceCADkg"
+    ]
+  },
+  "product": {
+    "gradeId": "G134-01",
+    "materialId": "M134",
+    "manufacturer": "Fiberlogy",
+    "product": "FiberFlex Aero",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 235 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0494",
+          "role": "the product's own recipe",
+          "gradeId": "G134-01",
+          "raw": "210°C - 235°C",
+          "locator": "p. 1: Recommended printing settings",
+          "source": {
+            "id": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+            "publisher": "Fiberlogy",
+            "title": "TECHNICAL DATA SHEET Fiberlogy FiberFlex Aero",
+            "url": "https://fiberlogy.com/app/uploads/2026/08/FIBERLOGY_FIBERFLEX-AERO_TDS-1.pdf",
+            "sha256": "f25e6f601d3ba3b2f41f227e4b6297719544843f69c6b1235c1e9d0bcef04ef3",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 70 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0494",
+          "role": "the product's own recipe",
+          "gradeId": "G134-01",
+          "raw": "30°C - 70°C",
+          "locator": "p. 1: Recommended printing settings",
+          "source": {
+            "id": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+            "publisher": "Fiberlogy",
+            "title": "TECHNICAL DATA SHEET Fiberlogy FiberFlex Aero",
+            "url": "https://fiberlogy.com/app/uploads/2026/08/FIBERLOGY_FIBERFLEX-AERO_TDS-1.pdf",
+            "sha256": "f25e6f601d3ba3b2f41f227e4b6297719544843f69c6b1235c1e9d0bcef04ef3",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1302",
+          "role": "the product's own recipe",
+          "gradeId": "G134-01",
+          "raw": "Not published",
+          "enclosure": "not required",
+          "locator": "p. 1: Exact-product chamber guidance: Enclosed chamber: not required",
+          "source": {
+            "id": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+            "publisher": "Fiberlogy",
+            "title": "FiberFlex Aero - Fiberlogy",
+            "url": "https://fiberlogy.com/en/filaments/flex-en/fiberflex-aero-en/",
+            "sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "priceCADkg",
+      "kind": "numeric",
+      "mandatory": false,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": false,
+        "operator": "<=",
+        "property": "priceCADkg",
+        "value": 45
+      },
+      "criterion": "priceCADkg <= 45",
+      "status": "UNKNOWN",
+      "reason": "No Canadian price observation in the sampled market",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    }
+  ],
+  "material": {
+    "id": "M134",
+    "name": "CPE-LW",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "all",
+    "counts": {
+      "products": 1,
+      "pass": 1,
+      "fail": 0,
+      "untested": 0,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G134-01",
+      "state": "as-printed"
+    }
+  }
+}

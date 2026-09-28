@@ -1,0 +1,463 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "b1b495644f1d29b8a8879f334fc471f90a15a3b64e63b132ece74ae361115a12",
+    "url": "https://colorfabb.com/lw-pet-natural",
+    "pages": 1,
+    "provider": "colorFabb",
+    "manufacturer": "colorFabb",
+    "docKey": "https://colorfabb.com/lw-pet-natural#witness-for=source:R-COLORFABB-TDS-LW-PET"
+  },
+  "identity": {
+    "polymer": "PET",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PET Engineering",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pet"
+    ],
+    "materialId": "M066",
+    "materialName": "PET",
+    "estimateIdentity": "PET",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-PRINT-20260928-b1b495644f1d",
+      "Publisher": "colorFabb",
+      "Title": "LW-PET NATURAL | Lightweight Foaming PET Filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://colorfabb.com/lw-pet-natural",
+      "Locator": "Document / product page",
+      "Applicable grades": "G141-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b1b495644f1d29b8a8879f334fc471f90a15a3b64e63b132ece74ae361115a12"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "The store will not work correctly in the case when cookies are disabled."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G141-01",
+      "row": {
+        "GradeID": "G141-01",
+        "MaterialID": "M141",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "Lightweight PET",
+        "Shared formulation key": "R-COLORFABB-TDS-LW-PET",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Version: v1.0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-PRINT-20260928-b1b495644f1d",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G141-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M066",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1,31 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.31",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1310",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-lw-pet-natural",
+        "Locator": "p. 1: Density:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density: 1,31 g/cm^3 (non activated density) 0,52 g/cm^3 (maximum activated density)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M066",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "67,6 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "67.6",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "67.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-COLORFABB-lw-pet-natural",
+        "Locator": "p. 1: Glass Transition Temperature:",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass Transition Temperature: 67,6°C"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M066",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "210-260°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "210",
+        "Nozzle max °C": "260",
+        "Nozzle requirement": "required",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-COLORFABB-lw-pet-natural",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "50mm/s (4mm³/s)"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Advised 3D printing temperature 210-260°C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "printing temperature",
+      "raw": "210-260°C",
+      "fromBelow": false,
+      "line": "Advised 3D printing temperature 210-260°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "print speed",
+      "raw": "50mm/s (4mm³/s)",
+      "fromBelow": false,
+      "line": "Advised 3d print speed 50mm/s (4mm³/s)"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling fan 100%"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 40D/85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 45D/90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "company.current === true)[0].name\" class=\"selected-company-name\" >",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET NATURAL is an innovative lightweight 3D printing filament designed for applications where weight reduction is essential. It uses temperature-controlled e",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The active foaming process begins at approximately 210°C , after which expansion gradually increases up to around 260°C . As the printing temperature rises, the",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET NATURAL is designed for easy and reliable printing . It can be processed at relatively low temperatures while remaining printable at temperatures of up t",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Processing temperature: Up to 300°C Foaming: Begins at around 210°C and increases up to approximately 260°C Weight: Reduced through controlled expansion Flexibi",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter Tolerance: ± 0.1 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Advised Heated bed 60°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET NATURAL is a lightweight 3D printing filament developed for significant weight reduction. The material begins to expand at approximately 210°C , with exp",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €34.17 €28.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Only %1 left",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "%1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "040022",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €31.21 €25.79",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €34.17 €28.24",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €28.41 €23.48",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €20.49 €16.93",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from €28.41 €23.48",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% secure payments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 5951 DK Belfeld The Netherlands +31 (0)77 - 466 40 15",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted.",
+    "retrievalRevision": {
+      "previousSourceID": "D-COLORFABB-LW-PET-NATURAL-PAGE",
+      "previousSHA256": "608f3a2c763bbb4068dc3e2f547c82b793fdc05411ae39b5eea03cc0e6f1edd0",
+      "accessed": "2026-09-28",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

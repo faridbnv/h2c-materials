@@ -1,0 +1,315 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/warm-environment.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "hdt045"
+    ]
+  },
+  "product": {
+    "gradeId": "G082-03",
+    "materialId": "M082",
+    "manufacturer": "Spectrum",
+    "product": "PP",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": [
+      "specimen",
+      "moisture",
+      "treatment"
+    ]
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 295 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0175",
+          "role": "the product's own recipe",
+          "gradeId": "G082-03",
+          "raw": "265-295°C",
+          "locator": "p. 1: Recommended printing settings; p. 1: Ruby or hardened nozzle; p. 1: chamber statement",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pp",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PP",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pp.pdf",
+            "sha256": "13f9c367399140b0176092d6d96ed4961b45bae7d77913e22cc3a1cdbbef6f0a",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 120 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0175",
+          "role": "the product's own recipe",
+          "gradeId": "G082-03",
+          "raw": "95-120°C",
+          "locator": "p. 1: Recommended printing settings; p. 1: Ruby or hardened nozzle; p. 1: chamber statement",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pp",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PP",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pp.pdf",
+            "sha256": "13f9c367399140b0176092d6d96ed4961b45bae7d77913e22cc3a1cdbbef6f0a",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "No heated requirement stated",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0175",
+          "role": "the product's own recipe",
+          "gradeId": "G082-03",
+          "raw": "material does not require a heated building chamber",
+          "locator": "p. 1: Recommended printing settings; p. 1: Ruby or hardened nozzle; p. 1: chamber statement",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pp",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PP",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pp.pdf",
+            "sha256": "13f9c367399140b0176092d6d96ed4961b45bae7d77913e22cc3a1cdbbef6f0a",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 80
+      },
+      "criterion": "hdt045 >= 80",
+      "status": "PASS",
+      "reason": "Published 80 °C (ISO 75); specimen form, moisture state and treatment not stated, admitted for screening",
+      "observed": 80,
+      "unit": "°C",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "specimen",
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V002675",
+          "role": "decides",
+          "gradeId": "G082-03",
+          "property": "HDT",
+          "raw": {
+            "value": "80 °C",
+            "unit": "°C",
+            "specimen": "Not published (do not assume printed)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "HDT B ISO 75",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 80,
+            "unit": "°C",
+            "operator": "=",
+            "interval": {
+              "lo": 80,
+              "hi": 80,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 75"
+            ],
+            "loadMPa": 0.45,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Heat Distortion Temperature (HDT B)",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pp",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PP",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pp.pdf",
+            "sha256": "13f9c367399140b0176092d6d96ed4961b45bae7d77913e22cc3a1cdbbef6f0a",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M082",
+    "name": "PP",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "some",
+    "counts": {
+      "products": 12,
+      "pass": 1,
+      "fail": 2,
+      "untested": 9,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G082-03",
+      "state": "as-printed"
+    }
+  }
+}

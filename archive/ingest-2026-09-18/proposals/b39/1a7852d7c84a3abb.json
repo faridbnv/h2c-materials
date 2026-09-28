@@ -1,0 +1,631 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "1a7852d7c84a3abb0ead0e352858cf5e657c0710d3e337c6eccf89ce1505d470",
+    "url": "https://www.ysfilament.com/pages/documentation",
+    "pages": 1,
+    "provider": "Yousu",
+    "manufacturer": "Yousu",
+    "docKey": "https://www.ysfilament.com/pages/documentation#witness-for=source:R-YOUSU-POM-TDS"
+  },
+  "identity": {
+    "polymer": "POM",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Acetals",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pom"
+    ],
+    "materialId": "M087",
+    "materialName": "POM / Acetal",
+    "estimateIdentity": "POM",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-YOUSU-PRINT-20260928-1a7852d7c84a",
+      "Publisher": "Yousu",
+      "Title": "3D printing tips,3d printer filament",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.ysfilament.com/pages/documentation",
+      "Locator": "Document / product page",
+      "Applicable grades": "G087-03",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "1a7852d7c84a3abb0ead0e352858cf5e657c0710d3e337c6eccf89ce1505d470"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Home"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G087-03",
+      "row": {
+        "GradeID": "G087-03",
+        "MaterialID": "M087",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Yousu",
+        "Product name": "POM",
+        "Shared formulation key": "R-YOUSU-POM-TDS",
+        "Composition / filler": "POM (TDS); homopolymer or copolymer not stated",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Current Yousu product page (YS-POM, 1.75 / 3.0 mm); TDS retrieved 2026-09-16",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Third POM manufacturer, added 2026-09-16 (m35): the only other POM filament sheet found with a heat deflection temperature (1.8 MPa, unannealed). Direction not stated",
+        "SourceID": "R-YOUSU-PRINT-20260928-1a7852d7c84a",
+        "Source locator": "Version 2.0, p. 1",
+        "Diameter compatibility": "1.75 mm and 3.0 mm (TDS); select 1.75 mm"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G087-03 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M087",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-YOUSU-documentation",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "100%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Cooling fan  100%"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling fan  100%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling fan  100%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling fan  100%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling fan  100%"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "100%",
+      "fromBelow": false,
+      "line": "Cooling fan  100%"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FDM 3D Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "functional 3D Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Pen Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LCD&DLP 3D Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 181 Standard resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 182 ABS-like Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 183 Water Washable Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UTH Nebula series Dual color Resin iForm 183",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 184 Dental Mold Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 185 Jewelry Casting Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm186 dental casting resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 281 High Toughness Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 282 High Transparent Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 283 High Temperature Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 285 Miniatures Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 65A TPU-Like Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm RPU80 Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LCD&DLP 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SLA 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Pen",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 162",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 183",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Adhesive",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "functional 3D Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Pen Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 181 Standard resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 182 ABS-like Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 183 Water Washable Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UTH Nebula series Dual color Resin iForm 183",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 184 Dental Mold Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 185 Jewelry Casting Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm186 dental casting resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 281 High Toughness Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 282 High Transparent Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 283 High Temperature Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 285 Miniatures Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 65A TPU-Like Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm RPU80 Resin",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LCD&DLP 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SLA 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 162",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 183",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Adhesive",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA FIlament functional 3D Filament ABS Rainbow Filament Tri-color Filament Dual color FIlament Silk FIlament Double Layer Filament Glow In Dark FIlament PlA Pl",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iForm 181 Standard resin Metal Resin iForm 182 ABS-like Resin iForm 183 Water Washable Resin UTH Nebula series Dual color Resin iForm 183 iForm 184 Dental Mold ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LCD&DLP 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SLA 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 161",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 162",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "iDrawing 183",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing Adhesive",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HIPS  Nylon(PA6)  ABS  ABS+  PA6-CF  PA12-CF",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Dental Mold  Dental Cast  Jewelry Cast  65A Flexible  80A Flexible",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "90A Flexible  RPU80 Nylon Like  Super Tough 1000  Super Tough 2000",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hot-end temperature  180 °C - 195 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Heated-bed temperature  40-60 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Cura  Simplify3D  PrusaSlicer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Hot-end temperature  180 °C - 200 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Heated-bed temperature  Not necessary / 40 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Cura  Simplify3D  PrusaSlicer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Hot-end temperature  180 °C - 200 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Heated-bed temperature  Not necessary / 40 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Cura  Simplify3D  PrusaSlicer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Hot-end temperature  180 °C - 200 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Heated-bed temperature  Not necessary / 40 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Cura  Simplify3D  PrusaSlicer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Hot-end temperature  220°C - 240°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Heated-bed temperature  70 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Cura  Simplify3D  PrusaSlicer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Hot-end temperature  230°C - 250°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Heated-bed temperature  80 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Cura  Simplify 3D  PrusaSlicer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Hot-end temperature  230°C - 250°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Heated-bed temperature  80 °C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Cura  Simplify 3D  PrusaSlicer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2013-2022 Guangzhou YOUSU 3D Technology Co., Limited. All Rights Reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2013-2022 Guangzhou YOUSU 3D Technology Co., Limited. All Rights Reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2013-2022 Guangzhou YOUSU 3D Technology Co., Limited. All Rights Reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

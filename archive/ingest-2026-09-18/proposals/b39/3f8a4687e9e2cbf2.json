@@ -1,0 +1,307 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "3f8a4687e9e2cbf27fcfc82d4c0ab0cee306a93aa1a461773787fb36a59364d5",
+    "url": "https://www.sunlu.com/products/PP2.0",
+    "pages": 1,
+    "provider": "SUNLU",
+    "manufacturer": "SUNLU",
+    "docKey": "https://www.sunlu.com/products/PP2.0#witness-for=source:R-SUNLU-25182761789529093884"
+  },
+  "identity": {
+    "polymer": "PP",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Polyolefins",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: pp"
+    ],
+    "materialId": "M082",
+    "materialName": "PP",
+    "estimateIdentity": "PP",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "semicrystalline",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SUNLU-PRINT-20260928-3f8a4687e9e2",
+      "Publisher": "SUNLU",
+      "Title": "SUNLU PP2.0 - New Filaments",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.sunlu.com/products/PP2.0",
+      "Locator": "Document / product page",
+      "Applicable grades": "G082-04",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3f8a4687e9e2cbf27fcfc82d4c0ab0cee306a93aa1a461773787fb36a59364d5"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "SUNLU Official Website"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G082-04",
+      "row": {
+        "GradeID": "G082-04",
+        "MaterialID": "M082",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "SUNLU",
+        "Product name": "PP2.0",
+        "Shared formulation key": "R-SUNLU-25182761789529093884",
+        "Composition / filler": "The sheet publishes a density of 1.01 g/cm³, above the 0.90 to 0.96 a neat polypropylene reaches, so the product carries a filler SUNLU does not name (D57). Its flexural modulus of 500 MPa and elongation at break of 900 % are a soft grade's, so the filler is not a reinforcement.",
+        "Variant": "undisclosed dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "阻燃性 Flammability UL 94 1.5 mm Class HB (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SUNLU-PRINT-20260928-3f8a4687e9e2",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G082-04 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Property": "Hardness",
+        "Raw value": "60",
+        "Raw unit": "Shore (scale not specified by source)",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "Shore (scale not specified by source)",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-SUNLU-PP2-0",
+        "Locator": "p. 1: Shore Hardness(HA/HD)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Shore Hardness（HA/HD）  60  Vicat Softening Temperature（℃）  /"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M082",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "40℃",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "40",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-SUNLU-PP2-0",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Warping / shrinkage",
+          "Text": "(%) 1.36"
+        },
+        {
+          "Topic": "Retraction",
+          "Text": "30-40mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Bed Temperature 40℃"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "40℃",
+      "fromBelow": false,
+      "line": "Bed Temperature 40℃"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Warping / shrinkage",
+      "label": "Shrinkage",
+      "raw": "（%） 1.36",
+      "fromBelow": false,
+      "line": "Shrinkage（%） 1.36 Retraction Distance 0.8-1.2mm"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Retraction",
+      "label": "Retraction Speed",
+      "raw": "30-40mm/s",
+      "fromBelow": false,
+      "line": "Retraction Speed 30-40mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Home Filaments PP2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View image 1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SUNLU PP 2.0 is a lightweight, low-density material optimized from PP, offering faster printing speeds and a more stable printing process. It is suitable for pr",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm 2.85mm 3mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.25kg 0.5kg 1kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tensile Strength（MPa） 15±3 Density（g/cm³） 1.01 240-260℃/30-170mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flexural Strength（MPa）  18±3  Melt Flow Index（g/10 min）  4.4±1  Bed Temperature  40℃",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Notched Izod Impact Strength（kJ/m²）  23±5  Shrinkage（%）  1.36  Retraction Distance  0.8-1.2mm",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "Elongation at Break（%）  900±300  Heat Deflection Temperature（℃）  65±10  Retraction Speed  30-40mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A leading manufacturer of 3D printing consumables, including 3D filament materials, 3D resins, and filament dryers. Backed by proprietary IP, we deliver efficie",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

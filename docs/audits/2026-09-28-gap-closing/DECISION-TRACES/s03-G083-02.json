@@ -1,0 +1,227 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s03.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "tensileModulusXY",
+      "hdt045"
+    ]
+  },
+  "product": {
+    "gradeId": "G083-02",
+    "materialId": "M083",
+    "manufacturer": "Braskem",
+    "product": "FL900PP-CF",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": [
+      "moisture",
+      "treatment"
+    ]
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 4
+      },
+      "criterion": "tensileModulusXY >= 4",
+      "status": "PASS",
+      "reason": "Published 6.38 GPa (XY) (ASTM D638); moisture state and treatment not stated, admitted for screening",
+      "observed": 6.38,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V006383",
+          "role": "decides",
+          "gradeId": "G083-02",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "6380 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "D 638",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 6.38,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 6.38,
+              "hi": 6.38,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ASTM D638"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Youngs Modulus D 638 MPa",
+          "source": {
+            "id": "R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF",
+            "publisher": "Braskem",
+            "title": "FL900PP-CF",
+            "url": "https://www.braskem.com/portal/usa/arquivos/3DPrinting/Braskem_3D%20Printing%20Data%20Sheet%20-%20FL900PP-CF.pdf",
+            "sha256": "720ad2fc3b80a1873da10e43927f9b5fd527a9ffcfa8bbcc31d8206b0e2a63bd",
+            "accessDate": "2026-09-20",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 80
+      },
+      "criterion": "hdt045 >= 80",
+      "status": "PASS",
+      "reason": "Published 158 °C (ASTM D648); moisture state and treatment not stated, admitted for screening",
+      "observed": 158,
+      "unit": "°C",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V006386",
+          "role": "decides",
+          "gradeId": "G083-02",
+          "property": "HDT",
+          "raw": {
+            "value": "158 ℃",
+            "unit": "℃",
+            "specimen": "Printed specimen",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "0.455 MPa D 648",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 158,
+            "unit": "°C",
+            "operator": "=",
+            "interval": {
+              "lo": 158,
+              "hi": 158,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ASTM D648"
+            ],
+            "loadMPa": 0.45,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Deflection Temperature (at 0.455 MPa) D 648 ℃",
+          "source": {
+            "id": "R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF",
+            "publisher": "Braskem",
+            "title": "FL900PP-CF",
+            "url": "https://www.braskem.com/portal/usa/arquivos/3DPrinting/Braskem_3D%20Printing%20Data%20Sheet%20-%20FL900PP-CF.pdf",
+            "sha256": "720ad2fc3b80a1873da10e43927f9b5fd527a9ffcfa8bbcc31d8206b0e2a63bd",
+            "accessDate": "2026-09-20",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M083",
+    "name": "PP-CF",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "all",
+    "counts": {
+      "products": 5,
+      "pass": 2,
+      "fail": 0,
+      "untested": 3,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G083-01",
+      "state": "as-printed"
+    }
+  }
+}

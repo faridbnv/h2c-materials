@@ -1,0 +1,401 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/lightweight-structure.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "density",
+      "tensileModulusXY"
+    ]
+  },
+  "product": {
+    "gradeId": "G069-01",
+    "materialId": "M069",
+    "manufacturer": "IPCON",
+    "product": "PPA Pure Resin",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": [
+      "moisture",
+      "treatment"
+    ]
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [
+      {
+        "id": "annealed:x:x",
+        "treatment": {
+          "tempC": null,
+          "hours": null
+        },
+        "moisture": "dry",
+        "why": "the scenario does not permit annealing"
+      }
+    ],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 310 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0088",
+          "role": "the product's own recipe",
+          "gradeId": "G069-01",
+          "raw": "280 - 310 °C",
+          "locator": "Recommended printing settings; p. 2: Compatible Printer Type",
+          "source": {
+            "id": "S-PPA-TDS",
+            "publisher": "IPCON",
+            "title": "PPA Pure Resin",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2025/11/IPCON-PPA_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 120 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0088",
+          "role": "the product's own recipe",
+          "gradeId": "G069-01",
+          "raw": "100 - 120 °C",
+          "locator": "Recommended printing settings; p. 2: Compatible Printer Type",
+          "source": {
+            "id": "S-PPA-TDS",
+            "publisher": "IPCON",
+            "title": "PPA Pure Resin",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2025/11/IPCON-PPA_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1285",
+          "role": "the product's own recipe",
+          "gradeId": "G069-01",
+          "raw": "Not published",
+          "enclosure": "Enclosed-frame (rec.), open-frame",
+          "locator": "p. 1: Exact-product chamber guidance: Printer Type Enclosed-frame (rec.), open-frame",
+          "source": {
+            "id": "S-IPCON-PRINT-20260928-2dbb3874b5e9",
+            "publisher": "IPCON",
+            "title": "IPCON PPA Filament – High Strength PPA for Industrial Equipment",
+            "url": "https://www.ipconpolymer.com/product/ppa/",
+            "sha256": "2dbb3874b5e9c10278a7eaa5fce8154c7b4284823c27b5d8229c65cef335247b",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "density",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": "<=",
+        "property": "density",
+        "value": 1250
+      },
+      "criterion": "density <= 1250",
+      "status": "PASS",
+      "reason": "Published 1140 kg/m³ (ISO 1183)",
+      "observed": 1140,
+      "unit": "kg/m³",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V001285",
+          "role": "decides",
+          "gradeId": "G069-01",
+          "property": "Density",
+          "raw": {
+            "value": "1.14 g/cm³",
+            "unit": "g/cm³",
+            "specimen": "Not published (density specimen form not explicitly established)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 1183-3",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 1140,
+            "unit": "kg/m³",
+            "operator": "=",
+            "interval": {
+              "lo": 1140,
+              "hi": 1140,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 1183"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Density",
+          "source": {
+            "id": "S-PPA-TDS",
+            "publisher": "IPCON",
+            "title": "PPA Pure Resin",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2025/11/IPCON-PPA_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 2.5
+      },
+      "criterion": "tensileModulusXY >= 2.5",
+      "status": "PASS",
+      "reason": "Published 2.863 GPa (XY) (ISO 527, GB/T 1040); moisture state and treatment not stated, admitted for screening",
+      "observed": 2.863,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V001292",
+          "role": "decides",
+          "gradeId": "G069-01",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "2863 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 527, GB/T 1040",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 2.863,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 2.863,
+              "hi": 2.863,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 527",
+              "GB/T 1040"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Young's Modulus XY",
+          "source": {
+            "id": "S-PPA-TDS",
+            "publisher": "IPCON",
+            "title": "PPA Pure Resin",
+            "url": "https://www.ipconpolymer.com/wp-content/uploads/2025/11/IPCON-PPA_TDS-Technical-Data-Sheet.pdf",
+            "sha256": "86d3efd1d10736233d7b8c269db8b65797001bdc647e5a7fac2147de955cf99b",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M069",
+    "name": "PPA",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "all",
+    "counts": {
+      "products": 2,
+      "pass": 1,
+      "fail": 0,
+      "untested": 1,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G069-01",
+      "state": "as-printed"
+    }
+  }
+}

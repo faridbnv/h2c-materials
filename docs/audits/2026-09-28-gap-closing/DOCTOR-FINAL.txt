@@ -1,0 +1,9 @@
+ok   Node 24 or later                                      Node 26.9.0
+ok   Build dependencies                                    installed
+ok   Import tools' dependencies                            installed
+ok   Chrome, for the interface checks in verify            /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+ok   Pre-commit data check                                 core.hooksPath /Users/farid/Documents/h2c-materials-branch/.githooks
+ok   Cached source documents, for re-reads and migrations  2392 files under .cache/sources, 2377 texts under .cache/text, for 1712 registered sources
+ok   Private source backup (H2C_SOURCE_BACKUP)             0.0 hours since export; 0 present digest(s) missing or damaged
+
+npm run verify:fast and npm run verify can run here.

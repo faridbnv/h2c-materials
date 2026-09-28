@@ -10,8 +10,8 @@
       "sha256": "e19e6bfaf6e72ba5432a8efdf1c0000cd154b8d9702bddc9a47bf268a2dd0e57"
     },
     "profiles": {
-      "rows": 1282,
-      "sha256": "0cd97473e5481d80754d6e7c4df2ed18b33a0ed58bcb2ca09671caa176b2d882"
+      "rows": 1305,
+      "sha256": "11a913ae93ef94f60f0eb59a41ee9107117f16891cbdcbfdcd0c50d360b082f5"
     },
     "profile_notes": {
       "rows": 2061,
@@ -26,12 +26,12 @@
       "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
     },
     "evidence": {
-      "rows": 5300,
-      "sha256": "a1000d32bff19932f37ad153b82eb7b74bb0db2a064ebcc17bcaaac23dea6fdf"
+      "rows": 5306,
+      "sha256": "506eb093576e1e72bab308a1a20937df3140405125e93bd6eb4c2479b1a2952f"
     },
     "know_how_reads": {
-      "rows": 1416,
-      "sha256": "7b50e2f1c38aa32a02264975ef519859f2fc1c9f6d46b6c0ead959fda5cb4071"
+      "rows": 1542,
+      "sha256": "f47b08e470ca368351c0f60ae5cc4a89c1a2118ba9d628d7bd459875ef3ac323"
     },
     "polymer_environment": {
       "rows": 353,
@@ -46,8 +46,8 @@
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1649,
-      "sha256": "fdae6cd6c7b386e4bd533c9c42991198b61ee1d87604b1bf23bbf53fff0810aa"
+      "rows": 1712,
+      "sha256": "8cf4a8ade4dfde9ad5a66a165b593ba7fbf4f543007c76d92fdfc14df1db7b34"
     },
     "coverage": {
       "rows": 873,

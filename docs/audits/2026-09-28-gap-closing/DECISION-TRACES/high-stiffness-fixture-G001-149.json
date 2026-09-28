@@ -1,0 +1,389 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/high-stiffness-fixture.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "tensileModulusXY",
+      "hdt045"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-149",
+    "materialId": "M001",
+    "manufacturer": "colorFabb",
+    "product": "PLA Vertigo",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "tensileModulusXY >= 5"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 220 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1204",
+          "role": "the product's own recipe",
+          "gradeId": "G001-149",
+          "raw": "195 – 220 ºC",
+          "locator": "p. 2: Nozzle temperature, Bed temperature",
+          "source": {
+            "id": "R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet PLA Vertigo",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_E_colorFabb_PLA_Vertigo.pdf",
+            "sha256": "9015fcce8cc2788de5668788e5a6b253a42c40733923ab6eaade34f8705e2dc4",
+            "accessDate": "2026-09-20",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1204",
+          "role": "the product's own recipe",
+          "gradeId": "G001-149",
+          "raw": "50 – 60 ºC",
+          "locator": "p. 2: Nozzle temperature, Bed temperature",
+          "source": {
+            "id": "R-COLORFABB-TDS-E-colorFabb-PLA-Vertigo",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet PLA Vertigo",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_E_colorFabb_PLA_Vertigo.pdf",
+            "sha256": "9015fcce8cc2788de5668788e5a6b253a42c40733923ab6eaade34f8705e2dc4",
+            "accessDate": "2026-09-20",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required (per Bambu Lab's Filament Guide for PLA, not this maker's sheet)",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "guide",
+          "id": "PG016",
+          "role": "per Bambu Lab's Filament Guide for PLA, not this maker's sheet",
+          "name": "Bambu Lab's Filament Guide for PLA",
+          "raw": "Not published",
+          "enclosure": "Optional",
+          "locator": "p. 1, the column headed PLA: Nozzle Temperature; Build Plate & Bed Temperature; Print with Enclosure; Nozzle Size/Material; Dry Out Before Use; Drying Condition",
+          "source": {
+            "id": "B-GUIDE",
+            "publisher": "Bambu Lab",
+            "title": "Bambu Lab Filament Guide",
+            "url": "https://cdn1.bambulab.com/filament/filament-guide/250123/filament-guide-en.pdf",
+            "sha256": "ea799364fa4664e61632a1e87e5073c3edd0e76f93bd5524192bb018b5cfb858",
+            "accessDate": "2026-09-10",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 5
+      },
+      "criterion": "tensileModulusXY >= 5",
+      "status": "FAIL",
+      "reason": "Published 3.28579 GPa (XY) (ISO 527), same sheet as colorFabb PLA Chameleon; moisture state and treatment not stated, admitted for screening",
+      "observed": 3.28579,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V006518",
+          "role": "decides",
+          "gradeId": "G001-70",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "3285,79 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 527",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 3.28579,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 3.28579,
+              "hi": 3.28579,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 527"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Tensile modulus MPa",
+          "source": {
+            "id": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet PLA Chameleon",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_E_colorFabb_PLA_Chameleon.pdf",
+            "sha256": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": false,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": false,
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 90
+      },
+      "criterion": "hdt045 >= 90",
+      "status": "UNKNOWN",
+      "reason": "Published 59.03 °C without stating the test load, so it is not compared (include values published that way to use it)",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V006529",
+          "role": "published, not comparable",
+          "gradeId": "G001-70",
+          "property": "HDT",
+          "raw": {
+            "value": "59,03 °C",
+            "unit": "°C",
+            "specimen": "Printed specimen",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 75",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 59.03,
+            "unit": "°C",
+            "operator": "=",
+            "interval": {
+              "lo": 59.03,
+              "hi": 59.03,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 75"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Heat Deflection Temperature (HDT) °C",
+          "source": {
+            "id": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+            "publisher": "colorFabb",
+            "title": "Technical datasheet PLA Chameleon",
+            "url": "https://3d.nice-cdn.com/upload/file/TDS_E_colorFabb_PLA_Chameleon.pdf",
+            "sha256": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 200,
+      "pass": 0,
+      "fail": 39,
+      "untested": 161,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G001-03",
+      "state": "as-printed"
+    }
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "e2f72ffa8080b6b7c6a251d2a0a35a57204e98fdcd471b7442f108fccd063914",
+    "url": "https://www.3djake.com/3djake/abs-cf-dark-grey",
+    "pages": 1,
+    "provider": "3DJake",
+    "manufacturer": "3DJake",
+    "docKey": "https://www.3djake.com/3djake/abs-cf-dark-grey#witness-for=source:R-3DJAKE-TDS-3DJAKE-ABS-CF"
+  },
+  "identity": {
+    "polymer": "ABS",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "ABS",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: abs",
+      "filler: carbon (from the sheet, not the name)"
+    ],
+    "materialId": "M029",
+    "materialName": "ABS-CF",
+    "estimateIdentity": "ABS",
+    "confidence": 0.85,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-3DJAKE-PRINT-20260928-e2f72ffa8080",
+      "Publisher": "3DJake",
+      "Title": "3DJAKE ABS CF Dark Grey - 3DJake International",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.3djake.com/3djake/abs-cf-dark-grey",
+      "Locator": "Document / product page",
+      "Applicable grades": "G029-10",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "e2f72ffa8080b6b7c6a251d2a0a35a57204e98fdcd471b7442f108fccd063914"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Go to main menu"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G029-10",
+      "row": {
+        "GradeID": "G029-10",
+        "MaterialID": "M029",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "3DJake",
+        "Product name": "ABS CF",
+        "Shared formulation key": "R-3DJAKE-TDS-3DJAKE-ABS-CF",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-PRINT-20260928-e2f72ffa8080",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G029-10 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "⚡️Buy more, save more: get 10% off when you order 10 or more filaments & resins! ⚡️",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "More than 11.250 products",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We deliver worldwide to more than 40 countries",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "more than 40 countries",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printers & More",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJAKE ABS CF Dark Grey, 1.75 mm / 1000 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJAKE ABS CF Dark Grey",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "€ 24,99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "( € 24,99 / kg , All prices excl. VAT. - Excludes delivery costs )",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJAKE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "€ 24,99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(€ 24,99 / kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJAKE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "€ 24,99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(€ 24,99 / kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJAKE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "€ 24,99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(€ 24,99 / kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJAKE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "€ 24,99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(€ 24,99 / kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Model type : 1.75 mm / 1000 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "There are only 0 items of this product left in our warehouse. More are on the way! The delivery date could be affected if you order more than this quantity.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Heat-resistant up to 100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Item no.: CLP-9010707009443",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Content: 1.000 g",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "EAN: 9010707009443",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Manufacturer No.: 9010707009443",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Manufacturer: 3DJAKE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1,75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "RAL colour: RAL 7011",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended processing temperature: 220 - 250 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended heating temperature: 100-110 ° C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 stars    1  (50%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4 stars    0  (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3 stars    0  (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 stars    0  (0%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 Stars    1  (50%)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We do not have any reviews in English yet, but we do have 1 review available in another language.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm Filaments for 3D Printers",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJake ABS CF Filaments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Grey 3D Printing ABS Filaments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silver 3D Printing ABS Filaments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Silver 3D Printer Filaments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SUNLU Silk PLA+ 2.0 Luxury Bright Red",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The Army Painter Combat Se7ens: Field Gear Green",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SUNLU PETG 2.0 Magenta",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SUNLU PLA+ 2.0 Lavender Purple",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "More than 11.250 products",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We deliver worldwide to more than 40 countries",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "We deliver worldwide to more than 40 countries",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from 0 kg  € 28,60",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from 2 kg  € 32,97",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from 4 kg  € 80,66",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from 10 kg  € 152,33",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "from 20 kg  € 228,33",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3DJake Material Profiles",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Printing FAQs",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "About 3DJake",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2010-2026 niceshops GmbH - All rights reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

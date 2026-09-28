@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "c1f77dd37a8b89c50b2d2173526a83917e312c4684c3b7833602b171c6240d6a",
+    "url": "https://www.esun3d.com/peba-product",
+    "pages": 1,
+    "provider": "eSUN",
+    "manufacturer": "eSUN",
+    "docKey": "https://www.esun3d.com/peba-product#witness-for=source:S-PEBA-PEBA90A-TDS-en"
+  },
+  "identity": {
+    "polymer": "PEBA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: peba"
+    ],
+    "materialId": "M045",
+    "materialName": "PEBA",
+    "estimateIdentity": "PEBA",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-ESUN-PRINT-20260928-c1f77dd37a8b",
+      "Publisher": "eSUN",
+      "Title": "PEBA 90A 3D Printing Filament – High Resilience & Flexibility",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://www.esun3d.com/peba-product",
+      "Locator": "Document / product page",
+      "Applicable grades": "G045-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "c1f77dd37a8b89c50b2d2173526a83917e312c4684c3b7833602b171c6240d6a"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "The store will not work correctly when cookies are disabled."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G045-01",
+      "row": {
+        "GradeID": "G045-01",
+        "MaterialID": "M045",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "PEBA90A",
+        "Shared formulation key": "S-PEBA-PEBA90A-TDS-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-ESUN-PRINT-20260928-c1f77dd37a8b",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G045-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "120 ℃",
+        "Raw unit": "℃",
+        "Raw numeric": "120",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "120",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PEBA-peba-product",
+        "Locator": "p. 1: Heat Distortion Temperature(°C) Vicat Softening Temperature Mechanical Properties",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat Softening Temperature120℃，10N (110℃)"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M045",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "520 %",
+        "Raw unit": "%",
+        "Raw numeric": "520",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": ">",
+        "Conversion factor": "1",
+        "Normalized value": "520",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "XY",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "S-PEBA-peba-product",
+        "Locator": "p. 1: Elongation at Break (XY) (%) Elongation at Break (Z) (%)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "＞520%"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extruder Temperature",
+      "raw": "(°C)",
+      "fromBelow": false,
+      "line": "Extruder Temperature(°C)"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "(°C)",
+      "fromBelow": false,
+      "line": "Bed Temperature(°C)"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Shipping: $ 5.99, Free Shipping Over $ 99.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA-90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA-90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "$69.99",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shipping: $ 5.99, Free Shipping Over $ 99.00",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA-90A Filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "The PEBA 90A 3D printing filaments feature ultra-high resilience, light weight, excellent impact resistance, and stable performance across a wide temperature ra",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA-90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1KG/Spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Maximum rebound rate reaches 70%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "With a density below 1.05g/cm,PEBA is 15-20% liqhter than TPU,significantly reducing part weight while maintaining strength, enabling lightweight design.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Environment-friendly 3D printing materials, good printing stability, low shrinkage, no warping, no cracking, smooth and delicate surface, compatible with 3D hig",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.01",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Density(g/cm3) (unit to be confirmed)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "10~16(190℃/2.16kg)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Melt Flow Index(g/10min)",
+      "reason": "a label the lexicon knows, with a number its property is not kept in and no row below that stated one"
+    },
+    {
+      "page": 1,
+      "text": "＞16.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7.5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "150%",
+      "reason": "a number and its unit alone, with no row of its own: a chart or a comparison, not a result"
+    },
+    {
+      "page": 1,
+      "text": "230-260℃/446-500℉",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "60-90℃",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "10-50%",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "25-110mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Dry at70℃/＞6H",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Download List 0",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "BLACK #272729",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "WHITE #E3E4D4",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "GREY #606783",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Hi, because we will split the package for shipment depending on the weight and storage warehouse when we ship. If your multiple packages do not arrive within 2 ",
+      "reason": "a storage or shelf-life note, not a test result"
+    },
+    {
+      "page": 1,
+      "text": "Our restocking cycle is usually 2-3 months. Please contact us for detailed dates. We accept pre-order, if you want to pre-order, please contact us: [email prote",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Embark on a 3D Journey",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Leading the world in 3D printing material standards since 2002. With over 20 years of expertise, eSUN provides end-to-end solutions-including FDM filaments, LCD",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "ESUN易生3D打印材料",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Copyright © 2026 All Rights Reserved.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "COPYRIGHT © 2026 eSUN",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

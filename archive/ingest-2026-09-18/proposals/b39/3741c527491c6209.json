@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "3741c527491c62097ffcb7d9b07d5bc1f2c5fb6baa00479fc2b79df2f7cc2262",
+    "url": "https://spectrumfilaments.com/en/filament/asa-electrically-conductive/",
+    "pages": 1,
+    "provider": "Spectrum",
+    "manufacturer": "Spectrum",
+    "docKey": "https://spectrumfilaments.com/en/filament/asa-electrically-conductive/#witness-for=source:S-SPECTRUM-en-tds-spectrum-asa-conductive"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla"
+    ],
+    "materialId": "M001",
+    "materialName": "PLA",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "S-SPECTRUM-PRINT-20260928-3741c527491c",
+      "Publisher": "Spectrum",
+      "Title": "ASA Electrically Conductive - Spectrum Filaments",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+      "Citation role": "cited",
+      "URL": "https://spectrumfilaments.com/en/filament/asa-electrically-conductive/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G105-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3741c527491c62097ffcb7d9b07d5bc1f2c5fb6baa00479fc2b79df2f7cc2262"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Select a filament category:"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G105-01",
+      "row": {
+        "GradeID": "G105-01",
+        "MaterialID": "M105",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "ASA Conductive",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-asa-conductive",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-SPECTRUM-PRINT-20260928-3741c527491c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G105-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M001",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "recommended for larger prints",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "recommended",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Ruby or hardened nozzle recommended",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-SPECTRUM-ASA-Conductive",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Cooling",
+          "Text": "0-50%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Enclosure recommended for larger prints"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Outside the authorized chamber intake, or automatic menu/layout inference. Exact target mappings are reviewed separately."
+      }
+    },
+    {
+      "gradeKey": "G105-01",
+      "row": {
+        "MaterialID": "M105",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "does not require a heated chamber",
+        "Chamber state": "not-required",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "none",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "S-SPECTRUM-PRINT-20260928-3741c527491c",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Exact-product chamber guidance: does not require a heated chamber",
+        "Parse review": "Exact manufacturer sentence explicitly says the product does not require a heated chamber. Raw prose is retained; parser misreads require after negation. Codex AI, 2026-09-28."
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Although Spectrum ASA Electrically Conductive does not require a heated chamber, using one can improve stability when printing larger models. Due to the presence of carbon nanotubes, the material is slightly abrasive, so we recommend using a hardened steel or ruby nozzle. Spectrum ASA Electrically Conductive is a great choice for users seeking a durable, weather-resistant, and electrically conductive material for specialized technical prints."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Full captured text and exact product section inspected. Only the chamber/enclosure field enters; original recipes remain. Explicit negative chamber statement."
+      },
+      "id": "chamber-G105-01"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Nozzle temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed temperature",
+      "raw": "[°C]",
+      "fromBelow": false,
+      "line": "Bed temperature [°C]"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling",
+      "raw": "0-50%",
+      "fromBelow": true,
+      "line": "Cooling 0-50%"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosure",
+      "raw": "recommended for larger prints",
+      "fromBelow": true,
+      "line": "Enclosure recommended for larger prints"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Ruby or hardened nozzle",
+      "raw": "recommended",
+      "fromBelow": false,
+      "line": "Ruby or hardened nozzle recommended"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Spectrum ASA Electrically Conductive is an advanced technical filament developed for professional applications where electrical conductivity and high resistance",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "To verify the conductive properties, tests were conducted using a 3D-printed specimen with dimensions 4 × 4 × 120 mm (100% infill), at 10 V and three different ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "270°C: 51 Ω·m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "280°C: 45 Ω·m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "290°C: 41 Ω·m",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "These measurements demonstrate that increasing the extrusion temperature positively influences the filament’s conductivity. Higher temperatures improve the disp",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Very low surface resistivity (~40 Ω·m)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "240-270°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "80-100°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "30-120 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "not necessary (for increased adhesion or to prevent warping: Dimafix, 3DLac, Magigoo)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA-X GF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10% glass fiber",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ABS GP450™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature – 95°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "burning behavior UL 94 (1.6mm) ? HB",
+      "reason": "properties.csv carries no property for \"burning behavior\""
+    },
+    {
+      "page": 1,
+      "text": "high speed printing (200mm/s) without quality & mechanical properties losses",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Significant weight reduction of printed parts up to 66%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PC/ABS FR V0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "increased temperature resistance after heat treatment (up to 85°C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FlameGuard ASA 275",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Designed to meet UL 94 V0 standards",
+      "reason": "properties.csv carries no property for \"Designed to meet\""
+    },
+    {
+      "page": 1,
+      "text": "ASA 275™",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature – 94°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "high speed 3D printing (up to 200mm/s)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening point – 95°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Vicat softening temperature – 96°C",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Wide portfolio consisting of over 50 filaments with a versatile range of properties and applications, divided into three segments: desktop easy-to-use, industri",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Our qualified support team helps at every stage from material selection to the 3D printing process.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spectrum Group Sp. z o.o. Parkowa 85 05-806 Pęcice VAT EU: PL5342505042 KRS: 0000560153 REGON: 361615220",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2025 Spectrum Filaments. All rights reserved.",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": []
+}

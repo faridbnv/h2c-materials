@@ -1,0 +1,389 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/lightweight-structure.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "density",
+      "tensileModulusXY"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-04",
+    "materialId": "M001",
+    "manufacturer": "Spectrum",
+    "product": "PLA Tough",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "tensileModulusXY >= 2.5"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 230 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0177",
+          "role": "the product's own recipe",
+          "gradeId": "G001-04",
+          "raw": "190-230°C",
+          "locator": "p. 1: Recommended printing settings; p. 1: Nozzle note",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 45 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0177",
+          "role": "the product's own recipe",
+          "gradeId": "G001-04",
+          "raw": "0-45°C",
+          "locator": "p. 1: Recommended printing settings; p. 1: Nozzle note",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P0177",
+          "role": "the product's own recipe",
+          "gradeId": "G001-04",
+          "raw": "Not published",
+          "enclosure": "not necessary",
+          "locator": "p. 1: Recommended printing settings; p. 1: Nozzle note",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "density",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": "<=",
+        "property": "density",
+        "value": 1250
+      },
+      "criterion": "density <= 1250",
+      "status": "PASS",
+      "reason": "Published 1200 kg/m³ (ASTM D792)",
+      "observed": 1200,
+      "unit": "kg/m³",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V002686",
+          "role": "decides",
+          "gradeId": "G001-04",
+          "property": "Density",
+          "raw": {
+            "value": "1.20 g/cm3",
+            "unit": "g/cm3",
+            "specimen": "Not published (density specimen form not explicitly established)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "D 792",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 1200,
+            "unit": "kg/m³",
+            "operator": "=",
+            "interval": {
+              "lo": 1200,
+              "hi": 1200,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ASTM D792"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Specific Gravity",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 2.5
+      },
+      "criterion": "tensileModulusXY >= 2.5",
+      "status": "FAIL",
+      "reason": "Published 0.4328 GPa (XY) (ASTM D638); moisture state and treatment not stated, admitted for screening",
+      "observed": 0.4328,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V011510",
+          "role": "decides",
+          "gradeId": "G001-04",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "432,8 MPa",
+            "unit": "MPa",
+            "specimen": "Printed specimen",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "D638",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 0.4328,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 0.4328,
+              "hi": 0.4328,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "printed",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ASTM D638"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: E-modulus, D638, 432.8 MPa; horizontal XY footnote",
+          "source": {
+            "id": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+            "publisher": "Spectrum",
+            "title": "TECHNICAL DATA SHEET PLA Tough",
+            "url": "https://spectrumfilaments.com/wp-content/uploads/2022/05/en_tds_spectrum_pla_tough.pdf",
+            "sha256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+            "accessDate": "2026-09-18",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "some",
+    "counts": {
+      "products": 200,
+      "pass": 11,
+      "fail": 51,
+      "untested": 138,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G001-01",
+      "state": "as-printed"
+    }
+  }
+}

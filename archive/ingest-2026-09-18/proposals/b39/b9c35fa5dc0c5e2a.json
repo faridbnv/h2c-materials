@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-28"
+  },
+  "document": {
+    "sha256": "b9c35fa5dc0c5e2a346232e97b3f673edba3f623483baeab3c43067b147404f7",
+    "url": "https://colorfabb.com/pla-pha-natural",
+    "pages": 1,
+    "provider": "colorFabb",
+    "manufacturer": "colorFabb",
+    "docKey": "https://colorfabb.com/pla-pha-natural#witness-for=source:R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS"
+  },
+  "identity": {
+    "polymer": "PHA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "PVB / Specialty Polymers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: pha"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "newMaterial": null,
+  "source": {
+    "row": {
+      "SourceID": "R-COLORFABB-PRINT-20260928-b9c35fa5dc0c",
+      "Publisher": "colorFabb",
+      "Title": "Default Category",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-28",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.",
+      "Citation role": "corroboration",
+      "URL": "https://colorfabb.com/pla-pha-natural",
+      "Locator": "Document / product page",
+      "Applicable grades": "G145-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "b9c35fa5dc0c5e2a346232e97b3f673edba3f623483baeab3c43067b147404f7"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "The store will not work correctly in the case when cookies are disabled."
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI agent, 2026-09-28"
+    }
+  },
+  "grades": [
+    {
+      "key": "G145-01",
+      "row": {
+        "GradeID": "G145-01",
+        "MaterialID": "M145",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "colorFabb",
+        "Product name": "PLA/PHA",
+        "Shared formulation key": "R-COLORFABB-colorFabb-PLA-PHA-Printing-Filament-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-COLORFABB-PRINT-20260928-b9c35fa5dc0c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI agent, 2026-09-28",
+        "note": "Existing exact GradeID G145-01 and manufacturer/product; no new grade, shared formulation or identity is inferred."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+- 0.05mm precision",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA available in 190 RAL colors",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 40D/85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 45D/90A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb XT-CF20",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "colorFabb nGen-CF10",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "company.current === true)[0].name\" class=\"selected-company-name\" >",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET FLEX 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "LW-PET FLEX MAX 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 40D 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 45D 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PET FLEX MAX 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU varioShore 95A 5 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU varioShore Prosthetic 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA High Speed Pro 2 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA 0 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA Light Weight 10 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA-PHA 9 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PHA 3 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA 6 items",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ASA Light Weight 1 item",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Step into the world of eco-friendly 3D printing with our Grass Filaments. Ideal for artists, designers, and hobbyists, these filaments offer a natural, organic ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% secure payments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bremweg 7 5951 DK Belfeld The Netherlands +31 (0)77 - 466 40 15",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI agent, 2026-09-28",
+    "note": "Register the bounded maker search even where it contains no usable chamber statement. No new mechanical or thermal value is accepted."
+  },
+  "discardedAutomaticGrades": []
+}

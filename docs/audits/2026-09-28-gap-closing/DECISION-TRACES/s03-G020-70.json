@@ -1,0 +1,172 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/s03.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "tensileModulusXY",
+      "hdt045"
+    ]
+  },
+  "product": {
+    "gradeId": "G020-70",
+    "materialId": "M020",
+    "manufacturer": "Recreus",
+    "product": "PET-G",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "hdt045 >= 80"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 4
+      },
+      "criterion": "tensileModulusXY >= 4",
+      "status": "UNKNOWN",
+      "reason": "Not published in the sampled sources",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "hdt045",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "operator": ">=",
+        "property": "hdt045",
+        "value": 80
+      },
+      "criterion": "hdt045 >= 80",
+      "status": "FAIL",
+      "reason": "Published 68 °C (ISO 75); specimen form, moisture state and treatment not stated, admitted for screening",
+      "observed": 68,
+      "unit": "°C",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "specimen",
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V011511",
+          "role": "decides",
+          "gradeId": "G020-70",
+          "property": "HDT",
+          "raw": {
+            "value": "68,0 °C",
+            "unit": "°C",
+            "specimen": "Not published (do not assume printed)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "HDT (0,45MPa); ISO 75-2",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 68,
+            "unit": "°C",
+            "operator": "=",
+            "interval": {
+              "lo": 68,
+              "hi": 68,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 75"
+            ],
+            "loadMPa": 0.45,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: HDT (0,45MPa) 68,0 °C ISO 75-2",
+          "source": {
+            "id": "X-RECREUS-PET-G-TDS-2023",
+            "publisher": "Recreus",
+            "title": "TECHNICAL DATA SHEET PET-G",
+            "url": "https://drive.google.com/file/d/1V6XdIixjhVUCm8J_6B5drqDEJtrudsHO/view",
+            "sha256": "9cb0b12cb848a735875ffac3e8b059902bc6d7c12584d3d6414d8d9d4558eb38",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M020",
+    "name": "PETG",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 76,
+      "pass": 0,
+      "fail": 36,
+      "untested": 40,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G022-01",
+      "state": "as-printed"
+    }
+  }
+}

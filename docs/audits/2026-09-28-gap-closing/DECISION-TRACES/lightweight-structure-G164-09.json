@@ -1,0 +1,392 @@
+{
+  "release": {
+    "id": "ba30857bd40d",
+    "digest": "ba30857bd40d8eeebb79535dd598634066f44d29504eb651dde711aa4de069f8"
+  },
+  "database": "dist/db.json, current release ba30857bd40d",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/lightweight-structure.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "scope",
+      "supportMaterial",
+      "nozzle",
+      "bed",
+      "chamber",
+      "density",
+      "tensileModulusXY"
+    ]
+  },
+  "product": {
+    "gradeId": "G164-09",
+    "materialId": "M164",
+    "manufacturer": "CreatBot",
+    "product": "Ultra PA",
+    "verdict": "PASS",
+    "screened": false,
+    "failedBy": [],
+    "admitted": [
+      "specimen",
+      "moisture",
+      "treatment"
+    ]
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "PASS"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "scope",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "scope",
+        "kind": "gate"
+      },
+      "criterion": "H2C-relevant scope",
+      "status": "PASS",
+      "reason": "In scope for the H2C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "supportMaterial",
+      "kind": "facet",
+      "mandatory": true,
+      "constraint": {
+        "equals": false,
+        "facet": "supportMaterial",
+        "kind": "facet"
+      },
+      "criterion": "Build material",
+      "status": "PASS",
+      "reason": "Recorded as a build material",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": []
+    },
+    {
+      "key": "nozzle",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "nozzle",
+        "kind": "gate"
+      },
+      "criterion": "Nozzle temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 300 °C, within the H2C's 350 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1194",
+          "role": "the product's own recipe",
+          "gradeId": "G164-09",
+          "raw": "280-300℃",
+          "locator": "p. 1: Recommended printing settings; p. 1: bed temperature",
+          "source": {
+            "id": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+            "publisher": "CreatBot",
+            "title": "Technical Data Sheet:CreatBot Ultra PA",
+            "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4090",
+            "sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+            "accessDate": "2026-09-26",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "bed",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "bed",
+        "kind": "gate"
+      },
+      "criterion": "Bed temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1194",
+          "role": "the product's own recipe",
+          "gradeId": "G164-09",
+          "raw": "70-80℃",
+          "locator": "p. 1: Recommended printing settings; p. 1: bed temperature",
+          "source": {
+            "id": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+            "publisher": "CreatBot",
+            "title": "Technical Data Sheet:CreatBot Ultra PA",
+            "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4090",
+            "sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+            "accessDate": "2026-09-26",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "chamber",
+      "kind": "gate",
+      "mandatory": true,
+      "constraint": {
+        "gate": "chamber",
+        "kind": "gate"
+      },
+      "criterion": "Chamber temperature within H2C baseline",
+      "status": "PASS",
+      "reason": "Needs up to 60 °C, within the H2C's 65 °C",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "profile",
+          "id": "P1286",
+          "role": "the product's own recipe",
+          "gradeId": "G164-09",
+          "raw": "maintain chamber temperature at 40-60°C",
+          "locator": "p. 1: Exact-product chamber guidance: maintain chamber temperature at 40-60°C",
+          "source": {
+            "id": "R-CREATBOT-PRINT-20260928-3148a159f1e5",
+            "publisher": "CreatBot",
+            "title": "Ultra PA Filament Printing Guide",
+            "url": "https://www.creatbot.com/filamentList/ultra-pa/",
+            "sha256": "3148a159f1e5ca76f54f5ddd45a7b184193bb76cf9e91af68c707d8aad7d9806",
+            "accessDate": "2026-09-28",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "density",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": "<=",
+        "property": "density",
+        "value": 1250
+      },
+      "criterion": "density <= 1250",
+      "status": "PASS",
+      "reason": "Published 1210 kg/m³ (ISO 1183)",
+      "observed": 1210,
+      "unit": "kg/m³",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V011343",
+          "role": "decides",
+          "gradeId": "G164-09",
+          "property": "Density",
+          "raw": {
+            "value": "1.21 g/cm3",
+            "unit": "g/cm3",
+            "specimen": "Not published (density specimen form not explicitly established)",
+            "direction": "Not applicable",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO1183",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 1210,
+            "unit": "kg/m³",
+            "operator": "=",
+            "interval": {
+              "lo": 1210,
+              "hi": 1210,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "not-applicable",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 1183"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Physical Properties Test method Data Density ISO1183 Saturated water absorption",
+          "source": {
+            "id": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+            "publisher": "CreatBot",
+            "title": "Technical Data Sheet:CreatBot Ultra PA",
+            "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4090",
+            "sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+            "accessDate": "2026-09-26",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    },
+    {
+      "key": "tensileModulusXY",
+      "kind": "numeric",
+      "mandatory": true,
+      "constraint": {
+        "kind": "numeric",
+        "mandatory": true,
+        "operator": ">=",
+        "property": "tensileModulusXY",
+        "value": 2.5
+      },
+      "criterion": "tensileModulusXY >= 2.5",
+      "status": "PASS",
+      "reason": "Published 3.3297 GPa (XY) (ISO 527, GB/T 1040); specimen form, moisture state and treatment not stated, admitted for screening",
+      "observed": 3.3297,
+      "unit": "GPa",
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [
+        "specimen",
+        "moisture",
+        "treatment"
+      ],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "measurement",
+          "id": "V011348",
+          "role": "decides",
+          "gradeId": "G164-09",
+          "property": "Tensile modulus",
+          "raw": {
+            "value": "3329.7 MPa",
+            "unit": "MPa",
+            "specimen": "Not published (do not assume printed)",
+            "direction": "XY",
+            "moisture": "Not published",
+            "postProcessing": "Not published",
+            "standard": "ISO 527 GB/T 1040",
+            "testTemperature": "Not published"
+          },
+          "typed": {
+            "value": 3.3297,
+            "unit": "GPa",
+            "operator": "=",
+            "interval": {
+              "lo": 3.3297,
+              "hi": 3.3297,
+              "kind": "point"
+            },
+            "uncertainty": null,
+            "specimenForm": "not-stated",
+            "direction": "XY",
+            "moistureState": "not-stated",
+            "postProcessingState": "not-stated",
+            "anneal": null,
+            "standards": [
+              "ISO 527",
+              "GB/T 1040"
+            ],
+            "loadMPa": null,
+            "testTemperatureC": null,
+            "notch": "Not applicable",
+            "dataStatus": "Published value"
+          },
+          "locator": "p. 1: Young's modulus XY ISO 527, GB/T 1040",
+          "source": {
+            "id": "R-FILAMENT2PRINT-CreatBot-UltraPA",
+            "publisher": "CreatBot",
+            "title": "Technical Data Sheet:CreatBot Ultra PA",
+            "url": "https://filament2print.com/en/index.php?controller=attachment&id_attachment=4090",
+            "sha256": "f0e4894683f2fc3720b3f320833c344d2e1ebd2eda73c1b0112924619a4286d2",
+            "accessDate": "2026-09-26",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M164",
+    "name": "Nylon, polymer not stated",
+    "verdict": "PASS",
+    "eligible": true,
+    "share": "some",
+    "counts": {
+      "products": 9,
+      "pass": 1,
+      "fail": 2,
+      "untested": 6,
+      "screened": 0
+    },
+    "someFail": false,
+    "decidedBy": {
+      "gradeId": "G164-09",
+      "state": "as-printed"
+    }
+  }
+}
