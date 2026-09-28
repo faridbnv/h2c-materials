@@ -807,7 +807,7 @@ G057-06,M057,Easy PA,within,within,within,unknown,unknown,required,
 G057-07,M057,ePA,within,within,unknown,unknown,unknown,required,drying: twin G057-04
 G059-01,M059,Fiberon PA612-CF15,within,within,within,unknown,requires-hardened,required,
 G059-02,M059,PA612-CF,within,within,unknown,unknown,requires-hardened,required,
-G059-03,M059,Industrial PA12 CF+,unknown,unknown,unknown,unknown,requires-hardened,unknown,
+G059-03,M059,Industrial PA12 CF+,unknown,unknown,unknown,unknown,requires-hardened,required,
 G064-01,M064,3DXSTAT ESD PA12,within,within,unknown,unknown,unknown,unknown,
 G065-01,M065,Fiberon PA612-ESD,within,within,within,unknown,requires-hardened,required,
 G066-01,M066,High Precision PET,within,within,unknown,recommended,unknown,required,

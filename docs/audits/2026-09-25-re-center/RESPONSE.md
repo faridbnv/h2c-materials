@@ -2166,3 +2166,124 @@ transition, D92, D94). Price waits, by the owner's decision.
   and FormFutura's STYX PA6-CF15 and GF30 corrected to their own "no enclosure needed" (m190). The owner may confirm.
 - PA66-CF and PA612-GF have no product: no maker publishes a sheet; look again when ABC3D does.
 - Merge `v2` into `main` when the owner asks.
+
+## The research package of 2026-09-26: what it settled (2026-09-27)
+
+*In plain words: a research agent, working from the brief of 2026-09-26 against a commit 57 behind this one, searched
+the makers' sites and archives for what the database lacks. Much of what it found had been done here since. What it
+added:
+- makers' own words on 157 more products;
+- the whole of the Onyx GF sheet;
+- five heat deflections and two loads;
+- Spectrum's heat-deflection loads for four products;
+- 35 print-recipe cells;
+- one product that was two (Raise3D PA12 CF+ is a PA612);
+- two held sheets identified (Timberfill, Eel);
+- the Bambu guide revision Bambu Lab actually links.
+
+Thirteen answers moved. Most of its 391 findings with no answer are questions for the makers, now kept as the list to
+send.*
+
+Written by Claude (an agent). Every value, cell and statement was re-read by an agent on the hash-checked page before
+it was written; no person reviewed it. The research agents are named on the sources they retrieved.
+
+**The package.** `…/outputs/research-package/`:
+- 1,160 findings in 34 assignments;
+- 1,014 saved documents with their SHA-256;
+- a second AI read of each finding;
+- 391 handoffs: 255 for makers, 127 for the owner, 9 not retrieved.
+
+It was made against `b55e3eb`, before m160 to m199. Three passes compared every finding with the tables as they stand.
+[archive/research-2026-09-26/disposition.csv](../../../archive/research-2026-09-26/disposition.csv) records each one:
+
+| | Findings |
+|---|---:|
+| Applied by this intake (m200 to m211) | 318 |
+| Already in the data | 366 |
+| Left: a question for a maker (255) or the owner (114), a source defect that persists (78), not retrieved (9), out of scope (4), or found and not applied (16) | 476 |
+
+The 366 were already here through:
+- m180: Extrudr's moulded bars, QIDI's loads;
+- m167, m168, m199: Nanovia;
+- m181: the graphene sheets' specific gravity;
+- m197: lightweight PET;
+- m198: LEHVOSS 9825 NT;
+- 318 recipe cells typed since m136, or answered by a twin or the guide.
+
+**The owner's three answers** (GOALS, "Decided on 2026-09-27"):
+1. Verify the guide revision, then switch.
+2. Timberfill and Eel enter as batch b37; Electrifi waits.
+3. The saved documents enter from their copies.
+
+**The front door.** `ingest:witness` takes `--stage <file>` and `--from <manifest.csv>`:
+- **Staging.** A saved page enters the ledger as a witness from its copy. Its bytes must hash to the digest recorded
+  when it was read, and the row says who saved it and when.
+- **Keys.** A page the ledger holds from another reading is keyed by the day of this one. A source that predates the
+  ledger is witnessed by its SourceID.
+- **What entered.** 171 pages entered this way: 169 of the package's, and Bambu's guide page.
+- **Registering them.** 25 of them repeat a URL already registered under bytes nobody kept. They are registered as a
+  second reading, with a `#read=` fragment, since a URL is unique.
+
+**What each migration did, and the decision diff** (`build/snapshot/templates.csv`, against `f70b087`):
+
+| Migration | What | Answers moved |
+|---|---|---|
+| m200 | **Markforged Onyx GF, read whole.** Batch b34 read one column, the XZ bars. Both pages say the specimens were printed on an FX10. Now recorded: the p. 1 XY column (tensile, flexural, compressive, notched Izod, density, heat deflection 138 °C at 1.8 MPa by DMA, thermal expansion and conductivity), the dry and wet XY tensile table, and the upright ZX bar, which is Z by m191's rule. The XZ rows became printed specimens. | Nylon-GF, polymer not stated: Lightweight structure UNKNOWN → PASS (Explore, and with estimates), absent → PASS (Strict). High-stiffness fixture and Flexible component UNKNOWN → FAIL (Explore, and with estimates). |
+| m201 | **Values the reader skipped.** purefil SAN 101 °C at 1.8 MPa; COC tough 160 °C and COC flex 60 °C at 0.45 MPa; PBT 180 °C at 0.45 MPa on both sheets. The reader missed them because the text layer draws "ti" as a digit. Also two COC elongations, and ApolloX Kevlar's "Elastic tensile modulus" 2,200 MPa, which counts as published only. | COC: Outdoor structural part and Warm environment UNKNOWN → FAIL (Explore, and with estimates), on COC flex's 60 °C. |
+| m202 | **Spectrum's Product Portfolio 2024** (new, staged) prints the ISO 75 method beside four figures its sheets print bare: PA6 Low Warp and rPETG are B (0.45 MPa); Smart ABS and ASA 275 are A (1.8 MPa). | PA6: Outdoor structural part UNKNOWN → FAIL (Explore, and with estimates), on PA6 Low Warp's 60 °C. PETG and PA6 keep Warm environment with one more failing product. |
+| m203 | **colorFabb LW-PET and LW-PET FLEX density**, from the product pages: 0.52 g/cm³ at maximum activation is the foamed product's (D95); 1.31 and 1.30 unfoamed are recorded off its recipe. | none |
+| parser, then m204 | **Recipe cells the products' own sheets print.** Three wordings reach the parsers ("doesn't require an enclosure", "Use an enclosure to ...", "is not abrasive"). Typed: 8 hardened-nozzle cells (Protopasta's two metal PLAs and Nobufil PLAx now say so themselves where they read Bambu's PLA row), 5 enclosure or chamber cells (Raise3D Premium PC recommends 70 to 80 °C; Nanovia PEI asks for more than 120 °C), ThermaTech PA's nozzle, two beds, drying on 10 products, and profiles for ReForm rTPU 90A and 85A and Python Flex 90A. | none. PC keeps Warm environment with one product fewer passing. |
+| m205 | **Raise3D's PA12 CF+ is a PA612 product** ("based on Polyamide 612"). Its sheet, 22 measurements, profile and 9 statements move to G059-03 under PA612-CF, as QIDI's "PA12-CF" is filed. G053-09 keeps its own sheet and that sheet's drying and nozzle. ELEGOO's unnamed PLA (G001-129) is named from 3DJake's listing that links its sheet. | none. PA612-CF gains a product that fails High-stiffness fixture. |
+| m206 | **Makers' know-how from their sites.** 151 pages registered, 157 statements (each checked on the page's visible text), 153 site searches dated. Products with a statement 881 → 1,039; sheet-silent 198 → 45. The panel now says for how many of a material's products the makers' sites were searched. | none (record tier) |
+| m207 | **Batch b37.** Timberfill → PLA Wood (R203), Eel → TPU-EC (R204; a conductive TPU is filed by its load). Both were reviewed row by row. Eel's Dry / COND columns are recorded as printed. The ledger's "NinjaFlex Edge" is corrected to Eel. Electrifi's deferral names its safety data sheet's polyester. | none. PLA Wood and TPU-EC gain an untested product. |
+| m208 | **Conflicts re-read.** C00003 (the maker sides with glass fibre; still a conflict), C01136 (resolved on Polymaker's wiki; its settings are a profile, enclosure recommended), C01137 (AM3300 against HT3300; still a conflict). Three new conflicts: eSUN Silk Rainbow Z, Extrudr FLEX MEDIUM MATT 420 %, LEHVOSS 50056's compound sheet. FiberFlex CF's two sheets get their dates. | none |
+| parser, then m209 | **The guide Bambu Lab links.** Loaded in headless Chrome, Bambu's guide page links the 250123 PDF, whose bytes are B-GUIDE's. Its 18 columns become PG016 to PG033, and ASA-CF and PC FR are mapped. By the owner's answer, their "Required" reads as D90 does (D88 amended, D90 extended). The parser reads the guide's "Optional" as the cross it stands for. | none. ASA-CF passes Warm environment on 6 products where it passed on 3; gates changed on 14 ASA-CF and PC FR products. |
+| m210 | **D93 for ASA-CF.** Five ASA-CF profiles whose makers ask for an enclosure with no temperature read as the H2C chamber, as a silent ASA-CF sheet now does. | none. ASA-CF passes Warm environment on 7 products. |
+| m211 | The PA12 CF+ sheet's drying schedule, on its profile. | none |
+
+**In all: 13 answers moved.** The UNKNOWN answers in Explore across the six templates went from 319 to 313
+(BLOCKING-GAPS). Counts, from `build/snapshot/counts.md` against `f70b087`:
+
+| | Before | After |
+|---|---:|---:|
+| Products | 1,125 | 1,128 |
+| … with a comparable value | 1,007 | 1,011 |
+| … with a print profile of their own | 999 | 1,006 |
+| Measurements | 11,158 | 11,211 |
+| Know-how statements | 4,502 | 4,659 |
+| Sources | 1,483 | 1,648 |
+
+Answers that change when as-published values are admitted went from 92 to 94: m200 to m203 settle some answers and
+admit more as-published values.
+
+**Left, with what each needs** (OPEN-PROBLEMS §2, §4, §12 to §15):
+- **The 255 maker questions.** Fiberlogy, Spectrum, FormFutura and purefil hold most. The research wrote each one:
+  printed or moulded, the build orientation, the heat deflection load.
+- **Four Nanovia 0°-only pages and PROGRAFEN's four direction rows.** The PROGRAFEN copies' custody is unsettled.
+- **SBC's polymer row.** The BASF reference still gives no density or class.
+- **Electrifi's polyester home.**
+- **Nobufil ABSx's "even on printers without an enclosure"**, against the guide.
+- **Drying "not needed" as a state of its own.** It moves no answer.
+- **The reader-gap sheets.** The package found readable copies for several.
+- **"Fabru" and "Fabru / purefil" holding five products twice.**
+
+**Checks.**
+- `data:check`: 0 issues.
+- `data:lint`: 225 findings, all accepted, 0 new. The new acceptances each carry a reason: two unfoamed PET densities,
+  COC flex's 500 %, Eel's two moduli, and the CF+ name.
+- Every migration is a no-op on a second run.
+- Each commit's `build:diff` moved only what it meant to. The three parser commits showed 0 differences.
+- `npm run audit:data`: 0 errors, after two build findings were accepted with their reasons and one acceptance that no
+  longer occurs was removed.
+  - **Accepted:** PA6's heat deflection is an outlier once PA6 Low Warp's 60 °C is in the estimate model's
+    observations, and PBT-GF's 175 °C sits below PBT's new 180 °C.
+  - **Removed:** PA6-CE's density is no longer an outlier.
+- `npm run verify` passed in 3 min 29 s:
+  - `npm test` 318;
+  - `test:ingest` 171, the staged-witness tests among them;
+  - the scale and reproducible-build checks;
+  - the snapshot current;
+  - 66 views matching, 20 of them rewritten for the data;
+  - 300 fuzzed scenarios in agreement.
+- `npm run ui:fuzz -- --n 2000 --seed 11`: 2,000 scenarios in agreement.
+- `verify:fast` ran in 45 to 58 s.

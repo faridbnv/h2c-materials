@@ -66,8 +66,8 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | All / some / none per product, printability included; 71 % of the answers not ruled out are unknown (66 % without the price template) |
 | C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 | 3 | Rank by goal, bubbles, a product-level chart; untested with the team |
 | C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | The Products tab, passing products first, search by maker and product |
-| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | Each product's own recipe, then its twin's, then Bambu's guide, labelled: chamber decided for 719 of 1,125 products (was 140), nozzle 997 |
-| C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4,502 statements on 881 products in the maker's words, every gap stated; the maker-site search is later |
+| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | Each product's own recipe, then its twin's, then Bambu's guide, labelled: chamber decided for 719 of 1,125 products (was 140), nozzle 997. On 2026-09-27 the guide is the revision Bambu Lab's page links (m209), and 35 recipe cells the research package found on the sheets are typed (m204) |
+| C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4,659 statements on 1,039 products in the maker's words, every gap stated; the makers' sites searched for 153 products (m206, from the research package of 2026-09-26); 45 left sheet-silent, each with a question for the owner or the maker |
 | C11 | The record (everything published, searchable, never deciding) | 1 | 4 | The facts no row holds and every cached page's text, searchable in `dist/h2c.sqlite` (`npm run db:sqlite` counts them) |
 | C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | Estimated only where no product publishes (153 material cells); the special cases went with the representative grade |
 | C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | `verify:fast` 23 to 65 s, `verify` about 4 min; a product still takes the pipeline or a checked migration |
@@ -104,8 +104,8 @@ panel is built with lane 3 (m140; D85, its last part). Phase 5's decisions are D
 - **Printability per product.** Each product's own profile screens it. A union across a material's products never
   does.
 - **New document imports are paused** until the re-center is built. The documents already fetched are mined first:
-  for the record, print recipes and makers' know-how. The owner lifted it for one set on 2026-09-25, and for targeted
-  fetches in phase 6 (both below).
+  for the record, print recipes and makers' know-how. The owner lifted it for one set on 2026-09-25, for targeted
+  fetches in phase 6, and for two held sheets on 2026-09-27 (all below).
 
 ## Decided on 2026-09-25, for phase 5
 
@@ -172,6 +172,23 @@ Raised by the lanes' findings; asked with the facts and a recommendation each:
    page**, not by a new reader rule. (Recommended; taken.)
 8. **Notched Izod becomes a filter beside notched Charpy.** The two tests are never mixed or converted, and each says
    so. (The recommendation was one impact filter until a requirement asked for Izod; the owner chose both.)
+
+## Decided on 2026-09-27, on the research package of 2026-09-26
+
+A research agent worked from the brief of 2026-09-26 against an older commit and returned an evidence package (1,160
+findings, 1,014 saved documents). Three questions about how its findings enter were asked, each with a recommendation,
+and the owner took each:
+
+1. **Bambu Lab's Filament Guide: verify, then switch.** The package reported that Bambu Lab's guide page links the
+   ".../250123/..." PDF, which D88 had taken for the older revision. The page was loaded in headless Chrome and does
+   link it, and the bytes hash to B-GUIDE's digest. So the build reads B-GUIDE (eighteen types), and the guide's
+   "Required" enclosure for ASA-CF reads as D90 reads the nine types. PC FR, which the same guide asks an enclosure for,
+   is read the same way, and D93 follows for ASA-CF (m209, m210).
+2. **The held sheets whose makers' pages name the polymer enter as batch b37**: Fillamentum Timberfill and NinjaTek
+   Eel (m207). Multi3D Electrifi's safety data sheet says "biodegradable polyester", and it stays held until a
+   polyester home is decided.
+3. **The documents the package saved enter from their copies**: staged by digest, with the URL and the date the
+   research agents read them (`ingest:witness --from`). Every quotation is re-checked on those bytes.
 
 ## Working rules
 

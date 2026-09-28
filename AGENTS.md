@@ -236,8 +236,10 @@ its load, its notch and its test temperature (D92), and the test standard a valu
 ## Importing a batch of data sheets
 
 **Paused on 2026-09-25 by the owner**, until the re-center in `docs/GOALS.md` is built. The owner lifted it for the
-sheets held for identity (batches b34 and b35, D87), and phase 6 allowed a targeted fetch where one document settled a
-blocking answer (batch b36; GOALS, phase 6, decision 4). A document never enters by hand: it travels the import
+sheets held for identity (batches b34 and b35, D87), phase 6 allowed a targeted fetch where one document settled a
+blocking answer (batch b36; GOALS, phase 6, decision 4), and on 2026-09-27 the owner lifted it for two held sheets the
+research package of 2026-09-26 identified (batch b37). A page a reader saved enters from its copy by digest
+(`ingest:witness --from`). A document never enters by hand: it travels the import
 pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing
 a table by hand, are in [docs/IMPORTING.md](docs/IMPORTING.md).
 

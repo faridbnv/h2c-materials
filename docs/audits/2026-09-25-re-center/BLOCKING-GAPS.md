@@ -9,12 +9,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 136 | 18 | 81 | 37 | not published 50; published, not comparable 17 | 15 |
+| Outdoor structural part | 136 | 18 | 83 | 35 | not published 45; published, not comparable 17 | 14 |
 | Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
-| Lightweight structure | 136 | 28 | 80 | 28 | not published 23; published, not comparable 13 | 21 |
-| Warm environment | 136 | 34 | 38 | 64 | print setting not recorded 69; not published 31 | 0 |
-| High-stiffness fixture | 136 | 19 | 73 | 44 | published, not comparable 25; not published 19 | 26 |
-| Flexible component | 136 | 16 | 74 | 46 | published, not comparable 25; not published 21 | 30 |
+| Lightweight structure | 136 | 29 | 80 | 27 | not published 20; published, not comparable 14 | 22 |
+| Warm environment | 136 | 34 | 39 | 63 | print setting not recorded 67; not published 29 | 0 |
+| High-stiffness fixture | 136 | 19 | 74 | 43 | published, not comparable 26; not published 17 | 27 |
+| Flexible component | 136 | 16 | 75 | 45 | published, not comparable 27; not published 18 | 31 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -31,16 +31,14 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | Material | Products | Property | Why unjudged | Limits | Templates |
 |---|---:|---|---|---|---:|
 | PA12 (M052) | 7 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| ASA-AF (M113) | 3 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
+| ASA-AF (M113) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | TPU-CF (M129) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | TPU-LW (M150) | 3 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| COC (M137) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | OBC (M086) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PLA-GR (M155) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | SAN (M136) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | TPU-ESD (M126) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | ASA-EC (M105) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| Nylon-GF, polymer not stated (M166) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
 | PA-ESD (M064) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PA12-AF (M154) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
 | PA6-GS (M108) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
@@ -57,10 +55,9 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PCL (M149) | 4 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
 | ASA-AF (M113) | 3 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PE-GF (M138) | 3 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| COC (M137) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
+| COC (M137) | 2 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
 | PAHT-CE (M148) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PAHT-CE (M148) | 2 | tensileModulusXY | not published | >= 3, >= 5 | 2 |
-| PBT (M140) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PBT (M140) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PC-PTFE (M112) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | PETG-GR (M153) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
@@ -73,6 +70,7 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PVC (M135) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PVC (M135) | 2 | tensileModulusXY | not published | >= 3, >= 5 | 2 |
 | SAN (M136) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
+| TPU-EC (M157) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
 | ASA-EC (M105) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | CPE-LW (M134) | 1 | tensileModulusXY | not published | >= 2.5, >= 5 | 2 |
 | LCP (M139) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
@@ -80,7 +78,6 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | Nylon-CF, polymer not stated (M165) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | Nylon-CF, polymer not stated (M165) | 1 | tensileModulusXY | not published | >= 3, >= 5 | 2 |
 | Nylon-GF, polymer not stated (M166) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| Nylon-GF, polymer not stated (M166) | 1 | density | not published | <= 1500, <= 1250 | 2 |
 | PA12-AF (M154) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PA12-AF (M154) | 1 | density | not published | <= 1500, <= 1250 | 2 |
 | PA6-CE (M104) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
@@ -90,8 +87,11 @@ apart: 100 materials hold up the Indoor prototype for want of a sampled price.
 | PAHT (M147) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PC-PBT-CF (M131) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 | PC-PBT-CF (M131) | 1 | density | not published | <= 1500, <= 1250 | 2 |
+| PLA-CE (M158) | 1 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
+| PLA-PHA (M145) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
+| SBC (M174) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
 
-And 139 more, each holding up one template.
+And 132 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -100,13 +100,12 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 
 | Template | Material | Comparable only | Admitting them |
 |---|---|---|---|
-| Outdoor structural part | PA6 | UNKNOWN | FAIL |
 | Outdoor structural part | PA12 | UNKNOWN | FAIL |
 | Outdoor structural part | PA-ESD | UNKNOWN | PASS |
 | Outdoor structural part | PETG-PTFE | UNKNOWN | FAIL |
 | Outdoor structural part | PC-PTFE | UNKNOWN | FAIL |
+| Outdoor structural part | ASA-AF | UNKNOWN | FAIL |
 | Outdoor structural part | TPU-CF | UNKNOWN | FAIL |
-| Outdoor structural part | COC | UNKNOWN | FAIL |
 | Outdoor structural part | PBT | UNKNOWN | FAIL |
 | Outdoor structural part | PLA-PHB | UNKNOWN | FAIL |
 | Outdoor structural part | PETG-GR | UNKNOWN | FAIL |
@@ -128,6 +127,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Lightweight structure | PVB | FAIL | PASS |
 | Lightweight structure | PC-ABS | FAIL | PASS |
 | Lightweight structure | PA6-GS | UNKNOWN | PASS |
+| Lightweight structure | ASA-AF | UNKNOWN | FAIL |
 | Lightweight structure | TPU-CF | UNKNOWN | FAIL |
 | Lightweight structure | SAN | UNKNOWN | PASS |
 | Lightweight structure | COC | UNKNOWN | FAIL |
@@ -145,6 +145,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | High-stiffness fixture | PETG-PTFE | UNKNOWN | FAIL |
 | High-stiffness fixture | PCTG-GF | UNKNOWN | FAIL |
 | High-stiffness fixture | PC-PTFE | UNKNOWN | FAIL |
+| High-stiffness fixture | ASA-AF | UNKNOWN | FAIL |
 | High-stiffness fixture | TPU-CF | UNKNOWN | FAIL |
 | High-stiffness fixture | SAN | UNKNOWN | FAIL |
 | High-stiffness fixture | COC | UNKNOWN | FAIL |
@@ -178,6 +179,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 | Flexible component | TPU-CF | UNKNOWN | FAIL |
 | Flexible component | CPE-LW | UNKNOWN | PASS |
 | Flexible component | PVC | UNKNOWN | PASS |
+| Flexible component | COC | UNKNOWN | PASS |
 | Flexible component | PE-GF | UNKNOWN | FAIL |
 | Flexible component | LCP | UNKNOWN | FAIL |
 | Flexible component | PBT | UNKNOWN | FAIL |
@@ -196,7 +198,7 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 879 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 882 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|
@@ -218,7 +220,7 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | PLA | eSUN PLA-Rock | density <= 1250 | 1250 | 0 % pass | V006712 |
 | Lightweight structure | PLA | eSUN PLA UV Color Change | density <= 1250 | 1250 | 0 % pass | V007248 |
 | Lightweight structure | PLA | eSUN ePLA ST | density <= 1250 | 1250 | 0 % pass | V007941 |
-| Lightweight structure | PLA | Elegoo Not published | density <= 1250 | 1250 | 0 % pass | V009061 |
+| Lightweight structure | PLA | Elegoo PLA | density <= 1250 | 1250 | 0 % pass | V009061 |
 | Lightweight structure | PLA | MatterHackers MH Build Series PLA | density <= 1250 | 1250 | 0 % pass | V009113 |
 | Lightweight structure | PLA | Extrudr BIOFUSION | density <= 1250 | 1250 | 0 % pass | V010040 |
 | Lightweight structure | PLA | Extrudr PEARL | density <= 1250 | 1250 | 0 % pass | V010091 |

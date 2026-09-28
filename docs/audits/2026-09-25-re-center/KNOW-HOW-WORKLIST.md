@@ -12,7 +12,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1039 | 45 | 0 | 42 | 1126 |
+| Products | 1039 | 45 | 0 | 44 | 1128 |
 | Materials | 129 | 10 | 0 | 14 | 153 |
 
 4659 statements; 1262 sources read for know-how; 153 makers' sites searched.
@@ -56,7 +56,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA-NF (M152) | Lightweight structure; Warm environment | collected | 0 of 2 | 0 / 1 / 2 | — |
 | PPA-GF (M071) | High-stiffness fixture; Outdoor structural part | collected | 0 of 5 | 2 / 1 / 3 | — |
 | ABS-ESD (M030) | Warm environment | collected | 2 of 11 | 6 / 4 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
-| PLA Wood (M014) | Indoor prototype | collected | 2 of 20 | 13 / 13 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
+| PLA Wood (M014) | Indoor prototype | collected | 2 of 21 | 13 / 13 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PC-ABS (M094) | Warm environment | collected | 1 of 13 | 6 / 5 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PCL (M149) | Flexible component | collected | 1 of 4 | 3 / 3 / 3 | iSANMATE (isanmate.com) |
 | PET (M066) | Flexible component | collected | 1 of 7 | 2 / 3 / 3 | colorFabb (downloads.colorfabb.com, colorfabb.com) |
@@ -154,7 +154,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | Support for PLA (M077) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
 | Support for PLA/PETG (M078) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
 | TPU-CF (M129) | — | collected | 0 of 3 | 0 / 1 / 2 | — |
-| TPU-EC (M157) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
+| TPU-EC (M157) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
 | TPU-GF (M151) | — | collected | 0 of 1 | 0 / 1 / 1 | — |
 | TPU-LW (M150) | — | collected | 0 of 3 | 3 / 1 / 3 | — |
 | nGen / Amphora (M092) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
