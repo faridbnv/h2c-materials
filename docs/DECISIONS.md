@@ -3148,7 +3148,18 @@ And a re-read needs the source's bytes, which were in one private cache with no 
   1,648 sources, 1,512 have their bytes and they verify, 123 have none here, 12 record no digest, and one's cached file
   hashes to another digest (OPEN-PROBLEMS §19).
 
-Answers moved: none (`build:diff` 0 differences). Reversing it lets a stopped or concurrent edit leave the tables half
+**Amended 2026-09-28, source backup (GOALS step 2 evidence custody, C13).** The owner's private store is on OneDrive
+Personal, named by `H2C_SOURCE_BACKUP` in the shell profile; the repository records the variable, not the machine path.
+The export includes every verified digest in the source register and import ledger, including held/deferred and
+record-tier documents. Its manifest names registration, document key and ledger status. `--derived` preserves cached
+text (including older reader versions), optical PDFs and reviewed page images with independent digests. Derived files
+restore only after their original document verified. Re-export retains intact files; it never fetches. `doctor` reports
+backup age and missing/damaged present digests; `ingest:apply` reminds the reader to re-export after an applied batch.
+The first export and an empty-cache restore rehearsal are recorded in
+[audit response](audits/2026-09-28-gap-closing/RESPONSE.md). Reviews and the restore rehearsal were performed by a Codex
+AI agent; no human evidence review is implied.
+
+Answers moved: none: source-store operations change no decision data. Reversing it lets a stopped or concurrent edit leave the tables half
 changed, and a stalled download stop an import run.
 
 ## D105. A query is of one generation; a decision can be traced; the loop is measured

@@ -17,6 +17,7 @@ const cache = join(dir, 'cache');
 // The cache is named once, when the pipeline's context is first read (scripts/ingest/context.mjs).
 process.env.H2C_DOCUMENT_CACHE = cache;
 const { manifest, exportBundle, restoreBundle } = await import('../scripts/data/source-store.mjs');
+const context = await import('../scripts/ingest/context.mjs');
 const { EXTRACTOR } = await import('../scripts/lib/pdf-text.mjs');
 test.after(() => rmSync(dir, { recursive: true, force: true }));
 
@@ -41,9 +42,9 @@ put(join(cache, 'text', `${sha(C)}.json`), JSON.stringify({ sha: sha(C), extract
 test('the manifest says, for every registered source, whether its bytes are held and hash to its digest, and whether its text is read', () => {
   const rows = new Map(manifest(root).map((r) => [r.SourceID, r]));
   assert.deepEqual([...rows.keys()], ['S-A', 'S-B', 'S-C', 'S-D', 'S-E']);
-  assert.deepEqual(rows.get('S-A'), { SourceID: 'S-A', SHA256: sha(A), Bytes: 'present', Text: 'cached', File: `sources/by-sha/${sha(A)}.pdf` });
-  assert.deepEqual(rows.get('S-B'), { SourceID: 'S-B', SHA256: sha(B), Bytes: 'absent', Text: 'absent', File: '' });
-  assert.deepEqual(rows.get('S-C'), { SourceID: 'S-C', SHA256: sha(C), Bytes: 'present', Text: 'stale', File: 'sources/S-C.pdf' });
+  assert.deepEqual(rows.get('S-A'), { SourceID: 'S-A', Registered: 'TRUE', doc_key: '', 'Ledger status': '', SHA256: sha(A), Bytes: 'present', Text: 'cached', File: `sources/by-sha/${sha(A)}.pdf` });
+  assert.deepEqual(rows.get('S-B'), { SourceID: 'S-B', Registered: 'TRUE', doc_key: '', 'Ledger status': '', SHA256: sha(B), Bytes: 'absent', Text: 'absent', File: '' });
+  assert.deepEqual(rows.get('S-C'), { SourceID: 'S-C', Registered: 'TRUE', doc_key: '', 'Ledger status': '', SHA256: sha(C), Bytes: 'present', Text: 'stale', File: 'sources/S-C.pdf' });
   assert.equal(rows.get('S-D').Bytes, 'not-recorded');
   assert.equal(rows.get('S-E').Bytes, 'mismatch', 'a file under its name that hashes to something else is not its bytes');
 });
@@ -88,4 +89,46 @@ test('a restore takes back only bytes that hash to a registered digest, and name
   assert.equal(later.already.length, 2);
   assert.deepEqual(later.absent.map((m) => m.SourceID), ['S-E']);
   assert.ok(existsSync(join(cache, 'sources/by-sha', `${sha(B)}.html`)));
+});
+
+
+test('ledger-only documents and derived evidence round-trip; tampered and orphaned derivatives are refused', () => {
+  rmSync(cache, { recursive: true, force: true });
+  const { LEDGER_REL } = context;
+  put(join(root, LEDGER_REL), csvText(['doc_key', 'sha256', 'status', 'url', 'checked'], [
+    { doc_key: 'held-B', sha256: sha(B), status: 'held', url: 'https://maker.example/held', checked: '2026-09-28' },
+  ]));
+  // B is registered in the first fixture: use an independent register to prove ledger-only inclusion.
+  const other = join(dir, 'other');
+  put(join(other, 'data/tables/sources.csv'), csvText(['SourceID', 'SHA256'], [source('S-A', sha(A))]));
+  put(join(other, LEDGER_REL), readFileSync(join(root, LEDGER_REL)));
+  put(join(cache, 'sources/by-sha', `${sha(B)}.html`), B);
+  put(join(cache, 'text', `${sha(B)}.json`), JSON.stringify({ sha: sha(B), extractor: EXTRACTOR, pages: [] }));
+  put(join(cache, 'ocr', `${sha(B)}.pdf`), A);
+  put(join(cache, 'pages', sha(B), 'page-1.png'), Buffer.from('image evidence'));
+  const bundle = join(dir, 'derived-bundle');
+  const r = exportBundle(bundle, other, { derived: true });
+  assert.equal(r.files, 1);
+  assert.equal(r.derived, 3);
+  assert.equal(manifest(other).find((m) => m.SHA256 === sha(B)).Registered, 'FALSE');
+  rmSync(cache, { recursive: true, force: true });
+  let restored = restoreBundle(bundle, other);
+  assert.equal(restored.restored.length, 1);
+  assert.equal(restored.derivedRestored.length, 3);
+  assert.equal(restored.refused.length, 0);
+  assert.ok(readFileSync(join(cache, 'pages', sha(B), 'page-1.png')).equals(Buffer.from('image evidence')));
+  // Every derivative has its own digest; a corrupted one never enters an empty cache.
+  rmSync(cache, { recursive: true, force: true });
+  writeFileSync(join(bundle, 'ocr', `${sha(B)}.pdf`), Buffer.from('tampered'));
+  restored = restoreBundle(bundle, other);
+  assert.equal(restored.derivedRestored.length, 2);
+  assert.match(restored.refused[0].why, /digest mismatch/);
+  assert.ok(!existsSync(join(cache, 'ocr', `${sha(B)}.pdf`)));
+  // Even an intact derivative is refused when its source bytes cannot be verified.
+  rmSync(cache, { recursive: true, force: true });
+  writeFileSync(join(bundle, `${sha(B)}.html`), Buffer.from('wrong source'));
+  restored = restoreBundle(bundle, other);
+  assert.equal(restored.derivedRestored.length, 0);
+  assert.equal(restored.refused.length, 4);
+  assert.ok(!existsSync(join(cache, 'text', `${sha(B)}.json`)));
 });

@@ -45,6 +45,12 @@ const cached = (dir) => (existsSync(join(root, '.cache', dir)) ? readdirSync(joi
 const bytes = cached('sources'), texts = cached('text');
 add('Cached source documents, for re-reads and migrations', bytes > 0, `${bytes} files under .cache/sources, ${texts} texts under .cache/text, for ${sources} registered sources`, 'Restore the private source store, or re-fetch a document only through the import pipeline');
 
+const { backupStatus } = await import('./data/source-store.mjs');
+const backup = backupStatus();
+add('Private source backup (H2C_SOURCE_BACKUP)', backup.configured && backup.ageHours !== null && !backup.missing.length,
+  backup.configured ? `${backup.ageHours === null ? 'no manifest' : `${backup.ageHours.toFixed(1)} hours since export`}; ${backup.missing.length} present digest(s) missing or damaged` : 'not configured',
+  'Set H2C_SOURCE_BACKUP in your shell profile; run npm run data:sources -- --export "$H2C_SOURCE_BACKUP" --derived');
+
 const width = Math.max(...rows.map((r) => r.what.length));
 for (const r of rows) console.log(`${r.ok ? 'ok  ' : 'NO  '} ${r.what.padEnd(width)}  ${r.detail}${r.ok ? '' : `\n      ${' '.repeat(width)}  -> ${r.fix}`}`);
 const needed = ['Node 24 or later', 'Build dependencies', 'Import tools\' dependencies', 'Chrome, for the interface checks in verify'];

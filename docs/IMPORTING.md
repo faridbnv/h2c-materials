@@ -48,7 +48,7 @@ reset, a 429 (after its Retry-After) or a 5xx four times; what still fails is `u
 first in its note. Each document is journalled as it finishes, so a run stopped with Ctrl-C, or killed, resumes without
 fetching it again. The live paths are named in `scripts/ingest/context.mjs`, and `H2C_INGEST_ROOT`, `H2C_PROPOSALS`
 and `H2C_DOCUMENT_CACHE` move them. `data:sources` never fetches: a restore takes back only bytes that hash to a
-registered digest, and names the digests still missing.
+registered or ledger digest, and names the digests still missing.
 
 **Running a batch.** `scripts/ingest/batch.mjs` is the program; the steps are in the order they must happen.
 
@@ -102,3 +102,17 @@ The rules that differ from editing a table by hand:
 - **A reading of a page nobody else has read is signed.** An optically-read row needs `--visual` and a name, or
   `APPLY-OCR-UNVERIFIED` refuses the batch (D35). A row the page image does not print is rejected, never
   corrected: a reading a person edits is a transcription nobody made from a document nobody read.
+
+## Keep the private source backup current
+
+After every applied batch, re-export to the private store named by `H2C_SOURCE_BACKUP` in the owner's shell profile:
+
+```bash
+npm run data:sources -- --export "$H2C_SOURCE_BACKUP" --derived
+npm run doctor
+```
+
+The variable names the private location; no machine path is stored in the repository. The store includes every
+registered and ledger-only document with verified bytes, plus derived text, optical PDFs and reviewed page images,
+with separate digests. `--restore` admits derived evidence only beside verified source bytes. A re-export retains
+whole files and copies what is new or damaged. `doctor` reports the export's age and present digests the store lacks.
