@@ -146,7 +146,7 @@
       "policy": { "unknownPolicy": "strict" },
       "rankBy": "beam-stiffness",
       "expect": [
-        { "ranking": "same-in-every-lens", "todo": "F05",
+        { "ranking": "same-in-every-lens",
           "because": "One goal and one policy give one ranking: the table, the chart's guide and the export name the same materials in the same order, from passing products' own values." }
       ]
     },

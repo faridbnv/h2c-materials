@@ -111,6 +111,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | In force |
 | D100 | A material fails only when every product fails; while one is unresolved, it is unresolved | A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it. | In force |
 | D101 | Every template asks whether the H2C can print the product; browsing without it is research mode | Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing. | In force |
+| D102 | One ranking: the table, the chart's guide, its line and the export rank a question the same way | When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking. | In force |
 
 <!-- end index -->
 
@@ -3061,6 +3062,29 @@ Indoor 15 → 70, now asking printability and no longer a price. Every material 
 passing products have no recipe, or a window the H2C only partly reaches, and Include uncertain keeps it. With annealing
 permitted: 10, 16, 10, 7 and 32. The acceptance portfolio's S01.7, S02 and S11 hold. Reversing it lets a template confirm a
 product the printer the tool is for cannot print.
+
+## D102. One ranking: the table, the chart's guide, its line and the export rank a question the same way
+
+> **In plain words:** When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking.
+
+*Built in version 2.1, F05 of the review of 2026-09-27 (U01), under the owner's direction of 2026-09-28. Extends D83.*
+
+D83 ranked the table by each passing product's own index, the median over a material's passing products. The Ashby
+chart's guide card ranked the same materials by an index of their headline medians, which are medians of different
+products, some of which do not pass: for Warm environment by a light, stiff beam, the table read PPA-CF, PP-CF, PA612-CF
+and the guide PP-CF, PAHT-CF, PPA-CF. Two answers to one question.
+
+- **One result** (`rankingFor`, `app/js/engine/indices.js`): each candidate on screen ranked by the median index of its
+  passing products, each product's index from its own values in the state it passes in (D99), with its best product. The
+  table's order, the guide's top ten, the line's count and the candidates-export's Rank columns all read it.
+- **A candidate the goal cannot rank says so**: "not ranked: no passing product publishes what E / rho needs", never a
+  silent place at the end.
+- **The chart's geometry is context.** A bubble sits at its material's typical values; the line is drawn among them, and
+  the card says its count is of candidates by their passing products. The Pareto front, drawn through the bubbles, is
+  named "Pareto front of typical values".
+
+The acceptance portfolio's S09 asks the three lenses for Warm environment's beam-stiffness order and they agree; a test
+holds that a failing product's better index does not lift its material. Reversing it gives one goal two rankings again.
 
 ---
 

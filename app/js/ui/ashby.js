@@ -9,7 +9,7 @@
 //  - reference materials are a drawing layer, never candidates;
 //  - two axes, two categorical encodings, at most one size encoding.
 
-import { INDICES, indexById, indexValue, selectionLine, countAbove, rankByIndex, PRICE_CAVEAT, priceCaveat } from '../engine/indices.js';
+import { INDICES, indexById, selectionLine, rankingFor, PRICE_CAVEAT, priceCaveat } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange } from './format.js';
 import { AXIS_DEFS, axisByKey, measurementMatches, pairable } from './axes.js';
@@ -800,11 +800,12 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
     });
   }
 
-  // Pareto front over the eligible candidates only.
+  // Pareto front over the eligible candidates only, drawn through the bubbles, so it is a front of materials' typical
+  // values: context, and named so beside the goal's ranking, which is by passing products (D102).
   const front = sortFront(frontNow, xDef.better);
   if (front.length > 1) {
     traces.push({
-      type: 'scatter', mode: 'lines', name: 'Pareto front', legendgroup: 'pareto',
+      type: 'scatter', mode: 'lines', name: 'Pareto front of typical values', legendgroup: 'pareto',
       x: front.map((q) => q.x), y: front.map((q) => q.y),
       line: { color: 'rgba(31,95,139,.85)', width: 2, dash: 'dot' }, hoverinfo: 'skip',
     });
@@ -817,7 +818,7 @@ function drawPlot(host, state, { xDef, yDef, pts, envelopes = [], actions }) {
   if (index && indexDrawable(index, xDef, yDef, p)) {
     const xs = pts.map((q) => q.x);
     const range = [Math.min(...xs) * 0.85, Math.max(...xs) * 1.15];
-    const M = p.indexM ?? defaultM(pts, index);
+    const M = p.indexM ?? defaultM(guideRanking(state.rows, state, index));
     const line = selectionLine(index, M, range);
     traces.push({
       type: 'scatter', mode: 'lines', name: `${index.formula} = ${M.toPrecision(3)}`,
@@ -1098,8 +1099,16 @@ function errorBars(list, key) {
 const indexApplies = (index, xKey, yKey) => !!index && index.numerator === yKey && xKey === 'density' && !index.costForm;
 const indexDrawable = (index, xDef, yDef, p) => indexApplies(index, xDef.key, yDef.key) && !!p.xLog && !!p.yLog;
 
-const defaultM = (pts, index) => {
-  const vals = pts.map((q) => indexValue(q.material, index)).filter((v) => v !== null).sort((a, b) => b - a);
+/**
+ * The guide's ranking (D102): the table's, over the same rows, from each candidate's passing products' own index in the
+ * states they pass in. The bubbles are drawn at each material's typical values, which describe different products; they
+ * are context, and never what the guide ranks or counts.
+ */
+export const guideRanking = (rows, state, index) => rankingFor(rows, state.ctx, index)?.order ?? [];
+
+// Where the line starts: at the fifth-best candidate's value, so it opens with a handful above it.
+const defaultM = (ranking) => {
+  const vals = ranking.map((r) => r.value).sort((a, b) => b - a);
   return vals.length ? vals[Math.min(4, vals.length - 1)] : 1;
 };
 
@@ -1111,14 +1120,15 @@ function renderIndexCard(host, state, pts, actions) {
   const yDef = AXIS_DEFS.find((a) => a.key === p.y);
   const applicable = indexApplies(index, p.x, yDef?.key);
   const logLog = !!p.xLog && !!p.yLog;
-  const M = p.indexM ?? defaultM(pts, index);
-  // The index is a property of a material's headline values, so it counts materials. In the
-  // measurement modes one material has several dots, and counting dots counted it several times.
+  // One ranking for every lens (D102): the candidates on screen, by their passing products' own index. The line and its
+  // count read it too; a bubble sits at its material's typical values, which is context, and the card says so.
+  const ranking = guideRanking(state.rows, state, index);
+  const M = p.indexM ?? defaultM(ranking);
+  const above = ranking.filter((r) => r.value >= M).length;
+  const evaluable = ranking.length;
   const unique = [...new Map(pts.map((q) => [q.id, q.material])).values()];
-  const above = countAbove(unique, index, M);
-  const evaluable = unique.filter((m) => indexValue(m, index) !== null).length;
-  // The ten best by the index, from headline values only: a ranking, not a verdict, and the caveats sit under it.
-  const ranked = rankByIndex(unique, index).slice(0, 10);
+  const nameOf = new Map(state.db.materials.map((m) => [m.id, m.name]));
+  const ranked = ranking.slice(0, 10);
 
   host.innerHTML = `
     <div class="index-card">
@@ -1135,8 +1145,8 @@ function renderIndexCard(host, state, pts, actions) {
           <input type="range" id="index-m" data-index-m data-focus="index-m" min="0" max="100" value="${p.indexSlider ?? 50}"
             aria-valuetext="M = ${M.toPrecision(3)}, ${above} material${above === 1 ? '' : 's'} above the line">
           <span class="formula">M = ${M.toPrecision(3)}</span>
-          <strong>${above} material${above === 1 ? '' : 's'} above the line</strong>
-          <span class="index-of">of ${evaluable} with both values${detailLevel(p) === 'material' ? '' : '; counted by material, from their typical values, not by dot'}</span>
+          <strong>${above} candidate${above === 1 ? '' : 's'} at or above M</strong>
+          <span class="index-of">of ${evaluable} ranked, by their passing products' own values (the table's ranking); a bubble sits at its material's typical values, which is context</span>
         </div>
       ` : applicable
         // Said, not drawn: what the reader would have had to know to read a line drawn on these axes.
@@ -1149,8 +1159,9 @@ function renderIndexCard(host, state, pts, actions) {
         : `<div class="index-fix"><span class="warn-chip">This line needs Density across and ${esc(prop(index.numerator).plain)} up.</span>
           <button class="btn btn-sm" data-index-axes data-focus="index-axes">Set those axes, on Log scales</button></div>`}
       <ul>${index.caveats.map((c) => `<li>${esc(c === PRICE_CAVEAT ? priceCaveat(unique) : c)}</li>`).join('')}</ul>
-      ${ranked.length ? `<div class="index-rank"><div class="index-rank-head">Top ${ranked.length} of ${evaluable} by this index, from headline values</div>
-        <ol>${ranked.map(({ material, value }) => `<li><button type="button" class="link-btn" data-rank-open="${esc(material.id)}" title="Open ${esc(material.name)}">${esc(material.name)}</button> <span class="formula">M = ${value.toPrecision(3)}</span></li>`).join('')}</ol></div>` : ''}
+      ${ranked.length ? `<div class="index-rank"><div class="index-rank-head">Top ${ranked.length} of ${evaluable} candidates by this index, from their passing products' own values: the table's ranking</div>
+        <ol>${ranked.map(({ materialId, value }) => `<li><button type="button" class="link-btn" data-rank-open="${esc(materialId)}" title="Open ${esc(nameOf.get(materialId) ?? materialId)}">${esc(nameOf.get(materialId) ?? materialId)}</button> <span class="formula">M = ${value.toPrecision(3)}</span></li>`).join('')}</ol></div>`
+        : `<div class="index-rank"><div class="index-rank-head">No candidate ranks: none has a passing product that publishes what ${esc(index.formula)} needs</div></div>`}
     </div>`;
 
   host.querySelector('[data-index-clear]')?.addEventListener('click', () =>
@@ -1162,7 +1173,7 @@ function renderIndexCard(host, state, pts, actions) {
     actions.setPlot({ x: 'density', y: index.numerator, xLog: true, yLog: true, indexM: null, indexSlider: 50 }));
 
   host.querySelector('[data-index-m]')?.addEventListener('input', (ev) => {
-    const vals = pts.map((q) => indexValue(q.material, index)).filter((v) => v !== null).sort((a, b) => a - b);
+    const vals = ranking.map((r) => r.value).sort((a, b) => a - b);
     if (!vals.length) return;
     const t = Number(ev.target.value) / 100;
     const lo = vals[0] * 0.9, hi = vals[vals.length - 1] * 1.1;

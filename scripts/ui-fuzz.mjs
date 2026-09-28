@@ -497,7 +497,7 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
     if (plot) {
       out.points = []; out.envs = []; out.front = null;
       for (const t of plot.data ?? []) {
-        if (t.name === 'Pareto front') out.front = t.x.map((x, i) => [x, t.y[i]]);
+        if (t.legendgroup === 'pareto') out.front = t.x.map((x, i) => [x, t.y[i]]);
         else if (typeof t.hovertemplate === 'string' && t.hovertemplate.includes('Estimated material range')) out.envs.push([t.customdata[0][0], t.x, t.y]);
         else if (Array.isArray(t.customdata) && t.customdata[0]?.length === 8) t.customdata.forEach((cd, i) => out.points.push([cd[0], t.x[i], t.y[i], cd[2], cd[7]]));
         badSrc += ' ' + (t.name ?? '') + ' ' + (Array.isArray(t.text) ? t.text.join(' ') : '') + ' ' + (t.hovertemplate ?? '');

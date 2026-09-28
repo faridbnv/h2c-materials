@@ -8,7 +8,7 @@ import { matchesQuery } from './engine/search.js';
 import { productsByMaterial } from './engine/products.js';
 import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
 import { renderFilters } from './ui/filters.js';
-import { renderTable, toCSV, productsCSV, download, sortRows, sortForColumnSet } from './ui/table.js';
+import { renderTable, toCSV, productsCSV, download, sortRows, sortForColumnSet, rankOf } from './ui/table.js';
 import { renderAshby } from './ui/ashby.js';
 import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
@@ -817,7 +817,7 @@ function renderScenario(host) {
   }));
   host.querySelector('#sc-csv').addEventListener('click', () =>
     download(`h2c-candidates-${fileStamp(db.meta)}.csv`,
-      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates }), 'text/csv'));
+      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates, ranking: rankOf(state.rows, state) }), 'text/csv'));
   host.querySelector('#sc-products').addEventListener('click', () =>
     download(`h2c-products-${fileStamp(db.meta)}.csv`,
       productsCSV(sortRows(state.rows, state), db, { scenario, productsByMaterial: state.ctx.productsByMaterial }), 'text/csv'));

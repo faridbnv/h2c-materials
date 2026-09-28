@@ -113,3 +113,14 @@ Warm 29 unchanged, Indoor 15 → 70. Every material lost is unresolved, not fail
 a window the H2C only partly reaches), and Include uncertain keeps it; with annealing permitted: 10, 16, 10, 7, 32. The
 interface probe's drawer step now opens the first-ranked material (PA12-CF's passing product has no recipe).
 Acceptance: S01.7, S02 (three) and S11 (two) met.
+
+### F05: one ranking across the lenses (D102)
+
+`rankingFor` ranks the candidates on screen by the median index of their passing products, each from its own values in
+the state it passes in; the table's order, the Ashby guide's top ten, the line's count and the export's new Rank columns
+all read it. A candidate whose passing products do not publish what the index needs says "not ranked". The chart's bubbles
+and its Pareto front ("of typical values") are labelled as context.
+
+Answers moved: none (ranking changes order, not eligibility; `test/metamorphic.test.js` holds that). Acceptance S09 met:
+for Warm environment by a light, stiff beam, the table, the guide and the export give one order; the review found them
+disagreeing (PPA-CF, PP-CF, PA612-CF against PP-CF, PAHT-CF, PPA-CF). With this, every expectation in the portfolio holds.

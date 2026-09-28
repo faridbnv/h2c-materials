@@ -173,3 +173,27 @@ test("a value or a print gate read from a twin's sheet or a printer maker's guid
   const value = evaluateProducts(m, m.__grades.slice(1), [stiff], STRICT);
   assert.match(value.results[0].reason, /same sheet as Maker One/);
 });
+
+test('one ranking for every lens: only passing products rank, in the state they pass in, and a candidate that cannot rank says so (D102)', async () => {
+  const { rankingFor, indexById } = await import('../app/js/engine/indices.js');
+  const dense = (id, e, rho) => grade(id, { tensileModulusXY: v(e), density: v(rho) });
+  // G2 fails the requirement, and its index would be the best: it must not lift its material.
+  const m = withGrades([dense('G1', 3.0, 1000), dense('G2', 1.0, 100)]);
+  m.headline.density = missing('kg/m³');
+  const alone = withGrades([dense('G1', 3.0, 1000)]);
+  alone.headline.density = missing('kg/m³');
+  const req = [{ kind: 'numeric', property: 'tensileModulusXY', operator: '>=', value: 2 }];
+  const rowsOf = (mat) => { const e = run(mat, req, STRICT); return [{ material: mat, evaluation: e }]; };
+  const ctxOf = (mat) => ({ productsByMaterial: new Map([['M1', mat.__grades]]) });
+  const r1 = rankingFor(rowsOf(m), ctxOf(m), indexById('tie-stiffness'));
+  const r2 = rankingFor(rowsOf(alone), ctxOf(alone), indexById('tie-stiffness'));
+  assert.equal(r1.order[0].value, r2.order[0].value, "a failing product's better index does not improve the rank");
+  assert.equal(r1.order[0].best.gradeId, 'G1');
+  // A passing product that publishes no density cannot rank, and the ranking says so rather than dropping it silently.
+  const bare = withGrades([grade('G1', { tensileModulusXY: v(3.0) })]);
+  bare.headline.density = missing('kg/m³');
+  const r3 = rankingFor(rowsOf(bare), ctxOf(bare), indexById('tie-stiffness'));
+  assert.equal(r3.order.length, 0);
+  assert.deepEqual(r3.unranked.map((u) => u.materialId), ['M1']);
+  assert.match(r3.unranked[0].reason, /density/);
+});

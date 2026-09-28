@@ -10,8 +10,7 @@
 import { renderValue, chip, esc, fmtNumber, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
-import { INDICES, indexById, rankMaterials } from '../engine/indices.js';
-import { productView } from '../engine/products.js';
+import { INDICES, indexById, rankingFor } from '../engine/indices.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -135,12 +134,10 @@ export function sortRows(rows, state) {
   });
 }
 
-/** Each row's rank under the scenario's goal, or null when it ranks by nothing. */
+/** Each row's rank under the scenario's goal, or null when it ranks by nothing: the one ranking every lens reads (D102). */
 export function rankOf(rows, state) {
   const index = state.scenario?.rankBy ? indexById(state.scenario.rankBy) : null;
-  if (!index || !state.ctx?.productsByMaterial) return null;
-  const ranked = rankMaterials(rows.map((r) => r.evaluation), rows.map((r) => r.material), state.ctx.productsByMaterial, index, (m, g) => productView(m, g, state.ctx));
-  return new Map(ranked.map((r, i) => [r.materialId, { ...r, place: i + 1 }]));
+  return rankingFor(rows, state.ctx, index)?.byMaterial ?? null;
 }
 
 /**
@@ -218,8 +215,11 @@ export function renderTable(host, state, actions) {
         // Ranked by a goal: its place, and the product that ranks best, which is the one to look at first.
         const r = ranks && !ghost ? ranks.get(m.id) : null;
         const best = r?.best?.gradeId ? gradeById.get(r.best.gradeId) : null;
+        // A candidate the goal cannot rank says so (D102), rather than sorting silently after the ranked.
+        const unranked = ranks && !ghost && !r && e?.verdict === 'PASS'
+          ? `<span class="row-sub rank-line unranked">not ranked: no passing product publishes what ${esc(index.formula)} needs</span>` : '';
         const rank = r ? `<span class="row-sub rank-line" title="${esc(`${index.designCase}: ${index.formula}, the median over ${r.products} passing product${r.products === 1 ? '' : 's'}${best ? `; best ${best.manufacturer} ${best.product}` : ''}`)}">#${r.place}${best ? ` · best: ${esc(`${best.manufacturer} ${best.product}`)}` : ''}</span>` : '';
-        return `<td class="name">${esc(primary)}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}${rank}</td>`;
+        return `<td class="name">${esc(primary)}${asm}${sub ? `<span class="row-sub">${esc(sub)}</span>` : ''}${rank}${unranked}</td>`;
       }
       if (c.kind === 'text') return `<td>${esc(m[c.key] ?? '')}</td>`;
       if (c.kind === 'state') {
@@ -471,9 +471,12 @@ export function renderTable(host, state, actions) {
  * under which missing-data rule, and for each row why it failed or could not be checked. The first
  * version exported only the unresolved criteria, so every genuine failure had an empty reason.
  */
-export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
+export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = null } = {}) {
+  // Ranked by a goal (D102): the table's ranking, the one the chart's guide shows, with its value and the product it rests on.
+  const index = ranking && scenario?.rankBy ? indexById(scenario.rankBy) : null;
   const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State', 'In results',
     'Failed', 'Could not be checked', 'Best product', 'Judged as',
+    ...(index ? ['Rank', `Goal ${index.formula}`, 'Ranked on product', 'Passing products ranked'] : []),
     ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
@@ -523,6 +526,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
     header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates and polymer data ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
     header.push(`# products judged ${stateWords(scenario)} (D99)`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
+    if (index) header.push(`# ranked by ${index.designCase} (${index.formula}), each material by the median over its passing products, the table's and the chart guide's one ranking (D102)`);
     if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
     for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);
     for (const a of scenario.assumptions ?? []) header.push(`# assumption: ${a.materialId} ${a.property} = ${a.value} ${a.unit ?? ''}`.trim());
@@ -536,6 +540,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false } = {}) {
       m.id, m.name, m.family, m.h2cStatus, tested ? e.verdict : 'NOT TESTED', e.eligible ? 'yes' : 'no',
       why(e.failed), why(e.unresolved),
       tested ? e.gradeId ?? '' : '', tested && e.state ? judgedAs(e.state) : '',
+      ...(index ? (() => { const r = ranking.get(m.id); return r ? [r.place, Number(r.value.toPrecision(6)), r.best?.gradeId ?? '', r.products] : ['', '', '', '']; })() : []),
       ...KEYS.map((k) => val(m, k)),
       qualifiers(m), ids(m),
       range(m.print?.nozzleC), range(m.print?.bedC), range(m.print?.chamberC) || (m.print?.chamberGuidance ? CHAMBER_GUIDANCE[m.print.chamberGuidance.state]?.word ?? '' : ''),

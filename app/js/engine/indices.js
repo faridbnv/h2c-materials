@@ -12,6 +12,8 @@
 //
 // Two caveats belong on every card and are carried in the data, not left to the UI to remember.
 
+import { productView, stateOf } from './products.js';
+
 export const STRENGTH_CAVEAT =
   'Derived for the elastic limit. This database records most strength as tensile strength with an '
   + 'unspecified endpoint, so the card names the endpoint actually used.';
@@ -139,9 +141,10 @@ export function rankByIndex(materials, index) {
 
 /**
  * Rank materials by an index computed product by product (D83): each passing product's own M from its own density,
- * stiffness or strength and price, never from medians of different products. A material ranks by the median M of its
- * passing products and names its best one. `evaluations` are runSelection's with products (their `products[]`
- * verdicts); a material without products ranks on its own headline, as rankByIndex does.
+ * stiffness or strength and price, in the state it passes in (D99), never from medians of different products. A material
+ * ranks by the median M of its passing products and names its best one. `evaluations` are runSelection's with products
+ * (their `products[]` verdicts and states); a material without products ranks on its own headline, as rankByIndex does.
+ * `viewOf(material, grade, stateId)` gives the product in that state.
  */
 export function rankMaterials(evaluations, materials, productsByMaterial, index, viewOf) {
   const byId = new Map(materials.map((m) => [m.id, m]));
@@ -149,15 +152,31 @@ export function rankMaterials(evaluations, materials, productsByMaterial, index,
   for (const e of evaluations) {
     const material = byId.get(e.materialId);
     if (!material) continue;
-    const passing = new Set((e.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => p.gradeId));
+    const passing = new Map((e.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => [p.gradeId, p.state?.id ?? null]));
     const products = (productsByMaterial.get(material.id) ?? []).filter((g) => passing.has(g.id));
     const values = products.length
-      ? products.map((g) => ({ gradeId: g.id, value: indexValue(viewOf(material, g), index) })).filter((x) => x.value !== null)
-      : e.products?.length ? [] : [{ gradeId: null, value: indexValue(material, index) }].filter((x) => x.value !== null);
+      ? products.map((g) => ({ gradeId: g.id, stateId: passing.get(g.id), value: indexValue(viewOf(material, g, passing.get(g.id)), index) })).filter((x) => x.value !== null)
+      : e.products?.length ? [] : [{ gradeId: null, stateId: null, value: indexValue(material, index) }].filter((x) => x.value !== null);
     if (!values.length) continue;
-    const sorted = [...values].sort((a, b) => a.value - b.value);
+    const sorted = [...values].sort((a, b) => a.value - b.value || (a.gradeId ?? '').localeCompare(b.gradeId ?? ''));
     const mid = sorted.length % 2 ? sorted[(sorted.length - 1) / 2].value : (sorted[sorted.length / 2 - 1].value + sorted[sorted.length / 2].value) / 2;
     out.push({ materialId: material.id, value: mid, best: sorted.at(-1), products: values.length });
   }
   return out.sort((a, b) => b.value - a.value || a.materialId.localeCompare(b.materialId));
+}
+
+/**
+ * The ranking of the rows on screen by a goal (D102): one result, which the table's order, the chart's guide, the line's
+ * count and the export all read, so no two lenses can rank one question differently. A candidate ranks by its passing
+ * products' own index, in the states they pass in; one whose passing products do not publish what the index needs is
+ * unranked, and says why. Material medians, which describe different products, never rank anything.
+ */
+export function rankingFor(rows, ctx, index, viewOf = (m, g, stateId) => productView(m, g, ctx, stateOf(g, stateId))) {
+  if (!index || !ctx?.productsByMaterial) return null;
+  const order = rankMaterials(rows.map((r) => r.evaluation), rows.map((r) => r.material), ctx.productsByMaterial, index, viewOf);
+  const byMaterial = new Map(order.map((r, i) => [r.materialId, { ...r, place: i + 1 }]));
+  const needs = [index.numerator, 'density', ...(index.costForm ? ['priceCADkg'] : [])];
+  const unranked = rows.filter((r) => r.evaluation?.verdict === 'PASS' && !byMaterial.has(r.material.id))
+    .map((r) => ({ materialId: r.material.id, reason: `No product that passes publishes ${needs.join(', ')} in the state it passes in` }));
+  return { index, order: [...byMaterial.values()], byMaterial, unranked };
 }
