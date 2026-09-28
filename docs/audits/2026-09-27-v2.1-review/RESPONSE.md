@@ -182,3 +182,19 @@ questions at once, and four products' chamber windows the H2C only partly reache
 
 No data was collected: imports stay paused except within the owner's exceptions (GOALS), and this change is the worklist,
 counted by products made actionable, never by documents.
+
+## Phase 3: operations and documentation
+
+### F17: an executable start, and current routes
+
+- **Quick start installs both dependency groups** (`npm ci --prefix build`, `npm ci`), names Node 24 and Chrome, and
+  `npm run doctor` says what the checkout can run and what each missing piece needs. `verify` now runs the interface
+  probe and the rendered scenarios with `--require`: without Chrome it fails, because a check that cannot run has not
+  passed (A09).
+- **Three routes** head `docs/README.md`: choosing a product, correcting one value, an authorized import. The walkthrough
+  opens by saying it is history and that a new sheet travels the import pipeline (A10).
+- **The current docs say what 2.1 does**: HOW-IT-WORKS (product evidence, states, the rollup, printability, choosing a
+  product, releases), INTERFACE ("The decision on the page"), ARCHITECTURE's module map, DATA-MODEL (states, offers,
+  scoped findings), AGENTS (the two new headline columns), and OPEN-PROBLEMS §19 (what 2.1 leaves open, with queries).
+- Not done: a clean-clone run in CI with empty caches, and splitting the long reference docs further; the routes and the
+  doctor are the short path in the meantime.

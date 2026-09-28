@@ -18,12 +18,16 @@ What the database holds (materials, products, measurements, sources) is counted 
 
 ## Quick start
 
+Needs Node 24 or later, and Chrome (or Chromium) for the interface checks in `npm run verify`.
+
 ```bash
-npm install --prefix build     # once
+npm ci --prefix build          # once: the build's dependencies
+npm ci                         # once: the import tools' (pdfjs-dist), which verify's import tests need
+npm run doctor                 # what this checkout can run, and what each missing piece needs
 npm run hooks                  # once per clone: the pre-commit data check
 npm run build                  # -> dist/H2C_Material_Selector_<snapshot>_<release>.html and dist/manifest.json
 npm run verify:fast            # while you work: format, schema, lint, generated docs, build and tests (about a minute after a change, half that when nothing the build reads changed)
-npm run verify                 # before a commit: verify:fast, the import tests, the scale and reproducible-build checks, audit, review snapshot, interface views, 300 rendered scenarios
+npm run verify                 # before a commit: verify:fast, the import tests, the scale and reproducible-build checks, audit, review snapshot, interface views, 300 rendered scenarios (fails without Chrome: a check that cannot run has not passed)
 npm run build:diff             # what a change did to the compiled database, against HEAD
 npm run ui:fuzz:full           # 2,000 random scenarios through the built page, compared with the engine (nightly in CI)
 npm run data:check             # the schema gate alone, under a second
@@ -33,8 +37,10 @@ npm run data:export-xlsx       # read-only review workbook in dist/review/
 npm run db:sqlite              # dist/h2c.sqlite; then npm run sql -- "select ..." to ask across records
 ```
 
-Changing data? Read [AGENTS.md](AGENTS.md) first, and
-[docs/WALKTHROUGH-ADD-A-MATERIAL.md](docs/WALKTHROUGH-ADD-A-MATERIAL.md) if you are starting from a data sheet.
+Changing data? Read [AGENTS.md](AGENTS.md) first. A new data sheet enters only through the import pipeline
+([docs/IMPORTING.md](docs/IMPORTING.md)), which the owner has paused except within named exceptions;
+[docs/WALKTHROUGH-ADD-A-MATERIAL.md](docs/WALKTHROUGH-ADD-A-MATERIAL.md) shows, as history, how a material's records fit
+together. [docs/README.md](docs/README.md) names the three routes: choosing, correcting a value, importing.
 
 **What is known to be wrong:** [docs/OPEN-PROBLEMS.md](docs/OPEN-PROBLEMS.md). The database records its own defects
 rather than hiding them, so that page is where they are listed, each with the query that re-derives its count:

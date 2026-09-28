@@ -1,6 +1,6 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-27. What it holds is counted in
+What is known to be wrong or missing in this database, as of 2026-09-28. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
 
@@ -731,6 +731,43 @@ procurement products, of 2026-09-26 where a line gives no other date; the query 
 
 ```bash
 npm run sql --silent -- "with pv as (select m.* from measurements m join grades g on g.gradeid = m.gradeid where g.status = 'active' and g.role = 'procurement' and m.data_status in ('Published value', 'Published value (transcription corrected)')) select (select count(distinct gradeid) from pv where property = 'Charpy strength' and notch = 'Not published' and gradeid not in (select gradeid from pv where property = 'Charpy strength' and notch = 'Notched')) charpy_notch_unstated, (select count(distinct gradeid) from pv where property = 'Izod impact strength' and notch = 'Notched' and gradeid not in (select gradeid from pv where property = 'Charpy strength' and notch = 'Notched')) izod_only, (select count(distinct gradeid) from pv where property like 'Tensile%strength%' and direction in ('XZ', 'ZX', 'Vertical XZ (source label)') and gradeid not in (select gradeid from pv where property like 'Tensile%strength%' and direction = 'Z')) xz_zx_only, (select count(*) from pv where property = 'Charpy strength' and notch = 'Notched' and standard_load like '%1eU%') notched_1eu, (select count(*) from pv where property = 'Glass transition temperature' and standards in ('ASTM D1525', 'ISO 75')) tg_other_standard, (select count(distinct gradeid) from pv where property = 'Glass transition temperature' and specimen_type = 'Raw material value' and gradeid not in (select gradeid from pv where property = 'Glass transition temperature' and specimen_type <> 'Raw material value')) tg_resin_only"
+```
+
+## 19. What version 2.1 leaves open
+
+The version 2.1 changes (D96 to D103; [the response](audits/2026-09-27-v2.1-review/RESPONSE.md)) make several answers
+narrower and more honest, and leave these, each with where it is counted:
+
+- **Nobody has reviewed the acceptance portfolio's answers.** Its twelve questions were answered by an agent from the
+  tables and the hash-checked sheets ([ACCEPTANCE.md](audits/2026-09-27-v2.1-review/ACCEPTANCE.md) lists what a person
+  should check), and one of them rests on a reading recorded as one: Fiberon PET-GF15's annealed heat deflections are on
+  the 120 °C, 16 h schedule its sheet states for the product (m215, V001932, V001933).
+- **An environment requirement is a category, not an exposure.** A product is judged on its own records (D98), and a
+  limit in words keeps a positive rating from passing, but the page is not told which acid, alkali or solvent the part
+  meets, at what concentration or for how long; a verdict names the records and the exposures they state. Asking for an
+  agent waits for a team that needs it.
+- **Annealed values whose schedule the sheet does not state never decide.** A state reached by an annealing nobody can
+  repeat settles nothing (D99); the query counts them (94 on 2026-09-28).
+- **The conditioned service state is thinly published.** Asked humid, a product is judged on conditioned values only, and
+  few sheets print any (149 published values on 2026-09-28): most products are unknown there, which is the true answer.
+- **Most products have no print recipe the H2C can be judged by.** Every template now asks printability (D101), so Strict
+  answers shrank (Outdoor 5 materials); every material lost is unresolved, not failed. `npm run audit:scenario-gaps` lists
+  the products one fact from an answer, most of them print recipes ([SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md)).
+- **Include uncertain is wider** (D100): a material with measured failures and unmeasured products is unresolved, and the
+  table's "0 of N" says so. Whether a team wants a view of "every tested product fails" apart is for the team trial.
+- **Eleven recorded rows do not bind to their evidence line** (D97): ten were corrected against their page since, one
+  prints its value against its label ([WITNESS-BINDING.md](audits/2026-09-27-v2.1-review/WITNESS-BINDING.md), `npm run audit:witness`).
+- **On a phone the first candidate is below the fold.** The header is compact on a laptop (four rows at 1,024 × 768);
+  on a 390 × 844 phone the first row starts near 955 px, and "Read the candidates" is the route.
+- **Not executed:** the team's task trial (GOALS C7), a person's source spot-check (C3), screen-reader and other-browser
+  checks, and a print on the H2C. The page and the engine are checked against each other and against the portfolio; none
+  of that is a person using it.
+- **The Pages step that keeps each release's page** (`h2c-<release>` GitHub releases) runs only on `main`, so it has not
+  run yet.
+
+```bash
+npm run sql --silent -- "select count(*) annealed_no_schedule from measurements where data_status in ('Published value','Published value (transcription corrected)') and post_processing_state = 'annealed' and (anneal_c_state is not null or anneal_h_state is not null)"
+npm run sql --silent -- "select count(*) conditioned from measurements where data_status in ('Published value','Published value (transcription corrected)') and moisture_state = 'conditioned'"
 ```
 
 ---

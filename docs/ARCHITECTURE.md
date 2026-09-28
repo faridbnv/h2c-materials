@@ -93,7 +93,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `print-guide.js` | A printer maker's filament guide (D88): its rows of `print_guide.csv` read as recipes, the material each speaks for (`print_guide_materials.csv`), and the refusals (PRINT-GUIDE-REFERENCE, PRINT-GUIDE-MATERIAL). `products.js` reads a material's row where a product and its twin are silent. |
 | `normalize/provenance.js` | The origin tag every derived value carries. |
 | `compile.js` | Assemble the relational runtime database. A material's headline starts missing, with its related evidence and implied bounds (from printed values only, D55); products.js fills each one its products publish comparably. |
-| `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Where a product is silent, its twin's (same material and formulation key, D89), then for the print gate its material's guide row (D88), each so read labelled. Checks the pins in `headlines.csv`. The engine judges the products. |
+| `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Where a product is silent, its twin's (same material and formulation key, D89), then for the print gate its material's guide row (D88), each so read labelled. Every product's decision states (`states`, D99): as printed and dry, each annealing schedule, conditioned, each holding only its own values, with the conditions each value admitted unstated. Its twins (`twins`). Checks the pins in `headlines.csv`. The engine judges the products. |
 | `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
 | `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; compile derives coverage rows from it (D74), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
@@ -111,8 +111,9 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `measurement-rules.js` | Independent raw-value, uncertainty, upper-bound, unit and endpoint checks, and no use of a replaced property, used by validation and the systematic audit. |
 | `contract.js` | Check `dist/db.json` and `dist/reference.json` against `schema/db.schema.json` and `schema/reference.schema.json`. |
 | `review-workbook.js` | The generated, read-only Excel review workbook (`npm run data:export-xlsx`). |
-| `bundle.js` | One HTML file. |
-| `index.js` | Runs the stages, decides whether the build may proceed, and writes the release manifest. |
+| `bundle.js` | One HTML file, named by its data date and its release. |
+| `release.js` | The release ID (D96): a digest of the tables, schema, rules, engine, templates and lockfile; the page's name. |
+| `index.js` | Runs the stages, decides whether the build may proceed, stamps the release, and writes the release manifest. |
 
 ### Data tooling, `scripts/`
 
@@ -134,6 +135,8 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `data/review-findings.mjs` | The per-record build findings (EST-OUTLIER, EST-WIDE, EST-FAMILY-ORDER, NO-MEASUREMENTS) a reviewer must fix or accept; `audit-data.mjs` checks them (D57). EST-THIN is informational and is not among them (D73). |
 | `audit/source-completeness.mjs` | `npm run audit:sources`: every PDF source re-read for values and properties the tables lack. |
 | `audit/blocking-gaps.mjs` | `npm run audit:gaps`: what keeps a material from an answer in each template, and what could turn one, into `docs/audits/2026-09-25-re-center/BLOCKING-GAPS.md`. |
+| `audit/scenario-gaps.mjs` | `npm run audit:scenario-gaps`: every product one fact from an answer in the templates and the acceptance questions, with the work that would settle it and when to stop (F08), into `docs/audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md`. |
+| `audit/witness-binding.mjs` | `npm run audit:witness`: the evidence binding (D97) asked of the rows already recorded, into `docs/audits/2026-09-27-v2.1-review/WITNESS-BINDING.md`. |
 | `audit/know-how-worklist.mjs` | `npm run audit:know-how`: the maker-site search worklist, every product whose documents were read for makers' know-how and said nothing, into `KNOW-HOW-WORKLIST.md` beside it; `--check` fails if it is stale. |
 | `audit/spot-check.mjs` | `npm run audit:spot-check`: a fixed, seeded sample of what the page shows, for a person to check against the source page, into `SPOT-CHECK.md` beside it. |
 | `audit/rule-vs-hand-picks.mjs` | The product rule against the retired hand picks, from their archive, into `rule-vs-hand-picks.md` beside it (D83, m137). |
@@ -168,12 +171,12 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 
 | Module | Responsibility |
 |---|---|
-| `constraints.js` | The four-state evaluator, the unknown-data policies, ranked exclusions. The heart of the tool. |
-| `products.js` | A material answered by its products (D83): a product view (the material with one product's values and print recipe), which `evaluateProducts` in `constraints.js` judges on every requirement at once and rolls up to all / some / none. Used when the context carries `productsByMaterial`; the page does from re-center phase 3. |
-| `indices.js` | The Ashby performance-index library, their slopes and their caveats. |
+| `constraints.js` | The four-state evaluator, the unknown-data policies, ranked exclusions. The heart of the tool. A product is judged in each state the scenario permits and answered by the best (D99); its environment, stock, exact-grade and conflict criteria read its own records (D98); a material passes on one product, is unknown while one is unresolved, and fails only when all fail (D100). Each product's answer carries its own results and records. |
+| `products.js` | A material answered by its products (D83): a product view (the material with one product's values, recipe and offers, in one of its states), which `evaluateProducts` in `constraints.js` judges on every requirement at once. `scenarioStates` says which states a scenario permits (as printed; annealed where permitted; dry or conditioned). Used when the context carries `productsByMaterial`; the page does from re-center phase 3. |
+| `indices.js` | The Ashby performance-index library, their slopes and their caveats, and the one ranking every lens reads (`rankingFor`, D102): candidates by their passing products' own index, in the states they pass in. |
 | `pareto.js` | Non-dominated sets over the current candidates and axes. |
 | `coverage.js` | What the database knows and does not, per material and per domain. |
-| `scenario.js` | The user's question, serialised: shareable link, saved file, user assumptions. Validation leaves out, with a warning, what the build cannot evaluate. |
+| `scenario.js` | The user's question, serialised: shareable link, saved file, user assumptions, the states it permits (D99), its chosen products and their test results (D103), and the release it was answered on (D96). Validation leaves out, with a warning, what the build cannot evaluate, and warns when a scenario is reopened on another release. |
 | `search.js` | Catalogue search, by a material's own words and its products' makers and names. Its own module because the obvious implementation matches "PLA" inside "thermoplastic". |
 
 ### Interface, `app/js/ui/`
@@ -185,15 +188,16 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 | `format.js` | The single place a value becomes text. Owns the visual distinction between measured, related and estimated, and never rounds a value across a requirement's threshold (D54). |
 | `popover.js` | One explanation popover for every mark whose meaning is more than its glyph: each such mark is a button (`explainButton` in `format.js`) that opens it, from touch and keyboard too, never a title alone (D61). |
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
-| `table.js` | The results grid and the client-side export. |
-| `ashby.js` / `axes.js` | Property-property plots, constraint overlays, index lines, the reference layer. |
+| `table.js` | The results grid and the client-side exports: the candidates with their rank (D102), best product and state; the products with each one's verdict, state and what it is not settled by. |
+| `ashby.js` / `axes.js` | Property-property plots, constraint overlays, index lines, the reference layer. The index card reads the table's ranking (D102); the bubbles and the Pareto front are typical-value context. |
 | `parallel.js` | Parallel coordinates, hand-drawn in SVG. |
 | `heatmap.js` | The coverage lens. |
-| `compare.js` | Two to six materials side by side, with their measurement conditions. |
-| `detail.js` | One material's complete record. |
-| `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen. |
-| `start.js` | The opening panel, and the active-requirements header that replaces it. |
-| `templates.js` | Application templates. They populate controls and then get out of the way. |
+| `compare.js` | Two to six materials side by side, with their measurement conditions, and the passing products' own print gates beside the material's window. |
+| `detail.js` | One material's complete record. Its Products tab opens on the products that pass, each with its state, what is not settled, its recipe and its values, and a Choose button (D103). |
+| `explain.js` | Why the list is what it is, ranked by what each criterion costs, and the zero-result screen, which tells all-failed from none-confirmable. |
+| `start.js` | The opening panel, and the compact active-requirements header that replaces it: the answer, the requirements, how products are judged and what annealing would add (D99), research mode, the notes one press away. |
+| `templates.js` | Application templates. They populate controls and then get out of the way. Every one asks the H2C's print gates (`PRINTABLE`, D101). |
+| `brief.js` | A chosen product's decision brief (D103), written from the engine's own answer. |
 
 ## State
 

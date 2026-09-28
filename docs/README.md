@@ -12,7 +12,7 @@ going to question a number.
 | [ARCHITECTURE.md](ARCHITECTURE.md) | How is this put together, how do the data tables become an HTML file, and where does my change go? |
 | [../AGENTS.md](../AGENTS.md) | How do I change data safely? |
 | [IMPORTING.md](IMPORTING.md) | How does a batch of manufacturers' data sheets enter the database? (paused; the procedure for when it runs) |
-| [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) | I have a data sheet. What do I do, from the source row to the commit? |
+| [WALKTHROUGH-ADD-A-MATERIAL.md](WALKTHROUGH-ADD-A-MATERIAL.md) | How do a material's records fit together? (a historical example: a new sheet today travels the import pipeline) |
 | [DATA-MODEL.md](DATA-MODEL.md) | What is this number, and how much should I trust it? |
 | [INTERFACE.md](INTERFACE.md) | Why does the screen behave this way? |
 | [DECISIONS.md](DECISIONS.md) | Why was it done like that, and what breaks if I change it? |
@@ -21,6 +21,17 @@ going to question a number.
 | [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) | What is known to be wrong or missing right now, and what would fix each? |
 | [audits/](audits/) | Where did this fail its users or its evidence, and what happened to each finding? |
 | [background/](background/) | What was this built from? |
+
+## Three routes
+
+- **An engineer choosing a material and a product:** [HOW-IT-WORKS.md](HOW-IT-WORKS.md), then the page. Set what the part
+  must do (or start from a template), say whether you can anneal and whether the part lives humid, read the passing
+  products first, choose the one to print, and take its decision brief (Save / share).
+- **A maintainer correcting one value of a registered source:** [AGENTS.md](../AGENTS.md), "Correct a published value":
+  re-read the hash-checked page, write a guarded migration (m212 is a short one), then `npm run verify:fast`,
+  `npm run snapshot` and `npm run build:diff`, and `npm run trace -- <MeasurementID>` to see what it decides.
+- **An authorized import of a new document:** [IMPORTING.md](IMPORTING.md). Imports are paused except within the owner's
+  exceptions ([GOALS.md](GOALS.md)); a document never enters by hand.
 
 ## Tracing why something is the way it is
 
@@ -31,8 +42,9 @@ Three places, in the order to try them.
 2. **[DECISIONS.md](DECISIONS.md).** Numbered, with an index at the head saying which still hold, each saying what
    would break if it were reversed, and a table of bugs worth remembering, with what pins each one now.
 3. **[audits/](audits/).** Each audit pass in its own dated folder: the report as it was delivered, and the outcome
-   of every finding. The latest, the [re-center review](audits/2026-09-25-re-center/REPORT.md), holds the plan now
-   being followed; what is decided from it is in [GOALS.md](GOALS.md).
+   of every finding. The latest, the [version 2.1 review](audits/2026-09-27-v2.1-review/REVIEW.md), holds the plan now
+   being followed on the `v2` branch; what is decided from it is in [GOALS.md](GOALS.md), and what was done in its
+   [response](audits/2026-09-27-v2.1-review/RESPONSE.md).
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
 is the way it is because of what the data can and cannot support, DECISIONS says so. If neither

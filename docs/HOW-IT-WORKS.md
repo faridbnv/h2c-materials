@@ -262,9 +262,26 @@ uncertainty of one.
 
 A requirement is checked **product by product, all requirements at once**, including whether the H2C can print that
 product on its own settings. A material passes when at least one of its products meets everything, and the result says
-how many: `PASS · 1 of 4` means one of the four products that could be judged meets every requirement. Products that
-publish too little to judge are counted but never held against the material. Open the material's **Products** tab to
-see which products pass, each with its own numbers, how to print it and what its maker says about it.
+how many: `PASS · 1 of 4` means one of the four products that could be judged meets every requirement. It stays
+unknown while any product could not be judged and none passes, and fails only when every product fails (D100): one
+measured failure does not rule out products nobody has measured. Products that publish too little to judge are counted
+but never held against the material. Open the material's **Products** tab: the products that pass come first, each with
+the state it passed in, how to print it, its own numbers and what its maker says about it.
+
+**A product's evidence is its own** (D98). Its chemical and water records, its stock, its conflicts and its exact-grade
+measurements are its own, or its twin's (a product that prints the same sheet, D89); another product's record, or one
+filed under the whole material, is shown as context and never passes it.
+
+**A product is judged in a state it can be made in** (D99). Many sheets measure some values after annealing (Bambu
+Lab's PA6-CF, all of them at 80 °C for 12 h) or after moisture conditioning. A product is judged **as printed** unless
+you tick **We can anneal parts** under *How the part is made and used*, and then also annealed at the schedule its own
+sheet states (up to your oven's temperature, if you give one); it is judged **dry** unless you say the part lives
+**conditioned by the air's moisture**, and then only on conditioned values. Two states are never mixed into one part: a
+value measured annealed does not pass an as-printed product, and the reason says where it was published ("Published only
+after annealing at 90 °C for 4 h; permit annealing to judge it in that state"). A verdict in an annealed state names the
+annealing it needs. The results header says how every product is judged, and how many more materials annealing would
+pass. Every value also says which conditions its sheet left unstated and the screening policy admits (specimen form,
+moisture state, treatment) and the method it names: "comparable" is a screening policy, not a laboratory equivalence.
 
 Values whose source does not state the test direction or load are counted apart: they often read like moulded bars
 (of PLA's products, 3 of the 38 that state an XY stiffness reach 3 GPa; 27 of the 41 that state no direction claim 3
@@ -389,9 +406,16 @@ flowchart TB
 ```
 
 The "Why excluded" tab lists which requirement removed how many materials, so you can see which of your requirements
-is doing the work.
+is doing the work. A material is removed by a requirement only when every one of its products fails it.
+
+When nothing is confirmed, the page says which of three answers it is: every material was measured and failed (relax a
+requirement); none could be confirmed from the records at all (the database lacks the evidence, which says nothing about
+the materials: keep the requirement, and test); or some of each.
 
 ## Printability on the H2C
+
+Every ready-made template asks it (D101): **Printable on the H2C**, in the filters and as one requirement in the header.
+Without it the page is in **research mode**, and says so: a pass then says nothing about printing the product.
 
 The printer's envelope (350 °C nozzle, 120 °C bed, 65 °C chamber) is compared with each product's own published print
 profile, and each product reports **within**, **exceeds**, **partial** (a chamber window the printer only partly
@@ -406,6 +430,19 @@ types the guide asks an enclosure for (ABS, ABS-GF, ASA, ASA-CF, PC, PC FR, PAHT
 enclosure asked for with no temperature, by the guide or by the product's own maker, is met by the H2C's heated chamber
 (D90, D93); for any other type "enclosure recommended" counts as nothing. A material whose sources publish no nozzle or bed
 window shows an estimated one, marked as such, that decides nothing.
+
+## Choosing a product and handing it on
+
+When a product is the one the team will print, **Choose this product** in its material's Products tab. The scenario
+keeps it with the state its answer was in and the release it was chosen on. Under **Save / share**, each chosen product
+has a **decision brief** (Markdown): the question; the verdict and state, with the annealing it needs; every requirement
+with the records it rests on, each number as printed with its source, page and SHA-256; what is not settled; how to print
+and treat it; a suggested confirmation test; and the team's own test results, which you record there and which never
+enter the database (D103).
+
+Every page, saved scenario, link, export and brief carries a **release** ID: a digest of the data, the rules and the
+engine that decided it (D96). Reopened on another release, even of the same data date, a scenario says so before it asks
+its question again; every release published from `main` keeps its page as the GitHub release `h2c-<release>`.
 
 ## How to check a number yourself
 

@@ -833,3 +833,33 @@ answer as the guide prints it, with its reading ("Optional: not needed"); its no
 required; its drying line, marked "recorded; fills no product's recipe"; and its source, with the column and rows. A
 material the guide does not name has no such block, and a material with a guide row but no profile of its own shows
 the block alone.
+
+## The decision on the page (version 2.1)
+
+The review of 2026-09-27 found the page answering a narrower question than it looked to: a product could pass on
+another product's record, on values of two treatment states, or with no word on whether the H2C prints it; the chart and
+the table ranked one goal two ways; and the funnel ended at a material. What the screen does about each:
+
+- **How the part is made and used** sits pinned under the scope toggle: *We can anneal parts* (with the oven's highest
+  temperature, optional) and whether the part lives *dry* or *conditioned by the air's moisture* (D99). The results header
+  says, in one line, how every product is judged, and offers *Allow annealing: N more pass* when that would add any.
+- **Printable on the H2C** is one toggle and one pill: the three print gates together, asked by every template (D101).
+  Off, the header says *Research mode*.
+- **The header is the answer first** (F09): the count and what could not be checked in two lines, the requirements as
+  small pills, the state line, and the template's limits and the database's one press away with their first sentence
+  showing. At 1,024 × 768 four rows show above the fold; `npm run ui:check` holds three. On a phone, *Read the
+  candidates* jumps to the first row.
+- **A material's Products tab opens on its passing products**, each with its state (annealed at its sheet's schedule,
+  conditioned), what is not settled and why, its recipe before its values, and *Choose this product*. The spread and the
+  makers' coverage follow, collapsed.
+- **Compare** shows the passing products' own print gates, with the material's window across every product under it.
+- **Search** names the products a maker or product search matched, with their own verdicts, and says when the material
+  passes on another product.
+- **Empty answers** tell all-failed (relax a requirement) from none-confirmable (the records cannot answer; keep the
+  requirement and test) and from a mix of both.
+- **One ranking** (D102): the table's order, the chart guide's top ten, its line's count and the export all read one
+  result, by passing products; a candidate the goal cannot rank says so.
+- **Chosen products** (D103) live under *Save / share*: each with its current answer, the release it was chosen on, its
+  decision brief, a note, and the team's own test results; the shortlist bar says how many are chosen.
+- **The filter rail below 1,100 px is a modal dialog** (F10), as the material drawer is.
+- **The release** (D96) is in the top bar and under *Save / share*, and in every export and brief.

@@ -293,9 +293,19 @@ a material's headline is derived from them, and no product stands for a material
   product it is, and `twins` says how many of the `n` values are a twin's; a twin reading a declared variant's sheet
   is set apart with it, and where a twin ties its sibling the typical product is the sibling.
 
+- **`grades[].states`** (D99): the states the product can be judged in, each with the values its own sheets publish in
+  it. The first is as printed and dry and holds every headline; then each annealing schedule its annealed values state
+  (`annealed:120:16`, `x` for a part the sheet does not state), conditioned where it publishes conditioned values, and
+  their combinations, each holding only the headlines that state changes (`headline_definitions.csv` "Changes with
+  annealing", "Changes with moisture"). A value in one state is never another's: the engine judges a product in each
+  state the scenario permits and answers with the best. `grades[].headline` stays the product's published value, which
+  the table and the spread show, labelled with its annealing. Every value carries `admitted` (the conditions that could
+  change it and its source left unstated) and `standards`.
+- **`grades[].buy`** (D98): the product's own sampled offers; **`grades[].twins`**: the products that print its sheet.
+
 `build/snapshot/products.csv` and `summaries.csv` hold every value (their From and Twins columns name a twin's reading),
-and `print.csv` every product's print gates and where each part came from; `npm run sql` has `products_compiled` and
-`summaries_compiled`.
+`states.csv` every state value that is not the product's published one, and `print.csv` every product's print gates and
+where each part came from; `npm run sql` has `products_compiled` and `summaries_compiled`.
 
 ### What each selectable property compares
 
@@ -641,7 +651,9 @@ The evidence lists do not have identical ownership rules:
 
 Family context is useful background, but it cannot make a grade appear chemically tested, which is why
 environmental evidence is never authored: it is always the material's own records. The polymer-level records are
-labelled as the polymer's, never the product's.
+labelled as the polymer's, never the product's. And since D98 a **product** is judged on its own records, or its twin's:
+a sibling's record, or one filed under the material with no product, is context for it. A coverage finding may name the
+product it is about (`coverage.csv` GradeID, m213), and a conflict about one product holds out that product only.
 
 Coverage is terminal: it reports gaps and never feeds candidate selection. It still must describe
 the records truthfully. `build/src/coverage-rules.js` defines what counts as own data for Mechanical,
