@@ -1,0 +1,158 @@
+FindingID,GradeID,SourceID,Page,Topic,Finding
+P1-KNOWHOW-3DXTECH-0001,G001-01,XP-ecomax-r-pla-2,1,Printing advice,"Ideal for printing without a heated bed, no enclosure required"
+P1-KNOWHOW-SUPPLEMENT-0018,G001-123,D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,Printing advice,Compatible with the Bambu AMS (Automatic Material System)
+P1-KNOWHOW-SUPPLEMENT-0001,G001-130,D-MATTERHACKERS-MH-BUILD-PLA-PAGE,1,Printing advice,Compatible with the Bambu AMS (Automatic Material System)
+P1-KNOWHOW-REMAINDER-0002,G001-141,D-SPECTRUM-PLA-NATURE-PAGE,1,Warping and shrinkage,"Filaments from the PLA Nature series are characterized by ease of printing, unique textures and colors and low shrinkage."
+P1-KNOWHOW-REMAINDER-0003,G001-144,PR-pla-2,1,Pitfalls and limitations,The combination of being both low UV resistance and having low-temperature resistance means that it’s not ideal for outdoor use.
+P1-KNOWHOW-SUPPLEMENT-0002,G001-174,D-3DJAKE-MATTEPLA-BLACK-PAGE,1,Printing advice,Easy printability: excellent adhesion and optimised print quality for detailed results.
+P1-KNOWHOW-3D4MAKERS-0001,G001-177,D-3D4MAKERS-FACILAN-C8-FILAMENT-PAGE,1,Surface finish,"On most printers, Facilan™ C8 should 3D Print without visible layers."
+P1-KNOWHOW-3DXTECH-0003,G001-178,XP-simubone-r,1,Good for,Simulates the look and feel of bone for pre-operative planning and training
+P1-KNOWHOW-3DXTECH-0002,G001-18,XP-ecomax-r-tough-pla,1,Benefits,Greatly improved impact resistance and ductility while still being among the easiest materials to 3D print with
+P1-KNOWHOW-FIBERLOGY-0001,G001-182,D-FIBERLOGY-EASY-PLA-FILAMENT-PAGE,1,Printing advice,EASY PLA is an exceptionally easy-to-use PLA filament for 3D printing
+P1-KNOWHOW-FIBERLOGY-0002,G001-185,D-FIBERLOGY-RPLA-FILAMENT-PAGE,1,Benefits,"This innovative filament is made from 100% recycled raw materials, sourced exclusively from verified and carefully selected sources."
+P1-KNOWHOW-FIBERLOGY-0003,G001-186,D-FIBERLOGY-HS-PLA-CLEAR-FILAMENT-S2-PAGE,1,Surface finish,"HS PLA Clear allows you to create transparent, aesthetically pleasing models with a uniform finish."
+P1-KNOWHOW-FIBERLOGY-0004,G001-187,D-FIBERLOGY-MATTE-PLA-FILAMENT-PAGE,1,Surface finish,"unique matte finish, which effectively hides visible print layers"
+P1-KNOWHOW-REMAINDER-0004,G001-188,D-RECREUS-PLA-PAGE,1,Warping and shrinkage,Reliable Performance: Minimal warping and moisture resistance
+P1-KNOWHOW-REMAINDER-0005,G001-189,D-BIGREP-RPLA-PAGE,1,Pitfalls and limitations,rPLA is not particularly heat resistant.
+P1-KNOWHOW-FIBERLOGY-0005,G001-53,D-FIBERLOGY-FIBERWORKS-PLA-FILAMENT-PAGE,1,Good for,The FiberWORKS filament line was developed to optimize 3D printing processes in environments that require high repeatability.
+P1-KNOWHOW-FIBERLOGY-0006,G001-54,D-FIBERLOGY-PLA-VELVET-FILAMENT-S2-PAGE,1,Surface finish,"Thanks to modified PLA, prints made with this filament feature a subtle, velvety finish."
+P1-KNOWHOW-FIBERLOGY-0007,G001-55,D-FIBERLOGY-PLA-IMPACT-FILAMENT-PAGE,1,Good for,"This material is ideal for producing functional prototypes, replacement parts, and tools exposed to mechanical and thermal stresses."
+P1-KNOWHOW-REMAINDER-0006,G001-57,D-FABRU-PUREFIL-PUREFIL-PLA-FILAMENT-329-7710-PAGE,1,Odour and emissions,"Furthermore, PLA is characterized by many times more pleasant odor properties"
+P1-KNOWHOW-SUPPLEMENT-0017,G001-60,D-COLORFABB-CUSTOM-COLORED-PLA-FILAMENT-PAGE,1,Precision and tolerance,"All orders are made on demand, during the production process the color is visually checked with approved benchmark samples."
+P1-KNOWHOW-REMAINDER-0007,G001-77,PR-prusament-rpla,1,Good for,The pleasant and subtle colors make the rPLA Natural Pigments suitable for various home decor accessories.
+P1-KNOWHOW-REMAINDER-0008,G001-87,PR-prusament-pla-high-speed,1,Adhesion between layers,Prusament PLA High Speed has high layer-to-layer adhesion.
+P1-KNOWHOW-REMAINDER-0009,G001-90,PR-prusament-pla-recycled,1,Warping and shrinkage,"Thanks to its minimal thermal expansion, PLA is a great choice for large prints. No warping, no layer separation."
+P1-KNOWHOW-3D4MAKERS-0002,G001-95,D-3D4MAKERS-PLA-FILAMENT-PAGE,1,Warping and shrinkage,Due to a low shrinkage factor PLA will not deform after cooling
+P1-KNOWHOW-REMAINDER-0010,G004-01,D-ESUN-EPLA-LITE-PRODUCT-PAGE,1,Printing advice,"Retains PLA's easy-printing nature—no enclosure needed, beginner-friendly."
+P1-KNOWHOW-REMAINDER-0011,G008-01,S-SILK-PLA-PAGE,1,Printing advice,"Use standard PLA settings, a 0.4 mm or larger nozzle, and full cooling for the best surface quality."
+P1-KNOWHOW-REMAINDER-0012,G008-11,D-FABRU-PUREFIL-PLA-SILK-FILAMENT-991-9549-PAGE,1,Good for,This unique filament is particularly suitable for applications with high demands on the appearance of the printed parts.
+P1-KNOWHOW-REMAINDER-0013,G008-13,D-YOUSU-SILK-PLA-PAGE,1,Surface finish,The shiny effect makes the layers marks produced by the printing process less obvious
+P1-KNOWHOW-REMAINDER-0014,G008-24,D-SPECTRUM-PLA-SILK-RAINBOW-PAGE,1,Surface finish,"Thanks to the unique production technology, this filament offers smooth color changes during printing process."
+P1-KNOWHOW-REMAINDER-0015,G012-07,D-SPECTRUM-PLA-STONE-PAGE,1,Printing advice,A major aspect is the use of printing nozzles with diameters of 0.4mm or more.
+P1-KNOWHOW-3DXTECH-0004,G018-04,XP-carbonx-pla-cf-1,1,Benefits,Carbon fiber reinforcement increases stiffness and dimensional stability
+P1-KNOWHOW-REMAINDER-0017,G018-17,D-CREATBOT-PLA-CF-PAGE,1,Warping and shrinkage,"Carbon fiber effectively reduces material shrinkage and warping, preventing deformation of large models and ensuring assembly accuracy."
+P1-KNOWHOW-REMAINDER-0018,G018-19,D-3DJAKE-ECOPLA-CF-DARK-GREY-PAGE,1,Warping and shrinkage,"Minimal warping, even on large models"
+P1-KNOWHOW-FIBERLOGY-0008,G020-25,D-FIBERLOGY-FIBERWORKS-PETG-FILAMENT-PAGE,1,Good for,The FiberWORKS filament line was developed to optimize 3D printing processes in environments that require high repeatability.
+P1-KNOWHOW-REMAINDER-0020,G020-26,D-FABRU-PUREFIL-PUREFIL-PETG-FILAMENT-750-8958-PAGE,1,Moisture sensitivity,PET-G must be well pre-dried to prevent the material from forming bubbles and decomposing during processing.
+P1-KNOWHOW-REMAINDER-0021,G020-29,PR-prusament-petg,1,Pitfalls and limitations,Strong adhesion to the bed - be careful when you’re removing the print
+P1-KNOWHOW-3D4MAKERS-0003,G020-34,D-3D4MAKERS-PETG-FILAMENT-PAGE,1,Surface finish,This material is easy to print and has a glossy and smooth surface finish
+P1-KNOWHOW-REMAINDER-0022,G020-47,PR-prusament-petg-v0,1,Moisture sensitivity,Hygroscopic material - needs drying before every use
+P1-KNOWHOW-REMAINDER-0023,G020-50,D-MATTERHACKERS-MH-BUILD-PETG-2-85MM-PAGE,1,Warping and shrinkage,Lower tendency to warp and create fumes
+P1-KNOWHOW-SUPPLEMENT-0004,G020-51,D-NOBUFIL-PETG-FILAMENT-PAGE,1,Adhesion between layers,Our PETG 3D Filament delivers high-quality prints with excellent layer adhesion and robustness.
+P1-KNOWHOW-REMAINDER-0024,G020-59,PR-prusament-petg-recycled,1,Pitfalls and limitations,Strong adhesion to the bed - be careful when you’re removing the print
+P1-KNOWHOW-REMAINDER-0025,G020-62,D-FORMFUTURA-REFORM-RPET-PAGE,1,Printing advice,Heat bed: ± 60 – 80° C Enclosure: No / Recommended
+P1-KNOWHOW-REMAINDER-0026,G020-65,D-YOUSU-PETG-PAGE,1,Warping and shrinkage,"Excellent first layer adhesion to reduce warpage, shrinkage, curl and print failure."
+P1-KNOWHOW-SUPPLEMENT-0003,G020-66,D-3DJAKE-EASYPETG-BLACK-PAGE,1,Warping and shrinkage,Low warping: Ensures consistent and warp-free print quality.
+P1-KNOWHOW-FIBERLOGY-0009,G020-67,D-FIBERLOGY-PETG-FR-V0-FILAMENT-PAGE,1,Printing advice,The filament is easy to use and does not require an enclosed printer
+P1-KNOWHOW-FIBERLOGY-0010,G020-68,D-FIBERLOGY-EASY-PETG-FILAMENT-PAGE,1,Good for,It is ideal for users seeking a balance between high mechanical properties and printability comparable to EASY PLA.
+P1-KNOWHOW-FIBERLOGY-0011,G020-69,D-FIBERLOGY-PETG-MATTE-FILAMENT-PAGE,1,Surface finish,"the matte surface, which effectively masks layer lines"
+P1-KNOWHOW-FIBERLOGY-0012,G020-71,D-FIBERLOGY-RPETG-FILAMENT-S2-PAGE,1,Benefits,"It combines high mechanical and chemical strength with ease of printing, attractive print appearance, and lower material costs."
+P1-KNOWHOW-3DXTECH-0005,G024-05,XP-carbonx-petg-cf-1,1,Warping and shrinkage,"Amorphous structure giving it low, near isotropic shrinkage"
+P1-KNOWHOW-3D4MAKERS-0004,G024-10,D-3D4MAKERS-PETG-CARBON-PAGE,1,Nozzle wear,We advise to use a hardened steel nozzle.
+P1-KNOWHOW-FINAL-0002,G024-17,D-3DJAKE-EASYPETG-CF-PAGE,1,Benefits,easyPETG + 10% carbon fibre High dimensional stability High chemical resistance
+P1-KNOWHOW-FIBERLOGY-0013,G024-23,D-FIBERLOGY-PETGCF-FILAMENT-PAGE,1,Benefits,combines the versatility and printability of PET-G with the strength and stiffness provided by 10% carbon fiber
+P1-KNOWHOW-3DXTECH-0006,G026-01,XP-3dxstat-esd-petg-1-2,1,Odour and emissions,Very low odor emitted while printing
+P1-KNOWHOW-REMAINDER-0028,G026-09,D-MATTERHACKERS-PRO-ESD-PETG-PAGE,1,Nozzle wear,"The ESD additive is non-abrasive, so both brass and hardened nozzles are compatible."
+P1-KNOWHOW-FIBERLOGY-0014,G026-10,D-FIBERLOGY-ESD-PETG-FILAMENT-PAGE,1,Good for,The material was developed to effectively protect sensitive components from the destructive effects of electrostatic discharge (ESD).
+P1-KNOWHOW-REMAINDER-0029,G027-07,S-POLYMAKER-ABS-MAX-PAGE,1,Printing advice,Yes. ABS Max requires an actively heated chamber of 65°C or higher for best results.
+P1-KNOWHOW-FINAL-0004,G027-23,D-BIGREP-ABS-PAGE,1,Good for,"Print complex, ready-to-use parts including end-use, factory tooling, and functional prototypes with demanding geometries."
+P1-KNOWHOW-REMAINDER-0030,G027-51,D-FORMFUTURA-REFORM-RTITAN-PAGE,1,Warping and shrinkage,It prints with high dimensional accuracy and without warping.
+P1-KNOWHOW-FIBERLOGY-0015,G027-52,D-FIBERLOGY-RABS-FILAMENT-S2-PAGE,1,Pitfalls and limitations,"Due to the nature of the recycling process, the material may vary in shade and contain trace amounts of glitter."
+P1-KNOWHOW-FIBERLOGY-0016,G027-53,D-FIBERLOGY-ABS-FILAMENT-PAGE,1,Benefits,Models printed with ABS are characterized by high rigidity and durability
+P1-KNOWHOW-FIBERLOGY-0017,G027-54,D-FIBERLOGY-ABS-PLUS-FILAMENT-PAGE,1,Printing advice,the material does not require a closed chamber
+P1-KNOWHOW-FIBERLOGY-0018,G027-55,D-FIBERLOGY-EASY-ABS-FILAMENT-PAGE,1,Printing advice,without the need for specialized enclosed-chamber printers
+P1-KNOWHOW-FINAL-0001,G027-57,XP-triton-abs,1,Printing advice,Easier to print than most industrial-grade materials
+P1-KNOWHOW-FIBERLOGY-0019,G028-07,D-FIBERLOGY-ABSGF-FILAMENT-PAGE,1,Benefits,"Prints feature excellent layer bonding, improved adhesion to the build plate, and reduced shrinkage compared to standard ABS."
+P1-KNOWHOW-REMAINDER-0032,G028-08,D-FABRU-PUREFIL-PUREFIL-ABS-GF10-FILAMENT-291-7091-PAGE,1,Nozzle wear,We therefore recommend using a hardened steel nozzle to print large objects.
+P1-KNOWHOW-3DXTECH-0007,G029-01,XP-carbonx-abs-cf-1-2,1,Surface finish,Parts can be smoothed with acetone vapors
+P1-KNOWHOW-REMAINDER-0033,G029-10,D-3DJAKE-ABS-CF-BLACK-1-PAGE,1,Printing advice,"For optimal printing results, a closed build chamber is required."
+P1-KNOWHOW-3DXTECH-0008,G030-01,XP-3dxstat-esd-abs-1-2,1,Printing advice,Easier to print than most industrial-grade materials
+P1-KNOWHOW-3D4MAKERS-0005,G030-04,D-3D4MAKERS-ABS-ESD-PAGE,1,Good for,"The filament is ideal for industrial applications like housings / casings for connectors, sensors and measuring devices."
+P1-KNOWHOW-FIBERLOGY-0020,G030-07,D-FIBERLOGY-ESD-ABS-FILAMENT-PAGE,1,Good for,Fiberlogy ABS ESD is a specialized filament designed to protect sensitive electronic components from electrostatic discharge (ESD).
+P1-KNOWHOW-3DXTECH-0009,G031-05,XP-3dxmax-r-asa,1,Benefits,Highly resistant to ultra-violet radiation and sunlight
+P1-KNOWHOW-SUPPLEMENT-0005,G031-12,D-FABRU-PUREFIL-ASA-FILAMENT-152-1155-PAGE,1,Benefits,ASA retains its original color for years and does not yellow.
+P1-KNOWHOW-REMAINDER-0035,G031-35,D-CREATBOT-ASA-PAGE,1,Printing advice,it is recommended to use an enclosed printing chamber or protective cover.
+P1-KNOWHOW-REMAINDER-0036,G031-37,D-3DJAKE-ASA-BLACK-PAGE,1,Benefits,Weather and UV resistant ASA filament in black
+P1-KNOWHOW-REMAINDER-0037,G031-39,XP-triton-asa,1,Surface finish,"Variety of colors and beautiful, low-gloss finish to make your models pop!"
+P1-KNOWHOW-FIBERLOGY-0021,G031-40,D-FIBERLOGY-ASA-FILAMENT-PAGE,1,Good for,"it is ideal for producing parts intended for outdoor use, retaining its properties and color for a long time"
+P1-KNOWHOW-FIBERLOGY-0022,G031-41,D-FIBERLOGY-ASA-MATTE-FILAMENT-PAGE,1,Warping and shrinkage,Low shrinkage and good layer adhesion ensure stable and precise prints
+P1-KNOWHOW-3DXTECH-0010,G033-02,XP-carbonx-asa-cf-1,1,Good for,ASA is UV-stable and suitable for outside use
+P1-KNOWHOW-SUPPLEMENT-0006,G033-08,D-FABRU-PUREFIL-PUREFIL-ASA-CF10-FILAMENT-996-9565-PAGE,1,Warping and shrinkage,"ASA CF10 is less prone to warping than other filaments, resulting in more precise and higher quality print results."
+P1-KNOWHOW-SUPPLEMENT-0019,G033-10,D-FABRU-PUREFIL-PUREFIL-ASA-CF10-FILAMENT-996-9565-PAGE,1,Warping and shrinkage,"ASA CF10 is less prone to warping than other filaments, resulting in more precise and higher quality print results."
+P1-KNOWHOW-REMAINDER-0038,G033-16,D-3DJAKE-ASA-CF-BLACK-2-PAGE,1,Warping and shrinkage,Optimised layer adhesion and process stability with low warping tendency
+P1-KNOWHOW-3DXTECH-0011,G035-04,XP-ezpc-polycarbonate-1,1,Printing advice,"Ease of use on a wide array of printers, no heated chamber needed!"
+P1-KNOWHOW-3DXTECH-0012,G035-05,XP-3dxmax-r-pc,1,Warping and shrinkage,"Amorphous structure gives it low, near isotropic shrinkage"
+P1-KNOWHOW-REMAINDER-0039,G035-25,D-YOUSU-PC-PAGE,1,Moisture sensitivity,"PC 3D Printer filament is hygroscopic, therefore, be stored in a cool, dry place so as not to affect the quality."
+P1-KNOWHOW-3DXTECH-0013,G037-01,XP-carbonx-pc-cf-1-2,1,Benefits,Further improved stiffness and dimensional stability with the addition of carbon fiber reinforcement
+P1-KNOWHOW-3DXTECH-0014,G037-04,XP-carbonx-ezpc-cf-1,1,Warping and shrinkage,"Amorphous structure gives it low, near isotropic shrinkage (very low CTE)"
+P1-KNOWHOW-REMAINDER-0040,G039-13,S-POLYFLEX-TPU95-PAGE,1,Pitfalls and limitations,Will be very difficult to print with a small nozzle diameter..
+P1-KNOWHOW-REMAINDER-0041,G039-39,D-NINJATEK-ARMADILLO-PAGE,1,Warping and shrinkage,Excellent bridging capabilities and virtually no warping
+P1-KNOWHOW-REMAINDER-0042,G039-52,D-MATTERHACKERS-MH-BUILD-TPU-PAGE,1,Good for,Great for items that require resistance to wear and tear
+P1-KNOWHOW-SUPPLEMENT-0022,G045-03,D-KIMYA-FILAMENT-PAGE,1,Benefits,"Lightness, superior energy return, impact resistance, extreme elasticity and behavior even at cold temperatures. Soft touch. Good layer adhesion."
+P1-KNOWHOW-SUPPLEMENT-0023,G046-02,D-KIMYA-FILAMENT-PAGE,1,Printing advice,Easier to print than TPU on Bowden printers. Soft touch. Good layer adhesion
+P1-KNOWHOW-SUPPLEMENT-0024,G046-03,D-DSM-ARNITEL-ID2045-PRINT-GUIDELINE,2,Printing advice,Due to its flexible nature direct drive extruders will be recommended.
+P1-KNOWHOW-REMAINDER-0043,G050-10,XP-carbonx-nylon-6-cf-1,1,Benefits,Gen3 has higher HDT than our previous grades (147C at .45MPa) allowing for expanded use in higher-temp applications.
+P1-KNOWHOW-3DXTECH-0015,G052-01,XP-amidex-e2-84-a2-nylon-12,1,Benefits,Excellent printability and dimensional stability without fillers
+P1-KNOWHOW-FIBERLOGY-0023,G052-06,D-FIBERLOGY-PA12-NYLON-FILAMENT-PAGE,1,Pitfalls and limitations,Just keep in mind that nylon is not resistant to concentrated acids and bases.
+P1-KNOWHOW-FIBERLOGY-0024,G052-07,D-FIBERLOGY-RNYLON-FILAMENT-PAGE,1,Benefits,"Fiberlogy rNylon stands out for its excellent resistance to heat, oils, greases, fuels, solvents, and many chemicals"
+P1-KNOWHOW-3DXTECH-0016,G053-01,XP-carbonx-nylon-12-cf-1-2,1,Moisture sensitivity,Very low moisture absorption yielding improved retention of mechanical properties even when exposed to humid environments
+P1-KNOWHOW-REMAINDER-0045,G053-07,D-FABRU-PUREFIL-PUREFIL-PA12-CF15-FILAMENT-310-7552-PAGE,1,Nozzle wear,The increased wear in the pressure nozzle must be taken into account and can be minimized by using hardened steel nozzles.
+P1-KNOWHOW-FIBERLOGY-0025,G053-16,D-FIBERLOGY-PA12CF-NYLON-FILAMENT-PAGE,1,Warping and shrinkage,"Compared to classic PA12 nylon, the carbon fiber version offers better resistance to high temperatures and less shrinkage during printing."
+P1-KNOWHOW-3DXTECH-0017,G054-01,XP-fibrex-nylon-12-gf30-1-2,1,Moisture sensitivity,Very low moisture absorption yielding improved retention of mechanical properties even when exposed to humid environments
+P1-KNOWHOW-FIBERLOGY-0026,G054-03,D-FIBERLOGY-NYLON-PA12GF-FILAMENT-PAGE,1,Benefits,"Compared to pure PA12 nylon, it offers significantly better mechanical and chemical resistance, as well as greater durability of the finished parts."
+P1-KNOWHOW-REMAINDER-0047,G066-01,D-FORMFUTURA-HIGH-PRECISION-PET-PAGE,1,Precision and tolerance,"The filament has guaranteed precision on diameter, ovality, shrinkage, and color tolerances."
+P1-KNOWHOW-REMAINDER-0048,G066-03,D-COLORFABB-PET-HIGH-SPEED-PRO-CLEAR-PAGE,1,Warping and shrinkage,Minimal warping and easy printability
+P1-KNOWHOW-REMAINDER-0049,G066-05,D-COLORFABB-PET-FLEX-MAX-CLEAR-PAGE,1,Printing advice,"This wide processing window makes the filament suitable for various printers, hotends and printing conditions."
+P1-KNOWHOW-3D4MAKERS-0006,G066-06,D-3D4MAKERS-FACILAN-HT-FILAMENT-PAGE,1,Surface finish,High gloss and shiny surface.
+P1-KNOWHOW-3DXTECH-0019,G070-05,XP-carbonx-htn-cf,1,Good for,"Excels in high-performance parts, tools, and fixtures"
+P1-KNOWHOW-3DXTECH-0020,G072-01,XP-thermax-pps-2,1,Benefits,Inherently flame resistant and self-extinguishing
+P1-KNOWHOW-FIBERLOGY-0027,G076-04,D-FIBERLOGY-BVOH-FILAMENT-PAGE,1,Supports and removal,"simply submerge the printed model in warm water, and the support filament will dissolve"
+P1-KNOWHOW-3DXTECH-0021,G081-01,XP-3dxmax-hips-2,1,Supports and removal,Can be removed from models by hand and be dissolved away with d-limonene
+P1-KNOWHOW-FIBERLOGY-0028,G081-11,D-FIBERLOGY-HIPS-FILAMENT-PAGE,1,Supports and removal,"After printing, the support material can be easily removed by immersing the model in a D-limonene solution"
+P1-KNOWHOW-REMAINDER-0050,G082-08,D-YOUSU-PP-PAGE,1,Adhesion between layers,Excellent layer adhesion Parts printed in PP tend to have very good layer adhesion and are rarely prone to layer splitting.
+P1-KNOWHOW-FIBERLOGY-0029,G082-10,D-FIBERLOGY-PP-FILAMENT-PAGE,1,Good for,"PP filament is ideal for manufacturing parts that require both strength and flexibility, such as resealable containers, handles, and engineering components."
+P1-KNOWHOW-FIBERLOGY-0030,G082-13,D-FIBERLOGY-RPP-FILAMENT-PAGE,1,Benefits,R PP filament offers excellent tensile strength
+P1-KNOWHOW-3DXTECH-0022,G083-01,XP-carbonx-pp-cf-1-2,1,Moisture sensitivity,"Low moisture absorption, typically does not require drying prior to use"
+P1-KNOWHOW-3DXTECH-0023,G088-01,XP-max-g-pctg-1-2,1,Warping and shrinkage,"Amorphous structure giving it a low, near isotropic shrinkage"
+P1-KNOWHOW-FIBERLOGY-0031,G088-07,D-FIBERLOGY-PCTG-FILAMENT-PAGE,1,Benefits,PCTG prints are significantly more resistant to impacts and mechanical stress.
+P1-KNOWHOW-REMAINDER-0051,G088-08,D-3DJAKE-PCTG-BLACK-1-PAGE,1,Benefits,Temperature & chemical resistant PCTG filament with high optical clarity
+P1-KNOWHOW-FIBERLOGY-0032,G089-02,D-FIBERLOGY-CPE-HTAG-ANTIBAC-FILAMENT-PAGE,1,Benefits,"the material effectively inhibits the growth of microorganisms on the surface of printed objects, as confirmed by microbiological tests"
+P1-KNOWHOW-FIBERLOGY-0033,G089-05,D-FIBERLOGY-CPE-HT-S2-FILAMENT-PAGE,1,Good for,"It is a cost-effective, durable, and versatile solution, ideal for industrial and laboratory applications"
+P1-KNOWHOW-REMAINDER-0052,G091-02,S-PANCHROMA-TM-COPE-PAGE,1,Pitfalls and limitations,"Avoid using textured PEI build plates without an added adhesive, as adhesion may be excessive."
+P1-KNOWHOW-REMAINDER-0053,G093-01,PR-prusament-pvb,1,Adhesion between layers,Poor layer to layer adhesion (slightly worse than PLA)
+P1-KNOWHOW-3DXTECH-0024,G094-01,XP-3dxmaxa-r-pc-abs-2,1,Benefits,Excellent ductility and impact resistance
+P1-KNOWHOW-FIBERLOGY-0034,G094-11,D-FIBERLOGY-PC-ABS-FILAMENT-PAGE,1,Benefits,"PC/ABS is characterized by very high impact strength, especially at low temperatures."
+P1-KNOWHOW-3DXTECH-0025,G096-01,XP-fluorx-pvdf-1-2,1,Moisture sensitivity,"Non-hygroscopic, does not absorb moisture. No drying needed!"
+P1-KNOWHOW-3DXTECH-0026,G097-01,XP-thermax-peek-1-2,1,Benefits,Inherently flame resistant and self-extinguishing
+P1-KNOWHOW-3D4MAKERS-0007,G097-05,D-3D4MAKERS-R-PEEK-FILAMENT-PAGE,1,Good for,"R-PEEK is widely used in a variety of industries, including aerospace, automotive, electrical/electronics, engineering, marine and chemical."
+P1-KNOWHOW-3DXTECH-0027,G098-01,XP-pekk-a-2,1,Adhesion between layers,slower crystallization rate and lower internal stress result in better layer adhesion
+P1-KNOWHOW-3D4MAKERS-0008,G098-03,D-3D4MAKERS-PEKK-A-FILAMENT-PAGE,1,Printing advice,Better printability compared to PEEK
+P1-KNOWHOW-3DXTECH-0028,G099-01,XP-thermax-pei-1010-2,1,Benefits,Long-term hydrolytic stability
+P1-KNOWHOW-3D4MAKERS-0009,G099-04,D-3D4MAKERS-PEI-FILAMENT-PAGE,1,Adhesion between layers,The material has an excellent adhesion between layers
+P1-KNOWHOW-3D4MAKERS-0010,G099-06,D-3D4MAKERS-PEI-ULTEM-9085-FILAMENT-PAGE,1,Printing advice,The 2000 gram spools are compatible with Stratasys printers.
+P1-KNOWHOW-FIBERLOGY-0035,G099-11,D-FIBERLOGY-PEI-9085-FILAMENT-2-PAGE,1,Good for,"This material has been used for years in the most demanding industries, such as aerospace, automotive, rail transportation, and space exploration."
+P1-KNOWHOW-3DXTECH-0029,G100-01,XP-thermax-psu-1-2,1,Benefits,High Environmental Stress Crack Resistance (ESCR)
+P1-KNOWHOW-3DXTECH-0030,G101-01,XP-thermax-pes-1,1,Benefits,High Environmental Stress Crack Resistance (ESCR)
+P1-KNOWHOW-3DXTECH-0031,G102-01,XP-thermax-ppsu-1-2,1,Benefits,High Environmental Stress Crack Resistance (ESCR)
+P1-KNOWHOW-3D4MAKERS-0011,G106-02,D-3D4MAKERS-ABS-KEVLAR-PAGE,1,Warping and shrinkage,No shrinkage / dimensional stability.
+P1-KNOWHOW-3DXTECH-0032,G107-02,XP-3dxstat-esd-pla-1,1,Printing advice,"Ideal for printing without a heated bed, no enclosure required"
+P1-KNOWHOW-FIBERLOGY-0036,G109-02,D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE,1,Good for,"This material is designed for applications requiring low friction, increased wear resistance, and mechanical durability."
+P1-KNOWHOW-FIBERLOGY-0037,G110-03,D-FIBERLOGY-PCTGGF-FILAMENT-PAGE,1,Benefits,"it retains its key advantages: chemical resistance, low shrinkage, and ease of printing"
+P1-KNOWHOW-FIBERLOGY-0038,G113-03,D-FIBERLOGY-ASAAF-FILAMENT-PAGE,1,Surface finish,"The characteristic matte, raw surface finish gives prints a professional look typical of composite materials."
+P1-KNOWHOW-3DXTECH-0033,G116-01,XP-3dxstat-esd-pc-1,1,Warping and shrinkage,"Amorphous structure gives low, near isotropic shrinkage"
+P1-KNOWHOW-3DXTECH-0035,G118-02,XP-pei-cf15,1,Benefits,Improved stiffness and strength for structural applications
+P1-KNOWHOW-3DXTECH-0036,G122-01,XP-carbonx-pekk-a-cf15-1,1,Printing advice,Easier to print than CF PEEK
+P1-KNOWHOW-3DXTECH-0037,G123-01,XP-3dxstat-esd-pei-ultem-1010,1,Benefits,Long-term hydrolytic stability
+P1-KNOWHOW-FIBERLOGY-0039,G129-07,D-FIBERLOGY-FIBERFLEXCF-FILAMENT-S2-PAGE,1,Printing advice,The increased stiffness makes the filament easier to print than other flexible TPU materials.
+P1-KNOWHOW-3DXTECH-0039,G130-01,XP-thermax-ppe-ps-1,1,Warping and shrinkage,"Amorphous structure granting it very low, near isotropic shrinkage"
+P1-KNOWHOW-FIBERLOGY-0040,G134-01,D-FIBERLOGY-FIBERFLEX-AERO-FILAMENT-PAGE,1,Printing advice,"The particles contained in the filament activate when exposed to heat, increasing their volume several times over."
+P1-KNOWHOW-REMAINDER-0056,G135-01,D-FABRU-PUREFIL-PUREFIL-PVC-P-FILAMENT-997-9569-PAGE,1,Printing advice,We recommend processing PVC-P exclusively on closed 3D printers with an integrated activated carbon filter.
+P1-KNOWHOW-REMAINDER-0057,G136-01,D-FABRU-PUREFIL-PUREFIL-SAN-FILAMENT-309-7549-PAGE,1,Pitfalls and limitations,SAN is not suitable for snap connections and should only be screwed.
+P1-KNOWHOW-SUPPLEMENT-0007,G138-01,D-FABRU-PUREFIL-HDPE-GF20-FILAMENT-169-1313-PAGE,1,Pitfalls and limitations,Low UV resistance - brittle from exposure to sunlight
+P1-KNOWHOW-REMAINDER-0058,G140-01,D-FABRU-PUREFIL-PUREFIL-PBT-FILAMENT-285-7080-PAGE,1,Benefits,"PBT has excellent mechanical and physical properties such as stiffness and toughness, heat resistance, resistance to friction and wear and an excellent surface finish."
+P1-KNOWHOW-REMAINDER-0059,G140-02,D-FABRU-PUREFIL-PUREFIL-PBT-FILAMENT-285-7080-PAGE,1,Benefits,"PBT has excellent mechanical and physical properties such as stiffness and toughness, heat resistance, resistance to friction and wear and an excellent surface finish."
+P1-KNOWHOW-REMAINDER-0060,G141-01,D-COLORFABB-LW-PET-NATURAL-PAGE,1,Printing advice,"The material is exceptionally easy to print, exhibits minimal warping and offers a wide processing window."
+P1-KNOWHOW-REMAINDER-0061,G141-02,D-COLORFABB-LW-PET-FLEX-NATURAL-PAGE,1,Benefits,"Mechanical behaviour: Tough, flexible and impact-resistant"
+P1-KNOWHOW-FIBERLOGY-0041,G144-03,D-FIBERLOGY-PCTGCF-FILAMENT-PAGE,1,Benefits,The addition of carbon fiber makes the PCTG+CF filament significantly stiffer than standard PCTG.
+P1-KNOWHOW-3D4MAKERS-0012,G149-02,D-3D4MAKERS-FACILAN-PCL-100-FILAMENT-PAGE,1,Good for,Facilan™ PCL 100 it is perfect for high-value applications such as medical research.
+P1-KNOWHOW-FIBERLOGY-0042,G158-01,D-FIBERLOGY-PLA-MINERAL-FILAMENT-PAGE,1,Surface finish,"Its plaster-like finish makes models look like traditional castings—with a natural, matte texture and clear reproduction of even the finest details."

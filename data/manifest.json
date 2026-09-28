@@ -26,12 +26,12 @@
       "sha256": "b9e33a6dd0aa698d0d53ba193e7ee3a8577006d3967f90cee0d27ccd788dc00f"
     },
     "evidence": {
-      "rows": 5083,
-      "sha256": "863c3019b2374887634f064195870016c79e8f435d2ae433981773308e21ef81"
+      "rows": 5240,
+      "sha256": "f11a9290c82e445c8304c6e87d5f0434ae2b47dbc6a8b9db18f601259bd425dc"
     },
     "know_how_reads": {
-      "rows": 1262,
-      "sha256": "ac11f90e543f8591f5e0550e677a0ba3da8d6597f39af655936392e5a32c50ba"
+      "rows": 1415,
+      "sha256": "17fd199245df97333fd622b76aa58d69ee3ba125e4a8357d3b9b48a6157511d3"
     },
     "polymer_environment": {
       "rows": 353,
@@ -46,8 +46,8 @@
       "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
     },
     "sources": {
-      "rows": 1487,
-      "sha256": "26a98c0ea3a5ced61c3b03de6848b4a44ca00d5934115260565a149c0cab54f1"
+      "rows": 1638,
+      "sha256": "4198442650ad4b723b3dba65069fe4fbe66dfc48cd78caf8102884ad00b072e8"
     },
     "coverage": {
       "rows": 867,

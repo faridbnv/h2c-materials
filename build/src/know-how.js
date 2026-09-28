@@ -152,7 +152,9 @@ export function attachKnowHow(db, wb, issues) {
       : byState[STATE.SEARCHED] && !byState[STATE.SILENT] ? STATE.SEARCHED
       : byState[STATE.SILENT] ? STATE.SILENT : STATE.UNREAD;
     m.knowHow = {
-      state, products: byState, makers: makers.size, topics, materialStatements: own,
+      // How many of its products' makers' sites were searched (a statement found there, or nothing), so the panel can
+      // say whether the search reached them.
+      state, products: byState, makers: makers.size, topics, materialStatements: own, sitesSearched: list.filter((g) => g.knowHow.searchedOn).length,
       recipe: Object.fromEntries(RECIPE_PARTS.map((part) => [part, Object.fromEntries(STATES.map((s) => [s, count(s, (g) => g.knowHow.recipe[part])]))])),
     };
     materials[state]++;

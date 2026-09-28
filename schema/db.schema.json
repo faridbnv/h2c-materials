@@ -2188,13 +2188,14 @@
         },
         "knowHow": {
           "type": "object",
-          "description": "Makers' know-how across the material's products (build/src/know-how.js): its state (collected if any product has a statement), its products by state, how many makers make them, per topic how many makers and products have a statement, statements on the material itself, and its products by state for each part of the print recipe. Absent for a family entry.",
+          "description": "Makers' know-how across the material's products (build/src/know-how.js): its state (collected if any product has a statement), its products by state, how many makers make them, per topic how many makers and products have a statement, statements on the material itself, how many of its products' makers' sites were searched, and its products by state for each part of the print recipe. Absent for a family entry.",
           "additionalProperties": false,
-          "required": ["state", "products", "makers", "topics", "materialStatements", "recipe"],
+          "required": ["state", "products", "makers", "topics", "materialStatements", "sitesSearched", "recipe"],
           "properties": {
             "state": { "$ref": "#/$defs/knowHowState" },
             "products": { "$ref": "#/$defs/knowHowStateCounts" },
             "makers": { "type": "integer", "minimum": 0 },
+            "sitesSearched": { "type": "integer", "minimum": 0 },
             "topics": {
               "type": "object",
               "additionalProperties": {

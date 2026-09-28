@@ -770,6 +770,13 @@ function makerSays(g, c) {
   </dl>${gap ? `<p class="fine">${esc(gap)}</p>` : ''}</div>${other}`;
 }
 
+/** Whether the makers' own websites were searched for a material's products: none, some or all of them. */
+function sitesLine(searched, total) {
+  if (!searched) return "The makers' websites have not been searched yet.";
+  if (searched >= total) return `The makers' websites were searched for all ${plural(total, 'product')}.`;
+  return `The makers' websites were searched for ${searched} of them; for the others, not yet.`;
+}
+
 /** Across a material's products: how many makers say something on each topic, and where the sheets are silent. */
 function makersSayCounts(m, c) {
   const k = m.knowHow;
@@ -785,7 +792,7 @@ function makersSayCounts(m, c) {
     .map(([part, x], i) => `${x} ${i ? '' : 'give '}no ${RECIPE_WORDS[part]}`);
   const recipeLine = recipe.length > 1 ? `${recipe.slice(0, -1).join(', ')} and ${recipe.at(-1)}` : recipe.join('');
   return `<h3 class="sec">What makers say</h3>
-    <p class="fine"><b>${n.collected} of its ${plural(total, 'product')}</b> carry statements from their makers, in the makers' words under each product below${silent.length ? `; ${silent.join('; ')}` : ''}. ${n['searched-nothing'] ? '' : "The makers' websites have not been searched yet."}</p>
+    <p class="fine"><b>${n.collected} of its ${plural(total, 'product')}</b> carry statements from their makers, in the makers' words under each product below${silent.length ? `; ${silent.join('; ')}` : ''}. ${sitesLine(k.sitesSearched ?? 0, total)}</p>
     <ul class="print-counts">${topics.map((t) => `<li><b>${esc(t)}</b>: ${k.topics[t]?.makers ?? 0} of ${plural(k.makers, 'maker')}${k.topics[t] ? ` (${plural(k.topics[t].products, 'product')})` : ''}</li>`).join('')}</ul>
     ${recipe.length ? `<p class="fine">Of the products whose documents were read, ${recipeLine}.</p>` : ''}`;
 }
