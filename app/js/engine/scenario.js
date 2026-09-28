@@ -42,6 +42,23 @@ export function newScenario(meta) {
     anneal: false,
     annealMaxC: null,
     moisture: 'dry',
+    // The products the team chose (D103): each exact product, the state its answer was in, the release and the day it was
+    // chosen on, a note, and the team's own test results for it. A decision record beside the question, never data.
+    decisions: [],
+  };
+}
+
+/** How many products a scenario holds as chosen. */
+export const DECISIONS_MAX = 12;
+const TEST_FIELDS = ['date', 'operator', 'recipe', 'orientation', 'conditioning', 'method', 'result', 'notes'];
+const str = (v) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, 2000) : null);
+
+/** A chosen product as a file or a link holds it, checked: its fields are strings, its tests rows of strings. */
+function decisionOf(d) {
+  return {
+    gradeId: d.gradeId, stateId: str(d.stateId), release: str(d.release), chosenOn: str(d.chosenOn), note: str(d.note),
+    tests: (Array.isArray(d.tests) ? d.tests : []).filter(isObject).slice(0, 50)
+      .map((t) => Object.fromEntries(TEST_FIELDS.map((k) => [k, str(t[k])]))),
   };
 }
 
@@ -69,7 +86,7 @@ const isObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v)
 const GATES = new Set(['scope', 'h2cStatus', 'abrasive', 'buyable', 'dryingKnown', 'nozzle', 'bed', 'chamber']);
 const FACETS = new Set(['reinforcement', 'esd', 'flexible', 'supportMaterial', 'flameRetardant', 'family', 'polymer']);
 
-export function validateScenario(raw, meta, { materialIds = null, headlineKeys = null } = {}) {
+export function validateScenario(raw, meta, { materialIds = null, headlineKeys = null, gradeIds = null } = {}) {
   if (!isObject(raw)) throw new Error('The file does not contain a scenario object.');
   if (raw.version !== undefined && raw.version !== SCENARIO_VERSION) {
     throw new Error(`Scenario version ${raw.version} cannot be read by this build.`);
@@ -155,6 +172,11 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
   out.anneal = raw.anneal === true;
   out.annealMaxC = out.anneal && typeof raw.annealMaxC === 'number' && Number.isFinite(raw.annealMaxC) && raw.annealMaxC > 0 ? raw.annealMaxC : null;
   out.moisture = raw.moisture === 'conditioned' ? 'conditioned' : 'dry';
+  if (raw.decisions !== undefined && !Array.isArray(raw.decisions)) throw new Error('"decisions" must be a list.');
+  const chosen = (raw.decisions ?? []).filter((d) => isObject(d) && typeof d.gradeId === 'string');
+  const knownGrade = chosen.filter((d) => !gradeIds || gradeIds.has(d.gradeId));
+  if (knownGrade.length < chosen.length) warnings.push(`${chosen.length - knownGrade.length} chosen product(s) are not in this database and were dropped.`);
+  out.decisions = [...new Map(knownGrade.map((d) => [d.gradeId, decisionOf(d)])).values()].slice(0, DECISIONS_MAX);
   for (const key of ['openMaterial', 'baseline']) {
     const id = raw[key];
     out[key] = typeof id === 'string' && known(id) ? id : null;
@@ -219,6 +241,8 @@ export function toHash(scenario) {
     // Annealing permitted (true, or the oven's highest temperature) and a conditioned service state (D99).
     n: scenario.anneal ? (scenario.annealMaxC ?? true) : undefined,
     w: scenario.moisture === 'conditioned' ? 'conditioned' : undefined,
+    // The chosen products, without their notes and tests, which travel in the saved file (D103).
+    h: scenario.decisions?.length ? scenario.decisions.map((d) => [d.gradeId, d.stateId ?? null, d.release ?? null, d.chosenOn ?? null]) : undefined,
   };
   return encodeURIComponent(JSON.stringify(compact));
 }
@@ -237,6 +261,7 @@ export function fromHash(hash, meta, options) {
     template: c.t, lens: c.l, openMaterial: c.m, useEstimates: c.e, columnSet: c.k, baseline: c.b,
     assumptions: c.a, dbSnapshot: c.d, release: c.i, rankBy: c.r, evidence: c.v,
     anneal: c.n === true || typeof c.n === 'number', annealMaxC: typeof c.n === 'number' ? c.n : null, moisture: c.w,
+    decisions: Array.isArray(c.h) ? c.h.filter(Array.isArray).map(([gradeId, stateId, release, chosenOn]) => ({ gradeId, stateId, release, chosenOn })) : undefined,
   }, meta, options);
 }
 

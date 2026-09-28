@@ -112,6 +112,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D100 | A material fails only when every product fails; while one is unresolved, it is unresolved | A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it. | In force |
 | D101 | Every template asks whether the H2C can print the product; browsing without it is research mode | Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing. | In force |
 | D102 | One ranking: the table, the chart's guide, its line and the export rank a question the same way | When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking. | In force |
+| D103 | A chosen product is a local decision record: its brief, its state, its release, and the team's own tests | An engineer can choose the exact product the team will print; the page keeps it with the scenario, with the state and release it was chosen on, and writes a decision brief with its evidence, recipe, open questions and a test plan, where the team records its own results. | In force |
 
 <!-- end index -->
 
@@ -3085,6 +3086,32 @@ and the guide PP-CF, PAHT-CF, PPA-CF. Two answers to one question.
 
 The acceptance portfolio's S09 asks the three lenses for Warm environment's beam-stiffness order and they agree; a test
 holds that a failing product's better index does not lift its material. Reversing it gives one goal two rankings again.
+
+## D103. A chosen product is a local decision record: its brief, its state, its release, and the team's own tests
+
+> **In plain words:** An engineer can choose the exact product the team will print; the page keeps it with the scenario, with the state and release it was chosen on, and writes a decision brief with its evidence, recipe, open questions and a test plan, where the team records its own results.
+
+*Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decision 7; recommended
+and taken). Built in version 2.1, F11 of the review of 2026-09-27 (U04, D09). The start of GOALS C14's team layer,
+deliberately small.*
+
+The funnel ended at a material shortlist: the saved scenario held material IDs, the product export listed every product
+of the materials on screen, and nothing recorded "we chose this product, in this state, subject to this test".
+
+- **Choose this product** (Products tab, beside each product once something is asked): the scenario's `decisions` hold
+  the exact product, the state its answer was in, the release and the day it was chosen on, a note, and the team's test
+  results. A link carries the choice; the saved file carries the note and the tests too. A product this database no
+  longer holds is dropped with a warning.
+- **The decision brief** (Save / share, Markdown, `app/js/ui/brief.js`) is written from the engine's own answer for that
+  product, never recomputed: the question; the verdict and the state, with the annealing it needs; each requirement's
+  result, reason and records; each cited number as printed, with its source, page and SHA-256; the conditions the policy
+  admitted unstated; what is not settled, with the template's own limits; how to print and treat it, with where each
+  part of the recipe came from; a suggested confirmation test per requirement; and the team's results.
+- **A team's test result is its own evidence**, recorded with the decision (date, operator, printer and recipe,
+  orientation, conditioning, method, result). It never enters the database, whose sources are makers' documents, and
+  no approval workflow, account or server exists: that waits until the team has used this (GOALS, decision 7).
+
+Answers moved: none. Reversing it leaves the choice of a product, and the test that confirms it, outside the tool.
 
 ---
 

@@ -590,6 +590,7 @@ export function renderDrawer(host, state, actions) {
     evidenceById: ctx.evidenceById ?? new Map(db.evidence.map((e) => [e.id, e])),
     materialById: new Map(db.materials.map((x) => [x.id, x])),
     gradeById: new Map(db.grades.map((g) => [g.id, g])),
+    chosen: new Set((state.scenario.decisions ?? []).map((d) => d.gradeId)),
   };
 
   host.innerHTML = `
@@ -640,6 +641,7 @@ export function renderDrawer(host, state, actions) {
 
   host.querySelector('#drawer-close').addEventListener('click', actions.closeDrawer);
   host.querySelector('#drawer-pin').addEventListener('click', () => actions.togglePin(m.id));
+  host.querySelectorAll('[data-choose]').forEach((b) => b.addEventListener('click', () => actions.toggleDecision(b.dataset.choose)));
   host.querySelectorAll('[data-tab]').forEach((b) => b.addEventListener('click', () => actions.setDrawerTab(b.dataset.tab)));
   host.querySelectorAll('[data-tab-link]').forEach((b) => b.addEventListener('click', () => actions.setDrawerTab(b.dataset.tabLink)));
   host.querySelectorAll('[data-open-source]').forEach((b) => b.addEventListener('click', () => actions.openSource(b.dataset.openSource)));
@@ -1136,7 +1138,9 @@ function tabBody(tab, c) {
       const j = judged.get(g.id);
       const verdictChip = c.tested && j ? ` ${chip(j.verdict)}` : '';
       return `<div class="grade-block" data-search-item="${esc([gradeName(g), g.product, g.manufacturer, g.id].filter(stated).join(' '))}">
-      <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Product')}${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}</h3>
+      <h3 class="block-title">${esc(gradeName(g) || g.id)} ${tag(g.id, 'Product')}${verdictChip}${g.variant ? ' <span class="chip chip-neutral chip-small">variant</span>' : ''}
+        ${c.tested ? `<button type="button" class="btn btn-sm choose-btn" data-choose="${esc(g.id)}" aria-pressed="${c.chosen.has(g.id)}"
+          title="${c.chosen.has(g.id) ? 'Chosen: its decision brief is under Save / share. Press to remove it.' : 'Choose this product: its decision brief, recipe and test plan go under Save / share, saved with the scenario'}">${c.chosen.has(g.id) ? '\u2713 Chosen' : 'Choose this product'}</button>` : ''}</h3>
       ${c.tested && j ? stateNote(j) : ''}
       ${c.tested && j?.verdict === 'FAIL' && j.failedBy?.length ? `<div class="fact-why">Fails: ${esc(failText(j.failedBy))}</div>` : ''}
       ${c.tested && j?.verdict === 'UNKNOWN' ? unsettled(j, requirementOf) : ''}

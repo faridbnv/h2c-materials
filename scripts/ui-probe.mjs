@@ -323,6 +323,12 @@ try {
   // words with source and page, or the sentence that names the maker whose sheet is silent.
   results['15-drawer-first-ranked-maker-says'] = await evaluate(`[...document.querySelectorAll('.drawer-body .print-counts, .drawer-body .maker-says, .drawer-body .maker-says-gap')].map((e) => e.innerText || e.textContent).join('\\n').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim().split('\\n').slice(0, 60).join('\\n')`);
 
+  // A product chosen (D103): its decision record under Save / share, with its answer, release and brief.
+  await click('.drawer .pass-block [data-choose]');
+  await sleep(200);
+  await click('#btn-scenario');
+  await until(`!!document.querySelector('.chosen')`, 'the chosen product in Save / share');
+  results['16-chosen-product'] = await evaluate(`[...document.querySelectorAll('.chosen')].map((e) => e.innerText).join('\\n').replace(/[ \\t]+/g, ' ').replace(/release [0-9a-f]{12}/g, 'release <id>').replace(/chosen \\d{4}-\\d{2}-\\d{2}/g, 'chosen <date>').trim()`);
   // The family rail: a family, then one of its polymers. The rail's own text is recorded with the view, because its
   // counts are the only ones in the rail that follow the other requirements.
   const rail = () => evaluate(`(document.querySelector('.family-facet')?.innerText ?? 'NO FAMILY RAIL').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim()`);

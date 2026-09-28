@@ -920,6 +920,17 @@ table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3); p
 .answer-notes .not-checked { margin-top: 6px !important; }
 .answer-notes ul { margin: 6px 0; padding-left: 18px; }
 .spread-context { margin: 10px 0; }
+/* A chosen product and its decision record (D103). */
+.choose-btn { margin-left: 8px; font-size: 12px; }
+.choose-btn[aria-pressed="true"] { background: var(--pass-bg, #e7f5ec); }
+.chosen { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; margin: 8px 0; }
+.chosen-head { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chosen-actions { margin-top: 6px; }
+.chosen-note { display: block; margin-top: 8px; font-size: var(--t-small); }
+.chosen-note input { width: 100%; }
+.chosen-tests { margin-top: 8px; font-size: var(--t-small); }
+.test-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; margin-top: 6px; }
+.test-form label { display: grid; gap: 2px; }
 /* One press from the header to the first candidate, where the header is a screen tall (F09). */
 .read-candidates { display: none; }
 @media (max-width: 600px) { .read-candidates { display: inline-flex; } }

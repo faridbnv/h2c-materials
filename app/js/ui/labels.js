@@ -144,6 +144,7 @@ export function describeConstraint(c) {
       return `Reinforcement: ${(c.in ?? []).map((x) => x.replace(/-/g, ' ')).join(' or ')}`;
     case 'environment':
       return `Resists ${envNoun(c.category)}`;
+    case 'treatment': return 'Annealing at the schedule its sheet states';
     case 'evidence': {
       const bits = [];
       if (c.exactGrade) bits.push('has a product-specific measurement');

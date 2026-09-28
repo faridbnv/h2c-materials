@@ -6,7 +6,8 @@
 import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constraints.js';
 import { matchesQuery } from './engine/search.js';
 import { productsByMaterial } from './engine/products.js';
-import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX } from './engine/scenario.js';
+import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX, DECISIONS_MAX } from './engine/scenario.js';
+import { decisionBrief, productLabel } from './ui/brief.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, productsCSV, download, sortRows, sortForColumnSet, rankOf } from './ui/table.js';
 import { renderAshby } from './ui/ashby.js';
@@ -124,6 +125,7 @@ function hydrate(scenario) {
 }
 
 const materialIds = () => new Set(state.db.materials.map((m) => m.id));
+const gradeIds = () => new Set(state.db.grades.filter((g) => !g.retired).map((g) => g.id));
 const headlineKeys = () => new Set(state.db.registry.headlines.map((h) => h.key));
 
 // ------------------------------------------------------------------ derived state
@@ -323,6 +325,32 @@ const actions = {
   // chosen afterwards takes over, and ranking by nothing returns to it.
   setRankBy(id) { state.scenario.rankBy = id || null; state.sortNotice = null; renderLens(); pushHash(); },
   setEvidence(level) { state.scenario.evidence = level; actions.changed(); },
+  // Choose a product, or unchoose it (D103): the exact product, the state its answer is in, the release and the day.
+  toggleDecision(gradeId) {
+    const list = state.scenario.decisions ?? (state.scenario.decisions = []);
+    const i = list.findIndex((d) => d.gradeId === gradeId);
+    if (i >= 0) list.splice(i, 1);
+    else if (list.length < DECISIONS_MAX) {
+      const entry = state.selection.evaluations.flatMap((e) => e.products ?? []).find((p) => p.gradeId === gradeId);
+      list.push({ gradeId, stateId: entry?.state?.id ?? null, release: state.db.meta.release?.id ?? null, chosenOn: new Date().toISOString().slice(0, 10), note: null, tests: [] });
+    } else {
+      state.shortlistNotice = `At most ${DECISIONS_MAX} products can be chosen. Remove one first.`;
+      renderTray();
+      return;
+    }
+    render(); pushHash();
+  },
+  // A test result the team recorded for a chosen product: its own evidence, kept with the decision (D103).
+  addTestResult(gradeId, result) {
+    const d = (state.scenario.decisions ?? []).find((x) => x.gradeId === gradeId);
+    if (!d) return;
+    d.tests = [...(d.tests ?? []), result];
+    renderDrawerHost();
+  },
+  setDecisionNote(gradeId, note) {
+    const d = (state.scenario.decisions ?? []).find((x) => x.gradeId === gradeId);
+    if (d) d.note = note || null;
+  },
   // Judge products annealed where their sheets state a schedule (D99), from the line that says what it would add.
   allowAnnealing() { state.scenario.anneal = true; actions.changed(); },
   // Leave research mode: ask the H2C's print gates, all three (D101).
@@ -563,8 +591,12 @@ function chipText(el, on, text) {
 function renderTray() {
   const tray = document.getElementById('tray');
   const list = state.scenario.shortlist;
-  tray.hidden = list.length === 0;
+  const chosen = state.scenario.decisions?.length ?? 0;
+  tray.hidden = list.length === 0 && chosen === 0;
   tray.querySelector('.label').textContent = `Shortlist ${list.length} of ${SHORTLIST_MAX}`;
+  const chosenButton = document.getElementById('btn-chosen');
+  chosenButton.hidden = chosen === 0;
+  chosenButton.textContent = `Chosen products: ${chosen}`;
   const notice = document.getElementById('tray-notice');
   notice.textContent = state.shortlistNotice ?? '';
   notice.hidden = !state.shortlistNotice;
@@ -605,6 +637,7 @@ function wireChrome() {
     document.getElementById(id).addEventListener('click', () => actions.toggleState(verdict));
   }
   document.getElementById('s-screened').addEventListener('click', () => actions.toggleScreened());
+  document.getElementById('btn-chosen').addEventListener('click', () => actions.openScenario());
   document.getElementById('btn-clear-pins').addEventListener('click', () => {
     state.scenario.shortlist = []; render(); pushHash();
   });
@@ -758,6 +791,59 @@ function scrollLensToTop() {
   if (getComputedStyle(lens).overflowY === 'visible' && window.scrollY > 0) window.scrollTo(0, 0);
 }
 
+/**
+ * The chosen products in the Save / share panel (D103): each with its current answer and state, the release it was chosen
+ * on, its decision brief, a note, and the team's test results, recorded here and saved with the scenario.
+ */
+function chosenSection() {
+  const { db, scenario } = state;
+  const list = scenario.decisions ?? [];
+  if (!list.length) return '<p class="fine">None yet. Open a material\'s Products tab and press <b>Choose this product</b> on the one the team will print: its decision brief, recipe and test plan are then one press away here, and saved with the scenario.</p>';
+  const entries = new Map(state.selection.evaluations.flatMap((e) => e.products ?? []).map((p) => [p.gradeId, p]));
+  const today = db.meta.release?.id;
+  return list.map((d) => {
+    const g = db.grades.find((x) => x.id === d.gradeId);
+    const e = entries.get(d.gradeId);
+    return `<div class="chosen" data-chosen="${esc(d.gradeId)}">
+      <div class="chosen-head"><b>${esc(productLabel(g))}</b> <span class="tag">${esc(d.gradeId)}</span>
+        ${e ? `<span class="chip chip-${e.verdict}">${esc(e.verdict)}</span>` : '<span class="chip chip-neutral">not judged</span>'}
+        <span class="fine">chosen ${esc(d.chosenOn ?? '')} on release ${esc(d.release ?? 'unidentified')}${d.release && d.release !== today ? `; this page is release ${esc(today ?? '')}` : ''}</span></div>
+      <div class="sc-actions chosen-actions">
+        <button class="btn btn-sm" data-brief="${esc(d.gradeId)}">Download the decision brief</button>
+        <button class="btn btn-sm" data-unchoose="${esc(d.gradeId)}">Remove</button>
+      </div>
+      <label class="chosen-note">Note <input type="text" data-note="${esc(d.gradeId)}" value="${esc(d.note ?? '')}" placeholder="Why this product, for whom"></label>
+      <details class="chosen-tests"><summary>The team's test results (${(d.tests ?? []).length})</summary>
+        ${(d.tests ?? []).map((t) => `<div class="fine">${esc([t.date, t.operator, t.method, t.result].filter(Boolean).join(' · '))}</div>`).join('')}
+        <form class="test-form" data-test-form="${esc(d.gradeId)}">
+          ${[['date', 'Date'], ['operator', 'Operator'], ['recipe', 'Printer and recipe'], ['orientation', 'Orientation'], ['conditioning', 'Conditioning'], ['method', 'Method'], ['result', 'Result'], ['notes', 'Notes']]
+            .map(([k, label]) => `<label>${label} <input type="text" name="${k}"></label>`).join('')}
+          <button class="btn btn-sm" type="submit">Record this result</button>
+        </form>
+      </details>
+    </div>`;
+  }).join('');
+}
+
+function wireChosen(host) {
+  const { db, scenario } = state;
+  host.querySelectorAll('[data-unchoose]').forEach((b) => b.addEventListener('click', () => { actions.toggleDecision(b.dataset.unchoose); renderDrawerHost(); }));
+  host.querySelectorAll('[data-note]').forEach((el) => el.addEventListener('change', () => { actions.setDecisionNote(el.dataset.note, el.value.trim()); pushHash(); }));
+  host.querySelectorAll('[data-test-form]').forEach((f) => f.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const result = Object.fromEntries([...new FormData(f).entries()].map(([k, v]) => [k, String(v).trim() || null]));
+    if (Object.values(result).some(Boolean)) actions.addTestResult(f.dataset.testForm, result);
+  }));
+  host.querySelectorAll('[data-brief]').forEach((b) => b.addEventListener('click', () => {
+    const d = scenario.decisions.find((x) => x.gradeId === b.dataset.brief);
+    const grade = db.grades.find((g) => g.id === d.gradeId);
+    const material = db.materials.find((m) => m.id === grade.materialId);
+    const evaluation = state.selection.evaluations.find((e) => e.materialId === material.id);
+    const entry = evaluation?.products?.find((p) => p.gradeId === d.gradeId);
+    download(`h2c-decision-${d.gradeId}-${fileStamp(db.meta)}.md`, decisionBrief({ db, scenario, material, grade, evaluation, entry, decision: d }), 'text/markdown');
+  }));
+}
+
 function renderScenario(host) {
   const { db, scenario, selection } = state;
   const hard = scenario.constraints.filter((c) => c.mandatory !== false).length;
@@ -799,6 +885,9 @@ function renderScenario(host) {
         <button class="btn" id="sc-import"><b>Load a saved scenario</b><span>Replaces the current selection. A damaged file is refused and nothing changes.</span></button>
       </div>
 
+      <h3 class="sec">Chosen products</h3>
+      ${chosenSection()}
+
       <h3 class="sec">Start from a different kind of part</h3>
       <div class="sc-actions">
         ${TEMPLATES.map((t, i) => `<button class="btn" data-template="${i}">
@@ -823,6 +912,7 @@ function renderScenario(host) {
     </div></div>`;
 
   host.querySelector('#sc-close').addEventListener('click', () => actions.closeDrawer());
+  wireChosen(host);
   host.querySelectorAll('[data-template]').forEach((b) => b.addEventListener('click', () => {
     actions.applyTemplate(TEMPLATES[Number(b.dataset.template)]);
   }));
@@ -849,7 +939,7 @@ function renderScenario(host) {
       // Validate completely before committing anything, so a bad file leaves the session intact.
       let loaded;
       try {
-        loaded = deserialize(await file.text(), db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys() });
+        loaded = deserialize(await file.text(), db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys(), gradeIds: gradeIds() });
       } catch (err) {
         alert(`Could not load that scenario, and nothing was changed.\n\n${err.message}`);
         return;
@@ -878,7 +968,7 @@ function renderScenario(host) {
   let linkProblem = null;
   let fromLink = null;
   try {
-    fromLink = fromHash(location.hash.slice(1), db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys() });
+    fromLink = fromHash(location.hash.slice(1), db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys(), gradeIds: gradeIds() });
   } catch (err) {
     linkProblem = err.message;
   }
@@ -910,7 +1000,7 @@ function renderScenario(host) {
     if (hash === toHash(state.scenario)) return;
     let next;
     try {
-      next = fromHash(hash, db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys() });
+      next = fromHash(hash, db.meta, { materialIds: materialIds(), headlineKeys: headlineKeys(), gradeIds: gradeIds() });
     } catch (err) {
       alert(`This link could not be read, and nothing was changed.\n\n${err.message}`);
       return;

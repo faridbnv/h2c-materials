@@ -155,3 +155,16 @@ Measured at the plan's laptop, 1024 × 768 (Warm environment): the first candida
 show without scrolling (two before); the first passing product in the Products tab from 1,274 px to 264 px, inside the
 drawer's first view. `npm run ui:check` now asserts both. The phone's first row is still below the fold (955 px); the
 "Read the candidates" button is the route there. Answers moved: none.
+
+### F11: the exact product the team will print, and its decision brief (D103)
+
+"Choose this product" in a material's Products tab keeps the product in the scenario with the state its answer was in,
+the release and the day it was chosen on, and a note; Save / share lists the chosen products with their current answer,
+writes each one's decision brief (Markdown: the question, the verdict and state with the annealing it needs, every
+requirement's result and records, each cited number as printed with its source, page and SHA-256, the admitted
+conditions, what is not settled, the recipe with where each part came from, a suggested confirmation test per
+requirement), and records the team's own test results, which never enter the database. The tray says how many products
+are chosen. A link carries the choice; the saved file carries the notes and tests too.
+
+Answers moved: none. The interface probe chooses the first-ranked stiff-fixture product and records its decision record.
+No account, server or approval workflow was built (GOALS, decision 7).

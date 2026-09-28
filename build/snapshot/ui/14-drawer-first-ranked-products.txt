@@ -1,6 +1,6 @@
 Meet every requirement
 1 product
-3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) G070-05 PASS
+3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) G070-05 PASS Choose this product
 HOW TO PRINT IT
 Nozzle
 280–310 °C yes per Bambu Lab's Filament Guide for PPA-CF, not this maker's sheet
