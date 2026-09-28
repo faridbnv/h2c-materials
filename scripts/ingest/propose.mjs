@@ -2142,7 +2142,13 @@ export function measurementRow(v, { sourceId, materialId, gradeId, window = {} }
   // label across two lines — "Deflection Temperature at 0.45" above "ISO 75 °C 185" — and the °C of the unit
   // column stood next to the load, so thirty heat deflections were recorded as tested at 0.45 °C, which is a
   // laboratory nobody has.
-  const asTemperature = /(-?\d+(?:[.,]\d+)?)\s*(?:[°º˚]\s*C|℃)/i.exec(withoutRate.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
+  // Nor is the temperature the specimen was annealed at: Spectrum's "Heat Deflection Temperature 0.45 MN/m2, annealed
+  // (4h @ 90°C)" prints 90 °C once, as the oven's, and read here it made V002780 and V002781 heat deflections tested at
+  // 90 °C (the review of 2026-09-27, D07). The schedule is the post-processing's, read above; a number keeps one role.
+  const withoutSchedule = withoutRate
+    .replace(new RegExp(SCHEDULE, 'gi'), ' ')
+    .replace(/\banneal\w*(?:\s+and\s+dried)?\s+(?:at\s+)?-?\d+(?:[.,]\d+)?\s*(?:[°º˚]\s*C|℃)(?:(?:\s+for\s+|\s*[\/,]\s*)\d+(?:[.,]\d+)?\s*(?:hours?|h|min)\b)?/gi, ' ');
+  const asTemperature = /(-?\d+(?:[.,]\d+)?)\s*(?:[°º˚]\s*C|℃)/i.exec(withoutSchedule.replace(new RegExp(STANDARD_RE.source, 'gi'), ' '));
   // The load the row is judged to have been tested under is the one the typed column keeps, whether the sheet
   // wrote its unit or left it to the heading; the same number cannot also be a temperature.
   const hdtLoad = v.property === 'HDT' ? loadCellFromParsed(parseHdtStandard(asciiPunctuation(standardText))) : null;

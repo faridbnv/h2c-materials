@@ -29,3 +29,20 @@ says there is no ranking.
 
 Answers moved: none (`build/snapshot/templates.csv` unchanged). Acceptance: S12's four expectations met. One interface
 view changed (Compare's printed context names the release).
+
+### F06: a decision value is bound to its own row (D97)
+
+`ingest:apply` now asks, of every row entering, that its value (and spread and bound) be a number its own evidence line
+prints whole, with the line's standards taken out first, and that a number the line prints once have one role
+(`countInEvidence` in `scripts/lib/pdf-text.mjs`; `APPLY-VALUE-NOT-IN-EVIDENCE`, `APPLY-CONDITION-ROLE`). The review's
+52 → 5 MPa corruption is refused, as are 2, 27 and 527 on the same line; a decimal comma, a split number, a spread and a
+row a person read on the page image still enter (`test/ingest-apply.test.js`). The reader no longer takes an annealing
+schedule's temperature for a test temperature (`propose.mjs`, with a test that fails on the old reader).
+
+Measured on the archive before it was switched on: 16,990 of the 17,006 accepted values in the proposals bind; of the
+16 that do not, most are an OCR'd standard read as the value ("!1SO179" as 179). A batch applied before is not refused
+after the fact: `npm run audit:witness` lists the recorded rows that do not bind (`WITNESS-BINDING.md`): 11 of 7,739,
+ten of them corrected against their page since, one a value printed against its label with no space.
+
+m212 corrects the two rows the review found: V002780 and V002781 keep their 90 °C, 4 h anneal and no longer claim a
+test at 90 °C, re-read on the hash-checked page. Answers moved: none (HDT has no test-temperature condition).

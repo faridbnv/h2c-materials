@@ -223,13 +223,12 @@ export function cachedText(sha) {
 /** Every line of a document, as the audit reads them: [{ page, text }]. */
 export const allLines = (text) => text.pages.flatMap((p) => p.lines.map((l) => ({ page: p.page, text: l.text })));
 
-/** Is this number printed on this page? The squeezed page answers whatever the layout did to the spans. */
-export function numberOnPage(text, page, value) {
-  const p = text.pages.find((x) => x.page === page);
-  if (!p) return false;
-  const v = String(value).trim();
-  if (!v) return true;
-  const plain = v.replace(/\s/g, '');
+/**
+ * The ways a sheet may print one number: as it is, with a decimal comma, grouped in thousands with a point or a comma,
+ * as a power of ten, and with no zero before its decimal point (".13 %").
+ */
+export function spellings(value) {
+  const plain = String(value).trim().replace(/\s/g, '');
   // A number is printed the way its sheet writes numbers: a decimal comma, and thousands grouped with a point or
   // a comma. Spectrum's PC 275 prints its flexural modulus as "24.000 kg/cm2", which is twenty-four thousand.
   const [whole, fraction] = plain.split('.');
@@ -255,8 +254,89 @@ export function numberOnPage(text, page, value) {
     spellings.add(fraction === undefined ? head : `${head}.${fraction}`);
     spellings.add(fraction === undefined ? head : `${head},${fraction}`);
   }
-  return [...spellings].some((spelling) => p.squeezed.includes(spelling));
+  if (/^-?0[.,]\d/.test(plain)) for (const s of [...spellings]) spellings.add(s.replace(/^(-?)0(?=[.,])/, '$1'));
+  // A minus is printed as a hyphen, an en dash or the minus sign itself.
+  if (plain.startsWith('-')) for (const s of [...spellings]) for (const dash of ['\u2013', '\u2212']) spellings.add(dash + s.slice(1));
+  return [...spellings];
 }
+
+/**
+ * Is this number printed on this page? The squeezed page answers whatever the layout did to the spans. It is a weak
+ * test (D97): "52" on a page prints 5, 2 and 52 by this reading, so a decision value is bound to its own row by
+ * valueInEvidence below as well.
+ */
+export function numberOnPage(text, page, value) {
+  const p = text.pages.find((x) => x.page === page);
+  if (!p) return false;
+  const v = String(value).trim();
+  if (!v) return true;
+  return spellings(v).some((spelling) => p.squeezed.includes(spelling));
+}
+
+const SUPER = { '\u2070': '0', '\u00b9': '1', '\u00b2': '2', '\u00b3': '3', '\u2074': '4', '\u2075': '5', '\u2076': '6', '\u2077': '7', '\u2078': '8', '\u2079': '9', '\u207b': '-' };
+// A number on a sheet: a sign (hyphen, en dash or minus), digits with decimal or grouping separators or a bare decimal
+// (".13"), and a power of ten written with a caret or raised. Nothing alphanumeric may touch its front: the "3" of
+// "cm3" and the "638" of "D638" are no results.
+// A dash between two numbers ("170--190", "55-60") is a range's, not a sign.
+const NUMBER_TOKEN = /(?:(?<![\p{L}\d.,\-\u2013\u2212])([-\u2013\u2212]))?(?<![\p{L}\d.,])(\d+(?:[.,]\d+)*|[.,]\d+)(?:\s?\^\s?(-?\d+)|([\u2070\u00b9\u00b2\u00b3\u2074-\u2079\u207b]+))?(?![.,]?\d)/gu;
+
+/** The numbers one printed token may mean: a decimal point or comma, a thousands grouping, a power of ten. */
+function readingsOf(sign, body, power) {
+  const out = new Set();
+  const negative = sign !== '';
+  const add = (text) => { const n = Number(text); if (Number.isFinite(n)) out.add(negative ? -n : n); };
+  const seps = body.match(/[.,]/g) ?? [];
+  if (seps.length <= 1) add(body.replace(',', '.'));
+  // Grouped in thousands: every group after the first has three digits ("24.000", "10,100", "1 320" once joined).
+  if (seps.length && /^\d{1,3}(?:[.,]\d{3})+$/.test(body)) add(body.replace(/[.,]/g, ''));
+  // Both separators: the last is the decimal ("1.234,5", "1,234.5").
+  if (new Set(seps).size === 2) { const last = Math.max(body.lastIndexOf('.'), body.lastIndexOf(',')); add(`${body.slice(0, last).replace(/[.,]/g, '')}.${body.slice(last + 1)}`); }
+  // "10¹²" is a million million; the register also records such a value by its base, with the power in its raw text.
+  if (power != null) for (const m of [...out]) out.add(Number((Math.abs(m) === 10 ? 1 : m) * 10 ** Number(power) * (Math.abs(m) === 10 && m < 0 ? -1 : 1)));
+  return out;
+}
+
+const same = (a, b) => a === b || Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(a), Math.abs(b));
+
+/**
+ * How many times a row's own evidence line prints this number as a number of its own (D97). The standards are taken
+ * out first (the 527 of "ISO 527" is no result); a number inside another ("5" in "52", "2" in "25.2") is not printed
+ * by this reading; a number the extractor split ("2 900", "4 9 . 7 9") is read whole, as the reader reads it.
+ * `numberOnPage` answers only whether some spelling of a number is somewhere on a page, which "52" answers for 5.
+ */
+export function countInEvidence(evidenceText, value) {
+  const want = Number(String(value).trim().replace(/\s/g, ''));
+  if (!Number.isFinite(want)) return 0;
+  // With each designation taken out whole; failing that, only its name and number, so a value the whole-designation
+  // pattern would read as the designation's part ("D570 .13 %") is still found.
+  // A hardness is printed with its scale's letter against it ("A95", "D60"), which is a label, not part of a word.
+  const text = String(evidenceText ?? '').replace(/(?<![\p{L}\d])([AD])(?=\d)/gu, '$1 ');
+  return countIn(text.replace(STANDARD, ' \u00a7 '), want) || countIn(text.replace(STANDARD_CORE, ' \u00a7 '), want);
+}
+
+const STANDARD_CORE = /\b(?:I\s?S\s?O|ASTM\s?D?|GB\s?\/\s?T|DIN|IEC|UL|D(?=\s?\d{3}))\s?\d+[A-Za-z]{0,2}/g;
+
+function countIn(text, want) {
+  const tokens = [...text.matchAll(NUMBER_TOKEN)].map((m) => {
+    const power = m[3] ?? (m[4] ? [...m[4]].map((c) => SUPER[c]).join('') : null);
+    const sign = m[1] ?? '';
+    return { from: m.index, to: m.index + m[0].length, sign, body: m[2], power, readings: readingsOf(sign, m[2], power) };
+  });
+  const single = tokens.filter((t) => [...t.readings].some((r) => same(r, want))).length;
+  if (single) return single;
+  // A number the extractor split into pieces: consecutive pieces with nothing but spaces and separators between them.
+  for (let i = 0; i < tokens.length; i++) {
+    for (let j = i + 1; j < Math.min(tokens.length, i + 6); j++) {
+      const between = text.slice(tokens[j - 1].to, tokens[j].from);
+      if (!/^[\s.,]*$/.test(between) || tokens[j].sign || tokens[j - 1].power) break;
+      const body = text.slice(tokens[i].from + tokens[i].sign.length, tokens[j].to).replace(/\s+/g, '');
+      if (/^(\d+(?:[.,]\d+)*|[.,]\d+)$/.test(body) && [...readingsOf(tokens[i].sign, body, null)].some((r) => same(r, want))) return 1;
+    }
+  }
+  return 0;
+}
+
+export const valueInEvidence = (evidenceText, value) => countInEvidence(evidenceText, value) > 0;
 
 export const readBytes = (path) => readFileSync(path);
 export { EXTRACTOR };

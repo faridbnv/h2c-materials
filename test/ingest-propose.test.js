@@ -1135,6 +1135,25 @@ test('a load a heat deflection was tested under is not also the temperature it w
   assert.equal(impact['Test temperature'], '23°C');
 });
 
+test('the temperature a specimen was annealed at is not the temperature it was tested at (D07, review of 2026-09-27)', () => {
+  const row = (lines) => {
+    const sheet = readSheet({ pages: [{ page: 1, lines: lines.map((text) => ({ text, x0: 0 })) }] }, registry);
+    return sheet.values.length ? measurementRow(sheet.values[0], { sourceId: 'X', materialId: 'M001', gradeId: '', window: {} }) : null;
+  };
+  // Spectrum's PLA Matt prints its schedule beside the row, the time first; 90 °C is the oven's, printed once.
+  const spectrum = row(['Heat Deflection Temperature 0.45 MN/m2, annealed (4h @ 90°C) ISO 75 °C 116']);
+  assert.equal(spectrum.Property, 'HDT');
+  assert.equal(spectrum['Post-processing state'], 'annealed');
+  assert.deepEqual([spectrum['Anneal °C'], spectrum['Anneal h']], ['90', '4']);
+  assert.equal(spectrum['Test temperature'], 'Not published');
+  // The long way round, with the temperature first, is the same schedule and the same single role.
+  const long = row(['Heat deflection temperature 0.45 MPa, annealed at 80 °C for 12 h ISO 75 °C 146']);
+  assert.equal(long['Test temperature'], 'Not published');
+  // A test temperature the row states beside a schedule is still the test's: struck at -40 °C after annealing.
+  const cold = row(['Charpy Notched Impact Strength (-40°C), annealed (4h @ 90°C) ISO 179/1eA kJ/m² 3.1']);
+  assert.match(cold['Test temperature'], /-40/);
+});
+
 test('a merged Testing Method cell belongs to the two rows it is drawn across', () => {
   // Polymaker, QIDI and Fiberon print the method once for a property's two direction rows, and extraction lands
   // it on a line of its own between them. Read row by row only one of the two named a standard: 491 of

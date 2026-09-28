@@ -42,6 +42,7 @@
     "audit:gaps": "node scripts/audit/blocking-gaps.mjs",
     "audit:know-how": "node scripts/audit/know-how-worklist.mjs",
     "audit:spot-check": "node scripts/audit/spot-check.mjs",
+    "audit:witness": "node scripts/audit/witness-binding.mjs",
     "data:new": "node scripts/data/new.mjs",
     "data:new-material": "node scripts/data/new-material.mjs",
     "data:retire": "node scripts/data/retire.mjs",

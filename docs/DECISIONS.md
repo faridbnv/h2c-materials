@@ -106,6 +106,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D94 | Notched Izod is a second impact filter, beside notched Charpy, and the two are never mixed | You can now require a notched Izod impact strength as well as a notched Charpy one; they are two different tests, so each has its own filter, each says so, and no number is ever converted from one to the other or from J/m. | In force |
 | D95 | A product is judged as it is meant to be printed: colorFabb's lightweight PETs, foamed | When a sheet prints a product's values at two print settings and the product is made to be printed at one of them (a foaming filament, foamed), that one is the product's value; the other is kept and shown beside it, and never decides. | In force |
 | D96 | A release is its content: an ID over what decides travels with every page, scenario and export | Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept. | In force |
+| D97 | A decision value is bound to its own row: its number is one its evidence line prints, and a number has one role | A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough. | In force |
 
 <!-- end index -->
 
@@ -2882,6 +2883,40 @@ on each publish.
 `npm run build:diff` reports the release apart from the database's differences, so a change meant to move nothing
 still shows 0 differences while its release moves. Reversing it returns a date as the only identity, and a same-date
 change to the evidence is again invisible to anyone holding a saved decision.
+
+## D97. A decision value is bound to its own row: its number is one its evidence line prints, and a number has one role
+
+> **In plain words:** A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough.
+
+*Decided by the owner on 2026-09-28, with the version 2.1 plan (docs/GOALS.md, "Decided on 2026-09-28, for version
+2.1"). Built in version 2.1, F06 of the review of 2026-09-27 (A01, D07).*
+
+`ingest:apply` proved a number was printed on the page its Locator names by finding one of its spellings in the page
+with every space removed. The review rewrote a fixture's 52 MPa to 5 MPa, kept the evidence line that says 52, and the
+guard found nothing wrong: "52" on a page prints a 5, a 2 and the 527 of "ISO 527". The same review re-read Spectrum's
+PLA Matt and found V002780 and V002781 tested at 90 °C, which the sheet prints once, as the annealing temperature of
+"annealed (4h @ 90°C)": the parser agreed with its typed column, and the number was on the page, so nothing caught it.
+
+- **The value is a number its own evidence line prints** (`countInEvidence`, `scripts/lib/pdf-text.mjs`), for the raw
+  value, its spread and its upper bound. The line is read as the reader reads it: the standards it names taken out
+  first, a decimal comma, a thousands grouping, a power of ten, a number the extractor split ("2 43 3 .4"); a number
+  touched by a digit or a letter ("5" in "52", "3" in "cm3") is no value. `APPLY-VALUE-NOT-IN-EVIDENCE`.
+- **A number the line prints once has one role.** Among the value, its spread and bound, the anneal temperature and
+  hours and the test temperature, a number claimed twice must be printed twice. `APPLY-CONDITION-ROLE`. The reader
+  itself no longer takes an annealing schedule's temperature for a test temperature (`propose.mjs`).
+- **A layout the reader cannot bind** (a value set apart from its label, a scan) enters when a person read the row on
+  the page image and says so (`review.visual`), as a scan's rows already must (D35). The page-wide test stays, as a
+  retrieval check.
+- **A batch applied before is not refused after the fact.** A proposal whose document is registered under its own
+  SourceID with the same bytes re-runs as a no-op; `npm run audit:witness` asks the binding of the rows already
+  recorded and lists what does not bind for a person
+  (`docs/audits/2026-09-27-v2.1-review/WITNESS-BINDING.md`). On 2026-09-28: of the 7,739 applied rows it could match to
+  the proposal row that wrote them, 577 were read on the page image, 7,151 bind, and 11 do not: ten were corrected
+  against their page since (a power of ten the extractor printed as "103"), and one prints its value against its
+  label with no space.
+
+Reversing it returns the page-wide test as the only proof, which a corrupted digit, a fragment of another number or a
+standard's designation satisfies.
 
 ---
 

@@ -74,9 +74,9 @@
           "because": "Spectrum PLA Matt's 116 °C is of a bar annealed for 4 h at 90 °C; the sheet gives no as-printed heat deflection." },
         { "product": "G001-06", "policy": { "anneal": true }, "verdict": "PASS", "treatment": { "tempC": 90, "hours": 4 }, "records": ["V002780"], "todo": "F02",
           "because": "With annealing available, the annealed state's 116 °C decides, and the verdict names the 90 °C, 4 h treatment." },
-        { "measurement": "V002780", "testTemperatureC": null, "todo": "F02",
+        { "measurement": "V002780", "testTemperatureC": null,
           "because": "The sheet prints 90 °C as the annealing temperature ('annealed (4h @ 90°C)'), not as a test temperature (re-read 2026-09-27)." },
-        { "measurement": "V002781", "testTemperatureC": null, "todo": "F02",
+        { "measurement": "V002781", "testTemperatureC": null,
           "because": "The same line at 1.81 MN/m²." }
       ]
     },

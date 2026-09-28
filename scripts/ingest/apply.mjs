@@ -8,6 +8,9 @@
 //   a person accepted or rejected the row, by name                 APPLY-UNREVIEWED
 //   the cached document still hashes to what the proposal recorded APPLY-HASH
 //   every number is printed on the page its Locator names          APPLY-NUMBER-NOT-ON-PAGE
+//   a decision value is a number its own evidence line prints, and a number printed once is not
+//   claimed by two fields (a value and its test temperature, an anneal and a test temperature)
+//                                                                  APPLY-VALUE-NOT-IN-EVIDENCE, APPLY-CONDITION-ROLE
 //   the property, the unit and every vocabulary value exist        APPLY-PROPERTY, APPLY-UNIT, APPLY-VOCAB
 //   the material is settled, or a ruling settles it                APPLY-IDENTITY
 //   the product, the document and the formulation are not already recorded under another name
@@ -33,7 +36,7 @@ import { loadTables, snapshotDate } from '../../build/src/load.js';
 import { buildDatabase } from '../../build/src/pipeline.js';
 import { openTables, projectRoot, nextId } from '../data/table-io.mjs';
 import { PROPOSALS } from './archive.mjs';
-import { sha256, numberOnPage, cachedText } from '../lib/pdf-text.mjs';
+import { sha256, numberOnPage, cachedText, valueInEvidence, countInEvidence } from '../lib/pdf-text.mjs';
 import { documentPath } from './extract.mjs';
 import { recountGrades } from '../data/records.mjs';
 import { testTemperatureCell } from '../../build/src/typed-values.js';
@@ -43,7 +46,14 @@ const SEP = String.fromCharCode(0);
 // The numbers that must be printed on the page the row cites. Test load MPa is not among them: it is typed from
 // the sheet's own words by the build's own reader, which maps a stated load to the class it belongs to, so a sheet
 // printing "66 psi" or "1.81 MN/m2" yields 0.45 and 1.8. PARSE-MISMATCH is what holds that column to its words.
-const NUMERIC_FIELDS = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Anneal °C', 'Anneal h'];
+const NUMERIC_FIELDS = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound', 'Anneal °C', 'Anneal h', 'Test temperature °C'];
+// The numbers that are the row's result: each must be one its own evidence line prints (D97). A page-wide presence test
+// answers "is 5 on this page?" yes wherever 52 is, so on its own it cannot say which cell a value came from.
+const BOUND_FIELDS = ['Raw numeric', 'Raw uncertainty ±', 'Raw upper bound'];
+// The numbers a row gives a role: a number its line prints once is one of them, never two. Spectrum's "annealed
+// (4h @ 90°C)" became both an anneal at 90 °C and a test at 90 °C (V002780, the review of 2026-09-27).
+const ROLE_FIELDS = [...BOUND_FIELDS, 'Anneal °C', 'Anneal h', 'Test temperature °C'];
+const isNumber = (value) => value != null && /^-?\d/.test(String(value));
 const PAGE = /^p\.\s*(\d+)\s*:/;
 const acceptanceKey = (r) => [r.Code, r.Table, r.Record, r.Field ?? ''].join(SEP);
 
@@ -133,6 +143,11 @@ export function guard(proposals, world) {
     if (registered && /^[0-9a-f]{64}$/.test(registered.SHA256) && registered.SHA256 !== sha) {
       fail('APPLY-SOURCE-COLLISION', where, `${registered.SourceID} is already a document whose SHA-256 is ${registered.SHA256.slice(0, 12)}, not this one`);
     }
+    // A proposal whose document is registered under its own SourceID with these bytes was applied before: its rows
+    // were accepted under the rules of their day, and a re-run of its migration writes nothing new. The evidence binding
+    // below (D97) is asked of rows entering now; what it finds in the rows already recorded is listed by
+    // npm run audit:witness, for a person to read, not refused after the fact.
+    const reapplied = registered?.SHA256 === sha;
     const url = proposal.source?.row?.URL;
     if (url && seenUrl.has(url) && seenUrl.get(url) !== proposal.source?.row?.SourceID) fail('APPLY-URL-DUPLICATE', where, `${url} is already registered as ${seenUrl.get(url)}`);
 
@@ -177,10 +192,35 @@ export function guard(proposals, world) {
           const units = String(property.Units ?? '').split(';').map((u) => u.trim());
           if (!units.includes(row.row?.['Normalized unit'])) fail('APPLY-UNIT', at, `${row.row?.['Normalized unit']} is not a unit of ${row.row?.Property} (${units.join(', ')})`);
         }
+        const typed = { ...row.row, 'Test temperature °C': row.row?.['Test temperature °C'] ?? testTemperatureCell(row.row?.['Test temperature']) };
         for (const field of NUMERIC_FIELDS) {
-          const value = row.row?.[field];
-          if (value == null || !/^-?\d/.test(String(value))) continue;
+          const value = typed[field];
+          if (!isNumber(value)) continue;
           if (!numberOnPage(text, Number(page[1]), value)) fail('APPLY-NUMBER-NOT-ON-PAGE', at, `${field} ${value} is not printed on page ${page[1]}`);
+        }
+        // Bound to its own row (D97): the value is a number the row's evidence line prints, whole, and a number the line
+        // prints once has one role. A layout the reader cannot bind (a value set apart from its label, a scan) enters
+        // when a person has read it on the page image and says so (review.visual), as a scan's rows already do.
+        if (!reapplied && !row.review?.visual) {
+          const line = row.evidence?.text;
+          if (!line) fail('APPLY-VALUE-NOT-IN-EVIDENCE', at, 'the row carries no evidence line to bind its value to; a person who read it on the page image says so (review.visual)');
+          else {
+            for (const field of BOUND_FIELDS) {
+              const value = typed[field];
+              if (isNumber(value) && !valueInEvidence(line, value)) fail('APPLY-VALUE-NOT-IN-EVIDENCE', at, `${field} ${value} is not a number its evidence line prints: "${line}"`);
+            }
+            const claims = new Map();
+            for (const field of ROLE_FIELDS) {
+              if (!isNumber(typed[field])) continue;
+              const key = String(Number(typed[field]));
+              claims.set(key, [...(claims.get(key) ?? []), field]);
+            }
+            for (const [value, fields] of claims) {
+              if (fields.length < 2) continue;
+              const n = countInEvidence(line, value);
+              if (n > 0 && n < fields.length) fail('APPLY-CONDITION-ROLE', at, `${value} is printed ${n === 1 ? 'once' : `${n} times`} in its evidence line but is ${fields.join(' and ')}: "${line}"`);
+            }
+          }
         }
       }
       for (const [column, vocabulary] of Object.entries(row.vocabularies ?? {})) {

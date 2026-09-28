@@ -68,7 +68,11 @@ The rules that differ from editing a table by hand:
 - **A proposal is not data.** Every row carries the page and line it was read from, and a review that records who
   accepted it. `ingest:apply` writes nothing unless every row was accepted or rejected by a named reviewer (a person, or an
   agent named as one: every review in the V2 import was an agent's, and a report must say so), every
-  document still hashes to what was recorded, and every number is printed on the page its Locator names.
+  document still hashes to what was recorded, and every number is printed on the page its Locator names. A decision
+  value is also bound to its own row (D97): the number must be one its evidence line prints, whole (a "5" inside "52",
+  or the 527 of "ISO 527", is not), and a number the line prints once has one role, so "annealed (4h @ 90°C)" cannot be
+  both an anneal and a test temperature. A layout the reader cannot bind enters when a person read the row on the page
+  image and says so (`review.visual`). `npm run audit:witness` asks the same of the rows already recorded.
 - **A copy is not a source.** A document is its bytes; the same file from a maker and a retailer is one document.
   Where two sheets print the same numbers under different product names, the ledger queues them rather than
   consolidating: that is a reading of the sheet, not a rule.

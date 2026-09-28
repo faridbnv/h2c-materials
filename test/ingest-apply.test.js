@@ -86,10 +86,55 @@ test('a number that is not printed on the page its locator names stops the batch
   assert.ok(codes(elsewhere).includes('APPLY-NUMBER-NOT-ON-PAGE'));
   // A number the extractor split on the page is still on the page.
   const split = proposal();
+  split.measurements[0].evidence = { page: 1, line: 7, text: 'Charpy impact strength 2 43 3 .4 ± 79.4 kJ/m2 ISO 179' };
   split.measurements[0].row = { ...split.measurements[0].row, Property: 'Charpy strength', 'Raw value': '2433.4 kJ/m²',
     'Raw unit': 'kJ/m²', 'Raw numeric': '2433.4', 'Normalized value': '2433.4', 'Normalized unit': 'kJ/m²',
-    Notch: 'Unnotched', Locator: 'p. 1: Charpy impact strength' };
+    'Raw uncertainty ±': '79.4', 'Normalized uncertainty ±': '79.4', Notch: 'Unnotched', Locator: 'p. 1: Charpy impact strength' };
   assert.deepEqual(codes(split), []);
+});
+
+// The review of 2026-09-27 (A01, F06): the page-wide test above passed a 52 MPa row rewritten to 5 MPa, because "52" on
+// a page prints a 5. A decision value is bound to its own evidence line, whole (D97).
+test("a value its own evidence line does not print stops the batch, however many of its digits are on the page", () => {
+  const corrupt = proposal();
+  Object.assign(corrupt.measurements[0].row, { 'Raw value': '5 MPa', 'Raw numeric': '5', 'Normalized value': '5' });
+  assert.deepEqual(codes(corrupt), ['APPLY-VALUE-NOT-IN-EVIDENCE']);
+  // Nor is a digit of another number, or of the standard the line names, a value of the row.
+  for (const fragment of ['2', '527', '27']) {
+    const wrong = proposal();
+    Object.assign(wrong.measurements[0].row, { 'Raw value': `${fragment} MPa`, 'Raw numeric': fragment, 'Normalized value': fragment });
+    assert.ok(codes(wrong).includes('APPLY-VALUE-NOT-IN-EVIDENCE'), fragment);
+  }
+  // A decimal comma, and a row the reviewer read on the page image, still enter.
+  const density = proposal();
+  density.measurements[0].evidence = { page: 1, line: 3, text: 'Density ISO 1183 1,24 g/cm3' };
+  Object.assign(density.measurements[0].row, { Property: 'Density', 'Raw value': '1.24 g/cm3', 'Raw unit': 'g/cm3', 'Raw numeric': '1.24',
+    'Conversion factor': '1000', 'Normalized value': '1240', 'Normalized unit': 'kg/m³', Direction: 'Not applicable', 'Standard / load': 'ISO 1183', Standards: 'ISO 1183', Locator: 'p. 1: Density' });
+  assert.deepEqual(codes(density), []);
+  const seen = proposal();
+  seen.measurements[0].evidence = { page: 1, line: 3, text: 'Tensile strength (X-Y)' };
+  assert.deepEqual(codes(seen), ['APPLY-VALUE-NOT-IN-EVIDENCE']);
+  seen.measurements[0].review = { ...reviewed, visual: 'read on the page image: 52 MPa in the Typical Value column' };
+  assert.deepEqual(codes(seen), []);
+});
+
+test('a number the line prints once has one role: a value is not also its own test temperature (D97)', () => {
+  const hdt = proposal();
+  hdt.measurements[0].evidence = { page: 1, line: 5, text: 'Heat deflection temperature ISO 75, 0.45 MPa 68 °C' };
+  Object.assign(hdt.measurements[0].row, { Property: 'HDT', 'Raw value': '68 °C', 'Raw unit': '°C', 'Raw numeric': '68', 'Normalized value': '68',
+    'Normalized unit': '°C', Direction: 'Not applicable', 'Standard / load': 'ISO 75, 0.45 MPa', Standards: 'ISO 75', 'Test load MPa': '0.45',
+    Locator: 'p. 1: Heat deflection temperature' });
+  assert.deepEqual(codes(hdt), []);
+  hdt.measurements[0].row['Test temperature'] = '68 °C';
+  assert.deepEqual(codes(hdt), ['APPLY-CONDITION-ROLE']);
+});
+
+test('a batch applied before is not refused after the fact by a rule of today; the audit lists what it finds', () => {
+  const world = worldOf();
+  const applied = { ...world, sources: [...world.sources, { SourceID: 'R-FIXTURE-PETG-TDS', SHA256: sha, URL: source.URL }] };
+  const old = proposal();
+  Object.assign(old.measurements[0].row, { 'Raw value': '5 MPa', 'Raw numeric': '5', 'Normalized value': '5' });
+  assert.ok(!guard([old], applied).map((x) => x.code).includes('APPLY-VALUE-NOT-IN-EVIDENCE'));
 });
 
 test('a locator that names no page, or a page the document does not have, stops the batch', () => {
