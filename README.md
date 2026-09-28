@@ -81,6 +81,16 @@ Every release published from `main` is kept for good as a GitHub release named `
 manifest attached: download the page and open it from disk to see the answers a scenario was saved with, offline. The
 site itself always serves the current release.
 
+To check a deployment, wait for the latest `main` **Publish to Pages** workflow to succeed, then read the live
+[`manifest.json`](https://pdynamics.ca/h2c-materials/manifest.json). Its `commit` must match the deployed `main`
+commit, and its `release` must match the page's top bar and the corresponding `h2c-<release>` GitHub release.
+The data snapshot date can remain unchanged across releases; it does not identify the latest version.
+The documentation and private source cache are not part of the public site: maintained docs live in this repository,
+and original manufacturer documents stay in the private source store.
+
+The 2026-09-28 version 2.1 and targeted gap-closure publication is kept as
+[release ba30857bd40d](https://github.com/faridbnv/h2c-materials/releases/tag/h2c-ba30857bd40d), with its HTML and manifest.
+
 ## Documentation
 
 | Read this | For |

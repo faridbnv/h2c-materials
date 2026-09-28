@@ -92,11 +92,11 @@ as they entered: fourteen with batches b09 to b33 (a PLA's glass transition of 1
 new windows raised (D82).
 
 These need the manufacturer to be asked, not more reading. They are the values the database refuses to use. A
-larger set — 205 physics findings on 2026-09-27 — is accepted with a reason apiece and stays in use, because in each
-the reason says the rule, not the number, is what does not fit: 146 `MEAS-PHYSICS-WINDOW`, 31 `MEAS-PHYSICS-STRAIN`
+larger set — 210 physics findings on 2026-09-28 — is accepted with a reason apiece and stays in use, because in each
+the reason says the rule, not the number, is what does not fit: 152 `MEAS-PHYSICS-WINDOW`, 31 `MEAS-PHYSICS-STRAIN`
 (brittle bars whose strain at break sits 10 to 60 % below stress over modulus, systematically across several
-manufacturers, which reads as a difference in how modulus was measured rather than a transcription error), 23
-`MEAS-PHYSICS-ORDER` (22 acceptances; one row pairs twice) and 5 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for
+manufacturers, which reads as a difference in how modulus was measured rather than a transcription error), 22
+`MEAS-PHYSICS-ORDER` (21 acceptances; one row pairs twice) and 5 `MEAS-PHYSICS-Z-ABOVE-XY`. Each is a candidate for
 the list above if a re-read finds the sheet really does print what cannot be. `npm run data:lint -- --all` lists
 them, and §6 gives the command that counts the acceptances by code.
 
@@ -184,22 +184,22 @@ These are reviewed per record in `data/review/accepted-findings.csv`, each with 
 
 | Code | Rows | What it means |
 |---|---|---|
-| `MEAS-PHYSICS-WINDOW` | 146 | See item 2. |
+| `MEAS-PHYSICS-WINDOW` | 152 | See item 2. |
 | `MEAS-PHYSICS-STRAIN` | 31 | See item 2. |
-| `MEAS-PHYSICS-ORDER` | 22 | See item 2. |
+| `MEAS-PHYSICS-ORDER` | 21 | See item 2. |
 | `MEAS-CROSS-SOURCE-TWIN` | 6 | Two sources publishing the same numbers. Five are two revisions of one Polymaker sheet each, republished without remeasuring; since m174 each pair sits on one grade, so no product counts twice. The sixth is FormFutura's HDglass and ReForm rPET, one table printed for two PETG products (R053, §15). |
 | `MEAS-PHYSICS-Z-ABOVE-XY` | 5 | Polymaker prints a Z stiffness 15 to 26 % above XY (two rows), and three sheets a Z strength or impact above their own X-Y one. Unusual at 100 % infill but not impossible; whether a sheet swapped its labels cannot be settled from the table. |
 | `SOURCE-LOCAL-PATH` | 4 | See item 8. |
-| `EST-FAMILY-ORDER` | 3 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction, so it is estimated below the numbers they print; PA12-AF has no heat deflection of its own. PLA-CF and PLA-NF stopped being ones when their values became their products' medians (m137), and ASA-GF since. |
-| `EST-OUTLIER` | 3 | A material's typical product far outside what every other observation predicts, each carrying a filler the model has no covariate for: PA6-CE (Spectrum PA6 CS20 FR V0, 1.49 g/cm³ with ceramic fillers and a flame retardant, against 1.17 predicted), PA6-GS (Spectrum PA6 GK10, 1.01 g/cm³ with hollow glass spheres, against 1.33), and PLA-EC, whose two conductive PLAs publish 1.24 and 1.35 against about 1.52. The first two crossed three deviations when m161 took Spectrum's metal-filled PLAs out of the density fit and the scale tightened; PLA Metal stopped being one, because its range is now its plain products' (1.20 to 1.25) and the metal grades are counted apart. |
+| `EST-FAMILY-ORDER` | 4 | A reinforced material below its unfilled sibling: ASA-AF's one modulus is an injection-moulded bar; ABS-AF's two sheets state no direction; PA12-AF has no heat deflection of its own; PBT-GF's own 175 °C heat deflection is below PBT's 180 °C. The per-record reasons preserve the sheets' values and conditions. |
+| `EST-OUTLIER` | 5 | Five reviewed material/headline findings: PA6 heat deflection, PA6-GS density, PLA-EC density, PBAT XY modulus and nGen-CF XY strength. Making the PBAT and nGen-CF observations comparable in m218/m219 changed the fit; it did not justify replacing their exact published values. Each acceptance names the original value and why the model differs. |
 | `NO-MEASUREMENTS` | 2 | See item 5. |
-| `GRADE-PRODUCT-DUPLICATE` | 2 | Two names the rule reads as one product and the sheets show are two: Anycubic PLA+ beside Anycubic PLA, and eSUN PETG+ beside PETG (m171, m174). The rule's key drops the "+" that tells them apart. |
+| `GRADE-PRODUCT-DUPLICATE` | 3 | Three pairs whose distinct names the rule reads as one: Anycubic PLA+ beside Anycubic PLA, eSUN PETG+ beside PETG, and Raise3D Industrial PA12 CF+ beside Industrial PA12 CF (m171, m174, m205). The rule's key drops the "+" that tells them apart. |
 | `COVERAGE-SUPERSEDED` | 1 | Two "Evidence recorded" rows for PA6-GF's grades, each a separate re-filing (C01184, C01185). Several Resolved rows in one domain are a log of closed events and no longer a finding (phase 5, part 4). |
 | `HEADLINE-FAMILY-UNLISTED` | 1 | Heat deflection does not name Flexible Elastomers, on purpose (D56). |
 
-Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-09-27, 226 in all, and
-the command below counts them again. `npm run audit:data` fails on one that no longer occurs, so this list cannot go
-stale unnoticed.
+Each acceptance has its reason and the date it was accepted. The rows were counted on 2026-09-28, 235 in all, and
+the command below counts them again. `npm run audit:data` refuses stale acceptances in the data; this documentation
+table must also be refreshed when the accepted rows change.
 
 ```bash
 cut -d, -f1 data/review/accepted-findings.csv | tail -n +2 | sort | uniq -c | sort -rn
@@ -289,8 +289,9 @@ register is `docs/audits/2026-09-18-v2-import/second-read/findings.csv` (R165). 
 migrations that later corrected their rows (m104 to m132, and since then m155, m192 and m196) or by the row's later
 state; the rest are deferred to V2.1 with the reason in their Resolution: conditions and standards the sheet states
 that the reader could not pair (QIDI's bilingual columns, per-line notches and loads on documents the sweep did not
-reach). None is open. On 2026-09-27, 83 were resolved and 62 deferred; a migration that corrects a deferred row moves
-it to resolved the next time the register is rewritten.
+reach). None is open without a disposition. Refreshed on 2026-09-28 after m218/m219: 88 are resolved and 57 remain
+deferred with their written reasons. A migration that corrects a deferred row moves it to resolved the next time
+the register is rewritten; a deferral does not mean the underlying missing fact is known.
 
 ```bash
 npm run ingest:second-read -- --open  # rewrites the register from the data and lists what is open; commit the change
@@ -755,8 +756,8 @@ narrower and more honest, and leave these, each with where it is counted:
   repeat settles nothing (D99); the query counts them (90 after the 2026-09-28 gap-closing re-reads).
 - **The conditioned service state is thinly published.** Asked humid, a product is judged on conditioned values only, and
   few sheets print any (154 published values after the 2026-09-28 gap-closing re-reads): most products are unknown there, which is the true answer.
-- **Most products have no print recipe the H2C can be judged by.** Every template now asks printability (D101), so Strict
-  answers shrank (Outdoor 5 materials); every material lost is unresolved, not failed. `npm run audit:scenario-gaps` lists
+- **Some products still lack the print requirements the H2C must be judged by.** Every template now asks printability (D101), so Strict
+  answers shrank when version 2.1 introduced those gates; after gap closure Outdoor passes six materials. `npm run audit:scenario-gaps` lists
   the products one fact from an answer, most of them print recipes ([SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md)).
 - **Include uncertain is wider** (D100): a material with measured failures and unmeasured products is unresolved, and the
   table's "0 of N" says so. Whether a team wants a view of "every tested product fails" apart is for the team trial.
@@ -767,8 +768,6 @@ narrower and more honest, and leave these, each with where it is counted:
 - **Not executed:** the team's task trial (GOALS C7), a person's source spot-check (C3), screen-reader and other-browser
   checks, and a print on the H2C. The page and the engine are checked against each other and against the portfolio; none
   of that is a person using it.
-- **The Pages step that keeps each release's page** (`h2c-<release>` GitHub releases) runs only on `main`, so it has not
-  run yet.
 - **One source's cached file is not the document its digest names**, and 135 more cannot be re-read here: the file
   cached for R-KIMYA-PEBA-S-TDS hashes to another digest, 123 registered sources have no bytes in this checkout's cache
   and 12 record no digest (`npm run data:sources -- --manifest`, D104). The private store now backs up all 2,267

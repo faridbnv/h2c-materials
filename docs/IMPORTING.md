@@ -10,8 +10,11 @@ re-center plan (`docs/audits/2026-09-25-re-center/REPORT.md`, phase 6); that is 
 this pipeline. Phase 6 fetched new documents only where one settled a blocking answer, and those did travel it
 (batch b36; GOALS, phase 6, decision 4). On 2026-09-27 the owner lifted it for two held sheets whose makers' pages,
 found by the research package of 2026-09-26, name the polymer (batch b37: Timberfill and NinjaTek Eel), and the
-package's saved pages entered as witnesses from their copies (`ingest:witness --from`). What follows is how a batch was
-run, kept for when imports resume.
+package's saved pages entered as witnesses from their copies (`ingest:witness --from`). On 2026-09-28 the owner
+authorized b38 (the held Recreus PET-G 2023 sheet) and b39 (maker-site witnesses for the frozen chamber targets),
+bounded by [GOALS](GOALS.md#decided-on-2026-09-28-for-source-backup-and-targeted-gap-closure). Both batches are
+complete; their exact scope and remaining handoffs are in the [gap-closing response](audits/2026-09-28-gap-closing/RESPONSE.md).
+The general import pause remains. What follows is the procedure for an authorized batch.
 
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
 in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.

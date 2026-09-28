@@ -43,9 +43,11 @@ Three places, in the order to try them.
 2. **[DECISIONS.md](DECISIONS.md).** Numbered, with an index at the head saying which still hold, each saying what
    would break if it were reversed, and a table of bugs worth remembering, with what pins each one now.
 3. **[audits/](audits/).** Each audit pass in its own dated folder: the report as it was delivered, and the outcome
-   of every finding. The latest, the [version 2.1 review](audits/2026-09-27-v2.1-review/REVIEW.md), holds the plan built
-   on the `v2` branch; what is decided from it is in [GOALS.md](GOALS.md), and what was done, and what waits on people,
-   in its [response](audits/2026-09-27-v2.1-review/RESPONSE.md).
+   of every finding. The [version 2.1 review](audits/2026-09-27-v2.1-review/REVIEW.md) holds the plan built
+   on `v2` and merged to `main`; what is decided from it is in [GOALS.md](GOALS.md), and what was done, and what waits
+   on people, in its [response](audits/2026-09-27-v2.1-review/RESPONSE.md). The latest work is
+   [source backup and targeted gap closure](audits/2026-09-28-gap-closing/RESPONSE.md): every frozen target has an
+   outcome, and unresolved facts and additional state variants have explicit follow-ups.
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
 is the way it is because of what the data can and cannot support, DECISIONS says so. If neither
