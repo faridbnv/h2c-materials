@@ -1,0 +1,12 @@
+Question,Materials moved,Product answers moved,PASS before,PASS after,UNKNOWN before,UNKNOWN after,FAIL before,FAIL after
+Outdoor structural part,0,0,5,5,108,108,23,23
+Indoor prototype,0,1,70,70,60,60,6,6
+Lightweight structure,0,0,11,11,95,95,30,30
+Warm environment,1,1,29,30,97,96,10,10
+High-stiffness fixture,0,0,5,5,108,108,23,23
+Flexible component,0,0,6,6,110,110,20,20
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",0,0,5,5,108,108,23,23
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",0,0,17,17,100,100,19,19
+"S04: A PLA Matt part that must not soften below 100 °C (heat deflection at 0.45 MPa), with and without a permitted 90 °C, 4 h anneal.",0,0,45,45,84,84,7,7
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,0,0,9,9,109,109,18,18
+S06: A part that meets acids.,1,14,6,6,128,127,2,3

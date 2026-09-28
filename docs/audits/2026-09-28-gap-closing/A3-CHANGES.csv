@@ -1,0 +1,41 @@
+Question,Kind,ID,Before,After
+Outdoor structural part,product,G001-04,UNKNOWN,FAIL
+Indoor prototype,product,G082-03,UNKNOWN,PASS
+Lightweight structure,product,G001-04,UNKNOWN,FAIL
+Warm environment,material,M082,UNKNOWN,PASS
+Warm environment,product,G082-03,UNKNOWN,PASS
+High-stiffness fixture,product,G001-04,UNKNOWN,FAIL
+High-stiffness fixture,product,G001-70,UNKNOWN,FAIL
+High-stiffness fixture,product,G001-149,UNKNOWN,FAIL
+High-stiffness fixture,product,G001-180,UNKNOWN,FAIL
+Flexible component,product,G001-04,UNKNOWN,FAIL
+Flexible component,product,G001-70,UNKNOWN,FAIL
+Flexible component,product,G001-149,UNKNOWN,FAIL
+Flexible component,product,G001-180,UNKNOWN,FAIL
+Flexible component,product,G083-02,UNKNOWN,FAIL
+"S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",product,G001-04,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-04,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-70,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-149,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G001-180,UNKNOWN,FAIL
+"S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",product,G083-02,UNKNOWN,PASS
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-04,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-70,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-149,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G001-180,UNKNOWN,FAIL
+S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.,product,G083-02,UNKNOWN,PASS
+S06: A part that meets acids.,product,G001-19,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-22,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-23,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-30,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-176,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-181,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G017-04,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G018-06,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G035-02,UNKNOWN,FAIL
+S06: A part that meets acids.,material,M036,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G036-02,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G057-03,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-11,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-12,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-13,UNKNOWN,FAIL

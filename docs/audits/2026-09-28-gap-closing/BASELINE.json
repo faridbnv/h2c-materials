@@ -1,0 +1,492 @@
+{
+  "release": {
+    "id": "9e9182f8e206",
+    "digest": "9e9182f8e206d75054279e1ad90dea53aa97a25e41e7d49cbe00d7c6195af754",
+    "inputs": {
+      "data": "fa81a8800bd6e08decb3d3849e843de7c93f21ee909ae8ac960e32afd2cfa024",
+      "dependencies": "9f2421e6b50856eb637b7c4e8b0c731af311d6f68aa8dda0ced7adf652d1ac63",
+      "engine": "7498ce852ba23de2698be4ee7d9d1741525dc5fc7d642bc9ab618e5be13f338d",
+      "rules": "e9ecc4e170f5cb6bc01254ad961698472f2d93f591e436b9082d59bc478318ea",
+      "schema": "9602805d4a85c078db99548a7d7342885ab8b2b729c82300dd473913bc978e2d"
+    }
+  },
+  "questions": [
+    {
+      "name": "Outdoor structural part",
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false,
+          "__group": "Manufacturing"
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 100,
+          "mandatory": true,
+          "__group": "Thermal"
+        },
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 3,
+          "mandatory": true,
+          "__group": "Mechanical"
+        },
+        {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<=",
+          "value": 1500,
+          "mandatory": true,
+          "__group": "Mechanical"
+        },
+        {
+          "kind": "numeric",
+          "property": "priceCADkg",
+          "operator": "<=",
+          "value": 100,
+          "mandatory": false,
+          "__group": "Cost"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 5,
+        "fail": 23,
+        "unknown": 108,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 24,
+      "materialsOneFact": 17
+    },
+    {
+      "name": "Indoor prototype",
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false,
+          "__group": "Manufacturing"
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "numeric",
+          "property": "priceCADkg",
+          "operator": "<=",
+          "value": 45,
+          "mandatory": false,
+          "__group": "Cost"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 70,
+        "fail": 6,
+        "unknown": 60,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 48,
+      "materialsOneFact": 33
+    },
+    {
+      "name": "Lightweight structure",
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false,
+          "__group": "Manufacturing"
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<=",
+          "value": 1250,
+          "mandatory": true,
+          "__group": "Mechanical"
+        },
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 2.5,
+          "mandatory": true,
+          "__group": "Mechanical"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 11,
+        "fail": 30,
+        "unknown": 95,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 162,
+      "materialsOneFact": 43
+    },
+    {
+      "name": "Warm environment",
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false,
+          "__group": "Manufacturing"
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 80,
+          "mandatory": true,
+          "__group": "Thermal"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 29,
+        "fail": 10,
+        "unknown": 97,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 182,
+      "materialsOneFact": 45
+    },
+    {
+      "name": "High-stiffness fixture",
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false,
+          "__group": "Manufacturing"
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 5,
+          "mandatory": true,
+          "__group": "Mechanical"
+        },
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 90,
+          "mandatory": false,
+          "__group": "Thermal"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 5,
+        "fail": 23,
+        "unknown": 108,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 486,
+      "materialsOneFact": 59
+    },
+    {
+      "name": "Flexible component",
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false,
+          "__group": "Manufacturing"
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber",
+          "__group": "Compatibility"
+        },
+        {
+          "kind": "numeric",
+          "property": "elongationXY",
+          "operator": ">=",
+          "value": 100,
+          "mandatory": true,
+          "__group": "Mechanical"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 6,
+        "fail": 20,
+        "unknown": 110,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 460,
+      "materialsOneFact": 61
+    },
+    {
+      "name": "S01: An outdoor bracket: heat deflection at 0.45 MPa at least 100 °C, XY stiffness at least 3 GPa, density at most 1500 kg/m³, printable on the H2C (nozzle, bed and chamber), used as printed.",
+      "constraints": [
+        {
+          "kind": "gate",
+          "gate": "scope"
+        },
+        {
+          "kind": "facet",
+          "facet": "supportMaterial",
+          "equals": false
+        },
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 100
+        },
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 3
+        },
+        {
+          "kind": "numeric",
+          "property": "density",
+          "operator": "<=",
+          "value": 1500
+        },
+        {
+          "kind": "gate",
+          "gate": "nozzle"
+        },
+        {
+          "kind": "gate",
+          "gate": "bed"
+        },
+        {
+          "kind": "gate",
+          "gate": "chamber"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 5,
+        "fail": 23,
+        "unknown": 108,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 24,
+      "materialsOneFact": 17
+    },
+    {
+      "name": "S03: A PET-GF fixture: XY stiffness at least 4 GPa and heat deflection at 0.45 MPa at least 80 °C, with and without an oven to anneal in.",
+      "constraints": [
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 4
+        },
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 80
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 17,
+        "fail": 19,
+        "unknown": 100,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 79,
+      "materialsOneFact": 30
+    },
+    {
+      "name": "S04: A PLA Matt part that must not soften below 100 °C (heat deflection at 0.45 MPa), with and without a permitted 90 °C, 4 h anneal.",
+      "constraints": [
+        {
+          "kind": "numeric",
+          "property": "hdt045",
+          "operator": ">=",
+          "value": 100
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 45,
+        "fail": 7,
+        "unknown": 84,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 380,
+      "materialsOneFact": 80
+    },
+    {
+      "name": "S05: A fixture in a humid room: XY stiffness at least 6 GPa after the part has taken up moisture.",
+      "constraints": [
+        {
+          "kind": "numeric",
+          "property": "tensileModulusXY",
+          "operator": ">=",
+          "value": 6
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 9,
+        "fail": 18,
+        "unknown": 109,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 798,
+      "materialsOneFact": 105
+    },
+    {
+      "name": "S06: A part that meets acids.",
+      "constraints": [
+        {
+          "kind": "environment",
+          "category": "acid"
+        }
+      ],
+      "policy": {},
+      "counts": {
+        "pass": 6,
+        "fail": 2,
+        "unknown": 128,
+        "screened": 0,
+        "total": 136
+      },
+      "oneFact": 893,
+      "materialsOneFact": 124
+    }
+  ],
+  "facts": 3464
+}

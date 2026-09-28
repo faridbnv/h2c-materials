@@ -42,3 +42,7 @@ or notch? Write your name, the date, and "agrees" or what differs. **No row has 
 | tensileModulusXY | V000017 | Polymaker PolySonic PLA (G001-25) | 2878.3 ± 74.3 MPa | printed / XY / not-stated / not-stated / none stated | S-POLYCN-PolySonic-PLA-EN-V5-3-TDS (e71fac75b41e...) | p. 3: Young’s modulus (X -Y) | 2 |  |  |  |
 | tensileModulusXY | V003592 | Polymaker Polymaker PolyLite PLA PRO Army Beige (G001-22) | 2681 ± 215 MPa | printed / XY / not-stated / not-stated / none stated | S-POLYCN-Polylite-PLA-Pro-EN-V5-1-3-6 (4cb65426a3f3...) | p. 5: Young’s modulus (X-Y) | 2 |  |  |  |
 | tensileModulusXY | V005299 | Flashforge PPA-GF (G071-03) | 7000-7800 Mpa | printed / XY / not-stated / not-stated / none stated | D-FLASH-PPA-GF-TDS-EN (863e1063813a...) | p. 1: Modulus of Elasticity (X-Y) ISO 527 Mpa | 2 |  |  |  |
+
+## Source-gap campaign of 2026-09-28
+
+The additional source re-reads are in [the campaign spot-check](../2026-09-28-gap-closing/SPOT-CHECK-DECISIVE.md). These are agent reviews awaiting a person, including state/direction corrections that turn passing candidates into failures.

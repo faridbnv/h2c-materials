@@ -1,0 +1,832 @@
+[
+  {
+    "id": "V007797",
+    "source": "R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1",
+    "sha": "c841198cb96c3c3b76c0b367e1fdb41d1b1002e01c248af55a47636e53a59fa4",
+    "page": 5,
+    "text": "Samples were conditioned in standard climate",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Moisture condition": [
+        "Not published",
+        "Samples were conditioned in standard climate (23\u00b0C, 50% RH 72h)"
+      ],
+      "Moisture state": [
+        "not-stated",
+        "conditioned"
+      ]
+    },
+    "note": "XY tensile column and footnote 5, conditioned 23\u00b0C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+  },
+  {
+    "id": "V007798",
+    "source": "R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1",
+    "sha": "c841198cb96c3c3b76c0b367e1fdb41d1b1002e01c248af55a47636e53a59fa4",
+    "page": 5,
+    "text": "Samples were conditioned in standard climate",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Moisture condition": [
+        "Not published",
+        "Samples were conditioned in standard climate (23\u00b0C, 50% RH 72h)"
+      ],
+      "Moisture state": [
+        "not-stated",
+        "conditioned"
+      ]
+    },
+    "note": "XY tensile column and footnote 5, conditioned 23\u00b0C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+  },
+  {
+    "id": "V007691",
+    "source": "R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4",
+    "sha": "9ddb21a98d783d3aef02d065d757729f624e3451740ba3eb8504296d09c4c7f3",
+    "page": 4,
+    "text": "Samples were conditioned in standard climate",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Moisture condition": [
+        "Not published",
+        "Samples were conditioned in standard climate (23\u00b0C, 50% RH 72h)"
+      ],
+      "Moisture state": [
+        "not-stated",
+        "conditioned"
+      ]
+    },
+    "note": "XY tensile column and footnote 5, conditioned 23\u00b0C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+  },
+  {
+    "id": "V007692",
+    "source": "R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4",
+    "sha": "9ddb21a98d783d3aef02d065d757729f624e3451740ba3eb8504296d09c4c7f3",
+    "page": 4,
+    "text": "Samples were conditioned in standard climate",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Moisture condition": [
+        "Not published",
+        "Samples were conditioned in standard climate (23\u00b0C, 50% RH 72h)"
+      ],
+      "Moisture state": [
+        "not-stated",
+        "conditioned"
+      ]
+    },
+    "note": "XY tensile column and footnote 5, conditioned 23\u00b0C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+  },
+  {
+    "id": "V007800",
+    "source": "R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1",
+    "sha": "c841198cb96c3c3b76c0b367e1fdb41d1b1002e01c248af55a47636e53a59fa4",
+    "page": 5,
+    "text": "XZ-Direction",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XZ"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Moisture condition": [
+        "Not published",
+        "Samples were conditioned in standard climate (23\u00b0C, 50% RH 72h)"
+      ],
+      "Moisture state": [
+        "not-stated",
+        "conditioned"
+      ]
+    },
+    "note": "Flexural value 2050 MPa is XZ, not XY. Flexural heading footnote 5 explicitly includes conditioning 23\u00b0C/50% RH/72h."
+  },
+  {
+    "id": "V007694",
+    "source": "R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4",
+    "sha": "9ddb21a98d783d3aef02d065d757729f624e3451740ba3eb8504296d09c4c7f3",
+    "page": 4,
+    "text": "XY-",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ]
+    },
+    "note": "Flexural value 5452 MPa is the XY column; no conditioning is inferred from the tensile-only footnote 5."
+  },
+  {
+    "id": "V006518",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006519",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006520",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006521",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006522",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006523",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006524",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006525",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V006526",
+    "source": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "sha": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010387",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010388",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010389",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010390",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010391",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010392",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010393",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010394",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010395",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010396",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V010397",
+    "source": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "sha": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "page": 2,
+    "text": "printed in XY plane",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 \u00b0C nozzle temperature and 55 \u00b0C bed temperature"
+      ]
+    },
+    "note": "p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+  },
+  {
+    "id": "V002690",
+    "source": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+    "sha": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+    "page": 1,
+    "text": "horizontal (XY axis)",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "3D printed horizontal (XY axis), at 100% infill"
+      ]
+    },
+    "note": "The page footnote explicitly names horizontal XY, 100% infill."
+  },
+  {
+    "id": "V002691",
+    "source": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+    "sha": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+    "page": 1,
+    "text": "horizontal (XY axis)",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "3D printed horizontal (XY axis), at 100% infill"
+      ]
+    },
+    "note": "The page footnote explicitly names horizontal XY, 100% infill."
+  },
+  {
+    "id": "V005534",
+    "source": "R-FIBERLOGY-FIBERLOGY-IMPACT-PLA-TDS",
+    "sha": "d57fb0b76dd54870dfbdae8db83a8366d06f299639fd7cd057431858c1f046a5",
+    "page": 1,
+    "text": "annealed at 110\u00b0C / 15min",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Post-processing": [
+        "Not published",
+        "annealed at 110\u00b0C/15min"
+      ],
+      "Post-processing state": [
+        "not-stated",
+        "annealed"
+      ],
+      "Anneal \u00b0C": [
+        "Not applicable",
+        "110"
+      ],
+      "Anneal h": [
+        "Not applicable",
+        "0.25"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "3D printed parts, XY axis, 100% infill, annealed at 110\u00b0C/15min"
+      ]
+    },
+    "note": "Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+  },
+  {
+    "id": "V005535",
+    "source": "R-FIBERLOGY-FIBERLOGY-IMPACT-PLA-TDS",
+    "sha": "d57fb0b76dd54870dfbdae8db83a8366d06f299639fd7cd057431858c1f046a5",
+    "page": 1,
+    "text": "annealed at 110\u00b0C / 15min",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Post-processing": [
+        "Not published",
+        "annealed at 110\u00b0C/15min"
+      ],
+      "Post-processing state": [
+        "not-stated",
+        "annealed"
+      ],
+      "Anneal \u00b0C": [
+        "Not applicable",
+        "110"
+      ],
+      "Anneal h": [
+        "Not applicable",
+        "0.25"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "3D printed parts, XY axis, 100% infill, annealed at 110\u00b0C/15min"
+      ]
+    },
+    "note": "Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+  },
+  {
+    "id": "V005536",
+    "source": "R-FIBERLOGY-FIBERLOGY-IMPACT-PLA-TDS",
+    "sha": "d57fb0b76dd54870dfbdae8db83a8366d06f299639fd7cd057431858c1f046a5",
+    "page": 1,
+    "text": "annealed at 110\u00b0C / 15min",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Post-processing": [
+        "Not published",
+        "annealed at 110\u00b0C/15min"
+      ],
+      "Post-processing state": [
+        "not-stated",
+        "annealed"
+      ],
+      "Anneal \u00b0C": [
+        "Not applicable",
+        "110"
+      ],
+      "Anneal h": [
+        "Not applicable",
+        "0.25"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "3D printed parts, XY axis, 100% infill, annealed at 110\u00b0C/15min"
+      ]
+    },
+    "note": "Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+  },
+  {
+    "id": "V005537",
+    "source": "R-FIBERLOGY-FIBERLOGY-IMPACT-PLA-TDS",
+    "sha": "d57fb0b76dd54870dfbdae8db83a8366d06f299639fd7cd057431858c1f046a5",
+    "page": 1,
+    "text": "annealed at 110\u00b0C / 15min",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Post-processing": [
+        "Not published",
+        "annealed at 110\u00b0C/15min"
+      ],
+      "Post-processing state": [
+        "not-stated",
+        "annealed"
+      ],
+      "Anneal \u00b0C": [
+        "Not applicable",
+        "110"
+      ],
+      "Anneal h": [
+        "Not applicable",
+        "0.25"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "3D printed parts, XY axis, 100% infill, annealed at 110\u00b0C/15min"
+      ]
+    },
+    "note": "Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+  },
+  {
+    "id": "V005538",
+    "source": "R-FIBERLOGY-FIBERLOGY-IMPACT-PLA-TDS",
+    "sha": "d57fb0b76dd54870dfbdae8db83a8366d06f299639fd7cd057431858c1f046a5",
+    "page": 1,
+    "text": "annealed at 110\u00b0C / 15min",
+    "set": {
+      "Direction": [
+        "Not applicable",
+        "XY"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Post-processing": [
+        "Not published",
+        "annealed at 110\u00b0C/15min"
+      ],
+      "Post-processing state": [
+        "not-stated",
+        "annealed"
+      ],
+      "Anneal \u00b0C": [
+        "Not applicable",
+        "110"
+      ],
+      "Anneal h": [
+        "Not applicable",
+        "0.25"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "3D printed parts, XY axis, 100% infill, annealed at 110\u00b0C/15min"
+      ]
+    },
+    "note": "Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+  },
+  {
+    "id": "V009426",
+    "source": "R-STRATASYS-mds-fdm-absesd7-0222a",
+    "sha": "b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def",
+    "page": 6,
+    "text": "XZ Orientation",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XZ"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "F900 \u2013 T16 Tip; XZ orientation"
+      ]
+    },
+    "note": "First numerical column is XZ, not XY; retain the named printer and separate table."
+  },
+  {
+    "id": "V009427",
+    "source": "R-STRATASYS-mds-fdm-absesd7-0222a",
+    "sha": "b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def",
+    "page": 6,
+    "text": "XZ Orientation",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XZ"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "F900 \u2013 T16 Tip; XZ orientation"
+      ]
+    },
+    "note": "First numerical column is XZ, not XY; retain the named printer and separate table."
+  },
+  {
+    "id": "V009428",
+    "source": "R-STRATASYS-mds-fdm-absesd7-0222a",
+    "sha": "b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def",
+    "page": 7,
+    "text": "XZ Orientation",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XZ"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "F370; XZ orientation"
+      ]
+    },
+    "note": "First numerical column is XZ, not XY; retain the named printer and separate table."
+  },
+  {
+    "id": "V009429",
+    "source": "R-STRATASYS-mds-fdm-absesd7-0222a",
+    "sha": "b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def",
+    "page": 7,
+    "text": "XZ Orientation",
+    "set": {
+      "Direction": [
+        "Unstated",
+        "XZ"
+      ],
+      "Specimen type": [
+        "Not published (do not assume printed)",
+        "Printed specimen"
+      ],
+      "Specimen / print parameters": [
+        "Not published",
+        "F370; XZ orientation"
+      ]
+    },
+    "note": "First numerical column is XZ, not XY; retain the named printer and separate table."
+  }
+]

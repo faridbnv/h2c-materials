@@ -1,0 +1,134 @@
+{
+  "release": {
+    "id": "50e3cf89fdcc",
+    "digest": "50e3cf89fdcce2abbb95768e80e6a9f7d11a5e9374041a91f79a05d8832f0373"
+  },
+  "database": "dist/db.json, of the tables as they are",
+  "scenario": {
+    "file": "docs/audits/2026-09-28-gap-closing/scenarios/acid.json",
+    "savedRelease": null,
+    "warnings": [],
+    "policy": {
+      "unknownPolicy": "strict",
+      "evidence": "comparable",
+      "useEstimates": false
+    },
+    "states": {
+      "anneal": false,
+      "annealMaxC": null,
+      "moisture": "dry"
+    },
+    "requirements": [
+      "acid"
+    ]
+  },
+  "product": {
+    "gradeId": "G001-19",
+    "materialId": "M001",
+    "manufacturer": "Polymaker",
+    "product": "PolyLite PLA",
+    "verdict": "FAIL",
+    "screened": false,
+    "failedBy": [
+      "Acid resistance evidence"
+    ],
+    "admitted": []
+  },
+  "states": {
+    "permitted": [
+      {
+        "id": "as-printed",
+        "treatment": null,
+        "moisture": "dry",
+        "verdict": "FAIL"
+      }
+    ],
+    "notPermitted": [],
+    "chosen": "as-printed",
+    "rule": "Judged in each state the scenario permits, as printed first, and answered by the best: a state that passes, else an unresolved one (unscreened before screened), else a failure (D99)."
+  },
+  "requirements": [
+    {
+      "key": "acid",
+      "kind": "environment",
+      "mandatory": true,
+      "constraint": {
+        "category": "acid",
+        "kind": "environment"
+      },
+      "criterion": "Acid resistance evidence",
+      "status": "FAIL",
+      "reason": "2 record(s) report not-resistant",
+      "observed": null,
+      "unit": null,
+      "closeToLimit": false,
+      "estimated": false,
+      "screened": false,
+      "admittedUnstated": [],
+      "treatment": null,
+      "records": [
+        {
+          "kind": "evidence",
+          "id": "Q05247",
+          "role": "decides",
+          "gradeId": "G001-19",
+          "category": "acid",
+          "agent": null,
+          "verdict": "not-resistant",
+          "finding": "Not resistant",
+          "locator": "p. 2: Effect of weak acids Not resistant",
+          "source": {
+            "id": "S-POLYCN-PolyLite-PLA-TDS-V5-1-7",
+            "publisher": "Polymaker",
+            "title": "PolyLite PLA",
+            "url": "https://3d.nice-cdn.com/upload/file/PolyLite_PLA_TDS_V5.1[7].pdf",
+            "sha256": "0678205d8447934333627472db8a91b236d0eacfa63dd168af73ad1567889b31",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        },
+        {
+          "kind": "evidence",
+          "id": "Q05248",
+          "role": "decides",
+          "gradeId": "G001-19",
+          "category": "acid",
+          "agent": null,
+          "verdict": "not-resistant",
+          "finding": "Not resistant",
+          "locator": "p. 2: Effect of strong acids Not resistant",
+          "source": {
+            "id": "S-POLYCN-PolyLite-PLA-TDS-V5-1-7",
+            "publisher": "Polymaker",
+            "title": "PolyLite PLA",
+            "url": "https://3d.nice-cdn.com/upload/file/PolyLite_PLA_TDS_V5.1[7].pdf",
+            "sha256": "0678205d8447934333627472db8a91b236d0eacfa63dd168af73ad1567889b31",
+            "accessDate": "2026-09-19",
+            "accessState": "retrieved",
+            "citationRole": "cited"
+          }
+        }
+      ]
+    }
+  ],
+  "material": {
+    "id": "M001",
+    "name": "PLA",
+    "verdict": "UNKNOWN",
+    "eligible": false,
+    "share": "none",
+    "counts": {
+      "products": 200,
+      "pass": 0,
+      "fail": 12,
+      "untested": 188,
+      "screened": 0
+    },
+    "someFail": true,
+    "decidedBy": {
+      "gradeId": "G001-01",
+      "state": "as-printed"
+    }
+  }
+}

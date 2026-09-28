@@ -1,0 +1,70 @@
+
+> h2c-fdm-material-selector@1.0.0 trace
+> node scripts/trace.mjs M133
+
+M133 PBAT  (data/tables/materials.csv:134)  scope H2C-relevant · family PVB / Specialty Polymers · 1 product(s)
+  density = 1250 kg/m³  [products]
+    median of 1 product(s) publishing it comparably, 1250–1250; typical product G133-01
+    measurement V005362  (data/tables/measurements.csv:5363)  Density
+      raw "1.25-1.26 g/cm³" [g/cm³] -> numeric 1.25 × factor 1000 = 1250 kg/m³
+      status Published value · operator = · direction Not applicable · specimen Not published (density specimen form not explicitly established)
+      moisture Not published · standard/load ISO 1183 · locator p. 1: Density ISO 1183 g/cm³
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).
+      grade G133-01  (data/tables/grades.csv:423)  Flashforge Flexible · material M133
+      source D-FLASH-PBAT-TDS-EN  (data/tables/sources.csv:585)
+        Flashforge — Technical Data Sheet Flexible Filament
+        https://after-support.flashforge.jp/uploads/datasheet/tds/PBAT_TDS_EN.pdf
+        accessed 2026-09-19 · retrieved · sha256 c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7
+  tensileModulusXY = 0.006 GPa  [products]
+    median of 1 product(s) publishing it comparably, 0.006–0.006; typical product G133-01
+    measurement V005367  (data/tables/measurements.csv:5368)  Tensile modulus
+      raw "6-7 Mpa" [Mpa] -> numeric 6 × factor 0.001 = 0.006 GPa
+      status Published value · operator = · direction XY · specimen Printed specimen
+      moisture Not published · standard/load ISO 527 · locator p. 1: Modulus of Elasticity (X-Y) ISO 527 Mpa
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m128-specimens-the-sheet-states) against the source: the sheet states how its test bars were made, once for the table: "Testing Specimen Printing Conditions:".
+      grade G133-01  (data/tables/grades.csv:423)  Flashforge Flexible · material M133
+      source D-FLASH-PBAT-TDS-EN  (data/tables/sources.csv:585)
+        Flashforge — Technical Data Sheet Flexible Filament
+        https://after-support.flashforge.jp/uploads/datasheet/tds/PBAT_TDS_EN.pdf
+        accessed 2026-09-19 · retrieved · sha256 c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7
+  tensileStrengthXY = 27 MPa  [products]
+    median of 1 product(s) publishing it comparably, 27–27; typical product G133-01
+    measurement V005365  (data/tables/measurements.csv:5366)  Tensile strength (endpoint unspecified)
+      raw "27-28 Mpa" [Mpa] -> numeric 27 × factor 1 = 27 MPa
+      status Published value · operator = · direction XY · specimen Printed specimen
+      moisture Not published · standard/load ISO 527 · locator p. 1: Tensile Strength (X-Y) ISO 527 Mpa
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m128-specimens-the-sheet-states) against the source: the sheet states how its test bars were made, once for the table: "Testing Specimen Printing Conditions:".
+      grade G133-01  (data/tables/grades.csv:423)  Flashforge Flexible · material M133
+      source D-FLASH-PBAT-TDS-EN  (data/tables/sources.csv:585)
+        Flashforge — Technical Data Sheet Flexible Filament
+        https://after-support.flashforge.jp/uploads/datasheet/tds/PBAT_TDS_EN.pdf
+        accessed 2026-09-19 · retrieved · sha256 c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7
+  tensileStrengthZ: Not published (not-published)
+  elongationXY = 400 %  [products]
+    median of 1 product(s) publishing it comparably, 400–400; typical product G133-01
+    measurement V005366  (data/tables/measurements.csv:5367)  Elongation at break
+      raw "400-600 %" [%] -> numeric 400 × factor 1 = 400 %
+      status Published value · operator = · direction XY · specimen Printed specimen
+      moisture Not published · standard/load ISO 527 · locator p. 1: Elongation at Break (X-Y) ISO 527 %
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m128-specimens-the-sheet-states) against the source: the sheet states how its test bars were made, once for the table: "Testing Specimen Printing Conditions:".
+      grade G133-01  (data/tables/grades.csv:423)  Flashforge Flexible · material M133
+      source D-FLASH-PBAT-TDS-EN  (data/tables/sources.csv:585)
+        Flashforge — Technical Data Sheet Flexible Filament
+        https://after-support.flashforge.jp/uploads/datasheet/tds/PBAT_TDS_EN.pdf
+        accessed 2026-09-19 · retrieved · sha256 c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7
+  charpyNotched: Not published (not-published)
+  izodNotched: Not published (not-published)
+  hdt045 = 90 °C  [products]
+    median of 1 product(s) publishing it comparably, 90–90; typical product G133-01
+    measurement V005369  (data/tables/measurements.csv:5370)  HDT
+      raw "90 ℃" [℃] -> numeric 90 × factor 1 = 90 °C
+      status Published value · operator = · direction Not applicable · specimen Printed specimen
+      moisture Not published · standard/load 0.455 MPa 66 psi ISO 75 · locator p. 1: HDT@ 0.455 MPa (66 psi) ISO 75 ℃
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m128-specimens-the-sheet-states) against the source: the sheet states how its test bars were made, once for the table: "Testing Specimen Printing Conditions:".
+      grade G133-01  (data/tables/grades.csv:423)  Flashforge Flexible · material M133
+      source D-FLASH-PBAT-TDS-EN  (data/tables/sources.csv:585)
+        Flashforge — Technical Data Sheet Flexible Filament
+        https://after-support.flashforge.jp/uploads/datasheet/tds/PBAT_TDS_EN.pdf
+        accessed 2026-09-19 · retrieved · sha256 c4f8d32c696861bb6a655995a74da1f081be3b293da211c57b90ac4a5c833fa7
+  glassTransition: Not published (not-published)
+  priceCADkg: Not available in sampled Canadian market (not-available-in-market)

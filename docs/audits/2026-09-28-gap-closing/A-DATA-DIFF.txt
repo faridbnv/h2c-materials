@@ -1,0 +1,330 @@
+
+> h2c-fdm-material-selector@1.0.0 data:diff
+> node scripts/data/diff.mjs
+
+table,record,action,field,before,after
+evidence,Q05241,Added,,,
+evidence,Q05242,Added,,,
+evidence,Q05243,Added,,,
+evidence,Q05244,Added,,,
+evidence,Q05245,Added,,,
+evidence,Q05246,Added,,,
+evidence,Q05247,Added,,,
+evidence,Q05248,Added,,,
+evidence,Q05249,Added,,,
+evidence,Q05250,Added,,,
+evidence,Q05251,Added,,,
+evidence,Q05252,Added,,,
+evidence,Q05253,Added,,,
+evidence,Q05254,Added,,,
+evidence,Q05255,Added,,,
+evidence,Q05256,Added,,,
+evidence,Q05257,Added,,,
+evidence,Q05258,Added,,,
+evidence,Q05259,Added,,,
+evidence,Q05260,Added,,,
+evidence,Q05261,Added,,,
+evidence,Q05262,Added,,,
+evidence,Q05263,Added,,,
+evidence,Q05264,Added,,,
+evidence,Q05265,Added,,,
+evidence,Q05266,Added,,,
+evidence,Q05267,Added,,,
+evidence,Q05268,Added,,,
+evidence,Q05269,Added,,,
+evidence,Q05270,Added,,,
+evidence,Q05271,Added,,,
+evidence,Q05272,Added,,,
+evidence,Q05273,Added,,,
+evidence,Q05274,Added,,,
+evidence,Q05275,Added,,,
+evidence,Q05276,Added,,,
+evidence,Q05277,Added,,,
+evidence,Q05278,Added,,,
+evidence,Q05279,Added,,,
+evidence,Q05280,Added,,,
+evidence,Q05281,Added,,,
+evidence,Q05282,Added,,,
+evidence,Q05283,Added,,,
+evidence,Q05284,Added,,,
+evidence,Q05285,Added,,,
+evidence,Q05286,Added,,,
+evidence,Q05287,Added,,,
+evidence,Q05288,Added,,,
+evidence,Q05289,Added,,,
+evidence,Q05290,Added,,,
+evidence,Q05291,Added,,,
+evidence,Q05292,Added,,,
+evidence,Q05293,Added,,,
+evidence,Q05294,Added,,,
+evidence,Q05295,Added,,,
+evidence,Q05296,Added,,,
+evidence,Q05297,Added,,,
+evidence,Q05298,Added,,,
+evidence,Q05299,Added,,,
+evidence,Q05300,Added,,,
+measurements,V002690,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V002690,Edited,Direction,Unstated,XY
+measurements,V002690,Edited,Specimen / print parameters,Not published,"3D printed horizontal (XY axis), at 100% infill"
+measurements,V002690,Edited,Notes,"Added 2026-09-18 (m53-batch-b01-spectrum): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-18 (m53-batch-b01-spectrum): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: The page footnote explicitly names horizontal XY, 100% infill."
+measurements,V002691,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V002691,Edited,Direction,Unstated,XY
+measurements,V002691,Edited,Specimen / print parameters,Not published,"3D printed horizontal (XY axis), at 100% infill"
+measurements,V002691,Edited,Notes,"Added 2026-09-18 (m53-batch-b01-spectrum): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-18 (m53-batch-b01-spectrum): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: The page footnote explicitly names horizontal XY, 100% infill."
+measurements,V005534,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V005534,Edited,Direction,Unstated,XY
+measurements,V005534,Edited,Post-processing,Not published,annealed at 110°C/15min
+measurements,V005534,Edited,Post-processing state,not-stated,annealed
+measurements,V005534,Edited,Anneal °C,Not applicable,110
+measurements,V005534,Edited,Anneal h,Not applicable,0.25
+measurements,V005534,Edited,Specimen / print parameters,Not published,"3D printed parts, XY axis, 100% infill, annealed at 110°C/15min"
+measurements,V005534,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+measurements,V005535,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V005535,Edited,Direction,Unstated,XY
+measurements,V005535,Edited,Post-processing,Not published,annealed at 110°C/15min
+measurements,V005535,Edited,Post-processing state,not-stated,annealed
+measurements,V005535,Edited,Anneal °C,Not applicable,110
+measurements,V005535,Edited,Anneal h,Not applicable,0.25
+measurements,V005535,Edited,Specimen / print parameters,Not published,"3D printed parts, XY axis, 100% infill, annealed at 110°C/15min"
+measurements,V005535,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+measurements,V005536,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V005536,Edited,Direction,Unstated,XY
+measurements,V005536,Edited,Post-processing,Not published,annealed at 110°C/15min
+measurements,V005536,Edited,Post-processing state,not-stated,annealed
+measurements,V005536,Edited,Anneal °C,Not applicable,110
+measurements,V005536,Edited,Anneal h,Not applicable,0.25
+measurements,V005536,Edited,Specimen / print parameters,Not published,"3D printed parts, XY axis, 100% infill, annealed at 110°C/15min"
+measurements,V005536,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+measurements,V005537,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V005537,Edited,Direction,Unstated,XY
+measurements,V005537,Edited,Post-processing,Not published,annealed at 110°C/15min
+measurements,V005537,Edited,Post-processing state,not-stated,annealed
+measurements,V005537,Edited,Anneal °C,Not applicable,110
+measurements,V005537,Edited,Anneal h,Not applicable,0.25
+measurements,V005537,Edited,Specimen / print parameters,Not published,"3D printed parts, XY axis, 100% infill, annealed at 110°C/15min"
+measurements,V005537,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+measurements,V005538,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V005538,Edited,Direction,Not applicable,XY
+measurements,V005538,Edited,Post-processing,Not published,annealed at 110°C/15min
+measurements,V005538,Edited,Post-processing state,not-stated,annealed
+measurements,V005538,Edited,Anneal °C,Not applicable,110
+measurements,V005538,Edited,Anneal h,Not applicable,0.25
+measurements,V005538,Edited,Specimen / print parameters,Not published,"3D printed parts, XY axis, 100% infill, annealed at 110°C/15min"
+measurements,V005538,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Flagged physically implausible 2026-09-21 (m127-the-sweep-values-and-properties, D55): the sheet prints a notched Izod of 160 kJ/m² (ASTM D256, which reports J/m) for a PLA, beyond any PLA; 160 J/m would be a toughened PLA's. Kept as printed; it backs nothing.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Flagged physically implausible 2026-09-21 (m127-the-sweep-values-and-properties, D55): the sheet prints a notched Izod of 160 kJ/m² (ASTM D256, which reports J/m) for a PLA, beyond any PLA; 160 J/m would be a toughened PLA's. Kept as printed; it backs nothing. Corrected 2026-09-28 (m218-cached-test-conditions) against the source: Starred Mechanical Properties heading inherits the footer, including annealing; these values cannot decide an as-printed question."
+measurements,V005951,Edited,Data status,Unresolved unit / layout,Retired duplicate record
+measurements,V005951,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: elongation Stress elongation); the value is unchanged. Quarantined 2026-09-25 (m156-what-the-close-calls-re-read-found): not an elongation at break; p. 1 prints ""Stress @ 300% Tenilse, ISO 37-1A 5,1 MPa / elongation"", the tensile stress at 300 % elongation (5.1 MPa), and the reader took the 300 % in its label for a value. The sheet's elongation at break is 585 % (V005953). Read by an AI agent (Claude, re-center lane 4), not a person.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: elongation Stress elongation); the value is unchanged. Quarantined 2026-09-25 (m156-what-the-close-calls-re-read-found): not an elongation at break; p. 1 prints ""Stress @ 300% Tenilse, ISO 37-1A 5,1 MPa / elongation"", the tensile stress at 300 % elongation (5.1 MPa), and the reader took the 300 % in its label for a value. The sheet's elongation at break is 585 % (V005953). Read by an AI agent (Claude, re-center lane 4), not a person. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: This is the 300% strain label of Stress @ 300% elongation (5.1 MPa), not a second elongation-at-break result. The actual 585% break result is V005953, which stays. Original mistaken transcription remains visible but cannot decide."
+measurements,V005993,Edited,Direction,Unstated,XY
+measurements,V005993,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 230 °C nozzle temperature and 80 °C bed temperature"
+measurements,V005993,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile modulus MPa); the value is unchanged.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile modulus MPa); the value is unchanged. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V005994,Edited,Direction,Unstated,XY
+measurements,V005994,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 230 °C nozzle temperature and 80 °C bed temperature"
+measurements,V005994,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Yield strength MPa); the value is unchanged.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Yield strength MPa); the value is unchanged. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V005995,Edited,Direction,Unstated,XY
+measurements,V005995,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 230 °C nozzle temperature and 80 °C bed temperature"
+measurements,V005995,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Yield strain %); the value is unchanged.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Yield strain %); the value is unchanged. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V005996,Edited,Direction,Unstated,XY
+measurements,V005996,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 230 °C nozzle temperature and 80 °C bed temperature"
+measurements,V005996,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile strength MPa); the value is unchanged.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile strength MPa); the value is unchanged. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V005997,Edited,Direction,Unstated,XY
+measurements,V005997,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 230 °C nozzle temperature and 80 °C bed temperature"
+measurements,V005997,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile strain at tensile strength %); the value is unchanged.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile strain at tensile strength %); the value is unchanged. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V005998,Edited,Direction,Unstated,XY
+measurements,V005998,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 230 °C nozzle temperature and 80 °C bed temperature"
+measurements,V005998,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile stress at break MPa); the value is unchanged.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile stress at break MPa); the value is unchanged. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V005999,Edited,Direction,Unstated,XY
+measurements,V005999,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 230 °C nozzle temperature and 80 °C bed temperature"
+measurements,V005999,Edited,Notes,"Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile strain at break %); the value is unchanged.","Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile strain at break %); the value is unchanged. Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006291,Edited,Direction,Unstated,XY
+measurements,V006291,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006291,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006292,Edited,Direction,Unstated,XY
+measurements,V006292,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006292,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006293,Edited,Direction,Unstated,XY
+measurements,V006293,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006293,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006294,Edited,Direction,Unstated,XY
+measurements,V006294,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006294,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006295,Edited,Direction,Unstated,XY
+measurements,V006295,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006295,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006296,Edited,Direction,Unstated,XY
+measurements,V006296,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006296,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006297,Edited,Direction,Unstated,XY
+measurements,V006297,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006297,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006298,Edited,Direction,Unstated,XY
+measurements,V006298,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006298,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006299,Edited,Direction,Unstated,XY
+measurements,V006299,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 245 °C nozzle temperature and 70 °C bed temperature"
+measurements,V006299,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: Printed specimen note on p. 2 applies to the p. 1 printed block. Raw-material rows stay separate."
+measurements,V006382,Edited,Direction,Unstated,XY
+measurements,V006382,Edited,Specimen / print parameters,Not published,"printing temperature 260°C, bed temperature 85°C, print speed 1800 mm/min, 100% of grid (90°) infill, 0 perimeter/shell layers, 0.60 mm hardened nozzle and 0.2 mm layer height"
+measurements,V006382,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The starred printed-part properties share the exact XY specimen footer. No direction is assigned to unstarred density/thermal rows."
+measurements,V006383,Edited,Direction,Unstated,XY
+measurements,V006383,Edited,Specimen / print parameters,Not published,"printing temperature 260°C, bed temperature 85°C, print speed 1800 mm/min, 100% of grid (90°) infill, 0 perimeter/shell layers, 0.60 mm hardened nozzle and 0.2 mm layer height"
+measurements,V006383,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The starred printed-part properties share the exact XY specimen footer. No direction is assigned to unstarred density/thermal rows."
+measurements,V006384,Edited,Direction,Unstated,XY
+measurements,V006384,Edited,Specimen / print parameters,Not published,"printing temperature 260°C, bed temperature 85°C, print speed 1800 mm/min, 100% of grid (90°) infill, 0 perimeter/shell layers, 0.60 mm hardened nozzle and 0.2 mm layer height"
+measurements,V006384,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The starred printed-part properties share the exact XY specimen footer. No direction is assigned to unstarred density/thermal rows."
+measurements,V006518,Edited,Direction,Unstated,XY
+measurements,V006518,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006518,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006519,Edited,Direction,Unstated,XY
+measurements,V006519,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006519,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006520,Edited,Direction,Unstated,XY
+measurements,V006520,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006520,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006521,Edited,Direction,Unstated,XY
+measurements,V006521,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006521,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006522,Edited,Direction,Unstated,XY
+measurements,V006522,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006522,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006523,Edited,Direction,Unstated,XY
+measurements,V006523,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006523,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006524,Edited,Direction,Unstated,XY
+measurements,V006524,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006524,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006525,Edited,Direction,Unstated,XY
+measurements,V006525,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006525,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V006526,Edited,Direction,Unstated,XY
+measurements,V006526,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V006526,Edited,Notes,"Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m77-batch-b11): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V007623,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007623,Edited,Direction,Unstated,XY
+measurements,V007623,Edited,Moisture condition,Conditioned,Samples were conditioned in 336h at 70°C / 62% RH
+measurements,V007623,Edited,Post-processing,annealed,Not published
+measurements,V007623,Edited,Post-processing state,annealed,not-stated
+measurements,V007623,Edited,Anneal °C,Not published,Not applicable
+measurements,V007623,Edited,Anneal h,Not published,Not applicable
+measurements,V007623,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-20 (m84-basf-extended-tds-conditioning) against the source: the sheet publishes every property twice and labels the second of each pair ""dry""; this is the first, which is the conditioned one, and its own comparison charts read ""conditioned, dry and annealed"" in that order","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-20 (m84-basf-extended-tds-conditioning) against the source: the sheet publishes every property twice and labels the second of each pair ""dry""; this is the first, which is the conditioned one, and its own comparison charts read ""conditioned, dry and annealed"" in that order Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The selected value is the XY row without the annealed suffix: 5052 conditioned / 8386 dry modulus, 2.9 conditioned / 1.8 dry elongation. Separate annealed rows print 4102/6588 modulus and 2.9/1.7 elongation. Prior blanket annealed classification was incorrect. Moisture schedules are footnotes 6/7 on p. 4; drying is not annealing."
+measurements,V007624,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007624,Edited,Direction,Unstated,XY
+measurements,V007624,Edited,Moisture condition,Dry,Samples were dried at 80°C vacuum until weight constancy
+measurements,V007624,Edited,Post-processing,annealed,Not published
+measurements,V007624,Edited,Post-processing state,annealed,not-stated
+measurements,V007624,Edited,Anneal °C,Not published,Not applicable
+measurements,V007624,Edited,Anneal h,Not published,Not applicable
+measurements,V007624,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The selected value is the XY row without the annealed suffix: 5052 conditioned / 8386 dry modulus, 2.9 conditioned / 1.8 dry elongation. Separate annealed rows print 4102/6588 modulus and 2.9/1.7 elongation. Prior blanket annealed classification was incorrect. Moisture schedules are footnotes 6/7 on p. 4; drying is not annealing."
+measurements,V007625,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007625,Edited,Direction,Unstated,XY
+measurements,V007625,Edited,Moisture condition,Conditioned,Samples were conditioned in 336h at 70°C / 62% RH
+measurements,V007625,Edited,Post-processing,annealed,Not published
+measurements,V007625,Edited,Post-processing state,annealed,not-stated
+measurements,V007625,Edited,Anneal °C,Not published,Not applicable
+measurements,V007625,Edited,Anneal h,Not published,Not applicable
+measurements,V007625,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-20 (m84-basf-extended-tds-conditioning) against the source: the sheet publishes every property twice and labels the second of each pair ""dry""; this is the first, which is the conditioned one, and its own comparison charts read ""conditioned, dry and annealed"" in that order","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-20 (m84-basf-extended-tds-conditioning) against the source: the sheet publishes every property twice and labels the second of each pair ""dry""; this is the first, which is the conditioned one, and its own comparison charts read ""conditioned, dry and annealed"" in that order Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The selected value is the XY row without the annealed suffix: 5052 conditioned / 8386 dry modulus, 2.9 conditioned / 1.8 dry elongation. Separate annealed rows print 4102/6588 modulus and 2.9/1.7 elongation. Prior blanket annealed classification was incorrect. Moisture schedules are footnotes 6/7 on p. 4; drying is not annealing."
+measurements,V007626,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007626,Edited,Direction,Unstated,XY
+measurements,V007626,Edited,Moisture condition,Dry,Samples were dried at 80°C vacuum until weight constancy
+measurements,V007626,Edited,Post-processing,annealed,Not published
+measurements,V007626,Edited,Post-processing state,annealed,not-stated
+measurements,V007626,Edited,Anneal °C,Not published,Not applicable
+measurements,V007626,Edited,Anneal h,Not published,Not applicable
+measurements,V007626,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The selected value is the XY row without the annealed suffix: 5052 conditioned / 8386 dry modulus, 2.9 conditioned / 1.8 dry elongation. Separate annealed rows print 4102/6588 modulus and 2.9/1.7 elongation. Prior blanket annealed classification was incorrect. Moisture schedules are footnotes 6/7 on p. 4; drying is not annealing."
+measurements,V007691,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007691,Edited,Direction,Unstated,XY
+measurements,V007691,Edited,Moisture condition,Not published,"Samples were conditioned in standard climate (23°C, 50% RH 72h)"
+measurements,V007691,Edited,Moisture state,not-stated,conditioned
+measurements,V007691,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 4 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 4 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: XY tensile column and footnote 5, conditioned 23°C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+measurements,V007692,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007692,Edited,Direction,Unstated,XY
+measurements,V007692,Edited,Moisture condition,Not published,"Samples were conditioned in standard climate (23°C, 50% RH 72h)"
+measurements,V007692,Edited,Moisture state,not-stated,conditioned
+measurements,V007692,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 4 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 4 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: XY tensile column and footnote 5, conditioned 23°C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+measurements,V007694,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007694,Edited,Direction,Unstated,XY
+measurements,V007694,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 4 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 4 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: Flexural value 5452 MPa is the XY column; no conditioning is inferred from the tensile-only footnote 5."
+measurements,V007797,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007797,Edited,Direction,Unstated,XY
+measurements,V007797,Edited,Moisture condition,Not published,"Samples were conditioned in standard climate (23°C, 50% RH 72h)"
+measurements,V007797,Edited,Moisture state,not-stated,conditioned
+measurements,V007797,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: XY tensile column and footnote 5, conditioned 23°C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+measurements,V007798,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007798,Edited,Direction,Unstated,XY
+measurements,V007798,Edited,Moisture condition,Not published,"Samples were conditioned in standard climate (23°C, 50% RH 72h)"
+measurements,V007798,Edited,Moisture state,not-stated,conditioned
+measurements,V007798,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: XY tensile column and footnote 5, conditioned 23°C/50% RH/72h; conditioning climate is not the test temperature. FFF specimen form is stated on the page."
+measurements,V007800,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V007800,Edited,Direction,Unstated,XZ
+measurements,V007800,Edited,Moisture condition,Not published,"Samples were conditioned in standard climate (23°C, 50% RH 72h)"
+measurements,V007800,Edited,Moisture state,not-stated,conditioned
+measurements,V007800,Edited,Notes,"Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv).","Added 2026-09-20 (m83-batch-b14): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: Flexural value 2050 MPa is XZ, not XY. Flexural heading footnote 5 explicitly includes conditioning 23°C/50% RH/72h."
+measurements,V009345,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V009345,Edited,Direction,Unstated,XZ
+measurements,V009345,Edited,Notes,"Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 7 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 7 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The first mechanical-table column is XZ, not XY; the tested specimen is a printed FDM bar. The value remains unusable for an XY-only requirement."
+measurements,V009402,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V009402,Edited,Direction,Unstated,XZ
+measurements,V009402,Edited,Notes,"Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 4 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 4 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The first mechanical-table column is XZ, not XY; the tested specimen is a printed FDM bar. The value remains unusable for an XY-only requirement."
+measurements,V009404,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V009404,Edited,Direction,Unstated,XZ
+measurements,V009404,Edited,Notes,"Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 5 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 5 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m219-cached-condition-remainder) against the source: The first mechanical-table column is XZ, not XY; the tested specimen is a printed FDM bar. The value remains unusable for an XY-only requirement."
+measurements,V009426,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V009426,Edited,Direction,Unstated,XZ
+measurements,V009426,Edited,Specimen / print parameters,Not published,F900 – T16 Tip; XZ orientation
+measurements,V009426,Edited,Notes,"Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 6 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 6 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: First numerical column is XZ, not XY; retain the named printer and separate table."
+measurements,V009427,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V009427,Edited,Direction,Unstated,XZ
+measurements,V009427,Edited,Specimen / print parameters,Not published,F900 – T16 Tip; XZ orientation
+measurements,V009427,Edited,Notes,"Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 6 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 6 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: First numerical column is XZ, not XY; retain the named printer and separate table."
+measurements,V009428,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V009428,Edited,Direction,Unstated,XZ
+measurements,V009428,Edited,Specimen / print parameters,Not published,F370; XZ orientation
+measurements,V009428,Edited,Notes,"Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 7 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 7 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: First numerical column is XZ, not XY; retain the named printer and separate table."
+measurements,V009429,Edited,Specimen type,Not published (do not assume printed),Printed specimen
+measurements,V009429,Edited,Direction,Unstated,XZ
+measurements,V009429,Edited,Specimen / print parameters,Not published,F370; XZ orientation
+measurements,V009429,Edited,Notes,"Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 7 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m96-batch-b24): re-read from the source document, page 7 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: First numerical column is XZ, not XY; retain the named printer and separate table."
+measurements,V010387,Edited,Direction,Unstated,XY
+measurements,V010387,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010387,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010388,Edited,Direction,Unstated,XY
+measurements,V010388,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010388,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010389,Edited,Direction,Unstated,XY
+measurements,V010389,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010389,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010390,Edited,Direction,Unstated,XY
+measurements,V010390,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010390,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010391,Edited,Direction,Unstated,XY
+measurements,V010391,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010391,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010392,Edited,Direction,Unstated,XY
+measurements,V010392,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010392,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010393,Edited,Direction,Unstated,XY
+measurements,V010393,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010393,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010394,Edited,Direction,Unstated,XY
+measurements,V010394,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010394,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010395,Edited,Direction,Unstated,XY
+measurements,V010395,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010395,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010396,Edited,Direction,Unstated,XY
+measurements,V010396,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010396,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V010397,Edited,Direction,Unstated,XY
+measurements,V010397,Edited,Specimen / print parameters,Not published,"XY plane, 0.15mm layerheight, 100% infill, 0.4mm nozzle, 210 °C nozzle temperature and 55 °C bed temperature"
+measurements,V010397,Edited,Notes,"Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv).","Added 2026-09-21 (m117-batch-b30): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-28 (m218-cached-test-conditions) against the source: p. 2 Notes applies to the p. 1 printed specimens; p. 2 injection-moulded values are unchanged."
+measurements,V011510,Added,,,
+profiles,P0175,Edited,Chamber °C,Not published,material does not require a heated building chamber
+profiles,P0175,Edited,Chamber state,unknown,not-required
+profiles,P0175,Edited,Chamber requirement,unknown,none
+profiles,P0175,Edited,Locator,p. 1: Recommended printing settings; p. 1: Ruby or hardened nozzle,p. 1: Recommended printing settings; p. 1: Ruby or hardened nozzle; p. 1: chamber statement
+profiles,P0175,Edited,Parse review,Not applicable,m216: the source explicitly says this material does not require a heated building chamber. The prose is typed not-required/none; its separate closed-chamber recommendation is retained. No numeric setpoint is inferred.
+profiles,P0892,Edited,Chamber °C,Not published,"If your device has a heated chamber, maintain temperatures between 60-80°C to help release residual stress during printing and prevent warping and cracking."
+profiles,P0892,Edited,Chamber state,unknown,range
+profiles,P0892,Edited,Chamber min °C,Not applicable,60
+profiles,P0892,Edited,Chamber max °C,Not applicable,80
+profiles,P0892,Edited,Chamber requirement,unknown,recommended
+profiles,P0892,Edited,Locator,p. 1: Recommended printing settings; p. 1: Drying note; p. 1: Enclosure,p. 1: Recommended printing settings; p. 1: Drying note; p. 1: Enclosure; p. 1: chamber statement
+profiles,P0892,Edited,Parse review,Not applicable,"m216: this 60-80°C window is conditional on using a heated chamber, beside an enclosure recommendation. It is typed recommended, preserving the full source sentence; the H2C reaches only part of the window."

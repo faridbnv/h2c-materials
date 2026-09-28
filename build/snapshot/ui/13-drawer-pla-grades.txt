@@ -2,10 +2,10 @@ Across its 200 products: the spread of their values, and what their makers say
 ACROSS ITS PRODUCTS
 Property Typical Range Products Set apart
 Density kg/m³ 1,240 1,170–1,329 146 of 182 17 variants (800–4,000)
-Stiffness GPa 2.45 0.95–4.24 38 of 182 41 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
-Strength MPa 45.3 26–70.4 56 of 182 50 without direction or load (30–71); 12 variants (12.6–65)
+Stiffness GPa 2.58 0.433–4.24 43 of 182 37 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
+Strength MPa 45.3 26–70.7 60 of 182 46 without direction or load (30–71); 12 variants (12.6–65)
 Strength across layers MPa 31.5 14.3–43.5 30 of 182 1 variant (14.5–14.5)
-Stretch before breaking % 6.76 1.2–65 52 of 182 43 without direction or load (2.9–84); 11 variants (2.4–40)
+Stretch before breaking % 6.3 1.2–65 56 of 182 39 without direction or load (2.9–84); 11 variants (2.4–40)
 Notched impact, Charpy kJ/m² 17.1 4.94–72.3 10 of 182 21 without direction or load (1.8–29.8); 4 variants (1.8–2.97)
 Notched impact, Izod kJ/m² 5 4.5–6.5 6 of 182 7 without direction or load (3.9–5); 4 variants (5.5–18.1)
 Heat resistance °C 55 50–135 68 of 182 28 without direction or load (53–108); 6 variants (55–89)

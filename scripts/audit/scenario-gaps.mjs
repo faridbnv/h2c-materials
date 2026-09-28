@@ -20,12 +20,12 @@
 //
 //   npm run audit:scenario-gaps     writes docs/audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadTables, snapshotDate } from '../../build/src/load.js';
 import { buildDatabase } from '../../build/src/pipeline.js';
-import { readCsv } from '../../build/src/csv.js';
+import { csvText, readCsv } from '../../build/src/csv.js';
 import { runSelection, STATUS, UNKNOWN_POLICY } from '../../app/js/engine/constraints.js';
 import { productsByMaterial } from '../../app/js/engine/products.js';
 import { TEMPLATES, templateByName } from '../../app/js/ui/templates.js';
@@ -150,3 +150,31 @@ const L = [
 ];
 writeFileSync(out, L.join('\n'));
 console.log(`audit:scenario-gaps: ${questions.length} questions, ${facts.size} product facts one step from an answer (${[...byKind].map(([k, n]) => `${k} ${n}`).join(', ')}); wrote ${out.replace(`${root}/`, '')}`);
+
+
+if (process.argv.includes('--csv')) {
+  const targetDir = join(root, 'docs/audits/2026-09-28-gap-closing');
+  mkdirSync(targetDir, { recursive: true });
+  const path = join(targetDir, 'TARGETS.csv');
+  // Freeze before edits: later tranches compare against the same products, states and questions.
+  if (existsSync(path)) console.log('TARGETS.csv already frozen; retained (remove explicitly to start a new campaign).');
+  else {
+    const targets = ranked.filter((f) => f.kind !== 'print test');
+    const rows = targets.map((f) => {
+      const prior = handoffs.get(f.grade.id) ?? [];
+      // A bounded search or NEEDS_VENDOR is not a finding that nothing is published.
+      const closed = prior.some((h) => /NOT_PUBLISHED|SEARCHED_NOTHING_PUBLISHED/.test(h.Outcome));
+      return { GradeID: f.grade.id, MaterialID: f.material.id, Manufacturer: f.grade.manufacturer, Product: f.grade.product,
+        Requirement: f.requirement, Kind: f.kind, Questions: [...f.questions].sort().join('; '),
+        'Expected movement': `${f.questions.size} question(s): product UNKNOWN to PASS or FAIL when exact-state evidence settles the limit; PASS adds a material with no passing product yet`,
+        'Stop rule': f.kind === 'source silent' ? 'Re-read cached sheets; check matching held documents; search maker product page, downloads and print guide once; record absence without inference' : f.stop,
+        Tranche: closed ? 'closed by prior handoff' : 'A; B; C where print settings remain silent',
+        'Research-package handoff': prior.map((h) => `${h.FindingID} (${h.Outcome})`).join('; ') || 'None',
+        'Source question': `Does the maker publish ${f.requirement} for this exact product in the question-specific state?`, State: 'Question-specific state; see frozen BASELINE.json', Status: closed ? 'searched, nothing published (prior handoff)' : 'open',
+      };
+    });
+    writeFileSync(path, csvText(Object.keys(rows[0] ?? {}), rows));
+    writeFileSync(join(targetDir, 'BASELINE.json'), JSON.stringify({ release: db.meta.release, questions: summary.map(({ q, counts, oneFact, materialsOneFact }) => ({ ...q, counts, oneFact, materialsOneFact })), facts: rows.length }, null, 2) + '\n');
+    console.log(`froze ${rows.length} targets (${targets.filter((f) => f.questions.size > 1).length} multi-question) in ${path}`);
+  }
+}

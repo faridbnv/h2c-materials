@@ -1,0 +1,19 @@
+Question,Kind,ID,Before,After
+Indoor prototype,product,G082-03,UNKNOWN,PASS
+Warm environment,material,M082,UNKNOWN,PASS
+Warm environment,product,G082-03,UNKNOWN,PASS
+S06: A part that meets acids.,product,G001-19,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-22,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-23,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-30,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-176,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G001-181,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G017-04,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G018-06,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G035-02,UNKNOWN,FAIL
+S06: A part that meets acids.,material,M036,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G036-02,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G057-03,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-11,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-12,UNKNOWN,FAIL
+S06: A part that meets acids.,product,G039-13,UNKNOWN,FAIL

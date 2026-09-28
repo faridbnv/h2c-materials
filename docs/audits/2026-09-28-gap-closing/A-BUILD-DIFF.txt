@@ -1,0 +1,375 @@
+
+> h2c-fdm-material-selector@1.0.0 build:diff
+> node scripts/build-diff.mjs
+
+   694  db.grades[].estimate.elongationXY.plausible.hi
+   684  db.grades[].estimate.elongationXY.plausible.lo
+   683  db.grades[].estimate.elongationXY.hi
+   678  db.grades[].estimate.tensileModulusXY.plausible.hi
+   678  db.grades[].estimate.elongationXY.centre
+   677  db.grades[].estimate.elongationXY.lo
+   675  db.grades[].estimate.tensileStrengthXY.lo
+   661  db.grades[].estimate.tensileStrengthXY.hi
+   658  db.grades[].estimate.tensileStrengthXY.plausible.hi
+   648  db.grades[].estimate.tensileModulusXY.hi
+   632  db.grades[].estimate.tensileModulusXY.plausible.lo
+   624  db.grades[].estimate.tensileModulusXY.lo
+   623  db.grades[].estimate.tensileStrengthXY.centre
+   605  db.grades[].estimate.tensileStrengthXY.plausible.lo
+   583  db.grades[].estimate.tensileModulusXY.centre
+   551  db.grades[].estimate.tensileStrengthXY.evidence[].converted
+   427  db.grades[].estimate.tensileModulusXY.ownShare
+   370  db.grades[].estimate.elongationXY.ownShare
+   313  db.grades[].estimate.tensileStrengthXY.ownShare
+   193  db.grades[].estimate.elongationXY.evidence[].converted
+   152  db.meta.estimateModel.conflicts[].measurementIds[]
+   149  db.meta.estimateModel.conflicts[].values[]
+   144  db.grades[].estimate.tensileModulusXY.evidence[].converted
+   125  db.meta.estimateModel.conflicts[].materialId
+   125  db.meta.estimateModel.conflicts[].material
+    95  db.grades[].estimate.tensileStrengthXY.precision
+    86  db.meta.estimateModel.conflicts[].kind
+    63  db.measurements[].direction
+    63  db.measurements[].directionText
+    63  db.measurements[].notes
+    60  db.evidence[]
+    50  db.materials[].headline.tensileStrengthXY.estimate.evidence[].converted
+    50  db.measurements[].printParameters
+    40  db.materials[].headline.elongationXY.estimate.centre
+    40  db.materials[].headline.elongationXY.estimate.plausible.hi
+    40  db.materials[].headline.elongationXY.estimate.evidence[].converted
+    39  db.materials[].headline.tensileModulusXY.estimate.plausible.lo
+    39  db.materials[].headline.tensileModulusXY.estimate.plausible.hi
+    39  db.materials[].headline.tensileModulusXY.estimate.screenRange.hi
+    39  db.materials[].headline.elongationXY.estimate.lo
+    39  db.materials[].headline.elongationXY.estimate.plausible.lo
+    38  db.materials[].headline.elongationXY.estimate.hi
+    38  db.materials[].headline.elongationXY.estimate.screenRange.hi
+    37  db.materials[].headline.tensileModulusXY.estimate.screenRange.lo
+    35  db.materials[].headline.tensileStrengthXY.estimate.centre
+    35  db.materials[].headline.tensileStrengthXY.estimate.lo
+    35  db.materials[].headline.tensileStrengthXY.estimate.plausible.lo
+    35  db.materials[].headline.elongationXY.estimate.screenRange.lo
+    34  db.materials[].headline.tensileModulusXY.estimate.lo
+    34  db.materials[].headline.tensileModulusXY.estimate.hi
+    34  db.materials[].headline.tensileStrengthXY.estimate.hi
+    33  db.meta.estimateModel.conflicts[].measurementIds.length
+    33  db.meta.estimateModel.conflicts[].values.length
+    33  db.materials[].headline.tensileStrengthXY.estimate.plausible.hi
+    32  db.materials[].headline.tensileStrengthXY.estimate.screenRange.hi
+    30  db.materials[].headline.tensileModulusXY.estimate.centre
+    29  db.materials[].headline.elongationXY.estimate.screenBasis
+    29  db.materials[].headline.tensileStrengthXY.estimate.screenRange.lo
+    29  db.materials[].headline.tensileStrengthXY.estimate.screenBasis
+    28  db.materials[].headline.elongationXY.estimate.ownShare
+    24  db.measurements[].specimenType
+    24  db.measurements[].specimenForm
+    22  db.materials[].headline.tensileModulusXY.estimate.ownShare
+    20  db.materials[].headline.tensileModulusXY.estimate.evidence[].converted
+    17  db.materials[].headline.tensileStrengthXY.estimate.ownShare
+    16  db.meta.estimateModel.gradeOutliers[].z
+    16  db.meta.estimateModel.gradeOutliers[].gradeId
+    16  db.meta.estimateModel.gradeOutliers[].measurementIds[]
+    15  db.meta.estimateModel.gradeOutliers[].materialId
+    15  db.meta.estimateModel.gradeOutliers[].material
+    13  db.grades[].estimate.elongationXY.precision
+    12  db.materials[].headline.tensileModulusXY.estimate.screenBasis
+    11  db.materials[].evidenceIds.environmental.length
+    11  db.coverage[].finding
+    10  db.grades[].estimate.tensileModulusXY.precision
+     9  db.materials[].headline.elongationXY.estimate.screenLimit
+     9  db.measurements[].postProcessing
+     9  db.measurements[].postProcessingState
+     9  db.measurements[].anneal
+     9  db.measurements[].moisture
+     8  db.meta.estimateModel.conflicts[].key
+     7  db.materials[].headline.tensileStrengthXY.estimate.precision
+     6  db.meta.estimateModel.gradeOutliers[].key
+     6  db.meta.estimateModel.gradeOutliers[].kind
+     6  db.materials[].headline.elongationXY.spread.asPublished.n
+     6  db.materials[].summary.elongationXY.asPublished.n
+     6  db.materials[].headline.tensileStrengthXY.estimate.evidence[].gradeId
+     6  db.materials[].headline.tensileStrengthXY.estimate.evidence[].items[].measurementId
+     6  db.materials[].headline.tensileStrengthXY.estimate.evidence[].items[].gradeId
+     6  db.grades[].estimate.tensileModulusXY
+     6  db.grades[].estimate.elongationXY.evidence[].kind
+     5  db.meta.estimateModel.gradeOutliers[].measurementIds.length
+     5  db.materials[].headline.tensileStrengthXY.estimate.evidence[].items[].value
+     5  db.grades[].states[]
+     5  db.grades[].headline.elongationXY.level
+     5  db.grades[].headline.elongationXY.caveat
+     5  db.grades[].headline.elongationXY.direction
+     5  db.grades[].states[].values.elongationXY.level
+     5  db.grades[].states[].values.elongationXY.caveat
+     5  db.grades[].states[].values.elongationXY.direction
+     5  db.grades[].estimate.elongationXY
+     5  db.grades[].headline.tensileModulusXY.level
+     5  db.grades[].headline.tensileModulusXY.caveat
+     5  db.grades[].headline.tensileModulusXY.direction
+     5  db.grades[].headline.elongationXY
+     5  db.grades[].states[].values.elongationXY
+     5  db.measurements[].moistureState
+     4  db.materials[].headline.tensileModulusXY.spread.asPublished.n
+     4  db.materials[].summary.tensileModulusXY.asPublished.n
+     4  db.materials[].headline.tensileStrengthXY.estimate.evidence[].kind
+     4  db.materials[].headline.tensileStrengthXY.estimate.evidence[].items[].property
+     4  db.materials[].headline.tensileStrengthXY.estimate.evidence[].conversion
+     4  db.materials[].headline.tensileStrengthXY.estimate.screenLimit
+     4  db.grades[].states[].values.tensileModulusXY
+     4  db.grades[].headline.tensileStrengthXY.level
+     4  db.grades[].headline.tensileStrengthXY.caveat
+     4  db.grades[].headline.tensileStrengthXY.direction
+     4  db.grades[].estimate.tensileStrengthXY
+     4  db.grades[].states[].values.tensileModulusXY.level
+     4  db.grades[].states[].values.tensileModulusXY.caveat
+     4  db.grades[].states[].values.tensileModulusXY.direction
+     3  db.materials[].headline.elongationXY.spread.asPublished.min
+     3  db.materials[].summary.elongationXY.asPublished.min
+     3  db.grades[].headline.tensileModulusXY
+     3  db.grades[].estimate.elongationXY.evidence[].conflict
+     3  db.grades[].states[].values.tensileStrengthXY.level
+     3  db.grades[].states[].values.tensileStrengthXY.caveat
+     3  db.grades[].states[].values.tensileStrengthXY.direction
+     2  db.materials[].headline.tensileModulusXY.value
+     2  db.materials[].headline.tensileModulusXY.interval.lo
+     2  db.materials[].headline.tensileModulusXY.interval.hi
+     2  db.materials[].headline.tensileModulusXY.spread.n
+     2  db.materials[].headline.elongationXY.value
+     2  db.materials[].headline.elongationXY.interval.lo
+     2  db.materials[].headline.elongationXY.interval.hi
+     2  db.materials[].headline.elongationXY.spread.n
+     2  db.materials[].summary.tensileModulusXY.n
+     2  db.materials[].summary.tensileModulusXY.median
+     2  db.materials[].summary.elongationXY.n
+     2  db.materials[].summary.elongationXY.median
+     2  db.materials[].gates.chamber.basis
+     2  db.materials[].gates.chamber.unpublishedProfiles
+     2  db.materials[].headline.tensileStrengthXY.estimate.evidence[].conflict
+     2  db.materials[].headline.tensileStrengthXY.estimate.evidence[].items[].direction
+     2  db.materials[].headline.tensileStrengthXY.estimate.evidence[].items.length
+     2  db.materials[].headline.tensileModulusXY.estimate.screenLimit
+     2  db.materials[].headline.elongationXY.estimate.bounds.length
+     2  db.grades[].estimate.tensileStrengthXY.evidence[].conflict
+     2  db.grades[].print.anneal.length
+     2  db.grades[].print.chamber.verdict
+     2  db.grades[].print.chamber.reason
+     2  db.grades[].print.chamber.state
+     2  db.grades[].headline.elongationXY.admitted[]
+     2  db.grades[].states[].values.elongationXY.admitted[]
+     2  db.grades[].estimate.tensileModulusXY.evidence.length
+     2  db.grades[].estimate.tensileModulusXY.evidence[].kind
+     2  db.measurements[]
+     2  db.profiles[].chamber.text
+     2  db.profiles[].chamber.state
+     2  db.profiles[].chamber.requirement
+     2  db.profiles[].gates.chamber.verdict
+     2  db.profiles[].gates.chamber.reason
+     2  db.profiles[].locator
+     1  db.meta.counts.retiredDuplicates.measurements
+     1  db.meta.counts.numericMeasurements
+     1  db.meta.counts.quarantined
+     1  db.meta.counts.evidence
+     1  db.meta.environmentCategories.acid.records
+     1  db.meta.environmentCategories.acid.usable
+     1  db.meta.estimateCoverage.elongationXY.canScreen
+     1  db.meta.estimateModel.properties.tensileModulusXY.observations
+     1  db.meta.estimateModel.properties.tensileModulusXY.betweenProduct.sd
+     1  db.meta.estimateModel.properties.tensileModulusXY.betweenProduct.pairs
+     1  db.meta.estimateModel.properties.tensileModulusXY.betweenProduct.used
+     1  db.meta.estimateModel.properties.tensileModulusXY.spreads.w
+     1  db.meta.estimateModel.properties.tensileModulusXY.calibration.likelyScale
+     1  db.meta.estimateModel.properties.tensileModulusXY.calibration.plausibleScale
+     1  db.meta.estimateModel.properties.tensileModulusXY.calibration.medianLikelyWidth
+     1  db.meta.estimateModel.properties.tensileModulusXY.calibration.medianLikelyWidthWithOwnEvidence
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.flexural XY.offset
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.flexural XY.sd
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.flexural XY.pairs
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.flexural unk.offset
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.flexural unk.sd
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.flexural unk.pairs
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.tensile unk.sd
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.tensile unk.pairs
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.tensile moulded.offset
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.tensile moulded.sd
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.tensile moulded.pairs
+     1  db.meta.estimateModel.properties.tensileModulusXY.conversions.tensile unk wet-low
+     1  db.meta.estimateModel.properties.tensileModulusXY.screening.this-grade.above.beyondPlausible
+     1  db.meta.estimateModel.properties.tensileModulusXY.screening.this-grade.above.why
+     1  db.meta.estimateModel.properties.tensileModulusXY.screening.this-grade.below.beyondPlausible
+     1  db.meta.estimateModel.properties.tensileModulusXY.screening.this-grade.below.why
+     1  db.meta.estimateModel.properties.tensileModulusXY.gradeCalibration.held
+     1  db.meta.estimateModel.properties.tensileModulusXY.gradeCalibration.grades
+     1  db.meta.estimateModel.properties.tensileModulusXY.gradeCalibration.likelyScale
+     1  db.meta.estimateModel.properties.tensileModulusXY.gradeCalibration.plausibleScale
+     1  db.meta.estimateModel.properties.tensileModulusXY.gradeCalibration.likelyCoverage
+     1  db.meta.estimateModel.properties.tensileModulusXY.gradeCalibration.plausibleCoverage
+     1  db.meta.estimateModel.properties.tensileStrengthXY.observations
+     1  db.meta.estimateModel.properties.tensileStrengthXY.betweenProduct.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.betweenProduct.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.betweenProduct.used
+     1  db.meta.estimateModel.properties.tensileStrengthXY.spreads.tf
+     1  db.meta.estimateModel.properties.tensileStrengthXY.spreads.tfx
+     1  db.meta.estimateModel.properties.tensileStrengthXY.spreads.w
+     1  db.meta.estimateModel.properties.tensileStrengthXY.calibration.likelyScale
+     1  db.meta.estimateModel.properties.tensileStrengthXY.calibration.plausibleScale
+     1  db.meta.estimateModel.properties.tensileStrengthXY.calibration.plausibleCoverage
+     1  db.meta.estimateModel.properties.tensileStrengthXY.calibration.medianLikelyWidth
+     1  db.meta.estimateModel.properties.tensileStrengthXY.calibration.medianLikelyWidthWithOwnEvidence
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.break XY.offset
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.break XY.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.break XY.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.yield XY.offset
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.yield XY.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.yield XY.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.flexural XY.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.flexural XY.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.flexural unk.offset
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.flexural unk.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.flexural unk.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.ultimate unk.offset
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.ultimate unk.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.ultimate unk.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.break unk.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.break unk.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.yield unk.offset
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.yield unk.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.yield unk.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.ultimate moulded.offset
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.ultimate moulded.sd
+     1  db.meta.estimateModel.properties.tensileStrengthXY.conversions.ultimate moulded.pairs
+     1  db.meta.estimateModel.properties.tensileStrengthXY.screening.this-grade.below.beyondPlausible
+     1  db.meta.estimateModel.properties.tensileStrengthXY.screening.this-grade.below.quantile
+     1  db.meta.estimateModel.properties.tensileStrengthXY.screening.this-grade.below.why
+     1  db.meta.estimateModel.properties.tensileStrengthXY.screening.this-material.below.beyondPlausible
+     1  db.meta.estimateModel.properties.tensileStrengthXY.screening.this-material.below.why
+     1  db.meta.estimateModel.properties.tensileStrengthXY.screening.family.below.quantile
+     1  db.meta.estimateModel.properties.tensileStrengthXY.screening.family.below.why
+     1  db.meta.estimateModel.properties.tensileStrengthXY.gradeCalibration.held
+     1  db.meta.estimateModel.properties.tensileStrengthXY.gradeCalibration.grades
+     1  db.meta.estimateModel.properties.tensileStrengthXY.gradeCalibration.likelyScale
+     1  db.meta.estimateModel.properties.tensileStrengthXY.gradeCalibration.plausibleScale
+     1  db.meta.estimateModel.properties.tensileStrengthXY.gradeCalibration.likelyCoverage
+     1  db.meta.estimateModel.properties.tensileStrengthXY.gradeCalibration.plausibleCoverage
+     1  db.meta.estimateModel.properties.elongationXY.observations
+     1  db.meta.estimateModel.properties.elongationXY.betweenProduct.sd
+     1  db.meta.estimateModel.properties.elongationXY.betweenProduct.pairs
+     1  db.meta.estimateModel.properties.elongationXY.betweenProduct.used
+     1  db.meta.estimateModel.properties.elongationXY.spreads.tp
+     1  db.meta.estimateModel.properties.elongationXY.spreads.w
+     1  db.meta.estimateModel.properties.elongationXY.calibration.likelyScale
+     1  db.meta.estimateModel.properties.elongationXY.calibration.plausibleScale
+     1  db.meta.estimateModel.properties.elongationXY.calibration.likelyCoverage
+     1  db.meta.estimateModel.properties.elongationXY.calibration.medianLikelyWidth
+     1  db.meta.estimateModel.properties.elongationXY.calibration.medianLikelyWidthWithOwnEvidence
+     1  db.meta.estimateModel.properties.elongationXY.conversions.break unk.sd
+     1  db.meta.estimateModel.properties.elongationXY.conversions.break unk.pairs
+     1  db.meta.estimateModel.properties.elongationXY.conversions.break moulded.sd
+     1  db.meta.estimateModel.properties.elongationXY.conversions.break moulded.pairs
+     1  db.meta.estimateModel.properties.elongationXY.conversions.yield XY.offset
+     1  db.meta.estimateModel.properties.elongationXY.conversions.yield XY.sd
+     1  db.meta.estimateModel.properties.elongationXY.conversions.yield XY.pairs
+     1  db.meta.estimateModel.properties.elongationXY.conversions.yield unk.offset
+     1  db.meta.estimateModel.properties.elongationXY.conversions.yield unk.sd
+     1  db.meta.estimateModel.properties.elongationXY.conversions.break unk wet-low
+     1  db.meta.estimateModel.properties.elongationXY.screening.this-material.above.beyondPlausible
+     1  db.meta.estimateModel.properties.elongationXY.screening.this-material.above.why
+     1  db.meta.estimateModel.properties.elongationXY.screening.family.below.beyondPlausible
+     1  db.meta.estimateModel.properties.elongationXY.screening.family.below.why
+     1  db.meta.estimateModel.properties.elongationXY.gradeCalibration.held
+     1  db.meta.estimateModel.properties.elongationXY.gradeCalibration.grades
+     1  db.meta.estimateModel.properties.elongationXY.gradeCalibration.likelyScale
+     1  db.meta.estimateModel.properties.elongationXY.gradeCalibration.plausibleScale
+     1  db.meta.estimateModel.properties.elongationXY.gradeCalibration.likelyCoverage
+     1  db.meta.estimateModel.properties.elongationXY.gradeCalibration.plausibleCoverage
+     1  db.meta.estimateModel.conflicts.length
+     1  db.meta.estimateModel.outliers.length
+     1  db.meta.estimateModel.outliers[].key
+     1  db.meta.estimateModel.outliers[].materialId
+     1  db.meta.estimateModel.outliers[].material
+     1  db.meta.estimateModel.outliers[].measured
+     1  db.meta.estimateModel.outliers[].expected
+     1  db.meta.estimateModel.outliers[].unit
+     1  db.meta.estimateModel.outliers[].z
+     1  db.meta.estimateModel.gradeOutliers.length
+     1  db.meta.consistency.headlineCitations
+     1  db.meta.estimateTally.screen
+     1  db.meta.estimateTally.poor
+     1  db.materials[].headline.tensileModulusXY.spread.min
+     1  db.materials[].headline.tensileModulusXY.spread.q1
+     1  db.materials[].headline.tensileModulusXY.spread.q3
+     1  db.materials[].headline.tensileModulusXY.spread.twins
+     1  db.materials[].headline.tensileModulusXY.typical.gradeId
+     1  db.materials[].headline.tensileModulusXY.typical.measurementId
+     1  db.materials[].headline.tensileModulusXY.typical.value
+     1  db.materials[].headline.tensileStrengthXY.spread.n
+     1  db.materials[].headline.tensileStrengthXY.spread.max
+     1  db.materials[].headline.tensileStrengthXY.spread.q1
+     1  db.materials[].headline.tensileStrengthXY.spread.q3
+     1  db.materials[].headline.tensileStrengthXY.spread.asPublished.n
+     1  db.materials[].headline.tensileStrengthXY.spread.twins
+     1  db.materials[].headline.elongationXY.spread.q1
+     1  db.materials[].headline.elongationXY.spread.twins
+     1  db.materials[].summary.tensileModulusXY.min
+     1  db.materials[].summary.tensileModulusXY.typical
+     1  db.materials[].summary.tensileModulusXY.q1
+     1  db.materials[].summary.tensileModulusXY.q3
+     1  db.materials[].summary.tensileModulusXY.twins
+     1  db.materials[].summary.tensileStrengthXY.n
+     1  db.materials[].summary.tensileStrengthXY.max
+     1  db.materials[].summary.tensileStrengthXY.q1
+     1  db.materials[].summary.tensileStrengthXY.q3
+     1  db.materials[].summary.tensileStrengthXY.twins
+     1  db.materials[].summary.tensileStrengthXY.asPublished.n
+     1  db.materials[].summary.elongationXY.q1
+     1  db.materials[].summary.elongationXY.twins
+     1  db.materials[].print.chamberC.profiles
+     1  db.materials[].knowHow.recipe.annealing.collected
+     1  db.materials[].knowHow.recipe.annealing.sheet-silent
+     1  db.materials[].headline.elongationXY.estimate.canScreen
+     1  db.materials[].headline.elongationXY.estimate.screenRange
+     1  db.materials[].headline.tensileStrengthXY.estimate.evidence.length
+     1  db.materials[].print.chamberGuidance.profiles
+     1  db.materials[].headline.tensileModulusXY.spread.max
+     1  db.materials[].headline.tensileModulusXY.spread.asPublished.max
+     1  db.materials[].headline.tensileModulusXY.measurementId
+     1  db.materials[].headline.tensileModulusXY.gradeId
+     1  db.materials[].headline.elongationXY.spread.min
+     1  db.materials[].headline.elongationXY.spread.asPublished
+     1  db.materials[].headline.elongationXY.typical.gradeId
+     1  db.materials[].headline.elongationXY.typical.measurementId
+     1  db.materials[].headline.elongationXY.typical.value
+     1  db.materials[].headline.elongationXY.measurementId
+     1  db.materials[].headline.elongationXY.gradeId
+     1  db.materials[].summary.tensileModulusXY.max
+     1  db.materials[].summary.tensileModulusXY.asPublished.max
+     1  db.materials[].summary.elongationXY.min
+     1  db.materials[].summary.elongationXY.typical
+     1  db.materials[].summary.elongationXY.asPublished
+     1  db.materials[].headline.tensileModulusXY.estimate.bounds.length
+     1  db.materials[].headline.elongationXY.estimate.precision
+     1  db.grades[].estimate.tensileStrengthXY.evidence.length
+     1  db.grades[].knowHow.recipe.annealing
+     1  db.grades[].headline.elongationXY.admitted.length
+     1  db.grades[].states[].values.elongationXY.admitted.length
+     1  db.grades[].headline.tensileModulusXY.admitted.length
+     1  db.grades[].headline.tensileModulusXY.admitted[]
+     1  db.grades[].headline.tensileModulusXY.anneal
+     1  db.grades[].headline.tensileStrengthXY.admitted.length
+     1  db.grades[].headline.tensileStrengthXY.admitted[]
+     1  db.grades[].headline.tensileStrengthXY.anneal
+     1  db.grades[].states[].values.tensileStrengthXY
+     1  db.grades[].print.anneal[].tempC
+     1  db.grades[].print.anneal[].hours
+     1  db.grades[].print.anneal[].measurementId
+     1  db.grades[].print.chamber.min
+     1  db.grades[].print.chamber.max
+     1  db.grades[].estimate.elongationXY.evidence.length
+     1  db.grades[].estimate.elongationXY.evidence[].measurementIds.length
+     1  db.profiles[].chamber.unparsed
+     1  db.profiles[].chamber.min
+     1  db.profiles[].chamber.max
+     1  db.profiles[].chamber.count
+     1  db.profiles[].gates.chamber.reachable
+     1  db.profiles[].gates.chamber.over
+release cd86004aa920 -> 830b56528862
+14617 difference(s) between HEAD and the working tree

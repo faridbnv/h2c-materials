@@ -1,0 +1,61 @@
+
+> h2c-fdm-material-selector@1.0.0 trace
+> node scripts/trace.mjs M142
+
+M142 nGen-CF  (data/tables/materials.csv:143)  scope H2C-relevant · family Copolyesters · 1 product(s)
+  density: Not published (not-published)
+    estimate 1100–1340 kg/m³ (likely), plausible 995–1500; family, precision fair
+  tensileModulusXY = 2.52 GPa  [products]
+    median of 1 product(s) publishing it comparably, 2.52–2.52; typical product G142-01
+    measurement V005758  (data/tables/measurements.csv:5759)  Tensile modulus
+      raw "2520 MPa" [MPa] -> numeric 2520 × factor 0.001 = 2.52 GPa
+      status Published value · operator = · direction XY · specimen Printed specimen
+      moisture Not published · standard/load ISO 527-1A · locator p. 1: Youngs Modulus Tensile, ISO 527-1A
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Youngs Modulus Tensile, ISO 527-1A); the value is unchanged. Corrected 2026-09-25 (m155-the-test-conditions-the-sheets-state) against the source: p. 2 prints, under Notes, "The specimens have been printed in XY plane, using 0.15 mm layer height, 100% infill, 0,4 mm nozzle, 230 ˚C nozzle temperature and 80˚C bed temperature."; this row stands in the table headed "Mechanical Properties – 3D Printed" (p. 1), so its bars were printed in the XY plane. Read by an AI agent (Claude, re-center lane 4), not a person.
+      grade G142-01  (data/tables/grades.csv:474)  colorFabb nGen CF10 · material M142
+      source R-COLORFABB-TDS-nGen-CF10  (data/tables/sources.csv:636)
+        colorFabb — Technical datasheet nGen CF10
+        https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/colorFabb%20nGen/TDS_nGen%20CF10.pdf
+        accessed 2026-09-19 · retrieved · sha256 2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54
+  tensileStrengthXY = 44.7 MPa  [products]
+    median of 1 product(s) publishing it comparably, 44.7–44.7; typical product G142-01
+    measurement V005759  (data/tables/measurements.csv:5760)  Tensile strength (endpoint unspecified)
+      raw "44.7 MPa" [MPa] -> numeric 44.7 × factor 1 = 44.7 MPa
+      status Published value · operator = · direction XY · specimen Printed specimen
+      moisture Not published · standard/load ISO 527-1A · locator p. 1: Tensile Strength Tensile, ISO 527-1A
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Tensile Strength Tensile, ISO 527-1A); the value is unchanged. Corrected 2026-09-25 (m155-the-test-conditions-the-sheets-state) against the source: p. 2 prints, under Notes, "The specimens have been printed in XY plane, using 0.15 mm layer height, 100% infill, 0,4 mm nozzle, 230 ˚C nozzle temperature and 80˚C bed temperature."; this row stands in the table headed "Mechanical Properties – 3D Printed" (p. 1), so its bars were printed in the XY plane. Read by an AI agent (Claude, re-center lane 4), not a person.
+      grade G142-01  (data/tables/grades.csv:474)  colorFabb nGen CF10 · material M142
+      source R-COLORFABB-TDS-nGen-CF10  (data/tables/sources.csv:636)
+        colorFabb — Technical datasheet nGen CF10
+        https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/colorFabb%20nGen/TDS_nGen%20CF10.pdf
+        accessed 2026-09-19 · retrieved · sha256 2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54
+  tensileStrengthZ: Not published (not-published)
+  elongationXY = 3.1 %  [products]
+    median of 1 product(s) publishing it comparably, 3.1–3.1; typical product G142-01
+    measurement V005760  (data/tables/measurements.csv:5761)  Elongation at break
+      raw "3.1 %" [%] -> numeric 3.1 × factor 1 = 3.1 %
+      status Published value · operator = · direction XY · specimen Printed specimen
+      moisture Not published · standard/load ISO 527-1A · locator p. 1: Elongation at break Tensile, ISO 527-1A
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Elongation at break Tensile, ISO 527-1A); the value is unchanged. Corrected 2026-09-25 (m155-the-test-conditions-the-sheets-state) against the source: p. 2 prints, under Notes, "The specimens have been printed in XY plane, using 0.15 mm layer height, 100% infill, 0,4 mm nozzle, 230 ˚C nozzle temperature and 80˚C bed temperature."; this row stands in the table headed "Mechanical Properties – 3D Printed" (p. 1), so its bars were printed in the XY plane. Read by an AI agent (Claude, re-center lane 4), not a person.
+      grade G142-01  (data/tables/grades.csv:474)  colorFabb nGen CF10 · material M142
+      source R-COLORFABB-TDS-nGen-CF10  (data/tables/sources.csv:636)
+        colorFabb — Technical datasheet nGen CF10
+        https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/colorFabb%20nGen/TDS_nGen%20CF10.pdf
+        accessed 2026-09-19 · retrieved · sha256 2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54
+  charpyNotched: Not published (not-published)
+    related evidence: V005763, V006000
+  izodNotched: Not published (not-published)
+  hdt045 = 78 °C  [products]
+    median of 1 product(s) publishing it comparably, 78–78; typical product G142-01
+    measurement V005764  (data/tables/measurements.csv:5765)  HDT
+      raw "78 °C" [°C] -> numeric 78 × factor 1 = 78 °C
+      status Published value · operator = · direction Not applicable · specimen Printed specimen
+      moisture Not published · standard/load HDT B ISO 75 · locator p. 1: Heat Deflection Temp. HDT-B, ISO 75
+      notes: Added 2026-09-19 (m72-batch-b09): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Method and load from the label (m111): the sheet prints "HDT B", which ISO 75 defines as 0.45 MPa (D65). Corrected 2026-09-21 (m118-conditions-the-sheets-state) against the source: re-read with the current reader, the sheet states Specimen type Printed specimen (p. 1: Heat Deflection Temp. HDT-B, ISO 75); the value is unchanged.
+      grade G142-01  (data/tables/grades.csv:474)  colorFabb nGen CF10 · material M142
+      source R-COLORFABB-TDS-nGen-CF10  (data/tables/sources.csv:636)
+        colorFabb — Technical datasheet nGen CF10
+        https://downloads.colorfabb.com/public.php/dav/files/rtfDDRCa723Xdor/Technical%20Data%20Sheets/Co-Polyester/colorFabb%20nGen/TDS_nGen%20CF10.pdf
+        accessed 2026-09-19 · retrieved · sha256 2c0becc0dc91ad3b5587f7d9a47bbcf08177752c28dc0b94453780376acc9c54
+  glassTransition: Not published (not-published)
+  priceCADkg: Not available in sampled Canadian market (not-available-in-market)

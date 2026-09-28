@@ -1,0 +1,158 @@
+[
+  {
+    "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1",
+    "SHA256": "c841198cb96c3c3b76c0b367e1fdb41d1b1002e01c248af55a47636e53a59fa4",
+    "File": "pages/c841198cb96c3c3b76c0b367e1fdb41d1b1002e01c248af55a47636e53a59fa4/reviewed-asa.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4",
+    "SHA256": "9ddb21a98d783d3aef02d065d757729f624e3451740ba3eb8504296d09c4c7f3",
+    "File": "pages/9ddb21a98d783d3aef02d065d757729f624e3451740ba3eb8504296d09c4c7f3/reviewed-petcf.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-COLORFABB-TDS-E-colorFabb-PLA-Chameleon",
+    "SHA256": "de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9",
+    "File": "pages/de530a3995ad40e2cd7be04f5ce1d03fae1e70e9f8915f335ed6175bde0c2dd9/reviewed-chameleon.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-COLORFABB-TDS-ColorFabb-StoneFill",
+    "SHA256": "ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe",
+    "File": "pages/ee3c6b175c11d7027d89c3a89c5182939819a644d375b2786e7d27c750537cbe/reviewed-stone.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-tough",
+    "SHA256": "23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204",
+    "File": "pages/23131d74fa4760eab9f6d028130986850de6039bfd3dcb7e5177c2d42e276204/reviewed-tough.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-FIBERLOGY-FIBERLOGY-IMPACT-PLA-TDS",
+    "SHA256": "d57fb0b76dd54870dfbdae8db83a8366d06f299639fd7cd057431858c1f046a5",
+    "File": "pages/d57fb0b76dd54870dfbdae8db83a8366d06f299639fd7cd057431858c1f046a5/reviewed-impact.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-STRATASYS-mds-fdm-absesd7-0222a",
+    "SHA256": "b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def",
+    "File": "pages/b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def/reviewed-esd.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-STRATASYS-mds-fdm-absesd7-0222a",
+    "SHA256": "b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def",
+    "File": "pages/b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def/reviewed-esd-6.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-STRATASYS-mds-fdm-absesd7-0222a",
+    "SHA256": "b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def",
+    "File": "pages/b44862ca9899bebccdb174eeb928eef152cec78d0d5d7e13d1282a02d4656def/reviewed-esd-7.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-COLORFABB-TDS-E-colorFabb-nGen-CF10",
+    "SHA256": "d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88",
+    "File": "pages/d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88/reviewed-ngen.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-COLORFABB-TDS-E-colorFabb-nGen-CF10",
+    "SHA256": "d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88",
+    "File": "pages/d925c394a73951fd52d044a108fa99bec03c7cae65c656f7283b1e9a45cd5f88/reviewed-ngen1.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-COLORFABB-TDS-E-ColorFabb-PETG-Economy-0",
+    "SHA256": "4cf588febf0ed414b142bd8a924d061d18874b6fc9aad91553c945189008c570",
+    "File": "pages/4cf588febf0ed414b142bd8a924d061d18874b6fc9aad91553c945189008c570/reviewed-petgeco.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-COLORFABB-TDS-varioShore-TPU85A",
+    "SHA256": "b68e8d6f66aa189424f420ae2691490679a7d9391a7158b52c32bf5e20891fe4",
+    "File": "pages/b68e8d6f66aa189424f420ae2691490679a7d9391a7158b52c32bf5e20891fe4/reviewed-vario.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-COLORFABB-TDS-varioShore-TPU85A",
+    "SHA256": "b68e8d6f66aa189424f420ae2691490679a7d9391a7158b52c32bf5e20891fe4",
+    "File": "pages/b68e8d6f66aa189424f420ae2691490679a7d9391a7158b52c32bf5e20891fe4/reviewed-vario1.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-BRASKEM-Braskem-3D-Printing-Data-Sheet-FL900PP-CF",
+    "SHA256": "720ad2fc3b80a1873da10e43927f9b5fd527a9ffcfa8bbcc31d8206b0e2a63bd",
+    "File": "pages/720ad2fc3b80a1873da10e43927f9b5fd527a9ffcfa8bbcc31d8206b0e2a63bd/reviewed-braskem.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+    "SHA256": "7175ed4ad9be45056e60acd9e13dad42576aac1818e80de32c0ed96e8d59f915",
+    "File": "pages/7175ed4ad9be45056e60acd9e13dad42576aac1818e80de32c0ed96e8d59f915/reviewed-paht5.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5",
+    "SHA256": "7175ed4ad9be45056e60acd9e13dad42576aac1818e80de32c0ed96e8d59f915",
+    "File": "pages/7175ed4ad9be45056e60acd9e13dad42576aac1818e80de32c0ed96e8d59f915/reviewed-paht6.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-STRATASYS-mds-fdm-pc-abs-0823a",
+    "SHA256": "1aedfbdf10aa594b5f59342c2ccc801f482e933286815f9e602436a581093e79",
+    "File": "pages/1aedfbdf10aa594b5f59342c2ccc801f482e933286815f9e602436a581093e79/reviewed-pcabs7.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+    "SHA256": "7d332224ace80900fd38dd4ffb78fea2bfbea8113d7cb4b65fa05a69a5e9cadc",
+    "File": "pages/7d332224ace80900fd38dd4ffb78fea2bfbea8113d7cb4b65fa05a69a5e9cadc/reviewed-hips4.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SourceID": "R-STRATASYS-mds-fdm-hips-0823a",
+    "SHA256": "7d332224ace80900fd38dd4ffb78fea2bfbea8113d7cb4b65fa05a69a5e9cadc",
+    "File": "pages/7d332224ace80900fd38dd4ffb78fea2bfbea8113d7cb4b65fa05a69a5e9cadc/reviewed-hips5.png",
+    "Review": "Codex AI agent, 2026-09-28; image displayed in the condition review"
+  },
+  {
+    "SHA256": "23e26436c74735776ffd6f5edfaa46881bde0fa2d60b276eeb65de9fd092b3ea",
+    "File": "pages/23e26436c74735776ffd6f5edfaa46881bde0fa2d60b276eeb65de9fd092b3ea/reviewed-held-23e26436c7473577.png",
+    "Review": "Codex AI agent, 2026-09-28; visual identity review, no adjacent-product value accepted"
+  },
+  {
+    "SHA256": "2de0e60b64cd3596f30103b37ec5f8ee67bd9463c76a6f9cbeb30c6a9ea807aa",
+    "File": "pages/2de0e60b64cd3596f30103b37ec5f8ee67bd9463c76a6f9cbeb30c6a9ea807aa/reviewed-held-2de0e60b64cd3596.png",
+    "Review": "Codex AI agent, 2026-09-28; visual identity review, no adjacent-product value accepted"
+  },
+  {
+    "SHA256": "7d75ca52e59a59a1833d15a1fd1cf5f1467d766f2cdf08e2fc7aea6b747bd373",
+    "File": "pages/7d75ca52e59a59a1833d15a1fd1cf5f1467d766f2cdf08e2fc7aea6b747bd373/reviewed-held-7d75ca52e59a59a1.png",
+    "Review": "Codex AI agent, 2026-09-28; visual identity review, no adjacent-product value accepted"
+  },
+  {
+    "SHA256": "cba8422069f244e86abeca7662cf39ade92bb6b6b19e4570db5aadbba7144343",
+    "File": "pages/cba8422069f244e86abeca7662cf39ade92bb6b6b19e4570db5aadbba7144343/reviewed-held-cba8422069f244e8.png",
+    "Review": "Codex AI agent, 2026-09-28; visual identity review, no adjacent-product value accepted"
+  },
+  {
+    "SHA256": "fe20e69c8fdc7d278a2bc373fa2b824b603a989edb563015785d0986a10f6ad3",
+    "File": "pages/fe20e69c8fdc7d278a2bc373fa2b824b603a989edb563015785d0986a10f6ad3/reviewed-held-fe20e69c8fdc7d27.png",
+    "Review": "Codex AI agent, 2026-09-28; visual identity review, no adjacent-product value accepted"
+  },
+  {
+    "SHA256": "9c6f8b6fe1d8e21360ca83ecb8de97f127b241bfb2223f661057c95844d61861",
+    "File": "pages/9c6f8b6fe1d8e21360ca83ecb8de97f127b241bfb2223f661057c95844d61861/reviewed-held-bigrep.png",
+    "Review": "Codex AI agent, 2026-09-28; visual identity review, no adjacent-product value accepted"
+  },
+  {
+    "SourceID": "R-FILLAMENTUM-PRINT-20260928-5f11a7e57e06",
+    "SHA256": "5f11a7e57e06cd145b40ba321f3785499fd7c9f2b35a4dd0238d0e64d72d8f46",
+    "File": "pages/5f11a7e57e06cd145b40ba321f3785499fd7c9f2b35a4dd0238d0e64d72d8f46/reviewed-obc-guide.png",
+    "Review": "Codex AI agent, 2026-09-28; original guide p. 1 viewed for explicit no-heated-chamber statement"
+  }
+]

@@ -65,7 +65,9 @@ test('a real build raises only catalogued codes at their catalogued level', () =
   // EST-GRADE-OUTLIER arrived with the grade estimates (D81): a grade's own value, hidden, far from its prediction.
   // HEADLINE-UNESTIMATED arrived with the families' "polymer not stated" homes (D87, m142): they are declared not
   // estimated, so a headline none of their products publishes is listed rather than an error.
-  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS']);
+  // m216 preserves Spectrum's full no-heated-chamber sentence. Its reviewed typed state is authoritative,
+  // while PARSE-UNREAD records that the temperature parser cannot read that prose; no finding is suppressed.
+  assert.deepEqual([...new Set(issues.map((i) => i.code))].sort(), ['EST-CONFLICT', 'EST-FAMILY-ORDER', 'EST-GRADE-OUTLIER', 'EST-OUTLIER', 'EST-REJECTED', 'EST-SUMMARY', 'EST-THIN', 'FAMILY-ENTRIES', 'HEADLINE-UNESTIMATED', 'IMPACT-UNITS', 'NO-MEASUREMENTS', 'PARSE-UNREAD']);
 });
 
 test('provoked errors carry the code a reader looks up', () => {
