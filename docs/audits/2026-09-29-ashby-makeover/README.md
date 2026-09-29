@@ -208,3 +208,16 @@ ranges, estimates, a pick with a zoom); the full set is in the package's `implem
 
 **Layout.** The controls are three rows (Draw, Also, Line) and the axes a bar across the top of the chart. At 1440 × 900
 with the rail hidden the plotting area is 798 × 450 at y 390; at 1024 × 768, 902 × 395 with the results under it.
+
+## Third revision: coarse to fine, one shape per filler, details in place (D110)
+
+The owner asked for the published view to keep only the typical values, under a name that says what it is, with the test
+pairs as a rarely used option; for the order typical, ranges, products; for shape to mean filler on every view; and for the
+right-hand panel to stop getting messy when marks are pressed one after another.
+
+Pressing six marks in a row on the D109 lens (headless Chrome, mouse events on the chart, scope and print gates, the beam
+goal): each press left one more material's product list open (0, 1, 2, 3, 4, 5); the list's scroll went 1199, 1064,
+2242, 278, 3372; the details sat in an 88 px box at the bottom of the panel, under the status bar. After D110 the same six
+presses leave no fold open, the details replace the list and are swapped in place, and **← Ranking** returns the list with
+the picked material's row in view. Draw now reads *Material typicals | Material ranges | Products*; the test pairs are under
+More. `npm run ui:check` presses marks with the mouse and holds this. Screens: `visuals/d110-*`.

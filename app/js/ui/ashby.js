@@ -41,7 +41,7 @@ export { chartFit, chooseLabels, labelBox } from './chart.js';
 export const VIEWS = [
   { id: 'decision', label: 'Products', help: 'Each product that meets the requirements, in the state its answer is in.' },
   { id: 'overview', label: 'Material ranges', help: 'Each material as the middle half of its products on each axis, whiskers to the extremes; its products as dots.' },
-  { id: 'catalogue', label: 'Typical published values', help: 'One point per material at its typical published values, with its products\' spread.', evidence: true },
+  { id: 'catalogue', label: 'Material typicals', help: 'One point per material at its typical published values, with its products\' spread.', evidence: true },
   { id: 'measured', label: 'Test pairs, matched conditions', help: 'Two measurements of one product in one condition, from one document: moisture, treatment, specimen and direction agree.', evidence: true },
   { id: 'measured-mixed', label: 'Test pairs, mixed conditions', help: 'Every pair of one product\'s measurements; each mismatch is named and drawn hollow. Exploration, never a decision.', evidence: true },
 ];
@@ -106,6 +106,7 @@ export function renderAshby(host, state, actions) {
     list.scrollTop = listUi.scroll;
   }
   if (scroller && pageAt !== null) scroller.scrollTop = pageAt;
+  fitResults(host);
   if (focusKey) host.querySelector(`[data-focus="${focusKey}"]`)?.focus({ preventScroll: true });
   if (state.inspectFocus) { state.inspectFocus = false; host.querySelector('.ws-inspector')?.focus({ preventScroll: true }); }
   // A mark pressed on the chart: its material's row is brought into the list's view, the list alone scrolling.
@@ -118,6 +119,28 @@ export function renderAshby(host, state, actions) {
       listUi.scroll = list.scrollTop;
     }
   }
+}
+
+/**
+ * The results panel ends where the screen does (D109): it sits beside the chart and sticks as the lens scrolls, and a
+ * fixed height had put its bottom, and the details opened there, under the status bar until the lens was scrolled.
+ */
+let fitWired = false;
+function fitResults(host) {
+  const fit = () => {
+    const panel = document.querySelector('#lens .ws-results');
+    const scroller = panel?.closest('.lens-view');
+    if (!panel || !scroller) return;
+    if (getComputedStyle(panel).position !== 'sticky') { panel.style.maxHeight = ''; return; }
+    const box = scroller.getBoundingClientRect();
+    const top = Math.max(panel.getBoundingClientRect().top, box.top);
+    panel.style.maxHeight = `${Math.max(240, Math.min(window.innerHeight, box.bottom) - top - 8)}px`;
+  };
+  fit();
+  if (fitWired) return;
+  fitWired = true;
+  host.closest('.lens-view')?.addEventListener('scroll', fit, { passive: true });
+  window.addEventListener('resize', fit);
 }
 
 /** The list's own search: it narrows the list on screen and nothing else. */
@@ -199,7 +222,7 @@ function legacyView(state, view) {
         with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range,
         built from the material's own related measurements and its polymer family, beside its products' measured span on
         the other axis. Two marginal ranges, not a joint region: it never joins the frontier and never counts as a plotted candidate.` : ''}
-      ${frontSize > 1 ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
+      ${frontSize > 1 && state.scenario.plot.layers?.front ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
         both axes at once, at their typical values: ${esc(prop(xDef.key).plain.toLowerCase())} ${xDef.better === 'max' ? 'higher' : 'lower'} is better,
         ${esc(prop(yDef.key).plain.toLowerCase())} ${yDef.better === 'max' ? 'higher' : 'lower'} is better.` : ''}
     </div>`;
@@ -220,6 +243,7 @@ const GLYPH = {
   'triangle-up': '<path d="M8 3 13.5 13h-11z"/>',
   'star': '<path d="M8 2.2l1.7 3.9 4.2.4-3.2 2.8.9 4.1L8 11.3l-3.6 2.1.9-4.1-3.2-2.8 4.2-.4z"/>',
   'circle-open': '<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>',
+  'hexagon': '<path d="M8 2.5l4.8 2.75v5.5L8 13.5l-4.8-2.75v-5.5z"/>',
 };
 const glyph = (inner, extra = '') => `<svg class="key-glyph" viewBox="0 0 16 16" aria-hidden="true"${extra}>${inner}</svg>`;
 
@@ -383,7 +407,7 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
       }
     }
   }
-  return { pts, mixed: [...mixed], conflicting, unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Test pairs, mixed conditions" under Published data, or a different pair of axes.' };
+  return { pts, mixed: [...mixed], conflicting, unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Test pairs, mixed conditions" under More, or a different pair of axes.' };
 }
 
 /**
@@ -611,8 +635,9 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
 
   // Pareto front over the eligible candidates only, drawn through the bubbles, so it is a front of materials' typical
   // values: context, and named so beside the goal's ranking, which is by passing products (D102).
+  // Drawn by its chip under Also, as in the Products view (D110).
   const front = sortFront(frontNow, xDef.better);
-  if (front.length > 1) {
+  if (front.length > 1 && p.layers?.front) {
     traces.push({
       type: 'scatter', mode: 'lines', name: 'Pareto front of typical values', legendgroup: 'pareto',
       x: front.map((q) => q.x), y: front.map((q) => q.y),
@@ -712,8 +737,7 @@ function wireControls(host, state, actions, ws, { view }) {
   on('[data-start-goal]', 'click', (el) => actions.startExercise(el.dataset.startGoal || null, !!host.querySelector('[data-start-gates]')?.checked));
   // Each control's one effect (D109). What draws changes what is drawn; what changes the axes starts the new picture
   // whole (a zoom on other axes means nothing there); nothing else is touched: goal, line, pick, list and zoom stay.
-  on('button[data-view]', 'click', (el) => actions.setPlot({ view: el.dataset.view }));
-  on('[data-view-select]', 'change', (el) => actions.setPlot({ view: el.value }));
+  on('button[data-view]', 'click', (el) => { openFolds.set('more', false); actions.setPlot({ view: el.dataset.view }); });
   const newAxes = (patch) => { forgetZoom(); actions.setPlot(patch); };
   on('[data-axis]', 'change', (el) => {
     const which = el.dataset.axis;

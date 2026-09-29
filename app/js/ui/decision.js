@@ -7,7 +7,7 @@
 
 import { indexById, INDICES, selectionLine, PRICE_CAVEAT } from '../engine/indices.js';
 import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
-import { buildFamilyColors, esc, fmtNumber, fmtRange, chip } from './format.js';
+import { buildFamilyColors, esc, fmtNumber, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
 import { AXIS_DEFS } from './axes.js';
 import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH } from './labels.js';
 import { asksPrintable } from './templates.js';
@@ -190,15 +190,18 @@ const foldOpen = (name) => openFolds.get(name) === true;
  * open. A redraw puts it back (ashby.js), so no press elsewhere throws the reader to the top of an emptied list. */
 export const listUi = { filter: '', scroll: 0, open: new Set() };
 
-/** What the chart draws: two views of the answer, and the published data the answer was judged from. */
-const WORK_VIEWS = [
-  ['decision', 'Products', 'Each product that meets the requirements, in the state it is judged in'],
+/**
+ * What the chart draws, from the coarsest picture to the finest (D110): one dot per material, each material's range, every
+ * product. Test pairs, the raw measurements behind them, are rarely needed and sit under More.
+ */
+const DRAW_VIEWS = [
+  ['catalogue', 'Material typicals', 'One dot per material at its typical datasheet value (its products\' median), as printed and dry'],
   ['overview', 'Material ranges', 'Each material as the middle half of its products on each axis, whiskers to the extremes'],
+  ['decision', 'Products', 'Each product that meets the requirements, in the state it is judged in: ranked, with the line'],
 ];
-export const EVIDENCE_VIEWS = [
-  ['catalogue', 'Typical published values'],
-  ['measured', 'Test pairs, matched conditions'],
-  ['measured-mixed', 'Test pairs, mixed conditions'],
+export const TEST_PAIR_VIEWS = [
+  ['measured', 'Test pairs, matched conditions', 'Two measurements of one product in one condition, from one document'],
+  ['measured-mixed', 'Test pairs, mixed conditions', 'Every pair of one product\'s measurements; each mismatch named and drawn hollow'],
 ];
 /**
  * Whether a context layer is drawn. Unsettled products follow the page's Candidate confidence until the reader presses
@@ -214,7 +217,7 @@ export const axisKeys = () => [...AXIS_DEFS.map((a) => a.key), COST_AXIS];
 /**
  * The chart's controls (D108, D109), read top to bottom as the chart is built:
  *
- *   Draw   [Products | Material ranges | Published data]                                             [Export ▾]
+ *   Draw   [Material typicals | Material ranges | Products]                                           [More ▾]
  *   Also   (Unsettled) (Failing) (Estimates) (Pareto front) | (Metals & wood) [Familiar: none ▾]
  *   Line   M = [ ] ━━●━━ ▼ ▲   8 products from 5 materials above the line
  *   ↑ [Stiffness] GPa Lin Log              ⇄              → [Density] kg/m³ Lin Log     (the axis bar, on the chart)
@@ -226,7 +229,7 @@ export const axisKeys = () => [...AXIS_DEFS.map((a) => a.key), COST_AXIS];
 export function toolbar(state, { view, estimates = null, line = '' }) {
   const p = state.scenario.plot;
   const work = view === 'decision' || view === 'overview';
-  const evidence = EVIDENCE_VIEWS.find(([id]) => id === view);
+  const pairs = TEST_PAIR_VIEWS.find(([id]) => id === view);
 
   // A chip is a switch whose state is its look: pressed or not. One that does not apply says why, and stays put.
   const chip = (attrs, on, label, why = '', help = '') => `<button type="button" class="ws-chip" ${attrs} aria-pressed="${!!on && !why}" ${why ? `disabled title="${esc(why)}"` : help ? `title="${esc(help)}"` : ''}>${esc(label)}</button>`;
@@ -238,10 +241,13 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
         : !estimates?.count ? 'None on these axes' : '';
   const baseline = `<select class="ws-chip-select" data-baseline data-focus="baseline" aria-label="A familiar filament to draw for scale"><option value="">Familiar: none</option>${['PLA', 'PETG', 'ABS', 'ASA', 'PC'].map((n) => state.db.materials.find((q) => q.name === n)).filter(Boolean)
     .map((q) => `<option value="${esc(q.id)}" ${state.baseline === q.id ? 'selected' : ''}>Familiar: ${esc(q.name)}</option>`).join('')}</select>`;
-  const exportWhy = work ? '' : 'From the Products or Material ranges view';
-  const exportMenu = `<details class="ws-menu" data-fold="export" ${foldOpen('export') ? 'open' : ''}>
-    <summary class="btn btn-sm" data-focus="menu-export">Export <span aria-hidden="true">▾</span></summary>
-    <div class="ws-menu-panel" role="group" aria-label="Export">
+  const exportWhy = work ? '' : 'From the Material ranges or Products view';
+  const moreMenu = `<details class="ws-menu" data-fold="more" ${foldOpen('more') ? 'open' : ''}>
+    <summary class="btn btn-sm" data-focus="menu-more">More <span aria-hidden="true">▾</span></summary>
+    <div class="ws-menu-panel" role="group" aria-label="Test pairs and export">
+      <h4>Raw measurements</h4>
+      ${TEST_PAIR_VIEWS.map(([id, label, help]) => `<button type="button" class="ws-menu-item" data-view="${id}" data-focus="view-${id}" aria-pressed="${view === id}" title="${esc(help)}">${esc(label)}</button>`).join('')}
+      <h4>Export</h4>
       <button type="button" class="ws-menu-item" data-export-data ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart data (CSV)</button>
       <button type="button" class="ws-menu-item" data-export-image ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart image (PNG)</button>
       <p class="opt-help">Both carry the release, the question, the goal, the axes and what each range means.</p>
@@ -252,23 +258,23 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
     <div class="ws-row" role="group" aria-label="Draw">
       <span class="ws-row-label">Draw</span>
       <div class="segmented ws-views" role="group" aria-label="What the chart draws">
-        ${WORK_VIEWS.map(([id, label, help]) => `<button data-view="${id}" data-focus="view-${id}" aria-pressed="${view === id}" title="${esc(help)}">${esc(label)}</button>`).join('')}<button data-view="${evidence ? evidence[0] : 'catalogue'}" data-focus="view-published" aria-pressed="${!!evidence}" title="The values as the data sheets print them, for research: not the decision">Published data</button>
+        ${DRAW_VIEWS.map(([id, label, help]) => `<button data-view="${id}" data-focus="view-${id}" aria-pressed="${view === id}" title="${esc(help)}">${esc(label)}</button>`).join('')}
       </div>
-      ${evidence ? `<select class="ws-chip-select" data-view-select data-focus="view-select" aria-label="Which published data">${EVIDENCE_VIEWS.map(([id, label]) => `<option value="${id}" ${id === view ? 'selected' : ''}>${esc(label)}</option>`).join('')}</select>` : ''}
-      <span class="ws-row-end">${exportMenu}</span>
+      <span class="ws-row-end">${moreMenu}</span>
     </div>
     <div class="ws-row" role="group" aria-label="Also draw">
       <span class="ws-row-label">Also</span>
       ${chip('data-layer="unresolved" data-focus="layer-unresolved"', layerOn(state, 'unresolved'), 'Unsettled', productsOnly, 'Products the requirements could not settle, hollow; never ranked')}
       ${chip('data-layer="failed" data-focus="layer-failed"', p.layers?.failed, 'Failing', productsOnly, 'Products that fail a requirement, as crosses; never ranked')}
       ${chip('data-show-estimates data-focus="estimates"', p.showEstimates, 'Estimates', estWhy, 'Materials on screen that publish nothing on an axis: the model\'s likely range, shaded; never a point')}
-      ${chip('data-layer="front" data-focus="layer-front"', p.layers?.front, 'Pareto front', productsOnly, 'The products nothing else beats on both axes')}
+      ${chip('data-layer="front" data-focus="layer-front"', p.layers?.front, 'Pareto front', view === 'decision' || view === 'catalogue' ? '' : 'Drawn in the Products and Material typicals views', 'What nothing else beats on both axes: products, or materials at their typical values')}
       <span class="ws-row-sep" aria-hidden="true" title="For scale"></span>
       ${chip('data-reference data-focus="reference"', p.showReference, 'Metals & wood', '', 'Steel, aluminium and wood, drawn for scale; never candidates')}
       ${baseline}
     </div>
     ${line}
-    ${evidence ? `<div class="ws-evidence-chip" role="note"><b>Published data: ${esc(evidence[1])}.</b> The values as the sheets print them, whatever state a product is judged in: for research, not the decision.</div>` : ''}
+    ${view === 'catalogue' ? '<div class="ws-evidence-chip ws-note-quiet" role="note">Material typicals are datasheet values, as printed and dry, whatever state the question asks about; the ranking and the line are in Products.</div>' : ''}
+    ${pairs ? `<div class="ws-evidence-chip" role="note"><b>${esc(pairs[1])}:</b> raw measurements, as the sheets print them, for research, not the decision. <button type="button" class="link-btn" data-view="decision" data-focus="back-products">Back to Products</button></div>` : ''}
   </div>`;
 }
 
@@ -287,8 +293,7 @@ export function axisBar(state, { view }) {
     <select id="ashby-${which}" data-axis="${which}" data-focus="axis-${which}" aria-label="${which === 'y' ? 'Vertical axis' : 'Horizontal axis'}">${keys.map((k) => option(k, p[which])).join('')}</select>
     <span class="ws-axis-unit">${esc(axisDef(p[which]).unit)}</span>${scale(which, p[`${which}Log`])}</span>`;
   return `<div class="ws-axisbar" role="group" aria-label="Axes">
-    ${axis('y', '↑')}
-    <button class="btn btn-sm axis-swap" data-swap data-focus="swap" title="Swap the horizontal and vertical axes" aria-label="Swap the axes">⇄</button>
+    <span class="ws-axis-pair">${axis('y', '↑')}<button class="btn btn-sm axis-swap" data-swap data-focus="swap" title="Swap the horizontal and vertical axes" aria-label="Swap the axes">⇄</button></span>
     ${axis('x', '→')}
   </div>`;
 }
@@ -326,13 +331,12 @@ export function resultsPanel(state, ws) {
   const star = (id, name) => `<button type="button" class="shortlist-btn btn btn-sm" data-pin="${esc(id)}" aria-pressed="${shortlisted.has(id)}" title="${shortlisted.has(id) ? 'On the shortlist of materials to investigate. Press to remove it.' : 'Shortlist this material to investigate (a product is chosen in the inspector)'}" aria-label="Shortlist ${esc(name)}">${shortlisted.has(id) ? '★' : '☆'}</button>`;
   // A material's products are written when its list is opened (pairList), not with the page: a thousand buttons in closed
   // lists made every redraw of the chart pay for a document five times the size.
-  const inspectedMaterial = state.inspect?.kind === 'pair' ? state.inspect.key.split('|')[0] : null;
   // A row does one thing per control: the name picks the material out on the chart (the rest fade; press again to let
   // go), ⤢ zooms to it, "best" opens that product, ☆ shortlists it, and the fold lists its products.
   const materialItem = (id, { place = '', value = '', best = '' } = {}) => {
     const list = byMaterial.get(id) ?? [];
     const name = list[0]?.name ?? nameOfMaterial(state, id);
-    const open = id === inspectedMaterial || listUi.open.has(id);
+    const open = listUi.open.has(id);
     const picked = state.selected === id;
     return `<li class="ws-mat${picked ? ' is-picked' : ''}" data-mat="${esc(id)}" data-name="${esc(name.toLowerCase())}">
       <div class="ws-mat-head">${place}<button type="button" class="link-btn ws-mat-name" data-select-material="${esc(id)}" aria-pressed="${picked}" title="${picked ? 'Picked out on the chart. Press again to show every material alike.' : 'Pick it out on the chart: its products stay bright, the rest fade'}">${esc(name)}</button>${value}${list.length ? `<button type="button" class="icon-btn ws-zoom-btn" data-focus-material="${esc(id)}" title="Zoom the chart to ${esc(name)}'s products" aria-label="Zoom to ${esc(name)}">⤢</button>` : ''}${star(id, name)}</div>
@@ -383,13 +387,20 @@ export function resultsPanel(state, ws) {
     <ul>${gaps.slice(0, 40).map((g) => `<li><b>${esc(g.product)}</b> <span class="fine">(${esc(g.name)})</span>: ${g.offLog ? 'a value at or below zero, which a Log axis cannot show' : esc(g.missing.map((m) => missingWords(m, axisDef(m.key))).join('; '))}</li>`).join('')}${gaps.length > 40 ? `<li class="fine">and ${gaps.length - 40} more, in the chart data export</li>` : ''}</ul>
     ${ws.counts.gaps.unpriced ? `<p class="fine">${plural(ws.counts.gaps.unpriced, 'product')} ha${ws.counts.gaps.unpriced === 1 ? 's' : 've'} no current Canadian price. Prices are observed CAD/kg listings with their dates; shipping is excluded, and no other currency is converted.</p>` : ''}</details>` : '';
   const noProducts = ws.noProducts.length ? `<p class="fine">${plural(ws.noProducts.length, 'material')} on screen ha${ws.noProducts.length === 1 ? 's' : 've'} no product to buy, so nothing to draw.</p>` : '';
-  // The inspector has its own place under the list, so opening one never moves the list's rows under the reader.
+  // Details replace the list, one at a time (D109): pressing mark after mark swaps the details in place, and "← Ranking"
+  // brings the list back as it was left. The list is not drawn meanwhile, so nothing in it can pile up or jump.
+  if (state.inspect) {
+    return `<aside class="ws-results is-detail" aria-label="Details">
+      <div class="ws-detail-bar"><button type="button" class="link-btn ws-back" data-inspect-close data-focus="inspect-close">← ${index ? 'Ranking' : 'List'}</button>
+        <span class="fine">${state.inspect.kind === 'nearby' ? 'marks at one spot' : state.inspect.kind === 'pair' ? 'product' : state.inspect.kind === 'material' ? 'material' : 'estimate'}</span></div>
+      <div class="ws-detail-body">${inspector(state, ws)}</div>
+    </aside>`;
+  }
   return `<aside class="ws-results" aria-label="Results">
     <div class="ws-list" data-list>
       <input type="search" class="ws-filter" data-list-filter data-focus="list-filter" placeholder="Find a material in the list" aria-label="Find a material in the list" value="${esc(listUi.filter)}">
       ${body}${gapBlock}${noProducts}
     </div>
-    ${state.inspect ? `<div class="ws-insp-slot">${inspector(state, ws)}</div>` : ''}
   </aside>`;
 }
 
@@ -426,7 +437,8 @@ function parseState(id) {
 function inspector(state, ws) {
   const sel = state.inspect;
   if (!sel) return '';
-  const close = '<button type="button" class="icon-btn" data-inspect-close data-focus="inspect-close" aria-label="Close the inspector">×</button>';
+  // Closed from the panel's own bar ("← Ranking"), which stays in one place however long the details are.
+  const close = '';
   const p = state.scenario.plot;
   const xD = axisDef(p.x), yD = axisDef(p.y);
   if (sel.kind === 'nearby') {
@@ -530,6 +542,9 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   const drawnFamilies = new Set();
   const focus = new Set(p.focus ?? []);
   const cd = (q, note) => [q.materialId, `${q.name}: ${q.product}`, q.verdict, q.x.measurementId ?? '', q.y.measurementId ?? '', q.stateId, q.gradeId, note, q.key];
+  // Shape is the filler on every view of the lens (D110): a carbon-fibre product is a diamond wherever it is drawn. How
+  // the shape is drawn is its status: filled passes, hollow could not be settled, small and faint fails.
+  const shape = (q) => FILLER_SYMBOL[q.filler] ?? 'circle';
   // A material picked in the list stays bright and the rest fade (D109): a way to find it without losing the picture.
   const picked = state.selected ?? null;
   const faded = (materialId) => !!picked && materialId !== picked;
@@ -586,7 +601,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       // The medians' crossing: the material's handle, for pointing, pressing and its label.
       traces.push({ ...common, mode: 'markers+text', x: [s.x.median], y: [s.y.median], text: [NO_LABEL], customdata: [cdm],
         textposition: 'top right', textfont: { size: LABEL_FONT, color: 'rgba(107,107,99,.95)' }, cliponaxis: false,
-        marker: { size: 9, symbol: 'square', color: hexToRgba(color, faded(s.materialId) ? 0.2 : 0.9), line: { width: 1, color: 'rgba(0,0,0,.55)' } } });
+        marker: { size: 9, symbol: 'cross-thin-open', color: hexToRgba(color, faded(s.materialId) ? 0.2 : 0.9), line: { width: 1.6, color: hexToRgba(color, faded(s.materialId) ? 0.2 : 0.9) } } });
       labelPlan.envelopes.push({ trace: traces.length - 1, index: 0, name: s.name, x: s.x.median, y: s.y.median, positions: ['top right'], radius: 5, shortlisted: scenario.shortlist.includes(s.materialId) });
     }
     const pop = new Set(ws.materialSummaries.flatMap((s) => s.paired));
@@ -596,10 +611,10 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       const color = colors.color(family);
       const own = list.filter((q) => !q.variant), variants = list.filter((q) => q.variant);
       if (own.length) traces.push({ type: 'scatter', mode: 'markers', x: own.map((q) => q.x.value), y: own.map((q) => q.y.value),
-        marker: { size: 5, color: hexToRgba(color, 0.6), opacity: own.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 0 } }, name: family, legendgroup: colourGroup(family), showlegend: false,
+        marker: { size: 6, symbol: own.map(shape), color: hexToRgba(color, 0.6), opacity: own.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 0 } }, name: family, legendgroup: colourGroup(family), showlegend: false,
         text: own.map(() => NO_LABEL), customdata: own.map((q) => cd(q, `${stateWords(q.state)}; ${VERDICT_WORD[q.verdict] ?? ''}`)), hovertemplate: hover('%{customdata[7]}') });
       if (variants.length) traces.push({ type: 'scatter', mode: 'markers', x: variants.map((q) => q.x.value), y: variants.map((q) => q.y.value),
-        marker: { size: 9, symbol: 'diamond-open', color, opacity: variants.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 1.6, color } }, name: `${family} (variant)`, legendgroup: colourGroup(family), showlegend: false,
+        marker: { size: 10, symbol: variants.map((q) => `${shape(q)}-open-dot`), color, opacity: variants.map((q) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 1.6, color } }, name: `${family} (variant)`, legendgroup: colourGroup(family), showlegend: false,
         text: variants.map(() => NO_LABEL), customdata: variants.map((q) => cd(q, `${stateWords(q.state)}; variant (${q.variant}): its own values, kept out of ${q.name}'s range`)), hovertemplate: hover('%{customdata[7]}') });
     }
   } else {
@@ -608,15 +623,15 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       for (const [family, qs] of groupBy(list, (q) => q.family)) {
         drawnFamilies.add(colourGroup(family));
         const color = colors.color(family);
-        const st = style(color);
+        const st = style(color, qs);
         st.marker.opacity = qs.map((q) => (faded(q.materialId) ? 0.15 : st.marker.opacity ?? 1));
         traces.push({ type: 'scatter', mode: 'markers', x: qs.map((q) => q.x.value), y: qs.map((q) => q.y.value), ...st,
           name: `${family} (${what})`, legendgroup: colourGroup(family), showlegend: false, text: qs.map(() => NO_LABEL),
           customdata: qs.map((q) => cd(q, `${stateWords(q.state)}; ${what}${q.inResults ? '' : '; its material is not in the results'}`)), hovertemplate: hover('%{customdata[7]}') });
       }
     };
-    if (p.layers?.failed) layer(ws.failed, (c) => ({ marker: { size: 7, symbol: 'x-thin-open', color: hexToRgba(c, 0.55), line: { width: 1.5, color: hexToRgba(c, 0.55) } } }), 'fails a requirement: context');
-    if (layerOn(state, 'unresolved')) layer(ws.unresolved, (c) => ({ marker: { size: 9, symbol: 'circle-open', color: c, line: { width: 1.6, color: c }, opacity: 0.75 } }), 'could not be settled: context');
+    if (p.layers?.failed) layer(ws.failed, (c, qs) => ({ marker: { size: 6, symbol: qs.map(shape), color: hexToRgba(c, 0.35), line: { width: 0 } } }), 'fails a requirement: context');
+    if (layerOn(state, 'unresolved')) layer(ws.unresolved, (c, qs) => ({ marker: { size: 9, symbol: qs.map((q) => `${shape(q)}-open`), color: c, line: { width: 1.6, color: c }, opacity: 0.75 } }), 'could not be settled: context');
 
     // The decision set: each confirmed product state, filled, one trace per family colour.
     const chosenGrades = new Set((scenario.decisions ?? []).map((d) => d.gradeId));
@@ -630,7 +645,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       traces.push({
         type: 'scatter', mode: 'markers+text', x: list.map((q) => q.x.value), y: list.map((q) => q.y.value),
         text: list.map(() => NO_LABEL), textposition: list.map(() => 'top center'), textfont: { size: LABEL_FONT, color: 'rgba(107,107,99,.95)' }, cliponaxis: false,
-        marker: { size: list.map((q) => (state.inspect?.key === q.key ? 13 : 10)), symbol: 'circle', color, opacity: list.map((q) => (faded(q.materialId) ? 0.18 : q.assumed ? 0.35 : 1)),
+        marker: { size: list.map((q) => (state.inspect?.key === q.key ? 13 : 10)), symbol: list.map(shape), color, opacity: list.map((q) => (faded(q.materialId) ? 0.18 : q.assumed ? 0.35 : 1)),
           line: { width: list.map((q) => (state.inspect?.key === q.key || chosenGrades.has(q.gradeId) ? 2.5 : 1)), color: list.map((q) => (state.inspect?.key === q.key ? '#1f5f8b' : 'rgba(0,0,0,.55)')) } },
         // A thin whisker is the spread the source reports for that one measurement, its statistic as published: never
         // the spread across products, which the overview's bands are.
@@ -746,9 +761,9 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   anchorRequirementLabels(req.requirementLabels, layout.xaxis.range);
   // The better side of the line, said in words at the plot's corner.
   if (index && L?.drawable && L.M !== null) {
-    annotations.push({ xref: 'paper', yref: 'paper', x: L.orientation === 'direct' ? 0.01 : 0.99, y: L.orientation === 'direct' ? 0.99 : 0.01,
-      xanchor: L.orientation === 'direct' ? 'left' : 'right', yanchor: L.orientation === 'direct' ? 'top' : 'bottom', showarrow: false,
-      text: L.orientation === 'direct' ? '↖ better: above the line' : 'better: below the line ↘', font: { size: 11, color: '#1f5f8b' }, bgcolor: 'rgba(255,255,255,.6)' });
+    // At the bottom right, pointing to the better side; the top left is where the chart says what narrows it (pills).
+    annotations.push({ xref: 'paper', yref: 'paper', x: 0.99, y: 0.01, xanchor: 'right', yanchor: 'bottom', showarrow: false,
+      text: L.orientation === 'direct' ? 'better: above the line ↖' : 'better: below the line ↘', font: { size: 11, color: '#1f5f8b' }, bgcolor: 'rgba(255,255,255,.6)' });
   }
   wireResize();
   gd._labelPlan = { ...labelPlan, annotations };
@@ -797,19 +812,32 @@ function groupBy(list, key) {
 
 // ------------------------------------------------------------------ what the chart shows, in words
 
+/** The key's small drawings of the filler shapes, as the chart draws them. */
+const SHAPE_GLYPH = {
+  'circle': '<circle cx="8" cy="8" r="5"/>',
+  'diamond': '<path d="M8 2.5 13.5 8 8 13.5 2.5 8z"/>',
+  'square': '<rect x="3.5" y="3.5" width="9" height="9"/>',
+  'triangle-up': '<path d="M8 3 13.5 13h-11z"/>',
+  'star': '<path d="M8 2.2l1.7 3.9 4.2.4-3.2 2.8.9 4.1L8 11.3l-3.6 2.1.9-4.1-3.2-2.8 4.2-.4z"/>',
+  'hexagon': '<path d="M8 2.5l4.8 2.75v5.5L8 13.5l-4.8-2.75v-5.5z"/>',
+};
+
 /** What the marks mean, once, under the chart: only what is drawn. */
 export function workspaceKey(state, ws, { view }) {
   const p = state.scenario.plot;
   const items = [];
   const g = (inner, extra = '') => `<svg class="key-glyph" viewBox="0 0 16 16" aria-hidden="true"${extra}>${inner}</svg>`;
+  // The fillers drawn, by their shapes: the same shapes on every view (D110).
+  const drawn = view === 'overview' ? ws.pairs.filter((q) => q.plottable && ws.materialSummaries.some((s) => s.paired.includes(q.key)))
+    : [...ws.decision, ...(layerOn(state, 'unresolved') ? ws.unresolved : []), ...(p.layers?.failed ? ws.failed : [])];
+  for (const f of Object.keys(FILLER_SYMBOL).filter((k) => drawn.some((q) => (q.filler ?? 'unfilled') === k))) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}`);
   if (view === 'overview') {
-    items.push(`${g('<rect x="3.5" y="4.5" width="9" height="7" fill-opacity=".2" stroke-width="1.2"/><path d="M1 8h14M8 1v14" fill="none" stroke-width="1"/>')}Box: the middle half of a material's products; whiskers: the lowest and highest`);
-    items.push(`${g('<circle cx="8" cy="8" r="3" fill-opacity=".6"/>')}Dot: one product`);
-    if (ws.materialSummaries.some((s) => s.variants.length)) items.push(`${g('<path d="M8 3 13 8 8 13 3 8z" fill="none" stroke-width="1.6"/>')}Diamond: a variant (a filler or additive), outside its material's range`);
+    items.push(`${g('<rect x="3.5" y="4.5" width="9" height="7" fill-opacity=".2" stroke-width="1.2"/><path d="M1 8h14M8 1v14" fill="none" stroke-width="1"/>')}Box: the middle half of a material's products; whiskers: the lowest and highest; + at the medians`);
+    if (ws.materialSummaries.some((s) => s.variants.length)) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/><circle cx="8" cy="8" r="1.4"/>')}Ringed with a dot: a variant (a wood or metal filler, a foaming additive), outside its material's range`);
   } else {
-    items.push(`${g('<circle cx="8" cy="8" r="5"/>')}Dot: a product ${state.scenario.constraints.length ? 'that meets every requirement' : ''}`);
+    items.push(`${g('<circle cx="8" cy="8" r="5"/>')}Filled: ${state.scenario.constraints.length ? 'meets every requirement' : 'a product'}`);
     if (layerOn(state, 'unresolved')) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Hollow: could not be settled`);
-    if (p.layers?.failed) items.push(`${g('<path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke-width="1.6"/>')}Cross: fails a requirement`);
+    if (p.layers?.failed) items.push(`${g('<circle cx="8" cy="8" r="3" fill-opacity=".35" stroke-width="0"/>')}Small and faint: fails a requirement`);
     if (ws.decision.some((q) => q.x.uncertainty || q.y.uncertainty)) items.push(`${g('<path d="M8 2v12M5 2h6M5 14h6" fill="none" stroke-width="1.4"/>')}Whisker: the spread a sheet reports for that value`);
     if (p.layers?.front) items.push(`${g('<path d="M2 12h4V8h4V4h4" fill="none" stroke-width="1.6" stroke-dasharray="2 1.5"/>')}Staircase: Pareto front`);
   }

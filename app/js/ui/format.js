@@ -380,7 +380,8 @@ export const FILLER_SYMBOL = {
   'unfilled': 'circle',
   'esd': 'triangle-up',
   'foaming': 'star',
-  'undisclosed': 'circle-open',
+  // Its own shape, filled: a hollow mark means "could not be settled" on the Ashby chart (D110).
+  'undisclosed': 'hexagon',
 };
 
 export const FILLER_LABEL = {

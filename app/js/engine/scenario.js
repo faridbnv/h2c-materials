@@ -254,7 +254,7 @@ function migrateV1(raw, out) {
   const legacyView = { material: 'catalogue', products: 'catalogue', measured: 'measured', 'measured-mixed': 'measured-mixed' }[level ?? 'material'];
   out.plot.view = used ? legacyView : 'decision';
   if (used) {
-    notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens on the published data it was saved with (${legacyView === 'catalogue' ? 'typical published values' : 'test pairs'}). Choose "Products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);
+    notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens as it was saved, on ${legacyView === 'catalogue' ? 'Material typicals' : 'test pairs (under More)'}. Choose "Products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);
   }
   return notes;
 }

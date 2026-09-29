@@ -375,11 +375,12 @@ const actions = {
   // Open a mark in the inspector. A product's material is picked out with it; one pressed on the chart is also brought
   // into view in the list (D109).
   inspect(target) {
+    // Back to the list: the picked material's row is brought into view if the list had it out of sight.
+    if (!target && state.inspect) state.revealMaterial = state.selected;
     state.inspect = target;
     state.inspectFocus = !!target;
     const material = target?.kind === 'pair' ? target.key.split('|')[0] : target?.kind === 'material' ? target.key : null;
-    // Its row is kept in the list's view: scrolled to only if the inspector, or the list, had it out of sight.
-    if (material) { state.selected = material; state.revealMaterial = material; }
+    if (material) state.selected = material;
     renderLens();
   },
   // Pick a material out on the Ashby chart, or let go (null): its marks stay bright and the rest fade. A view only.

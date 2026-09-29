@@ -173,7 +173,7 @@ function genScenario(i, prior) {
     if (chance(0.15)) s.search = pick(SEARCHES);
     const x = pick(KEYS); let y = pick(KEYS); if (y === x) y = KEYS[(KEYS.indexOf(x) + 1) % KEYS.length];
     // The catalogue view keeps I4's material oracle; the decision view is I10's (D107).
-    s.plot = { x, y, xLog: chance(0.3), yLog: chance(0.3), showReference: false, showEstimates: chance(0.6), view: chance(0.35) ? 'decision' : 'catalogue' };
+    s.plot = { x, y, xLog: chance(0.3), yLog: chance(0.3), showReference: false, showEstimates: chance(0.6), view: chance(0.35) ? 'decision' : 'catalogue', layers: { front: chance(0.7) } };
   }
   s.columnSet = s.parent === null ? (chance(0.15) ? 'printing' : 'properties') : prior[s.parent].columnSet;
   // The states a product may be judged in (D99): annealing permitted, sometimes up to an oven temperature, and the
@@ -485,7 +485,8 @@ function compareReading(s, key, r, o) {
       if ((s.plot.xLog && !(q.x.lo > 0)) || (s.plot.yLog && !(q.y.lo > 0))) { check('I4-log-nonpositive'); violate('I4-log-nonpositive', 'estimate envelope reaches a non-positive value on a log axis', s, key, { id: q.id, x: q.x, y: q.y }); }
     }
     check('I4-front');
-    const gf = (r.front ?? []).map((q) => `${q[0]},${q[1]}`).sort(), ef = p.front.length > 1 ? p.front.map((q) => `${q.x},${q.y}`).sort() : [];
+    // The front is drawn by its chip (D110): as the engine has it when pressed, and not at all when not.
+    const gf = (r.front ?? []).map((q) => `${q[0]},${q[1]}`).sort(), ef = p.front.length > 1 && s.plot.layers?.front ? p.front.map((q) => `${q.x},${q.y}`).sort() : [];
     if (!same(gf, ef)) violate('I4-front', 'Pareto front differs (eligible-only, own dominance)', s, key, { page: gf, node: ef });
     check('I4-legend');
     const m = /(\d+) of (\d+) candidates plotted(?:, (\d+) lack one or both)?/.exec(r.legend);

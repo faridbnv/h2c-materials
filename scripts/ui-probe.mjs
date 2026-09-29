@@ -511,6 +511,38 @@ try {
       return problems;
     })()`);
     for (const k of kept) layoutProblems.push(`ashby-keeps-place: ${k}`);
+    // Mark after mark, pressed on the chart as a mouse does (D110): the details replace the list and are swapped in place,
+    // nothing piles up behind them, and "Ranking" brings the list back with its open folds as they were.
+    await evaluate(`document.querySelector('[data-zoom-reset]')?.click(), true`);
+    await sleep(500);
+    await evaluate(`document.getElementById('plot').scrollIntoView({ block: 'center' }), true`);
+    await sleep(200);
+    const foldsBefore = await evaluate(`({ folds: document.querySelectorAll('.ws-mat-pairs[open]').length })`);
+    const keys = await evaluate(`[...new Set([...document.getElementById('plot').data].flatMap((t) => (Array.isArray(t.customdata) && t.customdata[0]?.length === 9 ? t.customdata.map((c) => c[8]) : [])))]`);
+    const opened = [];
+    for (const key of keys) {
+      const at = await evaluate(`(() => { const gd = document.getElementById('plot'), xa = gd._fullLayout.xaxis, ya = gd._fullLayout.yaxis, r = gd.querySelector('.nsewdrag').getBoundingClientRect();
+        for (const t of gd.data) if (Array.isArray(t.customdata) && t.customdata[0]?.length === 9) { const i = t.customdata.findIndex((c) => c[8] === ${JSON.stringify(key)}); if (i >= 0) { const p = [r.left + xa.d2p(t.x[i]), r.top + ya.d2p(t.y[i])]; return p[0] > r.left + 4 && p[0] < r.right - 4 && p[1] > r.top + 30 && p[1] < Math.min(r.bottom, innerHeight) - 4 ? p : null; } }
+        return null; })()`);
+      if (!at) continue;
+      if (opened.length >= 4) break;
+      await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: at[0], y: at[1] });
+      await sleep(120);
+      await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: at[0], y: at[1], button: 'left', clickCount: 1 });
+      await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: at[0], y: at[1], button: 'left', clickCount: 1 });
+      await sleep(400);
+      opened.push(await evaluate(`({ list: !!document.querySelector('[data-list]'), panels: document.querySelectorAll('.ws-results').length, details: document.querySelectorAll('.ws-inspector').length })`));
+    }
+    if (!opened.length) layoutProblems.push('ashby-details: no mark could be pressed');
+    for (const o of opened) {
+      if (o.list) { layoutProblems.push('ashby-details: the list stayed under the details'); break; }
+      if (o.panels !== 1 || o.details !== 1) { layoutProblems.push('ashby-details: more than one details panel'); break; }
+    }
+    await evaluate(`document.querySelector('[data-inspect-close]')?.click(), true`);
+    await sleep(400);
+    const after = await evaluate(`({ list: !!document.querySelector('[data-list]'), folds: document.querySelectorAll('.ws-mat-pairs[open]').length })`);
+    if (!after.list) layoutProblems.push('ashby-details: Ranking did not bring the list back');
+    else if (after.folds !== foldsBefore.folds) layoutProblems.push(`ashby-details: open folds changed behind the details (${foldsBefore.folds} to ${after.folds})`);
   } finally {
     await send('Emulation.clearDeviceMetricsOverride');
     await send('Emulation.setTouchEmulationEnabled', { enabled: false });

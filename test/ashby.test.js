@@ -9,7 +9,7 @@ test('Ashby view names say what each mark represents, work views first and evide
   assert.deepEqual(VIEWS.map((d) => d.label), [
     'Products',
     'Material ranges',
-    'Typical published values',
+    'Material typicals',
     'Test pairs, matched conditions',
     'Test pairs, mixed conditions',
   ]);

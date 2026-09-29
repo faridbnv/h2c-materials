@@ -118,7 +118,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D106 | A product is named for what its maker's documents say it is, searched beyond the data sheet | Before a product is filed as "polymer not stated" or "hardness not stated", its maker's safety data sheet, pages, guides and older editions are searched; it is filed under what they name, and only what no document names stays in a home that says the maker does not disclose it. | In force; it amends D86 (the "hardness not stated" class is a family entry) and D87 (the homes are named for what is true of them) |
 | D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83) |
 | D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) |
-| D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108 |
+| D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108; amended by D110 (the view order and names, test pairs under More, details in place of the list, the pills on the chart's corner) |
+| D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109 |
 
 <!-- end index -->
 
@@ -3397,7 +3398,7 @@ every product, variants included.
 ## D109. The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place
 
 > **In plain words:** The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds.
-> **Status:** In force; it amends D108.
+> **Status:** In force; it amends D108; amended by D110 (the view order and names, test pairs under More, details in place of the list, the pills on the chart's corner).
 
 *Directed by the owner on 2026-09-29, after using D108: still very confusing; imagine every combination the menus make
 with the filters and the top bar, and how a user would find the one they need; clicks still reset what they were doing;
@@ -3462,6 +3463,36 @@ has still not run.*
 What it moved: no verdict, ranking or count (the engine is untouched; `npm run build:diff`: 0); the chart draws unsettled
 products under Include uncertain where it drew none. Reversing it brings back a lens whose every press throws away the
 reader's place.
+
+## D110. The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list
+
+> **In plain words:** The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up.
+> **Status:** In force; it amends D109.
+
+*Directed by the owner on 2026-09-29, after using D109: keep only the typical values as the published view, under a name
+that says what it is; the test pairs rarely, as a hidden option; the order typical, ranges, products, left to right; and
+the right-hand panel got messy when marks were pressed one after another. They also agreed that shape should mean filler
+on every view. Built by Claude (an agent); not reviewed by a person.*
+
+- **Draw, coarse to fine:** *Material typicals* (one dot per material at its products' median datasheet value, as printed
+  and dry, whatever state the question asks about), *Material ranges*, *Products*. The test pairs, matched and mixed, are
+  under **More**, with the exports, headed "Raw measurements"; while one is drawn, a line under the rows says so, with
+  **Back to Products**. The Pareto front is a chip in Material typicals as in Products, drawn only when pressed.
+- **Shape is the filler, on every view:** circle unfilled, diamond carbon fibre, square glass fibre, triangle ESD, star
+  foaming, hexagon an undisclosed variant (it had been a hollow circle, which on the Products view means "could not be
+  settled"). How a shape is drawn is its status: filled passes, hollow could not be settled, small and faint fails. In
+  Material ranges a declared variant is its shape ringed with a dot, and a material's medians are a thin plus where its
+  whiskers cross (a square there had read as glass fibre).
+- **Details replace the list.** Pressing six marks in a row had opened one more material's product list each time (0 to
+  5), thrown the list's scroll about (1199, 1064, 2242, 278, 3372) and squeezed the details into an 88 px box under the
+  status bar. Now a mark's details take the panel, under a bar with **← Ranking** that never moves; the next mark swaps
+  them in place; Ranking brings the list back as it was left, the picked material's row in view. The panel ends where the
+  screen does.
+- **The pills on the chart's top-left corner.** In the axis bar they wrapped it and moved the chart down; at the top right
+  the chart's own tools covered them. The "better" note moved to the bottom right.
+
+`npm run ui:check` presses marks on the chart with the mouse and fails if the list stays under the details, a second panel
+appears, Ranking does not bring the list back, or its open folds change. No verdict, ranking or count moved.
 
 ---
 

@@ -703,6 +703,11 @@ h3.sec:first-child { margin-top: 0; }
   font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-top: 1px solid var(--border);
   background: var(--unknown-bg); border-left: 3px solid var(--unknown);
 }
+.ws-note-quiet { background: var(--surface); border-left-color: var(--border-strong); color: var(--ink-2); padding: 3px 10px; }
+.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ws-menu-panel h4:first-child { margin-top: 0; }
+.ws-menu-item[aria-pressed="true"] { font-weight: 650; }
+.ws-menu-item[aria-pressed="true"]::before { content: '● '; color: var(--accent); }
 
 /* The axis bar, at the top of the chart it sets: the vertical axis at the left, the horizontal at the right. */
 .ws-plot-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
@@ -710,9 +715,13 @@ h3.sec:first-child { margin-top: 0; }
 .ws-axis-unit { color: var(--ink-3); font-size: var(--t-label); }
 .ws-plot-area { position: relative; padding: 0 4px; }
 /* What narrows the picture, said on it with the way back. */
-.ws-pills { position: absolute; z-index: 5; top: 4px; right: 8px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; pointer-events: none; }
+.ws-axis-pair { display: inline-flex; align-items: center; gap: 8px; }
+/* On the chart's top-left corner, inside the plot: over it, so a pill never moves the chart, and clear of the chart's own
+   tools, which appear at its top right. */
+.ws-pills { position: absolute; z-index: 5; top: 20px; left: 76px; right: 120px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none; }
+.ws-pills:empty { display: none; }
 .ws-pill {
-  pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; padding: 2px 4px 2px 10px; border-radius: 999px;
+  pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; padding: 1px 4px 1px 10px; border-radius: 999px;
   background: var(--bg); border: 1px solid var(--accent); font-size: var(--t-small); color: var(--ink); box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
 }
 .ws-pill .link-btn { padding: 0 6px; }
@@ -737,7 +746,10 @@ h3.sec:first-child { margin-top: 0; }
   font-size: var(--t-small); position: sticky; top: 0; max-height: calc(100dvh - 190px); display: flex; flex-direction: column; overflow: hidden;
 }
 /* The inspector and the list scroll apart: opening one never moves the other. */
-.ws-insp-slot { flex: 0 1 auto; max-height: 55%; overflow: auto; border-top: 2px solid var(--accent); }
+/* Details replace the list (D109): a bar with the way back that never moves, and the details scrolling under it. */
+.ws-detail-bar { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; border-bottom: 2px solid var(--accent); background: var(--surface); }
+.ws-back { font-weight: 650; text-decoration: none; }
+.ws-detail-body { flex: 1 1 auto; overflow: auto; }
 .ws-list { padding: 8px 10px 10px; flex: 1 1 auto; overflow: auto; min-height: 120px; }
 .ws-mat.is-picked { background: var(--accent-soft); border-radius: 5px; box-shadow: inset 3px 0 0 var(--accent); }
 .ws-mat-name[aria-pressed="true"] { text-decoration: underline; }
@@ -779,6 +791,10 @@ h3.sec:first-child { margin-top: 0; }
 .ws-insp-head h3 { margin: 0; font-size: var(--t-body); overflow-wrap: anywhere; }
 .ws-inspector .kv { margin: 8px 0 4px; }
 .ws-inspector .kv dd { overflow-wrap: anywhere; }
+/* In the narrow details panel each value sits under its label, at the panel's full width, not in a thin second column. */
+.ws-detail-body .kv { display: block; }
+.ws-detail-body .kv dt { margin-top: 8px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+.ws-detail-body .kv dd { margin: 2px 0 0; }
 .ws-insp-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .ws-context-note { margin: 4px 0; }
 .ws-reading { font-size: 12px; color: var(--ink-3); margin-top: 0; }

@@ -557,12 +557,13 @@ are `docs/audits/2026-09-29-ashby-makeover/`.
 GOAL  [Beam, minimum mass, stiffness prescribed ▾]  Maximise M = E^(1/2)/ρ   Cross-section area free, proportions fixed
 ASKED As printed, dry · H2C scope and print gates · Stiffness at least 3 GPa · Density at most 1250 kg/m³  Change in Filters
 ┌──────────────────────────────────────────────────────────────┐ ┌ list (scrolls on its own)       ┐
-│ DRAW  [Products | Material ranges | Published data]  Export ▾ │ │ [Find a material]               │
+│ DRAW  [Material typicals | Material ranges | Products]  More ▾ │ │ [Find a material]               │
 │ ALSO  (Unsettled) (Failing) (Estimates) (Pareto front) | (Metals & wood) [Familiar ▾] │ Ranking M = E^(1/2)/ρ │
 │ LINE  M = [0.001734] ━━●━━ ▼ ▲   8 products from 5 materials above the line          │ 1 PPA-CF 0.00231 ⤢ ☆  │
 └──────────────────────────────────────────────────────────────┘ │ ── line · M 0.00173 ──           │
 ┌ ↑ [Stiffness ▾] GPa Lin|Log        ⇄        → [Density ▾] kg/m³ Lin|Log ┐ │ 6 PLA …             │
-│ chart          [Zoomed to PA6-CF · Show all] [Picked out: PA6-CF ×]  │ ├ inspector (its own place)       ┤
+│ [Zoomed to PA6-CF · Show all] [Picked out: PA6-CF ×]   chart  │ │ (a mark pressed: its details    │
+│                                                                │ │  replace the list; ← Ranking)   │
 └──────────────────────────────────────────────────────────────┘
 marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 ```
@@ -579,9 +580,10 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   Choosing it anywhere sets its axes (its property up; density across, or material cost per volume for a cost goal) and
   both Log scales. A table column sort orders the rows without dropping the goal, and says so with **Order by rank**.
   Strength goals say their strength is a proxy: the recorded tensile strength, its endpoint as each sheet states it.
-- **The controls** (D109) read top to bottom as the chart is built. *Draw* chooses what is drawn: *Products*, *Material
-  ranges* or *Published data* (and which: typical published values, or test pairs in matched or mixed conditions), with
-  **Export** at its end. *Also* is a row of chips, each a switch whose state is its look: Unsettled products, Failing
+- **The controls** (D109, D110) read top to bottom as the chart is built. *Draw* chooses what is drawn, coarse to fine:
+  *Material typicals* (one dot per material at its products' median datasheet value, as printed and dry), *Material
+  ranges*, *Products*. **More**, at its end, holds the rarely needed raw measurements (test pairs in matched or mixed
+  conditions) and the exports. *Also* is a row of chips, each a switch whose state is its look: Unsettled products, Failing
   products, Estimates, the Pareto front, and for scale Metals & wood and a familiar filament. *Line* is the goal's line. The
   axes sit on the chart they set, in a bar across its top: the vertical axis at its left, the horizontal at its right, each
   a menu of property names in one fixed order with its unit and Lin/Log, the swap between. Every option is in view, its
@@ -592,18 +594,21 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 - **One planned effect per control, and the reader's place kept** (D109). Each control changes one thing and leaves the
   rest; a change of axes starts the picture whole. The lens is redrawn on every change and puts back the list's search,
   scroll and open folds, the page's scroll, the focused control and the chart's zoom on the same axes. What narrows the
-  picture is said on the chart, top right, with the way back: *Zoomed to …, Show all*, *Picked out: … ×*; a double-click on
+  picture is said on the chart's top-left corner, with the way back: *Zoomed to …, Show all*, *Picked out: … ×*; a double-click on
   the chart gives the whole picture back. The full table of effects is D109's.
 - **Products** draws each product that meets every requirement, in the state its answer is in (annealed at its
-  schedule where annealing is permitted, conditioned where that is asked), filled and coloured by family. A value the
+  schedule where annealing is permitted, conditioned where that is asked), coloured by family and shaped by filler as
+  every view shapes it (D110: circle unfilled, diamond carbon fibre, square glass fibre, triangle ESD, star foaming,
+  hexagon an undisclosed variant). A value the
   registry declares unchanged by the state, a density, is read from the product's first state, and the inspector says
-  so. Failed products (crosses) and unresolved products (hollow) are drawn by their chips under Also, never ranked,
+  so. A pass is the filled shape; unresolved products (the shape hollow) and failed ones (small and faint) are drawn by
+  their chips under Also, never ranked,
   counted on the line or put on the front. A passing product with no value on an axis in its state is listed beside the
   chart with why ("stiffness is published only dry (V…); nothing is read across states").
 - **Material ranges** draws each material as the rest of the page summarises it (D83, D108): a box over the middle half
-  of its products on each axis (all of them under four), whiskers through the medians to the lowest and highest, a small
-  square at the medians carrying its name, and its products as dots. A product the data marks as a variant (a wood or
-  metal filler, a foaming or lightweight additive; its Variant column) is drawn as a diamond and kept out of the range, as
+  of its products on each axis (all of them under four), whiskers through the medians to the lowest and highest, a thin
+  plus where they cross carrying its name, and its products as small shapes. A product the data marks as a variant (a wood or
+  metal filler, a foaming or lightweight additive; its Variant column) is drawn as its shape ringed with a dot and kept out of the range, as
   the build keeps it out of the material's spread, since its values describe the product, not the polymer. PLA's box in
   the scope-only chart is 1230–1250 kg/m³ by 1.5–2.8 GPa with whiskers to 1170–1310 and 0.43–4.2, where the envelope of
   every product had run 800–1400 kg/m³ (PolyWood and PLA-Lite, both variants). Pressing a box opens the material in the
@@ -623,8 +628,9 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   its place, median M, its value relative to the first and its best product, then its products, each of which opens in
   the inspector. A row does one thing per control: the name picks the material out on the chart (its marks stay bright,
   the rest fade; pressed again, it lets go), ⤢ zooms to its products, "best" opens that product, ☆ shortlists it, and the
-  fold lists its products. The inspector has its own place under the list, which scrolls on its own, so opening one never
-  moves the list; a mark pressed on the chart brings its row into view. A search box narrows the list. Materials that pass but cannot rank, passing products not drawable on
+  fold lists its products. A mark's details replace the list (D110): pressing mark after mark swaps them in place under a
+  bar with **← Ranking**, which brings the list back as it was left, the picked material's row in view. A search box
+  narrows the list. Materials that pass but cannot rank, passing products not drawable on
   these axes, and a cost goal's unpriced products are listed with why.
 - **The inspector** shows one product: its state and schedule, each coordinate with its measurement (a link to it), the
   state it was read from, the source's own ± as published, what the policy admitted unstated, the strength endpoint, a
@@ -653,8 +659,8 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   `npm run ui:check`; on a phone the question, the control row (wrapped), the chart and the results are one under another,
   and the menus open to the right.
 
-**Published data** (the third choice under Draw) is the chart before D107, kept for research and marked as not the
-decision, on the same controls: *Catalogue: typical published values* (one point per material at its typical published value with its
+**Material typicals and test pairs** are the chart before D107, kept for research and marked as not the decision, on the
+same controls: *Material typicals* (one point per material at its typical published value with its
 products' spread, as printed and dry whatever state the question asks, and estimated ranges beside the other axis's
 product span), *Test pairs: matched conditions* and *Test pairs: mixed conditions*. A matched pair is two measurements of
 one product in one condition from one document: moisture, treatment and schedule, specimen form and direction agree, or

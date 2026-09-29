@@ -19,10 +19,10 @@ Stiffness at least 3 GPa
 Density at most 1250 kg/m³
 Change in Filters
 DRAW
-Products
+Material typicals
 Material ranges
-Published data
-Export ▾
+Products
+More ▾
 ALSO
 Unsettled
 Failing
@@ -100,8 +100,11 @@ Density (kg/m³) · log
 Stiffness (GPa) · log
 Density at most 1250 kg/m³
 Stiffness at least 3 GPa
-↖ better: above the line
-Dot: a product that meets every requirement
+better: above the line ↖
+Carbon fibre
+Glass fibre
+Unfilled
+Filled: meets every requirement
 Whisker: the spread a sheet reports for that value
 Line: one value of M; above is better
 Red dashed: a requirement (press its label to change it)
