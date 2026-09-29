@@ -227,8 +227,8 @@ Nylon / Polyamide
 55–78 · 4
  13.8
 9.9–100 · 4
- 115
-110–140 · 4
+ 111
+102–140 · 5
  — ☆
 PA612-CF
 Nylon / Polyamide
@@ -358,7 +358,7 @@ PLA PASS
  28
 27–30 · 4
 ↗ ☆
-PLA family, polymer not stated PASS
+PLA blend PASS
 2 of 3
  1,340
 1,300–1,540 · 7

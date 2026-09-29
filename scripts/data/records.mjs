@@ -149,7 +149,7 @@ export function recountGrades(t, materialId, { migration, date, because }) {
     if (old['Manufacturer count'] === 'Not applicable' || Number(old['Manufacturer count']) === count) continue;
     const newId = nextId('coverage', t.rows('coverage').map((c) => c.CoverageID));
     t.append('coverage', {
-      CoverageID: newId, MaterialID: materialId, Domain: 'Grades', Status: count >= 3 ? 'Resolved' : 'Gap',
+      CoverageID: newId, MaterialID: materialId, GradeID: 'Not applicable', Domain: 'Grades', Status: count >= 3 ? 'Resolved' : 'Gap',
       'Manufacturer count': String(count),
       Finding: `${count} distinct manufacturer(s) documented against target 3: ${[...names].sort().join(', ')}. Recounted ${date} (${migration}) ${because}.`,
     });

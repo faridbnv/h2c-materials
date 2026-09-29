@@ -167,15 +167,18 @@ npm run sql --silent -- "select coverageid, materialid, domain, finding from cov
   PA66-CF20 page a marketing heat deflection at 1.8 MPa, Matter3D's PA66 carbon fibre page is gone, and Polymaker
   makes PA612 with carbon fibre, not glass. **PA-GF (M063)** has none either, and needs none: it is a family entry,
   and a family owns no product (D44).
-- **Four in-scope materials have no product**, so nothing can be their value even where a study grade or a resin
-  reference publishes a number: PA66 (M055), PA66-CF (M056), PA612 (M058), PA612-GF (M060). Their values are
-  estimates, and say so. The family entries (PA, CoPA, PA-CF, PA-GF and the rest) own no product by design (D44).
+- **Three in-scope materials have no product**, so nothing can be their value even where a study grade or a resin
+  reference publishes a number: PA66-CF (M056), PA612 (M058), PA612-GF (M060). Their values are estimates, and say so.
+  The family entries (PA, CoPA, PA-CF, PA-GF and the rest) own no product by design (D44). **PA66 (M055)** has two
+  since m223 (D106), both filed by the owner's ruling on the best evidence and marked inferred: Yousu Nylon, whose own
+  safety data sheet names PA66 while its melting point (224 °C) is a PA6's, and Spectrum ThermaTech PA, which only
+  retailers call PA6/6. Its values are theirs now; a maker's document naming either polyamide settles it.
 
 Both are evidence gaps, not defects. Only a manufacturer publishing a sheet fixes them.
 
-- **The families' "polymer not stated" homes are not estimated** (D87), so a headline none of their products
-  publishes comparably shows Not published and is judged unknown: Nylon-CF and Nylon-GF (one product each, Onyx GF's
-  values all conditioned), TPS, and the others for some headlines. The build lists them (HEADLINE-UNESTIMATED, info).
+- **The families' maker-undisclosed homes, PLA blend, TPS and TPV are not estimated** (D87, D106), so a headline none
+  of their products publishes comparably shows Not published and is judged unknown: Nylon-CF and Nylon-GF (one product
+  each, Onyx GF's values all conditioned), TPS, TPV (one product), and the others for some headlines. The build lists them (HEADLINE-UNESTIMATED, info).
   More products, not a model, fill them.
 
 ## 6. What the estimate model cannot narrow
@@ -535,10 +538,23 @@ found: Fillamentum Timberfill (PLA Wood, R203) and NinjaTek Eel (TPU-EC, R204). 
   pellet bulk density) and names no morphology class for it ("amorphous structure" is said of Polystyrene). No row
   was written. What frees it: a Styrolux grade data sheet from INEOS Styrolution that prints its density, and the
   owner's word on the class (a stiff amorphous styrenic, as R200 and M174's note argue, or an elastomer like SEBS).
-- **purefil's GreenTEC (d299af0d689965eb) is answered and not imported.** R179 names GreenTEC; the sheet was held
-  before b34 and is not among the 74 the owner freed, so it waits for imports to resume.
-- **A TPU rated only in prose needs a ruling.** The reader files a TPU by the rating in its name or its sheet's Shore
-  hardness row (hardness-classes.csv); Copper3D's MD Flex says "TPU98A" in a sentence, and R197 pins it.
+- **purefil's GreenTEC (d299af0d689965eb) is answered and not imported.** R179 names GreenTEC (PLA blend since m223);
+  the sheet was held before b34 and is not among the 74 the owner freed, so it waits for imports to resume.
+- **A TPU rated only in prose, or not at all, needs a ruling.** The reader files a TPU by the rating in its name or its
+  sheet's Shore hardness row (hardness-classes.csv); Copper3D's MD Flex says "TPU98A" in a sentence, and R197 pins it.
+  Since m223 a TPU that states no rating has no class to go to ("TPU, hardness not stated" is a family entry, D106):
+  six of the eight it held printed their rating in their sheets' prose, and R206 to R213 pin all eight. A new one waits
+  for its maker's rating.
+- **Eleven products' makers disclose no polymer anywhere the search of 2026-09-28 reached** (m223, D106): colorFabb PA
+  Neat, PA Blue Metal Detectable and PA-CF Low Warp, Nanovia PA Food Industry, MakerBot Specialty Nylon, CreatBot Ultra
+  PA, Markforged Onyx GF, and Nanovia TPE 22D, Flex VX, Flex B4C and ISTROFLEX. They stay in the maker-undisclosed
+  homes; the leads for each (retailers' PA6/PA12 for colorFabb, against its own 235 °C melting point; Nanovia's
+  laurolactam and MXDA monomers; ISTROFLEX's "modified polyester alloy") and what would settle it are in
+  `docs/audits/2026-09-28-polymer-names/README.md`. ISTROFLEX, like Multi3D Electrifi, waits on the owner's word on a
+  biodegradable-polyester home.
+- **SUNLU TPU (G039-51) is most likely an earlier sheet of SUNLU TPU 95A (G039-19).** Its figures are SUNLU's 2024
+  sheet's; the 95A product's current sheet prints newer ones. Both are in the TPU 95A class as two products since m223;
+  merging them is a decision of its own.
 - **Heat deflection names its families** (hdt045 Applies to, D87). A new family of rigid polymers must be added there,
   or heat deflection will not apply to it. `data:lint` now names every family with candidate materials that the list
   leaves out (HEADLINE-FAMILY-UNLISTED); Flexible Elastomers is accepted with its reason, so a new family fails verify
@@ -548,7 +564,7 @@ found: Fillamentum Timberfill (PLA Wood, R203) and NinjaTek Eel (TPU-EC, R204). 
   HI-TEMP CF's beds.
 
 ```bash
-npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) from materials m join grades g on g.materialid = m.materialid where m.materialid between 'M164' and 'M174' and g.status = 'active' group by 1, 2"
+npm run sql --silent -- "select m.materialid, m.original_name, count(g.gradeid) from materials m join grades g on g.materialid = m.materialid where m.materialid between 'M164' and 'M175' and g.status = 'active' group by 1, 2"
 ```
 
 ## 15. Values that decide, published without their direction or load, that no cached sheet settles
@@ -586,7 +602,7 @@ it was given:
   statement about a row, so none was recorded.
 - **Onyx GF's XY bars were on its sheet all along** (m200): batch b34 read one column of Markforged's two-page table,
   the XZ one. Both pages say "Onyx GF specimens were printed ... on an FX10". The dry XY values now decide, and Nylon-GF,
-  polymer not stated passes Lightweight structure.
+  maker-undisclosed polyamide passes Lightweight structure.
 - **Nanovia's 0° and 90° rasters are a direction the vocabulary has no value for.** Its pages state each tensile tab's
   raster and not the bar's build orientation. The ±45° tab is each product's XY value (D91, m168); the 0° rows stay
   "Stated, not a usable direction" and the 90° tabs are in the record tier only. Six pages print a 0° tab alone (PC,

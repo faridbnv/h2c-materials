@@ -503,7 +503,8 @@ Heat deflection does not apply to an elastomer at all (headline_definitions.csv 
 strength, stretch, heat deflection) carries a value, an estimate or `notApplicable` with a reason; a blank one stops the
 build (HEADLINE-BLANK). The layer strength, the two notched impact strengths, the glass transition and the price are
 never estimated, nor is any headline of a material declared not estimated (Estimate identity Not applicable: a
-family's "polymer not stated" home, or a polymer the model has no row for; D87, listed as HEADLINE-UNESTIMATED): where
+family's maker-undisclosed home, the PLA blend, or a polymer the model has no row for; D87, D106, listed as
+HEADLINE-UNESTIMATED): where
 none of its products publishes one, those show Not published and are judged unknown
 ([OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) §5). Heat deflection of an elastomer is not applicable and never estimated (ISO
 75 ends at 0.2 % outer-fibre strain, which needs a modulus near 225 MPa); a value its own source publishes is shown

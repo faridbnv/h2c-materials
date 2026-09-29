@@ -781,7 +781,7 @@ M163,use,Q00294
 M163,use,Q00296
 M163,durability,Q00318
 M163,safety,Q00320
-M163,printing,P0442
+M161,printing,P0442
 M164,h2c-status,H2C-WIKI
 M164,h2c-status,H2C-MANUAL
 M164,use,Q00298
@@ -811,7 +811,7 @@ M170,use,Q00296
 M170,use,Q00297
 M170,durability,Q00318
 M170,safety,Q00320
-M164,printing,P1160
+M052,printing,P1160
 M165,printing,P1190
 M167,printing,P1161
 M168,printing,P0889
@@ -820,3 +820,12 @@ M170,printing,P1193
 M171,printing,P1176
 M172,printing,P1195
 M174,printing,P1196
+M175,h2c-status,H2C-WIKI
+M175,h2c-status,H2C-MANUAL
+M175,use,Q00294
+M175,use,Q00295
+M175,use,Q00296
+M175,use,Q00297
+M175,durability,Q00318
+M175,safety,Q00320
+M164,printing,P1170

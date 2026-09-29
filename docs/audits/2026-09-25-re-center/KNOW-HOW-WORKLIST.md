@@ -13,7 +13,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
 | Products | 1045 | 45 | 0 | 38 | 1128 |
-| Materials | 132 | 10 | 0 | 11 | 153 |
+| Materials | 131 | 10 | 0 | 12 | 153 |
 
 4665 statements; 1326 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
@@ -27,7 +27,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA-CF (M033) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 18 | 4 / 6 / 13 | — |
 | PP-CF (M083) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 5 | 3 / 3 / 4 | — |
 | PPA-CF (M070) | High-stiffness fixture; Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 9 | 4 / 1 / 4 | — |
-| PA6/66 (M057) | Flexible component; Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 7 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| PA6/66 (M057) | Flexible component; Indoor prototype; Lightweight structure; Warm environment | collected | 1 of 8 | 3 / 0 / 5 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PA6-CF (M050) | Indoor prototype; Lightweight structure; Outdoor structural part; Warm environment | collected | 0 of 14 | 3 / 4 / 11 | — |
 | PPA-GF (M071) | High-stiffness fixture; Indoor prototype; Outdoor structural part; Warm environment | collected | 0 of 5 | 2 / 1 / 2 | — |
 | PLA (M001) | Indoor prototype; Lightweight structure; Warm environment | collected | 3 of 200 | 101 / 122 / 162 | Elegoo (no address held); Spectrum (spectrumfilaments.com); Yousu (ysfilament.com) |
@@ -55,12 +55,11 @@ documents were read and give none of one is listed under "Recipe silent".
 | PET-CF (M067) | Indoor prototype; Warm environment | collected | 0 of 8 | 3 / 2 / 5 | — |
 | PET-GF (M068) | Indoor prototype; Warm environment | collected | 0 of 4 | 2 / 0 / 2 | — |
 | PETG-CF (M024) | High-stiffness fixture; Indoor prototype | collected | 0 of 24 | 11 / 10 / 19 | — |
-| PLA family, polymer not stated (M168) | Indoor prototype; Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
+| PLA blend (M168) | Indoor prototype; Warm environment | collected | 0 of 7 | 1 / 2 / 2 | — |
 | PP (M082) | Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 7 / 7 | — |
-| TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 16 | 8 / 10 / 16 | — |
-| TPU 90A class (M160) | Flexible component; Indoor prototype | collected | 0 of 12 | 5 / 4 / 12 | — |
-| TPU 95A class (M161) | Flexible component; Indoor prototype | collected | 0 of 25 | 15 / 12 / 23 | — |
-| TPU, hardness not stated (M163) | Flexible component; Indoor prototype | collected | 0 of 8 | 4 / 3 / 7 | — |
+| TPU 85A class and softer (M159) | Flexible component; Indoor prototype | collected | 0 of 17 | 9 / 11 / 17 | — |
+| TPU 90A class (M160) | Flexible component; Indoor prototype | collected | 0 of 13 | 5 / 4 / 12 | — |
+| TPU 95A class (M161) | Flexible component; Indoor prototype | collected | 0 of 30 | 16 / 13 / 27 | — |
 | PLA Wood (M014) | Indoor prototype | collected | 2 of 21 | 13 / 13 / 19 | Filament2Print (filament2print.com); Yousu (ysfilament.com) |
 | PET (M066) | Indoor prototype | collected | 1 of 7 | 2 / 3 / 3 | colorFabb (downloads.colorfabb.com, colorfabb.com) |
 | PP-GF (M084) | Indoor prototype | collected | 1 of 2 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
@@ -68,7 +67,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | ASA Aero (M032) | Indoor prototype | collected | 0 of 5 | 2 / 3 / 4 | — |
 | ASA-AF (M113) | Indoor prototype | collected | 0 of 3 | 0 / 2 / 2 | — |
 | CPE-CF (M090) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
-| PA12 (M052) | Indoor prototype | collected | 0 of 7 | 3 / 3 / 4 | — |
+| PA12 (M052) | Indoor prototype | collected | 0 of 8 | 3 / 3 / 4 | — |
 | PA6-CE (M104) | Indoor prototype | collected | 0 of 1 | 0 / 0 / 1 | — |
 | PC FR (M036) | Indoor prototype | collected | 0 of 2 | 0 / 1 / 0 | — |
 | PCTG (M088) | Indoor prototype | collected | 0 of 8 | 2 / 3 / 5 | — |
@@ -91,7 +90,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PPS-CF (M073) | Indoor prototype | collected | 0 of 7 | 3 / 3 / 5 | — |
 | PPS-GF (M074) | Indoor prototype | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PVB (M093) | Indoor prototype | collected | 0 of 6 | 3 / 2 / 5 | — |
-| TPU harder than 95A (M162) | Indoor prototype | collected | 0 of 14 | 3 / 8 / 9 | — |
+| TPU harder than 95A (M162) | Indoor prototype | collected | 0 of 15 | 4 / 9 / 10 | — |
 | TPU-CF (M129) | Indoor prototype | collected | 0 of 3 | 0 / 1 / 2 | — |
 
 ## Every other material
@@ -144,9 +143,9 @@ documents were read and give none of one is listed under "Recipe silent".
 | Support for PA/PET (M080) | — | collected | 0 of 3 | 1 / 1 / 3 | — |
 | Support for PLA (M077) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
 | Support for PLA/PETG (M078) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
-| TPC / TPEE (M046) | — | collected | 0 of 7 | 4 / 4 / 4 | — |
+| TPC / TPEE (M046) | — | collected | 0 of 11 | 4 / 4 / 4 | — |
 | TPU-EC (M157) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
-| TPU-LW (M150) | — | collected | 0 of 3 | 2 / 0 / 2 | — |
+| TPU-LW (M150) | — | collected | 0 of 4 | 3 / 0 / 3 | — |
 
 ## By maker: the silent products to look up
 

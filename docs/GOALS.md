@@ -60,7 +60,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | # | Component | 2026-09-25 | 2026-09-27 | 2026-09-28 | What moved it, and what holds it back |
 |---|---|:-:|:-:|:-:|---|
 | C1 | Translate requirements (limits engineers use, a goal to rank by) | 2 | 4 | 4 | Ten limits and Rank by; since 2.1 the question also says the state the part is used in: as printed or annealed (with the oven's limit), dry or humid (D99). No template uses the four newest limits |
-| C2 | Classification (family → polymer → material → product, a home for everything) | 2 | 4 | 4 | Product lines are products, TPU by hardness, a "polymer not stated" home per family; held sheets still need exact identities, and 4 materials have no product to buy (2 with only a resin reference). b38 admitted the held Recreus PET-G sheet under its exact identity; other held documents remain subject to the import pause |
+| C2 | Classification (family → polymer → material → product, a home for everything) | 2 | 4 | 4 | Product lines are products, TPU by hardness; a product is named for what its maker's documents say it is, searched beyond its sheet (D106), and a home per family holds only what no maker discloses (11 products). Held sheets still need exact identities, and 3 materials have no product to buy (1 with only a resin reference). b38 admitted the held Recreus PET-G sheet under its exact identity; other held documents remain subject to the import pause |
 | C3 | Evidence store, decision tier (values with their conditions) | 3 | 3 | 3 | A deciding value must be a number its evidence line prints, in one role (D97), and decides only in the state it was measured in (D99); no person has measured the error rate. The pre-gap-closure sample drew 32 of 310 deciding values (SPOT-CHECK-DECISIVE.md); the gap-closing response lists the additional agent re-reads awaiting a person |
 | C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | 4 | Comparable and as published on every headline, and each value's state; a verdict names what it admitted unstated |
 | C5 | Material summary (range and typical value across products) | 1 | 4 | 4 | Every material is its products' spread, variants and twins placed by rule |
@@ -251,6 +251,21 @@ stay out, unknown conditions are never inferred, and a bounded unsuccessful sear
   [TARGETS.csv](audits/2026-09-28-gap-closing/TARGETS.csv), minus those settled in A/B. The frozen file names every
   authorized product. New retrievals retain their own bytes, date and digest; searches that find no applicable
   chamber statement are recorded without treating silence, an unavailable site or an unresolved identity as a value.
+
+## Decided on 2026-09-28, polymer names
+
+The owner, looking at the page: materials named "polymer not stated", and "TPU, hardness not stated", hold products with
+good data, and naming them so is not acceptable. Search the sources beyond the data sheets and name them. Built in m223
+(D106; the record is [2026-09-28-polymer-names](audits/2026-09-28-polymer-names/README.md)):
+
+1. **A product is filed under what its maker's documents name**: its safety data sheet, pages, guides and older
+   editions, searched before it enters a home. 28 of the 41 products the homes held are settled so. The eight TPUs
+   are rated, and "TPU, hardness not stated" is a family entry. The bio-based compounds are a PLA blend.
+2. **Where the documents fall short, the owner files on the best evidence, marked inferred.** Asked with the facts and
+   a recommendation (keep them labelled as undisclosed), the owner chose to file two: Yousu Nylon and Spectrum
+   ThermaTech PA under PA66.
+3. **What no document names stays in a home that says the maker does not disclose it** (11 products), with the leads
+   for a later ruling.
 
 ## Working rules
 

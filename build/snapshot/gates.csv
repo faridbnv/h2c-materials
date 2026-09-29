@@ -53,7 +53,7 @@ M051,PA6-GF,within,within,within,within,requires-hardened,required
 M052,PA12,within,within,within,within,no-special-concern,required
 M053,PA12-CF,within,within,within,within,requires-hardened,required
 M054,PA12-GF,within,within,within,within,requires-hardened,required
-M055,PA66,within,unknown,unknown,unknown,unknown,unknown
+M055,PA66,within,within,within,unknown,no-special-concern,unknown
 M056,PA66-CF,within,unknown,unknown,unknown,unknown,unknown
 M057,PA6/66,within,within,within,within,requires-hardened,required
 M058,PA612,within,unknown,unknown,unknown,unknown,unknown
@@ -148,7 +148,7 @@ M146,PLA-PHB,within,within,unknown,unknown,unknown,required
 M147,PAHT,within,within,unknown,unknown,unknown,unknown
 M148,PAHT-CE,within,within,unknown,unknown,requires-hardened,unknown
 M149,PCL,within,within,within,unknown,unknown,unknown
-M150,TPU-LW,within,within,within,unknown,unknown,required
+M150,TPU-LW,within,within,within,unknown,requires-hardened,required
 M151,TPU-GF,within,within,within,within,requires-hardened,unknown
 M152,PLA-NF,within,within,within,within,requires-hardened,required
 M153,PETG-GR,within,unknown,unknown,unknown,unknown,unknown
@@ -161,15 +161,16 @@ M159,TPU 85A class and softer,within,within,within,within,requires-hardened,requ
 M160,TPU 90A class,within,within,within,within,no-special-concern,required
 M161,TPU 95A class,within,within,within,within,requires-hardened,required
 M162,TPU harder than 95A,within,within,within,within,requires-hardened,required
-M163,"TPU, hardness not stated",within,within,within,within,requires-hardened,required
-M164,"Nylon, polymer not stated",within,within,within,within,requires-hardened,required
-M165,"Nylon-CF, polymer not stated",within,within,within,unknown,requires-hardened,unknown
-M166,"Nylon-GF, polymer not stated",within,unknown,unknown,unknown,unknown,unknown
-M167,"TPE, polymer not stated",within,within,within,within,requires-hardened,unknown
-M168,"PLA family, polymer not stated",within,within,within,within,requires-hardened,unknown
-M169,"PLA family-CF, polymer not stated",within,within,within,within,requires-hardened,required
+M163,"TPU, hardness not stated",family,unknown,unknown,unknown,unknown,unknown
+M164,"Nylon, maker-undisclosed polyamide",within,within,within,within,requires-hardened,unknown
+M165,"Nylon-CF, maker-undisclosed polyamide",within,within,within,unknown,requires-hardened,unknown
+M166,"Nylon-GF, maker-undisclosed polyamide",within,unknown,unknown,unknown,unknown,unknown
+M167,"TPE, maker-undisclosed elastomer",within,within,within,within,requires-hardened,unknown
+M168,PLA blend,within,within,within,within,requires-hardened,unknown
+M169,PLA blend-CF,within,within,within,within,requires-hardened,required
 M170,TPS,within,within,within,unknown,unknown,required
 M171,316L stainless steel sintering filament,excluded,within,within,within,requires-hardened,required
 M172,Silicon carbide sintering filament,excluded,within,within,within,requires-hardened,unknown
 M173,Alumina sintering filament,excluded,unknown,unknown,unknown,unknown,unknown
 M174,SBC,within,within,unknown,unknown,unknown,unknown
+M175,TPV,within,unknown,unknown,unknown,unknown,unknown

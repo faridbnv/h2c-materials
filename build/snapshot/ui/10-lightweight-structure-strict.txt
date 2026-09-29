@@ -82,20 +82,20 @@ ASA-GF PASS
  88
 86–98 · 3
  — ☆
-Nylon, polymer not stated
+Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
-1 of 3
- 1,175
-1,010–1,250 · 4
+1 of 2
+ 1,210
+1,140–1,250 · 3
  3.1
 3–3.33 · 3
  65
 63–69.2 · 3
  8.5
 4.5–9.77 · 3
- 91
-79–102 · 3
+ 85
+79–91 · 2
  — ☆
 PA6-CF
 Nylon / Polyamide
@@ -124,8 +124,8 @@ Nylon / Polyamide
 55–78 · 4
  13.8
 9.9–100 · 4
- 115
-110–140 · 4
+ 111
+102–140 · 5
  — ☆
 PETG PASS
 1 of 49

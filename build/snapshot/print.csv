@@ -662,10 +662,10 @@ G039-17,M162,FLEX MEDIUM,within,within,within,not-needed,no-special-concern,unkn
 G039-18,M160,TPU 90A,within,within,unknown,unknown,unknown,required,
 G039-19,M161,TPU 95A,within,within,within,not-needed,unknown,required,chamber: guide PG024; enclosure: guide PG024
 G039-20,M160,TPU 90A,within,within,within,not-needed,unknown,required,
-G039-21,M163,Hyper Speed TPU,within,within,within,not-needed,unknown,required,
+G039-21,M161,Hyper Speed TPU,within,within,within,not-needed,unknown,required,
 G039-22,M161,TPU95A,within,within,within,not-needed,unknown,required,enclosure: guide PG024
 G039-23,M162,TPU 64D,within,within,unknown,unknown,requires-hardened,required,
-G039-24,M163,Thermoplastic polyurethane (TPU),unknown,unknown,unknown,unknown,unknown,unknown,
+G039-24,M162,Thermoplastic polyurethane (TPU),unknown,unknown,unknown,unknown,unknown,unknown,
 G039-25,M160,varioShore TPU,within,within,unknown,unknown,unknown,unknown,
 G039-26,M159,TPU85A,within,within,unknown,unknown,unknown,unknown,
 G039-27,M161,TPU95A,within,within,within,not-needed,unknown,unknown,chamber: guide PG024; enclosure: guide PG024
@@ -689,20 +689,20 @@ G039-44,M162,TPU-64D,within,within,unknown,unknown,unknown,required,
 G039-45,M162,TPU 70D,within,within,within,unknown,unknown,required,
 G039-46,M161,ReForm rTPU 95A,within,within,within,not-needed,unknown,required,
 G039-47,M162,Python Flex,within,unknown,unknown,unknown,unknown,unknown,
-G039-48,M163,eFlex,within,within,unknown,unknown,unknown,unknown,
+G039-48,M159,eFlex,within,within,unknown,unknown,unknown,unknown,
 G039-49,M161,TPU 95A,within,within,within,not-needed,unknown,required,chamber: guide PG024; enclosure: guide PG024
 G039-50,M161,TPU95A-HF,within,within,within,not-needed,unknown,required,chamber: guide PG024; enclosure: guide PG024
-G039-51,M163,TPU,within,within,within,unknown,unknown,required,
-G039-52,M163,Build Series TPU,within,within,unknown,unknown,unknown,unknown,
+G039-51,M161,TPU,within,within,within,not-needed,unknown,required,enclosure: guide PG024
+G039-52,M161,Build Series TPU,within,within,within,not-needed,unknown,unknown,chamber: guide PG024; enclosure: guide PG024
 G039-53,M161,TPU 95A,within,within,within,not-needed,requires-hardened,unknown,
 G039-54,M159,TPU 87A,within,within,within,not-needed,requires-hardened,unknown,
-G039-55,M163,TPU,within,within,unknown,unknown,unknown,required,
+G039-55,M161,TPU,within,within,within,not-needed,unknown,required,chamber: guide PG024; enclosure: guide PG024
 G039-56,M159,TPU 82A,within,within,within,not-needed,requires-hardened,unknown,
 G039-57,M161,TPU,within,within,within,not-needed,unknown,required,chamber: guide PG024; enclosure: guide PG024
 G039-58,M161,TPU HS,within,within,within,not-needed,unknown,required,chamber: guide PG024; enclosure: guide PG024; drying: twin G039-37
 G039-59,M161,TPU 95A-Z,within,within,within,not-needed,unknown,unknown,nozzle: guide PG024; bed: guide PG024; chamber: guide PG024; enclosure: guide PG024
 G039-60,M160,varioShore Prosthetic TPU,within,within,unknown,unknown,unknown,unknown,
-G039-61,M163,Standard TPU,within,within,within,not-needed,unknown,required,drying: twin G039-21
+G039-61,M161,Standard TPU,within,within,within,not-needed,unknown,required,drying: twin G039-21
 G039-62,M160,ReForm rTPU 90A,within,within,within,not-needed,unknown,required,
 G039-63,M160,Python Flex TPU 90A,unknown,unknown,unknown,unknown,unknown,required,
 G039-64,M159,ReForm rTPU 85A,within,within,within,not-needed,unknown,required,
@@ -710,7 +710,7 @@ G039-65,M161,TPU A95,within,within,within,not-needed,unknown,unknown,bed: guide 
 G039-66,M161,Flex TPU 95A,within,within,within,not-needed,requires-hardened,required,bed: guide PG024; chamber: guide PG024; enclosure: guide PG024
 G039-67,M159,Flex TPU 85A,unknown,unknown,unknown,unknown,unknown,required,
 G039-68,M162,Flex TPU 64D,within,within,within,not-needed,requires-hardened,unknown,
-G039-69,M163,Flex TPU Air,within,within,unknown,unknown,requires-hardened,required,
+G039-69,M150,Flex TPU Air,within,within,unknown,unknown,requires-hardened,required,
 G039-70,M160,TPU 90A,within,within,within,unknown,unknown,required,
 G040-01,M162,TPU for AMS,within,within,within,unknown,unknown,required,
 G041-01,M161,TPU 95A HF,within,within,within,not-needed,unknown,required,enclosure: guide PG024
@@ -1089,30 +1089,30 @@ G157-01,M157,CONDUCTIVE FILAFLEX,unknown,unknown,unknown,unknown,no-special-conc
 G157-02,M157,Eel,unknown,unknown,unknown,unknown,unknown,unknown,
 G158-01,M158,PLA MINERAL,within,within,within,not-needed,unknown,unknown,
 G162-01,M162,MD Flex,within,within,unknown,unknown,unknown,unknown,
-G164-01,M164,Nylon FX256,within,unknown,unknown,unknown,unknown,unknown,
+G164-01,M052,Nylon FX256,within,unknown,unknown,unknown,unknown,unknown,
 G164-02,M164,PA Blue Metal Detectable,within,within,unknown,unknown,unknown,unknown,
-G164-03,M164,ThermaTech PA,within,within,unknown,recommended,no-special-concern,unknown,
-G164-04,M164,PRO Series Nylon,within,within,unknown,unknown,unknown,required,
+G164-03,M055,ThermaTech PA,within,within,unknown,recommended,no-special-concern,unknown,
+G164-04,M057,PRO Series Nylon,within,within,unknown,unknown,unknown,required,
 G164-05,M164,MAKERBOT SPECIALTY NYLON,unknown,unknown,unknown,unknown,unknown,unknown,
 G164-06,M164,PA NEAT,within,within,unknown,unknown,unknown,unknown,
 G164-07,M164,PA Food Industry,within,within,within,unknown,requires-hardened,unknown,
-G164-08,M164,Nylon,within,within,unknown,unknown,unknown,unknown,
+G164-08,M055,Nylon,within,within,unknown,unknown,unknown,unknown,
 G164-09,M164,Ultra PA,within,within,within,unknown,unknown,unknown,
 G165-01,M165,PA-CF low warp,within,within,unknown,unknown,requires-hardened,unknown,
 G166-01,M166,Onyx GF,unknown,unknown,unknown,unknown,unknown,unknown,
 G167-01,M167,TPE 22D,within,within,within,unknown,unknown,unknown,
-G167-02,M167,Flexfill TPE 90A,within,unknown,unknown,unknown,unknown,unknown,
-G167-03,M167,FiberFlex 30D,within,within,unknown,unknown,unknown,unknown,
-G167-04,M167,MattFlex 40D,within,within,unknown,unknown,unknown,unknown,
-G167-05,M167,Chinchilla,unknown,unknown,unknown,unknown,unknown,unknown,
-G167-06,M167,FiberFlex 40D,within,within,unknown,unknown,unknown,unknown,
+G167-02,M170,Flexfill TPE 90A,within,unknown,unknown,unknown,unknown,unknown,
+G167-03,M046,FiberFlex 30D,within,within,unknown,unknown,unknown,unknown,
+G167-04,M046,MattFlex 40D,within,within,unknown,unknown,unknown,unknown,
+G167-05,M046,Chinchilla,unknown,unknown,unknown,unknown,unknown,unknown,
+G167-06,M046,FiberFlex 40D,within,within,unknown,unknown,unknown,unknown,
 G167-07,M167,Flex B4C,within,within,within,unknown,requires-hardened,unknown,
 G167-08,M167,Flex VX,within,within,within,unknown,unknown,unknown,
-G167-09,M167,Flex,within,within,within,unknown,unknown,unknown,
-G167-10,M167,TPE 83A,within,within,unknown,unknown,unknown,unknown,
-G167-11,M167,Flexfill TPE 96A,within,unknown,unknown,unknown,unknown,unknown,
+G167-09,M160,Flex,within,within,within,unknown,unknown,unknown,
+G167-10,M170,TPE 83A,within,within,unknown,unknown,unknown,unknown,
+G167-11,M170,Flexfill TPE 96A,within,unknown,unknown,unknown,unknown,unknown,
 G167-12,M167,ISTROFLEX,within,within,within,unknown,unknown,unknown,
-G167-13,M167,Thermoplastic vulcanizate (TPV),unknown,unknown,unknown,unknown,unknown,unknown,
+G167-13,M175,Thermoplastic vulcanizate (TPV),unknown,unknown,unknown,unknown,unknown,unknown,
 G168-01,M168,PRO HT,unknown,unknown,unknown,unknown,unknown,unknown,
 G168-02,M168,niceBIO,within,unknown,unknown,unknown,unknown,unknown,
 G168-03,M168,GREENTEC PRO,within,within,within,not-needed,no-special-concern,unknown,

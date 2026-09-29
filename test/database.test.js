@@ -217,7 +217,7 @@ test('no in-scope headline is left with nothing: a value, an estimate or a reaso
   for (const m of db.materials.filter((x) => !x.excluded && !x.familyEntry)) {
     for (const k of ESTIMATED) {
       const h = m.headline[k];
-      // A material declared not estimated (a family's "polymer not stated" home, D87) shows what its products publish,
+      // A material declared not estimated (a family's maker-undisclosed home, D87, D106) shows what its products publish,
       // and a headline none of them publishes is unknown, as an untested product is; every other one has something.
       assert.ok(h.known || h.estimate || h.notApplicable || !m.estimateIdentity, `${m.name} ${k} is blank`);
       assert.ok(!(h.known && (h.estimate || h.notApplicable)), `${m.name} ${k} mixes a value with inference`);

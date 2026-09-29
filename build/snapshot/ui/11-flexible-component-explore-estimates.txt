@@ -1,7 +1,7 @@
-COUNT 89 shown PASS + UNKNOWN
-STATUS ☑ PASS 7 | ☑ UNKNOWN 109 | ☐ FAIL 37 | ☐ SCREENED 27
-7 of the 153 materials meet these requirements
-Flexible component template · 109 more could not be checked, listed flagged, except 27 screened out
+COUNT 91 shown PASS + UNKNOWN
+STATUS ☑ PASS 6 | ☑ UNKNOWN 110 | ☐ FAIL 37 | ☐ SCREENED 25
+6 of the 153 materials meet these requirements
+Flexible component template · 110 more could not be checked, listed flagged, except 25 screened out
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -150,12 +150,12 @@ COC
 PVB / Specialty Polymers
  UNKNOWN
 none judged
- 1,020 ~0.4–1.7† ~32–79† ~3–49† 160 — ☆
+ 1,020 ~0.3–1.7† ~29–79† ~5–61† 160 — ☆
 CoPE
 Copolyesters
  UNKNOWN
 none judged
- 1,300 2.52 51.6 ~7–68† ~51–70† — ☆
+ 1,300 2.52 51.6 ~6–73† ~52–70† — ☆
 CPE
 Copolyesters
  UNKNOWN
@@ -182,7 +182,7 @@ CPE-LW
 Copolyesters
  UNKNOWN
 none judged
- 1,160 ~0.12–0.33† ~18–38† ~80–360† 70 — ☆
+ 1,160 ~0.12–0.33† ~17–40† ~100–450† 70 — ☆
 HIPS
 Styrenics
  UNKNOWN
@@ -202,26 +202,26 @@ nGen FLEX
 Copolyesters
  UNKNOWN
 none judged
- 1,130 0.15 19.3 320 ~77–139† — ☆
-Nylon-CF, polymer not stated
+ 1,130 0.15 19.3 320 ~78–138† — ☆
+Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
 none judged
  1,400 — 107* 2* — — ☆
-Nylon, polymer not stated
+Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
 0 of 3
- 1,175
-1,010–1,250 · 4
+ 1,210
+1,140–1,250 · 3
  3.1
 3–3.33 · 3
  65
 63–69.2 · 3
  8.5
 4.5–9.77 · 3
- 91
-79–102 · 3
+ 85
+79–91 · 2
  — ☆
 OBC
 Polyolefins
@@ -229,14 +229,14 @@ Polyolefins
 1 of 1
  905
 905–905 · 2
- ~0.009–0.42† 14 700 n/a — ☆
+ ~0.008–0.41† 14 700 n/a — ☆
 PA12
 Nylon / Polyamide
  UNKNOWN
 none judged
- 1,011
-1,000–1,020 · 4
- ~0.6–2.2† ~50–76† ~200–350† 135
+ 1,010
+1,000–1,020 · 5
+ ~0.6–2.2† ~51–80† ~200–340† 135
 100–135 · 3
  — ☆
 PA12-CF
@@ -261,6 +261,15 @@ Nylon / Polyamide
  1,230 7.8 82 4.5 163
 150–175 · 2
  — ☆
+PA6
+Nylon / Polyamide
+ UNKNOWN
+none judged
+ 1,150
+1,130–1,200 · 7
+ ~1.3–4.3† ~36–77† ~3–23† 140
+60–143 · 3
+ 163↗ ☆
 PA6-CF
 Nylon / Polyamide
  UNKNOWN
@@ -303,12 +312,12 @@ Nylon / Polyamide
 55–78 · 4
  13.8
 9.9–100 · 4
- 115
-110–140 · 4
+ 111
+102–140 · 5
  — ☆
 PA612
 Nylon / Polyamide
- UNKNOWN ~990–1,070† ~1.0–3.9† ~37–79† ~5–47† ~94–167† — ☆
+ UNKNOWN ~990–1,070† ~1.0–3.9† ~37–83† ~4–48† ~96–167† — ☆
 PA612-CF
 Nylon / Polyamide
  UNKNOWN
@@ -329,7 +338,9 @@ none judged
  1,100 4.29 84.3 3 157 — ☆
 PA66
 Nylon / Polyamide
- UNKNOWN ~1,070–1,170† ~1.1–4.6† ~37–81† ~4–46† ~108–194† — ☆
+ UNKNOWN
+none judged
+ ~1,000–1,060† ~1.3–4.7† ~40–90† ~4–44† ~99–180† — ☆
 PAHT-CF
 Nylon / Polyamide
  UNKNOWN
@@ -350,6 +361,13 @@ PVB / Specialty Polymers
  PASS
 1 of 1
  1,250 0.006 27 400 90 — ☆
+PBT
+Polymer Blends
+ UNKNOWN
+none judged
+ 1,310 ~1.1–4.3† ~30–70† ~4–46† 180
+180–180 · 2
+ — ☆
 PC
 Polycarbonate
  UNKNOWN
@@ -432,7 +450,7 @@ PVB / Specialty Polymers
 none judged
  1,100
 1,100–1,130 · 3
- ~0.23–1.17† ~17–69† 800 57 — ☆
+ ~0.23–1.18† ~16–72† 800 57 — ☆
 PCTG
 Copolyesters
  UNKNOWN
@@ -470,7 +488,7 @@ PET Engineering
 52.6–64.2 · 2
  7.8
 7–8.6 · 2
- ~47–66† — ☆
+ ~48–66† — ☆
 PET-CF
 PET Engineering
  UNKNOWN
@@ -555,7 +573,7 @@ PETG-GF UNKNOWN
  — ☆
 PETG-PTFE UNKNOWN
 none judged
- 1,320 ~0.9–3.2† ~28–59† ~104–187† ~49–73† — ☆
+ 1,320 ~0.9–3.2† ~27–60† ~105–198† ~50–72† — ☆
 PLA UNKNOWN
 0 of 57
  1,240
@@ -584,18 +602,18 @@ PLA Aero UNKNOWN
  53
 48–59 · 7
  58↗ ☆
-PLA family-CF, polymer not stated UNKNOWN
-none judged
- 1,280
-1,200–1,360 · 2
- 7.12* 65* 2.5* 74 — ☆
-PLA family, polymer not stated UNKNOWN
+PLA blend UNKNOWN
 none judged
  1,340
 1,300–1,540 · 7
  4.3* 58* 14* 85.5
 54–115 · 4
  — ☆
+PLA blend-CF UNKNOWN
+none judged
+ 1,280
+1,200–1,360 · 2
+ 7.12* 65* 2.5* 74 — ☆
 PLA Galaxy UNKNOWN
 0 of 2
  1,225
@@ -835,7 +853,7 @@ PVB / Specialty Polymers
 none judged
  1,310
 1,269–1,350 · 2
- ~0.1–7.9† ~20–51† ~10–150† ~52–76† — ☆
+ ~0.1–8.0† ~19–53† ~10–140† ~53–76† — ☆
 PVDF
 Fluoropolymers
  UNKNOWN
@@ -853,7 +871,7 @@ also called TPEE · Flexible Elastomers
  UNKNOWN
 none judged
  1,150
-1,100–1,220 · 7
+1,070–1,220 · 10
  0.048
 0.029–0.067 · 2
  12.7
@@ -865,27 +883,27 @@ TPC-ESD
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,280 1.4 70 ~90–600† n/a — ☆
-TPE, polymer not stated
+ 1,280 1.4 70 ~70–520† n/a — ☆
+TPE, maker-undisclosed elastomer
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,150
-1,000–1,250 · 11
- 0.0344* 22* 250* n/a — ☆
+ 1,125
+1,000–1,250 · 2
+ 0.06* 11.5* — n/a — ☆
 TPS
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,132
-1,044–1,220 · 2
- 0.054 — 280 n/a — ☆
+ 1,150
+1,044–1,220 · 5
+ 0.054 32* 280 n/a — ☆
 TPU 85A class and softer
 Flexible Elastomers
  PASS
 1 of 1
  1,180
-1,070–1,210 · 12
+1,070–1,210 · 13
  0.0159
 0.0068–0.025 · 2
  12
@@ -898,7 +916,7 @@ Flexible Elastomers
  PASS
 3 of 3
  1,210
-1,120–1,240 · 9
+1,120–1,240 · 10
  0.0162
 0.0053–0.027 · 2
  26.9
@@ -909,23 +927,23 @@ Flexible Elastomers
 TPU 95A class
 Flexible Elastomers
  PASS
-7 of 7
- 1,200
-1,000–1,240 · 22
- 0.0132
-0.006–0.065 · 5
- 27
-17–31.8 · 9
- 483
-265–900 · 8
+9 of 9
+ 1,210
+1,000–1,240 · 26
+ 0.027
+0.006–0.065 · 7
+ 27.3
+17–31.8 · 11
+ 499
+265–900 · 10
  n/a 54↗ ☆
 TPU harder than 95A
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,190
-1,090–1,260 · 13
- ~0.007–0.32† 30
+ 1,185
+1,090–1,260 · 14
+ ~0.007–0.30† 30
 22.4–39 · 3
  540
 140–650 · 3
@@ -936,36 +954,28 @@ Flexible Elastomers
 none judged
  1,230
 1,220–1,230 · 3
- ~0.01–0.73† ~13–111† ~21–79† n/a — ☆
+ ~0.01–0.73† ~18–95† ~18–70† n/a — ☆
 TPU-EC
 Flexible Elastomers
  UNKNOWN
 none judged
- 1,330 ~0.008–0.37† ~7–58† ~90–370† n/a — ☆
+ 1,330 ~0.008–0.36† ~8–43† ~70–330† n/a — ☆
 TPU-ESD
 Flexible Elastomers
  UNKNOWN
 none judged
  1,190
 1,180–1,200 · 2
- ~0.008–0.37† 12 ~80–450† n/a — ☆
+ ~0.008–0.37† 12 ~70–410† n/a — ☆
 TPU-LW
 Flexible Elastomers
  UNKNOWN
 none judged
  1,120
 1,120–1,200 · 3
- ~0.004–0.18† ~8–70† ~240–960† n/a — ☆
-TPU, hardness not stated
+ ~0.004–0.18† ~12–60† ~220–940† n/a — ☆
+TPV
 Flexible Elastomers
- PASS
-2 of 2
- 1,220
-1,120–1,230 · 6
- 0.027
-0.027–0.027 · 2
- 27.3
-27.3–27.3 · 2
- 501
-501–501 · 2
- n/a — ☆
+ UNKNOWN
+none judged
+ 1,240 0.0139* — — n/a — ☆

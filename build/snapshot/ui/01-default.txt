@@ -27,7 +27,7 @@ Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking, on a product the H2C can print.
 153 materials, 136 of them in H2C scope
 11212 measurements, each traceable to a source
-145 have a density, 101 a modulus, 33 a Canadian price
+145 have a density, 100 a modulus, 33 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -221,24 +221,24 @@ Copolyesters
 nGen-CF
 Copolyesters
  not tested — 2.52 44.7 3.1 78 — ☆
-Nylon-CF, polymer not stated
+Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  not tested 1,400 — 107* 2* — — ☆
-Nylon-GF, polymer not stated
+Nylon-GF, maker-undisclosed polyamide
 Nylon / Polyamide
  not tested 1,210 3.1 60.4 5.5 138* — ☆
-Nylon, polymer not stated
+Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
- not tested 1,175
-1,010–1,250 · 4
+ not tested 1,210
+1,140–1,250 · 3
  3.1
 3–3.33 · 3
  65
 63–69.2 · 3
  8.5
 4.5–9.77 · 3
- 91
-79–102 · 3
+ 85
+79–91 · 2
  — ☆
 OBC
 Polyolefins
@@ -250,8 +250,8 @@ Nylon / Polyamide
  not tested 1,140 6.9* 68* 3.8* 142 — ☆
 PA12
 Nylon / Polyamide
- not tested 1,011
-1,000–1,020 · 4
+ not tested 1,010
+1,000–1,020 · 5
  1.44* 43* 50* 135
 100–135 · 3
  — ☆
@@ -325,8 +325,8 @@ Nylon / Polyamide
 55–78 · 4
  13.8
 9.9–100 · 4
- 115
-110–140 · 4
+ 111
+102–140 · 5
  — ☆
 PA6/66-CF
 Nylon / Polyamide
@@ -353,7 +353,7 @@ Nylon / Polyamide
  not tested — — — — — — ☆
 PA66
 Nylon / Polyamide
- not tested 1,140* 3.1* 82* 45* 190* — ☆
+ not tested 1,140* 3.1* 96* 45* 190* — ☆
 PA66-CF
 Nylon / Polyamide
  not tested — — — — — — ☆
@@ -726,14 +726,14 @@ PLA Aero not tested 1,150
  53
 48–59 · 7
  58↗ ☆
-PLA family-CF, polymer not stated not tested 1,280
-1,200–1,360 · 2
- 7.12* 65* 2.5* 74 — ☆
-PLA family, polymer not stated not tested 1,340
+PLA blend not tested 1,340
 1,300–1,540 · 7
  4.3* 58* 14* 85.5
 54–115 · 4
  — ☆
+PLA blend-CF not tested 1,280
+1,200–1,360 · 2
+ 7.12* 65* 2.5* 74 — ☆
 PLA Galaxy not tested 1,225
 1,190–1,240 · 4
  1.79
@@ -1012,7 +1012,7 @@ Support / Interface
 TPC
 also called TPEE · Flexible Elastomers
  not tested 1,150
-1,100–1,220 · 7
+1,070–1,220 · 10
  0.048
 0.029–0.067 · 2
  12.7
@@ -1023,23 +1023,23 @@ also called TPEE · Flexible Elastomers
 TPC-ESD
 Flexible Elastomers
  not tested 1,280 1.4 70 — n/a — ☆
-TPE, polymer not stated
+TPE, maker-undisclosed elastomer
 Flexible Elastomers
- not tested 1,150
-1,000–1,250 · 11
- 0.0344* 22* 250* n/a — ☆
+ not tested 1,125
+1,000–1,250 · 2
+ 0.06* 11.5* — n/a — ☆
 TPI
 Industrial High-Temperature
  not tested 1,300 2.95 74 6 237 — ☆
 TPS
 Flexible Elastomers
- not tested 1,132
-1,044–1,220 · 2
- 0.054 — 280 n/a — ☆
+ not tested 1,150
+1,044–1,220 · 5
+ 0.054 32* 280 n/a — ☆
 TPU 85A class and softer
 Flexible Elastomers
  not tested 1,180
-1,070–1,210 · 12
+1,070–1,210 · 13
  0.0159
 0.0068–0.025 · 2
  12
@@ -1050,7 +1050,7 @@ Flexible Elastomers
 TPU 90A class
 Flexible Elastomers
  not tested 1,210
-1,120–1,240 · 9
+1,120–1,240 · 10
  0.0162
 0.0053–0.027 · 2
  26.9
@@ -1060,19 +1060,19 @@ Flexible Elastomers
  n/a 54↗ ☆
 TPU 95A class
 Flexible Elastomers
- not tested 1,200
-1,000–1,240 · 22
- 0.0132
-0.006–0.065 · 5
- 27
-17–31.8 · 9
- 483
-265–900 · 8
+ not tested 1,210
+1,000–1,240 · 26
+ 0.027
+0.006–0.065 · 7
+ 27.3
+17–31.8 · 11
+ 499
+265–900 · 10
  n/a 54↗ ☆
 TPU harder than 95A
 Flexible Elastomers
- not tested 1,190
-1,090–1,260 · 13
+ not tested 1,185
+1,090–1,260 · 14
  1.19* 30
 22.4–39 · 3
  540
@@ -1099,14 +1099,6 @@ Flexible Elastomers
  not tested 1,120
 1,120–1,200 · 3
  — 33* 400* n/a — ☆
-TPU, hardness not stated
+TPV
 Flexible Elastomers
- not tested 1,220
-1,120–1,230 · 6
- 0.027
-0.027–0.027 · 2
- 27.3
-27.3–27.3 · 2
- 501
-501–501 · 2
- n/a — ☆
+ not tested 1,240 0.0139* — — n/a — ☆

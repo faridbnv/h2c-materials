@@ -35,7 +35,12 @@ test('a TPU is filed in the hardness class its rating falls in, from its name or
   assert.equal(at('TPU 83A'), 'M159');
   assert.equal(at('TPU 98A'), 'M162');
   assert.equal(at('TPU 64D'), 'M162');
-  assert.equal(at('TPU'), 'M163');
+  // A TPU that states no rating had a class of its own until m223, which found every product in it rated by its maker
+  // after all and made it a family entry (D106): such a product now waits for a ruling, never the first class.
+  assert.equal(at('TPU'), null);
+  const unrated = classifyProduct('TPU', { manufacturer: 'SUNLU' }, { ...world, rulings: [] });
+  assert.equal(unrated.needsRuling, true);
+  assert.ok(unrated.reasons.some((r) => /Shore rating its maker gives it/.test(r)), unrated.reasons.join('; '));
   // A name with no rating takes the one the sheet's own hardness row prints.
   assert.equal(at('TPU', { hardness: '92A' }), 'M160');
 });

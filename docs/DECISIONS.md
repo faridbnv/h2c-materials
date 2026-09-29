@@ -95,8 +95,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D83 | A material is the spread of its products, and passes when one of its products meets every requirement | A material is shown as the range of its products, and passes when at least one product meets every requirement on its own values. | Amended by D88 (a printer maker's guide answers a product's silent print gate), D89 (a twin reads its sibling's values and recipe), D98 (a product's environment, stock and evidence are its own) D99 (a product is judged in one state it can be made in) and D100 (a material fails only when every product fails; with one unresolved it is unknown) |
 | D84 | Two evidence levels: comparable decides; a value published without its direction or load is counted apart | Values with a stated direction and load decide by default; values published without them are shown and counted apart, and decide only when asked. | Amended by D92 (the layer strength takes no value published without a direction; an impact headline also sets a notch and a test temperature), D94 (a headline may name its test standard, and a value naming only others is no value of it), D95 (a bar printed off the product's recipe is no product value) and D99 (comparable is a screening policy: a verdict names the conditions it admitted unstated, and an annealed or conditioned value decides only in its own state) |
 | D85 | The record tier: what a source publishes is kept as printed, in the database only, and decides nothing | Everything else a source prints is kept as printed in the query database only and decides nothing; makers' printing advice is the one part the page shows. | In force |
-| D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | In force |
-| D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone |
+| D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | Amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's |
+| D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend |
 | D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types) |
 | D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209) |
@@ -115,6 +115,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D103 | A chosen product is a local decision record: its brief, its state, its release, and the team's own tests | An engineer can choose the exact product the team will print; the page keeps it with the scenario, with the state and release it was chosen on, and writes a decision brief with its evidence, recipe, open questions and a test plan, where the team records its own results. | In force |
 | D104 | A save is one transaction, a fetch is bounded, and a source's bytes are kept by their digest | Editing the tables from a script either writes every file of the change or none, and refuses to overwrite another writer's save; downloading a source gives up after set limits and resumes without starting over; and the downloaded source files can be listed, backed up and restored by their fingerprint. | In force |
 | D105 | A query is of one generation; a decision can be traced; the loop is measured | The SQL file you query says which release of the data it is of and never mixes the tables as they are with an older compiled database; one product's decision in a saved scenario can be traced record by record from the command line; and what the build and checks cost is measured step by step. | In force |
+| D106 | A product is named for what its maker's documents say it is, searched beyond the data sheet | Before a product is filed as "polymer not stated" or "hardness not stated", its maker's safety data sheet, pages, guides and older editions are searched; it is filed under what they name, and only what no document names stays in a home that says the maker does not disclose it. | In force; it amends D86 (the "hardness not stated" class is a family entry) and D87 (the homes are named for what is true of them) |
 
 <!-- end index -->
 
@@ -2394,6 +2395,7 @@ drops the reads table, and a silent sheet and an unread one look the same again.
 ## D86. A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID
 
 > **In plain words:** Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers.
+> **Status:** amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's.
 
 *Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md). Built in m141.*
 
@@ -2427,7 +2429,7 @@ brings back one maker's catalogue as the taxonomy, and a TPU that is every hardn
 ## D87. A family's "polymer not stated" home, and sintering filaments are recorded, never candidates
 
 > **In plain words:** Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates.
-> **Status:** amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone.
+> **Status:** amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend.
 
 *Decided by the owner on 2026-09-25 (re-center phase 5, docs/GOALS.md, decisions 2 and 3). Built in m142 and m143.*
 
@@ -3198,6 +3200,49 @@ spent the budget was a guess.
   estimate stage 37 s, to 1,005 90 s.
 
 Answers moved: none. Reversing it lets a query mix two releases without saying so.
+
+## D106. A product is named for what its maker's documents say it is, searched beyond the data sheet
+
+> **In plain words:** Before a product is filed as "polymer not stated" or "hardness not stated", its maker's safety data sheet, pages, guides and older editions are searched; it is filed under what they name, and only what no document names stays in a home that says the maker does not disclose it.
+> **Status:** In force; it amends D86 (the "hardness not stated" class is a family entry) and D87 (the homes are named for what is true of them).
+
+*Decided by the owner on 2026-09-28: materials named "polymer not stated" and "TPU, hardness not stated" hold products
+with good data, and naming them so is not acceptable; search the sources beyond the data sheets and name them. Built
+in m223 by Claude agents (research and migration); the owner ruled on two nylons (R225, R226). No person has read the
+pages. The record is `docs/audits/2026-09-28-polymer-names/`.*
+
+D87 filed a product whose data sheet named only a family ("nylon", "TPE") in the family's "polymer not stated" home,
+and D86 kept a class for a TPU whose name and sheet state no Shore rating. Both read only the sheet. Five research
+agents searched the 41 products those homes held: their safety data sheets, product pages, printing guides, archived
+editions, catalogues and listings. 28 of the 41 are settled by a document their maker published, and the owner filed two
+more on the best evidence. Six TPUs print
+their rating on the very sheet the database cites, in prose, which the reader does not read.
+
+- **A product is filed under what its maker's documents name.** A safety data sheet's composition decides over a
+  product page's marketing word. Fiberlogy's FiberFlex and MattFlex are called TPU on the relaunched site, and every
+  safety data sheet since 2017 names a copolyester elastomer, whose density and melting point their sheets print, so
+  they are TPC / TPEE. A document the migration cites is fetched, hashed, registered (Citation role `corroboration`)
+  and its words checked on the cached page. A page image is read optically and checked by eye, and the source's Access
+  note says so.
+- **The owner may file a product on the best evidence where the documents fall short,** and the grade says it is
+  inferred and why (R205). Yousu Nylon (its own safety data sheet names PA66; its melting point is a PA6's) and Spectrum
+  ThermaTech PA (two retailers and a melting range) are PA66 so; they are PA66's first products.
+- **What no document names stays in a home that says so:** "Nylon, maker-undisclosed polyamide" and its CF and GF
+  siblings, and "TPE, maker-undisclosed elastomer". Each still holds products, is judged like any material, and is not
+  estimated. The leads found for each product are in the record, for a later ruling.
+- **The bio-based compounds are a PLA blend.** Their makers' documents say PLA-based, with a copolyester where they
+  name the partner, so the PLA family's homes are named PLA blend and PLA blend-CF, and are still not estimated.
+- **A thermoplastic vulcanizate is a material of its own,** TPV (M175), as TPS is (R196): it names a class of elastomer,
+  and its sheet names it.
+- **The "hardness not stated" class is a family entry** over the classes its products went to. The reader files a TPU
+  that states no rating nowhere; it waits for a ruling that names its maker's rating (`scripts/ingest/classify.mjs`,
+  `hardnessSplit`), and never takes the first class.
+
+What it did (`build/snapshot/templates.csv`): no material's verdict changed in any template. 175 rows changed their
+product counts: the TPU 95A class passes Indoor prototype on 30 of 30 products and Flexible component on 9 of 30. The
+retired TPU class's 16 rows went, and TPV's 12 came. In research mode with estimates, three candidates changed, because
+the model now learns from the moved products. Reversing it puts 21 products back under a name that says less than their
+makers do.
 
 ---
 

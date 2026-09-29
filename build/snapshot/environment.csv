@@ -763,10 +763,3 @@ M162,oil-grease,Q00436,G040-01,own,limited,yes,
 M162,organic-solvent,Q00435,G040-01,own,limited,yes,
 M162,uv-outdoor,M162-uv-outdoor,,polymer,limited,,no
 M162,water-solubility,Q00432,G040-01,own,insoluble,,
-M163,acid,M163-acid,,polymer,not-resistant,,yes
-M163,alkali,M163-alkali,,polymer,not-resistant,,yes
-M163,hydrolysis,M163-hydrolysis,,polymer,limited,,no
-M163,oil-grease,M163-oil-grease,,polymer,limited,,no
-M163,organic-solvent,M163-organic-solvent,,polymer,not-resistant,,yes
-M163,uv-outdoor,M163-uv-outdoor,,polymer,limited,,no
-M163,water-solubility,M163-water-solubility,,polymer,resistant,,no

@@ -169,7 +169,7 @@ function identityRuling(product, context, world, seen = null) {
 
 /**
  * A ruling that files this product under a named material (Kind `material`, the Value a MaterialID). It is for a
- * material no polymer of polymers.csv identifies: a family's "polymer not stated" home, a material whose polymer
+ * material no polymer of polymers.csv identifies: a family's maker-undisclosed home (D87, D106), a material whose polymer
  * has no row (PEKK, the sintering filaments), and a class the rule would pick wrongly (a TPU whose rating only its
  * prose states). The Subject is the product as the sheet prints it or the catalogue lists it, with or without its
  * maker in front, exactly as an identity ruling's is; a family entry is never a home (D44), so a ruling naming one
@@ -205,6 +205,10 @@ export function hardnessClass(candidates, hardness) {
     : classes.find((c) => c.Scale === 'none');
   return hit ? candidates.find((m) => m.MaterialID === hit.MaterialID) ?? null : null;
 }
+
+/** Whether several materials are one polymer split by hardness (TPU, m141), the classes the lexicon lists. */
+export const hardnessSplit = (candidates) => candidates.length > 1
+  && candidates.every((m) => HARDNESS_CLASSES.some((c) => c.MaterialID === m.MaterialID));
 
 export function classifyProduct(product, context = {}, world = {}) {
   const signals = [];
@@ -492,7 +496,10 @@ export function classifyProduct(product, context = {}, world = {}) {
   const match = pinned ? pinned.material
     : supportPick?.materialId ? (world.materials ?? []).find((m) => m.MaterialID === supportPick.materialId)
       : matchMaterial(identity, world.materials ?? [], { ...context, product, tokens, grades: world.grades ?? [], hardness: rated });
-  if (!match) {
+  const classes = (world.materials ?? []).filter((m) => m.Scope !== 'Family entry' && identityOf(m) === identity.polymer && m['Modifier / filler'] === identity.modifier);
+  if (!match && hardnessSplit(classes)) {
+    reasons.push(`a ${identity.polymer} is filed by the Shore rating its maker gives it, and "${product}" states none: find the maker's rating (its product page, its safety data sheet, its other sheets) and rule it (D106)`);
+  } else if (!match) {
     const collision = collidesWith(identity, world.materials ?? []);
     if (collision) reasons.push(`a new material here would duplicate ${collision.MaterialID} ${collision['Original name']}, which already holds ${identity.polymer} / ${identity.modifier}${identity.variantClass ? ` / ${identity.variantClass}` : ''}`);
   }
@@ -582,12 +589,14 @@ export function matchMaterial(identity, materials, context = {}) {
   }
 
   // A polymer split by hardness (TPU, m141) is several materials of one identity, and the table's first of them is no
-  // answer: until this read the rating, every new TPU was filed as 87A or softer. The rating picks the class, and a
-  // product that states none goes to the class for that (D86).
+  // answer: until this read the rating, every new TPU was filed as 87A or softer. The rating picks the class (D86). A
+  // product that states none has no class since m223, which found every product of "TPU, hardness not stated" rated
+  // by its maker after all and made the class a family entry (D106): it waits for its maker's rating, as a ruling.
   const byIdentity = open.filter((m) => same(m) && !ownProduct(m));
   if (byIdentity.length > 1) {
     const byHardness = hardnessClass(byIdentity, context.hardness);
     if (byHardness) return byHardness;
+    if (hardnessSplit(byIdentity)) return null;
   }
   if (byIdentity.length) return byIdentity[0];
   // A material the estimate model cannot identify (the high-temperature six, whose polymers have no row) can only

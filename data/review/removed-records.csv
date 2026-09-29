@@ -1090,3 +1090,7 @@ reference_envelopes,Polywood perpendicular to board | compressiveStrength,m148-r
 reference_envelopes,Polywood perpendicular to board | elongation,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | elongation
 reference_envelopes,Polywood perpendicular to board | fractureToughness,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | fractureToughness
 reference_envelopes,Polywood perpendicular to board | thermalExpansion,m148-reference-names,re-pointed: the same row is now Plywood perpendicular to board | thermalExpansion
+material_links,M163 | printing | P0442,m223-what-the-makers-say-it-is,re-pointed: the same row is now M161 | printing | P0442
+material_links,M164 | printing | P1160,m223-what-the-makers-say-it-is,re-pointed: the same row is now M052 | printing | P1160
+family_members,M039 | M163,m223-what-the-makers-say-it-is,re-pointed: the same row is now M039 | M150
+family_members,M044 | M163,m223-what-the-makers-say-it-is,re-pointed: the same row is now M044 | M175

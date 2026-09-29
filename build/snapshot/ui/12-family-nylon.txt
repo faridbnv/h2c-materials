@@ -35,30 +35,30 @@ PC
 ≈ close to the limit
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
-Nylon-CF, polymer not stated
+Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
 1 of 1
  1,400 — 107* 2* — — ☆
-Nylon-GF, polymer not stated
+Nylon-GF, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
 1 of 1
  1,210 3.1 60.4 5.5 138* — ☆
-Nylon, polymer not stated
+Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
-9 of 9
- 1,175
-1,010–1,250 · 4
+5 of 5
+ 1,210
+1,140–1,250 · 3
  3.1
 3–3.33 · 3
  65
 63–69.2 · 3
  8.5
 4.5–9.77 · 3
- 91
-79–102 · 3
+ 85
+79–91 · 2
  — ☆
 PA-ESD
 Nylon / Polyamide
@@ -68,9 +68,9 @@ Nylon / Polyamide
 PA12
 Nylon / Polyamide
  PASS
-7 of 7
- 1,011
-1,000–1,020 · 4
+8 of 8
+ 1,010
+1,000–1,020 · 5
  1.44* 43* 50* 135
 100–135 · 3
  — ☆
@@ -153,7 +153,7 @@ Nylon / Polyamide
 PA6/66
 Nylon / Polyamide
  PASS
-7 of 7
+8 of 8
  1,120
 1,100–1,120 · 7
  2.22
@@ -162,8 +162,8 @@ Nylon / Polyamide
 55–78 · 4
  13.8
 9.9–100 · 4
- 115
-110–140 · 4
+ 111
+102–140 · 5
  — ☆
 PA6/66-CF
 Nylon / Polyamide
@@ -196,7 +196,9 @@ Nylon / Polyamide
  PASS — — — — — — ☆
 PA66
 Nylon / Polyamide
- PASS 1,140* 3.1* 82* 45* 190* — ☆
+ PASS
+2 of 2
+ 1,140* 3.1* 96* 45* 190* — ☆
 PA66-CF
 Nylon / Polyamide
  PASS — — — — — — ☆
