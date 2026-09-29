@@ -9,12 +9,12 @@ that settles the most answers first, not the most data.
 
 | Template | In scope | PASS | FAIL | UNKNOWN | What leaves the unknowns unjudged (requirement × material) | Answers that change when values without direction or load are admitted |
 |---|---:|---:|---:|---:|---|---:|
-| Outdoor structural part | 136 | 18 | 83 | 35 | not published 45; published, not comparable 17 | 14 |
-| Indoor prototype | 136 | 15 | 21 | 100 | no sampled price 100 | 0 |
-| Lightweight structure | 136 | 29 | 80 | 27 | not published 20; published, not comparable 14 | 22 |
-| Warm environment | 136 | 34 | 39 | 63 | print setting not recorded 67; not published 29 | 0 |
-| High-stiffness fixture | 136 | 19 | 74 | 43 | published, not comparable 26; not published 17 | 27 |
-| Flexible component | 136 | 16 | 75 | 45 | published, not comparable 27; not published 18 | 31 |
+| Outdoor structural part | 136 | 6 | 23 | 107 | print setting not recorded 73; not published 50; published, not comparable 27 | 12 |
+| Indoor prototype | 136 | 79 | 6 | 51 | print setting not recorded 95 | 0 |
+| Lightweight structure | 136 | 13 | 30 | 93 | print setting not recorded 63; not published 25; published, not comparable 24 | 13 |
+| Warm environment | 136 | 33 | 10 | 93 | print setting not recorded 94; not published 30 | 1 |
+| High-stiffness fixture | 136 | 6 | 23 | 107 | print setting not recorded 66; published, not comparable 29; not published 20 | 22 |
+| Flexible component | 136 | 6 | 20 | 110 | print setting not recorded 66; published, not comparable 28; not published 22 | 22 |
 
 The kinds of work: **published, not comparable** is a re-read of the test conditions (direction, load) the sheet may
 state elsewhere, or a sheet that states them; **not published** is a targeted sheet, or the maker's site; **print
@@ -26,72 +26,72 @@ applicable (D56) and is not counted as a gap.
 
 A material none of whose products can be judged on a property, counted across the templates whose answer it holds
 up (one value settles every threshold on it). The first rows are where one reading settles several answers. Price is
-apart: 100 materials hold up the Indoor prototype for want of a sampled price.
+apart: 0 materials hold up the Indoor prototype for want of a sampled price.
 
 | Material | Products | Property | Why unjudged | Limits | Templates |
 |---|---:|---|---|---|---:|
-| PA12 (M052) | 7 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| ASA-AF (M113) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| TPU-CF (M129) | 3 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| TPU-LW (M150) | 3 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| OBC (M086) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PLA-GR (M155) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| SAN (M136) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| TPU-ESD (M126) | 2 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| ASA-EC (M105) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PA-ESD (M064) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| PA12-AF (M154) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| PA6-GS (M108) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| PA6/66-CF (M156) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PC-PBT-CF (M131) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PLA-PHB (M146) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 2.5, >= 5 | 3 |
-| SBC (M174) | 1 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PA612 (M058) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PA612-GF (M060) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PA66 (M055) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| PA66-CF (M056) | 0 | tensileModulusXY | not published | >= 3, >= 2.5, >= 5 | 3 |
-| TPU harder than 95A (M162) | 14 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| PP (M082) | 12 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| PCL (M149) | 4 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| ASA-AF (M113) | 3 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PE-GF (M138) | 3 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| COC (M137) | 2 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| PAHT-CE (M148) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PAHT-CE (M148) | 2 | tensileModulusXY | not published | >= 3, >= 5 | 2 |
-| PBT (M140) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| PC-PTFE (M112) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| PETG-GR (M153) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PETG-GR (M153) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| PETG-PTFE (M109) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PETG-PTFE (M109) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| PLA-EC (M111) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PLA-EC (M111) | 2 | tensileModulusXY | not published | >= 3, >= 5 | 2 |
-| PLA-GR (M155) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PVC (M135) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PVC (M135) | 2 | tensileModulusXY | not published | >= 3, >= 5 | 2 |
-| SAN (M136) | 2 | hdt045 | not published | >= 100, >= 80 | 2 |
-| TPU-EC (M157) | 2 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| ASA-EC (M105) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| CPE-LW (M134) | 1 | tensileModulusXY | not published | >= 2.5, >= 5 | 2 |
-| LCP (M139) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| LCP (M139) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| Nylon-CF, polymer not stated (M165) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| Nylon-CF, polymer not stated (M165) | 1 | tensileModulusXY | not published | >= 3, >= 5 | 2 |
-| Nylon-GF, polymer not stated (M166) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PA12-AF (M154) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PA12-AF (M154) | 1 | density | not published | <= 1500, <= 1250 | 2 |
-| PA6-CE (M104) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PA6-CE (M104) | 1 | tensileModulusXY | published, not comparable | >= 3, >= 5 | 2 |
-| PA6-GS (M108) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PA6/66-CF (M156) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PAHT (M147) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PC-PBT-CF (M131) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| PC-PBT-CF (M131) | 1 | density | not published | <= 1500, <= 1250 | 2 |
-| PLA-CE (M158) | 1 | tensileModulusXY | published, not comparable | >= 2.5, >= 5 | 2 |
-| PLA-PHA (M145) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
-| SBC (M174) | 1 | hdt045 | not published | >= 100, >= 80 | 2 |
+| TPC / TPEE (M046) | 11 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| TPS (M170) | 5 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PCL (M149) | 4 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| TPU-LW (M150) | 4 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PC-GF (M038) | 3 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PE-GF (M138) | 3 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| PE-GF (M138) | 3 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PE-GF (M138) | 3 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PVDF (M096) | 3 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| COC (M137) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| COC (M137) | 2 | bed window | print setting not recorded | bed within the H2C | 6 |
+| COC (M137) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA66 (M055) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PAHT-CE (M148) | 2 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PAHT-CE (M148) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PBT (M140) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| PBT (M140) | 2 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PBT (M140) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PE (M085) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PLA-GR (M155) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| PLA-GR (M155) | 2 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PLA-GR (M155) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| SAN (M136) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| SAN (M136) | 2 | bed window | print setting not recorded | bed within the H2C | 6 |
+| SAN (M136) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| TPU-EC (M157) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| TPU-EC (M157) | 2 | bed window | print setting not recorded | bed within the H2C | 6 |
+| TPU-EC (M157) | 2 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA-ESD (M064) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA12-AF (M154) | 1 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PA12-AF (M154) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA6-GS (M108) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA6/66-CF (M156) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PC-PBT-CF (M131) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PLA-PHB (M146) | 1 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PLA-PHB (M146) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| SBC (M174) | 1 | bed window | print setting not recorded | bed within the H2C | 6 |
+| SBC (M174) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| TPV (M175) | 1 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| TPV (M175) | 1 | bed window | print setting not recorded | bed within the H2C | 6 |
+| TPV (M175) | 1 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA612 (M058) | 0 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| PA612 (M058) | 0 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PA612 (M058) | 0 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA612-GF (M060) | 0 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| PA612-GF (M060) | 0 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PA612-GF (M060) | 0 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PA66-CF (M056) | 0 | nozzle window | print setting not recorded | nozzle within the H2C | 6 |
+| PA66-CF (M056) | 0 | bed window | print setting not recorded | bed within the H2C | 6 |
+| PA66-CF (M056) | 0 | chamber window | print setting not recorded | chamber within the H2C | 6 |
+| PC-ESD (M116) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 5 |
+| PC-ESD (M116) | 2 | bed window | print setting not recorded | bed within the H2C | 5 |
+| PC-ESD (M116) | 2 | chamber window | print setting not recorded | chamber within the H2C | 5 |
+| PETG-GR (M153) | 2 | nozzle window | print setting not recorded | nozzle within the H2C | 5 |
+| PETG-GR (M153) | 2 | bed window | print setting not recorded | bed within the H2C | 5 |
+| PETG-GR (M153) | 2 | chamber window | print setting not recorded | chamber within the H2C | 5 |
+| PPS (M072) | 2 | chamber window | print setting not recorded | chamber within the H2C | 5 |
+| PVC (M135) | 2 | bed window | print setting not recorded | bed within the H2C | 5 |
+| PVC (M135) | 2 | chamber window | print setting not recorded | chamber within the H2C | 5 |
+| LCP (M139) | 1 | nozzle window | print setting not recorded | nozzle within the H2C | 5 |
 
-And 132 more, each holding up one template.
+And 171 more, each holding up one template.
 
 ## Answers a re-read of the test conditions could settle
 
@@ -100,105 +100,81 @@ by finding what the sheet, or the maker, says about how the bar was tested.
 
 | Template | Material | Comparable only | Admitting them |
 |---|---|---|---|
-| Outdoor structural part | PA12 | UNKNOWN | FAIL |
-| Outdoor structural part | PA-ESD | UNKNOWN | PASS |
-| Outdoor structural part | PETG-PTFE | UNKNOWN | FAIL |
+| Outdoor structural part | PETG-ESD | UNKNOWN | FAIL |
+| Outdoor structural part | PET-CF | UNKNOWN | PASS |
+| Outdoor structural part | CPE | UNKNOWN | FAIL |
+| Outdoor structural part | PVDF | UNKNOWN | FAIL |
+| Outdoor structural part | PLA-ESD | UNKNOWN | FAIL |
 | Outdoor structural part | PC-PTFE | UNKNOWN | FAIL |
-| Outdoor structural part | ASA-AF | UNKNOWN | FAIL |
-| Outdoor structural part | TPU-CF | UNKNOWN | FAIL |
-| Outdoor structural part | PBT | UNKNOWN | FAIL |
+| Outdoor structural part | COC | UNKNOWN | FAIL |
 | Outdoor structural part | PLA-PHB | UNKNOWN | FAIL |
 | Outdoor structural part | PETG-GR | UNKNOWN | FAIL |
 | Outdoor structural part | PA12-AF | UNKNOWN | FAIL |
-| Outdoor structural part | PLA-GR | UNKNOWN | FAIL |
 | Outdoor structural part | TPU-EC | UNKNOWN | FAIL |
-| Outdoor structural part | TPU harder than 95A | UNKNOWN | FAIL |
-| Outdoor structural part | PLA family, polymer not stated | FAIL | PASS |
-| Lightweight structure | PLA Silk | FAIL | PASS |
-| Lightweight structure | PLA Wood | FAIL | PASS |
-| Lightweight structure | PLA Galaxy | FAIL | PASS |
-| Lightweight structure | PETG-CF | FAIL | PASS |
-| Lightweight structure | ABS | FAIL | PASS |
-| Lightweight structure | PA6 | FAIL | PASS |
-| Lightweight structure | PA12 | UNKNOWN | FAIL |
-| Lightweight structure | PA-ESD | UNKNOWN | PASS |
-| Lightweight structure | PP | UNKNOWN | FAIL |
-| Lightweight structure | PE | FAIL | PASS |
-| Lightweight structure | PVB | FAIL | PASS |
-| Lightweight structure | PC-ABS | FAIL | PASS |
-| Lightweight structure | PA6-GS | UNKNOWN | PASS |
-| Lightweight structure | ASA-AF | UNKNOWN | FAIL |
-| Lightweight structure | TPU-CF | UNKNOWN | FAIL |
-| Lightweight structure | SAN | UNKNOWN | PASS |
+| Outdoor structural part | TPV | UNKNOWN | FAIL |
+| Lightweight structure | PLA Silk | UNKNOWN | PASS |
+| Lightweight structure | PLA Wood | UNKNOWN | PASS |
+| Lightweight structure | PLA Aero | UNKNOWN | PASS |
+| Lightweight structure | PETG-CF | UNKNOWN | PASS |
+| Lightweight structure | ABS | UNKNOWN | PASS |
+| Lightweight structure | PAHT-CF | UNKNOWN | PASS |
+| Lightweight structure | PVDF | UNKNOWN | FAIL |
+| Lightweight structure | PETG-PTFE | UNKNOWN | FAIL |
 | Lightweight structure | COC | UNKNOWN | FAIL |
-| Lightweight structure | PE-GF | UNKNOWN | PASS |
 | Lightweight structure | PLA-PHB | UNKNOWN | FAIL |
-| Lightweight structure | PCL | UNKNOWN | FAIL |
 | Lightweight structure | PA12-AF | UNKNOWN | FAIL |
-| Lightweight structure | PLA-GR | UNKNOWN | PASS |
-| High-stiffness fixture | PLA-CF | FAIL | PASS |
-| High-stiffness fixture | PA12 | UNKNOWN | FAIL |
-| High-stiffness fixture | PA-ESD | UNKNOWN | PASS |
-| High-stiffness fixture | PP | UNKNOWN | FAIL |
+| Lightweight structure | TPU-EC | UNKNOWN | FAIL |
+| Lightweight structure | TPV | UNKNOWN | FAIL |
+| Warm environment | PLA-ESD | UNKNOWN | FAIL |
+| High-stiffness fixture | PLA-CF | UNKNOWN | PASS |
+| High-stiffness fixture | PA6-CF | UNKNOWN | PASS |
+| High-stiffness fixture | PA6-GF | UNKNOWN | PASS |
+| High-stiffness fixture | PA12-GF | UNKNOWN | FAIL |
+| High-stiffness fixture | PET-CF | UNKNOWN | PASS |
+| High-stiffness fixture | PPA | UNKNOWN | FAIL |
+| High-stiffness fixture | PE | UNKNOWN | FAIL |
+| High-stiffness fixture | PVDF | UNKNOWN | FAIL |
 | High-stiffness fixture | PA6-CE | UNKNOWN | PASS |
 | High-stiffness fixture | PA6-GS | UNKNOWN | FAIL |
-| High-stiffness fixture | PETG-PTFE | UNKNOWN | FAIL |
-| High-stiffness fixture | PCTG-GF | UNKNOWN | FAIL |
 | High-stiffness fixture | PC-PTFE | UNKNOWN | FAIL |
-| High-stiffness fixture | ASA-AF | UNKNOWN | FAIL |
-| High-stiffness fixture | TPU-CF | UNKNOWN | FAIL |
 | High-stiffness fixture | SAN | UNKNOWN | FAIL |
 | High-stiffness fixture | COC | UNKNOWN | FAIL |
-| High-stiffness fixture | PE-GF | UNKNOWN | FAIL |
-| High-stiffness fixture | LCP | UNKNOWN | PASS |
-| High-stiffness fixture | PBT | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-PHB | UNKNOWN | FAIL |
-| High-stiffness fixture | PCL | UNKNOWN | FAIL |
 | High-stiffness fixture | PETG-GR | UNKNOWN | FAIL |
 | High-stiffness fixture | PA12-AF | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-GR | UNKNOWN | FAIL |
 | High-stiffness fixture | TPU-EC | UNKNOWN | FAIL |
 | High-stiffness fixture | PLA-CE | UNKNOWN | FAIL |
-| High-stiffness fixture | TPU harder than 95A | UNKNOWN | FAIL |
-| High-stiffness fixture | TPE, polymer not stated | UNKNOWN | FAIL |
-| High-stiffness fixture | PLA family, polymer not stated | UNKNOWN | PASS |
-| High-stiffness fixture | PLA family-CF, polymer not stated | UNKNOWN | PASS |
-| Flexible component | PETG | FAIL | PASS |
-| Flexible component | PC | FAIL | PASS |
-| Flexible component | PA6 | UNKNOWN | FAIL |
-| Flexible component | PA12 | UNKNOWN | PASS |
-| Flexible component | PA12-CF | FAIL | PASS |
+| High-stiffness fixture | Nylon, maker-undisclosed polyamide | UNKNOWN | FAIL |
+| High-stiffness fixture | PLA blend | UNKNOWN | PASS |
+| High-stiffness fixture | TPV | UNKNOWN | FAIL |
+| Flexible component | PETG | UNKNOWN | PASS |
+| Flexible component | PC | UNKNOWN | PASS |
+| Flexible component | PC-GF | UNKNOWN | FAIL |
 | Flexible component | PA-ESD | UNKNOWN | FAIL |
-| Flexible component | PCTG | FAIL | PASS |
-| Flexible component | CPE | FAIL | PASS |
-| Flexible component | ABS-AF | UNKNOWN | FAIL |
-| Flexible component | PETG-PTFE | UNKNOWN | PASS |
+| Flexible component | PPA | UNKNOWN | FAIL |
+| Flexible component | PP | UNKNOWN | PASS |
+| Flexible component | POM / Acetal | UNKNOWN | FAIL |
+| Flexible component | PCTG | UNKNOWN | PASS |
+| Flexible component | CPE | UNKNOWN | PASS |
+| Flexible component | CPE-CF | UNKNOWN | FAIL |
 | Flexible component | PCTG-GF | UNKNOWN | FAIL |
 | Flexible component | PC-PTFE | UNKNOWN | FAIL |
-| Flexible component | ASA-AF | UNKNOWN | FAIL |
-| Flexible component | TPU-CF | UNKNOWN | FAIL |
 | Flexible component | CPE-LW | UNKNOWN | PASS |
-| Flexible component | PVC | UNKNOWN | PASS |
-| Flexible component | COC | UNKNOWN | PASS |
 | Flexible component | PE-GF | UNKNOWN | FAIL |
 | Flexible component | LCP | UNKNOWN | FAIL |
-| Flexible component | PBT | UNKNOWN | FAIL |
-| Flexible component | PCTG-CF | UNKNOWN | FAIL |
 | Flexible component | PLA-PHB | UNKNOWN | FAIL |
-| Flexible component | TPU-LW | UNKNOWN | PASS |
 | Flexible component | PETG-GR | UNKNOWN | FAIL |
 | Flexible component | PA12-AF | UNKNOWN | FAIL |
 | Flexible component | PLA-GR | UNKNOWN | FAIL |
 | Flexible component | PLA-CE | UNKNOWN | FAIL |
-| Flexible component | Nylon-CF, polymer not stated | UNKNOWN | FAIL |
-| Flexible component | TPE, polymer not stated | UNKNOWN | PASS |
-| Flexible component | PLA family, polymer not stated | UNKNOWN | FAIL |
-| Flexible component | SBC | UNKNOWN | PASS |
+| Flexible component | TPU harder than 95A | UNKNOWN | PASS |
+| Flexible component | Nylon-CF, maker-undisclosed polyamide | UNKNOWN | FAIL |
 
 ## Close calls
 
 Products decided by 10 % or less on one value: a misread number, unit or condition here turns an answer. These
-are the first values a person should check against the page: the 80 closest of 882 (a product counts once per template).
+are the first values a person should check against the page: the 80 closest of 880 (a product counts once per template).
 
 | Template | Material | Product | Requirement | Value | Margin | Measurement |
 |---|---|---|---|---:|---:|---|
@@ -208,7 +184,7 @@ are the first values a person should check against the page: the 80 closest of 8
 | Outdoor structural part | PET-CF | Flashforge PET-CF | hdt045 >= 100 | 100 | 0 % pass | V005316 |
 | Outdoor structural part | POM / Acetal | Fabru / purefil Polyoxymethylen (POM) | hdt045 >= 100 | 100 | 0 % pass | V005603 |
 | Outdoor structural part | CPE | Fiberlogy CPE HT | hdt045 >= 100 | 100 | 0 % pass | V010766 |
-| Outdoor structural part | Nylon, polymer not stated | colorFabb PA NEAT | tensileModulusXY >= 3 | 3 | 0 % pass | V011197 |
+| Outdoor structural part | Nylon, maker-undisclosed polyamide | colorFabb PA NEAT | tensileModulusXY >= 3 | 3 | 0 % pass | V011197 |
 | Lightweight structure | PLA | Eryone Matte PLA | density <= 1250 | 1250 | 0 % pass | V004945 |
 | Lightweight structure | PLA | Eryone Hyper Speed Matte PLA | density <= 1250 | 1250 | 0 % pass | V005056 |
 | Lightweight structure | PLA | Flashforge PLA Multicolor | density <= 1250 | 1250 | 0 % pass | V005173 |
@@ -255,8 +231,8 @@ are the first values a person should check against the page: the 80 closest of 8
 | Lightweight structure | PBAT | Flashforge Flexible | density <= 1250 | 1250 | 0 % pass | V005362 |
 | Lightweight structure | PAHT-CE | LEHVOSS LUVOCOM 3F PAHT 9936 BK | density <= 1250 | 1250 | 0 % pass | V009726 |
 | Lightweight structure | PLA-NF | Nanovia PLA Flax | density <= 1250 | 1250 | 0 % pass | V010283 |
-| Lightweight structure | Nylon, polymer not stated | colorFabb PA Blue Metal Detectable | density <= 1250 | 1250 | 0 % pass | V011124 |
-| Lightweight structure | TPE, polymer not stated | Nanovia Flex VX | density <= 1250 | 1250 | 0 % pass | V011283 |
+| Lightweight structure | Nylon, maker-undisclosed polyamide | colorFabb PA Blue Metal Detectable | density <= 1250 | 1250 | 0 % pass | V011124 |
+| Lightweight structure | TPE, maker-undisclosed elastomer | Nanovia Flex VX | density <= 1250 | 1250 | 0 % pass | V011283 |
 | Warm environment | PLA | 3DXTECH ECOMAX Tough PLA | hdt045 >= 80 | 80 | 0 % pass | V003212 |
 | Warm environment | PLA | Nanovia PLA EF 3D850 | hdt045 >= 80 | 80 | 0 % pass | V007474 |
 | Warm environment | PLA | Nanovia PLA VX | hdt045 >= 80 | 80 | 0 % pass | V007533 |

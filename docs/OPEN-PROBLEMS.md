@@ -585,7 +585,8 @@ is an answer from each maker (a short question: printed or moulded, the build or
 or the owner's word that a silent sheet stays as published. BLOCKING-GAPS lists the answers;
 [the lane 4 responses](audits/2026-09-25-re-center/RESPONSE.md), "Phase 6, lane 4: the values that decide, re-read"
 and "... targeted fetches (batch b36)", list the makers. The owner's rulings of 2026-09-26 (D91, m167, m168) settled
-more of them. BLOCKING-GAPS gives the current count: 92 on 2026-09-27, before the research intake, and 94 after it.
+more of them. BLOCKING-GAPS gives the current count: 92 on 2026-09-27, before the research intake, 94 after it, and
+70 on 2026-09-28, after the gap closing and m223.
 m200 to m203 added comparable values that settle some answers and admit more as-published ones.
 
 The research package of 2026-09-26 searched every maker's site and archive again, value by value, for the 217 values

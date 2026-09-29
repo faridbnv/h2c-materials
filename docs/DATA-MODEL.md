@@ -537,10 +537,11 @@ and limits its own material's estimate.
 
 ### Resin references
 
-Three identities have no filament source that characterises them: PA66, PA612 and, until Tarfuse POM,
+Three identities had no filament source that characterises them: PA66, PA612 and, until Tarfuse POM,
 POM. A resin supplier data sheet is recorded for each as a reference grade (Role `reference`) with an `R` suffix (G055-R1
 Zytel 101L, G058-R1 Zytel 151L, G087-R1 Delrin 100P). Its values are `Raw material value`, never a
-headline or a procurement grade, and exist only to anchor estimates through the moulded conversion.
+headline or a procurement grade, and exist only to anchor estimates through the moulded conversion. PA66 has two
+filament products since m223, both filed by inference on the owner's ruling (R225, R226), and its reference stays.
 
 ---
 
@@ -606,9 +607,10 @@ plausible setpoint, and a setpoint is a recommendation at most.
 
 ## Family entries and one home per product
 
-Every commercial product is recorded once, under the most specific material it is. Twenty-one canonical names
-are not materials: PA, PA-CF, PA-GF, TPE and, since m141, TPU are families (TPU over its five hardness classes); CoPA
-is another name for PA6/66; and fifteen one-product rows named after a maker's product line (Bambu's PLA Basic, PETG
+Every commercial product is recorded once, under the most specific material it is. Twenty-two canonical names
+are not materials: PA, PA-CF, PA-GF, TPE and, since m141, TPU are families (TPU over its four hardness classes and,
+since m223, TPU-LW), and since m223 so is "TPU, hardness not stated", over the classes its products' makers rate them
+in; CoPA is another name for PA6/66; and fifteen one-product rows named after a maker's product line (Bambu's PLA Basic, PETG
 HF, TPU 90A and the rest, and eSUN's PLA Lite) are aliases of the material or class their product is (D86). Their
 Scope is `Family entry`, their members are in `data/tables/family_entries.csv` and `family_members.csv`, and they
 carry no grade, value, property estimate or print window. They are never candidates. Searching a family's name

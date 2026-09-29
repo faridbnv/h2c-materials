@@ -3,7 +3,7 @@
   "tables": {
     "materials": {
       "rows": 175,
-      "sha256": "3b00d5bd026730d1208e83c8c3c48f4a25678117eee142ccc2a1ccad0b93ed5e"
+      "sha256": "0ce6c0723f19dae0f6d3c4f0433dad75a9c18f975bed923ec77e7a0f2f29b9c4"
     },
     "grades": {
       "rows": 1163,
@@ -50,12 +50,12 @@
       "sha256": "f4b0de819114b1e398a5cbf30927bd852bcb28f52bd3f50c2697c9dd1ed3c5c0"
     },
     "coverage": {
-      "rows": 880,
-      "sha256": "ad255734a9646b81289647d74e9801ea7ca95b2812fe70934df4071b86af76b0"
+      "rows": 922,
+      "sha256": "a89e4de4197f20a9ef0045dc23db097fc8c657af2af08f9a4b4887936b6e1737"
     },
     "method": {
       "rows": 50,
-      "sha256": "79790e97d7e7f29f685d7caed571e3eb4278381147cfa720734e05d7f80aa196"
+      "sha256": "c1fe0d3f6520e3b6bb7f2ff817beb56039322a3f5169e1182b51150d89fc052e"
     },
     "reference": {
       "rows": 114,
@@ -83,7 +83,7 @@
     },
     "headline_definitions": {
       "rows": 10,
-      "sha256": "fe55657faeac73344185878b26e71358f5cb1523166367dc48f75886070efa9f"
+      "sha256": "ee0e126f19592f950683ad6aa150b18d459f8e33fc04e4766a6a31478ee33ff1"
     },
     "polymers": {
       "rows": 48,

@@ -143,3 +143,20 @@ These are the answers in `build/snapshot/templates.csv`:
   from the moved products: PA6 and PBT are no longer screened out of Flexible component, and COC is screened out of
   Lightweight structure. `build:diff` shows the model's grade estimates shifting across materials for the same reason.
 - **Renamed.** 46 rows changed only in name.
+
+## Afterwards: what still said the old thing (m224)
+
+An agent then read every current-state text for the retired names. m224 corrected what it found:
+
+- TPU's family entry listed "TPU, hardness not stated" as a member and omitted TPU-LW.
+- The family entries' coverage findings omitted members. PA, PA-CF and PA-GF omitted their maker-undisclosed homes,
+  and TPE omitted TPS, TPV and its own maker-undisclosed home. Each finding is superseded by one that names every
+  member, and the migration checks those names against `family_members.csv`.
+- PA66 said only that no PA66 sheet was found, although it now holds two products, marked inferred.
+- Heat deflection's Not applicable reason named "TPE polymer not stated" among the elastomers it leaves out, and did
+  not name TPV.
+- Research limitations still counted PA66 and POM as having no profile or values.
+
+Rulings R170 and R198 note the renamed homes. DATA-MODEL, the D43 status line and HEADLINE-UNESTIMATED say the same.
+The two generated gap lists (BLOCKING-GAPS, SCENARIO-GAPS), last written on 2026-09-27, were regenerated. No
+headline, estimate, gate or template answer moved: `build:diff` shows text only.
