@@ -1,5 +1,5 @@
-// The Ashby decision workspace (D107): one pure model of a selection exercise, which the chart, its result list, the
-// inspector, the objective stage and the exports all read, so no two of them can tell a different story.
+// The Ashby decision workspace (D107, D108): one pure model of a selection exercise, which the chart, its result list,
+// the inspector and the exports all read, so no two of them can tell a different story.
 //
 // The chart used to draw each product at its published values and each material at its typical ones, while the answer it
 // illustrated was judged product by product in a state (D99): a conditioned beam drew 247 dry points, and Fiberon
@@ -16,7 +16,7 @@
 // Pure: no DOM, no globals, no imports from ../ui.
 
 import { productView, stateOf, valueStateOf, firstState } from './products.js';
-import { indexById, indexValue, rankingFor, indexAxes, indexOrientation, productStateKey, COST_AXIS } from './indices.js';
+import { indexValue, rankingFor, indexAxes, indexOrientation, COST_AXIS } from './indices.js';
 import { paretoFront } from './pareto.js';
 
 export { COST_AXIS };
@@ -69,7 +69,7 @@ export function judgedProducts(rows, ctx) {
         material, evaluation, grade, entry, state,
         view: productView(material, grade, ctx, state),
         verdict: entry.verdict, bucket: BUCKET[entry.verdict] ?? 'unresolved', screened: !!entry.screened,
-        key: pairKey(material.id, grade.id, state.id), psKey: productStateKey(grade.id, state.id),
+        key: pairKey(material.id, grade.id, state.id),
       });
     }
   }
@@ -119,42 +119,27 @@ export function axisValue(j, key, ctx) {
   };
 }
 
-/**
- * The objective stages a scenario applied (D107): each keeps the confirmed product states whose index is at or above its
- * cutoff, in order, so the second narrows what the first kept. The requirements' verdicts stand; a stage is an objective
- * of its own, with its own counts. Returns null when no stage is applied.
- *
- * `rows` are every material the question examined (not only those on screen): a stage keeps product states, and which
- * materials then remain is its result.
- */
-export function objectiveStages(rows, ctx, stages) {
-  const valid = (stages ?? []).map((s) => ({ ...s, index: indexById(s.index) })).filter((s) => s.index && Number.isFinite(s.cutoff) && s.cutoff > 0);
-  if (!valid.length) return null;
-  let kept = judgedProducts(rows, ctx).products.filter((j) => j.verdict === 'PASS');
-  const before = { products: kept.length, materials: new Set(kept.map((j) => j.material.id)).size };
-  const steps = [];
-  for (const s of valid) {
-    let lacking = 0, below = 0;
-    const next = kept.filter((j) => {
-      const M = indexValue(j.view, s.index);
-      if (M === null) { lacking++; return false; }
-      if (M < s.cutoff) { below++; return false; }
-      return true;
-    });
-    kept = next;
-    steps.push({ index: s.index.id, cutoff: s.cutoff, products: kept.length, materials: new Set(kept.map((j) => j.material.id)).size, lacking, below });
-  }
-  return { before, steps, retained: new Set(kept.map((j) => j.psKey)), materials: new Set(kept.map((j) => j.material.id)) };
+/** Quartiles from this many products, as the build's material spread has them (build/src/products.js, D83). */
+export const QUARTILES_FROM = 4;
+/** The build's quantile: linear between the two nearest of the sorted values. */
+function quantile(sorted, p) {
+  const h = (sorted.length - 1) * p;
+  const lo = Math.floor(h);
+  return sorted[lo] + (h - lo) * ((sorted[lo + 1] ?? sorted[lo]) - sorted[lo]);
 }
 
 /**
- * Marginal ranges of one material's products on the two axes, from one population: a light band of where its products lie
- * on each axis separately. The corners are not products (a low density and a high stiffness may belong to two different
- * products); the paired marks are.
+ * One material's products on one axis, as the rest of the page summarises a material (D83, D108): the full range
+ * (`lo`, `hi`), the median, and the middle half (`q1`, `q3`) from four products up; with fewer, the middle half is the
+ * range. Marginal: the corners of two such ranges are not products (a low density and a high stiffness may belong to two
+ * different products); the paired marks are.
  */
 function marginal(list, axis) {
-  const vs = list.map((p) => p[axis]?.value).filter((v) => Number.isFinite(v));
-  return vs.length ? { lo: Math.min(...vs), hi: Math.max(...vs), n: vs.length } : null;
+  const vs = list.map((p) => p[axis]?.value).filter((v) => Number.isFinite(v)).sort((a, b) => a - b);
+  if (!vs.length) return null;
+  const quartiles = vs.length >= QUARTILES_FROM;
+  return { lo: vs[0], hi: vs.at(-1), n: vs.length, median: quantile(vs, 0.5),
+    q1: quartiles ? quantile(vs, 0.25) : vs[0], q3: quartiles ? quantile(vs, 0.75) : vs.at(-1), quartiles };
 }
 
 /**
@@ -230,9 +215,9 @@ export function estimateContext(rows, ctx, { xKey, yKey, xLog, yLog, index, orie
  * - `contextRows`: every material the question examined that matches the search (for the unresolved and failed layers,
  *   and estimate context, which may come from materials Confirmed only leaves out); defaults to `rows`.
  * - `xKey`, `yKey`, `xLog`, `yLog`: the axes; `index` the goal (an INDICES entry or null); `lineM` the line's position.
- * - `stage`: objectiveStages' result, or null; `population` for material ranges: 'confirmed' or 'judged'.
+ * - `population` for material ranges: 'confirmed' or 'judged'.
  */
-export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog = false, yLog = false, index = null, lineM = null, stage = null, population = 'confirmed', tested = true }) {
+export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog = false, yLog = false, index = null, lineM = null, population = 'confirmed', tested = true }) {
   const registry = ctx.db?.registry;
   const x = axisInfo(xKey, registry), y = axisInfo(yKey, registry);
   const orientation = indexOrientation(index, xKey, yKey);
@@ -246,26 +231,27 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
     const known = xv.value !== null && yv.value !== null;
     const offLog = known && ((xLog && !(xv.value > 0)) || (yLog && !(yv.value > 0)));
     return {
-      key: j.key, psKey: j.psKey, materialId: j.material.id, gradeId: j.grade.id, stateId: j.state.id,
+      key: j.key, materialId: j.material.id, gradeId: j.grade.id, stateId: j.state.id,
       name: j.material.name, family: j.material.family, filler: j.material.facets?.reinforcement?.value ?? null,
       product: `${j.grade.manufacturer} ${j.grade.product}`, manufacturer: j.grade.manufacturer, productName: j.grade.product,
+      // A declared variant (a lightweight additive, a dense filler) describes the product, not its polymer (D57): it is
+      // drawn, and kept out of its material's range as the build keeps it out of the material's spread.
+      variant: j.grade.variant ?? null,
       state: { id: j.state.id, treatment: j.state.treatment ?? null, moisture: j.state.moisture ?? 'dry', synthetic: !!j.state.synthetic },
       verdict: j.verdict, bucket: j.bucket, screened: j.screened, inResults,
       x: xv, y: yv, known, offLog, plottable: known && !offLog,
       assumed: !!(xv.assumed || yv.assumed),
       twin: xv.from?.label ?? yv.from?.label ?? null,
       M: index ? indexValue(j.view, index) : null,
-      retained: stage ? stage.retained.has(j.psKey) : null,
     };
   };
   const pairs = products.map((j) => pairOf(j, true));
   const contextPairs = context === products ? [] : context.map((j) => pairOf(j, false));
 
-  // The decision set: confirmed product states that can be drawn, and, with a stage applied, only those it kept.
+  // The decision set: confirmed product states that can be drawn.
   const confirmedAll = pairs.filter((p) => p.bucket === 'confirmed');
   const confirmed = confirmedAll.filter((p) => p.plottable);
-  const primary = stage ? confirmed.filter((p) => p.retained) : confirmed;
-  const setAside = stage ? confirmed.filter((p) => !p.retained) : [];
+  const primary = confirmed;
   const unresolved = [...pairs, ...contextPairs].filter((p) => p.bucket === 'unresolved' && p.plottable);
   const failed = [...pairs, ...contextPairs].filter((p) => p.bucket === 'failed' && p.plottable);
   // Confirmed products that cannot be drawn on these axes, named with the axis and the reason.
@@ -276,9 +262,8 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
     offLog: p.offLog,
   }));
 
-  // One ranking (D102), over the stage's product states when one is applied: the table, the list, the line and the export
-  // read this same result.
-  const ranking = index ? rankingFor(rows, ctx, index, undefined, { retained: stage?.retained ?? null }) : null;
+  // One ranking (D102): the table, the list, the line and the export read this same result.
+  const ranking = index ? rankingFor(rows, ctx, index) : null;
   const defaultM = (() => {
     const vals = (ranking?.order ?? []).map((r) => r.value).sort((a, b) => b - a);
     return vals.length ? vals[Math.min(4, vals.length - 1)] : null;
@@ -307,9 +292,12 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
   for (const p of source) { if (!byMaterial.has(p.materialId)) byMaterial.set(p.materialId, []); byMaterial.get(p.materialId).push(p); }
   const materialSummaries = [...byMaterial.entries()].map(([materialId, list]) => {
     const loggable = list.filter((p) => !p.offLog);
+    // The range is the material's own products; a declared variant is drawn beside it as its own mark (D57, D108).
+    const own = loggable.filter((p) => !p.variant);
     return {
       materialId, name: list[0].name, family: list[0].family, filler: list[0].filler,
-      x: marginal(loggable, 'x'), y: marginal(loggable, 'y'), paired: loggable.map((p) => p.key), products: new Set(list.map((p) => p.gradeId)).size,
+      x: marginal(own, 'x'), y: marginal(own, 'y'), paired: loggable.map((p) => p.key), inRange: own.map((p) => p.key),
+      variants: loggable.filter((p) => p.variant).map((p) => p.key), products: new Set(list.map((p) => p.gradeId)).size,
       population: population === 'confirmed' && tested ? 'confirmed' : 'judged',
     };
   });
@@ -321,7 +309,6 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
     materials: rows.length, materialsWithoutProducts: noProducts.length, products: products.length,
     confirmed: { products: confirmedAll.length, pairs: confirmed.length, materials: materialsOf(confirmed), evidence },
     decision: { pairs: primary.length, materials: materialsOf(primary) },
-    setAside: { pairs: setAside.length, materials: materialsOf(setAside) },
     unresolved: { pairs: unresolved.length, materials: materialsOf(unresolved), products: [...pairs, ...contextPairs].filter((p) => p.bucket === 'unresolved').length },
     failed: { pairs: failed.length, materials: materialsOf(failed), products: [...pairs, ...contextPairs].filter((p) => p.bucket === 'failed').length },
     gaps: { products: gaps.length, materials: new Set(gaps.map((g) => g.materialId)).size, unpriced: gaps.filter((g) => g.missing.some((m) => m.reason === 'unpriced')).length },
@@ -332,8 +319,8 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
   return {
     releaseId: ctx.db?.meta?.release?.id ?? null,
     axes: { x: { ...x, key: xKey, log: !!xLog }, y: { ...y, key: yKey, log: !!yLog } },
-    objective: { indexId: index?.id ?? null, index, orientation, drawable, stage },
-    pairs, contextPairs, decision: primary, confirmed, setAside, unresolved, failed, gaps,
+    objective: { indexId: index?.id ?? null, index, orientation, drawable },
+    pairs, contextPairs, decision: primary, confirmed, unresolved, failed, gaps,
     noProducts, materialSummaries, ranking, line, frontier, counts,
   };
 }

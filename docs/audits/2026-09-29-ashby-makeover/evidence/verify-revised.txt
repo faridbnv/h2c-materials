@@ -1,0 +1,40 @@
+  "counts": {
+    "materials": 175,
+    "h2cRelevant": 136,
+    "familyEntries": 22,
+    "retiredDuplicates": {
+      "measurements": 299,
+      "evidence": 16
+    },
+    "excluded": 17,
+    "grades": 1163,
+    "measurements": 11212,
+    "numericMeasurements": 11037,
+    "quarantined": 18,
+    "profiles": 1305,
+    "evidence": 625,
+    "prices": 104,
+    "sources": 1739,
+    "coverage": 922,
+    "knowHow": 4665,
+    "polymerEnvironment": 353,
+    "polymerEvidence": 338,
+    "coverageDerived": 696
+  },
+  "checks": {
+    "freshCompileMatchesDist": true,
+    "htmlDatabaseMatchesDist": true,
+    "htmlReferenceMatchesDist": true,
+    "freshReferenceMatchesDist": true,
+    "externalScriptOrStylesheet": false
+  },
+  "rawReconciled": 11028,
+  "errors": [],
+  "families": 20
+}
+build/snapshot is current
+ui:check: 69 views match build/snapshot/ui
+ui:check: no layout failures on the laptop, tablet and phone screens
+250/300 scenarios, 2162 readings, 60.1 s
+done: 300 scenarios, 2582 readings, 71.5 s (79 loads, 234 imports)
+npm run verify  435.86s user 22.70s system 141% cpu 5:23.94 total

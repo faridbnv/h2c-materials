@@ -1,7 +1,7 @@
 COUNT 8 shown PASS
 STATUS ☑ PASS 8 | ☐ UNKNOWN 101 | ☐ FAIL 44
 GOAL
-Compare two properties (fixed geometry, no index)
+None: compare two properties
 Tie, minimum mass, stiffness prescribed
 Beam, minimum mass, stiffness prescribed
 Panel, minimum mass, stiffness prescribed
@@ -12,25 +12,50 @@ Beam, minimum material cost, stiffness prescribed
 Tie, minimum material cost, strength prescribed
 Maximise M = E^(1/2) / ρ
 Cross-section area free, its proportions fixed; length fixed
-H2C scope and print gates asked
-Judged
-as printed, dry
-Stiffness at least 3 GPa; Density at most 1250 kg/m³
-Edit requirements
-Release <id>
-Requirements
-14 product states, 8 materials
-Decision products
-Material overview
-Axes: Stiffness log / Density log
-Layers
-More
-Line at
+ASKED
+As printed, dry
+H2C scope and print gates
+Stiffness at least 3 GPa
+Density at most 1250 kg/m³
+Change in Filters
+Products
+Material ranges
+↕
+Density
+Stiffness
+Strength
+Strength across layers
+Stretch before breaking
+Notched impact, Charpy
+Notched impact, Izod
+Heat resistance
+Glass transition
+Price
+Material cost per volume
+Lin
+Log
+⇄
+↔
+Density
+Stiffness
+Strength
+Strength across layers
+Stretch before breaking
+Notched impact, Charpy
+Notched impact, Izod
+Heat resistance
+Glass transition
+Price
+Material cost per volume
+Lin
+Log
+Show ▾
+More ▾
+LINE
 M =
 ▼
 ▲
-8 product states across 5 materials at or above (of 14; better above)
-Keep products above this line
+8 products from 5 materials above the line (better side)
 PLA
 ABS-GF
 ASA-CF
@@ -67,69 +92,62 @@ Stiffness (GPa) · log
 Density at most 1250 kg/m³
 Stiffness at least 3 GPa
 ↖ better: above the line
-MARKS
-Filled: a product that meets every requirement, in the state its answer is in
-Whisker: the spread a source reports for that one measurement, as published; not the spread across products
-Line: one value of M; above it is better
-Red dashed: a requirement on the axis
-Colour is polymer family, as the legend lists
+Dot: a product that meets every requirement
+Whisker: the spread a sheet reports for that value
+Line: one value of M; above is better
+Red dashed: a requirement (press its label to change it)
+Colour is polymer family
+Drawn: 14 products from 8 materials, each meeting every requirement.
 READING THIS CHART
-14 product states across 8 materials drawn, each meeting every requirement in the state it is drawn in. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.
-Ranked by beam, minimum mass, stiffness prescribed
-Each material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.
+Ranking
+M = E^(1/2) / ρ
+Each material by the median M of its passing products.
 1
 PPA-CF
 0.00231
 ☆
-best 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231
-median of 1 passing product
-1 product state drawn
+best: 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
+1 product drawn
 2
 PP-CF
 0.00225 0.98×
 ☆
-best 3DXTECH CarbonX CF PP as printed, dry · M 0.00225
-median of 1 passing product
-1 product state drawn
+best: 3DXTECH CarbonX CF PP
+1 product drawn
 3
 ASA-CF
 0.002 0.87×
 ☆
-best 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208
-median of 3 passing products
-3 product states drawn
+best: 3DXTECH CarbonX CF ASA
+3 products drawn
 4
 PA6-CF
 0.00176 0.76×
 ☆
-best Eryone PA6-CF as printed, dry · M 0.00184
-median of 4 passing products
-4 product states drawn
+best: Eryone PA6-CF
+4 products drawn
 5
 ABS-GF
 0.00173 0.75×
 ☆
-best 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178
-median of 2 passing products
-2 product states drawn
+best: 3DXTECH FibreX ABS+GF10 Glass Fiber ABS
+2 products drawn
+line · M 0.00173
 6
 PLA
 0.00164 0.71×
 ☆
-best Nanovia PLA EF 3D850 as printed, dry · M 0.00164
-median of 1 passing product
-1 product state drawn
+best: Nanovia PLA EF 3D850
+1 product drawn
 7
 PLA-CF
 0.0016 0.69×
 ☆
-best QIDI PLA-CF as printed, dry · M 0.0016
-median of 1 passing product
-1 product state drawn
+best: QIDI PLA-CF
+1 product drawn
 8
 Nylon, maker-undisclosed polyamide
 0.00151 0.65×
 ☆
-best CreatBot Ultra PA as printed, dry · M 0.00151
-median of 1 passing product
-1 product state drawn
+best: CreatBot Ultra PA
+1 product drawn

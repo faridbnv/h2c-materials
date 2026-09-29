@@ -6,7 +6,7 @@
 // layer of its own, off until asked for, counted apart and never ranked, counted on a line or put on a front.
 
 import { indexById, INDICES, selectionLine, PRICE_CAVEAT } from '../engine/indices.js';
-import { buildWorkspace, estimateContext, judgedProducts, axisValue, axisInfo, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
+import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
 import { buildFamilyColors, esc, fmtNumber, fmtRange, chip } from './format.js';
 import { AXIS_DEFS } from './axes.js';
 import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH } from './labels.js';
@@ -19,7 +19,6 @@ import {
 // ------------------------------------------------------------------ words
 
 const plural = (n, word, many = `${word}s`) => `${n} ${n === 1 ? word : many}`;
-const states = (n) => plural(n, 'product state');
 const materials = (n) => plural(n, 'material');
 /** The formula in a reader's symbols: E^(1/2) / ρ, σ / (Cm × ρ). */
 export const formulaText = (index) => index.formula.replace(/rho/g, 'ρ').replace(/sigma/g, 'σ').replace(/ x /g, ' × ');
@@ -64,65 +63,47 @@ export function workspaceFor(state) {
   return buildWorkspace({
     rows: state.rows, contextRows: state.examined ?? state.rows, ctx: state.ctx,
     xKey: p.x, yKey: p.y, xLog: !!p.xLog, yLog: !!p.yLog, index, lineM: p.indexM ?? null,
-    stage: state.stage ?? null, population: p.population ?? 'confirmed', tested: state.scenario.constraints.length > 0,
+    population: p.population ?? 'confirmed', tested: state.scenario.constraints.length > 0,
   });
 }
 
-/** How many product states and materials publish each axis, for the axis picker: counted as the decision set is. */
-export function axisCoverage(state, keys) {
-  const { products } = judgedProducts(state.rows, state.ctx);
-  const confirmed = products.filter((j) => j.verdict === 'PASS');
-  const out = new Map();
-  for (const key of keys) {
-    const has = confirmed.filter((j) => axisValue(j, key, state.ctx).value !== null);
-    out.set(key, { states: has.length, materials: new Set(has.map((j) => j.material.id)).size });
-  }
-  return out;
-}
+// ------------------------------------------------------------------ the question bar
 
-// ------------------------------------------------------------------ the question strip and stages
-
-/** What is being asked, as one strip above the chart: the goal, the H2C gates, the state, the requirements, the release. */
+/**
+ * What is being asked, in one bar above the chart: the goal, and the question the filter rail holds, read back (D108).
+ * Nothing here sets a requirement: the rail is the one place for them, and "Change in Filters" opens it.
+ */
 export function questionStrip(state, ws) {
-  const { scenario, db } = state;
+  const { scenario } = state;
   const cs = scenario.constraints;
   const index = ws.objective.index;
-  const tested = cs.length > 0;
   const printable = asksPrintable(cs);
   const scoped = cs.some((c) => c.kind === 'gate' && c.gate === 'scope');
   const hard = cs.filter((c) => c.mandatory !== false && !(c.kind === 'gate' && ['nozzle', 'bed', 'chamber', 'scope'].includes(c.gate)));
-  const judged = `${scenario.anneal ? `as printed, or annealed at its sheet's schedule${scenario.annealMaxC ? ` up to ${fmtNumber(scenario.annealMaxC)} °C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}`;
+  const judged = `${scenario.anneal ? `As printed, or annealed at its sheet's schedule${scenario.annealMaxC ? ` up to ${fmtNumber(scenario.annealMaxC)} °C` : ''}` : 'As printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}`;
   const goalOption = (i) => `<option value="${esc(i.id)}" ${index?.id === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`;
-  const stage = state.stage;
-  const before = stage?.before ?? { products: ws.counts.confirmed.products, materials: new Set(ws.pairs.filter((p) => p.bucket === 'confirmed').map((p) => p.materialId)).size };
+  const asked = [
+    judged,
+    printable ? `H2C ${scoped ? 'scope and ' : ''}print gates` : null,
+    ...hard.map(describeConstraint),
+  ].filter(Boolean);
   return `<section class="ws-question" aria-label="The question">
     <div class="ws-goal-row">
       <label class="ws-label" for="ws-goal">Goal</label>
       <select id="ws-goal" data-goal data-focus="goal">
-        <option value="">Compare two properties (fixed geometry, no index)</option>
+        <option value="">None: compare two properties</option>
         <optgroup label="Lightest part that does the job">${INDICES.filter((i) => !i.costForm).map(goalOption).join('')}</optgroup>
         <optgroup label="Lowest material cost">${INDICES.filter((i) => i.costForm).map(goalOption).join('')}</optgroup>
       </select>
-      ${index ? `<span class="ws-formula" title="${esc(index.geometry.sentence)} ${esc(index.geometry.free)}.">Maximise <span class="formula">M = ${esc(formulaText(index))}</span></span>
-        <span class="ws-geom">${esc(index.geometry.free)}${index.strengthProxy ? '; strength is a proxy: the recorded tensile strength, its endpoint as each sheet states it' : ''}</span>` : ''}
+      ${index ? `<span class="ws-formula" title="${esc(index.geometry.sentence)} ${esc(index.geometry.free)}.${index.strengthProxy ? ' Strength is a proxy: the recorded tensile strength, its endpoint as each sheet states it.' : ''}">Maximise <span class="formula">M = ${esc(formulaText(index))}</span></span>
+        <span class="ws-geom">${esc(index.geometry.free)}</span>` : ''}
     </div>
-    <ul class="ws-facts">
-      <li>${printable ? `<b>H2C ${scoped ? 'scope and ' : ''}print gates asked</b>` : `<b class="warn-text">Research mode</b>: printability not checked <button type="button" class="btn btn-sm" data-act="printable">Check printability</button>`}</li>
-      <li>Judged <b>${esc(judged)}</b></li>
-      <li>${tested ? `${esc(hard.map(describeConstraint).join('; ') || 'no other requirement')}` : '<b>No requirement asked yet</b>'}
-        <button type="button" class="link-btn" data-edit-req data-focus="edit-req">Edit requirements</button></li>
-      <li class="ws-release" title="The release every answer here was computed on: data, rules and engine (D96)">Release ${esc(db.meta.release?.id ?? 'unidentified')}</li>
-    </ul>
-    <ol class="ws-stages" aria-label="Selection stages">
-      <li title="${tested ? 'Product states that meet every requirement, in a state the question permits, and their materials' : 'Nothing is confirmed until a requirement is asked'}"><span class="ws-stage-name">${tested ? 'Requirements' : 'Nothing screened'}</span>
-        <span><b>${states(before.products)}</b>, <b>${materials(before.materials)}</b>${tested ? '' : ', none confirmed'}</span></li>
-      ${(stage?.steps ?? []).map((st, i) => {
-        const idx = indexById(st.index);
-        return `<li><span class="ws-stage-name">Kept</span> <span><span class="formula">${esc(formulaText(idx))} ≥ ${sig(st.cutoff)}</span>
-          <span class="fine" title="${esc(idx.designCase)}">(${esc(idx.geometry.member)} ${esc(idx.geometry.constraint)})</span>: <b>${states(st.products)}</b>, <b>${materials(st.materials)}</b>${st.lacking ? ` <span class="fine">(${st.lacking} lacked an input)</span>` : ''}</span>
-          <button type="button" class="btn btn-sm" data-remove-stage="${i}" data-focus="remove-stage-${i}" title="Remove this stage: the product states it set aside return, and the ranking uses them again">Remove</button></li>`;
-      }).join('')}
-    </ol>
+    <div class="ws-asked">
+      <span class="ws-label">Asked</span>
+      <span class="ws-asked-list">${asked.map((a) => `<span>${esc(a)}</span>`).join('')}${cs.length ? '' : '<span class="fine">no requirement yet, so nothing is screened</span>'}</span>
+      <button type="button" class="link-btn" data-edit-req data-focus="edit-req" title="The filter rail holds every requirement; the chart draws them">Change in Filters</button>
+      ${printable ? '' : '<span class="ws-research"><b class="warn-text">Research mode:</b> printability not checked <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></span>'}
+    </div>
   </section>`;
 }
 
@@ -159,156 +140,143 @@ export function starter(state) {
 
 // ------------------------------------------------------------------ the line
 
-/** The line's control, beside the chart: its position as a number and a slider, a step to the next product state, the
- * count at or above it, and the stage that keeps them. */
+/** The line's control, above the chart: its position as a number and a slider, a step to the next product, and how many
+ * products are on its better side. A guide for reading the chart: it moves nothing and filters nothing (D108). */
 export function lineControl(state, ws) {
   const index = ws.objective.index;
   if (!index) return '';
   const L = ws.line;
+  const off = (msg, fix = '') => `<div class="ws-line ws-line-off" role="group" aria-label="Index line"><span class="ws-line-name">Line</span> <span>${msg}</span> ${fix}</div>`;
   if (!L.orientation) {
     const a = goalAxes(index);
-    return `<div class="ws-line ws-line-off" role="group" aria-label="Index line">
-      <span class="warn-chip">The ${esc(formulaText(index))} line needs ${esc(axisDef(a.x).plain.toLowerCase())} across and ${esc(axisDef(a.y).plain.toLowerCase())} up.</span>
-      <button type="button" class="btn btn-sm" data-goal-axes data-focus="goal-axes">Set the goal's axes, on Log scales</button></div>`;
+    return off(`The ${esc(formulaText(index))} line needs ${esc(axisDef(a.x).plain.toLowerCase())} across and ${esc(axisDef(a.y).plain.toLowerCase())} up.`,
+      '<button type="button" class="btn btn-sm" data-goal-axes data-focus="goal-axes">Use the goal\'s axes</button>');
   }
   if (!L.drawable) {
-    return `<div class="ws-line ws-line-off" role="group" aria-label="Index line">
-      <span class="warn-chip">The products with one value of M lie on a straight line of slope ${index.orientation === 'swapped' ? index.exponent : index.slope} only when both axes are Log.</span>
-      <button type="button" class="btn btn-sm" data-loglog data-focus="loglog">Switch both axes to Log</button></div>`;
+    return off(`Products with one value of M lie on a straight line only when both axes are Log.`,
+      '<button type="button" class="btn btn-sm" data-loglog data-focus="loglog">Switch both axes to Log</button>');
   }
   if (!L.of.pairs) {
-    return `<div class="ws-line ws-line-off" role="group" aria-label="Index line">
-      <span class="warn-chip">No product state drawn here has a value of ${esc(formulaText(index))}: the line has nothing to count${state.scenario.moisture === 'conditioned' ? ' in the conditioned state, where nothing is inferred from dry values' : ''}.</span>
-      ${ws.counts.unresolved.products ? '<span class="fine">Unresolved products can be drawn as context under Layers; they are never ranked.</span>' : ''}</div>`;
+    return off(`No product drawn here has a value of ${esc(formulaText(index))}${state.scenario.moisture === 'conditioned' ? ' in the conditioned state, where nothing is inferred from dry values' : ''}.`);
   }
   const M = L.M;
   const r = L.range;
   const pos = r && M ? Math.round(1000 * Math.max(0, Math.min(1, Math.log(M / (r.lo * 0.95)) / Math.log((r.hi * 1.05) / (r.lo * 0.95))))) : 500;
   const better = L.orientation === 'direct' ? 'above' : 'below';
-  const readout = M === null ? 'No product state has a value of M to place the line at.'
-    : `<b>${states(L.above.pairs)}</b> across <b>${materials(L.above.materials)}</b> at or above <span class="fine">(of ${L.of.pairs}; better ${better})</span>`;
-  const stageAt = (state.scenario.stages ?? []).find((s) => s.index === index.id);
   return `<div class="ws-line" role="group" aria-label="Index line">
-    <label class="ws-line-m">Line at <span class="formula">M = </span><input type="text" inputmode="decimal" data-line-m data-focus="line-m" value="${M === null ? '' : mText(M)}" aria-label="Line position, M" title="Type a value of M; equality counts as at or above"></label>
+    <label class="ws-line-m"><span class="ws-line-name">Line</span> <span class="formula">M =</span> <input type="text" inputmode="decimal" data-line-m data-focus="line-m" value="${M === null ? '' : mText(M)}" aria-label="Line position, M" title="Type a value of M; a product exactly on the line counts as ${better} it"></label>
     <input type="range" class="ws-line-slider" data-line-slider data-focus="line-slider" min="0" max="1000" value="${pos}" ${M === null ? 'disabled' : ''}
-      aria-label="Move the line" aria-valuetext="M = ${sig(M)}, ${states(L.above.pairs)} across ${materials(L.above.materials)} at or above it">
+      aria-label="Move the line" aria-valuetext="M = ${sig(M)}, ${lineCount(L.above.pairs, L.above.materials)} ${better} it">
     <span class="ws-line-steps">
-      <button type="button" class="btn btn-sm" data-line-step="-1" data-focus="line-down" title="Move the line down to the next product state" aria-label="Line to the next product state below">▼</button>
-      <button type="button" class="btn btn-sm" data-line-step="1" data-focus="line-up" title="Move the line up to the next product state" aria-label="Line to the next product state above">▲</button>
+      <button type="button" class="btn btn-sm" data-line-step="-1" data-focus="line-down" title="Move the line to the next product below" aria-label="Line to the next product below">▼</button>
+      <button type="button" class="btn btn-sm" data-line-step="1" data-focus="line-up" title="Move the line to the next product above" aria-label="Line to the next product above">▲</button>
     </span>
-    <output class="ws-line-readout" aria-live="polite" title="Better: ${better}. The material ranking beside the chart is a separate summary: each material by the median of its passing products.">${readout}</output>
-    <button type="button" class="btn btn-sm btn-primary" data-apply-stage data-focus="apply-stage" ${M === null || !L.above.pairs ? 'disabled' : ''}
-      title="Keep only the ${states(L.above.pairs)} at or above this line as an objective stage: the ranking, the table and the export then use only them. The requirements' verdicts do not change. Remove it in one press.">${stageAt ? 'Keep above this line instead' : 'Keep products above this line'}</button>
+    <output class="ws-line-readout" aria-live="polite" title="The line is a guide: it keeps and removes nothing. The ranking beside the chart shows where it falls.">${M === null ? 'No product has a value of M to place the line at.' : `<b>${lineCount(L.above.pairs, L.above.materials)}</b> ${better} the line <span class="fine">(better side)</span>`}</output>
   </div>`;
 }
+/** "10 products from 7 materials": the one way a count of marks is said (D108). */
+export const lineCount = (products, mats) => `${plural(products, 'product')} from ${materials(mats)}`;
 
-// ------------------------------------------------------------------ toolbar
+// ------------------------------------------------------------------ toolbar and its two menus
 
 /**
- * Which of the chart's folds the reader has open, kept across redraws as the filter rail keeps its groups (filters.js):
- * the lens is rebuilt on every change, and a fold that closed under the reader's pointer after each tick was unusable.
- * Unopened, a fold starts closed, so a scenario that arrives with layers on still shows its chart first.
+ * Which of the chart's menus the reader has open, kept across redraws: the lens is rebuilt on every change, and a menu
+ * that closed under the reader's pointer after each tick was unusable. A menu starts closed.
  */
 export const openFolds = new Map();
-const foldOpen = (name, byDefault = false) => (openFolds.has(name) ? openFolds.get(name) : byDefault);
+const foldOpen = (name) => openFolds.get(name) === true;
 
-const LAYERS = [
-  ['failed', 'Failed products', 'Products that fail a requirement: pale background context, never ranked'],
-  ['unresolved', 'Unresolved products', 'Products that could not be settled: hollow context, never ranked or on the front'],
-  ['setAside', 'Set aside by a stage', 'Confirmed products below an applied stage\'s cutoff'],
+/** The chart's two views of work; the evidence views are under More. */
+const WORK_VIEWS = [
+  ['decision', 'Products', 'Each product that meets the requirements, in the state it is judged in'],
+  ['overview', 'Material ranges', 'Each material as the middle half of its products on each axis, whiskers to the extremes'],
 ];
-
-/** The chart's own controls: the view, the axes (set by the goal, open for a comparison), layers, and the rest folded. */
-export function toolbar(state, ws, { view }) {
-  const p = state.scenario.plot;
-  const index = ws.objective.index;
-  const goal = index ? goalAxes(index) : null;
-  const onGoalAxes = goal && ws.objective.orientation && p.xLog && p.yLog;
-  const keys = [...AXIS_DEFS.map((a) => a.key), COST_AXIS];
-  const cover = axisCoverage(state, keys);
-  const option = (k, cur) => {
-    const c = cover.get(k);
-    return `<option value="${esc(k)}" ${k === cur ? 'selected' : ''}>${esc(axisDef(k).plain)} (${c.states} product states · ${c.materials} materials)</option>`;
-  };
-  const scale = (which, isLog) => `<div class="segmented" role="group" aria-label="${which === 'y' ? 'Vertical' : 'Horizontal'} axis scale">
-    <button data-log="${which}" data-focus="log-${which}-lin" aria-pressed="${!isLog}">Linear</button><button data-log="${which}" data-on="1" data-focus="log-${which}-log" aria-pressed="${isLog}">Log</button></div>`;
-  const counts = {
-    failed: `${ws.counts.failed.pairs}${ws.counts.failed.products > ws.counts.failed.pairs ? ` of ${ws.counts.failed.products}` : ''}`,
-    unresolved: `${ws.counts.unresolved.pairs}${ws.counts.unresolved.products > ws.counts.unresolved.pairs ? ` of ${ws.counts.unresolved.products}` : ''}`,
-    setAside: `${ws.counts.setAside.pairs}`,
-  };
-  const est = state.estimates ?? { ranges: [], unavailable: [] };
-  return `<div class="ws-toolbar">
-    <div class="segmented ws-views" role="group" aria-label="What the chart draws">
-      <button data-view="decision" data-focus="view-decision" aria-pressed="${view === 'decision'}" title="Each product that meets the requirements, in the state it is judged in">Decision products</button><button data-view="overview" data-focus="view-overview" aria-pressed="${view === 'overview'}" title="Each material as the span of its products on each axis">Material overview</button>
-    </div>
-    <details class="ws-fold ws-axes" data-fold="axes" ${foldOpen('axes', !onGoalAxes && !index) ? 'open' : ''}>
-      <summary>Axes: ${esc(axisDef(p.y).plain)} ${p.yLog ? 'log' : 'linear'} / ${esc(axisDef(p.x).plain)} ${p.xLog ? 'log' : 'linear'}</summary>
-      <div class="ws-axes-body">
-        <div class="axis-pick"><label for="ashby-y">Vertical axis</label><div class="axis-row"><select id="ashby-y" data-axis="y" data-focus="axis-y">${keys.map((k) => option(k, p.y)).join('')}</select>${scale('y', p.yLog)}</div></div>
-        <button class="btn btn-sm axis-swap" data-swap data-focus="swap" title="Swap the horizontal and vertical axes">⇄ Swap</button>
-        <div class="axis-pick"><label for="ashby-x">Horizontal axis</label><div class="axis-row"><select id="ashby-x" data-axis="x" data-focus="axis-x">${keys.map((k) => option(k, p.x)).join('')}</select>${scale('x', p.xLog)}</div></div>
-        ${goal && !(p.x === goal.x && p.y === goal.y && p.xLog && p.yLog) ? '<button type="button" class="btn btn-sm" data-goal-axes data-focus="goal-axes-2">Back to the goal\'s axes</button>' : ''}
-      </div>
-    </details>
-    <details class="ws-fold ws-layers-fold" data-fold="layers" ${foldOpen('layers') ? 'open' : ''}>
-      <summary>Layers${[...LAYERS.map(([k]) => k), 'front'].filter((k) => p.layers?.[k]).length + (p.showEstimates ? 1 : 0) ? ` (${[...LAYERS.map(([k]) => k), 'front'].filter((k) => p.layers?.[k]).length + (p.showEstimates ? 1 : 0)} on)` : ''}</summary>
-    <div class="ws-layers" role="group" aria-label="Context layers">
-      ${LAYERS.filter(([k]) => k !== 'setAside' || state.stage).map(([k, label, help]) => `<label class="opt-check" title="${esc(help)}"><input type="checkbox" data-layer="${k}" data-focus="layer-${k}" ${p.layers?.[k] ? 'checked' : ''}><span>${esc(label)} (${counts[k]})</span></label>`).join('')}
-      ${est.off ? `<span class="plot-data-state" title="Confirmed only is measured evidence alone, here as everywhere on the page">Estimated context needs ${esc(state.scenario.unknownPolicy === 'exploration' ? 'Use estimates, above' : 'Include uncertain with Use estimates')}</span>`
-        : `<label class="opt-check" title="Materials none of whose products publishes a value on an axis: their estimated likely range, dashed, never a point, never ranked"><input type="checkbox" data-show-estimates data-focus="estimates" ${p.showEstimates ? 'checked' : ''}><span>Estimated context (${est.ranges.length})</span></label>`}
-      <label class="opt-check" title="The Pareto front of the confirmed product states on these axes, by their recorded values"><input type="checkbox" data-layer="front" data-focus="layer-front" ${p.layers?.front ? 'checked' : ''}><span>Pareto front</span></label>
-      <p class="opt-help">Context is drawn behind the decision set and counted apart: never ranked, counted on the line or put on the front. "12 of 40" is 12 drawable of 40 products; the rest publish no value on these axes in the state they are judged in.</p>
-    </div></details>
-    <details class="ws-fold ws-more" data-fold="more" ${foldOpen('more') ? 'open' : ''}>
-      <summary title="References, evidence views, limits on the axes, and export">More</summary>
-      <div class="ws-more-body">
-        <div class="ws-more-group"><h4>References</h4>
-          <label>Familiar filament <select data-baseline data-focus="baseline"><option value="">none</option>${['PLA', 'PETG', 'ABS', 'ASA', 'PC'].map((n) => state.db.materials.find((q) => q.name === n)).filter(Boolean)
-            .map((q) => `<option value="${esc(q.id)}" ${state.baseline === q.id ? 'selected' : ''}>${esc(q.name)}</option>`).join('')}</select></label>
-          <label class="opt-check"><input type="checkbox" data-reference data-focus="reference" ${p.showReference ? 'checked' : ''}><span>Steel, aluminium and wood</span></label>
-          <p class="opt-help">Drawn for scale; never candidates, never counted, ranked or on a front.</p></div>
-        <div class="ws-more-group"><h4>Evidence views</h4>
-          <p class="opt-help">Published values, independent of the state a product is judged in: for research, not for the decision.</p>
-          <div class="ws-evidence-views">
-            <button type="button" class="btn btn-sm" data-view="catalogue">Catalogue: typical published values</button>
-            <button type="button" class="btn btn-sm" data-view="measured">Test pairs: matched conditions</button>
-            <button type="button" class="btn btn-sm" data-view="measured-mixed">Test pairs: mixed conditions</button>
-          </div></div>
-        <div class="ws-more-group"><h4>Limits on these axes</h4>${axisLimits(state)}</div>
-        <div class="ws-more-group"><h4>Export</h4>
-          <button type="button" class="btn btn-sm" data-export-data>Chart data (CSV)</button>
-          <button type="button" class="btn btn-sm" data-export-image>Chart image (PNG)</button>
-          <p class="opt-help">Both carry the release, the question, the goal and its stage, the axes and what each range means.</p></div>
-      </div>
-    </details>
-  </div>`;
-}
+const EVIDENCE_VIEWS = [
+  ['catalogue', 'Catalogue: typical published values'],
+  ['measured', 'Test pairs: matched conditions'],
+  ['measured-mixed', 'Test pairs: mixed conditions'],
+];
+/** Every property a chart can draw, in one fixed order, by its name alone: a menu that does not change as you use it. */
+export const axisKeys = () => [...AXIS_DEFS.map((a) => a.key), COST_AXIS];
 
 /**
- * A deliberate edit of the requirement on each axis, with Apply and Cancel: a zoom or a lasso is never a requirement. One
- * requirement per property, as the filter rail holds it; a two-sided interval waits for a scenario decision (D107).
+ * The chart's controls, one row that looks the same in every view and every question (D108): the view, the two axes and
+ * their scales, then two menus, Show (what else is drawn) and More (evidence views and export). An item that does not
+ * apply is greyed with the reason, never removed, so nothing moves under the reader.
+ *
+ * `evidence` carries what an evidence view knows: `{ estimates: n, measured: bool }`.
  */
-function axisLimits(state) {
+export function toolbar(state, { view, estimates = null }) {
   const p = state.scenario.plot;
-  const row = (which, key) => {
-    const d = axisDef(key);
-    if (d.derived) return `<div class="ws-limit"><span>${esc(d.plain)}</span> <span class="fine">derived per product; set price and density in Filters</span></div>`;
-    const c = state.scenario.constraints.find((k) => k.kind === 'numeric' && k.property === key);
-    const op = c?.operator ?? (d.better === 'min' ? '<=' : '>=');
-    return `<div class="ws-limit" data-limit-row="${esc(key)}"><label for="lim-${which}">${esc(d.plain)}</label>
-      <select data-limit-op="${esc(key)}" aria-label="${esc(d.plain)}: comparison">${[['>=', 'at least'], ['<=', 'at most']].map(([o, w]) => `<option value="${o}" ${o === op ? 'selected' : ''}>${w}</option>`).join('')}</select>
-      <input type="number" id="lim-${which}" step="any" data-limit-value="${esc(key)}" value="${c ? c.value : ''}" placeholder="none"> <span class="unit">${esc(d.unit)}</span></div>`;
-  };
-  return `<form class="ws-limits" data-limits>${row('y', p.y)}${row('x', p.x)}
-    <div class="ws-limit-actions"><button type="submit" class="btn btn-sm">Apply as requirements</button> <button type="reset" class="btn btn-sm">Cancel</button></div>
-    <p class="opt-help">Each becomes the property's one requirement, the same as in Filters. An empty box removes it.</p></form>`;
+  const work = view === 'decision' || view === 'overview';
+  const keys = work ? axisKeys() : AXIS_DEFS.map((a) => a.key);
+  const option = (k, cur) => `<option value="${esc(k)}" ${k === cur ? 'selected' : ''}>${esc(axisDef(k).plain)}</option>`;
+  const scale = (which, isLog) => `<div class="segmented ws-scale" role="group" aria-label="${which === 'y' ? 'Vertical' : 'Horizontal'} axis scale">
+    <button data-log="${which}" data-focus="log-${which}-lin" aria-pressed="${!isLog}">Lin</button><button data-log="${which}" data-on="1" data-focus="log-${which}-log" aria-pressed="${isLog}">Log</button></div>`;
+  const axis = (which, label) => `<span class="ws-axis"><label for="ashby-${which}" class="ws-axis-label" title="${which === 'y' ? 'Vertical axis' : 'Horizontal axis'}">${label}</label>
+    <select id="ashby-${which}" data-axis="${which}" data-focus="axis-${which}" aria-label="${which === 'y' ? 'Vertical axis' : 'Horizontal axis'}">${keys.map((k) => option(k, p[which])).join('')}</select>${scale(which, p[`${which}Log`])}</span>`;
+  const index = state.scenario.rankBy ? indexById(state.scenario.rankBy) : null;
+  const goal = index ? goalAxes(index) : null;
+  const offGoal = work && goal && !(p.x === goal.x && p.y === goal.y);
+
+  // Show: what else is drawn. The same items in every view; one that does not apply here says why.
+  const check = (attr, on, label, why = '') => `<label class="opt-check${why ? ' is-off' : ''}"${why ? ` title="${esc(why)}"` : ''}><input type="checkbox" ${attr} ${on && !why ? 'checked' : ''} ${why ? 'disabled' : ''}><span>${esc(label)}${why ? `<span class="opt-why">${esc(why)}</span>` : ''}</span></label>`;
+  const productsOnly = view === 'decision' ? '' : 'In the Products view';
+  const estWhy = work
+    ? (state.estimates?.off ? `Needs ${state.scenario.unknownPolicy === 'exploration' ? 'Use estimates' : 'Include uncertain and Use estimates'}, at the top` : '')
+    : estimates?.measured ? 'Test pairs are measured values only'
+      : !state.ctx?.showEstimates ? `Needs ${state.scenario.unknownPolicy === 'exploration' ? 'Use estimates' : 'Include uncertain and Use estimates'}, at the top`
+        : !estimates?.count ? 'None on these axes' : '';
+  const showMenu = `<details class="ws-menu" data-fold="show" ${foldOpen('show') ? 'open' : ''}>
+    <summary class="btn btn-sm" data-focus="menu-show">Show <span aria-hidden="true">▾</span></summary>
+    <div class="ws-menu-panel" role="group" aria-label="Also draw">
+      <h4>Also draw</h4>
+      ${check('data-layer="failed" data-focus="layer-failed"', p.layers?.failed, 'Products that fail a requirement', productsOnly)}
+      ${check('data-layer="unresolved" data-focus="layer-unresolved"', p.layers?.unresolved, 'Products that could not be settled', productsOnly)}
+      ${check('data-show-estimates data-focus="estimates"', p.showEstimates, 'Estimated ranges, where no product publishes', estWhy)}
+      ${check('data-layer="front" data-focus="layer-front"', p.layers?.front, 'Pareto front', productsOnly)}
+      <p class="opt-help">Drawn behind the results, never ranked or counted with them.</p>
+      <h4>For scale</h4>
+      <label class="ws-menu-row">Familiar filament <select data-baseline data-focus="baseline"><option value="">none</option>${['PLA', 'PETG', 'ABS', 'ASA', 'PC'].map((n) => state.db.materials.find((q) => q.name === n)).filter(Boolean)
+        .map((q) => `<option value="${esc(q.id)}" ${state.baseline === q.id ? 'selected' : ''}>${esc(q.name)}</option>`).join('')}</select></label>
+      ${check('data-reference data-focus="reference"', p.showReference, 'Steel, aluminium and wood')}
+    </div>
+  </details>`;
+  const exportWhy = work ? '' : 'From the Products or Material ranges view';
+  const moreMenu = `<details class="ws-menu" data-fold="more" ${foldOpen('more') ? 'open' : ''}>
+    <summary class="btn btn-sm" data-focus="menu-more">More <span aria-hidden="true">▾</span></summary>
+    <div class="ws-menu-panel ws-menu-right" role="group" aria-label="Evidence views and export">
+      <h4>Evidence views</h4>
+      <p class="opt-help">Published values as the sheets print them, for research: not the decision.</p>
+      ${EVIDENCE_VIEWS.map(([id, label]) => `<button type="button" class="ws-menu-item" data-view="${id}" data-focus="view-${id}" aria-pressed="${view === id}">${esc(label)}</button>`).join('')}
+      <h4>Export</h4>
+      <button type="button" class="ws-menu-item" data-export-data ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart data (CSV)</button>
+      <button type="button" class="ws-menu-item" data-export-image ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart image (PNG)</button>
+      <p class="opt-help">Both carry the release, the question, the goal, the axes and what each range means.</p>
+      <p class="opt-help ws-release" title="The release every answer here was computed on: data, rules and engine (D96)">Release ${esc(state.db.meta.release?.id ?? 'unidentified')}</p>
+    </div>
+  </details>`;
+  const current = EVIDENCE_VIEWS.find(([id]) => id === view);
+  return `<div class="ws-toolbar">
+    <div class="segmented ws-views" role="group" aria-label="What the chart draws">
+      ${WORK_VIEWS.map(([id, label, help]) => `<button data-view="${id}" data-focus="view-${id}" aria-pressed="${view === id}" title="${esc(help)}">${esc(label)}</button>`).join('')}
+    </div>
+    <div class="ws-axes" role="group" aria-label="Axes">
+      ${axis('y', '↕')}
+      <button class="btn btn-sm axis-swap" data-swap data-focus="swap" title="Swap the horizontal and vertical axes" aria-label="Swap the axes">⇄</button>
+      ${axis('x', '↔')}
+    </div>
+    <div class="ws-menus">${showMenu}${moreMenu}</div>
+    ${offGoal ? `<div class="ws-note-row"><span class="fine">These are not the goal's axes, so its line is not drawn.</span> <button type="button" class="link-btn" data-goal-axes data-focus="goal-axes-2">Back to the goal's axes</button></div>` : ''}
+    ${current ? `<div class="ws-evidence-chip" role="note"><b>Evidence view: ${esc(current[1])}.</b> Published values, independent of the state a product is judged in: for research, not the decision. <button type="button" class="link-btn" data-view="decision">Back to Products</button></div>` : ''}
+  </div>`;
 }
 
 // ------------------------------------------------------------------ results and inspector
 
-/** The result list beside the chart: the goal's ranking by material, each with its exact best product state, the product
- * states under it, the unranked and the gaps. A keyboard reaches everything the chart shows here. */
+/** The result list beside the chart: the goal's ranking by material, with the line drawn into it where it falls, each
+ * material's best product, the products under it, the unranked and the gaps. A keyboard reaches everything the chart
+ * shows here. */
 export function resultsPanel(state, ws) {
   const index = ws.objective.index;
   const tested = state.scenario.constraints.length > 0;
@@ -316,59 +284,78 @@ export function resultsPanel(state, ws) {
   for (const p of ws.decision) { if (!byMaterial.has(p.materialId)) byMaterial.set(p.materialId, []); byMaterial.get(p.materialId).push(p); }
   const shortlisted = new Set(state.scenario.shortlist);
   const star = (id, name) => `<button type="button" class="shortlist-btn btn btn-sm" data-pin="${esc(id)}" aria-pressed="${shortlisted.has(id)}" title="${shortlisted.has(id) ? 'On the shortlist of materials to investigate. Press to remove it.' : 'Shortlist this material to investigate (a product is chosen in the inspector)'}" aria-label="Shortlist ${esc(name)}">${shortlisted.has(id) ? '★' : '☆'}</button>`;
-  // A material's product states are written when its list is opened (pairList), not with the page: a thousand buttons
-  // in closed lists made every redraw of the chart pay for a document five times the size.
+  // A material's products are written when its list is opened (pairList), not with the page: a thousand buttons in closed
+  // lists made every redraw of the chart pay for a document five times the size.
   const inspectedMaterial = state.inspect?.kind === 'pair' ? state.inspect.key.split('|')[0] : null;
-  const materialItem = (id, { place = '', value = '', below = '' } = {}) => {
+  const materialItem = (id, { place = '', value = '', best = '' } = {}) => {
     const list = byMaterial.get(id) ?? [];
-    const name = list[0]?.name ?? state.db.materials.find((m) => m.id === id)?.name ?? id;
+    const name = list[0]?.name ?? nameOfMaterial(state, id);
     const open = id === inspectedMaterial;
     return `<li class="ws-mat" data-mat="${esc(id)}" data-name="${esc(name.toLowerCase())}">
       <div class="ws-mat-head">${place}<button type="button" class="link-btn ws-mat-name" data-focus-material="${esc(id)}" title="Zoom the chart to its products">${esc(name)}</button>${value}${star(id, name)}</div>
-      ${below}
-      ${list.length ? `<details class="ws-mat-pairs" data-mat-pairs="${esc(id)}" ${open ? 'open' : ''}><summary>${states(list.length)} drawn</summary>${open ? pairList(state, ws, id) : ''}</details>` : '<div class="fine">No product state drawn on these axes</div>'}
+      ${best}
+      ${list.length ? `<details class="ws-mat-pairs" data-mat-pairs="${esc(id)}" ${open ? 'open' : ''}><summary>${plural(list.length, 'product')} drawn</summary>${open ? pairList(state, ws, id) : ''}</details>` : '<div class="fine ws-sub">none drawn on these axes</div>'}
     </li>`;
   };
   let body;
   if (index && ws.ranking) {
     const gradeById = new Map(state.db.grades.map((g) => [g.id, g]));
-    const ranked = ws.ranking.order.map((r) => {
+    const first = ws.ranking.order[0];
+    const L = ws.line;
+    const lineHere = L?.drawable && L.M !== null ? L.M : null;
+    const items = [];
+    let lineDrawn = lineHere === null;
+    for (const r of ws.ranking.order) {
+      // The chart's line, drawn into the ranking at the first material whose median falls under it.
+      if (!lineDrawn && r.value < lineHere) {
+        items.push(`<li class="ws-line-mark" aria-label="The chart's line, M = ${sig(lineHere)}"><span>line · M ${sig(lineHere)}</span></li>`);
+        lineDrawn = true;
+      }
       const best = r.best?.gradeId ? gradeById.get(r.best.gradeId) : null;
       const bestKey = best ? `${r.materialId}|${best.id}|${r.best.stateId}` : null;
-      return materialItem(r.materialId, {
+      const rel = r.place > 1 ? (r.value / first.value).toFixed(2) : null;
+      items.push(materialItem(r.materialId, {
         place: `<span class="ws-place">${r.place}</span>`,
-        value: `<span class="formula ws-median" title="The median of ${plural(r.products, 'passing product')}' own index${r.place > 1 ? `; ${(r.value / ws.ranking.order[0].value).toFixed(2)} × ${esc(ws.ranking.order[0].materialId === r.materialId ? '' : nameOfMaterial(state, ws.ranking.order[0].materialId))}'s` : ''}">${sig(r.value)}${r.place > 1 ? ` <span class="ws-rel">${(r.value / ws.ranking.order[0].value).toFixed(2)}×</span>` : ''}</span>`,
-        below: `${best ? `<div class="ws-best"><span class="fine">best</span> <button type="button" class="link-btn" data-inspect="${esc(bestKey)}">${esc(`${best.manufacturer} ${best.product}`)}</button> <span class="fine">${esc(stateWords(parseState(r.best.stateId)))} · M ${sig(r.best.value)}</span></div>` : ''}
-          <div class="fine ws-support">median of ${plural(r.products, ws.objective.stage ? 'kept product' : 'passing product')}</div>`,
-      });
-    });
+        value: `<span class="formula ws-median" title="The median M of ${plural(r.products, 'passing product')}${rel ? `; ${rel} × ${esc(nameOfMaterial(state, first.materialId))}'s` : ''}">${sig(r.value)}${rel ? ` <span class="ws-rel">${rel}×</span>` : ''}</span>`,
+        best: best ? `<div class="ws-sub ws-best">best: <button type="button" class="link-btn" data-inspect="${esc(bestKey)}" title="${esc(stateWords(parseState(r.best.stateId)))} · M ${sig(r.best.value)}">${esc(`${best.manufacturer} ${best.product}`)}</button></div>` : '',
+      }));
+    }
+    if (!lineDrawn && ws.ranking.order.length) items.push(`<li class="ws-line-mark" aria-label="The chart's line, M = ${sig(lineHere)}"><span>line · M ${sig(lineHere)}</span></li>`);
     const unranked = ws.ranking.unranked;
-    const nameOf = (id) => state.db.materials.find((m) => m.id === id)?.name ?? id;
-    body = `<div class="ws-list-head"><h3>Ranked by ${esc(index.designCase.toLowerCase())}</h3>
-      <p class="fine">Each material by the median ${esc(formulaText(index))} of its ${ws.objective.stage ? 'kept' : 'passing'} products, in the states they pass in; its best product state named. ${ws.ranking.order.length > 1 ? `The × is relative to ${esc(nameOfMaterial(state, ws.ranking.order[0].materialId))}, first: M's own units depend on the formula.` : ''}</p></div>
-      ${ranked.length ? `<ol class="ws-rank">${ranked.join('')}</ol>` : `<p class="fine">${tested && !state.rows.some((r) => r.evaluation.verdict === 'PASS')
-        ? 'No material meets every requirement in the state asked, so nothing ranks. Unresolved products can be drawn as context; Why excluded says what held them.'
+    body = `<div class="ws-list-head"><h3>Ranking <span class="formula">M = ${esc(formulaText(index))}</span></h3>
+      <p class="fine" title="Each material by the median M of its passing products, in the states they pass in, best first; its best product named. The × is relative to the first: M's own units depend on the formula.">Each material by the median M of its passing products.</p></div>
+      ${ws.ranking.order.length ? `<ol class="ws-rank">${items.join('')}</ol>` : `<p class="fine">${tested && !state.rows.some((r) => r.evaluation.verdict === 'PASS')
+        ? 'No material meets every requirement in the state asked, so nothing ranks. Show products that could not be settled, under Show; Why excluded says what held them.'
         : `No ${tested ? 'material that passes' : 'material'} has a product that publishes what ${esc(formulaText(index))} needs in the state it is judged in.`}</p>`}
       ${unranked.length ? `<details class="ws-unranked"><summary>${plural(unranked.length, 'material')} pass${unranked.length === 1 ? 'es' : ''} but cannot be ranked</summary>
-        <ul>${unranked.map((u) => `<li><button type="button" class="link-btn" data-open-material="${esc(u.materialId)}">${esc(nameOf(u.materialId))}</button>: ${esc(u.reason)}</li>`).join('')}</ul></details>` : ''}`;
+        <ul>${unranked.map((u) => `<li><button type="button" class="link-btn" data-open-material="${esc(u.materialId)}">${esc(nameOfMaterial(state, u.materialId))}</button>: ${esc(u.reason)}</li>`).join('')}</ul></details>` : ''}`;
   } else {
     const ids = [...byMaterial.keys()].sort((a, b) => (byMaterial.get(a)[0].name).localeCompare(byMaterial.get(b)[0].name));
-    body = `<div class="ws-list-head"><h3>${tested ? 'Confirmed products, by material' : 'Products, by material'}</h3>
-      <p class="fine">Choose a goal to rank them. ${tested ? '' : 'Nothing is confirmed until a requirement is asked.'}</p></div>
+    body = `<div class="ws-list-head"><h3>${tested ? 'Passing products, by material' : 'Products, by material'}</h3>
+      <p class="fine">Choose a goal to rank them.${tested ? '' : ' Nothing is screened until a requirement is asked.'}</p></div>
       <ul class="ws-rank ws-unordered">${ids.map((id) => materialItem(id)).join('')}</ul>`;
   }
   const gaps = ws.gaps;
-  const gapBlock = gaps.length ? `<details class="ws-gaps"><summary>${states(gaps.length)} ${tested ? 'confirmed' : ''} but not drawn on these axes</summary>
+  const gapBlock = gaps.length ? `<details class="ws-gaps"><summary>${plural(gaps.length, tested ? 'passing product' : 'product')} not drawn on these axes</summary>
     <ul>${gaps.slice(0, 40).map((g) => `<li><b>${esc(g.product)}</b> <span class="fine">(${esc(g.name)})</span>: ${g.offLog ? 'a value at or below zero, which a Log axis cannot show' : esc(g.missing.map((m) => missingWords(m, axisDef(m.key))).join('; '))}</li>`).join('')}${gaps.length > 40 ? `<li class="fine">and ${gaps.length - 40} more, in the chart data export</li>` : ''}</ul>
     ${ws.counts.gaps.unpriced ? `<p class="fine">${plural(ws.counts.gaps.unpriced, 'product')} ha${ws.counts.gaps.unpriced === 1 ? 's' : 've'} no current Canadian price. Prices are observed CAD/kg listings with their dates; shipping is excluded, and no other currency is converted.</p>` : ''}</details>` : '';
-  const noProducts = ws.noProducts.length ? `<p class="fine">${plural(ws.noProducts.length, 'material')} on screen ha${ws.noProducts.length === 1 ? 's' : 've'} no product to buy, so no product state to draw.</p>` : '';
+  const noProducts = ws.noProducts.length ? `<p class="fine">${plural(ws.noProducts.length, 'material')} on screen ha${ws.noProducts.length === 1 ? 's' : 've'} no product to buy, so nothing to draw.</p>` : '';
   return `<aside class="ws-results" aria-label="Results">
     ${inspector(state, ws)}
     <div class="ws-list">
-      <input type="search" class="ws-filter" data-list-filter data-focus="list-filter" placeholder="Find a material in the results" aria-label="Find a material in the results">
+      <input type="search" class="ws-filter" data-list-filter data-focus="list-filter" placeholder="Find a material in the list" aria-label="Find a material in the list">
       ${body}${gapBlock}${noProducts}
     </div>
   </aside>`;
+}
+
+/** A material's range on one axis in words: the middle half, the extremes and how many products. */
+function rangeWords(r, d) {
+  if (!r) return '—';
+  if (r.lo === r.hi) return `${esc(valueText(r.lo, d))} (${plural(r.n, 'product')})`;
+  return r.quartiles
+    ? `middle half ${esc(fmtRange(r.q1, r.q3))} ${esc(d.unit)}, median ${esc(fmtNumber(r.median))}; all ${esc(fmtRange(r.lo, r.hi))} (${plural(r.n, 'product')})`
+    : `${esc(fmtRange(r.lo, r.hi))} ${esc(d.unit)} (${plural(r.n, 'product')}: too few for a middle half)`;
 }
 
 const nameOfMaterial = (state, id) => state.db.materials.find((m) => m.id === id)?.name ?? id;
@@ -426,10 +413,12 @@ function inspector(state, ws) {
     const s = ws.materialSummaries.find((m) => m.materialId === sel.key);
     if (!s) return '';
     const list = s.paired.map((k) => ws.pairs.find((q) => q.key === k)).filter(Boolean);
+    const variants = list.filter((q) => q.variant);
     return `<section class="ws-inspector" aria-label="Material" tabindex="-1"><div class="ws-insp-head"><h3>${esc(s.name)}</h3>${close}</div>
-      <p class="fine">The marginal span of its ${s.population === 'confirmed' ? 'confirmed' : 'judged'} products on each axis: the corners are not products, and nothing is known of the joint combinations. The products are the marks.</p>
-      <dl class="kv small"><dt>${esc(yD.plain)}</dt><dd>${s.y ? `${esc(fmtRange(s.y.lo, s.y.hi))} ${esc(yD.unit)} (${plural(s.y.n, 'product')})` : '—'}</dd>
-        <dt>${esc(xD.plain)}</dt><dd>${s.x ? `${esc(fmtRange(s.x.lo, s.x.hi))} ${esc(xD.unit)} (${plural(s.x.n, 'product')})` : '—'}</dd></dl>
+      <p class="fine">Its ${s.population === 'confirmed' ? 'passing' : 'judged'} products on each axis, as the table summarises a material: the box is the middle half, the whiskers the lowest and highest. Each axis on its own: a corner of the box is not a product.</p>
+      <dl class="kv small"><dt>${esc(yD.plain)}</dt><dd>${rangeWords(s.y, yD)}</dd>
+        <dt>${esc(xD.plain)}</dt><dd>${rangeWords(s.x, xD)}</dd>
+        ${variants.length ? `<dt>Variants</dt><dd>${plural(variants.length, 'product')} drawn apart and kept out of the range: ${variants.map((q) => `${esc(q.product)} (${esc(q.variant)})`).join('; ')}</dd>` : ''}</dl>
       <ul class="ws-nearby">${list.map((q) => `<li><button type="button" class="ws-pair-btn" data-inspect="${esc(q.key)}"><span class="ws-pair-name">${esc(q.product)}</span> <span class="fine">${esc(stateWords(q.state))} · ${esc(valueText(q.y.value, yD))} · ${esc(valueText(q.x.value, xD))}</span></button></li>`).join('')}</ul>
       <div class="ws-insp-actions"><button type="button" class="btn btn-sm" data-focus-material="${esc(s.materialId)}">Zoom to its products</button> <button type="button" class="btn btn-sm" data-open-material="${esc(s.materialId)}">Open ${esc(s.name)}</button></div></section>`;
   }
@@ -462,7 +451,7 @@ function inspector(state, ws) {
   const context = q.bucket !== 'confirmed' ? `<p class="fine ws-context-note">${q.bucket === 'failed' ? 'Fails a requirement' : 'Could not be settled'}: context only, never ranked, counted on the line or on the front.</p>` : '';
   return `<section class="ws-inspector" aria-label="Selected product state" tabindex="-1">
     <div class="ws-insp-head"><h3>${esc(q.product)}</h3>${close}</div>
-    <div class="fine">${esc(q.name)} · ${esc(q.gradeId)} · ${state.scenario.constraints.length ? chip(q.verdict) : '<span class="chip chip-neutral">not screened</span>'}${q.retained === false && q.bucket === 'confirmed' ? ' · <span class="chip chip-neutral">set aside by the stage</span>' : ''}</div>
+    <div class="fine">${esc(q.name)} · ${esc(q.gradeId)} · ${state.scenario.constraints.length ? chip(q.verdict) : '<span class="chip chip-neutral">not screened</span>'}${q.variant ? ` · <span class="chip chip-neutral" title="Its values describe this product, not its polymer: kept out of ${esc(q.name)}'s range">variant: ${esc(q.variant)}</span>` : ''}</div>
     ${context}
     <dl class="kv small">
       <dt>State</dt><dd>${q.state.treatment ? `Annealed ${esc(scheduleWords(q.state.treatment))}, as its sheet states; ` : 'As printed; '}${q.state.moisture === 'conditioned' ? 'conditioned by moisture' : 'dry'}${q.state.synthetic ? '. It publishes no values of its own in this state' : ''}</dd>
@@ -519,35 +508,46 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   }
 
   if (view === 'overview') {
-    // Each material as the marginal span of its products, light and solid, and its products as small paired marks.
+    // Each material as the rest of the page summarises it (D83, D108): a box over the middle half of its products on each
+    // axis, whiskers through the medians to the lowest and highest, and its products as small dots. A declared variant
+    // is its own mark, outside the range, as the build keeps it outside the material's spread.
+    const rangeText = (r, d) => (r.lo === r.hi ? `${fmtNumber(r.lo)} ${d.unit}` : r.quartiles
+      ? `middle half ${fmtRange(r.q1, r.q3)} ${d.unit} (all ${fmtRange(r.lo, r.hi)}, ${r.n} products)`
+      : `${fmtRange(r.lo, r.hi)} ${d.unit} (${r.n} products)`);
     for (const s of ws.materialSummaries) {
       if (!s.x || !s.y) continue;
       const color = colors.color(s.family);
-      drawnFamilies.add(colourGroup(s.family));
-      const box = s.x.lo !== s.x.hi && s.y.lo !== s.y.hi;
-      const text = `<b>${esc(s.name)}</b><br>Marginal span of its ${s.population === 'confirmed' ? 'confirmed' : 'judged'} products`
-        + `<br>${esc(yD.plain)}: ${esc(fmtRange(s.y.lo, s.y.hi))} ${esc(yD.unit)} (${s.y.n})<br>${esc(xD.plain)}: ${esc(fmtRange(s.x.lo, s.x.hi))} ${esc(xD.unit)} (${s.x.n})`
-        + '<br><i>Joint combinations not known; the corners are not products</i><extra></extra>';
-      if (box) {
-        traces.push({ type: 'scatter', mode: 'lines', x: [s.x.lo, s.x.hi, s.x.hi, s.x.lo, s.x.lo], y: [s.y.lo, s.y.lo, s.y.hi, s.y.hi, s.y.lo],
-          fill: 'toself', fillcolor: hexToRgba(color, 0.1), line: { color: hexToRgba(color, 0.6), width: 1 }, hoveron: 'fills+points',
-          name: `${s.name} span`, legendgroup: colourGroup(s.family), showlegend: false, customdata: [0, 1, 2, 3, 4].map(() => ['material', s.materialId]), hovertemplate: text });
-        labelPlan.envelopes.push({ trace: traces.length - 1, index: 2, name: s.name, x: s.x.hi, y: s.y.hi, positions: ['top right', 'bottom left'], radius: 0, shortlisted: scenario.shortlist.includes(s.materialId) });
-      } else if (s.x.lo !== s.x.hi || s.y.lo !== s.y.hi) {
-        traces.push({ type: 'scatter', mode: 'lines', x: [s.x.lo, s.x.hi], y: [s.y.lo, s.y.hi], line: { color: hexToRgba(color, 0.7), width: 3 },
-          name: `${s.name} span`, legendgroup: colourGroup(s.family), showlegend: false, customdata: [['material', s.materialId], ['material', s.materialId]], hovertemplate: text });
-        labelPlan.envelopes.push({ trace: traces.length - 1, index: 1, name: s.name, x: s.x.hi, y: s.y.hi, positions: ['top right', 'middle right'], radius: 0, shortlisted: scenario.shortlist.includes(s.materialId) });
+      const group = colourGroup(s.family);
+      drawnFamilies.add(group);
+      const text = `<b>${esc(s.name)}</b><br>${esc(yD.plain)}: ${esc(rangeText(s.y, yD))}<br>${esc(xD.plain)}: ${esc(rangeText(s.x, xD))}`
+        + `${s.variants.length ? `<br>${s.variants.length} variant${s.variants.length === 1 ? '' : 's'} drawn apart, not in the range` : ''}`
+        + '<br><i>Each axis on its own: a corner of the box is not a product</i><extra></extra>';
+      const cdm = ['material', s.materialId];
+      const common = { type: 'scatter', legendgroup: group, showlegend: false, name: `${s.name} range`, hovertemplate: text };
+      if (s.x.q1 !== s.x.q3 && s.y.q1 !== s.y.q3) {
+        traces.push({ ...common, mode: 'lines', x: [s.x.q1, s.x.q3, s.x.q3, s.x.q1, s.x.q1], y: [s.y.q1, s.y.q1, s.y.q3, s.y.q3, s.y.q1],
+          fill: 'toself', fillcolor: hexToRgba(color, 0.14), line: { color: hexToRgba(color, 0.75), width: 1.2 }, hoveron: 'fills', customdata: [0, 1, 2, 3, 4].map(() => cdm) });
       }
+      if (s.x.lo !== s.x.hi) traces.push({ ...common, mode: 'lines', x: [s.x.lo, s.x.hi], y: [s.y.median, s.y.median], line: { color: hexToRgba(color, 0.55), width: 1 }, hoverinfo: 'skip' });
+      if (s.y.lo !== s.y.hi) traces.push({ ...common, mode: 'lines', x: [s.x.median, s.x.median], y: [s.y.lo, s.y.hi], line: { color: hexToRgba(color, 0.55), width: 1 }, hoverinfo: 'skip' });
+      // The medians' crossing: the material's handle, for pointing, pressing and its label.
+      traces.push({ ...common, mode: 'markers+text', x: [s.x.median], y: [s.y.median], text: [NO_LABEL], customdata: [cdm],
+        textposition: 'top right', textfont: { size: LABEL_FONT, color: 'rgba(107,107,99,.95)' }, cliponaxis: false,
+        marker: { size: 9, symbol: 'square', color: hexToRgba(color, 0.9), line: { width: 1, color: 'rgba(0,0,0,.55)' } } });
+      labelPlan.envelopes.push({ trace: traces.length - 1, index: 0, name: s.name, x: s.x.median, y: s.y.median, positions: ['top right'], radius: 5, shortlisted: scenario.shortlist.includes(s.materialId) });
     }
     const pop = new Set(ws.materialSummaries.flatMap((s) => s.paired));
     const dots = ws.pairs.filter((q) => pop.has(q.key) && q.plottable);
-    const byFamily = groupBy(dots, (q) => q.family);
-    for (const [family, list] of byFamily) {
+    for (const [family, list] of groupBy(dots, (q) => q.family)) {
       drawnFamilies.add(colourGroup(family));
       const color = colors.color(family);
-      traces.push({ type: 'scatter', mode: 'markers', x: list.map((q) => q.x.value), y: list.map((q) => q.y.value),
-        marker: { size: 6, color, line: { width: 0.5, color: 'rgba(0,0,0,.4)' } }, name: family, legendgroup: colourGroup(family), showlegend: false,
-        text: list.map(() => NO_LABEL), customdata: list.map((q) => cd(q, `${stateWords(q.state)}; ${VERDICT_WORD[q.verdict] ?? ''}`)), hovertemplate: hover('%{customdata[7]}') });
+      const own = list.filter((q) => !q.variant), variants = list.filter((q) => q.variant);
+      if (own.length) traces.push({ type: 'scatter', mode: 'markers', x: own.map((q) => q.x.value), y: own.map((q) => q.y.value),
+        marker: { size: 5, color: hexToRgba(color, 0.6), line: { width: 0 } }, name: family, legendgroup: colourGroup(family), showlegend: false,
+        text: own.map(() => NO_LABEL), customdata: own.map((q) => cd(q, `${stateWords(q.state)}; ${VERDICT_WORD[q.verdict] ?? ''}`)), hovertemplate: hover('%{customdata[7]}') });
+      if (variants.length) traces.push({ type: 'scatter', mode: 'markers', x: variants.map((q) => q.x.value), y: variants.map((q) => q.y.value),
+        marker: { size: 9, symbol: 'diamond-open', color, line: { width: 1.6, color } }, name: `${family} (variant)`, legendgroup: colourGroup(family), showlegend: false,
+        text: variants.map(() => NO_LABEL), customdata: variants.map((q) => cd(q, `${stateWords(q.state)}; variant (${q.variant}): its own values, kept out of ${q.name}'s range`)), hovertemplate: hover('%{customdata[7]}') });
     }
   } else {
     // Context layers first, so the decision set is drawn over them.
@@ -562,7 +562,6 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
     };
     if (p.layers?.failed) layer(ws.failed, (c) => ({ marker: { size: 7, symbol: 'x-thin-open', color: hexToRgba(c, 0.55), line: { width: 1.5, color: hexToRgba(c, 0.55) } } }), 'fails a requirement: context');
     if (p.layers?.unresolved) layer(ws.unresolved, (c) => ({ marker: { size: 9, symbol: 'circle-open', color: c, line: { width: 1.6, color: c }, opacity: 0.75 } }), 'could not be settled: context');
-    if (p.layers?.setAside && ws.setAside.length) layer(ws.setAside, (c) => ({ marker: { size: 8, symbol: 'circle', color: hexToRgba(c, 0.25), line: { width: 1, color: hexToRgba(c, 0.6) } } }), 'confirmed, set aside by the stage');
 
     // The decision set: each confirmed product state, filled, one trace per family colour.
     const chosenGrades = new Set((scenario.decisions ?? []).map((d) => d.gradeId));
@@ -612,7 +611,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   const shapes = [];
   const L = ws.line;
   const index = ws.objective.index;
-  if (index && L?.drawable && L.M !== null && view === 'decision') {
+  if (index && L?.drawable && L.M !== null) {
     const xs = ws.decision.map((q) => q.x.value).filter((v) => v > 0);
     if (xs.length) {
       const lo = Math.min(...xs) * 0.8, hi = Math.max(...xs) * 1.25;
@@ -642,7 +641,8 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   // The range frames the decision set (and a focus), not the whole context, which may be orders of magnitude wider; Fit
   // all widens it to every layer drawn.
   const framed = (() => {
-    const base = view === 'overview' ? ws.materialSummaries.filter((s) => s.x && s.y).flatMap((s) => [[s.x.lo, s.y.lo], [s.x.hi, s.y.hi]]) : ws.decision.map((q) => [q.x.value, q.y.value]);
+    const overviewDots = view === 'overview' ? (() => { const pop = new Set(ws.materialSummaries.flatMap((s) => s.paired)); return ws.pairs.filter((q) => pop.has(q.key) && q.plottable).map((q) => [q.x.value, q.y.value]); })() : [];
+    const base = view === 'overview' ? [...ws.materialSummaries.filter((s) => s.x && s.y).flatMap((s) => [[s.x.lo, s.y.lo], [s.x.hi, s.y.hi]]), ...overviewDots] : ws.decision.map((q) => [q.x.value, q.y.value]);
     const focused = focus.size ? (view === 'overview' ? ws.materialSummaries.filter((s) => focus.has(s.materialId) && s.x && s.y).flatMap((s) => [[s.x.lo, s.y.lo], [s.x.hi, s.y.hi]]) : ws.pairs.filter((q) => focus.has(q.materialId) && q.plottable).map((q) => [q.x.value, q.y.value])) : [];
     const pts = focused.length ? focused : base;
     const extra = p.fitAll || !pts.length ? [...ws.pairs, ...ws.contextPairs].filter((q) => q.plottable && (q.bucket === 'confirmed' || p.layers?.[q.bucket])).map((q) => [q.x.value, q.y.value]).concat(est.flatMap((e) => [[e.x.lo, e.y.lo], [e.x.hi, e.y.hi]])) : [];
@@ -688,7 +688,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   };
   anchorRequirementLabels(req.requirementLabels, layout.xaxis.range);
   // The better side of the line, said in words at the plot's corner.
-  if (index && L?.drawable && view === 'decision') {
+  if (index && L?.drawable && L.M !== null) {
     annotations.push({ xref: 'paper', yref: 'paper', x: L.orientation === 'direct' ? 0.01 : 0.99, y: L.orientation === 'direct' ? 0.99 : 0.01,
       xanchor: L.orientation === 'direct' ? 'left' : 'right', yanchor: L.orientation === 'direct' ? 'top' : 'bottom', showarrow: false,
       text: L.orientation === 'direct' ? '↖ better: above the line' : 'better: below the line ↘', font: { size: 11, color: '#1f5f8b' }, bgcolor: 'rgba(255,255,255,.6)' });
@@ -699,7 +699,9 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   const relabel = () => { clearTimeout(pending); pending = setTimeout(() => placeLabels(gd), 30); };
   Plotly.newPlot(gd, traces, layout, { displaylogo: false, responsive: false, modeBarButtonsToRemove: ['select2d'] }).then(relabel);
   for (const event of ['plotly_afterplot', 'plotly_relayout', 'plotly_restyle']) gd.on(event, relabel);
-  gd.setAttribute('aria-label', `${view === 'overview' ? 'Material overview' : 'Decision products'}: ${yD.plain} against ${xD.plain}. The list beside the chart holds every mark.`);
+  gd.setAttribute('aria-label', `${view === 'overview' ? 'Material ranges' : 'Products'}: ${yD.plain} against ${xD.plain}. The list beside the chart holds every mark.`);
+  // A requirement's label opens the filter rail at it: the one place a requirement is changed (D108).
+  gd.on('plotly_clickannotation', (ev) => { const property = gd.layout.annotations?.[ev.index]?._property; if (property) actions.editRequirements(property); });
 
   gd.on('plotly_click', (ev) => {
     const pt = ev.points?.[0];
@@ -743,49 +745,55 @@ export function workspaceKey(state, ws, { view }) {
   const items = [];
   const g = (inner, extra = '') => `<svg class="key-glyph" viewBox="0 0 16 16" aria-hidden="true"${extra}>${inner}</svg>`;
   if (view === 'overview') {
-    items.push(`${g('<rect x="2.5" y="3.5" width="11" height="9" fill-opacity=".15" stroke-width="1.2"/>')}Band: the span of a material's products on each axis (marginal; the corners are not products)`);
-    items.push(`${g('<circle cx="8" cy="8" r="3"/>')}Dot: one product, in the state it is judged in`);
+    items.push(`${g('<rect x="3.5" y="4.5" width="9" height="7" fill-opacity=".2" stroke-width="1.2"/><path d="M1 8h14M8 1v14" fill="none" stroke-width="1"/>')}Box: the middle half of a material's products; whiskers: the lowest and highest`);
+    items.push(`${g('<circle cx="8" cy="8" r="3" fill-opacity=".6"/>')}Dot: one product`);
+    if (ws.materialSummaries.some((s) => s.variants.length)) items.push(`${g('<path d="M8 3 13 8 8 13 3 8z" fill="none" stroke-width="1.6"/>')}Diamond: a variant (a filler or additive), outside its material's range`);
   } else {
-    items.push(`${g('<circle cx="8" cy="8" r="5"/>')}Filled: a product ${state.scenario.constraints.length ? 'that meets every requirement' : ''}, in the state its answer is in`);
-    if (p.layers?.unresolved) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Hollow: could not be settled (context)`);
-    if (p.layers?.failed) items.push(`${g('<path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke-width="1.6"/>')}Cross: fails a requirement (context)`);
-    if (state.stage && p.layers?.setAside) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill-opacity=".3" stroke-width="1"/>')}Pale: confirmed, set aside by the stage`);
-    if (ws.decision.some((q) => q.x.uncertainty || q.y.uncertainty)) items.push(`${g('<path d="M8 2v12M5 2h6M5 14h6" fill="none" stroke-width="1.4"/>')}Whisker: the spread a source reports for that one measurement, as published; not the spread across products`);
-    if (ws.objective.index && ws.line?.drawable) items.push(`${g('<path d="M2 13L14 3" fill="none" stroke-width="2"/>')}Line: one value of M; ${ws.line.orientation === 'direct' ? 'above' : 'below'} it is better`);
-    if (p.layers?.front) items.push(`${g('<path d="M2 12h4V8h4V4h4" fill="none" stroke-width="1.6" stroke-dasharray="2 1.5"/>')}Staircase: the Pareto front of the confirmed product states (their recorded values; nothing between them is implied)`);
+    items.push(`${g('<circle cx="8" cy="8" r="5"/>')}Dot: a product ${state.scenario.constraints.length ? 'that meets every requirement' : ''}`);
+    if (p.layers?.unresolved) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Hollow: could not be settled`);
+    if (p.layers?.failed) items.push(`${g('<path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke-width="1.6"/>')}Cross: fails a requirement`);
+    if (ws.decision.some((q) => q.x.uncertainty || q.y.uncertainty)) items.push(`${g('<path d="M8 2v12M5 2h6M5 14h6" fill="none" stroke-width="1.4"/>')}Whisker: the spread a sheet reports for that value`);
+    if (p.layers?.front) items.push(`${g('<path d="M2 12h4V8h4V4h4" fill="none" stroke-width="1.6" stroke-dasharray="2 1.5"/>')}Staircase: Pareto front`);
   }
-  if (p.showEstimates && !state.estimates?.off) items.push(`${g('<rect x="2.5" y="3.5" width="11" height="9" fill="none" stroke-width="1.4" stroke-dasharray="2.5 1.5"/>')}Dashed: estimated context, a likely range where no product publishes; never a point`);
-  items.push(`${g('<path d="M2 8h12" fill="none" stroke-width="2" stroke-dasharray="3 2"/>', ' style="color:#a32b1f"')}Red dashed: a requirement on the axis`);
-  return `<div class="ashby-key" role="group" aria-label="What the marks on the chart mean"><span class="key-head">Marks</span>${items.map((i) => `<span class="key-item">${i}</span>`).join('')}<span class="key-item key-note">Colour is polymer family, as the legend lists</span></div>`;
+  if (ws.objective.index && ws.line?.drawable && ws.line.M !== null) items.push(`${g('<path d="M2 13L14 3" fill="none" stroke-width="2"/>')}Line: one value of M; ${ws.line.orientation === 'direct' ? 'above' : 'below'} is better`);
+  if (p.showEstimates && !state.estimates?.off) items.push(`${g('<rect x="2.5" y="3.5" width="11" height="9" fill="none" stroke-width="1.4" stroke-dasharray="2.5 1.5"/>')}Dashed: an estimated range`);
+  if (state.scenario.constraints.some((c) => c.kind === 'numeric' && c.mandatory !== false && [p.x, p.y].includes(c.property))) items.push(`${g('<path d="M2 8h12" fill="none" stroke-width="2" stroke-dasharray="3 2"/>', ' style="color:#a32b1f"')}Red dashed: a requirement (press its label to change it)`);
+  return `<div class="ashby-key" role="group" aria-label="What the marks on the chart mean">${items.map((i) => `<span class="key-item">${i}</span>`).join('')}<span class="key-item key-note">Colour is polymer family</span></div>`;
 }
 
-/** The chart's populations and what each range means, with every count in its own unit. */
+/**
+ * The chart's count, in one sentence under it, always in one unit: "N products from K materials" (D108); then, folded,
+ * everything else a careful reader needs, each count in its own unit.
+ */
 export function readingNote(state, ws, { view }) {
   const p = state.scenario.plot;
   const c = ws.counts;
   const tested = state.scenario.constraints.length > 0;
   const est = state.estimates ?? { ranges: [], unavailable: [] };
+  const drawnMaterials = ws.materialSummaries.filter((s) => s.x && s.y).length;
+  const head = view === 'overview'
+    ? `Drawn: ${lineCount(c.decision.pairs, c.decision.materials)}, ${plural(drawnMaterials, 'material range')}${tested ? '' : '; nothing is screened until a requirement is asked'}.`
+    : `Drawn: ${lineCount(c.decision.pairs, c.decision.materials)}${tested ? ', each meeting every requirement' : '; nothing is screened until a requirement is asked'}.`;
+  const notDrawn = [c.gaps.products ? `${plural(c.gaps.products, tested ? 'passing product' : 'product')} with no value on one of these axes (listed beside the chart)` : null,
+    c.offLog ? `${plural(c.offLog, 'product')} at or below zero, which a Log axis cannot show` : null].filter(Boolean);
   const lines = [];
-  lines.push(view === 'overview'
-    ? `<b>${materials(ws.materialSummaries.filter((s) => s.x && s.y).length)}</b> drawn as the span of their ${ws.materialSummaries[0]?.population === 'confirmed' ? 'confirmed' : 'judged'} products on each axis, over <b>${states(ws.materialSummaries.reduce((n, s) => n + s.paired.length, 0))}</b>.`
-    : `<b>${states(c.decision.pairs)}</b> across <b>${materials(c.decision.materials)}</b> drawn${tested ? ', each meeting every requirement in the state it is drawn in' : '; nothing is screened until a requirement is asked'}${state.stage ? ', as the stage kept them' : ''}.`);
-  if (c.confirmed.evidence < c.confirmed.pairs) lines.push(`Twins that print one sheet share its values, so ${states(c.confirmed.pairs)} rest on ${c.confirmed.evidence} distinct pairs of values.`);
-  if (c.gaps.products) lines.push(`${states(c.gaps.products)} ${tested ? 'that pass' : ''} cannot be drawn on these axes, and are listed beside the chart with why.`);
-  if (c.offLog) lines.push(`${states(c.offLog)} ha${c.offLog === 1 ? 's' : 've'} a value at or below zero, which a Log axis cannot show; switch that axis to Linear to see ${c.offLog === 1 ? 'it' : 'them'}.`);
+  if (c.confirmed.evidence < c.confirmed.pairs) lines.push(`Twins that print one sheet share its values, so ${plural(c.confirmed.pairs, 'product')} rest on ${c.confirmed.evidence} distinct pairs of values.`);
   if (c.materialsWithoutProducts) lines.push(`${materials(c.materialsWithoutProducts)} ha${c.materialsWithoutProducts === 1 ? 's' : 've'} no product, so nothing to draw.`);
-  const ctxLine = [p.layers?.unresolved ? `${states(c.unresolved.pairs)} unresolved (hollow)` : null, p.layers?.failed ? `${states(c.failed.pairs)} that fail (crosses)` : null,
-    state.stage && p.layers?.setAside ? `${states(c.setAside.pairs)} set aside by the stage (pale)` : null].filter(Boolean);
-  if (ctxLine.length) lines.push(`Context drawn: ${ctxLine.join(', ')}${c.contextMaterials ? `, some from ${materials(c.contextMaterials)} not in the results` : ''}. Context is never ranked, counted on the line or on the front.`);
+  if (view === 'overview') lines.push('<b>A material\'s box</b> holds the middle half of its products on each axis, and its whiskers reach the lowest and highest, as the table summarises a material; with fewer than four products the box is their full range. Each axis is summarised on its own, so a corner of the box is not a product. A product the data marks as a variant (a wood or metal filler, a foaming or lightweight additive) is drawn as a diamond and kept out of the range, since its values describe the product, not the polymer.');
+  const ctxLine = [p.layers?.unresolved && view === 'decision' ? `${plural(c.unresolved.pairs, 'product')} that could not be settled (hollow)` : null,
+    p.layers?.failed && view === 'decision' ? `${plural(c.failed.pairs, 'product')} that fail (crosses)` : null].filter(Boolean);
+  if (ctxLine.length) lines.push(`Also drawn: ${ctxLine.join(', ')}${c.contextMaterials ? `, some from ${materials(c.contextMaterials)} not in the results` : ''}. They are never ranked, counted on the line or put on the front.`);
   if (p.showEstimates && !est.off) {
     const why = { conditioned: 'describe dry products, not the conditioned state asked', 'open-ended': 'are open at one end', 'off-log': 'reach zero, which a Log axis cannot show', 'cost-axis': 'cannot be a cost per volume, which is one product\'s own', 'other-axis-missing': 'have nothing on the other axis' };
     const un = groupBy(est.unavailable, (u) => u.reason);
-    lines.push(`<b>Estimated context:</b> ${materials(est.ranges.length)} with no product publishing on an axis, drawn dashed as the model's likely range, with a measured axis as its products' span. Two marginal ranges are not a joint region, and neither is a candidate.${un.size ? ` Not drawn: ${[...un.entries()].map(([k, list]) => `${list.length} that ${why[k] ?? k}`).join('; ')}.` : ''}`);
-  } else if (est.ranges.length) lines.push(`${materials(est.ranges.length)} ha${est.ranges.length === 1 ? 's' : 've'} only an estimated range on one of these axes; tick <b>Estimated context</b> to see ${est.ranges.length === 1 ? 'it' : 'them'} as context.`);
-  if (ws.objective.index && ws.line?.drawable) lines.push(`<b>The line</b> is one value of M = ${esc(formulaText(ws.objective.index))} across these axes; its count is of the product states drawn (equality counts), and ${ws.line.orientation === 'direct' ? 'above' : 'below'} it is better. The material ranking beside the chart is a separate summary: each material by the median M of its ${state.stage ? 'kept' : 'passing'} products, ${ws.line.rankedAbove} of them at or above this line.`);
-  lines.push('<b>Ranges mean different things:</b> a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model\'s likely interval; the engine\'s screening bounds are in the inspector, never drawn as a range.');
+    lines.push(`<b>Estimated ranges:</b> ${materials(est.ranges.length)} with no product publishing on an axis, drawn dashed as the model's likely range beside its products' range on the other axis. Not a joint region, and never a candidate.${un.size ? ` Not drawn: ${[...un.entries()].map(([k, list]) => `${list.length} that ${why[k] ?? k}`).join('; ')}.` : ''}`);
+  } else if (est.ranges.length) lines.push(`${materials(est.ranges.length)} ha${est.ranges.length === 1 ? 's' : 've'} only an estimated range on one of these axes; Show, Estimated ranges draws ${est.ranges.length === 1 ? 'it' : 'them'}.`);
+  if (ws.objective.index && ws.line?.drawable) lines.push(`<b>The line</b> is one value of M = ${esc(formulaText(ws.objective.index))}; ${ws.line.orientation === 'direct' ? 'above' : 'below'} it is better, and a product on it counts as better. It is a guide: it keeps and removes nothing. The ranking beside the chart orders each material by the median M of its passing products; ${plural(ws.line.rankedAbove, 'material')} rank on the better side of this line.`);
+  lines.push('<b>Ranges mean different things:</b> a material\'s box is the spread across its products; a whisker on a dot is the spread a sheet reports for that one value; a dashed range is a model\'s likely interval.');
   if (state.scenario.rankBy && ws.objective.index?.costForm) lines.push(`${esc(PRICE_CAVEAT.replace('{n} of {total} materials', 'observed Canadian listings'))} Cost per volume is each product's own CAD/kg price, dated, times its own density; shipping is excluded and no other currency is converted.`);
-  if ((p.focus ?? []).length) lines.push(`<b>Focused</b> on ${materials(p.focus.length)}: a view only, which changes no answer or count. <button type="button" class="link-btn" data-focus-reset>Show all</button>`);
-  return `<details class="legend-note ws-reading" open><summary>Reading this chart</summary><p>${lines.join(' ')}</p></details>`;
+  const focus = (p.focus ?? []).length ? ` <span class="ws-focus">Zoomed to ${materials(p.focus.length)}. <button type="button" class="link-btn" data-focus-reset>Show all</button></span>` : '';
+  return `<div class="ws-summary" role="status"><span class="ws-count">${head}</span>${notDrawn.length ? ` <span class="fine">Not drawn: ${notDrawn.join('; ')}.</span>` : ''}${focus}</div>
+    <details class="legend-note ws-reading" data-fold="reading" ${openFolds.get('reading') ? 'open' : ''}><summary>Reading this chart</summary><p>${lines.join(' ')}</p></details>`;
 }
 
 // ------------------------------------------------------------------ exports
@@ -795,7 +803,7 @@ const recordsOf = (a) => [a.measurementId, ...(a.priceIds ?? [])].filter(Boolean
 const csvCell = (v) => { const s = v === null || v === undefined ? '' : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
 
 /** The data behind the picture: every mark with its identity, state, inputs and verdict, under a header that says what
- * the question, the axes, the line, the stage and each population were (D107). */
+ * the question, the axes, the line and each population were (D107). */
 export function chartDataCSV(state, ws, { view }) {
   const { db, scenario } = state;
   const p = scenario.plot;
@@ -805,49 +813,48 @@ export function chartDataCSV(state, ws, { view }) {
   const header = [
     '# H2C Material Selector: Ashby chart data',
     `# release ${db.meta.release?.id ?? 'unidentified'} (database snapshot ${db.meta.snapshot}, application build ${db.meta.build})`,
-    `# view: ${view === 'overview' ? 'material overview' : 'decision products'}; each product in the state its answer is in (D107)`,
+    `# view: ${view === 'overview' ? 'material ranges' : 'products'}; each product in the state its answer is in (D107)`,
     `# products judged ${scenario.anneal ? `as printed, or annealed at the schedule each sheet states${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned' : 'dry'}`,
     ...(scenario.constraints.length ? scenario.constraints.map((c) => `# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`) : ['# no requirements set: nothing was screened']),
     `# x: ${xD.plain} (${xD.unit}), ${p.xLog ? 'log' : 'linear'}; y: ${yD.plain} (${yD.unit}), ${p.yLog ? 'log' : 'linear'}`,
-    ...(index ? [`# goal: ${index.designCase}, M = ${index.formula}; materials ranked by the median M of their ${state.stage ? 'kept' : 'passing'} products`,
-      ws.line?.M !== null && ws.line?.M !== undefined ? `# line at M = ${ws.line.M}: ${ws.line.above.pairs} product states across ${ws.line.above.materials} materials at or above it (equality included)` : '# line: not placed'] : ['# goal: none (a property comparison)']),
-    ...(state.stage?.steps ?? []).map((st) => `# objective stage: keep ${st.index} M >= ${st.cutoff}: ${st.products} product states across ${st.materials} materials kept`),
-    `# populations: ${ws.counts.decision.pairs} decision product states across ${ws.counts.decision.materials} materials; ${ws.counts.gaps.products} confirmed not drawable on these axes; ${ws.counts.offLog} off a log axis; ${ws.counts.unresolved.pairs} unresolved and ${ws.counts.failed.pairs} failing context marks; ${est.ranges.length} estimate context ranges (${est.unavailable.length} unavailable)`,
-    '# ranges: a material band is the spread across its products (marginal, joint combinations unknown); an uncertainty is the source\'s own statistic as published; an estimate is the model\'s likely (80%) interval; screening bounds are the engine\'s, apart',
+    ...(index ? [`# goal: ${index.designCase}, M = ${index.formula}; materials ranked by the median M of their passing products`,
+      ws.line?.M !== null && ws.line?.M !== undefined ? `# line at M = ${ws.line.M}: ${lineCount(ws.line.above.pairs, ws.line.above.materials)} on the better side (a product on the line included); a guide, which keeps and removes nothing` : '# line: not placed'] : ['# goal: none (a property comparison)']),
+    `# populations: ${lineCount(ws.counts.decision.pairs, ws.counts.decision.materials)} drawn; ${plural(ws.counts.gaps.products, 'passing product')} not drawable on these axes; ${ws.counts.offLog} off a log axis; ${ws.counts.unresolved.pairs} unresolved and ${ws.counts.failed.pairs} failing context marks; ${est.ranges.length} estimated ranges (${est.unavailable.length} unavailable)`,
+    '# ranges: a material\'s box is the middle half of its products on each axis (all of them under four), whiskers to the lowest and highest, declared variants apart (marginal, joint combinations unknown); an uncertainty is the source\'s own statistic as published; an estimate is the model\'s likely (80%) interval',
     ...(p.x === COST_AXIS || p.y === COST_AXIS ? ['# cost per volume: the product\'s own CAD/kg price (observed listings, dated) x its own density; shipping excluded; no currency conversion'] : []),
   ];
-  const cols = ['Layer', 'MaterialID', 'Material', 'GradeID', 'Product', 'State', 'Verdict', 'Kept by stage', `X ${xD.plain} (${xD.unit})`, 'X measurement or price', 'X from state', `Y ${yD.plain} (${yD.unit})`, 'Y measurement or price', 'Y from state',
-    ...(index ? ['Goal M', 'Material rank', 'At or above the line'] : []), 'On the front', 'Why not drawn'];
+  const cols = ['Layer', 'MaterialID', 'Material', 'GradeID', 'Product', 'Variant', 'State', 'Verdict', `X ${xD.plain} (${xD.unit})`, 'X measurement or price', 'X from state', `Y ${yD.plain} (${yD.unit})`, 'Y measurement or price', 'Y from state',
+    ...(index ? ['Goal M', 'Material rank', 'On the better side of the line'] : []), 'On the front', 'Why not drawn'];
   const aboveKeys = new Set(ws.line?.above.keys ?? []);
   const front = new Set(ws.frontier);
   const rows = [];
-  const layerOf = (q) => (q.bucket === 'confirmed' ? (q.retained === false ? 'set-aside' : q.plottable ? 'decision' : 'gap') : q.bucket);
+  const layerOf = (q) => (q.bucket === 'confirmed' ? (q.plottable ? 'decision' : 'gap') : q.bucket);
   for (const q of [...ws.pairs, ...ws.contextPairs]) {
     const rank = ws.ranking?.byMaterial.get(q.materialId);
     const gap = ws.gaps.find((g) => g.key === q.key);
-    rows.push([layerOf(q), q.materialId, q.name, q.gradeId, q.product, stateWords(q.state), q.verdict, q.retained === null ? '' : q.retained ? 'yes' : 'no',
+    rows.push([layerOf(q), q.materialId, q.name, q.gradeId, q.product, q.variant ?? '', stateWords(q.state), q.verdict,
       q.x.value ?? '', recordsOf(q.x), q.x.sourceStateId ?? '', q.y.value ?? '', recordsOf(q.y), q.y.sourceStateId ?? '',
       ...(index ? [q.M ?? '', q.bucket === 'confirmed' && rank ? rank.place : '', aboveKeys.has(q.key) ? 'yes' : ''] : []), front.has(q.key) ? 'yes' : '',
       gap ? (gap.offLog ? 'off a log axis' : gap.missing.map((m) => missingWords(m, axisDef(m.key))).join('; ')) : ''].map(csvCell).join(','));
   }
   for (const e of est.ranges) {
-    rows.push(['estimate context', e.materialId, e.name, '', '', e.state, e.verdict ?? '', '', `${e.x.lo}-${e.x.hi} (${e.x.kind})`, '', '', `${e.y.lo}-${e.y.hi} (${e.y.kind})`, '', '',
+    rows.push(['estimated range', e.materialId, e.name, '', '', '', e.state, e.verdict ?? '', `${e.x.lo}-${e.x.hi} (${e.x.kind})`, '', '', `${e.y.lo}-${e.y.hi} (${e.y.kind})`, '', '',
       ...(index ? [e.sensitivity ? `${e.sensitivity.lo}-${e.sensitivity.hi} (sensitivity, not a rank)` : '', '', ''] : []), '', ''].map(csvCell).join(','));
   }
   return [...header, cols.map(csvCell).join(','), ...rows].join('\n');
 }
 
-/** The chart as a PNG, with a caption of what it is: release, question, axes and scales, line, stage and ranges. */
+/** The chart as a PNG, with a caption of what it is: release, question, axes and scales, line and ranges. */
 export async function chartImage(gd, state, ws, { view }) {
   const { db, scenario } = state;
   const p = scenario.plot;
   const index = ws.objective.index;
   const caption = [
-    `H2C Material Selector · release ${db.meta.release?.id ?? 'unidentified'} · ${view === 'overview' ? 'material overview' : 'decision products'}: each product in the state it is judged in`,
+    `H2C Material Selector · release ${db.meta.release?.id ?? 'unidentified'} · ${view === 'overview' ? 'material ranges' : 'products'}, each in the state it is judged in`,
     `${scenario.constraints.length ? scenario.constraints.filter((c) => c.mandatory !== false).map(describeConstraint).join('; ') : 'No requirements'} · judged ${scenario.anneal ? 'as printed or annealed' : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned' : 'dry'}`,
-    `${axisDef(p.y).plain} (${p.yLog ? 'log' : 'linear'}) against ${axisDef(p.x).plain} (${p.xLog ? 'log' : 'linear'}) · ${ws.counts.decision.pairs} product states across ${ws.counts.decision.materials} materials; ${ws.counts.gaps.products} not drawable, ${ws.counts.offLog} off log`,
-    index ? `Goal ${index.designCase}, M = ${index.formula}${ws.line?.M ? ` · line at ${sig(ws.line.M)}: ${ws.line.above.pairs} product states across ${ws.line.above.materials} materials at or above` : ''}${(state.stage?.steps ?? []).map((s) => ` · stage kept M ≥ ${sig(s.cutoff)}: ${s.products} states`).join('')}` : 'No goal: a property comparison',
-    'Bands: spread across products (marginal). Whiskers: source statistic as published. Dashed: model likely range. Context layers are never ranked.',
+    `${axisDef(p.y).plain} (${p.yLog ? 'log' : 'linear'}) against ${axisDef(p.x).plain} (${p.xLog ? 'log' : 'linear'}) · ${lineCount(ws.counts.decision.pairs, ws.counts.decision.materials)}; ${ws.counts.gaps.products} not drawable, ${ws.counts.offLog} off log`,
+    index ? `Goal ${index.designCase}, M = ${index.formula}${ws.line?.M ? ` · line at ${sig(ws.line.M)}: ${lineCount(ws.line.above.pairs, ws.line.above.materials)} on the better side` : ''}` : 'No goal: a property comparison',
+    'Boxes: middle half of a material\'s products, whiskers to the extremes, variants apart. Dot whiskers: source statistic as published. Dashed: model likely range.',
   ].map(esc).join('<br>');
   const layout = { ...gd.layout, margin: { ...gd.layout.margin, t: 110 },
     annotations: [...(gd.layout.annotations ?? []), { xref: 'paper', yref: 'paper', x: 0, y: 1, xanchor: 'left', yanchor: 'bottom', yshift: 14, align: 'left', showarrow: false, text: caption, font: { size: 10 } }],

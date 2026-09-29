@@ -601,38 +601,29 @@ h3.sec:first-child { margin-top: 0; }
 .index-of { color: var(--ink-3); font-size: 12px; }
 .index-fix { margin-top: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
-/* ---------------------------------------------------------------- Ashby decision workspace (D107)
-   The question in one strip, then the chart and its result list side by side: the line and its count sit beside the chart
-   they move, the goal sets the axes, and context layers and evidence views are folded until asked for. The same type
-   scale, tokens and components as the rest of the page. */
+/* ---------------------------------------------------------------- Ashby decision workspace (D107, D108)
+   The question in one bar, one control row that looks the same in every view (the view, the axes by name, Show and More
+   as menus that open over the chart instead of pushing it down), the line, then the chart and its result list side by
+   side. The same type scale, tokens and components as the rest of the page. */
 .ws { display: flex; flex-direction: column; gap: 8px; }
 .ws-question {
   border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 6px 12px;
-  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: var(--t-small);
+  display: flex; flex-direction: column; gap: 4px; font-size: var(--t-small);
 }
-.ws-goal-row { flex-basis: 100%; }
-.ws-goal-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
-.ws-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ws-goal-row, .ws-asked { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.ws-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); min-width: 3.6em; }
 .ws-goal-row select {
   padding: 4px 8px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius);
   background: var(--bg); color: var(--ink); max-width: 100%; min-width: 0;
 }
-.ws-formula { color: var(--ink-2); }
+.ws-formula { color: var(--ink-2); cursor: help; }
 .ws-question .formula, .ws-line .formula, .ws-results .formula { font-family: var(--mono); font-size: 12.5px; color: var(--accent); }
 .ws-geom { color: var(--ink-3); }
-.ws-facts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; color: var(--ink-2); }
-.ws-facts li { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.ws-facts .btn-sm { padding: 2px 8px; }
-.ws-release { font-family: var(--mono); color: var(--ink-3); }
+.ws-asked-list { display: inline-flex; flex-wrap: wrap; gap: 4px 0; color: var(--ink-2); }
+.ws-asked-list > span + span::before { content: '·'; margin: 0 7px; color: var(--ink-3); }
+.ws-research { display: inline-flex; align-items: center; gap: 6px; }
+.ws-research .btn-sm { padding: 2px 8px; }
 .warn-text { color: var(--unknown); }
-.ws-stages { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 6px; counter-reset: stage; }
-.ws-stages li {
-  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 6px; padding: 1px 9px; border-radius: 12px;
-  background: var(--surface-2); border: 1px solid var(--border); color: var(--ink-2);
-}
-.ws-stages li + li::before { content: '›'; color: var(--ink-3); margin-right: 2px; }
-.ws-stage-name { font-weight: 650; color: var(--ink); }
-.ws-stages .btn-sm { padding: 1px 7px; font-size: var(--t-label); }
 
 .ws-start { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 12px 14px; }
 .ws-start h2 { margin: 0 0 4px; font-size: 16px; }
@@ -659,49 +650,71 @@ h3.sec:first-child { margin-top: 0; }
 .ws:is([data-ws-view="catalogue"], [data-ws-view="measured"], [data-ws-view="measured-mixed"]) .ws-body { grid-template-columns: minmax(0, 1fr); }
 .ws:is([data-ws-view="catalogue"], [data-ws-view="measured"], [data-ws-view="measured-mixed"]) .ws-results { position: static; max-height: none; }
 .ws-chart { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
-.ws-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+
+/* The control row. */
+.ws-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
 .ws-toolbar .ws-views button { padding-block: 3px; }
-.ws-fold { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: var(--t-small); }
-.ws-fold > summary { padding: 3px 10px; cursor: pointer; color: var(--ink-2); list-style-position: inside; white-space: nowrap; }
-.ws-fold[open] { flex-basis: 100%; }
-.ws-layers { padding: 4px 10px 8px; }
-.ws-layers .opt-help { flex-basis: 100%; }
-.ws-axes-body { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px 12px; padding: 4px 10px 10px; }
-.ws-axes-body .axis-pick { flex: 1 1 300px; }
-.ws-axes-body select { padding: 6px 9px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); min-width: 0; width: 100%; }
-.ws-layers { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; font-size: var(--t-small); }
-.ws-layers .opt-check { margin-top: 0; }
-.ws-layers-head { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
-.ws-more[open] { flex-basis: 100%; }
-.ws-more-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; padding: 4px 10px 10px; }
-.ws-more-group h4 { margin: 0 0 4px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
-.ws-more-group label { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.ws-more-group select { padding: 4px 7px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
-.ws-more-group .btn { margin: 0 6px 6px 0; }
-.ws-evidence-views { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
-.ws-limits { display: grid; gap: 6px; }
-.ws-limit { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.ws-limit label { min-width: 7em; }
-.ws-limit input { width: 90px; padding: 4px 6px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
-.ws-limit .unit { font-size: 12px; color: var(--ink-3); }
+.ws-axes { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.ws-axis { display: inline-flex; align-items: center; gap: 4px; }
+.ws-axis-label { color: var(--ink-3); font-size: 14px; width: 1em; text-align: center; }
+.ws-axis select {
+  padding: 3px 6px; font-size: var(--t-small); border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--bg); color: var(--ink); max-width: 13.5em;
+}
+.ws-scale button { padding: 3px 7px; font-size: var(--t-label); }
+.ws-axes .axis-swap { padding: 2px 7px; margin: 0; }
+.ws-menus { display: flex; gap: 6px; margin-left: auto; }
+.ws-note-row, .ws-evidence-chip { flex-basis: 100%; }
+.ws-note-row { font-size: var(--t-small); }
+
+/* Show and More: menus that open over the chart. */
+.ws-menu { position: relative; }
+.ws-menu > summary { list-style: none; cursor: pointer; padding: 3px 10px; white-space: nowrap; }
+.ws-menu > summary::-webkit-details-marker { display: none; }
+.ws-menu[open] > summary { border-color: var(--accent); background: var(--accent-soft); }
+.ws-menu-panel {
+  position: absolute; z-index: 30; top: calc(100% + 4px); right: 0; width: 290px; max-width: calc(100vw - 32px);
+  padding: 8px 12px 10px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .22); font-size: var(--t-small); display: flex; flex-direction: column; gap: 2px;
+}
+.ws-menu:not([open]) > .ws-menu-panel { display: none; }
+.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ws-menu-panel h4:first-child { margin-top: 0; }
+.ws-menu-panel .opt-check { margin-top: 2px; align-items: flex-start; }
+.ws-menu-panel .opt-check input { margin-top: 3px; }
+.ws-menu-panel .opt-help { margin: 2px 0 4px; }
+.opt-why { display: block; font-size: var(--t-label); color: var(--ink-3); }
+.ws-menu-row { display: flex; align-items: center; gap: 6px; }
+.ws-menu-row select { padding: 3px 6px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
+.ws-menu-item {
+  display: block; width: 100%; text-align: left; font: inherit; padding: 4px 8px; border-radius: 5px; border: 1px solid transparent;
+  background: none; color: var(--ink); cursor: pointer;
+}
+.ws-menu-item:hover:not(:disabled), .ws-menu-item:focus-visible { background: var(--accent-soft); border-color: var(--accent); }
+.ws-menu-item[aria-pressed="true"] { font-weight: 650; }
+.ws-menu-item[aria-pressed="true"]::before { content: '● '; color: var(--accent); }
+.ws-menu-item:disabled { color: var(--ink-3); cursor: default; }
 .ws-evidence-chip {
-  flex-basis: 100%; font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-radius: var(--radius);
+  font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-radius: var(--radius);
   background: var(--unknown-bg); border-left: 3px solid var(--unknown);
 }
-.ws-legacy .ashby-axes { flex-basis: 100%; margin-bottom: 0; }
-.ws-legacy .ashby-options { flex-basis: 100%; margin-bottom: 0; }
 
 .ws-line {
   display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px;
   border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); background: var(--surface); font-size: var(--t-small);
 }
+.ws-line-name { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
 .ws-line-m { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
-.ws-line-m input { width: 104px; padding: 2px 6px; font: inherit; font-family: var(--mono); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
+.ws-line-m input { width: 96px; padding: 2px 6px; font: inherit; font-family: var(--mono); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
 .ws-line-slider { flex: 1 1 120px; min-width: 90px; }
 .ws-line-steps { display: inline-flex; gap: 4px; }
 .ws-line-steps .btn { padding: 1px 8px; }
 .ws-line-readout { flex: 1 1 180px; color: var(--ink-2); }
 .ws-line-off { border-left-color: var(--unknown); }
+
+.ws-summary { font-size: var(--t-small); color: var(--ink-2); }
+.ws-count { color: var(--ink); }
+.ws-focus { margin-left: 8px; }
 
 .ws-results {
   min-width: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
@@ -709,22 +722,24 @@ h3.sec:first-child { margin-top: 0; }
 }
 .ws-list { padding: 8px 10px 10px; }
 .ws-filter { width: 100%; padding: 5px 8px; font: inherit; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--ink); margin-bottom: 6px; }
-.ws-list-head h3 { margin: 2px 0 2px; font-size: var(--t-body); }
-.ws-list-head p { margin: 0 0 6px; }
-.ws-rank { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
-.ws-mat { border-top: 1px solid var(--border); padding-top: 6px; }
+.ws-list-head h3 { margin: 2px 0 2px; font-size: var(--t-body); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.ws-list-head p { margin: 0 0 6px; cursor: help; }
+.ws-rank { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.ws-mat { border-top: 1px solid var(--border); padding-top: 4px; }
 .ws-mat-head { display: flex; align-items: center; gap: 6px; }
 .ws-mat-head .ws-mat-name { font-weight: 650; text-decoration: none; text-align: left; flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.ws-mat-head .shortlist-btn { padding: 0 6px; min-height: 24px; }
+.ws-mat-head .shortlist-btn { padding: 0 6px; min-height: 22px; }
 .ws-place { font-weight: 700; color: var(--ink-3); min-width: 1.4em; font-variant-numeric: tabular-nums; }
 .ws-median { margin-left: auto; white-space: nowrap; }
 .ws-rel { color: var(--ink-3); font-size: 11.5px; }
-.ws-best { color: var(--ink-2); margin-left: calc(1.4em + 6px); line-height: 1.35; }
+.ws-sub { color: var(--ink-2); margin-left: calc(1.4em + 6px); line-height: 1.35; font-size: var(--t-label); }
 .ws-best .link-btn { text-align: left; text-decoration-color: var(--border-strong); }
-.ws-support { margin-left: calc(1.4em + 6px); }
 .ws-mat-pairs { margin-left: calc(1.4em + 6px); }
 .ws-mat-pairs > summary { cursor: pointer; color: var(--ink-3); font-size: var(--t-label); }
 .ws-mat-pairs ul, .ws-nearby { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
+/* The chart's line, drawn into the ranking where it falls. */
+.ws-line-mark { display: flex; align-items: center; gap: 8px; color: #1f5f8b; font-size: var(--t-label); font-weight: 650; }
+.ws-line-mark::before, .ws-line-mark::after { content: ''; flex: 1; border-top: 2px solid #1f5f8b; }
 .ws-pair-btn {
   display: block; width: 100%; text-align: left; font: inherit; font-size: var(--t-label); padding: 3px 6px; border-radius: 5px;
   border: 1px solid transparent; background: none; color: var(--ink); cursor: pointer;
@@ -744,10 +759,10 @@ h3.sec:first-child { margin-top: 0; }
 .ws-inspector .kv dd { overflow-wrap: anywhere; }
 .ws-insp-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .ws-context-note { margin: 4px 0; }
-.ws-reading { font-size: 12px; color: var(--ink-3); }
+.ws-reading { font-size: 12px; color: var(--ink-3); margin-top: 0; }
 .ws-reading > summary { cursor: pointer; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
 .ws-reading p { margin: 4px 0 0; line-height: 1.55; }
-.ws .ashby-key { margin-top: 0; }
+.ws .ashby-key { margin-top: 0; padding: 5px 10px; }
 
 /* The rail can be hidden on a wide screen too, so a chart can take the width (D107); Filters in the top bar brings it back. */
 #btn-rail-hide { display: inline-block; }
@@ -766,9 +781,12 @@ h3.sec:first-child { margin-top: 0; }
 }
 @media (max-width: 600px) {
   .ws-question { padding: 8px; }
-  .ws-facts { gap: 4px 10px; }
   .ws-goal-row select { width: 100%; }
   .ws-line-readout { flex-basis: 100%; }
+  .ws-menus { margin-left: 0; }
+  /* The menus sit at the row's left here, so they open to the right. */
+  .ws-menu-panel { right: auto; left: 0; }
+  .ws-axis select { max-width: 10em; }
 }
 
 /* ---------------------------------------------------------------- coverage lens */

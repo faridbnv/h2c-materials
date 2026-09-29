@@ -214,16 +214,16 @@ export function renderCompare(host, state, actions) {
         product in its Products tab before you buy or print.</div>
     </div>`;
 
-  // The goal's rank of each shortlisted material (D102, D107): the one ranking the table, the chart and the export read, over
-  // the product states an objective stage kept; a material the question does not show is said to be outside it.
+  // The goal's rank of each shortlisted material (D102, D107): the one ranking the table, the chart and the export read; a
+  // material the question does not show is said to be outside it.
   const goal = scenario.rankBy ? indexById(scenario.rankBy) : null;
-  const ranking = goal ? rankingFor(state.rows, state.ctx, goal, undefined, { retained: state.stage?.retained ?? null }) : null;
+  const ranking = goal ? rankingFor(state.rows, state.ctx, goal) : null;
   const onScreen = new Set(state.rows.map((r) => r.material.id));
   const rankTag = (m) => {
     if (!ranking) return '';
     const r = ranking.byMaterial.get(m.id);
     if (r) return ` <span class="fine" title="${esc(`${goal.designCase}: median of ${r.products} product${r.products === 1 ? '' : 's'}`)}">#${r.place}</span>`;
-    return ` <span class="fine">${onScreen.has(m.id) ? 'not ranked' : state.stage ? 'set aside by the stage' : 'not in the results'}</span>`;
+    return ` <span class="fine">${onScreen.has(m.id) ? 'not ranked' : 'not in the results'}</span>`;
   };
 
   host.innerHTML = `

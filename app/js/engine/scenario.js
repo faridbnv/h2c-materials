@@ -11,14 +11,13 @@ import { INDICES } from './indices.js';
 import { normalizeEvidence } from './products.js';
 
 // Version 2 (D107) adds the decision workspace: one goal where there were two (the table's rankBy and the chart's
-// plot.index), the chart's view and context layers, and the objective stages a reader applied. A version 1 scenario is
-// read without losing its question, and says what changed (migrateV1).
+// plot.index), and the chart's view and context layers. A version 1 scenario is read without losing its question, and
+// says what changed (migrateV1). A version 2 scenario saved while the chart's line could keep products (objective
+// stages, removed by D108) is read with its line placed at the cutoff, and says that nothing is set aside any more.
 export const SCENARIO_VERSION = 2;
 /** The Ashby lens's views: the decision products and the material overview, then the catalogue and evidence views. */
 export const WORKSPACE_VIEWS = ['decision', 'overview', 'catalogue', 'measured', 'measured-mixed'];
-/** How many objective stages a scenario holds. */
-export const STAGES_MAX = 3;
-const LAYERS = ['failed', 'unresolved', 'setAside', 'front'];
+const LAYERS = ['failed', 'unresolved', 'front'];
 const POPULATIONS = new Set(['confirmed', 'judged']);
 const FOCUS_MAX = 60;
 
@@ -39,10 +38,7 @@ export function newScenario(meta) {
     // The chart (D107): the view, its axes and scales, the goal's line position (indexM), which context layers are drawn,
     // and a deliberate focus. Display only: nothing here changes an answer, a count of candidates or a rank.
     plot: { x: 'density', y: 'tensileModulusXY', xLog: false, yLog: false, view: 'decision', showReference: false, showEstimates: false,
-      layers: { failed: false, unresolved: false, setAside: false, front: false }, population: 'confirmed', indexM: null, focus: [] },
-    // Objective stages (D107): each keeps the confirmed product states whose index is at or above a cutoff. An objective
-    // of its own, reversible and saved; the requirements' verdicts are untouched.
-    stages: [],
+      layers: { failed: false, unresolved: false, front: false }, population: 'confirmed', indexM: null, focus: [] },
     lens: 'table',
     openMaterial: null,
     useEstimates: true,
@@ -196,12 +192,15 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
   else out.plot.view = WORKSPACE_VIEWS.includes(out.plot.view) ? out.plot.view : 'decision';
   delete out.plot.index;
   delete out.plot.indexSlider;
-  // A stage names an index and a cutoff it keeps at or above; one this build cannot read is left out, and said.
-  if (raw.stages !== undefined && !Array.isArray(raw.stages)) throw new Error('"stages" must be a list.');
-  const stages = (legacy ? [] : raw.stages ?? []).filter(isObject);
-  out.stages = stages.filter((st) => INDICES.some((i) => i.id === st.index) && typeof st.cutoff === 'number' && Number.isFinite(st.cutoff) && st.cutoff > 0)
-    .slice(0, STAGES_MAX).map((st) => ({ index: st.index, cutoff: st.cutoff }));
-  if (out.stages.length < stages.length) warnings.push(`${stages.length - out.stages.length} objective stage(s) could not be read and were left out; the product states they kept are shown again.`);
+  // Objective stages (D107) kept the products at or above a goal's line; D108 removed them, since the requirements are
+  // the one filter. A saved stage is not dropped silently: the line is placed at its cutoff and the reader is told.
+  const stages = Array.isArray(raw.stages) ? raw.stages.filter((st) => isObject(st) && typeof st.cutoff === 'number' && Number.isFinite(st.cutoff) && st.cutoff > 0) : [];
+  if (stages.length) {
+    const own = stages.filter((st) => st.index === out.rankBy).at(-1);
+    if (own && out.plot.indexM === null) out.plot.indexM = own.cutoff;
+    warnings.push(`This selection was saved with ${stages.length === 1 ? 'a step' : `${stages.length} steps`} that kept only the products above the goal's line. The chart no longer filters by its line, so nothing is set aside: the requirements alone decide what is shown${own ? ', and the line is placed where that step cut' : ''}.`);
+  }
+  delete out.stages;
   out.evidence = normalizeEvidence(raw.evidence);
   out.anneal = raw.anneal === true;
   out.annealMaxC = out.anneal && typeof raw.annealMaxC === 'number' && Number.isFinite(raw.annealMaxC) && raw.annealMaxC > 0 ? raw.annealMaxC : null;
@@ -251,7 +250,7 @@ function migrateV1(raw, out) {
   const legacyView = { material: 'catalogue', products: 'catalogue', measured: 'measured', 'measured-mixed': 'measured-mixed' }[level ?? 'material'];
   out.plot.view = used ? legacyView : 'decision';
   if (used) {
-    notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the ${legacyView === 'catalogue' ? 'catalogue view' : 'evidence view'} it was saved with. Choose "Decision products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);
+    notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the ${legacyView === 'catalogue' ? 'catalogue view' : 'evidence view'} it was saved with. Choose "Products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);
   }
   return notes;
 }
@@ -310,8 +309,6 @@ export function toHash(scenario) {
     w: scenario.moisture === 'conditioned' ? 'conditioned' : undefined,
     // The chosen products, without their notes and tests, which travel in the saved file (D103).
     h: scenario.decisions?.length ? scenario.decisions.map((d) => [d.gradeId, d.stateId ?? null, d.release ?? null, d.chosenOn ?? null]) : undefined,
-    // The objective stages applied (D107): index and cutoff each.
-    g: scenario.stages?.length ? scenario.stages.map((st) => [st.index, st.cutoff]) : undefined,
   };
   return encodeURIComponent(JSON.stringify(compact));
 }
@@ -331,6 +328,7 @@ export function fromHash(hash, meta, options) {
     assumptions: c.a, dbSnapshot: c.d, release: c.i, rankBy: c.r, evidence: c.v,
     anneal: c.n === true || typeof c.n === 'number', annealMaxC: typeof c.n === 'number' ? c.n : null, moisture: c.w,
     decisions: Array.isArray(c.h) ? c.h.filter(Array.isArray).map(([gradeId, stateId, release, chosenOn]) => ({ gradeId, stateId, release, chosenOn })) : undefined,
+    // Objective stages, as links carried them before D108 (read to say what became of them).
     stages: Array.isArray(c.g) ? c.g.filter(Array.isArray).map(([index, cutoff]) => ({ index, cutoff })) : undefined,
   }, meta, options);
 }

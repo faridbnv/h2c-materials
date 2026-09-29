@@ -45,7 +45,10 @@ export const SCENARIOS = {
   'scope-v2-estimates': { x: 2, c: [scope], u: 'exploration', s: [], p: { ...loglog, view: 'overview', showEstimates: true }, l: 'ashby', e: true },
   'cost-v2': { x: 2, c: [scope], u: 'strict', s: [], r: 'beam-stiffness-cost', p: { x: 'materialCostPerVolume', y: 'tensileModulusXY', xLog: true, yLog: true, view: 'decision' }, l: 'ashby', e: false },
   'warm-v2-annealed': { x: 2, c: warm, u: 'exploration', s: [], p: { x: 'density', y: 'hdt045', xLog: true, yLog: false, view: 'decision', layers: { unresolved: true } }, l: 'ashby', e: false, n: 120 },
+  // Before D108, an objective stage kept the products above the line; a link that carries one now places the line there.
   'beam-v2-stage': { x: 2, c: beam, u: 'strict', s: [], r: 'beam-stiffness', g: [['beam-stiffness', 0.0017]], p: { ...loglog, view: 'decision' }, l: 'ashby', e: false },
+  // Material ranges over scope only, every judged product (D108): the PLA box that had covered nearly every polymer.
+  'scope-v2-ranges': { x: 2, c: [scope], u: 'exploration', s: [], p: { ...loglog, view: 'overview' }, l: 'ashby', e: true },
   'start-v2': { x: 2, c: [], u: 'strict', s: [], p: { x: 'density', y: 'tensileModulusXY', xLog: false, yLog: false, view: 'decision' }, l: 'ashby', e: false },
   // The same beam exercise with the filter rail hidden, as a reader widening the chart would (the rail's Hide).
   'beam-v2-wide': { x: 2, c: beam, u: 'strict', s: [], r: 'beam-stiffness', p: { ...loglog, view: 'decision' }, l: 'ashby', e: false, _rail: 'hidden' },

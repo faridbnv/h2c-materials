@@ -7,7 +7,6 @@
 import { TEMPLATES, templateByName, asksPrintable } from './templates.js';
 import { esc } from './format.js';
 import { describeConstraint, POLICY_LABELS } from './labels.js';
-import { indexById } from '../engine/indices.js';
 
 /**
  * How many materials the tool can select from. A family entry (PA, PA-CF, TPE...) is a name, never a candidate, so it
@@ -171,8 +170,6 @@ export function renderActive(state, actions) {
       ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>
     ${stateLine}
-    ${state.stage ? `<p class="state-line stage-line"><b>Objective stage:</b> ${state.stage.steps.map((st) => { const idx = indexById(st.index); return `kept the product states whose ${esc(idx?.designCase.toLowerCase() ?? st.index)} index, ${esc(idx?.formula ?? 'M')}, is at least ${esc(String(Number(st.cutoff.toPrecision(4))))}: ${st.products} across ${st.materials} material${st.materials === 1 ? '' : 's'}`; }).join('; then ')}. The requirements' answers above are unchanged; the rows below and their ranks are what it kept.
-      <button type="button" class="btn btn-sm" data-act="clear-stage">Remove the stage</button></p>` : ''}
     ${printable ? '' : `<p class="state-line research-line"><b>Research mode:</b> whether the H2C can print a product is not checked, so a pass here says nothing about printing it. <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></p>`}
     <details class="answer-notes">
       <summary>${template ? `<b>Not checked by this template:</b> ${esc(firstSentence(template.notChecked))}` : '<b>What this database cannot answer</b>'}</summary>
@@ -197,7 +194,6 @@ export function wireActive(host, state, actions) {
   host.querySelector('[data-act="reset"]')?.addEventListener('click', () => actions.reset());
   host.querySelector('[data-act="anneal"]')?.addEventListener('click', () => actions.allowAnnealing());
   host.querySelector('[data-act="printable"]')?.addEventListener('click', () => actions.checkPrintable());
-  host.querySelector('[data-act="clear-stage"]')?.addEventListener('click', () => { state.scenario.stages = []; actions.changed(); });
   host.querySelector('[data-drop-printable]')?.addEventListener('click', () => {
     state.scenario.constraints = state.scenario.constraints.filter((c) => !(c.kind === 'gate' && ['nozzle', 'bed', 'chamber'].includes(c.gate)));
     actions.changed();

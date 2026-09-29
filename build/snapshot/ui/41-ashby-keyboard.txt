@@ -1,4 +1,4 @@
-LINE STEPPED 7 product states across 5 materials at or above (of 14; better above)
+LINE STEPPED 7 products from 5 materials above the line (better side)
 INSPECTOR
 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
 ×

@@ -1,0 +1,164 @@
+{
+  "release": "65c1d55bdfdb",
+  "beam": {
+    "materials": {
+      "pass": 8,
+      "unknown": 101,
+      "fail": 44
+    },
+    "decision": {
+      "pairs": 14,
+      "materials": 8
+    },
+    "failedContextPairs": 207,
+    "unresolvedContextPairs": 16,
+    "notDrawable": 0,
+    "line": {
+      "M": 0.0017342913093628366,
+      "statesAtOrAbove": 8,
+      "materialsAtOrAbove": 5,
+      "rankedMaterialsAtOrAbove": 5
+    }
+  },
+  "conditionedBeam": {
+    "decisionPairs": 0,
+    "unresolvedDrawable": 1,
+    "unresolvedProducts": 834,
+    "marksNotAtTheirJudgedState": 0
+  },
+  "estimates": {
+    "ranges": 40,
+    "unavailable": 0,
+    "measuredSpreadCollapsed": 0
+  },
+  "evidencePairs": {
+    "strictPairs": 297,
+    "strictWithExplicitConflict": 0,
+    "directionOnlyMatches": 352
+  },
+  "conditionedScopeRanking": {
+    "ranked": 1,
+    "rankedMaterials": [
+      "M166"
+    ],
+    "restingOnAMissingState": 0
+  },
+  "cost": {
+    "ranked": 0,
+    "unranked": 8,
+    "drawable": 0,
+    "unpriced": 14
+  },
+  "fiberon": [
+    {
+      "oven": false,
+      "verdict": "UNKNOWN",
+      "state": "as-printed",
+      "bucket": "unresolved",
+      "drawn": {
+        "y": 81.6,
+        "yMeasurement": "V001931"
+      },
+      "why": null
+    },
+    {
+      "oven": true,
+      "verdict": "PASS",
+      "state": "annealed:120:16",
+      "bucket": "confirmed",
+      "drawn": {
+        "y": 133.7,
+        "yMeasurement": "V001933"
+      },
+      "why": null
+    }
+  ],
+  "plaRangeScopeOnly": {
+    "everyProductEnvelope": {
+      "density": {
+        "lo": 800,
+        "hi": 1400,
+        "n": 32
+      },
+      "stiffness": {
+        "lo": 0.4328,
+        "hi": 4.155,
+        "n": 32
+      }
+    },
+    "box": {
+      "density": {
+        "q1": 1230,
+        "median": 1237,
+        "q3": 1250,
+        "lo": 1170,
+        "hi": 1310,
+        "n": 29
+      },
+      "stiffness": {
+        "q1": 1.5,
+        "median": 2.2459,
+        "q3": 2.834,
+        "lo": 0.4328,
+        "hi": 4.155,
+        "n": 29
+      }
+    },
+    "variantsApart": [
+      {
+        "product": "Eryone PLA-Lite",
+        "variant": "undisclosed dense filler",
+        "density": 1400,
+        "stiffness": 0.7153
+      },
+      {
+        "product": "Polymaker PolyWood",
+        "variant": "lightweight additive",
+        "density": 800,
+        "stiffness": 2.636
+      },
+      {
+        "product": "3DXTECH SimuBone Bone Simulation",
+        "variant": "undisclosed dense filler",
+        "density": 1340,
+        "stiffness": 3.41
+      }
+    ],
+    "buildSpread": {
+      "density": {
+        "n": 146,
+        "products": 182,
+        "min": 1170,
+        "max": 1329,
+        "q1": 1220,
+        "q3": 1240,
+        "asPublished": null,
+        "variants": {
+          "n": 17,
+          "min": 800,
+          "max": 4000
+        },
+        "twins": 11
+      },
+      "stiffness": {
+        "n": 43,
+        "products": 182,
+        "min": 0.4328,
+        "max": 4.24,
+        "q1": 1.8055,
+        "q3": 2.895,
+        "asPublished": {
+          "n": 37,
+          "min": 1.43872,
+          "max": 4.78
+        },
+        "variants": {
+          "n": 9,
+          "min": 0.7153,
+          "max": 4.73
+        },
+        "twins": 3
+      }
+    }
+  }
+}

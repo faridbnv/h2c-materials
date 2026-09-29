@@ -116,7 +116,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D104 | A save is one transaction, a fetch is bounded, and a source's bytes are kept by their digest | Editing the tables from a script either writes every file of the change or none, and refuses to overwrite another writer's save; downloading a source gives up after set limits and resumes without starting over; and the downloaded source files can be listed, backed up and restored by their fingerprint. | In force |
 | D105 | A query is of one generation; a decision can be traced; the loop is measured | The SQL file you query says which release of the data it is of and never mixes the tables as they are with an older compiled database; one product's decision in a saved scenario can be traced record by record from the command line; and what the build and checks cost is measured step by step. | In force |
 | D106 | A product is named for what its maker's documents say it is, searched beyond the data sheet | Before a product is filed as "polymer not stated" or "hardness not stated", its maker's safety data sheet, pages, guides and older editions are searched; it is filed under what they name, and only what no document names stays in a home that says the maker does not disclose it. | In force; it amends D86 (the "hardness not stated" class is a family entry) and D87 (the homes are named for what is true of them) |
-| D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force |
+| D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83) |
+| D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107 |
 
 <!-- end index -->
 
@@ -360,7 +361,8 @@ rule intact.
 ## D21. One control for how much evidence the chart draws
 
 *Amended by D107 (2026-09-29): the choice became two work views (Decision products, Material overview) and three evidence
-views (Catalogue, Test pairs matched, Test pairs mixed), the last three under the chart's More.*
+views (Catalogue, Test pairs matched, Test pairs mixed), the last three under the chart's More. D108 renamed the work views
+Products and Material ranges.*
 
 > **In plain words:** The chart's two overlapping evidence switches became one three-way choice.
 
@@ -3081,8 +3083,8 @@ product the printer the tool is for cannot print.
 > **In plain words:** When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking.
 
 *Amended by D107 (2026-09-29): the chart's line is drawn over the exact product states the ranking reads, and counts
-them and their materials apart; its "bubbles at typical values, context" survives as the catalogue view. The one ranking
-also reads an applied objective stage.*
+them and their materials apart; its "bubbles at typical values, context" survives as the catalogue view. (D107's objective
+stages, which the one ranking also read, were removed by D108.)*
 
 *Built in version 2.1, F05 of the review of 2026-09-27 (U01), under the owner's direction of 2026-09-28. Extends D83.*
 
@@ -3259,11 +3261,14 @@ makers do.
 ## D107. The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over
 
 > **In plain words:** The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views.
+> **Status:** In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83).
 
 *Directed by the owner on 2026-09-29: build the external review and plan of 2026-09-28 (the package
 ASHBY-MAKEOVER-2026-09-28, B01 to B13) on the branch Ashby-makeover. The design is that plan's recommendation; built by
 Claude (an agent), and no person has reviewed it or run the plan's engineering trial yet
-(docs/audits/2026-09-29-ashby-makeover/README.md). Amends D21, D99 and D102.*
+(docs/audits/2026-09-29-ashby-makeover/README.md). Amends D21, D99 and D102. Amended by D108 the same day: the objective
+stage and the axis limits form below are gone, the views are named Products and Material ranges, and the overview's
+material band is the middle half of its products, variants apart.*
 
 The chart was a browser of recorded properties beside an answer judged elsewhere. Its product view drew published values
 while the answer was judged in a state (D99): a conditioned beam drew 247 dry points, and Fiberon PET-GF15 sat at its
@@ -3323,6 +3328,70 @@ conditioned, with and without annealing) no verdict moved; 64 of 512 rankings mo
 (docs/audits/2026-09-29-ashby-makeover/evidence/rank-diff.json). The compiled database moved nothing (`npm run build:diff`:
 0 differences; the release moved with the engine). Reversing it draws published values beside answers judged in states,
 counts one population under a line drawn over another, and ranks conditioned questions on dry stiffness again.
+
+## D108. The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's
+
+> **In plain words:** The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart.
+> **Status:** In force; it amends D107.
+
+*Directed by the owner on 2026-09-29, after using the lens D107 built: its menus changed as they worked, a filter could be
+set in several places, and PLA's range covered nearly every polymer. They asked for the lens to be reworked as a UI and UX
+expert would, a two-level menu allowed where it helps. Built by Claude (an agent); no person has reviewed it, and the
+plan's engineering trial has still not run. Amends D107.*
+
+What a reader met, walking the D107 lens through the H2C beam (docs/audits/2026-09-29-ashby-makeover/README.md, "Revision
+after the owner's walkthrough"):
+
+- **Menus that changed under the reader.** Each axis option carried a live count ("Stiffness (153 product states · 42
+  materials)") that changed with every filter and was cut off by its box; the Axes fold opened and closed itself by the
+  goal; Layers and More opened inline and pushed the chart down; a layer (set aside by a stage) came and went.
+- **Four ways to narrow the answer.** The filter rail; "Edit requirements", which opened it; *Limits on these axes*
+  under More, a second form for the same requirements; and *Keep products above this line*, an objective stage that
+  narrowed every lens. The rail's requirements were already drawn on the chart as red dashed lines, as they had been
+  before D107.
+- **Five counts of one picture**, each a little different: "84 shown", "682 product states, 84 materials", "10 product
+  states across 7 materials (of 142)", "33 of 78" in Layers, and the axis menus'.
+- **A PLA band that covered everything.** The overview drew each material from the lowest to the highest of its judged
+  products, variants included. PLA's band in the scope-only chart ran 800–1400 kg/m³ by 0.43–4.2 GPa over 32 products:
+  PolyWood (a lightweight additive, 800 kg/m³) and Eryone PLA-Lite (an undisclosed dense filler, 1400) set the density
+  ends, though the build keeps both out of PLA's spread (1170–1329 kg/m³ over 146 products), and one sheet set each
+  stiffness end. The table two tabs away summarised PLA differently from the chart.
+
+What changed:
+
+- **One control row** (`toolbar`, `app/js/ui/decision.js`), the same in every view, the evidence views included: the
+  view (*Products*, *Material ranges*), each axis as a menu of property names in one fixed order and nothing else, Lin and
+  Log, swap, and two menus that open over the chart: **Show** (what else is drawn, and the references for scale) and
+  **More** (the evidence views, the exports and the release). An item that does not apply is greyed with its reason, never
+  removed; a menu closes on a press outside or Escape. The counts the axis menus carried are the chart's own lines and the
+  result list's.
+- **The filter rail is the one place a requirement is set.** *Limits on these axes* is gone; the question bar reads the
+  rail back under *Asked* with **Change in Filters**; each requirement's label on the chart opens the rail at it.
+- **The line is a guide** (`lineControl`): it says how many products, from how many materials, are on its better side,
+  and is drawn into the ranking as a rule between the materials on either side of it. The objective stage
+  (`objectiveStages`, `scenario.stages`, the set-aside layer, the stage columns of the exports, the table's and Compare's
+  stage notes) is removed. The ranking a goal gives is the material ranking of D102 again, over every passing product. A
+  scenario saved with stages keeps its question; the line is placed where its goal's stage cut, and the notice says nothing
+  is set aside (`validateScenario`).
+- **One count**: "N products from K materials" in the line, the chart's line of counts and the exports. With one judged
+  state per product, a count of product states is a count of products, and the state is named on every mark.
+- **Material ranges as the table's** (`marginal`, `app/js/engine/workspace.js`): the box is the middle half of the
+  material's own products on each axis from four products up, with the build's quantile (`build/src/products.js`), and
+  their full range below four; whiskers through the medians reach the lowest and highest; a declared variant (the grade's
+  Variant column, D57) is drawn as a diamond outside the range. PLA's box in the scope-only chart is now 1230–1250 kg/m³ by
+  1.5–2.8 GPa over 29 products, with whiskers to 1170–1310 and 0.43–4.2, and PolyWood, PLA-Lite and SimuBone drawn apart.
+- **Less to read first.** The question is two lines; *Reading this chart* is closed until opened, with one line of counts
+  above it; the result list's explanation is a sentence with the rest in its tooltip.
+
+Left as it was: the filter rail's family counts, which say how many a click would leave and keep one order; and the
+spread that remains inside PLA's box. That spread is the sheets': printed test bars under three standards and speeds (ISO
+527, ASTM D638, GB/T 1040 at 50 mm/min), infill mostly unstated, and toughened grades beside plain ones. The chart draws it
+honestly; narrowing it is a data question (OPEN-PROBLEMS §20).
+
+What it moved: no verdict and no ranking without a stage (the stage was the only thing the ranking read besides the passing
+products); the compiled database nothing (`npm run build:diff`); the release, with the engine. Reversing it brings back
+menus whose words change as the reader works, four places to narrow one answer, and a band drawn from the extremes of
+every product, variants included.
 
 ---
 

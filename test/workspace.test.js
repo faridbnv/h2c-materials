@@ -10,7 +10,7 @@ import assert from 'node:assert/strict';
 import { stateOf, parseStateId } from '../app/js/engine/products.js';
 import { v, price, st, product, material, ask, scope, near } from './fixtures/workspace-fixture.js';
 import { INDICES, indexById, selectionLine, rankingFor } from '../app/js/engine/indices.js';
-import { buildWorkspace, objectiveStages, estimateContext, indexSensitivity, judgedProducts, COST_AXIS } from '../app/js/engine/workspace.js';
+import { buildWorkspace, estimateContext, indexSensitivity, judgedProducts, COST_AXIS } from '../app/js/engine/workspace.js';
 
 // ------------------------------------------------------------------ fixture (test/fixtures/workspace-fixture.js)
 
@@ -222,9 +222,9 @@ test('T09: product states and materials are counted apart, and context is never 
   assert.ok(ws.frontier.every((k) => ws.decision.some((p) => p.key === k)), 'the front is exact confirmed pairs only');
 });
 
-// ------------------------------------------------------------------ T10: an applied cutoff is a stage of its own
+// ------------------------------------------------------------------ T10: the line is a guide (D108)
 
-test('T10: a line swept changes nothing; a stage applied keeps exact product states at or above it and re-ranks them; removed, all return', () => {
+test('T10: the line counts the products on its better side, equality included, and moving it changes no rank, verdict or mark', () => {
   const beam = indexById('beam-stiffness');
   // Material M1: products at M = sqrt(4)/1000 = 0.002 and sqrt(1)/1000 = 0.001, median 0.0015.
   // Material M2: one product at sqrt(9)/1500 = 0.002. Material M3: one at sqrt(2.25)/1500 = 1.5/1500 = 0.001.
@@ -233,30 +233,44 @@ test('T10: a line swept changes nothing; a stage applied keeps exact product sta
     material('M2', [product('G3', 'M2', [st({ density: v(1500), tensileModulusXY: v(9) })])]),
     material('M3', [product('G4', 'M3', [st({ density: v(1500), tensileModulusXY: v(2.25) })])]),
   ];
-  const { ctx, rows, all } = ask(ms, [scope]);
-  const swept = buildWorkspace({ rows, ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true, index: beam, lineM: 0.0019 });
-  const unswept = buildWorkspace({ rows, ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true, index: beam, lineM: 0.0005 });
-  assert.deepEqual(swept.ranking.order.map((r) => r.materialId), unswept.ranking.order.map((r) => r.materialId), 'moving the line filters nothing');
-  assert.equal(swept.decision.length, 4);
-  // Applied at 0.002 (equality included): G1 and G3 stay. M1 now ranks on G1 alone (0.002), M2 on G3 (0.002); M3 goes.
-  const stage = objectiveStages(all, ctx, [{ index: 'beam-stiffness', cutoff: 0.002 }]);
-  assert.deepEqual([...stage.retained].sort(), ['G1|as-printed', 'G3|as-printed']);
-  assert.deepEqual([...stage.materials].sort(), ['M1', 'M2']);
-  assert.deepEqual(stage.steps.map((s) => [s.products, s.materials, s.below, s.lacking]), [[2, 2, 2, 0]]);
-  const kept = rows.filter((r) => stage.materials.has(r.material.id));
-  const staged = buildWorkspace({ rows: kept, ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true, index: beam, stage });
-  assert.deepEqual(staged.decision.map((p) => p.gradeId).sort(), ['G1', 'G3']);
-  assert.deepEqual(staged.setAside.map((p) => p.gradeId), ['G2'], 'a confirmed product below the cutoff is set aside, not failed');
-  const ranks = Object.fromEntries(staged.ranking.order.map((r) => [r.materialId, r.value]));
-  assert.ok(near(ranks.M1, 0.002) && near(ranks.M2, 0.002), JSON.stringify(ranks));
-  assert.equal(staged.ranking.order[0].materialId, 'M1', 'a tie is broken by ID');
-  // The requirements' verdicts are the engine's, untouched.
-  assert.deepEqual(rows.map((r) => r.evaluation.verdict), ['PASS', 'PASS', 'PASS']);
-  // Removed, the preceding population returns.
-  const removed = buildWorkspace({ rows, ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true, index: beam, stage: objectiveStages(all, ctx, []) });
-  assert.equal(removed.decision.length, 4);
-  // A stage is independent of the axes: keeping on the beam line while plotting strength keeps the same product states.
-  assert.equal(objectiveStages(all, ctx, [{ index: 'beam-stiffness', cutoff: 0.002 }]).retained.size, 2);
+  const { ctx, rows } = ask(ms, [scope]);
+  const at = (lineM) => buildWorkspace({ rows, ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true, index: beam, lineM });
+  const high = at(0.002), low = at(0.0005);
+  // At 0.002 (equality included): G1 and G3, from M1 and M2. At 0.0005: all four, from three materials.
+  assert.deepEqual([high.line.above.pairs, high.line.above.materials], [2, 2]);
+  assert.deepEqual(high.line.above.keys.map((k) => k.split('|')[1]).sort(), ['G1', 'G3']);
+  assert.deepEqual([low.line.above.pairs, low.line.above.materials], [4, 3]);
+  // Medians: M2 0.002, M1 0.0015, M3 0.001. One material ranks at or above 0.002.
+  assert.equal(high.line.rankedAbove, 1);
+  for (const ws of [high, low]) {
+    assert.deepEqual(ws.ranking.order.map((r) => r.materialId), ['M2', 'M1', 'M3'], 'moving the line re-ranks nothing');
+    assert.equal(ws.decision.length, 4, 'and sets no mark aside');
+    assert.equal(ws.setAside, undefined);
+  }
+  assert.deepEqual(rows.map((r) => r.evaluation.verdict), ['PASS', 'PASS', 'PASS'], 'the requirements\' verdicts are the engine\'s');
+});
+
+// ------------------------------------------------------------------ material ranges, as the page summarises a material (D108)
+
+test('a material range is the middle half of its products from four up, whiskers to the extremes, a declared variant apart', () => {
+  // Five plain products and one wood-filled variant. Densities 1200, 1220, 1240, 1250, 1300 (and the variant's 800);
+  // stiffness 1, 2, 2.5, 3, 4 (and 2.6). Sorted, the quartiles at positions (5 - 1) x 0.25 = 1 and x 0.75 = 3 are the
+  // second and fourth values: density 1220 and 1250, stiffness 2 and 3; the medians 1240 and 2.5.
+  const plain = [[1200, 1], [1220, 2], [1240, 2.5], [1250, 3], [1300, 4]].map(([d, E], i) => product(`G${i + 1}`, 'M1', [st({ density: v(d), tensileModulusXY: v(E) })]));
+  const wood = product('G9', 'M1', [st({ density: v(800), tensileModulusXY: v(2.6) })], { variant: 'lightweight additive' });
+  const { ctx, rows } = ask([material('M1', [...plain, wood])], [scope]);
+  const ws = buildWorkspace({ rows, ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true });
+  const [s] = ws.materialSummaries;
+  assert.deepEqual([s.x.lo, s.x.q1, s.x.median, s.x.q3, s.x.hi, s.x.n], [1200, 1220, 1240, 1250, 1300, 5]);
+  assert.deepEqual([s.y.lo, s.y.q1, s.y.median, s.y.q3, s.y.hi], [1, 2, 2.5, 3, 4]);
+  assert.equal(s.x.quartiles, true);
+  assert.deepEqual(s.variants.map((k) => k.split('|')[1]), ['G9'], 'the variant is drawn apart');
+  assert.equal(s.paired.length, 6, 'and every product, the variant too, is a mark');
+  assert.ok(!s.inRange.some((k) => k.includes('|G9|')));
+  // Fewer than four: the box is the full range, and says so.
+  const three = ask([material('M2', plain.slice(0, 3).map((g) => ({ ...g, materialId: 'M2' })))], [scope]);
+  const [t] = buildWorkspace({ rows: three.rows, ctx: three.ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true }).materialSummaries;
+  assert.deepEqual([t.x.q1, t.x.q3, t.x.quartiles], [1200, 1240, false]);
 });
 
 // ------------------------------------------------------------------ T11: log axes, open ranges, three kinds of spread

@@ -1,28 +1,30 @@
-// The Ashby lens (D107): an engineering selection exercise.
+// The Ashby lens (D107, D108): an engineering selection exercise.
 //
 // The engineer states the part and its goal, screens products that can meet the requirements in a state the scenario
-// permits, moves the goal's line over those same product states, reads the variation and the estimates, and keeps exact
+// permits, moves the goal's line over those same products, reads the variation and the estimates, and keeps exact
 // products with their evidence. The chart, its result list, the table, the comparison and the exports tell one story
 // because they read one model (engine/workspace.js, ui/decision.js).
 //
-// Two work views: Decision products (each product in the state its answer is in) and Material overview (each material as
-// the span of its products). The catalogue and evidence views of before, which draw published values independent of
-// the state a product is judged in, stay for research, under "References, evidence and export", and say what they are.
+// Two work views: Products (each product in the state its answer is in) and Material ranges (each material as the middle
+// half of its products). The catalogue and evidence views of before, which draw published values independent of the
+// state a product is judged in, stay for research, under More, and say what they are.
 //
-// Rules enforced here:
-//  - the goal prepares its axes and scales in one action, and the line sits beside the chart it moves;
-//  - a count says what it counts: product states and materials are never one number over the other;
-//  - context (failed and unresolved products, estimates, references) is a layer, off until asked, never ranked;
-//  - the axis picker reports the count BEFORE drawing, because some pairs are genuinely thin.
+// Rules enforced here (D108):
+//  - one control row that looks the same in every view: the view, the axes by name alone, Show and More; an item that
+//    does not apply is greyed with its reason, never removed, and no menu's words change as the reader works;
+//  - the filter rail is the one place a requirement is set; the chart draws each one, and its label opens the rail;
+//  - the goal's line is a guide: it moves over the products and says how many are on its better side, and filters none;
+//  - a count of marks is said one way: "N products from K materials";
+//  - context (failed and unresolved products, estimates, references) is drawn only when asked, never ranked.
 
-import { indexById, rankingFor } from '../engine/indices.js';
+import { rankingFor } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
 import { WORKSPACE_VIEWS } from '../engine/scenario.js';
 import { COST_AXIS, goalAxes } from '../engine/workspace.js';
 import { buildFamilyColors, FILLER_SYMBOL, FILLER_LABEL, esc, fmtNumber, fmtRange, wireEvidence } from './format.js';
 import { download } from './table.js';
 import { AXIS_DEFS, measurementMatches, pairCompatibility } from './axes.js';
-import { prop, POLICY_LABELS } from './labels.js';
+import { prop } from './labels.js';
 import { headlineDef } from './registry.js';
 import {
   chartFit, wireResize, placeLabels, axisRange, hexToRgba, errorBars, requirementOverlay, anchorRequirementLabels,
@@ -30,15 +32,15 @@ import {
 } from './chart.js';
 import {
   workspaceFor, questionStrip, starter, lineControl, toolbar, resultsPanel, drawWorkspacePlot, workspaceKey, readingNote,
-  chartDataCSV, chartImage, estimateContext, axisDef, pairList, openFolds,
+  chartDataCSV, chartImage, estimateContext, pairList, openFolds, lineCount,
 } from './decision.js';
 
 export { chartFit, chooseLabels, labelBox } from './chart.js';
 
 /** The lens's views, work views first. The evidence views draw published values and say so. */
 export const VIEWS = [
-  { id: 'decision', label: 'Decision products', help: 'Each product that meets the requirements, in the state its answer is in.' },
-  { id: 'overview', label: 'Material overview', help: 'Each material as the span of its products on each axis; its products as dots.' },
+  { id: 'decision', label: 'Products', help: 'Each product that meets the requirements, in the state its answer is in.' },
+  { id: 'overview', label: 'Material ranges', help: 'Each material as the middle half of its products on each axis, whiskers to the extremes; its products as dots.' },
   { id: 'catalogue', label: 'Catalogue: typical published values', help: 'One point per material at its typical published values, with its products\' spread.', evidence: true },
   { id: 'measured', label: 'Test pairs: matched conditions', help: 'Two measurements of one product in one condition, from one document: moisture, treatment, specimen and direction agree.', evidence: true },
   { id: 'measured-mixed', label: 'Test pairs: mixed conditions', help: 'Every pair of one product\'s measurements; each mismatch is named and drawn hollow. Exploration, never a decision.', evidence: true },
@@ -46,8 +48,6 @@ export const VIEWS = [
 /** The view a plot names, or the decision view. */
 export const viewOf = (p) => (WORKSPACE_VIEWS.includes(p?.view) ? p.view : 'decision');
 
-/** Materials a printer owner already has a feel for, offered as the comparison anchor. */
-const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 /** Celsius axes open on a linear scale: a glass transition below 0 °C has no logarithm (D92). */
 const LINEAR_BY_DEFAULT = (key) => AXIS_DEFS.find((a) => a.key === key)?.unit === '°C';
 
@@ -68,7 +68,8 @@ export function renderAshby(host, state, actions) {
   state.estimates = state.ctx.showEstimates
     ? estimateContext(state.examined ?? state.rows, state.ctx, { xKey: p.x, yKey: p.y, xLog: !!p.xLog, yLog: !!p.yLog, index, orientation: ws.objective.orientation })
     : { ranges: [], unavailable: [], off: true };
-  const showStarter = work && !scenario.constraints.length && !scenario.rankBy;
+  // The starter until the reader has asked something here: a goal, a requirement, or "compare properties".
+  const showStarter = work && !scenario.constraints.length && !scenario.rankBy && !state.ashbyStarted;
   const legacy = work ? null : legacyView(state, view);
 
   host.innerHTML = `<div class="ws" data-ws-view="${view}">
@@ -76,8 +77,8 @@ export function renderAshby(host, state, actions) {
     ${showStarter ? starter(state) : ''}
     <div class="ws-body">
       <section class="ws-chart" aria-label="Chart">
-        ${work ? toolbar(state, ws, { view }) : legacy.toolbar}
-        ${work && view === 'decision' ? lineControl(state, ws) : ''}
+        ${toolbar(state, { view, estimates: legacy?.estimates ?? null })}
+        ${work ? lineControl(state, ws) : ''}
         ${legacy?.notices ? `<div class="ashby-notices">${legacy.notices}</div>` : ''}
         <div id="plot" role="img" aria-label="Ashby chart"></div>
         ${work ? workspaceKey(state, ws, { view }) : legacy.key}
@@ -104,7 +105,7 @@ export function renderAshby(host, state, actions) {
  * published values, independent of the state a product is judged in, kept for research and said to be so.
  */
 function legacyView(state, view) {
-  const { db, reference, rows, scenario } = state;
+  const { reference, rows, scenario } = state;
   const p = scenario.plot;
   const xDef = AXIS_DEFS.find((a) => a.key === p.x) ?? AXIS_DEFS[0];
   const yDef = AXIS_DEFS.find((a) => a.key === p.y) ?? AXIS_DEFS[1];
@@ -131,70 +132,6 @@ function legacyView(state, view) {
   const thin = pts.length < 10;
   const grades = new Set(pts.map((q) => q.yh?.gradeId ?? q.xh?.gradeId).filter(Boolean)).size;
 
-  // "Price — 10" read as ten dollars. Name the property, then say what the number counts.
-  const axisSelect = (which, cur) => `<select id="ashby-${which}" data-axis="${which}" data-focus="axis-${which}">
-    ${AXIS_DEFS.map((a) => {
-      const n = rows.filter((r) => r.material.headline[a.key]?.known).length;
-      const est = state.ctx?.showEstimates
-        ? rows.filter((r) => { const h = r.material.headline[a.key]; return h && !h.known && h.estimate; }).length
-        : 0;
-      const count = est ? `${n} measured, ${est} estimated` : `${n} of ${rows.length} have it`;
-      return `<option value="${a.key}" ${a.key === cur ? 'selected' : ''}>${esc(prop(a.key).plain)} (${count})</option>`;
-    }).join('')}</select>`;
-  const axisPicker = (which, def, isLog) => `
-    <div class="axis-pick">
-      <label for="ashby-${which}">${which === 'y' ? 'Vertical axis' : 'Horizontal axis'}</label>
-      <div class="axis-row">
-        ${axisSelect(which, def.key)}
-        <div class="segmented" role="group" aria-label="${which === 'y' ? 'Vertical' : 'Horizontal'} axis scale">
-          <button data-log="${which}" data-focus="log-${which}-lin" aria-pressed="${!isLog}">Linear</button><button data-log="${which}" data-on="1" data-focus="log-${which}-log" aria-pressed="${isLog}">Log</button>
-        </div>
-      </div>
-    </div>`;
-  // State the chart's current capability instead of presenting an unexplained disabled checkbox.
-  const estimateControl = measurementMode
-    ? '<div class="plot-data-state">Measured data only</div>'
-    : estimated.length
-      ? `<label class="opt-check">
-          <input type="checkbox" data-show-estimates data-focus="estimates" ${p.showEstimates ? 'checked' : ''}>
-          <span>Show estimated ranges (${estimated.length})</span>
-        </label>`
-      : state.ctx?.showEstimates
-        ? '<div class="plot-data-state">No estimated ranges for these axes</div>'
-        : state.scenario.unknownPolicy === 'exploration'
-          ? '<div class="plot-data-state">Turn on Use estimates above to show ranges</div>'
-          : `<div class="plot-data-state">Estimated ranges require ${POLICY_LABELS.exploration}</div>`;
-  const current = VIEWS.find((v) => v.id === view);
-  const toolbarHtml = `<div class="ws-toolbar ws-legacy">
-    <div class="segmented ws-views" role="group" aria-label="What the chart draws">
-      <button data-view="decision" data-focus="view-decision" aria-pressed="false">Decision products</button><button data-view="overview" data-focus="view-overview" aria-pressed="false">Material overview</button>
-    </div>
-    <div class="ws-evidence-chip" role="note"><b>Evidence view: ${esc(current.label)}.</b> ${esc(current.help)} Published values, independent of the state a product is judged in: not the decision.</div>
-    <div class="ashby-axes">
-      ${axisPicker('y', yDef, p.yLog)}
-      <button class="btn btn-sm axis-swap" data-swap data-focus="swap" title="Swap the horizontal and vertical axes">⇄ Swap</button>
-      ${axisPicker('x', xDef, p.xLog)}
-    </div>
-    <div class="ashby-options">
-      <div class="opt-group" role="group" aria-labelledby="og-points">
-        <h3 id="og-points">Evidence view</h3>
-        <select data-view-select data-focus="view-select" aria-label="Which evidence view">
-          ${VIEWS.filter((v) => v.evidence).map((v) => `<option value="${v.id}" ${v.id === view ? 'selected' : ''}>${esc(v.label)}</option>`).join('')}
-        </select>
-        ${estimateControl}
-      </div>
-      <div class="opt-group" role="group" aria-labelledby="og-compare">
-        <h3 id="og-compare">Compare with</h3>
-        <select data-baseline data-focus="baseline" aria-label="A familiar filament to draw for comparison">
-          <option value="">No familiar filament</option>
-          ${BASELINE_NAMES.map((n) => db.materials.find((q) => q.name === n)).filter(Boolean)
-            .map((q) => `<option value="${esc(q.id)}" ${state.baseline === q.id ? 'selected' : ''}>${esc(q.name)}</option>`).join('')}
-        </select>
-        <label class="opt-check"><input type="checkbox" data-reference data-focus="reference" ${p.showReference ? 'checked' : ''}>
-          <span>Steel, aluminium and wood</span></label>
-      </div>
-    </div>
-  </div>`;
   const notices = [
     unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : '',
     thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : '',
@@ -228,7 +165,7 @@ function legacyView(state, view) {
       ${estimated.length && !p.showEstimates
         ? `<br><b>${estimated.length} more candidate${estimated.length === 1 ? ' has' : 's have'}</b> no measurement of
            ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only an estimated range. Not drawn. Tick
-           <b>Show estimated ranges</b> above to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
+           <b>Estimated ranges</b> under Show to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
         : ''}
       ${envelopes.length ? `<br><b>The outlined ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
         with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range,
@@ -238,7 +175,7 @@ function legacyView(state, view) {
         both axes at once, at their typical values: ${esc(prop(xDef.key).plain.toLowerCase())} ${xDef.better === 'max' ? 'higher' : 'lower'} is better,
         ${esc(prop(yDef.key).plain.toLowerCase())} ${yDef.better === 'max' ? 'higher' : 'lower'} is better.` : ''}
     </div>`;
-  return { xDef, yDef, pts, envelopes, toolbar: toolbarHtml, notices, reading, key: markerKey({ pts, envelopes, level, anchor: drawnAnchor(state, xDef, yDef) }) };
+  return { xDef, yDef, pts, envelopes, estimates: { count: estimated.length, measured: measurementMode }, notices, reading, key: markerKey({ pts, envelopes, level, anchor: drawnAnchor(state, xDef, yDef) }) };
 }
 
 /** The familiar filament drawn as a cross, when it has both values; null otherwise. */
@@ -713,6 +650,8 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
     const id = ev.points?.[0]?.customdata?.[0];
     if (id) actions.openMaterial(id);
   });
+  // A requirement's label opens the filter rail at it (D108).
+  gd.on('plotly_clickannotation', (ev) => { const property = gd.layout.annotations?.[ev.index]?._property; if (property) actions.editRequirements(property); });
   // A lasso focuses the chart on what it caught; it never filters the results (D107).
   gd.on('plotly_selected', (ev) => {
     if (!ev?.points?.length) return;
@@ -723,9 +662,9 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
 
 /**
  * The guide's ranking (D102, D107): the table's, over the same rows, from each candidate's passing products' own index in
- * the states they pass in, and over the product states an objective stage kept, when one is applied.
+ * the states they pass in.
  */
-export const guideRanking = (rows, state, index) => rankingFor(rows, state.ctx, index, undefined, { retained: state.stage?.retained ?? null })?.order ?? [];
+export const guideRanking = (rows, state, index) => rankingFor(rows, state.ctx, index)?.order ?? [];
 
 // ------------------------------------------------------------------ controls
 
@@ -733,11 +672,15 @@ function wireControls(host, state, actions, ws, { view }) {
   const p = state.scenario.plot;
   const index = ws.objective.index;
   const on = (sel, ev, fn) => host.querySelectorAll(sel).forEach((el) => el.addEventListener(ev, (e) => fn(el, e)));
-  on('details[data-fold]', 'toggle', (el) => openFolds.set(el.dataset.fold, el.open));
+  on('details[data-fold]', 'toggle', (el) => {
+    openFolds.set(el.dataset.fold, el.open);
+    // One menu open at a time.
+    if (el.open && el.classList.contains('ws-menu')) host.querySelectorAll('details.ws-menu[open]').forEach((d) => { if (d !== el) d.open = false; });
+  });
+  wireMenus();
   on('[data-goal]', 'change', (el) => actions.setGoal(el.value || null));
   on('[data-start-goal]', 'click', (el) => actions.startExercise(el.dataset.startGoal || null, !!host.querySelector('[data-start-gates]')?.checked));
-  on('button[data-view]', 'click', (el) => actions.setPlot({ view: el.dataset.view }));
-  on('[data-view-select]', 'change', (el) => actions.setPlot({ view: el.value }));
+  on('button[data-view]', 'click', (el) => { openFolds.set('more', false); actions.setPlot({ view: el.dataset.view }); });
   on('[data-axis]', 'change', (el) => {
     const which = el.dataset.axis;
     actions.setPlot({ [which]: el.value, ...(LINEAR_BY_DEFAULT(el.value) ? { [`${which}Log`]: false } : {}) });
@@ -752,7 +695,6 @@ function wireControls(host, state, actions, ws, { view }) {
   on('[data-baseline]', 'change', (el) => actions.setBaseline(el.value));
   on('[data-edit-req]', 'click', () => actions.editRequirements());
   on('[data-act="printable"]', 'click', () => actions.checkPrintable());
-  on('[data-remove-stage]', 'click', (el) => actions.removeStage(Number(el.dataset.removeStage)));
   on('[data-inspect]', 'click', (el) => actions.inspect({ kind: 'pair', key: el.dataset.inspect }));
   // A material's product states are written into its list when it is opened.
   on('details[data-mat-pairs]', 'toggle', (el) => {
@@ -774,18 +716,6 @@ function wireControls(host, state, actions, ws, { view }) {
     const q = el.value.trim().toLowerCase();
     host.querySelectorAll('.ws-mat').forEach((li) => { li.hidden = !!q && !li.dataset.name.includes(q); });
   });
-  // Requirements on the axes, applied deliberately: one per property, as the filter rail holds them.
-  const limits = host.querySelector('[data-limits]');
-  limits?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const edits = [...limits.querySelectorAll('[data-limit-row]')].map((row) => {
-      const key = row.dataset.limitRow;
-      const raw = row.querySelector('[data-limit-value]').value.trim();
-      return { property: key, operator: row.querySelector('[data-limit-op]').value, value: raw === '' ? null : Number(raw) };
-    }).filter((x) => x.value === null || Number.isFinite(x.value));
-    actions.setAxisRequirements(edits);
-  });
-  limits?.addEventListener('reset', () => setTimeout(() => actions.setPlot({}), 0));
 
   // The line: typed, stepped to the next product state, or slid. Sliding moves the drawn line and its count at once and
   // commits when released, so a drag is not interrupted by a redraw.
@@ -809,7 +739,7 @@ function wireControls(host, state, actions, ws, { view }) {
       const M = at(slider.value);
       const above = ws.decision.filter((q) => q.M !== null && q.M >= M);
       const out = host.querySelector('.ws-line-readout');
-      if (out) out.innerHTML = `<b>${above.length} product state${above.length === 1 ? '' : 's'}</b> across <b>${new Set(above.map((q) => q.materialId)).size} material${new Set(above.map((q) => q.materialId)).size === 1 ? '' : 's'}</b> at or above the line, of ${L.of.pairs} drawn with a value of M. <span class="fine">Release to keep this position.</span>`;
+      if (out) out.innerHTML = `<b>${lineCount(above.length, new Set(above.map((q) => q.materialId)).size)}</b> ${L.orientation === 'direct' ? 'above' : 'below'} the line <span class="fine">(release to keep it here)</span>`;
       const input = host.querySelector('[data-line-m]');
       if (input) input.value = Number(M.toPrecision(4));
       const t = gd?.data?.findIndex((tr) => tr.legendgroup === 'index');
@@ -821,6 +751,24 @@ function wireControls(host, state, actions, ws, { view }) {
     });
     slider.addEventListener('change', () => commit(at(slider.value)));
   }
-  on('[data-apply-stage]', 'click', () => index && L?.M && actions.applyStage({ index: index.id, cutoff: L.M }));
   wireEvidence(host, actions);
+}
+
+/**
+ * The toolbar's menus close as menus do: a press outside one, or Escape, which puts the focus back on its button. Wired
+ * once, on the document, since the lens is rebuilt on every change.
+ */
+let menusWired = false;
+function wireMenus() {
+  if (menusWired) return;
+  menusWired = true;
+  const close = (except = null) => document.querySelectorAll('details.ws-menu[open]').forEach((d) => { if (d !== except) { d.open = false; openFolds.set(d.dataset.fold, false); } });
+  document.addEventListener('pointerdown', (e) => close(e.target.closest?.('details.ws-menu') ?? null));
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const open = document.querySelector('details.ws-menu[open]');
+    if (!open) return;
+    close();
+    open.querySelector('summary')?.focus();
+  });
 }

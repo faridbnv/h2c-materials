@@ -191,15 +191,13 @@ export function rankByIndex(materials, index) {
  * (their `products[]` verdicts and states); a material without products ranks on its own headline, as rankByIndex does.
  * `viewOf(material, grade, stateId)` gives the product in that state.
  */
-export function rankMaterials(evaluations, materials, productsByMaterial, index, viewOf, retained = null) {
+export function rankMaterials(evaluations, materials, productsByMaterial, index, viewOf) {
   const byId = new Map(materials.map((m) => [m.id, m]));
   const out = [];
   for (const e of evaluations) {
     const material = byId.get(e.materialId);
     if (!material) continue;
-    // With an objective stage applied (D107), only the product states it kept rank; the requirements' verdicts stand.
-    const passing = new Map((e.products ?? []).filter((p) => p.verdict === 'PASS' && (!retained || retained.has(productStateKey(p.gradeId, p.state?.id ?? null))))
-      .map((p) => [p.gradeId, p.state?.id ?? null]));
+    const passing = new Map((e.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => [p.gradeId, p.state?.id ?? null]));
     const products = (productsByMaterial.get(material.id) ?? []).filter((g) => passing.has(g.id));
     const values = products.length
       ? products.map((g) => ({ gradeId: g.id, stateId: passing.get(g.id), value: indexValue(viewOf(material, g, passing.get(g.id)), index) })).filter((x) => x.value !== null)
@@ -218,15 +216,12 @@ export function rankMaterials(evaluations, materials, productsByMaterial, index,
  * products' own index, in the states they pass in; one whose passing products do not publish what the index needs is
  * unranked, and says why. Material medians, which describe different products, never rank anything.
  */
-export function rankingFor(rows, ctx, index, viewOf = (m, g, stateId) => productView(m, g, ctx, stateOf(g, stateId)), { retained = null } = {}) {
+export function rankingFor(rows, ctx, index, viewOf = (m, g, stateId) => productView(m, g, ctx, stateOf(g, stateId))) {
   if (!index || !ctx?.productsByMaterial) return null;
-  const order = rankMaterials(rows.map((r) => r.evaluation), rows.map((r) => r.material), ctx.productsByMaterial, index, viewOf, retained);
+  const order = rankMaterials(rows.map((r) => r.evaluation), rows.map((r) => r.material), ctx.productsByMaterial, index, viewOf);
   const byMaterial = new Map(order.map((r, i) => [r.materialId, { ...r, place: i + 1 }]));
   const needs = [index.numerator, 'density', ...(index.costForm ? ['priceCADkg'] : [])];
   const unranked = rows.filter((r) => r.evaluation?.verdict === 'PASS' && !byMaterial.has(r.material.id))
     .map((r) => ({ materialId: r.material.id, reason: `No product that passes publishes ${needs.join(', ')} in the state it passes in` }));
-  return { index, order: [...byMaterial.values()], byMaterial, unranked, retained: !!retained };
+  return { index, order: [...byMaterial.values()], byMaterial, unranked };
 }
-
-/** A product in a state, as an objective stage keeps it and a ranking looks it up. */
-export const productStateKey = (gradeId, stateId) => `${gradeId}|${stateId ?? ''}`;

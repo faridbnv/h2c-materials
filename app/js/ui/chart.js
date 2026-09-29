@@ -294,6 +294,8 @@ export function requirementOverlay(constraints, xDef, yDef, p) {
       // The pill's words ("Density at most 1500 kg/m³"), not the operator: the chart printed "<=" beside a pill saying "at most".
       text: esc(describeConstraint(c)), showarrow: false,
       font: { size: 11, color: '#a32b1f' }, bgcolor: 'rgba(255,255,255,.75)',
+      // Pressed, it opens the filter rail at this requirement, the one place it is changed (D108).
+      captureevents: true, hovertext: 'Change this requirement in Filters', _property: c.property,
     };
     annotations.push(label);
     const obstacle = { kind: 'requirement', axis, value: c.value, name: describeConstraint(c) };

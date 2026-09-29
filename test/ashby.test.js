@@ -5,10 +5,10 @@ import { VIEWS, estimateTrace, chooseLabels, labelBox } from '../app/js/ui/ashby
 const xDef = { label: 'Density', unit: 'kg/m³' };
 const yDef = { label: 'Stiffness', unit: 'GPa' };
 
-test('Ashby view names say what each mark represents, work views first and evidence views marked (D107)', () => {
+test('Ashby view names say what each mark represents, work views first and evidence views marked (D107, D108)', () => {
   assert.deepEqual(VIEWS.map((d) => d.label), [
-    'Decision products',
-    'Material overview',
+    'Products',
+    'Material ranges',
     'Catalogue: typical published values',
     'Test pairs: matched conditions',
     'Test pairs: mixed conditions',

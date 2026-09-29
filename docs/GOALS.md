@@ -65,7 +65,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | 4 | Comparable and as published on every headline, and each value's state; a verdict names what it admitted unstated |
 | C5 | Material summary (range and typical value across products) | 1 | 4 | 4 | Every material is its products' spread, variants and twins placed by rule |
 | C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | A product passes on its own records (D98), in a state it can be made in (D99), and a material is unknown while any product is (D100): no false confirmation in the acceptance portfolio. Gap closure moved 64 product/question answers and 21 material/question answers; the current 3,467 facts one step from an answer are listed in [SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md). The frozen research worklist and its unresolved handoffs are separate |
-| C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); since 2026-09-29 the chart draws and counts exact product states, with an objective stage (D107), not re-scored; untested with the team (TEAM-TRIAL.md) |
+| C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); since 2026-09-29 the chart draws and counts exact product states (D107), its controls simplified after the owner used it (D108), not re-scored; untested with the team (TEAM-TRIAL.md) |
 | C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | 4 | Passing products first, in the drawer's first view on a laptop; a product can be chosen, with its state, and its decision brief written (D103) |
 | C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks each product's nozzle, bed and chamber against the H2C (D101), from its own recipe, its twin's, then Bambu's guide, labelled: chamber has a verdict for 750 of 1,128 products (24 a window the H2C partly reaches), nozzle 1,007; annealing is a state with its schedule. 378 products' chamber is still unknown ([print.csv](../build/snapshot/print.csv)) |
 | C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | 4,665 statements on 1,045 products in the maker's words, every gap stated; 45 products left sheet-silent, each with a question for the owner or the maker ([worklist](audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md)) |
@@ -273,7 +273,10 @@ The owner asked for the external review and plan of 2026-09-28 (the package ASHB
 branch Ashby-makeover, the Ashby tab staying coherent with the rest of the page. GOALS steps 3 and 4, C7: the chart becomes
 a selection exercise over exact product states, with one goal for the table, the chart and the export, a line that counts
 what it is drawn over, and an objective stage (D107). No verdict moved; rankings of conditioned questions lost the
-materials that had ranked on a state they do not publish. The team trial that would re-score C7 has not been run
+materials that had ranked on a state they do not publish. The same day, after using it, the owner asked for its controls
+to be reworked: one control row whose words do not change, the filter rail as the one place for requirements, the line
+as a guide (the objective stage removed), and material ranges drawn as the table summarises a material, variants apart
+(D108; no verdict or ranking moved). The team trial that would re-score C7 has not been run
 ([the record](audits/2026-09-29-ashby-makeover/README.md)).
 
 ## Working rules

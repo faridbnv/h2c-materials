@@ -4,7 +4,7 @@
 // the frozen release; recheck-509f6ef ran them on 03663e0b6e97, this branch's starting point. This reads the same
 // questions through the decision workspace (D107) and prints one JSON object.
 //
-//   node docs/audits/2026-09-29-ashby-makeover/tools/probe.mjs > docs/audits/2026-09-29-ashby-makeover/evidence/after-probe.json
+//   node docs/audits/2026-09-29-ashby-makeover/tools/probe.mjs > docs/audits/2026-09-29-ashby-makeover/evidence/revised-probe.json
 
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -14,7 +14,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '../../../..');
 const { runSelection } = await import(join(root, 'app/js/engine/constraints.js'));
 const { productsByMaterial, productView, stateOf } = await import(join(root, 'app/js/engine/products.js'));
 const { indexById, rankingFor } = await import(join(root, 'app/js/engine/indices.js'));
-const { buildWorkspace, estimateContext, objectiveStages } = await import(join(root, 'app/js/engine/workspace.js'));
+const { buildWorkspace, estimateContext } = await import(join(root, 'app/js/engine/workspace.js'));
 const { useRegistry } = await import(join(root, 'app/js/ui/registry.js'));
 const { AXIS_DEFS, measurementMatches, pairCompatibility } = await import(join(root, 'app/js/ui/axes.js'));
 
@@ -109,8 +109,14 @@ const fiberCase = [false, true].map((oven) => {
   return { oven, verdict: p?.verdict, state: p?.stateId, bucket: p?.bucket, drawn: p?.plottable ? { y: p.y.value, yMeasurement: p.y.measurementId } : null, why: p && !p.plottable ? p.y.missing ?? p.x.missing : null };
 });
 
-// An applied stage at the default line: what it keeps, and that the verdicts do not move.
-const stage = objectiveStages(beam.all, beam.ctx, [{ index: 'beam-stiffness', cutoff: M }]);
+// PLA's material range over scope only, every judged product (D108): the box, the whiskers and the variants drawn apart,
+// beside the build's own spread of PLA, which keeps variants out.
+const scopeAll = buildWorkspace({ rows: overview.rows, contextRows: overview.all, ctx: overview.ctx, xKey: 'density', yKey: 'tensileModulusXY', xLog: true, yLog: true, population: 'judged' });
+const plaId = db.materials.find((m) => m.name === 'PLA').id;
+const pla = scopeAll.materialSummaries.find((s) => s.materialId === plaId);
+const box = (r) => ({ q1: r.q1, median: r.median, q3: r.q3, lo: r.lo, hi: r.hi, n: r.n });
+const plaPairs = scopeAll.pairs.filter((q) => pla.paired.includes(q.key));
+const extent = (list, a) => ({ lo: Math.min(...list.map((q) => q[a].value)), hi: Math.max(...list.map((q) => q[a].value)), n: list.length });
 
 console.log(JSON.stringify({
   release: db.meta.release?.id,
@@ -119,7 +125,6 @@ console.log(JSON.stringify({
     decision: beamWs.counts.decision, failedContextPairs: beamWs.counts.failed.pairs, unresolvedContextPairs: beamWs.counts.unresolved.pairs,
     notDrawable: beamWs.counts.gaps.products,
     line: { M, statesAtOrAbove: beamWs.line.above.pairs, materialsAtOrAbove: beamWs.line.above.materials, rankedMaterialsAtOrAbove: lineRanked },
-    stageAtLine: { kept: stage.steps[0].products, materials: stage.steps[0].materials, verdictsUnchanged: ask(beamConstraints).selection.counts.pass === beam.selection.counts.pass },
   },
   conditionedBeam: { decisionPairs: humidWs.counts.decision.pairs, unresolvedDrawable: humidWs.counts.unresolved.pairs, unresolvedProducts: humidWs.counts.unresolved.products, marksNotAtTheirJudgedState: offState.length },
   estimates: { ranges: est.ranges.length, unavailable: est.unavailable.length, measuredSpreadCollapsed: collapsed.length },
@@ -127,4 +132,10 @@ console.log(JSON.stringify({
   conditionedScopeRanking: { ranked: humidRank.order.length, rankedMaterials: humidRank.order.map((r) => r.materialId), restingOnAMissingState: lacking.length },
   cost: { ranked: cost.ranking.order.length, unranked: cost.ranking.unranked.length, drawable: cost.counts.decision.pairs, unpriced: cost.counts.gaps.unpriced },
   fiberon: fiberCase,
+  plaRangeScopeOnly: {
+    everyProductEnvelope: { density: extent(plaPairs, 'x'), stiffness: extent(plaPairs, 'y') },
+    box: { density: box(pla.x), stiffness: box(pla.y) },
+    variantsApart: pla.variants.map((k) => scopeAll.pairs.find((q) => q.key === k)).map((q) => ({ product: q.product, variant: q.variant, density: q.x.value, stiffness: q.y.value })),
+    buildSpread: { density: byId.get(plaId).headline.density.spread, stiffness: byId.get(plaId).headline.tensileModulusXY.spread },
+  },
 }, null, 2));

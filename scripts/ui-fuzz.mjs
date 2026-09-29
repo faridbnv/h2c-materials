@@ -22,7 +22,7 @@
 // switch, I4 Ashby points/envelopes/front/legend (the catalogue view), I5 display rounding against thresholds, I6
 // exceptions, bad tokens and empty reasons, I7 link round trip, I8 monotonicity across policies and when a mandatory
 // requirement is added, I9 the filter rail, I10 the Ashby decision view (D107): its marks are exactly the passing products in the states their
-// answers are in, at those states' values, and its counts name product states and materials apart.
+// answers are in, at those states' values, and its count names products and materials apart ("N products from K materials", D108).
 
 import { findChrome, launchChrome, skipWithoutChrome } from './lib/cdp.mjs';
 import { pageName } from '../build/src/release.js';
@@ -450,8 +450,8 @@ function compareReading(s, key, r, o) {
     }
     check('I10-count');
     const n = want.length, k = new Set(want.map((q) => q.materialId)).size;
-    const said = /(\d+) product states? across (\d+) materials? drawn/.exec(r.wsReading ?? '');
-    if (!said || Number(said[1]) !== n || Number(said[2]) !== k) violate('I10-count', 'the decision count differs, or does not name product states and materials apart', s, key, { page: said?.slice(1), node: [n, k], reading: (r.wsReading ?? '').slice(0, 160) });
+    const said = /Drawn: (\d+) products? from (\d+) materials?/.exec(r.wsReading ?? '');
+    if (!said || Number(said[1]) !== n || Number(said[2]) !== k) violate('I10-count', 'the decision count differs, or does not name products and materials apart', s, key, { page: said?.slice(1), node: [n, k], reading: (r.wsReading ?? '').slice(0, 160) });
     check('I10-mislabel');
     if (/\d+ of \d+ candidates plotted/.test(r.wsReading ?? '')) violate('I10-mislabel', 'a product count read against a material count', s, key, { reading: (r.wsReading ?? '').slice(0, 160) });
   } else {
@@ -499,15 +499,14 @@ function compareReading(s, key, r, o) {
       check('I4-estimate-text');
       if ((more ? Number(more[1]) : 0) !== (s.plot.showEstimates ? 0 : p.est.length)) violate('I4-estimate-text', '"N more candidates have ... only an estimated range" count differs', s, key, { page: more?.[1] ?? null, node: s.plot.showEstimates ? 0 : p.est.length });
       if ((outlined ? Number(outlined[1]) : 0) !== p.envs.length) violate('I4-estimate-text', '"The outlined ranges are N" count differs', s, key, { page: outlined?.[1] ?? null, node: p.envs.length });
-      const lab = /Show estimated ranges \((\d+)\)/.exec(r.estLabel ?? '');
-      if ((lab ? Number(lab[1]) : 0) !== p.est.length) violate('I4-estimate-text', 'Show estimated ranges (N) differs', s, key, { page: r.estLabel, state: r.estState, node: p.est.length });
-      check('I4-axis-counts');
+      // The Show menu's switch stays in place and is greyed, with its reason, exactly when there is nothing to draw (D108).
+      if (r.estDisabled !== (p.est.length === 0)) violate('I4-estimate-text', 'Estimated ranges switch enabled without ranges, or greyed with some', s, key, { page: r.estLabel, disabled: r.estDisabled, node: p.est.length });
+      // The axis menus name the property and nothing else, so their words never change as the reader works (D108); the
+      // counts they carried are the legend's, checked above.
+      check('I4-axis-static');
       for (const [which, text] of [['x', r.axisX], ['y', r.axisY]]) {
-        const k = s.plot[which];
-        const known = o.rows.filter((x) => x.material.headline[k]?.known).length;
-        const est = o.ctx.showEstimates ? o.rows.filter((x) => { const h = x.material.headline[k]; return h && !h.known && h.estimate; }).length : 0;
-        const exp = est ? `(${known} measured, ${est} estimated)` : `(${known} of ${o.rows.length} have it)`;
-        if (!text?.endsWith(exp)) violate('I4-axis-counts', 'axis picker count differs', s, key, { axis: which, page: text, node: exp });
+        const exp = db.registry.headlines.find((h) => h.key === s.plot[which])?.labels?.plain;
+        if (text !== exp) violate('I4-axis-static', 'axis menu option is not the property\'s name alone', s, key, { axis: which, page: text, node: exp });
       }
       if (pl + miss + p.est.length + p.offLog !== tot) violate('I4-legend', 'plotted + lacking + estimated + off a Log axis != rows', s, key, { page: [pl, tot, miss], est: p.est.length, offLog: p.offLog });
     }
@@ -555,10 +554,11 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
       }
       out.legend = txt(lens.querySelector('.legend-note'));
       out.pairs ??= [];
-      out.wsReading = txt(lens.querySelector('.ws-reading'));
+      out.wsReading = txt(lens.querySelector('.ws-summary')) + ' ' + txt(lens.querySelector('.ws-reading'));
       out.axisX = document.querySelector('#ashby-x option:checked')?.textContent.trim();
       out.axisY = document.querySelector('#ashby-y option:checked')?.textContent.trim();
-      out.estLabel = txt(lens.querySelector('[data-show-estimates]')?.closest('label'));
+      out.estLabel = lens.querySelector('[data-show-estimates]')?.closest('label')?.textContent.replace(/\s+/g, ' ').trim() ?? null;
+      out.estDisabled = !!lens.querySelector('[data-show-estimates]')?.disabled;
       out.estState = txt(lens.querySelector('.plot-data-state'));
     } else {
       const grid = [...lens.querySelectorAll('table.grid')].find((t) => !t.closest('.excluded-group'));

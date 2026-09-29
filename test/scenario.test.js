@@ -106,9 +106,9 @@ test('a version 1 scenario keeps its whole question, and its chart is not silent
   assert.ok(warnings.some((w) => /one goal/.test(w) && /Tie/.test(w) && /Beam/.test(w)), JSON.stringify(warnings));
   // It was on the chart: it opens in the catalogue view it was saved with, said so, with the decision workspace offered.
   assert.equal(scenario.plot.view, 'catalogue');
-  assert.ok(warnings.some((w) => /before the decision workspace/.test(w) && /Decision products/.test(w)));
+  assert.ok(warnings.some((w) => /before the decision workspace/.test(w) && /"Products"/.test(w)));
   assert.ok(warnings.some((w) => /r-old/.test(w) && /r-now/.test(w)), 'the release note still says the release differs');
-  assert.deepEqual(scenario.stages, []);
+  assert.equal(scenario.stages, undefined, 'no objective stages since D108');
 });
 
 test('a version 1 guide line alone becomes the goal; a scenario that never used the chart opens the decision workspace', () => {
@@ -121,26 +121,33 @@ test('a version 1 guide line alone becomes the goal; a scenario that never used 
   assert.equal(measured.scenario.plot.view, 'measured-mixed');
 });
 
-test('a version 2 link and file carry the goal, the view, its layers, the line, a focus and the objective stages', () => {
+test('a version 2 link and file carry the goal, the view, its layers, the line and a focus', () => {
   const s = {
     ...newScenario(meta), rankBy: 'beam-stiffness', lens: 'ashby',
-    plot: { ...newScenario(meta).plot, view: 'overview', xLog: true, yLog: true, indexM: 0.00173, layers: { failed: true, unresolved: false, setAside: true, front: true }, showEstimates: true, focus: ['M002'] },
-    stages: [{ index: 'beam-stiffness', cutoff: 0.0017 }, { index: 'tie-strength', cutoff: 0.04 }],
+    plot: { ...newScenario(meta).plot, view: 'overview', xLog: true, yLog: true, indexM: 0.00173, layers: { failed: true, unresolved: false, front: true }, showEstimates: true, focus: ['M002'] },
   };
   for (const { scenario, warnings } of [fromHash(toHash(s), meta, ids), deserialize(serialize(s), meta, ids)]) {
     assert.deepEqual(warnings, []);
     assert.equal(scenario.rankBy, 'beam-stiffness');
-    assert.deepEqual(scenario.stages, s.stages);
     for (const k of ['view', 'indexM', 'layers', 'showEstimates', 'focus', 'xLog', 'yLog']) assert.deepEqual(scenario.plot[k], s.plot[k], k);
   }
+  assert.ok(!decodeURIComponent(toHash(s)).includes('"g"'), 'no objective stages travel (D108)');
 });
 
-test('a stage this build cannot read is left out and said so; there are at most three', () => {
-  const { scenario, warnings } = validateScenario({ version: 2, stages: [
-    { index: 'beam-stiffness', cutoff: 0.0017 }, { index: 'no-such-index', cutoff: 1 }, { index: 'tie-stiffness', cutoff: -1 },
-    { index: 'tie-stiffness', cutoff: 0.003 }, { index: 'panel-stiffness', cutoff: 0.01 }, { index: 'beam-strength', cutoff: 0.01 },
-  ] }, meta, ids);
-  assert.deepEqual(scenario.stages.map((st) => st.index), ['beam-stiffness', 'tie-stiffness', 'panel-stiffness']);
-  assert.ok(warnings.some((w) => /objective stage/.test(w)));
-  assert.throws(() => validateScenario({ version: 2, stages: 'all' }, meta, ids), /stages/);
+test('a scenario saved with objective stages (before D108) keeps its question, places the line at its cutoff and says nothing is set aside', () => {
+  const saved = { version: 2, rankBy: 'beam-stiffness', stages: [{ index: 'tie-strength', cutoff: 0.04 }, { index: 'beam-stiffness', cutoff: 0.0017 }] };
+  const hash = encodeURIComponent(JSON.stringify({ x: 2, c: [], u: 'strict', s: [], r: 'beam-stiffness', p: {}, g: [['tie-strength', 0.04], ['beam-stiffness', 0.0017]] }));
+  for (const { scenario, warnings } of [validateScenario(saved, meta, ids), fromHash(hash, meta, ids)]) {
+    assert.equal(scenario.stages, undefined);
+    assert.equal(scenario.rankBy, 'beam-stiffness');
+    assert.equal(scenario.plot.indexM, 0.0017, 'the line where the goal\'s own stage cut');
+    assert.ok(warnings.some((w) => /2 steps that kept only the products above/.test(w) && /nothing is set aside/.test(w) && /line is placed/.test(w)), JSON.stringify(warnings));
+  }
+  // A stage on another goal: said, and the line is left where the goal puts it.
+  const other = validateScenario({ version: 2, rankBy: 'beam-stiffness', stages: [{ index: 'tie-strength', cutoff: 0.04 }] }, meta, ids);
+  assert.equal(other.scenario.plot.indexM, null);
+  assert.ok(other.warnings.some((w) => /a step that kept only/.test(w) && !/line is placed/.test(w)));
+  // A line the scenario placed itself wins over a stage's cutoff.
+  const placed = validateScenario({ version: 2, rankBy: 'beam-stiffness', plot: { indexM: 0.002 }, stages: [{ index: 'beam-stiffness', cutoff: 0.0017 }] }, meta, ids);
+  assert.equal(placed.scenario.plot.indexM, 0.002);
 });

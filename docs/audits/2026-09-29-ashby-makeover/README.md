@@ -1,5 +1,8 @@
 # The Ashby makeover, built (2026-09-29)
 
+*Revised the same day after the owner used it (D108): see "Revision after the owner's walkthrough" at the end. The
+sections before it record D107 as first built; the objective stage and the axis limits form they describe are gone.*
+
 The owner asked for the external review and plan of 2026-09-28 (the package `ASHBY-MAKEOVER-2026-09-28`: its review,
 specification, data and mathematics contract, backlog B01 to B15 and acceptance) to be built on the branch
 `Ashby-makeover`, with the Ashby tab kept coherent with the rest of the page. GOALS steps 3 and 4, scorecard C7. This is
@@ -135,3 +138,42 @@ OPEN-PROBLEMS §20: no engineer has used it; the source readings are an agent's;
 per property; cost is Canadian and thin; no estimated context under Confirmed only (kept so, for coherence with the rest
 of the page); relative performance only against the first-ranked; strict pairs now need one document; the largest
 evidence view is slightly slower; cold `verify:fast` is still over budget. Nothing was pushed, merged or published.
+
+## Revision after the owner's walkthrough (D108)
+
+The owner opened the built page and found three things: the menus changed as they worked, so finding one item meant
+thinking through hundreds of combinations; the requirements they had set in the filter rail were already drawn on the
+chart, so the lens's own ways of narrowing the answer were redundant; and PLA's range covered nearly everything, which
+they doubted. They asked for the lens to be reworked as a UI and UX expert would, a two-level menu allowed where it helps.
+Walked again as a first-time reader (the H2C beam from the starter, every fold opened; headless Chrome), the lens showed:
+
+| What the reader met (D107) | Where | Now (D108) |
+|---|---|---|
+| Axis options with live counts, "Stiffness (153 product states · 42 materials)", changing with every filter and cut off by the box | both axis menus, every view | the property's name alone, one fixed order, in every view, the evidence views included |
+| Folds that opened and closed themselves (Axes by the goal) and pushed the chart down (Layers, More) | control row | one row: view, axes, Lin/Log, swap, and **Show** and **More**, menus over the chart; greyed items say why |
+| Four ways to narrow one answer: the rail, Edit requirements, *Limits on these axes*, *Keep products above this line* | question strip, More, line | the rail alone; *Asked* reads it back with **Change in Filters**; a requirement's label on the chart opens the rail at it |
+| Five counts of one picture ("84 shown", "682 product states, 84 materials", "10 … of 142", "33 of 78", the axis menus') | strip, line, Layers, menus | "N products from K materials" in the line, the count under the chart and the exports |
+| PLA's band 800–1400 kg/m³ by 0.43–4.2 GPa over 32 products | Material overview, scope only, every judged product | box 1230–1250 kg/m³ by 1.5–2.8 GPa (middle half of 29), whiskers 1170–1310 and 0.43–4.2; PolyWood, PLA-Lite and SimuBone drawn apart as variants |
+
+**Is PLA's range true?** Its numbers were real transcriptions, but the band was misleading. It ran from the lowest to the
+highest of every PLA product the question judged, and three of them are declared variants: PolyWood (a lightweight
+additive, 800 kg/m³) and Eryone PLA-Lite (an undisclosed dense filler, 1400 kg/m³) set the density ends. The build keeps
+variants out of a material's spread, so the table said PLA's density runs 1170–1329 kg/m³ over 146 products while the chart
+drew 800–1400. One sheet set each stiffness end. The box now follows the table's rule (D83): the middle half of the
+material's own products, whiskers to the extremes, variants apart. What remains wide is the sheets' own spread: PLA's
+lowest stiffness values are printed bars to GB/T 1040 at 50 mm/min, to ISO 527 with no print settings stated, and a
+toughened grade to ASTM D638 at 0.43 GPa (OPEN-PROBLEMS §20).
+
+The PLA figures are `evidence/revised-probe.json` (`tools/probe.mjs`, now with PLA's range in place of the stage); the
+layout of every scenario after the revision is `evidence/layout-revised.json` (`tools/capture.mjs`).
+
+**What moved.** `tools/rank-diff.mjs` against the D107 commit: 64 answers, 0 verdicts moved; 512 rankings, 0 moved (the
+stage was the only other thing a ranking read). `npm run build:diff`: 0 differences. The release moved with the engine.
+The objective stage went from the engine, the scenario (a saved one reopens as a line position, with a notice), the
+table, Compare, the brief, the answer header and every export. The layout targets hold: `revised-*` in `visuals/` (the
+beam, its material ranges, scope-only ranges, the Show menu, the starter, 1024 × 768 and a phone); the full set is in the
+package's `implementation-2026-09-29/visuals-revised/`.
+
+Not changed: the filter rail's family counts (they say what a click would leave, in one order), and the page-wide
+Candidate confidence and estimates switches, which the Show menu names when an item needs them.
+

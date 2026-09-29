@@ -18,7 +18,7 @@ function.
 | T07 | PA6-like: density span 1130–1200 kept, likely modulus 1–4, no centre, no rank; sensitivity sqrt(1)/1200 to sqrt(4)/1130 | Passes; unavailable when conditioned | T07; the live PA6 inspector shows 1,130–1,200 kg/m³ over seven products |
 | T08 | Cost: 20,000 and 21,000 CAD/m³; M_A = 0.0001, M_B = 0.000142857; B better; a twin's price not read | Passes, with the fixture rate applied before the product is built; the page itself converts no currency | T08 |
 | T09 | The H2C beam: 8 PASS materials kept; products and materials counted apart, never "73 of 8" | Passes; the drawn set re-derived from the products' states | `workspace-acceptance.test.js` T09; fuzz I10-count and I10-mislabel |
-| T10 | A swept line changes nothing; an applied stage keeps M ≥ cutoff (equality in), re-ranks, saves and reopens, and removing it restores all | Passes | T10; `test/scenario.test.js` (round trip); `test/ashby-export.test.js` |
+| T10 | A swept line changes nothing; an applied stage keeps M ≥ cutoff (equality in), re-ranks, saves and reopens, and removing it restores all | The first half passes; the stage was removed at the owner's direction (D108), so a line never keeps or re-ranks, and a saved stage reopens as a line position with a notice | T10 (the line counts its better side, equality in, and moves no rank, verdict or mark); `test/scenario.test.js` (a saved stage); `test/ashby-export.test.js` |
 | T11 | Units, off-log values, open ranges, three kinds of spread | Partly: off-log counted and never clamped, open ranges unavailable, the source's ± kept as its own; the page has canonical units only, so "changed display units" does not arise | T11; T07 |
 | T12 | Freshness and migration: a changed fixture and release move every consumer; version 1 keeps its question; a goal conflict is said | Passes | T12; `scenario.test.js` (four version 2 tests) |
 | T13 | Offline; viewport targets; keyboard and touch; human tasks; repo gates and diffs | Partly, below | |
@@ -32,6 +32,9 @@ function.
   candidates" in the decision view (I10-mislabel). The catalogue view keeps "N of M candidates", where both are materials.
 - **References and context do not change eligibility or ranking**; a focus or a lasso is a view, reset in one press, and
   never a requirement (it filters no row; the old subset is gone).
+- **Menus that do not move** (D108): the axis menus name the property alone, in one order, in every view (fuzz I4-axis-static
+  on the catalogue view; `ui:check` view 40 lists them); Show and More keep every item, greyed with a reason where it does
+  not apply.
 - **Keyboard**: the line (a number box, a slider, ▼ ▲ steps that move it past the next product state) and every mark
   (the result list opens each in the inspector, which takes focus) — checked by `npm run ui:check` (view 41), where a
   container's attribute once made every click redraw the lens (DECISIONS, bugs worth remembering). **Touch**: marks,
