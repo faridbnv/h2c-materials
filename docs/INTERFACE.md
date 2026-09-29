@@ -660,7 +660,7 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   and the menus open to the right.
 
 **Material typicals and test pairs** are the chart before D107, kept for research and marked as not the decision, on the
-same controls: *Material typicals* (one point per material at its typical published value with its
+same controls, layout, size, frame and tick labels as the other views (D111): *Material typicals* (one point per material at its typical published value with its
 products' spread, as printed and dry whatever state the question asks, and estimated ranges beside the other axis's
 product span), *Test pairs: matched conditions* and *Test pairs: mixed conditions*. A matched pair is two measurements of
 one product in one condition from one document: moisture, treatment and schedule, specimen form and direction agree, or

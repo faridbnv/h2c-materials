@@ -28,7 +28,8 @@ import { prop } from './labels.js';
 import { headlineDef } from './registry.js';
 import {
   chartFit, wireResize, placeLabels, axisRange, hexToRgba, errorBars, requirementOverlay, anchorRequirementLabels,
-  referenceOverlay, anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, PLOT_MARGIN_TOP, applyZoom, watchZoom, zoomSig, forgetZoom,
+  referenceOverlay, anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, applyZoom, watchZoom, zoomSig, forgetZoom,
+  lensChartSize, applyLogTicks, watchLogTicks, anchorReferenceLabels,
 } from './chart.js';
 import {
   workspaceFor, questionStrip, starter, lineControl, toolbar, resultsPanel, drawWorkspacePlot, workspaceKey, readingNote,
@@ -71,7 +72,7 @@ export function renderAshby(host, state, actions) {
     ? estimateContext(state.rows, state.ctx, { xKey: p.x, yKey: p.y, xLog: !!p.xLog, yLog: !!p.yLog, index, orientation: ws.objective.orientation })
     : { ranges: [], unavailable: [], off: true };
   // The starter until the reader has asked something here: a goal, a requirement, or "compare properties".
-  const showStarter = work && !scenario.constraints.length && !scenario.rankBy && !state.ashbyStarted;
+  const showStarter = !scenario.constraints.length && !scenario.rankBy && !state.ashbyStarted;
   const legacy = work ? null : legacyView(state, view);
   // Where the reader is on the page, kept through the redraw (D109).
   const scroller = host.closest('.lens-view');
@@ -83,13 +84,13 @@ export function renderAshby(host, state, actions) {
     ${showStarter ? starter(state) : ''}
     <div class="ws-body">
       <section class="ws-chart" aria-label="Chart">
-        ${toolbar(state, { view, estimates: legacy?.estimates ?? null, line: work ? lineControl(state, ws) : '' })}
+        ${toolbar(state, { view, estimates: legacy?.estimates ?? null, line: work ? lineControl(state, ws) : index ? lineOffRow(index) : '' })}
         ${legacy?.notices ? `<div class="ashby-notices">${legacy.notices}</div>` : ''}
         <div class="ws-plot-wrap">${axisBar(state, { view })}<div class="ws-plot-area"><div class="ws-pills" data-pills>${chartPills(state)}</div><div id="plot" role="img" aria-label="Ashby chart"></div></div></div>
         ${work ? workspaceKey(state, ws, { view }) : legacy.key}
         ${work ? readingNote(state, ws, { view }) : legacy.reading}
       </section>
-      ${resultsPanel(state, ws)}
+      ${resultsPanel(state, ws, { view, drawn: legacy ? [...new Set(legacy.pts.map((q) => q.id))] : null })}
     </div>
   </div>`;
 
@@ -143,6 +144,16 @@ function fitResults(host) {
   window.addEventListener('resize', fit);
 }
 
+/**
+ * The Line row stays where it is on Material typicals and the test pairs (D111), said to be off, so the controls do not
+ * change height between views: the line counts exact products, which those views do not draw.
+ */
+function lineOffRow(index) {
+  return `<div class="ws-row ws-line ws-line-off" role="group" aria-label="Index line"><span class="ws-row-label">Line</span>
+    <span>Drawn over products, in</span> <button type="button" class="link-btn" data-view="overview" data-focus="line-to-ranges">Material ranges</button>
+    <span>and</span> <button type="button" class="link-btn" data-view="decision" data-focus="line-to-products">Products</button></div>`;
+}
+
 /** The list's own search: it narrows the list on screen and nothing else. */
 function filterList(host, text) {
   const q = text.trim().toLowerCase();
@@ -185,15 +196,17 @@ function legacyView(state, view) {
 
   const notices = [
     unavailable ? `<div class="warn-chip">${esc(unavailable)}</div>` : '',
-    thin && !unavailable ? `<div class="warn-chip">Only ${pts.length} point${pts.length === 1 ? '' : 's'} can be drawn for this pair. Read this chart with care.</div>` : '',
-    p.showReference ? `<div class="banner">${esc(reference.meta.caveat)}</div>` : '',
     mixed && mixed.length ? `<div class="banner"><span><b>Some of these were measured a different way</b>
       from the axis definition or from each other: ${esc(mixed.join('; '))}. They are drawn hollow, and pointing at or
       tapping one names the mismatch. They are included so the trade space can be seen whole, never merged into
       a headline, a rank or a decision.</span></div>` : '',
   ].join('').trim();
-  const reading = `<div class="legend-note">
-      <h3>Reading this chart</h3>
+  // As the other views say it (D111): one line of what is drawn, under the chart, and the rest folded.
+  const drawnLine = measurementMode
+    ? `Drawn: ${pts.length} test pair${pts.length === 1 ? '' : 's'} of ${grades} product${grades === 1 ? '' : 's'}, from ${subjects} material${subjects === 1 ? '' : 's'}.`
+    : `Drawn: ${subjects} of ${rows.length} materials, at their typical datasheet values (as printed and dry, whatever state the question asks about).${missing > 0 ? ` <span class="fine">Not drawn: ${missing} with no value on one of these axes.</span>` : ''}`;
+  const reading = `<div class="ws-summary" role="status"><span class="ws-count">${drawnLine}</span>${thin && !unavailable ? ` <span class="warn-text">Only ${pts.length} can be drawn for this pair: read it with care.</span>` : ''}</div>
+    <details class="legend-note ws-reading" data-fold="reading" ${openFolds.get('reading') ? 'open' : ''}><summary>Reading this chart</summary><p>
       ${measurementMode
         // What a reader has to be told before this chart means anything: a dot is a test, not a
         // material. Without that sentence a cluster of six dots reads as six materials, or as noise.
@@ -225,8 +238,9 @@ function legacyView(state, view) {
       ${frontSize > 1 && state.scenario.plot.layers?.front ? `<br><b>The dotted line</b> joins the materials that nothing else beats on
         both axes at once, at their typical values: ${esc(prop(xDef.key).plain.toLowerCase())} ${xDef.better === 'max' ? 'higher' : 'lower'} is better,
         ${esc(prop(yDef.key).plain.toLowerCase())} ${yDef.better === 'max' ? 'higher' : 'lower'} is better.` : ''}
-    </div>`;
-  return { xDef, yDef, pts, envelopes, estimates: { count: estimated.length, measured: measurementMode }, notices, reading, key: markerKey({ pts, envelopes, level, anchor: drawnAnchor(state, xDef, yDef) }) };
+      ${p.showReference ? `<br><b>The grey boxes</b> are for scale: ${esc(reference.meta.caveat)}` : ''}
+    </p></details>`;
+  return { xDef, yDef, pts, envelopes, estimates: { count: estimated.length, measured: measurementMode }, notices, reading, key: markerKey({ pts, envelopes, level, anchor: drawnAnchor(state, xDef, yDef), reference: p.showReference ? reference.meta.caveat : null }) };
 }
 
 /** The familiar filament drawn as a cross, when it has both values; null otherwise. */
@@ -252,7 +266,7 @@ const glyph = (inner, extra = '') => `<svg class="key-glyph" viewBox="0 0 16 16"
  * estimated and reference marks are on it. The legend had carried shapes as 40-odd family and filler rows, and nothing
  * on the page said what a hollow point, a capped dotted line or a dotted box was; those were found by pointing at them.
  */
-function markerKey({ pts, envelopes, level, anchor }) {
+function markerKey({ pts, envelopes, level, anchor, reference = null }) {
   const fillers = Object.keys(FILLER_SYMBOL).filter((f) => pts.some((q) => q.filler === f));
   const items = fillers.map((f) => `<span class="key-item">${glyph(GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}</span>`);
   if (pts.some((q) => q.evaluation.verdict !== 'PASS' && !q.assumed && !q.relaxed.length)) {
@@ -276,9 +290,9 @@ function markerKey({ pts, envelopes, level, anchor }) {
   if (anchor) {
     items.push(`<span class="key-item">${glyph('<path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke-width="1.8"/>', ' style="color:#1f5f8b"')}Cross: ${esc(anchor.name)}, a familiar filament for reference, not a candidate</span>`);
   }
+  if (reference) items.push(`<span class="key-item" title="${esc(reference)}">${glyph('<rect x="2.5" y="3.5" width="11" height="9" fill="none" stroke-width="1.4" stroke-dasharray="2 1.5"/>', ' style="opacity:.6"')}Grey box: steel, aluminium or wood, for scale; never a candidate</span>`);
   if (!items.length) return '';
-  return `<div class="ashby-key" role="group" aria-label="What the marks on the chart mean">
-    <span class="key-head">Marks</span>${items.join('')}<span class="key-item key-note">Colour is family, as the legend lists</span></div>`;
+  return `<div class="ashby-key" role="group" aria-label="What the marks on the chart mean">${items.join('')}<span class="key-item key-note">Colour is polymer family</span></div>`;
 }
 
 /**
@@ -577,7 +591,8 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
         symbol: list.map((q) => FILLER_SYMBOL[q.filler] ?? 'circle'),
         color: colors.color(family),
         // Evidence status in the outline: a held candidate reads hollow.
-        opacity: list.map((q) => (q.assumed ? 0.3 : q.relaxed.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
+        // A material picked in the list stays bright, the rest fade (D109, here too since D111).
+        opacity: list.map((q) => (state.selected && q.id !== state.selected ? 0.15 : q.assumed ? 0.3 : q.relaxed.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
         line: { width: list.map((q) => (q.relaxed.length || q.evaluation.needsVerification ? 2 : 1)), color: 'rgba(0,0,0,.55)' },
       },
       hovertemplate:
@@ -626,9 +641,13 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   const shapes = [...req.shapes];
   const annotations = [...req.annotations];
   labelPlan.fixed.push(...req.fixed);
+  const scale = [];
+  let refLabels = [];
   if (p.showReference) {
     const ref = referenceOverlay(reference, xDef, yDef, p);
     shapes.push(...ref.shapes); annotations.push(...ref.annotations); labelPlan.fixed.push(...ref.fixed);
+    scale.push(...ref.shapes);
+    refLabels = ref.labels;
   }
   const anchor = state.baseline ? anchorTrace(db.materials.find((q) => q.id === state.baseline), xDef, yDef) : null;
   if (anchor) { labelPlan.fixed.push(anchor.fixed); traces.push(anchor.trace); }
@@ -651,32 +670,38 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   // Shortlisted materials keep a leader line so they stand out among the other labels; placeLabels adds it where it fits.
 
   const { ink, grid } = chartTheme();
-  const { xSpan, ySpan } = spans(traces, shapes, {
-    x: [...pts.map((q) => q.x), ...envelopes.flatMap((q) => [q.x.lo, q.x.hi])],
-    y: [...pts.map((q) => q.y), ...envelopes.flatMap((q) => [q.y.lo, q.y.hi])],
-  });
+  // Framed as the other views frame (D111): on the points, what is drawn for scale, and a requirement near them. The
+  // whiskers of each material's spread and an estimate's range may run past the frame; they had stretched it, and the
+  // H2C beam's materials, all at 3 GPa or more, sat in the top third of an axis running to 0.5.
+  const { xSpan, ySpan } = spans(anchor ? [anchor.trace] : [], scale, { x: pts.map((q) => q.x), y: pts.map((q) => q.y) });
+  for (const c of scenario.constraints.filter((k) => k.kind === 'numeric' && k.mandatory !== false)) {
+    if (c.property === p.x && xSpan.length) { const [a, b] = [Math.min(...xSpan), Math.max(...xSpan)]; if (c.value >= a / 1.6 && c.value <= b * 1.6) xSpan.push(c.value); }
+    if (c.property === p.y && ySpan.length) { const [a, b] = [Math.min(...ySpan), Math.max(...ySpan)]; if (c.value >= a / 1.6 && c.value <= b * 1.6) ySpan.push(c.value); }
+  }
+  if (!xSpan.length) xSpan.push(...envelopes.flatMap((q) => [q.x.lo, q.x.hi]));
+  if (!ySpan.length) ySpan.push(...envelopes.flatMap((q) => [q.y.lo, q.y.hi]));
 
   const gd = host.querySelector('#plot');
   // Every entry the legend will list: the families, the front and a guide line.
   const legendNames = traces.filter((t) => t.showlegend !== false && t.name).map((t) => t.name);
-  const fit = chartFit(gd.clientWidth, legendNames);
-  gd.style.height = `${fit.height}px`;
+  const size = lensChartSize(gd, legendNames);
+  gd.style.height = `${size.height}px`;
   // Kept on the element for the resize listener, which lays the legend out again for a new width.
   gd._legendNames = legendNames;
   const layout = {
-    height: fit.height,
-    margin: { l: 70, r: 20, t: PLOT_MARGIN_TOP, b: 56 },
+    height: size.height,
+    margin: size.margin,
     paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
     font: { color: ink, family: 'system-ui, sans-serif', size: 12 },
     // automargin: the axis claims the space its ticks and title need, so a legend placed under the chart is laid out
     // below that space rather than across the title.
-    xaxis: { title: { text: `${prop(xDef.key).plain} (${xDef.unit})` }, type: p.xLog ? 'log' : 'linear', automargin: true,
+    xaxis: { title: { text: `${prop(xDef.key).plain} (${xDef.unit})${p.xLog ? ' · log' : ''}` }, type: p.xLog ? 'log' : 'linear', automargin: true,
              gridcolor: grid, zeroline: false, range: axisRange(xSpan, p.xLog), autorange: false },
-    yaxis: { title: { text: `${prop(yDef.key).plain} (${yDef.unit})` }, type: p.yLog ? 'log' : 'linear',
+    yaxis: { title: { text: `${prop(yDef.key).plain} (${yDef.unit})${p.yLog ? ' · log' : ''}` }, type: p.yLog ? 'log' : 'linear', automargin: true,
              gridcolor: grid, zeroline: false, range: axisRange(ySpan, p.yLog), autorange: false },
     shapes, annotations,
-    showlegend: true,
-    legend: fit.legend,
+    showlegend: legendNames.length > 0,
+    legend: size.legend,
     // Zoom, not lasso. With lasso as the default every stray drag turned into a candidate subset,
     // which read as the chart filtering itself at random. Lasso stays one click away in the mode bar.
     dragmode: 'zoom',
@@ -684,7 +709,9 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   };
 
   applyZoom(layout, zoomSig(p));
+  applyLogTicks(layout);
   anchorRequirementLabels(req.requirementLabels, layout.xaxis.range);
+  anchorReferenceLabels(refLabels, layout.xaxis.range);
 
   wireResize();
   gd._labelPlan = { ...labelPlan, annotations };
@@ -700,6 +727,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   // Placed again whenever what is on screen moves: a zoom, a resize, a family hidden from the legend.
   for (const event of ['plotly_afterplot', 'plotly_relayout', 'plotly_restyle']) gd.on(event, relabel);
   watchZoom(gd, zoomSig(p), { onZoom: () => actions.zoomed?.(), onReset: () => actions.setFocus([]) });
+  watchLogTicks(gd);
 
   gd.on('plotly_click', (ev) => {
     const id = ev.points?.[0]?.customdata?.[0];

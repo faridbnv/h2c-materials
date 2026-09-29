@@ -555,7 +555,8 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
         else if (Array.isArray(t.customdata) && t.customdata[0]?.length === 9) t.customdata.forEach((cd, i) => (out.pairs ??= []).push([cd[8], t.x[i], t.y[i], cd[2], cd[0]]));
         badSrc += ' ' + (t.name ?? '') + ' ' + (Array.isArray(t.text) ? t.text.join(' ') : '') + ' ' + (t.hovertemplate ?? '');
       }
-      out.legend = txt(lens.querySelector('.legend-note'));
+      // Its text whether or not the reader has opened it (D111 folds it, as the other views do).
+      out.legend = (lens.querySelector('.legend-note')?.textContent ?? '').replace(/\s+/g, ' ').trim();
       out.pairs ??= [];
       out.wsReading = txt(lens.querySelector('.ws-summary')) + ' ' + txt(lens.querySelector('.ws-reading'));
       out.layerOn = Object.fromEntries(['unresolved', 'failed'].map((k) => [k, lens.querySelector('button[data-layer="' + k + '"]')?.getAttribute('aria-pressed') === 'true']));

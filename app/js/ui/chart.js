@@ -22,9 +22,9 @@ export function wireResize() {
       if (!gd || typeof Plotly === 'undefined') return;
       // The legend's side and the chart's height follow the width, so a rotated tablet gets the layout it would have
       // been drawn with.
-      const fit = chartFit(gd.clientWidth, gd._legendNames ?? []);
+      const fit = lensChartSize(gd, gd._legendNames ?? []);
       gd.style.height = `${fit.height}px`;
-      Plotly.relayout(gd, { height: fit.height, legend: fit.legend }).then(() => Plotly.Plots.resize(gd));
+      Plotly.relayout(gd, { height: fit.height, legend: fit.legend, margin: fit.margin }).then(() => Plotly.Plots.resize(gd));
     }, 100);
   });
 }
@@ -320,7 +320,7 @@ export function anchorRequirementLabels(requirementLabels, xRange) {
 /** Reference envelopes (steel, aluminium, wood): min-to-max rectangles, behind everything, unmistakably not data. */
 export function referenceOverlay(reference, xDef, yDef, p) {
   const { X, Y, SX, SY, placeable } = placers(p);
-  const shapes = [], annotations = [], fixed = [];
+  const shapes = [], annotations = [], fixed = [], labels = [];
   const eq = reference?.meta?.axisEquivalence ?? {};
   const xKey = Object.keys(eq).find((k) => eq[k] === xDef.key);
   const yKey = Object.keys(eq).find((k) => eq[k] === yDef.key);
@@ -336,12 +336,9 @@ export function referenceOverlay(reference, xDef, yDef, p) {
         fillcolor: 'rgba(141,141,132,.10)',
       });
       fixed.push({ kind: 'reference', x: rx.max, y: ry.max, name: r.name, left: x1 < (X(rx.min) + 0.001) });
-      annotations.push({
-        x: x1, y: y1, text: r.name, showarrow: false,
-        // Anchor inward at the left edge so a wide label is not clipped off the plot.
-        xanchor: x1 < (X(rx.min) + 0.001) ? 'left' : 'right', yanchor: 'bottom',
-        font: { size: 11, color: '#9a9a90' },
-      });
+      const label = { x: x1, y: y1, text: r.name, showarrow: false, xanchor: 'right', yanchor: 'bottom', font: { size: 11, color: '#9a9a90' } };
+      annotations.push(label);
+      labels.push({ label, x0, x1 });
     }
   } else {
     annotations.push({
@@ -349,7 +346,19 @@ export function referenceOverlay(reference, xDef, yDef, p) {
       text: 'Reference materials have no equivalent for one of these axes', font: { size: 11, color: '#8d8d84' },
     });
   }
-  return { shapes, annotations, fixed };
+  return { shapes, annotations, fixed, labels };
+}
+
+/**
+ * A reference's name sits at its box's top right, running left; a box near the chart's left edge has its name run right
+ * from its top left instead (D111), where "Hardwood (oak) parallel to the grain" had been cut to "ak) parallel to…".
+ */
+export function anchorReferenceLabels(labels = [], xRange) {
+  if (!xRange) return;
+  const [a, b] = xRange;
+  for (const { label, x0, x1 } of labels) {
+    if ((x1 - a) / (b - a) < 0.35) Object.assign(label, { x: x0, xanchor: 'left' });
+  }
 }
 
 /**
@@ -428,5 +437,65 @@ export function watchZoom(gd, sig, { onZoom = () => {}, onReset = () => {} } = {
     if (!moved) return;
     Object.assign(zoomMemory, { sig, x: [...gd.layout.xaxis.range], y: [...gd.layout.yaxis.range] });
     onZoom();
+  });
+}
+
+/**
+ * The size and legend of every Ashby chart, whichever view draws it (D111): the chart fills what the lens shows of it, so
+ * the plot and its controls are on one screen, at least a 450 px plot on a wide screen and 360 px on a laptop, at most
+ * 640; where the page scrolls as a whole (a phone) it keeps its width-based height. The legend sits beside a plot at least
+ * 1000 px wide, clear of the mode bar, and under a narrower one. The catalogue view had its own rule, so its legend moved
+ * and its plot changed height when the reader changed view.
+ */
+export function lensChartSize(gd, legendNames) {
+  const width = gd.clientWidth;
+  const fit = chartFit(Math.max(width, 400), legendNames);
+  const beside = width >= 1000;
+  const legend = beside ? chartFit(width, legendNames).legend
+    : { orientation: 'h', x: 0, xanchor: 'left', xref: 'paper', y: 0, yanchor: 'bottom', yref: 'container', traceorder: 'normal', font: { size: 11 } };
+  const rows = beside ? 0 : Math.ceil(legendNames.length / Math.max(1, Math.floor(Math.max(200, width - 20) / (44 + 6.4 * Math.max(0, ...legendNames.map((n) => n.length))))));
+  const legendHeight = rows ? rows * 19 + 16 : 0;
+  const lens = gd.closest('.lens-view');
+  const scrollsItself = lens && getComputedStyle(lens).overflowY !== 'visible';
+  const minPlot = window.innerWidth > 1100 ? 450 : 360;
+  const frame = PLOT_MARGIN_TOP + 44 + legendHeight;
+  const room = scrollsItself ? lens.clientHeight - (gd.getBoundingClientRect().top - lens.getBoundingClientRect().top + lens.scrollTop) - 14 : null;
+  const height = scrollsItself ? Math.round(Math.max(minPlot + frame, Math.min(640 + legendHeight, room))) : fit.height;
+  return { height, legend, beside, margin: { l: 64, r: beside ? 8 : 16, t: PLOT_MARGIN_TOP, b: 44 } };
+}
+
+/**
+ * Tick labels a reader can read on a Log axis (D111). Across more than one decade Plotly labels the minor ticks with a
+ * bare digit, so "2" stood above "10" and "5" under "0.01", read as values. Here every label is the number itself: 1, 2
+ * and 5 per decade across up to three decades, 1 and 3 up to six, the decades beyond; inside one decade Plotly's own
+ * labels are whole numbers already and are left alone.
+ */
+export function logTicks(range) {
+  if (!Array.isArray(range) || !(range[1] - range[0] >= 1)) return { tickmode: 'auto', tickvals: null, ticktext: null };
+  const [lo, hi] = range;
+  const span = hi - lo;
+  const steps = span <= 3 ? [1, 2, 5] : span <= 6 ? [1, 3] : [1];
+  const vals = [];
+  for (let d = Math.floor(lo); d <= Math.ceil(hi); d++) {
+    for (const s of steps) { const v = s * 10 ** d; const l = Math.log10(v); if (l >= lo - 1e-9 && l <= hi + 1e-9) vals.push(Number(v.toPrecision(3))); }
+  }
+  const text = (v) => (v >= 10000 ? `${Number((v / 1000).toPrecision(3))}k` : String(Number(v.toPrecision(3))));
+  return { tickmode: 'array', tickvals: vals, ticktext: vals.map(text) };
+}
+/** Put readable ticks on a layout's Log axes before it is drawn. */
+export function applyLogTicks(layout) {
+  for (const ax of ['xaxis', 'yaxis']) if (layout[ax]?.type === 'log') Object.assign(layout[ax], logTicks(layout[ax].range));
+}
+/** Keep them readable as the reader zooms and pans. */
+export function watchLogTicks(gd) {
+  gd.on('plotly_relayout', (ev) => {
+    if (!ev || !Object.keys(ev).some((k) => /^[xy]axis\.(range|autorange)/.test(k))) return;
+    const patch = {};
+    for (const ax of ['xaxis', 'yaxis']) {
+      if (gd.layout[ax]?.type !== 'log') continue;
+      const t = logTicks(gd.layout[ax].range);
+      Object.assign(patch, { [`${ax}.tickmode`]: t.tickmode, [`${ax}.tickvals`]: t.tickvals, [`${ax}.ticktext`]: t.ticktext });
+    }
+    if (Object.keys(patch).length) Plotly.relayout(gd, patch);
   });
 }

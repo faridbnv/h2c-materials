@@ -119,7 +119,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83) |
 | D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) |
 | D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108; amended by D110 (the view order and names, test pairs under More, details in place of the list, the pills on the chart's corner) |
-| D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109 |
+| D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109; amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) |
+| D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110 |
 
 <!-- end index -->
 
@@ -3467,7 +3468,7 @@ reader's place.
 ## D110. The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list
 
 > **In plain words:** The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up.
-> **Status:** In force; it amends D109.
+> **Status:** In force; it amends D109; amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views).
 
 *Directed by the owner on 2026-09-29, after using D109: keep only the typical values as the published view, under a name
 that says what it is; the test pairs rarely, as a hidden option; the order typical, ranges, products, left to right; and
@@ -3493,6 +3494,41 @@ on every view. Built by Claude (an agent); not reviewed by a person.*
 
 `npm run ui:check` presses marks on the chart with the mouse and fails if the list stays under the details, a second panel
 appears, Ranking does not bring the list back, or its open folds change. No verdict, ranking or count moved.
+
+## D111. Every view of the Ashby lens is laid out, sized, framed and labelled by one rule
+
+> **In plain words:** Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it.
+> **Status:** In force; it amends D110.
+
+*Directed by the owner on 2026-09-29: a final look at the typicals view and its settings, "something looks off"; make sure
+everything is as designed. Found by driving the built page (headless Chrome, seven questions and settings, three screen
+sizes, both themes) and measuring what moved. Built by Claude (an agent); not reviewed by a person.*
+
+What was off, and why: Material typicals is the chart from before D107, and it still drew itself by its own rules.
+
+- **Its layout jumped.** It put the list under the chart, off the screen, drew the chart full width with its legend beside
+  it, and sized it by width; the other views keep the list beside the chart and fit the chart to the screen. Moving
+  between the three views moved the chart, its size and its legend every time. Now one rule sizes every view
+  (`lensChartSize`, `app/js/ui/chart.js`), and the list stays beside the chart: switching views changes the marks and
+  nothing else (the plot measured at the same place and size in all three).
+- **Its frame ran to the whiskers.** It framed the chart on every line drawn, so each material's product extremes set
+  the axes: the H2C beam's eight materials, all at 3 GPa or more, sat in the top third of an axis running to 0.5. It is
+  framed as the others are, on the points, what is drawn for scale, and a requirement near them.
+- **Its Log axes read as stray numbers**, as the other views' did across more than a decade: a "2" above "10", a "5"
+  under "0.01". Every Log axis now labels its ticks with the numbers themselves (`logTicks`: 1, 2 and 5 per decade to
+  three decades, 1 and 3 to six, then decades), kept so as the reader zooms.
+- **It said things another way.** Two banners ("Only 8 points…", the reference caveat) pushed its chart down; its notes
+  were always open under a heading, its key had a "Marks" heading, its axis titles had no "· log", and its Line row and
+  starter were missing, so the controls changed height. It now says what it draws in one line under the chart and folds
+  the rest, as the others do; the caveat is the key's "Grey box" entry and a line in the notes; the Line row stays,
+  saying the line is drawn over products, with the way to Material ranges and Products; the starter shows on every view.
+- **Its list did not match it.** With no goal the list counted products on these axes (two materials) beside a chart of
+  28; its rows offered to zoom and spoke of products drawn. With no goal it lists the materials drawn; rows zoom only
+  where products are drawn; a picked material fades the rest here too.
+- **Metals & wood** widened this view to steel but not the others, where pressing it could show nothing; every view now
+  frames what is drawn for scale, and a reference's name near the left edge runs inward.
+
+No verdict, ranking or count moved.
 
 ---
 

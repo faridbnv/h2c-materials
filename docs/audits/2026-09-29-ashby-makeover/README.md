@@ -221,3 +221,10 @@ goal): each press left one more material's product list open (0, 1, 2, 3, 4, 5);
 presses leave no fold open, the details replace the list and are swapped in place, and **← Ranking** returns the list with
 the picked material's row in view. Draw now reads *Material typicals | Material ranges | Products*; the test pairs are under
 More. `npm run ui:check` presses marks with the mouse and holds this. Screens: `visuals/d110-*`.
+
+## Fourth revision: one rule for every view (D111)
+
+A final pass over Material typicals (seven questions and settings, three screen sizes, both themes) found it still drawn
+by the chart's pre-D107 rules: its list under the chart, its legend beside it, its own height, a frame stretched to the
+whiskers, stray digit tick labels, two banners, notes always open, no Line row. Switching views now changes the marks and
+nothing else: measured, the plot sits at the same place and size in all three views. Screens: `visuals/d111-*`.

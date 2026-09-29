@@ -621,6 +621,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-geom { color: var(--ink-3); }
 .ws-asked-list { display: inline-flex; flex-wrap: wrap; gap: 4px 0; color: var(--ink-2); }
 .ws-asked-list > span + span::before { content: '·'; margin: 0 7px; color: var(--ink-3); }
+.ws-asked-none { color: var(--ink-3); }
 .ws-research { display: inline-flex; align-items: center; gap: 6px; }
 .ws-research .btn-sm { padding: 2px 8px; }
 .warn-text { color: var(--unknown); }
@@ -646,9 +647,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-member-free { grid-area: free; font-size: 11.5px; color: var(--ink-3); line-height: 1.3; }
 
 .ws-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 12px; align-items: start; }
-/* The evidence views keep the chart's full width, as before D107: their result list is secondary, under the chart. */
-.ws:is([data-ws-view="catalogue"], [data-ws-view="measured"], [data-ws-view="measured-mixed"]) .ws-body { grid-template-columns: minmax(0, 1fr); }
-.ws:is([data-ws-view="catalogue"], [data-ws-view="measured"], [data-ws-view="measured-mixed"]) .ws-results { position: static; max-height: none; }
+/* Every view keeps one layout (D111): the list beside the chart. The catalogue view had moved it under the chart. */
 .ws-chart { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 
 /* The chart's controls (D109): three labelled rows read top to bottom, Draw, Also and Line, every option in view with its
