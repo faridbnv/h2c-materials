@@ -66,7 +66,7 @@ function testFor(r, state, measurementById) {
  * own answer in it, `decision` the chosen product as the scenario holds it ({ gradeId, stateId, release, chosenOn, note,
  * tests }).
  */
-export function decisionBrief({ db, scenario, material, grade, evaluation, entry, decision }) {
+export function decisionBrief({ db, scenario, material, grade, evaluation, entry, decision, objective = null }) {
   const measurementById = new Map(db.measurements.map((m) => [m.id, m]));
   const sourceById = new Map(db.sources.map((s) => [s.id, s]));
   const release = db.meta.release?.id ?? 'unidentified';
@@ -105,6 +105,18 @@ export function decisionBrief({ db, scenario, material, grade, evaluation, entry
       }
       L.push('');
     }
+  }
+
+  // The goal and its stage, where the question had one (D107): this product state's own index, its material's place in
+  // the one ranking, and whether an objective stage kept it. The requirements' answer above is the engine's either way.
+  if (objective?.index) {
+    const o = objective;
+    L.push('## The goal', '');
+    L.push(`${o.index.designCase}: maximise M = ${o.index.formula}.${o.index.strengthProxy ? ' The strength is a proxy: the recorded tensile strength, its endpoint as the sheet states it.' : ''}`);
+    L.push(`- This product, ${entry ? stateWords(entry.state) : 'in the state judged'}: M = ${o.M === null ? 'not computable (an input is not published in this state)' : Number(o.M.toPrecision(4))}.`);
+    L.push(`- ${material.name}: ${o.rank ? `ranked #${o.rank.place}, the median M of ${o.rank.products} product${o.rank.products === 1 ? '' : 's'} (${Number(o.rank.value.toPrecision(4))})` : 'not ranked under this goal'}.`);
+    for (const st of o.stages ?? []) L.push(`- Objective stage: keep ${st.index} M ≥ ${st.cutoff}: ${st.products} product states across ${st.materials} materials kept; this product state ${o.kept ? 'was' : 'was not'} kept.`);
+    L.push('');
   }
 
   L.push('## What is not settled', '');

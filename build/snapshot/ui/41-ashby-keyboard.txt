@@ -1,0 +1,16 @@
+LINE STEPPED 7 product states across 5 materials at or above (of 14; better above)
+INSPECTOR
+3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
+×
+PPA-CF · G070-05 · PASS
+State
+As printed; dry
+Stiffness
+8.2 GPa this state's own value (V003215); moisture, treatment not stated, admitted for screening; to ISO 527
+Density
+1,240 kg/m³ this state's own value (V003213); to ISO 1183
+Goal index
+M = 0.00231 · its material ranks #1, the median of 1 product
+Choose this exact product
+Open its material's products
+Zoom to PPA-CF

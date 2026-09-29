@@ -83,10 +83,54 @@ export function measurementMatches(m, axis, mode) {
   return { measurement: m, relaxed, notes: [...relaxed, ...notes] };
 }
 
-/** Two measurements of different properties can share a point only if their conditions agree. */
-export function pairable(a, b, mode) {
-  if (mode === 'broad') return true;
-  const da = a.direction, dbb = b.direction;
-  if (da === 'not-applicable' || dbb === 'not-applicable') return true;
-  return da === dbb;
+/**
+ * Whether two measurements of one product may share a point, and why not (D107; the review of 2026-09-28, A03).
+ *
+ * Strict is a claim: the two values describe one product in one condition. It used to check the direction alone, so a dry
+ * modulus and a conditioned strength of Ultrafuse PAHT CF15 (V002469, V002491: one sheet's dried and conditioned tables)
+ * were drawn as one "matched" point, with 26 more like it. Now an explicit contradiction keeps a pair out of strict:
+ * moisture (dry against conditioned), treatment (as printed against annealed, or two annealing schedules), specimen form,
+ * direction, and a different document, since two sheets are two test recipes. A condition one source leaves unstated is
+ * missing context: the pair stays, and says so, never read as a match. An axis whose value the registry declares unchanged
+ * by moisture or annealing (a density) takes no part in those two checks, and may come from another of the product's
+ * sheets; the pair says that too. Mixed-condition exploration admits every pair of the product and names each conflict.
+ *
+ * `inv` is { a: { moisture, annealing, specimen }, b: { ... } }: whether each axis's value changes with moisture and
+ * annealing (the registry's flags), and whether it asks a printed bar (an axis with a direction).
+ */
+export function pairCompatibility(a, b, mode, inv = {}) {
+  const conflicts = [], missing = [], basis = [];
+  const changes = (side, what) => inv[side]?.[what] !== false;
+  const sensitive = (what) => changes('a', what) && changes('b', what);
+  const explicit = (x, vocab) => vocab.includes(x);
+  if (a.direction !== 'not-applicable' && b.direction !== 'not-applicable' && a.direction !== b.direction) {
+    conflicts.push(`directions ${a.direction} and ${b.direction}`);
+  }
+  if (sensitive('moisture')) {
+    const [ma, mb] = [a.moistureState, b.moistureState];
+    if (explicit(ma, ['dry', 'conditioned']) && explicit(mb, ['dry', 'conditioned']) && ma !== mb) conflicts.push(`${ma} against ${mb}`);
+    else if (ma !== mb) missing.push('moisture stated on one value only');
+    else if (!explicit(ma, ['dry', 'conditioned'])) missing.push('moisture not stated');
+  } else basis.push('moisture does not change one of the two, by the registry');
+  if (sensitive('annealing')) {
+    const [pa, pb] = [a.postProcessingState, b.postProcessingState];
+    if (explicit(pa, ['as-printed', 'annealed']) && explicit(pb, ['as-printed', 'annealed']) && pa !== pb) conflicts.push(`${pa} against ${pb}`);
+    else if (pa === 'annealed' && pb === 'annealed' && JSON.stringify(a.anneal ?? null) !== JSON.stringify(b.anneal ?? null)) conflicts.push('two annealing schedules');
+    else if (pa !== pb) missing.push('treatment stated on one value only');
+    else if (!explicit(pa, ['as-printed', 'annealed'])) missing.push('treatment not stated');
+  } else basis.push('annealing does not change one of the two, by the registry');
+  // Specimen form matters where both axes ask a printed bar (a direction); a density is the resin's either way.
+  const forms = [a.specimenForm, b.specimenForm];
+  if (inv.a?.specimen && inv.b?.specimen && forms.every((f) => f && f !== 'not-stated') && forms[0] !== forms[1]) conflicts.push(`${forms[0]} against ${forms[1]} specimens`);
+  if (a.sourceId !== b.sourceId) {
+    if (sensitive('moisture') || sensitive('annealing')) conflicts.push('two documents, two test recipes');
+    else basis.push('from two of the product\'s sheets');
+  }
+  const ok = mode === 'broad' || !conflicts.length;
+  return { ok, conflicts, missing, basis, strict: !conflicts.length };
+}
+
+/** Two measurements of different properties can share a point only if their conditions agree (pairCompatibility). */
+export function pairable(a, b, mode, inv = {}) {
+  return pairCompatibility(a, b, mode, inv).ok;
 }

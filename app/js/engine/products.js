@@ -54,8 +54,53 @@ export function scenarioStates(grade, ctx = {}) {
   return out;
 }
 
-/** A product's state by its identifier, or its first. */
-export const stateOf = (grade, id) => (id && grade.states?.find((s) => s.id === id)) || firstState(grade);
+/**
+ * A state identifier read back into its parts, as stateId writes them: "annealed:120:16+conditioned" is annealed at
+ * 120 °C for 16 h and conditioned. Null for an identifier stateId could not have written.
+ */
+export function parseStateId(id) {
+  if (typeof id !== 'string' || !id) return null;
+  let treatment = null, moisture = 'dry';
+  for (const part of id.split('+')) {
+    if (part === 'as-printed') continue;
+    if (part === 'conditioned') { moisture = 'conditioned'; continue; }
+    const m = /^annealed:([^:]+):([^:]+)$/.exec(part);
+    const n = (v) => (v === 'x' ? null : Number(v));
+    if (!m || [m[1], m[2]].some((v) => v !== 'x' && !Number.isFinite(Number(v)))) return null;
+    treatment = { tempC: n(m[1]), hours: n(m[2]) };
+  }
+  return { treatment, moisture };
+}
+
+/**
+ * A product's state by its identifier (D99, D107). A state the product publishes is that state. A named state it does not
+ * publish is that state holding no values, as scenarioStates makes it for the conditioned service state of a product that
+ * publishes only dry values: its answer, its rank and its point on a chart are then unknown on everything the state
+ * changes, and never read from another state. Only no identifier at all means the product's first state, as printed and
+ * dry. Returning the first state for a missing name had ranked 77 materials for a conditioned question on dry stiffness.
+ */
+export function stateOf(grade, id) {
+  if (!id) return firstState(grade);
+  const own = grade.states?.find((s) => s.id === id);
+  if (own) return own;
+  // A product the build gave no states (an older snapshot, a test) is its headline, which is its first state.
+  if (!grade.states?.length && id === firstState(grade).id) return firstState(grade);
+  const parsed = parseStateId(id);
+  return { id, treatment: parsed?.treatment ?? null, moisture: parsed?.moisture ?? 'dry', values: {}, synthetic: true };
+}
+
+/**
+ * The state whose value a headline of a product in a state is (D99): the state's own where the treatment or moisture
+ * changes the headline, and the product's first state's where the registry declares it unchanged (a density). The chart
+ * and the inspector say which, so a density read from the as-printed state beside an annealed stiffness is labelled.
+ */
+export function valueStateOf(grade, key, state, ctx = {}) {
+  const first = firstState(grade);
+  if (!state || state === first || state.id === first.id) return first;
+  const def = ctx.db?.registry?.headlines?.find((h) => h.key === key);
+  const changes = (state.treatment && (def ? def.changesWithAnnealing : true)) || (state.moisture === 'conditioned' && (def ? def.changesWithMoisture : true));
+  return changes ? state : first;
+}
 
 /** Each material's products: its active procurement grades, in the material's order. */
 export function productsByMaterial(db) {
@@ -67,14 +112,8 @@ export function productsByMaterial(db) {
  * The value a state holds for a headline (D99). A headline the state's treatment or moisture changes is the state's own
  * value; one it does not change (a density, and a glass transition under annealing) is the product's first state's.
  */
-function stateValue(grade, key, state, ctx) {
-  const first = firstState(grade);
-  if (!state || state === first || state.id === first.id) return first.values?.[key];
-  const def = ctx.db?.registry?.headlines?.find((h) => h.key === key);
-  // Without a registry (a hand-built material in a test) every headline is taken to change with the state.
-  const changes = (state.treatment && (def ? def.changesWithAnnealing : true)) || (state.moisture === 'conditioned' && (def ? def.changesWithMoisture : true));
-  return changes ? state.values?.[key] : first.values?.[key];
-}
+// Without a registry (a hand-built material in a test) every headline is taken to change with the state (valueStateOf).
+const stateValue = (grade, key, state, ctx) => valueStateOf(grade, key, state, ctx).values?.[key];
 
 function productValueHeadline(base, grade, v, measurementById) {
   const h = {

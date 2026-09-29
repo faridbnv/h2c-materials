@@ -601,6 +601,176 @@ h3.sec:first-child { margin-top: 0; }
 .index-of { color: var(--ink-3); font-size: 12px; }
 .index-fix { margin-top: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
+/* ---------------------------------------------------------------- Ashby decision workspace (D107)
+   The question in one strip, then the chart and its result list side by side: the line and its count sit beside the chart
+   they move, the goal sets the axes, and context layers and evidence views are folded until asked for. The same type
+   scale, tokens and components as the rest of the page. */
+.ws { display: flex; flex-direction: column; gap: 8px; }
+.ws-question {
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 6px 12px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: var(--t-small);
+}
+.ws-goal-row { flex-basis: 100%; }
+.ws-goal-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.ws-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ws-goal-row select {
+  padding: 4px 8px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--bg); color: var(--ink); max-width: 100%; min-width: 0;
+}
+.ws-formula { color: var(--ink-2); }
+.ws-question .formula, .ws-line .formula, .ws-results .formula { font-family: var(--mono); font-size: 12.5px; color: var(--accent); }
+.ws-geom { color: var(--ink-3); }
+.ws-facts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; color: var(--ink-2); }
+.ws-facts li { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.ws-facts .btn-sm { padding: 2px 8px; }
+.ws-release { font-family: var(--mono); color: var(--ink-3); }
+.warn-text { color: var(--unknown); }
+.ws-stages { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 6px; counter-reset: stage; }
+.ws-stages li {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 6px; padding: 1px 9px; border-radius: 12px;
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--ink-2);
+}
+.ws-stages li + li::before { content: '›'; color: var(--ink-3); margin-right: 2px; }
+.ws-stage-name { font-weight: 650; color: var(--ink); }
+.ws-stages .btn-sm { padding: 1px 7px; font-size: var(--t-label); }
+
+.ws-start { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 12px 14px; }
+.ws-start h2 { margin: 0 0 4px; font-size: 16px; }
+.ws-start > p { margin: 0 0 8px; color: var(--ink-2); font-size: var(--t-small); }
+.ws-start-gates { font-weight: 400; font-size: var(--t-small); margin-bottom: 10px; }
+.ws-start-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.ws-start-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 9px 10px; background: var(--bg); }
+.ws-start-card h3 { margin: 0 0 2px; font-size: var(--t-body); }
+.ws-start-card p { margin: 0 0 8px; color: var(--ink-3); font-size: var(--t-label); line-height: 1.45; }
+.ws-start-members { display: flex; flex-wrap: wrap; gap: 6px; }
+.ws-member {
+  display: grid; grid-template-columns: auto 1fr; grid-template-areas: "sketch name" "sketch free"; align-items: center; gap: 0 8px;
+  text-align: left; padding: 5px 9px; border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; flex: 1 1 160px;
+}
+.ws-member:hover, .ws-member:focus-visible { border-color: var(--accent); background: var(--accent-soft); }
+.ws-sketch { grid-area: sketch; width: 48px; color: var(--ink-2); }
+.ws-sketch svg { width: 48px; height: 18px; fill: currentColor; stroke: currentColor; display: block; }
+.ws-member-name { grid-area: name; font-weight: 650; font-size: var(--t-small); }
+.ws-member-free { grid-area: free; font-size: 11.5px; color: var(--ink-3); line-height: 1.3; }
+
+.ws-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 12px; align-items: start; }
+/* The evidence views keep the chart's full width, as before D107: their result list is secondary, under the chart. */
+.ws:is([data-ws-view="catalogue"], [data-ws-view="measured"], [data-ws-view="measured-mixed"]) .ws-body { grid-template-columns: minmax(0, 1fr); }
+.ws:is([data-ws-view="catalogue"], [data-ws-view="measured"], [data-ws-view="measured-mixed"]) .ws-results { position: static; max-height: none; }
+.ws-chart { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.ws-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.ws-toolbar .ws-views button { padding-block: 3px; }
+.ws-fold { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: var(--t-small); }
+.ws-fold > summary { padding: 3px 10px; cursor: pointer; color: var(--ink-2); list-style-position: inside; white-space: nowrap; }
+.ws-fold[open] { flex-basis: 100%; }
+.ws-layers { padding: 4px 10px 8px; }
+.ws-layers .opt-help { flex-basis: 100%; }
+.ws-axes-body { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px 12px; padding: 4px 10px 10px; }
+.ws-axes-body .axis-pick { flex: 1 1 300px; }
+.ws-axes-body select { padding: 6px 9px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); min-width: 0; width: 100%; }
+.ws-layers { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; font-size: var(--t-small); }
+.ws-layers .opt-check { margin-top: 0; }
+.ws-layers-head { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ws-more[open] { flex-basis: 100%; }
+.ws-more-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; padding: 4px 10px 10px; }
+.ws-more-group h4 { margin: 0 0 4px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+.ws-more-group label { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.ws-more-group select { padding: 4px 7px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
+.ws-more-group .btn { margin: 0 6px 6px 0; }
+.ws-evidence-views { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.ws-limits { display: grid; gap: 6px; }
+.ws-limit { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.ws-limit label { min-width: 7em; }
+.ws-limit input { width: 90px; padding: 4px 6px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
+.ws-limit .unit { font-size: 12px; color: var(--ink-3); }
+.ws-evidence-chip {
+  flex-basis: 100%; font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-radius: var(--radius);
+  background: var(--unknown-bg); border-left: 3px solid var(--unknown);
+}
+.ws-legacy .ashby-axes { flex-basis: 100%; margin-bottom: 0; }
+.ws-legacy .ashby-options { flex-basis: 100%; margin-bottom: 0; }
+
+.ws-line {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px;
+  border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); background: var(--surface); font-size: var(--t-small);
+}
+.ws-line-m { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
+.ws-line-m input { width: 104px; padding: 2px 6px; font: inherit; font-family: var(--mono); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
+.ws-line-slider { flex: 1 1 120px; min-width: 90px; }
+.ws-line-steps { display: inline-flex; gap: 4px; }
+.ws-line-steps .btn { padding: 1px 8px; }
+.ws-line-readout { flex: 1 1 180px; color: var(--ink-2); }
+.ws-line-off { border-left-color: var(--unknown); }
+
+.ws-results {
+  min-width: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+  font-size: var(--t-small); position: sticky; top: 0; max-height: calc(100dvh - 190px); overflow: auto;
+}
+.ws-list { padding: 8px 10px 10px; }
+.ws-filter { width: 100%; padding: 5px 8px; font: inherit; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--ink); margin-bottom: 6px; }
+.ws-list-head h3 { margin: 2px 0 2px; font-size: var(--t-body); }
+.ws-list-head p { margin: 0 0 6px; }
+.ws-rank { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.ws-mat { border-top: 1px solid var(--border); padding-top: 6px; }
+.ws-mat-head { display: flex; align-items: center; gap: 6px; }
+.ws-mat-head .ws-mat-name { font-weight: 650; text-decoration: none; text-align: left; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.ws-mat-head .shortlist-btn { padding: 0 6px; min-height: 24px; }
+.ws-place { font-weight: 700; color: var(--ink-3); min-width: 1.4em; font-variant-numeric: tabular-nums; }
+.ws-median { margin-left: auto; white-space: nowrap; }
+.ws-rel { color: var(--ink-3); font-size: 11.5px; }
+.ws-best { color: var(--ink-2); margin-left: calc(1.4em + 6px); line-height: 1.35; }
+.ws-best .link-btn { text-align: left; text-decoration-color: var(--border-strong); }
+.ws-support { margin-left: calc(1.4em + 6px); }
+.ws-mat-pairs { margin-left: calc(1.4em + 6px); }
+.ws-mat-pairs > summary { cursor: pointer; color: var(--ink-3); font-size: var(--t-label); }
+.ws-mat-pairs ul, .ws-nearby { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
+.ws-pair-btn {
+  display: block; width: 100%; text-align: left; font: inherit; font-size: var(--t-label); padding: 3px 6px; border-radius: 5px;
+  border: 1px solid transparent; background: none; color: var(--ink); cursor: pointer;
+}
+.ws-pair-btn:hover, .ws-pair-btn:focus-visible, .ws-pair-btn[aria-current="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.ws-pair-name { font-weight: 600; }
+.ws-pair-vals { display: block; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ws-unranked, .ws-gaps { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 6px; }
+.ws-unranked > summary, .ws-gaps > summary { cursor: pointer; color: var(--ink-2); }
+.ws-unranked ul, .ws-gaps ul { margin: 4px 0; padding-left: 18px; }
+.ws-inspector { padding: 10px; border-bottom: 2px solid var(--accent); background: var(--accent-soft); }
+.ws-inspector:focus { outline: none; }
+.ws-inspector:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.ws-insp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.ws-insp-head h3 { margin: 0; font-size: var(--t-body); overflow-wrap: anywhere; }
+.ws-inspector .kv { margin: 8px 0 4px; }
+.ws-inspector .kv dd { overflow-wrap: anywhere; }
+.ws-insp-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ws-context-note { margin: 4px 0; }
+.ws-reading { font-size: 12px; color: var(--ink-3); }
+.ws-reading > summary { cursor: pointer; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.ws-reading p { margin: 4px 0 0; line-height: 1.55; }
+.ws .ashby-key { margin-top: 0; }
+
+/* The rail can be hidden on a wide screen too, so a chart can take the width (D107); Filters in the top bar brings it back. */
+#btn-rail-hide { display: inline-block; }
+@media (min-width: 1101px) {
+  .main[data-rail-collapsed="true"] { grid-template-columns: minmax(0, 1fr); }
+  .main[data-rail-collapsed="true"] .rail { display: none; }
+  .main[data-rail-collapsed="true"] ~ * #btn-filters, .app:has(.main[data-rail-collapsed="true"]) #btn-filters { display: inline-flex; }
+}
+@media (max-width: 1100px) {
+  #btn-rail-hide { display: none; }
+  /* The goal's free geometry is its formula's title here, so the question stays two rows above the chart. */
+  .ws-geom { display: none; }
+  /* The results go under the chart, so the chart keeps the width. */
+  .ws-body { grid-template-columns: minmax(0, 1fr); }
+  .ws-results { position: static; max-height: none; }
+}
+@media (max-width: 600px) {
+  .ws-question { padding: 8px; }
+  .ws-facts { gap: 4px 10px; }
+  .ws-goal-row select { width: 100%; }
+  .ws-line-readout { flex-basis: 100%; }
+}
+
 /* ---------------------------------------------------------------- coverage lens */
 table.cov { border-collapse: collapse; font-size: 12px; }
 table.cov th { font-weight: 600; font-size: 11px; text-align: left; padding: 5px 7px; color: var(--ink-3); }

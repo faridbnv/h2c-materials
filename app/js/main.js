@@ -5,8 +5,10 @@
 
 import { runSelection, UNKNOWN_POLICY, normalizePolicy } from './engine/constraints.js';
 import { matchesQuery } from './engine/search.js';
-import { productsByMaterial } from './engine/products.js';
-import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX, DECISIONS_MAX } from './engine/scenario.js';
+import { productsByMaterial, productView, stateOf } from './engine/products.js';
+import { newScenario, toHash, fromHash, serialize, deserialize, applyAssumptions, SHORTLIST_MAX, DECISIONS_MAX, STAGES_MAX } from './engine/scenario.js';
+import { objectiveStages, goalAxes } from './engine/workspace.js';
+import { indexById, indexValue, productStateKey } from './engine/indices.js';
 import { decisionBrief, productLabel } from './ui/brief.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, productsCSV, download, sortRows, sortForColumnSet, rankOf } from './ui/table.js';
@@ -21,7 +23,7 @@ import { TEMPLATES, PRINTABLE } from './ui/templates.js';
 import { renderStart, wireStart, renderActive, wireActive, candidateCount } from './ui/start.js';
 import { setEnvironmentLabels, POLICY_CONTROL, POLICY_CONTROL_SHORT, POLICY_LABELS, policyLabel } from './ui/labels.js';
 import { initPopover, popoverOpen } from './ui/popover.js';
-import { useRegistry } from './ui/registry.js';
+import { useRegistry, headlineDef } from './ui/registry.js';
 
 /**
  * Which verdicts a policy shows by default. Strict shows what passed; Explore also shows what
@@ -64,7 +66,18 @@ const state = {
   // Said in the shortlist bar when a seventh material was refused. It was a browser alert, which stopped the page and
   // pointed at "the tray", a word the screen never used.
   shortlistNotice: null,
-  selection: null, rows: [], subset: null, searchExcluded: [],
+  selection: null, rows: [], searchExcluded: [],
+  // Every material the question examined that matches the search, whatever its verdict: the context the Ashby lens may
+  // draw (failed and unresolved products, estimates), never its decision set.
+  examined: [],
+  // The objective stages applied (D107): objectiveStages' result, or null. The rows on screen are the materials it kept.
+  stage: null,
+  // How many rows on screen an objective stage set aside.
+  stageHeld: 0,
+  // The mark the Ashby lens has open in its inspector: a product state, an estimate, a material, or the marks at a spot.
+  inspect: null,
+  // Set when the reader ordered the table by a column while a goal ranks it; the goal stays, its ranks stay shown.
+  sortOverride: false,
 };
 
 /** What an exported file is named by: its data date, and the release its answers were computed on (D96). */
@@ -120,7 +133,8 @@ function hydrate(scenario) {
   state.columnSet = scenario.columnSet ?? 'properties';
   state.sortNotice = null;
   state.baseline = scenario.baseline ?? null;
-  state.subset = null;
+  state.inspect = null;
+  state.sortOverride = false;
   state.lens = scenario.lens ?? 'table';
 }
 
@@ -190,12 +204,18 @@ function recompute() {
   state.searchFamilies = q ? db.materials.filter((m) => m.familyEntry && matchesQuery(m, q)) : [];
   const productsOf = (m) => state.ctx.productsByMaterial?.get(m.id) ?? [];
   const members = new Set(state.searchFamilies.flatMap((f) => f.familyEntry.members.map((x) => x.id)));
-  const found = state.selection.evaluations
-    .map((e) => ({ material: byId.get(e.materialId), evaluation: e }))
-    .filter(({ material: m }) => (!state.subset || state.subset.includes(m.id)) && (matchesQuery(m, q, productsOf(m)) || members.has(m.id)));
+  const all = state.selection.evaluations.map((e) => ({ material: byId.get(e.materialId), evaluation: e }));
+  const found = all.filter(({ material: m }) => matchesQuery(m, q, productsOf(m)) || members.has(m.id));
+  state.examined = found;
 
+  // An objective stage keeps the confirmed product states at or above its cutoff (D107), over every material the question
+  // examined, so a search does not change what it kept. The requirements' verdicts and the status bar's counts stand; the
+  // rows on screen are the materials with a product state it kept.
+  state.stage = scenario.stages?.length ? objectiveStages(all, state.ctx, scenario.stages) : null;
   const visible = (e) => state.showStates.has(e.verdict) && (!e.screened || state.showScreened);
-  state.rows = found.filter(({ evaluation: e }) => visible(e));
+  const shown = found.filter(({ evaluation: e }) => visible(e));
+  state.rows = state.stage ? shown.filter(({ material: m }) => state.stage.materials.has(m.id)) : shown;
+  state.stageHeld = shown.length - state.rows.length;
 
   // Search the whole database, not only what survived the filters.
   //
@@ -208,10 +228,12 @@ function recompute() {
 // ------------------------------------------------------------------ actions
 
 const actions = {
-  changed() { state.subset = null; render(); pushHash(); },
+  changed() { render(); pushHash(); },
   sort(key) {
     state.sortNotice = null;
-    state.scenario.rankBy = null;
+    // A column order chosen while a goal ranks the table: the goal stays (the chart, the ranks and the export keep it),
+    // and the rows follow the column until the goal is chosen again.
+    state.sortOverride = true;
     state.sort = state.sort.key === key
       ? { key, dir: state.sort.dir === 'asc' ? 'desc' : 'asc' }
       : { key, dir: key === 'name' || key === 'family' ? 'asc' : 'desc' };
@@ -321,9 +343,59 @@ const actions = {
     render();
   },
   setPlot(patch) { Object.assign(state.scenario.plot, patch); renderLens(); pushHash(); },
-  // Rank the survivors by a goal (D83): a performance index over each material's passing products. A column sort
-  // chosen afterwards takes over, and ranking by nothing returns to it.
-  setRankBy(id) { state.scenario.rankBy = id || null; state.sortNotice = null; renderLens(); pushHash(); },
+  // Rank the survivors by a goal (D83): a performance index over each material's passing products. Since D107 it is one
+  // goal for the table, the chart and the export, and choosing it prepares the chart's axes and scales in one action.
+  setRankBy(id) { actions.setGoal(id); },
+  setGoal(id) {
+    const index = id ? indexById(id) : null;
+    state.scenario.rankBy = index ? index.id : null;
+    if (index) Object.assign(state.scenario.plot, goalAxes(index), { indexM: null });
+    state.sortOverride = false;
+    state.sortNotice = null;
+    renderLens(); pushHash();
+  },
+  // The first step of a new exercise (D107): the member and what is prescribed, with the H2C's requirements proposed.
+  startExercise(id, withGates) {
+    const cs = state.scenario.constraints;
+    if (withGates) {
+      if (!cs.some((c) => c.kind === 'gate' && c.gate === 'scope')) cs.push({ kind: 'gate', gate: 'scope', __group: 'Compatibility' });
+      for (const g of PRINTABLE) if (!cs.some((c) => c.kind === 'gate' && c.gate === g.gate)) cs.push({ ...g });
+    }
+    const index = id ? indexById(id) : null;
+    state.scenario.rankBy = index ? index.id : null;
+    Object.assign(state.scenario.plot, index ? goalAxes(index) : {}, { view: 'decision', indexM: null });
+    if (!index && !withGates && !cs.length) state.scenario.rankBy = null;
+    actions.changed();
+  },
+  // Keep the product states at or above the line (D107): an objective stage, reversible and saved with the scenario. One
+  // per index; a second on the same index replaces the first.
+  applyStage({ index, cutoff }) {
+    const stages = (state.scenario.stages ?? []).filter((st) => st.index !== index);
+    if (stages.length >= STAGES_MAX) { state.shortlistNotice = `At most ${STAGES_MAX} objective stages. Remove one first.`; renderTray(); return; }
+    state.scenario.stages = [...stages, { index, cutoff }];
+    state.inspect = null;
+    actions.changed();
+  },
+  removeStage(i) {
+    state.scenario.stages = (state.scenario.stages ?? []).filter((_, j) => j !== i);
+    actions.changed();
+  },
+  inspect(target) { state.inspect = target; state.inspectFocus = !!target; renderLens(); },
+  // A focus zooms the chart to some materials; it changes no answer, count or rank, and is reset in one press.
+  setFocus(ids) { state.scenario.plot.focus = ids; renderLens(); pushHash(); },
+  // Requirements on a chart's axes, applied deliberately (D107): each property's one requirement, as the rail holds it.
+  setAxisRequirements(edits) {
+    let cs = state.scenario.constraints;
+    for (const { property, operator, value } of edits) {
+      const i = cs.findIndex((c) => c.kind === 'numeric' && c.property === property);
+      const kept = i >= 0 ? cs[i] : null;
+      cs = cs.filter((_, j) => j !== i);
+      if (value !== null) cs.push({ ...(kept ?? {}), kind: 'numeric', property, operator, value, mandatory: kept?.mandatory ?? true, __group: kept?.__group ?? headlineDef(property)?.filter?.group ?? 'Mechanical' });
+    }
+    state.scenario.constraints = cs;
+    actions.changed();
+  },
+  editRequirements() { openRequirements(); },
   setEvidence(level) { state.scenario.evidence = level; actions.changed(); },
   // Choose a product, or unchoose it (D103): the exact product, the state its answer is in, the release and the day.
   toggleDecision(gradeId) {
@@ -359,7 +431,7 @@ const actions = {
     state.scenario.constraints.push(...PRINTABLE.map((c) => ({ ...c })));
     actions.changed();
   },
-  selectSubset(ids) { state.subset = ids; render(); },
+  selectSubset(ids) { actions.setFocus(ids); },
   // A template's result is read in the table, which is the only lens with the requirements
   // header. Applied from Compare or a chart it used to change nothing visible.
   applyTemplate(t) {
@@ -368,7 +440,6 @@ const actions = {
     state.scenario.unknownPolicy = UNKNOWN_POLICY.STRICT;
     state.showStates = defaultShowStates(UNKNOWN_POLICY.STRICT);
     if (state.panel === 'scenario') { state.panel = null; renderDrawerHost(); }
-    state.subset = null;
     setLens('table');
     render(); pushHash();
     scrollLensToTop();
@@ -515,9 +586,10 @@ function renderCount() {
   c.innerHTML = tested
     ? `${shown} shown <small>${esc(label)}${parts ? ` · ${esc(parts)}` : ''}</small>`
     : `${shown} material${shown === 1 ? '' : 's'} <small>no requirements set</small>`;
-  c.innerHTML += (state.subset ? ` <small>from a selected region · <a href="#" id="clear-subset">clear</a></small>` : '')
-    + (state.search ? ` <small>matching "${esc(state.search)}"${held ? `, plus ${held} listed below that your requirements exclude` : ''}</small>` : '');
-  c.querySelector('#clear-subset')?.addEventListener('click', (e) => { e.preventDefault(); state.subset = null; render(); });
+  c.innerHTML += (state.search ? ` <small>matching "${esc(state.search)}"${held ? `, plus ${held} listed below that your requirements exclude` : ''}</small>` : '')
+    // An objective stage narrows the rows on screen (D107); said with the way back, since the chips count the requirements.
+    + (state.stage ? ` <small>· objective stage applied · <a href="#" id="clear-stage">remove</a></small>` : '');
+  c.querySelector('#clear-stage')?.addEventListener('click', (e) => { e.preventDefault(); state.scenario.stages = []; actions.changed(); });
 }
 
 function render() {
@@ -620,6 +692,9 @@ function pushHash() {
 
 // ------------------------------------------------------------------ chrome
 
+/** Show the requirements: the rail's drawer on a narrow screen, the rail itself (opened if hidden) on a wide one. */
+let openRequirements = () => {};
+
 function wireChrome() {
   document.getElementById('search').addEventListener('input', (e) => {
     state.search = e.target.value; recompute(); renderCount(); renderLens();
@@ -672,7 +747,25 @@ function wireChrome() {
     if (open) document.getElementById('btn-rail-close').focus();
     else railButton.focus();
   };
-  railButton.addEventListener('click', () => setRail(main.dataset.railOpen !== 'true'));
+  // On a wide screen the rail can be hidden too (D107), so a chart can take the width: the choice is this viewer's, kept
+  // in this browser only, and Filters in the top bar brings it back.
+  const setHidden = (hidden) => {
+    main.dataset.railCollapsed = String(hidden);
+    try { localStorage.setItem('h2c-rail', hidden ? 'hidden' : 'shown'); } catch { /* private mode */ }
+    if (!narrowScreen.matches) railButton.setAttribute('aria-expanded', String(!hidden));
+    renderLens();
+  };
+  try { if (localStorage.getItem('h2c-rail') === 'hidden') main.dataset.railCollapsed = 'true'; } catch { /* private mode */ }
+  railButton.addEventListener('click', () => {
+    if (narrowScreen.matches) setRail(main.dataset.railOpen !== 'true');
+    else { setHidden(main.dataset.railCollapsed !== 'true'); if (main.dataset.railCollapsed !== 'true') document.getElementById('btn-rail-hide').focus(); }
+  });
+  document.getElementById('btn-rail-hide').addEventListener('click', () => { setHidden(true); railButton.focus(); });
+  openRequirements = () => {
+    if (narrowScreen.matches) { setRail(true); return; }
+    if (main.dataset.railCollapsed === 'true') setHidden(false);
+    document.querySelector('#rail .group-body input, #rail .group-body select')?.focus();
+  };
   document.getElementById('btn-rail-close').addEventListener('click', () => setRail(false));
   document.getElementById('rail-backdrop').addEventListener('click', () => setRail(false));
   document.querySelectorAll('[data-lens]').forEach((b) => b.addEventListener('click', () => setLens(b.dataset.lens)));
@@ -840,7 +933,14 @@ function wireChosen(host) {
     const material = db.materials.find((m) => m.id === grade.materialId);
     const evaluation = state.selection.evaluations.find((e) => e.materialId === material.id);
     const entry = evaluation?.products?.find((p) => p.gradeId === d.gradeId);
-    download(`h2c-decision-${d.gradeId}-${fileStamp(db.meta)}.md`, decisionBrief({ db, scenario, material, grade, evaluation, entry, decision: d }), 'text/markdown');
+    // The goal as the chart and the table rank it (D107): this product state's own index, and the material's place.
+    const index = scenario.rankBy ? indexById(scenario.rankBy) : null;
+    const objective = index ? {
+      index, M: entry ? indexValue(productView(material, grade, state.ctx, stateOf(grade, entry.state?.id ?? null)), index) : null,
+      rank: rankOf(state.rows, state)?.get(material.id) ?? null, stages: state.stage?.steps ?? [],
+      kept: !!(entry && state.stage?.retained.has(productStateKey(grade.id, entry.state?.id ?? null))),
+    } : null;
+    download(`h2c-decision-${d.gradeId}-${fileStamp(db.meta)}.md`, decisionBrief({ db, scenario, material, grade, evaluation, entry, decision: d, objective }), 'text/markdown');
   }));
 }
 
@@ -880,7 +980,7 @@ function renderScenario(host) {
         <button class="btn" id="sc-products"><b>Export their products</b><span>CSV of every product of the materials on screen: maker, its own values and whether each is comparable, how to print it, and whether it meets the requirements</span></button>
         <button class="btn" id="sc-link"><b>Copy a link to this selection</b><span>${localFile
           ? 'Reopens the requirements, shortlist and view on this computer. The page is a local file, so the link will not work for anyone else: send them the saved scenario instead.'
-          : 'Reopens the requirements, shortlist, assumptions and view. Search text and a lasso selection are not included.'}</span></button>
+          : 'Reopens the requirements, shortlist, assumptions, goal and its stages, and view. Search text is not included.'}</span></button>
         <button class="btn" id="sc-json"><b>Save the scenario</b><span>A small file anyone with this tool can load</span></button>
         <button class="btn" id="sc-import"><b>Load a saved scenario</b><span>Replaces the current selection. A damaged file is refused and nothing changes.</span></button>
       </div>
@@ -918,10 +1018,10 @@ function renderScenario(host) {
   }));
   host.querySelector('#sc-csv').addEventListener('click', () =>
     download(`h2c-candidates-${fileStamp(db.meta)}.csv`,
-      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates, ranking: rankOf(state.rows, state) }), 'text/csv'));
+      toCSV(sortRows(state.rows, state), db.meta, { scenario, useEstimates: state.ctx.showEstimates, ranking: rankOf(state.rows, state), stage: state.stage }), 'text/csv'));
   host.querySelector('#sc-products').addEventListener('click', () =>
     download(`h2c-products-${fileStamp(db.meta)}.csv`,
-      productsCSV(sortRows(state.rows, state), db, { scenario, productsByMaterial: state.ctx.productsByMaterial }), 'text/csv'));
+      productsCSV(sortRows(state.rows, state), db, { scenario, productsByMaterial: state.ctx.productsByMaterial, ctx: state.ctx, stage: state.stage }), 'text/csv'));
   host.querySelector('#sc-json').addEventListener('click', () =>
     download(`h2c-scenario-${new Date().toISOString().slice(0, 10)}.json`, serialize(scenario), 'application/json'));
   host.querySelector('#sc-link').addEventListener('click', async (e) => {

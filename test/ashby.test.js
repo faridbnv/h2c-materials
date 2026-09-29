@@ -1,17 +1,32 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { DETAIL_LEVELS, estimateTrace, chooseLabels, labelBox } from '../app/js/ui/ashby.js';
+import { VIEWS, estimateTrace, chooseLabels, labelBox } from '../app/js/ui/ashby.js';
 
 const xDef = { label: 'Density', unit: 'kg/m³' };
 const yDef = { label: 'Stiffness', unit: 'GPa' };
 
-test('Ashby view names say what each point represents', () => {
-  assert.deepEqual(DETAIL_LEVELS.map((d) => d.label), [
-    'One material',
-    'One product',
-    'One matched measurement pair',
-    'One mixed-condition pair',
+test('Ashby view names say what each mark represents, work views first and evidence views marked (D107)', () => {
+  assert.deepEqual(VIEWS.map((d) => d.label), [
+    'Decision products',
+    'Material overview',
+    'Catalogue: typical published values',
+    'Test pairs: matched conditions',
+    'Test pairs: mixed conditions',
   ]);
+  assert.deepEqual(VIEWS.filter((v) => v.evidence).map((v) => v.id), ['catalogue', 'measured', 'measured-mixed']);
+});
+
+test('a measured side beside an estimate keeps its products\' span, and draws a box of two marginal ranges (A06)', () => {
+  const q = {
+    id: 'M3', name: 'PA6', family: 'Nylon',
+    x: { lo: 1130, hi: 1200, measured: true, products: 7 },
+    y: { lo: 1.39, hi: 4.3, measured: false, precision: 'poor' },
+  };
+  const trace = estimateTrace(q, xDef, yDef, { color: '#3a7ca5' });
+  assert.deepEqual(trace.x, [1130, 1200, 1200, 1130, 1130], 'not frozen at the median 1150');
+  assert.deepEqual(trace.y, [1.39, 1.39, 4.3, 4.3, 1.39]);
+  assert.match(trace.hovertemplate, /measured across 7 products/);
+  assert.match(trace.hovertemplate, /marginal ranges, joint combinations not known/);
 });
 
 test('a one-axis estimate is a hoverable range in raw data coordinates', () => {

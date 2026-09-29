@@ -39,6 +39,19 @@ export const priceCaveat = (materials) => PRICE_CAVEAT
   .replace('{n}', materials.filter((m) => m.headline?.priceCADkg?.known).length)
   .replace('{total}', materials.length);
 
+// Each index also says what it models, for the workspace's first step (D107): the member (a tie, a beam, a panel), the
+// geometry left free, the constraint in one sentence, and whether its strength is a proxy. The free-geometry forms hold
+// only where that geometry is free; a part whose dimensions are fixed compares properties instead.
+const MEMBER = {
+  tie: { free: 'Cross-section area free; length fixed', load: 'carries axial tension' },
+  beam: { free: 'Cross-section area free, its proportions fixed; length fixed', load: 'is loaded in bending' },
+  panel: { free: 'Thickness free; length and width fixed', load: 'is a flat slab loaded in bending' },
+};
+const geometry = (member, constraint, objective) => ({
+  member, constraint, objective, free: MEMBER[member].free,
+  sentence: `A ${member} that ${MEMBER[member].load}, ${constraint === 'stiffness' ? 'its stiffness prescribed' : 'its strength prescribed'}, at the ${objective === 'cost' ? 'lowest material cost' : 'lowest mass'}.`,
+});
+
 export const INDICES = [
   {
     id: 'tie-stiffness',
@@ -46,6 +59,7 @@ export const INDICES = [
     formula: 'E / rho', numerator: 'tensileModulusXY', exponent: 1, costForm: false, slope: 1,
     note: 'Specific stiffness. A tie carries axial tension; the section area is free.',
     caveats: [ANISOTROPY_CAVEAT],
+    geometry: geometry('tie', 'stiffness', 'mass'),
   },
   {
     id: 'beam-stiffness',
@@ -53,6 +67,7 @@ export const INDICES = [
     formula: 'E^(1/2) / rho', numerator: 'tensileModulusXY', exponent: 0.5, costForm: false, slope: 2,
     note: 'Holds for any cross-section shape so long as the shape is held constant.',
     caveats: [ANISOTROPY_CAVEAT],
+    geometry: geometry('beam', 'stiffness', 'mass'),
   },
   {
     id: 'panel-stiffness',
@@ -60,6 +75,7 @@ export const INDICES = [
     formula: 'E^(1/3) / rho', numerator: 'tensileModulusXY', exponent: 1 / 3, costForm: false, slope: 3,
     note: 'A flat slab of specified length and width, loaded in bending, thickness free.',
     caveats: [ANISOTROPY_CAVEAT],
+    geometry: geometry('panel', 'stiffness', 'mass'),
   },
   {
     id: 'tie-strength',
@@ -67,18 +83,21 @@ export const INDICES = [
     formula: 'sigma / rho', numerator: 'tensileStrengthXY', exponent: 1, costForm: false, slope: 1,
     note: 'Specific strength.',
     caveats: [STRENGTH_CAVEAT, ANISOTROPY_CAVEAT],
+    geometry: geometry('tie', 'strength', 'mass'), strengthProxy: true,
   },
   {
     id: 'beam-strength',
     designCase: 'Beam, minimum mass, strength prescribed',
     formula: 'sigma^(2/3) / rho', numerator: 'tensileStrengthXY', exponent: 2 / 3, costForm: false, slope: 1.5,
     caveats: [STRENGTH_CAVEAT, ANISOTROPY_CAVEAT],
+    geometry: geometry('beam', 'strength', 'mass'), strengthProxy: true,
   },
   {
     id: 'panel-strength',
     designCase: 'Panel, minimum mass, strength prescribed',
     formula: 'sigma^(1/2) / rho', numerator: 'tensileStrengthXY', exponent: 0.5, costForm: false, slope: 2,
     caveats: [STRENGTH_CAVEAT, ANISOTROPY_CAVEAT],
+    geometry: geometry('panel', 'strength', 'mass'), strengthProxy: true,
   },
   {
     id: 'beam-stiffness-cost',
@@ -86,19 +105,44 @@ export const INDICES = [
     formula: 'E^(1/2) / (Cm x rho)', numerator: 'tensileModulusXY', exponent: 0.5, costForm: true, slope: 2,
     note: 'Material cost only. Shaping, joining and finishing are not included.',
     caveats: [ANISOTROPY_CAVEAT, PRICE_CAVEAT],
+    geometry: geometry('beam', 'stiffness', 'cost'),
   },
   {
     id: 'tie-strength-cost',
     designCase: 'Tie, minimum material cost, strength prescribed',
     formula: 'sigma / (Cm x rho)', numerator: 'tensileStrengthXY', exponent: 1, costForm: true, slope: 1,
     caveats: [STRENGTH_CAVEAT, ANISOTROPY_CAVEAT, PRICE_CAVEAT],
+    geometry: geometry('tie', 'strength', 'cost'), strengthProxy: true,
   },
 ];
+
+/**
+ * The derived horizontal axis of a cost index (D107): a product's material cost per unit volume, its own price per kilogram
+ * times its own density. Both inputs are the one product's, in the state it is judged in; a twin's price is never read
+ * (D89), and a product without a price has no value here, which is listed, never drawn as zero.
+ */
+export const COST_AXIS = 'materialCostPerVolume';
+
+/** The axes an index's line is drawn on: its property up, and density (or material cost per volume) across. */
+export const indexAxes = (index) => ({ x: index.costForm ? COST_AXIS : 'density', y: index.numerator });
+
+/**
+ * How an index's line sits on two axes: 'direct' with its property up and its denominator across, 'swapped' with the two
+ * exchanged, or null where these axes cannot show it. On swapped axes the line is the same set of products: the
+ * denominator D = P^n / M, of slope n on log-log axes, and the better side is below it rather than above.
+ */
+export function indexOrientation(index, xKey, yKey) {
+  if (!index) return null;
+  const a = indexAxes(index);
+  if (xKey === a.x && yKey === a.y) return 'direct';
+  if (xKey === a.y && yKey === a.x) return 'swapped';
+  return null;
+}
 
 export const indexById = (id) => INDICES.find((i) => i.id === id) ?? null;
 
 
-/** Compute M for one material. Returns null when any needed headline is missing. */
+/** Compute M for one material, or one product's view of it. Returns null when any needed headline is missing. */
 export function indexValue(material, index) {
   const p = material.headline?.[index.numerator];
   const rho = material.headline?.density;
@@ -115,11 +159,12 @@ export function indexValue(material, index) {
 
 /**
  * The selection line for a given M, as two points in data space, ready for a log-log plot.
- * Solving M = P^n / rho for P gives  P = (M x rho)^(1/n).
+ * Solving M = P^n / rho for P gives  P = (M x rho)^(1/n). On swapped axes (P across, rho up) the same line is
+ * rho = P^n / M, and `range` is then a range of P.
  */
-export function selectionLine(index, M, rhoRange) {
-  const at = (rho) => Math.pow(M * rho, 1 / index.exponent);
-  const [lo, hi] = rhoRange;
+export function selectionLine(index, M, range, orientation = 'direct') {
+  const at = orientation === 'swapped' ? (p) => Math.pow(p, index.exponent) / M : (rho) => Math.pow(M * rho, 1 / index.exponent);
+  const [lo, hi] = range;
   return [{ x: lo, y: at(lo) }, { x: hi, y: at(hi) }];
 }
 
@@ -146,13 +191,15 @@ export function rankByIndex(materials, index) {
  * (their `products[]` verdicts and states); a material without products ranks on its own headline, as rankByIndex does.
  * `viewOf(material, grade, stateId)` gives the product in that state.
  */
-export function rankMaterials(evaluations, materials, productsByMaterial, index, viewOf) {
+export function rankMaterials(evaluations, materials, productsByMaterial, index, viewOf, retained = null) {
   const byId = new Map(materials.map((m) => [m.id, m]));
   const out = [];
   for (const e of evaluations) {
     const material = byId.get(e.materialId);
     if (!material) continue;
-    const passing = new Map((e.products ?? []).filter((p) => p.verdict === 'PASS').map((p) => [p.gradeId, p.state?.id ?? null]));
+    // With an objective stage applied (D107), only the product states it kept rank; the requirements' verdicts stand.
+    const passing = new Map((e.products ?? []).filter((p) => p.verdict === 'PASS' && (!retained || retained.has(productStateKey(p.gradeId, p.state?.id ?? null))))
+      .map((p) => [p.gradeId, p.state?.id ?? null]));
     const products = (productsByMaterial.get(material.id) ?? []).filter((g) => passing.has(g.id));
     const values = products.length
       ? products.map((g) => ({ gradeId: g.id, stateId: passing.get(g.id), value: indexValue(viewOf(material, g, passing.get(g.id)), index) })).filter((x) => x.value !== null)
@@ -171,12 +218,15 @@ export function rankMaterials(evaluations, materials, productsByMaterial, index,
  * products' own index, in the states they pass in; one whose passing products do not publish what the index needs is
  * unranked, and says why. Material medians, which describe different products, never rank anything.
  */
-export function rankingFor(rows, ctx, index, viewOf = (m, g, stateId) => productView(m, g, ctx, stateOf(g, stateId))) {
+export function rankingFor(rows, ctx, index, viewOf = (m, g, stateId) => productView(m, g, ctx, stateOf(g, stateId)), { retained = null } = {}) {
   if (!index || !ctx?.productsByMaterial) return null;
-  const order = rankMaterials(rows.map((r) => r.evaluation), rows.map((r) => r.material), ctx.productsByMaterial, index, viewOf);
+  const order = rankMaterials(rows.map((r) => r.evaluation), rows.map((r) => r.material), ctx.productsByMaterial, index, viewOf, retained);
   const byMaterial = new Map(order.map((r, i) => [r.materialId, { ...r, place: i + 1 }]));
   const needs = [index.numerator, 'density', ...(index.costForm ? ['priceCADkg'] : [])];
   const unranked = rows.filter((r) => r.evaluation?.verdict === 'PASS' && !byMaterial.has(r.material.id))
     .map((r) => ({ materialId: r.material.id, reason: `No product that passes publishes ${needs.join(', ')} in the state it passes in` }));
-  return { index, order: [...byMaterial.values()], byMaterial, unranked };
+  return { index, order: [...byMaterial.values()], byMaterial, unranked, retained: !!retained };
 }
+
+/** A product in a state, as an objective stage keeps it and a ranking looks it up. */
+export const productStateKey = (gradeId, stateId) => `${gradeId}|${stateId ?? ''}`;

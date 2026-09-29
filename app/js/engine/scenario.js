@@ -10,7 +10,17 @@ import { normalizePolicy } from './constraints.js';
 import { INDICES } from './indices.js';
 import { normalizeEvidence } from './products.js';
 
-export const SCENARIO_VERSION = 1;
+// Version 2 (D107) adds the decision workspace: one goal where there were two (the table's rankBy and the chart's
+// plot.index), the chart's view and context layers, and the objective stages a reader applied. A version 1 scenario is
+// read without losing its question, and says what changed (migrateV1).
+export const SCENARIO_VERSION = 2;
+/** The Ashby lens's views: the decision products and the material overview, then the catalogue and evidence views. */
+export const WORKSPACE_VIEWS = ['decision', 'overview', 'catalogue', 'measured', 'measured-mixed'];
+/** How many objective stages a scenario holds. */
+export const STAGES_MAX = 3;
+const LAYERS = ['failed', 'unresolved', 'setAside', 'front'];
+const POPULATIONS = new Set(['confirmed', 'judged']);
+const FOCUS_MAX = 60;
 
 export function newScenario(meta) {
   return {
@@ -26,14 +36,21 @@ export function newScenario(meta) {
     preferences: [],
     assumptions: [],
     shortlist: [],
-    plot: { x: 'density', y: 'tensileModulusXY', xLog: false, yLog: false, index: null, showReference: false, comparability: 'strict', pointLevel: 'headline' },
+    // The chart (D107): the view, its axes and scales, the goal's line position (indexM), which context layers are drawn,
+    // and a deliberate focus. Display only: nothing here changes an answer, a count of candidates or a rank.
+    plot: { x: 'density', y: 'tensileModulusXY', xLog: false, yLog: false, view: 'decision', showReference: false, showEstimates: false,
+      layers: { failed: false, unresolved: false, setAside: false, front: false }, population: 'confirmed', indexM: null, focus: [] },
+    // Objective stages (D107): each keeps the confirmed product states whose index is at or above a cutoff. An objective
+    // of its own, reversible and saved; the requirements' verdicts are untouched.
+    stages: [],
     lens: 'table',
     openMaterial: null,
     useEstimates: true,
     columnSet: 'properties',
     baseline: null,
     template: null,
-    // The goal the survivors are ranked by: a performance index, computed product by product (D83), or none.
+    // The goal the survivors are ranked by: a performance index, computed product by product (D83), or none. Since D107 it
+    // is also the chart's goal: its line, its axes and its result list.
     rankBy: null,
     // Which values decide: comparable only, or also those published without their direction or load (D84).
     evidence: 'comparable',
@@ -88,11 +105,12 @@ const FACETS = new Set(['reinforcement', 'esd', 'flexible', 'supportMaterial', '
 
 export function validateScenario(raw, meta, { materialIds = null, headlineKeys = null, gradeIds = null } = {}) {
   if (!isObject(raw)) throw new Error('The file does not contain a scenario object.');
-  if (raw.version !== undefined && raw.version !== SCENARIO_VERSION) {
+  if (raw.version !== undefined && raw.version !== 1 && raw.version !== SCENARIO_VERSION) {
     throw new Error(`Scenario version ${raw.version} cannot be read by this build.`);
   }
   const warnings = [];
   const base = newScenario(meta);
+  const legacy = raw.version === 1 || raw.version === undefined;
   const out = { ...base, ...raw, version: SCENARIO_VERSION };
 
   if (raw.constraints !== undefined && !Array.isArray(raw.constraints)) throw new Error('"constraints" must be a list.');
@@ -163,11 +181,27 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
 
   out.plot = { ...base.plot, ...(isObject(raw.plot) ? raw.plot : {}) };
   if (out.plot.parallelAxes !== undefined && !Array.isArray(out.plot.parallelAxes)) delete out.plot.parallelAxes;
+  out.plot.layers = Object.fromEntries(LAYERS.map((k) => [k, isObject(out.plot.layers) && out.plot.layers[k] === true]));
+  out.plot.population = POPULATIONS.has(out.plot.population) ? out.plot.population : 'confirmed';
+  out.plot.showEstimates = out.plot.showEstimates === true;
+  out.plot.showReference = out.plot.showReference === true;
+  out.plot.indexM = typeof out.plot.indexM === 'number' && Number.isFinite(out.plot.indexM) && out.plot.indexM > 0 ? out.plot.indexM : null;
+  out.plot.focus = (Array.isArray(out.plot.focus) ? out.plot.focus : []).filter((id) => typeof id === 'string' && (!materialIds || materialIds.has(id))).slice(0, FOCUS_MAX);
   out.lens = LENSES.has(raw.lens) ? raw.lens : 'table';
   out.columnSet = COLUMN_SETS.has(raw.columnSet) ? raw.columnSet : 'properties';
   out.useEstimates = raw.useEstimates !== false;
   out.template = typeof raw.template === 'string' ? raw.template : null;
   out.rankBy = INDICES.some((i) => i.id === raw.rankBy) ? raw.rankBy : null;
+  if (legacy) warnings.push(...migrateV1(raw, out));
+  else out.plot.view = WORKSPACE_VIEWS.includes(out.plot.view) ? out.plot.view : 'decision';
+  delete out.plot.index;
+  delete out.plot.indexSlider;
+  // A stage names an index and a cutoff it keeps at or above; one this build cannot read is left out, and said.
+  if (raw.stages !== undefined && !Array.isArray(raw.stages)) throw new Error('"stages" must be a list.');
+  const stages = (legacy ? [] : raw.stages ?? []).filter(isObject);
+  out.stages = stages.filter((st) => INDICES.some((i) => i.id === st.index) && typeof st.cutoff === 'number' && Number.isFinite(st.cutoff) && st.cutoff > 0)
+    .slice(0, STAGES_MAX).map((st) => ({ index: st.index, cutoff: st.cutoff }));
+  if (out.stages.length < stages.length) warnings.push(`${stages.length - out.stages.length} objective stage(s) could not be read and were left out; the product states they kept are shown again.`);
   out.evidence = normalizeEvidence(raw.evidence);
   out.anneal = raw.anneal === true;
   out.annealMaxC = out.anneal && typeof raw.annealMaxC === 'number' && Number.isFinite(raw.annealMaxC) && raw.annealMaxC > 0 ? raw.annealMaxC : null;
@@ -189,6 +223,37 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
   out.release = base.release ?? (typeof raw.release === 'string' ? raw.release : null);
   out.dbSnapshot = base.dbSnapshot ?? raw.dbSnapshot ?? null;
   return { scenario: out, warnings };
+}
+
+/**
+ * Read a version 1 scenario into version 2 (D107), keeping its question: requirements, assumptions, service state,
+ * annealing, shortlist, chosen products and release are carried as they were. What changes is said:
+ *
+ * - One goal. Version 1 had two: the table's rankBy and the chart's guide line (plot.index). The table's wins, since it
+ *   ordered the answers and the export; a guide line alone becomes the goal. Where they differed, the reader is told.
+ * - The chart's view. A version 1 chart drew published values, state-independent, as its catalogue or evidence views
+ *   still do. A scenario that was on the chart, or had chosen what its points show, opens in that view, marked as such,
+ *   with the decision workspace one press away; it is never silently turned into an exact-state decision picture. One
+ *   that never used the chart opens in the decision workspace, having nothing to preserve.
+ */
+function migrateV1(raw, out) {
+  const notes = [];
+  const plot = isObject(raw.plot) ? raw.plot : {};
+  const guide = INDICES.some((i) => i.id === plot.index) ? plot.index : null;
+  if (!out.rankBy && guide) out.rankBy = guide;
+  else if (out.rankBy && guide && guide !== out.rankBy) {
+    const name = (id) => INDICES.find((i) => i.id === id)?.designCase ?? id;
+    notes.push(`This selection ranked by "${name(out.rankBy)}" and drew the chart's guide line for "${name(guide)}". The workspace now has one goal for the table, the chart and the export: "${name(out.rankBy)}", the ranking the table and export used.`);
+  }
+  if (out.plot.indexM !== null && guide !== out.rankBy) out.plot.indexM = null;
+  const level = plot.detail ?? (plot.pointLevel === 'measurements' ? (plot.comparability === 'broad' ? 'measured-mixed' : 'measured') : null);
+  const used = raw.lens === 'ashby' || level !== null || !!guide;
+  const legacyView = { material: 'catalogue', products: 'catalogue', measured: 'measured', 'measured-mixed': 'measured-mixed' }[level ?? 'material'];
+  out.plot.view = used ? legacyView : 'decision';
+  if (used) {
+    notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the ${legacyView === 'catalogue' ? 'catalogue view' : 'evidence view'} it was saved with. Choose "Decision products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);
+  }
+  return notes;
 }
 
 /**
@@ -227,6 +292,8 @@ export function deserialize(text, meta, options) {
 /** URL hash serialization, for sharing a filter state. */
 export function toHash(scenario) {
   const compact = {
+    // The scenario version (D107): a link without it is version 1, and is migrated as a saved file is.
+    x: SCENARIO_VERSION,
     c: scenario.constraints, u: scenario.unknownPolicy, s: scenario.shortlist,
     p: scenario.plot, t: scenario.template, l: scenario.lens, m: scenario.openMaterial ?? null, e: scenario.useEstimates !== false, k: scenario.columnSet ?? 'properties', b: scenario.baseline ?? null,
     // The assumptions and the snapshot are part of the question. A link without them reproduced a
@@ -243,6 +310,8 @@ export function toHash(scenario) {
     w: scenario.moisture === 'conditioned' ? 'conditioned' : undefined,
     // The chosen products, without their notes and tests, which travel in the saved file (D103).
     h: scenario.decisions?.length ? scenario.decisions.map((d) => [d.gradeId, d.stateId ?? null, d.release ?? null, d.chosenOn ?? null]) : undefined,
+    // The objective stages applied (D107): index and cutoff each.
+    g: scenario.stages?.length ? scenario.stages.map((st) => [st.index, st.cutoff]) : undefined,
   };
   return encodeURIComponent(JSON.stringify(compact));
 }
@@ -257,11 +326,12 @@ export function fromHash(hash, meta, options) {
   try { c = JSON.parse(decodeURIComponent(hash)); } catch { throw new Error('The link is damaged or incomplete.'); }
   if (!isObject(c)) throw new Error('The link does not describe a selection.');
   return validateScenario({
-    version: SCENARIO_VERSION, constraints: c.c, unknownPolicy: c.u, shortlist: c.s, plot: c.p,
+    version: c.x === SCENARIO_VERSION ? SCENARIO_VERSION : 1, constraints: c.c, unknownPolicy: c.u, shortlist: c.s, plot: c.p,
     template: c.t, lens: c.l, openMaterial: c.m, useEstimates: c.e, columnSet: c.k, baseline: c.b,
     assumptions: c.a, dbSnapshot: c.d, release: c.i, rankBy: c.r, evidence: c.v,
     anneal: c.n === true || typeof c.n === 'number', annealMaxC: typeof c.n === 'number' ? c.n : null, moisture: c.w,
     decisions: Array.isArray(c.h) ? c.h.filter(Array.isArray).map(([gradeId, stateId, release, chosenOn]) => ({ gradeId, stateId, release, chosenOn })) : undefined,
+    stages: Array.isArray(c.g) ? c.g.filter(Array.isArray).map(([index, cutoff]) => ({ index, cutoff })) : undefined,
   }, meta, options);
 }
 

@@ -19,8 +19,10 @@
 //        [--out DIR]      where results.json and violations.jsonl go (default: this directory)
 //
 // Invariants (see NOTES.md): I1 table rows and verdicts, I2 count and chips, I3 Strict ignores the estimates
-// switch, I4 Ashby points/envelopes/front/legend, I5 display rounding against thresholds, I6 exceptions, bad tokens
-// and empty reasons, I7 link round trip, I8 monotonicity across policies and when a mandatory requirement is added.
+// switch, I4 Ashby points/envelopes/front/legend (the catalogue view), I5 display rounding against thresholds, I6
+// exceptions, bad tokens and empty reasons, I7 link round trip, I8 monotonicity across policies and when a mandatory
+// requirement is added, I9 the filter rail, I10 the Ashby decision view (D107): its marks are exactly the passing products in the states their
+// answers are in, at those states' values, and its counts name product states and materials apart.
 
 import { findChrome, launchChrome, skipWithoutChrome } from './lib/cdp.mjs';
 import { pageName } from '../build/src/release.js';
@@ -50,7 +52,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const { runSelection, compareInterval, STATUS, UNKNOWN_POLICY } = await import(pathToFileURL(join(root, 'app/js/engine/constraints.js')).href);
 const { matchesQuery } = await import(pathToFileURL(join(root, 'app/js/engine/search.js')).href);
-const { productsByMaterial } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
+const { productsByMaterial, productView, stateOf } = await import(pathToFileURL(join(root, 'app/js/engine/products.js')).href);
 const { applyAssumptions, toHash, validateScenario } = await import(pathToFileURL(join(root, 'app/js/engine/scenario.js')).href);
 const { TEMPLATES } = await import(pathToFileURL(join(root, 'app/js/ui/templates.js')).href);
 
@@ -65,6 +67,7 @@ const candidates = db.materials.filter((m) => !m.familyEntry);
 const KEYS = db.registry.headlines.map((h) => h.key);
 const BETTER = Object.fromEntries(db.registry.headlines.map((h) => [h.key, h.better]));
 const group = (rows, key) => { const m = new Map(); for (const r of rows) { if (!m.has(r[key])) m.set(r[key], []); m.get(r[key]).push(r); } return m; };
+const gradeById = new Map(db.grades.map((g) => [g.id, g]));
 const baseCtx = { db, productsByMaterial: productsOf, measurementsByMaterial: group(db.measurements, 'materialId'), evidenceByMaterial: group(db.evidence, 'materialId'), polymerEvidenceByMaterial: group(db.polymerEvidence ?? [], 'materialId'), coverageByMaterial: group(db.coverage, 'materialId') };
 
 // ------------------------------------------------------------------ seeded generator
@@ -169,7 +172,8 @@ function genScenario(i, prior) {
     if (chance(0.1)) s.assumptions = Array.from({ length: 1 + Math.floor(rnd() * 2) }, () => { const k = pick(KEYS); const a = { materialId: chance(0.15) ? '*' : pick(candidates).id, property: k, value: threshold(k) }; if (!chance(0.2)) a.unit = db.registry.headlines.find((h) => h.key === k).unit; return a; });
     if (chance(0.15)) s.search = pick(SEARCHES);
     const x = pick(KEYS); let y = pick(KEYS); if (y === x) y = KEYS[(KEYS.indexOf(x) + 1) % KEYS.length];
-    s.plot = { x, y, xLog: chance(0.3), yLog: chance(0.3), index: null, showReference: false, comparability: 'strict', pointLevel: 'headline', showEstimates: chance(0.6) };
+    // The catalogue view keeps I4's material oracle; the decision view is I10's (D107).
+    s.plot = { x, y, xLog: chance(0.3), yLog: chance(0.3), showReference: false, showEstimates: chance(0.6), view: chance(0.35) ? 'decision' : 'catalogue' };
   }
   s.columnSet = s.parent === null ? (chance(0.15) ? 'printing' : 'properties') : prior[s.parent].columnSet;
   // The states a product may be judged in (D99): annealing permitted, sometimes up to an oven temperature, and the
@@ -241,7 +245,11 @@ function oracle(s, setting, { screened = false, fail = false } = {}) {
   return { sel, rows, excluded, families, count: count.replace(/\s+/g, ' ').trim(), chips, tested, ctx, materials };
 }
 function plotOracle(o, plot) {
-  const span = (h) => { if (h?.known) return { lo: h.value, hi: h.value, measured: true }; const e = h?.estimate; return e && e.lo !== null && e.hi !== null ? { lo: e.lo, hi: e.hi, measured: false } : null; };
+  // A measured side beside an estimate spans its products (A06); a point's own value is its headline.
+  const span = (h) => {
+    if (h?.known) { const sp = h.spread; return !h.assumption && sp && Number.isFinite(sp.min) && Number.isFinite(sp.max) && sp.min !== sp.max ? { lo: sp.min, hi: sp.max, measured: true } : { lo: h.value, hi: h.value, measured: true }; }
+    const e = h?.estimate; return e && e.lo !== null && e.hi !== null ? { lo: e.lo, hi: e.hi, measured: false } : null;
+  };
   const pts = [], est = [];
   let offLog = 0;
   for (const { material: m, evaluation: ev } of o.rows) {
@@ -260,6 +268,29 @@ function plotOracle(o, plot) {
   const el = pts.filter((p) => p.eligible && !p.assumed);
   const front = el.filter((p) => !el.some((q) => q !== p && !better(p.x, q.x, BETTER[plot.x]) && !better(p.y, q.y, BETTER[plot.y]) && (better(q.x, p.x, BETTER[plot.x]) || better(q.y, p.y, BETTER[plot.y]))));
   return { pts, est, envs: plot.showEstimates ? est : [], front, offLog, missing: o.rows.length - pts.length - offLog - est.length };
+}
+
+/**
+ * The decision view's marks (D107): each passing product of the rows on screen, in the state its answer is in, with both
+ * values in that state (a registry-invariant value read from its first state), positive on a Log axis.
+ */
+function decisionOracle(o, plot) {
+  const pairs = [];
+  for (const { material: m, evaluation: ev } of o.rows) {
+    for (const p of ev.products ?? []) {
+      if (p.verdict !== 'PASS') continue;
+      const g = gradeById.get(p.gradeId);
+      const st = stateOf(g, p.state?.id ?? null);
+      const v = productView(m, g, o.ctx, st);
+      const hx = v.headline[plot.x], hy = v.headline[plot.y];
+      if (!hx?.known || !hy?.known) continue;
+      if ((plot.xLog && !(hx.value > 0)) || (plot.yLog && !(hy.value > 0))) continue;
+      pairs.push({ key: `${m.id}|${g.id}|${st.id}`, materialId: m.id, x: hx.value, y: hy.value });
+    }
+  }
+  // Harness self-test: FZ_MUTATE=pair drops a mark from the oracle, so I10 must fire. Never set in a real run.
+  if (process.env.FZ_MUTATE === 'pair' && pairs.length) pairs.pop();
+  return pairs;
 }
 
 // ------------------------------------------------------------------ violations
@@ -404,6 +435,25 @@ function compareReading(s, key, r, o) {
     const expEx = o.excluded.map((x) => x.material.id).sort(), gotEx = r.excluded.map((x) => x[0]).sort();
     if (!same(expEx, gotEx)) violate('I1-excluded', 'search-excluded set differs', s, key, { onlyPage: gotEx.filter((x) => !expEx.includes(x)), onlyNode: expEx.filter((x) => !gotEx.includes(x)) });
     for (const [id, , why] of r.excluded) { check('I6-empty-reason'); if (!why || BAD.test(why)) violate('I6-empty-reason', why ? 'bad token in exclusion reason' : 'empty exclusion reason', s, key, { id, why }); }
+  } else if (s.plot.view === 'decision') {
+    const expect = decisionOracle(o, s.plot);
+    check('I10-pairs');
+    const got = [...r.pairs].sort((a, b) => (a[0] < b[0] ? -1 : 1)), want = [...expect].sort((a, b) => (a.key < b.key ? -1 : 1));
+    if (!same(got.map((q) => q[0]), want.map((q) => q.key))) violate('I10-pairs', 'decision marks differ from the passing products in their judged states', s, key, { onlyPage: got.map((q) => q[0]).filter((x) => !want.some((q) => q.key === x)).slice(0, 5), onlyNode: want.map((q) => q.key).filter((x) => !got.some((q) => q[0] === x)).slice(0, 5) });
+    else {
+      check('I10-coords');
+      const bad = got.find((q, j) => !near(q[1], want[j].x) || !near(q[2], want[j].y));
+      if (bad) violate('I10-coords', 'a decision mark is not at its judged state\'s values', s, key, { key: bad[0], page: [bad[1], bad[2]] });
+      check('I10-verdict');
+      const context = got.find((q) => q[3] !== 'PASS');
+      if (context) violate('I10-verdict', 'a context mark drawn with every layer off', s, key, { key: context[0], verdict: context[3] });
+    }
+    check('I10-count');
+    const n = want.length, k = new Set(want.map((q) => q.materialId)).size;
+    const said = /(\d+) product states? across (\d+) materials? drawn/.exec(r.wsReading ?? '');
+    if (!said || Number(said[1]) !== n || Number(said[2]) !== k) violate('I10-count', 'the decision count differs, or does not name product states and materials apart', s, key, { page: said?.slice(1), node: [n, k], reading: (r.wsReading ?? '').slice(0, 160) });
+    check('I10-mislabel');
+    if (/\d+ of \d+ candidates plotted/.test(r.wsReading ?? '')) violate('I10-mislabel', 'a product count read against a material count', s, key, { reading: (r.wsReading ?? '').slice(0, 160) });
   } else {
     const p = plotOracle(o, s.plot);
     check('I4-points');
@@ -500,9 +550,12 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
         if (t.legendgroup === 'pareto') out.front = t.x.map((x, i) => [x, t.y[i]]);
         else if (typeof t.hovertemplate === 'string' && t.hovertemplate.includes('Estimated material range')) out.envs.push([t.customdata[0][0], t.x, t.y]);
         else if (Array.isArray(t.customdata) && t.customdata[0]?.length === 8) t.customdata.forEach((cd, i) => out.points.push([cd[0], t.x[i], t.y[i], cd[2], cd[7]]));
+        else if (Array.isArray(t.customdata) && t.customdata[0]?.length === 9) t.customdata.forEach((cd, i) => (out.pairs ??= []).push([cd[8], t.x[i], t.y[i], cd[2], cd[0]]));
         badSrc += ' ' + (t.name ?? '') + ' ' + (Array.isArray(t.text) ? t.text.join(' ') : '') + ' ' + (t.hovertemplate ?? '');
       }
       out.legend = txt(lens.querySelector('.legend-note'));
+      out.pairs ??= [];
+      out.wsReading = txt(lens.querySelector('.ws-reading'));
       out.axisX = document.querySelector('#ashby-x option:checked')?.textContent.trim();
       out.axisY = document.querySelector('#ashby-y option:checked')?.textContent.trim();
       out.estLabel = txt(lens.querySelector('[data-show-estimates]')?.closest('label'));
@@ -622,7 +675,7 @@ async function openTab(k) {
   t.file = join(tmpRoot, `tab${k}.json`);
   t.importScenario = async (s, setting, lens) => {
     const { u, e } = SETTINGS[setting];
-    writeFileSync(t.file, JSON.stringify({ version: 1, constraints: s.constraints, unknownPolicy: u, useEstimates: e, assumptions: s.assumptions, plot: s.plot, lens, template: s.template ?? null, shortlist: [], columnSet: s.columnSet, anneal: !!s.anneal, annealMaxC: s.annealMaxC ?? null, moisture: s.moisture ?? 'dry' }));
+    writeFileSync(t.file, JSON.stringify({ version: 2, constraints: s.constraints, unknownPolicy: u, useEstimates: e, assumptions: s.assumptions, plot: s.plot, lens, template: s.template ?? null, shortlist: [], columnSet: s.columnSet, anneal: !!s.anneal, annealMaxC: s.annealMaxC ?? null, moisture: s.moisture ?? 'dry' }));
     let timer;
     const opened = new Promise((r, j) => { t.chooser = r; timer = setTimeout(() => j(new Error('no file chooser')), 5000); });
     opened.catch(() => {});   // a failed click must not leave an unhandled rejection behind (it killed a 3000-scenario run)

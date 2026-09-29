@@ -7,6 +7,7 @@ import { AXIS_DEFS } from './axes.js';
 import { renderValue, esc, fmtNumber, estimateDisplay, chip, wireEvidence, explainButton, missingText, missingLabel, scrollTable, markTableOverflow } from './format.js';
 import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel } from './labels.js';
 import { productGates } from '../engine/products.js';
+import { indexById, rankingFor } from '../engine/indices.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
 /** A track is drawn on a log scale when its candidates' largest value is more than this many times their smallest. */
@@ -213,11 +214,23 @@ export function renderCompare(host, state, actions) {
         product in its Products tab before you buy or print.</div>
     </div>`;
 
+  // The goal's rank of each shortlisted material (D102, D107): the one ranking the table, the chart and the export read, over
+  // the product states an objective stage kept; a material the question does not show is said to be outside it.
+  const goal = scenario.rankBy ? indexById(scenario.rankBy) : null;
+  const ranking = goal ? rankingFor(state.rows, state.ctx, goal, undefined, { retained: state.stage?.retained ?? null }) : null;
+  const onScreen = new Set(state.rows.map((r) => r.material.id));
+  const rankTag = (m) => {
+    if (!ranking) return '';
+    const r = ranking.byMaterial.get(m.id);
+    if (r) return ` <span class="fine" title="${esc(`${goal.designCase}: median of ${r.products} product${r.products === 1 ? '' : 's'}`)}">#${r.place}</span>`;
+    return ` <span class="fine">${onScreen.has(m.id) ? 'not ranked' : state.stage ? 'set aside by the stage' : 'not in the results'}</span>`;
+  };
+
   host.innerHTML = `
     ${context}
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
       <span class="fine">Shortlisted ${pinned.length}, with each one's result against the requirements above:</span>
-      ${pinned.map((m) => `<span class="pin">${esc(m.name)} ${resultChip(m)}</span>`).join('')}
+      ${pinned.map((m) => `<span class="pin">${esc(m.name)} ${resultChip(m)}${rankTag(m)}</span>`).join('')}
       ${anchor ? `<span class="pin anchor">${esc(anchor.name)} · baseline</span>` : ''}
       <label class="baseline-pick" title="Adds a familiar material as a reference bar.">
         Compare against

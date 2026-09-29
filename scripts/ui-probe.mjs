@@ -430,6 +430,58 @@ try {
     await sleep(200);
     const firstView = await evaluate(`(() => { const body = document.querySelector('.drawer-body'); const b = body?.querySelector('.pass-block .grade-block'); if (!b) return 'no passing product block'; const bottom = body.getBoundingClientRect().bottom; const card = b.querySelector('.print-card'); return b.getBoundingClientRect().top < bottom && (!card || card.getBoundingClientRect().top < bottom) ? 'ok' : 'below the first view'; })()`);
     if (firstView !== 'ok') layoutProblems.push(`1024x768-warm-products: the first passing product and its recipe are ${firstView}`);
+
+    // The Ashby decision workspace (D107; 02-MAKEOVER-SPEC): the review's H2C beam, its goal chosen. At 1440 x 900, with
+    // the filters hidden (a reader's Hide), the plot has at least 700 x 450 px of plotting area; at 1024 x 768, with the
+    // results under it, at least 520 x 360. The line and its count sit above the chart, and the whole exercise, from the
+    // line to an exact product in the inspector, is done from the keyboard.
+    const beam = { x: 2, c: [{ kind: 'gate', gate: 'scope' }, ...['nozzle', 'bed', 'chamber'].map((gate) => ({ kind: 'gate', gate })),
+      { kind: 'numeric', property: 'tensileModulusXY', operator: '>=', value: 3, mandatory: true }, { kind: 'numeric', property: 'density', operator: '<=', value: 1250, mandatory: true }],
+    u: 'strict', s: [], r: 'beam-stiffness', p: { x: 'density', y: 'tensileModulusXY', xLog: true, yLog: true, view: 'decision' }, l: 'ashby', e: false };
+    // A query makes it a new document, so the rail's hidden state set just before is read at start, as on a reload.
+    const beamUrl = `${pageUrl}?workspace=1#${encodeURIComponent(JSON.stringify(beam))}`;
+    const plotArea = () => evaluate(`(() => { const a = document.querySelector('#plot .nsewdrag')?.getBoundingClientRect(), l = document.querySelector('.ws-line')?.getBoundingClientRect();
+      return a ? { w: Math.round(a.width), h: Math.round(a.height), top: Math.round(a.top), line: l ? Math.round(l.bottom) : null } : null; })()`);
+    for (const [width, height, rail, minW, minH] of [[1440, 900, 'hidden', 700, 450], [1024, 768, null, 520, 360]]) {
+      await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
+      await open(pageUrl);
+      await evaluate(`(() => { try { ${rail ? `localStorage.setItem('h2c-rail', '${rail}')` : "localStorage.removeItem('h2c-rail')"}; } catch {} return true; })()`);
+      await open(beamUrl);
+      await when('#plot .main-svg', 400);
+      const a = await plotArea();
+      const where = `${width}x${height}-ashby-decision`;
+      if (!a) layoutProblems.push(`${where}: no plot`);
+      else {
+        if (a.w < minW || a.h < minH) layoutProblems.push(`${where}: the plotting area is ${a.w} x ${a.h} px; at least ${minW} x ${minH}`);
+        if (a.line === null || a.line > a.top) layoutProblems.push(`${where}: the line's control is not above the chart it moves`);
+      }
+    }
+    await evaluate(`(() => { try { localStorage.removeItem('h2c-rail'); } catch {} return true; })()`);
+    // The view as a reader sees it, and then the keyboard: a step of the line, then an exact product from the list.
+    await send('Emulation.setDeviceMetricsOverride', { width: 1180, height: 760, deviceScaleFactor: 1, mobile: false });
+    await open(beamUrl);
+    await when('#plot .main-svg', 400);
+    results['40-ashby-beam-decision'] = await view();
+    // Enter as a keyboard types it, with its character, which is what activates a focused button.
+    const key = async () => {
+      await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, text: '\r', unmodifiedText: '\r' });
+      await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+    };
+    const before = await evaluate(`document.querySelector('[data-line-m]').value`);
+    await evaluate(`document.querySelector('[data-line-step="1"]').focus(), true`);
+    await key();
+    await sleep(300);
+    const stepped = await evaluate(`document.querySelector('.ws-line-readout')?.innerText.replace(/\\s+/g, ' ').trim()`);
+    if (await evaluate(`document.querySelector('[data-line-m]').value`) === before) layoutProblems.push('ashby-keyboard: Enter on the line\'s step did not move the line');
+    if (!(await evaluate(`document.activeElement?.dataset?.lineStep === '1'`))) layoutProblems.push('ashby-keyboard: focus left the line\'s step after it moved the line');
+    // A material's list is written when it is opened.
+    await evaluate(`(async () => { const d = document.querySelector('.ws-mat-pairs'); d.open = true; await new Promise((r) => setTimeout(r, 50)); d.querySelector('[data-inspect]').focus(); return true; })()`);
+    await key();
+    await sleep(300);
+    const inspected = await evaluate(`(() => { const i = document.querySelector('.ws-inspector'); return i ? { focused: i.contains(document.activeElement) || i === document.activeElement, text: i.innerText.replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim() } : null; })()`);
+    if (!inspected) layoutProblems.push('ashby-keyboard: Enter on a product state in the list opened no inspector');
+    else if (!inspected.focused) layoutProblems.push('ashby-keyboard: the inspector opened without taking focus');
+    results['41-ashby-keyboard'] = [`LINE STEPPED ${stepped}`, 'INSPECTOR', inspected?.text ?? 'none'].join('\n');
   } finally {
     await send('Emulation.clearDeviceMetricsOverride');
     await send('Emulation.setTouchEmulationEnabled', { enabled: false });

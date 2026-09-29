@@ -1,0 +1,86 @@
+{
+  "about": "Source-grounded acceptance for the Ashby decision workspace (D107; docs/audits/2026-09-29-ashby-makeover/ACCEPTANCE.md). Each expectation was written from the named records re-read on their cached documents, which were hash-checked against the digest sources.csv records, before the test that meets it. test/workspace-acceptance.test.js runs the workspace on the compiled database and compares; it also checks that sources.csv still records the digest read here, so a changed document calls for a new reading rather than a silently stale expectation.",
+  "reviewer": "Claude Opus 5.5 (an agent), 2026-09-29, from the document cache by digest. No person has reviewed these readings; ACCEPTANCE.md lists what a reviewer should check.",
+  "sources": [
+    {
+      "sourceId": "R-FIBERON-PETGF15-TDS",
+      "sha256": "cdb81cbccd54e790038caf17353bd91172713cb7d35f7d8e16f919124923b37b",
+      "document": "Polymaker, Fiberon PET-GF15 Technical Data Sheet, V1.0",
+      "read": [
+        "Thermal properties: 'Heat deflection temp. ISO 75 0.45MPa 81.6 (as printed)'",
+        "Thermal properties: 'ISO 75 0.45MPa 133.7°C (annealed)'",
+        "Recommended printing conditions: 'Annealing temp. and time 120°C/16H'",
+        "Mechanical properties: 'Young's modulus (X-Y) 4144.2 ± 133.3 MPa', under the table's note '*All specimens were annealed at 120°C for 16h.'",
+        "Physical properties: 'Density 1.43 g/cm3 at 23°C'"
+      ]
+    },
+    {
+      "sourceId": "R-FORWARDAM-PAHT-CF15-TDS-v4-0",
+      "sha256": "29bce0add561a20979c9d5bcefc7a4811e4ff827768fc679977c93b388cac34f",
+      "document": "BASF Forward AM, Technical Data Sheet for Ultrafuse PAHT CF15, Version No. 4.0",
+      "read": [
+        "p. 4, 'Mechanical Properties | Dried Specimen': Young's Modulus, XY Flat, '8386 MPa / 1216 ksi'; Tensile strength, XY Flat, '103.2 MPa / 15.0 ksi'",
+        "p. 5, 'Mechanical Properties | Conditioned Specimen' (footnote: 'Conditioning of the specimens: Standard climate (23°C, 50% RH 72h)'): Tensile strength, XY Flat, '62.9 MPa / 9.1 ksi'"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "T04",
+      "question": "XY stiffness at least 4 GPa and heat deflection at least 80 °C, in scope and printable on the H2C, Include uncertain; first without an oven, then with annealing permitted up to 120 °C. Density across, heat deflection up.",
+      "constraints": [
+        { "kind": "gate", "gate": "scope" }, { "kind": "gate", "gate": "nozzle" }, { "kind": "gate", "gate": "bed" }, { "kind": "gate", "gate": "chamber" },
+        { "kind": "numeric", "property": "tensileModulusXY", "operator": ">=", "value": 4 },
+        { "kind": "numeric", "property": "hdt045", "operator": ">=", "value": 80 }
+      ],
+      "policy": { "unknownPolicy": "exploration" },
+      "product": "G068-02",
+      "axes": { "x": "density", "y": "hdt045" },
+      "expect": {
+        "noOven": { "verdict": "UNKNOWN", "because": "Its stiffness is printed only for bars annealed at 120 °C for 16 h, so as printed it has none." },
+        "oven": {
+          "annealMaxC": 120, "verdict": "PASS", "state": "annealed:120:16",
+          "y": { "value": 133.7, "measurement": "V001933", "fromState": "annealed:120:16" },
+          "x": { "value": 1430, "measurement": "V001925", "fromState": "as-printed", "invariant": true },
+          "never": { "value": 81.6, "measurement": "V001931", "because": "the as-printed heat deflection is another state's; drawing it beside an annealed pass was A02" }
+        }
+      }
+    },
+    {
+      "id": "T05",
+      "question": "Ultrafuse PAHT CF15 (G048-02): may its dry XY modulus and its conditioned XY strength share a strict evidence point?",
+      "product": "G048-02",
+      "pairs": [
+        { "x": "V002469", "y": "V002491", "strict": false, "conflict": "dry against conditioned", "because": "p. 4 is the dried table, p. 5 the conditioned one" },
+        { "x": "V002469", "y": "V002465", "strict": true, "because": "both from p. 4's dried table, XY flat" }
+      ]
+    },
+    {
+      "id": "A01",
+      "question": "In scope only, in the conditioned service state, ranked by beam stiffness (E^(1/2) / rho), Confirmed only.",
+      "constraints": [{ "kind": "gate", "gate": "scope" }],
+      "policy": { "unknownPolicy": "strict", "moisture": "conditioned" },
+      "rankBy": "beam-stiffness",
+      "expect": {
+        "ranked": ["M166"],
+        "because": "Of the in-scope products, six publish a conditioned state (G048-02, G069-02, G067-06, G031-23, G166-01, G157-02); only G166-01 (Onyx GF) publishes both a conditioned XY modulus (3.1 GPa) and a density, the registry's moisture-invariant value. The test re-derives this list from the products' own states, independently of the ranking. Before D107, 78 materials ranked on a dry first state.",
+        "noRankOnMissingState": true
+      }
+    },
+    {
+      "id": "T09",
+      "question": "The H2C beam of the review: scope and the three print gates, XY stiffness at least 3 GPa, density at most 1250 kg/m³, dry and as printed, Confirmed only.",
+      "constraints": [
+        { "kind": "gate", "gate": "scope" }, { "kind": "gate", "gate": "nozzle" }, { "kind": "gate", "gate": "bed" }, { "kind": "gate", "gate": "chamber" },
+        { "kind": "numeric", "property": "tensileModulusXY", "operator": ">=", "value": 3 },
+        { "kind": "numeric", "property": "density", "operator": "<=", "value": 1250 }
+      ],
+      "policy": { "unknownPolicy": "strict" },
+      "rankBy": "beam-stiffness",
+      "expect": {
+        "passMaterials": 8,
+        "because": "The eight materials the review's live trial and its pure recheck found pass; a presentation change moves no verdict. The decision set is every passing product whose own judged state publishes both values, re-derived in the test from the products' states, not from the workspace."
+      }
+    }
+  ]
+}

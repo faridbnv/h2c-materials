@@ -10,7 +10,8 @@
 import { renderValue, chip, esc, fmtNumber, fmtRange, wireEvidence, explainButton, scrollTable, markTableOverflow } from './format.js';
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
-import { INDICES, indexById, rankingFor } from '../engine/indices.js';
+import { INDICES, indexById, rankingFor, indexValue, productStateKey } from '../engine/indices.js';
+import { productView, stateOf } from '../engine/products.js';
 import { matchingProducts } from '../engine/search.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
@@ -114,9 +115,10 @@ export function sortValue(row, col, showEstimates = false) {
  */
 export function sortRows(rows, state) {
   // Ranked by a goal (D83): by the median index of each material's passing products, best first; a material with no
-  // value for the index follows, by name. A column sort chosen afterwards clears the ranking (main.js).
+  // value for the index follows, by name. A column order chosen afterwards takes over the rows (main.js); the goal and its
+  // ranks stay.
   const ranks = rankOf(rows, state);
-  if (ranks) {
+  if (ranks && !state.sortOverride) {
     return [...rows].sort((a, b) => (ranks.get(b.material.id)?.value ?? -Infinity) - (ranks.get(a.material.id)?.value ?? -Infinity)
       || a.material.name.localeCompare(b.material.name));
   }
@@ -135,10 +137,13 @@ export function sortRows(rows, state) {
   });
 }
 
-/** Each row's rank under the scenario's goal, or null when it ranks by nothing: the one ranking every lens reads (D102). */
+/**
+ * Each row's rank under the scenario's goal, or null when it ranks by nothing: the one ranking every lens reads (D102),
+ * over the product states an objective stage kept when one is applied (D107).
+ */
 export function rankOf(rows, state) {
   const index = state.scenario?.rankBy ? indexById(state.scenario.rankBy) : null;
-  return rankingFor(rows, state.ctx, index)?.byMaterial ?? null;
+  return rankingFor(rows, state.ctx, index, undefined, { retained: state.stage?.retained ?? null })?.byMaterial ?? null;
 }
 
 /**
@@ -437,6 +442,7 @@ export function renderTable(host, state, actions) {
       </label>
       <div class="legend-row" role="group" aria-label="What the marks in the table mean">${legend}</div>
       ${state.sortNotice ? `<p class="sort-note" role="status">${esc(sortNoticeText(state.sortNotice))}</p>` : ''}
+      ${ranks && state.sortOverride ? `<p class="sort-note" role="status">Ordered by a column; each row keeps its rank by ${esc(index.designCase.toLowerCase())}. <button type="button" class="link-btn" data-rank-order>Order by rank</button></p>` : ''}
     </div>
     ${familyBlock}
     ${sorted.length ? scrollTable(`<table class="grid">
@@ -449,6 +455,7 @@ export function renderTable(host, state, actions) {
   host.querySelectorAll('[data-colset]').forEach((b) => b.addEventListener('click', () => actions.setColumns(b.dataset.colset)));
   host.querySelector('[data-baseline]')?.addEventListener('change', (e) => actions.setBaseline(e.target.value));
   host.querySelector('[data-rank-by]')?.addEventListener('change', (e) => actions.setRankBy(e.target.value));
+  host.querySelector('[data-rank-order]')?.addEventListener('click', () => actions.setRankBy(state.scenario.rankBy));
 
   host.querySelectorAll('th[data-sort]').forEach((th) => {
     const go = () => actions.sort(th.dataset.sort);
@@ -478,12 +485,19 @@ export function renderTable(host, state, actions) {
  * under which missing-data rule, and for each row why it failed or could not be checked. The first
  * version exported only the unresolved criteria, so every genuine failure had an empty reason.
  */
-export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = null } = {}) {
+export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = null, stage = null } = {}) {
   // Ranked by a goal (D102): the table's ranking, the one the chart's guide shows, with its value and the product it rests on.
   const index = ranking && scenario?.rankBy ? indexById(scenario.rankBy) : null;
+  // An objective stage (D107): how many of each material's product states it kept.
+  const keptBy = new Map();
+  for (const key of stage?.retained ?? []) {
+    const materialId = rows.find(({ evaluation: e }) => (e.products ?? []).some((p) => productStateKey(p.gradeId, p.state?.id ?? null) === key))?.material.id;
+    if (materialId) keptBy.set(materialId, (keptBy.get(materialId) ?? 0) + 1);
+  }
   const cols = ['MaterialID', 'Material', 'Family', 'H2C status', 'State', 'In results',
     'Failed', 'Could not be checked', 'Best product', 'Judged as',
-    ...(index ? ['Rank', `Goal ${index.formula}`, 'Ranked on product', 'Passing products ranked'] : []),
+    ...(index ? ['Rank', `Goal ${index.formula}`, 'Ranked on product', index && stage ? 'Kept products ranked' : 'Passing products ranked'] : []),
+    ...(stage ? ['Product states kept by the objective stage'] : []),
     ...exportHeadlines().map((h) => h.header),
     'Value qualifiers', 'Measurement IDs',
     'Nozzle C', 'Bed C', 'Chamber C', 'Hardened nozzle', 'Drying guidance', 'Where to buy',
@@ -533,7 +547,8 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     header.push(`# ${POLICY_CONTROL.toLowerCase()}: ${policyLabel(scenario.unknownPolicy).toLowerCase()}; estimates and polymer data ${useEstimates ? 'on (never pass; may screen out)' : 'off'}`);
     header.push(`# products judged ${stateWords(scenario)} (D99)`);
     if (scenario.template) header.push(`# template: ${scenario.template}`);
-    if (index) header.push(`# ranked by ${index.designCase} (${index.formula}), each material by the median over its passing products, the table's and the chart guide's one ranking (D102)`);
+    if (index) header.push(`# ranked by ${index.designCase} (${index.formula}), each material by the median over its ${stage ? 'kept' : 'passing'} products, the table's and the chart's one ranking (D102, D107)`);
+    for (const st of stage?.steps ?? []) header.push(`# objective stage: kept product states with ${st.index} M >= ${st.cutoff}: ${st.products} product states across ${st.materials} materials; the requirements' verdicts are unchanged (D107)`);
     if (!scenario.constraints.length) header.push('# no requirements set: nothing was tested');
     for (const c of scenario.constraints) header.push(`# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`);
     for (const a of scenario.assumptions ?? []) header.push(`# assumption: ${a.materialId} ${a.property} = ${a.value} ${a.unit ?? ''}`.trim());
@@ -548,6 +563,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
       why(e.failed), why(e.unresolved),
       tested ? e.gradeId ?? '' : '', tested && e.state ? judgedAs(e.state) : '',
       ...(index ? (() => { const r = ranking.get(m.id); return r ? [r.place, Number(r.value.toPrecision(6)), r.best?.gradeId ?? '', r.products] : ['', '', '', '']; })() : []),
+      ...(stage ? [keptBy.get(m.id) ?? 0] : []),
       ...KEYS.map((k) => val(m, k)),
       qualifiers(m), ids(m),
       range(m.print?.nozzleC), range(m.print?.bedC), range(m.print?.chamberC) || (m.print?.chamberGuidance ? CHAMBER_GUIDANCE[m.print.chamberGuidance.state]?.word ?? '' : ''),
@@ -566,7 +582,9 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
  * Its own values with their level, its print recipe, and its verdict under the scenario's requirements, so the file
  * says which product to buy and why without the screen.
  */
-export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
+export function productsCSV(rows, db, { scenario, productsByMaterial, ctx = null, stage = null } = {}) {
+  // The goal's index of each product in the state its answer is in (D107), and whether an objective stage kept it.
+  const goal = scenario?.rankBy ? indexById(scenario.rankBy) : null;
   const KEYS = exportHeadlines().map((h) => h.key);
   const q = (v) => {
     const s = v === null || v === undefined ? '' : String(v);
@@ -577,6 +595,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
   // (D88), named in the columns that say so.
   const readFrom = (entries) => entries.filter(([, f]) => f).map(([what, f]) => `${what}: ${f.label}`).join('; ');
   const cols = ['MaterialID', 'Material', 'GradeID', 'Maker', 'Product', 'Variant', 'Meets the requirements', 'Judged as', 'Not settled by',
+    ...(goal && ctx ? [`Goal ${goal.formula} in the state judged`] : []), ...(stage ? ['Kept by the objective stage'] : []),
     ...KEYS.flatMap((k) => [k, `${k} level`, `${k} measurement`]), 'Values read from',
     'Nozzle C', 'Bed C', 'Chamber C', 'Enclosure', 'Hardened nozzle', 'Drying', 'Annealing', 'Recipe read from', 'Source'];
   const header = [
@@ -585,6 +604,7 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
     '# a value is comparable (printed or unstated specimen, stated direction, dry or unstated, at the load) or as-published (direction or load not stated)',
     ...(scenario?.constraints ?? []).map((c) => `# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`),
     ...(scenario ? [`# products judged ${stateWords(scenario)} (D99)`] : []),
+    ...(stage?.steps ?? []).map((st) => `# objective stage: kept product states with ${st.index} M >= ${st.cutoff}; the requirements' verdicts are unchanged (D107)`),
   ];
   const lines = [];
   for (const { material: m, evaluation: e } of rows) {
@@ -595,6 +615,8 @@ export function productsCSV(rows, db, { scenario, productsByMaterial } = {}) {
         scenario?.constraints?.length ? judged.get(g.id)?.verdict ?? '' : 'not tested',
         scenario?.constraints?.length && judged.get(g.id)?.state ? judgedAs(judged.get(g.id).state) : '',
         (judged.get(g.id)?.results ?? []).filter((r) => r.status === 'UNKNOWN' || r.status === 'INDETERMINATE').map((r) => `${r.constraint ? describeConstraint(r.constraint) : r.criterion}: ${r.reason}`).join(' | '),
+        ...(goal && ctx ? [(() => { const j = judged.get(g.id); const v = j ? indexValue(productView(m, g, ctx, stateOf(g, j.state?.id ?? null)), goal) : null; return v === null ? '' : Number(v.toPrecision(6)); })()] : []),
+        ...(stage ? [judged.get(g.id)?.verdict === 'PASS' ? (stage.retained.has(productStateKey(g.id, judged.get(g.id)?.state?.id ?? null)) ? 'yes' : 'no') : ''] : []),
         ...KEYS.flatMap((k) => { const v = g.headline?.[k]; return [v?.value ?? '', v?.level ?? '', v?.measurementId ?? (v?.priceIds ?? []).join(' ')]; }),
         readFrom(KEYS.map((k) => [k, g.headline?.[k]?.from])),
         ...['nozzle', 'bed', 'chamber'].map((a) => (p?.profileIds.length || p?.from?.[a] ? win(p[a]) : '')),
