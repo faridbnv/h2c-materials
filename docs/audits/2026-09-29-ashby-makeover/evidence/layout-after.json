@@ -1,0 +1,1830 @@
+{
+  "label": "after",
+  "page": "dist/H2C_Material_Selector_2026-09-21_9d6f90101518.html",
+  "captured": "2026-09-29T09:20:29.639Z",
+  "views": [
+    {
+      "scenario": "beam-material",
+      "screen": "1440x900",
+      "file": "after-beam-material-1440x900.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 426,
+        "y": 636,
+        "w": 770,
+        "h": 488
+      },
+      "plot": {
+        "x": 356,
+        "y": 620,
+        "w": 1068,
+        "h": 560
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": null,
+      "results": {
+        "x": 356,
+        "y": 1333,
+        "w": 1068,
+        "h": 967
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 of 8 candidates plotted. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-products",
+      "screen": "1440x900",
+      "file": "after-beam-products-1440x900.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 426,
+        "y": 636,
+        "w": 770,
+        "h": 488
+      },
+      "plot": {
+        "x": 356,
+        "y": 620,
+        "w": 1068,
+        "h": 560
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": null,
+      "results": {
+        "x": 356,
+        "y": 1333,
+        "w": 1068,
+        "h": 967
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 of 8 candidates plotted. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-conditioned",
+      "screen": "1440x900",
+      "file": "after-beam-conditioned-1440x900.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 426,
+        "y": 614,
+        "w": 770,
+        "h": 488
+      },
+      "plot": {
+        "x": 356,
+        "y": 598,
+        "w": 1068,
+        "h": 560
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": null,
+      "results": {
+        "x": 356,
+        "y": 1353,
+        "w": 1068,
+        "h": 163
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n77 of 103 candidates plotted, 4 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\n22 more candidates have no measurement of their own on one of these axes, only an estimated range. Not drawn. Tick Show estimated ranges above to see where they fall.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, conditioned by moisture\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n0 product states, 0 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named.\nNo material meets every requirement in the state asked, so nothing ranks. Unresolved products can be drawn as context; Why excluded says what held them.\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "scope-estimates",
+      "screen": "1440x900",
+      "file": "after-scope-estimates-1440x900.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 426,
+        "y": 588,
+        "w": 770,
+        "h": 488
+      },
+      "plot": {
+        "x": 356,
+        "y": 572,
+        "w": 1068,
+        "h": 560
+      },
+      "lens": {
+        "x": 340,
+        "y": 135,
+        "w": 1100,
+        "h": 719
+      },
+      "lineControl": null,
+      "results": {
+        "x": 356,
+        "y": 1369,
+        "w": 1068,
+        "h": 4568
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n86 of 136 candidates plotted, 10 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe outlined ranges are 40 materials with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range, built from the material's own related measurements and its polymer family, beside its products' measured span on the other axis. Two marginal ranges, not a joint region: it never joins the frontier and never counts as a plotted candidate.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPET-LW\n☆\n2 product states drawn\nPETG\n☆\n16 product states drawn\nPETG-CF\n☆\n5 product states drawn\nPETG-ESD\n☆\n6 product states drawn\nPETG-GF\n☆\n2 product states drawn\nPLA\n☆\n32 product states drawn\nPLA Aero\n☆\n4 product states drawn\nPLA Galaxy\n☆\n1 product state drawn\nPLA Glow\n☆\n1 product state drawn\nPLA Mar",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "cost-beam",
+      "screen": "1440x900",
+      "file": "after-cost-beam-1440x900.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 426,
+        "y": 600,
+        "w": 770,
+        "h": 488
+      },
+      "plot": {
+        "x": 356,
+        "y": 584,
+        "w": 1068,
+        "h": 560
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": null,
+      "results": {
+        "x": 356,
+        "y": 1296,
+        "w": 1068,
+        "h": 754
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n86 of 136 candidates plotted, 50 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / (Cm × ρ)\nCross-section area free, its proportions fixed; length fixed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Ranked by beam, minimum material cost, stiffness prescribed\nEach material by the median E^(1/2) / (Cm × ρ) of its passing products, in the states they pass in; its best product state named. The × is relative to PETG, first: M's own units depend on the formula.\n1\nPETG\n4.50e-5\n☆\nbest Bambu Lab PETG Basic as printed, dry · M 5.34e-5\nmedian of 2 passing products\n16 product states drawn\n2\nPC\n2.37e-5 0.53×\n☆\nbest Bambu Lab PC as printed, dry · M 2.37e-5\nmedian of 1 passing product\n11 product states drawn\n3\nPPA-CF\n1.08e-5 0.24×\n☆\nbest Bambu Lab PPA-CF as printed, dry · M 1.08e-5\nmedian of 1 passing product\n4 product states drawn\n4\nPPS-CF\n1.03e-5 0.23×\n☆\nbest Bambu Lab PPS-CF as printed, dry · M 1.03e-5\nmedian of 1 passing product\n3 product states drawn\n5\nTPU 90A class\n1.09e-6 0.02×\n☆\nbest Bambu Lab TPU 90A as printed, dry · M 1.09e-6\nmedian of 1 passing product\n2 product states drawn\n131 materials pass but cannot be ranked\n859 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "warm-annealed",
+      "screen": "1440x900",
+      "file": "after-warm-annealed-1440x900.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 426,
+        "y": 610,
+        "w": 770,
+        "h": 488
+      },
+      "plot": {
+        "x": 356,
+        "y": 594,
+        "w": 1068,
+        "h": 560
+      },
+      "lens": {
+        "x": 340,
+        "y": 135,
+        "w": 1100,
+        "h": 719
+      },
+      "lineControl": null,
+      "results": {
+        "x": 356,
+        "y": 1330,
+        "w": 1068,
+        "h": 791
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n76 of 117 candidates plotted, 41 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, heat resistance higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nH2C scope and print gates asked\nJudged\nas printed, or annealed at its sheet's schedule up to 120 °C, dry\nStiffness at least 4 GPa; Heat resistance at least 80 °C\nEdit requirements\nRelease 9d6f90101518\nRequirements\n22 product states, 12 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS-GF\n☆\n1 product state drawn\nASA-CF\n☆\n3 product states drawn\nPA6-CF\n☆\n5 product states drawn\nPA6-GF\n☆\n3 product states drawn\nPET-CF\n☆\n2 product states drawn\nPET-GF\n☆\n1 product state drawn\nPLA\n☆\n1 product state drawn\nPLA-CF\n☆\n1 product state drawn\nPP-CF\n☆\n1 product state drawn\nPPA-CF\n☆\n1 product state drawn\nPPA-GF\n☆\n1 product state drawn\n2 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-v2",
+      "screen": "1440x900",
+      "file": "after-beam-v2-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 407,
+        "w": 676,
+        "h": 466
+      },
+      "plot": {
+        "x": 356,
+        "y": 391,
+        "w": 756,
+        "h": 572
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": {
+        "x": 356,
+        "y": 301,
+        "w": 756,
+        "h": 83
+      },
+      "results": {
+        "x": 1124,
+        "y": 262,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n14 product states across 8 materials drawn, each meeting every requirement in the state it is drawn in. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n8 product states across 5 materials at or above (of 14; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-v2-overview",
+      "screen": "1440x900",
+      "file": "after-beam-v2-overview-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 317,
+        "w": 676,
+        "h": 485
+      },
+      "plot": {
+        "x": 356,
+        "y": 301,
+        "w": 756,
+        "h": 572
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": null,
+      "results": {
+        "x": 1124,
+        "y": 262,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 materials drawn as the span of their confirmed products on each axis, over 14 product states. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-v2-conditioned",
+      "screen": "1440x900",
+      "file": "after-beam-v2-conditioned-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 435,
+        "w": 676,
+        "h": 466
+      },
+      "plot": {
+        "x": 356,
+        "y": 419,
+        "w": 756,
+        "h": 553
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": {
+        "x": 356,
+        "y": 325,
+        "w": 756,
+        "h": 87
+      },
+      "results": {
+        "x": 1124,
+        "y": 286,
+        "w": 300,
+        "h": 303
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n0 product states across 0 materials drawn, each meeting every requirement in the state it is drawn in. 3 materials have no product, so nothing to draw. Context drawn: 1 product state unresolved (hollow), some from 50 materials not in the results. Context is never ranked, counted on the line or on the front. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 0 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "No product state drawn here has a value of E^(1/2) / ρ: the line has nothing to count in the conditioned state, where nothing is inferred from dry values.\nUnresolved products can be drawn as context under Layers; they are never ranked.",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, conditioned by moisture\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n0 product states, 0 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named.\nNo material meets every requirement in the state asked, so nothing ranks. Unresolved products can be drawn as context; Why excluded says what held them.\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "scope-v2-estimates",
+      "screen": "1440x900",
+      "file": "after-scope-v2-estimates-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 465,
+        "w": 673,
+        "h": 466
+      },
+      "plot": {
+        "x": 356,
+        "y": 449,
+        "w": 756,
+        "h": 591
+      },
+      "lens": {
+        "x": 340,
+        "y": 135,
+        "w": 1100,
+        "h": 719
+      },
+      "lineControl": null,
+      "results": {
+        "x": 1124,
+        "y": 260,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n78 materials drawn as the span of their confirmed products on each axis, over 218 product states. Twins that print one sheet share its values, so 218 product states rest on 210 distinct pairs of values. 859 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Estimated context: 40 materials with no product publishing on an axis, drawn dashed as the model's likely range, with a measured axis as its products' span. Two marginal ranges are not a joint region, and neither is a candidate. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPET-LW\n☆\n2 product states drawn\nPETG\n☆\n16 product states drawn\nPETG-CF\n☆\n5 product states drawn\nPETG-ESD\n☆\n6 product states drawn\nPETG-GF\n☆\n2 product states drawn\nPLA\n☆\n32 product states drawn\nPLA Aero\n☆\n4 product states drawn\nPLA Galaxy\n☆\n1 product state drawn\nPLA Glow\n☆\n1 product state drawn\nPLA Mar",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "cost-v2",
+      "screen": "1440x900",
+      "file": "after-cost-v2-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 449,
+        "w": 676,
+        "h": 460
+      },
+      "plot": {
+        "x": 356,
+        "y": 433,
+        "w": 756,
+        "h": 572
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 711
+      },
+      "lineControl": {
+        "x": 356,
+        "y": 343,
+        "w": 756,
+        "h": 83
+      },
+      "results": {
+        "x": 1124,
+        "y": 268,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n6 product states across 5 materials drawn, each meeting every requirement in the state it is drawn in. 1071 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. The line is one value of M = E^(1/2) / (Cm × ρ) across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range. Price is available for observed Canadian listings. Cost per volume is each product's own CAD/kg price, dated, times its own density; shipping is excluded and no other currency is converted.",
+      "readout": "Line at\nM =\n▼\n▲\n6 product states across 5 materials at or above (of 6; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / (Cm × ρ)\nCross-section area free, its proportions fixed; length fixed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Ranked by beam, minimum material cost, stiffness prescribed\nEach material by the median E^(1/2) / (Cm × ρ) of its passing products, in the states they pass in; its best product state named. The × is relative to PETG, first: M's own units depend on the formula.\n1\nPETG\n4.50e-5\n☆\nbest Bambu Lab PETG Basic as printed, dry · M 5.34e-5\nmedian of 2 passing products\n2 product states drawn\n2\nPC\n2.37e-5 0.53×\n☆\nbest Bambu Lab PC as printed, dry · M 2.37e-5\nmedian of 1 passing product\n1 product state drawn\n3\nPPA-CF\n1.08e-5 0.24×\n☆\nbest Bambu Lab PPA-CF as printed, dry · M 1.08e-5\nmedian of 1 passing product\n1 product state drawn\n4\nPPS-CF\n1.03e-5 0.23×\n☆\nbest Bambu Lab PPS-CF as printed, dry · M 1.03e-5\nmedian of 1 passing product\n1 product state drawn\n5\nTPU 90A class\n1.09e-6 0.02×\n☆\nbest Bambu Lab TPU 90A as printed, dry · M 1.09e-6\nmedian of 1 passing product\n1 product state drawn\n131 materials pass but cannot be ranked\n1071 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "warm-v2-annealed",
+      "screen": "1440x900",
+      "file": "after-warm-v2-annealed-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 483,
+        "w": 676,
+        "h": 466
+      },
+      "plot": {
+        "x": 356,
+        "y": 467,
+        "w": 756,
+        "h": 572
+      },
+      "lens": {
+        "x": 340,
+        "y": 135,
+        "w": 1100,
+        "h": 719
+      },
+      "lineControl": null,
+      "results": {
+        "x": 1124,
+        "y": 279,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n20 product states across 11 materials drawn, each meeting every requirement in the state it is drawn in. 2 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Context drawn: 90 product states unresolved (hollow), some from 36 materials not in the results. Context is never ranked, counted on the line or on the front. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nH2C scope and print gates asked\nJudged\nas printed, or annealed at its sheet's schedule up to 120 °C, dry\nStiffness at least 4 GPa; Heat resistance at least 80 °C\nEdit requirements\nRelease 9d6f90101518\nRequirements\n22 product states, 12 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS-GF\n☆\n1 product state drawn\nASA-CF\n☆\n3 product states drawn\nPA6-CF\n☆\n5 product states drawn\nPA6-GF\n☆\n3 product states drawn\nPET-CF\n☆\n2 product states drawn\nPET-GF\n☆\n1 product state drawn\nPLA\n☆\n1 product state drawn\nPLA-CF\n☆\n1 product state drawn\nPP-CF\n☆\n1 product state drawn\nPPA-CF\n☆\n1 product state drawn\nPPA-GF\n☆\n1 product state drawn\n2 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-v2-stage",
+      "screen": "1440x900",
+      "file": "after-beam-v2-stage-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 457,
+        "w": 676,
+        "h": 485
+      },
+      "plot": {
+        "x": 356,
+        "y": 441,
+        "w": 756,
+        "h": 572
+      },
+      "lens": {
+        "x": 340,
+        "y": 189,
+        "w": 1100,
+        "h": 664
+      },
+      "lineControl": {
+        "x": 356,
+        "y": 350,
+        "w": 756,
+        "h": 83
+      },
+      "results": {
+        "x": 1124,
+        "y": 312,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n9 product states across 5 materials drawn, each meeting every requirement in the state it is drawn in, as the stage kept them. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its kept products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n7 product states across 5 materials at or above (of 9; better above)\nKeep above this line instead",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials\nKept\nE^(1/2) / ρ ≥ 0.0017 (beam stiffness): 9 product states, 5 materials\nRemove",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its kept products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 kept product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 kept product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 kept products\n3 product states drawn\n4\nPA6-CF\n0.00179 0.77×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 3 kept products\n3 product states drawn\n5\nABS-GF\n0.00178 0.77×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 1 kept product\n1 product state drawn",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "start-v2",
+      "screen": "1440x900",
+      "file": "after-start-v2-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 420,
+        "y": 934,
+        "w": 676,
+        "h": 466
+      },
+      "plot": {
+        "x": 356,
+        "y": 918,
+        "w": 756,
+        "h": 591
+      },
+      "lens": {
+        "x": 340,
+        "y": 143,
+        "w": 1100,
+        "h": 716
+      },
+      "lineControl": null,
+      "results": {
+        "x": 1124,
+        "y": 729,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n237 product states across 91 materials drawn; nothing is screened until a requirement is asked. Twins that print one sheet share its values, so 237 product states rest on 229 distinct pairs of values. 891 product states cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nNo requirement asked yet\nEdit requirements\nRelease 9d6f90101518\nNothing screened\n1128 product states, 150 materials, none confirmed",
+      "results_text": "Products, by material\nChoose a goal to rank them. Nothing is confirmed until a requirement is asked.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPEEK\n☆\n1 product state drawn\nPEEK-CF\n☆\n2 product states drawn\nPEEK-GF\n☆\n1 product state drawn\nPEI / ULTEM\n☆\n3 product states drawn\nPEI-CF\n☆\n2 product states drawn\nPEI-ESD\n☆\n2 product states drawn\nPEI-GF\n☆\n1 product state drawn\nPEKK\n☆\n2 product states drawn\nPEKK",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-v2-wide",
+      "screen": "1440x900",
+      "file": "after-beam-v2-wide-1440x900.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 349,
+        "w": 808,
+        "h": 450
+      },
+      "plot": {
+        "x": 16,
+        "y": 333,
+        "w": 1096,
+        "h": 518
+      },
+      "lens": {
+        "x": 0,
+        "y": 143,
+        "w": 1440,
+        "h": 711
+      },
+      "lineControl": {
+        "x": 16,
+        "y": 276,
+        "w": 1096,
+        "h": 49
+      },
+      "results": {
+        "x": 1124,
+        "y": 238,
+        "w": 300,
+        "h": 710
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n14 product states across 8 materials drawn, each meeting every requirement in the state it is drawn in. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n8 product states across 5 materials at or above (of 14; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1440,
+      "innerWidth": 1440
+    },
+    {
+      "scenario": "beam-material",
+      "screen": "1024x768",
+      "file": "after-beam-material-1024x768.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 86,
+        "y": 744,
+        "w": 695,
+        "h": 488
+      },
+      "plot": {
+        "x": 16,
+        "y": 728,
+        "w": 992,
+        "h": 560
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1440,
+        "w": 992,
+        "h": 967
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 of 8 candidates plotted. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-products",
+      "screen": "1024x768",
+      "file": "after-beam-products-1024x768.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 86,
+        "y": 744,
+        "w": 695,
+        "h": 488
+      },
+      "plot": {
+        "x": 16,
+        "y": 728,
+        "w": 992,
+        "h": 560
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1440,
+        "w": 992,
+        "h": 967
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 of 8 candidates plotted. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-conditioned",
+      "screen": "1024x768",
+      "file": "after-beam-conditioned-1024x768.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 86,
+        "y": 697,
+        "w": 695,
+        "h": 488
+      },
+      "plot": {
+        "x": 16,
+        "y": 681,
+        "w": 992,
+        "h": 560
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1436,
+        "w": 992,
+        "h": 163
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n77 of 103 candidates plotted, 4 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\n22 more candidates have no measurement of their own on one of these axes, only an estimated range. Not drawn. Tick Show estimated ranges above to see where they fall.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, conditioned by moisture\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n0 product states, 0 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named.\nNo material meets every requirement in the state asked, so nothing ranks. Unresolved products can be drawn as context; Why excluded says what held them.\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "scope-estimates",
+      "screen": "1024x768",
+      "file": "after-scope-estimates-1024x768.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 86,
+        "y": 663,
+        "w": 695,
+        "h": 488
+      },
+      "plot": {
+        "x": 16,
+        "y": 647,
+        "w": 992,
+        "h": 560
+      },
+      "lens": {
+        "x": 0,
+        "y": 186,
+        "w": 1024,
+        "h": 536
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1486,
+        "w": 992,
+        "h": 4568
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n86 of 136 candidates plotted, 10 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe outlined ranges are 40 materials with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range, built from the material's own related measurements and its polymer family, beside its products' measured span on the other axis. Two marginal ranges, not a joint region: it never joins the frontier and never counts as a plotted candidate.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPET-LW\n☆\n2 product states drawn\nPETG\n☆\n16 product states drawn\nPETG-CF\n☆\n5 product states drawn\nPETG-ESD\n☆\n6 product states drawn\nPETG-GF\n☆\n2 product states drawn\nPLA\n☆\n32 product states drawn\nPLA Aero\n☆\n4 product states drawn\nPLA Galaxy\n☆\n1 product state drawn\nPLA Glow\n☆\n1 product state drawn\nPLA Mar",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "cost-beam",
+      "screen": "1024x768",
+      "file": "after-cost-beam-1024x768.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 86,
+        "y": 707,
+        "w": 695,
+        "h": 488
+      },
+      "plot": {
+        "x": 16,
+        "y": 691,
+        "w": 992,
+        "h": 560
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1404,
+        "w": 992,
+        "h": 754
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n86 of 136 candidates plotted, 50 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / (Cm × ρ)\nCross-section area free, its proportions fixed; length fixed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Ranked by beam, minimum material cost, stiffness prescribed\nEach material by the median E^(1/2) / (Cm × ρ) of its passing products, in the states they pass in; its best product state named. The × is relative to PETG, first: M's own units depend on the formula.\n1\nPETG\n4.50e-5\n☆\nbest Bambu Lab PETG Basic as printed, dry · M 5.34e-5\nmedian of 2 passing products\n16 product states drawn\n2\nPC\n2.37e-5 0.53×\n☆\nbest Bambu Lab PC as printed, dry · M 2.37e-5\nmedian of 1 passing product\n11 product states drawn\n3\nPPA-CF\n1.08e-5 0.24×\n☆\nbest Bambu Lab PPA-CF as printed, dry · M 1.08e-5\nmedian of 1 passing product\n4 product states drawn\n4\nPPS-CF\n1.03e-5 0.23×\n☆\nbest Bambu Lab PPS-CF as printed, dry · M 1.03e-5\nmedian of 1 passing product\n3 product states drawn\n5\nTPU 90A class\n1.09e-6 0.02×\n☆\nbest Bambu Lab TPU 90A as printed, dry · M 1.09e-6\nmedian of 1 passing product\n2 product states drawn\n131 materials pass but cannot be ranked\n859 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "warm-annealed",
+      "screen": "1024x768",
+      "file": "after-warm-annealed-1024x768.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 86,
+        "y": 661,
+        "w": 695,
+        "h": 488
+      },
+      "plot": {
+        "x": 16,
+        "y": 645,
+        "w": 992,
+        "h": 560
+      },
+      "lens": {
+        "x": 0,
+        "y": 186,
+        "w": 1024,
+        "h": 536
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1381,
+        "w": 992,
+        "h": 791
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n76 of 117 candidates plotted, 41 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, heat resistance higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nH2C scope and print gates asked\nJudged\nas printed, or annealed at its sheet's schedule up to 120 °C, dry\nStiffness at least 4 GPa; Heat resistance at least 80 °C\nEdit requirements\nRelease 9d6f90101518\nRequirements\n22 product states, 12 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS-GF\n☆\n1 product state drawn\nASA-CF\n☆\n3 product states drawn\nPA6-CF\n☆\n5 product states drawn\nPA6-GF\n☆\n3 product states drawn\nPET-CF\n☆\n2 product states drawn\nPET-GF\n☆\n1 product state drawn\nPLA\n☆\n1 product state drawn\nPLA-CF\n☆\n1 product state drawn\nPP-CF\n☆\n1 product state drawn\nPPA-CF\n☆\n1 product state drawn\nPPA-GF\n☆\n1 product state drawn\n2 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-v2",
+      "screen": "1024x768",
+      "file": "after-beam-v2-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 481,
+        "w": 912,
+        "h": 395
+      },
+      "plot": {
+        "x": 16,
+        "y": 465,
+        "w": 992,
+        "h": 482
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": {
+        "x": 16,
+        "y": 408,
+        "w": 992,
+        "h": 49
+      },
+      "results": {
+        "x": 16,
+        "y": 1141,
+        "w": 992,
+        "h": 967
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n14 product states across 8 materials drawn, each meeting every requirement in the state it is drawn in. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n8 product states across 5 materials at or above (of 14; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-v2-overview",
+      "screen": "1024x768",
+      "file": "after-beam-v2-overview-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 424,
+        "w": 912,
+        "h": 376
+      },
+      "plot": {
+        "x": 16,
+        "y": 408,
+        "w": 992,
+        "h": 463
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1066,
+        "w": 992,
+        "h": 967
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 materials drawn as the span of their confirmed products on each axis, over 14 product states. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-v2-conditioned",
+      "screen": "1024x768",
+      "file": "after-beam-v2-conditioned-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 500,
+        "w": 912,
+        "h": 376
+      },
+      "plot": {
+        "x": 16,
+        "y": 484,
+        "w": 992,
+        "h": 463
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": {
+        "x": 16,
+        "y": 408,
+        "w": 992,
+        "h": 68
+      },
+      "results": {
+        "x": 16,
+        "y": 1179,
+        "w": 992,
+        "h": 163
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n0 product states across 0 materials drawn, each meeting every requirement in the state it is drawn in. 3 materials have no product, so nothing to draw. Context drawn: 1 product state unresolved (hollow), some from 50 materials not in the results. Context is never ranked, counted on the line or on the front. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 0 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "No product state drawn here has a value of E^(1/2) / ρ: the line has nothing to count in the conditioned state, where nothing is inferred from dry values.\nUnresolved products can be drawn as context under Layers; they are never ranked.",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, conditioned by moisture\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n0 product states, 0 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named.\nNo material meets every requirement in the state asked, so nothing ranks. Unresolved products can be drawn as context; Why excluded says what held them.\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "scope-v2-estimates",
+      "screen": "1024x768",
+      "file": "after-scope-v2-estimates-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 540,
+        "w": 912,
+        "h": 376
+      },
+      "plot": {
+        "x": 16,
+        "y": 524,
+        "w": 992,
+        "h": 482
+      },
+      "lens": {
+        "x": 0,
+        "y": 186,
+        "w": 1024,
+        "h": 536
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1242,
+        "w": 992,
+        "h": 4568
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n78 materials drawn as the span of their confirmed products on each axis, over 218 product states. Twins that print one sheet share its values, so 218 product states rest on 210 distinct pairs of values. 859 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Estimated context: 40 materials with no product publishing on an axis, drawn dashed as the model's likely range, with a measured axis as its products' span. Two marginal ranges are not a joint region, and neither is a candidate. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPET-LW\n☆\n2 product states drawn\nPETG\n☆\n16 product states drawn\nPETG-CF\n☆\n5 product states drawn\nPETG-ESD\n☆\n6 product states drawn\nPETG-GF\n☆\n2 product states drawn\nPLA\n☆\n32 product states drawn\nPLA Aero\n☆\n4 product states drawn\nPLA Galaxy\n☆\n1 product state drawn\nPLA Glow\n☆\n1 product state drawn\nPLA Mar",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "cost-v2",
+      "screen": "1024x768",
+      "file": "after-cost-v2-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 487,
+        "w": 912,
+        "h": 389
+      },
+      "plot": {
+        "x": 16,
+        "y": 471,
+        "w": 992,
+        "h": 482
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": {
+        "x": 16,
+        "y": 414,
+        "w": 992,
+        "h": 49
+      },
+      "results": {
+        "x": 16,
+        "y": 1184,
+        "w": 992,
+        "h": 754
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n6 product states across 5 materials drawn, each meeting every requirement in the state it is drawn in. 1071 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. The line is one value of M = E^(1/2) / (Cm × ρ) across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range. Price is available for observed Canadian listings. Cost per volume is each product's own CAD/kg price, dated, times its own density; shipping is excluded and no other currency is converted.",
+      "readout": "Line at\nM =\n▼\n▲\n6 product states across 5 materials at or above (of 6; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / (Cm × ρ)\nCross-section area free, its proportions fixed; length fixed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Ranked by beam, minimum material cost, stiffness prescribed\nEach material by the median E^(1/2) / (Cm × ρ) of its passing products, in the states they pass in; its best product state named. The × is relative to PETG, first: M's own units depend on the formula.\n1\nPETG\n4.50e-5\n☆\nbest Bambu Lab PETG Basic as printed, dry · M 5.34e-5\nmedian of 2 passing products\n2 product states drawn\n2\nPC\n2.37e-5 0.53×\n☆\nbest Bambu Lab PC as printed, dry · M 2.37e-5\nmedian of 1 passing product\n1 product state drawn\n3\nPPA-CF\n1.08e-5 0.24×\n☆\nbest Bambu Lab PPA-CF as printed, dry · M 1.08e-5\nmedian of 1 passing product\n1 product state drawn\n4\nPPS-CF\n1.03e-5 0.23×\n☆\nbest Bambu Lab PPS-CF as printed, dry · M 1.03e-5\nmedian of 1 passing product\n1 product state drawn\n5\nTPU 90A class\n1.09e-6 0.02×\n☆\nbest Bambu Lab TPU 90A as printed, dry · M 1.09e-6\nmedian of 1 passing product\n1 product state drawn\n131 materials pass but cannot be ranked\n1071 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "warm-v2-annealed",
+      "screen": "1024x768",
+      "file": "after-warm-v2-annealed-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 534,
+        "w": 912,
+        "h": 395
+      },
+      "plot": {
+        "x": 16,
+        "y": 518,
+        "w": 992,
+        "h": 482
+      },
+      "lens": {
+        "x": 0,
+        "y": 186,
+        "w": 1024,
+        "h": 536
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1194,
+        "w": 992,
+        "h": 791
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n20 product states across 11 materials drawn, each meeting every requirement in the state it is drawn in. 2 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Context drawn: 90 product states unresolved (hollow), some from 36 materials not in the results. Context is never ranked, counted on the line or on the front. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nH2C scope and print gates asked\nJudged\nas printed, or annealed at its sheet's schedule up to 120 °C, dry\nStiffness at least 4 GPa; Heat resistance at least 80 °C\nEdit requirements\nRelease 9d6f90101518\nRequirements\n22 product states, 12 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS-GF\n☆\n1 product state drawn\nASA-CF\n☆\n3 product states drawn\nPA6-CF\n☆\n5 product states drawn\nPA6-GF\n☆\n3 product states drawn\nPET-CF\n☆\n2 product states drawn\nPET-GF\n☆\n1 product state drawn\nPLA\n☆\n1 product state drawn\nPLA-CF\n☆\n1 product state drawn\nPP-CF\n☆\n1 product state drawn\nPPA-CF\n☆\n1 product state drawn\nPPA-GF\n☆\n1 product state drawn\n2 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-v2-stage",
+      "screen": "1024x768",
+      "file": "after-beam-v2-stage-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 530,
+        "w": 912,
+        "h": 376
+      },
+      "plot": {
+        "x": 16,
+        "y": 514,
+        "w": 992,
+        "h": 463
+      },
+      "lens": {
+        "x": 0,
+        "y": 246,
+        "w": 1024,
+        "h": 475
+      },
+      "lineControl": {
+        "x": 16,
+        "y": 458,
+        "w": 992,
+        "h": 49
+      },
+      "results": {
+        "x": 16,
+        "y": 1172,
+        "w": 992,
+        "h": 650
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n9 product states across 5 materials drawn, each meeting every requirement in the state it is drawn in, as the stage kept them. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its kept products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n7 product states across 5 materials at or above (of 9; better above)\nKeep above this line instead",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials\nKept\nE^(1/2) / ρ ≥ 0.0017 (beam stiffness): 9 product states, 5 materials\nRemove",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its kept products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 kept product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 kept product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 kept products\n3 product states drawn\n4\nPA6-CF\n0.00179 0.77×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 3 kept products\n3 product states drawn\n5\nABS-GF\n0.00178 0.77×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 1 kept product\n1 product state drawn",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "start-v2",
+      "screen": "1024x768",
+      "file": "after-start-v2-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 1038,
+        "w": 912,
+        "h": 376
+      },
+      "plot": {
+        "x": 16,
+        "y": 1022,
+        "w": 992,
+        "h": 501
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 527
+      },
+      "lineControl": null,
+      "results": {
+        "x": 16,
+        "y": 1694,
+        "w": 992,
+        "h": 5301
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n237 product states across 91 materials drawn; nothing is screened until a requirement is asked. Twins that print one sheet share its values, so 237 product states rest on 229 distinct pairs of values. 891 product states cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nNo requirement asked yet\nEdit requirements\nRelease 9d6f90101518\nNothing screened\n1128 product states, 150 materials, none confirmed",
+      "results_text": "Products, by material\nChoose a goal to rank them. Nothing is confirmed until a requirement is asked.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPEEK\n☆\n1 product state drawn\nPEEK-CF\n☆\n2 product states drawn\nPEEK-GF\n☆\n1 product state drawn\nPEI / ULTEM\n☆\n3 product states drawn\nPEI-CF\n☆\n2 product states drawn\nPEI-ESD\n☆\n2 product states drawn\nPEI-GF\n☆\n1 product state drawn\nPEKK\n☆\n2 product states drawn\nPEKK",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-v2-wide",
+      "screen": "1024x768",
+      "file": "after-beam-v2-wide-1024x768.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 80,
+        "y": 481,
+        "w": 912,
+        "h": 395
+      },
+      "plot": {
+        "x": 16,
+        "y": 465,
+        "w": 992,
+        "h": 482
+      },
+      "lens": {
+        "x": 0,
+        "y": 200,
+        "w": 1024,
+        "h": 522
+      },
+      "lineControl": {
+        "x": 16,
+        "y": 408,
+        "w": 992,
+        "h": 49
+      },
+      "results": {
+        "x": 16,
+        "y": 1141,
+        "w": 992,
+        "h": 967
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n14 product states across 8 materials drawn, each meeting every requirement in the state it is drawn in. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n8 product states across 5 materials at or above (of 14; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 1024,
+      "innerWidth": 1024
+    },
+    {
+      "scenario": "beam-material",
+      "screen": "390x844",
+      "file": "after-beam-material-390x844.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 82,
+        "y": 1289,
+        "w": 276,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 1273,
+        "w": 366,
+        "h": 471
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 2899
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 1994,
+        "w": 366,
+        "h": 1177
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 of 8 candidates plotted. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "beam-products",
+      "screen": "390x844",
+      "file": "after-beam-products-390x844.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 82,
+        "y": 1289,
+        "w": 276,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 1273,
+        "w": 366,
+        "h": 471
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 2899
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 1994,
+        "w": 366,
+        "h": 1177
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 of 8 candidates plotted. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "beam-conditioned",
+      "screen": "390x844",
+      "file": "after-beam-conditioned-390x844.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 82,
+        "y": 1220,
+        "w": 270,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 1204,
+        "w": 366,
+        "h": 547
+      },
+      "lens": {
+        "x": 0,
+        "y": 283,
+        "w": 390,
+        "h": 2137
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 2123,
+        "w": 366,
+        "h": 283
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n77 of 103 candidates plotted, 4 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\n22 more candidates have no measurement of their own on one of these axes, only an estimated range. Not drawn. Tick Show estimated ranges above to see where they fall.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, conditioned by moisture\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n0 product states, 0 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named.\nNo material meets every requirement in the state asked, so nothing ranks. Unresolved products can be drawn as context; Why excluded says what held them.\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "scope-estimates",
+      "screen": "390x844",
+      "file": "after-scope-estimates-390x844.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 82,
+        "y": 1154,
+        "w": 275,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 1138,
+        "w": 366,
+        "h": 547
+      },
+      "lens": {
+        "x": 0,
+        "y": 283,
+        "w": 390,
+        "h": 6574
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 2235,
+        "w": 366,
+        "h": 4608
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n86 of 136 candidates plotted, 10 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe outlined ranges are 40 materials with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range, built from the material's own related measurements and its polymer family, beside its products' measured span on the other axis. Two marginal ranges, not a joint region: it never joins the frontier and never counts as a plotted candidate.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPET-LW\n☆\n2 product states drawn\nPETG\n☆\n16 product states drawn\nPETG-CF\n☆\n5 product states drawn\nPETG-ESD\n☆\n6 product states drawn\nPETG-GF\n☆\n2 product states drawn\nPLA\n☆\n32 product states drawn\nPLA Aero\n☆\n4 product states drawn\nPLA Galaxy\n☆\n1 product state drawn\nPLA Glow\n☆\n1 product state drawn\nPLA Mar",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "cost-beam",
+      "screen": "390x844",
+      "file": "after-cost-beam-390x844.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 82,
+        "y": 1234,
+        "w": 275,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 1218,
+        "w": 366,
+        "h": 547
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 2679
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 2057,
+        "w": 366,
+        "h": 894
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n86 of 136 candidates plotted, 50 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, stiffness higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / (Cm × ρ)\nCross-section area free, its proportions fixed; length fixed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Ranked by beam, minimum material cost, stiffness prescribed\nEach material by the median E^(1/2) / (Cm × ρ) of its passing products, in the states they pass in; its best product state named. The × is relative to PETG, first: M's own units depend on the formula.\n1\nPETG\n4.50e-5\n☆\nbest Bambu Lab PETG Basic as printed, dry · M 5.34e-5\nmedian of 2 passing products\n16 product states drawn\n2\nPC\n2.37e-5 0.53×\n☆\nbest Bambu Lab PC as printed, dry · M 2.37e-5\nmedian of 1 passing product\n11 product states drawn\n3\nPPA-CF\n1.08e-5 0.24×\n☆\nbest Bambu Lab PPA-CF as printed, dry · M 1.08e-5\nmedian of 1 passing product\n4 product states drawn\n4\nPPS-CF\n1.03e-5 0.23×\n☆\nbest Bambu Lab PPS-CF as printed, dry · M 1.03e-5\nmedian of 1 passing product\n3 product states drawn\n5\nTPU 90A class\n1.09e-6 0.02×\n☆\nbest Bambu Lab TPU 90A as printed, dry · M 1.09e-6\nmedian of 1 passing product\n2 product states drawn\n131 materials pass but cannot be ranked\n859 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "warm-annealed",
+      "screen": "390x844",
+      "file": "after-warm-annealed-390x844.png",
+      "dialogs": [
+        "This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the catalogue view it was saved with. Choose \"Decision products\" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way."
+      ],
+      "plotArea": {
+        "x": 82,
+        "y": 1198,
+        "w": 270,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 1182,
+        "w": 366,
+        "h": 528
+      },
+      "lens": {
+        "x": 0,
+        "y": 283,
+        "w": 390,
+        "h": 2587
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 2026,
+        "w": 366,
+        "h": 831
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n76 of 117 candidates plotted, 41 lack one or both properties and are not drawn as zero. Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states. Colour is polymer family, marker shape is filler class.\nThe dotted line joins the materials that nothing else beats on both axes at once, at their typical values: density lower is better, heat resistance higher is better.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nH2C scope and print gates asked\nJudged\nas printed, or annealed at its sheet's schedule up to 120 °C, dry\nStiffness at least 4 GPa; Heat resistance at least 80 °C\nEdit requirements\nRelease 9d6f90101518\nRequirements\n22 product states, 12 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS-GF\n☆\n1 product state drawn\nASA-CF\n☆\n3 product states drawn\nPA6-CF\n☆\n5 product states drawn\nPA6-GF\n☆\n3 product states drawn\nPET-CF\n☆\n2 product states drawn\nPET-GF\n☆\n1 product state drawn\nPLA\n☆\n1 product state drawn\nPLA-CF\n☆\n1 product state drawn\nPP-CF\n☆\n1 product state drawn\nPPA-CF\n☆\n1 product state drawn\nPPA-GF\n☆\n1 product state drawn\n2 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "beam-v2",
+      "screen": "390x844",
+      "file": "after-beam-v2-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 881,
+        "w": 286,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 865,
+        "w": 366,
+        "h": 471
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 2654
+      },
+      "lineControl": {
+        "x": 12,
+        "y": 715,
+        "w": 366,
+        "h": 141
+      },
+      "results": {
+        "x": 12,
+        "y": 1750,
+        "w": 366,
+        "h": 1177
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n14 product states across 8 materials drawn, each meeting every requirement in the state it is drawn in. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n8 product states across 5 materials at or above (of 14; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "beam-v2-overview",
+      "screen": "390x844",
+      "file": "after-beam-v2-overview-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 731,
+        "w": 286,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 715,
+        "w": 366,
+        "h": 452
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 2486
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 1581,
+        "w": 366,
+        "h": 1177
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n8 materials drawn as the span of their confirmed products on each axis, over 14 product states. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "beam-v2-conditioned",
+      "screen": "390x844",
+      "file": "after-beam-v2-conditioned-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 861,
+        "w": 286,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 845,
+        "w": 366,
+        "h": 395
+      },
+      "lens": {
+        "x": 0,
+        "y": 283,
+        "w": 390,
+        "h": 1765
+      },
+      "lineControl": {
+        "x": 12,
+        "y": 712,
+        "w": 366,
+        "h": 125
+      },
+      "results": {
+        "x": 12,
+        "y": 1751,
+        "w": 366,
+        "h": 283
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n0 product states across 0 materials drawn, each meeting every requirement in the state it is drawn in. 3 materials have no product, so nothing to draw. Context drawn: 1 product state unresolved (hollow), some from 50 materials not in the results. Context is never ranked, counted on the line or on the front. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 0 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "No product state drawn here has a value of E^(1/2) / ρ: the line has nothing to count in the conditioned state, where nothing is inferred from dry values.\nUnresolved products can be drawn as context under Layers; they are never ranked.",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, conditioned by moisture\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n0 product states, 0 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named.\nNo material meets every requirement in the state asked, so nothing ranks. Unresolved products can be drawn as context; Why excluded says what held them.\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "scope-v2-estimates",
+      "screen": "390x844",
+      "file": "after-scope-v2-estimates-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 855,
+        "w": 278,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 839,
+        "w": 366,
+        "h": 528
+      },
+      "lens": {
+        "x": 0,
+        "y": 283,
+        "w": 390,
+        "h": 6219
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 1880,
+        "w": 366,
+        "h": 4608
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n78 materials drawn as the span of their confirmed products on each axis, over 218 product states. Twins that print one sheet share its values, so 218 product states rest on 210 distinct pairs of values. 859 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Estimated context: 40 materials with no product publishing on an axis, drawn dashed as the model's likely range, with a measured axis as its products' span. Two marginal ranges are not a joint region, and neither is a candidate. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPET-LW\n☆\n2 product states drawn\nPETG\n☆\n16 product states drawn\nPETG-CF\n☆\n5 product states drawn\nPETG-ESD\n☆\n6 product states drawn\nPETG-GF\n☆\n2 product states drawn\nPLA\n☆\n32 product states drawn\nPLA Aero\n☆\n4 product states drawn\nPLA Galaxy\n☆\n1 product state drawn\nPLA Glow\n☆\n1 product state drawn\nPLA Mar",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "cost-v2",
+      "screen": "390x844",
+      "file": "after-cost-v2-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 887,
+        "w": 286,
+        "h": 302
+      },
+      "plot": {
+        "x": 12,
+        "y": 871,
+        "w": 366,
+        "h": 471
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 2489
+      },
+      "lineControl": {
+        "x": 12,
+        "y": 721,
+        "w": 366,
+        "h": 141
+      },
+      "results": {
+        "x": 12,
+        "y": 1867,
+        "w": 366,
+        "h": 894
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n6 product states across 5 materials drawn, each meeting every requirement in the state it is drawn in. 1071 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. The line is one value of M = E^(1/2) / (Cm × ρ) across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range. Price is available for observed Canadian listings. Cost per volume is each product's own CAD/kg price, dated, times its own density; shipping is excluded and no other currency is converted.",
+      "readout": "Line at\nM =\n▼\n▲\n6 product states across 5 materials at or above (of 6; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / (Cm × ρ)\nCross-section area free, its proportions fixed; length fixed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nno other requirement\nEdit requirements\nRelease 9d6f90101518\nRequirements\n1077 product states, 133 materials",
+      "results_text": "Ranked by beam, minimum material cost, stiffness prescribed\nEach material by the median E^(1/2) / (Cm × ρ) of its passing products, in the states they pass in; its best product state named. The × is relative to PETG, first: M's own units depend on the formula.\n1\nPETG\n4.50e-5\n☆\nbest Bambu Lab PETG Basic as printed, dry · M 5.34e-5\nmedian of 2 passing products\n2 product states drawn\n2\nPC\n2.37e-5 0.53×\n☆\nbest Bambu Lab PC as printed, dry · M 2.37e-5\nmedian of 1 passing product\n1 product state drawn\n3\nPPA-CF\n1.08e-5 0.24×\n☆\nbest Bambu Lab PPA-CF as printed, dry · M 1.08e-5\nmedian of 1 passing product\n1 product state drawn\n4\nPPS-CF\n1.03e-5 0.23×\n☆\nbest Bambu Lab PPS-CF as printed, dry · M 1.03e-5\nmedian of 1 passing product\n1 product state drawn\n5\nTPU 90A class\n1.09e-6 0.02×\n☆\nbest Bambu Lab TPU 90A as printed, dry · M 1.09e-6\nmedian of 1 passing product\n1 product state drawn\n131 materials pass but cannot be ranked\n1071 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "warm-v2-annealed",
+      "screen": "390x844",
+      "file": "after-warm-v2-annealed-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 896,
+        "w": 286,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 880,
+        "w": 366,
+        "h": 490
+      },
+      "lens": {
+        "x": 0,
+        "y": 283,
+        "w": 390,
+        "h": 2364
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 1802,
+        "w": 366,
+        "h": 831
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n20 product states across 11 materials drawn, each meeting every requirement in the state it is drawn in. 2 product states that pass cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Context drawn: 90 product states unresolved (hollow), some from 36 materials not in the results. Context is never ranked, counted on the line or on the front. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nH2C scope and print gates asked\nJudged\nas printed, or annealed at its sheet's schedule up to 120 °C, dry\nStiffness at least 4 GPa; Heat resistance at least 80 °C\nEdit requirements\nRelease 9d6f90101518\nRequirements\n22 product states, 12 materials",
+      "results_text": "Confirmed products, by material\nChoose a goal to rank them.\nABS-GF\n☆\n1 product state drawn\nASA-CF\n☆\n3 product states drawn\nPA6-CF\n☆\n5 product states drawn\nPA6-GF\n☆\n3 product states drawn\nPET-CF\n☆\n2 product states drawn\nPET-GF\n☆\n1 product state drawn\nPLA\n☆\n1 product state drawn\nPLA-CF\n☆\n1 product state drawn\nPP-CF\n☆\n1 product state drawn\nPPA-CF\n☆\n1 product state drawn\nPPA-GF\n☆\n1 product state drawn\n2 product states confirmed but not drawn on these axes\n3 materials on screen have no product to buy, so no product state to draw.",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "beam-v2-stage",
+      "screen": "390x844",
+      "file": "after-beam-v2-stage-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 1015,
+        "w": 286,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 999,
+        "w": 366,
+        "h": 452
+      },
+      "lens": {
+        "x": 0,
+        "y": 321,
+        "w": 390,
+        "h": 2402
+      },
+      "lineControl": {
+        "x": 12,
+        "y": 850,
+        "w": 366,
+        "h": 141
+      },
+      "results": {
+        "x": 12,
+        "y": 1884,
+        "w": 366,
+        "h": 825
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n9 product states across 5 materials drawn, each meeting every requirement in the state it is drawn in, as the stage kept them. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its kept products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n7 product states across 5 materials at or above (of 9; better above)\nKeep above this line instead",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials\nKept\nE^(1/2) / ρ ≥ 0.0017 (beam stiffness): 9 product states, 5 materials\nRemove",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its kept products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 kept product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 kept product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 kept products\n3 product states drawn\n4\nPA6-CF\n0.00179 0.77×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 3 kept products\n3 product states drawn\n5\nABS-GF\n0.00178 0.77×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 1 kept product\n1 product state drawn",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "start-v2",
+      "screen": "390x844",
+      "file": "after-start-v2-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 1991,
+        "w": 286,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 1975,
+        "w": 366,
+        "h": 547
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 7942
+      },
+      "lineControl": null,
+      "results": {
+        "x": 12,
+        "y": 2875,
+        "w": 366,
+        "h": 5340
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n237 product states across 91 materials drawn; nothing is screened until a requirement is asked. Twins that print one sheet share its values, so 237 product states rest on 229 distinct pairs of values. 891 product states cannot be drawn on these axes, and are listed beside the chart with why. 3 materials have no product, so nothing to draw. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nResearch mode\n: printability not checked\nCheck printability\nJudged\nas printed, dry\nNo requirement asked yet\nEdit requirements\nRelease 9d6f90101518\nNothing screened\n1128 product states, 150 materials, none confirmed",
+      "results_text": "Products, by material\nChoose a goal to rank them. Nothing is confirmed until a requirement is asked.\nABS\n☆\n8 product states drawn\nABS-AF\n☆\n1 product state drawn\nABS-CF\n☆\n3 product states drawn\nABS-ESD\n☆\n4 product states drawn\nABS-GF\n☆\n4 product states drawn\nASA\n☆\n9 product states drawn\nASA Aero\n☆\n1 product state drawn\nASA-CF\n☆\n5 product states drawn\nASA-GF\n☆\n2 product states drawn\nBVOH\n☆\n1 product state drawn\nCoPE\n☆\n1 product state drawn\nCPE\n☆\n1 product state drawn\nHIPS\n☆\n3 product states drawn\nnGen / Amphora\n☆\n1 product state drawn\nnGen FLEX\n☆\n1 product state drawn\nNylon-GF, maker-undisclosed polyamide\n☆\n1 product state drawn\nNylon, maker-undisclosed polyamide\n☆\n3 product states drawn\nPA12-CF\n☆\n1 product state drawn\nPA12-GF\n☆\n1 product state drawn\nPA6\n☆\n1 product state drawn\nPA6-CF\n☆\n4 product states drawn\nPA6-GF\n☆\n1 product state drawn\nPA6/66\n☆\n3 product states drawn\nPA612-CF\n☆\n1 product state drawn\nPAHT\n☆\n1 product state drawn\nPBAT\n☆\n1 product state drawn\nPBT-GF\n☆\n1 product state drawn\nPC\n☆\n11 product states drawn\nPC FR\n☆\n1 product state drawn\nPC-ABS\n☆\n4 product states drawn\nPC-ABS-CF\n☆\n1 product state drawn\nPC-ASA\n☆\n1 product state drawn\nPC-CF\n☆\n2 product states drawn\nPC-ESD\n☆\n1 product state drawn\nPC-GF\n☆\n1 product state drawn\nPC-PBT\n☆\n1 product state drawn\nPCTG\n☆\n1 product state drawn\nPE\n☆\n1 product state drawn\nPEEK\n☆\n1 product state drawn\nPEEK-CF\n☆\n2 product states drawn\nPEEK-GF\n☆\n1 product state drawn\nPEI / ULTEM\n☆\n3 product states drawn\nPEI-CF\n☆\n2 product states drawn\nPEI-ESD\n☆\n2 product states drawn\nPEI-GF\n☆\n1 product state drawn\nPEKK\n☆\n2 product states drawn\nPEKK",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    },
+    {
+      "scenario": "beam-v2-wide",
+      "screen": "390x844",
+      "file": "after-beam-v2-wide-390x844.png",
+      "dialogs": [],
+      "plotArea": {
+        "x": 76,
+        "y": 881,
+        "w": 286,
+        "h": 308
+      },
+      "plot": {
+        "x": 12,
+        "y": 865,
+        "w": 366,
+        "h": 471
+      },
+      "lens": {
+        "x": 0,
+        "y": 287,
+        "w": 390,
+        "h": 2654
+      },
+      "lineControl": {
+        "x": 12,
+        "y": 715,
+        "w": 366,
+        "h": 141
+      },
+      "results": {
+        "x": 12,
+        "y": 1750,
+        "w": 366,
+        "h": 1177
+      },
+      "plots": 1,
+      "reading": "READING THIS CHART\n14 product states across 8 materials drawn, each meeting every requirement in the state it is drawn in. The line is one value of M = E^(1/2) / ρ across these axes; its count is of the product states drawn (equality counts), and above it is better. The material ranking beside the chart is a separate summary: each material by the median M of its passing products, 5 of them at or above this line. Ranges mean different things: a material band is the spread across its products; a whisker is the spread a source reports for one measurement, as published; a dashed range is a model's likely interval; the engine's screening bounds are in the inspector, never drawn as a range.",
+      "readout": "Line at\nM =\n▼\n▲\n8 product states across 5 materials at or above (of 14; better above)\nKeep products above this line",
+      "question": "GOAL\nCompare two properties (fixed geometry, no index)\nTie, minimum mass, stiffness prescribed\nBeam, minimum mass, stiffness prescribed\nPanel, minimum mass, stiffness prescribed\nTie, minimum mass, strength prescribed\nBeam, minimum mass, strength prescribed\nPanel, minimum mass, strength prescribed\nBeam, minimum material cost, stiffness prescribed\nTie, minimum material cost, strength prescribed\nMaximise M = E^(1/2) / ρ\nCross-section area free, its proportions fixed; length fixed\nH2C scope and print gates asked\nJudged\nas printed, dry\nStiffness at least 3 GPa; Density at most 1250 kg/m³\nEdit requirements\nRelease 9d6f90101518\nRequirements\n14 product states, 8 materials",
+      "results_text": "Ranked by beam, minimum mass, stiffness prescribed\nEach material by the median E^(1/2) / ρ of its passing products, in the states they pass in; its best product state named. The × is relative to PPA-CF, first: M's own units depend on the formula.\n1\nPPA-CF\n0.00231\n☆\nbest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN) as printed, dry · M 0.00231\nmedian of 1 passing product\n1 product state drawn\n2\nPP-CF\n0.00225 0.98×\n☆\nbest 3DXTECH CarbonX CF PP as printed, dry · M 0.00225\nmedian of 1 passing product\n1 product state drawn\n3\nASA-CF\n0.002 0.87×\n☆\nbest 3DXTECH CarbonX CF ASA as printed, dry · M 0.00208\nmedian of 3 passing products\n3 product states drawn\n4\nPA6-CF\n0.00176 0.76×\n☆\nbest Eryone PA6-CF as printed, dry · M 0.00184\nmedian of 4 passing products\n4 product states drawn\n5\nABS-GF\n0.00173 0.75×\n☆\nbest 3DXTECH FibreX ABS+GF10 Glass Fiber ABS as printed, dry · M 0.00178\nmedian of 2 passing products\n2 product states drawn\n6\nPLA\n0.00164 0.71×\n☆\nbest Nanovia PLA EF 3D850 as printed, dry · M 0.00164\nmedian of 1 passing product\n1 product state drawn\n7\nPLA-CF\n0.0016 0.69×\n☆\nbest QIDI PLA-CF as printed, dry · M 0.0016\nmedian of 1 passing product\n1 product state drawn\n8\nNylon, maker-undisclosed polyamide\n0.00151 0.65×\n☆\nbest CreatBot Ultra PA as printed, dry · M 0.00151\nmedian of 1 passing product\n1 product state drawn",
+      "scrollWidth": 390,
+      "innerWidth": 390
+    }
+  ],
+  "networkRequests": [],
+  "pageErrors": []
+}

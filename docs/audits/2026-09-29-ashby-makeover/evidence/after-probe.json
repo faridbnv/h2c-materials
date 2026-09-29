@@ -1,0 +1,81 @@
+{
+  "release": "9d6f90101518",
+  "beam": {
+    "materials": {
+      "pass": 8,
+      "unknown": 101,
+      "fail": 44
+    },
+    "decision": {
+      "pairs": 14,
+      "materials": 8
+    },
+    "failedContextPairs": 207,
+    "unresolvedContextPairs": 16,
+    "notDrawable": 0,
+    "line": {
+      "M": 0.0017342913093628366,
+      "statesAtOrAbove": 8,
+      "materialsAtOrAbove": 5,
+      "rankedMaterialsAtOrAbove": 5
+    },
+    "stageAtLine": {
+      "kept": 8,
+      "materials": 5,
+      "verdictsUnchanged": true
+    }
+  },
+  "conditionedBeam": {
+    "decisionPairs": 0,
+    "unresolvedDrawable": 1,
+    "unresolvedProducts": 834,
+    "marksNotAtTheirJudgedState": 0
+  },
+  "estimates": {
+    "ranges": 40,
+    "unavailable": 0,
+    "measuredSpreadCollapsed": 0
+  },
+  "evidencePairs": {
+    "strictPairs": 297,
+    "strictWithExplicitConflict": 0,
+    "directionOnlyMatches": 352
+  },
+  "conditionedScopeRanking": {
+    "ranked": 1,
+    "rankedMaterials": [
+      "M166"
+    ],
+    "restingOnAMissingState": 0
+  },
+  "cost": {
+    "ranked": 0,
+    "unranked": 8,
+    "drawable": 0,
+    "unpriced": 14
+  },
+  "fiberon": [
+    {
+      "oven": false,
+      "verdict": "UNKNOWN",
+      "state": "as-printed",
+      "bucket": "unresolved",
+      "drawn": {
+        "y": 81.6,
+        "yMeasurement": "V001931"
+      },
+      "why": null
+    },
+    {
+      "oven": true,
+      "verdict": "PASS",
+      "state": "annealed:120:16",
+      "bucket": "confirmed",
+      "drawn": {
+        "y": 133.7,
+        "yMeasurement": "V001933"
+      },
+      "why": null
+    }
+  ]
+}

@@ -30,7 +30,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D18 | The familiar baseline is a reference, never a candidate | A familiar material you pick for comparison is drawn beside the results and never counted as one of them. | In force |
 | D19 | No sampled offer is UNKNOWN, not FAIL | A material no sampled shop listed is unknown for "can I buy it"; only one listed and out of stock fails. | In force; narrowed by D98 (a product is judged on its own offers, never another product's) |
 | D20 | Category names are authored with the rules that create them | Environment category names are written in the data beside the rules that define them, not assembled by the page. | In force |
-| D21 | One control for how much evidence the chart draws | The chart's two overlapping evidence switches became one three-way choice. | In force |
+| D21 | One control for how much evidence the chart draws | The chart's two overlapping evidence switches became one three-way choice. | Amended by D107 |
 | D22 | Search matches words, never substrings | Search matches the start of words, so "PLA" does not find thermoplastic polyurethane. | In force |
 | D23 | An estimate is drawn as a range, never as a point | An estimated value is drawn as a range, never as a dot, and never joins the Pareto front. | In force |
 | D24 | A relaxed condition and an unstated fact are different things | A chart point is marked doubtful only when strict mode would have rejected it, not whenever a source left a detail unstated. | In force |
@@ -108,14 +108,15 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D96 | A release is its content: an ID over what decides travels with every page, scenario and export | Each build is named by a digest of the data, rules and engine that decide its answers, not by a date; a scenario saved on one release says so when opened on another, and every published release's page is kept. | In force |
 | D97 | A decision value is bound to its own row: its number is one its evidence line prints, and a number has one role | A value enters only if the line it was read from prints that number whole, and a number printed once cannot be both a value and a condition, or two conditions; a page that merely contains the digits somewhere is no longer enough. | In force |
 | D98 | A product's verdict rests on its own records: its evidence, its offers, its conflicts | A product passes an environment, stock or evidence requirement only on its own records (or a twin's, which is the same sheet); another product's record, or one filed under the whole material, is shown as context and never passes it. | In force |
-| D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | In force |
+| D99 | A product is judged in a state it can be made in: as printed unless annealing is permitted, dry unless conditioned is asked | A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs. | Amended by D107 |
 | D100 | A material fails only when every product fails; while one is unresolved, it is unresolved | A material passes when one of its products passes, stays unknown while any product has not been judged and none passes, and fails only when every product fails; the counts of passing, failing and untested products stay beside it. | In force |
 | D101 | Every template asks whether the H2C can print the product; browsing without it is research mode | Each ready-made scenario checks each product's nozzle, bed and chamber against the H2C's, as it checks its properties; turning that off is labelled research mode, where a pass says nothing about printing. | In force |
-| D102 | One ranking: the table, the chart's guide, its line and the export rank a question the same way | When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking. | In force |
+| D102 | One ranking: the table, the chart's guide, its line and the export rank a question the same way | When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking. | Amended by D107 |
 | D103 | A chosen product is a local decision record: its brief, its state, its release, and the team's own tests | An engineer can choose the exact product the team will print; the page keeps it with the scenario, with the state and release it was chosen on, and writes a decision brief with its evidence, recipe, open questions and a test plan, where the team records its own results. | In force |
 | D104 | A save is one transaction, a fetch is bounded, and a source's bytes are kept by their digest | Editing the tables from a script either writes every file of the change or none, and refuses to overwrite another writer's save; downloading a source gives up after set limits and resumes without starting over; and the downloaded source files can be listed, backed up and restored by their fingerprint. | In force |
 | D105 | A query is of one generation; a decision can be traced; the loop is measured | The SQL file you query says which release of the data it is of and never mixes the tables as they are with an older compiled database; one product's decision in a saved scenario can be traced record by record from the command line; and what the build and checks cost is measured step by step. | In force |
 | D106 | A product is named for what its maker's documents say it is, searched beyond the data sheet | Before a product is filed as "polymer not stated" or "hardness not stated", its maker's safety data sheet, pages, guides and older editions are searched; it is filed under what they name, and only what no document names stays in a home that says the maker does not disclose it. | In force; it amends D86 (the "hardness not stated" class is a family entry) and D87 (the homes are named for what is true of them) |
+| D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force |
 
 <!-- end index -->
 
@@ -357,6 +358,9 @@ the engine also names categories in its reason strings, and the engine may not i
 rule intact.
 
 ## D21. One control for how much evidence the chart draws
+
+*Amended by D107 (2026-09-29): the choice became two work views (Decision products, Material overview) and three evidence
+views (Catalogue, Test pairs matched, Test pairs mixed), the last three under the chart's More.*
 
 > **In plain words:** The chart's two overlapping evidence switches became one three-way choice.
 
@@ -2968,6 +2972,10 @@ move. Reversing it lets one product's record or stock stand for every product of
 
 > **In plain words:** A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs.
 
+*Amended by D107 (2026-09-29): the Ashby decision workspace draws each product at the values of the state its answer is
+in, where this decision had kept the chart at published values; the catalogue view still draws those. A named state a
+product does not publish is that state with no values, never its first state.*
+
 *Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decisions 2 and 5;
 recommended and taken). Built in version 2.1, F02 of the review of 2026-09-27 (D03, D04). Amends D83 and D84.*
 
@@ -3071,6 +3079,10 @@ product the printer the tool is for cannot print.
 ## D102. One ranking: the table, the chart's guide, its line and the export rank a question the same way
 
 > **In plain words:** When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking.
+
+*Amended by D107 (2026-09-29): the chart's line is drawn over the exact product states the ranking reads, and counts
+them and their materials apart; its "bubbles at typical values, context" survives as the catalogue view. The one ranking
+also reads an applied objective stage.*
 
 *Built in version 2.1, F05 of the review of 2026-09-27 (U01), under the owner's direction of 2026-09-28. Extends D83.*
 
@@ -3244,6 +3256,74 @@ retired TPU class's 16 rows went, and TPV's 12 came. In research mode with estim
 the model now learns from the moved products. Reversing it puts 21 products back under a name that says less than their
 makers do.
 
+## D107. The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over
+
+> **In plain words:** The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views.
+
+*Directed by the owner on 2026-09-29: build the external review and plan of 2026-09-28 (the package
+ASHBY-MAKEOVER-2026-09-28, B01 to B13) on the branch Ashby-makeover. The design is that plan's recommendation; built by
+Claude (an agent), and no person has reviewed it or run the plan's engineering trial yet
+(docs/audits/2026-09-29-ashby-makeover/README.md). Amends D21, D99 and D102.*
+
+The chart was a browser of recorded properties beside an answer judged elsewhere. Its product view drew published values
+while the answer was judged in a state (D99): a conditioned beam drew 247 dry points, and Fiberon PET-GF15 sat at its
+as-printed 81.6 °C while it passed annealed at 133.7 °C. Its line was drawn among materials' typical values, which describe
+different products, and counted another population (five ranked, four points above it). It read "73 of 8 candidates", 73
+products over 8 materials. A strict "matched pair" could be a dry modulus and a conditioned strength of one sheet (27 of
+352). The goal did not set its axes, the line sat under the chart, and a cost goal could not be drawn at all. And the
+ranking itself read a state a product does not publish as its first: asked about the conditioned state, 78 materials
+ranked on dry stiffness.
+
+- **A named state is that state** (`stateOf`, `app/js/engine/products.js`). A product asked about a state it does not
+  publish is judged, ranked and drawn in that state with no values, never its first state; only no name at all means the
+  first state. A value the registry declares unchanged by the state (a density) is read from the first state and says so
+  (`valueStateOf`). What it moved: 64 of 512 rankings across the templates, all in conditioned modes, each losing only the
+  materials that ranked on a state they do not publish; the conditioned scope-only beam ranks one material (Onyx GF, the one
+  product publishing a conditioned modulus and a density) where it ranked 78. No verdict moved.
+- **One model** (`buildWorkspace`, `app/js/engine/workspace.js`): each product of the materials on screen in the state its
+  answer is in, both coordinates from that state, its index, and its bucket: confirmed (passes), unresolved, failed. The
+  chart, its result list, the inspector, the line, the stage and the exports read it; nothing is chart-owned.
+- **Two work views.** *Decision products* draws the confirmed product states, grouped by material in the list and
+  coloured by family; failed and unresolved products are layers off until asked for, counted apart, never ranked, counted
+  on the line or put on the front. *Material overview* draws each material as the marginal span of its products on each
+  axis, labelled so (the corners are not products), with its products as dots. The catalogue (typical published values)
+  and the test-pair views of before stay, as evidence views under More, and say they are not the decision.
+- **One goal.** `rankBy` is the goal of the table, the chart and the export; the chart's separate `plot.index` is gone.
+  Choosing a goal sets its axes and Log scales in one action; a cost goal draws against *material cost per volume*, each
+  product's own CAD/kg price times its own density (a twin's price is never read), and lists the unpriced. The line sits
+  above the chart with a numeric box, a slider and steps to the next product state; its count is of the product states it
+  is drawn over and their materials, apart from the material ranking (the median of passing products, unchanged).
+- **An objective stage.** *Keep products above this line* stores `{ index, cutoff }` in the scenario (`stages`, at most
+  three): the confirmed product states at or above it are kept, the materials on screen are those with a kept product, and
+  the one ranking reads only them, in the table, the chart, Compare and every export. The requirements' verdicts and the
+  status bar do not change. Removing it is one press. A line moved without it filters nothing, and a lasso only focuses
+  the chart.
+- **Ranges keep their meanings.** A material band is the spread across its products; a whisker is a source's own
+  statistic; a dashed range is the estimate's likely interval, beside the products' measured span on the other axis rather
+  than their median (13 had collapsed); the engine's screening bounds are shown in the inspector, never drawn. Estimated
+  context follows the page's one rule: shown under Include uncertain with estimates on, never under Confirmed only, and
+  unavailable for a conditioned question, since an estimate describes dry products as printed. An estimate's inspector
+  gives the index over its rectangle's corners, said to be a bound over two independent ranges, not a confidence interval
+  or a rank.
+- **Evidence pairs are one condition** (`pairCompatibility`, `app/js/ui/axes.js`): a strict pair agrees on moisture,
+  treatment and schedule, specimen form, direction and document, or names what one side leaves unstated; mixed
+  exploration names every conflict. A value the registry declares unchanged by moisture and annealing may pair across
+  them.
+- **Scenario version 2.** A version 1 scenario keeps its whole question; where the table's ranking and the chart's guide
+  differed, the ranking wins and the reader is told; a chart that had been in use opens in the catalogue or evidence view
+  it was saved with, said so, never silently turned into an exact-state picture.
+
+The filter rail can be hidden on a wide screen too, a viewer's choice kept in the browser, so the chart can take the width:
+at 1440 x 900 the plot then has at least 700 x 450 px of plotting area, and at 1024 x 768 at least 520 x 360 with the
+results under it (`npm run ui:check` fails otherwise). The plan offered estimated context under Confirmed only as well; it
+was not built, so that Confirmed only stays measured evidence alone on every view of the page.
+
+What it did: across 64 question and mode answers (six templates, scope only and the review's H2C beam; both policies, dry and
+conditioned, with and without annealing) no verdict moved; 64 of 512 rankings moved, as above
+(docs/audits/2026-09-29-ashby-makeover/evidence/rank-diff.json). The compiled database moved nothing (`npm run build:diff`:
+0 differences; the release moved with the engine). Reversing it draws published values beside answers judged in states,
+counts one population under a line drawn over another, and ranks conditioned questions on dry stiffness again.
+
 ---
 
 # Bugs worth remembering
@@ -3317,3 +3397,5 @@ answers rather than failing.
 | A Plotly listener per redraw | 800 chart renders held 1,408 resize listeners and 569 MB; the first fix, purging, raced Plotly's redraw and threw in 187 of 200 fuzz scenarios | UI fuzz, heap probe |
 | Replacing a headline refused as a deletion | The no-deletion guard keyed headline rows on every column, so the AGENTS.md recipe "replace the old value row" failed the pre-commit hook | `data-check.test.js` (identity, replacedWithin) |
 | Unreviewed build warnings | Outliers, wide estimates and unstated loads were summed into warnings, so a new one never failed verify | `lint.test.js`, `audit:data` (D57) |
+| A missing state read as the first | `stateOf` returned a product's dry, as-printed state for a conditioned state it does not publish, so 78 materials ranked a conditioned question on dry stiffness | `workspace.test.js` T03, `workspace-acceptance.test.js` A01 (D107) |
+| A container matched a control's selector | The workspace's root carried `data-view`, which the view buttons' click handler selected, so every click anywhere in the Ashby lens redrew it and took keyboard focus away | `ui-probe.mjs` (the Ashby keyboard view), D107 |

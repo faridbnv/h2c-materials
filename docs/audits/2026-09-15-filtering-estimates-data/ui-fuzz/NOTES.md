@@ -55,12 +55,13 @@ scenario JSON and the file:// URL with hash), `findings.csv` (violations traced 
 | I1 | table material set, verdict chip, screened chip (screened rows only with SCREENED on), search-excluded group, no-results panel |
 | I2 | `#count` text, the four chips (hidden state and text), the results header's pass / total / unknown sentence |
 | I3 | Strict renders the same text with estimates on and off (count, chips and lens hashed); no `.est`, † or envelope in Strict, or in Explore with estimates off |
-| I4 | point set, coordinates equal headline values, hover verdict, envelope set (none with estimates off or plot showEstimates false), front over eligible only, legend counts (plotted + lacking + estimated = rows), estimate sentences, axis-picker counts; assumption-backed points; non-positive values on log axes |
+| I4 | (the Ashby catalogue view since D107) point set, coordinates equal headline values, hover verdict, envelope set (none with estimates off or plot showEstimates false), front over eligible only, legend counts (plotted + lacking + estimated = rows), estimate sentences, axis-picker counts; assumption-backed points; non-positive values on log axes |
 | I5 | for every visible row and numeric requirement on a point value: the displayed text compared with the threshold gives the same result as the real value (and the same against the pill's rounded threshold) |
 | I6 | Runtime exceptions, console errors, dialogs; NaN / undefined / null / [object Object] in the lens and plot text; non-empty reasons in screened chips, the exclusion list and every engine result; an assumption described as "Published" |
 | I7 | a sample of links reopened in a fresh load gives the same count, chips and rows or points |
 | I8 | rendered sets: Strict ⊆ Explore+estimates ⊆ Explore without estimates; a child scenario never shows a row its parent did not |
 | I9 | the filter rail shows the requirement on each property |
+| I10 | (added 2026-09-29, D107) the Ashby decision view: its marks are exactly the passing products of the rows on screen in the states their answers are in, at those states' values (a registry-invariant value from the first state); no context mark with every layer off; the reading note counts product states and materials apart, never "N of M candidates". A scenario draws the catalogue view (I4) or the decision view (I10), about two to one |
 
 ## Runtime achieved
 

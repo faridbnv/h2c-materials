@@ -1,0 +1,62 @@
+{
+  "label": "before",
+  "page": "/private/tmp/claude-501/-Users-farid-Documents-H2C-v2-1-Review-2026-09-27-ASHBY-MAKEOVER-2026-09-28/b82eebd7-b4d7-4abe-9aff-c728782002bb/scratchpad/baseline/H2C_Material_Selector_2026-09-21_03663e0b6e97.html",
+  "renders": 40,
+  "measured": "2026-09-29T09:08:38.544Z",
+  "runs": {
+    "beam, one product per point": {
+      "marks": 82,
+      "medianMs": 33.5,
+      "p95Ms": 36,
+      "maxMs": 50,
+      "resizeListeners": [
+        3,
+        3
+      ],
+      "plots": [
+        1,
+        1
+      ],
+      "heapMB": [
+        37.7,
+        39.1
+      ]
+    },
+    "scope only, materials with estimates": {
+      "marks": 635,
+      "medianMs": 98.1,
+      "p95Ms": 101.2,
+      "maxMs": 102,
+      "resizeListeners": [
+        3,
+        3
+      ],
+      "plots": [
+        1,
+        1
+      ],
+      "heapMB": [
+        38.1,
+        39.5
+      ]
+    },
+    "scope only, mixed test pairs (largest)": {
+      "marks": 3951,
+      "medianMs": 430.4,
+      "p95Ms": 493.9,
+      "maxMs": 498.6,
+      "resizeListeners": [
+        3,
+        3
+      ],
+      "plots": [
+        1,
+        1
+      ],
+      "heapMB": [
+        38.8,
+        40.4
+      ]
+    }
+  }
+}

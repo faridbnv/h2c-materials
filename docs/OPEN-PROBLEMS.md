@@ -1,6 +1,6 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-28. What it holds is counted in
+What is known to be wrong or missing in this database, as of 2026-09-29. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
 
@@ -816,6 +816,46 @@ narrower and more honest, and leave these, each with where it is counted:
 npm run sql --silent -- "select count(*) annealed_no_schedule from measurements where data_status in ('Published value','Published value (transcription corrected)') and post_processing_state = 'annealed' and (anneal_c_state is not null or anneal_h_state is not null)"
 npm run sql --silent -- "select count(*) conditioned from measurements where data_status in ('Published value','Published value (transcription corrected)') and moisture_state = 'conditioned'"
 npm run sql --silent -- "select count(*) not_indexed from v_sources_without_text"
+```
+
+---
+
+## 20. What the Ashby makeover leaves open
+
+The decision workspace (D107; [the record](audits/2026-09-29-ashby-makeover/README.md)) draws, ranks and counts exact
+product states. It leaves these, each with where it is counted:
+
+- **No engineer has used it.** The plan's formative trial (five participants, the tasks in the record's ACCEPTANCE.md)
+  is its release gate and has not been run; nor have screen-reader, other-browser or physical touch checks. The
+  keyboard path from the line to an exact product is checked by `npm run ui:check` in headless Chrome only.
+- **Its source readings are an agent's.** The Fiberon PET-GF15 heat deflections and the Ultrafuse PAHT CF15 dried and
+  conditioned tables behind `test/acceptance/ashby-workspace.json` were re-read on the cached documents by digest, by an
+  agent; a person should check them as ACCEPTANCE.md asks for the version 2.1 portfolio.
+- **One state per product.** A product is drawn in the state its answer is in; the other states the scenario permits are
+  not offered beside it as alternatives, so an annealed alternative with a better index is not shown unless it is the
+  answer. The plan left this for a later slice.
+- **One requirement per property.** *Limits on these axes* sets each axis's one requirement, as the rail does; a two-sided
+  interval, or a box drawn on the chart, needs a scenario and engine decision first.
+- **Cost is Canadian and thin.** The cost goal uses each product's own CAD/kg price; foreign-currency observations and a
+  dated conversion wait for the gap-fill plan, and most products have no price, so the constrained H2C beam ranks none by
+  cost and lists its 14 unpriced product states. The first query counts the products with a listing.
+- **Estimated context is not offered under Confirmed only.** The plan allowed it there as a display layer; it was left
+  out so that Confirmed only stays measured evidence alone everywhere on the page (D107). Under Include uncertain it is
+  drawn only while estimates are on, and never for a conditioned question.
+- **Relative performance is against the first-ranked material only.** The list gives each material's median M as a
+  multiple of the first's; a reference the reader names, and display-unit conversion (the page has canonical units only),
+  are not built.
+- **Strict test pairs now need one document.** A modulus and a strength of one product from two of its sheets no longer
+  make a strict pair (297 strict pairs where 352 matched by direction alone, over scope only, modulus against strength);
+  some of those were comparable in fact. The mixed view keeps them, naming the two documents.
+- **The largest evidence view redraws a little slower.** Toggling a scale on the mixed test pairs over scope only (3,951
+  marks) took a median 456 ms against 430 ms before, measured on the owner's laptop by the record's `tools/perf.mjs`; the
+  decision views measured 34 to 115 ms. Neither leaks: one resize listener set, one plot, the heap steady over 40 redraws.
+- **Cold verify:fast is still over budget** (§19); this change adds three test files and two probe views.
+
+```bash
+npm run sql --silent -- "select count(distinct gradeid) products_with_a_listing, currency from prices where quarantined = 0 group by currency"
+node docs/audits/2026-09-29-ashby-makeover/tools/probe.mjs
 ```
 
 ---

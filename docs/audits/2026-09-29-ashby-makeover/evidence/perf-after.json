@@ -1,0 +1,80 @@
+{
+  "label": "after",
+  "page": "dist/H2C_Material_Selector_2026-09-21_9d6f90101518.html",
+  "renders": 40,
+  "measured": "2026-09-29T09:14:46.632Z",
+  "runs": {
+    "beam, decision products": {
+      "marks": 20,
+      "medianMs": 33.5,
+      "p95Ms": 50.7,
+      "maxMs": 50.8,
+      "resizeListeners": [
+        3,
+        3
+      ],
+      "plots": [
+        1,
+        1
+      ],
+      "heapMB": [
+        39.8,
+        41.2
+      ]
+    },
+    "scope only, decision products, every layer and estimates": {
+      "marks": 396,
+      "medianMs": 115.4,
+      "p95Ms": 135.2,
+      "maxMs": 137,
+      "resizeListeners": [
+        3,
+        3
+      ],
+      "plots": [
+        1,
+        1
+      ],
+      "heapMB": [
+        40.6,
+        42.1
+      ]
+    },
+    "scope only, material overview with estimates": {
+      "marks": 509,
+      "medianMs": 83.8,
+      "p95Ms": 101.7,
+      "maxMs": 102.2,
+      "resizeListeners": [
+        3,
+        3
+      ],
+      "plots": [
+        1,
+        1
+      ],
+      "heapMB": [
+        40.5,
+        42
+      ]
+    },
+    "scope only, mixed test pairs (largest)": {
+      "marks": 3951,
+      "medianMs": 455.7,
+      "p95Ms": 550.5,
+      "maxMs": 553.5,
+      "resizeListeners": [
+        3,
+        3
+      ],
+      "plots": [
+        1,
+        1
+      ],
+      "heapMB": [
+        41.8,
+        43.6
+      ]
+    }
+  }
+}
