@@ -524,10 +524,9 @@ h3.sec:first-child { margin-top: 0; }
 }
 .banner.assumption { background: var(--unknown-bg); color: var(--unknown); border-color: var(--unknown); }
 
-/* ---------------------------------------------------------------- Ashby workspace
-   Three tiers, in the order a reader uses them: what is plotted (the axes, each with its own
-   scale), how it is drawn (points, comparisons, guide line, as three labelled groups of equal
-   weight), then the chart with its guide-line card and reading notes directly beneath it. */
+/* ---------------------------------------------------------------- Ashby lens, before D107
+   The axis picks, option cards and guide-line card of the chart before D107 (.ashby-axes, .ashby-options, .opt-group,
+   .index-card) are no longer drawn; .opt-help, .axis-swap, the notices, #plot, the key and .legend-note still are. */
 .ashby-axes {
   display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px;
   padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
@@ -601,10 +600,10 @@ h3.sec:first-child { margin-top: 0; }
 .index-of { color: var(--ink-3); font-size: 12px; }
 .index-fix { margin-top: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
-/* ---------------------------------------------------------------- Ashby decision workspace (D107, D108)
-   The question in one bar, one control row that looks the same in every view (the view, the axes by name, Show and More
-   as menus that open over the chart instead of pushing it down), the line, then the chart and its result list side by
-   side. The same type scale, tokens and components as the rest of the page. */
+/* ---------------------------------------------------------------- Ashby decision workspace (D107 to D111)
+   The question in one bar, the controls as three rows (Draw, Also, Line) with More the one menu, opening over the chart
+   instead of pushing it down, the axis bar across the chart's top, then the chart and its result list side by side, in
+   every view. The same type scale, tokens and components as the rest of the page. */
 .ws { display: flex; flex-direction: column; gap: 6px; }
 .ws-question {
   border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 4px 12px;
@@ -647,7 +646,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-member-free { grid-area: free; font-size: 11.5px; color: var(--ink-3); line-height: 1.3; }
 
 .ws-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 12px; align-items: start; }
-/* Every view keeps one layout (D111): the list beside the chart. The catalogue view had moved it under the chart. */
+/* Every view keeps one layout (D111): the list beside the chart. Material typicals had moved it under the chart. */
 .ws-chart { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 
 /* The chart's controls (D109): three labelled rows read top to bottom, Draw, Also and Line, every option in view with its
@@ -680,7 +679,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-chip:disabled { opacity: .45; cursor: default; }
 .ws-chip:disabled::before { content: ''; }
 
-/* The Export menu opens over the chart. */
+/* The More menu (test pairs, exports, release) opens over the chart. */
 .ws-menu { position: relative; }
 .ws-menu > summary { list-style: none; cursor: pointer; padding: 3px 10px; white-space: nowrap; }
 .ws-menu > summary::-webkit-details-marker { display: none; }
@@ -744,8 +743,7 @@ h3.sec:first-child { margin-top: 0; }
   min-width: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
   font-size: var(--t-small); position: sticky; top: 0; max-height: calc(100dvh - 190px); display: flex; flex-direction: column; overflow: hidden;
 }
-/* The inspector and the list scroll apart: opening one never moves the other. */
-/* Details replace the list (D109): a bar with the way back that never moves, and the details scrolling under it. */
+/* Details replace the list (D110): a bar with the way back that never moves, and the details scrolling under it. */
 .ws-detail-bar { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; border-bottom: 2px solid var(--accent); background: var(--surface); }
 .ws-back { font-weight: 650; text-decoration: none; }
 .ws-detail-body { flex: 1 1 auto; overflow: auto; }
@@ -910,7 +908,7 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
   .topbar h1 { font-size: 13px; }
   .search input { width: 140px; }
 }
-/* Ashby's three option cards, one under another: side by side at this width the selects and switches were cut short. */
+/* The pre-D107 option cards, one under another (no longer drawn). */
 @media (max-width: 732px) {
   .ashby-options { grid-template-columns: minmax(0, 1fr); }
 }

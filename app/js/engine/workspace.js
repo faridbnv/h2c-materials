@@ -180,7 +180,7 @@ function contextSpan(material, key, registry) {
 }
 
 /**
- * Estimate context: materials with an estimate on at least one axis and a span on the other, drawn as a dashed range
+ * Estimate context: materials with an estimate on at least one axis and a span on the other, drawn as a shaded range
  * (never a point), counted apart from every product, never ranked, never on a front, and never a confirmed pass. It follows
  * the display switch only; whether the engine uses estimates is its own setting. Unavailable, with the reason, where it
  * cannot describe the question: an estimate describes dry products as printed, so a conditioned question does not get

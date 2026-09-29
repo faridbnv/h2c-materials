@@ -19,7 +19,7 @@
 //        [--out DIR]      where results.json and violations.jsonl go (default: this directory)
 //
 // Invariants (see NOTES.md): I1 table rows and verdicts, I2 count and chips, I3 Strict ignores the estimates
-// switch, I4 Ashby points/envelopes/front/legend (the catalogue view), I5 display rounding against thresholds, I6
+// switch, I4 Ashby points/envelopes/front/legend (Material typicals), I5 display rounding against thresholds, I6
 // exceptions, bad tokens and empty reasons, I7 link round trip, I8 monotonicity across policies and when a mandatory
 // requirement is added, I9 the filter rail, I10 the Ashby decision view (D107): its marks are exactly the passing products in the states their
 // answers are in, at those states' values, and its count names products and materials apart ("N products from K materials", D108).
@@ -172,7 +172,7 @@ function genScenario(i, prior) {
     if (chance(0.1)) s.assumptions = Array.from({ length: 1 + Math.floor(rnd() * 2) }, () => { const k = pick(KEYS); const a = { materialId: chance(0.15) ? '*' : pick(candidates).id, property: k, value: threshold(k) }; if (!chance(0.2)) a.unit = db.registry.headlines.find((h) => h.key === k).unit; return a; });
     if (chance(0.15)) s.search = pick(SEARCHES);
     const x = pick(KEYS); let y = pick(KEYS); if (y === x) y = KEYS[(KEYS.indexOf(x) + 1) % KEYS.length];
-    // The catalogue view keeps I4's material oracle; the decision view is I10's (D107).
+    // Material typicals (view id catalogue) keeps I4's material oracle; the decision view is I10's (D107).
     s.plot = { x, y, xLog: chance(0.3), yLog: chance(0.3), showReference: false, showEstimates: chance(0.6), view: chance(0.35) ? 'decision' : 'catalogue', layers: { front: chance(0.7) } };
   }
   s.columnSet = s.parent === null ? (chance(0.15) ? 'printing' : 'properties') : prior[s.parent].columnSet;
@@ -502,7 +502,7 @@ function compareReading(s, key, r, o) {
       check('I4-estimate-text');
       if ((more ? Number(more[1]) : 0) !== (s.plot.showEstimates ? 0 : p.est.length)) violate('I4-estimate-text', '"N more candidates have ... only an estimated range" count differs', s, key, { page: more?.[1] ?? null, node: s.plot.showEstimates ? 0 : p.est.length });
       if ((outlined ? Number(outlined[1]) : 0) !== p.envs.length) violate('I4-estimate-text', '"The outlined ranges are N" count differs', s, key, { page: outlined?.[1] ?? null, node: p.envs.length });
-      // The Show menu's switch stays in place and is greyed, with its reason, exactly when there is nothing to draw (D108).
+      // The Estimates chip under Also stays in place and is greyed, with its reason, exactly when there is nothing to draw.
       if (r.estDisabled !== (p.est.length === 0)) violate('I4-estimate-text', 'Estimated ranges switch enabled without ranges, or greyed with some', s, key, { page: r.estLabel, disabled: r.estDisabled, node: p.est.length });
       // The axis menus name the property and nothing else, so their words never change as the reader works (D108); the
       // counts they carried are the legend's, checked above.

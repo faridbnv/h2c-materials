@@ -211,8 +211,8 @@ export function rankMaterials(evaluations, materials, productsByMaterial, index,
 }
 
 /**
- * The ranking of the rows on screen by a goal (D102): one result, which the table's order, the chart's guide, the line's
- * count and the export all read, so no two lenses can rank one question differently. A candidate ranks by its passing
+ * The ranking of the rows on screen by a goal (D102): one result, which the table's order, the ranking beside the chart,
+ * the line's place in it and the export all read, so no two lenses can rank one question differently. A candidate ranks by its passing
  * products' own index, in the states they pass in; one whose passing products do not publish what the index needs is
  * unranked, and says why. Material medians, which describe different products, never rank anything.
  */

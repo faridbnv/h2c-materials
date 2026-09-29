@@ -30,7 +30,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D18 | The familiar baseline is a reference, never a candidate | A familiar material you pick for comparison is drawn beside the results and never counted as one of them. | In force |
 | D19 | No sampled offer is UNKNOWN, not FAIL | A material no sampled shop listed is unknown for "can I buy it"; only one listed and out of stock fails. | In force; narrowed by D98 (a product is judged on its own offers, never another product's) |
 | D20 | Category names are authored with the rules that create them | Environment category names are written in the data beside the rules that define them, not assembled by the page. | In force |
-| D21 | One control for how much evidence the chart draws | The chart's two overlapping evidence switches became one three-way choice. | Amended by D107 |
+| D21 | One control for how much evidence the chart draws | The chart's two overlapping evidence switches became one three-way choice. | Amended by D107 (work and evidence views), D108 (the work views renamed) and D110 (Material typicals in the Draw row, the test pairs under More) |
 | D22 | Search matches words, never substrings | Search matches the start of words, so "PLA" does not find thermoplastic polyurethane. | In force |
 | D23 | An estimate is drawn as a range, never as a point | An estimated value is drawn as a range, never as a dot, and never joins the Pareto front. | In force |
 | D24 | A relaxed condition and an unstated fact are different things | A chart point is marked doubtful only when strict mode would have rejected it, not whenever a source left a detail unstated. | In force |
@@ -116,10 +116,10 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D104 | A save is one transaction, a fetch is bounded, and a source's bytes are kept by their digest | Editing the tables from a script either writes every file of the change or none, and refuses to overwrite another writer's save; downloading a source gives up after set limits and resumes without starting over; and the downloaded source files can be listed, backed up and restored by their fingerprint. | In force |
 | D105 | A query is of one generation; a decision can be traced; the loop is measured | The SQL file you query says which release of the data it is of and never mixes the tables as they are with an older compiled database; one product's decision in a saved scenario can be traced record by record from the command line; and what the build and checks cost is measured step by step. | In force |
 | D106 | A product is named for what its maker's documents say it is, searched beyond the data sheet | Before a product is filed as "polymer not stated" or "hardness not stated", its maker's safety data sheet, pages, guides and older editions are searched; it is filed under what they name, and only what no document names stays in a home that says the maker does not disclose it. | In force; it amends D86 (the "hardness not stated" class is a family entry) and D87 (the homes are named for what is true of them) |
-| D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83) |
-| D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) |
-| D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108; amended by D110 (the view order and names, test pairs under More, details in place of the list, the pills on the chart's corner) |
-| D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109; amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) |
+| D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83), then D109 to D112 (the controls, views and marks as they now are) |
+| D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) and D110 (a variant drawn as its shape ringed with a dot, not a diamond) |
+| D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108; amended by D110 (the view order and names, test pairs and exports under More, details in place of the list, the pills on the chart's top-left corner) |
+| D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109 (and D108's variant mark); amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) |
 | D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110; amended by D112 (Material typicals drawn as one dot per material) |
 | D112 | Material typicals is one dot per material, which says what it stands for and where its passing products are | The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those. | In force; it amends D111 |
 
@@ -366,9 +366,11 @@ rule intact.
 
 *Amended by D107 (2026-09-29): the choice became two work views (Decision products, Material overview) and three evidence
 views (Catalogue, Test pairs matched, Test pairs mixed), the last three under the chart's More. D108 renamed the work views
-Products and Material ranges.*
+Products and Material ranges; D110 put the catalogue, as Material typicals, in the Draw row beside them, and left the two
+test-pair views under More.*
 
 > **In plain words:** The chart's two overlapping evidence switches became one three-way choice.
+> **Status:** Amended by D107 (work and evidence views), D108 (the work views renamed) and D110 (Material typicals in the Draw row, the test pairs under More).
 
 The Ashby lens had two switches, "Points" (headline against measurements) and "Comparability"
 (strict against broad). That reads as four combinations and is three: comparability can do nothing
@@ -2979,7 +2981,8 @@ move. Reversing it lets one product's record or stock stand for every product of
 > **In plain words:** A product's values are sorted by the state they were measured in (as printed, annealed at a schedule, conditioned by moisture); a verdict uses one state's values only, as printed by default, and says which treatment it needs.
 
 *Amended by D107 (2026-09-29): the Ashby decision workspace draws each product at the values of the state its answer is
-in, where this decision had kept the chart at published values; the catalogue view still draws those. A named state a
+in, where this decision had kept the chart at published values; Material typicals (the catalogue view until D110) still
+draws those. A named state a
 product does not publish is that state with no values, never its first state.*
 
 *Decided by the owner on 2026-09-28 (docs/GOALS.md, "Decided on 2026-09-28, for version 2.1", decisions 2 and 5;
@@ -3087,8 +3090,9 @@ product the printer the tool is for cannot print.
 > **In plain words:** When the candidates are ranked by a goal, every view uses the same ranking, computed from each candidate's passing products' own values; the chart's bubbles are drawn at typical values and are labelled as context, never as the ranking.
 
 *Amended by D107 (2026-09-29): the chart's line is drawn over the exact product states the ranking reads, and counts
-them and their materials apart; its "bubbles at typical values, context" survives as the catalogue view. (D107's objective
-stages, which the one ranking also read, were removed by D108.)*
+them and their materials apart; its "bubbles at typical values, context" survived as the catalogue view, since D110
+Material typicals, which D112 draws as one dot per material with nothing around it. (D107's objective stages, which the
+one ranking also read, were removed by D108.)*
 
 *Built in version 2.1, F05 of the review of 2026-09-27 (U01), under the owner's direction of 2026-09-28. Extends D83.*
 
@@ -3265,14 +3269,15 @@ makers do.
 ## D107. The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over
 
 > **In plain words:** The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views.
-> **Status:** In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83).
+> **Status:** In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83), then D109 to D112 (the controls, views and marks as they now are).
 
 *Directed by the owner on 2026-09-29: build the external review and plan of 2026-09-28 (the package
 ASHBY-MAKEOVER-2026-09-28, B01 to B13) on the branch Ashby-makeover. The design is that plan's recommendation; built by
 Claude (an agent), and no person has reviewed it or run the plan's engineering trial yet
 (docs/audits/2026-09-29-ashby-makeover/README.md). Amends D21, D99 and D102. Amended by D108 the same day: the objective
 stage and the axis limits form below are gone, the views are named Products and Material ranges, and the overview's
-material band is the middle half of its products, variants apart.*
+material band is the middle half of its products, variants apart. D110 put the catalogue, as Material typicals, beside
+them in the Draw row, with the test pairs under More; D112 draws it as one dot per material.*
 
 The chart was a browser of recorded properties beside an answer judged elsewhere. Its product view drew published values
 while the answer was judged in a state (D99): a conditioned beam drew 247 dry points, and Fiberon PET-GF15 sat at its
@@ -3336,7 +3341,7 @@ counts one population under a line drawn over another, and ranks conditioned que
 ## D108. The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's
 
 > **In plain words:** The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart.
-> **Status:** In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart).
+> **Status:** In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) and D110 (a variant drawn as its shape ringed with a dot, not a diamond).
 
 *Directed by the owner on 2026-09-29, after using the lens D107 built: its menus changed as they worked, a filter could be
 set in several places, and PLA's range covered nearly every polymer. They asked for the lens to be reworked as a UI and UX
@@ -3400,7 +3405,7 @@ every product, variants included.
 ## D109. The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place
 
 > **In plain words:** The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds.
-> **Status:** In force; it amends D108; amended by D110 (the view order and names, test pairs under More, details in place of the list, the pills on the chart's corner).
+> **Status:** In force; it amends D108; amended by D110 (the view order and names, test pairs and exports under More, details in place of the list, the pills on the chart's top-left corner).
 
 *Directed by the owner on 2026-09-29, after using D108: still very confusing; imagine every combination the menus make
 with the filters and the top bar, and how a user would find the one they need; clicks still reset what they were doing;
@@ -3469,7 +3474,7 @@ reader's place.
 ## D110. The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list
 
 > **In plain words:** The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up.
-> **Status:** In force; it amends D109; amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views).
+> **Status:** In force; it amends D109 (and D108's variant mark); amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views).
 
 *Directed by the owner on 2026-09-29, after using D109: keep only the typical values as the published view, under a name
 that says what it is; the test pairs rarely, as a hidden option; the order typical, ranges, products, left to right; and

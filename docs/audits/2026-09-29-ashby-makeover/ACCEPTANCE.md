@@ -1,6 +1,7 @@
 # Acceptance of the Ashby makeover
 
-The package's acceptance (05-ACCEPTANCE.md, ACCEPTANCE.json) case by case, as built on the branch `Ashby-makeover`.
+The package's acceptance (05-ACCEPTANCE.md, ACCEPTANCE.json) case by case, as built on the branch `Ashby-makeover` and
+revised by D108 to D112.
 "Passes" names the check that holds it in `npm test`, `npm run ui:check` or the UI fuzz; "not run" says so. Every
 hand-worked expectation is written in its test with its arithmetic, and computed there without the production index
 function.
@@ -28,17 +29,18 @@ function.
 - **Geometry, list and export agree** on every confirmed pair, the line's result, material membership, rank and input
   IDs: one model feeds all of them (`workspace.js`); the fuzz's I10 checks the drawn set against the engine on every
   decision-view reading; `ashby-export.test.js` checks the export's rows and header.
-- **Counts in their own units**: "N product states across K materials" everywhere; the reading note never reads "N of M
-  candidates" in the decision view (I10-mislabel). The catalogue view keeps "N of M candidates", where both are materials.
+- **Counts in their own units**: "N products from K materials" everywhere (D108; "N product states across K materials"
+  as first built); the reading note never reads "N of M candidates" in the decision view (I10-mislabel). Material
+  typicals keeps "N of M candidates" in its reading note, where both are materials.
 - **References and context do not change eligibility or ranking**; a focus or a lasso is a view, reset in one press, and
   never a requirement (it filters no row; the old subset is gone).
-- **Menus that do not move** (D108): the axis menus name the property alone, in one order, in every view (fuzz I4-axis-static
-  on the catalogue view; `ui:check` view 40 lists them); Show and More keep every item, greyed with a reason where it does
-  not apply.
+- **Menus that do not move** (D108, D109): the axis menus name the property alone, in one order, in every view (fuzz
+  I4-axis-static on Material typicals; `ui:check` view 40 lists them); the Draw and Also rows and More keep every item,
+  greyed with a reason where it does not apply.
 - **Keyboard**: the line (a number box, a slider, ▼ ▲ steps that move it past the next product state) and every mark
   (the result list opens each in the inspector, which takes focus) — checked by `npm run ui:check` (view 41), where a
   container's attribute once made every click redraw the lens (DECISIONS, bugs worth remembering). **Touch**: marks,
-  bands and estimates open on a tap, and a crowded spot lists the marks near it; not tried on a physical device.
+  material boxes and estimates open on a tap, and a crowded spot lists the marks near it; not tried on a physical device.
 - **Viewport targets** met and now enforced by `ui:check`: at 1440 × 900 with the filters hidden, 808 × 450 px of plotting
   area on screen; at 1024 × 768, 912 × 395 with the results under the chart. With the filters shown at 1440 × 900 the
   plot has 676 × 466; the plan's target is for ordinary controls collapsed.

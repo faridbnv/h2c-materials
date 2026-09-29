@@ -1,9 +1,11 @@
-// The Ashby decision workspace's own views (D107): Decision products and Material overview.
+// The Ashby decision workspace's own views (D107, D108): Products and Material ranges; and the lens's question bar,
+// starter, controls, pills, result list, key and reading note, which every view shares (D109 to D111).
 //
 // Everything here reads one model, buildWorkspace (engine/workspace.js): the marks, the line and its count, the result
 // list, the inspector and the exported data. A mark is one product in the state its answer is in; its coordinates, its
 // index and its rank all come from that state. Context (failed and unresolved products, estimates, references) is a
-// layer of its own, off until asked for, counted apart and never ranked, counted on a line or put on a front.
+// layer of its own, drawn by its chip under Also (unsettled products follow Candidate confidence until theirs is
+// pressed), counted apart and never ranked, counted on a line or put on a front.
 
 import { indexById, INDICES, selectionLine, PRICE_CAVEAT } from '../engine/indices.js';
 import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
@@ -216,7 +218,7 @@ export const layerOn = (state, k) => (k === 'unresolved'
 export const axisKeys = () => [...AXIS_DEFS.map((a) => a.key), COST_AXIS];
 
 /**
- * The chart's controls (D108, D109), read top to bottom as the chart is built:
+ * The chart's controls (D108 to D110), read top to bottom as the chart is built:
  *
  *   Draw   [Material typicals | Material ranges | Products]                                           [More ▾]
  *   Also   (Unsettled) (Failing) (Estimates) (Pareto front) | (Metals & wood) [Familiar: none ▾]
@@ -266,7 +268,7 @@ export function toolbar(state, { view, estimates = null, line = '' }) {
     <div class="ws-row" role="group" aria-label="Also draw">
       <span class="ws-row-label">Also</span>
       ${chip('data-layer="unresolved" data-focus="layer-unresolved"', layerOn(state, 'unresolved'), 'Unsettled', productsOnly, 'Products the requirements could not settle, hollow; never ranked')}
-      ${chip('data-layer="failed" data-focus="layer-failed"', p.layers?.failed, 'Failing', productsOnly, 'Products that fail a requirement, as crosses; never ranked')}
+      ${chip('data-layer="failed" data-focus="layer-failed"', p.layers?.failed, 'Failing', productsOnly, 'Products that fail a requirement, small and faint; never ranked')}
       ${chip('data-show-estimates data-focus="estimates"', p.showEstimates, 'Estimates', estWhy, 'Materials on screen that publish nothing on an axis: the model\'s likely range, shaded; never a point')}
       ${chip('data-layer="front" data-focus="layer-front"', p.layers?.front, 'Pareto front', view === 'decision' || view === 'catalogue' ? '' : 'Drawn in the Products and Material typicals views', 'What nothing else beats on both axes: products, or materials at their typical values')}
       <span class="ws-row-sep" aria-hidden="true" title="For scale"></span>
@@ -395,7 +397,7 @@ export function resultsPanel(state, ws, { view = 'decision', drawn = null } = {}
     <ul>${gaps.slice(0, 40).map((g) => `<li><b>${esc(g.product)}</b> <span class="fine">(${esc(g.name)})</span>: ${g.offLog ? 'a value at or below zero, which a Log axis cannot show' : esc(g.missing.map((m) => missingWords(m, axisDef(m.key))).join('; '))}</li>`).join('')}${gaps.length > 40 ? `<li class="fine">and ${gaps.length - 40} more, in the chart data export</li>` : ''}</ul>
     ${ws.counts.gaps.unpriced ? `<p class="fine">${plural(ws.counts.gaps.unpriced, 'product')} ha${ws.counts.gaps.unpriced === 1 ? 's' : 've'} no current Canadian price. Prices are observed CAD/kg listings with their dates; shipping is excluded, and no other currency is converted.</p>` : ''}</details>` : '';
   const noProducts = ws.noProducts.length ? `<p class="fine">${plural(ws.noProducts.length, 'material')} on screen ha${ws.noProducts.length === 1 ? 's' : 've'} no product to buy, so nothing to draw.</p>` : '';
-  // Details replace the list, one at a time (D109): pressing mark after mark swaps the details in place, and "← Ranking"
+  // Details replace the list, one at a time (D110): pressing mark after mark swaps the details in place, and "← Ranking"
   // brings the list back as it was left. The list is not drawn meanwhile, so nothing in it can pile up or jump.
   if (state.inspect) {
     return `<aside class="ws-results is-detail" aria-label="Details">
@@ -656,7 +658,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
         marker: { size: list.map((q) => (state.inspect?.key === q.key ? 13 : 10)), symbol: list.map(shape), color, opacity: list.map((q) => (faded(q.materialId) ? 0.18 : q.assumed ? 0.35 : 1)),
           line: { width: list.map((q) => (state.inspect?.key === q.key || chosenGrades.has(q.gradeId) ? 2.5 : 1)), color: list.map((q) => (state.inspect?.key === q.key ? '#1f5f8b' : 'rgba(0,0,0,.55)')) } },
         // A thin whisker is the spread the source reports for that one measurement, its statistic as published: never
-        // the spread across products, which the overview's bands are.
+        // the spread across products, which Material ranges' boxes are.
         error_x: errorBars(list.map((q) => ({ u: q.x })), 'u'), error_y: errorBars(list.map((q) => ({ u: q.y })), 'u'),
         name: family, legendgroup: colourGroup(family), showlegend: false,
         customdata: list.map((q) => cd(q, `${stateWords(q.state)}; ${q.assumed ? 'scenario assumption, not measured; not on the front' : tested ? 'meets every requirement' : 'not screened'}${q.twin ? `; ${q.twin}` : ''}${q.y.uncertainty ? `; source ± ${fmtNumber(q.y.uncertainty)} ${yD.unit}` : ''}${q.M !== null && ws.objective.index ? `; M ${sig(q.M)}` : ''}`)),
@@ -703,7 +705,7 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
   const req = requirementOverlay(scenario.constraints, xD, yD, p);
   shapes.push(...req.shapes); annotations.push(...req.annotations); labelPlan.fixed.push(...req.fixed);
   // What is drawn for scale is framed with the rest (D111): steel at 7800 kg/m³ lay off a frame fitted to the products, so
-  // pressing Metals & wood showed nothing there, while the catalogue view widened to it.
+  // pressing Metals & wood showed nothing there, while Material typicals widened to it.
   const scale = [];
   let refLabels = [];
   if (p.showReference) {
@@ -722,8 +724,8 @@ export function drawWorkspacePlot(host, state, ws, actions, { view }) {
       marker: { size: 10, symbol: 'circle', color: family === 'Other families' ? colors.color(null) : colors.color(family) }, hoverinfo: 'skip' });
   }
 
-  // The range frames the decision set (and a focus), not the whole context, which may be orders of magnitude wider; Fit
-  // all widens it to every layer drawn.
+  // The range frames the decision set (and a focus), not the whole context, which may be orders of magnitude wider. With
+  // nothing to frame, or `fitAll` in the plot (no control sets it; a hand-made link may), it widens to every layer drawn.
   const framed = (() => {
     const overviewDots = view === 'overview' ? (() => { const pop = new Set(ws.materialSummaries.flatMap((s) => s.paired)); return ws.pairs.filter((q) => pop.has(q.key) && q.plottable).map((q) => [q.x.value, q.y.value]); })() : [];
     const base = view === 'overview' ? [...ws.materialSummaries.filter((s) => s.x && s.y).flatMap((s) => [[s.x.lo, s.y.lo], [s.x.hi, s.y.hi]]), ...overviewDots] : ws.decision.map((q) => [q.x.value, q.y.value]);
@@ -872,9 +874,9 @@ export function readingNote(state, ws, { view }) {
   const lines = [];
   if (c.confirmed.evidence < c.confirmed.pairs) lines.push(`Twins that print one sheet share its values, so ${plural(c.confirmed.pairs, 'product')} rest on ${c.confirmed.evidence} distinct pairs of values.`);
   if (c.materialsWithoutProducts) lines.push(`${materials(c.materialsWithoutProducts)} ha${c.materialsWithoutProducts === 1 ? 's' : 've'} no product, so nothing to draw.`);
-  if (view === 'overview') lines.push('<b>A material\'s box</b> holds the middle half of its products on each axis, and its whiskers reach the lowest and highest, as the table summarises a material; with fewer than four products the box is their full range. Each axis is summarised on its own, so a corner of the box is not a product. A product the data marks as a variant (a wood or metal filler, a foaming or lightweight additive) is drawn as a diamond and kept out of the range, since its values describe the product, not the polymer.');
+  if (view === 'overview') lines.push('<b>A material\'s box</b> holds the middle half of its products on each axis, and its whiskers reach the lowest and highest, as the table summarises a material; with fewer than four products the box is their full range. Each axis is summarised on its own, so a corner of the box is not a product. A product the data marks as a variant (a wood or metal filler, a foaming or lightweight additive) is drawn as its shape ringed with a dot and kept out of the range, since its values describe the product, not the polymer.');
   const ctxLine = [layerOn(state, 'unresolved') && view === 'decision' ? `${plural(c.unresolved.pairs, 'product')} that could not be settled (hollow)` : null,
-    p.layers?.failed && view === 'decision' ? `${plural(c.failed.pairs, 'product')} that fail (crosses)` : null].filter(Boolean);
+    p.layers?.failed && view === 'decision' ? `${plural(c.failed.pairs, 'product')} that fail (small and faint)` : null].filter(Boolean);
   if (ctxLine.length) lines.push(`Also drawn: ${ctxLine.join(', ')}${c.contextMaterials ? `, some from ${materials(c.contextMaterials)} not in the results` : ''}. They are never ranked, counted on the line or put on the front.`);
   if (p.showEstimates && !est.off) {
     const why = { conditioned: 'describe dry products, not the conditioned state asked', 'open-ended': 'are open at one end', 'off-log': 'reach zero, which a Log axis cannot show', 'cost-axis': 'cannot be a cost per volume, which is one product\'s own', 'other-axis-missing': 'have nothing on the other axis' };

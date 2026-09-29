@@ -550,8 +550,10 @@ Since D107 the lens is an engineering selection exercise, not a browser of recor
 exports: a mark is one product in the state its answer is in, and both its coordinates, its index and its rank come from
 that state. D108 then simplified its controls after the owner used it (the filter rail as the one place to set a
 requirement, the line as a guide, material ranges drawn as the table summarises a material), and D109 laid every option
-out as three rows with one planned effect each and made the lens keep the reader's place. The reviews that led to them
-are `docs/audits/2026-09-29-ashby-makeover/`.
+out as three rows with one planned effect each and made the lens keep the reader's place. D110 ordered the views coarse
+to fine with a shape per filler and put a mark's details in place of the list, D111 drew every view by one rule of
+layout, size, frame and ticks, and D112 made Material typicals one dot per material. The reviews that led to them are
+`docs/audits/2026-09-29-ashby-makeover/`.
 
 ```
 GOAL  [Beam, minimum mass, stiffness prescribed ▾]  Maximise M = E^(1/2)/ρ   Cross-section area free, proportions fixed
@@ -587,7 +589,7 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   products, Estimates, the Pareto front, and for scale Metals & wood and a familiar filament. *Line* is the goal's line. The
   axes sit on the chart they set, in a bar across its top: the vertical axis at its left, the horizontal at its right, each
   a menu of property names in one fixed order with its unit and Lin/Log, the swap between. Every option is in view, its
-  state on its face; only Export and the kind of published data are a second level. One that does not apply is greyed with
+  state on its face; only the test pairs and the exports are a second level, under More. One that does not apply is greyed with
   its reason ("Drawn in the Products view", "Needs Include uncertain and Use estimates, at the top of the page"), never
   removed. Unsettled products follow Candidate confidence (drawn under Include uncertain, as the table lists them) until
   their chip is pressed; changing the mode hands them back to it.
@@ -614,13 +616,14 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   every product had run 800–1400 kg/m³ (PolyWood and PLA-Lite, both variants). Pressing a box opens the material in the
   inspector, its range in words and its variants named; a lasso or ⤢ zooms the chart and changes no answer, count
   or rank; *Show all*, on the chart, resets it.
-- **The line** sits above the chart, in both work views: M as a number to type, a slider that moves the drawn line and
+- **The line** sits above the chart, in Material ranges and Products: M as a number to type, a slider that moves the drawn line and
   its count as it slides and keeps the position when released, and ▼ ▲, which move it past the next product. It says how
   many products, from how many materials, are on its better side (a product on it counts). It is a guide: it keeps and
   removes nothing (D108). The ranking beside the chart shows where it falls, as a rule between the materials whose median
   is on its better side and the rest. On axes that cannot show the goal it says what they need and offers **Use the
   goal's axes**; on a Linear axis it offers **Switch both axes to Log**; swapped axes draw the same line (the denominator
-  up, better below it).
+  up, better below it). On Material typicals and the test pairs the row stays, saying the line is "Drawn over products,
+  in Material ranges and Products", each a press away (D111).
 - **One count.** A count of marks is said one way everywhere in the lens and its exports: "N products from K materials".
   Under the chart one line says what is drawn and what is not ("Drawn: 14 products from 8 materials, each meeting every
   requirement. Not drawn: …"); the rest a careful reader needs is under **Reading this chart**, closed until opened.
@@ -650,24 +653,33 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 - **A cost goal** draws each product's material cost per volume, its own CAD/kg price times its own density; a twin's
   price is never read, and the unpriced are listed. Prices are observed Canadian listings with their dates; shipping is
   excluded and no other currency is converted (the gap-fill plan's dated conversion comes first).
-- **Exports** (Export, at the end of Draw): **Chart data (CSV)**, every mark with its identity, variant, state, inputs, verdict, rank and
-  whether it is on the line's better side, under a header that says the question, axes, scales, populations and what each
-  range means; and **Chart image (PNG)**, captioned the same way.
+- **Exports** (under **More**, from Material ranges or Products; greyed with that reason on the other views): **Chart
+  data (CSV)**, every mark with its identity, variant, state, inputs, verdict, rank and whether it is on the line's better
+  side, under a header that says the question, axes, scales, populations and what each range means; and **Chart image
+  (PNG)**, captioned the same way. Both carry the release, which More also names.
 - **Size.** The filter rail's **Hide** gives a wide screen's width to the chart (a viewer's choice kept in the browser;
   **Filters** in the top bar brings it back). The chart fills what the lens shows of it: at 1440 x 900 with the rail hidden
   at least 700 x 450 px of plotting area, at 1024 x 768 at least 520 x 360 with the results under it, both checked by
-  `npm run ui:check`; on a phone the question, the control row (wrapped), the chart and the results are one under another,
-  and the menus open to the right.
+  `npm run ui:check`; on a phone the question, the control rows (wrapped), the chart and the results are one under
+  another.
 
-**Material typicals and test pairs** are the chart before D107, kept for research and marked as not the decision, on the
-same controls, layout, size, frame and tick labels as the other views (D111): *Material typicals* (one point per material at its typical published value with its
-products' spread, as printed and dry whatever state the question asks, and estimated ranges beside the other axis's
-product span), *Test pairs: matched conditions* and *Test pairs: mixed conditions*. A matched pair is two measurements of
-one product in one condition from one document: moisture, treatment and schedule, specimen form and direction agree, or
-one side leaves a condition unstated and the hover says so; a dry modulus and a conditioned strength never pair (D107).
-The mixed view draws every pair of a product's measurements, hollow where they conflict, naming the conflict. At
-measurement level a dot is a pair of measurements of one product, not a material, and one material's dots are joined by a
-faint line. The goal's line is not drawn on published data; it counts exact products.
+**Material typicals and the test pairs** draw published values, whatever state the question judges products in, on the
+same controls, layout, size, frame and tick labels as the other views (D111). *Material typicals* is one dot per material
+at its typical value, the median of its products' datasheet values as printed and dry, with nothing drawn around it
+(D112): the spread of a material's products is Material ranges', for the products that pass. Pointing at a dot says it
+is the whole material, how many products the median rests on per axis, and how many of its products pass, "see Material
+ranges"; the line under the chart ends *Which products pass: Material ranges*, a press away. A dot is pale where its
+material does not pass every requirement. With a goal the list beside it is the same ranking; with none it lists the
+materials drawn, at their typical values. Estimates draw a material with only an estimate on one axis as a dotted box
+or capped line beside the other axis's product span, and the Pareto front joins the materials nothing beats at their
+typical values. The test pairs, under **More**, are *Test pairs, matched conditions* and *Test pairs, mixed
+conditions*; while one is drawn, a line under the controls says they are raw measurements for research, not the
+decision, with **Back to Products**. A matched pair is two measurements of one product in one condition from one
+document: moisture, treatment and schedule, specimen form and direction agree, or one side leaves a condition unstated
+and the hover says so; a dry modulus and a conditioned strength never pair (D107). The mixed view draws every pair of a
+product's measurements, hollow where they conflict, naming the conflict. At measurement level a dot is a pair of
+measurements of one product, not a material, and one material's dots are joined by a faint line. The goal's line is not
+drawn on published data; it counts exact products.
 
 A scenario saved before D107 (version 1) keeps its question; its chart opens in the view it was saved with, said so in the
 notice, with **Products** one press away (`migrateV1`, `app/js/engine/scenario.js`). One saved with objective stages (a
@@ -751,8 +763,7 @@ laid a 390 px phone out at 533 px with the right side clipped. Colour never the 
 - **The page scrolls as a whole below 600 px**, so the status bar and the shortlist are reached by scrolling to them; fitted
   into one screen they left the results a slot a few rows tall, and the browser's toolbar could hide them outright. Above
   600 px the layout fills the window (`100dvh`, with `100vh` where that is not understood).
-- **Ashby's** evidence views' option cards stack below about 730 px, its result list goes under the chart below 1100 px,
-  and **Compare's** bars give the name and value columns way
+- **Ashby's** result list goes under the chart below 1100 px, and **Compare's** bars give the name and value columns way
   (`minmax`) before the bar.
 - Every close button on a shortlist pin, the requirement pills and the ? beside Use estimates are at least 24 px each
   way. The design guide line's slider is named "Move the line" and speaks its value as the index and how many materials
@@ -802,9 +813,10 @@ printing and using it, quoted and grouped by topic (warping, precision, nozzle w
 document and page it is on and a product page marked as marketing text, then a line naming the maker and what its
 documents leave out (a topic, a chamber, drying or annealing need) and whether its website has been searched; its
 other evidence records follow, folded. Above the products, **What makers say** counts, topic by topic, how many makers
-say something, and for how many of the products the makers' websites were searched. The Overview counts, axis by axis, how many products the H2C can print. The Ashby chart's catalogue view draws each
-material as a bubble (the middle half of its products, whiskers to the extremes) behind its typical point; since D107 its
-decision view draws each passing product in the state its answer is in. Compare draws each material's product range
+say something, and for how many of the products the makers' websites were searched. The Overview counts, axis by axis, how many products the H2C can print. The Ashby chart drew each
+material as a bubble (the middle half of its products, whiskers to the extremes) behind its typical point; since D107
+it draws each passing product in the state its answer is in, since D108 Material ranges draws the boxes, over the
+passing products, and since D112 Material typicals is one dot per material. Compare draws each material's product range
 behind its bar. **Export their products** writes every product of the materials on screen with its values, levels,
 print settings and verdict. **Also count values published without their test direction or load**, under Evidence,
 lets such values decide (D84); it travels in the link.
@@ -895,8 +907,9 @@ the table ranked one goal two ways; and the funnel ended at a material. What the
   passes on another product.
 - **Empty answers** tell all-failed (relax a requirement) from none-confirmable (the records cannot answer; keep the
   requirement and test) and from a mix of both.
-- **One ranking** (D102): the table's order, the chart guide's top ten, its line's count and the export all read one
-  result, by passing products; a candidate the goal cannot rank says so.
+- **One ranking** (D102): the table's order, the chart guide's top ten (since D107 the ranking beside the chart, with
+  the line drawn into it) and the export all read one result, by passing products; a candidate the goal cannot rank
+  says so.
 - **Chosen products** (D103) live under *Save / share*: each with its current answer, the release it was chosen on, its
   decision brief, a note, and the team's own test results; the shortlist bar says how many are chosen.
 - **The filter rail below 1,100 px is a modal dialog** (F10), as the material drawer is.

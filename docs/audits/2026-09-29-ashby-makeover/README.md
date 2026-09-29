@@ -1,7 +1,9 @@
 # The Ashby makeover, built (2026-09-29)
 
-*Revised the same day after the owner used it (D108): see "Revision after the owner's walkthrough" at the end. The
-sections before it record D107 as first built; the objective stage and the axis limits form they describe are gone.*
+*Revised five times the same day as the owner used it (D108 to D112): see the revisions at the end. The sections
+before them record D107 as first built; the objective stage, the axis limits form, the Show menu and the catalogue view
+they describe are gone (the catalogue is Material typicals since D110, one dot per material since D112), and each
+revision records the lens as it was that day.*
 
 The owner asked for the external review and plan of 2026-09-28 (the package `ASHBY-MAKEOVER-2026-09-28`: its review,
 specification, data and mathematics contract, backlog B01 to B15 and acceptance) to be built on the branch
@@ -228,3 +230,14 @@ A final pass over Material typicals (seven questions and settings, three screen 
 by the chart's pre-D107 rules: its list under the chart, its legend beside it, its own height, a frame stretched to the
 whiskers, stray digit tick labels, two banners, notes always open, no Line row. Switching views now changes the marks and
 nothing else: measured, the plot sits at the same place and size in all three views. Screens: `visuals/d111-*`.
+
+## Fifth revision: one dot per material (D112)
+
+The owner asked whether Material typicals and Material ranges differ and serve their purposes. They stand for different
+things, and the drawing hid it: both drew a box and whiskers, typicals' over every product of the material, dry and as
+printed, ranges' over the products that pass, in the state asked. In the H2C beam PLA's typical stiffness is 2.58 GPa,
+its box 1.8 to 2.9 over 43 products, while the one PLA product passing 3 GPa is at 4.2. Material typicals now draws one
+dot per material and nothing around it; pointing at a dot says it is the whole material, what the median rests on, and
+how many of its products pass, "see Material ranges", and the line under the chart links there. `npm run ui:check`
+fails if a typicals view draws more dots than materials, a spread around them, or a dot without that note. No verdict,
+ranking or count moved.

@@ -24,7 +24,7 @@ It is not a source of design allowables, a substitute for the exact product's da
 | 1. Translate | What the part must do becomes limits (at least 100 °C, at least 3 GPa) and a goal (lightest, stiffest for its weight). |
 | 2. Screen | Each **material** is the range of its products, and is answered **all / some / none of its products pass**, or unknown. A product must meet every requirement at once, including whether our H2C can print it: nozzle, bed, chamber, enclosure, hardened nozzle, and any treatment it needs. |
 | 3. Rank | The survivors are ordered by the goal (a performance index, computed per product). |
-| 4. Understand | The trade-off chart shows materials as bubbles spanning their products. Up to six can be compared, and the rest show why they fell out. |
+| 4. Understand | The trade-off chart draws each material at its typical value or as the range of its passing products, and each passing product in the state it would be used in. Up to six can be compared, and the rest show why they fell out. |
 | 5. Drill down | Inside a material: which products pass, their makers and test conditions, each product's print recipe and treatment, and what makers say (benefits, pitfalls, warping, precision, good for). |
 | 6. Practicalities | Price and where to buy. |
 | 7. Confirm | The team prints and tests. Later, the result is recorded and ranks above data sheets. |
@@ -65,7 +65,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | 4 | Comparable and as published on every headline, and each value's state; a verdict names what it admitted unstated |
 | C5 | Material summary (range and typical value across products) | 1 | 4 | 4 | Every material is its products' spread, variants and twins placed by rule |
 | C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | A product passes on its own records (D98), in a state it can be made in (D99), and a material is unknown while any product is (D100): no false confirmation in the acceptance portfolio. Gap closure moved 64 product/question answers and 21 material/question answers; the current 3,467 facts one step from an answer are listed in [SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md). The frozen research worklist and its unresolved handoffs are separate |
-| C7 | Rank and trade-offs (goal ordering, bubbles, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); since 2026-09-29 the chart draws and counts exact product states (D107), its controls simplified after the owner used it (D108), not re-scored; untested with the team (TEAM-TRIAL.md) |
+| C7 | Rank and trade-offs (goal ordering, material ranges, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); since 2026-09-29 the chart draws and counts exact product states (D107), its controls and views reworked after the owner used it (D108 to D112), not re-scored; untested with the team (TEAM-TRIAL.md) |
 | C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | 4 | Passing products first, in the drawer's first view on a laptop; a product can be chosen, with its state, and its decision brief written (D103) |
 | C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks each product's nozzle, bed and chamber against the H2C (D101), from its own recipe, its twin's, then Bambu's guide, labelled: chamber has a verdict for 750 of 1,128 products (24 a window the H2C partly reaches), nozzle 1,007; annealing is a state with its schedule. 378 products' chamber is still unknown ([print.csv](../build/snapshot/print.csv)) |
 | C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | 4,665 statements on 1,045 products in the maker's words, every gap stated; 45 products left sheet-silent, each with a question for the owner or the maker ([worklist](audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md)) |
@@ -277,8 +277,11 @@ materials that had ranked on a state they do not publish. The same day, after us
 to be reworked: one control row whose words do not change, the filter rail as the one place for requirements, the line
 as a guide (the objective stage removed), and material ranges drawn as the table summarises a material, variants apart
 (D108; no verdict or ranking moved); then every option laid out in three rows with one planned effect each, the axes on
-the chart, and the reader's zoom, list and place kept through every press (D109). The team trial that would re-score C7 has not been run
-([the record](audits/2026-09-29-ashby-makeover/README.md)).
+the chart, and the reader's zoom, list and place kept through every press (D109); the views ordered coarse to fine
+(Material typicals, Material ranges, Products) with the test pairs under More, a shape per filler on every view and a
+mark's details in place of the list (D110); every view laid out, sized, framed and labelled by one rule (D111); and
+Material typicals drawn as one dot per material that points to Material ranges (D112). None of these moved a verdict,
+ranking or count. The team trial that would re-score C7 has not been run ([the record](audits/2026-09-29-ashby-makeover/README.md)).
 
 ## Working rules
 

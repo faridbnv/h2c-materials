@@ -554,7 +554,7 @@ An estimate is a range, so it is shown as one everywhere it is shown at all.
 | Table cell | `~71.3–92.5†`, the likely range; imprecise ones in italic. With estimates on it replaces the related `*` value, which it already contains, converted |
 | Detail drawer | The full record: both ranges and the centre, precision, what it rests on and its share, every measurement behind it with its converted value, and the limits applied |
 | Filter | Always UNKNOWN. In Explore may screen the material out, as above; the SCREENED chip brings it back |
-| Ashby lens | The likely range as a dotted box, off by default, always counted in the footer |
+| Ashby lens | The likely range, beside the other axis's span across products or its estimate, never a point: a faint shade in Material ranges and Products (outlined when picked out), a dotted box or capped line in Material typicals. Only under Include uncertain with estimates on, drawn once Estimates is pressed, and counted in the chart's reading note either way |
 | Compare | The likely range as a hatched span, the plausible range faint behind it, a tick at the centre; never a filled bar |
 | Parallel | Not drawn. A line commits to a value on every axis it crosses, so the affected materials are named and counted instead |
 | CSV export | Its own column with both ranges, strength and precision, so a spreadsheet can never mistake inference for evidence |

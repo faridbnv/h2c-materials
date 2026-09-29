@@ -822,10 +822,10 @@ npm run sql --silent -- "select count(*) not_indexed from v_sources_without_text
 
 ## 20. What the Ashby makeover leaves open
 
-The decision workspace (D107, simplified by D108; [the record](audits/2026-09-29-ashby-makeover/README.md)) draws, ranks
+The decision workspace (D107, reworked by D108 to D112; [the record](audits/2026-09-29-ashby-makeover/README.md)) draws, ranks
 and counts exact product states. It leaves these, each with where it is counted:
 
-- **No engineer has run the trial.** The owner walked the D107 lens and D108 answered what they found; the plan's
+- **No engineer has run the trial.** The owner walked each version of the lens from D107 on, and D108 to D112 answered what they found; the plan's
   formative trial (five participants, the tasks in the record's ACCEPTANCE.md) is its release gate and has not been run; nor have screen-reader, other-browser or physical touch checks. The
   keyboard path from the line to an exact product is checked by `npm run ui:check` in headless Chrome only.
 - **Its source readings are an agent's.** The Fiberon PET-GF15 heat deflections and the Ultrafuse PAHT CF15 dried and
@@ -855,7 +855,7 @@ and counts exact product states. It leaves these, each with where it is counted:
 - **Strict test pairs now need one document.** A modulus and a strength of one product from two of its sheets no longer
   make a strict pair (297 strict pairs where 352 matched by direction alone, over scope only, modulus against strength);
   some of those were comparable in fact. The mixed view keeps them, naming the two documents.
-- **The largest evidence view redraws a little slower.** Toggling a scale on the mixed test pairs over scope only (3,951
+- **The largest test-pair view redraws a little slower.** Toggling a scale on the mixed test pairs over scope only (3,951
   marks) took a median 456 ms against 430 ms before, measured on the owner's laptop by the record's `tools/perf.mjs`; the
   decision views measured 34 to 115 ms. Neither leaks: one resize listener set, one plot, the heap steady over 40 redraws.
 - **Cold verify:fast is still over budget** (§19); this change adds three test files and two probe views.

@@ -1,21 +1,24 @@
-// The Ashby lens (D107, D108): an engineering selection exercise.
+// The Ashby lens (D107 to D112): an engineering selection exercise.
 //
 // The engineer states the part and its goal, screens products that can meet the requirements in a state the scenario
 // permits, moves the goal's line over those same products, reads the variation and the estimates, and keeps exact
 // products with their evidence. The chart, its result list, the table, the comparison and the exports tell one story
 // because they read one model (engine/workspace.js, ui/decision.js).
 //
-// Two work views: Products (each product in the state its answer is in) and Material ranges (each material as the middle
-// half of its products). The catalogue and evidence views of before, which draw published values independent of the
-// state a product is judged in, stay for research, under More, and say what they are.
+// Draw runs coarse to fine (D110): Material typicals (one dot per material at its products' median datasheet value, as
+// printed and dry, D112), Material ranges (each material as the middle half of its passing products) and Products (each
+// product in the state its answer is in). The last two are the work views (decision.js). Material typicals, and the test
+// pairs under More, draw published values independent of the state a product is judged in; they are drawn here, on the
+// other views' layout, size, frame and ticks (D111), and say what they are.
 //
-// Rules enforced here (D108):
-//  - one control row that looks the same in every view: the view, the axes by name alone, Show and More; an item that
-//    does not apply is greyed with its reason, never removed, and no menu's words change as the reader works;
+// Rules enforced here (D108, D109):
+//  - the controls are three rows, Draw, Also and Line, with the axes in a bar across the top of the chart; every option
+//    is in view with its state on its face, and one that does not apply is greyed with its reason, never removed;
 //  - the filter rail is the one place a requirement is set; the chart draws each one, and its label opens the rail;
 //  - the goal's line is a guide: it moves over the products and says how many are on its better side, and filters none;
 //  - a count of marks is said one way: "N products from K materials";
-//  - context (failed and unresolved products, estimates, references) is drawn only when asked, never ranked.
+//  - context (failed products, estimates, references) is drawn only when its chip is pressed, and never ranked;
+//    unsettled products follow Candidate confidence until their chip is pressed.
 
 import { rankingFor } from '../engine/indices.js';
 import { paretoFront, sortFront } from '../engine/pareto.js';
@@ -38,11 +41,11 @@ import {
 
 export { chartFit, chooseLabels, labelBox } from './chart.js';
 
-/** The lens's views, work views first. The evidence views draw published values and say so. */
+/** The lens's views, work views first; `evidence` marks Material typicals and the test pairs, which draw published values. */
 export const VIEWS = [
   { id: 'decision', label: 'Products', help: 'Each product that meets the requirements, in the state its answer is in.' },
   { id: 'overview', label: 'Material ranges', help: 'Each material as the middle half of its products on each axis, whiskers to the extremes; its products as dots.' },
-  { id: 'catalogue', label: 'Material typicals', help: 'One point per material at its typical published values, with its products\' spread.', evidence: true },
+  { id: 'catalogue', label: 'Material typicals', help: 'One dot per material at its typical datasheet value (its products\' median), as printed and dry.', evidence: true },
   { id: 'measured', label: 'Test pairs, matched conditions', help: 'Two measurements of one product in one condition, from one document: moisture, treatment, specimen and direction agree.', evidence: true },
   { id: 'measured-mixed', label: 'Test pairs, mixed conditions', help: 'Every pair of one product\'s measurements; each mismatch is named and drawn hollow. Exploration, never a decision.', evidence: true },
 ];
@@ -57,7 +60,7 @@ export function renderAshby(host, state, actions) {
   const p = scenario.plot;
   const view = viewOf(p);
   const work = view === 'decision' || view === 'overview';
-  // The evidence views have no derived cost axis: a cost per volume is one product's own.
+  // Material typicals and the test pairs have no derived cost axis: a cost per volume is one product's own.
   if (!work && (p.x === COST_AXIS || p.y === COST_AXIS)) Object.assign(p, p.x === COST_AXIS ? { x: 'density' } : { y: 'tensileModulusXY' });
   const focusKey = host.contains(document.activeElement) ? document.activeElement.dataset?.focus : null;
 
@@ -123,7 +126,7 @@ export function renderAshby(host, state, actions) {
 }
 
 /**
- * The results panel ends where the screen does (D109): it sits beside the chart and sticks as the lens scrolls, and a
+ * The results panel ends where the screen does (D110): it sits beside the chart and sticks as the lens scrolls, and a
  * fixed height had put its bottom, and the details opened there, under the status bar until the lens was scrolled.
  */
 let fitWired = false;
@@ -160,11 +163,12 @@ function filterList(host, text) {
   host.querySelectorAll('.ws-mat').forEach((li) => { li.hidden = !!q && !li.dataset.name.includes(q); });
 }
 
-// ------------------------------------------------------------------ the catalogue and evidence views
+// ------------------------------------------------------------------ Material typicals and the test pairs
 
 /**
- * What a catalogue or evidence view draws, and its own controls and notes. These are the chart as it was before D107:
- * published values, independent of the state a product is judged in, kept for research and said to be so.
+ * What Material typicals (view id `catalogue`) or a test-pair view draws, and its own notes: published values,
+ * independent of the state a product is judged in, and said to be so. Typicals is one dot per material (D112); a test
+ * pair is two measurements of one product.
  */
 function legacyView(state, view) {
   const { reference, rows, scenario } = state;
@@ -176,7 +180,7 @@ function legacyView(state, view) {
   const { pts: all, mixed, unavailable, conflicting = 0 } = measurementMode
     ? measurementPoints(rows, xDef, yDef, level === 'measured-mixed' ? 'broad' : 'strict', state.ctx)
     : headlinePoints(rows, xDef, yDef, scenario.constraints.length > 0);
-  // Only in the catalogue view: at measurement level every point is already a real measurement.
+  // Only in Material typicals: at measurement level every point is already a real measurement.
   const ranges = measurementMode ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.showEstimates);
   // A value at or below zero has no logarithm (a glass transition below 0 °C, D92): on a Log axis a point or a range
   // that reaches one is not drawn, never counts as plotted, estimated or on the front, and the note says how many
@@ -373,7 +377,7 @@ function headlinePoints(rows, xDef, yDef, tested = true) {
 function measurementPoints(rows, xDef, yDef, mode, ctx) {
   if (!xDef.measurement || !yDef.measurement) {
     const which = !xDef.measurement ? xDef.label : yDef.label;
-    return { pts: [], mixed: [], conflicting: 0, unavailable: `${which} has no measurement-level data, only a material value. Choose the catalogue view, or another axis.` };
+    return { pts: [], mixed: [], conflicting: 0, unavailable: `${which} has no measurement-level data, only a material value. Choose Material typicals, or another axis.` };
   }
   const pts = [];
   const mixed = new Set();
@@ -644,7 +648,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   const anchor = state.baseline ? anchorTrace(db.materials.find((q) => q.id === state.baseline), xDef, yDef) : null;
   if (anchor) { labelPlan.fixed.push(anchor.fixed); traces.push(anchor.trace); }
 
-  // Pareto front over the eligible candidates only, drawn through the bubbles, so it is a front of materials' typical
+  // Pareto front over the eligible candidates only, drawn through their dots, so it is a front of materials' typical
   // values: context, and named so beside the goal's ranking, which is by passing products (D102).
   // Drawn by its chip under Also, as in the Products view (D110).
   const front = sortFront(frontNow, xDef.better);
@@ -662,9 +666,9 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   // Shortlisted materials keep a leader line so they stand out among the other labels; placeLabels adds it where it fits.
 
   const { ink, grid } = chartTheme();
-  // Framed as the other views frame (D111): on the points, what is drawn for scale, and a requirement near them. The
-  // whiskers of each material's spread and an estimate's range may run past the frame; they had stretched it, and the
-  // H2C beam's materials, all at 3 GPa or more, sat in the top third of an axis running to 0.5.
+  // Framed as the other views frame (D111): on the points, what is drawn for scale, and a requirement near them. An
+  // estimate's range may run past the frame. The whiskers of each material's spread, drawn here until D112, had stretched
+  // it, and the H2C beam's materials, all at 3 GPa or more, sat in the top third of an axis running to 0.5.
   const { xSpan, ySpan } = spans(anchor ? [anchor.trace] : [], scale, { x: pts.map((q) => q.x), y: pts.map((q) => q.y) });
   for (const c of scenario.constraints.filter((k) => k.kind === 'numeric' && k.mandatory !== false)) {
     if (c.property === p.x && xSpan.length) { const [a, b] = [Math.min(...xSpan), Math.max(...xSpan)]; if (c.value >= a / 1.6 && c.value <= b * 1.6) xSpan.push(c.value); }

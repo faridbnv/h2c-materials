@@ -15,7 +15,7 @@ import { normalizeEvidence } from './products.js';
 // says what changed (migrateV1). A version 2 scenario saved while the chart's line could keep products (objective
 // stages, removed by D108) is read with its line placed at the cutoff, and says that nothing is set aside any more.
 export const SCENARIO_VERSION = 2;
-/** The Ashby lens's views: the decision products and the material overview, then the catalogue and evidence views. */
+/** The Ashby lens's views: Products and Material ranges, then Material typicals and the two test-pair views. */
 export const WORKSPACE_VIEWS = ['decision', 'overview', 'catalogue', 'measured', 'measured-mixed'];
 const LAYERS = ['failed', 'unresolved', 'front'];
 const POPULATIONS = new Set(['confirmed', 'judged']);
@@ -234,8 +234,8 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
  *
  * - One goal. Version 1 had two: the table's rankBy and the chart's guide line (plot.index). The table's wins, since it
  *   ordered the answers and the export; a guide line alone becomes the goal. Where they differed, the reader is told.
- * - The chart's view. A version 1 chart drew published values, state-independent, as its catalogue or evidence views
- *   still do. A scenario that was on the chart, or had chosen what its points show, opens in that view, marked as such,
+ * - The chart's view. A version 1 chart drew published values, state-independent, as Material typicals and the test
+ *   pairs still do. A scenario that was on the chart, or had chosen what its points show, opens in that view, marked as such,
  *   with the decision workspace one press away; it is never silently turned into an exact-state decision picture. One
  *   that never used the chart opens in the decision workspace, having nothing to preserve.
  */

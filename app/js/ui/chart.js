@@ -1,7 +1,8 @@
-// The chart machinery the Ashby lens's views share (D107): the plot's size and legend for a width, one resize listener for
-// whichever plot is on screen, labels that never print over each other, axis ranges, and the requirement, reference and
-// familiar-filament overlays. The decision workspace (decision.js) and the catalogue and evidence views (ashby.js) draw
-// their own marks and use these for everything around them, so the two cannot drift apart in how a chart is framed.
+// The chart machinery the Ashby lens's views share (D107, D111): the plot's size and legend (lensChartSize), one resize
+// listener for whichever plot is on screen, labels that never print over each other, axis ranges, readable Log ticks
+// (logTicks), the reader's zoom, and the requirement, reference and familiar-filament overlays. The work views
+// (decision.js) and Material typicals and the test pairs (ashby.js) draw their own marks and use these for everything
+// around them, so the two cannot drift apart in how a chart is framed.
 
 import { esc } from './format.js';
 import { describeConstraint } from './labels.js';
@@ -444,7 +445,7 @@ export function watchZoom(gd, sig, { onZoom = () => {}, onReset = () => {} } = {
  * The size and legend of every Ashby chart, whichever view draws it (D111): the chart fills what the lens shows of it, so
  * the plot and its controls are on one screen, at least a 450 px plot on a wide screen and 360 px on a laptop, at most
  * 640; where the page scrolls as a whole (a phone) it keeps its width-based height. The legend sits beside a plot at least
- * 1000 px wide, clear of the mode bar, and under a narrower one. The catalogue view had its own rule, so its legend moved
+ * 1000 px wide, clear of the mode bar, and under a narrower one. Material typicals had its own rule, so its legend moved
  * and its plot changed height when the reader changed view.
  */
 export function lensChartSize(gd, legendNames) {
