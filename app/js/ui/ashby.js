@@ -175,7 +175,7 @@ function legacyView(state, view) {
   const measurementMode = level !== 'material';
   const { pts: all, mixed, unavailable, conflicting = 0 } = measurementMode
     ? measurementPoints(rows, xDef, yDef, level === 'measured-mixed' ? 'broad' : 'strict', state.ctx)
-    : headlinePoints(rows, xDef, yDef);
+    : headlinePoints(rows, xDef, yDef, scenario.constraints.length > 0);
   // Only in the catalogue view: at measurement level every point is already a real measurement.
   const ranges = measurementMode ? [] : estimateEnvelopes(rows, xDef, yDef, state.ctx?.showEstimates);
   // A value at or below zero has no logarithm (a glass transition below 0 °C, D92): on a Log axis a point or a range
@@ -204,7 +204,7 @@ function legacyView(state, view) {
   // As the other views say it (D111): one line of what is drawn, under the chart, and the rest folded.
   const drawnLine = measurementMode
     ? `Drawn: ${pts.length} test pair${pts.length === 1 ? '' : 's'} of ${grades} product${grades === 1 ? '' : 's'}, from ${subjects} material${subjects === 1 ? '' : 's'}.`
-    : `Drawn: ${subjects} of ${rows.length} materials, at their typical datasheet values (as printed and dry, whatever state the question asks about).${missing > 0 ? ` <span class="fine">Not drawn: ${missing} with no value on one of these axes.</span>` : ''}`;
+    : `Drawn: ${subjects} of ${rows.length} materials, one dot each at its typical datasheet value (as printed and dry).${missing > 0 ? ` <span class="fine">Not drawn: ${missing} with no value on one of these axes.</span>` : ''} <span class="fine">Which products pass: <button type="button" class="link-btn" data-view="overview" data-focus="typicals-to-ranges">Material ranges</button>.</span>`;
   const reading = `<div class="ws-summary" role="status"><span class="ws-count">${drawnLine}</span>${thin && !unavailable ? ` <span class="warn-text">Only ${pts.length} can be drawn for this pair: read it with care.</span>` : ''}</div>
     <details class="legend-note ws-reading" data-fold="reading" ${openFolds.get('reading') ? 'open' : ''}><summary>Reading this chart</summary><p>
       ${measurementMode
@@ -222,7 +222,7 @@ function legacyView(state, view) {
            headline number tells you.
            ${level === 'measured-mixed' ? '<br><b>Hollow dots</b> were measured a different way from the axis definition or from each other, for example in another print direction or moisture state. Pointing at or tapping one names the mismatch.' : ''}`
         : `${pts.length} of ${rows.length} candidates plotted${missing ? `, ${missing} lack one or both properties and are not drawn as zero` : ''}.
-           Each point is a material at its typical published values, as printed and dry, whatever state the question judges its products in: the decision view draws those states.`}
+           Each dot is a whole material: the median of its products' datasheet values, as printed and dry, whatever state the question judges its products in. Which of its products pass, and how they vary in the state asked, is Material ranges; each product is Products.`}
       ${offLog ? `<br><b>${offLog} more candidate${offLog === 1 ? ' has' : 's have'}</b> a value at or below zero, which a Log axis
         cannot show. Not drawn; switch that axis to Linear to see ${offLog === 1 ? 'it' : 'them'}.` : ''}
       Colour is polymer family, marker shape is filler class.
@@ -334,34 +334,23 @@ function estimateEnvelopes(rows, xDef, yDef, useEstimates) {
 }
 
 /**
- * A material as a bubble (D83): the middle half of its products on each axis (their full range where fewer than four
- * publish it), with whiskers to the extremes through the typical value. Behind the points, never a point itself.
+ * What one typical dot stands for, said on it (D112): the whole material, the median of its products' datasheet values,
+ * and how many of its products pass, which Material ranges draws. Inside a question the dot can sit on the wrong side of a
+ * requirement the material passes: PLA's typical stiffness is 2.58 GPa, and the one PLA product passing 3 GPa is at 4.2.
  */
-function spreadTraces(pts, xDef, yDef, colors, colourGroup) {
-  const out = [];
-  const box = (s, v) => (!s ? [v, v] : s.q1 != null ? [s.q1, s.q3] : [s.min, s.max]);
-  for (const q of pts) {
-    const sx = q.xh?.spread, sy = q.yh?.spread;
-    if (!sx && !sy) continue;
-    const [x0, x1] = box(sx, q.x), [y0, y1] = box(sy, q.y);
-    const color = colors.color(q.family);
-    const hover = `<b>${esc(q.name)}</b><br>Spread of its products`
-      + `${sx ? `<br>${esc(xDef.label)}: ${fmtNumber(sx.min)}–${fmtNumber(sx.max)} ${esc(xDef.unit)} (${sx.n})` : ''}`
-      + `${sy ? `<br>${esc(yDef.label)}: ${fmtNumber(sy.min)}–${fmtNumber(sy.max)} ${esc(yDef.unit)} (${sy.n})` : ''}`
-      + '<br><i>The box is the middle half of its products where four or more publish; the whiskers their extremes</i><extra></extra>';
-    const common = { type: 'scatter', showlegend: false, legendgroup: colourGroup(q.family), hoverinfo: 'skip', name: `${q.name} spread` };
-    if (x0 !== x1 && y0 !== y1) {
-      out.push({ ...common, mode: 'lines', x: [x0, x1, x1, x0, x0], y: [y0, y0, y1, y1, y0], fill: 'toself',
-        fillcolor: hexToRgba(color, 0.1), line: { color: hexToRgba(color, 0.45), width: 1 }, hoveron: 'fills', hoverinfo: 'text', text: hover.replace(/<extra><\/extra>$/, ''), hovertemplate: hover });
-    }
-    if (sx && sx.min !== sx.max) out.push({ ...common, mode: 'lines', x: [sx.min, sx.max], y: [q.y, q.y], line: { color: hexToRgba(color, 0.5), width: 1 } });
-    if (sy && sy.min !== sy.max) out.push({ ...common, mode: 'lines', x: [q.x, q.x], y: [sy.min, sy.max], line: { color: hexToRgba(color, 0.5), width: 1 } });
-  }
-  return out;
+export function typicalNote(material, evaluation, keys, tested, names = {}) {
+  const basis = keys.map((k) => { const n = material.headline?.[k]?.spread?.n; return Number.isFinite(n) ? `${n} on ${(names[k] ?? k).toLowerCase()}` : null; }).filter(Boolean);
+  const products = evaluation?.products ?? [];
+  const passing = products.filter((q) => q.verdict === 'PASS').length;
+  const answer = !tested ? 'No requirement set: Material ranges draws every product'
+    : passing ? `${passing} of its ${products.length} product${products.length === 1 ? '' : 's'} pass${passing === 1 ? 'es' : ''}: see Material ranges`
+      : 'None of its products is confirmed to pass: see Material ranges';
+  // Short lines: a hover label does not wrap, and one long line ran off both sides of the chart.
+  return ['Whole material, all its products:', `the median of ${basis.length ? basis.join(', ') : 'its products'}, as printed and dry.`, answer].join('<br>');
 }
 
 /** One point per canonical material, using the same headline logic as the rest of the selector. */
-function headlinePoints(rows, xDef, yDef) {
+function headlinePoints(rows, xDef, yDef, tested = true) {
   const pts = rows
     .map(({ material: m, evaluation: e }) => ({
       id: m.id, name: m.name, family: m.family, filler: m.facets.reinforcement.value,
@@ -371,7 +360,7 @@ function headlinePoints(rows, xDef, yDef) {
       xh: m.headline[xDef.key], yh: m.headline[yDef.key],
       // A scenario assumption is drawn, marked and kept off the front: nobody measured it (audit 2026-09-15, A-02).
       assumed: !!(m.headline[xDef.key]?.assumption || m.headline[yDef.key]?.assumption),
-      notes: [], relaxed: [],
+      notes: [], relaxed: [], typical: typicalNote(m, e, [yDef.key, xDef.key], tested, { [yDef.key]: prop(yDef.key).plain, [xDef.key]: prop(xDef.key).plain }),
     }))
     .filter((q) => q.x !== null && q.y !== null);
   return { pts, mixed: [], unavailable: null };
@@ -551,8 +540,8 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
     traces.push(trace);
   }
 
-  // A material's bubble, the spread of its products, sits behind its point (D83).
-  if (pts.some((q) => q.xh?.spread || q.yh?.spread)) traces.push(...spreadTraces(pts.filter((q) => q.xh?.spread || q.yh?.spread), xDef, yDef, colors, colourGroup));
+  // One dot per material and nothing around it (D112): the spread of a material's products is Material ranges', drawn
+  // there for the products that pass, in the state asked. A box here, of every product, read as that and was not.
 
   for (const [key, list] of groups) {
     const [family, filler] = key.split('|');
@@ -581,6 +570,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
         q.xh.measurementId ?? '', q.yh.measurementId ?? '',
         q.yh.direction ?? '', q.yh.gradeId ?? '',
         q.assumed ? 'scenario assumption, not measured; not on the front'
+          : q.typical ? q.typical
           : q.relaxed.length ? 'mixed: ' + q.relaxed.join(', ')
           : q.notes.length ? q.notes.join(', ')
           : 'conditions match the axis definition']),
@@ -595,9 +585,11 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
         opacity: list.map((q) => (state.selected && q.id !== state.selected ? 0.15 : q.assumed ? 0.3 : q.relaxed.length ? 0.5 : q.evaluation.verdict === 'PASS' ? 1 : 0.55)),
         line: { width: list.map((q) => (q.relaxed.length || q.evaluation.needsVerification ? 2 : 1)), color: 'rgba(0,0,0,.55)' },
       },
-      hovertemplate:
-        `<b>%{customdata[1]}</b><br>${esc(yDef.label)} %{y} ${esc(yDef.unit)}<br>${esc(xDef.label)} %{x} ${esc(xDef.unit)}`
-        + `<br>Grade %{customdata[6]}<br>Direction %{customdata[5]}<br>%{customdata[7]}<br>%{customdata[2]} against current constraints<extra></extra>`,
+      hovertemplate: !list[0]?.typical
+        ? `<b>%{customdata[1]}</b><br>${esc(yDef.label)} %{y} ${esc(yDef.unit)}<br>${esc(xDef.label)} %{x} ${esc(xDef.unit)}`
+          + `<br>Grade %{customdata[6]}<br>Direction %{customdata[5]}<br>%{customdata[7]}<br>%{customdata[2]} against current constraints<extra></extra>`
+        : `<b>%{customdata[1]}</b>, typical<br>${esc(yDef.label)} %{y} ${esc(yDef.unit)}<br>${esc(xDef.label)} %{x} ${esc(xDef.unit)}`
+          + '<br>%{customdata[7]}<extra></extra>',
     });
   }
 

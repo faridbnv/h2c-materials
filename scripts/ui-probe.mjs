@@ -541,6 +541,18 @@ try {
     await evaluate(`document.querySelector('[data-inspect-close]')?.click(), true`);
     await sleep(400);
     const after = await evaluate(`({ list: !!document.querySelector('[data-list]'), folds: document.querySelectorAll('.ws-mat-pairs[open]').length })`);
+    // Material typicals is one dot per material, nothing drawn around it, and each dot says what it stands for and where
+    // its passing products are (D112).
+    await open(`${pageUrl}?typicals=1#${encodeURIComponent(JSON.stringify({ ...beam, p: { ...beam.p, view: 'catalogue' } }))}`);
+    await when('#plot .main-svg', 400);
+    const typ = await evaluate(`(() => { const d = document.getElementById('plot').data; const dots = d.filter((t) => Array.isArray(t.customdata) && t.customdata[0]?.length === 8);
+      return { dots: dots.reduce((n, t) => n + t.x.length, 0), materials: new Set(dots.flatMap((t) => t.customdata.map((c) => c[0]))).size, around: d.filter((t) => / spread$/.test(t.name ?? '')).length,
+        notes: dots.flatMap((t) => t.customdata.map((c) => c[7])), link: !!document.querySelector('.ws-summary [data-view="overview"]') }; })()`);
+    if (!typ.dots) layoutProblems.push('ashby-typicals: no dot drawn');
+    if (typ.dots !== typ.materials) layoutProblems.push(`ashby-typicals: ${typ.dots} dots for ${typ.materials} materials`);
+    if (typ.around) layoutProblems.push(`ashby-typicals: ${typ.around} spreads drawn around the dots`);
+    if (typ.notes.some((n) => !/^Whole material, all products/.test(n) || !/Material ranges/.test(n))) layoutProblems.push('ashby-typicals: a dot does not say it is the whole material, or where its passing products are');
+    if (!typ.link) layoutProblems.push('ashby-typicals: no way to Material ranges under the chart');
     if (!after.list) layoutProblems.push('ashby-details: Ranking did not bring the list back');
     else if (after.folds !== foldsBefore.folds) layoutProblems.push(`ashby-details: open folds changed behind the details (${foldsBefore.folds} to ${after.folds})`);
   } finally {

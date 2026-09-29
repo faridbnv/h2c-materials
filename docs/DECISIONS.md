@@ -120,7 +120,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) |
 | D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108; amended by D110 (the view order and names, test pairs under More, details in place of the list, the pills on the chart's corner) |
 | D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109; amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) |
-| D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110 |
+| D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110; amended by D112 (Material typicals drawn as one dot per material) |
+| D112 | Material typicals is one dot per material, which says what it stands for and where its passing products are | The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those. | In force; it amends D111 |
 
 <!-- end index -->
 
@@ -3498,7 +3499,7 @@ appears, Ranking does not bring the list back, or its open folds change. No verd
 ## D111. Every view of the Ashby lens is laid out, sized, framed and labelled by one rule
 
 > **In plain words:** Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it.
-> **Status:** In force; it amends D110.
+> **Status:** In force; it amends D110; amended by D112 (Material typicals drawn as one dot per material).
 
 *Directed by the owner on 2026-09-29: a final look at the typicals view and its settings, "something looks off"; make sure
 everything is as designed. Found by driving the built page (headless Chrome, seven questions and settings, three screen
@@ -3529,6 +3530,28 @@ What was off, and why: Material typicals is the chart from before D107, and it s
   frames what is drawn for scale, and a reference's name near the left edge runs inward.
 
 No verdict, ranking or count moved.
+
+## D112. Material typicals is one dot per material, which says what it stands for and where its passing products are
+
+> **In plain words:** The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those.
+> **Status:** In force; it amends D111.
+
+*Directed by the owner on 2026-09-29, after asking whether Material typicals and Material ranges differ and serve their
+purposes. They differ in what they stand for, and the drawing hid it: both drew a box and whiskers. Typicals' box was every
+product of the material, dry and as printed, whatever the question; ranges' is the products that pass, in the state asked.
+Inside a question the typical could sit on the wrong side of a requirement the material passes: in the H2C beam PLA's
+typical stiffness is 2.58 GPa, box 1.8 to 2.9 over 43 products, while the one PLA product passing 3 GPa is at 4.2. Built
+by Claude (an agent); not reviewed by a person.*
+
+- **One dot per material**, at its typical value (the median of its products' datasheet values, as printed and dry), and
+  nothing drawn around it: the spread of a material's products is Material ranges', for the products that pass.
+- **The dot says what it is** (`typicalNote`, `app/js/ui/ashby.js`): "Whole material, all its products: the median of
+  43 on stiffness, 146 on density, as printed and dry. 1 of its 200 products passes: see Material ranges", in short lines.
+  Under the chart, the line of what is drawn ends "Which products pass: Material ranges", a press away.
+- Estimated ranges, the Pareto front, references and the familiar filament stay as they were.
+
+`npm run ui:check` fails if a typicals view draws more dots than materials, draws a spread around them, or a dot does not
+say it is the whole material and where its passing products are. No verdict, ranking or count moved.
 
 ---
 

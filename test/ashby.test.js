@@ -92,3 +92,14 @@ test('point labels never print over each other, in priority order, and a label t
   assert.equal(pinned.pins.length, 1);
   assert.ok(Number.isFinite(pinned.pins[0].ax) && Number.isFinite(pinned.pins[0].ay));
 });
+
+test('a typical dot says it is the whole material, and points to Material ranges for what passes (D112)', async () => {
+  const { typicalNote } = await import('../app/js/ui/ashby.js');
+  const m = { headline: { tensileModulusXY: { spread: { n: 43 } }, density: { spread: { n: 146 } } } };
+  const products = [{ verdict: 'PASS' }, ...Array.from({ length: 42 }, () => ({ verdict: 'FAIL' }))];
+  const names = { tensileModulusXY: 'Stiffness', density: 'Density' };
+  assert.equal(typicalNote(m, { products }, ['tensileModulusXY', 'density'], true, names),
+    'Whole material, all its products:<br>the median of 43 on stiffness, 146 on density, as printed and dry.<br>1 of its 43 products passes: see Material ranges');
+  assert.match(typicalNote(m, { products: products.slice(1) }, ['tensileModulusXY', 'density'], true, names), /None of its products is confirmed to pass: see Material ranges$/);
+  assert.match(typicalNote(m, { products }, ['tensileModulusXY', 'density'], false, names), /No requirement set: Material ranges draws every product$/);
+});
