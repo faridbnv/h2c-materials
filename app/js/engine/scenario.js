@@ -38,7 +38,7 @@ export function newScenario(meta) {
     // The chart (D107): the view, its axes and scales, the goal's line position (indexM), which context layers are drawn,
     // and a deliberate focus. Display only: nothing here changes an answer, a count of candidates or a rank.
     plot: { x: 'density', y: 'tensileModulusXY', xLog: false, yLog: false, view: 'decision', showReference: false, showEstimates: false,
-      layers: { failed: false, unresolved: false, front: false }, population: 'confirmed', indexM: null, focus: [] },
+      layers: { failed: false, unresolved: null, front: false }, population: 'confirmed', indexM: null, focus: [] },
     lens: 'table',
     openMaterial: null,
     useEstimates: true,
@@ -177,7 +177,11 @@ export function validateScenario(raw, meta, { materialIds = null, headlineKeys =
 
   out.plot = { ...base.plot, ...(isObject(raw.plot) ? raw.plot : {}) };
   if (out.plot.parallelAxes !== undefined && !Array.isArray(out.plot.parallelAxes)) delete out.plot.parallelAxes;
-  out.plot.layers = Object.fromEntries(LAYERS.map((k) => [k, isObject(out.plot.layers) && out.plot.layers[k] === true]));
+  // Unsettled products are null until the reader sets them: then they follow the Candidate confidence (D109).
+  out.plot.layers = Object.fromEntries(LAYERS.map((k) => {
+    const v = isObject(out.plot.layers) ? out.plot.layers[k] : undefined;
+    return [k, k === 'unresolved' && typeof v !== 'boolean' ? null : v === true];
+  }));
   out.plot.population = POPULATIONS.has(out.plot.population) ? out.plot.population : 'confirmed';
   out.plot.showEstimates = out.plot.showEstimates === true;
   out.plot.showReference = out.plot.showReference === true;
@@ -250,7 +254,7 @@ function migrateV1(raw, out) {
   const legacyView = { material: 'catalogue', products: 'catalogue', measured: 'measured', 'measured-mixed': 'measured-mixed' }[level ?? 'material'];
   out.plot.view = used ? legacyView : 'decision';
   if (used) {
-    notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens in the ${legacyView === 'catalogue' ? 'catalogue view' : 'evidence view'} it was saved with. Choose "Products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);
+    notes.push(`This selection was saved before the decision workspace (scenario version 1), when the Ashby chart drew published values that do not depend on the state a product is judged in. Its chart opens on the published data it was saved with (${legacyView === 'catalogue' ? 'typical published values' : 'test pairs'}). Choose "Products" to draw each product in the state its answer is in, with its rank and line; its requirements and answers are the same either way.`);
   }
   return notes;
 }

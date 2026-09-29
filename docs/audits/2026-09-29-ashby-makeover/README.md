@@ -177,3 +177,34 @@ package's `implementation-2026-09-29/visuals-revised/`.
 Not changed: the filter rail's family counts (they say what a click would leave, in one order), and the page-wide
 Candidate confidence and estimates switches, which the Show menu names when an item needs them.
 
+
+## Second revision: every option, planned (D109)
+
+The owner used the D108 lens and found it still very confusing: they asked for every combination the menus make with the
+filters and the top bar to be counted, and for a judgement of how a user would find the one they need; clicks still reset
+their work; the list on the right behaved strangely; estimates meshed the chart. They then asked to keep the free choice,
+with the flow, the effects and the look planned.
+
+**The count.** The lens offers about 4.2 million discrete settings (goal 9 × view 5 × axes 11 × 11 × scales 4 × layers 8
+× estimates 2 × references 2 × familiar filament 6); with the top bar and status chips (× 192), about 800 million, before
+the rail's 86 controls. All of them are still reachable. What changed is how they are laid out, what each one does and what
+it leaves alone (DECISIONS D109, with the table of effects).
+
+**Measured before and after** (headless Chrome, the H2C beam; the same probe both times):
+
+| A reader does | D108 | D109 |
+|---|---|---|
+| Types "PA" in the list's search, then changes a scale | search emptied, 7 materials became 41 | kept, 7 |
+| Stars a material lower in the list | list thrown to the top (900 → 0) | kept |
+| Opens a material's products, then steps the line | fold closed | kept open |
+| Zooms the chart, then switches a layer | zoom lost (1100–1200 → 730–1634 kg/m³) | kept; "Zoomed in · Show all" on the chart |
+| Presses a material's name in the list | chart zoomed to it; its way back under the chart, off screen | picked out, the rest fade; nothing moves; "Picked out: … ×" on the chart |
+| Opens a product from the list | list to the top, the page shifted | list and its rows where they were; inspector under the list |
+| Turns estimates on for the beam (Include uncertain) | 40 dashed boxes over 14 products, 6 of failing materials | 21 faint washes, none of a failing material; the picked one outlined |
+
+`npm run ui:check` now holds the search, the open fold, the zoom and the pick ("ashby-keeps-place"); `evidence/layout-d109.json` is every scenario's
+layout; `visuals/d109-*` the screens (the beam at 1440, 1024 and a phone, the rail hidden, material ranges, scope-only
+ranges, estimates, a pick with a zoom); the full set is in the package's `implementation-2026-09-29/visuals-d109/`.
+
+**Layout.** The controls are three rows (Draw, Also, Line) and the axes a bar across the top of the chart. At 1440 × 900
+with the rail hidden the plotting area is 798 × 450 at y 390; at 1024 × 768, 902 × 395 with the results under it.

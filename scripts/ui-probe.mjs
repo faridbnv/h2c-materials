@@ -482,6 +482,35 @@ try {
     if (!inspected) layoutProblems.push('ashby-keyboard: Enter on a product state in the list opened no inspector');
     else if (!inspected.focused) layoutProblems.push('ashby-keyboard: the inspector opened without taking focus');
     results['41-ashby-keyboard'] = [`LINE STEPPED ${stepped}`, 'INSPECTOR', inspected?.text ?? 'none'].join('\n');
+    // Nothing a press does elsewhere moves the reader (D109): the list keeps its search, its scroll and its open folds, and
+    // the chart its zoom, through a change of scale, a chip, a star and a step of the line; a pick fades, never zooms.
+    await open(beamUrl);
+    await when('#plot .main-svg', 400);
+    const kept = await evaluate(`(async () => {
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const problems = [];
+      const list = () => document.querySelector('[data-list]');
+      const f = document.querySelector('[data-list-filter]'); f.value = 'CF'; f.dispatchEvent(new Event('input', { bubbles: true }));
+      const shown = [...document.querySelectorAll('.ws-mat')].filter((li) => !li.hidden).length;
+      document.querySelector('.ws-mat-pairs').open = true; await wait(50);
+      Plotly.relayout(document.getElementById('plot'), { 'xaxis.range': [Math.log10(1100), Math.log10(1200)], 'yaxis.range': [Math.log10(3), Math.log10(6)] }); await wait(300);
+      document.querySelector('button[data-layer="front"]').click(); await wait(400);
+      document.querySelector('[data-line-step="1"]').click(); await wait(400);
+      document.querySelector('[data-pin]').click(); await wait(400);
+      if (document.querySelector('[data-list-filter]').value !== 'CF') problems.push('the list lost its search');
+      if ([...document.querySelectorAll('.ws-mat')].filter((li) => !li.hidden).length !== shown) problems.push('the list showed other materials');
+      if (!document.querySelector('.ws-mat-pairs[open]')) problems.push('an open list of products closed');
+      const x = document.getElementById('plot').layout.xaxis.range.map((v) => Math.round(10 ** v));
+      if (x[0] !== 1100 || x[1] !== 1200) problems.push('the zoom was lost: ' + x.join('-'));
+      if (!document.querySelector('[data-zoom-reset]')) problems.push('no Show all on a zoomed chart');
+      document.querySelector('[data-select-material][aria-pressed="false"]').click(); await wait(400);
+      const x2 = document.getElementById('plot').layout.xaxis.range.map((v) => Math.round(10 ** v));
+      if (x2[0] !== 1100 || x2[1] !== 1200) problems.push('picking a material moved the chart');
+      if (!document.querySelector('[data-unpick]')) problems.push('a picked material has no way back on the chart');
+      document.querySelector('[data-pin][aria-pressed="true"]')?.click(); await wait(300);
+      return problems;
+    })()`);
+    for (const k of kept) layoutProblems.push(`ashby-keeps-place: ${k}`);
   } finally {
     await send('Emulation.clearDeviceMetricsOverride');
     await send('Emulation.setTouchEmulationEnabled', { enabled: false });

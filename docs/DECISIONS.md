@@ -117,7 +117,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D105 | A query is of one generation; a decision can be traced; the loop is measured | The SQL file you query says which release of the data it is of and never mixes the tables as they are with an older compiled database; one product's decision in a saved scenario can be traced record by record from the command line; and what the build and checks cost is measured step by step. | In force |
 | D106 | A product is named for what its maker's documents say it is, searched beyond the data sheet | Before a product is filed as "polymer not stated" or "hardness not stated", its maker's safety data sheet, pages, guides and older editions are searched; it is filed under what they name, and only what no document names stays in a home that says the maker does not disclose it. | In force; it amends D86 (the "hardness not stated" class is a family entry) and D87 (the homes are named for what is true of them) |
 | D107 | The Ashby lens is a selection exercise: exact product states, one goal, a line that counts what it is drawn over | The Ashby chart draws each product that meets the requirements at the values of the state its answer is in, ranks and counts those same product states with the goal's line, and keeps material ranges, estimates and failed or unresolved products as labelled context; published catalogue values and test pairs stay available as evidence views. | In force; amended by D108 (no objective stages, no axis limits form, material ranges as D83) |
-| D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107 |
+| D108 | The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's | The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart. | In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart) |
+| D109 | The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place | The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds. | In force; it amends D108 |
 
 <!-- end index -->
 
@@ -3332,7 +3333,7 @@ counts one population under a line drawn over another, and ranks conditioned que
 ## D108. The Ashby lens has one control row, one place for requirements, a line that filters nothing, and material ranges as the table's
 
 > **In plain words:** The chart's controls look the same in every view and never change their words as you work; requirements are set only in the filter rail, and the chart's requirement lines open it; the goal's line is a guide that counts what is on its better side and removes nothing; and a material's box is the middle half of its own products, with variants such as wood or metal fills drawn apart.
-> **Status:** In force; it amends D107.
+> **Status:** In force; it amends D107; amended by D109 (the Show and More menus became the Draw and Also rows, the axes moved onto the chart).
 
 *Directed by the owner on 2026-09-29, after using the lens D107 built: its menus changed as they worked, a filter could be
 set in several places, and PLA's range covered nearly every polymer. They asked for the lens to be reworked as a UI and UX
@@ -3392,6 +3393,75 @@ What it moved: no verdict and no ranking without a stage (the stage was the only
 products); the compiled database nothing (`npm run build:diff`); the release, with the engine. Reversing it brings back
 menus whose words change as the reader works, four places to narrow one answer, and a band drawn from the extremes of
 every product, variants included.
+
+## D109. The Ashby lens keeps every option, in three rows with one planned effect each, and keeps the reader's place
+
+> **In plain words:** The Ashby chart keeps all its choices, laid out as three labelled rows (what to draw, what else to draw, the goal's line) with the axes on the chart itself; every choice shows its state where it is, does one planned thing and leaves the rest alone; and nothing a press does throws away the reader's zoom, list search, scroll or open folds.
+> **Status:** In force; it amends D108.
+
+*Directed by the owner on 2026-09-29, after using D108: still very confusing; imagine every combination the menus make
+with the filters and the top bar, and how a user would find the one they need; clicks still reset what they were doing;
+the list on the right does strange things; estimates mesh the screen. They asked to keep the free choice, with the flow,
+the effects and the look planned. Built by Claude (an agent); no person has reviewed it, and the plan's engineering trial
+has still not run.*
+
+**What was wrong, measured** (headless Chrome, the H2C beam; `docs/audits/2026-09-29-ashby-makeover/README.md`):
+
+- **Combinations.** The lens alone offers about 4.2 million discrete settings (goal 9, view 5, axes 11 by 11, scales 4,
+  layers 8, estimates 2, references 2, familiar filament 6); with the top bar and status chips, about 800 million, before
+  the rail's 86 controls. A reader has perhaps four tasks. The count itself was not the trouble: the settings sat in four
+  places, some inside menus, some hidden until a mode was on, and several moved each other without saying so (Include
+  uncertain raised the header's count and left the chart as it was; estimates needed a switch at the top and another in a
+  menu).
+- **Resets.** The lens is rebuilt on every change, and with it went the list's search (typed "PA", seven materials; after a
+  change of scale, empty, 41), its scroll (a star lower down threw it to the top), its open folds, and the chart's zoom (a
+  switch drew the whole picture again).
+- **The list.** One row held five presses with five effects, none said: the name zoomed the chart, and the zoom outlived
+  goal and mode changes, its way back under the chart, off the screen.
+- **Estimates.** For the beam, 40 dashed boxes beside 14 products: 34 of materials the requirements could not settle, 6 of
+  materials that fail; 28 spanning more than three times in stiffness, 5 covering more than half the chart.
+
+**What changed:**
+
+- **Three rows, read top to bottom** (`toolbar`, `app/js/ui/decision.js`): *Draw* (Products, Material ranges, Published
+  data, and which published data; Export at its end), *Also* (chips: Unsettled, Failing, Estimates, Pareto front; for
+  scale, Metals & wood and a familiar filament), *Line*. The axes sit on the chart they set, in a bar across its top
+  (`axisBar`): the vertical axis at its left and the horizontal at its right, each by name with its unit and scale, the swap
+  between. Every option is in view; the state of each is on its face (a pressed chip); only Export and the kind of
+  published data are a second level. An option that does not apply is greyed with its reason.
+- **One planned effect per control.** The table below is the contract (`wireControls`, `app/js/ui/ashby.js`): a change
+  of axes starts the picture whole, since a zoom on other axes means nothing there; nothing else resets anything.
+- **The reader's place is kept** (D109's `listUi` and `zoomMemory`): the list's search, scroll and open folds, the
+  page's scroll, the focused control, and the chart's zoom on the same axes survive every redraw. What narrows the picture
+  is said on the chart, top right, with the way back: "Zoomed to PA6-CF · Show all", "Picked out: PA6-CF ×". A
+  double-click on the chart gives the whole picture back.
+- **The list does one thing per control**: the name picks the material out on the chart (the rest fade, nothing zooms);
+  ⤢ zooms; "best" opens the product; ☆ shortlists; the fold lists the products. The inspector has its own place under the
+  list, so opening it never moves the list's rows; the row of the product opened, from the list or the chart, is kept in
+  the list's view.
+- **Unsettled products follow Candidate confidence** until their chip is pressed (`layerOn`): Include uncertain lists
+  them in the table, so the chart draws them too. The scenario holds `null` for "follow the mode", so a link reopens as it
+  was left, however the reader got there.
+- **Estimates as a shade.** Only for the materials on screen (not those the requirements failed), and drawn as a faint
+  wash with no outline; the picked material's range is outlined. The beam's 40 dashed boxes became 21 washes.
+
+| You change | What changes | What stays as it was |
+|---|---|---|
+| The goal | the line's formula; the axes and Log scales become the goal's, so the zoom starts whole; the line at the fifth-ranked median | the view, the Also chips, the pick, the list |
+| Draw: Products, Material ranges, Published data (and which) | what is drawn | axes, zoom, goal, line, chips, pick, list |
+| An axis, a scale, the swap | the axes; the zoom starts whole | the goal (its line says why it is not drawn, with the way back), view, chips, pick, list |
+| An Also chip | that layer | everything else, the zoom included |
+| The line | its position, its count, and its rule in the ranking | everything else |
+| A filter, Candidate confidence, Use estimates | the answer: what is drawn and ranked; Candidate confidence also hands Unsettled back to the mode | axes, zoom, goal, view, the chips the reader set, the list; the pick while its material is on screen |
+| A material's name in the list | picks it out, the rest fading, or lets go | the zoom and everything else |
+| ⤢ on a row | zooms to its products; "Zoomed to …, Show all" on the chart | the pick and everything else |
+| "best" or a product in the list | the inspector opens under the list, and its material is picked out | the list's rows, where they were |
+| A mark on the chart | the inspector; its material picked out and its row brought into the list's view | the zoom |
+| A drag, a double-click on the chart | zoom in; the whole picture | everything else |
+
+What it moved: no verdict, ranking or count (the engine is untouched; `npm run build:diff`: 0); the chart draws unsettled
+products under Include uncertain where it drew none. Reversing it brings back a lens whose every press throws away the
+reader's place.
 
 ---
 

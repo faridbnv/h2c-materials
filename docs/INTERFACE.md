@@ -548,21 +548,23 @@ single day is not evidence that something cannot be bought.
 Since D107 the lens is an engineering selection exercise, not a browser of recorded properties. It reads one model,
 `buildWorkspace` (`app/js/engine/workspace.js`), and so do its result list, its inspector, the line and the chart's
 exports: a mark is one product in the state its answer is in, and both its coordinates, its index and its rank come from
-that state. D108 then simplified its controls after the owner used it: one control row that looks the same in every view,
-the filter rail as the one place to set a requirement, the line as a guide, and material ranges drawn as the table
-summarises a material. The reviews that led to them are `docs/audits/2026-09-29-ashby-makeover/`.
+that state. D108 then simplified its controls after the owner used it (the filter rail as the one place to set a
+requirement, the line as a guide, material ranges drawn as the table summarises a material), and D109 laid every option
+out as three rows with one planned effect each and made the lens keep the reader's place. The reviews that led to them
+are `docs/audits/2026-09-29-ashby-makeover/`.
 
 ```
 GOAL  [Beam, minimum mass, stiffness prescribed ▾]  Maximise M = E^(1/2)/ρ   Cross-section area free, proportions fixed
 ASKED As printed, dry · H2C scope and print gates · Stiffness at least 3 GPa · Density at most 1250 kg/m³  Change in Filters
-[Products | Material ranges]   ↕ [Stiffness ▾][Lin|Log]  ⇄  ↔ [Density ▾][Lin|Log]             [Show ▾] [More ▾]
-LINE M = [0.001734] ━━━●━━━ [▼][▲]   8 products from 5 materials above the line (better side)
-┌ chart ─────────────────────────────────────┐ ┌ inspector (a selected product)        ┐
-│ passing products, the line, the            │ │ Ranking  M = E^(1/2)/ρ                │
-│ requirements (press a label to change it)  │ │ 1 PPA-CF 0.00231 ☆  best: …           │
-└────────────────────────────────────────────┘ │ ── line · M 0.00173 ──                │
-marks · Drawn: 14 products from 8 materials     │ 6 PLA …   passing products not drawn  │
-▸ Reading this chart                            └───────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐ ┌ list (scrolls on its own)       ┐
+│ DRAW  [Products | Material ranges | Published data]  Export ▾ │ │ [Find a material]               │
+│ ALSO  (Unsettled) (Failing) (Estimates) (Pareto front) | (Metals & wood) [Familiar ▾] │ Ranking M = E^(1/2)/ρ │
+│ LINE  M = [0.001734] ━━●━━ ▼ ▲   8 products from 5 materials above the line          │ 1 PPA-CF 0.00231 ⤢ ☆  │
+└──────────────────────────────────────────────────────────────┘ │ ── line · M 0.00173 ──           │
+┌ ↑ [Stiffness ▾] GPa Lin|Log        ⇄        → [Density ▾] kg/m³ Lin|Log ┐ │ 6 PLA …             │
+│ chart          [Zoomed to PA6-CF · Show all] [Picked out: PA6-CF ×]  │ ├ inspector (its own place)       ┤
+└──────────────────────────────────────────────────────────────┘
+marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
 ```
 
 - **The question** is one bar. *Goal* is the scenario's one goal, with its formula (its geometry in the formula's
@@ -577,19 +579,25 @@ marks · Drawn: 14 products from 8 materials     │ 6 PLA …   passing product
   Choosing it anywhere sets its axes (its property up; density across, or material cost per volume for a cost goal) and
   both Log scales. A table column sort orders the rows without dropping the goal, and says so with **Order by rank**.
   Strength goals say their strength is a proxy: the recorded tensile strength, its endpoint as each sheet states it.
-- **The control row** is the same in every view and every question (D108): *Products* or *Material ranges*; the
-  vertical and horizontal axes, each a menu of property names in one fixed order and nothing else (no counts that change
-  as the reader works), with Lin and Log; **⇄** to swap them; and two menus that open over the chart rather than pushing
-  it down. **Show** holds what else may be drawn (products that fail a requirement, products that could not be settled,
-  estimated ranges, the Pareto front) and the references for scale (a familiar filament; steel, aluminium and wood).
-  **More** holds the three evidence views, the two exports and the release. An item that does not apply is greyed with
-  its reason ("In the Products view", "Needs Include uncertain and Use estimates, at the top"), never removed. A menu closes
-  on a press outside it or on Escape, one is open at a time, and it stays open while its switches are pressed. Off the
-  goal's axes, a line under the row says the goal's line is not drawn, with **Back to the goal's axes**.
+- **The controls** (D109) read top to bottom as the chart is built. *Draw* chooses what is drawn: *Products*, *Material
+  ranges* or *Published data* (and which: typical published values, or test pairs in matched or mixed conditions), with
+  **Export** at its end. *Also* is a row of chips, each a switch whose state is its look: Unsettled products, Failing
+  products, Estimates, the Pareto front, and for scale Metals & wood and a familiar filament. *Line* is the goal's line. The
+  axes sit on the chart they set, in a bar across its top: the vertical axis at its left, the horizontal at its right, each
+  a menu of property names in one fixed order with its unit and Lin/Log, the swap between. Every option is in view, its
+  state on its face; only Export and the kind of published data are a second level. One that does not apply is greyed with
+  its reason ("Drawn in the Products view", "Needs Include uncertain and Use estimates, at the top of the page"), never
+  removed. Unsettled products follow Candidate confidence (drawn under Include uncertain, as the table lists them) until
+  their chip is pressed; changing the mode hands them back to it.
+- **One planned effect per control, and the reader's place kept** (D109). Each control changes one thing and leaves the
+  rest; a change of axes starts the picture whole. The lens is redrawn on every change and puts back the list's search,
+  scroll and open folds, the page's scroll, the focused control and the chart's zoom on the same axes. What narrows the
+  picture is said on the chart, top right, with the way back: *Zoomed to …, Show all*, *Picked out: … ×*; a double-click on
+  the chart gives the whole picture back. The full table of effects is D109's.
 - **Products** draws each product that meets every requirement, in the state its answer is in (annealed at its
   schedule where annealing is permitted, conditioned where that is asked), filled and coloured by family. A value the
   registry declares unchanged by the state, a density, is read from the product's first state, and the inspector says
-  so. Failed products (crosses) and unresolved products (hollow) are drawn only when asked for under Show, never ranked,
+  so. Failed products (crosses) and unresolved products (hollow) are drawn by their chips under Also, never ranked,
   counted on the line or put on the front. A passing product with no value on an axis in its state is listed beside the
   chart with why ("stiffness is published only dry (V…); nothing is read across states").
 - **Material ranges** draws each material as the rest of the page summarises it (D83, D108): a box over the middle half
@@ -599,8 +607,8 @@ marks · Drawn: 14 products from 8 materials     │ 6 PLA …   passing product
   the build keeps it out of the material's spread, since its values describe the product, not the polymer. PLA's box in
   the scope-only chart is 1230–1250 kg/m³ by 1.5–2.8 GPa with whiskers to 1170–1310 and 0.43–4.2, where the envelope of
   every product had run 800–1400 kg/m³ (PolyWood and PLA-Lite, both variants). Pressing a box opens the material in the
-  inspector, its range in words and its variants named; a lasso or **Zoom to** focuses the chart and changes no answer,
-  count or rank. **Show all** resets it.
+  inspector, its range in words and its variants named; a lasso or ⤢ zooms the chart and changes no answer, count
+  or rank; *Show all*, on the chart, resets it.
 - **The line** sits above the chart, in both work views: M as a number to type, a slider that moves the drawn line and
   its count as it slides and keeps the position when released, and ▼ ▲, which move it past the next product. It says how
   many products, from how many materials, are on its better side (a product on it counts). It is a guide: it keeps and
@@ -613,7 +621,10 @@ marks · Drawn: 14 products from 8 materials     │ 6 PLA …   passing product
   requirement. Not drawn: …"); the rest a careful reader needs is under **Reading this chart**, closed until opened.
 - **The result list** beside the chart (under it below 1100 px) is the keyboard's way to every mark: each material with
   its place, median M, its value relative to the first and its best product, then its products, each of which opens in
-  the inspector. A search box narrows the list. Materials that pass but cannot rank, passing products not drawable on
+  the inspector. A row does one thing per control: the name picks the material out on the chart (its marks stay bright,
+  the rest fade; pressed again, it lets go), ⤢ zooms to its products, "best" opens that product, ☆ shortlists it, and the
+  fold lists its products. The inspector has its own place under the list, which scrolls on its own, so opening one never
+  moves the list; a mark pressed on the chart brings its row into view. A search box narrows the list. Materials that pass but cannot rank, passing products not drawable on
   these axes, and a cost goal's unpriced products are listed with why.
 - **The inspector** shows one product: its state and schedule, each coordinate with its measurement (a link to it), the
   state it was read from, the source's own ± as published, what the policy admitted unstated, the strength endpoint, a
@@ -624,15 +635,16 @@ marks · Drawn: 14 products from 8 materials     │ 6 PLA …   passing product
   resolve it.
 - **Requirements on the chart** are the red dashed lines of before; each label is a button that opens the filter rail at
   that requirement (`editRequirements(property)`).
-- **Estimated ranges** (under Show) draw, dashed and never as a point, the materials none of whose products publishes a
-  value on an axis: the estimate's likely range beside the other axis's measured span across its products, called
+- **Estimates** (under Also) shade, never as a point, the materials on screen none of whose products publishes a value on
+  an axis (a material the requirements failed gets none), as a faint wash with no outline, the picked material's
+  outlined: the estimate's likely range beside the other axis's measured span across its products, called
   marginal ranges with joint combinations unknown. They follow the page's rule for estimates: only under Include
   uncertain with estimates on, never under Confirmed only; a conditioned question gets none, since an estimate describes
   dry products as printed, and an open or non-positive range on a Log axis is counted, not drawn.
 - **A cost goal** draws each product's material cost per volume, its own CAD/kg price times its own density; a twin's
   price is never read, and the unpriced are listed. Prices are observed Canadian listings with their dates; shipping is
   excluded and no other currency is converted (the gap-fill plan's dated conversion comes first).
-- **Exports** (under More): **Chart data (CSV)**, every mark with its identity, variant, state, inputs, verdict, rank and
+- **Exports** (Export, at the end of Draw): **Chart data (CSV)**, every mark with its identity, variant, state, inputs, verdict, rank and
   whether it is on the line's better side, under a header that says the question, axes, scales, populations and what each
   range means; and **Chart image (PNG)**, captioned the same way.
 - **Size.** The filter rail's **Hide** gives a wide screen's width to the chart (a viewer's choice kept in the browser;
@@ -641,16 +653,15 @@ marks · Drawn: 14 products from 8 materials     │ 6 PLA …   passing product
   `npm run ui:check`; on a phone the question, the control row (wrapped), the chart and the results are one under another,
   and the menus open to the right.
 
-**Evidence views** (under More) are the chart before D107, kept for research and marked as not the decision, on the same
-control row: *Catalogue: typical published values* (one point per material at its typical published value with its
+**Published data** (the third choice under Draw) is the chart before D107, kept for research and marked as not the
+decision, on the same controls: *Catalogue: typical published values* (one point per material at its typical published value with its
 products' spread, as printed and dry whatever state the question asks, and estimated ranges beside the other axis's
 product span), *Test pairs: matched conditions* and *Test pairs: mixed conditions*. A matched pair is two measurements of
 one product in one condition from one document: moisture, treatment and schedule, specimen form and direction agree, or
 one side leaves a condition unstated and the hover says so; a dry modulus and a conditioned strength never pair (D107).
 The mixed view draws every pair of a product's measurements, hollow where they conflict, naming the conflict. At
 measurement level a dot is a pair of measurements of one product, not a material, and one material's dots are joined by a
-faint line. The goal's line is not drawn in the evidence views; it counts exact products. **Back to Products** leaves
-them.
+faint line. The goal's line is not drawn on published data; it counts exact products.
 
 A scenario saved before D107 (version 1) keeps its question; its chart opens in the view it was saved with, said so in the
 notice, with **Products** one press away (`migrateV1`, `app/js/engine/scenario.js`). One saved with objective stages (a

@@ -276,7 +276,8 @@ what it is drawn over, and an objective stage (D107). No verdict moved; rankings
 materials that had ranked on a state they do not publish. The same day, after using it, the owner asked for its controls
 to be reworked: one control row whose words do not change, the filter rail as the one place for requirements, the line
 as a guide (the objective stage removed), and material ranges drawn as the table summarises a material, variants apart
-(D108; no verdict or ranking moved). The team trial that would re-score C7 has not been run
+(D108; no verdict or ranking moved); then every option laid out in three rows with one planned effect each, the axes on
+the chart, and the reader's zoom, list and place kept through every press (D109). The team trial that would re-score C7 has not been run
 ([the record](audits/2026-09-29-ashby-makeover/README.md)).
 
 ## Working rules

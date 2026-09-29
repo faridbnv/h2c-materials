@@ -151,3 +151,13 @@ test('a scenario saved with objective stages (before D108) keeps its question, p
   const placed = validateScenario({ version: 2, rankBy: 'beam-stiffness', plot: { indexM: 0.002 }, stages: [{ index: 'beam-stiffness', cutoff: 0.0017 }] }, meta, ids);
   assert.equal(placed.scenario.plot.indexM, 0.002);
 });
+
+test('unsettled products on the chart follow the Candidate confidence until the reader sets them (D109)', () => {
+  assert.equal(newScenario(meta).plot.layers.unresolved, null);
+  const unset = validateScenario({ version: 2, plot: { layers: { failed: true } } }, meta, ids);
+  assert.deepEqual(unset.scenario.plot.layers, { failed: true, unresolved: null, front: false });
+  for (const v of [true, false]) {
+    const s = { ...newScenario(meta), plot: { ...newScenario(meta).plot, layers: { failed: false, unresolved: v, front: false } } };
+    assert.equal(fromHash(toHash(s), meta, ids).scenario.plot.layers.unresolved, v, 'a choice the reader made travels');
+  }
+});

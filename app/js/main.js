@@ -12,7 +12,8 @@ import { indexById, indexValue } from './engine/indices.js';
 import { decisionBrief, productLabel } from './ui/brief.js';
 import { renderFilters } from './ui/filters.js';
 import { renderTable, toCSV, productsCSV, download, sortRows, sortForColumnSet, rankOf } from './ui/table.js';
-import { renderAshby } from './ui/ashby.js';
+import { renderAshby, refreshPills } from './ui/ashby.js';
+import { forgetZoom } from './ui/chart.js';
 import { renderParallel } from './ui/parallel.js';
 import { renderCoverage } from './ui/heatmap.js';
 import { renderCompare } from './ui/compare.js';
@@ -72,6 +73,9 @@ const state = {
   examined: [],
   // Set once the reader has started an Ashby exercise from its starter, so the starter does not come back.
   ashbyStarted: false,
+  // The material picked out on the Ashby chart (D109), and one to bring into the list's view after a press on the chart.
+  selected: null,
+  revealMaterial: null,
   // The mark the Ashby lens has open in its inspector: a product state, an estimate, a material, or the marks at a spot.
   inspect: null,
   // Set when the reader ordered the table by a column while a goal ranks it; the goal stays, its ranks stay shown.
@@ -299,6 +303,9 @@ const actions = {
     // in a label. Strict shows what passed; Explore also shows what could not be evaluated.
     state.showStates = defaultShowStates(policy);
     state.showScreened = false;
+    // The Ashby chart follows (D109): its unsettled products are drawn under Include uncertain, as the table lists them,
+    // until the reader presses their chip; a change of mode hands them back to the mode.
+    state.scenario.plot.layers = { ...(state.scenario.plot.layers ?? {}), unresolved: null };
     render(); pushHash();
   },
   toggleEstimates(on) { state.useEstimates = on; state.scenario.useEstimates = on; render(); pushHash(); },
@@ -341,7 +348,11 @@ const actions = {
   setGoal(id) {
     const index = id ? indexById(id) : null;
     state.scenario.rankBy = index ? index.id : null;
-    if (index) Object.assign(state.scenario.plot, goalAxes(index), { indexM: null });
+    if (index) {
+      const a = goalAxes(index), p = state.scenario.plot;
+      if (a.x !== p.x || a.y !== p.y || !p.xLog || !p.yLog) forgetZoom();
+      Object.assign(p, a, { indexM: null });
+    }
     state.sortOverride = false;
     state.sortNotice = null;
     renderLens(); pushHash();
@@ -361,9 +372,22 @@ const actions = {
     if (!index && !withGates && !cs.length) state.scenario.rankBy = null;
     actions.changed();
   },
-  inspect(target) { state.inspect = target; state.inspectFocus = !!target; renderLens(); },
+  // Open a mark in the inspector. A product's material is picked out with it; one pressed on the chart is also brought
+  // into view in the list (D109).
+  inspect(target) {
+    state.inspect = target;
+    state.inspectFocus = !!target;
+    const material = target?.kind === 'pair' ? target.key.split('|')[0] : target?.kind === 'material' ? target.key : null;
+    // Its row is kept in the list's view: scrolled to only if the inspector, or the list, had it out of sight.
+    if (material) { state.selected = material; state.revealMaterial = material; }
+    renderLens();
+  },
+  // Pick a material out on the Ashby chart, or let go (null): its marks stay bright and the rest fade. A view only.
+  select(id) { state.selected = id; renderLens(); },
   // A focus zooms the chart to some materials; it changes no answer, count or rank, and is reset in one press.
-  setFocus(ids) { state.scenario.plot.focus = ids; renderLens(); pushHash(); },
+  setFocus(ids) { forgetZoom(); state.scenario.plot.focus = ids; renderLens(); pushHash(); },
+  // The reader zoomed the chart by hand: its pill says so, with the way back, without a redraw.
+  zoomed() { refreshPills(document.getElementById('lens'), state, actions); },
   // The filter rail is the one place a requirement is set (D108): the chart's requirement lines and its question bar open
   // it, at the property named.
   editRequirements(property = null) { openRequirements(property); },

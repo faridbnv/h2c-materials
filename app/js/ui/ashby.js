@@ -28,11 +28,11 @@ import { prop } from './labels.js';
 import { headlineDef } from './registry.js';
 import {
   chartFit, wireResize, placeLabels, axisRange, hexToRgba, errorBars, requirementOverlay, anchorRequirementLabels,
-  referenceOverlay, anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, PLOT_MARGIN_TOP,
+  referenceOverlay, anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, PLOT_MARGIN_TOP, applyZoom, watchZoom, zoomSig, forgetZoom,
 } from './chart.js';
 import {
   workspaceFor, questionStrip, starter, lineControl, toolbar, resultsPanel, drawWorkspacePlot, workspaceKey, readingNote,
-  chartDataCSV, chartImage, estimateContext, pairList, openFolds, lineCount,
+  chartDataCSV, chartImage, estimateContext, pairList, openFolds, lineCount, listUi, chartPills, layerOn, axisBar,
 } from './decision.js';
 
 export { chartFit, chooseLabels, labelBox } from './chart.js';
@@ -41,9 +41,9 @@ export { chartFit, chooseLabels, labelBox } from './chart.js';
 export const VIEWS = [
   { id: 'decision', label: 'Products', help: 'Each product that meets the requirements, in the state its answer is in.' },
   { id: 'overview', label: 'Material ranges', help: 'Each material as the middle half of its products on each axis, whiskers to the extremes; its products as dots.' },
-  { id: 'catalogue', label: 'Catalogue: typical published values', help: 'One point per material at its typical published values, with its products\' spread.', evidence: true },
-  { id: 'measured', label: 'Test pairs: matched conditions', help: 'Two measurements of one product in one condition, from one document: moisture, treatment, specimen and direction agree.', evidence: true },
-  { id: 'measured-mixed', label: 'Test pairs: mixed conditions', help: 'Every pair of one product\'s measurements; each mismatch is named and drawn hollow. Exploration, never a decision.', evidence: true },
+  { id: 'catalogue', label: 'Typical published values', help: 'One point per material at its typical published values, with its products\' spread.', evidence: true },
+  { id: 'measured', label: 'Test pairs, matched conditions', help: 'Two measurements of one product in one condition, from one document: moisture, treatment, specimen and direction agree.', evidence: true },
+  { id: 'measured-mixed', label: 'Test pairs, mixed conditions', help: 'Every pair of one product\'s measurements; each mismatch is named and drawn hollow. Exploration, never a decision.', evidence: true },
 ];
 /** The view a plot names, or the decision view. */
 export const viewOf = (p) => (WORKSPACE_VIEWS.includes(p?.view) ? p.view : 'decision');
@@ -65,22 +65,27 @@ export function renderAshby(host, state, actions) {
   // Estimated context follows the page's one rule for estimates: shown under Include uncertain with estimates on, and never
   // under Confirmed only, which is measured evidence alone everywhere on the page. Within that, the chart's switch only
   // draws them; the engine's use of them is its own setting and is unchanged (D107).
+  // Only for the materials on screen (D109): a material the requirements already failed has nothing an estimate could
+  // tell the reader, and drawing its range put six more over the beam's fourteen products.
   state.estimates = state.ctx.showEstimates
-    ? estimateContext(state.examined ?? state.rows, state.ctx, { xKey: p.x, yKey: p.y, xLog: !!p.xLog, yLog: !!p.yLog, index, orientation: ws.objective.orientation })
+    ? estimateContext(state.rows, state.ctx, { xKey: p.x, yKey: p.y, xLog: !!p.xLog, yLog: !!p.yLog, index, orientation: ws.objective.orientation })
     : { ranges: [], unavailable: [], off: true };
   // The starter until the reader has asked something here: a goal, a requirement, or "compare properties".
   const showStarter = work && !scenario.constraints.length && !scenario.rankBy && !state.ashbyStarted;
   const legacy = work ? null : legacyView(state, view);
+  // Where the reader is on the page, kept through the redraw (D109).
+  const scroller = host.closest('.lens-view');
+  const pageAt = scroller ? scroller.scrollTop : null;
+  if (state.selected && !state.rows.some((r) => r.material.id === state.selected)) state.selected = null;
 
   host.innerHTML = `<div class="ws" data-ws-view="${view}">
     ${questionStrip(state, ws)}
     ${showStarter ? starter(state) : ''}
     <div class="ws-body">
       <section class="ws-chart" aria-label="Chart">
-        ${toolbar(state, { view, estimates: legacy?.estimates ?? null })}
-        ${work ? lineControl(state, ws) : ''}
+        ${toolbar(state, { view, estimates: legacy?.estimates ?? null, line: work ? lineControl(state, ws) : '' })}
         ${legacy?.notices ? `<div class="ashby-notices">${legacy.notices}</div>` : ''}
-        <div id="plot" role="img" aria-label="Ashby chart"></div>
+        <div class="ws-plot-wrap">${axisBar(state, { view })}<div class="ws-plot-area"><div class="ws-pills" data-pills>${chartPills(state)}</div><div id="plot" role="img" aria-label="Ashby chart"></div></div></div>
         ${work ? workspaceKey(state, ws, { view }) : legacy.key}
         ${work ? readingNote(state, ws, { view }) : legacy.reading}
       </section>
@@ -92,10 +97,33 @@ export function renderAshby(host, state, actions) {
   else drawLegacyPlot(host, state, { xDef: legacy.xDef, yDef: legacy.yDef, pts: legacy.pts, envelopes: legacy.envelopes, actions });
   wireControls(host, state, actions, ws, { view });
 
-  // The lens is rebuilt on every change, as the filter rail is. Keep the reader's place, so a keyboard user who changes
-  // an axis is not thrown back to the top of the page.
-  if (focusKey) host.querySelector(`[data-focus="${focusKey}"]`)?.focus();
-  if (state.inspectFocus) { state.inspectFocus = false; host.querySelector('.ws-inspector')?.focus({ preventScroll: false }); }
+  // The lens is rebuilt on every change, as the filter rail is. Keep the reader's place: the page where it was, the list's
+  // search, scroll and open folds (listUi), and the focus on the control that was pressed. Nothing a press did elsewhere
+  // moves the reader.
+  const list = host.querySelector('[data-list]');
+  if (list) {
+    if (listUi.filter) filterList(host, listUi.filter);
+    list.scrollTop = listUi.scroll;
+  }
+  if (scroller && pageAt !== null) scroller.scrollTop = pageAt;
+  if (focusKey) host.querySelector(`[data-focus="${focusKey}"]`)?.focus({ preventScroll: true });
+  if (state.inspectFocus) { state.inspectFocus = false; host.querySelector('.ws-inspector')?.focus({ preventScroll: true }); }
+  // A mark pressed on the chart: its material's row is brought into the list's view, the list alone scrolling.
+  if (state.revealMaterial && list) {
+    const row = list.querySelector(`[data-mat="${CSS.escape(state.revealMaterial)}"]`);
+    state.revealMaterial = null;
+    if (row) {
+      const top = row.offsetTop - list.offsetTop, bottom = top + row.offsetHeight;
+      if (top < list.scrollTop || bottom > list.scrollTop + list.clientHeight) list.scrollTop = Math.max(0, top - 8);
+      listUi.scroll = list.scrollTop;
+    }
+  }
+}
+
+/** The list's own search: it narrows the list on screen and nothing else. */
+function filterList(host, text) {
+  const q = text.trim().toLowerCase();
+  host.querySelectorAll('.ws-mat').forEach((li) => { li.hidden = !!q && !li.dataset.name.includes(q); });
 }
 
 // ------------------------------------------------------------------ the catalogue and evidence views
@@ -164,8 +192,8 @@ function legacyView(state, view) {
       Colour is polymer family, marker shape is filler class.
       ${estimated.length && !p.showEstimates
         ? `<br><b>${estimated.length} more candidate${estimated.length === 1 ? ' has' : 's have'}</b> no measurement of
-           ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only an estimated range. Not drawn. Tick
-           <b>Estimated ranges</b> under Show to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
+           ${estimated.length === 1 ? 'its' : 'their'} own on one of these axes, only an estimated range. Not drawn. Press
+           <b>Estimates</b>, under Also, to see where ${estimated.length === 1 ? 'it falls' : 'they fall'}.`
         : ''}
       ${envelopes.length ? `<br><b>The outlined ranges</b> are ${envelopes.length} material${envelopes.length === 1 ? '' : 's'}
         with no measurement of their own on one of these axes. Each is the estimate's likely (80%) range,
@@ -355,7 +383,7 @@ function measurementPoints(rows, xDef, yDef, mode, ctx) {
       }
     }
   }
-  return { pts, mixed: [...mixed], conflicting, unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Test pairs: mixed conditions", or a different pair of axes.' };
+  return { pts, mixed: [...mixed], conflicting, unavailable: pts.length ? null : 'No measurement matches both of these axes under the current setting. Try "Test pairs, mixed conditions" under Published data, or a different pair of axes.' };
 }
 
 /**
@@ -630,6 +658,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
     hovermode: 'closest',
   };
 
+  applyZoom(layout, zoomSig(p));
   anchorRequirementLabels(req.requirementLabels, layout.xaxis.range);
 
   wireResize();
@@ -645,6 +674,7 @@ function drawLegacyPlot(host, state, { xDef, yDef, pts, envelopes = [], actions 
   }).then(relabel);
   // Placed again whenever what is on screen moves: a zoom, a resize, a family hidden from the legend.
   for (const event of ['plotly_afterplot', 'plotly_relayout', 'plotly_restyle']) gd.on(event, relabel);
+  watchZoom(gd, zoomSig(p), { onZoom: () => actions.zoomed?.(), onReset: () => actions.setFocus([]) });
 
   gd.on('plotly_click', (ev) => {
     const id = ev.points?.[0]?.customdata?.[0];
@@ -680,42 +710,46 @@ function wireControls(host, state, actions, ws, { view }) {
   wireMenus();
   on('[data-goal]', 'change', (el) => actions.setGoal(el.value || null));
   on('[data-start-goal]', 'click', (el) => actions.startExercise(el.dataset.startGoal || null, !!host.querySelector('[data-start-gates]')?.checked));
-  on('button[data-view]', 'click', (el) => { openFolds.set('more', false); actions.setPlot({ view: el.dataset.view }); });
+  // Each control's one effect (D109). What draws changes what is drawn; what changes the axes starts the new picture
+  // whole (a zoom on other axes means nothing there); nothing else is touched: goal, line, pick, list and zoom stay.
+  on('button[data-view]', 'click', (el) => actions.setPlot({ view: el.dataset.view }));
+  on('[data-view-select]', 'change', (el) => actions.setPlot({ view: el.value }));
+  const newAxes = (patch) => { forgetZoom(); actions.setPlot(patch); };
   on('[data-axis]', 'change', (el) => {
     const which = el.dataset.axis;
-    actions.setPlot({ [which]: el.value, ...(LINEAR_BY_DEFAULT(el.value) ? { [`${which}Log`]: false } : {}) });
+    newAxes({ [which]: el.value, ...(LINEAR_BY_DEFAULT(el.value) ? { [`${which}Log`]: false } : {}) });
   });
-  on('[data-log]', 'click', (el) => actions.setPlot({ [`${el.dataset.log}Log`]: el.dataset.on === '1' }));
-  on('[data-swap]', 'click', () => actions.setPlot({ x: p.y, y: p.x, xLog: !!p.yLog, yLog: !!p.xLog }));
-  on('[data-goal-axes]', 'click', () => index && actions.setPlot(goalAxes(index)));
-  on('[data-loglog]', 'click', () => actions.setPlot({ xLog: true, yLog: true }));
-  on('[data-layer]', 'change', (el) => actions.setPlot({ layers: { ...(p.layers ?? {}), [el.dataset.layer]: el.checked } }));
-  on('[data-show-estimates]', 'change', (el) => actions.setPlot({ showEstimates: el.checked }));
-  on('[data-reference]', 'change', (el) => actions.setPlot({ showReference: el.checked }));
+  on('[data-log]', 'click', (el) => { if ((el.dataset.on === '1') !== !!p[`${el.dataset.log}Log`]) newAxes({ [`${el.dataset.log}Log`]: el.dataset.on === '1' }); });
+  on('[data-swap]', 'click', () => newAxes({ x: p.y, y: p.x, xLog: !!p.yLog, yLog: !!p.xLog }));
+  on('[data-goal-axes]', 'click', () => index && newAxes(goalAxes(index)));
+  on('[data-loglog]', 'click', () => newAxes({ xLog: true, yLog: true }));
+  on('button[data-layer]', 'click', (el) => actions.setPlot({ layers: { ...(p.layers ?? {}), [el.dataset.layer]: !layerOn(state, el.dataset.layer) } }));
+  on('button[data-show-estimates]', 'click', () => actions.setPlot({ showEstimates: !p.showEstimates }));
+  on('button[data-reference]', 'click', () => actions.setPlot({ showReference: !p.showReference }));
   on('[data-baseline]', 'change', (el) => actions.setBaseline(el.value));
   on('[data-edit-req]', 'click', () => actions.editRequirements());
   on('[data-act="printable"]', 'click', () => actions.checkPrintable());
   on('[data-inspect]', 'click', (el) => actions.inspect({ kind: 'pair', key: el.dataset.inspect }));
-  // A material's product states are written into its list when it is opened.
+  // A material's products are written into its list when it is opened, and the list remembers which are open.
   on('details[data-mat-pairs]', 'toggle', (el) => {
+    if (el.open) listUi.open.add(el.dataset.matPairs); else listUi.open.delete(el.dataset.matPairs);
     if (!el.open || el.querySelector('ul')) return;
     el.insertAdjacentHTML('beforeend', pairList(state, ws, el.dataset.matPairs));
     el.querySelectorAll('[data-inspect]').forEach((b) => b.addEventListener('click', () => actions.inspect({ kind: 'pair', key: b.dataset.inspect })));
   });
   on('[data-inspect-close]', 'click', () => actions.inspect(null));
+  on('[data-select-material]', 'click', (el) => actions.select(state.selected === el.dataset.selectMaterial ? null : el.dataset.selectMaterial));
   on('[data-focus-material]', 'click', (el) => actions.setFocus([el.dataset.focusMaterial]));
-  on('[data-focus-reset]', 'click', () => actions.setFocus([]));
+  wirePills(host, state, actions);
   on('[data-open-material]', 'click', (el) => actions.openMaterial(el.dataset.openMaterial));
   on('[data-open-product]', 'click', (el) => actions.openMaterial(el.dataset.openProduct, 'Grades'));
   on('[data-choose]', 'click', (el) => actions.toggleDecision(el.dataset.choose));
   on('[data-pin]', 'click', (el) => actions.togglePin(el.dataset.pin));
   on('[data-export-data]', 'click', () => download(`h2c-ashby-data-${state.db.meta.snapshot}-${state.db.meta.release?.id ?? 'release'}.csv`, chartDataCSV(state, ws, { view }), 'text/csv'));
   on('[data-export-image]', 'click', () => chartImage(host.querySelector('#plot'), state, ws, { view }));
-  // The list's own search narrows the list on screen and nothing else.
-  on('[data-list-filter]', 'input', (el) => {
-    const q = el.value.trim().toLowerCase();
-    host.querySelectorAll('.ws-mat').forEach((li) => { li.hidden = !!q && !li.dataset.name.includes(q); });
-  });
+  // The list's own search narrows the list on screen and nothing else; the list keeps its search and its scroll.
+  on('[data-list-filter]', 'input', (el) => { listUi.filter = el.value; filterList(host, el.value); });
+  on('[data-list]', 'scroll', (el) => { listUi.scroll = el.scrollTop; });
 
   // The line: typed, stepped to the next product state, or slid. Sliding moves the drawn line and its count at once and
   // commits when released, so a drag is not interrupted by a redraw.
@@ -752,6 +786,18 @@ function wireControls(host, state, actions, ws, { view }) {
     slider.addEventListener('change', () => commit(at(slider.value)));
   }
   wireEvidence(host, actions);
+}
+
+/** The chart's pills: Show all, and let go of a picked material. Rewritten in place when the reader zooms. */
+function wirePills(host, state, actions) {
+  host.querySelector('[data-zoom-reset]')?.addEventListener('click', () => { forgetZoom(); actions.setFocus([]); });
+  host.querySelector('[data-unpick]')?.addEventListener('click', () => actions.select(null));
+}
+export function refreshPills(host, state, actions) {
+  const at = host.querySelector('[data-pills]');
+  if (!at) return;
+  at.innerHTML = chartPills(state);
+  wirePills(host, state, actions);
 }
 
 /**

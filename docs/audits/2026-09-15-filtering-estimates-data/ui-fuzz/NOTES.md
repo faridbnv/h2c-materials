@@ -61,7 +61,7 @@ scenario JSON and the file:// URL with hash), `findings.csv` (violations traced 
 | I7 | a sample of links reopened in a fresh load gives the same count, chips and rows or points |
 | I8 | rendered sets: Strict ⊆ Explore+estimates ⊆ Explore without estimates; a child scenario never shows a row its parent did not |
 | I9 | the filter rail shows the requirement on each property |
-| I10 | (added 2026-09-29, D107) the Ashby decision view: its marks are exactly the passing products of the rows on screen in the states their answers are in, at those states' values (a registry-invariant value from the first state); no context mark with every layer off; the count under the chart names products and materials apart ("Drawn: N products from K materials" since D108), never "N of M candidates". A scenario draws the catalogue view (I4) or the decision view (I10), about two to one |
+| I10 | (added 2026-09-29, D107) the Ashby decision view: its marks are exactly the passing products of the rows on screen in the states their answers are in, at those states' values (a registry-invariant value from the first state); no context mark while its chip is off (since D109 Unsettled follows Candidate confidence until pressed, so the check reads the chips); the count under the chart names products and materials apart ("Drawn: N products from K materials" since D108), never "N of M candidates". A scenario draws the catalogue view (I4) or the decision view (I10), about two to one |
 
 ## Runtime achieved
 

@@ -605,10 +605,10 @@ h3.sec:first-child { margin-top: 0; }
    The question in one bar, one control row that looks the same in every view (the view, the axes by name, Show and More
    as menus that open over the chart instead of pushing it down), the line, then the chart and its result list side by
    side. The same type scale, tokens and components as the rest of the page. */
-.ws { display: flex; flex-direction: column; gap: 8px; }
+.ws { display: flex; flex-direction: column; gap: 6px; }
 .ws-question {
-  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 6px 12px;
-  display: flex; flex-direction: column; gap: 4px; font-size: var(--t-small);
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 4px 12px;
+  display: flex; flex-direction: column; gap: 2px; font-size: var(--t-small);
 }
 .ws-goal-row, .ws-asked { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
 .ws-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); min-width: 3.6em; }
@@ -651,58 +651,74 @@ h3.sec:first-child { margin-top: 0; }
 .ws:is([data-ws-view="catalogue"], [data-ws-view="measured"], [data-ws-view="measured-mixed"]) .ws-results { position: static; max-height: none; }
 .ws-chart { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 
-/* The control row. */
-.ws-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
-.ws-toolbar .ws-views button { padding-block: 3px; }
-.ws-axes { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+/* The chart's controls (D109): three labelled rows read top to bottom, Draw, Also and Line, every option in view with its
+   state on its face. */
+.ws-controls { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.ws-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px; font-size: var(--t-small); }
+.ws-row + .ws-row { border-top: 1px solid var(--border); }
+.ws-row-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); width: 3.4em; flex: 0 0 auto; }
+.ws-row-note { color: var(--ink-3); font-size: var(--t-label); }
+.ws-row-sep { width: 1px; align-self: stretch; background: var(--border); margin: 0 2px; }
+.ws-row-end { margin-left: auto; }
+.ws-views button { padding-block: 3px; }
 .ws-axis { display: inline-flex; align-items: center; gap: 4px; }
 .ws-axis-label { color: var(--ink-3); font-size: 14px; width: 1em; text-align: center; }
-.ws-axis select {
+.ws-axis select, .ws-chip-select {
   padding: 3px 6px; font-size: var(--t-small); border: 1px solid var(--border-strong); border-radius: var(--radius);
   background: var(--bg); color: var(--ink); max-width: 13.5em;
 }
 .ws-scale button { padding: 3px 7px; font-size: var(--t-label); }
-.ws-axes .axis-swap { padding: 2px 7px; margin: 0; }
-.ws-menus { display: flex; gap: 6px; margin-left: auto; }
-.ws-note-row, .ws-evidence-chip { flex-basis: 100%; }
-.ws-note-row { font-size: var(--t-small); }
+.ws-axisbar .axis-swap { padding: 2px 7px; margin: 0; }
+/* A chip is a switch: pressed, it is filled; greyed, it says why on hover. */
+.ws-chip {
+  font: inherit; font-size: var(--t-small); padding: 1px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border-strong); background: var(--bg); color: var(--ink-2);
+}
+.ws-chip::before { content: '+ '; color: var(--ink-3); }
+.ws-chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+.ws-chip[aria-pressed="true"]::before { content: '✓ '; color: var(--accent); }
+.ws-chip:hover:not(:disabled) { border-color: var(--accent); }
+.ws-chip:disabled { opacity: .45; cursor: default; }
+.ws-chip:disabled::before { content: ''; }
 
-/* Show and More: menus that open over the chart. */
+/* The Export menu opens over the chart. */
 .ws-menu { position: relative; }
 .ws-menu > summary { list-style: none; cursor: pointer; padding: 3px 10px; white-space: nowrap; }
 .ws-menu > summary::-webkit-details-marker { display: none; }
 .ws-menu[open] > summary { border-color: var(--accent); background: var(--accent-soft); }
+.ws-menu:not([open]) > .ws-menu-panel { display: none; }
 .ws-menu-panel {
-  position: absolute; z-index: 30; top: calc(100% + 4px); right: 0; width: 290px; max-width: calc(100vw - 32px);
+  position: absolute; z-index: 30; top: calc(100% + 4px); right: 0; width: 260px; max-width: calc(100vw - 32px);
   padding: 8px 12px 10px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, .22); font-size: var(--t-small); display: flex; flex-direction: column; gap: 2px;
 }
-.ws-menu:not([open]) > .ws-menu-panel { display: none; }
-.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
-.ws-menu-panel h4:first-child { margin-top: 0; }
-.ws-menu-panel .opt-check { margin-top: 2px; align-items: flex-start; }
-.ws-menu-panel .opt-check input { margin-top: 3px; }
 .ws-menu-panel .opt-help { margin: 2px 0 4px; }
-.opt-why { display: block; font-size: var(--t-label); color: var(--ink-3); }
-.ws-menu-row { display: flex; align-items: center; gap: 6px; }
-.ws-menu-row select { padding: 3px 6px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
 .ws-menu-item {
   display: block; width: 100%; text-align: left; font: inherit; padding: 4px 8px; border-radius: 5px; border: 1px solid transparent;
   background: none; color: var(--ink); cursor: pointer;
 }
 .ws-menu-item:hover:not(:disabled), .ws-menu-item:focus-visible { background: var(--accent-soft); border-color: var(--accent); }
-.ws-menu-item[aria-pressed="true"] { font-weight: 650; }
-.ws-menu-item[aria-pressed="true"]::before { content: '● '; color: var(--accent); }
 .ws-menu-item:disabled { color: var(--ink-3); cursor: default; }
 .ws-evidence-chip {
-  font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-radius: var(--radius);
+  font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-top: 1px solid var(--border);
   background: var(--unknown-bg); border-left: 3px solid var(--unknown);
 }
 
-.ws-line {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px;
-  border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); background: var(--surface); font-size: var(--t-small);
+/* The axis bar, at the top of the chart it sets: the vertical axis at the left, the horizontal at the right. */
+.ws-plot-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.ws-axisbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; padding: 3px 8px; border-bottom: 1px solid var(--border); font-size: var(--t-small); }
+.ws-axis-unit { color: var(--ink-3); font-size: var(--t-label); }
+.ws-plot-area { position: relative; padding: 0 4px; }
+/* What narrows the picture, said on it with the way back. */
+.ws-pills { position: absolute; z-index: 5; top: 4px; right: 8px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; pointer-events: none; }
+.ws-pill {
+  pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; padding: 2px 4px 2px 10px; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--accent); font-size: var(--t-small); color: var(--ink); box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
 }
+.ws-pill .link-btn { padding: 0 6px; }
+.ws-pill .icon-btn { min-height: 20px; padding: 0 6px; }
+
+.ws-line { box-shadow: inset 3px 0 0 var(--accent); }
 .ws-line-name { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
 .ws-line-m { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
 .ws-line-m input { width: 96px; padding: 2px 6px; font: inherit; font-family: var(--mono); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
@@ -710,7 +726,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-line-steps { display: inline-flex; gap: 4px; }
 .ws-line-steps .btn { padding: 1px 8px; }
 .ws-line-readout { flex: 1 1 180px; color: var(--ink-2); }
-.ws-line-off { border-left-color: var(--unknown); }
+.ws-line-off { box-shadow: inset 3px 0 0 var(--unknown); }
 
 .ws-summary { font-size: var(--t-small); color: var(--ink-2); }
 .ws-count { color: var(--ink); }
@@ -718,9 +734,15 @@ h3.sec:first-child { margin-top: 0; }
 
 .ws-results {
   min-width: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
-  font-size: var(--t-small); position: sticky; top: 0; max-height: calc(100dvh - 190px); overflow: auto;
+  font-size: var(--t-small); position: sticky; top: 0; max-height: calc(100dvh - 190px); display: flex; flex-direction: column; overflow: hidden;
 }
-.ws-list { padding: 8px 10px 10px; }
+/* The inspector and the list scroll apart: opening one never moves the other. */
+.ws-insp-slot { flex: 0 1 auto; max-height: 55%; overflow: auto; border-top: 2px solid var(--accent); }
+.ws-list { padding: 8px 10px 10px; flex: 1 1 auto; overflow: auto; min-height: 120px; }
+.ws-mat.is-picked { background: var(--accent-soft); border-radius: 5px; box-shadow: inset 3px 0 0 var(--accent); }
+.ws-mat-name[aria-pressed="true"] { text-decoration: underline; }
+.ws-zoom-btn { padding: 0 6px; min-height: 22px; color: var(--ink-3); }
+.ws-zoom-btn:hover { color: var(--accent); }
 .ws-filter { width: 100%; padding: 5px 8px; font: inherit; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--ink); margin-bottom: 6px; }
 .ws-list-head h3 { margin: 2px 0 2px; font-size: var(--t-body); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
 .ws-list-head p { margin: 0 0 6px; cursor: help; }
@@ -750,7 +772,7 @@ h3.sec:first-child { margin-top: 0; }
 .ws-unranked, .ws-gaps { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 6px; }
 .ws-unranked > summary, .ws-gaps > summary { cursor: pointer; color: var(--ink-2); }
 .ws-unranked ul, .ws-gaps ul { margin: 4px 0; padding-left: 18px; }
-.ws-inspector { padding: 10px; border-bottom: 2px solid var(--accent); background: var(--accent-soft); }
+.ws-inspector { padding: 10px; background: var(--accent-soft); }
 .ws-inspector:focus { outline: none; }
 .ws-inspector:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .ws-insp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
@@ -778,15 +800,16 @@ h3.sec:first-child { margin-top: 0; }
   /* The results go under the chart, so the chart keeps the width. */
   .ws-body { grid-template-columns: minmax(0, 1fr); }
   .ws-results { position: static; max-height: none; }
+  .ws-list { max-height: 70vh; }
 }
 @media (max-width: 600px) {
   .ws-question { padding: 8px; }
   .ws-goal-row select { width: 100%; }
   .ws-line-readout { flex-basis: 100%; }
-  .ws-menus { margin-left: 0; }
-  /* The menus sit at the row's left here, so they open to the right. */
-  .ws-menu-panel { right: auto; left: 0; }
+  .ws-row-end { margin-left: 0; }
+  .ws-row-sep { display: none; }
   .ws-axis select { max-width: 10em; }
+  .ws-row-label { width: 100%; }
 }
 
 /* ---------------------------------------------------------------- coverage lens */

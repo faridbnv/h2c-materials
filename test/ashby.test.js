@@ -9,9 +9,9 @@ test('Ashby view names say what each mark represents, work views first and evide
   assert.deepEqual(VIEWS.map((d) => d.label), [
     'Products',
     'Material ranges',
-    'Catalogue: typical published values',
-    'Test pairs: matched conditions',
-    'Test pairs: mixed conditions',
+    'Typical published values',
+    'Test pairs, matched conditions',
+    'Test pairs, mixed conditions',
   ]);
   assert.deepEqual(VIEWS.filter((v) => v.evidence).map((v) => v.id), ['catalogue', 'measured', 'measured-mixed']);
 });

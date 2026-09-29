@@ -6,7 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { useRegistry } from '../app/js/ui/registry.js';
-import { chartDataCSV, workspaceFor } from '../app/js/ui/decision.js';
+import { chartDataCSV, workspaceFor, layerOn } from '../app/js/ui/decision.js';
 import { REGISTRY, v, price, st, product, material, ask, scope } from './fixtures/workspace-fixture.js';
 
 // The page's registry carries labels the fixture's need not: the ones the chart's words read.
@@ -67,4 +67,15 @@ test('a cost goal names its price basis, and an unpriced product is a named gap,
   assert.match(csv.split('\n').find((r) => r.includes(',GB,')), /no current Canadian price of its own/);
   // GA: 20 CAD/kg x 1000 kg/m³ = 20,000 CAD/m³.
   assert.match(csv.split('\n').find((r) => r.includes(',GA,')), /,20000,V\d+ CA\d+,as-printed,/, 'the density measurement and the price listing both');
+});
+
+test('a context layer is on by its chip, and unsettled products follow the mode until pressed (D109)', () => {
+  const state = pageState();
+  state.scenario.unknownPolicy = 'strict';
+  assert.equal(layerOn(state, 'unresolved'), false);
+  state.scenario.unknownPolicy = 'exploration';
+  assert.equal(layerOn(state, 'unresolved'), true, 'Include uncertain draws them, as the table lists them');
+  state.scenario.plot.layers = { unresolved: false };
+  assert.equal(layerOn(state, 'unresolved'), false, 'the reader\'s own choice wins');
+  assert.equal(layerOn(state, 'failed'), false);
 });

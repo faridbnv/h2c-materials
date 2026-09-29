@@ -438,15 +438,17 @@ function compareReading(s, key, r, o) {
   } else if (s.plot.view === 'decision') {
     const expect = decisionOracle(o, s.plot);
     check('I10-pairs');
-    const got = [...r.pairs].sort((a, b) => (a[0] < b[0] ? -1 : 1)), want = [...expect].sort((a, b) => (a.key < b.key ? -1 : 1));
+    // The decision marks are the passing ones; a context mark (unsettled or failing) is drawn only while its chip under
+    // Also is pressed, and Include uncertain presses the unsettled one (D109).
+    const got = r.pairs.filter((q) => q[3] === 'PASS').sort((a, b) => (a[0] < b[0] ? -1 : 1)), want = [...expect].sort((a, b) => (a.key < b.key ? -1 : 1));
     if (!same(got.map((q) => q[0]), want.map((q) => q.key))) violate('I10-pairs', 'decision marks differ from the passing products in their judged states', s, key, { onlyPage: got.map((q) => q[0]).filter((x) => !want.some((q) => q.key === x)).slice(0, 5), onlyNode: want.map((q) => q.key).filter((x) => !got.some((q) => q[0] === x)).slice(0, 5) });
     else {
       check('I10-coords');
       const bad = got.find((q, j) => !near(q[1], want[j].x) || !near(q[2], want[j].y));
       if (bad) violate('I10-coords', 'a decision mark is not at its judged state\'s values', s, key, { key: bad[0], page: [bad[1], bad[2]] });
       check('I10-verdict');
-      const context = got.find((q) => q[3] !== 'PASS');
-      if (context) violate('I10-verdict', 'a context mark drawn with every layer off', s, key, { key: context[0], verdict: context[3] });
+      const context = r.pairs.find((q) => (q[3] === 'UNKNOWN' && !r.layerOn?.unresolved) || (q[3] === 'FAIL' && !r.layerOn?.failed));
+      if (context) violate('I10-verdict', 'a context mark drawn while its chip is off', s, key, { key: context[0], verdict: context[3], chips: r.layerOn });
     }
     check('I10-count');
     const n = want.length, k = new Set(want.map((q) => q.materialId)).size;
@@ -555,6 +557,7 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
       out.legend = txt(lens.querySelector('.legend-note'));
       out.pairs ??= [];
       out.wsReading = txt(lens.querySelector('.ws-summary')) + ' ' + txt(lens.querySelector('.ws-reading'));
+      out.layerOn = Object.fromEntries(['unresolved', 'failed'].map((k) => [k, lens.querySelector('button[data-layer="' + k + '"]')?.getAttribute('aria-pressed') === 'true']));
       out.axisX = document.querySelector('#ashby-x option:checked')?.textContent.trim();
       out.axisY = document.querySelector('#ashby-y option:checked')?.textContent.trim();
       out.estLabel = lens.querySelector('[data-show-estimates]')?.closest('label')?.textContent.replace(/\s+/g, ' ').trim() ?? null;

@@ -403,3 +403,30 @@ export function spans(traces, shapes, extra = { x: [], y: [] }) {
   }
   return { xSpan, ySpan };
 }
+
+/**
+ * The reader's own zoom (D109), kept across redraws for as long as the axes and their scales are the same: a press on a
+ * switch, a filter or the line redraws the chart, and a zoom that snapped back after each one was lost work. A new pair of
+ * axes starts from the whole picture, and a double-click on the chart, or Show all, gives it back.
+ */
+export const zoomMemory = { sig: null, x: null, y: null };
+export const zoomSig = (p) => `${p.x}|${p.y}|${!!p.xLog}|${!!p.yLog}`;
+export const forgetZoom = () => { zoomMemory.sig = null; zoomMemory.x = null; zoomMemory.y = null; };
+/** Put the remembered zoom on a layout about to be drawn; true when it did. */
+export function applyZoom(layout, sig) {
+  if (zoomMemory.sig !== sig || !zoomMemory.x || !zoomMemory.y) return false;
+  layout.xaxis.range = [...zoomMemory.x];
+  layout.yaxis.range = [...zoomMemory.y];
+  return true;
+}
+/** Remember what the reader zooms or pans to; `onReset` runs on a double-click, which asks for the whole picture. */
+export function watchZoom(gd, sig, { onZoom = () => {}, onReset = () => {} } = {}) {
+  gd.on('plotly_relayout', (ev) => {
+    if (!ev) return;
+    if (ev['xaxis.autorange'] || ev['yaxis.autorange']) { forgetZoom(); onReset(); return; }
+    const moved = Object.keys(ev).some((k) => /^[xy]axis\.range/.test(k));
+    if (!moved) return;
+    Object.assign(zoomMemory, { sig, x: [...gd.layout.xaxis.range], y: [...gd.layout.yaxis.range] });
+    onZoom();
+  });
+}

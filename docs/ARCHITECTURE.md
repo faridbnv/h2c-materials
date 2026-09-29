@@ -201,8 +201,8 @@ pre-commit hook (`npm run hooks` installs it) runs the data checks on any commit
 | `filters.js` | The requirement rail, including the data-availability line under every control. |
 | `table.js` | The results grid and the client-side exports: the candidates with their rank (D102), best product and state; the products with each one's verdict, state and what it is not settled by. |
 | `ashby.js` | The Ashby lens (D107, D108): the question bar, the starter, the controls' wiring and menus, and the catalogue and evidence views (published values, state-independent). |
-| `decision.js` | The Ashby lens's work views (D107, D108): Products and Material ranges, drawn from `workspace.js`, the one control row with its Show and More menus, the line's control, the result list, the inspector, and the chart's data and image exports. |
-| `chart.js` | What every Ashby view shares: the chart's size and legend for a width, one resize listener, label placement, axis ranges, and the requirement, reference and familiar-filament overlays. |
+| `decision.js` | The Ashby lens's work views (D107 to D109): Products and Material ranges, drawn from `workspace.js`; the Draw, Also and Line rows and the axis bar; the pills that say what narrows the chart; the result list and what it remembers (`listUi`); the inspector; and the chart's data and image exports. |
+| `chart.js` | What every Ashby view shares: the chart's size and legend for a width, one resize listener, label placement, axis ranges, the reader's zoom kept across redraws (`zoomMemory`, D109), and the requirement, reference and familiar-filament overlays. |
 | `axes.js` | The chart's axes from the registry, which measurements an axis may draw, and whether two may share a strict evidence point (`pairCompatibility`, D107). |
 | `parallel.js` | Parallel coordinates, hand-drawn in SVG. |
 | `heatmap.js` | The coverage lens. |

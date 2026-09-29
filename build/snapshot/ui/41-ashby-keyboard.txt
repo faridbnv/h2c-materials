@@ -1,4 +1,4 @@
-LINE STEPPED 7 products from 5 materials above the line (better side)
+LINE STEPPED 7 products from 5 materials above the line
 INSPECTOR
 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
 ×
