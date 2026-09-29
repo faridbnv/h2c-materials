@@ -128,7 +128,7 @@ its plausible range wholly fails.
 | tensileModulusXY | 1200 | 83 | 81% | 95% | ×1.52 | 0.347 (1445 pairs) |
 | tensileStrengthXY | 1314 | 66 | 80% | 96% | ×1.43 | 0.258 (2746 pairs) |
 | elongationXY | 1024 | 82 | 81% | 95% | ×4.2 | 0.722 (2531 pairs) |
-| hdt045 | 1235 | 82 | 81% | 94% | 16.6 °C | 4.19 (3964 pairs) |
+| hdt045 | 1235 | 82 | 81% | 95% | 16.6 °C | 4.19 (3964 pairs) |
 
 | Headline | Missing | From its one product | From its products | Family model only | Not applicable | None | May screen |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -148,11 +148,11 @@ Which estimates may screen, end by end (DECISIONS D59). Each end of an evidence 
 | tensileModulusXY | this-grade | 75 | 2 | 97.5% point | 1 | 2.5% point |
 | tensileModulusXY | this-material | 66 | 0 | 97.5% point | 0 | 2.5% point |
 | tensileModulusXY | family | 83 | 0 | 97.5% point | 2 | 2.5% point |
-| tensileStrengthXY | this-grade | 55 | 1 | 97.5% point | 3 | 1.98% point |
+| tensileStrengthXY | this-grade | 55 | 0 | 97.5% point | 3 | 1.98% point |
 | tensileStrengthXY | this-material | 58 | 0 | 97.5% point | 1 | 2.5% point |
 | tensileStrengthXY | family | 66 | 0 | 97.5% point | 4 | 1.65% point |
 | elongationXY | this-grade | 38 | 1 | 97.5% point | 0 | 2.5% point |
-| elongationXY | this-material | 68 | 2 | 97.5% point | 2 | 2.5% point |
+| elongationXY | this-material | 68 | 2 | 97.5% point | 1 | 2.5% point |
 | elongationXY | family | 82 | 2 | 97.5% point | 1 | 2.5% point |
 | hdt045 | this-grade | 57 | 4 | 98.47% point | 1 | 2.5% point |
 | hdt045 | this-material | 63 | 6 | 99.88% point | 1 | 2.5% point |

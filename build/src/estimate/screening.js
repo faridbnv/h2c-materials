@@ -19,7 +19,7 @@
 // while an estimate's own range uses them. It holds per end at 90% confidence, so of the thirty or so ends a build sets,
 // about three may be expected to exceed 10%.
 
-import { binomialTail } from './numerics.js';
+import { binomialTail, exceeds } from './numerics.js';
 import { HEAD, sig3, measuredHeadline } from './model.js';
 
 const pct = (x) => `${Math.round(x * 1000) / 10}%`;
@@ -91,7 +91,7 @@ export function backTest({ key, model, S, obs, tmMean, rangeFor, holdOut }) {
       p.mu += tmMean(m);
       // Own published bounds are left out: in the back-test they would be the hidden evidence itself.
       const { wide, cdf } = rangeFor(m, m, p, t.unit, { ownBounds: false, formulation: f });
-      return { materialId: m.id, u: cdf(t.value), beyond: { above: t.value > wide[1], below: t.value < wide[0] } };
+      return { materialId: m.id, u: cdf(t.value), beyond: { above: exceeds(t.value, wide[1]), below: exceeds(wide[0], t.value) } };
     };
     // This grade: its other published kinds remain. This material: the whole grade is hidden, its other grades
     // remain. Family: everything of the material and its product is hidden.

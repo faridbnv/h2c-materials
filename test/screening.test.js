@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { runSelection, compareInterval, STATUS, UNKNOWN_POLICY } from '../app/js/engine/constraints.js';
 import { certifyScreening, toleranceRank, minimumCases } from '../build/src/estimate/screening.js';
 import { ESTIMATE_MODEL } from '../build/src/estimate/model.js';
-import { normalCdf, normalQuantile } from '../build/src/estimate/numerics.js';
+import { normalCdf, normalQuantile, exceeds } from '../build/src/estimate/numerics.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbPath = join(root, 'dist/db.json');
@@ -158,6 +158,16 @@ test('screening ends are tolerance limits: at the plausible range when calibrate
   assert.equal(toleranceRank(few, cfg), null);
   assert.equal(certifyScreening(cases(uniform(few)), cfg, nominal).certified, false);
   assert.ok(toleranceRank(few + 1, cfg) >= 1);
+});
+
+// The case that sets a range's scale lies on an end of its range by construction; a unit in the last place, which Linux on
+// x64 and a Mac on arm64 do not always agree on, must not put it beyond (the m223 build: CI and a Mac counted it apart).
+test('a true value on an end of its range, to rounding, does not lie beyond it', () => {
+  assert.equal(exceeds(84.3, 84.29999999999998), false);
+  assert.equal(exceeds(1.3000000000000003, 1.3), false);
+  assert.equal(exceeds(1.29, 1.29), false);
+  assert.equal(exceeds(84.31, 84.3), true);
+  assert.equal(exceeds(-1.3, -1.3000000000000003), false);
 });
 
 test('every estimate that may screen names the range and the reason, and the range is never narrower than it shows', () => {

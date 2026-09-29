@@ -69,6 +69,12 @@ export function boundedCdf(mu, sd, bounds, x) {
 }
 
 export { median } from '../normalize/values.js';
+/**
+ * Whether a exceeds b by more than rounding. A range's scale is its held-out z-scores' quantile, an order statistic
+ * (calibration.js), so the case that sets it lies on an end of its range by construction, and a unit in the last place,
+ * which Linux on x64 and a Mac on arm64 do not always agree on, must not decide whether it lies beyond.
+ */
+export const exceeds = (a, b) => a - b > 1e-9 * Math.max(Math.abs(a), Math.abs(b));
 export const quantile = (xs, q) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.max(0, Math.ceil(q * s.length) - 1))] : null; };
 
 /**

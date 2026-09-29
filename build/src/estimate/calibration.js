@@ -2,7 +2,7 @@
 // typical product's value is hidden in turn and predicted from everything else, and the likely and plausible ranges are scaled until
 // they hold the hidden value as often as they claim (DECISIONS D43).
 
-import { median, quantile } from './numerics.js';
+import { median, quantile, exceeds } from './numerics.js';
 import { HEAD, transform, sig3, measuredHeadline } from './model.js';
 import { fitModel, posterior, predict, hyperparameters, spreadObservations } from './gaussian.js';
 import { conversions, betweenProductSpread } from './conversions.js';
@@ -118,7 +118,7 @@ export function calibrate({ key, model, S, obs, tmMean, inv, zLikely, zPlausible
   const clamp = (x, [lo, hi]) => Math.min(hi, Math.max(lo, x));
   const calLikely = loo.length >= cfg.minHeld ? clamp(quantile(zs, likely) / zLikely, cfg.likelyScale) : cfg.defaultScale;
   const calPlausible = loo.length >= cfg.minHeld ? clamp(quantile(zs, plausible) / zPlausible, cfg.plausibleScale) : cfg.defaultScale;
-  const within = (l, z, cal) => Math.abs(l.y - l.p.mu) <= z * cal * l.p.sd;
+  const within = (l, z, cal) => !exceeds(Math.abs(l.y - l.p.mu), z * cal * l.p.sd);
   const width = (l) => (model.properties[key].scale === 'log' ? Math.exp(2 * zLikely * calLikely * l.p.sd) : 2 * zLikely * calLikely * l.p.sd);
   const outliers = [];
   for (const l of loo) {
