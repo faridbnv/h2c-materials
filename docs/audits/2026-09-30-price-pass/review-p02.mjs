@@ -8,7 +8,7 @@
 // Polymaker's products were found sold by the maker; eSUN's PEBA 90A, ePA12 and ePA-CF, iSANMATE's ESD ABS, PP, HDPE-GF
 // and PCL, and SUNLU's PP and PCL were not listed there by their makers.
 //
-//   node docs/audits/2026-10-01-price-pass/review-p02.mjs     writes archive/ingest-2026-09-18/prices/p02/selected.csv
+//   node docs/audits/2026-09-30-price-pass/review-p02.mjs     writes archive/ingest-2026-09-18/prices/p02/selected.csv
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { csvText } from '../../../build/src/csv.js';

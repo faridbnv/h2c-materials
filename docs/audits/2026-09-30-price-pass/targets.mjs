@@ -4,7 +4,7 @@
 // price is its plain products' spread, D83), then a declared variant. Materials already priced are listed too, with the
 // products the pass would add, since the owner asked for products where it can.
 //
-//   node docs/audits/2026-10-01-price-pass/targets.mjs [out.csv]    writes TARGETS.csv beside it (the worklist as the pass
+//   node docs/audits/2026-09-30-price-pass/targets.mjs [out.csv]    writes TARGETS.csv beside it (the worklist as the pass
 //                                                                   began, release 26424edd53e5), or out.csv for a recount;
 //                                                                   needs npm run build
 import { readFileSync, writeFileSync } from 'node:fs';

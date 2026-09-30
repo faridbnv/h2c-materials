@@ -1,4 +1,4 @@
-# The price pass (2026-09-30 onwards)
+# The price pass (2026-09-30)
 
 GOALS step 6, as the owner decided on 2026-09-30 ([GOALS, "Decided on 2026-09-30, the price pass"](../../GOALS.md)):
 a price for each material, and for each product where that is possible; CAD from a Canadian shop first, then an
@@ -30,7 +30,15 @@ Shop3D.ca), and `prices.csv` could hold no other currency.
    and the page's wording, with no value moved.
 3. **Price tooling** (`npm run ingest:prices`, `scripts/lib/offers.mjs`): shop pages captured and hashed, offers read
    from the bytes alone, and a guarded apply (IMPORTING, "Capturing a price").
-4. **Batch p01, Canadian shops in CAD** (m228, below).
+4. **Batch p01**, the Canadian shops in CAD (m228).
+5. **Batch p02**, Amazon.ca sold by the maker's own store (m229).
+6. **The rates** (m230) and **batch p03**, USD (m231).
+7. **Batch p04**, EUR before VAT (m232).
+8. **Where it ended**: the counts, [OUTCOMES.csv](OUTCOMES.csv) and [FROZEN-REPLAY.json](FROZEN-REPLAY.json).
+
+What is here: `targets.mjs` and [TARGETS.csv](TARGETS.csv) (the worklist as the pass began); `match.mjs` (the leads a
+reviewer read); `review-p01.mjs` to `review-p04.mjs` with `review-lib.mjs` (the reviews, which write each batch's
+`selected.csv` under `archive/ingest-2026-09-18/prices/`); [REJECTED-p01.csv](REJECTED-p01.csv); `outcomes.mjs`.
 
 ## Batch p01: the Canadian shops (2026-09-30)
 

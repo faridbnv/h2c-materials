@@ -929,10 +929,10 @@ npm run sql --silent -- "select status, count(*) from coverage group by 1 order 
 
 ## 22. What the price pass leaves open
 
-The price pass of 2026-09-30 (GOALS; [the record](audits/2026-10-01-price-pass/README.md)) priced 101 of the 136
+The price pass of 2026-09-30 (GOALS; [the record](audits/2026-09-30-price-pass/README.md)) priced 101 of the 136
 materials in scope, 30 of them converted from USD or EUR, and 214 products. What it leaves:
 
-- **35 materials have no price**, each with its reason in the record's [OUTCOMES.csv](audits/2026-10-01-price-pass/OUTCOMES.csv).
+- **35 materials have no price**, each with its reason in the record's [OUTCOMES.csv](audits/2026-09-30-price-pass/OUTCOMES.csv).
   Three have no procurement product (M056, M058, M060). Seven are 3DXTECH products its catalogue no longer lists
   (3DXSTAT ESD-PA12, ESD-TPC, ESD-PVDF, ESD-PPS, 3DXMAX PC/ASA, CarbonX PC/ABS, Hyperlite PP): whether they are
   discontinued is 3DXTECH's to say. Fabru (purefil), Fillamentum, and the shops selling LEHVOSS and 3D4Makers print VAT
@@ -956,5 +956,5 @@ materials in scope, 30 of them converted from USD or EUR, and 214 products. What
 
 ```bash
 npm run sql --silent -- "select currency, count(*) listings, count(distinct gradeid) products from prices where quarantined = 0 group by currency"
-node docs/audits/2026-10-01-price-pass/outcomes.mjs
+node docs/audits/2026-09-30-price-pass/outcomes.mjs
 ```

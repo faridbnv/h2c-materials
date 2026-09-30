@@ -9,7 +9,7 @@
 // market; Fiberlogy's FiberFlex 30D and 40D and MattFlex 40D listings print no diameter, and the grades' sheets do not
 // settle which the shops sell; CreatBot's listings are Ultra PA-GF and PA-CF, not Ultra PA.
 //
-//   node docs/audits/2026-10-01-price-pass/review-p03.mjs     writes archive/ingest-2026-09-18/prices/p03/selected.csv
+//   node docs/audits/2026-09-30-price-pass/review-p03.mjs     writes archive/ingest-2026-09-18/prices/p03/selected.csv
 import { writeSelection, TDS } from './review-lib.mjs';
 
 const FL = 'The product\'s net mass is printed in the listing\'s description, not its title.';

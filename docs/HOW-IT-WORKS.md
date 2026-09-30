@@ -156,6 +156,7 @@ The database is a set of CSV files in `data/tables` you can open in any editor. 
 | `profiles` | one product's recommended print settings (nozzle, bed, chamber, drying) with the source's own words kept beside the typed numbers |
 | `evidence` | one qualitative statement: chemical resistance, food contact, UV, flammability, with its source |
 | `prices` | one retail listing on one day: Canadian in CAD, or foreign in its own currency (D113) |
+| `fx_rates` | one Bank of Canada rate for one currency on one day, which a foreign listing is compared at (D113) |
 | `headlines` | a pin: the measurement that is one product's value where the rule would choose another, with a reason. Normally empty |
 | `polymers` | what the estimate model knows about each polymer: crystallinity, melting point, water uptake, neat density |
 | `coverage` | what was looked for and not found, so a blank is a recorded absence, not an oversight |

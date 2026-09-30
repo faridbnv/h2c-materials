@@ -3,7 +3,7 @@
 // reads the listing, keeps the one that is the product (and not its plus, silk or carbon sibling), and writes it into
 // the batch's selected.csv, which is what enters.
 //
-//   node docs/audits/2026-10-01-price-pass/match.mjs <batch> [out.csv]    needs the batch's captures in the source store
+//   node docs/audits/2026-09-30-price-pass/match.mjs <batch> [out.csv]    needs the batch's captures in the source store
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

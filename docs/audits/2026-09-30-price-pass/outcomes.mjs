@@ -2,7 +2,7 @@
 // why not in the words of the batch reviews. The reason for a material left unpriced is the reviewer's; everything else
 // is counted from the build.
 //
-//   node docs/audits/2026-10-01-price-pass/outcomes.mjs     writes OUTCOMES.csv beside it; needs npm run build
+//   node docs/audits/2026-09-30-price-pass/outcomes.mjs     writes OUTCOMES.csv beside it; needs npm run build
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

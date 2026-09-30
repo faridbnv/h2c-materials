@@ -256,7 +256,7 @@ test('not applicable holds a material out of Explore and never passes, and is si
 });
 
 // The availability gate. Absence of an offer is not proof a material cannot be bought: the sample
-// is three Canadian retailers on one day. So a material nobody listed is held as UNKNOWN, and only
+// is a few Canadian retailers on the days they were read. So a material nobody listed is held as UNKNOWN, and only
 // a sampled offer that was out of stock is positive enough evidence to fail.
 test('availability distinguishes "nobody sampled it" from "it was out of stock"', () => {
   const listed = { id: 'A', gates: {}, buy: { retailer: 'R', perKg: 30, accessDate: '2026-09-10', anyInStock: true } };

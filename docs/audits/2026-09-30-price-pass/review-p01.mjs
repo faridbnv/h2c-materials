@@ -12,7 +12,7 @@
 // natural or white, else the first. Per product: one listing per shop in stock, or, where no shop has it in stock, one
 // out-of-stock listing, which says it is listed and prices nothing.
 //
-//   node docs/audits/2026-10-01-price-pass/review-p01.mjs
+//   node docs/audits/2026-09-30-price-pass/review-p01.mjs
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

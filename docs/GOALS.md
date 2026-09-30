@@ -154,7 +154,7 @@ Asked with the facts and a recommendation each; the owner took each recommendati
 2. **A twin reads its sibling's values and print recipe.** A product whose sheet prints the same table as a sibling of
    the same material (R053) shows the sibling's, labelled "same sheet as …", so the counts of products that pass are
    right. A product that reprints another material's table (R166) still reads nothing.
-3. **Price waits.** No price refresh in phase 6; cost sits late in the funnel, and a refresh routine comes with the
+3. **Price waits** (lifted on 2026-09-30 by the price pass, below). No price refresh in phase 6; cost sits late in the funnel, and a refresh routine comes with the
    team layer. The Indoor prototype keeps saying which materials lack a sampled price.
 4. **Lane 4 fetches new documents only where one settles a blocking answer**, through the import pipeline and named
    reviews. The general pause on imports stays, and no new reader rules are built for the held sheets.
@@ -316,7 +316,7 @@ bounded exception to the import pause, not its end, and adds no product, materia
 
 Later the same day the owner started price (GOALS step 6): **a price for each material**, and for each product where
 that is possible, which is good to have but not required. It takes the place of "Price keeps waiting" above, which is
-kept as what was decided that morning. The record is [the price pass](audits/2026-10-01-price-pass/README.md).
+kept as what was decided that morning. The record is [the price pass](audits/2026-09-30-price-pass/README.md).
 
 - **CAD first.** A product's price comes from a Canadian shop in CAD where one sells it. Where none does, an Amazon.ca
   listing counts as the last Canadian option, only where the seller is the maker's own store and the page shows its

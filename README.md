@@ -189,9 +189,9 @@ preferences: changing one changes what the tool asserts.
     The core database builds and validates without estimates at all (D58).
 12. **The familiar baseline is a reference, never a candidate.** PLA drawn beside the results is
     excluded from every count, the Pareto front and the shortlist, exactly like the steel envelopes.
-13. **No sampled offer is not the same as unavailable.** Three Canadian retailers on one day cannot
+13. **No sampled offer is not the same as unavailable.** A few Canadian retailers on the days they were read cannot
     prove a material cannot be bought, so the availability criterion reports UNKNOWN rather than
-    FAIL when nobody listed it.
+    FAIL when nobody listed it. A foreign listing can price a product but never counts as available here (D113).
 14. **One name per thing.** Every property and every criterion is named by `app/js/ui/labels.js`,
     so no screen can print an internal key while the screen beside it reads plainly.
 15. **A chamber answered in words stays words.** "Not required", "recommended" and a data sheet's "-"

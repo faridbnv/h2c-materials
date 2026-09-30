@@ -5,7 +5,7 @@
   "primaryKey": "HeadlineKey",
   "fields": [
     { "name": "HeadlineKey", "type": "string", "role": "key", "description": "Stable key used in scenarios, links and exports. Never rename a published key.", "constraints": { "required": true, "unique": true, "pattern": "^[a-z][A-Za-z0-9]*$" } },
-    { "name": "Kind", "type": "string", "role": "canonical", "description": "measurement: backed by a selected measurement; price: the median Canadian price.", "constraints": { "required": true, "enum": ["measurement", "price"] } },
+    { "name": "Kind", "type": "string", "role": "canonical", "description": "measurement: backed by a selected measurement; price: the median price per kg of the products' listings, Canadian where a product has one, else converted (D113).", "constraints": { "required": true, "enum": ["measurement", "price"] } },
     { "name": "Unit", "type": "string", "role": "canonical", "description": "The headline's unit; a backing measurement must carry it.", "constraints": { "required": true } },
     { "name": "Value properties", "type": "list", "role": "canonical", "description": "Properties whose measurement may be the headline value.", "delimiter": ";", "item": { "reference": { "table": "properties", "field": "Property" } }, "missing": ["Not applicable"], "constraints": { "required": true } },
     { "name": "Related properties", "type": "list", "role": "canonical", "description": "Properties shown as related evidence when the headline has no value; the first is the headline's own endpoint.", "delimiter": ";", "item": { "reference": { "table": "properties", "field": "Property" } }, "missing": ["Not applicable"], "constraints": { "required": true } },

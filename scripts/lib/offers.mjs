@@ -5,12 +5,15 @@
 //                       compare-at price, availability and SKU. It prints no currency: the shop's own /meta.json does
 //                       (its base currency, which is what the catalogue's amounts are in), read with shopMeta below.
 //   jsonld              a product page whose server-sent HTML carries schema.org Product data: each Offer's price,
-//                       priceCurrency, availability and SKU, and a strike-through list price where the page gives one.
-//   amazon              an Amazon product page as a browser drew it (ingest:capture): the price shown, the "List Price"
-//                       struck through beside it where there is one, who sells it, and whether it can be bought.
+//                       priceCurrency, availability and SKU, and a strike-through list price where the page gives one
+//                       (on 3DJake's pages, its replaced price and its "Content" line).
+//   amazon              an Amazon product page as a browser drew it (ingest:prices capture): the buy box's price, its
+//                       struck-through "List Price" where there is one, who sells it, whether it can be bought, and the
+//                       overview and bullets, where a diameter the title leaves out is printed.
 //
-// Each offer has a `key` a price row names to find it again, and `title`, the words the listing is sold under, which is
-// where its net mass and diameter must be printed.
+// Each offer has a `key` a price row names to find it again; `title`, the words the listing is sold under, where its net
+// mass and diameter are read; and `description`, what else the listing says of itself (a Shopify description, 3DJake's
+// content line, Amazon's bullets), read for them only where a reviewer says so.
 
 const unescapeHtml = (s) => String(s ?? '').replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ');
 const money = (v) => (v == null || v === '' ? null : Number.isFinite(Number(v)) ? Math.round(Number(v) * 100) / 100 : null);

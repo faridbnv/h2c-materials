@@ -162,7 +162,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
 | HeadlineKey | key | string | yes |  | `^[a-z][A-Za-z0-9]*$` | Stable key used in scenarios, links and exports. Never rename a published key. |
-| Kind | canonical | string | yes |  | measurement, price | measurement: backed by a selected measurement; price: the median Canadian price. |
+| Kind | canonical | string | yes |  | measurement, price | measurement: backed by a selected measurement; price: the median price per kg of the products' listings, Canadian where a product has one, else converted (D113). |
 | Unit | canonical | string | yes |  |  | The headline's unit; a backing measurement must carry it. |
 | Value properties | canonical | list (";") | yes | Not applicable | list of → properties.Property | Properties whose measurement may be the headline value. |
 | Related properties | canonical | list (";") | yes | Not applicable | list of → properties.Property | Properties shown as related evidence when the headline has no value; the first is the headline's own endpoint. |
@@ -1093,7 +1093,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|
 | Insufficient comparable data | Evidence exists but cannot support the comparison. |
 | Not applicable | The field does not apply to this record. |
-| Not available in sampled Canadian market | No eligible grade-matched offer in the sampled Canadian stores. |
+| Not available in sampled Canadian market | No eligible grade-matched offer in the sampled stores: Canadian, or foreign where no Canadian one lists the product (D113). The words are kept as the state's name. |
 | Not published | Absent from the sampled evidence. Not proven absent; never zero. |
 | Not recorded | The value was not recorded when the source was captured. |
 | Unresolved unit / layout | The source unit or table layout is unresolved; quarantined from numeric use. |

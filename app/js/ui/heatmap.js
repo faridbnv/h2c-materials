@@ -23,7 +23,8 @@ const WORD = { ok: 'Evidence recorded', partial: 'Limited or partial', gap: 'Gap
 const SHORT = {
   'Identity': 'Identity', 'H2C status': 'H2C', 'Print setup': 'Printing', 'Mechanical': 'Mechanical',
   'Thermal': 'Thermal', 'Moisture / environmental': 'Environment', 'Post-processing / application': 'Application',
-  'Canadian price': 'Price',
+  // Canadian listings only: a product priced from a foreign listing leaves this gap open (D113).
+  'Canadian price': 'CA price',
 };
 
 // "Sparse properties" records the properties almost no data sheet publishes (compression strength, thermal expansion,

@@ -9,6 +9,7 @@
 //                                                                      and every /products.json page, hashed and stored
 //   npm run ingest:prices -- capture --batch p01 --url <url> --format jsonld    one product page as the server sent it
 //   npm run ingest:prices -- capture --batch p02 --url <url> --format amazon    one page as a browser drew it
+//   npm run ingest:prices -- capture --batch p04 --from <pages.csv>   many pages (columns URL, Format), each as above
 //   npm run ingest:prices -- offers --batch p01 [--vendor X] [--grep Y]         what the captured documents offer
 //   npm run ingest:prices -- propose --batch p01                      selected.csv (the reviewed choice of offers) into
 //                                                                      proposals, one per document
@@ -29,8 +30,10 @@
 //   sold so)                                                            APPLY-PRICE-MASS, APPLY-PRICE-DIAMETER
 //   the product is an active procurement grade of the row's material, and the listing names its maker
 //                                                                        APPLY-PRICE-GRADE
-//   a price including VAT states its rate in the page                   APPLY-PRICE-VAT
-//   the same listing is not already recorded under another source      APPLY-PRICE-DUPLICATE
+//   a price including VAT states its rate in the page, and a European price before VAT says so there
+//                                                                        APPLY-PRICE-VAT
+//   the listing is not already recorded under another source, nor accepted for two grades
+//                                                                        APPLY-PRICE-DUPLICATE
 //
 // and unless the result passes the schema gate, the lint and the core build on a copy of the tables first. Applying
 // twice changes nothing: a source is known by its SourceID, a price by its source and listing URL.

@@ -11,7 +11,7 @@
 // Nanovia, Fillamentum's Vinyl, NonOilen, Nylon AF80 and OBC, and 3DXTECH's discontinued products are not sold there;
 // their shops either print VAT without its rate or no public price.
 //
-//   node docs/audits/2026-10-01-price-pass/review-p04.mjs     writes archive/ingest-2026-09-18/prices/p04/selected.csv
+//   node docs/audits/2026-09-30-price-pass/review-p04.mjs     writes archive/ingest-2026-09-18/prices/p04/selected.csv
 import { writeSelection } from './review-lib.mjs';
 import { batchOffers } from '../../../scripts/ingest/prices.mjs';
 

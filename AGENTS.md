@@ -185,6 +185,12 @@ variant class (silk, particle-filled) goes in Variant class. The build names the
 role is `cited` unless the source is kept to corroborate, as a register, as provenance, or was not retrieved;
 nothing may cite a source that was not retrieved.
 
+**Add a price.** A listing enters only through `npm run ingest:prices` from the page the shop served, fetched and
+hashed (IMPORTING, "Capturing a price"): the exact product, 1.75 mm, its net mass printed, its regular price with any
+sale beside it. A Canadian listing is in CAD; a foreign one keeps its own currency, with the VAT its page states in VAT
+included %, and is compared at the Bank of Canada rate in `fx_rates.csv` (D113). A foreign listing prices a product
+that has no Canadian one and lists it nowhere in Canada. Never type a price into `prices.csv` by hand.
+
 **Retire a grade.** `npm run data:retire -- grade <GradeID>` sets Status `retired`, the one place a retirement is
 recorded, and lists every record still on it, with what must happen to each. Availability keeps what was recorded
 about buying the product.
