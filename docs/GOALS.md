@@ -337,6 +337,24 @@ kept as what was decided that morning. The record is [the price pass](audits/202
   procurement product, a product its maker no longer lists, a shop that prints VAT without its rate, out of stock
   everywhere, or not found in a bounded search. No verdict moved: every template tracks price, none requires it.
 
+## Decided on 2026-09-30, the coverage-expansion campaign
+
+The owner approved the end-to-end plan for all 136 existing H2C-relevant materials and their active products:
+GOALS steps 2 and 5, C3/C6/C9/C10/C13. Application means sourced intended-use, finishing and limitation
+assessment, never suitability rules. Environment keeps category-level screening and its exposure caveat.
+Research first reuses the registered originals and the reviewed 2026-09-28 packages, then bounded targeted
+maker routes. New documents needed by this frozen existing-catalogue worklist may enter through the import
+pipeline; this is a campaign exception, not a reopening of general imports. No catalogue expansion, estimate
+model change, manufacturer messaging, physical testing, price refresh routine or push is authorized.
+
+One injector applies guarded, idempotent migrations. An independent AI reviewer rereads every new deciding
+fact, identity correction, conflict resolution and Application judgement; narrative additions are sampled.
+The first batch has at most twelve products and is verified and committed before production expands.
+Every target keeps a final evidenced outcome, including unresolved, inaccessible, vendor-needed and test-needed
+ones. A bounded search never proves universal absence. Local commits require the repository's complete checks.
+The external campaign package is `COVERAGE-EXPANSION-2026-09-30` beside the owner's two gap-fill packages;
+public audit reports must contain no private source originals or machine-specific source-store paths.
+
 ## Working rules
 
 1. **Goal first.** Name the step and scorecard line a piece of work improves.

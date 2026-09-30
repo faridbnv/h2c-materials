@@ -1,0 +1,16 @@
+table,record,action,field,before,after
+coverage,C00249,Edited,Status,Gap,Superseded
+coverage,C00249,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01492: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C00419,Edited,Status,Gap,Superseded
+coverage,C00419,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01493: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C00569,Edited,Status,Gap,Superseded
+coverage,C00569,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01494: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C00728,Edited,Status,Gap,Superseded
+coverage,C00728,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01495: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C00798,Edited,Status,Gap,Superseded
+coverage,C00798,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01496: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C01492,Added,,,
+coverage,C01493,Added,,,
+coverage,C01494,Added,,,
+coverage,C01495,Added,,,
+coverage,C01496,Added,,,

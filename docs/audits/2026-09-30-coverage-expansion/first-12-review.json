@@ -1,0 +1,94 @@
+{
+  "reviewer": "Independent AI review agent /root/coverage_reviewer; no human review",
+  "signed_at_utc": "2026-09-30T23:23:18.276549+00:00",
+  "input_path": "first-12-packet.json",
+  "input_sha256": "7f3c7d4a141eb6e434847f858b90cb646a39cef5278616e439cf567cd4214aa9",
+  "verdict": "APPROVE",
+  "approved_operations": 5,
+  "rejected_operations": 0,
+  "operations": [
+    {
+      "finding_id": "CE-FIRST-Q00514",
+      "verdict": "APPROVE",
+      "operation_sha256": "b478c15763a0d103d99e60318c56553a5004f24685142543c4b09a9f763442ee",
+      "reason": "Registered hash-verified exact product original publishes recommended printed-part treatment; bounded Coverage wording claims treatment evidence only, disclaims other products and suitability, preserves specimen-vs-recommended-treatment distinction. Expected old coverage/source/evidence records match current canonical tables.",
+      "source_sha256": "7e9fe84101b5dfbbf0c8be3a834fd19ef5522ba3635fd6a74ef0692f1e29f3fb",
+      "source_locator": "p. 5: Annealing temperature; Annealing time",
+      "source_excerpts": [
+        "Drying setting                                                   60\u00b0C for 6h\nAnnealing temperature                                            80-100 (\u00b0C) (Recommended 100\u00b0C)\nAnnealing time                                                   20-30 Mins (Recommended 30 mins)\nAdditional requirements                                          Hardened nozzle & print annealing",
+        "Annealing temperature                                            80-100 (\u00b0C) (Recommended 100\u00b0C)\nAnnealing time                                                   20-30 Mins (Recommended 30 mins)\nAdditional requirements                                          Hardened nozzle & print annealing\n*Based on 0.4mm nozzle. Printing conditions may vary with different nozzle diameters.",
+        "Annealing time                                                   20-30 Mins (Recommended 30 mins)\nAdditional requirements                                          Hardened nozzle & print annealing\n*Based on 0.4mm nozzle. Printing conditions may vary with different nozzle diameters.\n",
+        "HT-PLA-GF contains 12% glass fiber in the composition.\nThin parts may require the lower annealing temperature to prevent warping."
+      ],
+      "scope": "Coverage append and supersede only; no measurement, state, profile or source change approved."
+    },
+    {
+      "finding_id": "CE-FIRST-Q00531",
+      "verdict": "APPROVE",
+      "operation_sha256": "e4194b5ae1f27a7b22d9bc2470bb8f5b7c5ef4b4becdb6425d35092776a4d8a0",
+      "reason": "Registered hash-verified exact product original publishes recommended printed-part treatment; bounded Coverage wording claims treatment evidence only, disclaims other products and suitability, preserves specimen-vs-recommended-treatment distinction. Expected old coverage/source/evidence records match current canonical tables.",
+      "source_sha256": "2a0902b570748c80a189a0b25007ebdde1d1b62f04e846fbf54e84d96c7ce114",
+      "source_locator": "p. 4: Annealing note",
+      "source_excerpts": [
+        "          For large part, it is recommended to use a heated chamber.\n     -    It is recommended to anneal the printed part right after the printing process to\n          release the residual internal stress. Annealing settings: 90\u02daC for 2h",
+        "     -    It is recommended to anneal the printed part right after the printing process to\n          release the residual internal stress. Annealing settings: 90\u02daC for 2h"
+      ],
+      "scope": "Coverage append and supersede only; no measurement, state, profile or source change approved."
+    },
+    {
+      "finding_id": "CE-FIRST-Q00536",
+      "verdict": "APPROVE",
+      "operation_sha256": "83f1050e47c485689474552da4ac071c3ffa91b1d60a8e0925edb91fa2e6af30",
+      "reason": "Registered hash-verified exact product original publishes recommended printed-part treatment; bounded Coverage wording claims treatment evidence only, disclaims other products and suitability, preserves specimen-vs-recommended-treatment distinction. Expected old coverage/source/evidence records match current canonical tables.",
+      "source_sha256": "2852b98cdd004aad9f26893e2a4d66cdcbc6cf4c59c0b9d44973a66cc56c626c",
+      "source_locator": "p. 5: Annealing note",
+      "source_excerpts": [
+        "          support structure can be permanently bonded to the model.\n     -    After the printing process, it is recommended to anneal the model in the oven\n          at 80 - 100\u00b0C for 6 hours.\n     -"
+      ],
+      "scope": "Coverage append and supersede only; no measurement, state, profile or source change approved."
+    },
+    {
+      "finding_id": "CE-FIRST-Q00547",
+      "verdict": "APPROVE",
+      "operation_sha256": "77a88280384ecac12a086498372b1ece8c738d5c723f7aa7d27771ce242e5c99",
+      "reason": "Registered hash-verified exact product original publishes recommended printed-part treatment; bounded Coverage wording claims treatment evidence only, disclaims other products and suitability, preserves specimen-vs-recommended-treatment distinction. Expected old coverage/source/evidence records match current canonical tables.",
+      "source_sha256": "640a5ed487a8475805af3ecf387e942805182e263fdef5ebe0e5587a3e60a254",
+      "source_locator": "p. 1: Annealing temp. and time",
+      "source_excerpts": [
+        "\n                                               *All specimens were annealed at 120\u00b0C for 10h.\n\n",
+        "                                                                                                                                             MODEL                                 AFTER                     AFTER\n                                                                                                                                             SIZE                                  PRINTING                  ANNEALING\n\n",
+        "\n                     Chamber temperature                                     Room temp.                  Annealing temp. and time                                   120 \u00b0C/10H\n                                                                                                                                                                                                  PolySupport\u2122 for PA12\n                     Cooling fan                                             OFF",
+        "                         NOTE\n                         We strongly recommend 120\u00b0C, 10h annealing to achieve the best performance of the material. To avoid deformation of the prints during annealing, please\n                         pay attention to the following:\n                         1. Before returning the prints, please con\ufb01rm that the prints have been printed for more than 24h, or placed in an 80-degree oven for 2h to eliminate the",
+        "                         internal stress after printing.\n                         2. During annealing, do not touch the sample with your hands or apply any additional load to the sample.\n                         3. During annealing, ensure that the temperature in the oven is uniform and there are no obvious obstructions that cause uneven temperature of the sample.\n                         4. For prints with a bridge length of more than 3cm, or a thick layer on the upper part of the bridge; prints with large overhangs or small overhangs; all need to",
+        "                         2. During annealing, do not touch the sample with your hands or apply any additional load to the sample.\n                         3. During annealing, ensure that the temperature in the oven is uniform and there are no obvious obstructions that cause uneven temperature of the sample.\n                         4. For prints with a bridge length of more than 3cm, or a thick layer on the upper part of the bridge; prints with large overhangs or small overhangs; all need to\n                         add supports and anneal in the oven together with the supports.",
+        "                         4. For prints with a bridge length of more than 3cm, or a thick layer on the upper part of the bridge; prints with large overhangs or small overhangs; all need to\n                         add supports and anneal in the oven together with the supports.\n                         5. For thin-walled areas with a wall thickness of less than 4mm, you can try to add reinforcing ribs or increase the wall thickness to avoid possible annealing\n                         deformation.",
+        "                         add supports and anneal in the oven together with the supports.\n                         5. For thin-walled areas with a wall thickness of less than 4mm, you can try to add reinforcing ribs or increase the wall thickness to avoid possible annealing\n                         deformation.\n                         6. In principle, the sample placement method needs to be consistent with that during printing, and it is best to enter the oven directly together with the base"
+      ],
+      "scope": "Coverage append and supersede only; no measurement, state, profile or source change approved."
+    },
+    {
+      "finding_id": "CE-FIRST-Q00556",
+      "verdict": "APPROVE",
+      "operation_sha256": "65d401d3e8f7238a590f3c2887353171459722776606c9c0538e3f5b362514b0",
+      "reason": "Registered hash-verified exact product original publishes recommended printed-part treatment; bounded Coverage wording claims treatment evidence only, disclaims other products and suitability, preserves specimen-vs-recommended-treatment distinction. Expected old coverage/source/evidence records match current canonical tables.",
+      "source_sha256": "2a2f32e737ecae8509160bcadd33ab263c26cd8e7d6334f38e935890136b0c66",
+      "source_locator": "p. 1: Annealing temp. and time",
+      "source_excerpts": [
+        "                        0.4                                                                                                                                                                                   Days\n                                  Annealing temp.= 130\u00b0C                           0.45 MPa\n                    0.35                                                           1.8 MPa\n",
+        "                                                                                   0.45 MPa\n                                  Annealing temp.= 230\u00b0C                           1.8 MPa\n                   0.35\n                                                                                                        Decomposition temp.                  TGA, 20\u00b0C/min                                                  440.2 \u00b0C",
+        "\n                   0.05                                                                                 *The HDT test specimens were annealed by 130\u00b0C. If the annealing temperature is\n                                                                                                        increased to 230\u00b0C, the HDT (0.45MPa/1.8MPa) is increased to 248.9\u00b0C/219.6\u00b0C.\n                         0",
+        "                                       Charpy impact strength (Z) un-notched                                                                                                       4.3 \u00b1 0.3 kJ/m2\n                                       *All specimens were annealed at 130\u00b0C for 10h.\n\n",
+        "                                                                                                                                             MODEL                                        AFTER                      AFTER\n                                                                                                                                             SIZE                                         PRINTING                   ANNEALING\n\n",
+        "\n                   Chamber temperature                                 Room temp.                        Annealing temp. and time                            130 \u00b0C/10H\n                                                                                                                                                                                                           PolySupport\u2122 for PA12\n                   Cooling fan                                         OFF"
+      ],
+      "scope": "Coverage append and supersede only; no measurement, state, profile or source change approved."
+    }
+  ],
+  "limitations": [
+    "Independent AI text extraction reread of registered PDF originals; not human review or experimental validation.",
+    "No application suitability claim, numerical substitution or decision change authorized.",
+    "Repeated maker name in M019 display prose is cosmetic and does not change evidence scope.",
+    "Reverify expected old values at mutation time."
+  ],
+  "review_signature_sha256": "c341bd0f3e14f62ded4e929f14914cc1862b58bed3bd0471209452aaf30b17e3"
+}

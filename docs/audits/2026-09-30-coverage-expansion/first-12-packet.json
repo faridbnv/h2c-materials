@@ -1,0 +1,769 @@
+{
+  "BatchID": "FIRST-12",
+  "BaselineHEAD": "39bb48735fda2c32756c803ea2de198a9b199ff3",
+  "GradeIDs": [
+    "G019-01",
+    "G035-02",
+    "G036-02",
+    "G050-11",
+    "G051-03",
+    "G053-02",
+    "G057-01",
+    "G059-01",
+    "G065-01",
+    "G067-02",
+    "G068-02",
+    "G074-02"
+  ],
+  "Findings": [
+    {
+      "FindingID": "CE-FIRST-Q00514",
+      "GradeID": "G019-01",
+      "MaterialID": "M019",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00514",
+        "MaterialID": "M019",
+        "GradeID": "G019-01",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing temperature 80-100 (\u00b0C) (Recommended 100\u00b0C); Annealing time 20-30 Mins (Recommended 30 mins)",
+        "Exposure / conditions": "Annealing the printed part: 80-100 (\u00b0C) (Recommended 100\u00b0C), 20-30 Mins (Recommended 30 mins)",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1",
+        "Locator": "p. 5: Annealing temperature; Annealing time"
+      },
+      "Source": {
+        "SourceID": "S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1",
+        "Publisher": "Polymaker",
+        "Title": "Polymaker\u2122 HT-PLA-GF Technical Data Sheet",
+        "Revision": "V1.1",
+        "Publication date": "Not published",
+        "Access date": "2026-09-14",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/Polymaker-HT-PLA-GF_TDS_EN_V1.1.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G019-01",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "7e9fe84101b5dfbbf0c8be3a834fd19ef5522ba3635fd6a74ef0692f1e29f3fb"
+      },
+      "ProposedCoverage": {
+        "MaterialID": "M019",
+        "GradeID": "G019-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Polymaker HT PLA GF (G019-01) publishes printed-part annealing guidance (Q00514, S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1, p. 5: Annealing temperature; Annealing time). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00249",
+          "MaterialID": "M019",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "Outcome": "RECOVERED_COVERAGE_JUDGEMENT",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00523",
+      "GradeID": "G035-02",
+      "MaterialID": "M035",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00523",
+        "MaterialID": "M035",
+        "GradeID": "G035-02",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing settings: 90\u02daC for 2h",
+        "Exposure / conditions": "Annealing the printed part: 90\u02daC for 2h",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+        "Locator": "p. 4: Annealing note"
+      },
+      "Source": {
+        "SourceID": "S-POLYCN-PolyLite-PC-TDS-V5-3",
+        "Publisher": "Polymaker",
+        "Title": "PolyLite PC Technical Data Sheet",
+        "Revision": "V5.3",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyLite_PC_TDS_V5.3.pdf",
+        "Locator": "p. 2: physical properties and chemical resistance; p. 3: thermal properties; p. 4: mechanical properties (X-Y and Z), the printing guide and the annealing recommendation; p. 5: how to make specimens",
+        "Applicable grades": "G035-02 (Polymaker PolyLite PC, the second PC formulation)",
+        "Access state": "retrieved-copy",
+        "Access note": "Retrieved; owner-supplied copy hash-matched to the 2026-09-15 reading",
+        "SHA256": "89097c63d3da49edfcfff88f0c5c1a0e24684997a55d539fe52bd45742e4404d"
+      },
+      "ProposedCoverage": null,
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00409",
+          "MaterialID": "M035",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "Outcome": "ALREADY_RECORDED",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00531",
+      "GradeID": "G036-02",
+      "MaterialID": "M036",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00531",
+        "MaterialID": "M036",
+        "GradeID": "G036-02",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing settings: 90\u02daC for 2h",
+        "Exposure / conditions": "Annealing the printed part: 90\u02daC for 2h",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyMax-PC-FR-TDS-V5-1",
+        "Locator": "p. 4: Annealing note"
+      },
+      "Source": {
+        "SourceID": "S-POLYCN-PolyMax-PC-FR-TDS-V5-1",
+        "Publisher": "Polymaker",
+        "Title": "PolyMax PC-FR Technical Data Sheet",
+        "Revision": "V5.1",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyMax_PC_FR_TDS_V5.1.pdf",
+        "Locator": "p. 2: physical properties, UL94 rating and chemical resistance; p. 3: thermal properties; p. 4: mechanical properties (X-Y and Z), the low-temperature impact row, the printing guide and the annealing recommendation; p. 6: how to make specimens",
+        "Applicable grades": "G036-02 (Polymaker PolyMax PC-FR, the second PC FR formulation)",
+        "Access state": "retrieved-copy",
+        "Access note": "Retrieved; owner-supplied copy hash-matched to the 2026-09-15 reading",
+        "SHA256": "2a0902b570748c80a189a0b25007ebdde1d1b62f04e846fbf54e84d96c7ce114"
+      },
+      "ProposedCoverage": {
+        "MaterialID": "M036",
+        "GradeID": "G036-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker PolyMax PC-FR (G036-02) publishes printed-part annealing guidance (Q00531, S-POLYCN-PolyMax-PC-FR-TDS-V5-1, p. 4: Annealing note). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00419",
+          "MaterialID": "M036",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "Outcome": "RECOVERED_COVERAGE_JUDGEMENT",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00534",
+      "GradeID": "G050-11",
+      "MaterialID": "M050",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00534",
+        "MaterialID": "M050",
+        "GradeID": "G050-11",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing temp. and time 100 \u00b0C/16H",
+        "Exposure / conditions": "Annealing the printed part: 100 \u00b0C/16H",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+        "Locator": "p. 1: Annealing temp. and time"
+      },
+      "Source": {
+        "SourceID": "R-POLYMAKER-FIBERON-TDS-FIBERON-PA6-CF20-V1-1-EN",
+        "Publisher": "Polymaker (Fiberon)",
+        "Title": "FIBERON PA6 CF20",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-20",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Hosted by Polymaker / Fiberon; the sheet is Polymaker (Fiberon)'s.",
+        "Citation role": "cited",
+        "URL": "https://fiberon.polymaker.com/wp-content/uploads/TDS_FIBERON-PA6-CF20_V1.1_EN.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G050-11",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "f065e0e27b44344da381f7edde481da7dd126b1b9d3da4ed0b5054862256b8b4"
+      },
+      "ProposedCoverage": null,
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00559",
+          "MaterialID": "M050",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "Outcome": "ALREADY_RECORDED",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00536",
+      "GradeID": "G051-03",
+      "MaterialID": "M051",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00536",
+        "MaterialID": "M051",
+        "GradeID": "G051-03",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "After the printing process, it is recommended to anneal the model in the oven at 80 - 100\u00b0C for 6 hours.",
+        "Exposure / conditions": "Annealing the printed part: 80 - 100\u00b0C for 6 hours",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyMide-PA6-GF-TDS-V5-1",
+        "Locator": "p. 5: Annealing note"
+      },
+      "Source": {
+        "SourceID": "S-POLYCN-PolyMide-PA6-GF-TDS-V5-1",
+        "Publisher": "Polymaker",
+        "Title": "PolyMide PA6 GF",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-14",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyMide_PA6_GF_TDS_V5.1.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G051-03 (re-filed 2026-09-13 from G063-02)",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "2852b98cdd004aad9f26893e2a4d66cdcbc6cf4c59c0b9d44973a66cc56c626c"
+      },
+      "ProposedCoverage": {
+        "MaterialID": "M051",
+        "GradeID": "G051-03",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker PolyMide PA6 GF (G051-03) publishes printed-part annealing guidance (Q00536, S-POLYCN-PolyMide-PA6-GF-TDS-V5-1, p. 5: Annealing note). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00569",
+          "MaterialID": "M051",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "Outcome": "RECOVERED_COVERAGE_JUDGEMENT",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00538",
+      "GradeID": "G053-02",
+      "MaterialID": "M053",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00538",
+        "MaterialID": "M053",
+        "GradeID": "G053-02",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "After the printing process, it is recommended to anneal the model in the oven at 80\u00b0C for 6 hours.",
+        "Exposure / conditions": "Annealing the printed part: 80\u00b0C for 6 hours",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+        "Locator": "p. 5: Annealing note"
+      },
+      "Source": {
+        "SourceID": "S-POLYCN-PolyMide-PA12-CF-TDS-V5-1-1",
+        "Publisher": "Polymaker",
+        "Title": "PolyMide PA12 CF",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-14",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyMide_PA12_CF_TDS_V5.1.1.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G053-02",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "9fcb5693449b1f7cf4af84dc3a0f25753fb71476848ca24fd3b3a90c24c446db"
+      },
+      "ProposedCoverage": null,
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00588",
+          "MaterialID": "M053",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "Outcome": "ALREADY_RECORDED",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00541",
+      "GradeID": "G057-01",
+      "MaterialID": "M057",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00541",
+        "MaterialID": "M057",
+        "GradeID": "G057-01",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "After the printing process, it is recommended to anneal the model in the oven at 80\u00b0C for 6 hours.",
+        "Exposure / conditions": "Annealing the printed part: 80\u00b0C for 6 hours",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+        "Locator": "p. 5: Annealing note"
+      },
+      "Source": {
+        "SourceID": "S-POLYCN-PolyMide-CoPA-TDS-V5-2",
+        "Publisher": "Polymaker",
+        "Title": "PolyMide CoPA",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-14",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/PolyMide_CoPA_TDS_V5.2.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G047-01; G057-01; G061-01",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "21762b0bec3f4b2819aa00ddb6b742c0fa449b86a4d699512cd6ad456fa53aee"
+      },
+      "ProposedCoverage": null,
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00628",
+          "MaterialID": "M057",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "Outcome": "ALREADY_RECORDED",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00543",
+      "GradeID": "G059-01",
+      "MaterialID": "M059",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00543",
+        "MaterialID": "M059",
+        "GradeID": "G059-01",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing temp. and time 100 \u00b0C/16H",
+        "Exposure / conditions": "Annealing the printed part: 100 \u00b0C/16H",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-FIBER-PA612",
+        "Locator": "p. 1: Annealing temp. and time"
+      },
+      "Source": {
+        "SourceID": "S-FIBER-PA612",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon\u2122 PA612-CF15 Technical Data Sheet",
+        "Revision": "V1.1",
+        "Publication date": "Not published",
+        "Access date": "2026-09-10",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://fiberon.polymaker.com/wp-content/uploads/TDS_FIBERON-PA612-CF15_V1.1_EN.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G059-01; G062-02",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "11c25587baddff2d5fada59a14c9e65944da102a1e3ab8f1522815324b74937f"
+      },
+      "ProposedCoverage": null,
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00648",
+          "MaterialID": "M059",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "Outcome": "ALREADY_RECORDED",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00545",
+      "GradeID": "G065-01",
+      "MaterialID": "M065",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00545",
+        "MaterialID": "M065",
+        "GradeID": "G065-01",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing temp. and time 100 \u00b0C/16H",
+        "Exposure / conditions": "Annealing the printed part: 100 \u00b0C/16H",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+        "Locator": "p. 1: Annealing temp. and time"
+      },
+      "Source": {
+        "SourceID": "S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon\u2122 PA612-ESD Technical Data Sheet",
+        "Revision": "V1.0",
+        "Publication date": "Not published",
+        "Access date": "2026-09-10",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.polymaker.com.cn/wp-content/uploads/lana-downloads/TDS_FIBERON-PA612-ESD_V1.0_EN-1.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G064-02; G065-01",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "02023877e005d9edb5190175dc0dc44d3567b53cd893daea36097f4c0c729a7f"
+      },
+      "ProposedCoverage": null,
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00708",
+          "MaterialID": "M065",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "Outcome": "ALREADY_RECORDED",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00547",
+      "GradeID": "G067-02",
+      "MaterialID": "M067",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00547",
+        "MaterialID": "M067",
+        "GradeID": "G067-02",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing temp. and time 120 \u00b0C/10H",
+        "Exposure / conditions": "Annealing the printed part: 120 \u00b0C/10H",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FIBERON-PETCF17-TDS",
+        "Locator": "p. 1: Annealing temp. and time"
+      },
+      "Source": {
+        "SourceID": "R-FIBERON-PETCF17-TDS",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon PET-CF17 Technical Data Sheet",
+        "Revision": "V1.0",
+        "Publication date": "Not published",
+        "Access date": "2026-09-17",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Published under Polymaker's Fiberon brand line.",
+        "Citation role": "cited",
+        "URL": "https://polymaker.com/wp-content/uploads/lana-downloads/TDS_FIBERON-PET-CF17_V1.0_EN.pdf",
+        "Locator": "p. 1 (single page): physical, thermal and mechanical properties, the moisture-absorption and HDT curves, the shrinkage test, the recommended printing conditions, the annealing note and how to make specimens",
+        "Applicable grades": "G067-02 (Fiberon PET-CF17, the second PET-CF formulation)",
+        "Access state": "retrieved-copy",
+        "Access note": "Retrieved; owner-supplied copy hash-matched to the 2026-09-15 reading",
+        "SHA256": "640a5ed487a8475805af3ecf387e942805182e263fdef5ebe0e5587a3e60a254"
+      },
+      "ProposedCoverage": {
+        "MaterialID": "M067",
+        "GradeID": "G067-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Fiberon PET-CF17 (G067-02) publishes printed-part annealing guidance (Q00547, R-FIBERON-PETCF17-TDS, p. 1: Annealing temp. and time). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00728",
+          "MaterialID": "M067",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "Outcome": "RECOVERED_COVERAGE_JUDGEMENT",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00549",
+      "GradeID": "G068-02",
+      "MaterialID": "M068",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00549",
+        "MaterialID": "M068",
+        "GradeID": "G068-02",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing temp. and time 120\u00b0C/16H",
+        "Exposure / conditions": "Annealing the printed part: 120\u00b0C/16H",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-FIBERON-PETGF15-TDS",
+        "Locator": "p. 1: Annealing temp. and time"
+      },
+      "Source": {
+        "SourceID": "R-FIBERON-PETGF15-TDS",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon PET-GF15 Technical Data Sheet",
+        "Revision": "V1.0",
+        "Publication date": "Not published",
+        "Access date": "2026-09-13",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Published under Polymaker's Fiberon brand line.",
+        "Citation role": "cited",
+        "URL": "https://fiberon.polymaker.com/wp-content/uploads/TDS_FIBERON-PET-GF15_V1.0_EN.pdf",
+        "Locator": "Physical, thermal and mechanical properties; recommended printing conditions; how to make specimens",
+        "Applicable grades": "M068 / G068-02",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "cdb81cbccd54e790038caf17353bd91172713cb7d35f7d8e16f919124923b37b"
+      },
+      "ProposedCoverage": null,
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00738",
+          "MaterialID": "M068",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ],
+      "Outcome": "ALREADY_RECORDED",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    },
+    {
+      "FindingID": "CE-FIRST-Q00556",
+      "GradeID": "G074-02",
+      "MaterialID": "M074",
+      "ExistingEvidence": {
+        "EvidenceID": "Q00556",
+        "MaterialID": "M074",
+        "GradeID": "G074-02",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "Annealing temp. and time 130 \u00b0C/10H",
+        "Exposure / conditions": "Annealing the printed part: 130 \u00b0C/10H",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-FIBER-PPSGF-TDS-2",
+        "Locator": "p. 1: Annealing temp. and time"
+      },
+      "Source": {
+        "SourceID": "S-FIBER-PPSGF-TDS-2",
+        "Publisher": "Polymaker",
+        "Title": "Fiberon\u2122 PPS-GF20 Technical Data Sheet",
+        "Revision": "V1.1",
+        "Publication date": "Not published",
+        "Access date": "2026-09-10",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Not applicable",
+        "Citation role": "cited",
+        "URL": "https://cdn.shopify.com/s/files/1/0548/7299/7945/files/TDS_FIBERON_PPS-GF20_V1.1.pdf?v=1752777698",
+        "Locator": "Document / product page",
+        "Applicable grades": "G074-02",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "2a2f32e737ecae8509160bcadd33ab263c26cd8e7d6334f38e935890136b0c66"
+      },
+      "ProposedCoverage": {
+        "MaterialID": "M074",
+        "GradeID": "G074-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Fiberon PPS-GF20 (G074-02) publishes printed-part annealing guidance (Q00556, S-FIBER-PPSGF-TDS-2, p. 1: Annealing temp. and time). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "ExpectedCoverage": [
+        {
+          "CoverageID": "C00798",
+          "MaterialID": "M074",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ],
+      "Outcome": "RECOVERED_COVERAGE_JUDGEMENT",
+      "Review": "PENDING_INDEPENDENT_OPERATION_REVIEW"
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-FIRST-Q00514",
+      "append": {
+        "MaterialID": "M019",
+        "GradeID": "G019-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Polymaker HT PLA GF (G019-01) publishes printed-part annealing guidance (Q00514, S-POLYCN-Polymaker-HT-PLA-GF-TDS-EN-V1-1, p. 5: Annealing temperature; Annealing time). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00249",
+          "MaterialID": "M019",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-FIRST-Q00531",
+      "append": {
+        "MaterialID": "M036",
+        "GradeID": "G036-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker PolyMax PC-FR (G036-02) publishes printed-part annealing guidance (Q00531, S-POLYCN-PolyMax-PC-FR-TDS-V5-1, p. 4: Annealing note). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00419",
+          "MaterialID": "M036",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-FIRST-Q00536",
+      "append": {
+        "MaterialID": "M051",
+        "GradeID": "G051-03",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker PolyMide PA6 GF (G051-03) publishes printed-part annealing guidance (Q00536, S-POLYCN-PolyMide-PA6-GF-TDS-V5-1, p. 5: Annealing note). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00569",
+          "MaterialID": "M051",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-FIRST-Q00547",
+      "append": {
+        "MaterialID": "M067",
+        "GradeID": "G067-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Fiberon PET-CF17 (G067-02) publishes printed-part annealing guidance (Q00547, R-FIBERON-PETCF17-TDS, p. 1: Annealing temp. and time). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00728",
+          "MaterialID": "M067",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-FIRST-Q00556",
+      "append": {
+        "MaterialID": "M074",
+        "GradeID": "G074-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Polymaker Fiberon PPS-GF20 (G074-02) publishes printed-part annealing guidance (Q00556, S-FIBER-PPSGF-TDS-2, p. 1: Annealing temp. and time). Treatment evidence for this product only; other products and application suitability are not established. Specimen preparation and recommended treatment remain distinct; see the source and product state."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00798",
+          "MaterialID": "M074",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    }
+  ],
+  "ExpectedDecisionDelta": 0,
+  "NoNewSourceAdmission": true
+}

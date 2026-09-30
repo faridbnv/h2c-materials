@@ -1,0 +1,49 @@
+{
+ "release": "5c4bdbbec68c",
+ "materials": 153,
+ "mismatches": [],
+ "blanks": {
+  "Post-processing / application": 71
+ },
+ "conflictsOutsideTheGrid": [
+  "M088 Measurement parsing (Quarantined)",
+  "M018 Source ambiguity (Conflict)",
+  "M019 Composition (Conflict)",
+  "M008 Source conflict (Conflict)",
+  "M162 Source conflict (Conflict)",
+  "M148 Source conflict (Conflict)"
+ ],
+ "cells": {
+  "Identity | Evidence recorded": 150,
+  "H2C status | Evidence recorded": 91,
+  "Print setup | Resolved": 12,
+  "Mechanical | Evidence recorded": 137,
+  "Thermal | Resolved": 18,
+  "Moisture / environmental | Evidence recorded": 52,
+  "Post-processing / application | Evidence recorded": 50,
+  "Canadian price | Resolved": 31,
+  "Identity | Resolved": 2,
+  "Print setup | Evidence recorded": 109,
+  "Mechanical | Partially resolved": 2,
+  "Thermal | Evidence recorded": 116,
+  "Moisture / environmental | Resolved": 1,
+  "Post-processing / application | Gap": 32,
+  "Canadian price | Evidence recorded": 40,
+  "Moisture / environmental | Gap": 100,
+  "Canadian price | Limited comparability": 30,
+  "Canadian price | Gap": 52,
+  "Print setup | Reviewed with limitations": 5,
+  "Mechanical | Reviewed with limitations": 1,
+  "Mechanical | Limited comparability": 4,
+  "Thermal | Limited comparability": 4,
+  "Print setup | Gap": 26,
+  "Mechanical | Gap": 9,
+  "Thermal | Gap": 13,
+  "Thermal | Partially resolved": 2,
+  "H2C status | Reviewed with limitations": 1,
+  "Print setup | Partially resolved": 1,
+  "Identity | Conflict": 1,
+  "H2C status | Gap": 61,
+  "Post-processing / application | blank": 71
+ }
+}
