@@ -74,6 +74,7 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | After gap closure, `verify:fast` 58.5 s warm and 106.7 s cold: the warm run meets the 90 s budget; the cold overrun is recorded for the owner's chosen performance follow-up (OPEN-PROBLEMS §19). A save is one transaction, a fetch bounded and resumable (D104); a decision is traced from the command line (D105). A product still takes the pipeline, which stays paused except for named exceptions |
 | C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | 2 | A chosen product keeps its state, release, note and the team's own test results with the scenario, and its brief is written (D103); no shared list, account or server, as decided |
 | C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | 4 | An independent acceptance portfolio (46 expectations) and seven metamorphic relations guard the decisions; a release is its content (D96); `verify` fails without Chrome; `npm run doctor` and three routes start a reader. The audit record is still long |
+| C16 | Price (a CAD/kg for each material, each product's own where it has one) | – | – | – | Added with the price pass of 2026-09-30, not yet scored; price was 33 materials and 38 products until then. Now 101 of 136 materials and 214 of 1,077 products priced, 30 materials from a converted foreign listing (D113); 35 unpriced with why (OPEN-PROBLEMS §22); a snapshot of two days, with no refresh routine |
 
 Re-scored on 2026-09-28, at the end of version 2.1, by Claude (an agent) from the build and the record
 ([RESPONSE.md](audits/2026-09-27-v2.1-review/RESPONSE.md)). The owner may re-score. Two lines wait on people, not code:
@@ -330,6 +331,11 @@ kept as what was decided that morning. The record is [the price pass](audits/202
   recorded as such. The 33 materials priced on 2026-09-10 keep their prices; no refresh routine is built here.
 - It is a bounded exception to the import pause (batches p01 to p04), like b34 to b40, and adds no product,
   material, identity or estimate rule.
+- **Where it ended (2026-09-30).** 101 of 136 materials have a price (33 before), 71 of them from a Canadian listing and
+  30 converted from USD or EUR, marked ¤; 214 products have their own (38 before), 146 of the 732 that pass a frozen
+  default question. The 35 without one are listed with why in the record's OUTCOMES.csv (OPEN-PROBLEMS §22): no
+  procurement product, a product its maker no longer lists, a shop that prints VAT without its rate, out of stock
+  everywhere, or not found in a bounded search. No verdict moved: every template tracks price, none requires it.
 
 ## Working rules
 

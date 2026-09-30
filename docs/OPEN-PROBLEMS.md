@@ -1,6 +1,6 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-29. What it holds is counted in
+What is known to be wrong or missing in this database, as of 2026-09-30. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
 
@@ -850,9 +850,9 @@ and counts exact product states. It leaves these, each with where it is counted:
   D638 (Spectrum PLA Tough, 0.43 GPa, 100 % infill), beside solid PLA's usual 3 to 4 GPa. The engine compares them as
   "comparable" (printed, stated direction, dry or unstated); telling a sheet's method apart from its material is a data
   and rules question, not the chart's. The second query lists a material's products by stiffness with their standards.
-- **Cost is Canadian and thin.** The cost goal uses each product's own CAD/kg price; foreign-currency observations and a
-  dated conversion were deferred by the gap-fill tranche (§21), and most products have no price, so the constrained H2C
-  beam ranks none by cost and lists its 14 unpriced product states. The first query counts the products with a listing.
+- **Cost reaches 214 products.** The cost goal uses each product's own CAD/kg price, converted from USD or EUR where the
+  product has no Canadian listing (D113); since the price pass 214 products and 101 materials have one, and the rest are
+  listed as unpriced (§22). The first query counts the products with a listing, by currency.
 - **Estimated context is not offered under Confirmed only.** The plan allowed it there as a display layer; it was left
   out so that Confirmed only stays measured evidence alone everywhere on the page (D107). Under Include uncertain it is
   drawn only while estimates are on, and never for a conditioned question.
@@ -886,17 +886,9 @@ research package's 51 technical findings, and one fact found on re-reading. What
   category page; Spectrum's current shop data calls it "Bio-Based Copolyester (PLA-Free)" (the research's
   GF-PL001-0027, saved as `products.json`). Its SKU does not match the variant, so neither reading settles it. It stays
   a PLA blend until the owner or Spectrum says otherwise.
-- **Prices were not admitted.** Of the 133 targetable materials, the research's 56 regular-offer candidates come to
-  eight that a comparison could use: an in-stock offer whose tax can be separated, for an in-scope material with no
-  price. All eight are EUR or JPY, so each needs the currency, market and tax contract of the plan's 04-PRICES (a
-  schema, a frozen exchange rate, derived CAD-equivalent values, and "Canadian" wording across the page kept apart from
-  a relative price), and none has the rendered selected-offer capture the research could not make. The other 27 are
-  Bambu Lab Canada refreshes of materials already priced, which GOALS leaves to the refresh routine that comes with the
-  team layer (phase 6, decision 3). Every target's outcome is in the record's PRICES.csv. On 2026-09-30 the owner kept
-  price waiting (GOALS). Where a price would decide something: 732 products pass at least one template or acceptance
-  question and 34 have a price; 62 of the 92 materials they belong to have none (the record's `price-targets.mjs`
-  recounts them, maker by maker). When price resumes, a Canadian offer for each passing material's best product comes
-  first, in the current contract.
+- **Prices were not admitted by the tranche.** Its eight usable offers were all foreign, and the currency contract they
+  needed was not built. The price pass of the same day built it (D113) and took prices from saved shop pages instead of
+  the research's notes; what it leaves is §22. The tranche's PRICES.csv stays as its record.
 - **A published bound shows as its number.** A lower bound ("> 300 %") is a product's value with an open interval,
   and the build keeps it one (V011516), but the key-number cards and the products table draw it as "300 %*", with the
   not-comparable mark and no "more than". It was so before the tranche: four materials' hints and 46 product values are
@@ -933,4 +925,36 @@ gaps against "153 candidate materials" stood here and went stale with m141 and b
 
 ```bash
 npm run sql --silent -- "select status, count(*) from coverage group by 1 order by 2 desc"
+```
+
+## 22. What the price pass leaves open
+
+The price pass of 2026-09-30 (GOALS; [the record](audits/2026-10-01-price-pass/README.md)) priced 101 of the 136
+materials in scope, 30 of them converted from USD or EUR, and 214 products. What it leaves:
+
+- **35 materials have no price**, each with its reason in the record's [OUTCOMES.csv](audits/2026-10-01-price-pass/OUTCOMES.csv).
+  Three have no procurement product (M056, M058, M060). Seven are 3DXTECH products its catalogue no longer lists
+  (3DXSTAT ESD-PA12, ESD-TPC, ESD-PVDF, ESD-PPS, 3DXMAX PC/ASA, CarbonX PC/ABS, Hyperlite PP): whether they are
+  discontinued is 3DXTECH's to say. Fabru (purefil), Fillamentum, and the shops selling LEHVOSS and 3D4Makers print VAT
+  without its rate or no VAT basis at all, so their prices cannot be taken before tax; a page or a written quote that
+  states it would admit them. PC-PTFE and TPU-EC were out of stock everywhere found. The rest were not found in a
+  bounded search.
+- **The prices are a snapshot of two days.** 104 listings were read on 2026-09-10 and 253 on 2026-09-30; none is
+  refreshed, and no routine refreshes them (GOALS: with the team layer). The exchange rates are the Bank of Canada's for
+  2026-09-29, frozen; a later batch adds a later rate, which then applies to every foreign listing.
+- **An Amazon.ca price is the maker's Amazon price**, which can sit well above its own shop's (Siraya Tech's Fibreheart
+  PPA-GF: 105.93 CAD there, 45.59 USD in its US shop that does not ship to Canada). The owner accepted Amazon.ca as the
+  last Canadian option; five materials rest on it.
+- **A sale is read where the page marks it.** Shopify's compare-at price, schema.org's strike-through price, Amazon's
+  List Price and 3DJake's replaced price are read; a shop that shows a discount only in a picture would be recorded at
+  its sale price as regular.
+- **A mass from the description or a diameter from the data sheet is a reviewer's reading.** Where a listing's title
+  prints no net mass the review took its description's (marked in the row's Notes), and four listings that name no
+  diameter rest on their product's own sheet printing 1.75 mm and no other. PolyMide CoPA is two grades of one product
+  (G057-01, G057-03); its listings are recorded under G057-03 only.
+- **The reviews are an agent's.** No person has spot-checked a listing against its page.
+
+```bash
+npm run sql --silent -- "select currency, count(*) listings, count(distinct gradeid) products from prices where quarantined = 0 group by currency"
+node docs/audits/2026-10-01-price-pass/outcomes.mjs
 ```

@@ -115,3 +115,36 @@ Flax (two net masses on one page), Extrudr Green-TEC and Green-TEC PRO CF (2.5 a
 GreenyHT (identity held).
 
 Materials with a price: 85 → 101. The frozen replay still moves no verdict.
+
+## Where it ended (release 2e1d96975e18)
+
+| | 2026-09-30, before | After p01 to p04 |
+|---|---|---|
+| Materials in scope with a price | 33 of 136 | **101 of 136** |
+| … in CAD from a Canadian shop or Amazon.ca maker store | 33 | 71 |
+| … converted, with no Canadian listing (¤) | 0 | 30 (14 from USD, 16 from EUR) |
+| Products with a price of their own | 38 of 1,077 | 214 |
+| Products passing a frozen default question, priced | 33 of 732 | 146 |
+| Materials with a passing product, priced | 30 of 92 | 77 |
+| Price listings (live) | 102, all CAD, 3 shops | 355 (306 CAD, 22 USD, 27 EUR), 15 sellers, 284 in stock |
+
+[OUTCOMES.csv](OUTCOMES.csv) (`outcomes.mjs`) gives every material its price, tiers and products priced, or why it has
+none. The 35 without one: three have no procurement product (M056, M058, M060); seven are 3DXTECH products its own
+catalogue no longer lists; five are made in the database only by Fabru (purefil), whose shop prints VAT without its
+rate, and two only by Fillamentum, whose shop does the same, and PVC, PE-GF and OBC have one of those two and a second
+maker not found; LEHVOSS's two PAHT materials and PCL are sold where no page states the VAT basis; PC-PTFE and TPU-EC
+are out of stock everywhere found; the other ten are products not found in a bounded search, or found unusable
+(Flashforge's PBT-GF and "Flexible", colorFabb's LW-PET, FormFutura's Crystal Flex, Nanovia's, Tarfuse's and purefil's
+POM, Ultrafuse PC GF30 out of stock, Extrudr Flax printing two masses, the bulk-only Green-TEC PRO CF, Markforged's
+Onyx GF sold by volume). None was forced: a price whose VAT basis a page does not state, or whose mass it prints twice,
+is not a price the comparison can use (D113).
+
+**What moved.** The frozen replay ([FROZEN-REPLAY.json](FROZEN-REPLAY.json); 15 questions, 18,195 evaluations against
+the base release 26424edd53e5) moved no verdict: every template tracks price, none requires it (D101). What moved is
+what a price shows and what it ranks: material medians, ranges and buy links, the price column, the cost-per-volume
+axis and the cost indices, which now reach 214 products where they reached 38.
+
+**Checks.** Every listing passed `ingest:prices`' guard and a rehearsal on a copy (schema, lint, core build); each
+batch is a migration whose second run writes nothing (m228, m229, m231, m232; m227 the contract, m230 the rates); full
+`npm run verify` passed before every commit; the 111 documents the listings cite, and the Bank of Canada's, are in the
+private source store. Reviews are an agent's (Claude); no person has spot-checked a listing.

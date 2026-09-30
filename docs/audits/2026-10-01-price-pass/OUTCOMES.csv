@@ -1,0 +1,137 @@
+MaterialID,Material,Priced,CAD/kg,Tiers,Converted,Products priced,Why not
+M001,PLA,yes,33.32,Canadian shop (2026-09-10); Canadian shop,no,29 of 200,
+M008,PLA Silk,yes,32.245,Canadian shop (2026-09-10); Canadian shop,no,6 of 35,
+M011,PLA Metal,yes,31.99,Canadian shop (2026-09-10),no,2 of 9,
+M012,PLA Marble,yes,31.49,Canadian shop (2026-09-10); Canadian shop,no,2 of 7,
+M013,PLA Sparkle,yes,31.99,Canadian shop (2026-09-10),no,1 of 4,
+M014,PLA Wood,yes,44.99,Canadian shop (2026-09-10); Canadian shop,no,4 of 21,
+M015,PLA Galaxy,yes,31.99,Canadian shop (2026-09-10),no,1 of 4,
+M016,PLA Glow,yes,35.97,Canadian shop (2026-09-10); Canadian shop,no,2 of 7,
+M017,PLA Aero,yes,57.99,Canadian shop (2026-09-10),no,1 of 14,
+M018,PLA-CF,yes,40.49,Canadian shop (2026-09-10); Canadian shop,no,2 of 19,
+M019,PLA-GF,yes,40.99,Canadian shop,no,1 of 4,
+M020,PETG,yes,25.995,Canadian shop (2026-09-10); Canadian shop,no,15 of 76,
+M024,PETG-CF,yes,40.99,Canadian shop (2026-09-10); Canadian shop,no,3 of 24,
+M025,PETG-GF,yes,36.99,Canadian shop,no,1 of 5,
+M026,PETG-ESD,yes,138.64,Canadian shop,no,2 of 10,
+M027,ABS,yes,39.99,Canadian shop (2026-09-10); Canadian shop,no,9 of 57,
+M028,ABS-GF,yes,38.99,Canadian shop (2026-09-10),no,1 of 12,
+M029,ABS-CF,yes,44.99,Canadian shop,no,2 of 11,
+M030,ABS-ESD,yes,222.75,USD,2 product(s) from USD,2 of 11,
+M031,ASA,yes,39.47,Canadian shop (2026-09-10); Canadian shop,no,5 of 43,
+M032,ASA Aero,yes,63.99,Canadian shop (2026-09-10),no,1 of 5,
+M033,ASA-CF,yes,64.99,Canadian shop,no,5 of 18,
+M034,ASA-GF,yes,95.99,Canadian shop,no,1 of 6,
+M035,PC,yes,50.99,Canadian shop (2026-09-10); Canadian shop,no,5 of 24,
+M036,PC FR,yes,69.99,Canadian shop (2026-09-10),no,1 of 2,
+M037,PC-CF,yes,151.99,Canadian shop,no,1 of 10,
+M038,PC-GF,no,,,,0 of 3,Ultrafuse PC GF30 is listed only out of stock (Shop3D.ca); SIDDAMENT sells in AUD and not to Canada; purefil prints VAT without its rate.
+M045,PEBA,yes,106.24,"Amazon.ca, the maker's store",no,1 of 10,
+M046,TPC / TPEE,yes,87.97,EUR,2 product(s) from EUR,2 of 11,
+M048,PAHT-CF,yes,124.49,Canadian shop (2026-09-10),no,1 of 5,
+M049,PA6,yes,162.65,Canadian shop (2026-09-10),no,1 of 9,
+M050,PA6-CF,yes,129.98,Canadian shop (2026-09-10); Canadian shop,no,4 of 14,
+M051,PA6-GF,yes,83.98,Canadian shop (2026-09-10); Canadian shop,no,3 of 11,
+M052,PA12,yes,182.79,USD,2 product(s) from USD,2 of 8,
+M053,PA12-CF,yes,299.98,Canadian shop,no,1 of 16,
+M054,PA12-GF,yes,246.87,USD,1 product(s) from USD,1 of 3,
+M055,PA66,yes,245.91,USD,1 product(s) from USD,1 of 2,
+M056,PA66-CF,no,,,,0 of 0,No procurement product: nothing to price until the database holds one.
+M057,PA6/66,yes,39.99,Canadian shop,no,3 of 8,
+M058,PA612,no,,,,0 of 0,No procurement product: nothing to price until the database holds one.
+M059,PA612-CF,yes,169.99,Canadian shop,no,2 of 3,
+M060,PA612-GF,no,,,,0 of 0,No procurement product: nothing to price until the database holds one.
+M064,PA-ESD,no,,,,0 of 1,"3DXTECH's own catalogue (captured 2026-09-30) no longer lists it, and no captured shop does."
+M065,PA612-ESD,yes,177.98,Canadian shop,no,1 of 1,
+M066,PET,yes,114.65,Canadian shop,no,1 of 7,
+M067,PET-CF,yes,112.5,Canadian shop (2026-09-10); Canadian shop,no,3 of 8,
+M068,PET-GF,yes,69.495,Canadian shop,no,2 of 4,
+M069,PPA,yes,84.99,"Amazon.ca, the maker's store",no,1 of 2,
+M070,PPA-CF,yes,254.65,Canadian shop (2026-09-10),no,1 of 9,
+M071,PPA-GF,yes,105.93,"Amazon.ca, the maker's store",no,1 of 5,
+M072,PPS,yes,229.835,USD,2 product(s) from USD,2 of 2,
+M073,PPS-CF,yes,209.65,Canadian shop (2026-09-10); Canadian shop,no,2 of 7,
+M074,PPS-GF,yes,163.98,Canadian shop,no,1 of 2,
+M075,PVA,yes,121.33,Canadian shop (2026-09-10); Canadian shop,no,3 of 11,
+M076,BVOH,yes,329.16,USD,1 product(s) from USD,1 of 4,
+M077,Support for PLA,yes,72.985,Canadian shop,no,2 of 2,
+M078,Support for PLA/PETG,yes,89.98,Canadian shop (2026-09-10),no,1 of 1,
+M079,Support for ABS,yes,39.98,Canadian shop (2026-09-10),no,1 of 1,
+M080,Support for PA/PET,yes,83.5,Canadian shop,no,1 of 3,
+M081,HIPS,yes,42.99,Canadian shop (2026-09-10),no,1 of 12,
+M082,PP,yes,77.49,EUR,2 product(s) from EUR,3 of 12,
+M083,PP-CF,yes,146.65,Canadian shop,no,1 of 5,
+M084,PP-GF,yes,118.25,EUR,1 product(s) from EUR,1 of 2,
+M085,PE,yes,120.6,EUR,1 product(s) from EUR,1 of 2,
+M086,OBC,no,,,,0 of 2,"Fillamentum's shop prints ""Tax included."" without the rate, and no Canadian, US or 3DJake listing was found. Dow's EVOLV3D OBC has no public price found."
+M087,POM / Acetal,no,,,,0 of 4,Tarfuse POM (filamentworld.de) and purefil POM state no VAT basis on their pages; Yousu's shop was not reached in this pass.
+M088,PCTG,yes,47.99,Canadian shop (2026-09-10),no,1 of 8,
+M089,CPE,yes,62.66,Canadian shop,no,1 of 5,
+M090,CPE-CF,yes,81.32,Canadian shop,no,1 of 3,
+M091,CoPE,yes,21.59,"Amazon.ca, the maker's store",no,1 of 1,
+M092,nGen / Amphora,yes,77.32,Canadian shop,no,1 of 2,
+M093,PVB,yes,85.32,Canadian shop,no,3 of 6,
+M094,PC-ABS,yes,63.99,Canadian shop,no,3 of 13,
+M095,PC-PBT,yes,69.99,Canadian shop,no,1 of 2,
+M096,PVDF,yes,355.65,USD,1 product(s) from USD,1 of 3,
+M103,PP Lightweight,no,,,,0 of 1,"3DXTECH's own catalogue (captured 2026-09-30) no longer lists it, and no captured shop does."
+M104,PA6-CE,yes,160.82,EUR,1 product(s) from EUR,1 of 1,
+M105,ASA-EC,yes,125.09,EUR,1 product(s) from EUR,1 of 1,
+M106,ABS-AF,yes,126.65,Canadian shop,no,1 of 3,
+M107,PLA-ESD,yes,199.99,Canadian shop,no,1 of 2,
+M108,PA6-GS,yes,179.99,Canadian shop,no,1 of 1,
+M109,PETG-PTFE,yes,85.99,Canadian shop,no,1 of 2,
+M110,PCTG-GF,yes,164.58,USD,1 product(s) from USD,1 of 3,
+M111,PLA-EC,yes,199.98,Canadian shop,no,1 of 2,
+M112,PC-PTFE,no,,,,0 of 2,"Every listing found is out of stock (Spectrum's North American shop, 3DJake); Nanovia as above."
+M113,ASA-AF,yes,114.65,Canadian shop,no,2 of 3,
+M114,TPC-ESD,no,,,,0 of 1,"3DXTECH's own catalogue (captured 2026-09-30) no longer lists it, and no captured shop does."
+M116,PC-ESD,yes,253.32,Canadian shop,no,1 of 2,
+M119,PC-ASA,no,,,,0 of 1,"3DXTECH's own catalogue (captured 2026-09-30) no longer lists it, and no captured shop does."
+M120,PVDF-ESD,no,,,,0 of 1,"3DXTECH's own catalogue (captured 2026-09-30) no longer lists it, and no captured shop does."
+M124,PPS-ESD,no,,,,0 of 1,"3DXTECH's own catalogue (captured 2026-09-30) no longer lists it, and no captured shop does."
+M126,TPU-ESD,yes,174.22,EUR,1 product(s) from EUR,1 of 2,
+M128,PC-ABS-CF,no,,,,0 of 1,"3DXTECH's own catalogue (captured 2026-09-30) no longer lists it, and no captured shop does."
+M129,TPU-CF,yes,188.685,USD,2 product(s) from USD,2 of 3,
+M130,PPE-PS,yes,147.56,USD,1 product(s) from USD,1 of 1,
+M131,PC-PBT-CF,yes,114.86,EUR,1 product(s) from EUR,1 of 1,
+M132,PBT-GF,no,,,,0 of 1,Neither of Flashforge's shops captured lists PBT-GF.
+M133,PBAT,no,,,,0 of 1,"No listing of Flashforge's ""Flexible"" filament was found; the matches were printer parts."
+M134,CPE-LW,yes,166.13,USD,1 product(s) from USD,1 of 1,
+M135,PVC,no,,,,0 of 2,"Only Fabru (purefil) makes it in the database; its shop prints ""inkl. ges. MwSt."" without the rate, so no price can be taken before VAT. Fillamentum's Vinyl 303: shop prints ""Tax included."" without the rate."
+M136,SAN,no,,,,0 of 2,"Only Fabru (purefil) makes it in the database; its shop prints ""inkl. ges. MwSt."" without the rate, so no price can be taken before VAT."
+M137,COC,no,,,,0 of 2,"Only Fabru (purefil) makes it in the database; its shop prints ""inkl. ges. MwSt."" without the rate, so no price can be taken before VAT."
+M138,PE-GF,no,,,,0 of 3,"Only Fabru (purefil) makes it in the database; its shop prints ""inkl. ges. MwSt."" without the rate, so no price can be taken before VAT. iSANMATE's HDPE glass-fibre was not in its own shop's catalogue."
+M139,LCP,no,,,,0 of 1,"Only Fabru (purefil) makes it in the database; its shop prints ""inkl. ges. MwSt."" without the rate, so no price can be taken before VAT."
+M140,PBT,no,,,,0 of 2,"Only Fabru (purefil) makes it in the database; its shop prints ""inkl. ges. MwSt."" without the rate, so no price can be taken before VAT."
+M141,PET-LW,no,,,,0 of 2,"colorFabb's LW-PET is not at 3DJake, and colorFabb's own shops were not readable (the US shop draws its pages by script)."
+M142,nGen-CF,yes,89.34,EUR,1 product(s) from EUR,1 of 1,
+M143,nGen FLEX,yes,76.29,EUR,1 product(s) from EUR,1 of 1,
+M144,PCTG-CF,yes,138.1,USD,1 product(s) from USD,1 of 3,
+M145,PLA-PHA,yes,77.32,Canadian shop,no,1 of 1,
+M146,PLA-PHB,no,,,,0 of 1,"Fillamentum's shop prints ""Tax included."" without the rate, and no Canadian, US or 3DJake listing was found."
+M147,PAHT,no,,,,0 of 1,LEHVOSS sells through 3D4Makers and filamentworld.de; neither page states the VAT basis of its price.
+M148,PAHT-CE,no,,,,0 of 2,LEHVOSS sells through 3D4Makers and filamentworld.de; neither page states the VAT basis of its price.
+M149,PCL,no,,,,0 of 4,"3D4Makers lists Facilan PCL 100 without stating its VAT basis; no iSANMATE, SUNLU or Filament2Print listing was found in a bounded search."
+M150,TPU-LW,yes,69.99,"Amazon.ca, the maker's store",no,1 of 4,
+M151,TPU-GF,yes,56.74,USD,1 product(s) from USD,1 of 1,
+M152,PLA-NF,no,,,,0 of 2,"Extrudr Flax at 3DJake prints two net masses (1100 g in its title, 1.000 g in its properties). Nanovia sells through variable listings whose shop data states no VAT basis for the price; not at 3DJake."
+M153,PETG-GR,yes,85.76,EUR,1 product(s) from EUR,1 of 2,
+M154,PA12-AF,no,,,,0 of 1,"Fillamentum's shop prints ""Tax included."" without the rate, and no Canadian, US or 3DJake listing was found."
+M155,PLA-GR,yes,42.88,EUR,2 product(s) from EUR,2 of 2,
+M156,PA6/66-CF,yes,72.36,EUR,1 product(s) from EUR,1 of 1,
+M157,TPU-EC,no,,,,0 of 2,Every listing found is out of stock (Recreus Conductive Filaflex at Narrow Path 3D and 3DJake); NinjaTek's Eel page carries no readable offer data.
+M158,PLA-CE,yes,113.5,USD,1 product(s) from USD,1 of 1,
+M159,TPU 85A class and softer,yes,57.99,Canadian shop,no,3 of 17,
+M160,TPU 90A class,yes,74.985,Canadian shop (2026-09-10); Canadian shop,no,2 of 13,
+M161,TPU 95A class,yes,82.995,Canadian shop (2026-09-10); Canadian shop,no,2 of 30,
+M162,TPU harder than 95A,yes,47.49,Canadian shop (2026-09-10),no,1 of 15,
+M164,"Nylon, maker-undisclosed polyamide",yes,107.21,EUR,2 product(s) from EUR,2 of 5,
+M165,"Nylon-CF, maker-undisclosed polyamide",yes,166.56,EUR,1 product(s) from EUR,1 of 1,
+M166,"Nylon-GF, maker-undisclosed polyamide",no,,,,0 of 1,"Markforged sells Onyx GF by volume (cm³), with no net mass."
+M167,"TPE, maker-undisclosed elastomer",no,,,,0 of 4,Nanovia sells through variable listings whose shop data states no VAT basis for the price; not at 3DJake.
+M168,PLA blend,yes,53.59,EUR,3 product(s) from EUR,3 of 7,
+M169,PLA blend-CF,no,,,,0 of 2,"Only a 5 kg Green-TEC PRO CF spool, on sale, was found (3DJake), and bulk is kept out; BigRep's shop was not reached."
+M170,TPS,yes,54.99,Canadian shop,no,1 of 5,
+M174,SBC,no,,,,0 of 1,"FormFutura Crystal Flex is not at 3DJake, and FormFutura's own shop was not reached."
+M175,TPV,no,,,,0 of 1,"Only Fabru (purefil) makes it in the database; its shop prints ""inkl. ges. MwSt."" without the rate, so no price can be taken before VAT."
