@@ -19,13 +19,13 @@ Database snapshot 2026-09-21 · build 2026-09-30
 | quarantined | 18 |
 | profiles | 1316 |
 | evidence | 625 |
-| prices | 303 |
-| sources | 1784 |
-| coverage | 945 |
+| prices | 308 |
+| sources | 1789 |
+| coverage | 949 |
 | knowHow | 4665 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 338 |
-| coverageDerived | 706 |
+| coverageDerived | 707 |
 
 ## Headline coverage
 
@@ -42,7 +42,7 @@ What a selection criterion can actually decide, out of 175 canonical materials.
 | izodNotched | 26 |
 | hdt045 | 99 |
 | glassTransition | 83 |
-| priceCADkg | 66 |
+| priceCADkg | 71 |
 
 ## H2C envelope gate
 

@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "27e993bd084ac4b348a549afb2249acf33d463d1c4eb39110adc484943858938",
+  "url": "https://www.amazon.ca/dp/B0D4DSK1RY",
+  "format": "amazon",
+  "host": "www.amazon.ca",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-AMAZONCA-20260930-27e993bd084a",
+   "Publisher": "Amazon.ca",
+   "Title": "Polymaker Panchroma CoPE 3D Printer Filament 1.75mm, 1kg, Green",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as a browser drew it on the access date (Amazon draws its price after the page loads): the price, the list price and the seller of the buy box. Pricing only. Amazon.ca (sold by the maker's store). Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.amazon.ca/dp/B0D4DSK1RY",
+   "Locator": "Document / product page",
+   "Applicable grades": "G091-02",
+   "Access state": "retrieved",
+   "Access note": "Drawn by a headless browser and hashed as drawn; not the bytes the server sent",
+   "SHA256": "27e993bd084ac4b348a549afb2249acf33d463d1c4eb39110adc484943858938"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "B0D4DSK1RY",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M091",
+    "GradeID": "G091-02",
+    "Retailer": "Amazon.ca",
+    "Variant / SKU": "Polymaker Panchroma CoPE 3D Printer Filament 1.75mm, 1kg, Green (SKU B0D4DSK1RY)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 21.59,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 21.59,
+    "Currency": "CAD",
+    "Market": "Amazon.ca (sold by the maker's store)",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The buy box shows one price and no List Price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.amazon.ca/dp/B0D4DSK1RY",
+    "Access date": "2026-09-30",
+    "Notes": "The black spool's page (B0D4DTCWYR) showed no price; the green one is recorded. Sold by Polymaker LLC, the maker's own Amazon.ca store. Read from the shop's own page as a browser drew it; offer B0D4DSK1RY."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 2: Amazon.ca, sold by the maker's own store (review-p02.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

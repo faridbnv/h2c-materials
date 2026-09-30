@@ -27,7 +27,7 @@ Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking, on a product the H2C can print.
 153 materials, 136 of them in H2C scope
 11237 measurements, each traceable to a source
-145 have a density, 100 a modulus, 66 a price
+145 have a density, 100 a modulus, 71 a price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -178,7 +178,7 @@ PVB / Specialty Polymers
  not tested 1,020 1.9* 40* 20* 160 — ☆
 CoPE
 Copolyesters
- not tested 1,300 2.52 51.6 — — — ☆
+ not tested 1,300 2.52 51.6 — — 21.6↗ ☆
 CPE
 Copolyesters
  not tested 1,250
@@ -538,7 +538,7 @@ Flexible Elastomers
 9.17–30 · 3
  905
 520–1,107 · 3
- n/a — ☆
+ n/a 106↗ ☆
 PEEK
 Industrial High-Temperature
  not tested 1,300
@@ -911,7 +911,7 @@ High-Performance Engineering
 1,140–1,210 · 2
  2.86 76 3.4 92
 81–103 · 2
- — ☆
+ 85↗ ☆
 PPA-CF
 High-Performance Engineering
  not tested 1,210
@@ -937,7 +937,7 @@ High-Performance Engineering
 2.1–3.5 · 3
  220
 84–227 · 3
- — ☆
+ 106↗ ☆
 PPE-PS
 Polymer Blends
  not tested 1,100 2.25 67 12 112* — ☆
@@ -1150,7 +1150,7 @@ TPU-LW
 Flexible Elastomers
  not tested 1,120
 1,120–1,200 · 3
- — 33* 400* n/a — ☆
+ — 33* 400* n/a 70↗ ☆
 TPV
 Flexible Elastomers
  not tested 1,240 0.0139* — — n/a — ☆

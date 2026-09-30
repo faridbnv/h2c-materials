@@ -448,7 +448,7 @@ M045,PEBA,charpyNotched,none,,kJ/m²,,,,,,,
 M045,PEBA,izodNotched,none,,kJ/m²,,,,,,,
 M045,PEBA,hdt045,not applicable,,°C,,,,,,,
 M045,PEBA,glassTransition,none,,°C,,,,,,,
-M045,PEBA,priceCADkg,none,,CAD/kg,,,,,,,
+M045,PEBA,priceCADkg,value,106.24,CAD/kg,,,,,1,G045-08,
 M046,TPC / TPEE,density,value,1150,kg/m³,,,,,10,G046-01,V001690
 M046,TPC / TPEE,tensileModulusXY,value,0.048,GPa,,,,,2,G046-03,V002305
 M046,TPC / TPEE,tensileStrengthXY,value,12.65,MPa,,,,,2,G046-02,V002289
@@ -688,7 +688,7 @@ M069,PPA,charpyNotched,none,,kJ/m²,,,,,,,
 M069,PPA,izodNotched,none,,kJ/m²,,,,,,,
 M069,PPA,hdt045,value,92,°C,,,,,2,G069-02,V002549
 M069,PPA,glassTransition,value,80,°C,,,,,1,G069-02,V002545
-M069,PPA,priceCADkg,none,,CAD/kg,,,,,,,
+M069,PPA,priceCADkg,value,84.99,CAD/kg,,,,,1,G069-02,
 M070,PPA-CF,density,value,1210,kg/m³,,,,,8,G070-06,V005234
 M070,PPA-CF,tensileModulusXY,value,7.65,GPa,,,,,4,G070-05,V003215
 M070,PPA-CF,tensileStrengthXY,value,108,MPa,,,,,4,G070-06,V005237
@@ -708,7 +708,7 @@ M071,PPA-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M071,PPA-GF,izodNotched,none,,kJ/m²,,,,,,,
 M071,PPA-GF,hdt045,value,220,°C,,,,,3,G071-03,V005306
 M071,PPA-GF,glassTransition,value,80,°C,,,,,1,G071-02,V002623
-M071,PPA-GF,priceCADkg,none,,CAD/kg,,,,,,,
+M071,PPA-GF,priceCADkg,value,105.93,CAD/kg,,,,,1,G071-02,
 M072,PPS,density,value,1305,kg/m³,,,,,2,G072-01,V001339
 M072,PPS,tensileModulusXY,value,2.65,GPa,,,,,1,G072-01,V001341
 M072,PPS,tensileStrengthXY,value,50,MPa,,,,,1,G072-01,V001340
@@ -908,7 +908,7 @@ M091,CoPE,charpyNotched,none,,kJ/m²,,,,,,,
 M091,CoPE,izodNotched,none,,kJ/m²,,,,,,,
 M091,CoPE,hdt045,estimate,61,°C,51.8-69.5,43.2-75.3,43.2-76.8,this-grade,,,
 M091,CoPE,glassTransition,none,,°C,,,,,,,
-M091,CoPE,priceCADkg,none,,CAD/kg,,,,,,,
+M091,CoPE,priceCADkg,value,21.59,CAD/kg,,,,,1,G091-02,
 M092,nGen / Amphora,density,value,1200,kg/m³,,,,,1,G092-02,V005917
 M092,nGen / Amphora,tensileModulusXY,value,1.7,GPa,,,,,2,G092-01,V001956
 M092,nGen / Amphora,tensileStrengthXY,value,54,MPa,,,,,2,G092-01,V001957
@@ -1498,7 +1498,7 @@ M150,TPU-LW,charpyNotched,none,,kJ/m²,,,,,,,
 M150,TPU-LW,izodNotched,none,,kJ/m²,,,,,,,
 M150,TPU-LW,hdt045,not applicable,,°C,,,,,,,
 M150,TPU-LW,glassTransition,none,,°C,,,,,,,
-M150,TPU-LW,priceCADkg,none,,CAD/kg,,,,,,,
+M150,TPU-LW,priceCADkg,value,69.99,CAD/kg,,,,,1,G039-69,
 M151,TPU-GF,density,value,1320,kg/m³,,,,,1,G151-01,V010100
 M151,TPU-GF,tensileModulusXY,value,0.445,GPa,,,,,1,G151-01,V010102
 M151,TPU-GF,tensileStrengthXY,value,32,MPa,,,,,1,G151-01,V010101

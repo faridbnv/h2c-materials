@@ -139,9 +139,9 @@ ABS-AF
 ABS-CF
 45
 40–50 · 2
-24.5
+21.6
 300
-widened to a value shown
+all 153 candidates
 PROCESS REQUIREMENTS
 Where a material has products that pass, each gate is theirs: their own recipes against the H2C, which is what passed them. The line under it is the material's window across every recorded product, context that no product need match (F09).
 Material Nozzle within H2C Bed within H2C Chamber within H2C Hardened nozzle Drying

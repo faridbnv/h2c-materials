@@ -85,35 +85,42 @@ export function jsonLdOffers(bytes, url) {
 }
 
 /**
- * An Amazon product page as a browser drew it. Amazon prints the price in parts ("$", "29", ".", "99") inside the buy
- * box, and a struck-through "List Price" beside it only when the price is below it. Read from the buy box alone, so a
- * sponsored product's price elsewhere on the page is never taken.
+ * An Amazon product page as a browser drew it. The buy box prints the price to pay in parts (a whole and a fraction
+ * inside the span marked priceToPay), a struck-through "List Price" beside it (basisPrice) only when the price is below
+ * it, the stock line (#availability) and who sells it ("Sold by"). Read from those marks alone, so a sponsored product's
+ * price or stock elsewhere on the page is never taken. The currency is the one the page says it shows
+ * (currencyOfPreference).
  */
 export function amazonOffers(bytes, url) {
   const html = Buffer.from(bytes).toString('utf8');
-  const box = (id) => { const m = new RegExp(`id="${id}"[\\s\\S]*?(?=<div id="(?:desktop_buybox|buybox|rightCol)|$)`).exec(html); return m ? m[0].slice(0, 60000) : ''; };
-  const center = box('corePriceDisplay_desktop_feature_div') || box('corePrice_feature_div') || box('apex_desktop');
-  const offscreen = (s) => [...s.matchAll(/<span class="a-offscreen">\s*([^<]+?)\s*<\/span>/g)].map((m) => clean(m[1]));
-  const amount = (s) => { const m = /(?:CDN\$|C\$|CA\$|\$)\s?([\d,]+(?:\.\d{2})?)/.exec(s ?? ''); return m ? Number(m[1].replace(/,/g, '')) : null; };
-  const shown = offscreen(center);
-  const priceText = shown.find((s) => amount(s) != null);
-  const listBlock = /List Price:?[\s\S]{0,600}?<span class="a-offscreen">\s*([^<]+?)\s*<\/span>/i.exec(center) ?? /List Price:?[\s\S]{0,600}?<span class="a-offscreen">\s*([^<]+?)\s*<\/span>/i.exec(html);
+  // The buy box's own price block: the page repeats "price to pay" for members' prices, colour swatches and other offers.
+  const core = html.indexOf('id="corePriceDisplay_desktop_feature_div"');
+  const box = core >= 0 ? html.slice(core, core + 30000) : '';
+  const within = (mark, n) => { const i = box.indexOf(mark); return i >= 0 ? box.slice(i, i + n) : ''; };
+  const after = (mark, n) => { const i = html.indexOf(mark); return i >= 0 ? html.slice(i, i + n) : ''; };
+  const pay = within('apex-pricetopay-value', 1500);
+  const whole = /a-price-whole">([\d,]+)/.exec(pay)?.[1], fraction = /a-price-fraction">(\d+)/.exec(pay)?.[1];
+  const price = whole ? Number(`${whole.replace(/,/g, '')}.${fraction ?? '00'}`) : null;
+  const basis = /<span class="a-offscreen">\s*\$\s?([\d,]+(?:\.\d{2})?)\s*<\/span>/.exec(within('apex-basisprice-value', 600))?.[1];
+  const listPrice = basis ? Number(basis.replace(/,/g, '')) : null;
+  const stockText = clean(after('id="availability"', 600).replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/^id="availability"[^"]*"[^"]*"\s*[^>]*>?/, '');
+  const available = /\bIn Stock\b|Only \d+ left in stock/i.test(stockText) ? true : /Currently unavailable|Temporarily out of stock|Out of Stock/i.test(stockText) ? false : null;
   const title = clean((/<span id="productTitle"[^>]*>([\s\S]*?)<\/span>/.exec(html) ?? [])[1] ?? '');
-  const soldBy = clean(((/id="sellerProfileTriggerId"[^>]*>([\s\S]*?)<\/a>/.exec(html) ?? /Sold by\s*<\/span>[\s\S]{0,400}?<span[^>]*>([\s\S]*?)<\/span>/i.exec(html)) ?? [])[1] ?? '').replace(/<[^>]+>/g, '');
-  const brand = clean((/id="bylineInfo"[^>]*>([\s\S]*?)<\/a>/.exec(html) ?? [])[1] ?? '').replace(/^(Visit the|Brand:)\s*/i, '').replace(/\s*Store$/i, '');
-  const asin = (/\/dp\/([A-Z0-9]{10})/.exec(url) ?? /name="ASIN" value="([A-Z0-9]{10})"/.exec(html) ?? [])[1] ?? null;
-  const addToCart = /id="add-to-cart-button"/.test(html);
-  const unavailable = /Currently unavailable|Temporarily out of stock/i.test(html);
-  const currency = /CDN\$|C\$|CA\$/.test(priceText ?? '') || /amazon\.ca/.test(url) ? 'CAD' : null;
-  const price = amount(priceText);
-  const listPrice = listBlock ? amount(listBlock[1]) : null;
+  const soldBy = clean(((/Sold by:?\s*<\/span>\s*<span[^>]*>([\s\S]*?)<\/span>/i.exec(html) ?? /id="sellerProfileTriggerId"[^>]*>([\s\S]*?)<\/a>/.exec(html)) ?? [])[1] ?? '').replace(/<[^>]+>/g, '');
+  const brand = clean((/<a id="bylineInfo"[^>]*>([\s\S]*?)<\/a>/.exec(html) ?? [])[1] ?? '').replace(/^(Visit the|Brand:)\s*/i, '').replace(/\s*Store$/i, '');
+  const asin = (/<input type="hidden" name="asin" value="([A-Z0-9]{10})"/.exec(html) ?? /\/dp\/([A-Z0-9]{10})/.exec(url) ?? [])[1] ?? null;
+  // What the listing says of itself beyond its title: the product overview table ("Diameter 1.75 Millimetres") and the
+  // feature bullets, where a diameter or a net weight the title leaves out is printed.
+  const block = (id) => { const i = html.indexOf(`id="${id}"`); return i >= 0 ? html.slice(i, i + 20000).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ') : ''; };
+  const description = clean(`${block('productOverview_feature_div')} ${block('feature-bullets')}`.replace(/<[^>]+>/g, ' ')).replace(/Millimet(?:er|re)s?/gi, 'mm').slice(0, 4000);
+  const currency = /id="currencyOfPreference"|name="currencyOfPreference"/.test(html) ? (/name="currencyOfPreference" value="([A-Z]{3})"/.exec(html)?.[1] ?? null) : null;
   if (price == null) return { currency, offers: [] };
   return {
     currency,
     offers: [{
-      key: asin ?? url, product: asin ?? '', variant: asin ?? '', vendor: brand, productType: '', productTitle: title, variantTitle: '', title,
-      sku: asin, price, compareAt: listPrice && listPrice > price ? listPrice : null, currency, soldBy,
-      available: addToCart && !unavailable ? true : unavailable ? false : null, url,
+      key: asin ?? url, product: asin ?? '', variant: asin ?? '', vendor: brand, productType: '', productTitle: title, variantTitle: '', title, description,
+      sku: asin, price, compareAt: listPrice && listPrice > price ? listPrice : null, currency, soldBy, available,
+      url: asin ? `https://www.amazon.ca/dp/${asin}` : url,
     }],
   };
 }

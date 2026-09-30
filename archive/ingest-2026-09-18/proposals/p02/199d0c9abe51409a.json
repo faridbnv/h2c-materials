@@ -1,0 +1,75 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "199d0c9abe51409adc3f373b49d3e288ec4744b86b0345b75b391b2f8db85675",
+  "url": "https://www.amazon.ca/dp/B0DZCD4Z9M",
+  "format": "amazon",
+  "host": "www.amazon.ca",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-AMAZONCA-20260930-199d0c9abe51",
+   "Publisher": "Amazon.ca",
+   "Title": "Siraya Tech Flex TPU Air - Active Foaming 3D Printer Filament, Black, 1kg",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as a browser drew it on the access date (Amazon draws its price after the page loads): the price, the list price and the seller of the buy box. Pricing only. Amazon.ca (sold by the maker's store). Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.amazon.ca/dp/B0DZCD4Z9M",
+   "Locator": "Document / product page",
+   "Applicable grades": "G039-69",
+   "Access state": "retrieved",
+   "Access note": "Drawn by a headless browser and hashed as drawn; not the bytes the server sent",
+   "SHA256": "199d0c9abe51409adc3f373b49d3e288ec4744b86b0345b75b391b2f8db85675"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "B0DZCD4Z9M",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M150",
+    "GradeID": "G039-69",
+    "Retailer": "Amazon.ca",
+    "Variant / SKU": "Siraya Tech Flex TPU Air - Active Foaming 3D Printer Filament, Black, 1kg (SKU B0DZCD4Z9M)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 69.99,
+    "Sale price": 62.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 62.99,
+    "Currency": "CAD",
+    "Market": "Amazon.ca (sold by the maker's store)",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The List Price the buy box strikes through; the price to pay is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://www.amazon.ca/dp/B0DZCD4Z9M",
+    "Access date": "2026-09-30",
+    "Notes": "Sold by Siraya Tech, the maker's own Amazon.ca store. Read from the shop's own page as a browser drew it; offer B0DZCD4Z9M."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 2: Amazon.ca, sold by the maker's own store (review-p02.mjs).",
+    "diameter": "The listing names no diameter; the product's own data sheet (D-SIRAYA-siraya-tech-flex-tpu-air-tds, p. 1) prints \"Diameter (mm) 1.75±0.03\", the only diameter it names."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

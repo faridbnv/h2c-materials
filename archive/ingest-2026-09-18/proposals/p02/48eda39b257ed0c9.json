@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "48eda39b257ed0c9d28f0a246279c95c90f8da45c93510753887e9a2c533bc5f",
+  "url": "https://www.amazon.ca/dp/B0DGQFB1WF",
+  "format": "amazon",
+  "host": "www.amazon.ca",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-AMAZONCA-20260930-48eda39b257e",
+   "Publisher": "Amazon.ca",
+   "Title": "Siraya Tech Fibreheart PPA 3D Printer Filament, High-Strength, Black, 1kg",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as a browser drew it on the access date (Amazon draws its price after the page loads): the price, the list price and the seller of the buy box. Pricing only. Amazon.ca (sold by the maker's store). Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.amazon.ca/dp/B0DGQFB1WF",
+   "Locator": "Document / product page",
+   "Applicable grades": "G069-02",
+   "Access state": "retrieved",
+   "Access note": "Drawn by a headless browser and hashed as drawn; not the bytes the server sent",
+   "SHA256": "48eda39b257ed0c9d28f0a246279c95c90f8da45c93510753887e9a2c533bc5f"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "B0DGQFB1WF",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M069",
+    "GradeID": "G069-02",
+    "Retailer": "Amazon.ca",
+    "Variant / SKU": "Siraya Tech Fibreheart PPA 3D Printer Filament, High-Strength, Black, 1kg (SKU B0DGQFB1WF)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 84.99,
+    "Sale price": 76.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 76.99,
+    "Currency": "CAD",
+    "Market": "Amazon.ca (sold by the maker's store)",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The List Price the buy box strikes through; the price to pay is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://www.amazon.ca/dp/B0DGQFB1WF",
+    "Access date": "2026-09-30",
+    "Notes": "Sold by Siraya Tech, the maker's own Amazon.ca store. Read from the shop's own page as a browser drew it; offer B0DGQFB1WF."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 2: Amazon.ca, sold by the maker's own store (review-p02.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

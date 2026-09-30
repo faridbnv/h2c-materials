@@ -58,14 +58,18 @@ test('a product page\'s schema.org offers give price, currency and stock, with a
   assert.deepEqual(offers.map((o) => [o.key, o.price, o.compareAt, o.available]), [['F-1', 24.9, 29.9, true], ['F-2', 26.9, null, false]]);
 });
 
-test('an Amazon page drawn by a browser gives the buy box\'s price, its list price and its seller', () => {
-  const html = `<span id="productTitle"> ELEGOO PLA Filament 1.75mm 1kg </span><a id="bylineInfo">Visit the ELEGOO Store</a>
-    <div id="corePriceDisplay_desktop_feature_div"><span class="a-price"><span class="a-offscreen">$21.99</span></span>
-    <span class="a-size-small">List Price: <span class="a-price a-text-price"><span class="a-offscreen">$27.99</span></span></span></div>
-    <input id="add-to-cart-button"><a id="sellerProfileTriggerId">ELEGOO Official CA</a>`;
-  const { currency, offers: [o] } = amazonOffers(Buffer.from(html), 'https://www.amazon.ca/dp/B0FIXTURE1');
+test('an Amazon page drawn by a browser gives the buy box\'s price, its list price, its stock and its seller', () => {
+  // A member's price elsewhere on the page is not the buy box's.
+  const html = `<input type="hidden" name="currencyOfPreference" value="CAD" id="currencyOfPreference"><input type="hidden" name="asin" value="B0FIXTURE1" id="asin">
+    <span id="productTitle"> ELEGOO PLA Filament 1.75mm 1kg </span><div id="bylineInfo_feature_div"><a id="bylineInfo" href="/stores/ELEGOO">Visit the ELEGOO Store</a></div>
+    <div class="members">priceToPay <span class="a-price-whole">17<span class="a-price-decimal">.</span></span><span class="a-price-fraction">49</span></div>
+    <div id="corePriceDisplay_desktop_feature_div"><span class="a-price priceToPay apex-pricetopay-value"><span class="a-price-whole">21<span class="a-price-decimal">.</span></span><span class="a-price-fraction">99</span></span>
+    <span class="basisPrice">List Price: <span class="a-price a-text-price apex-basisprice-value" data-a-strike="true"><span class="a-offscreen">$27.99</span></span></span></div>
+    <div id="availability" class="a-section"><span class="primary-availability-message"> In Stock </span></div>
+    <span class="a-size-small"> Sold by: </span> <span class="a-size-small"> ELEGOO Official CA </span>`;
+  const { currency, offers: [o] } = amazonOffers(Buffer.from(html), 'https://www.amazon.ca/dp/B0FIXTURE1?th=1');
   assert.equal(currency, 'CAD');
-  assert.deepEqual([o.key, o.price, o.compareAt, o.available, o.soldBy, o.vendor], ['B0FIXTURE1', 21.99, 27.99, true, 'ELEGOO Official CA', 'ELEGOO']);
+  assert.deepEqual([o.key, o.price, o.compareAt, o.available, o.soldBy, o.vendor, o.url], ['B0FIXTURE1', 21.99, 27.99, true, 'ELEGOO Official CA', 'ELEGOO', 'https://www.amazon.ca/dp/B0FIXTURE1']);
 });
 
 // A proposal as `propose` writes it, built from the fixture documents.

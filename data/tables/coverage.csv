@@ -238,7 +238,7 @@ C00501,M044,Not applicable,Sparse properties,Superseded,Not applicable,"Supersed
 C00502,M044,Not applicable,Comparability,Superseded,Not applicable,"Superseded by C01438 (2026-09-28; was ""Not applicable""): Family entry since 2026-09-13: no product of its own. TPE is a family entry for thermoplastic elastomers: TPU (all grades), PEBA, TPC / TPEE, OBC."
 C00508,M045,Not applicable,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00509,M045,Not applicable,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00510,M045,Not applicable,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00510,M045,Not applicable,Canadian price,Superseded,Not applicable,"Superseded by C01487 (2026-09-30; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00511,M045,Not applicable,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00512,M045,Not applicable,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00516,M046,Not applicable,Mechanical,Superseded,Not applicable,"Superseded by C01200 (2026-09-15; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
@@ -376,7 +376,7 @@ C00739,M068,Not applicable,Canadian price,Superseded,Not applicable,"Superseded 
 C00740,M068,Not applicable,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00746,M069,Not applicable,Moisture / environmental,Gap,Not applicable,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00747,M069,Not applicable,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00748,M069,Not applicable,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00748,M069,Not applicable,Canadian price,Superseded,Not applicable,"Superseded by C01490 (2026-09-30; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00749,M069,Not applicable,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00750,M069,Not applicable,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00751,M069,Not applicable,Mandatory review,Reviewed with limitations,Not applicable,"Reviewed for exclusion, processing boundary or support route. Unresolved conditions remain visible."
@@ -385,7 +385,7 @@ C00760,M070,Not applicable,Sparse properties,Gap,Not applicable,"Not published i
 C00761,M070,Not applicable,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00767,M071,Not applicable,Moisture / environmental,Superseded,Not applicable,"Superseded by C01214 (2026-09-17; was ""Gap""): No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
 C00768,M071,Not applicable,Post-processing / application,Evidence recorded,Not applicable,Evidence-specific finishing and use notes. Missing individual methods are not inferred.
-C00769,M071,Not applicable,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00769,M071,Not applicable,Canadian price,Superseded,Not applicable,"Superseded by C01489 (2026-09-30; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00770,M071,Not applicable,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00771,M071,Not applicable,Comparability,Limited comparability,Not applicable,At least one observation lacks specimen or conditioning information; no family aggregation performed.
 C00777,M072,Not applicable,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
@@ -494,7 +494,7 @@ C00970,M091,Not applicable,Mechanical,Partially resolved,Not applicable,"Printed
 C00971,M091,Not applicable,Thermal,Partially resolved,Not applicable,"Vicat 66 °C recorded. HDT is not published, and Vicat is not substituted for it."
 C00972,M091,Not applicable,Moisture / environmental,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
 C00973,M091,Not applicable,Post-processing / application,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
-C00974,M091,Not applicable,Canadian price,Gap,Not applicable,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+C00974,M091,Not applicable,Canadian price,Superseded,Not applicable,"Superseded by C01488 (2026-09-30; was ""Gap""): Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
 C00975,M091,Not applicable,Sparse properties,Gap,Not applicable,"Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction"
 C00978,M092,Not applicable,Print setup,Evidence recorded,Not applicable,colorFabb nGen TDS v2.0 print guideline recorded as P0167.
 C00979,M092,Not applicable,Mechanical,Evidence recorded,Not applicable,"Printed XY modulus, strength, elongation and notched Charpy from TDS v2.0 are headlines. Injection-moulded raw-material values are recorded separately and never headlines."
@@ -944,3 +944,7 @@ C01483,M037,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian li
 C01484,M095,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian listing of its own products was sampled by the price pass (m228-batch-p01, 2026-09-30); the build counts them."
 C01485,M092,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian listing of its own products was sampled by the price pass (m228-batch-p01, 2026-09-30); the build counts them."
 C01486,M034,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian listing of its own products was sampled by the price pass (m228-batch-p01, 2026-09-30); the build counts them."
+C01487,M045,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian listing of its own products was sampled by the price pass (m229-batch-p02, 2026-09-30); the build counts them."
+C01488,M091,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian listing of its own products was sampled by the price pass (m229-batch-p02, 2026-09-30); the build counts them."
+C01489,M071,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian listing of its own products was sampled by the price pass (m229-batch-p02, 2026-09-30); the build counts them."
+C01490,M069,Not applicable,Canadian price,Resolved,Not applicable,"A Canadian listing of its own products was sampled by the price pass (m229-batch-p02, 2026-09-30); the build counts them."

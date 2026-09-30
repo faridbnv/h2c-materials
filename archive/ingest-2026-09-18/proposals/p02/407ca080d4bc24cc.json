@@ -1,0 +1,75 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "407ca080d4bc24cc1e5a36a9878020294fa9dcf3a6d4045134e1919d8ae9ffab",
+  "url": "https://www.amazon.ca/dp/B0FL7HN6WJ",
+  "format": "amazon",
+  "host": "www.amazon.ca",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-AMAZONCA-20260930-407ca080d4bc",
+   "Publisher": "Amazon.ca",
+   "Title": "Siraya Tech Fibreheart PPA-GF 3D Printer Filament, High-Strength, Black 1kg",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as a browser drew it on the access date (Amazon draws its price after the page loads): the price, the list price and the seller of the buy box. Pricing only. Amazon.ca (sold by the maker's store). Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.amazon.ca/dp/B0FL7HN6WJ",
+   "Locator": "Document / product page",
+   "Applicable grades": "G071-02",
+   "Access state": "retrieved",
+   "Access note": "Drawn by a headless browser and hashed as drawn; not the bytes the server sent",
+   "SHA256": "407ca080d4bc24cc1e5a36a9878020294fa9dcf3a6d4045134e1919d8ae9ffab"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "B0FL7HN6WJ",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M071",
+    "GradeID": "G071-02",
+    "Retailer": "Amazon.ca",
+    "Variant / SKU": "Siraya Tech Fibreheart PPA-GF 3D Printer Filament, High-Strength, Black 1kg (SKU B0FL7HN6WJ)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 105.93,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 105.93,
+    "Currency": "CAD",
+    "Market": "Amazon.ca (sold by the maker's store)",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The buy box shows one price and no List Price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.amazon.ca/dp/B0FL7HN6WJ",
+    "Access date": "2026-09-30",
+    "Notes": "Sold by Siraya Tech, the maker's own Amazon.ca store. Read from the shop's own page as a browser drew it; offer B0FL7HN6WJ."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 2: Amazon.ca, sold by the maker's own store (review-p02.mjs).",
+    "diameter": "The listing names no diameter; the product's own data sheet (D-SIRAYA-Fibreheart-PPA-GF-TDS, p. 2) prints \"Diameter (mm) 1.75±0.03\", the only diameter it names."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

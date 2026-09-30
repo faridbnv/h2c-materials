@@ -154,7 +154,9 @@ export async function captureRendered(batch, urls, format, { date = new Date().t
   } finally {
     try { ws?.close(); } catch { /* closing */ }
     proc.kill();
-    rmSync(profile, { recursive: true, force: true });
+    // Chrome may still be writing its profile as it exits.
+    await sleep(500);
+    rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 300 });
   }
   return out;
 }
@@ -172,7 +174,7 @@ export function batchOffers(batch) {
     if (!b) continue;
     const doc = readOffers(b, c.Format, c.URL);
     const body = c.Format === 'shopify-catalogue' ? new Map(JSON.parse(b.toString('utf8')).products.map((p) => [String(p.id), stripTags(p.body_html)])) : null;
-    for (const o of doc.offers) out.push({ ...o, currency: o.currency ?? doc.currency ?? metaByHost.get(c.Host)?.currency ?? null, description: body?.get(o.product) ?? '', capture: c, meta: metaByHost.get(c.Host) ?? null });
+    for (const o of doc.offers) out.push({ ...o, currency: o.currency ?? doc.currency ?? metaByHost.get(c.Host)?.currency ?? null, description: body?.get(o.product) ?? o.description ?? '', capture: c, meta: metaByHost.get(c.Host) ?? null });
   }
   return out;
 }
@@ -335,7 +337,8 @@ export function guard(proposals, world) {
       else currency = shopMeta(meta).currency;
     }
     const doc = readOffers(bytes, proposal.document.format, proposal.document.url);
-    const body = proposal.document.format === 'shopify-catalogue' ? new Map(JSON.parse(bytes.toString('utf8')).products.map((p) => [String(p.id), stripTags(p.body_html)])) : new Map();
+    const body = proposal.document.format === 'shopify-catalogue' ? new Map(JSON.parse(bytes.toString('utf8')).products.map((p) => [String(p.id), stripTags(p.body_html)]))
+      : new Map(doc.offers.map((o) => [o.product, o.description ?? '']));
     const text = bytes.toString('utf8');
     for (const p of proposal.prices ?? []) {
       const at = `${where} ${p.row?.GradeID ?? '?'} ${p.offer?.key ?? '?'}`;

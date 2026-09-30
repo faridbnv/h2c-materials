@@ -61,3 +61,25 @@ rehearsal. The frozen questions' replay (`../2026-09-29-gap-fill-implementation/
 evaluations) moved no verdict: price is tracked, never required, in every template. What moved is what a price shows:
 the medians, ranges and buy links of materials that were already priced, and the price column of 33 that
 were not. The captured documents a row cites are in the private source store (36 documents).
+
+## Batch p02: Amazon.ca, sold by the maker's own store (2026-09-30)
+
+The last Canadian option. Amazon.ca was searched for the unpriced products of every maker with an Amazon.ca store of its
+own (SUNLU, ERYONE, iSANMATE, ELEGOO, Kingroon, Creality, Anycubic, Siraya Tech, Polymaker, eSUN); only Siraya Tech's and
+Polymaker's were sold there by the maker. Five product pages were drawn by a browser and hashed as drawn
+(`archive/ingest-2026-09-18/prices/p02/`); the reader takes the buy box's price to pay, its struck-through List Price,
+its stock line and its seller, never a member's price or another offer elsewhere on the page. Two listings name no
+diameter; each product's own data sheet, already registered, prints "Diameter (mm) 1.75±0.03" and no other, which the
+review cites ([review-p02.mjs](review-p02.mjs)).
+
+| Product | Material | Amazon.ca | Regular / sale |
+|---|---|---|---|
+| Siraya Tech Rebound PEBA 95A | M045 PEBA | B0FF4RD2D3 | 84.99 CAD / 0.8 kg |
+| Siraya Tech Fibreheart PPA | M069 PPA | B0DGQFB1WF | 84.99 / 76.99 CAD / 1 kg |
+| Siraya Tech Fibreheart PPA-GF | M071 PPA-GF | B0FL7HN6WJ | 105.93 CAD / 1 kg |
+| Polymaker Panchroma CoPE | M091 CoPE | B0D4DSK1RY | 21.59 CAD / 1 kg |
+| Siraya Tech Flex TPU Air | M150 TPU-LW | B0DZCD4Z9M | 69.99 / 62.99 CAD / 1 kg |
+
+Materials with a price: 66 → 71; products 168 → 173; passing products 128 → 130. As the owner accepted, an Amazon.ca
+price is what the maker's store asks there, which can sit well above its own shop's: Siraya Tech's US shop lists
+Fibreheart PPA-GF at 45.59 USD, and ships it only to the US, the EU and Australia.
