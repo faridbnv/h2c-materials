@@ -1,14 +1,14 @@
 {
   "$comment": "Contract for data/tables/prices.csv. Checked by build/src/schema.js.",
-  "title": "Prices CA",
-  "description": "One row per Canadian market observation of one SKU on one access date.",
+  "title": "Prices",
+  "description": "One row per market observation of one SKU on one access date: a Canadian listing in CAD, or a foreign one in its own currency, which prices a product that has no Canadian listing and is compared at the Bank of Canada rate in force (D113).",
   "primaryKey": "PriceID",
   "fields": [
     {
       "name": "PriceID",
       "type": "string",
       "role": "key",
-      "description": "Stable price observation identifier.",
+      "description": "Stable price observation identifier. The prefix is historical: every listing has it, whatever its market.",
       "constraints": {
         "required": true,
         "pattern": "^CA\\d{4}$",
@@ -81,10 +81,10 @@
       }
     },
     {
-      "name": "List price CAD",
+      "name": "List price",
       "type": "number",
       "role": "raw",
-      "description": "Regular list price.",
+      "description": "Regular list price, in the listing's currency, as the page printed it (including any VAT it states).",
       "missing": [
         "Not published"
       ],
@@ -94,10 +94,10 @@
       }
     },
     {
-      "name": "Sale price CAD",
+      "name": "Sale price",
       "type": "number",
       "role": "raw",
-      "description": "Sale price when on sale.",
+      "description": "Sale price when on sale, in the listing's currency.",
       "missing": [
         "Not applicable"
       ],
@@ -147,10 +147,10 @@
       }
     },
     {
-      "name": "Displayed price CAD",
+      "name": "Displayed price",
       "type": "number",
       "role": "raw",
-      "description": "Price displayed at access.",
+      "description": "Price displayed at access, in the listing's currency.",
       "constraints": {
         "required": true,
         "minimum": 0
@@ -160,22 +160,21 @@
       "name": "Currency",
       "type": "string",
       "role": "raw",
-      "description": "Currency.",
+      "description": "Currency the page prints the prices in (ISO 4217). A Canadian listing is in CAD.",
+      "vocabulary": "currencies",
       "constraints": {
-        "required": true,
-        "enum": [
-          "CAD"
-        ]
+        "required": true
       }
     },
     {
       "name": "Market",
       "type": "string",
       "role": "raw",
-      "description": "Market.",
+      "description": "Where the listing sells; schema/vocab/markets.csv declares which markets are Canadian. Only a Canadian listing makes a product listed or buyable in Canada.",
       "constraints": {
         "required": true
-      }
+      },
+      "vocabulary": "markets"
     },
     {
       "name": "Tax / shipping",
@@ -184,6 +183,21 @@
       "description": "Tax and shipping basis.",
       "constraints": {
         "required": true
+      }
+    },
+    {
+      "name": "VAT included %",
+      "type": "number",
+      "role": "raw",
+      "description": "The VAT rate the page states its prices include. Not applicable: the price is before tax. Not published: it includes VAT at a rate the page does not state, so it cannot be compared.",
+      "missing": [
+        "Not applicable",
+        "Not published"
+      ],
+      "constraints": {
+        "required": true,
+        "minimum": 0,
+        "maximum": 30
       }
     },
     {

@@ -488,6 +488,23 @@ test('a quarantined price observation backs no headline, buy link or stock claim
   }
 });
 
+// D113: a foreign listing prices a product that has no Canadian listing, and nothing more. It is never a buy link, the
+// proof of stock in Canada, or one of the listings a Canadian price is the median of.
+test('a foreign listing lists nothing in Canada, and a product with a Canadian listing is priced from it alone', () => {
+  const prices = new Map(db.prices.map((p) => [p.id, p]));
+  for (const x of [...db.materials, ...db.grades]) {
+    for (const id of x.buy?.priceIds ?? []) assert.ok(!prices.get(id)?.foreign, `${x.name ?? x.id}'s buy link or stock cites foreign ${id}`);
+  }
+  for (const g of db.grades) {
+    const h = g.headline?.priceCADkg;
+    if (!h) continue;
+    const cited = h.priceIds.map((id) => prices.get(id));
+    const canadian = db.prices.some((p) => p.gradeId === g.id && !p.foreign && p.headlineSample && p.regularPerKg !== null);
+    if (canadian) assert.ok(cited.every((p) => !p.foreign) && !h.converted, `${g.id} has a Canadian listing but its price cites a foreign one`);
+    else assert.ok(cited.every((p) => p.foreign) && h.converted, `${g.id}'s price is foreign and does not say so`);
+  }
+});
+
 test('a qualitative result is evidence, never a number', () => {
   const qualitative = db.measurements.filter((m) => m.qualitative);
   assert.ok(qualitative.length > 0, 'no qualitative result to check');

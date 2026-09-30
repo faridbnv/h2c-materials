@@ -47,7 +47,7 @@ const valueText = (v, d) => (v === null || v === undefined ? '—' : `${fmtNumbe
 /** Why a product state has no coordinate on an axis, in words. */
 function missingWords(m, def) {
   const what = def.plain.toLowerCase();
-  if (m.reason === 'unpriced') return 'no current Canadian price of its own (a twin\'s is never read)';
+  if (m.reason === 'unpriced') return 'no price of its own in the sample (a twin\'s is never read)';
   if (m.reason === 'other-state') {
     const e = m.elsewhere?.[0];
     return `${what} is published only ${e ? stateWords(e) : 'in another state'}${e?.measurementId ? ` (${e.measurementId})` : ''}; nothing is read across states`;
@@ -134,7 +134,7 @@ export function starter(state) {
     <div class="ws-start-grid">
       ${card('Lightest stiff part', 'Stiffness prescribed, mass minimised.', ['tie-stiffness', 'beam-stiffness', 'panel-stiffness'])}
       ${card('Lightest strength-limited part', 'Strength prescribed, mass minimised. The recorded strength is a proxy: tensile, its endpoint as each sheet states it.', ['tie-strength', 'beam-strength', 'panel-strength'])}
-      ${card('Lowest material cost', 'Material cost per volume: each product\'s own Canadian price times its own density. Shipping is not included.', ['beam-stiffness-cost', 'tie-strength-cost'])}
+      ${card('Lowest material cost', 'Material cost per volume: each product\'s own price times its own density; a price from a foreign listing is converted to CAD. Shipping is not included.', ['beam-stiffness-cost', 'tie-strength-cost'])}
       <div class="ws-start-card"><h3>My geometry is fixed</h3><p>No index applies to fixed dimensions: compare two properties instead, with the requirements as limits.</p>
         <div class="ws-start-members"><button type="button" class="ws-member" data-start-goal=""><span class="ws-member-name">Compare properties</span><span class="ws-member-free">Choose the axes; no line</span></button></div></div>
     </div>
@@ -395,7 +395,7 @@ export function resultsPanel(state, ws, { view = 'decision', drawn = null } = {}
   const gaps = work ? ws.gaps : [];
   const gapBlock = gaps.length ? `<details class="ws-gaps" data-fold="gaps" ${openFolds.get('gaps') ? 'open' : ''}><summary>${plural(gaps.length, tested ? 'passing product' : 'product')} not drawn on these axes</summary>
     <ul>${gaps.slice(0, 40).map((g) => `<li><b>${esc(g.product)}</b> <span class="fine">(${esc(g.name)})</span>: ${g.offLog ? 'a value at or below zero, which a Log axis cannot show' : esc(g.missing.map((m) => missingWords(m, axisDef(m.key))).join('; '))}</li>`).join('')}${gaps.length > 40 ? `<li class="fine">and ${gaps.length - 40} more, in the chart data export</li>` : ''}</ul>
-    ${ws.counts.gaps.unpriced ? `<p class="fine">${plural(ws.counts.gaps.unpriced, 'product')} ha${ws.counts.gaps.unpriced === 1 ? 's' : 've'} no current Canadian price. Prices are observed CAD/kg listings with their dates; shipping is excluded, and no other currency is converted.</p>` : ''}</details>` : '';
+    ${ws.counts.gaps.unpriced ? `<p class="fine">${plural(ws.counts.gaps.unpriced, 'product')} ha${ws.counts.gaps.unpriced === 1 ? 's' : 've'} no price of its own in the sample. Prices are observed listings with their dates, in CAD/kg; a product with only a foreign listing is converted at the Bank of Canada rate (≈). Shipping and duty are excluded.</p>` : ''}</details>` : '';
   const noProducts = ws.noProducts.length ? `<p class="fine">${plural(ws.noProducts.length, 'material')} on screen ha${ws.noProducts.length === 1 ? 's' : 've'} no product to buy, so nothing to draw.</p>` : '';
   // Details replace the list, one at a time (D110): pressing mark after mark swaps the details in place, and "← Ranking"
   // brings the list back as it was left. The list is not drawn meanwhile, so nothing in it can pile up or jump.
@@ -885,7 +885,7 @@ export function readingNote(state, ws, { view }) {
   } else if (est.ranges.length) lines.push(`${materials(est.ranges.length)} ha${est.ranges.length === 1 ? 's' : 've'} only an estimated range on one of these axes; Estimates, under Also, shades ${est.ranges.length === 1 ? 'it' : 'them'} in.`);
   if (ws.objective.index && ws.line?.drawable) lines.push(`<b>The line</b> is one value of M = ${esc(formulaText(ws.objective.index))}; ${ws.line.orientation === 'direct' ? 'above' : 'below'} it is better, and a product on it counts as better. It is a guide: it keeps and removes nothing. The ranking beside the chart orders each material by the median M of its passing products; ${plural(ws.line.rankedAbove, 'material')} rank on the better side of this line.`);
   lines.push('<b>Ranges mean different things:</b> a material\'s box is the spread across its products; a whisker on a dot is the spread a sheet reports for that one value; a dashed range is a model\'s likely interval.');
-  if (state.scenario.rankBy && ws.objective.index?.costForm) lines.push(`${esc(PRICE_CAVEAT.replace('{n} of {total} materials', 'observed Canadian listings'))} Cost per volume is each product's own CAD/kg price, dated, times its own density; shipping is excluded and no other currency is converted.`);
+  if (state.scenario.rankBy && ws.objective.index?.costForm) lines.push(`${esc(PRICE_CAVEAT.replace('{n} of {total} materials', 'observed listings'))} Cost per volume is each product's own CAD/kg price, dated, times its own density; a product with only a foreign listing is converted at the Bank of Canada rate (≈), and shipping and duty are excluded.`);
   return `<div class="ws-summary" role="status"><span class="ws-count">${head}</span>${notDrawn.length ? ` <span class="fine">Not drawn: ${notDrawn.join('; ')}.</span>` : ''}</div>
     <details class="legend-note ws-reading" data-fold="reading" ${openFolds.get('reading') ? 'open' : ''}><summary>Reading this chart</summary><p>${lines.join(' ')}</p></details>`;
 }
@@ -915,7 +915,7 @@ export function chartDataCSV(state, ws, { view }) {
       ws.line?.M !== null && ws.line?.M !== undefined ? `# line at M = ${ws.line.M}: ${lineCount(ws.line.above.pairs, ws.line.above.materials)} on the better side (a product on the line included); a guide, which keeps and removes nothing` : '# line: not placed'] : ['# goal: none (a property comparison)']),
     `# populations: ${lineCount(ws.counts.decision.pairs, ws.counts.decision.materials)} drawn; ${plural(ws.counts.gaps.products, 'passing product')} not drawable on these axes; ${ws.counts.offLog} off a log axis; ${ws.counts.unresolved.pairs} unresolved and ${ws.counts.failed.pairs} failing context marks; ${est.ranges.length} estimated ranges (${est.unavailable.length} unavailable)`,
     '# ranges: a material\'s box is the middle half of its products on each axis (all of them under four), whiskers to the lowest and highest, declared variants apart (marginal, joint combinations unknown); an uncertainty is the source\'s own statistic as published; an estimate is the model\'s likely (80%) interval',
-    ...(p.x === COST_AXIS || p.y === COST_AXIS ? ['# cost per volume: the product\'s own CAD/kg price (observed listings, dated) x its own density; shipping excluded; no currency conversion'] : []),
+    ...(p.x === COST_AXIS || p.y === COST_AXIS ? ['# cost per volume: the product\'s own CAD/kg price (observed listings, dated; a foreign-only product converted at the Bank of Canada rate) x its own density; shipping and duty excluded'] : []),
   ];
   const cols = ['Layer', 'MaterialID', 'Material', 'GradeID', 'Product', 'Variant', 'State', 'Verdict', `X ${xD.plain} (${xD.unit})`, 'X measurement or price', 'X from state', `Y ${yD.plain} (${yD.unit})`, 'Y measurement or price', 'Y from state',
     ...(index ? ['Goal M', 'Material rank', 'On the better side of the line'] : []), 'On the front', 'Why not drawn'];

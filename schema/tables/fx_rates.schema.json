@@ -1,0 +1,78 @@
+{
+  "$comment": "Contract for data/tables/fx_rates.csv. Checked by build/src/schema.js.",
+  "title": "FX rates",
+  "description": "The exchange rates a foreign listing is compared at (D113): one Bank of Canada rate per currency and date, read from a fetched, hashed document. The latest row per currency is in force; older rows are history.",
+  "primaryKey": null,
+  "identity": [
+    "Currency",
+    "Rate date"
+  ],
+  "uniqueKeys": [
+    [
+      "Currency",
+      "Rate date"
+    ]
+  ],
+  "fields": [
+    {
+      "name": "Currency",
+      "type": "string",
+      "role": "canonical",
+      "description": "The currency one unit of which the rate prices.",
+      "vocabulary": "currencies",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Rate date",
+      "type": "date",
+      "role": "raw",
+      "description": "The business day the rate is for.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "CAD per unit",
+      "type": "number",
+      "role": "raw",
+      "description": "Canadian dollars per one unit of the currency, as the source prints it.",
+      "constraints": {
+        "required": true,
+        "minimum": 0
+      }
+    },
+    {
+      "name": "SourceID",
+      "type": "string",
+      "role": "canonical",
+      "description": "The document the rate was read from.",
+      "reference": {
+        "table": "sources",
+        "field": "SourceID"
+      },
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Locator",
+      "type": "string",
+      "role": "raw",
+      "description": "Where in the document the rate is printed.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "Notes",
+      "type": "string",
+      "role": "prose",
+      "description": "Notes.",
+      "constraints": {
+        "required": true
+      }
+    }
+  ]
+}

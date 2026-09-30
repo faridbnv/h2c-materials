@@ -39,7 +39,7 @@ export const TEMPLATES = [
   {
     name: 'Indoor prototype',
     description: 'A shape you want to hold in your hand tomorrow. Screens for a build material the H2C can print; the price is tracked, at most 45 CAD/kg.',
-    notChecked: 'Ease of printing is not rated: no source publishes it. Price is tracked, not required: most products have no sampled Canadian price, which makes sourcing a later task, never a reason to hold a product out.',
+    notChecked: 'Ease of printing is not rated: no source publishes it. Price is tracked, not required: many products have no sampled price, which makes sourcing a later task, never a reason to hold a product out.',
     constraints: [
       SCOPE, BUILD_MATERIAL, ...PRINTABLE,
       { kind: 'numeric', property: 'priceCADkg', operator: '<=', value: 45, mandatory: false, __group: 'Cost' },

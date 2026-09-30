@@ -43,7 +43,11 @@
     },
     "prices": {
       "rows": 104,
-      "sha256": "d6c137ccc0f380ffe122e4abbe6a5c87e2350b61aecff4b4955f830a9ee96f2d"
+      "sha256": "030dd9c7deae71f26bb6dd8eecd0af47a168b94d99b6b24448fd846c3404a468"
+    },
+    "fx_rates": {
+      "rows": 0,
+      "sha256": "0782de4b9d8b9ec5c951c962418c07449995b962c45dca066632780cfad88551"
     },
     "sources": {
       "rows": 1748,
@@ -54,8 +58,8 @@
       "sha256": "a89e4de4197f20a9ef0045dc23db097fc8c657af2af08f9a4b4887936b6e1737"
     },
     "method": {
-      "rows": 50,
-      "sha256": "c1fe0d3f6520e3b6bb7f2ff817beb56039322a3f5169e1182b51150d89fc052e"
+      "rows": 51,
+      "sha256": "355e9f84783ec960539fccbc8ae3d4375f005f9a755365f2a5f14a31397813a5"
     },
     "reference": {
       "rows": 114,
@@ -83,7 +87,7 @@
     },
     "headline_definitions": {
       "rows": 10,
-      "sha256": "ee0e126f19592f950683ad6aa150b18d459f8e33fc04e4766a6a31478ee33ff1"
+      "sha256": "c9c3e0c7fbf425dbb8dd35c2d384ae4c95b52c91c2ed24281836b59824e30674"
     },
     "polymers": {
       "rows": 48,

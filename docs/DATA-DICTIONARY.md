@@ -17,6 +17,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [family_entries](#family_entries) | MaterialID | Canonical names that are families or aliases, not materials (D44). Each is a materials.csv row with Scope Family entry; it owns no product, carries no value, and search answers with its members (family_members.csv). The build fails if this table and the Scope disagree. |
 | [family_members](#family_members) | FamilyMaterialID + MemberMaterialID | The materials a family entry stands for, in the order search lists them. A member must be an in-scope material, not another family entry (checked by the build). |
 | [fatigue_tests](#fatigue_tests) | MeasurementID | The loading of a fatigue life measurement: one row per Fatigue life measurement in measurements.csv, which holds its cycles, source and conditions. A property family with its own test parameters is a child table like this one, not a block of columns every measurement carries. |
+| [fx_rates](#fx_rates) | Currency + Rate date | The exchange rates a foreign listing is compared at (D113): one Bank of Canada rate per currency and date, read from a fetched, hashed document. The latest row per currency is in force; older rows are history. |
 | [grades](#grades) | GradeID | One row per exact commercial, study or resin-reference grade. A grade belongs to exactly one material. |
 | [headline_definitions](#headline_definitions) | HeadlineKey | One row per headline the selector compares materials on. The build and the app read everything about a headline from here: which measurements may back it, its unit, direction and load, its labels, filter, chart axis, table column and export header. A new headline is a new row plus its selections in headlines.csv. |
 | [headlines](#headlines) | MaterialID + HeadlineKey + MeasurementID | Pins one product's value for one headline where the rule would choose another measurement (build/src/products.js). A product's value is otherwise chosen by rule from its own measurements, and a material's headline is its products' spread (D83), so this table is normally empty: the 493 hand picks it held until m137 are archived in docs/audits/2026-09-25-re-center/retired-representative-picks.csv. The number lives only in the measurement. |
@@ -28,7 +29,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [plausibility_windows](#plausibility_windows) | WindowID | One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser. |
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
-| [prices](#prices) | PriceID | One row per Canadian market observation of one SKU on one access date. |
+| [prices](#prices) | PriceID | One row per market observation of one SKU on one access date: a Canadian listing in CAD, or a foreign one in its own currency, which prices a product that has no Canadian listing and is compared at the Bank of Canada rate in force (D113). |
 | [print_guide](#print_guide) | PrintGuideID | What a printer maker's filament guide states for printing a material type, one row per type the guide heads a column with, in a print profile's columns, from a retrieved, hash-checked and cited guide. It is no product's profile. Where a product's own profiles, and its twin's (D89), say nothing on a part of its print gate (nozzle, bed, chamber, enclosure, hardened nozzle), the build reads the row of its material (print_guide_materials.csv) and labels it as the guide's, never the maker's (D88). The drying statement is recorded and fills no product's recipe. |
 | [print_guide_materials](#print_guide_materials) | MaterialID | Which of our materials a print_guide row speaks for, and why: a guide type applies to a material only where it is the same material type (the guide's PC to PC, never to a PC blend or a filled PC the guide does not name). One row per material; a material no row names has no guide, and its silent products stay unknown (D88). |
 | [profile_notes](#profile_notes) | ProfileID + Topic | One row per profile and topic: what a source says about a qualitative side of printing the grade, in its own words. These were columns of profiles.csv, where most were empty on most rows and three were empty on all of them (m44). A new topic is a row of schema/vocab/profile-topics.csv, not a column on every profile. |
@@ -117,6 +118,19 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Frequency Hz | raw | number | yes | Not applicable |  | Loading frequency. |
 | Load ratio R | raw | number | yes | Not applicable |  | Load ratio. |
 | Run-out | raw | boolean | yes | Not applicable |  | Specimen reached run-out without failure. |
+
+### fx_rates
+
+`data/tables/fx_rates.csv` (FX rates). The exchange rates a foreign listing is compared at (D113): one Bank of Canada rate per currency and date, read from a fetched, hashed document. The latest row per currency is in force; older rows are history.
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| Currency | canonical | string | yes |  | [currencies](#vocab-currencies) | The currency one unit of which the rate prices. |
+| Rate date | raw | date | yes |  |  | The business day the rate is for. |
+| CAD per unit | raw | number | yes |  |  | Canadian dollars per one unit of the currency, as the source prints it. |
+| SourceID | canonical | string | yes |  | → sources.SourceID | The document the rate was read from. |
+| Locator | raw | string | yes |  |  | Where in the document the rate is printed. |
+| Notes | prose | string | yes |  |  | Notes. |
 
 ### grades
 
@@ -345,26 +359,27 @@ lists the missing states a column accepts instead of a value; a blank required c
 
 ### prices
 
-`data/tables/prices.csv` (Prices CA). One row per Canadian market observation of one SKU on one access date.
+`data/tables/prices.csv` (Prices). One row per market observation of one SKU on one access date: a Canadian listing in CAD, or a foreign one in its own currency, which prices a product that has no Canadian listing and is compared at the Bank of Canada rate in force (D113).
 
 | Column | Role | Type | Required | May be | Points to / values | Description |
 |---|---|---|---|---|---|---|
-| PriceID | key | string | yes |  | `^CA\d{4}$` | Stable price observation identifier. |
+| PriceID | key | string | yes |  | `^CA\d{4}$` | Stable price observation identifier. The prefix is historical: every listing has it, whatever its market. |
 | MaterialID | canonical | string | yes |  | → materials.MaterialID | Material the SKU belongs to. |
 | GradeID | canonical | string | yes |  | → grades.GradeID | Exact grade sold. |
 | Retailer | raw | string | yes |  |  | Retailer. |
 | Variant / SKU | raw | string | yes |  |  | Variant or SKU as listed. |
 | Packaging | raw | string | yes |  | [packaging](#vocab-packaging) | Spool or refill. |
 | Net mass kg | raw | number | yes |  |  | Net filament mass. |
-| List price CAD | raw | number | yes | Not published |  | Regular list price. |
-| Sale price CAD | raw | number | yes | Not applicable |  | Sale price when on sale. |
+| List price | raw | number | yes | Not published |  | Regular list price, in the listing's currency, as the page printed it (including any VAT it states). |
+| Sale price | raw | number | yes | Not applicable |  | Sale price when on sale, in the listing's currency. |
 | Stock | raw | string | yes |  | [stock](#vocab-stock) | Stock state at access. |
 | Eligible for median | editorial | boolean | yes |  |  | Whether the observation may enter a median. |
 | Headline sample | editorial | boolean | yes |  |  | Whether the observation is in the headline median. |
-| Displayed price CAD | raw | number | yes |  |  | Price displayed at access. |
-| Currency | raw | string | yes |  | CAD | Currency. |
-| Market | raw | string | yes |  |  | Market. |
+| Displayed price | raw | number | yes |  |  | Price displayed at access, in the listing's currency. |
+| Currency | raw | string | yes |  | [currencies](#vocab-currencies) | Currency the page prints the prices in (ISO 4217). A Canadian listing is in CAD. |
+| Market | raw | string | yes |  | [markets](#vocab-markets) | Where the listing sells; schema/vocab/markets.csv declares which markets are Canadian. Only a Canadian listing makes a product listed or buyable in Canada. |
 | Tax / shipping | raw | string | yes |  |  | Tax and shipping basis. |
+| VAT included % | raw | number | yes | Not applicable, Not published |  | The VAT rate the page states its prices include. Not applicable: the price is before tax. Not published: it includes VAT at a rate the page does not state, so it cannot be compared. |
 | Regular price basis | editorial | string | yes |  |  | Why the regular price is regular; "Quarantined" excludes the row. |
 | Quarantined | canonical | boolean | yes |  |  | A listing kept only as an audit trail (a wrong product, a duplicate): it backs no headline, buy link or stock claim. The Regular price basis says why. |
 | URL | raw | string | yes |  | `^https?://` | Listing URL. |
@@ -603,6 +618,17 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Resolved |  |
 | Reviewed with limitations |  |
 | Superseded | An earlier finding replaced by a later row for the same material and domain; kept as an audit trail. |
+
+<a id="vocab-currencies"></a>
+### currencies
+
+`schema/vocab/currencies.csv`, used by fx_rates.Currency, prices.Currency.
+
+| Value | Meaning |
+|---|---|
+| CAD | Canadian dollar; a Canadian listing is in CAD |
+| EUR | Euro |
+| USD | US dollar |
 
 <a id="vocab-data-status"></a>
 ### data-status
@@ -1003,6 +1029,18 @@ lists the missing states a column accepts instead of a value; a blank required c
 | UltiMaker | Dutch maker; MakerBot merged into it in 2022 and the research workbook lists the two together. | Ultimaker;ultimaker;MakerBot;Makerbot;UltiMaker / MakerBot;Ultimaker B.V. |
 | Xenia | Italian compounder (Xenia Materials); its filament line is XECARB. | xeniamaterials;Xenia Materials;XECARB |
 | Yousu | Guangzhou Yousu 3D Technology. | Guangzhou Yousu 3D Technology;Guangzhou Yousu;YOUSU |
+
+<a id="vocab-markets"></a>
+### markets
+
+`schema/vocab/markets.csv`, used by prices.Market.
+
+| Value | Meaning | Canadian |
+|---|---|---|
+| Amazon.ca (sold by the maker's store) | An Amazon.ca listing whose seller is the maker's own store, in CAD; the last Canadian option (GOALS, the price pass) | yes |
+| Canadian storefront | A shop that sells to Canada in CAD, a Canadian retailer or a maker's Canadian store | yes |
+| European storefront | A shop in the European Union, in its own currency; prices include VAT at the rate it states | no |
+| United States storefront | A shop in the United States, in USD, before tax | no |
 
 <a id="vocab-material-links"></a>
 ### material-links

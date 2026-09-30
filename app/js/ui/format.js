@@ -169,7 +169,7 @@ const MISSING_FULL = {
   'insufficient-comparable': 'Evidence exists but cannot support this comparison.',
   'not-applicable': 'This property does not apply to this material.',
   'quarantined': 'Quarantined: an unresolved unit or layout problem in the source.',
-  'not-available-in-market': 'No Canadian price observation in the sampled market.',
+  'not-available-in-market': 'No price observation of its own in the sampled shops.',
 };
 
 const MISSING_LABEL = {
@@ -177,7 +177,7 @@ const MISSING_LABEL = {
   'insufficient-comparable': 'Not comparable',
   'not-applicable': 'Not applicable',
   'quarantined': 'Quarantined',
-  'not-available-in-market': 'No Canadian price',
+  'not-available-in-market': 'No price',
 };
 
 /**
@@ -300,7 +300,7 @@ export function renderValue(entry, { showUnit = false, compact = false, estimate
     ? explainButton('≈', `Close to the limit: published ${fmtNumber(entry.value)} ± ${fmtNumber(entry.uncertainty)} ${entry.unit}, and the threshold lies within that spread. Judged on the mean.`,
       { cls: 'load-mark', head: 'Close to the limit', label: 'Close to the limit' })
     : '';
-  return `${value}${load}${near}`;
+  return `${value}${load}${near}${convertedMark(entry.converted)}`;
 }
 
 /**
@@ -326,7 +326,36 @@ function renderSpread(entry, thresholds, { showUnit, compact, materialId }) {
     + `${apart.length ? ` ${apart.join('; ')}.` : ''} The material's Products tab lists each.`;
   const main = explainButton(`<span class="sv">${median}</span>`, title, { cls: 'spread-value', head: `Typical of ${s.n} products`, action: 'products', id: materialId });
   const range = `<span class="spread" data-lo="${s.min}" data-hi="${s.max}" data-n="${s.n}">${lo}–${hi}<span class="spread-n"> · ${s.n}</span></span>`;
-  return compact ? `${main}${range}` : `${main} ${range}`;
+  return compact ? `${main}${range}${convertedMark(entry.converted)}` : `${main} ${range}${convertedMark(entry.converted)}`;
+}
+
+/**
+ * The price sample in words, counted from the build (D113): "3 Canadian retailers, sampled 2026-09-10", or with foreign
+ * sellers and a span of dates where it has them. It said "three Canadian retailers" in five places, and would have gone
+ * on saying it.
+ */
+export function priceSampleWords(meta, { canadianOnly = false } = {}) {
+  const s = meta.priceSample;
+  if (!s) return `sampled ${meta.pricesSampled ?? meta.snapshot}`;
+  const foreign = !canadianOnly && s.foreignSellers ? ` and ${s.foreignSellers} foreign seller${s.foreignSellers === 1 ? '' : 's'}` : '';
+  const shops = `${s.canadianRetailers} Canadian retailer${s.canadianRetailers === 1 ? '' : 's'}${foreign}`;
+  return `${shops}, sampled ${s.from === s.to ? s.from : `${s.from} to ${s.to}`}`;
+}
+
+/**
+ * A price read from a foreign listing says so beside the number (D113): converted to CAD at the Bank of Canada's rate,
+ * with the VAT the page stated taken off, and no claim that a Canadian shop sells the product or that it ships here.
+ * A material's says how many of the products its median is of were converted.
+ */
+export function convertedMark(converted) {
+  if (!converted) return '';
+  const from = converted.currencies.join(' and ');
+  const which = converted.products
+    ? `${converted.products === 1 ? 'One of the prices is' : `${converted.products} of the prices are`} a foreign listing's`
+    : 'A foreign listing\'s price';
+  const text = `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
+    + `lists ${converted.products ? 'those products' : 'this product'}; shipping, duty and whether it ships to Canada are not included.`;
+  return explainButton('≈', text, { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
 }
 
 /** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */

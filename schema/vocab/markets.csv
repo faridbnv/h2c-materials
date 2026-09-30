@@ -1,0 +1,5 @@
+Value,Meaning,Canadian
+Amazon.ca (sold by the maker's store),"An Amazon.ca listing whose seller is the maker's own store, in CAD; the last Canadian option (GOALS, the price pass)",yes
+Canadian storefront,"A shop that sells to Canada in CAD, a Canadian retailer or a maker's Canadian store",yes
+European storefront,"A shop in the European Union, in its own currency; prices include VAT at the rate it states",no
+United States storefront,"A shop in the United States, in USD, before tax",no

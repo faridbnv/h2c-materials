@@ -134,9 +134,9 @@ Price at most 100 CAD/kg (tracked)
 ABS
 26
 ABS-AF
-No Canadian price
+No price
 ABS-CF
-No Canadian price
+No price
 25.5
 255
 all 153 candidates

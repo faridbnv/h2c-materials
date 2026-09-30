@@ -18,7 +18,8 @@ same records lived in an Excel workbook; the conversion and its proof are in
 | `measurements.csv` | Individual property measurements, the unit of quantitative evidence |
 | `evidence.csv` | Chemical, environmental and application evidence; and makers' know-how, a maker's statements about printing and using its product in its own words (Domain "Makers' know-how"), which the build keeps out of everything that screens (below, "Makers' know-how") |
 | `know_how_reads.csv` | Which sources were read for makers' know-how, how (a document held, or the maker's site searched), when and by whom: the one fact about know-how the build cannot derive |
-| `prices.csv` | Canadian price observations |
+| `prices.csv` | price observations: Canadian listings in CAD, and foreign ones in their own currency (D113) |
+| `fx_rates.csv` | the Bank of Canada rate a foreign listing is compared at, one per currency and date (D113) |
 | `sources.csv` | The source register: what kind of document each is, how it was reached, with access dates, hashes and a Citation role (D71) |
 | `coverage.csv` | Gaps, conflicts, judgements and unresolved items; a replaced finding is Superseded, not deleted. The build adds a row of its own for each domain a material's records prove and no stored row speaks for (D74) |
 | `method.csv` | The rules the database was built under |
@@ -222,7 +223,7 @@ each retrieved source whose text is not in it (D105).
             chamberGuidance,             // what a source says about the chamber in words, or null
             chamberEstimate,             // a research band where nothing better exists; decides nothing
             nozzleEstimate, bedEstimate }, // a window inferred from peers where none is published; decides nothing
-  buy:    { … } | null,                  // the best sampled Canadian offer
+  buy:    { … } | null,                  // the best sampled Canadian offer (a foreign listing is never one, D113)
   gates:  { scope, nozzle, bed, chamber, abrasive, drying },
   profileIds: [], printingEvidence: [],  // its profiles; its printing citations (material_links.csv)
   bestUses, limitations,                 // prose true of this material alone
@@ -347,13 +348,15 @@ Measured (PLA's stiffness at the 2026-09-27 build):
 }
 ```
 
-The price headline has the same shape, with `observations` and `priceIds` (the listings behind it). Where none of the
-material's plain products has a sampled price but the material has listings, it is their median instead, `origin:
-'source'`, with a `basis` sentence counting them (`$defs.headlinePrice`).
+The price headline has the same shape, with `observations` and `priceIds` (the listings behind it), and `converted` where
+some of the products' prices come from foreign listings: how many, from which currencies, at which rate date (D113).
+Where none of the material's plain products has a sampled price but the material has listings, it is their median
+instead, `origin: 'source'`, with a `basis` sentence counting them (`$defs.headlinePrice`).
 
 A product's own value (`grades[].headline[key]`) is `{ value, level, measurementId, caveat?, direction?, interval?,
 uncertainty?, anneal?, pinned?, from? }`, where `from` names the twin whose value it reads (D89); its price is `{ value,
-level, observations, priceIds }`, the median of its own sample listings. The engine judges each product through it
+level, observations, priceIds, converted? }`, the median of its own sample listings: its Canadian ones, or where it has
+none its foreign ones at the rate in force, which `converted` then names (D113). The engine judges each product through it
 (app/js/engine/products.js).
 
 Not measured:
@@ -764,10 +767,11 @@ Pareto front and the shortlist, so it can never be mistaken for a result the fil
 
 ## Availability is not a property
 
-A material with no sampled offer reports UNKNOWN, not FAIL. The price sample is three Canadian
-retailers on one day, which is enough to say "here is where to buy this" and not enough to say
-"this cannot be bought". An offer that was sampled and out of stock is different: that is positive
-evidence, and it fails.
+A material with no sampled offer reports UNKNOWN, not FAIL. The price sample is a few Canadian
+retailers on the days they were read (`meta.priceSample` counts them), which is enough to say "here is where to buy this"
+and not enough to say "this cannot be bought". An offer that was sampled and out of stock is different: that is positive
+evidence, and it fails. A foreign listing can price a product (D113) but is never an offer here: it lists nothing in
+Canada.
 
 In Strict mode both are removed from the results, which is what someone asking to see only what
 they can buy wants. In Explore the unsampled ones stay visible and flagged.

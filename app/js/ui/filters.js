@@ -10,7 +10,7 @@
 
 import { availability } from '../engine/coverage.js';
 import { runSelection } from '../engine/constraints.js';
-import { esc } from './format.js';
+import { esc, priceSampleWords } from './format.js';
 import { prop, envLabel, envNoun, GATE } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 import { PRINTABLE, asksPrintable } from './templates.js';
@@ -237,7 +237,7 @@ function body(group, materials, cs, db, ctx = {}) {
     const def = headlineDef(f.key);
     const extra = a.caveats
       ? `${a.caveats} of those ${a.withData} cite a source that states the standard but not the load`
-      : def?.kind === 'price' ? `Three Canadian retailers, sampled ${db.meta.pricesSampled ?? db.meta.snapshot}`
+      : def?.kind === 'price' ? `${priceSampleWords(db.meta)}; a foreign price is converted to CAD`
       // Why it does not apply, in the registry's own words up to its first stop: the raw rule ("Morphology: amorphous |
       // semicrystalline; Family: ABS | ...") was printed here, which told an engineer nothing.
       : def?.appliesTo ? `Does not apply to ${a.notApplicable} material${a.notApplicable === 1 ? '' : 's'}${notApplicableWhy(def)}` : null;
@@ -263,7 +263,7 @@ function body(group, materials, cs, db, ctx = {}) {
 
   // Availability. Half the results from a template have no price and nothing said whether they
   // could be bought at all, so a recommendation could not be acted on. The data supports this:
-  // 48 materials have at least one sampled Canadian offer and 42 had stock on the sampling date.
+  // 48 materials had at least one sampled Canadian offer and 42 had stock on the sampling date of 2026-09-10.
   if (group === 'Cost') {
     const buy = find(cs, (c) => c.gate === 'buyable');
     const withOffer = materials.filter((m) => m.buy).length;
@@ -273,10 +273,10 @@ function body(group, materials, cs, db, ctx = {}) {
       <div class="avail">${withOffer} of ${materials.length} were listed by a sampled Canadian retailer</div>
       <label class="sub-check"><input type="checkbox" data-buy="stock" ${buy?.inStock ? 'checked' : ''} ${buy ? '' : 'disabled'}>
         and it was in stock when sampled</label>
-      <div class="avail">${inStock} had stock on ${esc(db.meta.pricesSampled ?? db.meta.snapshot)}. Not live stock.</div>
-      <div class="eg">Three retailers, one sampling date, and each product's own listings: another product's stock is
-        not this one's. A product with no offer here is not necessarily unavailable, so it is held as unknown rather
-        than failed.</div>
+      <div class="avail">${inStock} had stock when sampled. Not live stock.</div>
+      <div class="eg">${esc(priceSampleWords(db.meta, { canadianOnly: true }))}, and each product's own listings: another
+        product's stock is not this one's, and a foreign listing lists nothing in Canada. A product with no offer here is
+        not necessarily unavailable, so it is held as unknown rather than failed.</div>
     </div>`);
   }
 

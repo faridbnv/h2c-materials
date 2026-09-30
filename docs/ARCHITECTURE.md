@@ -337,7 +337,7 @@ stage, and the one the architecture brief does not mention at all.
 
 **Missing states** (`values.js`). Four states that must never collapse into each other or into zero:
 not published, insufficient comparable data, not applicable, quarantined. Plus a fifth for price,
-where "not available in the sampled Canadian market" is a different statement from "not published".
+where "no price observation in the sampled shops" is a different statement from "not published".
 
 **Intervals** (`values.js`). What a measurement actually asserts: a point, a range, a value plus
 uncertainty, or a bound from a `>` or `<` operator. The engine judges a value plus uncertainty on its value and

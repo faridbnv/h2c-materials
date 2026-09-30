@@ -350,8 +350,11 @@ function traceRecords(root, query, key) {
         line(depth + 1, `median of ${h.observations} headline-sample observation(s) · ${h.basis ?? ''}`);
         for (const id of h.priceIds) {
           const p = db.prices.find((x) => x.id === id);
-          const row = wb['Prices CA'].rows.find((r) => r.PriceID === id);
-          line(depth + 2, `${id}  (${at(row)})  ${p.retailer} · ${p.variant} · ${p.listPrice} CAD / ${p.netMassKg} kg = ${p.regularPerKg} CAD/kg · ${p.stock} · accessed ${p.accessDate}`);
+          const row = wb.Prices.rows.find((r) => r.PriceID === id);
+          // A foreign listing says its own currency, the VAT it included and the rate it was converted at (D113).
+          const amount = `${p.listPrice} ${p.currency}${p.vatPercent != null ? ` incl. ${p.vatPercent}% VAT` : ''}`;
+          const rate = p.fx ? ` (${p.regularPerKgNative} ${p.currency}/kg × ${p.fx.cadPerUnit} CAD per ${p.currency}, Bank of Canada ${p.fx.date})` : '';
+          line(depth + 2, `${id}  (${at(row)})  ${p.retailer} · ${p.variant} · ${amount} / ${p.netMassKg} kg = ${p.regularPerKg} CAD/kg${rate} · ${p.stock} · accessed ${p.accessDate}`);
           line(depth + 3, p.url);
         }
       } else if (h.spread) {

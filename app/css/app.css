@@ -368,8 +368,8 @@ table.grid td.name { font-weight: 600; }
 .evidence-value:hover .evidence-dot, .evidence-value:focus-visible .evidence-dot { background: var(--accent); }
 .evidence-value:hover > span:first-child { text-decoration: underline dotted 1px; text-underline-offset: 3px; }
 .evidence-value:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
-.load-mark { font-size: 10px; font-weight: 700; color: var(--unknown); vertical-align: super; margin-left: 1px; padding: 0 2px; }
-.load-mark.mark::after { left: -4px; right: -4px; top: -8px; bottom: -8px; }
+.load-mark, .fx-mark { font-size: 10px; font-weight: 700; color: var(--unknown); vertical-align: super; margin-left: 1px; padding: 0 2px; }
+.load-mark.mark::after, .fx-mark.mark::after { left: -4px; right: -4px; top: -8px; bottom: -8px; }
 .not-checked { margin: 10px 0 0 !important; padding: 8px 11px; border-left: 3px solid var(--unknown); background: var(--unknown-bg); color: var(--ink) !important; border-radius: 0 var(--radius) var(--radius) 0; }
 
 /* ---------------------------------------------------------------- drawer */

@@ -14,6 +14,10 @@ import { availability } from '../app/js/engine/coverage.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const legacy = JSON.parse(readFileSync(join(root, 'test/fixtures/legacy-constants.json'), 'utf8')).app;
+// A correction decided since the lists were hardcoded, named by its decision: D113 took "Canadian" out of the price's
+// label and hint, since a product with only a foreign listing now has a converted price.
+legacy.PROPERTY.priceCADkg = { ...legacy.PROPERTY.priceCADkg, technical: 'Median retail price, CAD/kg',
+  hint: 'sampled listings; Canadian where one exists, else a foreign one converted at the Bank of Canada rate; not live' };
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
 
 // The lists were hardcoded for six headlines. A headline added since (D92) is a registry row they never had: it reaches

@@ -37,7 +37,7 @@ export const GATE = {
   abrasive: { plain: 'No hardened nozzle', hint: 'hides filaments a source says need one' },
   dryingKnown: { plain: 'Drying guidance is published', hint: '' },
   h2cStatus: { plain: 'Bambu support level', hint: '' },
-  buyable: { plain: 'Listed in the Canadian price sample', hint: 'three retailers, sampled on the snapshot date; not live stock' },
+  buyable: { plain: 'Listed in the Canadian price sample', hint: 'Canadian retailers, sampled; not live stock' },
 };
 
 /**

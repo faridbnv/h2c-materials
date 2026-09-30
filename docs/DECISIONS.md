@@ -122,6 +122,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D110 | The Ashby lens draws coarse to fine, keeps a shape per filler everywhere, and opens details in place of the list | The Ashby chart's views run from one dot per material (Material typicals) through each material's range to every product; the raw test pairs sit under More; a product's shape says its filler on every view, and its fill says whether it passed; and pressing mark after mark swaps one set of details in the right-hand panel instead of piling them up. | In force; it amends D109 (and D108's variant mark); amended by D111 (Material typicals on the same layout, frame, size and ticks as the other views) |
 | D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110; amended by D112 (Material typicals drawn as one dot per material) |
 | D112 | Material typicals is one dot per material, which says what it stands for and where its passing products are | The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those. | In force; it amends D111 |
+| D113 | A price may come from a foreign listing, converted at one Bank of Canada rate, and it lists nothing in Canada | A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one. | In force; it amends D19, D31 and D83 on what a price is the median of |
 
 <!-- end index -->
 
@@ -3557,6 +3558,45 @@ by Claude (an agent); not reviewed by a person.*
 
 `npm run ui:check` fails if a typicals view draws more dots than materials, draws a spread around them, or a dot does not
 say it is the whole material and where its passing products are. No verdict, ranking or count moved.
+
+## D113. A price may come from a foreign listing, converted at one Bank of Canada rate, and it lists nothing in Canada
+
+> **In plain words:** A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one.
+> **Status:** In force; it amends D19, D31 and D83 on what a price is the median of.
+
+*Decided by the owner on 2026-09-30 (GOALS, "Decided on 2026-09-30, the price pass"): a price for each material, CAD
+first, then USD, then EUR. prices.csv could hold only CAD: its amount columns were named "CAD" and Currency allowed
+nothing else, so a foreign amount had nowhere to go but a CAD column, which the gap-fill handoff of 2026-09-29 forbade.
+The contract follows that research's 04-PRICES, cut to what the pass needs. Built by Claude (an agent).*
+
+- **The table is currency-neutral** (m227). List, sale and displayed prices are the amounts the page printed, in its
+  Currency (schema/vocab/currencies.csv). Market is a vocabulary that declares whether it is Canadian
+  (schema/vocab/markets.csv): a Canadian retailer or maker's store, and Amazon.ca where the seller is the maker's own
+  store, are; a US or EU storefront is not. A Canadian listing is in CAD (PRICE-MARKET-CURRENCY). VAT included % holds
+  the rate a page states its price includes; Not published, a rate nobody printed, makes a listing uncomparable
+  (PRICE-TAX-UNSTATED).
+- **One rate per currency is in force**: the latest row of fx_rates.csv for it, a Bank of Canada daily rate read from a
+  fetched, hashed Valet document. Every foreign listing of a release is compared at that rate, never at a rate of its own
+  day, so two listings seen a week apart are compared on one footing. A currency without one stops the build
+  (PRICE-FX-MISSING). No live call: the page is offline.
+- **Regular CAD/kg is derived, never stored** (D47): list price, less the stated VAT, per net kilogram, times the rate
+  (CAD: 1), to the cent. A Canadian listing's is exactly what it was, and the 104 listings of 2026-09-10 gave the same
+  prices, stock and answers after m227 (build:diff: the new meta and rate fields only).
+- **A Canadian price is never outvoted.** A product's price is the median of its Canadian headline-sample listings where
+  it has any, and of its converted foreign ones only where it has none; a material's is still its plain products' median
+  (D83), and says how many of them were converted. The page marks a converted price with ≈ and says from what, at which
+  rate date, before VAT, with no claim on shipping, duty or stock here.
+- **Canadian listing stays its own fact.** A foreign listing is never a buy link, never the proof a product is in stock
+  in Canada, never "Listed in the Canadian price sample", and never closes a material's Canadian-price coverage gap:
+  `buy`, the buyable gate and the Canadian-price domain read Canadian listings only (D19, D98). An unpriced product still
+  borrows no one's price, a twin's included (D89).
+- **What it does not do**: shipping, duty or a landed cost; a recurring fetch; a currency the Bank of Canada does not
+  publish. The price sample's size is counted from the data (meta.priceSample), so "three Canadian retailers" no longer
+  appears anywhere as a constant.
+
+`test/prices.test.js` checks the arithmetic on made-up listings (a USD half-kilogram spool at the rate in force, a EUR
+price with its stated VAT, a rate not printed, a missing rate, a Canadian price beside a converted one), and
+`test/database.test.js` that no foreign listing is a buy link and that every product priced from one says so.
 
 ---
 

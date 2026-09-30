@@ -23,6 +23,7 @@ import { aggregateGate } from './gates.js';
 import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
+import { compilePrices, priceSample, convertedFrom, priceSampleMeta } from './prices.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
 
@@ -200,8 +201,8 @@ function chamberGuidance(profiles) {
  */
 function offerSummary(offers) {
   // A quarantined observation is a different product. It can be neither the buy link nor the
-  // evidence that a material is in stock.
-  const mine = offers.filter((p) => p.url && !p.quarantined);
+  // evidence that a material is in stock. A foreign listing prices a product and lists it nowhere in Canada (D113).
+  const mine = offers.filter((p) => p.url && !p.quarantined && !p.foreign);
   if (!mine.length) return null;
   // Prefer something you can actually buy today at a price the headline was built from.
   const rank = (p) => (p.stock === 'In stock' ? 4 : 0) + (p.headlineSample ? 2 : 0) + (p.regularPerKg !== null ? 1 : 0);
@@ -401,17 +402,20 @@ const NOT_IN_MARKET = parseValue('Not available in sampled Canadian market');
 
 /**
  * Method, Pricing / Calculations: the headline is the median regular CAD/kg of the material's
- * headline-sample observations, to the cent. It is calculated here, never typed, so it cannot
- * disagree with its observations; a material with no sample has no price in the sampled market.
+ * headline-sample observations, to the cent: its Canadian ones, or its converted foreign ones where it has no Canadian
+ * one (D113). It is calculated here, never typed, so it cannot disagree with its observations; a material with no
+ * sample has no price in the sampled market.
  */
 function compilePriceHeadline(mat, pricesByMaterial) {
-  const sample = (pricesByMaterial.get(mat.MaterialID) || []).filter((p) => p.headlineSample && p.regularPerKg !== null);
+  const sample = priceSample(pricesByMaterial.get(mat.MaterialID) || []);
   if (!sample.length) return { known: false, missing: NOT_IN_MARKET.missing, text: NOT_IN_MARKET.text, unit: 'CAD/kg' };
+  const converted = convertedFrom(sample);
   return {
     known: true, value: cents(median(sample.map((p) => p.regularPerKg))), unit: 'CAD/kg', origin: ORIGIN.SOURCE, verified: true,
     priceIds: sample.map((p) => p.id), observations: sample.length,
     // Counted here, never typed: a stored sentence could disagree with the observations it describes (D47, m45).
     basis: `${sample.length} in-stock regular-price observation(s), before tax/shipping`,
+    ...(converted ? { converted } : {}),
   };
 }
 
@@ -551,28 +555,8 @@ export function compile(wb, { snapshot, build }) {
     profilesByMaterial.get(p.materialId).push(p);
   }
 
-  const prices = wb['Prices CA'].rows.map((r) => {
-    const eligibleForMedian = parseBoolean(r['Eligible for median']);
-    const listPrice = num(r['List price CAD']), netMassKg = num(r['Net mass kg']);
-    // Regular CAD/kg is list price / net mass to the cent, and exists only where a median may use it.
-    if (eligibleForMedian && (listPrice === null || !netMassKg)) {
-      issues.push({ level: 'error', code: 'PRICE-INCOMPLETE', where: `prices ${r.PriceID}`, message: 'Eligible for median without a list price and net mass to calculate CAD/kg from' });
-    }
-    return {
-    id: r.PriceID, materialId: r.MaterialID, gradeId: r.GradeID, retailer: r.Retailer,
-    variant: r['Variant / SKU'], packaging: r.Packaging, netMassKg,
-    listPrice, salePrice: num(r['Sale price CAD']),
-    regularPerKg: eligibleForMedian && listPrice !== null && netMassKg ? cents(listPrice / netMassKg) : null, stock: r.Stock,
-    eligibleForMedian,
-    headlineSample: parseBoolean(r['Headline sample']),
-    displayedPrice: num(r['Displayed price CAD']), currency: r.Currency, market: r.Market,
-    taxShipping: r['Tax / shipping'], basis: r['Regular price basis'], url: r.URL,
-    sourceId: r.SourceID, accessDate: r['Access date'], notes: r.Notes,
-    // A wrong-product or duplicate listing (CA0069, a PLA Pure spool filed under ABS) stays as an audit trail and nothing
-    // else; the Regular price basis says why.
-    quarantined: parseBoolean(r.Quarantined) === true,
-    };
-  });
+  // Listings in any currency, each with the regular price per kg the comparison reads (D113, build/src/prices.js).
+  const { prices, fxRates } = compilePrices(wb.Prices.rows, wb['FX rates']?.rows ?? [], issues);
   // Each product's own offers, which alone say whether that product can be bought (D98).
   for (const g of grades) g.buy = g.retired ? null : offerSummary(prices.filter((p) => p.gradeId === g.id));
   const pricesByMaterial = new Map();
@@ -728,6 +712,8 @@ export function compile(wb, { snapshot, build }) {
         // Prices are sampled on their own date, which need not be the database snapshot: the
         // 2026-09-13 manufacturer audit moved the snapshot and re-sampled no prices.
         pricesSampled: prices.map((p) => p.accessDate).filter(Boolean).sort().at(-1) ?? null,
+        // The sample as a reader is told it (D113): its dates, how many Canadian retailers, and the rates in force.
+        priceSample: priceSampleMeta(prices, fxRates),
         h2cBaseline: H2C_BASELINE,
         counts: {
           materials: materials.length,
@@ -747,7 +733,7 @@ export function compile(wb, { snapshot, build }) {
           registry.headlines.map((h) => [h.key, materials.filter((m) => m.headline[h.key]?.known).length]),
         ),
       },
-      materials, grades, measurements, profiles, printGuide: printGuide.guides, evidence, prices, sources, coverage, method, polymers,
+      materials, grades, measurements, profiles, printGuide: printGuide.guides, evidence, prices, fxRates, sources, coverage, method, polymers,
       // What every property and headline means. The app builds its labels, filters, axes, table and
       // export from this, so a registry row reaches the interface with no code change.
       registry,

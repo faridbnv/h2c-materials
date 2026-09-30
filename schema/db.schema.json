@@ -15,6 +15,7 @@
     "evidence",
     "knowHow",
     "prices",
+    "fxRates",
     "sources",
     "coverage",
     "method",
@@ -28,6 +29,7 @@
         "snapshot",
         "build",
         "pricesSampled",
+      "priceSample",
         "h2cBaseline",
         "counts",
         "environmentCategories",
@@ -60,6 +62,53 @@
             "string",
             "null"
           ]
+        },
+        "priceSample": {
+          "description": "The price sample as a reader is told it (D113): the first and last access dates of its live listings, how many Canadian retailers and foreign sellers, the currencies, and the rates the foreign listings are compared at.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "from",
+            "to",
+            "canadianRetailers",
+            "foreignSellers",
+            "currencies",
+            "rates"
+          ],
+          "properties": {
+            "from": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "to": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "canadianRetailers": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "foreignSellers": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "currencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rates": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/fxRate"
+              }
+            }
+          }
         },
         "h2cBaseline": {
           "type": "object"
@@ -963,8 +1012,48 @@
           },
           "quarantined": {
             "type": "boolean"
+          },
+          "foreign": {
+            "description": "Present on a listing that is not on a Canadian market (schema/vocab/markets.csv): it prices a product with no Canadian listing and lists it nowhere in Canada (D113).",
+            "const": true
+          },
+          "vatPercent": {
+            "description": "The VAT rate the page states its price includes; the regular price per kg is before it.",
+            "type": "number"
+          },
+          "regularPerKgNative": {
+            "description": "A foreign listing's regular price per kg, before VAT, in its own currency.",
+            "type": "number"
+          },
+          "fx": {
+            "description": "The rate a foreign listing's regular price per kg was converted at: the one in force for its currency.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "cadPerUnit",
+              "date",
+              "sourceId"
+            ],
+            "properties": {
+              "cadPerUnit": {
+                "type": "number"
+              },
+              "date": {
+                "type": "string"
+              },
+              "sourceId": {
+                "type": "string"
+              }
+            }
           }
         }
+      }
+    },
+    "fxRates": {
+      "description": "The exchange rates in force, one per currency: the latest row of fx_rates.csv for each (D113).",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fxRate"
       }
     },
     "sources": {
@@ -1869,6 +1958,34 @@
           "items": {
             "type": "string"
           }
+        },
+        "converted": {
+          "description": "How many of the products' prices the median is of were converted from another currency (D113), from which, at which rate date.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "products",
+            "currencies",
+            "rateDate"
+          ],
+          "properties": {
+            "products": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "currencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rateDate": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
         }
       }
     },
@@ -1913,6 +2030,29 @@
         },
         "basis": {
           "type": "string"
+        },
+        "converted": {
+          "description": "A price converted from another currency (D113): the product has no Canadian listing, so its price is its foreign listings' at the Bank of Canada rate in force. It lists the product in no Canadian shop.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "currencies",
+            "rateDate"
+          ],
+          "properties": {
+            "currencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rateDate": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
         }
       }
     },
@@ -2408,6 +2548,29 @@
           "type": "array",
           "items": { "enum": ["specimen", "moisture", "treatment"] }
         },
+        "converted": {
+          "description": "A price converted from another currency (D113): the product has no Canadian listing, so its price is its foreign listings' at the Bank of Canada rate in force. It lists the product in no Canadian shop.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "currencies",
+            "rateDate"
+          ],
+          "properties": {
+            "currencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rateDate": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
         "standards": {
           "description": "The test standards the measurement names, which a reason states: a pooled method is not an equal one.",
           "type": "array",
@@ -2750,6 +2913,34 @@
           "minimum": 1,
           "description": "How many of the comparable values are a twin's reading of its sibling's sheet (D89); absent when none."
         },
+        "converted": {
+          "description": "How many of the products' prices the median is of were converted from another currency (D113), from which, at which rate date.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "products",
+            "currencies",
+            "rateDate"
+          ],
+          "properties": {
+            "products": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "currencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rateDate": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
         "asPublished": {
           "type": "object",
           "additionalProperties": false,
@@ -2791,6 +2982,34 @@
               "type": "number"
             }
           }
+        }
+      }
+    },
+    "fxRate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currency",
+        "cadPerUnit",
+        "date",
+        "sourceId",
+        "locator"
+      ],
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "cadPerUnit": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
         }
       }
     }

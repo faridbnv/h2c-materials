@@ -150,7 +150,7 @@ function evaluateNumeric(material, c, ctx = {}) {
     return {
       status: STATUS.UNKNOWN,
       reason: h?.missing === 'not-available-in-market'
-        ? 'No Canadian price observation in the sampled market'
+        ? 'No price observation of its own in the sampled shops'
         : 'Not published in the sampled sources',
       criterion: label,
       missing: h?.missing ?? 'not-published',
@@ -286,9 +286,10 @@ function evaluateGate(material, c) {
   }
 
   // "Only show what I can buy." Absence of an offer is not proof a material is unavailable, only
-  // that the three sampled Canadian retailers did not list it on the snapshot date, so it returns
+  // that the sampled Canadian retailers did not list it when they were sampled, so it returns
   // UNKNOWN rather than FAIL. An offer that was sampled and is out of stock is positive evidence
-  // and does fail. A product is judged on its own offers (D98): another product's stock is not its own.
+  // and does fail. A product is judged on its own offers (D98): another product's stock is not its own. A foreign
+  // listing prices a product and lists it in no Canadian shop (D113): `buy` holds Canadian offers only.
   if (c.gate === 'buyable') {
     const buy = material.buy;
     const label = c.inStock ? 'In stock in Canada' : 'Available from a Canadian retailer';
@@ -296,7 +297,7 @@ function evaluateGate(material, c) {
     if (!buy) {
       return {
         status: STATUS.UNKNOWN, criterion: label,
-        reason: `None of the three sampled Canadian retailers listed ${what} on the snapshot date`,
+        reason: `No sampled Canadian retailer listed ${what} when sampled`,
       };
     }
     if (c.inStock && !buy.anyInStock) {

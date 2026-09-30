@@ -43,7 +43,7 @@ export function renderStart(state, actions) {
       <span><b>${candidateCount(db)}</b> materials, <b>${db.meta.counts.h2cRelevant}</b> of them in H2C scope</span>
       <span><b>${db.meta.counts.measurements}</b> measurements, each traceable to a source</span>
       <span><b>${db.meta.headlineCoverage.density}</b> have a density, <b>${db.meta.headlineCoverage.tensileModulusXY}</b> a modulus,
-        <b>${db.meta.headlineCoverage.priceCADkg}</b> a Canadian price</span>
+        <b>${db.meta.headlineCoverage.priceCADkg}</b> a price</span>
     </div>
     <p class="start-note">The gaps are the point. Where a property was never published this tool
       shows the gap rather than a guess, so a material is never ranked on a number nobody measured.</p>

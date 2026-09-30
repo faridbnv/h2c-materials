@@ -63,8 +63,8 @@ test('a cost goal names its price basis, and an unpriced product is a named gap,
   const state = pageState({ rankBy: 'beam-stiffness-cost', plot: { x: 'materialCostPerVolume', indexM: null } });
   const ws = workspaceFor(state);
   const csv = chartDataCSV(state, ws, { view: 'decision' });
-  assert.match(csv, /# cost per volume: the product's own CAD\/kg price \(observed listings, dated\) x its own density; shipping excluded; no currency conversion/);
-  assert.match(csv.split('\n').find((r) => r.includes(',GB,')), /no current Canadian price of its own/);
+  assert.match(csv, /# cost per volume: the product's own CAD\/kg price \(observed listings, dated; a foreign-only product converted at the Bank of Canada rate\) x its own density; shipping and duty excluded/);
+  assert.match(csv.split('\n').find((r) => r.includes(',GB,')), /no price of its own in the sample/);
   // GA: 20 CAD/kg x 1000 kg/m³ = 20,000 CAD/m³.
   assert.match(csv.split('\n').find((r) => r.includes(',GA,')), /,20000,V\d+ CA\d+,as-printed,/, 'the density measurement and the price listing both');
 });

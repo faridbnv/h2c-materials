@@ -32,6 +32,7 @@
 
 import { isPartSpecimen, annealedBesideAsPrinted } from './normalize/specimen.js';
 import { median, cents } from './normalize/values.js';
+import { priceSample, convertedFrom } from './prices.js';
 import { measurementHeadlines, applies } from './registry.js';
 import { aggregateGate } from './gates.js';
 
@@ -179,11 +180,16 @@ function chooseValue(grade, def, gradeMeasurements, pinnedIds, state = null) {
 /** The value the rule alone chooses for a product, pins ignored: what `scripts/audit/rule-vs-hand-picks.mjs` compares. */
 export const ruleValue = (grade, def, gradeMeasurements) => chooseValue(grade, def, gradeMeasurements, new Set());
 
-/** The product's price: the median regular CAD/kg of its own listings in the headline sample, as a material's is. */
+/**
+ * The product's price: the median regular CAD/kg of its own listings in the headline sample, as a material's is. Its
+ * Canadian listings where it has any; its foreign ones, converted at the rate in force, only where it has none (D113),
+ * and then it says so.
+ */
 function productPrice(gradePrices) {
-  const sample = gradePrices.filter((p) => p.headlineSample && p.regularPerKg !== null);
+  const sample = priceSample(gradePrices);
   if (!sample.length) return null;
-  return { value: cents(median(sample.map((p) => p.regularPerKg))), level: LEVEL.COMPARABLE, observations: sample.length, priceIds: sample.map((p) => p.id) };
+  const converted = convertedFrom(sample);
+  return { value: cents(median(sample.map((p) => p.regularPerKg))), level: LEVEL.COMPARABLE, observations: sample.length, priceIds: sample.map((p) => p.id), ...(converted ? { converted } : {}) };
 }
 
 /** One axis of a product's recipe: the gate across its own profiles, and the window of the profile that decided it. */
@@ -367,6 +373,12 @@ function summarise(entries, products) {
     if (sorted.length >= QUARTILES_FROM) Object.assign(out, { q1: quantile(sorted, 0.25), q3: quantile(sorted, 0.75) });
     const twins = comparable.filter((e) => e.v.from?.origin === 'twin').length;
     if (twins) out.twins = twins;
+    // Prices converted from another currency (D113): how many, from what, at which rate date.
+    const converted = comparable.filter((e) => e.v.converted);
+    if (converted.length) {
+      out.converted = { products: converted.length, currencies: [...new Set(converted.flatMap((e) => e.v.converted.currencies))].sort(),
+        rateDate: converted.map((e) => e.v.converted.rateDate).filter(Boolean).sort().at(-1) ?? null };
+    }
   }
   if (asPublished.length) out.asPublished = span(asPublished);
   if (variants.length) out.variants = span(variants);
@@ -388,7 +400,11 @@ function productsHeadline(unit, s, gradeById, key) {
     typical: { gradeId: s.typical, measurementId: typical?.measurementId ?? null, value: typical?.value ?? null },
   };
   if (s.n === 1) Object.assign(h, { measurementId: typical?.measurementId ?? null, gradeId: s.typical });
-  if (key === 'priceCADkg') h.observations = s.n;
+  if (key === 'priceCADkg') {
+    h.observations = s.n;
+    // How many of the prices the median is of were converted from another currency, which the page says (D113).
+    if (s.converted) h.converted = s.converted;
+  }
   return h;
 }
 

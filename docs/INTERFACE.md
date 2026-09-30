@@ -530,9 +530,11 @@ The price cell links to the best sampled offer: in stock first, then the observa
 headline, then whatever has a price. A listing with no usable price reads "no price" with the link's arrow beside it, on
 one line; the words open who lists it, when it was seen and whether it was in stock. A dash with a link arrow had read as
 nothing to buy, and "listed, no price" over "out of stock" took three lines of a desktop column and doubled the row. Under
-a price, "out of stock" is a small second line. A material with no Canadian observation says "No Canadian price", not "No CA
-price". The Price tab lists every observation with its retailer, variant, pack size, price per kilogram, stock and
-whether it is in the sample, under one line giving the date the prices were sampled (a listing's own date is in the
+a price, "out of stock" is a small second line. A material with no price observation says "No price", not "No CA
+price". A price read from a foreign listing carries a ≈ mark that says from which currency, at which Bank of Canada rate
+date, before VAT, and that no Canadian shop in the sample lists the product (D113). The Price tab lists every observation with its retailer, variant, pack size, price per kilogram, stock and
+whether it is in the sample, a foreign one with its ≈ and the arithmetic from its own currency, under one line giving how
+many shops were sampled and when (a listing's own date is in the
 explanation its "offer" or "no price" opens). A listing with a displayed price but no regular price the sample could
 rely on (44 of the 104 sampled in September 2026) shows the displayed price per kilogram marked "offer", which opens
 who lists it, at what shelf price, and why it is not a regular price; it backs no headline. A listing with no price at
@@ -540,8 +542,8 @@ all reads "no price" the same way, where it had read "n/a". A quarantined listin
 a line under its row, where it had been only the row's title and a button. An optional filter shows only materials a
 sampled retailer listed, and optionally only those in stock.
 
-A material no sampled retailer listed is reported UNKNOWN, not FAIL. Three Canadian retailers on a
-single day is not evidence that something cannot be bought.
+A material no sampled retailer listed is reported UNKNOWN, not FAIL. A few Canadian retailers on the days they were read
+is not evidence that something cannot be bought, and a foreign listing never counts as one.
 
 ## The Ashby lens
 
@@ -651,8 +653,8 @@ marks · Drawn: 14 products from 8 materials · ▸ Reading this chart
   uncertain with estimates on, never under Confirmed only; a conditioned question gets none, since an estimate describes
   dry products as printed, and an open or non-positive range on a Log axis is counted, not drawn.
 - **A cost goal** draws each product's material cost per volume, its own CAD/kg price times its own density; a twin's
-  price is never read, and the unpriced are listed. Prices are observed Canadian listings with their dates; shipping is
-  excluded and no other currency is converted (the gap-fill plan's dated conversion comes first).
+  price is never read, and the unpriced are listed. Prices are observed listings with their dates, Canadian where one
+  exists and otherwise a foreign one converted at the Bank of Canada rate (D113); shipping and duty are excluded.
 - **Exports** (under **More**, from Material ranges or Products; greyed with that reason on the other views): **Chart
   data (CSV)**, every mark with its identity, variant, state, inputs, verdict, rank and whether it is on the line's better
   side, under a header that says the question, axes, scales, populations and what each range means; and **Chart image

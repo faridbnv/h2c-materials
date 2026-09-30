@@ -296,7 +296,7 @@ export function renderTable(host, state, actions) {
         const inner = renderValue(h, { compact: true, estimates: state.ctx?.showEstimates, results: on('priceCADkg'), materialId: m.id });
         if (!m.buy) return `<td class="num">${inner}</td>`;
         const t = `${m.buy.retailer}: ${m.buy.variant ?? ''} (${m.buy.stock}, seen ${m.buy.accessDate})`;
-        const notStocked = 'No sampled offer was in stock on the snapshot date. Prices and stock were sampled once; they are not live.';
+        const notStocked = 'No sampled Canadian offer was in stock when sampled. Prices and stock are snapshots; they are not live.';
         const link = (content, cls = '') => `<a class="buy${cls}" href="${esc(m.buy.url)}" target="_blank" rel="noopener"
           title="${esc(t)}">${content}<span class="buy-mark" aria-label="opens the retailer page">\u2197</span></a>`;
         // A listing with no usable price says so in words, on one line: "listed, no price" and "out of stock" wrapped to
@@ -304,7 +304,7 @@ export function renderTable(host, state, actions) {
         // press away on the words; the arrow beside them opens the listing. A dash with a link arrow had read as nothing
         // to buy.
         if (!h?.known) {
-          const why = `${m.buy.retailer} lists it (seen ${m.buy.accessDate}), but the listing has no usable Canadian price.`
+          const why = `${m.buy.retailer} lists it (seen ${m.buy.accessDate}), but the listing has no usable price.`
             + `${m.buy.anyInStock ? '' : ` ${notStocked}`} The arrow opens the listing.`;
           return `<td class="num"><span class="unpriced">${explainButton('no price', why, { cls: 'no-price', head: 'Listed, no price' })}${link('', ' buy-arrow')}</span></td>`;
         }

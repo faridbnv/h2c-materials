@@ -5,7 +5,7 @@
 // toughness at zero records and compression and CTE at one each, a fixed skeleton would produce
 // mostly empty pages. Showing the gap turns that into information.
 
-import { renderValue, chip, esc, fmtNumber, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView } from './format.js';
+import { renderValue, chip, esc, fmtNumber, fmtRange, estimateDisplay, wireEvidence, explainButton, scrollTable, markTableOverflow, keepInView, priceSampleWords } from './format.js';
 import { renderWhy } from './explain.js';
 import { materialName, describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
@@ -90,7 +90,7 @@ const TAB_HELP = {
   Printing: (n) => (n ? `${plural(n, 'print profile')}, by maker: the temperatures, nozzle, drying and feed each source gives.` : 'No print profile is on record for this material.'),
   Environment: (n, c) => (n ? `${plural(n, 'record')} of how it behaves in chemicals, moisture and other exposure, by category${c.poly?.length ? `, ${c.poly.length} of them the base polymer's published behaviour` : ''}.` : 'No record of chemical, moisture or other exposure is on file for this material.'),
   Grades: (n) => (n ? `${plural(n, 'product')} recorded under this material, by maker: each with its own values, whether it meets your requirements, and how to print it.` : 'No product is recorded under this material.'),
-  Price: (n) => (n ? `${plural(n, 'Canadian price observation')} from the sampled retailers.` : 'No sampled Canadian retailer listed this material.'),
+  Price: (n) => (n ? `${plural(n, 'price observation')} from the sampled shops: Canadian retailers first, and a foreign seller only where no Canadian one lists the product.` : 'No sampled shop listed this material.'),
   Evidence: (n, c) => (n ? `${plural(n, 'source')} behind this material's ${plural(c.ms.length, 'measurement')}, by publisher, each with what it published and a link to the original.` : 'No source has published a measurement of this material.'),
   Coverage: (n) => (n ? `${plural(n, 'coverage record')}: what the database holds for this material and what it does not, by domain.` : 'No coverage record is on file for this material.'),
 };
@@ -1178,22 +1178,28 @@ function tabBody(tab, c) {
     if (!prices.length) return empty('Price');
     // A listing with no price per kilogram says why in words, and a quarantined listing's reason sits under its row: "n/a"
     // explained nothing, and the reason for a quarantine had been only a row's title and a button.
-    const noPrice = (p) => `${p.retailer} lists it${Number.isFinite(p.displayedPrice) ? ` at ${fmtNumber(p.displayedPrice)} ${p.currency ?? 'CAD'}` : ''} (seen ${p.accessDate}), `
+    const noPrice = (p) => `${p.retailer}${p.foreign ? ` (${p.market})` : ''} lists it${Number.isFinite(p.displayedPrice) ? ` at ${fmtNumber(p.displayedPrice)} ${p.currency ?? 'CAD'}` : ''} (seen ${p.accessDate}), `
       + `but no usable regular price per kilogram was recorded. ${stated(p.basis) ? `${p.basis.replace(/[.\s]*$/, '')}.` : ''}${stated(p.notes) ? ` ${p.notes}` : ''}`;
     const quarantineWhy = (p) => [String(p.basis ?? '').replace(/^quarantined:\s*/i, ''), p.notes].filter(stated).map((t) => t.replace(/[.\s]*$/, '')).join('. ');
-    return `<div class="note">The material's price is the median of its products' prices; each product's is the median of its listings in the sample.
-      Prices sampled ${esc(db.meta.pricesSampled ?? db.meta.snapshot)}; they are not live. A struck-through row is quarantined: the listing is a different product and backs nothing. Why is said under it.</div>
+    // A foreign listing shows what its page printed and how it became CAD per kg (D113): its own price per kg before
+    // VAT, the rate and its date. It lists the product in no Canadian shop, which the Market column says.
+    const foreignWhy = (p) => `${p.retailer} (${p.market}) prints ${fmtNumber(p.listPrice)} ${p.currency}${p.vatPercent != null ? ` including ${fmtNumber(p.vatPercent)}% VAT` : ''} for ${fmtNumber(p.netMassKg)} kg: `
+      + `${fmtNumber(p.regularPerKgNative)} ${p.currency}/kg before VAT, × ${p.fx.cadPerUnit} CAD per ${p.currency} (Bank of Canada, ${p.fx.date}). `
+      + 'It prices the product only where no Canadian retailer in the sample lists it, and says nothing about shipping to Canada, duty or stock here.';
+    return `<div class="note">The material's price is the median of its products' prices; each product's is the median of its listings in the sample:
+      its Canadian listings, or where it has none, its foreign ones converted to CAD (≈). ${esc(priceSampleWords(db.meta))}; not live. A struck-through row is quarantined: the listing is a different product and backs nothing. Why is said under it.</div>
       ${scrollTable(`<table class="grid price-table"><thead><tr>
       <th>ID</th><th class="retailer">Retailer</th><th class="variant">Variant</th><th class="num">kg</th><th class="num">CAD/kg</th><th>Stock</th><th>In sample</th></tr></thead>
       <tbody>${prices.map((p) => `<tr data-price="${esc(p.id)}"${p.quarantined ? ` class="quarantined" title="${esc(quarantineWhy(p))}"` : ''}>
         <td>${esc(p.id)}${p.quarantined ? ' <span class="chip chip-FAIL chip-small">quarantined</span>' : ''}</td><td class="retailer">${esc(p.retailer)}</td><td class="variant">${esc(p.variant ?? '')}</td>
         <td class="num">${fmtNumber(p.netMassKg)}</td>
-        <td class="num">${p.regularPerKg !== null ? fmtNumber(p.regularPerKg)
+        <td class="num">${p.regularPerKg !== null && p.fx ? `${fmtNumber(p.regularPerKg)} ${explainButton('≈', foreignWhy(p), { cls: 'fx-mark', head: `Converted from ${p.currency}`, label: `Converted from ${p.currency}` })}`
+          : p.regularPerKg !== null ? fmtNumber(p.regularPerKg)
           // The offer the retailer showed, per kilogram, marked as an offer: 44 of the 104 listings carry a displayed
           // price but no regular price the sample could rely on, and "no price" beside a listing that showed 29.99
           // read as a contradiction. The offer backs no headline; the button says why.
           : Number.isFinite(p.displayedPrice) && p.netMassKg > 0
-            ? `${fmtNumber(p.displayedPrice / p.netMassKg)} ${explainButton('offer', noPrice(p), { cls: 'missing offer-price', head: 'Offer price, not the regular price' })}`
+            ? `${fmtNumber(p.displayedPrice / p.netMassKg)}${p.currency && p.currency !== 'CAD' ? ` ${esc(p.currency)}` : ''} ${explainButton('offer', noPrice(p), { cls: 'missing offer-price', head: 'Offer price, not the regular price' })}`
             : explainButton('no price', noPrice(p), { cls: 'missing no-price', head: 'Listed, no price' })}</td>
         <td>${esc(p.stock)}</td><td>${p.headlineSample ? 'Yes' : 'No'}</td></tr>
         ${p.quarantined ? `<tr class="quarantine-why"><td colspan="7"><span class="why-text"><b>Quarantined:</b> ${esc(quarantineWhy(p) || 'this listing backs nothing')}.</span></td></tr>` : ''}`).join('')}</tbody></table>`)}`;

@@ -31,7 +31,7 @@ flowchart TB
         direction LR
         TDS["Manufacturer data sheet<br/>PDF, with its revision"]
         WEB["Product page or wiki"]
-        SHOP["Canadian retailer listing<br/>on one sampling day"]
+        SHOP["Retailer listing, Canadian first<br/>on the day it was read"]
         LIT["Standard, paper or handbook"]
     end
 
@@ -155,7 +155,7 @@ The database is a set of CSV files in `data/tables` you can open in any editor. 
 | `measurements` | one published test result of one grade: the property, the value exactly as printed, the unit, the normalised value, the print direction, the specimen, the moisture and annealing state, the standard and load, the source and the page it is on |
 | `profiles` | one product's recommended print settings (nozzle, bed, chamber, drying) with the source's own words kept beside the typed numbers |
 | `evidence` | one qualitative statement: chemical resistance, food contact, UV, flammability, with its source |
-| `prices` | one Canadian retail listing on one day |
+| `prices` | one retail listing on one day: Canadian in CAD, or foreign in its own currency (D113) |
 | `headlines` | a pin: the measurement that is one product's value where the rule would choose another, with a reason. Normally empty |
 | `polymers` | what the estimate model knows about each polymer: crystallinity, melting point, water uptake, neat density |
 | `coverage` | what was looked for and not found, so a blank is a recorded absence, not an oversight |
@@ -462,7 +462,8 @@ its question again; every release published from `main` keeps its page as the Gi
 - No cross-property substitution: a glass transition is never shown in a heat-deflection column, and a flexural
   strength never stands in for a tensile one.
 - No conversion between impact units (J/m and kJ/m²) without the specimen geometry the sheets do not give.
-- No live prices. The price is a median of Canadian retail listings on one recorded day.
+- No live prices. The price is a median of retail listings on the days they were read: Canadian where one exists, and
+  otherwise a foreign one converted at one Bank of Canada rate, marked as converted (D113). No shipping or duty.
 
 ## Where the limits are
 
