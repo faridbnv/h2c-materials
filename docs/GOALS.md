@@ -64,13 +64,13 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C3 | Evidence store, decision tier (values with their conditions) | 3 | 3 | 3 | A deciding value must be a number its evidence line prints, in one role (D97), and decides only in the state it was measured in (D99); no person has measured the error rate. The pre-gap-closure sample drew 32 of 310 deciding values (SPOT-CHECK-DECISIVE.md); the gap-closing response lists the additional agent re-reads awaiting a person |
 | C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | 4 | Comparable and as published on every headline, and each value's state; a verdict names what it admitted unstated |
 | C5 | Material summary (range and typical value across products) | 1 | 4 | 4 | Every material is its products' spread, variants and twins placed by rule |
-| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | A product passes on its own records (D98), in a state it can be made in (D99), and a material is unknown while any product is (D100): no false confirmation in the acceptance portfolio. Gap closure moved 64 product/question answers and 21 material/question answers; the current 3,467 facts one step from an answer are listed in [SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md). The frozen research worklist and its unresolved handoffs are separate |
+| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | A product passes on its own records (D98), in a state it can be made in (D99), and a material is unknown while any product is (D100): no false confirmation in the acceptance portfolio. Gap closure moved 64 product/question answers and 21 material/question answers; the current 3,468 facts one step from an answer are listed in [SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md). The frozen research worklist and its unresolved handoffs are separate |
 | C7 | Rank and trade-offs (goal ordering, material ranges, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); since 2026-09-29 the chart draws and counts exact product states (D107), its controls and views reworked after the owner used it (D108 to D112), not re-scored; untested with the team (TEAM-TRIAL.md) |
 | C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | 4 | Passing products first, in the drawer's first view on a laptop; a product can be chosen, with its state, and its decision brief written (D103) |
-| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks each product's nozzle, bed and chamber against the H2C (D101), from its own recipe, its twin's, then Bambu's guide, labelled: chamber has a verdict for 750 of 1,128 products (24 a window the H2C partly reaches), nozzle 1,007; annealing is a state with its schedule. 378 products' chamber is still unknown ([print.csv](../build/snapshot/print.csv)) |
+| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks each product's nozzle, bed and chamber against the H2C (D101), from its own recipe, its twin's, then Bambu's guide, labelled: chamber has a verdict for 752 of 1,128 products (24 a window the H2C partly reaches), nozzle 1,008; annealing is a state with its schedule. 376 products' chamber is still unknown ([print.csv](../build/snapshot/print.csv)) |
 | C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | 4,665 statements on 1,045 products in the maker's words, every gap stated; 45 products left sheet-silent, each with a question for the owner or the maker ([worklist](audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md)) |
-| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | The facts no row holds and every cached page's text in `dist/h2c.sqlite`, stamped with its release and never mixing two (D105); this checkout's full-text index holds 1,572 of 1,706 retrieved sources and says so (OPEN-PROBLEMS §19). Private source bytes and text are not shipped to CI or Pages |
-| C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | 3 | Estimated only where no product publishes (150 material cells, `build/snapshot/counts.md`); the special cases went with the representative grade |
+| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | The facts no row holds and every cached page's text in `dist/h2c.sqlite`, stamped with its release and never mixing two (D105); the full-text index built in the gap-fill tranche's checkout holds 1,588 of 1,722 retrieved sources and says so (OPEN-PROBLEMS §19). Private source bytes and text are not shipped to CI or Pages |
+| C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | 3 | Estimated only where no product publishes (148 material cells, `build/snapshot/counts.md`); the special cases went with the representative grade |
 | C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | After gap closure, `verify:fast` 58.5 s warm and 106.7 s cold: the warm run meets the 90 s budget; the cold overrun is recorded for the owner's chosen performance follow-up (OPEN-PROBLEMS §19). A save is one transaction, a fetch bounded and resumable (D104); a decision is traced from the command line (D105). A product still takes the pipeline, which stays paused except for named exceptions |
 | C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | 2 | A chosen product keeps its state, release, note and the team's own test results with the scenario, and its brief is written (D103); no shared list, account or server, as decided |
 | C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | 4 | An independent acceptance portfolio (46 expectations) and seven metamorphic relations guard the decisions; a release is its content (D96); `verify` fails without Chrome; `npm run doctor` and three routes start a reader. The audit record is still long |
@@ -84,10 +84,10 @@ Evidence for C6/C9/C10/C11/C13 was refreshed after the 2026-09-28
 [source backup and gap closure](audits/2026-09-28-gap-closing/RESPONSE.md), without changing the scores.
 Counts describe that build and, for the private full-text index, this checkout; they are not CI cache counts.
 
-After the [gap-fill tranche](audits/2026-09-29-gap-fill-implementation/README.md) of 2026-09-29, again without changing
-a score: a nozzle verdict for 1,008 of 1,128 products and a bed verdict for 954; a drying schedule for 462 products (443
-before); 663 material values from products and 148 estimated (659 and 150 before); 3,468 facts one step from an answer.
-Two answers moved, both to FAIL on a published value.
+The table's counts were refreshed on 2026-09-30 from the build after the
+[gap-fill tranche](audits/2026-09-29-gap-fill-implementation/README.md), again without changing a score: it gave a nozzle
+verdict to one more product and a bed verdict to one more, a drying schedule to 19 more (462 of 1,128), and 663 material
+values from products with 148 estimated (659 and 150 before). Two answers moved, both to FAIL on a published value.
 
 ## Decided on 2026-09-25
 
@@ -293,7 +293,7 @@ ranking or count. The team trial that would re-score C7 has not been run ([the r
 The owner asked for the reviewed gap-fill research of 2026-09-28 (the packages GAP-FILL-PLAN-2026-09-28 and
 GAP-FILL-RESEARCH-2026-09-28, with their implementation handoff of 2026-09-29) to be finished, putting only its
 defensible, useful improvements into the tool: on a branch of the latest main in a separate checkout, committed
-locally and not pushed. GOALS steps 2 and 5, C3/C6/C9/C10; step 6 only if its prices passed their own gate. It is a
+locally, and pushed to main on 2026-09-30 at the owner's word. GOALS steps 2 and 5, C3/C6/C9/C10; step 6 only if its prices passed their own gate. It is a
 bounded exception to the import pause, not its end, and adds no product, material, identity or estimate rule.
 
 - **A fact is recorded from the document already held where that document prints it.** The research read most of its
@@ -305,6 +305,11 @@ bounded exception to the import pause, not its end, and adds no product, materia
 - **Held**: the two findings the research held, Spectrum GreenyHT's contested identity, and every price. After the
   plan's own rules, eight comparable offers remained, all foreign, and the currency contract they need was not built
   for them; price still waits, as decided for phase 6 ([OPEN-PROBLEMS §21](OPEN-PROBLEMS.md)).
+- **Price keeps waiting (2026-09-30).** Asked with the facts (732 products pass at least one template or acceptance
+  question and 34 of them have a price) and a recommendation (a Canadian price for each passing material's best
+  product, in the current CAD contract, before any currency work), the owner chose to keep price waiting for now. When
+  it resumes, that pass comes first; foreign prices only for passing products no Canadian seller carries. Revisit with
+  the team layer's refresh routine, or when the team asks for cost.
 
 ## Working rules
 

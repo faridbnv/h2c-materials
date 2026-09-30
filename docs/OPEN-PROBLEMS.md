@@ -800,7 +800,7 @@ narrower and more honest, and leave these, each with where it is counted:
   `docs/audits/2026-09-28-gap-closing/RESTORE-COUNTS.json` proves an empty-cache restore, with that deliberately
   excluded mismatch becoming one additional absence. The missing originals still need an owner-held copy or a
   separately reviewed retrieval; local backup success does not prove cloud upload completion.
-- **The full-text index is partial** (1,572 of 1,706 retrieved sources after the 2026-09-28 gap-closing work; `v_sources_without_text` names
+- **The full-text index is partial** (1,588 of 1,722 retrieved sources in the checkout that built the gap-fill tranche of 2026-09-29; `v_sources_without_text` names
   the rest, D105). Its test checks only that `.cache/text` exists, so in a fresh worktree where `npm run test:ingest`
   has written one fixture's text there, `npm test` fails it; point `H2C_DOCUMENT_CACHE` at the full cache.
 - **What F14 and F13 left** (D104, D105): `ingest:fetch --refetch --recheck` still overwrites an applied document's
@@ -892,7 +892,11 @@ research package's 51 technical findings, and one fact found on re-reading. What
   schema, a frozen exchange rate, derived CAD-equivalent values, and "Canadian" wording across the page kept apart from
   a relative price), and none has the rendered selected-offer capture the research could not make. The other 27 are
   Bambu Lab Canada refreshes of materials already priced, which GOALS leaves to the refresh routine that comes with the
-  team layer (phase 6, decision 3). Every target's outcome is in the record's PRICES.csv.
+  team layer (phase 6, decision 3). Every target's outcome is in the record's PRICES.csv. On 2026-09-30 the owner kept
+  price waiting (GOALS). Where a price would decide something: 732 products pass at least one template or acceptance
+  question and 34 have a price; 62 of the 92 materials they belong to have none (the record's `price-targets.mjs`
+  recounts them, maker by maker). When price resumes, a Canadian offer for each passing material's best product comes
+  first, in the current contract.
 - **A published bound shows as its number.** A lower bound ("> 300 %") is a product's value with an open interval,
   and the build keeps it one (V011516), but the key-number cards and the products table draw it as "300 %*", with the
   not-comparable mark and no "more than". It was so before the tranche: four materials' hints and 46 product values are

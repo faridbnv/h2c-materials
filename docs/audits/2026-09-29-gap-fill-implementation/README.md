@@ -1,8 +1,8 @@
 # The gap-fill tranche, implemented (2026-09-29)
 
 The owner asked for the reviewed gap-fill research of 2026-09-28 to be finished, putting only its defensible, useful
-improvements into the tool: on a branch of the latest main, in a separate checkout, committed locally and not pushed
-(GOALS, "Decided on 2026-09-29, the gap-fill tranche"). The inputs were two packages outside the repository,
+improvements into the tool: on a branch of the latest main, in a separate checkout, committed locally and pushed to
+main on 2026-09-30, when the owner asked (GOALS, "Decided on 2026-09-29, the gap-fill tranche"). The inputs were two packages outside the repository,
 `GAP-FILL-PLAN-2026-09-28` (the plan and its contracts) and `GAP-FILL-RESEARCH-2026-09-28` (the research, its AI
 reviews and an isolated rehearsal), and their implementation handoff of 2026-09-29. GOALS steps 2 and 5 (C3, C6, C9,
 C10); step 6 only if prices passed their own gate, which they did not. This is the record. It was implemented by Claude
@@ -77,6 +77,14 @@ capture today would be a new retrieval of a price that moves. Eight single-selle
 shared change against the owner's standing decision that price waits (phase 6, decision 3), so the gate is not met:
 the research evidence stays in its package, and no unused model or relabelled amount entered. The rendered recheck was
 not run: it could only lower the eight.
+
+On 2026-09-30 the owner was shown where a price would decide something and chose to keep price waiting (GOALS). The
+count, from this build ([price-targets.mjs](price-targets.mjs)): 732 products pass at least one of the eleven default
+questions and 34 of them have a price the comparison can use; 62 of the 92 materials they belong to have none, and most
+of those products come from makers with Canadian sellers (Spectrum, Polymaker, eSUN, 3DXTECH, FormFutura, SUNLU). The
+recommendation recorded for when price resumes: a Canadian offer for each passing material's best product, in the
+current CAD contract, captured and staged like b40; the currency contract only for passing products no Canadian seller
+carries.
 
 ## Estimates
 
