@@ -112,6 +112,40 @@ The rules that differ from editing a table by hand:
   `APPLY-OCR-UNVERIFIED` refuses the batch (D35). A row the page image does not print is rejected, never
   corrected: a reading a person edits is a transcription nobody made from a document nobody read.
 
+## Capturing a price
+
+A price is a document like a data sheet (D35, D113): the page a shop served, fetched and hashed, and every number, the
+currency and the stock state of the row it becomes are read from that page's own offer data. `npm run ingest:prices`
+(`scripts/ingest/prices.mjs`) is the route; `ingest:apply` never writes a price.
+
+```bash
+npm run ingest:prices -- capture --batch p01 --shop 3dprintingcanada.com   # a Shopify shop: its /meta.json and every catalogue page
+npm run ingest:prices -- capture --batch p03 --from pages.csv              # pages (URL, Format: jsonld or amazon), as served or as drawn
+npm run ingest:prices -- offers --batch p01 --vendor spectrum --out offers.csv
+npm run ingest:prices -- propose --batch p01                               # selected.csv, the reviewed choice, into proposals
+npm run ingest:prices -- apply --batch p01 --dry-run
+```
+
+- **The page states it, or it does not enter.** A Shopify catalogue page prints each listing's price, compare-at price,
+  availability and SKU; the shop's own `/meta.json` states the base currency they are in. A product page's schema.org
+  offer states its own currency. An Amazon page is drawn by a browser, since its price is drawn after the page loads,
+  and hashed as drawn. `APPLY-PRICE-NOT-IN-OFFER` refuses a list, sale or displayed price, stock or currency the offer
+  does not hold; a compare-at price above the price is the list price, and the price shown is then the sale.
+- **The listing's own words give the net mass and the diameter** (`APPLY-PRICE-MASS`, `APPLY-PRICE-DIAMETER`): a metric
+  mass printed once in its title, or in its description where the reviewer says so, and 1.75 mm, or a reviewer's
+  statement that the product is sold only so. A pound figure is not read: it is a shipping weight as often as not.
+- **The product and its maker** (`APPLY-PRICE-GRADE`): an active procurement grade of the row's material, and a listing
+  that names its maker, by vendor or title; on Amazon.ca the buy box's seller must be the maker's own store.
+- **VAT is taken off only at a rate the page prints** (`APPLY-PRICE-VAT`); a price whose rate it does not print is
+  recorded and compared nowhere, and a European price is taken as before VAT only where its page says its prices
+  exclude it ("excl. VAT", "HT", "zzgl. MwSt.").
+- **Sellers** are `archive/ingest-2026-09-18/prices/sellers.csv`: each host's retailer name, source code, market (a
+  value of `schema/vocab/markets.csv`, which says whether it is Canadian) and tax basis. A shop at a Canadian address
+  priced in USD (ca.polymaker.com) is a US storefront; a shop that shows a Canadian visitor a converted CAD price is
+  recorded in its own currency.
+- **A batch is a migration** (`scripts/migrate/mNNN-batch-pNN.mjs` calls `applyPriceBatch`). A material that gains a
+  Canadian price has its Canadian-price Gap superseded in the same write, so the rehearsal's core build passes.
+
 ## Keep the private source backup current
 
 After every applied batch, re-export to the private store named by `H2C_SOURCE_BACKUP` in the owner's shell profile:

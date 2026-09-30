@@ -33,6 +33,7 @@
     "ingest:propose": "node scripts/ingest/propose.mjs",
     "ingest:review": "node scripts/ingest/review.mjs",
     "ingest:apply": "node scripts/ingest/apply.mjs",
+    "ingest:prices": "node scripts/ingest/prices.mjs",
     "ingest:batch": "node scripts/ingest/batch.mjs",
     "ingest:readings": "node scripts/ingest/readings.mjs",
     "ingest:witness": "node scripts/ingest/witness.mjs",

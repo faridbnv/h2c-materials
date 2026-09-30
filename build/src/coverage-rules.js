@@ -24,6 +24,13 @@ export const isStudyGrade = (gradeId) => /-R\d+$/.test(String(gradeId ?? ''));
 export const CLAIMS_EVIDENCE = new Set(['Evidence recorded', 'Resolved']);
 export const CLAIMS_ABSENCE = new Set(['Gap']);
 
+// The foreign listings of a database, found once per database: domainData runs once per material.
+const FOREIGN = new WeakMap();
+const foreignPrice = (db, id) => {
+  if (!FOREIGN.has(db)) FOREIGN.set(db, new Set((db.prices ?? []).filter((p) => p.foreign).map((p) => p.id)));
+  return FOREIGN.get(db).has(id);
+};
+
 /**
  * The records of this material, per coverage domain, that count as data. Only the material's own
  * records count: family context cited from another material is context, not evidence for this one.
@@ -46,7 +53,8 @@ export function domainData(db, material) {
       .filter((p) => ['nozzle', 'bed', 'chamber'].some((a) => p[a].state !== 'unknown') || p.drying.state === 'stated')
       .map((p) => p.id),
     'Moisture / environmental': own(db.evidence).filter((e) => ENVIRONMENT_CATEGORIES.has(e.category)).map((e) => e.id),
-    'Canadian price': material.headline.priceCADkg?.known ? material.headline.priceCADkg.priceIds : [],
+    // A Canadian listing only: a price converted from a foreign one prices the material and closes no Canadian gap (D113).
+    'Canadian price': material.headline.priceCADkg?.known ? material.headline.priceCADkg.priceIds.filter((id) => !foreignPrice(db, id)) : [],
   };
 }
 

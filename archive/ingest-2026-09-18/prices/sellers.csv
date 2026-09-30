@@ -1,0 +1,26 @@
+Host,Retailer,Code,Market,Tax / shipping,Notes
+3dprintingcanada.com,3D Printing Canada,3DPC,Canadian storefront,Excluded; shipping calculated at checkout,"Hamilton, Ontario; Shopify, base currency CAD."
+filaments.ca,Filaments.ca,FILAMENTSCA,Canadian storefront,Excluded; shipping calculated at checkout,"Kitchener, Ontario; Shopify, base currency CAD."
+shop3d.ca,Shop3D.ca,SHOP3D,Canadian storefront,Excluded; shipping calculated at checkout,"Mississauga, Ontario; Shopify, base currency CAD."
+digitmakers.ca,DigitMakers,DIGITMAKERS,Canadian storefront,Excluded; shipping calculated at checkout,"North York, Ontario; Shopify, base currency CAD."
+voxelfactory.com,Voxel Factory,VOXELFACTORY,Canadian storefront,Excluded; shipping calculated at checkout,"Longueuil, Quebec; Shopify, base currency CAD."
+store.makerwiz.com,MakerWiz,MAKERWIZ,Canadian storefront,Excluded; shipping calculated at checkout,"Richmond Hill, Ontario; Shopify, base currency CAD."
+shop.cadmicro.com,CAD MicroSolutions,CADMICRO,Canadian storefront,Excluded; shipping calculated at checkout,"Toronto, Ontario; Shopify, base currency CAD."
+ca.elegoo.com,ELEGOO Canada,ELEGOOCA,Canadian storefront,Excluded; shipping calculated at checkout,The maker's Canadian store; Shopify.
+ca.anycubic.com,Anycubic Canada,ANYCUBICCA,Canadian storefront,Excluded; shipping calculated at checkout,The maker's Canadian store; Shopify.
+ca.eryone3d.com,ERYONE Canada,ERYONECA,Canadian storefront,Excluded; shipping calculated at checkout,The maker's Canadian store; Shopify.
+ca.qidi3d.com,QIDI Canada,QIDICA,Canadian storefront,Excluded; shipping calculated at checkout,The maker's Canadian store; Shopify.
+ca.flashforge.com,Flashforge Canada,FLASHFORGECA,Canadian storefront,Excluded; shipping calculated at checkout,The maker's Canadian store; Shopify.
+ca.store.bambulab.com,Bambu Lab Canada,BAMBUCA,Canadian storefront,Excluded; shipping calculated at checkout,The maker's Canadian store.
+www.amazon.ca,Amazon.ca,AMAZONCA,Amazon.ca (sold by the maker's store),Excluded; shipping calculated at checkout,Only where the buy box's seller is the maker's own store (GOALS' price pass).
+www.3dxtech.com,3DXTECH,3DXTECH,United States storefront,Excluded; sales tax and shipping at checkout,The maker's own shop; Shopify base currency USD.
+3dxtech.com,3DXTECH,3DXTECH,United States storefront,Excluded; sales tax and shipping at checkout,The maker's own shop; Shopify base currency USD.
+us.polymaker.com,Polymaker US,POLYMAKERUS,United States storefront,Excluded; sales tax and shipping at checkout,The maker's US shop; Shopify base currency USD.
+ca.polymaker.com,Polymaker (ca.polymaker.com),POLYMAKERCA,United States storefront,Excluded; sales tax and shipping at checkout,"The maker's shop at a Canadian address, priced in USD (Shopify base currency USD): not a Canadian listing."
+store.sunlu.com,SUNLU,SUNLU,United States storefront,Excluded; sales tax and shipping at checkout,"The maker's shop; Shopify base currency USD. A Canadian visitor is shown a converted CAD price, which is not recorded."
+www.printedsolid.com,Printed Solid,PRINTEDSOLID,United States storefront,Excluded; sales tax and shipping at checkout,"Newark, Delaware; Shopify base currency USD."
+siraya.tech,Siraya Tech,SIRAYA,United States storefront,Excluded; sales tax and shipping at checkout,The maker's own shop; Shopify base currency USD.
+proto-pasta.com,Protopasta,PROTOPASTA,United States storefront,Excluded; sales tax and shipping at checkout,The maker's own shop; Shopify base currency USD.
+shop.raise3d.com,Raise3D,RAISE3D,United States storefront,Excluded; sales tax and shipping at checkout,The maker's own shop; base currency USD.
+kingroon.com,Kingroon,KINGROON,United States storefront,Excluded; sales tax and shipping at checkout,The maker's own shop; base currency USD.
+3dfuel.com,3D-Fuel,3DFUEL,United States storefront,Excluded; sales tax and shipping at checkout,The maker's own shop; Shopify base currency USD.
