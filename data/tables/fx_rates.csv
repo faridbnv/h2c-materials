@@ -1,1 +1,3 @@
 Currency,Rate date,CAD per unit,SourceID,Locator,Notes
+USD,2026-09-29,1.4188,R-BOC-VALET-FX-20260929,"observations, d 2026-09-29, FXUSDCAD.v",Daily average exchange rate of the US dollar in Canadian dollars (m230-fx-rates-2026-09-29).
+EUR,2026-09-29,1.6084,R-BOC-VALET-FX-20260929,"observations, d 2026-09-29, FXEURCAD.v",Daily average exchange rate of the euro in Canadian dollars (m230-fx-rates-2026-09-29).

@@ -27,7 +27,7 @@ Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking, on a product the H2C can print.
 153 materials, 136 of them in H2C scope
 11237 measurements, each traceable to a source
-145 have a density, 100 a modulus, 71 a price
+145 have a density, 100 a modulus, 85 a price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
 Properties
@@ -55,6 +55,7 @@ PC
 1.2 one measurement
 * measured, not comparable
 ≈ close to the limit
+¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 316L stainless steel sintering filament
@@ -99,7 +100,11 @@ ABS-ESD not tested 1,070
 2.21–5 · 5
  97
 96–98 · 4
- no price↗ ☆
+ 223
+199–247 · 2
+¤↗
+out of stock
+ ☆
 ABS-GF not tested 1,100
 1,016–1,150 · 12
  3.16
@@ -172,7 +177,7 @@ BVOH
 Support / Soluble
  not tested 1,140
 1,138–1,140 · 3
- 2.34 33.7 14.8 — — ☆
+ 2.34 33.7 14.8 — 329¤ ☆
 COC
 PVB / Specialty Polymers
  not tested 1,020 1.9* 40* 20* 160 — ☆
@@ -199,7 +204,7 @@ Copolyesters
  5.15 56 2 78 81.3↗ ☆
 CPE-LW
 Copolyesters
- not tested 1,160 — 2* 700* 70 — ☆
+ not tested 1,160 — 2* 700* 70 166¤ ☆
 HIPS
 Styrenics
  not tested 1,045
@@ -264,7 +269,9 @@ Nylon / Polyamide
 1,000–1,020 · 5
  1.44* 43* 50* 135
 100–135 · 3
- — ☆
+ 183
+123–242 · 2
+¤ ☆
 PA12-AF
 Nylon / Polyamide
  not tested — 0.51* 50.4* 5.8* — — ☆
@@ -285,7 +292,7 @@ PA12-GF
 Nylon / Polyamide
  not tested 1,230 7.8 82 4.5 163
 150–175 · 2
- — ☆
+ 247¤ ☆
 PA6
 Nylon / Polyamide
  not tested 1,150
@@ -371,7 +378,7 @@ Nylon / Polyamide
  not tested — — — — — — ☆
 PA66
 Nylon / Polyamide
- not tested 1,140* 3.1* 96* 45* 190* — ☆
+ not tested 1,140* 3.1* 96* 45* 190* 246¤ ☆
 PA66-CF
 Nylon / Polyamide
  not tested — — — — — — ☆
@@ -514,14 +521,16 @@ Copolyesters
 1,280–1,280 · 2
  — 39* 9* 77
 76–78 · 2
- — ☆
+ 138¤ ☆
 PCTG-GF
 Copolyesters
  not tested 1,310
 1,310–1,310 · 2
  3.4* 55* 8* 78
 76–78 · 3
- no price↗ ☆
+ 165¤↗
+out of stock
+ ☆
 PE
 Polyolefins
  not tested 954 0.752 18.5 208 66 — ☆
@@ -841,7 +850,7 @@ PLA Wood not tested 1,205
  45
 32–115 · 3
 ↗ ☆
-PLA-CE not tested — 3.5* 45* 23* 55 — ☆
+PLA-CE not tested — 3.5* 45* 23* 55 114¤ ☆
 PLA-CF not tested 1,250
 1,190–1,420 · 18
  2.87
@@ -940,12 +949,16 @@ High-Performance Engineering
  106↗ ☆
 PPE-PS
 Polymer Blends
- not tested 1,100 2.25 67 12 112* — ☆
+ not tested 1,100 2.25 67 12 112* 148¤ ☆
 PPS
 High-Performance Engineering
  not tested 1,305
 1,280–1,330 · 2
- 2.65 50 18 90 no price↗ ☆
+ 2.65 50 18 90 230
+176–284 · 2
+¤↗
+out of stock
+ ☆
 PPS-CF
 High-Performance Engineering
  not tested 1,295
@@ -1022,7 +1035,9 @@ PVDF
 Fluoropolymers
  not tested 1,750
 1,710–1,790 · 2
- 2.45 51 25 158 no price↗ ☆
+ 2.45 51 25 158 356¤↗
+out of stock
+ ☆
 PVDF-ESD
 Fluoropolymers
  not tested 1,840 2.63 55 10 177 — ☆
@@ -1134,7 +1149,11 @@ TPU-CF
 Flexible Elastomers
  not tested 1,230
 1,220–1,230 · 3
- 0.035* 61* 380* n/a no price↗ ☆
+ 0.035* 61* 380* n/a 189
+150–227 · 2
+¤↗
+out of stock
+ ☆
 TPU-EC
 Flexible Elastomers
  not tested 1,330 0.1* 18* 50* n/a — ☆
@@ -1145,7 +1164,7 @@ Flexible Elastomers
  — 12 430* n/a — ☆
 TPU-GF
 Flexible Elastomers
- not tested 1,320 0.445 32 80 n/a — ☆
+ not tested 1,320 0.445 32 80 n/a 56.7¤ ☆
 TPU-LW
 Flexible Elastomers
  not tested 1,120

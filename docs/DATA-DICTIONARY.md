@@ -1039,8 +1039,8 @@ lists the missing states a column accepts instead of a value; a blank required c
 |---|---|---|
 | Amazon.ca (sold by the maker's store) | An Amazon.ca listing whose seller is the maker's own store, in CAD; the last Canadian option (GOALS, the price pass) | yes |
 | Canadian storefront | A shop that sells to Canada in CAD, a Canadian retailer or a maker's Canadian store | yes |
-| European storefront | A shop in the European Union, in its own currency; prices include VAT at the rate it states | no |
-| United States storefront | A shop in the United States, in USD, before tax | no |
+| European storefront | A shop in the European Union, in its own currency: its price includes VAT at the rate the page states, or is before VAT where the page says so | no |
+| USD storefront | A shop that prices in US dollars, before tax: a US shop, or one that sells North America in USD wherever it is based (ca.polymaker.com, Spectrum's North American shop) | no |
 
 <a id="vocab-material-links"></a>
 ### material-links

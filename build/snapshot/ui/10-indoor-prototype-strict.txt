@@ -40,6 +40,7 @@ PC
 1.2 one measurement
 * measured, not comparable
 ≈ close to the limit
+¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS
@@ -74,7 +75,11 @@ ABS-ESD PASS
 2.21–5 · 5
  97
 96–98 · 4
- no price↗ ☆
+ 223
+199–247 · 2
+¤↗
+out of stock
+ ☆
 ABS-GF PASS
 12 of 12
  1,100
@@ -185,7 +190,7 @@ CPE-LW
 Copolyesters
  PASS
 1 of 1
- 1,160 — 2* 700* 70 — ☆
+ 1,160 — 2* 700* 70 166¤ ☆
 HIPS
 Styrenics
  PASS
@@ -231,7 +236,9 @@ Nylon / Polyamide
 1,000–1,020 · 5
  1.44* 43* 50* 135
 100–135 · 3
- — ☆
+ 183
+123–242 · 2
+¤ ☆
 PA12-CF
 Nylon / Polyamide
  PASS
@@ -253,7 +260,7 @@ Nylon / Polyamide
 1 of 2
  1,230 7.8 82 4.5 163
 150–175 · 2
- — ☆
+ 247¤ ☆
 PA6
 Nylon / Polyamide
  PASS
@@ -440,7 +447,7 @@ Copolyesters
 1,280–1,280 · 2
  — 39* 9* 77
 76–78 · 2
- — ☆
+ 138¤ ☆
 PCTG-GF
 Copolyesters
  PASS
@@ -449,7 +456,9 @@ Copolyesters
 1,310–1,310 · 2
  3.4* 55* 8* 78
 76–78 · 3
- no price↗ ☆
+ 165¤↗
+out of stock
+ ☆
 PEBA
 Flexible Elastomers
  PASS
@@ -700,7 +709,7 @@ PLA Wood PASS
 ↗ ☆
 PLA-CE PASS
 1 of 1
- — 3.5* 45* 23* 55 — ☆
+ — 3.5* 45* 23* 55 114¤ ☆
 PLA-CF PASS
 19 of 19
  1,250
@@ -920,7 +929,11 @@ Flexible Elastomers
 2 of 2
  1,230
 1,220–1,230 · 3
- 0.035* 61* 380* n/a no price↗ ☆
+ 0.035* 61* 380* n/a 189
+150–227 · 2
+¤↗
+out of stock
+ ☆
 TPU-ESD
 Flexible Elastomers
  PASS
@@ -932,4 +945,4 @@ TPU-GF
 Flexible Elastomers
  PASS
 1 of 1
- 1,320 0.445 32 80 n/a — ☆
+ 1,320 0.445 32 80 n/a 56.7¤ ☆

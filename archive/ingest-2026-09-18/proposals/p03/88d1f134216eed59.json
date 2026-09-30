@@ -1,0 +1,133 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "88d1f134216eed59ae069aa237be89cd696491388977ab5be05b20efe702ad4a",
+  "url": "https://np3dp.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "np3dp.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "10eab6eb2974b318bc4cab592dd06a9aacc1250da7965cbf2538c06354f02be8",
+  "url": "https://np3dp.com/meta.json",
+  "currency": "USD",
+  "source": {
+   "row": {
+    "SourceID": "OFFER-NP3DP-20260930-10eab6eb2974",
+    "Publisher": "Narrow Path 3D",
+    "Title": "Narrow Path 3D shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: USD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://np3dp.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "10eab6eb2974b318bc4cab592dd06a9aacc1250da7965cbf2538c06354f02be8"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-NP3DP-20260930-88d1f134216e",
+   "Publisher": "Narrow Path 3D",
+   "Title": "Narrow Path 3D product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. USD storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://np3dp.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G134-01; G157-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "88d1f134216eed59ae069aa237be89cd696491388977ab5be05b20efe702ad4a"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "8618590109866:49214079893674",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M134",
+    "GradeID": "G134-01",
+    "Retailer": "Narrow Path 3D",
+    "Variant / SKU": "Fiberlogy FiberFlex Aero / Black (SKU FBL-FIBERFLEXAERO-BLACK-SPL-850G)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.85,
+    "List price": 99.53,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 99.53,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://np3dp.com/products/fiberlogy-fiberflex-aero?variant=49214079893674",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 8618590109866:49214079893674. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs).",
+    "diameter": "The listing names no diameter; the product's own data sheet (R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1, p. 1) prints \"Diameter: 1.75 mm\", the only diameter it names."
+   }
+  },
+  {
+   "offer": {
+    "key": "8592692478122:49021881221290",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M157",
+    "GradeID": "G157-01",
+    "Retailer": "Narrow Path 3D",
+    "Variant / SKU": "Recreus Conductive Filaflex (SKU REC-FILAFLEXCOND-BLACK-SPL-500G)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 115.31,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 115.31,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://np3dp.com/products/recreus-conductive-filaflex-electrically-conductive-tpu-1-75mm-500g?variant=49021881221290",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 8592692478122:49021881221290. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

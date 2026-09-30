@@ -335,6 +335,7 @@ stand down. A green PASS on a blank screen asserted a test that never ran.
 | `46*` | A real measurement that no product publishes comparably. Select it for why, and **Open the measurement** |
 | `~1.9–5.3†` | An estimate: the likely (80%) range of a calibrated model of every observation. Never passes; select it for its evidence and which ends may screen, and **Open the estimate** |
 | `35≈` | A published mean ± spread whose spread contains the requirement's threshold. Judged on the mean (D54); select the mark for the spread |
+| `166¤` | A price converted from a foreign listing: the product has no Canadian listing in the sample, so its price is its own currency before VAT at the Bank of Canada rate (D113); select the mark for the listing and the rate |
 | `50.99` | A number beside a requirement on its column keeps the digits that put it on its own side of the threshold, where rounding would cross it |
 | `—` | Not published. Select it for which kind of absence |
 
@@ -531,9 +532,9 @@ headline, then whatever has a price. A listing with no usable price reads "no pr
 one line; the words open who lists it, when it was seen and whether it was in stock. A dash with a link arrow had read as
 nothing to buy, and "listed, no price" over "out of stock" took three lines of a desktop column and doubled the row. Under
 a price, "out of stock" is a small second line. A material with no price observation says "No price", not "No CA
-price". A price read from a foreign listing carries a ≈ mark that says from which currency, at which Bank of Canada rate
+price". A price read from a foreign listing carries a ¤ mark that says from which currency, at which Bank of Canada rate
 date, before VAT, and that no Canadian shop in the sample lists the product (D113). The Price tab lists every observation with its retailer, variant, pack size, price per kilogram, stock and
-whether it is in the sample, a foreign one with its ≈ and the arithmetic from its own currency, under one line giving how
+whether it is in the sample, a foreign one with its ¤ and the arithmetic from its own currency, under one line giving how
 many shops were sampled and when (a listing's own date is in the
 explanation its "offer" or "no price" opens). A listing with a displayed price but no regular price the sample could
 rely on (44 of the 104 sampled in September 2026) shows the displayed price per kilogram marked "offer", which opens

@@ -3584,7 +3584,7 @@ The contract follows that research's 04-PRICES, cut to what the pass needs. Buil
   prices, stock and answers after m227 (build:diff: the new meta and rate fields only).
 - **A Canadian price is never outvoted.** A product's price is the median of its Canadian headline-sample listings where
   it has any, and of its converted foreign ones only where it has none; a material's is still its plain products' median
-  (D83), and says how many of them were converted. The page marks a converted price with ≈ and says from what, at which
+  (D83), and says how many of them were converted. The page marks a converted price with ¤ and says from what, at which
   rate date, before VAT, with no claim on shipping, duty or stock here.
 - **Canadian listing stays its own fact.** A foreign listing is never a buy link, never the proof a product is in stock
   in Canada, never "Listed in the Canadian price sample", and never closes a material's Canadian-price coverage gap:

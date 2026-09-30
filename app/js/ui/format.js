@@ -355,7 +355,7 @@ export function convertedMark(converted) {
     : 'A foreign listing\'s price';
   const text = `${which}, converted from ${from} at the Bank of Canada rate of ${converted.rateDate}, before VAT. No Canadian shop in the sample `
     + `lists ${converted.products ? 'those products' : 'this product'}; shipping, duty and whether it ships to Canada are not included.`;
-  return explainButton('≈', text, { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
+  return explainButton('¤', text, { cls: 'fx-mark', head: `Converted from ${from}`, label: `Converted from ${from}` });
 }
 
 /** Every renderer that draws renderValue must wire its evidence buttons, or they are dead. */

@@ -46,6 +46,7 @@ PC
 1.2 one measurement
 * measured, not comparable
 ≈ close to the limit
+¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ASA-CF PASS

@@ -40,6 +40,7 @@ PC
 * measured, not comparable
 ~a–b† estimate, italic = rough
 ≈ close to the limit
+¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS UNKNOWN
@@ -84,7 +85,11 @@ ABS-ESD UNKNOWN
 2.21–5 · 5
  97
 96–98 · 4
- no price↗ ☆
+ 223
+199–247 · 2
+¤↗
+out of stock
+ ☆
 ABS-GF UNKNOWN
 0 of 6
  1,100
@@ -190,7 +195,7 @@ CPE-LW
 Copolyesters
  UNKNOWN
 none judged
- 1,160 ~0.12–0.33† ~17–40† ~80–350† 70 — ☆
+ 1,160 ~0.12–0.33† ~17–40† ~80–350† 70 166¤ ☆
 HIPS
 Styrenics
  UNKNOWN
@@ -246,7 +251,9 @@ none judged
 1,000–1,020 · 5
  ~0.6–2.2† ~51–80† ~200–340† 135
 100–135 · 3
- — ☆
+ 183
+123–242 · 2
+¤ ☆
 PA12-CF
 Nylon / Polyamide
  UNKNOWN
@@ -268,7 +275,7 @@ Nylon / Polyamide
 0 of 1
  1,230 7.8 82 4.5 163
 150–175 · 2
- — ☆
+ 247¤ ☆
 PA6-CF
 Nylon / Polyamide
  UNKNOWN
@@ -347,7 +354,7 @@ PA66
 Nylon / Polyamide
  UNKNOWN
 none judged
- ~1,000–1,060† ~1.3–4.7† ~40–91† ~6–53† ~97–180† — ☆
+ ~1,000–1,060† ~1.3–4.7† ~40–91† ~6–53† ~97–180† 246¤ ☆
 PAHT-CF
 Nylon / Polyamide
  UNKNOWN
@@ -828,7 +835,11 @@ High-Performance Engineering
 0 of 1
  1,305
 1,280–1,330 · 2
- 2.65 50 18 90 no price↗ ☆
+ 2.65 50 18 90 230
+176–284 · 2
+¤↗
+out of stock
+ ☆
 PPS-CF
 High-Performance Engineering
  UNKNOWN
@@ -891,7 +902,9 @@ Fluoropolymers
 0 of 1
  1,750
 1,710–1,790 · 2
- 2.45 51 25 158 no price↗ ☆
+ 2.45 51 25 158 356¤↗
+out of stock
+ ☆
 SBC
 Styrenics
  UNKNOWN
@@ -991,7 +1004,11 @@ Flexible Elastomers
 none judged
  1,230
 1,220–1,230 · 3
- ~0.01–0.74† ~18–94† ~19–82† n/a no price↗ ☆
+ ~0.01–0.74† ~18–94† ~19–82† n/a 189
+150–227 · 2
+¤↗
+out of stock
+ ☆
 TPU-EC
 Flexible Elastomers
  UNKNOWN

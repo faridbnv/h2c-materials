@@ -1,0 +1,200 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "b952998fe4b03af84bd35c39eb68fc623026ff7f2da237871bc226e75b6d74d1",
+  "url": "https://us.spectrumfilaments.com/products.json?limit=250&page=2",
+  "format": "shopify-catalogue",
+  "host": "us.spectrumfilaments.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "857d2789cc5eb9ec128993afbdc9be7e80b25bc4bd052030a6d3e1f3a297270c",
+  "url": "https://us.spectrumfilaments.com/meta.json",
+  "currency": "USD",
+  "source": {
+   "row": {
+    "SourceID": "OFFER-SPECTRUMNA-20260930-857d2789cc5e",
+    "Publisher": "Spectrum Filaments North America",
+    "Title": "Spectrum Filaments North America shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: USD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://us.spectrumfilaments.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "857d2789cc5eb9ec128993afbdc9be7e80b25bc4bd052030a6d3e1f3a297270c"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-SPECTRUMNA-20260930-b952998fe4b0",
+   "Publisher": "Spectrum Filaments North America",
+   "Title": "Spectrum Filaments North America product catalogue, page 2",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. USD storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://us.spectrumfilaments.com/products.json?limit=250&page=2",
+   "Locator": "Catalogue page 2; each listing by its product and variant ID",
+   "Applicable grades": "G072-02; G104-01; G112-01; G129-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "b952998fe4b03af84bd35c39eb68fc623026ff7f2da237871bc226e75b6d74d1"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "14740508377458:52315742732658",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M072",
+    "GradeID": "G072-02",
+    "Retailer": "Spectrum Filaments North America",
+    "Variant / SKU": "Filament Spectrum PPS AM230 1.75mm NAT 0.75kg (SKU 80723)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 92.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 92.99,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://us.spectrumfilaments.com/products/filament-spectrum-pps-am3201-1-75mm-nat-0-75kg?variant=52315742732658",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 14740508377458:52315742732658."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "14740506935666:52315740897650",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M104",
+    "GradeID": "G104-01",
+    "Retailer": "Spectrum Filaments North America",
+    "Variant / SKU": "Filament Spectrum PA6 CS20 FR V0 1.75mm BK 0.75kg (SKU 80541)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 85.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 85.99,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://us.spectrumfilaments.com/products/filament-spectrum-pa6-cs20-fr-v0-1-75mm-bk-0-75kg?variant=52315740897650",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 14740506935666:52315740897650."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "14740508180850:52315742536050",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M112",
+    "GradeID": "G112-01",
+    "Retailer": "Spectrum Filaments North America",
+    "Variant / SKU": "Filament Spectrum PC/PTFE 1.75mm NAT 0.75kg (SKU 80540)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 57.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 57.99,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://us.spectrumfilaments.com/products/filament-spectrum-pc-ptfe-1-75mm-nat-0-75kg?variant=52315742536050",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 14740508180850:52315742536050."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "14740500349298:52315734245746",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M129",
+    "GradeID": "G129-01",
+    "Retailer": "Spectrum Filaments North America",
+    "Variant / SKU": "Filament Spectrum S-Flex Carbon 1.75mm BK 0.5kg (SKU 81010)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 52.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 52.99,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://us.spectrumfilaments.com/products/filament-spectrum-s-flex-carbon-1-75mm-bk-0-5kg?variant=52315734245746",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 14740500349298:52315734245746."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

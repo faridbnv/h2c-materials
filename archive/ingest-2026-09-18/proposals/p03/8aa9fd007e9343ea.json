@@ -1,0 +1,268 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "8aa9fd007e9343ea078484feba69203d78a254f12f480d1163425405086920f6",
+  "url": "https://3dxtech.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "3dxtech.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "2e5452ac1b9a33cb079ea28df6710f10a4464c92c9c86cee48992aac118bddf3",
+  "url": "https://3dxtech.com/meta.json",
+  "currency": "USD",
+  "source": {
+   "row": {
+    "SourceID": "OFFER-3DXTECH-20260930-2e5452ac1b9a",
+    "Publisher": "3DXTECH",
+    "Title": "3DXTECH shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: USD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dxtech.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "2e5452ac1b9a33cb079ea28df6710f10a4464c92c9c86cee48992aac118bddf3"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DXTECH-20260930-8aa9fd007e93",
+   "Publisher": "3DXTECH",
+   "Title": "3DXTECH product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. USD storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dxtech.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G030-01; G052-01; G054-01; G072-01; G096-01; G130-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "8aa9fd007e9343ea078484feba69203d78a254f12f480d1163425405086920f6"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7626113417269:43779595337781",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M030",
+    "GradeID": "G030-01",
+    "Retailer": "3DXTECH",
+    "Variant / SKU": "3DXSTAT™ ESD-ABS / Black / 1.75mm / 750g (SKU ABS02ES200750BK00)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 105,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 105,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dxtech.com/products/3dxstat-esd-abs-1?variant=43779595337781",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7626113417269:43779595337781."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "14655109071211:53020993093995",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M052",
+    "GradeID": "G052-01",
+    "Retailer": "3DXTECH",
+    "Variant / SKU": "AMIDEX™ NYLON 12 / Black / 1.75mm / 750g (SKU 140BK00A-750G)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 128,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 128,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dxtech.com/products/amidex™-nylon-12?variant=53020993093995",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 14655109071211:53020993093995."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7626114662453:43779582394421",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M054",
+    "GradeID": "G054-01",
+    "Retailer": "3DXTECH",
+    "Variant / SKU": "FIBREX™ NYLON 12+GF30 / Black / 1.75mm / 750g (SKU NYL18GF200750BK00)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 98,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 98,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dxtech.com/products/fibrex-nylon-12-gf30-1?variant=43779582394421",
+    "Access date": "2026-09-30",
+    "Notes": "FibreX Nylon 12+GF30 is 3DXTECH's FibreX PA12 GF30. Read from the shop's own catalogue data; offer 7626114662453:43779582394421."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "14635906662763:51734758097259",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M072",
+    "GradeID": "G072-01",
+    "Retailer": "3DXTECH",
+    "Variant / SKU": "THERMAX™ PPS / Natural / 1.75mm / 500g (SKU PPS01UN200500NAT0)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 100,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 100,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dxtech.com/products/thermax-pps?variant=51734758097259",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 14635906662763:51734758097259."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7626114891829:43779579805749",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M096",
+    "GradeID": "G096-01",
+    "Retailer": "3DXTECH",
+    "Variant / SKU": "FLUORX™ PVDF / Natural / 1.75mm / 750g (SKU PVD01UN100750NAT0)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 188,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 188,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dxtech.com/products/fluorx-pvdf-1?variant=43779579805749",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7626114891829:43779579805749."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7626115481653:43779572924469",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M130",
+    "GradeID": "G130-01",
+    "Retailer": "3DXTECH",
+    "Variant / SKU": "THERMAX™ PPE/PS / Black / 1.75mm / 750g (SKU PPE01UN200750BK00)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 78,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 78,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dxtech.com/products/thermax-ppe-ps-1?variant=43779572924469",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7626115481653:43779572924469."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

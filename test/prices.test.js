@@ -29,7 +29,7 @@ test('a Canadian listing keeps its list price per kg, and carries nothing a fore
 });
 
 test('a USD half-kilogram spool is converted at the rate in force, the latest for its currency', () => {
-  const { prices: [p], issues } = compile([row({ Currency: 'USD', Market: 'United States storefront', 'List price': '30', 'Net mass kg': '0.5' })]);
+  const { prices: [p], issues } = compile([row({ Currency: 'USD', Market: 'USD storefront', 'List price': '30', 'Net mass kg': '0.5' })]);
   assert.deepEqual(issues, []);
   assert.equal(p.foreign, true);
   assert.equal(p.regularPerKgNative, 60);
@@ -54,7 +54,7 @@ test('a price that includes VAT at a rate nobody printed is not comparable, and 
 });
 
 test('a foreign currency with no rate stops the build, and a Canadian market is in CAD', () => {
-  const missing = compile([row({ Currency: 'USD', Market: 'United States storefront' })], []);
+  const missing = compile([row({ Currency: 'USD', Market: 'USD storefront' })], []);
   assert.deepEqual(missing.issues.map((i) => i.code), ['PRICE-FX-MISSING']);
   assert.equal(missing.prices[0].regularPerKg, null);
   const wrong = compile([row({ Currency: 'USD', Market: 'Canadian storefront' })]);
@@ -64,14 +64,14 @@ test('a foreign currency with no rate stops the build, and a Canadian market is 
 test('Amazon.ca sold by the maker\'s store is Canadian; a US or EU storefront is not', () => {
   assert.equal(isCanadianMarket("Amazon.ca (sold by the maker's store)"), true);
   assert.equal(isCanadianMarket('Canadian storefront'), true);
-  assert.equal(isCanadianMarket('United States storefront'), false);
+  assert.equal(isCanadianMarket('USD storefront'), false);
   assert.equal(isCanadianMarket('European storefront'), false);
 });
 
 test('a Canadian price is never outvoted by a converted one, and a converted price says so', () => {
   const { prices } = compile([
     row({ PriceID: 'CA9001', 'List price': '40' }),
-    row({ PriceID: 'CA9002', Currency: 'USD', Market: 'United States storefront', 'List price': '20' }),
+    row({ PriceID: 'CA9002', Currency: 'USD', Market: 'USD storefront', 'List price': '20' }),
   ]);
   const both = priceSample(prices);
   assert.deepEqual(both.map((p) => p.id), ['CA9001']);
@@ -84,7 +84,7 @@ test('the sample counts its Canadian retailers and foreign sellers apart, and na
   const { prices, fxRates } = compile([
     row({ PriceID: 'CA9001', Retailer: 'Shop A', 'Access date': '2026-09-10' }),
     row({ PriceID: 'CA9002', Retailer: 'Shop B' }),
-    row({ PriceID: 'CA9003', Retailer: 'Shop US', Currency: 'USD', Market: 'United States storefront', 'Access date': '2026-10-01' }),
+    row({ PriceID: 'CA9003', Retailer: 'Shop US', Currency: 'USD', Market: 'USD storefront', 'Access date': '2026-10-01' }),
     row({ PriceID: 'CA9004', Retailer: 'Shop Q', Quarantined: 'TRUE', 'Access date': '2026-08-01' }),
   ]);
   const meta = priceSampleMeta(prices, fxRates);

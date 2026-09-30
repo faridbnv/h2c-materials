@@ -141,7 +141,7 @@ npm run ingest:prices -- apply --batch p01 --dry-run
   exclude it ("excl. VAT", "HT", "zzgl. MwSt.").
 - **Sellers** are `archive/ingest-2026-09-18/prices/sellers.csv`: each host's retailer name, source code, market (a
   value of `schema/vocab/markets.csv`, which says whether it is Canadian) and tax basis. A shop at a Canadian address
-  priced in USD (ca.polymaker.com) is a US storefront; a shop that shows a Canadian visitor a converted CAD price is
+  priced in USD (ca.polymaker.com) is a USD storefront; a shop that shows a Canadian visitor a converted CAD price is
   recorded in its own currency.
 - **A batch is a migration** (`scripts/migrate/mNNN-batch-pNN.mjs` calls `applyPriceBatch`). A material that gains a
   Canadian price has its Canadian-price Gap superseded in the same write, so the rehearsal's core build passes.

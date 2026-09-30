@@ -1,0 +1,336 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "4c492950aabaa337da881a78fbf45d9a127737c8e3f3ac007e56db27982f2398",
+  "url": "https://texasfilamentsupply.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "texasfilamentsupply.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "55de96be869e878978da2587073f36c553dc8a49e440bac24140403757cbaa32",
+  "url": "https://texasfilamentsupply.com/meta.json",
+  "currency": "USD",
+  "source": {
+   "row": {
+    "SourceID": "OFFER-TEXASFILAMENT-20260930-55de96be869e",
+    "Publisher": "Texas Filament Supply",
+    "Title": "Texas Filament Supply shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: USD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://texasfilamentsupply.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "55de96be869e878978da2587073f36c553dc8a49e440bac24140403757cbaa32"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-TEXASFILAMENT-20260930-4c492950aaba",
+   "Publisher": "Texas Filament Supply",
+   "Title": "Texas Filament Supply product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. USD storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://texasfilamentsupply.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G030-07; G052-06; G054-03; G076-04; G110-03; G129-07; G144-03; G158-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "4c492950aabaa337da881a78fbf45d9a127737c8e3f3ac007e56db27982f2398"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7223148806319:41558651207855",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M030",
+    "GradeID": "G030-07",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "ESD - ABS",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 87,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 87,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/abs-esd?variant=41558651207855",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 7223148806319:41558651207855. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446304456879:42270243455151",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M052",
+    "GradeID": "G052-06",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "Nylon PA12 / Natural - New 1 KG Spool",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 87,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 87,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/nylon-pa12?variant=42270243455151",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7446304456879:42270243455151."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6829499482287:40754220761263",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M054",
+    "GradeID": "G054-03",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "Nylon PA12 + GF15 / Black",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 87,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 87,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/nylon-pa12-gf15?variant=40754220761263",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 6829499482287:40754220761263. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446296101039:42270217896111",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M076",
+    "GradeID": "G076-04",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "BVOH",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 116,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 116,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/bvoh?variant=42270217896111",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 7446296101039:42270217896111. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7585517666479:42661690179759",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M110",
+    "GradeID": "G110-03",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "PCTG + GF10 / Black",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 87,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 87,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/pctg-gf10?variant=42661690179759",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 7585517666479:42661690179759. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8169713139887:44926974918831",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M129",
+    "GradeID": "G129-07",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "FiberFlex CF",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 80,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 80,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/fiberflex-cf?variant=44926974918831",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 8169713139887:44926974918831. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7900435710127:43765237350575",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M144",
+    "GradeID": "G144-03",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "PCTG + CF10",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 73,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 73,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/pctg-cf10?variant=43765237350575",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 7900435710127:43765237350575. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7039241093295:42049431503023",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M158",
+    "GradeID": "G158-01",
+    "Retailer": "Texas Filament Supply",
+    "Variant / SKU": "Mineral PLA / Black",
+    "Packaging": "Spool",
+    "Net mass kg": 0.85,
+    "List price": 68,
+    "Sale price": 65,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 65,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://texasfilamentsupply.com/products/pla-mineral?variant=42049431503023",
+    "Access date": "2026-09-30",
+    "Notes": "The product's net mass is printed in the listing's description, not its title. Read from the shop's own catalogue data; offer 7039241093295:42049431503023. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

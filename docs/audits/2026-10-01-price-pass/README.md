@@ -83,3 +83,23 @@ review cites ([review-p02.mjs](review-p02.mjs)).
 Materials with a price: 66 → 71; products 168 → 173; passing products 128 → 130. As the owner accepted, an Amazon.ca
 price is what the maker's store asks there, which can sit well above its own shop's: Siraya Tech's US shop lists
 Fibreheart PPA-GF at 45.59 USD, and ships it only to the US, the EU and Australia.
+
+## The rates, and batch p03: USD (2026-09-30)
+
+**Rates** (m230): the Bank of Canada's daily average rates for 2026-09-29, the latest it had published, read from its
+Valet service's JSON for that day and hashed (`R-BOC-VALET-FX-20260929`): 1 USD = 1.4188 CAD, 1 EUR = 1.6084 CAD. Every
+foreign listing is compared at these, whatever day it was read.
+
+**p03** (m231): ten USD Shopify shops captured whole, each with its `/meta.json` stating USD: 3DXTECH's own shop,
+Spectrum's North American shop (registered in Canada, priced in USD, so a USD storefront: a Canadian listing is in CAD),
+Siraya Tech's, SUNLU's, iSANMATE's, Flashforge's, Printed Solid, 3D Printers Depot, and the two US retailers Fiberlogy
+names (Texas Filament Supply, Narrow Path 3D). 22 listings in [review-p03.mjs](review-p03.mjs), for materials no
+Canadian option priced; 18 in stock. Fiberlogy's US retailers print a spool's mass in the description, not the title,
+which the review marks; Fiberlogy FiberFlex Aero and Siraya Tech Fibreheart TPU-GF name no diameter and their own data
+sheets print 1.75 mm and no other.
+
+Materials with a price: 71 → 85, 14 of them at a converted price (ABS-ESD, PA12, PA12-GF, PA66, PPS, BVOH, PVDF, PCTG-GF,
+TPU-CF, PPE/PS, CPE-LW, PCTG-CF, TPU-GF, PLA-CE). Not taken, with why: 3DXTECH no longer lists six products the
+database holds, SUNLU's PP is out of stock everywhere, three Fiberlogy flexibles print no diameter, CreatBot's
+listings are other products. A converted price carries the mark ¤ (≈ already means "close to the limit"), which the
+legend explains wherever a foreign seller is in the sample.

@@ -43,6 +43,7 @@ PC
 * measured, not comparable
 ~a–b† estimate, italic = rough
 ≈ close to the limit
+¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS UNKNOWN
@@ -92,7 +93,11 @@ ABS-ESD UNKNOWN
 2.21–5 · 5
  97
 96–98 · 4
- no price↗ ☆
+ 223
+199–247 · 2
+¤↗
+out of stock
+ ☆
 ABS-GF UNKNOWN
 0 of 4
  1,100
@@ -257,7 +262,7 @@ Nylon / Polyamide
 0 of 1
  1,230 7.8 82 4.5 163
 150–175 · 2
- — ☆
+ 247¤ ☆
 PA6
 Nylon / Polyamide
  UNKNOWN
@@ -363,7 +368,7 @@ PA66
 Nylon / Polyamide
  UNKNOWN
 none judged
- ~1,000–1,060† ~1.3–4.7† ~40–91† ~6–53† ~97–180† — ☆
+ ~1,000–1,060† ~1.3–4.7† ~40–91† ~6–53† ~97–180† 246¤ ☆
 PA66-CF
 Nylon / Polyamide
  UNKNOWN ~1,050–1,160† ~2.8–12.7† ~61–141† ~1.2–11.1† ~168–251† — ☆
@@ -514,7 +519,7 @@ none judged
 1,280–1,280 · 2
  ~1.6–6.1† ~42–77† ~9–28† 77
 76–78 · 2
- — ☆
+ 138¤ ☆
 PCTG-GF
 Copolyesters
  UNKNOWN
@@ -523,7 +528,9 @@ none judged
 1,310–1,310 · 2
  ~1.3–5.1† ~33–74† ~2–23† 78
 76–78 · 3
- no price↗ ☆
+ 165¤↗
+out of stock
+ ☆
 PE
 Polyolefins
  UNKNOWN
@@ -788,7 +795,7 @@ PLA Wood UNKNOWN
 ↗ ☆
 PLA-CE UNKNOWN
 none judged
- ~1,150–1,310† ~2.6–4.5† ~37–60† ~5–18† 55 — ☆
+ ~1,150–1,310† ~2.6–4.5† ~37–60† ~5–18† 55 114¤ ☆
 PLA-CF UNKNOWN
 0 of 7
  1,250
@@ -899,7 +906,11 @@ High-Performance Engineering
 0 of 1
  1,305
 1,280–1,330 · 2
- 2.65 50 18 90 no price↗ ☆
+ 2.65 50 18 90 230
+176–284 · 2
+¤↗
+out of stock
+ ☆
 PPS-CF
 High-Performance Engineering
  UNKNOWN
@@ -962,7 +973,9 @@ Fluoropolymers
 0 of 1
  1,750
 1,710–1,790 · 2
- 2.45 51 25 158 no price↗ ☆
+ 2.45 51 25 158 356¤↗
+out of stock
+ ☆
 SAN
 Styrenics
  UNKNOWN

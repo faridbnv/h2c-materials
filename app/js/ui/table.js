@@ -355,6 +355,10 @@ export function renderTable(host, state, actions) {
     explainButton('<span class="load-mark">\u2248</span> close to the limit',
       'A published mean with a spread, where a requirement\'s threshold lies inside the spread. The result is judged on the mean. Select the mark for the published spread.',
       { cls: 'lg', head: 'Close to the limit' }),
+    // Only where a price on screen was converted, like the estimate entry only where estimates show (D113).
+    (state.db.meta.priceSample?.foreignSellers ?? 0) > 0 ? explainButton('<span class="fx-mark">\u00a4</span> converted',
+      'A price from a foreign listing, for a product no Canadian shop in the sample lists: its own currency, before VAT, converted to CAD at the Bank of Canada rate named in its explanation. It says nothing about shipping to Canada, duty or Canadian stock. Select the mark for the listing and the rate.',
+      { cls: 'lg', head: 'Converted price' }) : '',
     explainButton('<span class="na">n/a</span> not applicable',
       'The property does not apply to this material, such as heat deflection of an elastomer. Not a gap in the data.',
       { cls: 'lg', head: 'Not applicable' }),

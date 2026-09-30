@@ -80,6 +80,17 @@ export function jsonLdOffers(bytes, url) {
       i++;
     }
   }
+  // A page's own price block can say more than its schema.org data. niceshops pages (3DJake) print a reduced price with
+  // the price it replaces ("p-price__reduced" and "p-price__instead") where schema.org carries only the reduced one, and
+  // print the spool's net content ("Content 700 g") in their properties table, never in the offer.
+  const euro = (t) => { const m = /([\d.]+,\d{2}|\d+(?:\.\d{2})?)/.exec(String(t ?? '').replace(/&nbsp;/g, ' ')); return m ? Number(m[1].replace(/\.(?=\d{3},)/g, '').replace(',', '.')) : null; };
+  const instead = euro((/class="p-price__instead">([^<]+)</.exec(html) ?? [])[1]);
+  const reduced = euro((/class="p-price__reduced">([^<]+)</.exec(html) ?? [])[1]);
+  const content = [...new Set([...html.matchAll(/>\s*Contents?:?\s*<\/[a-z]+>\s*<[a-z]+[^>]*>\s*([^<]{1,40}?)\s*</gi)].map((m) => clean(m[1])).filter(Boolean))];
+  for (const o of offers) {
+    if (instead != null && reduced != null && o.price === reduced && instead > reduced && o.compareAt == null) o.compareAt = instead;
+    if (content.length) o.description = content.map((c) => `Content: ${c}`).join('; ');
+  }
   const currencies = [...new Set(offers.map((o) => o.currency).filter(Boolean))];
   return { currency: currencies.length === 1 ? currencies[0] : null, offers };
 }
@@ -142,7 +153,9 @@ export function massKg(text) {
   const s = String(text ?? '');
   const found = new Set();
   for (const m of s.matchAll(/(?<![\d.])(\d+(?:[.,]\d+)?)\s?(kg|kilo(?:gram)?s?|g|gr|grams?)(?![a-z])/gi)) {
-    const n = Number(m[1].replace(',', '.'));
+    // "1.000 g" is a thousand grams where a European shop writes it: a separator before exactly three digits of grams.
+    const grams = !/^k/i.test(m[2]) && /^\d{1,2}[.,]\d{3}$/.test(m[1]);
+    const n = grams ? Number(m[1].replace(/[.,]/, '')) : Number(m[1].replace(',', '.'));
     const kg = /^k/i.test(m[2]) ? n : n / 1000;
     if (kg >= 0.1 && kg <= 10) found.add(Math.round(kg * 1000) / 1000);
   }

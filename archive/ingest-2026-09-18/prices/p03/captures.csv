@@ -1,0 +1,30 @@
+Host,URL,Kind,Format,SHA256,Bytes,Accessed,Note
+3dxtech.com,https://3dxtech.com/meta.json,meta,shopify-meta,2e5452ac1b9a33cb079ea28df6710f10a4464c92c9c86cee48992aac118bddf3,1854,2026-09-30,base currency USD
+3dxtech.com,https://3dxtech.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,8aa9fd007e9343ea078484feba69203d78a254f12f480d1163425405086920f6,742721,2026-09-30,144 products
+us.spectrumfilaments.com,https://us.spectrumfilaments.com/meta.json,meta,shopify-meta,857d2789cc5eb9ec128993afbdc9be7e80b25bc4bd052030a6d3e1f3a297270c,655,2026-09-30,base currency USD
+us.spectrumfilaments.com,https://us.spectrumfilaments.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,ea1b706dc34ca3b1a525952d2f409bd263a6a8d463d7b4420936554effc3811e,1172593,2026-09-30,250 products
+us.spectrumfilaments.com,https://us.spectrumfilaments.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,b952998fe4b03af84bd35c39eb68fc623026ff7f2da237871bc226e75b6d74d1,1441440,2026-09-30,250 products
+us.spectrumfilaments.com,https://us.spectrumfilaments.com/products.json?limit=250&page=3,catalogue,shopify-catalogue,796a067a40ebe6464755dd96a7b174a0c8db9403c3e185e1a87601a9a89383db,982629,2026-09-30,176 products
+siraya.tech,https://siraya.tech/meta.json,meta,shopify-meta,f92d94715541a66d53f0586d0b4e72306a7d6d87d261839fc95dda4c4ec8b14c,983,2026-09-30,base currency USD
+siraya.tech,https://siraya.tech/products.json?limit=250&page=1,catalogue,shopify-catalogue,6dc00814d7dfe6ccd048d3a985cdd9c9a69073faa0adb588c61032ac7b450a9e,428402,2026-09-30,51 products
+store.sunlu.com,https://store.sunlu.com/meta.json,meta,shopify-meta,1e8b34c49879717615edbb04212baa197a17483ced2afb78ab76f9511eb8f4ca,960,2026-09-30,base currency USD
+store.sunlu.com,https://store.sunlu.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,d61f0af55e3f7398db0e097b6126b63161b7fd2cad5bfae60cf5215ee22e8439,4185701,2026-09-30,125 products
+isanmate.store,https://isanmate.store/meta.json,meta,shopify-meta,0f8fadd6857eb320e9634c0896339c98d4a407c573dee43996c3a2031ce9206a,763,2026-09-30,base currency USD
+isanmate.store,https://isanmate.store/products.json?limit=250&page=1,catalogue,shopify-catalogue,e9ed3eee32072f38e1297a3d7ff973156464417036f22e345ac3d1514ddb2005,436635,2026-09-30,39 products
+flashforge.com,https://flashforge.com/meta.json,meta,shopify-meta,42bff0c1d8cae9bb32595c77ca9f8abc06ba0f6c2aabeb181897a6e873ba61c2,874,2026-09-30,base currency USD
+flashforge.com,https://flashforge.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,38a29ac7b944268c5eb3c9f2fd818daabc2deab1cb738f9237c4f4ca711fe697,512472,2026-09-30,67 products
+texasfilamentsupply.com,https://texasfilamentsupply.com/meta.json,meta,shopify-meta,55de96be869e878978da2587073f36c553dc8a49e440bac24140403757cbaa32,683,2026-09-30,base currency USD
+texasfilamentsupply.com,https://texasfilamentsupply.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,4c492950aabaa337da881a78fbf45d9a127737c8e3f3ac007e56db27982f2398,1378701,2026-09-30,114 products
+np3dp.com,https://np3dp.com/meta.json,meta,shopify-meta,10eab6eb2974b318bc4cab592dd06a9aacc1250da7965cbf2538c06354f02be8,661,2026-09-30,base currency USD
+np3dp.com,https://np3dp.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,88d1f134216eed59ae069aa237be89cd696491388977ab5be05b20efe702ad4a,1827022,2026-09-30,94 products
+3dprintersdepot.com,https://3dprintersdepot.com/meta.json,meta,shopify-meta,deccec664c6aebee3cb837b40aa38a237f59a505e47ec9e0705a00bafdb928fa,837,2026-09-30,base currency USD
+3dprintersdepot.com,https://3dprintersdepot.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,cd4449cad360102250fb1ab7e0040800b087982970fca8bc9686126539c706d3,2384898,2026-09-30,250 products
+3dprintersdepot.com,https://3dprintersdepot.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,51e30acdbe4445dc0fdbea0c069345d45f539d273a5dd1ee25684ec251eb5eb2,2227987,2026-09-30,250 products
+3dprintersdepot.com,https://3dprintersdepot.com/products.json?limit=250&page=3,catalogue,shopify-catalogue,d3b6ecc0d40beed35ce5ec09548f8984d24e2646caa9b3637ceb629760cd9149,2527665,2026-09-30,250 products
+3dprintersdepot.com,https://3dprintersdepot.com/products.json?limit=250&page=4,catalogue,shopify-catalogue,09ddafb9758ff2676762ac60be4407cea1d497a6b49e0d0e7afdc496db6d93be,1924350,2026-09-30,250 products
+3dprintersdepot.com,https://3dprintersdepot.com/products.json?limit=250&page=5,catalogue,shopify-catalogue,2672bf432ca5b3ffa074f393bd4bb4fc02690e89f38a623df03c63fd3e8ffbfa,1840979,2026-09-30,191 products
+www.printedsolid.com,https://www.printedsolid.com/meta.json,meta,shopify-meta,8c20bb0a12a8e85597cc32966823f1623750c3d2dd0b86eee216b9c7cc4b4809,635,2026-09-30,base currency USD
+www.printedsolid.com,https://www.printedsolid.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,253d37ab1093dfe62454cf4bd78c22e1a035a4c1717835ca1a09aabd39f20414,3195026,2026-09-30,247 products
+www.printedsolid.com,https://www.printedsolid.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,5ff8bb84162b82fc8e936ac3d99e7f8088b3a983a7a458084f0f53b2597812a3,2608124,2026-09-30,247 products
+www.printedsolid.com,https://www.printedsolid.com/products.json?limit=250&page=3,catalogue,shopify-catalogue,27a05f3abdb78b592b6e4fe9e05dd321ced9d36f861a0d17af2622478ae33b87,1630746,2026-09-30,250 products
+www.printedsolid.com,https://www.printedsolid.com/products.json?limit=250&page=4,catalogue,shopify-catalogue,939e78ae57b9e4e9369d6235d8a398efa7b0c34a1fe9a8e086d50aaca66a3342,529764,2026-09-30,100 products

@@ -1,0 +1,99 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "6dc00814d7dfe6ccd048d3a985cdd9c9a69073faa0adb588c61032ac7b450a9e",
+  "url": "https://siraya.tech/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "siraya.tech",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "f92d94715541a66d53f0586d0b4e72306a7d6d87d261839fc95dda4c4ec8b14c",
+  "url": "https://siraya.tech/meta.json",
+  "currency": "USD",
+  "source": {
+   "row": {
+    "SourceID": "OFFER-SIRAYA-20260930-f92d94715541",
+    "Publisher": "Siraya Tech",
+    "Title": "Siraya Tech shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: USD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://siraya.tech/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "f92d94715541a66d53f0586d0b4e72306a7d6d87d261839fc95dda4c4ec8b14c"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-SIRAYA-20260930-6dc00814d7df",
+   "Publisher": "Siraya Tech",
+   "Title": "Siraya Tech product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. USD storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://siraya.tech/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G151-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "6dc00814d7dfe6ccd048d3a985cdd9c9a69073faa0adb588c61032ac7b450a9e"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7938530738285:43835765129325",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M151",
+    "GradeID": "G151-01",
+    "Retailer": "Siraya Tech",
+    "Variant / SKU": "Fibreheart™ TPU-GF Filament / US / Black / 1KG (SKU ST3032)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": 34.39,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 34.39,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://siraya.tech/products/fibreheart-tpu-gf-15-glass-fiber-filament?variant=43835765129325",
+    "Access date": "2026-09-30",
+    "Notes": "The variant shipped within the US. Read from the shop's own catalogue data; offer 7938530738285:43835765129325."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs).",
+    "diameter": "The listing names no diameter; the product's own data sheet (D-SIRAYA-fibreheart-tpu-gf-filament-tds, p. 1) prints \"Diameter 1.75±0.03 mm\", the only diameter it names."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

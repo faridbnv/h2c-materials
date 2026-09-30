@@ -39,6 +39,7 @@ PC
 1.2 one measurement
 * measured, not comparable
 ≈ close to the limit
+¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 ABS PASS
@@ -73,7 +74,11 @@ ABS-ESD PASS
 2.21–5 · 5
  97
 96–98 · 4
- no price↗ ☆
+ 223
+199–247 · 2
+¤↗
+out of stock
+ ☆
 ABS-GF PASS
 7 of 7
  1,100
@@ -181,7 +186,7 @@ Nylon / Polyamide
 1 of 2
  1,230 7.8 82 4.5 163
 150–175 · 2
- — ☆
+ 247¤ ☆
 PA6
 Nylon / Polyamide
  PASS

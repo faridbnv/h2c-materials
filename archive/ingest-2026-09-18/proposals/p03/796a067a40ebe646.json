@@ -1,0 +1,98 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "796a067a40ebe6464755dd96a7b174a0c8db9403c3e185e1a87601a9a89383db",
+  "url": "https://us.spectrumfilaments.com/products.json?limit=250&page=3",
+  "format": "shopify-catalogue",
+  "host": "us.spectrumfilaments.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "857d2789cc5eb9ec128993afbdc9be7e80b25bc4bd052030a6d3e1f3a297270c",
+  "url": "https://us.spectrumfilaments.com/meta.json",
+  "currency": "USD",
+  "source": {
+   "row": {
+    "SourceID": "OFFER-SPECTRUMNA-20260930-857d2789cc5e",
+    "Publisher": "Spectrum Filaments North America",
+    "Title": "Spectrum Filaments North America shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: USD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://us.spectrumfilaments.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "857d2789cc5eb9ec128993afbdc9be7e80b25bc4bd052030a6d3e1f3a297270c"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-SPECTRUMNA-20260930-796a067a40eb",
+   "Publisher": "Spectrum Filaments North America",
+   "Title": "Spectrum Filaments North America product catalogue, page 3",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. USD storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://us.spectrumfilaments.com/products.json?limit=250&page=3",
+   "Locator": "Catalogue page 3; each listing by its product and variant ID",
+   "Applicable grades": "G164-03",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "796a067a40ebe6464755dd96a7b174a0c8db9403c3e185e1a87601a9a89383db"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "14740478099826:52315700855154",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M055",
+    "GradeID": "G164-03",
+    "Retailer": "Spectrum Filaments North America",
+    "Variant / SKU": "Filament Spectrum ThermaTech PA 1.75mm Black 0.75kg (SKU 81532)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 129.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 129.99,
+    "Currency": "USD",
+    "Market": "USD storefront",
+    "Tax / shipping": "Excluded; sales tax and shipping at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://us.spectrumfilaments.com/products/filament-spectrum-thermatech-pa-1-75mm-black-0-75kg?variant=52315700855154",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 14740478099826:52315700855154."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 3: USD, the maker's shop or a US seller (review-p03.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

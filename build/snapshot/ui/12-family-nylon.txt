@@ -33,6 +33,7 @@ PC
 1.2 one measurement
 * measured, not comparable
 ≈ close to the limit
+¤ converted
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
 Nylon-CF, maker-undisclosed polyamide
@@ -73,7 +74,9 @@ Nylon / Polyamide
 1,000–1,020 · 5
  1.44* 43* 50* 135
 100–135 · 3
- — ☆
+ 183
+123–242 · 2
+¤ ☆
 PA12-AF
 Nylon / Polyamide
  PASS
@@ -100,7 +103,7 @@ Nylon / Polyamide
 3 of 3
  1,230 7.8 82 4.5 163
 150–175 · 2
- — ☆
+ 247¤ ☆
 PA6
 Nylon / Polyamide
  PASS
@@ -206,7 +209,7 @@ PA66
 Nylon / Polyamide
  PASS
 2 of 2
- 1,140* 3.1* 96* 45* 190* — ☆
+ 1,140* 3.1* 96* 45* 190* 246¤ ☆
 PA66-CF
 Nylon / Polyamide
  PASS — — — — — — ☆

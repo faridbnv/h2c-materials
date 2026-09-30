@@ -1187,13 +1187,13 @@ function tabBody(tab, c) {
       + `${fmtNumber(p.regularPerKgNative)} ${p.currency}/kg before VAT, × ${p.fx.cadPerUnit} CAD per ${p.currency} (Bank of Canada, ${p.fx.date}). `
       + 'It prices the product only where no Canadian retailer in the sample lists it, and says nothing about shipping to Canada, duty or stock here.';
     return `<div class="note">The material's price is the median of its products' prices; each product's is the median of its listings in the sample:
-      its Canadian listings, or where it has none, its foreign ones converted to CAD (≈). ${esc(priceSampleWords(db.meta))}; not live. A struck-through row is quarantined: the listing is a different product and backs nothing. Why is said under it.</div>
+      its Canadian listings, or where it has none, its foreign ones converted to CAD (¤). ${esc(priceSampleWords(db.meta))}; not live. A struck-through row is quarantined: the listing is a different product and backs nothing. Why is said under it.</div>
       ${scrollTable(`<table class="grid price-table"><thead><tr>
       <th>ID</th><th class="retailer">Retailer</th><th class="variant">Variant</th><th class="num">kg</th><th class="num">CAD/kg</th><th>Stock</th><th>In sample</th></tr></thead>
       <tbody>${prices.map((p) => `<tr data-price="${esc(p.id)}"${p.quarantined ? ` class="quarantined" title="${esc(quarantineWhy(p))}"` : ''}>
         <td>${esc(p.id)}${p.quarantined ? ' <span class="chip chip-FAIL chip-small">quarantined</span>' : ''}</td><td class="retailer">${esc(p.retailer)}</td><td class="variant">${esc(p.variant ?? '')}</td>
         <td class="num">${fmtNumber(p.netMassKg)}</td>
-        <td class="num">${p.regularPerKg !== null && p.fx ? `${fmtNumber(p.regularPerKg)} ${explainButton('≈', foreignWhy(p), { cls: 'fx-mark', head: `Converted from ${p.currency}`, label: `Converted from ${p.currency}` })}`
+        <td class="num">${p.regularPerKg !== null && p.fx ? `${fmtNumber(p.regularPerKg)} ${explainButton('¤', foreignWhy(p), { cls: 'fx-mark', head: `Converted from ${p.currency}`, label: `Converted from ${p.currency}` })}`
           : p.regularPerKg !== null ? fmtNumber(p.regularPerKg)
           // The offer the retailer showed, per kilogram, marked as an offer: 44 of the 104 listings carry a displayed
           // price but no regular price the sample could rely on, and "no price" beside a listing that showed 29.99
