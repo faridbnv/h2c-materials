@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "261060962b4b9026c8b934f17502e89a8303c1489a874a91d386af1d2f701e7a",
+  "url": "https://www.3djake.com/colorfabb/pa-neat",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-261060962b4b",
+   "Publisher": "3DJake International",
+   "Title": "colorFabb PA Neat, 1.75 mm",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/colorfabb/pa-neat",
+   "Locator": "Document / product page",
+   "Applicable grades": "G164-06",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "261060962b4b9026c8b934f17502e89a8303c1489a874a91d386af1d2f701e7a"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "CF-8719033556270",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M164",
+    "GradeID": "G164-06",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "colorFabb PA Neat, 1.75 mm (SKU CF-8719033556270)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 49.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/colorfabb/pa-neat",
+    "Access date": "2026-09-30",
+    "Notes": "The net mass is the page's \"Content\" line; its title prints none. Read from the shop's own product data (schema.org); offer CF-8719033556270. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "7f464d35df7204a57de79ca9c4d341ca2f89681352ecfb6297e77f382abafa9f",
+  "url": "https://www.3djake.com/colorfabb/ngen-cf10",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-7f464d35df72",
+   "Publisher": "3DJake International",
+   "Title": "colorFabb nGen-CF10, 1,75 mm / 750 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/colorfabb/ngen-cf10",
+   "Locator": "Document / product page",
+   "Applicable grades": "G142-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "7f464d35df7204a57de79ca9c4d341ca2f89681352ecfb6297e77f382abafa9f"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "CF-8720039152700",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M142",
+    "GradeID": "G142-01",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "colorFabb nGen-CF10, 1,75 mm / 750 g (SKU CF-8720039152700)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 41.66,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 41.66,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/colorfabb/ngen-cf10?sai=17953",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer CF-8720039152700."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

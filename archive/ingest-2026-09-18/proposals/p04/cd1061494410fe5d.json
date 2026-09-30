@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "cd1061494410fe5d6b5c86911efc7b1c74e02e3d0b1f7022d7ddf3639149cb72",
+  "url": "https://www.3djake.com/extrudr/green-tec-pro-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-cd1061494410",
+   "Publisher": "3DJake International",
+   "Title": "Extrudr Green-TEC PRO Black, 1.75 mm / 800 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/extrudr/green-tec-pro-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G168-03",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "cd1061494410fe5d6b5c86911efc7b1c74e02e3d0b1f7022d7ddf3639149cb72"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "EX-9010241426027",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M168",
+    "GradeID": "G168-03",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Extrudr Green-TEC PRO Black, 1.75 mm / 800 g (SKU EX-9010241426027)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.8,
+    "List price": 37.49,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 37.49,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/extrudr/green-tec-pro-black?sai=3454",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer EX-9010241426027."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

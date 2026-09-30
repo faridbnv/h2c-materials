@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "9c98cf3918d7735ffb12909ae203d70574176eb71e7d2829ebc4f743308f6381",
+  "url": "https://www.3djake.com/colorfabb/ngen-flex-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-9c98cf3918d7",
+   "Publisher": "3DJake International",
+   "Title": "colorFabb nGen_FLEX Black, 1,75 mm",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/colorfabb/ngen-flex-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G143-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "9c98cf3918d7735ffb12909ae203d70574176eb71e7d2829ebc4f743308f6381"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "CF-8719033555716",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M143",
+    "GradeID": "G143-01",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "colorFabb nGen_FLEX Black, 1,75 mm (SKU CF-8719033555716)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.65,
+    "List price": 30.83,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 30.83,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/colorfabb/ngen-flex-black",
+    "Access date": "2026-09-30",
+    "Notes": "The net mass is the page's \"Content\" line; its title prints none. Read from the shop's own product data (schema.org); offer CF-8719033555716. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

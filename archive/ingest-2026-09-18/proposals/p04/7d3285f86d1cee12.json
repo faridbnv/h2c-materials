@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "7d3285f86d1cee1207111ec5df854e73f1055acebd734db0af589dd9ddaeb4a9",
+  "url": "https://www.3djake.com/spectrum/pp-black-1",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-7d3285f86d1c",
+   "Publisher": "3DJake International",
+   "Title": "Spectrum PP Black, 1.75 mm / 750 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/spectrum/pp-black-1",
+   "Locator": "Document / product page",
+   "Applicable grades": "G082-03",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "7d3285f86d1cee1207111ec5df854e73f1055acebd734db0af589dd9ddaeb4a9"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "SPC-81677",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M082",
+    "GradeID": "G082-03",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Spectrum PP Black, 1.75 mm / 750 g (SKU SPC-81677)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 29.16,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 29.16,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/spectrum/pp-black-1",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer SPC-81677."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

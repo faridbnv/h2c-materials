@@ -40,7 +40,7 @@ Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
 1 of 1
- 1,400 — 107* 2* — — ☆
+ 1,400 — 107* 2* — 167¤ ☆
 Nylon-GF, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
@@ -60,7 +60,9 @@ Nylon / Polyamide
 4.5–9.77 · 3
  85
 79–91 · 2
- — ☆
+ 107
+107–107 · 2
+¤ ☆
 PA-ESD
 Nylon / Polyamide
  PASS
@@ -117,7 +119,7 @@ PA6-CE
 Nylon / Polyamide
  PASS
 1 of 1
- 1,490 6* 55* — 90* — ☆
+ 1,490 6* 55* — 90* 161¤ ☆
 PA6-CF
 Nylon / Polyamide
  PASS
@@ -178,7 +180,9 @@ PA6/66-CF
 Nylon / Polyamide
  PASS
 1 of 1
- 1,240 — 84 7.42 155* no price↗ ☆
+ 1,240 — 84 7.42 155* 72.4¤↗
+out of stock
+ ☆
 PA612
 Nylon / Polyamide
  PASS 1,060* 2.4* 62* 100* 135* — ☆

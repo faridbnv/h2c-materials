@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "85db03af30004560f641ae518751feb4cf1ab304aac18ca6fbbf4e3e38d01d9e",
+  "url": "https://www.3djake.com/fiberlogy/pp-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-85db03af3000",
+   "Publisher": "3DJake International",
+   "Title": "Fiberlogy PP Black, 1.75mm / 750g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/fiberlogy/pp-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G082-10",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "85db03af30004560f641ae518751feb4cf1ab304aac18ca6fbbf4e3e38d01d9e"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "FL-PP-BLACK-175-075",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M082",
+    "GradeID": "G082-10",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Fiberlogy PP Black, 1.75mm / 750g (SKU FL-PP-BLACK-175-075)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 31.66,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 31.66,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/fiberlogy/pp-black?sai=9077",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer FL-PP-BLACK-175-075."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

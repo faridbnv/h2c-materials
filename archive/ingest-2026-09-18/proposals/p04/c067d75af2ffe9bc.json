@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "c067d75af2ffe9bc3ec02f0e36e6158af685aaebbc8dbc0e053fcaa88d56188f",
+  "url": "https://www.3djake.com/prusa/prusament-pp-glass-fiber-natural-nfc",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-c067d75af2ff",
+   "Publisher": "3DJake International",
+   "Title": "Prusament PP Glass Fiber Natural (NFC), 1.75 mm / 850 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/prusa/prusament-pp-glass-fiber-natural-nfc",
+   "Locator": "Document / product page",
+   "Applicable grades": "G084-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "c067d75af2ffe9bc3ec02f0e36e6158af685aaebbc8dbc0e053fcaa88d56188f"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "PR-8594173676299",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M084",
+    "GradeID": "G084-02",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Prusament PP Glass Fiber Natural (NFC), 1.75 mm / 850 g (SKU PR-8594173676299)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.85,
+    "List price": 62.49,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 62.49,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/prusa/prusament-pp-glass-fiber-natural-nfc",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer PR-8594173676299."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

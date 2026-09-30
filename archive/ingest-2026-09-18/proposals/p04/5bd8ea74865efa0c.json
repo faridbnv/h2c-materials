@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "5bd8ea74865efa0c30da7bd8e696023486af3c870993d2e5c84c160d99cbd209",
+  "url": "https://www.3djake.com/esun/pa-cf-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-5bd8ea74865e",
+   "Publisher": "3DJake International",
+   "Title": "eSUN PA-CF Black, 1.75 mm / 1000 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/esun/pa-cf-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G156-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "5bd8ea74865efa0c30da7bd8e696023486af3c870993d2e5c84c160d99cbd209"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "ESUNCN-PA-CF175B1TZ1",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M156",
+    "GradeID": "G156-01",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "eSUN PA-CF Black, 1.75 mm / 1000 g (SKU ESUNCN-PA-CF175B1TZ1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 44.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 44.99,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/esun/pa-cf-black",
+    "Access date": "2026-09-30",
+    "Notes": "eSUN sells ePA-CF, its carbon-fibre nylon, as PA-CF. Read from the shop's own product data (schema.org); offer ESUNCN-PA-CF175B1TZ1."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

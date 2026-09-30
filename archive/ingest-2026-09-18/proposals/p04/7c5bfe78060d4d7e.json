@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "7c5bfe78060d4d7e00da13572a8d17e93b3b489d3accb11088c84dfbd98392df",
+  "url": "https://www.3djake.com/formfutura/flexifil-tpc-40d-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-7c5bfe78060d",
+   "Publisher": "3DJake International",
+   "Title": "FormFutura FlexiFil TPC 40D Black, 1,75 mm / 500 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/formfutura/flexifil-tpc-40d-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G046-06",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "7c5bfe78060d4d7e00da13572a8d17e93b3b489d3accb11088c84dfbd98392df"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "FF-FX40-175BLCK-00500",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M046",
+    "GradeID": "G046-06",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "FormFutura FlexiFil TPC 40D Black, 1,75 mm / 500 g (SKU FF-FX40-175BLCK-00500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 31.66,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 31.66,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/formfutura/flexifil-tpc-40d-black",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer FF-FX40-175BLCK-00500."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

@@ -160,7 +160,7 @@ ASA-CF PASS
 ↗ ☆
 ASA-EC UNKNOWN
 none judged
- 1,170 ~2.3–4.1† ~30–48† ~1.3–8.6† ~89–105† — ☆
+ 1,170 ~2.3–4.1† ~30–48† ~1.3–8.6† ~89–105† 125¤ ☆
 ASA-GF PASS
 3 of 3
  1,150
@@ -236,12 +236,12 @@ nGen FLEX
 Copolyesters
  UNKNOWN
 none judged
- 1,130 0.15 19.3 320 ~77–139† — ☆
+ 1,130 0.15 19.3 320 ~77–139† 76.3¤ ☆
 Nylon-CF, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
 none judged
- 1,400 — 107* 2* — — ☆
+ 1,400 — 107* 2* — 167¤ ☆
 Nylon-GF, maker-undisclosed polyamide
 Nylon / Polyamide
  UNKNOWN
@@ -261,7 +261,9 @@ Nylon / Polyamide
 4.5–9.77 · 3
  85
 79–91 · 2
- — ☆
+ 107
+107–107 · 2
+¤ ☆
 PA-ESD
 Nylon / Polyamide
  UNKNOWN
@@ -318,7 +320,7 @@ PA6-CE
 Nylon / Polyamide
  UNKNOWN
 none judged
- 1,490 ~4.2–7.1† ~46–81† ~1.8–7.8† ~92–171† — ☆
+ 1,490 ~4.2–7.1† ~46–81† ~1.8–7.8† ~92–171† 161¤ ☆
 PA6-CF
 Nylon / Polyamide
  PASS
@@ -379,7 +381,9 @@ PA6/66-CF
 Nylon / Polyamide
  UNKNOWN
 none judged
- 1,240 ~4.5–6.5† 84 7.42 ~115–181† no price↗ ☆
+ 1,240 ~4.5–6.5† 84 7.42 ~115–181† 72.4¤↗
+out of stock
+ ☆
 PA612
 Nylon / Polyamide
  UNKNOWN ~990–1,070† ~1.0–3.9† ~37–84† ~6–54† ~94–167† — ☆
@@ -561,7 +565,7 @@ PC-PBT-CF
 Polymer Blends
  UNKNOWN
 none judged
- ~1,170–1,220† ~2.9–4.5† ~41–66† ~1.0–7.7† ~101–130† — ☆
+ ~1,170–1,220† ~2.9–4.5† ~41–66† ~1.0–7.7† ~101–130† 115¤ ☆
 PC-PTFE
 Polycarbonate
  UNKNOWN
@@ -598,7 +602,7 @@ PE
 Polyolefins
  UNKNOWN
 0 of 1
- 954 0.752 18.5 208 66 — ☆
+ 954 0.752 18.5 208 66 121¤ ☆
 PE-GF
 Polyolefins
  UNKNOWN
@@ -713,7 +717,7 @@ PETG-GR UNKNOWN
 none judged
  1,290
 1,290–1,290 · 2
- ~1.4–4.9† ~28–63† ~3–28† ~51–110† — ☆
+ ~1.4–4.9† ~28–63† ~3–28† ~51–110† 85.8¤ ☆
 PETG-PTFE UNKNOWN
 none judged
  1,320 ~0.9–3.2† ~27–60† ~103–185† ~50–72† 86↗ ☆
@@ -751,7 +755,9 @@ PLA blend PASS
 1,300–1,540 · 7
  4.3* 58* 14* 85.5
 54–115 · 4
- — ☆
+ 53.6
+46.9–75.4 · 3
+¤ ☆
 PLA blend-CF UNKNOWN
 0 of 1
  1,280
@@ -882,7 +888,9 @@ PLA-GR UNKNOWN
 none judged
  1,240
 1,240–1,240 · 2
- ~1.9–6.6† ~29–64† ~1–15† ~49–102† — ☆
+ ~1.9–6.6† ~29–64† ~1–15† ~49–102† 42.9
+32.1–53.6 · 2
+¤ ☆
 PLA-NF PASS
 1 of 1
  1,350
@@ -913,7 +921,9 @@ Polyolefins
 890–960 · 8
  ~0.41–1.30† 19 850 80
 58.5–85 · 3
- — ☆
+ 77.5
+62.5–92.5 · 2
+¤ ☆
 PP Lightweight
 Polyolefins
  UNKNOWN
@@ -936,7 +946,9 @@ PP-GF
 Polyolefins
  UNKNOWN
 none judged
- 1,120 6.75 65 1.7 139 no price↗ ☆
+ 1,120 6.75 65 1.7 139 118¤↗
+out of stock
+ ☆
 PPA
 High-Performance Engineering
  PASS

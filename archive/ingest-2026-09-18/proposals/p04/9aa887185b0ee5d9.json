@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "9aa887185b0ee5d9ff8ad5d2a600c47a256d67260a30037c21f6addc4d913a69",
+  "url": "https://www.3djake.com/spectrum/pc-ptfe-natural",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-9aa887185b0e",
+   "Publisher": "3DJake International",
+   "Title": "Spectrum PC/PTFE Natural, 1.75mm / 750g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/spectrum/pc-ptfe-natural",
+   "Locator": "Document / product page",
+   "Applicable grades": "G112-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "9aa887185b0ee5d9ff8ad5d2a600c47a256d67260a30037c21f6addc4d913a69"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "SPC-80540",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M112",
+    "GradeID": "G112-01",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Spectrum PC/PTFE Natural, 1.75mm / 750g (SKU SPC-80540)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 58.33,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 58.33,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/spectrum/pc-ptfe-natural",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer SPC-80540."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "df7a24ce6ad4e81a2afd5bd13bfadc8eaef4c12f7579de0fa177b5f42e3976a1",
+  "url": "https://www.3djake.com/prografen/pet-g-graphene-strong-jet-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-df7a24ce6ad4",
+   "Publisher": "3DJake International",
+   "Title": "Prografen PET-G Graphene Strong Jet Black, 1,75 mm / 250 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/prografen/pet-g-graphene-strong-jet-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G153-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "df7a24ce6ad4e81a2afd5bd13bfadc8eaef4c12f7579de0fa177b5f42e3976a1"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "SPC-PG_5001",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M153",
+    "GradeID": "G153-01",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Prografen PET-G Graphene Strong Jet Black, 1,75 mm / 250 g (SKU SPC-PG_5001)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.25,
+    "List price": 13.33,
+    "Sale price": 10.6,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 10.6,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/prografen/pet-g-graphene-strong-jet-black?sai=28431",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer SPC-PG_5001."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs).",
+    "maker": "Prografen is 3DJake's own brand of graphene filament; the grade's maker is recorded as 3DJake."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

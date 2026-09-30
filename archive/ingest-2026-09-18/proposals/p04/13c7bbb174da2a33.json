@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "13c7bbb174da2a33462b282d7d5e1a072a89fe4e6a97a0642a729195367d4147",
+  "url": "https://www.3djake.com/extrudr/tpu-medium-esd-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-13c7bbb174da",
+   "Publisher": "3DJake International",
+   "Title": "Extrudr TPU Medium ESD Black, 1,75 mm / 500 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/extrudr/tpu-medium-esd-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G126-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "13c7bbb174da2a33462b282d7d5e1a072a89fe4e6a97a0642a729195367d4147"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "EX-9010241142996",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M126",
+    "GradeID": "G126-02",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Extrudr TPU Medium ESD Black, 1,75 mm / 500 g (SKU EX-9010241142996)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 54.16,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 54.16,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/extrudr/tpu-medium-esd-black?sai=30730",
+    "Access date": "2026-09-30",
+    "Notes": "Extrudr sells FLEX MEDIUM ESD as TPU Medium ESD. Read from the shop's own product data (schema.org); offer EX-9010241142996."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

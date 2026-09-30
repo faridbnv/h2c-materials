@@ -1,0 +1,75 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "a82b6f9d5a5086af25840e17ddf6befcd304fbdb5d6fb5ab8c3459870dfbf7c6",
+  "url": "https://www.3djake.com/prografen/pla-graphene-light-jet-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-a82b6f9d5a50",
+   "Publisher": "3DJake International",
+   "Title": "Prografen PLA Graphene Light Jet Black, 1,75 mm / 1000 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/prografen/pla-graphene-light-jet-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G155-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "a82b6f9d5a5086af25840e17ddf6befcd304fbdb5d6fb5ab8c3459870dfbf7c6"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "SPC-PG_5007",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M155",
+    "GradeID": "G155-01",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Prografen PLA Graphene Light Jet Black, 1,75 mm / 1000 g (SKU SPC-PG_5007)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 19.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 19.99,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/prografen/pla-graphene-light-jet-black",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer SPC-PG_5007."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs).",
+    "maker": "Prografen is 3DJake's own brand of graphene filament; the grade's maker is recorded as 3DJake."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

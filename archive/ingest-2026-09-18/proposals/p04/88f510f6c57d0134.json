@@ -1,0 +1,74 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "88f510f6c57d01343e3f3fb9d5bacd0c6cbc2a1717264a60c078aa9551a05f9d",
+  "url": "https://www.3djake.com/extrudr/durapro-pc-pbt-cf-black",
+  "format": "jsonld",
+  "host": "www.3djake.com",
+  "accessed": "2026-09-30"
+ },
+ "source": {
+  "row": {
+   "SourceID": "OFFER-3DJAKE-20260930-88f510f6c57d",
+   "Publisher": "3DJake International",
+   "Title": "Extrudr DuraPro PC/PBT CF Black, 1,75 mm / 700 g",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "The product page as the shop's server sent it; its schema.org offer data gives the price, currency and availability. Pricing only; no property is read from it. European storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://www.3djake.com/extrudr/durapro-pc-pbt-cf-black",
+   "Locator": "Document / product page",
+   "Applicable grades": "G131-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "88f510f6c57d01343e3f3fb9d5bacd0c6cbc2a1717264a60c078aa9551a05f9d"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "EX-9010241182978",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M131",
+    "GradeID": "G131-01",
+    "Retailer": "3DJake International",
+    "Variant / SKU": "Extrudr DuraPro PC/PBT CF Black, 1,75 mm / 700 g (SKU EX-9010241182978)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.7,
+    "List price": 49.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "EUR",
+    "Market": "European storefront",
+    "Tax / shipping": "Excluded: the page states all prices exclude VAT; delivery extra",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://www.3djake.com/extrudr/durapro-pc-pbt-cf-black",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own product data (schema.org); offer EX-9010241182978."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Tier 4: EUR, before VAT as the page states (review-p04.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

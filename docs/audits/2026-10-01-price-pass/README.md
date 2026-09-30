@@ -103,3 +103,15 @@ TPU-CF, PPE/PS, CPE-LW, PCTG-CF, TPU-GF, PLA-CE). Not taken, with why: 3DXTECH n
 database holds, SUNLU's PP is out of stock everywhere, three Fiberlogy flexibles print no diameter, CreatBot's
 listings are other products. A converted price carries the mark ¤ (≈ already means "close to the limit"), which the
 legend explains wherever a foreign seller is in the sample.
+
+## Batch p04: EUR, before VAT (2026-09-30)
+
+One European seller carries most of the European makers left: 3DJake International (niceshops, Austria), which shows a
+visitor outside the EU its prices before VAT and says so on every page ("All prices excl. VAT."), which the guard reads
+there. Thirty product pages were fetched as served (`archive/ingest-2026-09-18/prices/p04/`); the reader takes each
+page's schema.org offer, its reduced and replaced prices where it is on sale, and its "Content" line for the net mass
+where the title prints none. 27 listings in [review-p04.mjs](review-p04.mjs), 23 in stock. Not taken, with why: Extrudr
+Flax (two net masses on one page), Extrudr Green-TEC and Green-TEC PRO CF (2.5 and 5 kg spools, bulk), Spectrum
+GreenyHT (identity held).
+
+Materials with a price: 85 → 101. The frozen replay still moves no verdict.

@@ -458,7 +458,7 @@ M046,TPC / TPEE,charpyNotched,none,,kJ/m²,,,,,,,
 M046,TPC / TPEE,izodNotched,none,,kJ/m²,,,,,,,
 M046,TPC / TPEE,hdt045,not applicable,,°C,,,,,,,
 M046,TPC / TPEE,glassTransition,value,-35,°C,,,,,2,G046-01,V001692
-M046,TPC / TPEE,priceCADkg,none,,CAD/kg,,,,,,,
+M046,TPC / TPEE,priceCADkg,value,87.97,CAD/kg,,,,,2,G167-03,
 M047,PA,density,none,,kg/m³,,,,,,,
 M047,PA,tensileModulusXY,none,,GPa,,,,,,,
 M047,PA,tensileStrengthXY,none,,MPa,,,,,,,
@@ -818,7 +818,7 @@ M082,PP,charpyNotched,none,,kJ/m²,,,,,,,
 M082,PP,izodNotched,value,5.3,kJ/m²,,,,,1,G082-05,V004683
 M082,PP,hdt045,value,80,°C,,,,,3,G082-03,V002675
 M082,PP,glassTransition,none,,°C,,,,,,,
-M082,PP,priceCADkg,none,,CAD/kg,,,,,,,
+M082,PP,priceCADkg,value,77.49,CAD/kg,,,,,2,G082-03,
 M083,PP-CF,density,value,1000,kg/m³,,,,,4,G083-04,V007757
 M083,PP-CF,tensileModulusXY,value,6.265,GPa,,,,,2,G083-01,V001504
 M083,PP-CF,tensileStrengthXY,value,78,MPa,,,,,1,G083-01,V001503
@@ -838,7 +838,7 @@ M084,PP-GF,charpyNotched,none,,kJ/m²,,,,,,,
 M084,PP-GF,izodNotched,none,,kJ/m²,,,,,,,
 M084,PP-GF,hdt045,value,139,°C,,,,,1,G084-01,V001515
 M084,PP-GF,glassTransition,none,,°C,,,,,,,
-M084,PP-GF,priceCADkg,none,,CAD/kg,,,,,,,
+M084,PP-GF,priceCADkg,value,118.25,CAD/kg,,,,,1,G084-02,
 M085,PE,density,value,954,kg/m³,,,,,1,G085-02,V002277
 M085,PE,tensileModulusXY,value,0.752,GPa,,,,,1,G085-02,V002280
 M085,PE,tensileStrengthXY,value,18.5,MPa,,,,,1,G085-02,V002278
@@ -848,7 +848,7 @@ M085,PE,charpyNotched,none,,kJ/m²,,,,,,,
 M085,PE,izodNotched,none,,kJ/m²,,,,,,,
 M085,PE,hdt045,value,66,°C,,,,,1,G085-02,V002283
 M085,PE,glassTransition,none,,°C,,,,,,,
-M085,PE,priceCADkg,none,,CAD/kg,,,,,,,
+M085,PE,priceCADkg,value,120.6,CAD/kg,,,,,,,
 M086,OBC,density,value,905,kg/m³,,,,,2,G086-01,V001683
 M086,OBC,tensileModulusXY,estimate,0.0602,GPa,0.00891-0.407,0.00295-1.26,0.00295-1.26,this-material,,,
 M086,OBC,tensileStrengthXY,value,14,MPa,,,,,1,G086-02,V007763
@@ -1038,7 +1038,7 @@ M104,PA6-CE,charpyNotched,none,,kJ/m²,,,,,,,
 M104,PA6-CE,izodNotched,none,,kJ/m²,,,,,,,
 M104,PA6-CE,hdt045,estimate,131,°C,92.8-171,53.3-213,53.3-216,this-grade,,,
 M104,PA6-CE,glassTransition,none,,°C,,,,,,,
-M104,PA6-CE,priceCADkg,none,,CAD/kg,,,,,,,
+M104,PA6-CE,priceCADkg,value,160.82,CAD/kg,,,,,1,G104-01,
 M105,ASA-EC,density,value,1170,kg/m³,,,,,1,G105-01,V002742
 M105,ASA-EC,tensileModulusXY,estimate,3.08,GPa,2.35-4.04,2-4.73,2-4.73,this-grade,,,
 M105,ASA-EC,tensileStrengthXY,estimate,38.4,MPa,30.8-47.8,27.6-53.3,27.1-53.3,this-grade,,,
@@ -1048,7 +1048,7 @@ M105,ASA-EC,charpyNotched,none,,kJ/m²,,,,,,,
 M105,ASA-EC,izodNotched,none,,kJ/m²,,,,,,,
 M105,ASA-EC,hdt045,estimate,97.3,°C,89.1-105,70.8-111,70.8-112,this-grade,,,
 M105,ASA-EC,glassTransition,none,,°C,,,,,,,
-M105,ASA-EC,priceCADkg,none,,CAD/kg,,,,,,,
+M105,ASA-EC,priceCADkg,value,125.09,CAD/kg,,,,,1,G105-01,
 M106,ABS-AF,density,value,1050,kg/m³,,,,,3,G106-01,V002752
 M106,ABS-AF,tensileModulusXY,value,1.89,GPa,,,,,1,G106-03,V011381
 M106,ABS-AF,tensileStrengthXY,value,22,MPa,,,,,1,G106-03,V011452
@@ -1258,7 +1258,7 @@ M126,TPU-ESD,charpyNotched,none,,kJ/m²,,,,,,,
 M126,TPU-ESD,izodNotched,none,,kJ/m²,,,,,,,
 M126,TPU-ESD,hdt045,not applicable,,°C,,,,,,,
 M126,TPU-ESD,glassTransition,none,,°C,,,,,,,
-M126,TPU-ESD,priceCADkg,none,,CAD/kg,,,,,,,
+M126,TPU-ESD,priceCADkg,value,174.22,CAD/kg,,,,,1,G126-02,
 M127,PEEK-GF,density,value,1440,kg/m³,,,,,1,G127-01,V003353
 M127,PEEK-GF,tensileModulusXY,value,7.25,GPa,,,,,1,G127-01,V003355
 M127,PEEK-GF,tensileStrengthXY,value,105,MPa,,,,,1,G127-01,V003354
@@ -1308,7 +1308,7 @@ M131,PC-PBT-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M131,PC-PBT-CF,izodNotched,none,,kJ/m²,,,,,,,
 M131,PC-PBT-CF,hdt045,estimate,115,°C,101-130,73.6-157,73.6-162,this-grade,,,
 M131,PC-PBT-CF,glassTransition,none,,°C,,,,,,,
-M131,PC-PBT-CF,priceCADkg,none,,CAD/kg,,,,,,,
+M131,PC-PBT-CF,priceCADkg,value,114.86,CAD/kg,,,,,1,G131-01,
 M132,PBT-GF,density,value,1320,kg/m³,,,,,1,G132-01,V005262
 M132,PBT-GF,tensileModulusXY,value,3.7,GPa,,,,,1,G132-01,V005267
 M132,PBT-GF,tensileStrengthXY,value,65,MPa,,,,,1,G132-01,V005265
@@ -1418,7 +1418,7 @@ M142,nGen-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M142,nGen-CF,izodNotched,none,,kJ/m²,,,,,,,
 M142,nGen-CF,hdt045,value,78,°C,,,,,1,G142-01,V005764
 M142,nGen-CF,glassTransition,none,,°C,,,,,,,
-M142,nGen-CF,priceCADkg,none,,CAD/kg,,,,,,,
+M142,nGen-CF,priceCADkg,value,89.34,CAD/kg,,,,,1,G142-01,
 M143,nGen FLEX,density,value,1130,kg/m³,,,,,1,G143-01,V006002
 M143,nGen FLEX,tensileModulusXY,value,0.15,GPa,,,,,1,G143-01,V005859
 M143,nGen FLEX,tensileStrengthXY,value,19.3,MPa,,,,,1,G143-01,V005860
@@ -1428,7 +1428,7 @@ M143,nGen FLEX,charpyNotched,none,,kJ/m²,,,,,,,
 M143,nGen FLEX,izodNotched,none,,kJ/m²,,,,,,,
 M143,nGen FLEX,hdt045,estimate,108,°C,77.6-139,50.7-169,50.7-172,this-grade,,,
 M143,nGen FLEX,glassTransition,none,,°C,,,,,,,
-M143,nGen FLEX,priceCADkg,none,,CAD/kg,,,,,,,
+M143,nGen FLEX,priceCADkg,value,76.29,CAD/kg,,,,,1,G143-01,
 M144,PCTG-CF,density,value,1280,kg/m³,,,,,2,G144-01,V007706
 M144,PCTG-CF,tensileModulusXY,estimate,3.11,GPa,1.61-6.01,1.09-8.84,1.09-8.84,this-material,,,
 M144,PCTG-CF,tensileStrengthXY,estimate,54.4,MPa,42.2-76.8,39.8-92,open-92,this-material,,,
@@ -1528,7 +1528,7 @@ M153,PETG-GR,charpyNotched,none,,kJ/m²,,,,,,,
 M153,PETG-GR,izodNotched,none,,kJ/m²,,,,,,,
 M153,PETG-GR,hdt045,estimate,75.3,°C,51.7-110,46.2-192,46.2-192,family,,,
 M153,PETG-GR,glassTransition,none,,°C,,,,,,,
-M153,PETG-GR,priceCADkg,none,,CAD/kg,,,,,,,
+M153,PETG-GR,priceCADkg,value,85.76,CAD/kg,,,,,1,G153-01,
 M154,PA12-AF,density,estimate,1020,kg/m³,977-1060,941-1070,941-1070,family,,,
 M154,PA12-AF,tensileModulusXY,estimate,0.613,GPa,0.476-0.79,0.41-0.916,0.41-0.916,this-grade,,,
 M154,PA12-AF,tensileStrengthXY,estimate,60.9,MPa,43.8-84.8,37.2-99.6,36.3-99.6,this-grade,,,
@@ -1548,7 +1548,7 @@ M155,PLA-GR,charpyNotched,none,,kJ/m²,,,,,,,
 M155,PLA-GR,izodNotched,none,,kJ/m²,,,,,,,
 M155,PLA-GR,hdt045,estimate,70.2,°C,49.8-102,44.7-179,44.7-179,family,,,
 M155,PLA-GR,glassTransition,none,,°C,,,,,,,
-M155,PLA-GR,priceCADkg,none,,CAD/kg,,,,,,,
+M155,PLA-GR,priceCADkg,value,42.88,CAD/kg,,,,,2,G155-02,
 M156,PA6/66-CF,density,value,1240,kg/m³,,,,,1,G156-01,V010359
 M156,PA6/66-CF,tensileModulusXY,estimate,5.46,GPa,4.59-6.5,4.14-7.19,open-7.19,this-grade,,,
 M156,PA6/66-CF,tensileStrengthXY,value,84.05,MPa,,,,,1,G156-01,V011519
@@ -1558,7 +1558,7 @@ M156,PA6/66-CF,charpyNotched,none,,kJ/m²,,,,,,,
 M156,PA6/66-CF,izodNotched,none,,kJ/m²,,,,,,,
 M156,PA6/66-CF,hdt045,estimate,149,°C,115-181,60.1-198,60.1-200,this-grade,,,
 M156,PA6/66-CF,glassTransition,none,,°C,,,,,,,
-M156,PA6/66-CF,priceCADkg,none,,CAD/kg,,,,,,,
+M156,PA6/66-CF,priceCADkg,value,72.36,CAD/kg,,,,,1,G156-01,
 M157,TPU-EC,density,value,1330,kg/m³,,,,,1,G157-01,V010383
 M157,TPU-EC,tensileModulusXY,estimate,0.0551,GPa,0.00849-0.358,0.00288-1.09,0.00288-1.09,this-material,,,
 M157,TPU-EC,tensileStrengthXY,estimate,19.3,MPa,8.87-42.2,6.05-61.8,6.05-61.8,this-material,,,
@@ -1638,7 +1638,7 @@ M164,"Nylon, maker-undisclosed polyamide",charpyNotched,none,,kJ/m²,,,,,,,
 M164,"Nylon, maker-undisclosed polyamide",izodNotched,none,,kJ/m²,,,,,,,
 M164,"Nylon, maker-undisclosed polyamide",hdt045,value,85,°C,,,,,2,G164-09,V011346
 M164,"Nylon, maker-undisclosed polyamide",glassTransition,none,,°C,,,,,,,
-M164,"Nylon, maker-undisclosed polyamide",priceCADkg,none,,CAD/kg,,,,,,,
+M164,"Nylon, maker-undisclosed polyamide",priceCADkg,value,107.21,CAD/kg,,,,,2,G164-02,
 M165,"Nylon-CF, maker-undisclosed polyamide",density,value,1400,kg/m³,,,,,1,G165-01,V011316
 M165,"Nylon-CF, maker-undisclosed polyamide",tensileModulusXY,none,,GPa,,,,,,,
 M165,"Nylon-CF, maker-undisclosed polyamide",tensileStrengthXY,none,,MPa,,,,,,,
@@ -1648,7 +1648,7 @@ M165,"Nylon-CF, maker-undisclosed polyamide",charpyNotched,none,,kJ/m²,,,,,,,
 M165,"Nylon-CF, maker-undisclosed polyamide",izodNotched,none,,kJ/m²,,,,,,,
 M165,"Nylon-CF, maker-undisclosed polyamide",hdt045,none,,°C,,,,,,,
 M165,"Nylon-CF, maker-undisclosed polyamide",glassTransition,none,,°C,,,,,,,
-M165,"Nylon-CF, maker-undisclosed polyamide",priceCADkg,none,,CAD/kg,,,,,,,
+M165,"Nylon-CF, maker-undisclosed polyamide",priceCADkg,value,166.56,CAD/kg,,,,,1,G165-01,
 M166,"Nylon-GF, maker-undisclosed polyamide",density,value,1210,kg/m³,,,,,1,G166-01,V011465
 M166,"Nylon-GF, maker-undisclosed polyamide",tensileModulusXY,value,3.1,GPa,,,,,1,G166-01,V011472
 M166,"Nylon-GF, maker-undisclosed polyamide",tensileStrengthXY,value,60.4,MPa,,,,,1,G166-01,V011470
@@ -1678,7 +1678,7 @@ M168,PLA blend,charpyNotched,none,,kJ/m²,,,,,,,
 M168,PLA blend,izodNotched,none,,kJ/m²,,,,,,,
 M168,PLA blend,hdt045,value,85.5,°C,,,,,4,G168-05,V011280
 M168,PLA blend,glassTransition,none,,°C,,,,,,,
-M168,PLA blend,priceCADkg,none,,CAD/kg,,,,,,,
+M168,PLA blend,priceCADkg,value,53.59,CAD/kg,,,,,3,G168-02,
 M169,PLA blend-CF,density,value,1280,kg/m³,,,,,2,G169-01,V011218
 M169,PLA blend-CF,tensileModulusXY,none,,GPa,,,,,,,
 M169,PLA blend-CF,tensileStrengthXY,none,,MPa,,,,,,,
