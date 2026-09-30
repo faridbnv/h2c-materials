@@ -1,0 +1,336 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "346635bcb23a55d798b78a414dbb731f1c11885cb0c9748ceeac5495c11b37ba",
+  "url": "https://ca.eryone3d.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "ca.eryone3d.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "69c68d3633c2802a9fa997e89e976fc12313c4b61d214498803bc5754eb31499",
+  "url": "https://ca.eryone3d.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-ERYONECA-20260930-69c68d3633c2",
+    "Publisher": "ERYONE Canada",
+    "Title": "ERYONE Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://ca.eryone3d.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "69c68d3633c2802a9fa997e89e976fc12313c4b61d214498803bc5754eb31499"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-ERYONECA-20260930-346635bcb23a",
+   "Publisher": "ERYONE Canada",
+   "Title": "ERYONE Canada product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://ca.eryone3d.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G001-140; G001-45; G008-06; G008-07; G012-03; G014-19; G029-04; G033-06",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "346635bcb23a55d798b78a414dbb731f1c11885cb0c9748ceeac5495c11b37ba"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7635157942525:45663972262141",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M029",
+    "GradeID": "G029-04",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "ABS & ABS-CF Filament - 1.75mm±0.03mm (1kg) / ABS-CF-Black (SKU B0118058)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": 30.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 30.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/abs-filament-1kg?variant=45663972262141",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7635157942525:45663972262141."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7635157975293:45663966363901",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M033",
+    "GradeID": "G033-06",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "ASA & ASA-CF Filament - 1.75mm±0.03mm (1kg) / ASA-CF-Black (SKU B0171001)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": 31.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 31.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/asa-filament?variant=45663966363901",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7635157975293:45663966363901."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7601406083325:42554340573437",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-45",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "PLA+ Filament - 1.75mm±0.03mm (1kg) / PLA+ Black (SKU B0101048)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 26.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 26.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/pla-plus?variant=42554340573437",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7601406083325:42554340573437."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9101592723709:47870883987709",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-140",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "PLA Lite Filament - 1.75mm±0.03mm (1kg) / skin (SKU B0371017)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 22.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 22.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/pla-lite-filament-1-75mm-0-03mm-1kg?variant=47870883987709",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9101592723709:47870883987709."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7601411195133:47870864392445",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M008",
+    "GradeID": "G008-06",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "PLA Silk Filament - 1.75mm±0.03mm (1kg) / PLA Silk-Black (SKU B0102497)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 28.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 28.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/silk-pla?variant=47870864392445",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7601411195133:47870864392445."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7943141589245:45810244387069",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M008",
+    "GradeID": "G008-07",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "PLA Rainbow Silk Filament - 1.75mm±0.03mm (1kg) / PLA Rainbow Silk-Steampunk (SKU B0103062)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 47.99,
+    "Sale price": 30.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 30.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/pla-rainbow-silk-filament?variant=45810244387069",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7943141589245:45810244387069."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7601413292285:47355178090749",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M012",
+    "GradeID": "G012-03",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "PLA Marble Filament - 1.75mm±0.03mm (1kg) / PLA Marble (SKU B0105001)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 30.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 30.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/marble-pla?variant=47355178090749",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7601413292285:47355178090749."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7601412014333:42554369245437",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M014",
+    "GradeID": "G014-19",
+    "Retailer": "ERYONE Canada",
+    "Variant / SKU": "PLA Wood Filament - 1.75mm±0.03mm (1kg) / PLA Wood-Deep (SKU B0105002)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 44.99,
+    "Sale price": 28.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 28.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.eryone3d.com/products/wood-pla?variant=42554369245437",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7601412014333:42554369245437."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

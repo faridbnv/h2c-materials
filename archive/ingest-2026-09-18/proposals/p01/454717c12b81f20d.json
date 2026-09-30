@@ -1,0 +1,268 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "454717c12b81f20d2fb3ad8250d922838b67d500da80e45985bd939900798fe8",
+  "url": "https://digitmakers.ca/products.json?limit=250&page=7",
+  "format": "shopify-catalogue",
+  "host": "digitmakers.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6",
+  "url": "https://digitmakers.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-DIGITMAKERS-20260930-9e984e1becd8",
+    "Publisher": "DigitMakers",
+    "Title": "DigitMakers shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://digitmakers.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-DIGITMAKERS-20260930-454717c12b81",
+   "Publisher": "DigitMakers",
+   "Title": "DigitMakers product catalogue, page 7",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://digitmakers.ca/products.json?limit=250&page=7",
+   "Locator": "Catalogue page 7; each listing by its product and variant ID",
+   "Applicable grades": "G001-82; G020-32; G020-58; G027-22; G027-40; G057-07",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "454717c12b81f20d2fb3ad8250d922838b67d500da80e45985bd939900798fe8"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "1259130814500:10881573879844",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M057",
+    "GradeID": "G057-07",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "ESun ePA Natural - Nylon 1.75mm 1Kg (SKU ESUN-FL-EPA-NTRL-1.75-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 39,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-epa-natural-nylon-1-75mm-1kg?variant=10881573879844",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1259130814500:10881573879844."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "1095180419108:10028829114404",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-82",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Premium PLA Filament 1.75mm 1kg Spool / Black / 1.75mm (SKU RAISE3D-FL-PLA-1.75-1KG-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 42.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 42.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-premium-pla-filament-various-colors?variant=10028829114404",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1095180419108:10028829114404."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "725956722724:31635482706051",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-32",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN PETG Filament 1.75 mm 1kg Spool Various Colors / Grey (SKU ESUN-FL-PETG-1.75-1KG-GRY)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 25.99,
+    "Sale price": 13.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 13.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-petg-filament-1-75-mm-1kg-spool-various-colors?variant=31635482706051",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 725956722724:31635482706051."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "1095213088804:10028971982884",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-58",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Premium PETG Filament Black 1.75mm 1kg Spool (SKU RAISE3D-FL-PETG-1.75-1KG-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 45.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 45.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-premium-petg-filament-1-75mm-1kg-spool?variant=10028971982884",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1095213088804:10028971982884."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "1095217053732:10028974800932",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-40",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Premium ABS Filament 1.75mm 1kg Spool / White / 1.75mm (SKU RAISE3D-FL-ABS-1.75-1KG-WHT)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 45.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 45.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-premium-abs-filament-1-75mm-1kg-spool?variant=10028974800932",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1095217053732:10028974800932."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "654587527204:7658013851684",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-22",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN ABS+ Filament 1.75 mm 1kg Spool - Various Colors / Black (SKU ESUN-FL-ABS+-1.75-1KG-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 24.99,
+    "Sale price": 19.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 19.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-abs-filament-1-75-mm-1kg-spool-various-colors?variant=7658013851684",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 654587527204:7658013851684."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

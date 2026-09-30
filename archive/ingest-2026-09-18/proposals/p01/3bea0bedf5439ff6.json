@@ -1,0 +1,166 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "3bea0bedf5439ff6d239535a7e9108c9276e2edb213a9c48477542ac0d33e99f",
+  "url": "https://shop3d.ca/products.json?limit=250&page=3",
+  "format": "shopify-catalogue",
+  "host": "shop3d.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "f3577c98d6aae544152fb822f9e0914c7376af806240133b9567e50c91663a24",
+  "url": "https://shop3d.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-SHOP3D-20260930-f3577c98d6aa",
+    "Publisher": "Shop3D.ca",
+    "Title": "Shop3D.ca shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://shop3d.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "f3577c98d6aae544152fb822f9e0914c7376af806240133b9567e50c91663a24"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-SHOP3D-20260930-3bea0bedf543",
+   "Publisher": "Shop3D.ca",
+   "Title": "Shop3D.ca product catalogue, page 3",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://shop3d.ca/products.json?limit=250&page=3",
+   "Locator": "Catalogue page 3; each listing by its product and variant ID",
+   "Applicable grades": "G020-32; G027-22; G057-04",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "3bea0bedf5439ff6d239535a7e9108c9276e2edb213a9c48477542ac0d33e99f"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "2375244283982:42339556262102",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M057",
+    "GradeID": "G057-04",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSun PA Nylon Filament (1kg) Natural / 1.75mm (SKU PA175T1TZ1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": 36,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 36,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/epa-nylon-filament-2-85mm-0-5kg-natural?variant=42339556262102",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 2375244283982:42339556262102."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "1362244370510:42339325313238",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-32",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSun PETG Filament - 1kg / 1.75 / Natural (SKU PETG-P175N1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 26,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 26,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/esun-3d-printing-petg-2-85mm-1kg?variant=42339325313238",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1362244370510:42339325313238."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "1362183880782:42339506225366",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-22",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSUN ABS+ - 1.75mm 3D Filament - 1KG / 1.75 / Black (SKU ABS+P175B1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 24,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 24,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/esun-3d-printing-abs-2-85mm-1kg?variant=42339506225366",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1362183880782:42339506225366."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

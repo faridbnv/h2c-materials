@@ -1,0 +1,370 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "bf07531efd5303232f5fb6ab0110a272212dc6bef531b61a9911e04138bbfbcb",
+  "url": "https://voxelfactory.com/products.json?limit=250&page=2",
+  "format": "shopify-catalogue",
+  "host": "voxelfactory.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "61a7ac470a2ada126e7df39115f918cb803acd8c7186ed889b4b9436704b2ee5",
+  "url": "https://voxelfactory.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-VOXELFACTORY-20260930-61a7ac470a2a",
+    "Publisher": "Voxel Factory",
+    "Title": "Voxel Factory shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://voxelfactory.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "61a7ac470a2ada126e7df39115f918cb803acd8c7186ed889b4b9436704b2ee5"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-VOXELFACTORY-20260930-bf07531efd53",
+   "Publisher": "Voxel Factory",
+   "Title": "Voxel Factory product catalogue, page 2",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://voxelfactory.com/products.json?limit=250&page=2",
+   "Locator": "Catalogue page 2; each listing by its product and variant ID",
+   "Applicable grades": "G001-19; G001-23; G027-02; G031-02; G035-06; G057-03; G093-02; G094-02; G095-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "bf07531efd5303232f5fb6ab0110a272212dc6bef531b61a9911e04138bbfbcb"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7466228023532:42115751051500",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M057",
+    "GradeID": "G057-03",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyMide Nylon CoPA 1.75mm 0.75kg / Black (SKU PMK-CPA-BLK-175-750)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 67.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 67.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polymide-copa-1-75mm-0-75kg?variant=42115751051500",
+    "Access date": "2026-09-30",
+    "Notes": "PolyMide CoPA is two grades of one product here (G057-01 and G057-03, two TDS revisions); its listings are recorded once, under the current revision's grade. Read from the shop's own catalogue data; offer 7466228023532:42115751051500."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7455209685228:42084102373612",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M093",
+    "GradeID": "G093-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolySmooth 1.75mm 0.75kg / Jet black (SKU PMK-PSM-BLK-175-750)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 46.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 46.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polysmooth-1-75mm-0-75kg?variant=42084102373612",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7455209685228:42084102373612."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6589757915316:39522767241396",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M094",
+    "GradeID": "G094-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PC-ABS Black 1.75 1KG (SKU PMK-PAB-BLK-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 63.99,
+    "Sale price": 49.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-pc-abs-black-1-75-1kg?variant=39522767241396",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6589757915316:39522767241396."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446269067500:42051414819052",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M095",
+    "GradeID": "G095-01",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PC-PBT 1.75mm 1.0kg / Natural (SKU PMK-PBT-NAT-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 69.99,
+    "Sale price": 49.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-pc-pbt-1-75mm-1-0kg?variant=42051414819052",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7446269067500:42051414819052."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446404956396:42051775529196",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-19",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyLite PLA 1.75mm 1kg / Black (SKU PMK-PLA-BLK-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 27.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 27.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polylite-pla-1-75mm-1kg?variant=42051775529196",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7446404956396:42051775529196."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446420422892:42051848798444",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-23",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Polyterra PLA 1.75mm 1kg / Cotton white (SKU PMK-ECO-CWH-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 25.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 25.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polyterra-pla-1-75mm-1kg?variant=42051848798444",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7446420422892:42051848798444."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446291546348:42051518267628",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyLite ABS 1.75mm 1kg / Black (SKU PMK-ABS-BLK-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 27.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 27.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polylite-abs-1-75mm-1kg?variant=42051518267628",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7446291546348:42051518267628."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446279815404:42051482943724",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M031",
+    "GradeID": "G031-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyLite ASA 1.75mm 1kg / Black (SKU PMK-ASA-BLK-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 38.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 38.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polylite-asa-1-75mm-1kg?variant=42051482943724",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7446279815404:42051482943724."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7446408397036:42051793158380",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M035",
+    "GradeID": "G035-06",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyMax PC 1.75mm 0.75kg / Black (SKU PMK-MXC-BLK-175-750)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 49.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polymax-pc-1-75mm-0-75kg?variant=42051793158380",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7446408397036:42051793158380."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

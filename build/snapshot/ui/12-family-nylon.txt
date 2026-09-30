@@ -93,7 +93,7 @@ Nylon / Polyamide
 2.1–14.8 · 7
  159
 48–185 · 10
- — ☆
+ 300↗ ☆
 PA12-GF
 Nylon / Polyamide
  PASS
@@ -129,7 +129,9 @@ Nylon / Polyamide
 2.1–16.5 · 6
  185
 140–215 · 9
- 110↗ ☆
+ 130
+110–204 · 4
+↗ ☆
 PA6-GF
 Nylon / Polyamide
  PASS
@@ -144,12 +146,14 @@ Nylon / Polyamide
 2.4–12.5 · 6
  184
 161–210 · 10
- 77↗ ☆
+ 84
+77–146 · 3
+↗ ☆
 PA6-GS
 Nylon / Polyamide
  PASS
 1 of 1
- 1,010 4.2* 87* — 90* — ☆
+ 1,010 4.2* 87* — 90* 180↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -164,12 +168,14 @@ Nylon / Polyamide
 9.9–100 · 4
  111
 102–140 · 5
- — ☆
+ 40
+39–90.7 · 3
+↗ ☆
 PA6/66-CF
 Nylon / Polyamide
  PASS
 1 of 1
- 1,240 — 84 7.42 155* — ☆
+ 1,240 — 84 7.42 155* no price↗ ☆
 PA612
 Nylon / Polyamide
  PASS 1,060* 2.4* 62* 100* 135* — ☆
@@ -185,12 +191,14 @@ Nylon / Polyamide
 68–91.9 · 3
  3.16
 2.6–3.5 · 3
- 175 — ☆
+ 175 170
+98–242 · 2
+↗ ☆
 PA612-ESD
 Nylon / Polyamide
  PASS
 1 of 1
- 1,100 4.29 84.3 3 157 — ☆
+ 1,100 4.29 84.3 3 157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
  PASS — — — — — — ☆

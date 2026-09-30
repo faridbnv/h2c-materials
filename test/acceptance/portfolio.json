@@ -122,8 +122,10 @@
           "because": "No sampled Canadian offer is ECOMAX PLA's." },
         { "product": "G002-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "PASS", "records": ["CA0001"],
           "because": "Bambu Lab Canada listed PLA Basic in stock." },
-        { "product": "G005-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "FAIL", "records": ["CA0006"],
-          "because": "PLA Basic Gradient's one sampled offer was out of stock; another product's stock is not its own." }
+        { "product": "G005-01", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "PASS", "records": ["CA0006", "CA0263"],
+          "because": "PLA Basic Gradient was out of stock at Bambu Lab Canada on 2026-09-10 (CA0006) and in stock at DigitMakers on 2026-09-30 (CA0263): any of its own offers in stock is enough." },
+        { "product": "G001-14", "constraints": [{ "kind": "gate", "gate": "buyable", "inStock": true }], "verdict": "FAIL", "records": ["CA0297"],
+          "because": "Spectrum FlameGuard PLA's one sampled offer was out of stock (CA0297); another PLA product's stock is not its own. (Until the price pass this was PLA Basic Gradient's, which a second shop now has in stock.)" }
       ],
       "policy": { "unknownPolicy": "strict" }
     },

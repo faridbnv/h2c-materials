@@ -1,0 +1,336 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "df52176455c37ab26347cc930f04c0cc189024fa92994fe1d8ba40a9c47cb3fd",
+  "url": "https://store.makerwiz.com/products.json?limit=250&page=5",
+  "format": "shopify-catalogue",
+  "host": "store.makerwiz.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf",
+  "url": "https://store.makerwiz.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-MAKERWIZ-20260930-6c606fcb1f31",
+    "Publisher": "MakerWiz",
+    "Title": "MakerWiz shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://store.makerwiz.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-MAKERWIZ-20260930-df52176455c3",
+   "Publisher": "MakerWiz",
+   "Title": "MakerWiz product catalogue, page 5",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://store.makerwiz.com/products.json?limit=250&page=5",
+   "Locator": "Catalogue page 5; each listing by its product and variant ID",
+   "Applicable grades": "G001-136; G001-137; G018-15; G089-03; G089-04; G090-03; G092-02; G145-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "df52176455c37ab26347cc930f04c0cc189024fa92994fe1d8ba40a9c47cb3fd"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "5569880774:17392587206",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M089",
+    "GradeID": "G089-03",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "ColorFabb XT (750 g) - 13 Colours / Black / 1.75 mm (SKU 22000071-80)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 69.99,
+    "Sale price": 64.95,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 64.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/22000071-80?variant=17392587206",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5569880774:17392587206."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8818188044:32019220684",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M089",
+    "GradeID": "G089-04",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "ColorFabb HT (750 g) - 5 Colours / Black / 1.75 mm",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 69.99,
+    "Sale price": 63.95,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 63.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/colorfabb-ht-750-g-13-colours?variant=32019220684",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8818188044:32019220684."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5569880902:17392587462",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M090",
+    "GradeID": "G090-03",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "ColorFabb XT-CF20 (750 g) / 1.75 mm (SKU 22000091)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 79.99,
+    "Sale price": 74.95,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 74.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/22000091?variant=17392587462",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5569880902:17392587462."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5569880326:32038458188",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M092",
+    "GradeID": "G092-02",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "ColorFabb NGEN (750 g) - 17 Colours / White / 1.75 mm (SKU 22000101-119)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 57.99,
+    "Sale price": 51.95,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 51.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/22000101-117?variant=32038458188",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5569880326:32038458188."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5569880518:32038519948",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M145",
+    "GradeID": "G145-01",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "ColorFabb PLA/PHA (750 g) - 30 Colours / Bluish White / 1.75 mm (SKU 22000021-52)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 57.99,
+    "Sale price": 51.95,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 51.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/22000021-50?variant=32038519948",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5569880518:32038519948."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5569879686:32098662988",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-136",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "ColorFabb BronzeFill (750 g) / 1.75 mm (SKU 22000013-1)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 74.95,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 74.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/22000013?variant=32098662988",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5569879686:32098662988."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8818188172:30422933068",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-137",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "ColorFabb SteelFill (750 g) / 1.75 mm",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 79.99,
+    "Sale price": 74.95,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 74.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/colorfabb-steelfill-750-g?variant=30422933068",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8818188172:30422933068."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5569885382:17392593670",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M018",
+    "GradeID": "G018-15",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Proto-Pasta Original Carbon Fiber PLA Composite (500 g) / 1.75 mm (SKU 23000012)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 49.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/23000012?variant=17392593670",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5569885382:17392593670."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

@@ -68,7 +68,9 @@ ASA-CF PASS
 1.64–15.5 · 5
  101
 86–110 · 7
- no price↗ ☆
+ 65
+40–122 · 5
+↗ ☆
 ASA-GF PASS
 1 of 2
  1,150
@@ -81,7 +83,7 @@ ASA-GF PASS
 5.3–5.8 · 2
  88
 86–98 · 3
- — ☆
+ 96↗ ☆
 Nylon, maker-undisclosed polyamide
 Nylon / Polyamide
  PASS
@@ -111,7 +113,9 @@ Nylon / Polyamide
 2.1–16.5 · 6
  185
 140–215 · 9
- 110↗ ☆
+ 130
+110–204 · 4
+↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -126,7 +130,9 @@ Nylon / Polyamide
 9.9–100 · 4
  111
 102–140 · 5
- — ☆
+ 40
+39–90.7 · 3
+↗ ☆
 PETG PASS
 1 of 49
  1,270
@@ -139,8 +145,8 @@ PETG PASS
 4.1–90 · 23
  70
 63–80 · 32
- 25.5
-25–26 · 2
+ 26
+20–66 · 14
 ↗ ☆
 PLA PASS
 11 of 62
@@ -154,8 +160,8 @@ PLA PASS
 1.2–65 · 56
  55
 50–135 · 68
- 28
-27–30 · 4
+ 33.3
+18–80 · 27
 ↗ ☆
 PLA-CF PASS
 2 of 11
@@ -169,7 +175,9 @@ PLA-CF PASS
 2–13.2 · 9
  55.4
 54–91 · 10
- 41↗ ☆
+ 40.5
+40–41 · 2
+↗ ☆
 PLA-NF PASS
 1 of 2
  1,350
@@ -187,7 +195,7 @@ Polyolefins
 1.3–1.5 · 2
  124
 88–158 · 3
- — ☆
+ 147↗ ☆
 PPA
 High-Performance Engineering
  PASS

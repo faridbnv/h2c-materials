@@ -65,7 +65,9 @@ Nylon / Polyamide
 2.1–16.5 · 6
  185
 140–215 · 9
- 110↗ ☆
+ 130
+110–204 · 4
+↗ ☆
 PA6-GF
 Nylon / Polyamide
  PASS
@@ -80,12 +82,14 @@ Nylon / Polyamide
 2.4–12.5 · 6
  184
 161–210 · 10
- 77↗ ☆
+ 84
+77–146 · 3
+↗ ☆
 PA6-GS
 Nylon / Polyamide
  PASS
 1 of 1
- 1,010 4.2* 87* — 90* — ☆
+ 1,010 4.2* 87* — 90* 180↗ ☆
 RAIL
 Each count is how many of a family the other requirements leave. Choose a family to see its polymers.
 Nylon / Polyamide

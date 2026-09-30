@@ -1,0 +1,302 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "416044c08ed76510b1f936a790247e7e4ebed049bdc1f7868aee54f9f6a0d762",
+  "url": "https://shop3d.ca/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "shop3d.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "f3577c98d6aae544152fb822f9e0914c7376af806240133b9567e50c91663a24",
+  "url": "https://shop3d.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-SHOP3D-20260930-f3577c98d6aa",
+    "Publisher": "Shop3D.ca",
+    "Title": "Shop3D.ca shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://shop3d.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "f3577c98d6aae544152fb822f9e0914c7376af806240133b9567e50c91663a24"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-SHOP3D-20260930-416044c08ed7",
+   "Publisher": "Shop3D.ca",
+   "Title": "Shop3D.ca product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://shop3d.ca/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G001-183; G016-07; G022-01; G029-09; G035-17; G039-48; G077-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "416044c08ed76510b1f936a790247e7e4ebed049bdc1f7868aee54f9f6a0d762"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "8781013319894:46305468154070",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M029",
+    "GradeID": "G029-09",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Hyper Core ABS CF15 Filament - 1.75mm (1kg) - Black (SKU [S]5.11.19062A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 139,
+    "Sale price": 125,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 125,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-hyper-core-abs-cf15-filament-1kg?variant=46305468154070",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8781013319894:46305468154070."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9482033660118:50251682316502",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M077",
+    "GradeID": "G077-01",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Bambu Lab - Support for PLA (New Version) 1.75mm (0.5kg) (SKU S02-W1-1.75-500-SPL)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 29.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 29.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/bambu-lab-support-for-pla-new-version-1-75mm-0-5kg?variant=50251682316502",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9482033660118:50251682316502."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9073357848790:47181143933142",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M159",
+    "GradeID": "G039-48",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSun eFlex TPU-87A (Flexible) Filament - Clear - 1.75mm - 1kg (SKU TPU-87A175T1Y1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 49.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/esun-tpu-87a-clear?variant=47181143933142",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9073357848790:47181143933142."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9455871623382:50042332414166",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-183",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Bambu Lab - PLA Pure (1.75mm) 1kg / Absolute Black (SKU A19-K00-1.75-1000-SPL)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 33.99,
+    "Sale price": 25.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 25.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/bambu-lab-pla-pure-1-75mm-1kg?variant=50042332414166",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9455871623382:50042332414166."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6973166649533:40709511446717",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M016",
+    "GradeID": "G016-07",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSun 3D Printing PLA-Luminous Rainbow - 1.75mm (1kg) (SKU Luminous PLA175RB1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.95,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 39.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/esun-3d-printing-luminous-rainbow-pla-1-75mm-1kg?variant=40709511446717",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6973166649533:40709511446717."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9230576582870:47745660911830",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G022-01",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Bambu Lab - PETG HF REFILL (1.75mm) 1kg / Black (SKU G02-K0-1.75-1000-SPLFREE)",
+    "Packaging": "Refill",
+    "Net mass kg": 1,
+    "List price": 25.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 25.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/bambu-lab-petg-hf-refill-1-75mm-1kg?variant=47745660911830",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9230576582870:47745660911830."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9246309810390:47816687026390",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M035",
+    "GradeID": "G035-17",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSun 3D Printing PC-HT Filament - 1.75mm (1kg) / White (SKU PC-HT175W1TZ1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 45,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 45,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/esun-3d-printing-pc-ht-filament-1-75mm-1kg?variant=47816687026390",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9246309810390:47816687026390."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

@@ -1,0 +1,53 @@
+Host,URL,Kind,Format,SHA256,Bytes,Accessed,Note
+3dprintingcanada.com,https://3dprintingcanada.com/meta.json,meta,shopify-meta,00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485,1766,2026-09-30,base currency CAD
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,ea58625a05d77c546b3d2668fed04af9f3dfe1e03f0c33b21b16532dc2464cb6,1803560,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,2bd82d718ad33ad6517811647b1b0b9bdc0be97d3b53486d88da2086b5efbde0,2310457,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=3,catalogue,shopify-catalogue,edbc9045d13a14d35afecc9c17de2106ddb5a9c06d323abd903b8800d6c967d7,2233300,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=4,catalogue,shopify-catalogue,fb65d58a4c81ee4114a74f0f50ebf635602093daebca25b831827149ec45d4c7,1896885,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=5,catalogue,shopify-catalogue,766127fc24a370d5e01d67fe4dfaf959dc0d439b9d9fe90b169cd7373231db87,1805536,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=6,catalogue,shopify-catalogue,59f8186c591ae806b087c2060819d8f166418914ad2aba39f7ecd07157b1b1b6,2498975,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=7,catalogue,shopify-catalogue,c3ecbe796616ffcd6e202475377ba9c9ea915408a7db3e61b565e16863099a8f,2003664,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=8,catalogue,shopify-catalogue,847e6402056608a8462bb7d1b525c9f5ad5b50a99e6ece0cc50357fd61708dbd,1540081,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=9,catalogue,shopify-catalogue,9d64cc05898cd24217ee91307b34687d4533e4059a64263f3ee5b2bfb4a03129,1351468,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=10,catalogue,shopify-catalogue,a3ca22a91ca6c2401304724641a94bfc190cfc73ae2ae16f7648b24e9c1a41f1,1288030,2026-09-30,250 products
+3dprintingcanada.com,https://3dprintingcanada.com/products.json?limit=250&page=11,catalogue,shopify-catalogue,2f0a7b075504edf4b0abaeaa7ff3e42e185348dcfa52fefefcf30ac5061a2247,832262,2026-09-30,68 products
+filaments.ca,https://filaments.ca/meta.json,meta,shopify-meta,5c6577250b85c41fe0f3241070a5df65ca217897030b158b502c87a604c13fac,671,2026-09-30,base currency CAD
+filaments.ca,https://filaments.ca/products.json?limit=250&page=1,catalogue,shopify-catalogue,074118b8219ade0305730e9eed631a8edc6be651269177cd6cebccfe19e41fb0,773021,2026-09-30,219 products
+shop3d.ca,https://shop3d.ca/meta.json,meta,shopify-meta,f3577c98d6aae544152fb822f9e0914c7376af806240133b9567e50c91663a24,654,2026-09-30,base currency CAD
+shop3d.ca,https://shop3d.ca/products.json?limit=250&page=1,catalogue,shopify-catalogue,416044c08ed76510b1f936a790247e7e4ebed049bdc1f7868aee54f9f6a0d762,1346414,2026-09-30,250 products
+shop3d.ca,https://shop3d.ca/products.json?limit=250&page=2,catalogue,shopify-catalogue,86f9d0d4d56192cec85393460ef57c4a600da8d22b6c03e6124ed7bf3ab2cc9b,994663,2026-09-30,250 products
+shop3d.ca,https://shop3d.ca/products.json?limit=250&page=3,catalogue,shopify-catalogue,3bea0bedf5439ff6d239535a7e9108c9276e2edb213a9c48477542ac0d33e99f,557678,2026-09-30,108 products
+digitmakers.ca,https://digitmakers.ca/meta.json,meta,shopify-meta,9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6,1290,2026-09-30,base currency CAD
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=1,catalogue,shopify-catalogue,9c3b00416b4f742b64daea371aa4600e578a78af8c7878ca3af600438ac65467,2214833,2026-09-30,250 products
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=2,catalogue,shopify-catalogue,a0e8285acb63e01f4be59c8ef010b41aa119f57fd99029251716a362ffb34768,2489476,2026-09-30,250 products
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=3,catalogue,shopify-catalogue,70a0257534f7f422766a7e98ee73673c2e46ba97daff5547628918573b76fadf,2207610,2026-09-30,250 products
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=4,catalogue,shopify-catalogue,a21d40902ee319509fdb697eeb4fca9a7d526ce1dd3b6cb8ff501177d87e4404,1970274,2026-09-30,250 products
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=5,catalogue,shopify-catalogue,d0988a329b2721bfd455372b84a3d83ae52e7c09ed0846b8dd10c0a7bcc48395,1029067,2026-09-30,250 products
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=6,catalogue,shopify-catalogue,35df1222baa043dac700b8d47819e2386ee40e5d4b1c0d47110607e41186526d,1137673,2026-09-30,250 products
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=7,catalogue,shopify-catalogue,454717c12b81f20d2fb3ad8250d922838b67d500da80e45985bd939900798fe8,1266930,2026-09-30,250 products
+digitmakers.ca,https://digitmakers.ca/products.json?limit=250&page=8,catalogue,shopify-catalogue,fb78e00654aca51e2d6078923ba1785bc0063cfaf5e5f462602eabcdb71d52a2,177933,2026-09-30,55 products
+voxelfactory.com,https://voxelfactory.com/meta.json,meta,shopify-meta,61a7ac470a2ada126e7df39115f918cb803acd8c7186ed889b4b9436704b2ee5,888,2026-09-30,base currency CAD
+voxelfactory.com,https://voxelfactory.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,74cdac66b399ed2b2eba16b84d06291455fe580aa424dedd29098463c8cc051e,2315019,2026-09-30,250 products
+voxelfactory.com,https://voxelfactory.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,bf07531efd5303232f5fb6ab0110a272212dc6bef531b61a9911e04138bbfbcb,1502637,2026-09-30,250 products
+voxelfactory.com,https://voxelfactory.com/products.json?limit=250&page=3,catalogue,shopify-catalogue,10db5a33039151367cf1073519ceb854b0591dbbebec1b3916210ec3b43d1ca8,534717,2026-09-30,139 products
+store.makerwiz.com,https://store.makerwiz.com/meta.json,meta,shopify-meta,6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf,720,2026-09-30,base currency CAD
+store.makerwiz.com,https://store.makerwiz.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,76ec1c9549569fbed45663a83ba5ccdf6aeaf30cb24bae7095127a89266e975e,4069044,2026-09-30,250 products
+store.makerwiz.com,https://store.makerwiz.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,69b1a8d598e4a13296873a6f449093c3cec524e20e8577d73eeadf1aea864c99,3832215,2026-09-30,250 products
+store.makerwiz.com,https://store.makerwiz.com/products.json?limit=250&page=3,catalogue,shopify-catalogue,c290db405c279b22e67fc9c8a47ef8a86393fa59151f643ddccf7e07fbf0f1df,1006145,2026-09-30,250 products
+store.makerwiz.com,https://store.makerwiz.com/products.json?limit=250&page=4,catalogue,shopify-catalogue,43effcf827cb9d53596a0dbfaa3fe8f1b81114b54e64e7d92aa548d9fe4133a8,1770109,2026-09-30,250 products
+store.makerwiz.com,https://store.makerwiz.com/products.json?limit=250&page=5,catalogue,shopify-catalogue,df52176455c37ab26347cc930f04c0cc189024fa92994fe1d8ba40a9c47cb3fd,735139,2026-09-30,122 products
+shop.cadmicro.com,https://shop.cadmicro.com/meta.json,meta,shopify-meta,bd5d585a2deb75a3ad9254b0c60d637f07c4b4f4461fe07594f39006735847ee,699,2026-09-30,base currency CAD
+shop.cadmicro.com,https://shop.cadmicro.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,37dd519006c6cfeb546950ce25a94eda836bd4979438467b377d789968e5d80b,1277778,2026-09-30,250 products
+shop.cadmicro.com,https://shop.cadmicro.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,3a3cdc749700dbd8f894a562e97f241a96f0782687f552f5ca87080134570009,412533,2026-09-30,129 products
+ca.elegoo.com,https://ca.elegoo.com/meta.json,meta,shopify-meta,b68ff49e7728e81e1284374543b9aadb0f3ed0cfa3fcab70970e84256399496d,641,2026-09-30,base currency CAD
+ca.elegoo.com,https://ca.elegoo.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,1b6d3ac05bf4223ede52188d06b57dcb3d048907a3c052db34ab25a22326f7de,2369157,2026-09-30,250 products
+ca.elegoo.com,https://ca.elegoo.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,957047d3738d6fff0cfb6ae4a016708d0999587814e278a11404951622daa4c7,1015855,2026-09-30,170 products
+ca.anycubic.com,https://ca.anycubic.com/meta.json,meta,shopify-meta,c4c54baed1e3eb133a520d4409e9e293abdb975cb0417917fbf20021de9d85bc,556,2026-09-30,base currency CAD
+ca.anycubic.com,https://ca.anycubic.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,e60fba1f2a9f4369d63ec51fd0b0bca80a1991b1365ae5dd81556cb45ef8d83e,3445952,2026-09-30,250 products
+ca.anycubic.com,https://ca.anycubic.com/products.json?limit=250&page=2,catalogue,shopify-catalogue,e197071dd36df1e4f945dd0e82a71dc1f252c9cf0a3f845746e8ae5c8cfcc033,764402,2026-09-30,47 products
+ca.eryone3d.com,https://ca.eryone3d.com/meta.json,meta,shopify-meta,69c68d3633c2802a9fa997e89e976fc12313c4b61d214498803bc5754eb31499,639,2026-09-30,base currency CAD
+ca.eryone3d.com,https://ca.eryone3d.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,346635bcb23a55d798b78a414dbb731f1c11885cb0c9748ceeac5495c11b37ba,4219511,2026-09-30,125 products
+ca.qidi3d.com,https://ca.qidi3d.com/meta.json,meta,shopify-meta,b24218d31abb1a7ae20c189cc5e040c8d0b69b9b28e1d4f2940b2f55a6995a4c,583,2026-09-30,base currency CAD
+ca.qidi3d.com,https://ca.qidi3d.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,3e989f6749be3271526762727d4f33e71a3f4f95ff3bc53f6aea0a35f3f68514,1451924,2026-09-30,248 products
+ca.flashforge.com,https://ca.flashforge.com/meta.json,meta,shopify-meta,236adebcfef4fd3bd33aa7600ca30409587ad5e5ee2654a1463bece513a83562,588,2026-09-30,base currency CAD
+ca.flashforge.com,https://ca.flashforge.com/products.json?limit=250&page=1,catalogue,shopify-catalogue,1cea3db2e7c2aa646afe43081334ed5aa6329c3711707007b1fc76fa7f8c9ec5,272485,2026-09-30,50 products

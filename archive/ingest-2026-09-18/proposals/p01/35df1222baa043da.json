@@ -1,0 +1,302 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "35df1222baa043dac700b8d47819e2386ee40e5d4b1c0d47110607e41186526d",
+  "url": "https://digitmakers.ca/products.json?limit=250&page=6",
+  "format": "shopify-catalogue",
+  "host": "digitmakers.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6",
+  "url": "https://digitmakers.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-DIGITMAKERS-20260930-9e984e1becd8",
+    "Publisher": "DigitMakers",
+    "Title": "DigitMakers shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://digitmakers.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-DIGITMAKERS-20260930-35df1222baa0",
+   "Publisher": "DigitMakers",
+   "Title": "DigitMakers product catalogue, page 6",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://digitmakers.ca/products.json?limit=250&page=6",
+   "Locator": "Catalogue page 6; each listing by its product and variant ID",
+   "Applicable grades": "G001-19; G001-23; G020-13; G026-01; G027-02; G031-16; G046-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "35df1222baa043dac700b8d47819e2386ee40e5d4b1c0d47110607e41186526d"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "4701098508419:32859164180611",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M026",
+    "GradeID": "G026-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "3DXSTAT ESD PETG Filament 750g Black / Black (SKU 3DSTAT-FL-PETG-ESD-1.75-750g-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 124.95,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 124.95,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/3dxstat-esd-petg-filament-black-various-sizes?variant=32859164180611",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4701098508419:32859164180611."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4365795098755:31221540388995",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M046",
+    "GradeID": "G046-02",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "TPC-91A Kimya 3D filament Various Colors / Black (SKU KMY-FL-TPC91A-175-750G-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 79.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 79.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/tpc-91a-kimya-3d-filament-various-colors?variant=31221540388995",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4365795098755:31221540388995. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5937883840674:37456390095010",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-19",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "PolyLite™ PLA (1.75mm 1000g) - Various Colours / Natural (SKU PLMK-FL-PLITE-PLA-1.75-1000G-NTRL)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 34.99,
+    "Sale price": 26.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 26.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/polylite-pla-1-75mm-1000g-various-colours?variant=37456390095010",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5937883840674:37456390095010."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6625561968802:39502426243234",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-23",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "PolyTerra™ PLA - Various Colors (1.75mm 1000g) / Charcoal Black (SKU PLMK-FL-TERRA-PLA-1.75-1000G-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 28.99,
+    "Sale price": 23.39,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 23.39,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/polyterra-pla-various-colors-1-75mm-1000g?variant=39502426243234",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6625561968802:39502426243234."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5937957208226:37093412536482",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-13",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "PolyLite™ PETG Various Colors (1.75mm 1000g) / White (SKU PLMK-FL-PLITE-PETG-1.75-1000G-WHT)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 29.99,
+    "Sale price": 26.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 26.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/polylite-petg-various-colors-1-75mm-1000g?variant=37093412536482",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5937957208226:37093412536482."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5937914642594:37093354700962",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-02",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "PolyLite™ ABS Various Colors (1.75mm 1000g) / Black (SKU PLMK-FL-PLITE-ABS-1.75-1000G-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 34.99,
+    "Sale price": 26.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 26.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/polylite-abs-various-colors-1-75mm-1000g?variant=37093354700962",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5937914642594:37093354700962."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "5568254017698:35574663151778",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M031",
+    "GradeID": "G031-16",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Premium ASA Filament - Black 1.75mm 1kg (SKU RAISE3D-FL-ASA-1.75-1KG-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 56.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 56.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-premium-asa-filament-black-1-75mm-1kg?variant=35574663151778",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 5568254017698:35574663151778."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

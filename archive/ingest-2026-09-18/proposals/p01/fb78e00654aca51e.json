@@ -1,0 +1,98 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "fb78e00654aca51e2d6078923ba1785bc0063cfaf5e5f462602eabcdb71d52a2",
+  "url": "https://digitmakers.ca/products.json?limit=250&page=8",
+  "format": "shopify-catalogue",
+  "host": "digitmakers.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6",
+  "url": "https://digitmakers.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-DIGITMAKERS-20260930-9e984e1becd8",
+    "Publisher": "DigitMakers",
+    "Title": "DigitMakers shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://digitmakers.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-DIGITMAKERS-20260930-fb78e00654ac",
+   "Publisher": "DigitMakers",
+   "Title": "DigitMakers product catalogue, page 8",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://digitmakers.ca/products.json?limit=250&page=8",
+   "Locator": "Catalogue page 8; each listing by its product and variant ID",
+   "Applicable grades": "G156-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "fb78e00654aca51e2d6078923ba1785bc0063cfaf5e5f462602eabcdb71d52a2"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "8561184779:29895218891",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M156",
+    "GradeID": "G156-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "ESun ePA CF Natural Black - Carbon fiber Reinforced Nylon 1.75mm 1kg Spool (SKU ESUN-FL-EPA-CF-1.75-1KG-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 59.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 59.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-epa-cf-natural-black-carbon-fiber-reinforced-nylon-1-75-mm-1-kg?variant=29895218891",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8561184779:29895218891."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

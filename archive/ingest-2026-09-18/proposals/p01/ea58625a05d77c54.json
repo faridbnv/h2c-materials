@@ -1,0 +1,166 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "ea58625a05d77c546b3d2668fed04af9f3dfe1e03f0c33b21b16532dc2464cb6",
+  "url": "https://3dprintingcanada.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "3dprintingcanada.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485",
+  "url": "https://3dprintingcanada.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-3DPC-20260930-00c396270613",
+    "Publisher": "3D Printing Canada",
+    "Title": "3D Printing Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dprintingcanada.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-3DPC-20260930-ea58625a05d7",
+   "Publisher": "3D Printing Canada",
+   "Title": "3D Printing Canada product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G001-183; G001-78; G094-03",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "ea58625a05d77c546b3d2668fed04af9f3dfe1e03f0c33b21b16532dc2464cb6"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "6977434681413:40827832500293",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M094",
+    "GradeID": "G094-03",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "White - Spectrum PC/ABS FR V0 - 1.75mm, 1kg (SKU 5905991400721)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 49.99,
+    "Sale price": 42.49,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 42.49,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/white-1-75mm-spectrum-pc-abs-fr-v0-1-kg?variant=40827832500293",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6977434681413:40827832500293."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8132738580549:45179928838213",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-183",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Baby blue - Bambu Lab PLA PURE Filament with Spool - 1.75mm, 1kg (SKU 6a989b85d4f5f)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 33.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 33.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/baby-blue-pla-pure-1-75mm-1kg?variant=45179928838213",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8132738580549:45179928838213."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8265591259205:45674382295109",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-78",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Light Beige - eSun PLA+ Filament - 1.75mm, 1kg (SKU 6a989c57639a0)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 24.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 24.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/light-beige-esun-pla-filament-1-75mm-1kg?variant=45674382295109",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8265591259205:45674382295109."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

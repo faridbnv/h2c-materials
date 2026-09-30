@@ -145,7 +145,8 @@ export function massKg(text) {
 /** Whether a listing's words sell 1.75 mm filament: true, false (another diameter only), or null (none stated). */
 export function isOneSeventyFive(text) {
   const s = String(text ?? '');
-  const d175 = /1[.,]75\s?mm|\b1[.,]75\b/i.test(s);
-  const other = /\b(2[.,]85|3[.,]00?)\s?mm\b/i.test(s);
-  return d175 ? true : other ? false : null;
+  const d175 = /(?<![\d.,])1[.,]75(?!\d)/i.test(s);
+  const other = /(?<![\d.,])(?:2[.,]85(?!\d)|3(?:[.,]00?)?\s?mm\b)/i.test(s);
+  // Both named is a listing sold in both, which says nothing about this variant.
+  return d175 && other ? null : d175 ? true : other ? false : null;
 }

@@ -56,7 +56,9 @@ ASA-CF PASS
 1.64–15.5 · 5
  101
 86–110 · 7
- no price↗ ☆
+ 65
+40–122 · 5
+↗ ☆
 PAHT-CF
 Nylon / Polyamide
  PASS
@@ -84,7 +86,9 @@ PETG-CF PASS
 1.9–14 · 6
  72
 68–77 · 10
- 41↗ ☆
+ 41
+35–56 · 3
+↗ ☆
 PP-CF
 Polyolefins
  PASS
@@ -97,7 +101,7 @@ Polyolefins
 1.3–1.5 · 2
  124
 88–158 · 3
- — ☆
+ 147↗ ☆
 PPA-CF
 High-Performance Engineering
  PASS

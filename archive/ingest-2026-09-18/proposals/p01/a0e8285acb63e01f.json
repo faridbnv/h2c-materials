@@ -1,0 +1,302 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "a0e8285acb63e01f4be59c8ef010b41aa119f57fd99029251716a362ffb34768",
+  "url": "https://digitmakers.ca/products.json?limit=250&page=2",
+  "format": "shopify-catalogue",
+  "host": "digitmakers.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6",
+  "url": "https://digitmakers.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-DIGITMAKERS-20260930-9e984e1becd8",
+    "Publisher": "DigitMakers",
+    "Title": "DigitMakers shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://digitmakers.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-DIGITMAKERS-20260930-a0e8285acb63",
+   "Publisher": "DigitMakers",
+   "Title": "DigitMakers product catalogue, page 2",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://digitmakers.ca/products.json?limit=250&page=2",
+   "Locator": "Catalogue page 2; each listing by its product and variant ID",
+   "Applicable grades": "G001-79; G020-37; G026-07; G033-01; G043-01; G077-01; G167-10",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "a0e8285acb63e01f4be59c8ef010b41aa119f57fd99029251716a362ffb34768"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "9352123252966:46413062963430",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M026",
+    "GradeID": "G026-07",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN PETG ESD Filament Black - 1.75 mm 1kg (SKU ESUN-PETG-ESD-175-1KG-BLCK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 49.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-petg-esd-filament-black-1-75-mm-1kg?variant=46413062963430",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9352123252966:46413062963430."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9448835743974:46773127119078",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M033",
+    "GradeID": "G033-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Bambu Lab ASA-CF Filament (Black) 1.75mm - 1kg (SKU B51-K0-1.75-1000-SPL)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 47.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 47.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/bambu-lab-asa-cf-filament-1-75mm-1kg?variant=46773127119078",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9448835743974:46773127119078."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9358894792934:46435930603750",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M077",
+    "GradeID": "G077-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Bambu Lab Support for PLA (New Version) White - 1.75mm - 500g (SKU S02-W1-1.75-500-SPL)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 29.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 29.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/bambu-lab-support-for-pla-new-version-1-75mm-500g?variant=46435930603750",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9358894792934:46435930603750."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9007502459110:47307305976038",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M159",
+    "GradeID": "G043-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Bambu Lab TPU 85A / TPU 90A Filament 1.75mm - 1kg (Various Colors) / 85A Black (51107) (SKU U04-K0-1.75-1000-SPL)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 57.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 57.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/bambu-lab-tpu-85a-tpu-90a-filament-1-75mm-1kg-various-colors?variant=47307305976038",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9007502459110:47307305976038."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9471922307302:46863175844070",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M170",
+    "GradeID": "G167-10",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSun eLastic TPE-83A Flexible Filament 1.75mm 1kg / White (SKU ESUN-FL-ELST-TPE83A-1.75-1KG-WHT)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 54.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 54.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-elastic-tpe-83a-flexible-filament-1-75mm-1kg?variant=46863175844070",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9471922307302:46863175844070."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9009255284966:45933596213478",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-79",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN PLA Rock Filaments 1.75 mm 1kg / Hornfels (SKU ESUN-PLA-ROCK-175-1KG-HRNFLS)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 24.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 24.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-pla-rock-filaments-1-75-mm-1kg?variant=45933596213478",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9009255284966:45933596213478."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9470822154470:46860051906790",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-37",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN PETG Basic Filament (Clear) - 1.75mm 1kg / Clear (SKU ESUN-PETG-BSC-175-1KG-CLR)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 19.99,
+    "Sale price": 13.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 13.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-petg-basic-filament-1-75mm-1kg-various-colors?variant=46860051906790",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9470822154470:46860051906790."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

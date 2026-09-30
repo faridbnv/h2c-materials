@@ -1,0 +1,269 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "69b1a8d598e4a13296873a6f449093c3cec524e20e8577d73eeadf1aea864c99",
+  "url": "https://store.makerwiz.com/products.json?limit=250&page=2",
+  "format": "shopify-catalogue",
+  "host": "store.makerwiz.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf",
+  "url": "https://store.makerwiz.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-MAKERWIZ-20260930-6c606fcb1f31",
+    "Publisher": "MakerWiz",
+    "Title": "MakerWiz shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://store.makerwiz.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-MAKERWIZ-20260930-69b1a8d598e4",
+   "Publisher": "MakerWiz",
+   "Title": "MakerWiz product catalogue, page 2",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://store.makerwiz.com/products.json?limit=250&page=2",
+   "Locator": "Catalogue page 2; each listing by its product and variant ID",
+   "Applicable grades": "G001-19; G001-23; G014-14; G020-13; G077-02; G093-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "69b1a8d598e4a13296873a6f449093c3cec524e20e8577d73eeadf1aea864c99"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "8036727488734:44181187789022",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M077",
+    "GradeID": "G077-02",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Polymaker PolySupport™ Filament - 750 g / 1.75mm / Pearl White (SKU 61000071)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 74.99,
+    "Sale price": 59.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 59.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/polymaker-polysupport-filament-750-g?variant=44181187789022",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8036727488734:44181187789022."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6553415123021:39279645687885",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M093",
+    "GradeID": "G093-01",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Prusa Research Prusament PVB Light Yellow Transparent 500g (SKU 37004014)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 59.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 59.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/prusament-pvb-light-yellow-transparent-500g?variant=39279645687885",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6553415123021:39279645687885."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS).",
+    "diameter": "Prusament is made in 1.75 mm only (Prusa Research makes filament for its own 1.75 mm printers)"
+   }
+  },
+  {
+   "offer": {
+    "key": "7619174301918:42675622052062",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-19",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Polymaker PolyLite™ PLA Filament - 1.75 mm, 1 kg (11 Colours) / Black / 1.75 mm (SKU 61000501)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 39.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/polymaker-polylite-pla-filament-1-75-mm-1-kg-16-colours?variant=42675622052062",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7619174301918:42675622052062."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6574674411597:39315323420749",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-23",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Polymaker PolyTerra™ PLA Filament - 1.75 mm, 1 kg (20 Colours) / Charcoal Black / 1.75 mm (SKU 61000306)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 35.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 35.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/polymaker-polyterra-pla-filament-1-75-mm-1-kg-14-colours?variant=39315323420749",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6574674411597:39315323420749."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6590959419469:39343549251661",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M014",
+    "GradeID": "G014-14",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Formfutura EasyWood Filament - Olive - 500g / 1.75mm (SKU 62501105)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 64.99,
+    "Sale price": 49.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/formfutura-easywood-filament-olive-1-75mm-500g?variant=39343549251661",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6590959419469:39343549251661."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6574680735821:39315335577677",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-13",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Polymaker PolyLite™ PETG Filament - 1.75 mm, 1 kg (11 Colours) / Black / 1.75 mm (SKU 61000401)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 45.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 45.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/polymaker-polylite-petg-filament-1-75-mm-1-kg-11-colours?variant=39315335577677",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6574680735821:39315335577677."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

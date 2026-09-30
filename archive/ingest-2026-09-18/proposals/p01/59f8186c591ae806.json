@@ -1,0 +1,642 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "59f8186c591ae806b087c2060819d8f166418914ad2aba39f7ecd07157b1b1b6",
+  "url": "https://3dprintingcanada.com/products.json?limit=250&page=6",
+  "format": "shopify-catalogue",
+  "host": "3dprintingcanada.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485",
+  "url": "https://3dprintingcanada.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-3DPC-20260930-00c396270613",
+    "Publisher": "3D Printing Canada",
+    "Title": "3D Printing Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dprintingcanada.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-3DPC-20260930-59f8186c591a",
+   "Publisher": "3D Printing Canada",
+   "Title": "3D Printing Canada product catalogue, page 6",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=6",
+   "Locator": "Catalogue page 6; each listing by its product and variant ID",
+   "Applicable grades": "G001-16; G001-69; G020-08; G020-09; G027-03; G027-04; G033-04; G039-04; G050-04; G066-02; G072-02; G090-02; G106-01; G108-01; G109-01; G110-01; G113-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "59f8186c591ae806b087c2060819d8f166418914ad2aba39f7ecd07157b1b1b6"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "6890541580357:40564729512005",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M033",
+    "GradeID": "G033-04",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black CF10 - Spectrum ASA-X Filament - 1.75mm, 0.5kg (SKU 67bbc4ca839b0)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 60.99,
+    "Sale price": 44.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 44.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-cf10-1-75mm-spectrum-asa-x-filament-0-5-kg?variant=40564729512005",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6890541580357:40564729512005."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6890539548741:40564724793413",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M066",
+    "GradeID": "G066-02",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - Spectrum ecoPET 9021 Filament - 1.75mm, 0.75kg (SKU 67bbc4c70b99c)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 85.99,
+    "Sale price": 73.09,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 73.09,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-1-75mm-spectrum-ecopetg-filament-0-75-kg?variant=40564724793413",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6890539548741:40564724793413."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6889669328965:40561727963205",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M072",
+    "GradeID": "G072-02",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Natural - Spectrum PPS AM230 Filament - 1.75mm, 0.75kg (SKU 67bbc4a143c26)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 146.99,
+    "Sale price": 124.94,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 124.94,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/natural-1-75mm-spectrum-pps-am230-filament-0-75-kg?variant=40561727963205",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6889669328965:40561727963205."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6890523820101:40564682817605",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M090",
+    "GradeID": "G090-02",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Carbon Fiber CF10 - Spectrum Premium PCTG Filament - 1.75mm, 1kg (SKU 67bbc4b9be125)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 95.99,
+    "Sale price": 74.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 74.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/carbon-fiber-cf10-1-75mm-spectrum-premium-pctg-filament-1-kg?variant=40564682817605",
+    "Access date": "2026-09-30",
+    "Notes": "Spectrum sells PCTG CF10 in its Premium PCTG line. Read from the shop's own catalogue data; offer 6890523820101:40564682817605."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734797373509:39990479159365",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M106",
+    "GradeID": "G106-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - Spectrum ABS Kevlar Filament - 1.75mm, 0.75kg (SKU 67bbc237ba051)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 94.99,
+    "Sale price": 80.74,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 80.74,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a281?variant=39990479159365",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734797373509:39990479159365."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734798061637:39990481027141",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M108",
+    "GradeID": "G108-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Natural - Spectrum PA6 GK10 Filament - 1.75mm, 0.75kg (SKU 67bbc239e8e38)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 134.99,
+    "Sale price": 114.74,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 114.74,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a297?variant=39990481027141",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734798061637:39990481027141."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6890538860613:40564721811525",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M109",
+    "GradeID": "G109-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Traffic Red - Spectrum PETG/PTFE Filament - 1.75mm, 1kg (SKU 67bbc4c693287)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 85.99,
+    "Sale price": 59.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 59.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/traffic-red-1-75mm-spectrum-petg-ptfe-filament-1-kg?variant=40564721811525",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6890538860613:40564721811525."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6890525950021:40564685799493",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M110",
+    "GradeID": "G110-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Natural GF10 - Spectrum Premium PCTG Filament - 1.75mm, 1kg (SKU 67bbc4bcd7ad3)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 115.99,
+    "Sale price": 98.59,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 98.59,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/natural-gf10-1-75mm-spectrum-premium-pctg-filament-1-kg?variant=40564685799493",
+    "Access date": "2026-09-30",
+    "Notes": "Spectrum sells PCTG GF10 in its Premium PCTG line. Read from the shop's own catalogue data; offer 6890525950021:40564685799493."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6889668542533:40561722228805",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M113",
+    "GradeID": "G113-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - Spectrum ASA Kevlar Filament - 1.75mm, 0.75kg (SKU 67bbc4a197a37)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 81.99,
+    "Sale price": 69.69,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 69.69,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-1-75mm-spectrum-asa-kevlar-filament-0-75-kg?variant=40561722228805",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6889668542533:40561722228805."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734785019973:39990437019717",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-16",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Ivory Beige - Spectrum PLA Pro Filament - 1.75mm, 1kg (SKU 67bbb438344d3)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 47.99,
+    "Sale price": 39.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 39.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a58?variant=39990437019717",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734785019973:39990437019717."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734789673029:39990456156229",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-69",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Bahama Yellow - Spectrum Premium PLA Filament - 1.75mm, 1kg (SKU 67bbb9cfbafbd)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 34.99,
+    "Sale price": 24.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 24.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a139?variant=39990456156229",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734789673029:39990456156229."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734796554309:39990477062213",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-09",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Lion Orange - Spectrum PET-G MATT Filament - 1.75mm, 1kg (SKU 67bbc22116fcf)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 53.99,
+    "Sale price": 37.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 37.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a264?variant=39990477062213",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734796554309:39990477062213."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734790983749:39990460153925",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-08",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Transparent Blue - Spectrum PET-G HT100 Filament - 1.75mm, 1kg (SKU 67bbb9e8ea1da)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 65.99,
+    "Sale price": 49.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 49.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a162?variant=39990460153925",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734790983749:39990460153925."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734791344197:39990461235269",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-03",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Dark Blue - Spectrum ABS GP450 Filament - 1.75mm, 1kg (SKU 67bbb9eebe806)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 60.99,
+    "Sale price": 44.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 44.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a172?variant=39990461235269",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734791344197:39990461235269."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734791671877:39990461890629",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-04",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Natural - Spectrum ABS Medical Filament - 1.75mm, 1kg (SKU 67bbb9f402978)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 73.99,
+    "Sale price": 59.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 59.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a178?variant=39990461890629",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734791671877:39990461890629."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734798028869:39990480928837",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M050",
+    "GradeID": "G050-04",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - Spectrum PA6 CF15 Filament - 1.75mm, 0.75kg (SKU 67bbc23892cea)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 152.99,
+    "Sale price": 130.04,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 130.04,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a296?variant=39990480928837",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734798028869:39990480928837."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734787674181:39990450028613",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M160",
+    "GradeID": "G039-04",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Lime Green - Spectrum S-Flex 90A Filament - 1.75mm, 0.5kg (SKU 67bbb50fb55b6)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 47.99,
+    "Sale price": 38.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 38.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a104?variant=39990450028613",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734787674181:39990450028613."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

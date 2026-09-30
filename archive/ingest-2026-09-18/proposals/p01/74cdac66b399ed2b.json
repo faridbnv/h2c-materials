@@ -1,0 +1,608 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "74cdac66b399ed2b2eba16b84d06291455fe580aa424dedd29098463c8cc051e",
+  "url": "https://voxelfactory.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "voxelfactory.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "61a7ac470a2ada126e7df39115f918cb803acd8c7186ed889b4b9436704b2ee5",
+  "url": "https://voxelfactory.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-VOXELFACTORY-20260930-61a7ac470a2a",
+    "Publisher": "Voxel Factory",
+    "Title": "Voxel Factory shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://voxelfactory.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "61a7ac470a2ada126e7df39115f918cb803acd8c7186ed889b4b9436704b2ee5"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-VOXELFACTORY-20260930-74cdac66b399",
+   "Publisher": "Voxel Factory",
+   "Title": "Voxel Factory product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://voxelfactory.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G001-21; G001-30; G019-01; G024-02; G026-05; G033-11; G050-11; G051-09; G053-08; G059-01; G065-01; G067-02; G068-02; G073-04; G074-02; G080-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "74cdac66b399ed2b2eba16b84d06291455fe580aa424dedd29098463c8cc051e"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "8918017245420:46494257316076",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M019",
+    "GradeID": "G019-01",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker HT-PLA-GF 1.75mm 1Kg / Black (SKU PMK-HTPGF-BLK-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 40.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 40.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-ht-pla-gf-1-75mm-1kg?variant=46494257316076",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8918017245420:46494257316076."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896053281004:46422817931500",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M026",
+    "GradeID": "G026-05",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PETG-ESD 1.75mm 500g (SKU PMK-FBR-PEG-ESD-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 46.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 46.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-petg-esd-1-75mm-500g?variant=46422817931500",
+    "Access date": "2026-09-30",
+    "Notes": "Polymaker sells PETG ESD in its Fiberon line. Read from the shop's own catalogue data; offer 8896053281004:46422817931500."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9008875897068:46800225435884",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M033",
+    "GradeID": "G033-11",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon ASA-CF08 1.75mm 500g / Black (SKU PMK-FBR-ASA-CF08-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 26.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 26.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/fiberon-asa-cf08?variant=46800225435884",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9008875897068:46800225435884."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896046760172:46422763438316",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M053",
+    "GradeID": "G053-08",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PA12-CF10 1.75mm 500g (SKU PMK-FBR-PA12-CF10-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 98.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 98.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pa12-cf10-1-75mm-500g?variant=46422763438316",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896046760172:46422763438316."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896103612652:46422938517740",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M059",
+    "GradeID": "G059-01",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PA612-CF15 1.75mm 500g (SKU PMK-FBR-PA612-CF15-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 48.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 48.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pa612-cf15-1-75mm-500g?variant=46422938517740",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896103612652:46422938517740."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8989954867436:46746088866028",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M065",
+    "GradeID": "G065-01",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PA612-ESD 1.75mm 500g (SKU PMK-FBR-PA612-ESD-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 88.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 88.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pa612-esd-1-75mm-500g?variant=46746088866028",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8989954867436:46746088866028."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9041405772012:46889937305836",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M068",
+    "GradeID": "G068-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PET-GF15 1.75mm 1kg / White (SKU PMK-FBR-PET-GF15-WHT)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 40.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 40.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pet-gf15?variant=46889937305836",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9041405772012:46889937305836."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8989943267564:46746022936812",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M074",
+    "GradeID": "G074-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PPS-GF20 1.75mm 500g (SKU PMK-FBR-PPS-G20-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 81.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 81.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pps-gf20-1-75mm-500g?variant=46746022936812",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8989943267564:46746022936812."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896161939692:46423089021164",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M080",
+    "GradeID": "G080-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolySupport for PA12 1.75mm 500g (SKU PMK-PSP-PA12-175-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 53.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 53.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polysupport-for-pa12-1-75mm-500g?variant=46423089021164",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896161939692:46423089021164."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9414633128172:48337981702380",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-30",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PLA Pro 1.75mm 1kg / Black (SKU PMK-PLA-PRO-BLK-000)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 33.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 33.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-pla-pro-1-75mm-1kg?variant=48337981702380",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9414633128172:48337981702380."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8915393315052:46489693880556",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-21",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker HT-PLA 1.75mm 1Kg / Black (SKU PMK-HTP-BLK-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 27.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 27.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-ht-pla-1-75mm-1kg?variant=46489693880556",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8915393315052:46489693880556."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896062488812:46422856859884",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M024",
+    "GradeID": "G024-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PETG-rCF08 1.75mm 500g (SKU PMK-FBR-PEG-CF08-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 27.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 27.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-petg-rcf08-1-75mm-500g?variant=46422856859884",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896062488812:46422856859884."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896013369580:46422498509036",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M050",
+    "GradeID": "G050-11",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PA6-CF20 1.75mm 500g (SKU PMK-FBR-PA6-CF20-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 56.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 56.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberonpa6-cf20-1-75mm-500g?variant=46422498509036",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896013369580:46422498509036."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896042533100:46422665724140",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M051",
+    "GradeID": "G051-09",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PA6-GF25 1.75mm 500g (SKU PMK-FBR-PA6-GF25-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 41.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 41.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pa6-gf25-1-75mm-500g?variant=46422665724140",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896042533100:46422665724140."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896072351980:46422881108204",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M067",
+    "GradeID": "G067-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PET-CF17 1.75mm 500g (SKU PMK-FBR-PET-CF17-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 34.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 34.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pet-cf17-1-75mm-500g?variant=46422881108204",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896072351980:46422881108204."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8896030343404:46422581313772",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M073",
+    "GradeID": "G073-04",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker Fiberon PPS-CF10 1.75mm 500g (SKU PMK-FBR-PPS-C10-500)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 98.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 98.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-fiberon-pps-cf10-1-75mm-500g?variant=46422581313772",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8896030343404:46422581313772."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

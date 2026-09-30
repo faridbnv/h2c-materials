@@ -132,14 +132,16 @@ all 153 candidates
 Price CAD/kg
 Price at most 100 CAD/kg (tracked)
 ABS
-26
+40
+24.5–70.7 · 9
 ABS-AF
-No price
+127
 ABS-CF
-No price
-25.5
-255
-all 153 candidates
+45
+40–50 · 2
+24.5
+300
+widened to a value shown
 PROCESS REQUIREMENTS
 Where a material has products that pass, each gate is theirs: their own recipes against the H2C, which is what passed them. The line under it is the material's window across every recorded product, context that no product need match (F09).
 Material Nozzle within H2C Bed within H2C Chamber within H2C Hardened nozzle Drying
@@ -149,6 +151,6 @@ ABS-CF yes yes part of the window required guidance published
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
 ABS 10 of 10 — 57 599
-ABS-AF 4 of 10 1† 3 24
-ABS-CF 6 of 10 — 11 76
+ABS-AF 5 of 10 1† 3 24
+ABS-CF 7 of 10 — 11 76
 A † span is an estimate, not a measurement: the likely range (80%), with the plausible range behind it and a tick at its centre. It is built from the material's own related measurements where it has any, and from its polymer family. It never passes a requirement; select it for what it rests on and whether it can screen.

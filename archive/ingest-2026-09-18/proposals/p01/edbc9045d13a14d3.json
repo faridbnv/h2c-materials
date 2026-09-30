@@ -1,0 +1,200 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "edbc9045d13a14d35afecc9c17de2106ddb5a9c06d323abd903b8800d6c967d7",
+  "url": "https://3dprintingcanada.com/products.json?limit=250&page=3",
+  "format": "shopify-catalogue",
+  "host": "3dprintingcanada.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485",
+  "url": "https://3dprintingcanada.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-3DPC-20260930-00c396270613",
+    "Publisher": "3D Printing Canada",
+    "Title": "3D Printing Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dprintingcanada.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-3DPC-20260930-edbc9045d13a",
+   "Publisher": "3D Printing Canada",
+   "Title": "3D Printing Canada product catalogue, page 3",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=3",
+   "Locator": "Catalogue page 3; each listing by its product and variant ID",
+   "Applicable grades": "G001-14; G011-03; G031-15; G116-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "edbc9045d13a14d35afecc9c17de2106ddb5a9c06d323abd903b8800d6c967d7"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7882506272837:44307811565637",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M116",
+    "GradeID": "G116-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - 1.75mm 3DXTech 3DXSTAT® ESD-PC Filament - 0.75 kg (SKU 6983c5f179d01)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 189.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 189.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-1-75mm-3dxtech-3dxstat®-esd-pc-filament-0-75-kg?variant=44307811565637",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7882506272837:44307811565637."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7618542895173:42770478334021",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-14",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Polar White - Spectrum FlameGuard PLA Filament - 1.75mm, 1kg (SKU 81450)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 74.99,
+    "Sale price": 64.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 64.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/polar-white-spectrum-flameguard-pla-filament-1-75mm-1kg?variant=42770478334021",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7618542895173:42770478334021."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7617777762373:42764878708805",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M011",
+    "GradeID": "G011-03",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Brass - Spectrum PLA Metal Filament - 1.75mm, 0.75kg (SKU 81436)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 89.99,
+    "Sale price": 75.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 75.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/brass-spectrum-pla-metal-filament-1-75mm-0-75kg?variant=42764878708805",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7617777762373:42764878708805."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7617788641349:42764950798405",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M031",
+    "GradeID": "G031-15",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Bloody Red - Spectrum FlameGuard ASA 275 Filament - 1.75mm, 1kg (SKU 81567)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 74.99,
+    "Sale price": 64.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 64.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/bloody-red-spectrum-flameguard-asa-275-filament-1-75mm-1kg?variant=42764950798405",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7617788641349:42764950798405."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

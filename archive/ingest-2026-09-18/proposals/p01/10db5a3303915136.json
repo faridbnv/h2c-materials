@@ -1,0 +1,234 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "10db5a33039151367cf1073519ceb854b0591dbbebec1b3916210ec3b43d1ca8",
+  "url": "https://voxelfactory.com/products.json?limit=250&page=3",
+  "format": "shopify-catalogue",
+  "host": "voxelfactory.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "61a7ac470a2ada126e7df39115f918cb803acd8c7186ed889b4b9436704b2ee5",
+  "url": "https://voxelfactory.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-VOXELFACTORY-20260930-61a7ac470a2a",
+    "Publisher": "Voxel Factory",
+    "Title": "Voxel Factory shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://voxelfactory.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "61a7ac470a2ada126e7df39115f918cb803acd8c7186ed889b4b9436704b2ee5"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-VOXELFACTORY-20260930-10db5a330391",
+   "Publisher": "Voxel Factory",
+   "Title": "Voxel Factory product catalogue, page 3",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://voxelfactory.com/products.json?limit=250&page=3",
+   "Locator": "Catalogue page 3; each listing by its product and variant ID",
+   "Applicable grades": "G001-176; G035-02; G075-11; G077-02; G093-04",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "10db5a33039151367cf1073519ceb854b0591dbbebec1b3916210ec3b43d1ca8"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "4520188444790:31823457779830",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M077",
+    "GradeID": "G077-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolySupport for PLA 1.75mm 750g (SKU PMK-PSP-WHT-175-750)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 53.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 53.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polysupport-1-75mm-0-6kg?variant=31823457779830",
+    "Access date": "2026-09-30",
+    "Notes": "PolySupport is sold as \"PolySupport for PLA\" beside Polymaker's PolySupport for PA12 (G080-02). Read from the shop's own catalogue data; offer 4520188444790:31823457779830."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4520205877366:31823479636086",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M093",
+    "GradeID": "G093-04",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyCast 1.75mm 0.75kg (SKU PMK-PCT-NAT-175-750)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 63.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 63.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polycast-1-75mm-0-75kg?variant=31823479636086",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4520205877366:31823479636086."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4520151646326:31823392800886",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-176",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyWood 1.75mm 0.6kg (SKU PMK-PWD-WUD-175-600)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.6,
+    "List price": 38.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 38.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polywood-1-75mm-0-6kg?variant=31823392800886",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4520151646326:31823392800886."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4514067251318:31799286268022",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M035",
+    "GradeID": "G035-02",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyLite Transparent PC 1.75mm 1kg (SKU PMK-PCB-TRS-175-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 38.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 38.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polylite-pc-1-75mm-1kg?variant=31799286268022",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4514067251318:31799286268022."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4520046395510:31823253536886",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M075",
+    "GradeID": "G075-11",
+    "Retailer": "Voxel Factory",
+    "Variant / SKU": "Polymaker PolyDissolve S1 1.75mm 0.75kg (SKU PMK-PDS-0S1-175-750)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 76.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 76.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://voxelfactory.com/products/polymaker-polydissolve-s1-1-75mm-0-75kg?variant=31823253536886",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4520046395510:31823253536886."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

@@ -1,0 +1,336 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "766127fc24a370d5e01d67fe4dfaf959dc0d439b9d9fe90b169cd7373231db87",
+  "url": "https://3dprintingcanada.com/products.json?limit=250&page=5",
+  "format": "shopify-catalogue",
+  "host": "3dprintingcanada.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485",
+  "url": "https://3dprintingcanada.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-3DPC-20260930-00c396270613",
+    "Publisher": "3D Printing Canada",
+    "Title": "3D Printing Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dprintingcanada.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-3DPC-20260930-766127fc24a3",
+   "Publisher": "3D Printing Canada",
+   "Title": "3D Printing Canada product catalogue, page 5",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=5",
+   "Locator": "Catalogue page 5; each listing by its product and variant ID",
+   "Applicable grades": "G001-07; G001-15; G001-17; G035-03; G035-04; G084-01; G129-01; G167-05",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "766127fc24a370d5e01d67fe4dfaf959dc0d439b9d9fe90b169cd7373231db87"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7059515146309:41075479674949",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M046",
+    "GradeID": "G167-05",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Midnight Black - NinjaTek Chinchilla TPE 75A - 1.75mm, 0.5 kg (SKU 3DCC0117505)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 104.99,
+    "Sale price": 90.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 90.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/midnight-black-ninjatek-chinchilla-tpe-75a-1-75mm-0-5-kg?variant=41075479674949",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7059515146309:41075479674949."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6977434484805:40827832074309",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M129",
+    "GradeID": "G129-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - Spectrum S-Flex Carbon Filament - 1.75mm, 0.25kg (SKU 5905991400691)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.25,
+    "List price": 34.99,
+    "Sale price": 29.74,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 29.74,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/bk-1-75mm-spectrum-s-flex-carbon-0-25-kg?variant=40827832074309",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6977434484805:40827832074309."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6915589767237:40651534106693",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M084",
+    "GradeID": "G084-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - 1.75mm 3DXTech FibreX™ PP+GF30 Polypropylene - 0.5 kg (SKU PP002GF100500BK00)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 76.99,
+    "Sale price": 66.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 66.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-1-75mm-3dxtech-fibrex-pp-gf30-polypropylene-500-g?variant=40651534106693",
+    "Access date": "2026-09-30",
+    "Notes": "FibreX PP+GF30 is 3DXTECH's FibreX GF PP. Read from the shop's own catalogue data; offer 6915589767237:40651534106693."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6977432649797:40827828633669",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-07",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "True Red - Spectrum Huracan PLA Filament - 1.75mm, 1kg (SKU 5903175659927)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": 29.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 29.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/true-red-1-75mm-spectrum-huracan-pla-1-kg?variant=40827828633669",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6977432649797:40827828633669."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6977431863365:40827827748933",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-15",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Electric Yellow - Spectrum PLA Crystal - 1.75mm, 1kg (SKU 5903175659453)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 31.99,
+    "Sale price": 24.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 24.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/electric-yellow-1-75mm-spectrum-pla-crystal-1-kg?variant=40827827748933",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6977431863365:40827827748933."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6977431109701:40827826470981",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-17",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Water Blue - Spectrum Pastello PLA Filament - 1.75mm, 1kg (SKU 5903175654847)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 26.99,
+    "Sale price": 23.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 23.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/water-blue-1-75mm-spectrum-pastello-pla-1-kg?variant=40827826470981",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6977431109701:40827826470981."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6920344993861:40669962764357",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M035",
+    "GradeID": "G035-04",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Dark Grey - 1.75mm 3DXTech ezPC™ (Polycarbonate) Filament - 0.75 kg (SKU PC005UN100750GY02)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 89.99,
+    "Sale price": 77.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 77.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/dark-grey-1-75mm-3dxtech-ezpc™-polycarbonate-filament-0-75-kg?variant=40669962764357",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6920344993861:40669962764357."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6977434026053:40827831156805",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M035",
+    "GradeID": "G035-03",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Traffic White - Spectrum PC 275 Filament - 1.75mm, 1kg (SKU 5905991400066)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 54.99,
+    "Sale price": 44.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 44.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/traffic-white-1-75mm-spectrum-pc-275-1-kg?variant=40827831156805",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6977434026053:40827831156805."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

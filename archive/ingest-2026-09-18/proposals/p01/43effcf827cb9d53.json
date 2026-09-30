@@ -1,0 +1,166 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "43effcf827cb9d53596a0dbfaa3fe8f1b81114b54e64e7d92aa548d9fe4133a8",
+  "url": "https://store.makerwiz.com/products.json?limit=250&page=4",
+  "format": "shopify-catalogue",
+  "host": "store.makerwiz.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf",
+  "url": "https://store.makerwiz.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-MAKERWIZ-20260930-6c606fcb1f31",
+    "Publisher": "MakerWiz",
+    "Title": "MakerWiz shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://store.makerwiz.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-MAKERWIZ-20260930-43effcf827cb",
+   "Publisher": "MakerWiz",
+   "Title": "MakerWiz product catalogue, page 4",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://store.makerwiz.com/products.json?limit=250&page=4",
+   "Locator": "Catalogue page 4; each listing by its product and variant ID",
+   "Applicable grades": "G039-32; G075-11; G093-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "43effcf827cb9d53596a0dbfaa3fe8f1b81114b54e64e7d92aa548d9fe4133a8"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "1382607355981:12498238242893",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M093",
+    "GradeID": "G093-02",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Polymaker PolySmooth™ Filament - 1.75 mm, 0.75 kg (11 Colours) / Jet Black / 1.75 mm (SKU 61000103)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 59.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 59.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/polymaker-polysmooth-filament-1-75-mm-1-kg-11-colours?variant=12498238242893",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1382607355981:12498238242893."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "153993674764:1595105607692",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M159",
+    "GradeID": "G039-32",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "NinjaTek NinjaFlex Fire 1.75mm 500g / Red (SKU 25303011)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 78.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 78.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/ninjatek-ninjaflex-fire-1-75mm-500g?variant=1595105607692",
+    "Access date": "2026-09-30",
+    "Notes": "NinjaFlex in the colour Fire; NinjaFlex is NinjaTek's 85A TPU. Read from the shop's own catalogue data; offer 153993674764:1595105607692."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "1344839942221:39346831884365",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M075",
+    "GradeID": "G075-11",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Polymaker PolyDissolve™ S1 Filament - 750 g / 1.75mm / Natural Off-White (SKU 61000182)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 105,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 105,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/polymaker-polydissolve-s1-filament-750-g?variant=39346831884365",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 1344839942221:39346831884365."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

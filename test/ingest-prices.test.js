@@ -1,12 +1,16 @@
 // The way a price enters (scripts/ingest/prices.mjs, D113): the offer readers, and the guard that holds every row to
 // the offer its document holds. Every shop document below is a made-up fixture written for this test, not a real
-// listing; the grade it prices, G019-03, is real, so the rehearsal runs the real build.
+// listing; the grades they price are real, so the rehearsal runs the real build.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { readCsv } from '../build/src/csv.js';
 import { storeBytes } from '../scripts/data/source-store.mjs';
 import { shopifyCatalogueOffers, jsonLdOffers, amazonOffers, shopMeta, massKg, isOneSeventyFive } from '../scripts/lib/offers.mjs';
 import { guard, rehearse, priceRow, sourceRow } from '../scripts/ingest/prices.mjs';
 
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CATALOGUE_URL = 'https://fixture-shop.invalid/products.json?limit=250&page=1';
 const catalogue = Buffer.from(JSON.stringify({ products: [
   { id: 11, title: 'eSUN PLA+GF Filament 1.75mm, 1kg', handle: 'esun-pla-gf', vendor: 'eSun', product_type: 'Filament', body_html: '<p>Glass-fibre PLA. Diameter 1.75 mm.</p>',
@@ -98,9 +102,23 @@ test('a row the offer does not back is refused, by code', () => {
   assert.deepEqual(codes(other), ['APPLY-PRICE-GRADE']);
 });
 
+// The rehearsal needs a material that still has a Canadian-price gap, which the pass keeps closing: it takes the first
+// one the tables hold, and a made-up listing of one of its products.
 test('the rehearsal writes the listing and supersedes the material\'s Canadian-price gap, and the core build passes', () => {
-  const r = rehearse([proposal()], { migration: 'test', date: '2026-09-30' });
+  const table = (n) => readCsv(join(root, 'data/tables', `${n}.csv`)).records.map((r) => r.values);
+  const gaps = new Set(table('coverage').filter((c) => c.Domain === 'Canadian price' && c.Status === 'Gap').map((c) => c.MaterialID));
+  const g = table('grades').find((x) => gaps.has(x.MaterialID) && x.Role === 'procurement' && x.Status === 'active' && /^[A-Za-z]/.test(x.Manufacturer));
+  assert.ok(g, 'no material with a Canadian-price gap is left to rehearse on');
+  const bytes = Buffer.from(JSON.stringify({ products: [{ id: 21, title: `${g.Manufacturer} ${g['Product name']} Filament 1.75mm, 1kg`, handle: 'fixture-gap', vendor: g.Manufacturer, product_type: 'Filament', body_html: '',
+    variants: [{ id: 211, title: 'Black', sku: 'FX-GAP', price: '44.00', compare_at_price: null, available: true }] }] }));
+  const sha = storeBytes(bytes).sha;
+  const cap = { ...capture, SHA256: sha };
+  const o = { ...shopifyCatalogueOffers(bytes, CATALOGUE_URL).offers[0], currency: 'CAD', description: '', capture: cap };
+  const p = { ...proposal(), document: { ...proposal().document, sha256: sha }, source: { row: sourceRow(cap, seller, [g.GradeID], { title: 'Fixture Shop product catalogue, page 1' }) },
+    prices: [{ offer: { key: '21:211', massFrom: 'title' }, row: priceRow(o, {}, seller, g), review: { status: 'accepted', by: 'the test' } }] };
+  assert.deepEqual(guard([p], { ...world(), grades: [g] }), []);
+  const r = rehearse([p], { migration: 'test', date: '2026-09-30' });
   assert.deepEqual([r.gate, r.lint.filter((f) => f.level === 'error'), r.build], [[], [], []]);
-  assert.ok(r.log.some((l) => /^price CA\d{4} G019-03 39.99 CAD \/ 1 kg/.test(l)), r.log.join('\n'));
-  assert.ok(r.log.some((l) => /^coverage C\d{5} \(Canadian price of M019\)/.test(l)), r.log.join('\n'));
+  assert.ok(r.log.some((l) => new RegExp(`^price CA\\d{4} ${g.GradeID} 44 CAD / 1 kg`).test(l)), r.log.join('\n'));
+  assert.ok(r.log.some((l) => new RegExp(`^coverage C\\d{5} \\(Canadian price of ${g.MaterialID}\\)`).test(l)), r.log.join('\n'));
 });

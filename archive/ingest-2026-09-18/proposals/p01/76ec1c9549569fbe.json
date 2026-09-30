@@ -1,0 +1,132 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "76ec1c9549569fbed45663a83ba5ccdf6aeaf30cb24bae7095127a89266e975e",
+  "url": "https://store.makerwiz.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "store.makerwiz.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf",
+  "url": "https://store.makerwiz.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-MAKERWIZ-20260930-6c606fcb1f31",
+    "Publisher": "MakerWiz",
+    "Title": "MakerWiz shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://store.makerwiz.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "6c606fcb1f3124325ceb2ef68db6bddc9e0240577a0a485e1d24ea228312bbaf"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-MAKERWIZ-20260930-76ec1c954956",
+   "Publisher": "MakerWiz",
+   "Title": "MakerWiz product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://store.makerwiz.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G022-01; G111-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "76ec1c9549569fbed45663a83ba5ccdf6aeaf30cb24bae7095127a89266e975e"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "9280926023902:48479784468702",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M111",
+    "GradeID": "G111-02",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Proto-Pasta Electrically Conductive Composite PLA (500 g) / 1.75 mm (SKU 23000013)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 99.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 99.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/proto-pasta-electrically-conductive-composite-pla-500-g?variant=48479784468702",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9280926023902:48479784468702."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9157928059102:48017900208350",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G022-01",
+    "Retailer": "MakerWiz",
+    "Variant / SKU": "Bambu Lab Bambu PETG HF 1kg / Black / Refill / 1kg",
+    "Packaging": "Refill",
+    "Net mass kg": 1,
+    "List price": 25.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 25.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://store.makerwiz.com/products/bambu-lab-bambu-petg-hf?variant=48017900208350",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9157928059102:48017900208350."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

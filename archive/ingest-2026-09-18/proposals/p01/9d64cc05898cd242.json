@@ -1,0 +1,132 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "9d64cc05898cd24217ee91307b34687d4533e4059a64263f3ee5b2bfb4a03129",
+  "url": "https://3dprintingcanada.com/products.json?limit=250&page=9",
+  "format": "shopify-catalogue",
+  "host": "3dprintingcanada.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485",
+  "url": "https://3dprintingcanada.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-3DPC-20260930-00c396270613",
+    "Publisher": "3D Printing Canada",
+    "Title": "3D Printing Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dprintingcanada.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-3DPC-20260930-9d64cc05898c",
+   "Publisher": "3D Printing Canada",
+   "Title": "3D Printing Canada product catalogue, page 9",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=9",
+   "Locator": "Catalogue page 9; each listing by its product and variant ID",
+   "Applicable grades": "G026-01; G096-01",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "9d64cc05898cd24217ee91307b34687d4533e4059a64263f3ee5b2bfb4a03129"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "4366156234821:31272398618693",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M026",
+    "GradeID": "G026-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - 1.75mm 3DXTech 3DXSTAT® ESD PETG Filament - 0.75 kg (SKU PTG2010750BK0)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 149.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 149.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-1-75mm-3dxtech-3dxstat®-esd-petg-filament-0-75kg?variant=31272398618693",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4366156234821:31272398618693."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6594923102277:39356322709573",
+    "massFrom": "description"
+   },
+   "row": {
+    "MaterialID": "M096",
+    "GradeID": "G096-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Natural - 1.75mm 3DXTech FluorX™ PVDF Filament - 0.75g (SKU PVD1010500NAT)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 285,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 285,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/natural-1-75mm-3dxtech-fluorx™-pvdf-filament-500-g?variant=39356322709573",
+    "Access date": "2026-09-30",
+    "Notes": "The title prints \"0.75g\"; the description prints the 0.75 kg spool. Read from the shop's own catalogue data; offer 6594923102277:39356322709573. Net mass as the product description prints it."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

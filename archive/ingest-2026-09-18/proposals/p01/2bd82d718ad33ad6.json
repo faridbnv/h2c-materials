@@ -1,0 +1,98 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "2bd82d718ad33ad6517811647b1b0b9bdc0be97d3b53486d88da2086b5efbde0",
+  "url": "https://3dprintingcanada.com/products.json?limit=250&page=2",
+  "format": "shopify-catalogue",
+  "host": "3dprintingcanada.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485",
+  "url": "https://3dprintingcanada.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-3DPC-20260930-00c396270613",
+    "Publisher": "3D Printing Canada",
+    "Title": "3D Printing Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dprintingcanada.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-3DPC-20260930-2bd82d718ad3",
+   "Publisher": "3D Printing Canada",
+   "Title": "3D Printing Canada product catalogue, page 2",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=2",
+   "Locator": "Catalogue page 2; each listing by its product and variant ID",
+   "Applicable grades": "G008-24",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "2bd82d718ad33ad6517811647b1b0b9bdc0be97d3b53486d88da2086b5efbde0"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "8027994816581:44802018377797",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M008",
+    "GradeID": "G008-24",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Fire Red - Spectrum PLA Rainbow SILK Filament - 1.75mm, 1kg (SKU 81017)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 37.99,
+    "Sale price": 27.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 27.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/fire-red-spectrum-pla-rainbow-silk-filament-1-75mm-1kg?variant=44802018377797",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8027994816581:44802018377797."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

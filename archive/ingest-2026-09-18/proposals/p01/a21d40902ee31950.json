@@ -1,0 +1,404 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "a21d40902ee319509fdb697eeb4fca9a7d526ce1dd3b6cb8ff501177d87e4404",
+  "url": "https://digitmakers.ca/products.json?limit=250&page=4",
+  "format": "shopify-catalogue",
+  "host": "digitmakers.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6",
+  "url": "https://digitmakers.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-DIGITMAKERS-20260930-9e984e1becd8",
+    "Publisher": "DigitMakers",
+    "Title": "DigitMakers shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://digitmakers.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-DIGITMAKERS-20260930-a21d40902ee3",
+   "Publisher": "DigitMakers",
+   "Title": "DigitMakers product catalogue, page 4",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://digitmakers.ca/products.json?limit=250&page=4",
+   "Locator": "Catalogue page 4; each listing by its product and variant ID",
+   "Applicable grades": "G005-01; G008-31; G018-11; G037-04; G039-36; G053-01; G067-05; G068-04; G080-01; G080-03",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "a21d40902ee319509fdb697eeb4fca9a7d526ce1dd3b6cb8ff501177d87e4404"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "8238063190246:43820648759526",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M068",
+    "GradeID": "G068-04",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Industrial PET GF Filament 1.75mm 1kg / Red (SKU R3D-FL-PET-GF-1.75-1KG-RED)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 95.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 95.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-industrial-pet-gf-filament-1-75mm-1kg?variant=43820648759526",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8238063190246:43820648759526."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8259329917158:43859617743078",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M080",
+    "GradeID": "G080-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Bambu Lab Support for PA/PET 1.75mm - 500g Breakaway Support (formerly 'Support G') (SKU S03-G1-1.75-500-SPL)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 50.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 50.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/bambu-lab-support-for-pa-pet-filament-1-75mm-1kg?variant=43859617743078",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8259329917158:43859617743078."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8238059520230:43820640633062",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M080",
+    "GradeID": "G080-03",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Industrial PET Support Filament 1.75mm 1kg Natural (SKU R3D-FL-PET-1.75-1KG-NRL)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 79.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 79.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-industrial-pet-support-filament-1-75mm-1kg-black?variant=43820640633062",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8238059520230:43820640633062."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8243791331558:43830043279590",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M053",
+    "GradeID": "G053-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "CARBONX™ Carbon Nylon PA 12+CF 1.75mm 500g Black (SKU 3DXTECH-FL-NYL-12-CF-1.75-500G-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.5,
+    "List price": 149.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 149.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/carbonx-carbon-nylon-pa-12-cf-1-75mm-500g-black?variant=43830043279590",
+    "Access date": "2026-09-30",
+    "Notes": "CarbonX PA12+CF is 3DXTECH's CarbonX CF PA12. Read from the shop's own catalogue data; offer 8243791331558:43830043279590."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7660131647718:42552162025702",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M037",
+    "GradeID": "G037-04",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "CarbonX™ ezPC+CF - 1.75mm 750g (SKU 3DXTECH-FL-EZPC+CF-1.75-750g-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 113.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 113.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/carbonx-ezpc-cf-1-75mm-750g?variant=42552162025702",
+    "Access date": "2026-09-30",
+    "Notes": "CarbonX ezPC+CF is 3DXTECH's CarbonX carbon-fibre ezPC. Read from the shop's own catalogue data; offer 7660131647718:42552162025702."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8255682183398:43854712537318",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G005-01",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Bambu Lab PLA Basic Gradient 1.75mm - 1kg (Various Colors) / Arctic Whisper (10900) (SKU A00-M0-1.75-1000-SPL)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 31.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 31.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/bambu-lab-pla-basic-gradient-1-75mm-1kg?variant=43854712537318",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8255682183398:43854712537318."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8241169236198:43825080664294",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M008",
+    "GradeID": "G008-31",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSun ePLA-Silk Mystic Filament 1.75mm 1kg Spool / Gold Green Black (SKU ESUN-FL-ESILK-MSC-PLA-1.75-1KG-GGB)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": 24.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 24.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-epla-silk-mystic-filament-1-75mm-1kg-spool?variant=43825080664294",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8241169236198:43825080664294."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8361964962022:44072071037158",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M018",
+    "GradeID": "G018-11",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSun ePLA-CF Filament Black 1.75mm - 1kg (SKU ESUN-EPLA-CF-1.75MM-1KG)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 39.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-epla-cf-filament-black-1-75mm-1kg?variant=44072071037158",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8361964962022:44072071037158."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8238043398374:43820599574758",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M067",
+    "GradeID": "G067-05",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Industrial PET CF Filament 1.75mm 1kg Black (SKU R3D-FL-PET-CF-1.75-1KG-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 109.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 109.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-industrial-pet-cf-filament-1-75mm-1kg-black?variant=43820599574758",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8238043398374:43820599574758."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8237395378406:43819302846694",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M161",
+    "GradeID": "G039-36",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Raise3D Premium TPU-95A Filament 1.75mm 1kg Spool / White (SKU RAISE3D-FL-TPU-1.75-1KG-WHT)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 109,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 109,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/raise3d-premium-tpu-95a-filament-1-75mm-1kg-spool?variant=43819302846694",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8237395378406:43819302846694."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

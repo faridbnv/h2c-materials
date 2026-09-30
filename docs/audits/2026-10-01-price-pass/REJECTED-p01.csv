@@ -1,0 +1,23 @@
+GradeID,Host,Listing,Why
+G019-03,digitmakers.ca,eSUN ePLA-GF (Glass Fiber Reinforced PLA) 3D Filament-Natural,Its SKU names ePLA-CF while its title says GF; which product it is cannot be settled from the listing.
+G052-05,digitmakers.ca,FormFutura STYX PA6-CF15 / PA6-GF30,"STYX PA6 composites, not STYX-12."
+G053-02,voxelfactory.com,Polymaker PolyMide PA12-CF 2.85mm 500g,Sold in 2.85 mm only here.
+G053-06,ca.eryone3d.com,Nylon & Nylon-CF&GF(PA6 & PA12) Filament,The PA12-CF variant prints 800 g beside the listing's 1 kg: no single net mass.
+G053-09,"shop3d.ca, digitmakers.ca",Raise3D Industrial PA12 CF Support Filament,"The support filament for PA12 CF, not PA12 CF."
+G030-01,digitmakers.ca,3DXSTAT ESD ABS Filament - Black various sizes,Its title and description print no net mass.
+G045-07,ca.qidi3d.com,PEBA 95A,Neither the listing nor its description states a diameter.
+G057-03,digitmakers.ca,PolyMide CoPA Nylon - Various Color and Size,Its title and description print no net mass.
+G068-05,ca.qidi3d.com,PET-GF Filament,Its title and description print no net mass.
+G082-09,shop3d.ca,Raise3D Pro3 P Heating Rod / Thermocouple,Printer parts.
+G133-01,digitmakers.ca,Flashforge Flexible build plates,Printer parts.
+G128-01,digitmakers.ca,CARBONX Carbon Fiber PC/ABS Filament - Black various sizes,Only its 2.85 mm variant is listed.
+G039-32,"3dprintingcanada.com, digitmakers.ca",NinjaTek NinjaFlex Edge TPE 83A,"NinjaFlex Edge, a different NinjaTek product."
+G092-02,store.makerwiz.com,ColorFabb NGEN Flex,"nGen Flex, a different colorFabb product."
+G089-03,"digitmakers.ca, store.makerwiz.com",colorFabb XT CF20,"XT-CF20 (G090-03), not XT."
+G093-02,digitmakers.ca,Polymaker PolySmooth Filament Various Colors- 1.75mm,Its variants print no net mass.
+G093-04,voxelfactory.com,Polymaker PolyCast 1.75mm 3.0kg,A 3 kg spool; the 0.75 kg one is recorded.
+G166-01,shop.cadmicro.com,Markforged Onyx GF Filament Spool,Sold by volume (cm³); no net mass is printed.
+G104-01,3dprintingcanada.com,Spectrum PA6 CS20 Filament,The product is PA6 CS20 FR V0; whether the listing is the flame-retardant grade the listing does not say.
+G126-01,digitmakers.ca,3DXSTAT ESD Flex Filament 750g 1.75mm Black,"Whether ""ESD Flex"" is 3DXSTAT ESD-TPU 90A the listing does not say."
+G147-01,voxelfactory.com,LUVOCOM 3F PAHT 9825 (High Temperature Nylon) - White,An UltiMaker 2.85 mm spool with no printed mass.
+G020-10,3dprintingcanada.com,"Spectrum PETG Filament - 1.75mm, 1kg",Spectrum sells a PETG under its own name and THE FILAMENT PETG under a second brand; the listing does not say which.

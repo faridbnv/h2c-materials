@@ -1,0 +1,642 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "86f9d0d4d56192cec85393460ef57c4a600da8d22b6c03e6124ed7bf3ab2cc9b",
+  "url": "https://shop3d.ca/products.json?limit=250&page=2",
+  "format": "shopify-catalogue",
+  "host": "shop3d.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "f3577c98d6aae544152fb822f9e0914c7376af806240133b9567e50c91663a24",
+  "url": "https://shop3d.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-SHOP3D-20260930-f3577c98d6aa",
+    "Publisher": "Shop3D.ca",
+    "Title": "Shop3D.ca shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://shop3d.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "f3577c98d6aae544152fb822f9e0914c7376af806240133b9567e50c91663a24"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-SHOP3D-20260930-86f9d0d4d561",
+   "Publisher": "Shop3D.ca",
+   "Title": "Shop3D.ca product catalogue, page 2",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://shop3d.ca/products.json?limit=250&page=2",
+   "Locator": "Catalogue page 2; each listing by its product and variant ID",
+   "Applicable grades": "G001-155; G001-82; G001-96; G008-02; G014-12; G020-58; G027-24; G027-40; G031-16; G035-16; G038-02; G039-36; G059-03; G067-05; G068-04; G075-09; G080-03",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "86f9d0d4d56192cec85393460ef57c4a600da8d22b6c03e6124ed7bf3ab2cc9b"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7568547774678:42510371258582",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M038",
+    "GradeID": "G038-02",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Forward AM Ultrafuse® PC GF30 - 700 grams / 1.75mm (SKU 50768366)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.7,
+    "List price": 103,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 103,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/basf-ultrafuse-pc-gf30-700-grams?variant=42510371258582",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7568547774678:42510371258582."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8202674634966:44598041411798",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M059",
+    "GradeID": "G059-03",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Industrial PA12 CF+ Filament 1.75 mm / 1kg (SKU [S]5.11.19022A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 242,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 242,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-industrial-pa12-cf-filament-1-75-mm-1kg?variant=44598041411798",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 8202674634966:44598041411798."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7997801758934:44018236195030",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M068",
+    "GradeID": "G068-04",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Industrial PET GF Filament - 1.75mm (1kg) / Black (SKU [S]5.11.19037A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 100,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 100,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-industrial-pet-gf-filament-1-75mm-1kg?variant=44018236195030",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7997801758934:44018236195030."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7997805363414:44018251006166",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M080",
+    "GradeID": "G080-03",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Industrial PET Support Filament - 1.75mm (1kg) - Natural (SKU [S]5.11.19038A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 87,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 87,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-industrial-pet-support-filament-1-75mm-1kg-natural?variant=44018251006166",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7997805363414:44018251006166."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7997799530710:44445257531606",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-155",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Hyper Speed PLA Filament - 1.75mm (1kg) / White (SKU [S]5.11.19130A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 52,
+    "Sale price": 47,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 47,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-hyper-speed-pla-filament-1-75mm-1kg-white?variant=44445257531606",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7997799530710:44445257531606."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4693315158094:32186525941838",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-82",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Premium PLA Filament - 1.75mm (1kg) / Black (SKU [S]5.11.19151A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 42.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 42.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-premium-pla-filament-1-75mm?variant=32186525941838",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4693315158094:32186525941838."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7585329086678:42577091428566",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-96",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "ePLA-Matte - 1kg Spool 1.75mm / 1.75mm / Deep Black (SKU ePLA-Matte175DB1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 24,
+    "Sale price": 20,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 20,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/epla-matte-1kg-spool?variant=42577091428566",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7585329086678:42577091428566."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4805909577806:32539000209486",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M008",
+    "GradeID": "G008-02",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSUN PLA-Silk Filament - 1.75mm - 1kg / Red (SKU eSilk-PLA175R1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 32.5,
+    "Sale price": 25,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 25,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/esun-esilk-3d-printing-pla-1kg?variant=32539000209486",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4805909577806:32539000209486."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6675734003901:39656998830269",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M014",
+    "GradeID": "G014-12",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "eSun Wood Filament - 1.75mm - 1KG (SKU PLA-Wood175O-PW1TZ1)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 39,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/esun-wood-filament-1-75mm-1kg-spool?variant=39656998830269",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6675734003901:39656998830269."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4658848268366:32064599687246",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-58",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Premium PETG Filament - 1.75mm (1kg) / Black (SKU [S]5.11.19147A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 45.99,
+    "Sale price": 42.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 42.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-premium-petg-filament-o1-75mm?variant=32064599687246",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4658848268366:32064599687246."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4658836078670:32064546799694",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-40",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Premium ABS Filament - 1.75mm (1kg) / Black (SKU [S]5.11.19103A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 45.99,
+    "Sale price": 42.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 42.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-premium-abs-filament-o1-75mm?variant=32064546799694",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4658836078670:32064546799694."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7997797204182:44761365053654",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-24",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Hyper Speed ABS Filament - 1.75mm (1kg) / Black V2 (SKU [S]5.11.19114A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 52,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 52,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-hyper-speed-abs-filament-1-75mm-1kg-natural?variant=44761365053654",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7997797204182:44761365053654."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4658831097934:32064530186318",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M031",
+    "GradeID": "G031-16",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Premium ASA Filament - 1.75mm (1kg) / Black (SKU [S]5.11.19106A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 57.5,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 57.5,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-premium-asa-filament?variant=32064530186318",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4658831097934:32064530186318."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "4658844172366:32064564363342",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M035",
+    "GradeID": "G035-16",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Premium PC Filament - 1.75mm (1kg) / Black (SKU [S]5.11.19136A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 71.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 71.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-premium-pc-filament-o1-75mm?variant=32064564363342",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 4658844172366:32064564363342."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7997793435862:44018168594646",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M067",
+    "GradeID": "G067-05",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Industrial PET CF Filament - 1.75mm (1kg) - Black (SKU [S]5.11.19025A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 115,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 115,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-industrial-pet-cf-filament-1-75mm-1kg?variant=44018168594646",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7997793435862:44018168594646."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6797569654973:40094919786685",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M075",
+    "GradeID": "G075-09",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Premium PVA+ Filament - 1.75mm (0.75kg) (SKU [S]5.11.05011A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 159,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 159,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-pva?variant=40094919786685",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6797569654973:40094919786685."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6797783335101:40096360956093",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M161",
+    "GradeID": "G039-36",
+    "Retailer": "Shop3D.ca",
+    "Variant / SKU": "Raise3D Premium TPU-95A Filament - 1.75mm (1kg) / Natural (SKU [S]5.11.19162A01)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 115,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 115,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://shop3d.ca/products/raise3d-premium-tpu-95a-filament?variant=40096360956093",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6797783335101:40096360956093."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

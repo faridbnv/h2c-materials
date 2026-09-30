@@ -1,0 +1,234 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "847e6402056608a8462bb7d1b525c9f5ad5b50a99e6ece0cc50357fd61708dbd",
+  "url": "https://3dprintingcanada.com/products.json?limit=250&page=8",
+  "format": "shopify-catalogue",
+  "host": "3dprintingcanada.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485",
+  "url": "https://3dprintingcanada.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-3DPC-20260930-00c396270613",
+    "Publisher": "3D Printing Canada",
+    "Title": "3D Printing Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://3dprintingcanada.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "00c396270613def1990d17d285ad351efe7db3f7a688865b0340ab85e7704485"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-3DPC-20260930-847e64020566",
+   "Publisher": "3D Printing Canada",
+   "Title": "3D Printing Canada product catalogue, page 8",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://3dprintingcanada.com/products.json?limit=250&page=8",
+   "Locator": "Catalogue page 8; each listing by its product and variant ID",
+   "Applicable grades": "G001-04; G027-05; G030-01; G031-05; G107-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "847e6402056608a8462bb7d1b525c9f5ad5b50a99e6ece0cc50357fd61708dbd"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "6716956639301:39898898137157",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M030",
+    "GradeID": "G030-01",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - 1.75mm 3DXTech 3DXSTAT® ESD ABS Filament - 0.75 kg (SKU ABS2010750BK0)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 149.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 149.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-1-75mm-3dxtech-3dxstat®-esd-abs-filament-0-75kg?variant=39898898137157",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6716956639301:39898898137157."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6716955557957:39898893582405",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M107",
+    "GradeID": "G107-02",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Black - 1.75mm 3DXTech 3DXSTAT® ESD PLA Filament - 0.75 kg (SKU PLA2010750BK0)",
+    "Packaging": "Spool",
+    "Net mass kg": 0.75,
+    "List price": 149.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 149.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/black-1-75mm-3dxtech-3dxstat®-esd-pla-filament-0-75kg?variant=39898893582405",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6716955557957:39898893582405."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734786428997:39990446620741",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-04",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Polar White - Spectrum PLA Tough Filament - 1.75mm, 1kg (SKU 67bbb470c92d5)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 49.99,
+    "Sale price": 39.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 39.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a79?variant=39990446620741",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734786428997:39990446620741."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6734782496837:39990418473029",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M027",
+    "GradeID": "G027-05",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Polar White - Spectrum Smart ABS Filament - 1.75mm, 1kg (SKU 67bbb3764dd15)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 32.99,
+    "Sale price": 22.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 22.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/a27?variant=39990418473029",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6734782496837:39990418473029."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "6592469139525:39346751012933",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M031",
+    "GradeID": "G031-05",
+    "Retailer": "3D Printing Canada",
+    "Variant / SKU": "Dark Grey - 1.75mm 3DXTech 3DXMAX® ASA Filament - 1kg (SKU ASA1011000GY2)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 73.99,
+    "Sale price": 63.99,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 63.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://3dprintingcanada.com/products/dark-grey-1-75mm-3dxtech-3dxmax®-asa-filament-1kg?variant=39346751012933",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 6592469139525:39346751012933."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

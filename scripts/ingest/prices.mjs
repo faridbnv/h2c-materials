@@ -313,6 +313,8 @@ export function guard(proposals, world) {
   const grades = new Map(world.grades.map((g) => [g.GradeID, g]));
   const sourceById = new Map(world.sources.map((s) => [s.SourceID, s]));
   const sourceBySha = new Map(world.sources.filter((s) => /^[0-9a-f]{64}$/.test(s.SHA256)).map((s) => [s.SHA256, s.SourceID]));
+  // One listing is one product: the same listing accepted for two grades is refused, whichever document holds it.
+  const claimed = new Map();
   for (const proposal of proposals) {
     const where = proposal.file ?? proposal.document?.sha256?.slice(0, 12);
     if (proposal.kind !== 'prices') { fail('APPLY-KIND', where, 'not a price proposal'); continue; }
@@ -359,7 +361,9 @@ export function guard(proposals, world) {
       const words = p.offer.massFrom === 'description' ? body.get(o.product) ?? '' : o.title;
       const mass = massKg(words);
       if (mass == null || Number(r['Net mass kg']) !== mass) fail('APPLY-PRICE-MASS', at, `the listing's ${p.offer.massFrom === 'description' ? 'description' : 'title'} prints ${mass == null ? 'no single net mass' : `${mass} kg`}, the row says ${r['Net mass kg']}`);
-      const d = isOneSeventyFive(`${o.title} ${o.productType} ${body.get(o.product) ?? ''}`);
+      // The variant's own words decide where they state a diameter (a "Black / 2.85 mm" variant of a listing whose
+      // description says 1.75 is not 1.75); otherwise its SKU, then the listing's description.
+      const d = isOneSeventyFive(o.title) ?? isOneSeventyFive(o.sku) ?? isOneSeventyFive(`${o.productType} ${body.get(o.product) ?? ''}`);
       if (d === false || (d == null && !p.review.diameter)) fail('APPLY-PRICE-DIAMETER', at, d === false ? 'the listing sells another diameter' : 'the listing states no diameter and no reviewer says the product is sold only in 1.75 mm');
       const g = grades.get(r.GradeID);
       if (!g || g.Status !== 'active' || g.Role !== 'procurement') fail('APPLY-PRICE-GRADE', at, `${r.GradeID} is not an active procurement grade`);
@@ -378,6 +382,8 @@ export function guard(proposals, world) {
         const rate = String(r['VAT included %']).replace('.', '[.,]');
         if (!new RegExp(`(?:${rate})\\s?%[^<]{0,40}(?:VAT|MwSt|TVA|IVA|BTW|VAT)|(?:VAT|MwSt|TVA|IVA|BTW)[^<]{0,40}?${rate}\\s?%`, 'i').test(text)) fail('APPLY-PRICE-VAT', at, `the page does not state ${r['VAT included %']}% VAT`);
       }
+      if (claimed.has(r.URL) && claimed.get(r.URL) !== r.GradeID) fail('APPLY-PRICE-DUPLICATE', at, `the listing is also accepted for ${claimed.get(r.URL)}`);
+      claimed.set(r.URL, r.GradeID);
       const same = world.prices.find((x) => x.URL === r.URL && x['Access date'] === r['Access date'] && x.Retailer === r.Retailer);
       if (same && same.SourceID !== proposal.source.row.SourceID) fail('APPLY-PRICE-DUPLICATE', at, `the listing is already ${same.PriceID}`);
     }

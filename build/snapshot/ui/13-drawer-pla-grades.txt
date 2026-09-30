@@ -10,7 +10,7 @@ Notched impact, Charpy kJ/m² 17.1 4.94–72.3 10 of 182 21 without direction or
 Notched impact, Izod kJ/m² 5 4.5–6.5 6 of 182 7 without direction or load (3.9–5); 4 variants (5.5–18.1)
 Heat resistance °C 55 50–135 68 of 182 28 without direction or load (53–108); 6 variants (55–89)
 Glass transition °C 59 54–67.5 64 of 182 6 variants (55–62.4)
-Price CAD/kg 28 27–30 4 of 182 —
+Price CAD/kg 33.3 18–80 27 of 182 2 variants (23–65)
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
 WHAT MAKERS SAY
 197 of its 200 products carry statements from their makers, in the makers' words under each product below; 3 products' data sheets say nothing beyond their numbers. The makers' websites were searched for 25 of them; for the others, not yet.

@@ -54,12 +54,14 @@ ABS PASS
 3.9–40 · 16
  94
 78.9–104 · 21
- 26↗ ☆
+ 40
+24.5–70.7 · 9
+↗ ☆
 ABS-AF PASS
 1 of 2
  1,050
 1,040–1,050 · 3
- 1.89 22 6* 88 — ☆
+ 1.89 22 6* 88 127↗ ☆
 ABS-ESD PASS
 1 of 2
  1,070
@@ -72,7 +74,7 @@ ABS-ESD PASS
 2.21–5 · 5
  97
 96–98 · 4
- — ☆
+ no price↗ ☆
 ABS-GF PASS
 12 of 12
  1,100
@@ -98,7 +100,9 @@ ASA PASS
 1.9–11 · 11
  95
 82–103 · 18
- 39↗ ☆
+ 39.5
+30.8–70.7 · 5
+↗ ☆
 ASA Aero PASS
 1 of 1
  1,010
@@ -116,7 +120,9 @@ ASA-AF PASS
 2 of 2
  1,070
 1,070–1,070 · 3
- 2.2* 40* 6* 89* — ☆
+ 2.2* 40* 6* 89* 115
+109–120 · 2
+↗ ☆
 ASA-CF PASS
 18 of 18
  1,095
@@ -129,7 +135,9 @@ ASA-CF PASS
 1.64–15.5 · 5
  101
 86–110 · 7
- no price↗ ☆
+ 65
+40–122 · 5
+↗ ☆
 ASA-EC PASS
 1 of 1
  1,170 3.57* 48.7* 3* 101* — ☆
@@ -145,7 +153,7 @@ ASA-GF PASS
 5.3–5.8 · 2
  88
 86–98 · 3
- — ☆
+ 96↗ ☆
 CoPE
 Copolyesters
  PASS
@@ -165,14 +173,14 @@ Copolyesters
 6.2–26 · 2
  89.5
 70–100 · 4
- — ☆
+ 62.7↗ ☆
 CPE-CF
 Copolyesters
  PASS
 2 of 2
  1,220
 1,160–1,280 · 2
- 5.15 56 2 78 no price↗ ☆
+ 5.15 56 2 78 81.3↗ ☆
 CPE-LW
 Copolyesters
  PASS
@@ -238,7 +246,7 @@ Nylon / Polyamide
 2.1–14.8 · 7
  159
 48–185 · 10
- — ☆
+ 300↗ ☆
 PA12-GF
 Nylon / Polyamide
  PASS
@@ -274,7 +282,9 @@ Nylon / Polyamide
 2.1–16.5 · 6
  185
 140–215 · 9
- 110↗ ☆
+ 130
+110–204 · 4
+↗ ☆
 PA6-GF
 Nylon / Polyamide
  PASS
@@ -289,7 +299,9 @@ Nylon / Polyamide
 2.4–12.5 · 6
  184
 161–210 · 10
- 77↗ ☆
+ 84
+77–146 · 3
+↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -304,7 +316,9 @@ Nylon / Polyamide
 9.9–100 · 4
  111
 102–140 · 5
- — ☆
+ 40
+39–90.7 · 3
+↗ ☆
 PA612-CF
 Nylon / Polyamide
  PASS
@@ -317,12 +331,14 @@ Nylon / Polyamide
 68–91.9 · 3
  3.16
 2.6–3.5 · 3
- 175 — ☆
+ 175 170
+98–242 · 2
+↗ ☆
 PA612-ESD
 Nylon / Polyamide
  PASS
 1 of 1
- 1,100 4.29 84.3 3 157 — ☆
+ 1,100 4.29 84.3 3 157 178↗ ☆
 PAHT-CF
 Nylon / Polyamide
  PASS
@@ -357,7 +373,9 @@ Polycarbonate
 3.2–25 · 12
  114
 101–144 · 11
- 51↗ ☆
+ 51
+39–72 · 5
+↗ ☆
 PC FR
 Polycarbonate
  PASS
@@ -387,7 +405,9 @@ Polymer Blends
 4.2–75 · 5
  115
 102–126 · 6
- — ☆
+ 64
+50–112 · 3
+↗ ☆
 PC-CF
 Polycarbonate
  PASS
@@ -402,7 +422,7 @@ Polycarbonate
 2–7.5 · 3
  128
 119–140 · 4
- — ☆
+ 152↗ ☆
 PCTG
 Copolyesters
  PASS
@@ -429,7 +449,7 @@ Copolyesters
 1,310–1,310 · 2
  3.4* 55* 8* 78
 76–78 · 3
- — ☆
+ no price↗ ☆
 PEBA
 Flexible Elastomers
  PASS
@@ -453,7 +473,7 @@ PET Engineering
 52.6–64.2 · 2
  7.8
 7–8.6 · 2
- 65.7* — ☆
+ 65.7* 115↗ ☆
 PET-CF
 PET Engineering
  PASS
@@ -468,7 +488,9 @@ PET Engineering
 2.01–4.5 · 3
  124
 74–205 · 4
- 116↗ ☆
+ 113
+70–116 · 3
+↗ ☆
 PET-GF
 PET Engineering
  PASS
@@ -483,7 +505,9 @@ PET Engineering
 2.56–5.5 · 4
  120
 81.6–200 · 3
- — ☆
+ 69.5
+41–98 · 2
+↗ ☆
 PETG PASS
 71 of 71
  1,270
@@ -496,8 +520,8 @@ PETG PASS
 4.1–90 · 23
  70
 63–80 · 32
- 25.5
-25–26 · 2
+ 26
+20–66 · 14
 ↗ ☆
 PETG-CF PASS
 22 of 22
@@ -511,7 +535,9 @@ PETG-CF PASS
 1.9–14 · 6
  72
 68–77 · 10
- 41↗ ☆
+ 41
+35–56 · 3
+↗ ☆
 PETG-ESD PASS
 6 of 6
  1,240
@@ -524,7 +550,9 @@ PETG-ESD PASS
 5–13 · 6
  75
 65–76 · 7
- — ☆
+ 139
+94–183 · 2
+↗ ☆
 PETG-GF PASS
 1 of 1
  1,330
@@ -535,10 +563,10 @@ PETG-GF PASS
 42–53.6 · 2
  1.9 78
 76–80 · 2
- — ☆
+ 37↗ ☆
 PETG-PTFE PASS
 1 of 1
- 1,320 1.85* 40* 100* — — ☆
+ 1,320 1.85* 40* 100* — 86↗ ☆
 PLA PASS
 200 of 200
  1,240
@@ -551,8 +579,8 @@ PLA PASS
 1.2–65 · 56
  55
 50–135 · 68
- 28
-27–30 · 4
+ 33.3
+18–80 · 27
 ↗ ☆
 PLA Aero PASS
 6 of 6
@@ -604,7 +632,9 @@ PLA Glow PASS
 1.7–8.6 · 2
  54
 53–55 · 2
- 32↗ ☆
+ 36
+32–40 · 2
+↗ ☆
 PLA Marble PASS
 2 of 2
  1,250
@@ -617,7 +647,9 @@ PLA Marble PASS
 2.1–80 · 4
  54.9
 53–56 · 4
- 32↗ ☆
+ 31.5
+31–32 · 2
+↗ ☆
 PLA Metal PASS
 4 of 4
  1,225
@@ -637,8 +669,8 @@ PLA Silk PASS
 1.7–11.7 · 16
  53
 50–62 · 19
- 31.5
-31–32 · 2
+ 32.2
+29–48 · 6
 ↗ ☆
 PLA Sparkle PASS
 2 of 2
@@ -663,7 +695,9 @@ PLA Wood PASS
 7.5–15.3 · 3
  53
 48–60 · 7
- 32↗ ☆
+ 45
+32–115 · 3
+↗ ☆
 PLA-CE PASS
 1 of 1
  — 3.5* 45* 23* 55 — ☆
@@ -679,22 +713,24 @@ PLA-CF PASS
 2–13.2 · 9
  55.4
 54–91 · 10
- 41↗ ☆
+ 40.5
+40–41 · 2
+↗ ☆
 PLA-EC PASS
 1 of 1
  1,295
 1,240–1,350 · 2
- 1.48* 31.2* 11.8* — — ☆
+ 1.48* 31.2* 11.8* — 200↗ ☆
 PLA-ESD PASS
 1 of 1
  1,210
 1,160–1,260 · 2
- 2.56 55 10 55 — ☆
+ 2.56 55 10 55 200↗ ☆
 PLA-GF PASS
 1 of 1
  1,280
 1,200–1,337 · 4
- 3.79 50.1 2.77 75.5 — ☆
+ 3.79 50.1 2.77 75.5 41↗ ☆
 PLA-NF PASS
 2 of 2
  1,350
@@ -721,12 +757,12 @@ Polyolefins
 1.3–1.5 · 2
  124
 88–158 · 3
- — ☆
+ 147↗ ☆
 PP-GF
 Polyolefins
  PASS
 1 of 1
- 1,120 6.75 65 1.7 139 — ☆
+ 1,120 6.75 65 1.7 139 no price↗ ☆
 PPA
 High-Performance Engineering
  PASS
@@ -780,7 +816,9 @@ High-Performance Engineering
 1.2–4 · 5
  249
 245–264 · 4
- 221↗ ☆
+ 210
+198–221 · 2
+↗ ☆
 PPS-GF
 High-Performance Engineering
  PASS
@@ -795,7 +833,7 @@ High-Performance Engineering
 1.6–2 · 2
  239
 236–241 · 2
- — ☆
+ 164↗ ☆
 PVB
 PVB / Specialty Polymers
  PASS
@@ -810,7 +848,9 @@ PVB / Specialty Polymers
 5.7–14.5 · 3
  65
 55.8–68 · 4
- — ☆
+ 85.3
+71.3–120 · 3
+↗ ☆
 TPE, maker-undisclosed elastomer
 Flexible Elastomers
  PASS
@@ -830,7 +870,9 @@ Flexible Elastomers
 6.2–30 · 3
  585
 560–700 · 3
- n/a no price↗ ☆
+ n/a 58
+50–158 · 3
+↗ ☆
 TPU 90A class
 Flexible Elastomers
  PASS
@@ -843,7 +885,9 @@ Flexible Elastomers
 12.5–30 · 4
  618
 574–1,000 · 4
- n/a 54↗ ☆
+ n/a 75
+54–96 · 2
+↗ ☆
 TPU 95A class
 Flexible Elastomers
  PASS
@@ -856,7 +900,9 @@ Flexible Elastomers
 17–31.8 · 11
  499
 265–900 · 10
- n/a 54↗ ☆
+ n/a 83
+54–112 · 2
+↗ ☆
 TPU harder than 95A
 Flexible Elastomers
  PASS
@@ -874,7 +920,7 @@ Flexible Elastomers
 2 of 2
  1,230
 1,220–1,230 · 3
- 0.035* 61* 380* n/a — ☆
+ 0.035* 61* 380* n/a no price↗ ☆
 TPU-ESD
 Flexible Elastomers
  PASS

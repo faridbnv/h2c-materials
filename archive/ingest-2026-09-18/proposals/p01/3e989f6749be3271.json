@@ -1,0 +1,200 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "3e989f6749be3271526762727d4f33e71a3f4f95ff3bc53f6aea0a35f3f68514",
+  "url": "https://ca.qidi3d.com/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "ca.qidi3d.com",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "b24218d31abb1a7ae20c189cc5e040c8d0b69b9b28e1d4f2940b2f55a6995a4c",
+  "url": "https://ca.qidi3d.com/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-QIDICA-20260930-b24218d31abb",
+    "Publisher": "QIDI Canada",
+    "Title": "QIDI Canada shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://ca.qidi3d.com/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "b24218d31abb1a7ae20c189cc5e040c8d0b69b9b28e1d4f2940b2f55a6995a4c"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-QIDICA-20260930-3e989f6749be",
+   "Publisher": "QIDI Canada",
+   "Title": "QIDI Canada product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://ca.qidi3d.com/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G020-44; G024-16; G025-04; G033-14",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "3e989f6749be3271526762727d4f33e71a3f4f95ff3bc53f6aea0a35f3f68514"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7860880277622:42708864696438",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M025",
+    "GradeID": "G025-04",
+    "Retailer": "QIDI Canada",
+    "Variant / SKU": "PETG-GF / 1 Kg / Black HEX Code #000000 (SKU 043BLK-1-1000)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 36.99,
+    "Sale price": 31.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 31.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.qidi3d.com/products/petg-gf?variant=42708864696438",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7860880277622:42708864696438."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "8027344502902:43973094277238",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M033",
+    "GradeID": "G033-14",
+    "Retailer": "QIDI Canada",
+    "Variant / SKU": "ASA-CF20 Core / 1 Kg / Black HEX Code #3E4342 / CA (SKU ASA-CF20-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 64.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 64.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.qidi3d.com/products/asa-cf20-core?variant=43973094277238",
+    "Access date": "2026-09-30",
+    "Notes": "The variant shipped from QIDI's Canadian warehouse. Read from the shop's own catalogue data; offer 8027344502902:43973094277238."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 1: read listing by listing (review-p01.mjs, LISTINGS)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7860880375926:42708864893046",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-44",
+    "Retailer": "QIDI Canada",
+    "Variant / SKU": "PETG Rapido / 1 Kg / White HEX Code #FFFFFF (SKU 041WHT-1-1000)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 23.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 23.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.qidi3d.com/products/petg-rapido?variant=42708864893046",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7860880375926:42708864893046."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7860880310390:42708864794742",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M024",
+    "GradeID": "G024-16",
+    "Retailer": "QIDI Canada",
+    "Variant / SKU": "PETG-CF / 1 Kg / Black HEX Code #000000 (SKU 042BLK--1-1000)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.99,
+    "Sale price": "Not applicable",
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 39.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://ca.qidi3d.com/products/petg-cf?variant=42708864794742",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7860880310390:42708864794742."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

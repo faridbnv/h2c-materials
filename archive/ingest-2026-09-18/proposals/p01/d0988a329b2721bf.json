@@ -1,0 +1,166 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "d0988a329b2721bfd455372b84a3d83ae52e7c09ed0846b8dd10c0a7bcc48395",
+  "url": "https://digitmakers.ca/products.json?limit=250&page=5",
+  "format": "shopify-catalogue",
+  "host": "digitmakers.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6",
+  "url": "https://digitmakers.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-DIGITMAKERS-20260930-9e984e1becd8",
+    "Publisher": "DigitMakers",
+    "Title": "DigitMakers shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://digitmakers.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-DIGITMAKERS-20260930-d0988a329b27",
+   "Publisher": "DigitMakers",
+   "Title": "DigitMakers product catalogue, page 5",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://digitmakers.ca/products.json?limit=250&page=5",
+   "Locator": "Catalogue page 5; each listing by its product and variant ID",
+   "Applicable grades": "G001-27; G001-96; G031-02",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "d0988a329b2721bfd455372b84a3d83ae52e7c09ed0846b8dd10c0a7bcc48395"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "7854078296294:43072128680166",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-27",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "PolyLite™ PLA Pro - 1.75mm 1kg / Black (SKU PLMK-FL-PLITE-PLA-PRO-1.75-1000G-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 31.99,
+    "Sale price": 28.79,
+    "Stock": "Out of stock",
+    "Eligible for median": "FALSE",
+    "Headline sample": "FALSE",
+    "Displayed price": 28.79,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/polylite-pla-pro-1-75mm-1kg?variant=43072128680166",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7854078296294:43072128680166."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7483642806502:42162021499110",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-96",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN ePLA Matte Filament - 1.75mm 1kg / Deep Black (SKU ESUN-FL-MATTE-PLA-1.75-1KG-DP-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 24.99,
+    "Sale price": 17.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 17.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-matte-pla-filament-1-75mm-1kg?variant=42162021499110",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7483642806502:42162021499110."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "7725557874918:42766067138790",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M031",
+    "GradeID": "G031-02",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "PolyLite™ ASA - Various Colors (1.75mm 1000g) / White (SKU PLMK-FL-PLITE-ASA-1.75mm-1kg-WHT)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 39.95,
+    "Sale price": 35.96,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 35.96,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/polylite-asa-various-colors-1-75mm-1000g?variant=42766067138790",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 7725557874918:42766067138790."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

@@ -54,12 +54,14 @@ ABS PASS
 3.9–40 · 16
  94
 78.9–104 · 21
- 26↗ ☆
+ 40
+24.5–70.7 · 9
+↗ ☆
 ABS-AF PASS
 1 of 2
  1,050
 1,040–1,050 · 3
- 1.89 22 ~2–16† 88 — ☆
+ 1.89 22 ~2–16† 88 127↗ ☆
 ABS-CF UNKNOWN
 0 of 3
  1,085
@@ -72,7 +74,9 @@ ABS-CF UNKNOWN
 1.8–2 · 2
  78
 76–95 · 3
- — ☆
+ 45
+40–50 · 2
+↗ ☆
 ABS-ESD PASS
 1 of 2
  1,070
@@ -85,7 +89,7 @@ ABS-ESD PASS
 2.21–5 · 5
  97
 96–98 · 4
- — ☆
+ no price↗ ☆
 ABS-GF PASS
 7 of 7
  1,100
@@ -111,7 +115,9 @@ ASA PASS
 1.9–11 · 11
  95
 82–103 · 18
- 39↗ ☆
+ 39.5
+30.8–70.7 · 5
+↗ ☆
 ASA Aero UNKNOWN
 0 of 1
  1,010
@@ -129,7 +135,9 @@ ASA-AF UNKNOWN
 none judged
  1,070
 1,070–1,070 · 3
- ~1.0–3.6† ~24–54† ~1–14† ~72–96† — ☆
+ ~1.0–3.6† ~24–54† ~1–14† ~72–96† 115
+109–120 · 2
+↗ ☆
 ASA-CF PASS
 6 of 6
  1,095
@@ -142,7 +150,9 @@ ASA-CF PASS
 1.64–15.5 · 5
  101
 86–110 · 7
- no price↗ ☆
+ 65
+40–122 · 5
+↗ ☆
 ASA-EC UNKNOWN
 none judged
  1,170 ~2.3–4.1† ~30–48† ~1.3–8.6† ~89–105† — ☆
@@ -158,7 +168,7 @@ ASA-GF PASS
 5.3–5.8 · 2
  88
 86–98 · 3
- — ☆
+ 96↗ ☆
 COC
 PVB / Specialty Polymers
  UNKNOWN
@@ -178,14 +188,14 @@ Copolyesters
 6.2–26 · 2
  89.5
 70–100 · 4
- — ☆
+ 62.7↗ ☆
 CPE-CF
 Copolyesters
  UNKNOWN
 0 of 1
  1,220
 1,160–1,280 · 2
- 5.15 56 2 78 no price↗ ☆
+ 5.15 56 2 78 81.3↗ ☆
 HIPS
 Styrenics
  PASS
@@ -216,7 +226,7 @@ also called Amphora · Copolyesters
 54–54 · 2
  11
 11–11 · 2
- 71 — ☆
+ 71 77.3↗ ☆
 nGen FLEX
 Copolyesters
  UNKNOWN
@@ -280,7 +290,7 @@ Nylon / Polyamide
 2.1–14.8 · 7
  159
 48–185 · 10
- — ☆
+ 300↗ ☆
 PA12-GF
 Nylon / Polyamide
  PASS
@@ -316,7 +326,9 @@ Nylon / Polyamide
 2.1–16.5 · 6
  185
 140–215 · 9
- 110↗ ☆
+ 130
+110–204 · 4
+↗ ☆
 PA6-GF
 Nylon / Polyamide
  PASS
@@ -331,12 +343,14 @@ Nylon / Polyamide
 2.4–12.5 · 6
  184
 161–210 · 10
- 77↗ ☆
+ 84
+77–146 · 3
+↗ ☆
 PA6-GS
 Nylon / Polyamide
  UNKNOWN
 none judged
- 1,010 ~3.1–5.3† ~60–104† ~2.8–12.2† ~92–171† — ☆
+ 1,010 ~3.1–5.3† ~60–104† ~2.8–12.2† ~92–171† 180↗ ☆
 PA6/66
 Nylon / Polyamide
  PASS
@@ -351,12 +365,14 @@ Nylon / Polyamide
 9.9–100 · 4
  111
 102–140 · 5
- — ☆
+ 40
+39–90.7 · 3
+↗ ☆
 PA6/66-CF
 Nylon / Polyamide
  UNKNOWN
 none judged
- 1,240 ~4.5–6.5† 84 7.42 ~115–181† — ☆
+ 1,240 ~4.5–6.5† 84 7.42 ~115–181† no price↗ ☆
 PA612
 Nylon / Polyamide
  UNKNOWN ~990–1,070† ~1.0–3.9† ~37–84† ~6–54† ~94–167† — ☆
@@ -372,12 +388,14 @@ Nylon / Polyamide
 68–91.9 · 3
  3.16
 2.6–3.5 · 3
- 175 — ☆
+ 175 170
+98–242 · 2
+↗ ☆
 PA612-ESD
 Nylon / Polyamide
  PASS
 1 of 1
- 1,100 4.29 84.3 3 157 — ☆
+ 1,100 4.29 84.3 3 157 178↗ ☆
 PA612-GF
 Nylon / Polyamide
  UNKNOWN ~1,050–1,270† ~2.0–8.8† ~54–125† ~1.2–10.8† ~154–213† — ☆
@@ -447,7 +465,9 @@ Polycarbonate
 3.2–25 · 12
  114
 101–144 · 11
- 51↗ ☆
+ 51
+39–72 · 5
+↗ ☆
 PC FR
 Polycarbonate
  UNKNOWN
@@ -477,7 +497,9 @@ Polymer Blends
 4.2–75 · 5
  115
 102–126 · 6
- — ☆
+ 64
+50–112 · 3
+↗ ☆
 PC-ABS-CF
 Polymer Blends
  UNKNOWN
@@ -502,7 +524,7 @@ Polycarbonate
 2–7.5 · 3
  128
 119–140 · 4
- — ☆
+ 152↗ ☆
 PC-ESD
 Polycarbonate
  UNKNOWN
@@ -511,7 +533,7 @@ none judged
 1,220–1,240 · 2
  2.3 68 4.5
 3–6 · 2
- 135 — ☆
+ 135 253↗ ☆
 PC-GF
 Polycarbonate
  UNKNOWN
@@ -522,12 +544,12 @@ none judged
 36.1–40 · 2
  5.95
 2.4–9.5 · 2
- 134 — ☆
+ 134 no price↗ ☆
 PC-PBT
 Polymer Blends
  UNKNOWN
 0 of 1
- 1,200 1.85 43.2 4.6 107 — ☆
+ 1,200 1.85 43.2 4.6 107 70↗ ☆
 PC-PBT-CF
 Polymer Blends
  UNKNOWN
@@ -591,7 +613,9 @@ PET Engineering
 2.01–4.5 · 3
  124
 74–205 · 4
- 116↗ ☆
+ 113
+70–116 · 3
+↗ ☆
 PET-GF
 PET Engineering
  PASS
@@ -606,7 +630,9 @@ PET Engineering
 2.56–5.5 · 4
  120
 81.6–200 · 3
- — ☆
+ 69.5
+41–98 · 2
+↗ ☆
 PET-LW
 PET Engineering
  UNKNOWN
@@ -632,8 +658,8 @@ PETG UNKNOWN
 4.1–90 · 23
  70
 63–80 · 32
- 25.5
-25–26 · 2
+ 26
+20–66 · 14
 ↗ ☆
 PETG-CF UNKNOWN
 0 of 9
@@ -647,7 +673,9 @@ PETG-CF UNKNOWN
 1.9–14 · 6
  72
 68–77 · 10
- 41↗ ☆
+ 41
+35–56 · 3
+↗ ☆
 PETG-ESD UNKNOWN
 0 of 7
  1,240
@@ -660,7 +688,9 @@ PETG-ESD UNKNOWN
 5–13 · 6
  75
 65–76 · 7
- — ☆
+ 139
+94–183 · 2
+↗ ☆
 PETG-GF UNKNOWN
 0 of 1
  1,330
@@ -671,7 +701,7 @@ PETG-GF UNKNOWN
 42–53.6 · 2
  1.9 78
 76–80 · 2
- — ☆
+ 37↗ ☆
 PETG-GR UNKNOWN
 none judged
  1,290
@@ -679,7 +709,7 @@ none judged
  ~1.4–4.9† ~28–63† ~3–28† ~51–110† — ☆
 PETG-PTFE UNKNOWN
 none judged
- 1,320 ~0.9–3.2† ~27–60† ~103–185† ~50–72† — ☆
+ 1,320 ~0.9–3.2† ~27–60† ~103–185† ~50–72† 86↗ ☆
 PLA PASS
 7 of 67
  1,240
@@ -692,8 +722,8 @@ PLA PASS
 1.2–65 · 56
  55
 50–135 · 68
- 28
-27–30 · 4
+ 33.3
+18–80 · 27
 ↗ ☆
 PLA Aero UNKNOWN
 0 of 6
@@ -745,7 +775,9 @@ PLA Glow UNKNOWN
 1.7–8.6 · 2
  54
 53–55 · 2
- 32↗ ☆
+ 36
+32–40 · 2
+↗ ☆
 PLA Marble UNKNOWN
 0 of 3
  1,250
@@ -758,7 +790,9 @@ PLA Marble UNKNOWN
 2.1–80 · 4
  54.9
 53–56 · 4
- 32↗ ☆
+ 31.5
+31–32 · 2
+↗ ☆
 PLA Metal UNKNOWN
 0 of 1
  1,225
@@ -778,8 +812,8 @@ PLA Silk UNKNOWN
 1.7–11.7 · 16
  53
 50–62 · 19
- 31.5
-31–32 · 2
+ 32.2
+29–48 · 6
 ↗ ☆
 PLA Sparkle UNKNOWN
 0 of 1
@@ -804,7 +838,9 @@ PLA Wood UNKNOWN
 7.5–15.3 · 3
  53
 48–60 · 7
- 32↗ ☆
+ 45
+32–115 · 3
+↗ ☆
 PLA-CF PASS
 1 of 9
  1,250
@@ -817,22 +853,24 @@ PLA-CF PASS
 2–13.2 · 9
  55.4
 54–91 · 10
- 41↗ ☆
+ 40.5
+40–41 · 2
+↗ ☆
 PLA-EC UNKNOWN
 none judged
  1,295
 1,240–1,350 · 2
- ~1.0–3.8† ~27–60† ~1–16† ~49–102† — ☆
+ ~1.0–3.8† ~27–60† ~1–16† ~49–102† 200↗ ☆
 PLA-ESD UNKNOWN
 0 of 1
  1,210
 1,160–1,260 · 2
- 2.56 55 10 55 — ☆
+ 2.56 55 10 55 200↗ ☆
 PLA-GF UNKNOWN
 0 of 1
  1,280
 1,200–1,337 · 4
- 3.79 50.1 2.77 75.5 — ☆
+ 3.79 50.1 2.77 75.5 41↗ ☆
 PLA-GR UNKNOWN
 none judged
  1,240
@@ -847,7 +885,7 @@ PLA-PHA
 Polymer Blends
  UNKNOWN
 none judged
- 1,240 3.29 57.7 6.1 ~47–72† — ☆
+ 1,240 3.29 57.7 6.1 ~47–72† 77.3↗ ☆
 PLA-PHB
 Polymer Blends
  UNKNOWN
@@ -886,12 +924,12 @@ Polyolefins
 1.3–1.5 · 2
  124
 88–158 · 3
- — ☆
+ 147↗ ☆
 PP-GF
 Polyolefins
  UNKNOWN
 none judged
- 1,120 6.75 65 1.7 139 — ☆
+ 1,120 6.75 65 1.7 139 no price↗ ☆
 PPA
 High-Performance Engineering
  PASS
@@ -957,7 +995,9 @@ High-Performance Engineering
 1.2–4 · 5
  249
 245–264 · 4
- 221↗ ☆
+ 210
+198–221 · 2
+↗ ☆
 PPS-ESD
 High-Performance Engineering
  UNKNOWN
@@ -977,7 +1017,7 @@ High-Performance Engineering
 1.6–2 · 2
  239
 236–241 · 2
- — ☆
+ 164↗ ☆
 PVB
 PVB / Specialty Polymers
  UNKNOWN
@@ -992,7 +1032,9 @@ PVB / Specialty Polymers
 5.7–14.5 · 3
  65
 55.8–68 · 4
- — ☆
+ 85.3
+71.3–120 · 3
+↗ ☆
 PVC
 PVB / Specialty Polymers
  UNKNOWN
@@ -1006,7 +1048,7 @@ Fluoropolymers
 none judged
  1,750
 1,710–1,790 · 2
- 2.45 51 25 158 — ☆
+ 2.45 51 25 158 no price↗ ☆
 PVDF-ESD
 Fluoropolymers
  UNKNOWN

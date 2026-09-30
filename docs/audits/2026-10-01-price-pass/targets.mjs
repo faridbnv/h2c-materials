@@ -4,7 +4,9 @@
 // price is its plain products' spread, D83), then a declared variant. Materials already priced are listed too, with the
 // products the pass would add, since the owner asked for products where it can.
 //
-//   node docs/audits/2026-10-01-price-pass/targets.mjs     writes TARGETS.csv beside it; needs npm run build
+//   node docs/audits/2026-10-01-price-pass/targets.mjs [out.csv]    writes TARGETS.csv beside it (the worklist as the pass
+//                                                                   began, release 26424edd53e5), or out.csv for a recount;
+//                                                                   needs npm run build
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -50,7 +52,7 @@ for (const m of inScope) {
     Wave: priced.has(g.id) ? 'priced' : materialPriced ? '2: product' : '1: material',
   }));
 }
-writeFileSync(join(here, 'TARGETS.csv'), csvText(Object.keys(rows[0]), rows));
+writeFileSync(process.argv[2] ?? join(here, 'TARGETS.csv'), csvText(Object.keys(rows[0]), rows));
 const unpriced = inScope.filter((m) => m.headline?.priceCADkg?.known !== true);
 console.log(JSON.stringify({
   release: db.meta.release.id, materials: inScope.length, materialsPriced: inScope.length - unpriced.length,

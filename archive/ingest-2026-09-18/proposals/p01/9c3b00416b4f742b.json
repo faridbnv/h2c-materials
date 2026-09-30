@@ -1,0 +1,302 @@
+{
+ "version": 1,
+ "kind": "prices",
+ "generated": {
+  "tool": "prices.mjs",
+  "date": "2026-09-30"
+ },
+ "document": {
+  "sha256": "9c3b00416b4f742b64daea371aa4600e578a78af8c7878ca3af600438ac65467",
+  "url": "https://digitmakers.ca/products.json?limit=250&page=1",
+  "format": "shopify-catalogue",
+  "host": "digitmakers.ca",
+  "accessed": "2026-09-30"
+ },
+ "currencyDocument": {
+  "sha256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6",
+  "url": "https://digitmakers.ca/meta.json",
+  "currency": "CAD",
+  "source": {
+   "row": {
+    "SourceID": "CA-DIGITMAKERS-20260930-9e984e1becd8",
+    "Publisher": "DigitMakers",
+    "Title": "DigitMakers shop profile",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-30",
+    "Source class": "Retailer catalogue",
+    "Source note": "The shop's own profile (Shopify /meta.json), which states the base currency its catalogue prices are in: CAD. Price pass (GOALS, 2026-09-30).",
+    "Citation role": "register",
+    "URL": "https://digitmakers.ca/meta.json",
+    "Locator": "Document / shop profile",
+    "Applicable grades": "Shop scope: the currency of its catalogue",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "9e984e1becd8681d82bacc92b206a5955370d49ddf781165e343f840c8e47ea6"
+   }
+  }
+ },
+ "source": {
+  "row": {
+   "SourceID": "CA-DIGITMAKERS-20260930-9c3b00416b4f",
+   "Publisher": "DigitMakers",
+   "Title": "DigitMakers product catalogue, page 1",
+   "Revision": "Not published",
+   "Publication date": "Not published",
+   "Access date": "2026-09-30",
+   "Source class": "Retailer catalogue",
+   "Source note": "One page of the shop's own product catalogue (Shopify /products.json): each listing's price, compare-at price, availability and SKU, in the shop's base currency. Pricing only; no property is read from it. Canadian storefront. Price pass (GOALS, 2026-09-30).",
+   "Citation role": "cited",
+   "URL": "https://digitmakers.ca/products.json?limit=250&page=1",
+   "Locator": "Catalogue page 1; each listing by its product and variant ID",
+   "Applicable grades": "G001-183; G001-76; G001-80; G020-15; G020-35; G020-38; G035-17",
+   "Access state": "retrieved",
+   "Access note": "Not applicable",
+   "SHA256": "9c3b00416b4f742b64daea371aa4600e578a78af8c7878ca3af600438ac65467"
+  }
+ },
+ "prices": [
+  {
+   "offer": {
+    "key": "9825385054438:48235204870374",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-183",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Bambu Lab PLA Pure Refill 1.75mm - 1kg (Various Colors) / Absolute Black (17101) (SKU A19-K00-1.75-1000-SPLFREE)",
+    "Packaging": "Refill",
+    "Net mass kg": 1,
+    "List price": 21.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 21.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/bambu-lab-pla-pure-refill-1-75mm-1kg-various-colors?variant=48235204870374",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9825385054438:48235204870374."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9661846225126:47423708561638",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-76",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSun eSilk PLA Refill 1.75mm 1kg - Various Colors / Black (SKU ESUN-RFL-ESILK-PLA-1.75-1KG-BLCK)",
+    "Packaging": "Refill",
+    "Net mass kg": 1,
+    "List price": 24.99,
+    "Sale price": 22.49,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 22.49,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-esilk-pla-refilament-1-75mm-1kg-various-colors?variant=47423708561638",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9661846225126:47423708561638."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9783155032294:48029049290982",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M001",
+    "GradeID": "G001-80",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "ESUN PLA-HF Filament 1kg 1.75mm - Various Colours / White (SKU ESUN-PLA-HF-1.75MM-1KG-WHT)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 17.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 17.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-pla-hf-filament-1kg-1-75mm-various-colours?variant=48029049290982",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9783155032294:48029049290982."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9682386682086:47502259126502",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-15",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "Polymaker™ PETG - 1.75mm 1000g / Black (SKU PLMK-FL-PETG-1.75-1000G-BLK)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 29.99,
+    "Sale price": 26.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 26.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/polymaker-petg-1-75mm-1000g?variant=47502259126502",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9682386682086:47502259126502."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9783751475430:48031632195814",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-35",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN PETG+ Refill 1.75 mm 1kg Spool Various Colors / Black (SKU ESUN-PETG+-REFILL-1.75MM-1KG-BLCK)",
+    "Packaging": "Refill",
+    "Net mass kg": 1,
+    "List price": 24.99,
+    "Sale price": 15.99,
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 15.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "Retailer compare-at price in the shop's own product data; the displayed price is a sale",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-petg-refill-1-75-mm-1kg-spool-various-colors?variant=48031632195814",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9783751475430:48031632195814."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9661884301542:47445272428774",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M020",
+    "GradeID": "G020-38",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN PETG Matte Refill 1.75 mm 1kg - Various Colors / White (SKU ESUN-PETG-MATTE-RFL-WHT)",
+    "Packaging": "Refill",
+    "Net mass kg": 1,
+    "List price": 19.99,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 19.99,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-petg-matte-refill-1-75-mm-1kg-various-colors?variant=47445272428774",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9661884301542:47445272428774."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  },
+  {
+   "offer": {
+    "key": "9781710160102:48020410728678",
+    "massFrom": "title"
+   },
+   "row": {
+    "MaterialID": "M035",
+    "GradeID": "G035-17",
+    "Retailer": "DigitMakers",
+    "Variant / SKU": "eSUN PC-HT Filament 1.75mm 1kg / Grey (SKU ESUN-PC-HT-1.75-1KG-GRY)",
+    "Packaging": "Spool",
+    "Net mass kg": 1,
+    "List price": 45,
+    "Sale price": "Not applicable",
+    "Stock": "In stock",
+    "Eligible for median": "TRUE",
+    "Headline sample": "TRUE",
+    "Displayed price": 45,
+    "Currency": "CAD",
+    "Market": "Canadian storefront",
+    "Tax / shipping": "Excluded; shipping calculated at checkout",
+    "VAT included %": "Not applicable",
+    "Regular price basis": "The shop's own product data shows one price and no compare-at price",
+    "Quarantined": "FALSE",
+    "URL": "https://digitmakers.ca/products/esun-pcht-1-75mm-filament-1kg?variant=48020410728678",
+    "Access date": "2026-09-30",
+    "Notes": "Read from the shop's own catalogue data; offer 9781710160102:48020410728678."
+   },
+   "review": {
+    "status": "accepted",
+    "by": "Claude (claude-opus-5-5), an agent, 2026-09-30",
+    "note": "Wave 2: the listing's name, less maker, colour and size, is the product's name (review-p01.mjs)."
+   }
+  }
+ ],
+ "review": {
+  "status": "reviewed",
+  "by": "Claude (claude-opus-5-5), an agent, 2026-09-30"
+ }
+}

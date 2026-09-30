@@ -62,7 +62,9 @@ Nylon / Polyamide
 9.9–100 · 4
  111
 102–140 · 5
- — ☆
+ 40
+39–90.7 · 3
+↗ ☆
 PBAT
 PVB / Specialty Polymers
  PASS
@@ -80,7 +82,9 @@ Flexible Elastomers
 6.2–30 · 3
  585
 560–700 · 3
- n/a no price↗ ☆
+ n/a 58
+50–158 · 3
+↗ ☆
 TPU 90A class
 Flexible Elastomers
  PASS
@@ -93,7 +97,9 @@ Flexible Elastomers
 12.5–30 · 4
  618
 574–1,000 · 4
- n/a 54↗ ☆
+ n/a 75
+54–96 · 2
+↗ ☆
 TPU 95A class
 Flexible Elastomers
  PASS
@@ -106,4 +112,6 @@ Flexible Elastomers
 17–31.8 · 11
  499
 265–900 · 10
- n/a 54↗ ☆
+ n/a 83
+54–112 · 2
+↗ ☆
