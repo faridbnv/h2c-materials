@@ -242,7 +242,7 @@ blocking answer (batch b36; GOALS, phase 6, decision 4), and on 2026-09-27 the o
 research package of 2026-09-26 identified (batch b37). On 2026-09-28, the owner authorized the held Recreus PET-G
 sheet (b38) and the frozen chamber-target maker searches (b39), as bounded in GOALS' source-backup and targeted
 gap-closure section; on 2026-09-29, the gap-fill tranche's nine saved product pages (b40, GOALS' gap-fill tranche
-section). Those batches are complete, and the general import pause remains. A page a reader saved enters from its copy by digest
+section); on 2026-09-30, the price pass (p01 to p04, GOALS' price pass section). Those batches are complete, and the general import pause remains. A page a reader saved enters from its copy by digest
 (`ingest:witness --from`). A document never enters by hand: it travels the import
 pipeline, and `ingest:apply` refuses a batch that has not. The procedure, and the rules that differ from editing
 a table by hand, are in [docs/IMPORTING.md](docs/IMPORTING.md).

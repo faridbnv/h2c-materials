@@ -311,6 +311,26 @@ bounded exception to the import pause, not its end, and adds no product, materia
   it resumes, that pass comes first; foreign prices only for passing products no Canadian seller carries. Revisit with
   the team layer's refresh routine, or when the team asks for cost.
 
+## Decided on 2026-09-30, the price pass
+
+Later the same day the owner started price (GOALS step 6): **a price for each material**, and for each product where
+that is possible, which is good to have but not required. It takes the place of "Price keeps waiting" above, which is
+kept as what was decided that morning. The record is [the price pass](audits/2026-10-01-price-pass/README.md).
+
+- **CAD first.** A product's price comes from a Canadian shop in CAD where one sells it. Where none does, an Amazon.ca
+  listing counts as the last Canadian option, only where the seller is the maker's own store and the page shows its
+  regular price. Then the maker's own shop or a seller in USD, then in EUR with the VAT taken off at the rate the page
+  states. A foreign price is compared at one frozen Bank of Canada rate per currency, and says so wherever it is shown;
+  it never makes a product "listed in Canada", buyable here, or its material's Canadian-price gap closed.
+- **Exact product, regular price, from a saved page.** 1.75 mm, one spool or refill, its net mass printed; a sale price
+  is kept and never compared; every number, the currency and the stock state are read from the page the shop served,
+  fetched and hashed like any document (D35). Research notes and search results are leads, never values.
+- **Bounded.** A material is searched product by product, tier by tier, and stops at the first usable price; a tier
+  that gives nothing after the maker's shop and two sellers passes the material on, and a material no tier prices is
+  recorded as such. The 33 materials priced on 2026-09-10 keep their prices; no refresh routine is built here.
+- It is a bounded exception to the import pause (batches p01 to p04), like b34 to b40, and adds no product,
+  material, identity or estimate rule.
+
 ## Working rules
 
 1. **Goal first.** Name the step and scorecard line a piece of work improves.

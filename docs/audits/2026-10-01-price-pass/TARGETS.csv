@@ -1,0 +1,1081 @@
+MaterialID,Material,Material priced,Order,GradeID,Manufacturer,Product,Passing,Variant,Product priced,Listed before,Wave
+M001,PLA,yes,1,G001-58,colorFabb,PLA-HP,yes (4 question(s)),no,no,no,2: product
+M001,PLA,yes,2,G001-98,Nanovia,PLA EF 3D850,yes (4 question(s)),no,no,no,2: product
+M001,PLA,yes,3,G001-101,FormFutura,Volcano PLA 150C,yes (3 question(s)),no,no,no,2: product
+M001,PLA,yes,4,G001-01,3DXTECH,ECOMAX PLA,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,5,G001-116,Anycubic,PLA,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,6,G001-148,Polymaker,PolyLite CosPLA,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,7,G001-18,3DXTECH,ECOMAX Tough PLA,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,8,G001-181,Polymaker,PolyLite CosPLA Version B,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,9,G001-19,Polymaker,PolyLite PLA,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,10,G001-22,Polymaker,Polymaker PolyLite PLA PRO Army Beige,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,11,G001-25,Polymaker,PolySonic PLA,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,12,G001-27,Polymaker,Polymaker PolyLite PLA Pro,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,13,G001-30,Polymaker,Polymaker PLA Pro,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,14,G001-56,Fabru / purefil,Polylactid+ (PLA+),yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,15,G001-99,Nanovia,PLA VX,yes (2 question(s)),no,no,no,2: product
+M001,PLA,yes,16,G001-03,iSANMATE,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,17,G001-04,Spectrum,PLA Tough,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,18,G001-05,Spectrum,PLA High Speed,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,19,G001-06,Spectrum,PLA Matt,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,20,G001-07,Spectrum,Huracan PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,21,G001-08,Spectrum,THE FILAMENT PLA Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,22,G001-09,Spectrum,THE FILAMENT HT-PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,23,G001-10,Spectrum,rPLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,24,G001-100,FormFutura,Bulk PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,25,G001-103,SIDDAMENT,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,26,G001-104,eSUN,eMarble,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,27,G001-105,eSUN,ePLA ST,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,28,G001-106,SIDDAMENT,PLA Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,29,G001-107,SUNLU,PLA Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,30,G001-108,Prusa Research,Buddy3D PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,31,G001-109,SUNLU,APLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,32,G001-11,Spectrum,THE FILAMENT PLA HS,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,33,G001-110,Extrudr,PLA NX2,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,34,G001-112,SUNLU,PLA Meta,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,35,G001-113,Protopasta,Translucent / Sparkly (HTPLA),yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,36,G001-114,MatterHackers,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,37,G001-115,MatterHackers,Tough PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,38,G001-117,Creality,Hyper-PLA RFID,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,39,G001-119,3DJake,ecoPLA Sparkling,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,40,G001-12,Spectrum,THE FILAMENT PLA Lite,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,41,G001-120,3DJake,magicPLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,42,G001-121,nice essentials,PLA Basic,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,43,G001-122,Creality,Hyper-PLA+,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,44,G001-123,MatterHackers,Build Series PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,45,G001-124,Jamg He,PLA+,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,46,G001-125,3DJake,mysteryPLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,47,G001-126,Nobufil,PLAx,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,48,G001-127,Protopasta,Quantum Dots (HTPLA),yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,49,G001-128,3DJake,ecoPLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,50,G001-129,Elegoo,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,51,G001-13,Spectrum,THE FILAMENT PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,52,G001-130,MatterHackers,MH Build Series PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,53,G001-131,Protopasta,Opaque HTPLA (v3),yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,54,G001-132,Anycubic,PLA High Speed,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,55,G001-14,Spectrum,FlameGuard PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,56,G001-141,Spectrum,PLA Nature,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,57,G001-143,SUNLU,PLA+2.0,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,58,G001-144,Prusa Research,Prusament PLA by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,59,G001-145,SUNLU,High Speed Matte PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,60,G001-146,eSUN,PLA Clear,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,61,G001-147,Spectrum,PLA Thermoactive,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,62,G001-149,colorFabb,PLA Vertigo,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,63,G001-15,Spectrum,PLA Crystal,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,64,G001-150,Spectrum,SafeGuard PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,65,G001-151,Eryone,Burnt Titanium PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,66,G001-152,Raise3D,Hyper Speed PLA Pro,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,67,G001-153,AzureFilm,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,68,G001-154,Markforged,Precise PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,69,G001-155,Raise3D,Hyper Speed PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,70,G001-157,FormFutura,High Gloss PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,71,G001-158,FormFutura,High Precision PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,72,G001-159,FormFutura,EasyFil PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,73,G001-16,Spectrum,PLA Pro,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,74,G001-160,FormFutura,Premium PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,75,G001-161,FormFutura,Tough PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,76,G001-162,FormFutura,EasyFil ePLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,77,G001-163,Copper3D,PLACTIVE,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,78,G001-164,FormFutura,Volcano PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,79,G001-165,FormFutura,ReFill PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,80,G001-166,iSANMATE,PDS,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,81,G001-167,iSANMATE,PLA i5+,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,82,G001-168,iSANMATE,HS PLA Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,83,G001-169,iSANMATE,PLA+ i6,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,84,G001-17,Spectrum,Pastello PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,85,G001-170,iSANMATE,HS - PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,86,G001-171,Fiberlogy,FiberSilk,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,87,G001-172,Extrudr,BIOFUSION,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,88,G001-173,Extrudr,PEARL,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,89,G001-174,3DJake,mattePLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,90,G001-175,Fiberlogy,FiberSatin,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,91,G001-179,BigRep,PLX,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,92,G001-180,colorFabb,stoneFill,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,93,G001-182,Fiberlogy,EASY PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,94,G001-183,Bambu Lab,PLA Pure,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,95,G001-185,Fiberlogy,R PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,96,G001-186,Fiberlogy,HS PLA CLEAR,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,97,G001-187,Fiberlogy,MATTE PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,98,G001-189,BigRep,rPLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,99,G001-190,FormFutura,MagicFil Thermo PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,100,G001-191,Eryone,Standard PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,101,G001-192,Kingroon,PLA Basic,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,102,G001-194,FormFutura,ReForm - rPLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,103,G001-195,Yousu,Modified PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,104,G001-196,The Filament,HT-PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,105,G001-197,The Filament,PLA Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,106,G001-198,The Filament,PLA Lite,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,107,G001-199,Anycubic,PLA+,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,108,G001-20,Polymaker,Polymaker PolySonic PLA Pro 6.0,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,109,G001-21,Polymaker,Polymaker HT PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,110,G001-23,Polymaker,PolyTerra PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,111,G001-24,Polymaker,PolyMax PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,112,G001-28,Polymaker,Polymaker PolyLite CosPLA Version A,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,113,G001-29,Polymaker,Polymaker HT PLA Pro,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,114,G001-31,Spectrum,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,115,G001-32,Extrudr,PLA TOUGH,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,116,G001-33,Extrudr,PLA NX2 MATT,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,117,G001-34,Extrudr,PLA BASIC,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,118,G001-35,Extrudr,PLA HIGH-SPEED,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,119,G001-37,SUNLU,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,120,G001-38,SUNLU,High Speed PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,121,G001-39,SUNLU,PLA-METALLIC PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,122,G001-40,SUNLU,PLA Matte Dual-Color,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,123,G001-41,SUNLU,PLA Rainbow,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,124,G001-42,SUNLU,High Speed PLA+2.0,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,125,G001-43,Eryone,Hyper-Speed PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,126,G001-44,Eryone,Matte PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,127,G001-45,Eryone,PLA+,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,128,G001-46,Eryone,Hyper Speed Matte PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,129,G001-47,Eryone,Dual Color Burnt Titanium PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,130,G001-48,Flashforge,PLA Multicolor,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,131,G001-49,Flashforge,HS PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,132,G001-50,Flashforge,PLA Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,133,G001-51,Flashforge,PLA Pro,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,134,G001-52,Flashforge,PLA Crystal,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,135,G001-53,Fiberlogy,FiberWORKS PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,136,G001-54,Fiberlogy,VELVET PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,137,G001-55,Fiberlogy,IMPACT PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,138,G001-57,Fabru / purefil,Polylactide (PLA),yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,139,G001-59,colorFabb,PLA Economy,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,140,G001-60,colorFabb,PLA Color On Demand (COD),yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,141,G001-61,colorFabb,PLA Regrind,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,142,G001-62,colorFabb,PLA High Speed PRO,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,143,G001-63,colorFabb,Vibers PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,144,G001-64,Fillamentum,PLA Extrafill,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,145,G001-65,Fillamentum,PLA Crystal Clear,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,146,G001-67,Flashforge,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,147,G001-68,Fabru,Polylactide (PLA),yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,148,G001-69,Spectrum,PLA Premium,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,149,G001-70,colorFabb,PLA Chameleon,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,150,G001-71,eSUN,PLA-Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,151,G001-72,Yousu,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,152,G001-73,3D4Makers,PLLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,153,G001-74,eSUN,PLA+CMYK,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,154,G001-75,eSUN,PLA Matte Dual,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,155,G001-76,eSUN,eSilk-PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,156,G001-77,Prusa Research,Prusament rPLA Natural Pigments by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,157,G001-78,eSUN,PLA+,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,158,G001-79,eSUN,PLA-Rock,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,159,G001-80,eSUN,PLA HF,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,160,G001-81,eSUN,ePLA-Magic,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,161,G001-82,Raise3D,Premium PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,162,G001-83,eSUN,PLA Basic EN,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,163,G001-84,eSUN,eStars-PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,164,G001-85,eSUN,ePLA HS,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,165,G001-86,eSUN,PLA Cast EN,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,166,G001-87,Prusa Research,Prusament PLA High Speed by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,167,G001-88,eSUN,PLA+HS,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,168,G001-89,eSUN,ePLA-Chameleon,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,169,G001-90,Prusa Research,Prusament PLA Recycled by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,170,G001-91,eSUN,PLA+HS Silver,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,171,G001-92,eSUN,PLA UV Color Change,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,172,G001-93,3D-Fuel,Pro PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,173,G001-94,eSUN,3D Printing PLA Basic,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,174,G001-95,3D4Makers,PLA,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,175,G001-96,eSUN,ePLA Matte,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,176,G001-97,eSUN,PLA Basic,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,177,G002-01,Bambu Lab,PLA Basic,yes (1 question(s)),no,yes,yes,priced
+M001,PLA,yes,178,G003-01,Bambu Lab,PLA Matte,yes (1 question(s)),no,yes,yes,priced
+M001,PLA,yes,179,G004-01,eSUN,PLA-Lite,yes (1 question(s)),no,no,no,2: product
+M001,PLA,yes,180,G005-01,Bambu Lab,PLA Basic Gradient,yes (1 question(s)),no,no,yes,2: product
+M001,PLA,yes,181,G006-01,Bambu Lab,PLA Tough+,yes (1 question(s)),no,yes,yes,priced
+M001,PLA,yes,182,G007-01,Bambu Lab,PLA Translucent,yes (1 question(s)),no,yes,yes,priced
+M001,PLA,yes,183,G001-176,Polymaker,PolyWood,yes (2 question(s)),yes,no,no,2: product
+M001,PLA,yes,184,G001-178,3DXTECH,SimuBone Bone Simulation,yes (2 question(s)),yes,no,no,2: product
+M001,PLA,yes,185,G001-102,FormFutura,Matt PLA,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,186,G001-111,SUNLU,PLA Classic,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,187,G001-118,AzureFilm,PLA Matte (HS),yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,188,G001-133,Protopasta,Stainless Steel PLA,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,189,G001-135,Nanovia,PLA XRS,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,190,G001-136,colorFabb,BronzeFill,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,191,G001-137,colorFabb,steelFill,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,192,G001-138,Protopasta,Magnetic Iron PLA,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,193,G001-139,Protopasta,"Brass Fill, Bronze Fill, Copper Fill HTPLA",yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,194,G001-140,Eryone,PLA-Lite,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,195,G001-156,colorFabb,Copper filled PLA,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,196,G001-177,3D4Makers,Facilan C8,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,197,G001-184,Recreus,PLA Purifier,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,198,G001-188,Recreus,PLA,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,199,G001-193,eSUN,eTwinkling,yes (1 question(s)),yes,no,no,2: product
+M001,PLA,yes,200,G001-36,SUNLU,PLA Lite,yes (1 question(s)),yes,no,no,2: product
+M008,PLA Silk,yes,1,G008-01,Polymaker,Panchroma Silk PLA,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,2,G008-03,Spectrum,PLA Magic SILK,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,3,G008-06,Eryone,Silk PLA,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,4,G008-07,Eryone,Silk Rainbow PLA,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,5,G008-08,Eryone,Hyper Speed Dual Color Silk PLA,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,6,G008-09,Flashforge,Silk,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,7,G008-15,SUNLU,PLA+ (Silk PLA+),yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,8,G008-20,Eryone,Silk PLA Tri-Color,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,9,G008-21,Spectrum,PLA SILK,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,10,G008-22,Eryone,Hyper Speed Triple Color Silk PLA,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,11,G008-23,Eryone,Silk PLA Dual-Color,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,12,G008-24,Spectrum,PLA SILK Rainbow,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,13,G008-29,iSANMATE,PLA Silk Dual Color,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,14,G008-32,iSANMATE,PLA Silk,yes (1 question(s)),no,no,no,2: product
+M008,PLA Silk,yes,15,G009-01,Bambu Lab,PLA Silk+,yes (1 question(s)),no,yes,yes,priced
+M008,PLA Silk,yes,16,G010-01,Bambu Lab,PLA Silk Dual Color,yes (1 question(s)),no,yes,yes,priced
+M008,PLA Silk,yes,17,G008-02,eSUN,PLA-Silk,no,no,no,no,2: product
+M008,PLA Silk,yes,18,G008-04,SUNLU,Silk PLA+ Four-Color,no,no,no,no,2: product
+M008,PLA Silk,yes,19,G008-05,SUNLU,PLA+ Silk 2.0,no,no,no,no,2: product
+M008,PLA Silk,yes,20,G008-10,Fabru / purefil,Polylactide Silk (PLA Silk),no,no,no,no,2: product
+M008,PLA Silk,yes,21,G008-11,Fabru,Polylactide Silk (PLA Silk),no,no,no,no,2: product
+M008,PLA Silk,yes,22,G008-12,eSUN,ePLA-Silk Rainbow,no,no,no,no,2: product
+M008,PLA Silk,yes,23,G008-13,Yousu,Silk PLA,no,no,no,no,2: product
+M008,PLA Silk,yes,24,G008-14,SIDDAMENT,PLA Silk,no,no,no,no,2: product
+M008,PLA Silk,yes,25,G008-16,3DJake,ecoPLA Silk,no,no,no,no,2: product
+M008,PLA Silk,yes,26,G008-17,Anycubic,PLA Silk,no,no,no,no,2: product
+M008,PLA Silk,yes,27,G008-18,3DJake,ecoPLA Silk Rainbow,no,no,no,no,2: product
+M008,PLA Silk,yes,28,G008-19,SUNLU,Silk PLA+,no,no,no,no,2: product
+M008,PLA Silk,yes,29,G008-25,SUNLU,Silk PLA+ Dual-Color,no,no,no,no,2: product
+M008,PLA Silk,yes,30,G008-26,SUNLU,Silk PLA+ Rainbow,no,no,no,no,2: product
+M008,PLA Silk,yes,31,G008-27,SUNLU,Silk PLA+ Tri-Color,no,no,no,no,2: product
+M008,PLA Silk,yes,32,G008-28,FormFutura,Silk Gloss PLA,no,no,no,no,2: product
+M008,PLA Silk,yes,33,G008-30,eSUN,ePLA-Silk Magic,no,no,no,no,2: product
+M008,PLA Silk,yes,34,G008-31,eSUN,ePLA-Silk Mystic,no,no,no,no,2: product
+M008,PLA Silk,yes,35,G008-33,AzureFilm,SILK,no,no,no,no,2: product
+M011,PLA Metal,yes,1,G011-01,Bambu Lab,PLA Metal,yes (1 question(s)),no,yes,yes,priced
+M011,PLA Metal,yes,2,G011-02,Spectrum,PLA Metal Copper,yes (1 question(s)),yes,no,no,2: product
+M011,PLA Metal,yes,3,G011-03,Spectrum,PLA Metal Brass,yes (1 question(s)),yes,no,no,2: product
+M011,PLA Metal,yes,4,G011-04,Spectrum,PLA Metal Bronze,yes (1 question(s)),yes,no,no,2: product
+M011,PLA Metal,yes,5,G011-05,eSUN,ePLA Metal,no,no,no,no,2: product
+M011,PLA Metal,yes,6,G011-06,Anycubic,PLA Metal,no,no,no,no,2: product
+M011,PLA Metal,yes,7,G011-07,FormFutura,MetalFil Brass,no,yes,no,no,2: product
+M011,PLA Metal,yes,8,G011-08,FormFutura,MetalFil - Classic Copper,no,yes,no,no,2: product
+M011,PLA Metal,yes,9,G011-09,FormFutura,MetalFil - Ancient Bronze,no,yes,no,no,2: product
+M012,PLA Marble,yes,1,G012-01,Bambu Lab,PLA Marble,yes (1 question(s)),no,yes,yes,priced
+M012,PLA Marble,yes,2,G012-03,Eryone,Marble PLA,yes (1 question(s)),no,no,no,2: product
+M012,PLA Marble,yes,3,G012-02,SUNLU,High Speed Marble PLA,no,no,no,no,2: product
+M012,PLA Marble,yes,4,G012-04,SIDDAMENT,PLA Marble,no,no,no,no,2: product
+M012,PLA Marble,yes,5,G012-05,SUNLU,PLA High Speed PLA Marble,no,no,no,no,2: product
+M012,PLA Marble,yes,6,G012-07,Spectrum,PLA Stone Age,no,no,no,no,2: product
+M012,PLA Marble,yes,7,G012-06,FormFutura,StoneFil,no,yes,no,no,2: product
+M013,PLA Sparkle,yes,1,G013-01,Bambu Lab,PLA Sparkle,yes (1 question(s)),no,yes,yes,priced
+M013,PLA Sparkle,yes,2,G013-02,Spectrum,PLA Glitter,yes (1 question(s)),no,no,no,2: product
+M013,PLA Sparkle,yes,3,G013-03,SUNLU,PLA Twinkling,no,no,no,no,2: product
+M013,PLA Sparkle,yes,4,G013-04,eSUN,Twinkling,no,no,no,no,2: product
+M014,PLA Wood,yes,1,G014-01,Bambu Lab,PLA Wood,yes (1 question(s)),no,yes,yes,priced
+M014,PLA Wood,yes,2,G014-02,Spectrum,WOOD,yes (1 question(s)),no,no,no,2: product
+M014,PLA Wood,yes,3,G014-04,Flashforge,WOOD,yes (1 question(s)),no,no,no,2: product
+M014,PLA Wood,yes,4,G014-08,Nanovia,PLA Wood,yes (1 question(s)),no,no,no,2: product
+M014,PLA Wood,yes,5,G014-10,SUNLU,PLA Wood,yes (1 question(s)),no,no,no,2: product
+M014,PLA Wood,yes,6,G014-18,Extrudr,WOOD,yes (1 question(s)),no,no,no,2: product
+M014,PLA Wood,yes,7,G014-19,Eryone,Wood PLA,yes (1 question(s)),no,no,no,2: product
+M014,PLA Wood,yes,8,G014-03,SUNLU,WOOD,no,no,no,no,2: product
+M014,PLA Wood,yes,9,G014-05,Fabru / purefil,PLA with Cork Fibers (Cork Filament),no,no,no,no,2: product
+M014,PLA Wood,yes,10,G014-06,Fabru / purefil,PLA with wood fibers (wood filament),no,no,no,no,2: product
+M014,PLA Wood,yes,11,G014-07,Yousu,WOOD,no,no,no,no,2: product
+M014,PLA Wood,yes,12,G014-09,SIDDAMENT,PLA Wood,no,no,no,no,2: product
+M014,PLA Wood,yes,13,G014-11,3DJake,ecoPLA Wood,no,no,no,no,2: product
+M014,PLA Wood,yes,14,G014-13,FormFutura,EasyCork,no,no,no,no,2: product
+M014,PLA Wood,yes,15,G014-14,FormFutura,EasyWood,no,no,no,no,2: product
+M014,PLA Wood,yes,16,G014-15,iSANMATE,PLA Wood,no,no,no,no,2: product
+M014,PLA Wood,yes,17,G014-16,Filament2Print,COFFEE,no,no,no,no,2: product
+M014,PLA Wood,yes,18,G014-17,AzureFilm,LumberLay,no,no,no,no,2: product
+M014,PLA Wood,yes,19,G014-20,Fiberlogy,FiberWood,no,no,no,no,2: product
+M014,PLA Wood,yes,20,G014-21,Fillamentum,Timberfill,no,no,no,no,2: product
+M014,PLA Wood,yes,21,G014-12,eSUN,Wood,no,yes,no,no,2: product
+M015,PLA Galaxy,yes,1,G015-01,Bambu Lab,PLA Galaxy,yes (1 question(s)),no,yes,yes,priced
+M015,PLA Galaxy,yes,2,G015-03,Eryone,Galaxy PLA,yes (1 question(s)),no,no,no,2: product
+M015,PLA Galaxy,yes,3,G015-02,SUNLU,PLA Galaxy,no,no,no,no,2: product
+M015,PLA Galaxy,yes,4,G015-04,FormFutura,Galaxy PLA,no,no,no,no,2: product
+M016,PLA Glow,yes,1,G016-01,Bambu Lab,PLA Glow,yes (1 question(s)),no,yes,yes,priced
+M016,PLA Glow,yes,2,G016-02,Eryone,Glow in the dark PLA,yes (1 question(s)),no,no,no,2: product
+M016,PLA Glow,yes,3,G016-04,SUNLU,PLA Glow In The Dark,yes (1 question(s)),no,no,no,2: product
+M016,PLA Glow,yes,4,G016-05,Spectrum,PLA Glow in the Dark,yes (1 question(s)),no,no,no,2: product
+M016,PLA Glow,yes,5,G016-03,SIDDAMENT,PLA Glow in the Dark,no,no,no,no,2: product
+M016,PLA Glow,yes,6,G016-06,eSUN,Luminous PLA,no,no,no,no,2: product
+M016,PLA Glow,yes,7,G016-07,eSUN,Luminous PLA Rainbow,no,no,no,no,2: product
+M017,PLA Aero,yes,1,G017-01,Bambu Lab,PLA Aero,yes (1 question(s)),no,yes,yes,priced
+M017,PLA Aero,yes,2,G017-02,Spectrum,LW-PLA UltraFoam,yes (1 question(s)),no,no,no,2: product
+M017,PLA Aero,yes,3,G017-03,Polymaker,PolyLite LW PLA,yes (1 question(s)),no,no,no,2: product
+M017,PLA Aero,yes,4,G017-04,Polymaker,PolyLite LW PLA US 5.3,yes (1 question(s)),no,no,no,2: product
+M017,PLA Aero,yes,5,G017-06,Eryone,Light Weight PLA,yes (1 question(s)),no,no,no,2: product
+M017,PLA Aero,yes,6,G017-07,Flashforge,PLA LW,yes (1 question(s)),no,no,no,2: product
+M017,PLA Aero,yes,7,G017-05,SUNLU,PLA-LW,no,no,no,no,2: product
+M017,PLA Aero,yes,8,G017-08,Fabru / purefil,Lightweight Polylactide (LW-PLA),no,no,no,no,2: product
+M017,PLA Aero,yes,9,G017-09,colorFabb,Light Weight PLA (LW-PLA),no,no,no,no,2: product
+M017,PLA Aero,yes,10,G017-10,colorFabb,LW-PLA,no,no,no,no,2: product
+M017,PLA Aero,yes,11,G017-11,colorFabb,Light Weight PLA-HT (LW-PLA-HT),no,no,no,no,2: product
+M017,PLA Aero,yes,12,G017-12,eSUN,ePLA LW,no,no,no,no,2: product
+M017,PLA Aero,yes,13,G017-13,iSANMATE,Light Weight PLA,no,no,no,no,2: product
+M017,PLA Aero,yes,14,G017-14,Recreus,PLA-LW,no,no,no,no,2: product
+M018,PLA-CF,yes,1,G018-04,3DXTECH,CarbonX CF-PLA,yes (3 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,2,G018-13,QIDI,PLA-CF,yes (2 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,3,G018-17,CreatBot,PLA-CF,yes (2 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,4,G018-01,Bambu Lab,PLA-CF,yes (1 question(s)),no,yes,yes,priced
+M018,PLA-CF,yes,5,G018-02,Spectrum,THE FILAMENT PLA CF,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,6,G018-03,Spectrum,PLA Carbon,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,7,G018-05,Polymaker,Polymaker Polylite PLA CF,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,8,G018-06,Polymaker,PolyLite PLA CF US 5.1,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,9,G018-07,Extrudr,PLA BASIC CF,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,10,G018-08,SUNLU,PLA Carbon Fiber,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,11,G018-09,Eryone,PLA-CF,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,12,G018-10,Flashforge,PLACF10,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,13,G018-11,eSUN,ePLA CF,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,14,G018-12,SIDDAMENT,PLA Carbon Fiber,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,15,G018-14,Protopasta,Carbon Fiber Composite HTPLA,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,16,G018-15,Protopasta,Original Carbon Fiber Composite PLA,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,17,G018-16,Nobufil,PLAx CF,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,18,G018-18,iSANMATE,PLA CF,yes (1 question(s)),no,no,no,2: product
+M018,PLA-CF,yes,19,G018-19,3DJake,ecoPLA CF,yes (1 question(s)),no,no,no,2: product
+M019,PLA-GF,no,1,G019-01,Polymaker,Polymaker HT PLA GF,yes (1 question(s)),no,no,no,1: material
+M019,PLA-GF,no,2,G019-02,iSANMATE,PLA Glass Fiber,no,no,no,no,1: material
+M019,PLA-GF,no,3,G019-03,eSUN,PLA GF,no,no,no,no,1: material
+M019,PLA-GF,no,4,G019-04,Nobufil,PLAx GF,no,no,no,no,1: material
+M020,PETG,yes,1,G021-01,Bambu Lab,PETG Basic,yes (2 question(s)),no,yes,yes,priced
+M020,PETG,yes,2,G020-01,3DXTECH,3DXPRO LG PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,3,G020-04,Spectrum,PET-G Premium,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,4,G020-05,Spectrum,PET-G FR V0,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,5,G020-06,Spectrum,THE FILAMENT PETG Lite,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,6,G020-07,Spectrum,PET-G Premium High Speed,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,7,G020-09,Spectrum,PET-G MATT,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,8,G020-10,Spectrum,THE FILAMENT PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,9,G020-11,Spectrum,rPETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,10,G020-12,3DXTECH,3DXMAX PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,11,G020-13,Polymaker,PolyLite PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,12,G020-14,Polymaker,PolyMax PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,13,G020-15,Polymaker,Polymaker PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,14,G020-16,Polymaker,Polymaker PolyMax PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,15,G020-18,SUNLU,PETG 2.0,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,16,G020-19,SUNLU,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,17,G020-20,SUNLU,High Speed Matte PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,18,G020-21,Eryone,Standard PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,19,G020-22,Eryone,Hyper Speed PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,20,G020-23,Flashforge,HS PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,21,G020-24,Flashforge,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,22,G020-25,Fiberlogy,FiberWORKS PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,23,G020-26,Fabru / purefil,Polyethylenterephthalat Typ G (PETG),yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,24,G020-27,colorFabb,PETG Economy,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,25,G020-28,Fillamentum,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,26,G020-29,Prusa Research,Prusament PETG by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,27,G020-30,BigRep,rPETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,28,G020-31,3D-Fuel,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,29,G020-32,eSUN,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,30,G020-33,eSUN,PETG HS,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,31,G020-34,3D4Makers,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,32,G020-35,eSUN,PETG+,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,33,G020-36,3D-Fuel,Pro PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,34,G020-37,eSUN,PETG Basic,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,35,G020-38,eSUN,PETG-Matte,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,36,G020-39,Nanovia,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,37,G020-40,FormFutura,Bulk PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,38,G020-41,FormFutura,HDglass,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,39,G020-42,SIDDAMENT,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,40,G020-43,SIDDAMENT,PETG Matte,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,41,G020-44,QIDI,PETG RAPIDO,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,42,G020-45,QIDI,ToughPETG-HF,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,43,G020-46,Prusa Research,Buddy3D PET-G,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,44,G020-47,Prusa Research,Prusament PETG V0 by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,45,G020-48,Anycubic,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,46,G020-49,MatterHackers,RYNO,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,47,G020-50,MatterHackers,Build Series PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,48,G020-51,Nobufil,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,49,G020-52,MatterHackers,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,50,G020-53,Creality,Hyper PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,51,G020-54,AzureFilm,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,52,G020-55,MatterHackers,MH Build Series PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,53,G020-57,Fabru,Type G polyethylene terephthalate (PETG),yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,54,G020-58,Raise3D,Premium PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,55,G020-59,Prusa Research,Prusament PETG Recycled by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,56,G020-60,UltiMaker,MakerBot PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,57,G020-61,FormFutura,EasyFil ePETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,58,G020-62,FormFutura,ReForm - rPET,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,59,G020-63,Filament2Print,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,60,G020-64,FormFutura,ReFill PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,61,G020-65,Yousu,PETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,62,G020-66,3DJake,easyPETG,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,63,G020-67,Fiberlogy,PET-G VO,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,64,G020-68,Fiberlogy,EASY PET-G,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,65,G020-69,Fiberlogy,MATTE PET-G,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,66,G020-70,Recreus,PET-G,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,67,G020-71,Fiberlogy,R PET-G,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,68,G020-72,Kingroon,PETG Basic,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,69,G020-73,The Filament,PETG Lite,yes (1 question(s)),no,no,no,2: product
+M020,PETG,yes,70,G022-01,Bambu Lab,PETG HF,yes (1 question(s)),no,no,yes,2: product
+M020,PETG,yes,71,G023-01,Bambu Lab,PETG Translucent,yes (1 question(s)),no,yes,yes,priced
+M020,PETG,yes,72,G020-03,iSANMATE,PETG,no,no,no,no,2: product
+M020,PETG,yes,73,G020-08,Spectrum,PET-G HT100,no,no,no,no,2: product
+M020,PETG,yes,74,G020-17,Extrudr,PETG,no,no,no,no,2: product
+M020,PETG,yes,75,G020-56,Extrudr,XPETG MATT,no,yes,no,no,2: product
+M020,PETG,yes,76,G020-74,Spectrum,PET-G FX120,no,yes,no,no,2: product
+M024,PETG-CF,yes,1,G024-05,3DXTECH,CarbonX Carbon Fiber PETG,yes (2 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,2,G024-01,Bambu Lab,PETG-CF,yes (1 question(s)),no,yes,yes,priced
+M024,PETG-CF,yes,3,G024-02,Polymaker,Fiberon PETG-rCF08,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,4,G024-03,Spectrum,PET-G Carbon,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,5,G024-04,Spectrum,THE FILAMENT PETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,6,G024-06,SUNLU,PETG Carbon Fiber,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,7,G024-07,Eryone,PETG-CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,8,G024-08,Flashforge,PETGCF10,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,9,G024-10,3D4Makers,PETGCarbon,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,10,G024-11,Nanovia,PETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,11,G024-12,SIDDAMENT,PETG CF V2s,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,12,G024-13,FormFutura,CarbonFil CF03,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,13,G024-14,SIDDAMENT,PETG Carbon Fiber,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,14,G024-15,eSUN,PETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,15,G024-16,QIDI,PETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,16,G024-17,3DJake,easyPETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,17,G024-18,Nobufil,PETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,18,G024-20,Raise3D,Hyper Speed PETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,19,G024-21,FormFutura,CarbonFil,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,20,G024-22,iSANMATE,PETG CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,21,G024-23,Fiberlogy,PETG+CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,22,G024-24,Recreus,PET-G CF,yes (1 question(s)),no,no,no,2: product
+M024,PETG-CF,yes,23,G024-09,Extrudr,XPETG CF,no,no,no,no,2: product
+M024,PETG-CF,yes,24,G024-19,Siraya Tech,Fibreheart PETG CF Pro,no,no,no,no,2: product
+M025,PETG-GF,no,1,G025-03,Nanovia,PETG GF UV,yes (1 question(s)),no,no,no,1: material
+M025,PETG-GF,no,2,G025-01,iSANMATE,PETG Glass Fiber,no,no,no,no,1: material
+M025,PETG-GF,no,3,G025-02,Eryone,PETG-GF,no,no,no,no,1: material
+M025,PETG-GF,no,4,G025-04,QIDI,PETG GF,no,no,no,no,1: material
+M025,PETG-GF,no,5,G025-05,Nobufil,PETG GF,no,no,no,no,1: material
+M026,PETG-ESD,no,1,G026-01,3DXTECH,3DXSTAT ESD PETG,yes (1 question(s)),no,no,no,1: material
+M026,PETG-ESD,no,2,G026-02,Polymaker,PolyMax PETG ESD,yes (1 question(s)),no,no,no,1: material
+M026,PETG-ESD,no,3,G026-03,Spectrum,petg esd,yes (1 question(s)),no,no,no,1: material
+M026,PETG-ESD,no,4,G026-04,Flashforge,ESD PETG,yes (1 question(s)),no,no,no,1: material
+M026,PETG-ESD,no,5,G026-05,Polymaker,PETG ESD,yes (1 question(s)),no,no,no,1: material
+M026,PETG-ESD,no,6,G026-08,Nanovia,PETG ESD,yes (1 question(s)),no,no,no,1: material
+M026,PETG-ESD,no,7,G026-06,Raise3D,Industrial PETG ESD,no,no,no,no,1: material
+M026,PETG-ESD,no,8,G026-07,eSUN,PETG-ESD,no,no,no,no,1: material
+M026,PETG-ESD,no,9,G026-09,MatterHackers,ESD-Safe PETG,no,no,no,no,1: material
+M026,PETG-ESD,no,10,G026-10,Fiberlogy,ESD PET-G,no,no,no,no,1: material
+M027,ABS,yes,1,G027-42,Stratasys,ABS-M30,yes (3 question(s)),no,no,no,2: product
+M027,ABS,yes,2,G027-01,Bambu Lab,ABS,yes (2 question(s)),no,yes,yes,priced
+M027,ABS,yes,3,G027-06,3DXTECH,3DXMAX ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,4,G027-12,SUNLU,High Speed ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,5,G027-13,SUNLU,ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,6,G027-14,SUNLU,ABS-FR,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,7,G027-15,Eryone,Hyper -Speed ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,8,G027-16,Flashforge,ABS Matte,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,9,G027-17,Fabru / purefil,Acrylnitrilbutadienstyrol (ABS),yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,10,G027-23,BigRep,ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,11,G027-34,3DJake,ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,12,G027-36,Anycubic,ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,13,G027-40,Raise3D,Premium ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,14,G027-43,Stratasys,ABS-M30i,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,15,G027-47,Kingroon,ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,16,G027-52,Fiberlogy,R ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,17,G027-53,Fiberlogy,ABS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,18,G027-54,Fiberlogy,ABS PLUS,yes (2 question(s)),no,no,no,2: product
+M027,ABS,yes,19,G027-03,Spectrum,ABS GP450,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,20,G027-04,Spectrum,ABS Medical,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,21,G027-05,Spectrum,Smart ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,22,G027-08,Polymaker,Polymaker ABS Pro,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,23,G027-09,Polymaker,Polymaker ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,24,G027-11,Extrudr,DURAPRO ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,25,G027-18,Fabru / purefil,Methylmethacrylat-Acrylnitrilbutadienstyrol (MABS),yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,26,G027-19,Fillamentum,ABS Extrafill,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,27,G027-20,eSUN,eABS HS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,28,G027-21,UltiMaker,TOUGH,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,29,G027-22,eSUN,ABS+,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,30,G027-24,Raise3D,Hyper Speed ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,31,G027-25,eSUN,ABS HT,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,32,G027-26,Yousu,Modified ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,33,G027-27,eSUN,eABS Max,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,34,G027-28,3D4Makers,ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,35,G027-29,3D-Fuel,Workday ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,36,G027-31,SIDDAMENT,ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,37,G027-33,Prusa Research,Buddy3D ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,38,G027-35,Nobufil,ABSx,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,39,G027-38,Creality,Hyper-ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,40,G027-39,AzureFilm,ABS Prime,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,41,G027-41,AzureFilm,ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,42,G027-44,Stratasys,ABS-ESD7,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,43,G027-45,FormFutura,ABSpro,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,44,G027-46,FormFutura,EasyFil ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,45,G027-48,FormFutura,ClearScent ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,46,G027-49,FormFutura,Premium ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,47,G027-51,FormFutura,ReForm - rTitan,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,48,G027-55,Fiberlogy,EASY ABS,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,49,G027-56,FormFutura,TitanX,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,50,G027-57,3DXTECH,Triton ABS Model Material,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,51,G027-58,FormFutura,EasyFil ABS - Glow in the Dark,yes (1 question(s)),no,no,no,2: product
+M027,ABS,yes,52,G027-02,Polymaker,PolyLite ABS,no,no,no,no,2: product
+M027,ABS,yes,53,G027-07,Polymaker,Polymaker ABS Max,no,no,no,no,2: product
+M027,ABS,yes,54,G027-30,Nanovia,ABS EF,no,no,no,no,2: product
+M027,ABS,yes,55,G027-32,QIDI,ABS,no,no,no,no,2: product
+M027,ABS,yes,56,G027-37,MatterHackers,ABS,no,no,no,no,2: product
+M027,ABS,yes,57,G027-50,iSANMATE,ABS,no,no,no,no,2: product
+M028,ABS-GF,yes,1,G028-03,3DXTECH,FibreX ABS+GF10 Glass Fiber ABS,yes (4 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,2,G028-04,SUNLU,ABS-GF,yes (3 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,3,G028-10,QIDI,NexABS-GF25,yes (3 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,4,G028-01,Bambu Lab,ABS-GF,yes (2 question(s)),no,yes,yes,priced
+M028,ABS-GF,yes,5,G028-02,Siraya Tech,Fibreheart ABS-GF,yes (2 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,6,G028-05,Eryone,Glass Fiber ABS,yes (2 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,7,G028-06,Flashforge,ABSGF10,yes (2 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,8,G028-07,Fiberlogy,ABS GF,yes (2 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,9,G028-08,Fabru / purefil,Acrylnitrilbutadienstyrol Glasfaser 10% (ABS GF10),yes (1 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,10,G028-09,eSUN,eABS-GF,yes (1 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,11,G028-11,Fabru,Acrylnitrilbutadienstyrol glass fiber 10% (ABS GF10),yes (1 question(s)),no,no,no,2: product
+M028,ABS-GF,yes,12,G028-12,iSANMATE,ABS Glass Fiber,yes (1 question(s)),no,no,no,2: product
+M029,ABS-CF,no,1,G029-01,3DXTECH,CarbonX CF ABS,no,no,no,no,1: material
+M029,ABS-CF,no,2,G029-02,iSANMATE,CF ABS,no,no,no,no,1: material
+M029,ABS-CF,no,3,G029-03,Extrudr,DURAPRO ABS CF,no,no,no,no,1: material
+M029,ABS-CF,no,4,G029-04,Eryone,ABS-CF,no,no,no,no,1: material
+M029,ABS-CF,no,5,G029-05,Nanovia,ABS CF,no,no,no,no,1: material
+M029,ABS-CF,no,6,G029-06,eSUN,ABS CF,no,no,no,no,1: material
+M029,ABS-CF,no,7,G029-07,SIDDAMENT,ABS Carbon Fiber,no,no,no,no,1: material
+M029,ABS-CF,no,8,G029-08,Siraya Tech,Fibreheart ABS CF Core,no,no,no,no,1: material
+M029,ABS-CF,no,9,G029-09,Raise3D,Hyper Core ABS CF15,no,no,no,no,1: material
+M029,ABS-CF,no,10,G029-10,3DJake,ABS CF,no,no,no,no,1: material
+M029,ABS-CF,no,11,G029-11,3DXTECH,TriMax Carbon Fiber ABS Model Material,no,no,no,no,1: material
+M030,ABS-ESD,no,1,G030-03,Flashforge,ESD ABS,yes (2 question(s)),no,no,no,1: material
+M030,ABS-ESD,no,2,G030-01,3DXTECH,3DXSTAT ESD ABS,no,no,no,no,1: material
+M030,ABS-ESD,no,3,G030-02,iSANMATE,ESD ABS,no,no,no,no,1: material
+M030,ABS-ESD,no,4,G030-04,3D4Makers,ABSESD,no,no,no,no,1: material
+M030,ABS-ESD,no,5,G030-05,eSUN,ABS-ESD,no,no,no,no,1: material
+M030,ABS-ESD,no,6,G030-06,Nanovia,ABS ESD,no,no,no,no,1: material
+M030,ABS-ESD,no,7,G030-07,Fiberlogy,ESD ABS,no,no,no,no,1: material
+M030,ABS-ESD,no,8,G030-08,Prusa Research,Buddy3D ABS-ESD VE,no,no,no,no,1: material
+M030,ABS-ESD,no,9,G030-09,Nobufil,ABSx ESD,no,no,no,no,1: material
+M030,ABS-ESD,no,10,G030-10,MatterHackers,ESD-Safe ABS,no,no,no,no,1: material
+M030,ABS-ESD,no,11,G030-11,3DXTECH,TriStat ESD-ABS Model Material,no,no,no,no,1: material
+M031,ASA,yes,1,G031-02,Polymaker,PolyLite ASA,yes (3 question(s)),no,no,no,2: product
+M031,ASA,yes,2,G031-08,SUNLU,ASA,yes (3 question(s)),no,no,no,2: product
+M031,ASA,yes,3,G031-33,Stratasys,ASA,yes (3 question(s)),no,no,no,2: product
+M031,ASA,yes,4,G031-01,Bambu Lab,ASA,yes (2 question(s)),no,yes,yes,priced
+M031,ASA,yes,5,G031-05,3DXTECH,3DXMAX ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,6,G031-09,Eryone,Hyper-Speed ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,7,G031-10,Eryone,ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,8,G031-11,Flashforge,ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,9,G031-13,colorFabb,ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,10,G031-18,BigRep,ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,11,G031-21,UltiMaker,Precision ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,12,G031-26,Fabru,Acrylnitril-Styrol-Acrylester (ASA),yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,13,G031-27,SUNLU,Self-restraint ASA (ASA),yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,14,G031-30,Anycubic,ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,15,G031-40,Fiberlogy,ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,16,G031-41,Fiberlogy,MATTE ASA,yes (2 question(s)),no,no,no,2: product
+M031,ASA,yes,17,G031-03,Spectrum,ASA 275,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,18,G031-04,Spectrum,THE FILAMENT ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,19,G031-06,Polymaker,Polymaker ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,20,G031-07,Extrudr,DURAPRO ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,21,G031-12,Fabru / purefil,Acrylnitril-Styrol-Acrylester (ASA),yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,22,G031-14,Fillamentum,ASA Extrafill,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,23,G031-15,Spectrum,FlameGuard ASA 275,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,24,G031-16,Raise3D,Premium ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,25,G031-17,eSUN,ASA V1 1,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,26,G031-19,3D4Makers,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,27,G031-20,Prusa Research,Prusament ASA by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,28,G031-23,BASF Forward AM,Ultrafuse ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,29,G031-24,SIDDAMENT,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,30,G031-28,MatterHackers,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,31,G031-29,AzureFilm,ASA Prime,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,32,G031-31,AzureFilm,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,33,G031-32,Nobufil,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,34,G031-34,Filament2Print,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,35,G031-36,FormFutura,ApolloX,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,36,G031-37,3DJake,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,37,G031-38,iSANMATE,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,38,G031-39,3DXTECH,Triton ASA Model Material,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,39,G031-42,FormFutura,ReForm - rApollo,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,40,G031-43,The Filament,ASA,yes (1 question(s)),no,no,no,2: product
+M031,ASA,yes,41,G031-22,Nanovia,ASA,no,no,no,no,2: product
+M031,ASA,yes,42,G031-25,QIDI,ASA,no,no,no,no,2: product
+M031,ASA,yes,43,G031-35,CreatBot,ASA,no,no,no,no,2: product
+M032,ASA Aero,yes,1,G032-01,Bambu Lab,ASA Aero,yes (2 question(s)),no,yes,yes,priced
+M032,ASA Aero,yes,2,G032-02,Spectrum,LW-ASA UltraFoam,no,no,no,no,2: product
+M032,ASA Aero,yes,3,G032-03,colorFabb,Light Weight ASA (LW-ASA),no,no,no,no,2: product
+M032,ASA Aero,yes,4,G032-04,QIDI,ASA-Aero,no,no,no,no,2: product
+M032,ASA Aero,yes,5,G032-05,colorFabb,LW-ASA,no,no,no,no,2: product
+M033,ASA-CF,no,1,G033-14,QIDI,ASA-CF20 Core,yes (7 question(s)),no,no,no,1: material
+M033,ASA-CF,no,2,G033-11,Polymaker,FIBERON ASA CF08,yes (6 question(s)),no,no,no,1: material
+M033,ASA-CF,no,3,G033-02,3DXTECH,CarbonX CF ASA,yes (5 question(s)),no,no,no,1: material
+M033,ASA-CF,no,4,G033-12,FormFutura,ApolloX CF10,yes (3 question(s)),no,no,no,1: material
+M033,ASA-CF,no,5,G033-01,Bambu Lab,ASA-CF,yes (2 question(s)),no,no,yes,1: material
+M033,ASA-CF,no,6,G033-06,Eryone,ASA-CF,yes (2 question(s)),no,no,no,1: material
+M033,ASA-CF,no,7,G033-07,Flashforge,ASACF10,yes (2 question(s)),no,no,no,1: material
+M033,ASA-CF,no,8,G033-03,Spectrum,THE FILAMENT ASA CF,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,9,G033-04,Spectrum,ASA-X CF10,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,10,G033-05,Extrudr,DURAPRO ASA CF,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,11,G033-08,Fabru / purefil,ASA CF10,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,12,G033-09,Fillamentum,ASA CF10 Carbon,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,13,G033-10,Fabru,ASA CF10,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,14,G033-13,SIDDAMENT,ASA Carbon Fiber,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,15,G033-15,Nobufil,ASAx CF,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,16,G033-16,3DJake,ASA CF,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,17,G033-17,SIDDAMENT,ASA CF,yes (1 question(s)),no,no,no,1: material
+M033,ASA-CF,no,18,G033-18,The Filament,ASA CF,yes (1 question(s)),no,no,no,1: material
+M034,ASA-GF,no,1,G034-03,IPCON,IPCON ASA GF,yes (3 question(s)),no,no,no,1: material
+M034,ASA-GF,no,2,G034-04,Flashforge,ASAGF10,yes (2 question(s)),no,no,no,1: material
+M034,ASA-GF,no,3,G034-06,Eryone,ASA - GF,yes (2 question(s)),no,no,no,1: material
+M034,ASA-GF,no,4,G034-01,Spectrum,asax x gf10,yes (1 question(s)),no,no,no,1: material
+M034,ASA-GF,no,5,G034-02,iSANMATE,ASA Glass Fiber,no,no,no,no,1: material
+M034,ASA-GF,no,6,G034-05,Extrudr,DURAPRO ASA GF,no,no,no,no,1: material
+M035,PC,yes,1,G035-04,3DXTECH,ezPC Polycarbonate,yes (3 question(s)),no,no,no,2: product
+M035,PC,yes,2,G035-05,3DXTECH,3DXMAX Polycarbonate,yes (3 question(s)),no,no,no,2: product
+M035,PC,yes,3,G035-12,SUNLU,PC,yes (3 question(s)),no,no,no,2: product
+M035,PC,yes,4,G035-17,eSUN,PC-HT,yes (3 question(s)),no,no,no,2: product
+M035,PC,yes,5,G035-18,Raise3D,Premium PC Black White,yes (3 question(s)),no,no,no,2: product
+M035,PC,yes,6,G035-23,Stratasys,PC,yes (3 question(s)),no,no,no,2: product
+M035,PC,yes,7,G035-01,Bambu Lab,PC,yes (1 question(s)),no,yes,yes,priced
+M035,PC,yes,8,G035-02,Polymaker,PolyLite PC,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,9,G035-03,Spectrum,PC 275,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,10,G035-09,Polymaker,Polymaker PC Max,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,11,G035-11,Extrudr,DURAPRO PC FR V0,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,12,G035-13,Flashforge,PC,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,13,G035-14,Fabru / purefil,Polycarbonat (PC),yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,14,G035-15,Prusa Research,Prusament PC Blend by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,15,G035-16,Raise3D,Premium PC,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,16,G035-20,SIDDAMENT,PC,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,17,G035-21,FormFutura,Kratos PC,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,18,G035-24,Stratasys,PC-ISO,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,19,G035-25,Yousu,PC,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,20,G035-26,3DXTECH,Trilan PC Model Material,yes (1 question(s)),no,no,no,2: product
+M035,PC,yes,21,G035-06,Polymaker,PolyMax PC,no,no,no,no,2: product
+M035,PC,yes,22,G035-08,Polymaker,Polymaker PolyMax PC FR,no,no,no,no,2: product
+M035,PC,yes,23,G035-10,Polymaker,Polymaker PolyLite PC Transparent,no,no,no,no,2: product
+M035,PC,yes,24,G035-19,Nanovia,PC V0,no,no,no,no,2: product
+M036,PC FR,yes,1,G036-01,Bambu Lab,PC FR,yes (1 question(s)),no,yes,yes,priced
+M036,PC FR,yes,2,G036-02,Polymaker,PolyMax PC-FR,yes (1 question(s)),no,no,no,2: product
+M037,PC-CF,no,1,G037-01,3DXTECH,CarbonX CF PC,yes (3 question(s)),no,no,no,1: material
+M037,PC-CF,no,2,G037-04,3DXTECH,CarbonX Carbon Fiber ezPC Polycarbonate,yes (3 question(s)),no,no,no,1: material
+M037,PC-CF,no,3,G037-05,Flashforge,PCCF10,yes (3 question(s)),no,no,no,1: material
+M037,PC-CF,no,4,G037-02,Spectrum,pc cf,yes (1 question(s)),no,no,no,1: material
+M037,PC-CF,no,5,G037-03,iSANMATE,PC CF,no,no,no,no,1: material
+M037,PC-CF,no,6,G037-06,Prusa Research,Prusament PC Space Grade Black by Prusa Polymers,no,no,no,no,1: material
+M037,PC-CF,no,7,G037-07,Nanovia,PC CF,no,no,no,no,1: material
+M037,PC-CF,no,8,G037-08,SIDDAMENT,PC Carbon Fiber,no,no,no,no,1: material
+M037,PC-CF,no,9,G037-09,Nobufil,PCx CF,no,no,no,no,1: material
+M037,PC-CF,no,10,G037-10,Prusa Research,Prusament PC Blend Carbon Fiber by Prusa Polymers,no,no,no,no,1: material
+M038,PC-GF,no,1,G038-02,BASF Forward AM,Ultrafuse PC GF30,yes (1 question(s)),no,no,no,1: material
+M038,PC-GF,no,2,G038-01,SIDDAMENT,V2 PC-GF,no,no,no,no,1: material
+M038,PC-GF,no,3,G038-03,Fabru / purefil,Polycarbonate glass fibers 10% (PC GF10),no,no,no,no,1: material
+M045,PEBA,no,1,G045-02,Spectrum,peba,yes (1 question(s)),no,no,no,1: material
+M045,PEBA,no,2,G045-01,eSUN,PEBA90A,no,no,no,no,1: material
+M045,PEBA,no,3,G045-03,Kimya,Kimya PEBA-S,no,no,no,no,1: material
+M045,PEBA,no,4,G045-04,Fillamentum,Flexfill PEBA 90A,no,no,no,no,1: material
+M045,PEBA,no,5,G045-05,colorFabb,PEBA 45D,no,no,no,no,1: material
+M045,PEBA,no,6,G045-06,colorFabb,PEBA 40D,no,no,no,no,1: material
+M045,PEBA,no,7,G045-07,QIDI,PEBA 95A,no,no,no,no,1: material
+M045,PEBA,no,8,G045-08,Siraya Tech,Rebound PEBA 95A,no,no,no,no,1: material
+M045,PEBA,no,9,G045-10,Siraya Tech,Rebound PEBA 85A,no,no,no,no,1: material
+M045,PEBA,no,10,G045-09,Siraya Tech,Rebound PEBA Air 70A–95A,no,yes,no,no,1: material
+M046,TPC / TPEE,no,1,G046-01,BASF Forward AM,Ultrafuse TPC 45D,no,no,no,no,1: material
+M046,TPC / TPEE,no,2,G046-02,Kimya,Kimya TPC-91A,no,no,no,no,1: material
+M046,TPC / TPEE,no,3,G046-03,DSM,Arnitel ID 2045,no,no,no,no,1: material
+M046,TPC / TPEE,no,4,G046-04,Fabru / purefil,Thermoplastic polyester elastomer (TPC),no,no,no,no,1: material
+M046,TPC / TPEE,no,5,G046-05,FormFutura,FlexiFil TPC 30D,no,no,no,no,1: material
+M046,TPC / TPEE,no,6,G046-06,FormFutura,FlexiFil TPC 40D,no,no,no,no,1: material
+M046,TPC / TPEE,no,7,G046-07,FormFutura,FlexiFil,no,no,no,no,1: material
+M046,TPC / TPEE,no,8,G167-03,Fiberlogy,FiberFlex 30D,no,no,no,no,1: material
+M046,TPC / TPEE,no,9,G167-04,Fiberlogy,MattFlex 40D,no,no,no,no,1: material
+M046,TPC / TPEE,no,10,G167-06,Fiberlogy,FiberFlex 40D,no,no,no,no,1: material
+M046,TPC / TPEE,no,11,G167-05,NinjaTek,Chinchilla,no,yes,no,no,1: material
+M048,PAHT-CF,yes,1,G048-02,BASF Forward AM,Ultrafuse PAHT CF15,yes (6 question(s)),no,no,no,2: product
+M048,PAHT-CF,yes,2,G048-05,iSANMATE,PAHT CF,yes (3 question(s)),no,no,no,2: product
+M048,PAHT-CF,yes,3,G048-01,Bambu Lab,PAHT-CF,yes (1 question(s)),no,yes,yes,priced
+M048,PAHT-CF,yes,4,G048-03,LEHVOSS,LUVOCOM 3F PA CF 9742 BK,yes (1 question(s)),no,no,no,2: product
+M048,PAHT-CF,yes,5,G048-04,LEHVOSS,LUVOCOM 3F PAHT CF 9891 BK,yes (1 question(s)),no,no,no,2: product
+M049,PA6,yes,1,G049-06,Nanovia,PA-6,yes (3 question(s)),no,no,no,2: product
+M049,PA6,yes,2,G049-09,3DXTECH,WearX Wear Resistant PA6 Copolymer,yes (1 question(s)),no,no,no,2: product
+M049,PA6,yes,3,G049-08,Nanovia,PA Rail,yes (1 question(s)),yes,no,no,2: product
+M049,PA6,yes,4,G049-02,FormFutura,STYX PA6,no,no,no,no,2: product
+M049,PA6,yes,5,G049-03,Spectrum,PA6 Low Warp,no,no,no,no,2: product
+M049,PA6,yes,6,G049-04,Spectrum,PA6 Neat NT,no,no,no,no,2: product
+M049,PA6,yes,7,G049-05,Fillamentum,Fishy Filaments’ Porthcurno,no,no,no,no,2: product
+M049,PA6,yes,8,G049-07,SIDDAMENT,PA,no,no,no,no,2: product
+M049,PA6,yes,9,G049-01,Spectrum,pa6 neat bk,no,yes,yes,yes,priced
+M050,PA6-CF,yes,1,G050-07,Eryone,PA6-CF,yes (7 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,2,G050-08,Flashforge,PA6CF10,yes (7 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,3,G050-12,Nanovia,PA-6 CF,yes (7 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,4,G050-10,3DXTECH,CarbonX Carbon Fiber Nylon (Gen3),yes (6 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,5,G050-03,Spectrum,PA6 Low Warp CF15S,yes (3 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,6,G050-06,SUNLU,PA6-CF,yes (3 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,7,G050-13,FormFutura,STYX PA6-CF15,yes (3 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,8,G050-01,Bambu Lab,PA6-CF,yes (1 question(s)),no,yes,yes,priced
+M050,PA6-CF,yes,9,G050-02,iSANMATE,PA6 CF,yes (1 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,10,G050-04,Spectrum,PA6 CF15,yes (1 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,11,G050-05,Extrudr,DURAPRO PA6 CF,yes (1 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,12,G050-09,Fillamentum,Fishy Filaments’ 0rCA,yes (1 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,13,G050-11,Polymaker,FIBERON PA6 CF20,yes (1 question(s)),no,no,no,2: product
+M050,PA6-CF,yes,14,G050-14,SIDDAMENT,PA6-CF,yes (1 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,1,G051-02,3DXTECH,AMIDEX Nylon GF30,yes (6 question(s)),no,no,yes,2: product
+M051,PA6-GF,yes,2,G051-04,Spectrum,PA6 Low Warp GF30,yes (3 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,3,G051-06,SUNLU,PA6-GF,yes (3 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,4,G051-08,Fabru / purefil,Polyamid 6 glass fiber 10% (PA6 GF10),yes (3 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,5,G051-10,FormFutura,STYX PA6-GF30,yes (3 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,6,G051-11,Stratasys,PA6/66-GF30-FR,yes (3 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,7,G051-01,Bambu Lab,PA6-GF,yes (1 question(s)),no,yes,yes,priced
+M051,PA6-GF,yes,8,G051-03,Polymaker,PolyMide PA6 GF,yes (1 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,9,G051-05,Extrudr,DURAPRO PA6 GF,yes (1 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,10,G051-07,Flashforge,PA6-GF20,yes (1 question(s)),no,no,no,2: product
+M051,PA6-GF,yes,11,G051-09,Polymaker,FIBERON PA6 GF25,yes (1 question(s)),no,no,no,2: product
+M052,PA12,no,1,G052-01,3DXTECH,AMIDEX Nylon 12,yes (1 question(s)),no,no,no,1: material
+M052,PA12,no,2,G052-03,Fabru / purefil,Polyamide 12 (PA12),yes (1 question(s)),no,no,no,1: material
+M052,PA12,no,3,G052-06,Fiberlogy,Nylon PA12,yes (1 question(s)),no,no,no,1: material
+M052,PA12,no,4,G052-07,Fiberlogy,R Nylon,yes (1 question(s)),no,no,no,1: material
+M052,PA12,no,5,G052-02,Extrudr,DURAPRO PA12,no,no,no,no,1: material
+M052,PA12,no,6,G052-04,eSUN,ePA12,no,no,no,no,1: material
+M052,PA12,no,7,G052-05,FormFutura,STYX-12,no,no,no,no,1: material
+M052,PA12,no,8,G164-01,Fillamentum,Nylon FX256,no,no,no,no,1: material
+M053,PA12-CF,no,1,G053-01,3DXTECH,CarbonX CF PA12,yes (3 question(s)),no,no,no,1: material
+M053,PA12-CF,no,2,G053-10,SIDDAMENT,PA12-CF,yes (2 question(s)),no,no,no,1: material
+M053,PA12-CF,no,3,G053-02,Polymaker,PolyMide PA12 CF,yes (1 question(s)),no,no,no,1: material
+M053,PA12-CF,no,4,G053-03,Spectrum,pa12 cf15,yes (1 question(s)),no,no,no,1: material
+M053,PA12-CF,no,5,G053-05,SUNLU,PA12-CF,yes (1 question(s)),no,no,no,1: material
+M053,PA12-CF,no,6,G053-06,Eryone,PA12-CF,yes (1 question(s)),no,no,no,1: material
+M053,PA12-CF,no,7,G053-08,Polymaker,FIBERON PA12 CF10,yes (1 question(s)),no,no,no,1: material
+M053,PA12-CF,no,8,G053-15,MatterHackers,Carbon Fiber Nylon,yes (1 question(s)),no,no,no,1: material
+M053,PA12-CF,no,9,G053-16,Fiberlogy,Nylon PA12+CF15,yes (1 question(s)),no,no,no,1: material
+M053,PA12-CF,no,10,G053-04,Extrudr,DURAPRO PA12 CF,no,no,no,no,1: material
+M053,PA12-CF,no,11,G053-07,Fabru / purefil,Polyamid 12 Carbonfaser 15% (PA12 CF15),no,no,no,no,1: material
+M053,PA12-CF,no,12,G053-09,Raise3D,Industrial PA12 CF,no,no,no,no,1: material
+M053,PA12-CF,no,13,G053-11,BigRep,PA12 CF,no,no,no,no,1: material
+M053,PA12-CF,no,14,G053-12,Fabru,Polyamid 12 carbon fiber 15% (PA12 CF15),no,no,no,no,1: material
+M053,PA12-CF,no,15,G053-13,iSANMATE,PA12CF,no,no,no,no,1: material
+M053,PA12-CF,no,16,G053-14,Fillamentum,Nylon CF15 Carbon,no,no,no,no,1: material
+M054,PA12-GF,no,1,G054-01,3DXTECH,FIBREX PA12 GF30,yes (3 question(s)),no,no,no,1: material
+M054,PA12-GF,no,2,G054-03,Fiberlogy,Nylon PA12+GF15,yes (3 question(s)),no,no,no,1: material
+M054,PA12-GF,no,3,G054-02,MatterHackers,NylonG,no,no,no,no,1: material
+M055,PA66,no,1,G164-08,Yousu,Nylon,no,no,no,no,1: material
+M055,PA66,no,2,G164-03,Spectrum,ThermaTech PA,no,yes,no,no,1: material
+M056,PA66-CF,no,0,None,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,none: no procurement product
+M057,PA6/66,no,1,G057-02,3DXTECH,AMIDEX PA6 Copolymer v1 0,yes (4 question(s)),no,no,no,1: material
+M057,PA6/66,no,2,G057-06,SUNLU,Easy PA,yes (3 question(s)),no,no,no,1: material
+M057,PA6/66,no,3,G057-03,Polymaker,Polymaker PolyMide CoPA,yes (2 question(s)),no,no,no,1: material
+M057,PA6/66,no,4,G057-01,Polymaker,PolyMide CoPA,yes (1 question(s)),no,no,no,1: material
+M057,PA6/66,no,5,G057-05,BigRep,PA6/66,yes (1 question(s)),no,no,no,1: material
+M057,PA6/66,no,6,G164-04,MatterHackers,PRO Series Nylon,yes (1 question(s)),no,no,no,1: material
+M057,PA6/66,no,7,G057-04,eSUN,PA Nylon Filament (1kg) Natural,no,no,no,no,1: material
+M057,PA6/66,no,8,G057-07,eSUN,ePA,no,no,no,no,1: material
+M058,PA612,no,0,None,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,none: no procurement product
+M059,PA612-CF,no,1,G059-01,Polymaker,Fiberon PA612-CF15,yes (3 question(s)),no,no,no,1: material
+M059,PA612-CF,no,2,G059-02,QIDI,PA612-CF,no,no,no,no,1: material
+M059,PA612-CF,no,3,G059-03,Raise3D,Industrial PA12 CF+,no,no,no,no,1: material
+M060,PA612-GF,no,0,None,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,Not applicable,none: no procurement product
+M064,PA-ESD,no,1,G064-01,3DXTECH,3DXSTAT ESD PA12,yes (1 question(s)),no,no,no,1: material
+M065,PA612-ESD,no,1,G065-01,Polymaker,Fiberon PA612-ESD,yes (3 question(s)),no,no,no,1: material
+M066,PET,no,1,G066-02,Spectrum,ecoPET 9021,yes (1 question(s)),no,no,no,1: material
+M066,PET,no,2,G066-01,FormFutura,High Precision PET,no,no,no,no,1: material
+M066,PET,no,3,G066-03,colorFabb,PET HIGH SPEED PRO,no,no,no,no,1: material
+M066,PET,no,4,G066-04,colorFabb,PET ULTRA HIGH SPEED,no,no,no,no,1: material
+M066,PET,no,5,G066-06,3D4Makers,Facilan HT,no,no,no,no,1: material
+M066,PET,no,6,G066-07,FormFutura,EasyFil PET,no,no,no,no,1: material
+M066,PET,no,7,G066-05,colorFabb,PET Flex Max,no,yes,no,no,1: material
+M067,PET-CF,yes,1,G067-04,Flashforge,PET-CF,yes (3 question(s)),no,no,no,2: product
+M067,PET-CF,yes,2,G067-01,Bambu Lab,PET-CF,yes (1 question(s)),no,yes,yes,priced
+M067,PET-CF,yes,3,G067-02,Polymaker,Fiberon PET-CF17,yes (1 question(s)),no,no,no,2: product
+M067,PET-CF,yes,4,G067-03,Spectrum,PET CF15,yes (1 question(s)),no,no,no,2: product
+M067,PET-CF,yes,5,G067-05,Raise3D,Industrial PET CF,yes (1 question(s)),no,no,no,2: product
+M067,PET-CF,yes,6,G067-06,BASF Forward AM,Ultrafuse PET CF15,yes (1 question(s)),no,no,no,2: product
+M067,PET-CF,yes,7,G067-07,Raise3D,Hyper Speed PET CF,yes (1 question(s)),no,no,no,2: product
+M067,PET-CF,yes,8,G067-08,SIDDAMENT,PET CF,yes (1 question(s)),no,no,no,2: product
+M068,PET-GF,no,1,G068-01,Flashforge,PET-GF,yes (3 question(s)),no,no,no,1: material
+M068,PET-GF,no,2,G068-02,Polymaker,Fiberon PET-GF15,yes (2 question(s)),no,no,no,1: material
+M068,PET-GF,no,3,G068-05,QIDI,PET-GF,yes (1 question(s)),no,no,no,1: material
+M068,PET-GF,no,4,G068-04,Raise3D,Industrial PET GF,no,no,no,no,1: material
+M069,PPA,no,1,G069-01,IPCON,PPA Pure Resin,yes (4 question(s)),no,no,no,1: material
+M069,PPA,no,2,G069-02,Siraya Tech,Fibreheart PPA,no,no,no,no,1: material
+M070,PPA-CF,yes,1,G070-05,3DXTECH,CarbonX Carbon Fiber High Temp Nylon (HTN),yes (9 question(s)),no,no,no,2: product
+M070,PPA-CF,yes,2,G070-01,Bambu Lab,PPA-CF,yes (3 question(s)),no,yes,yes,priced
+M070,PPA-CF,yes,3,G070-06,Flashforge,PPA-CF,yes (3 question(s)),no,no,no,2: product
+M070,PPA-CF,yes,4,G070-07,SIDDAMENT,PPA-CF,yes (3 question(s)),no,no,no,2: product
+M070,PPA-CF,yes,5,G070-02,Siraya Tech,Fibreheart PPA-CF,yes (2 question(s)),no,no,no,2: product
+M070,PPA-CF,yes,6,G070-03,Siraya Tech,Fibreheart PPA-CF Core,yes (2 question(s)),no,no,no,2: product
+M070,PPA-CF,yes,7,G070-04,Raise3D,Industrial PPA CF,yes (1 question(s)),no,no,no,2: product
+M070,PPA-CF,yes,8,G070-08,Raise3D,Hyper Core PPA CF25,yes (1 question(s)),no,no,no,2: product
+M070,PPA-CF,yes,9,G070-09,Siraya Tech,Fibreheart PAHT CF (PPA based),yes (1 question(s)),no,no,no,2: product
+M071,PPA-GF,no,1,G071-01,IPCON,PPA-GF,yes (8 question(s)),no,no,no,1: material
+M071,PPA-GF,no,2,G071-03,Flashforge,PPA-GF,yes (3 question(s)),no,no,no,1: material
+M071,PPA-GF,no,3,G071-02,Siraya Tech,Fibreheart PPA-GF,yes (1 question(s)),no,no,no,1: material
+M071,PPA-GF,no,4,G071-04,Raise3D,Industrial PPA GF,no,no,no,no,1: material
+M071,PPA-GF,no,5,G071-05,Raise3D,Hyper Core PPA GF25,no,no,no,no,1: material
+M072,PPS,no,1,G072-01,3DXTECH,THERMAX PPS,no,no,no,no,1: material
+M072,PPS,no,2,G072-02,Spectrum,pps am230,no,no,no,yes,1: material
+M073,PPS-CF,yes,1,G073-01,Bambu Lab,PPS-CF,yes (4 question(s)),no,yes,yes,priced
+M073,PPS-CF,yes,2,G073-03,Flashforge,PPS-CF,yes (3 question(s)),no,no,no,2: product
+M073,PPS-CF,yes,3,G073-06,SIDDAMENT,PPS CF,yes (3 question(s)),no,no,no,2: product
+M073,PPS-CF,yes,4,G073-02,Essentium,Essentium PPS-CF,yes (1 question(s)),no,no,no,2: product
+M073,PPS-CF,yes,5,G073-04,Polymaker,FIBERON PPS CF10,yes (1 question(s)),no,no,no,2: product
+M073,PPS-CF,yes,6,G073-05,LEHVOSS,LUVOCOM 3F PPS CF 9938 BK,yes (1 question(s)),no,no,no,2: product
+M073,PPS-CF,yes,7,G073-07,Raise3D,Industrial PPS CF,yes (1 question(s)),no,no,no,2: product
+M074,PPS-GF,no,1,G074-01,IPCON,PPS-GF,yes (2 question(s)),no,no,no,1: material
+M074,PPS-GF,no,2,G074-02,Polymaker,Fiberon PPS-GF20,yes (1 question(s)),no,no,no,1: material
+M075,PVA,yes,1,G075-01,Bambu Lab,PVA,no,no,yes,yes,priced
+M075,PVA,yes,2,G075-02,SUNLU,PVA,no,no,no,no,2: product
+M075,PVA,yes,3,G075-03,Yousu,PVA,no,no,no,no,2: product
+M075,PVA,yes,4,G075-04,FormFutura,AquaSolve - PVA,no,no,no,no,2: product
+M075,PVA,yes,5,G075-05,eSUN,PVA,no,no,no,no,2: product
+M075,PVA,yes,6,G075-06,FormFutura,Helios Support,no,no,no,no,2: product
+M075,PVA,yes,7,G075-07,Flashforge,PVA,no,no,no,no,2: product
+M075,PVA,yes,8,G075-08,Fabru,Polyvinyl alcohol (PVA),no,no,no,no,2: product
+M075,PVA,yes,9,G075-09,Raise3D,Premium PVA+,no,no,no,no,2: product
+M075,PVA,yes,10,G075-10,FormFutura,Atlas Support,no,no,no,no,2: product
+M075,PVA,yes,11,G075-11,Polymaker,PolyDissolve S1,no,no,no,no,2: product
+M076,BVOH,no,1,G076-01,BigRep,BVOH,no,no,no,no,1: material
+M076,BVOH,no,2,G076-02,BASF Forward AM,Ultrafuse BVOH,no,no,no,no,1: material
+M076,BVOH,no,3,G076-03,FormFutura,BVOH,no,no,no,no,1: material
+M076,BVOH,no,4,G076-04,Fiberlogy,BVOH,no,no,no,no,1: material
+M077,Support for PLA,no,1,G077-01,Bambu Lab,Support for PLA (New Version),no,no,no,no,1: material
+M077,Support for PLA,no,2,G077-02,Polymaker,PolySupport,no,no,no,no,1: material
+M078,Support for PLA/PETG,yes,1,G078-01,Bambu Lab,Support for PLA/PETG,no,no,yes,yes,priced
+M079,Support for ABS,yes,1,G079-01,Bambu Lab,Support for ABS,no,no,yes,yes,priced
+M080,Support for PA/PET,no,1,G080-01,Bambu Lab,Support for PA/PET,no,no,no,yes,1: material
+M080,Support for PA/PET,no,2,G080-02,Polymaker,PolySupport for PA12,no,no,no,no,1: material
+M080,Support for PA/PET,no,3,G080-03,Raise3D,Industrial PET Support,no,no,no,no,1: material
+M081,HIPS,yes,1,G081-01,3DXTECH,3DXMAX HIPS,yes (2 question(s)),no,no,no,2: product
+M081,HIPS,yes,2,G081-07,Stratasys,FDM HIPS,yes (1 question(s)),no,no,no,2: product
+M081,HIPS,yes,3,G081-02,Spectrum,hipsx,no,no,yes,yes,priced
+M081,HIPS,yes,4,G081-03,Fabru / purefil,High impact Polystyrol (HIPS),no,no,no,no,2: product
+M081,HIPS,yes,5,G081-04,Fillamentum,HIPS Extrafill,no,no,no,no,2: product
+M081,HIPS,yes,6,G081-05,eSUN,HIPS,no,no,no,no,2: product
+M081,HIPS,yes,7,G081-06,Nanovia,Insublend,no,no,no,no,2: product
+M081,HIPS,yes,8,G081-08,FormFutura,EasyFil HIPS,no,no,no,no,2: product
+M081,HIPS,yes,9,G081-09,BASF Forward AM,Ultrafuse HiPS,no,no,no,no,2: product
+M081,HIPS,yes,10,G081-10,Nanovia,HIPS,no,no,no,no,2: product
+M081,HIPS,yes,11,G081-11,Fiberlogy,HIPS,no,no,no,no,2: product
+M081,HIPS,yes,12,G081-12,FormFutura,LimoSolve,no,no,no,no,2: product
+M082,PP,no,1,G082-03,Spectrum,PP,yes (2 question(s)),no,no,no,1: material
+M082,PP,no,2,G082-09,Raise3D,P,yes (1 question(s)),no,no,no,1: material
+M082,PP,no,3,G082-02,iSANMATE,PP,no,no,no,no,1: material
+M082,PP,no,4,G082-05,SUNLU,PP,no,no,no,no,1: material
+M082,PP,no,5,G082-06,Fabru / purefil,Polypropylene (PP),no,no,no,no,1: material
+M082,PP,no,6,G082-07,Fillamentum,PP 2320,no,no,no,no,1: material
+M082,PP,no,7,G082-08,Yousu,PP,no,no,no,no,1: material
+M082,PP,no,8,G082-11,FormFutura,Centaur PP,no,no,no,no,1: material
+M082,PP,no,9,G082-04,SUNLU,PP2.0,no,yes,no,no,1: material
+M082,PP,no,10,G082-10,Fiberlogy,PP,no,yes,no,no,1: material
+M082,PP,no,11,G082-12,FormFutura,Pegasus PP,no,yes,no,no,1: material
+M082,PP,no,12,G082-13,Fiberlogy,R PP,no,yes,no,no,1: material
+M083,PP-CF,no,1,G083-01,3DXTECH,CarbonX CF PP,yes (9 question(s)),no,no,no,1: material
+M083,PP-CF,no,2,G083-02,Braskem,FL900PP-CF,yes (3 question(s)),no,no,no,1: material
+M083,PP-CF,no,3,G083-04,Nanovia,PP CF,yes (2 question(s)),no,no,no,1: material
+M083,PP-CF,no,4,G083-03,Prusa Research,Prusament PP Carbon Fiber by Prusa Polymers,no,no,no,no,1: material
+M083,PP-CF,no,5,G083-05,LEHVOSS,LUVOCOM 3F PP CF 9928 BK,no,no,no,no,1: material
+M084,PP-GF,no,1,G084-01,3DXTECH,FIBREX GF PP,yes (3 question(s)),no,no,no,1: material
+M084,PP-GF,no,2,G084-02,Prusa Research,Prusament PP Glass Fiber by Prusa Polymers,yes (1 question(s)),no,no,no,1: material
+M085,PE,no,1,G085-02,Braskem,FL300PE,no,no,no,no,1: material
+M085,PE,no,2,G085-01,Spectrum,hdpe,no,yes,no,no,1: material
+M086,OBC,no,1,G086-02,Fillamentum,OBC 905,yes (2 question(s)),no,no,no,1: material
+M086,OBC,no,2,G086-01,Dow,EVOLV3D OBC,no,no,no,no,1: material
+M087,POM / Acetal,no,1,G087-04,Fabru / purefil,Polyoxymethylen (POM),yes (1 question(s)),no,no,no,1: material
+M087,POM / Acetal,no,2,G087-01,Fabru,purefil POM,no,no,no,no,1: material
+M087,POM / Acetal,no,3,G087-02,Grupa Azoty,Tarfuse POM 3D Filament,no,no,no,no,1: material
+M087,POM / Acetal,no,4,G087-03,Yousu,POM,no,no,no,no,1: material
+M088,PCTG,yes,1,G088-01,3DXTECH,MAXG PCTG,yes (1 question(s)),no,no,no,2: product
+M088,PCTG,yes,2,G088-02,Spectrum,pctg,yes (1 question(s)),no,yes,yes,priced
+M088,PCTG,yes,3,G088-03,Extrudr,PCTG,no,no,no,no,2: product
+M088,PCTG,yes,4,G088-04,3D-Fuel,3D,no,no,no,no,2: product
+M088,PCTG,yes,5,G088-05,FormFutura,AthenaX,no,no,no,no,2: product
+M088,PCTG,yes,6,G088-06,Nobufil,PCTG,no,no,no,no,2: product
+M088,PCTG,yes,7,G088-07,Fiberlogy,PCTG,no,no,no,no,2: product
+M088,PCTG,yes,8,G088-08,3DJake,PCTG,no,no,no,no,2: product
+M089,CPE,no,1,G089-01,Fillamentum,CPE HG100,yes (2 question(s)),no,no,no,1: material
+M089,CPE,no,2,G089-05,Fiberlogy,CPE HT,yes (1 question(s)),no,no,no,1: material
+M089,CPE,no,3,G089-02,Fiberlogy,CPE ANTIBAC,no,no,no,no,1: material
+M089,CPE,no,4,G089-03,colorFabb,XT,no,no,no,no,1: material
+M089,CPE,no,5,G089-04,colorFabb,HT,no,no,no,no,1: material
+M090,CPE-CF,no,1,G090-01,Fillamentum,CPE CF112 Carbon,yes (1 question(s)),no,no,no,1: material
+M090,CPE-CF,no,2,G090-02,Spectrum,pctg cf10,yes (1 question(s)),no,no,yes,1: material
+M090,CPE-CF,no,3,G090-03,colorFabb,XT-CF20,no,no,no,no,1: material
+M091,CoPE,no,1,G091-02,Polymaker,Panchroma CoPE,yes (1 question(s)),no,no,no,1: material
+M092,nGen / Amphora,no,1,G092-01,colorFabb,nGen Amphora AM3300,no,no,no,no,1: material
+M092,nGen / Amphora,no,2,G092-02,colorFabb,nGen,no,no,no,no,1: material
+M093,PVB,no,1,G093-02,Polymaker,PolySmooth,yes (1 question(s)),no,no,no,1: material
+M093,PVB,no,2,G093-04,Polymaker,Polycast,yes (1 question(s)),no,no,no,1: material
+M093,PVB,no,3,G093-01,Prusa Research,PVB Prusament,no,no,no,no,1: material
+M093,PVB,no,4,G093-03,SUNLU,PVB,no,no,no,no,1: material
+M093,PVB,no,5,G093-05,Yousu,PVB,no,no,no,no,1: material
+M093,PVB,no,6,G093-06,Fiberlogy,FiberSmooth,no,no,no,no,1: material
+M094,PC-ABS,no,1,G094-01,3DXTECH,3DXMAX PCABS,yes (3 question(s)),no,no,no,1: material
+M094,PC-ABS,no,2,G094-02,Polymaker,Polymaker PC ABS,yes (1 question(s)),no,no,no,1: material
+M094,PC-ABS,no,3,G094-04,SUNLU,PC/ABS,yes (1 question(s)),no,no,no,1: material
+M094,PC-ABS,no,4,G094-05,Flashforge,PC/ABS,yes (1 question(s)),no,no,no,1: material
+M094,PC-ABS,no,5,G094-07,Nanovia,PC-ABS Rail,yes (1 question(s)),no,no,no,1: material
+M094,PC-ABS,no,6,G094-09,Stratasys,PC-ABS,yes (1 question(s)),no,no,no,1: material
+M094,PC-ABS,no,7,G094-03,Spectrum,pc abs fr v0,no,no,no,no,1: material
+M094,PC-ABS,no,8,G094-06,Fillamentum,PC/ABS,no,no,no,no,1: material
+M094,PC-ABS,no,9,G094-08,Nanovia,PC-ABS V0,no,no,no,no,1: material
+M094,PC-ABS,no,10,G094-10,FormFutura,ABSpro - Flame Retardant,no,no,no,no,1: material
+M094,PC-ABS,no,11,G094-11,Fiberlogy,PC/ABS,no,no,no,no,1: material
+M094,PC-ABS,no,12,G094-12,3DXTECH,Triton PC/ABS Model Material,no,no,no,no,1: material
+M094,PC-ABS,no,13,G094-13,SIDDAMENT,PC ABS,no,no,no,no,1: material
+M095,PC-PBT,no,1,G095-01,Polymaker,Polymaker PC PBT,yes (1 question(s)),no,no,no,1: material
+M095,PC-PBT,no,2,G095-02,Extrudr,DURAPRO PC-PBT,no,no,no,no,1: material
+M096,PVDF,no,1,G096-01,3DXTECH,FLUORX PVDF,yes (1 question(s)),no,no,no,1: material
+M096,PVDF,no,2,G096-02,Fillamentum,Fluorodur,no,no,no,no,1: material
+M096,PVDF,no,3,G096-03,Filament2Print,KOLTRON,no,no,no,no,1: material
+M103,PP Lightweight,no,1,G103-01,3DXTECH,Hyperlite PP,no,yes,no,no,1: material
+M104,PA6-CE,no,1,G104-01,Spectrum,PA6 CS20 FR V0,yes (1 question(s)),no,no,no,1: material
+M105,ASA-EC,no,1,G105-01,Spectrum,ASA Conductive,yes (1 question(s)),no,no,no,1: material
+M106,ABS-AF,no,1,G106-01,Spectrum,ABS Kevlar,yes (2 question(s)),no,no,no,1: material
+M106,ABS-AF,no,2,G106-02,3D4Makers,ABSKevlar,no,no,no,no,1: material
+M106,ABS-AF,no,3,G106-03,Nanovia,ABS AF,no,no,no,no,1: material
+M107,PLA-ESD,no,1,G107-01,Spectrum,PLA ESD,yes (1 question(s)),no,no,no,1: material
+M107,PLA-ESD,no,2,G107-02,3DXTECH,3DXSTAT ESD-PLA,no,no,no,no,1: material
+M108,PA6-GS,no,1,G108-01,Spectrum,PA6 GK10,no,no,no,no,1: material
+M109,PETG-PTFE,no,1,G109-01,Spectrum,PETG/PTFE,yes (1 question(s)),no,no,no,1: material
+M109,PETG-PTFE,no,2,G109-02,Fiberlogy,PETG+PTFE,no,no,no,no,1: material
+M110,PCTG-GF,no,1,G110-01,Spectrum,PCTG GF10,yes (1 question(s)),no,no,no,1: material
+M110,PCTG-GF,no,2,G110-02,FormFutura,AthenaX GF10,yes (1 question(s)),no,no,no,1: material
+M110,PCTG-GF,no,3,G110-03,Fiberlogy,PCTG+GF10,no,no,no,no,1: material
+M111,PLA-EC,no,1,G111-01,Spectrum,PLA Conductive,yes (1 question(s)),no,no,no,1: material
+M111,PLA-EC,no,2,G111-02,Protopasta,Conductive PLA,no,no,no,no,1: material
+M112,PC-PTFE,no,1,G112-01,Spectrum,PC/PTFE,no,no,no,no,1: material
+M112,PC-PTFE,no,2,G112-02,Nanovia,PC-PTFE,no,no,no,no,1: material
+M113,ASA-AF,no,1,G113-01,Spectrum,ASA Kevlar,yes (1 question(s)),no,no,no,1: material
+M113,ASA-AF,no,2,G113-03,Fiberlogy,ASA+AF,yes (1 question(s)),no,no,no,1: material
+M113,ASA-AF,no,3,G113-02,FormFutura,ApolloX Kevlar,no,no,no,no,1: material
+M114,TPC-ESD,no,1,G114-01,3DXTECH,3DXSTAT ESD-TPC (90A),no,no,no,no,1: material
+M116,PC-ESD,no,1,G116-01,3DXTECH,3DXSTAT ESD-PC,yes (1 question(s)),no,no,no,1: material
+M116,PC-ESD,no,2,G116-02,3DXTECH,TriStat ESD-PC Model Material,no,no,no,no,1: material
+M119,PC-ASA,no,1,G119-01,3DXTECH,3DXMAX PC/ASA,yes (1 question(s)),no,no,no,1: material
+M120,PVDF-ESD,no,1,G120-01,3DXTECH,3DXSTAT ESD-PVDF,yes (1 question(s)),no,no,no,1: material
+M124,PPS-ESD,no,1,G124-01,3DXTECH,3DXSTAT ESD-PPS,no,no,no,no,1: material
+M126,TPU-ESD,no,1,G126-02,Extrudr,FLEX MEDIUM ESD,yes (1 question(s)),no,no,no,1: material
+M126,TPU-ESD,no,2,G126-01,3DXTECH,3DXSTAT ESD-TPU (90A),no,no,no,no,1: material
+M128,PC-ABS-CF,no,1,G128-01,3DXTECH,CarbonX Carbon Fiber PC/ABS,yes (2 question(s)),no,no,no,1: material
+M129,TPU-CF,no,1,G129-01,Spectrum,S-Flex Carbon,yes (1 question(s)),no,no,no,1: material
+M129,TPU-CF,no,2,G129-02,Extrudr,FLEX HARD CF,yes (1 question(s)),no,no,no,1: material
+M129,TPU-CF,no,3,G129-07,Fiberlogy,FiberFlex CF,no,no,no,no,1: material
+M130,PPE-PS,no,1,G130-01,3DXTECH,THERMAX PPE/PS,no,no,no,no,1: material
+M131,PC-PBT-CF,no,1,G131-01,Extrudr,DURAPRO PC-PBT CF,no,no,no,no,1: material
+M132,PBT-GF,no,1,G132-01,Flashforge,PBT-GF,yes (1 question(s)),no,no,no,1: material
+M133,PBAT,no,1,G133-01,Flashforge,Flexible,yes (3 question(s)),no,no,no,1: material
+M134,CPE-LW,no,1,G134-01,Fiberlogy,FiberFlex Aero,yes (1 question(s)),no,no,no,1: material
+M135,PVC,no,1,G135-01,Fabru / purefil,Polyvinylchlorid weich 94A (PVC-P),no,no,no,no,1: material
+M135,PVC,no,2,G135-02,Fillamentum,Vinyl 303,no,no,no,no,1: material
+M136,SAN,no,1,G136-01,Fabru / purefil,Styrol-Acrylnitril (SAN),no,no,no,no,1: material
+M136,SAN,no,2,G136-02,Fabru,Styrol-Acrylnitril (SAN),no,no,no,no,1: material
+M137,COC,no,1,G137-01,Fabru / purefil,Cyclo-olefin copolymer impact-modified (COC tough),yes (1 question(s)),no,no,no,1: material
+M137,COC,no,2,G137-03,Fabru,Cyclo-Olefin-Copolymer flexibel (COC flex),no,yes,no,no,1: material
+M138,PE-GF,no,1,G138-01,Fabru / purefil,Polyethylen hohe Dichte Glasfaser 20% (HDPE GF20),no,no,no,no,1: material
+M138,PE-GF,no,2,G138-02,Fabru,Polyethylen high density glass fiber 20% (HDPE GF20),no,no,no,no,1: material
+M138,PE-GF,no,3,G138-03,iSANMATE,HDPE Glass Fiber,no,no,no,no,1: material
+M139,LCP,no,1,G139-01,Fabru / purefil,Liquid Crystal Polymer (LCP),no,no,no,no,1: material
+M140,PBT,no,1,G140-01,Fabru / purefil,Polybutylenterephthalat (PBT),yes (1 question(s)),no,no,no,1: material
+M140,PBT,no,2,G140-02,Fabru,Polybutylenterephthalat (PBT),yes (1 question(s)),no,no,no,1: material
+M141,PET-LW,no,1,G141-01,colorFabb,Lightweight PET,no,no,no,no,1: material
+M141,PET-LW,no,2,G141-02,colorFabb,Lightweight PET FLEX,no,no,no,no,1: material
+M142,nGen-CF,no,1,G142-01,colorFabb,nGen CF10,no,no,no,no,1: material
+M143,nGen FLEX,no,1,G143-01,colorFabb,nGen_FLEX,no,no,no,no,1: material
+M144,PCTG-CF,no,1,G144-02,Nobufil,PCTG CF,yes (1 question(s)),no,no,no,1: material
+M144,PCTG-CF,no,2,G144-03,Fiberlogy,PCTG+CF10,yes (1 question(s)),no,no,no,1: material
+M144,PCTG-CF,no,3,G144-01,FormFutura,AthenaX CF10,no,no,no,no,1: material
+M145,PLA-PHA,no,1,G145-01,colorFabb,PLA/PHA,no,no,no,no,1: material
+M146,PLA-PHB,no,1,G146-01,Fillamentum,NonOilen,yes (1 question(s)),no,no,no,1: material
+M147,PAHT,no,1,G147-01,LEHVOSS,LUVOCOM 3F PAHT 9825 NT,no,no,no,no,1: material
+M148,PAHT-CE,no,1,G148-01,LEHVOSS,LUVOCOM 3F PAHT 9936 BK,no,no,no,no,1: material
+M148,PAHT-CE,no,2,G148-02,LEHVOSS,LUVOCOM 3F PAHT KK 50056 BK,no,no,no,no,1: material
+M149,PCL,no,1,G149-01,iSANMATE,Capa 6500 Polycaprolactone,no,no,no,no,1: material
+M149,PCL,no,2,G149-02,3D4Makers,Facilan PCL100,no,no,no,no,1: material
+M149,PCL,no,3,G149-03,SUNLU,PCL,no,no,no,no,1: material
+M149,PCL,no,4,G149-04,Filament2Print,BioFil - PCL,no,no,no,no,1: material
+M150,TPU-LW,no,1,G039-69,Siraya Tech,Flex TPU Air,no,no,no,no,1: material
+M150,TPU-LW,no,2,G150-01,Recreus,FILAFLEX FOAMY,no,no,no,no,1: material
+M150,TPU-LW,no,3,G150-02,eSUN,TPU LW,no,no,no,no,1: material
+M150,TPU-LW,no,4,G150-03,Recreus,FILAFLEX 95 FOAMY,no,no,no,no,1: material
+M151,TPU-GF,no,1,G151-01,Siraya Tech,Fibreheart TPU GF,yes (1 question(s)),no,no,no,1: material
+M152,PLA-NF,no,1,G152-02,Nanovia,PLA Flax,yes (3 question(s)),no,no,no,1: material
+M152,PLA-NF,no,2,G152-01,Extrudr,FLAX,yes (1 question(s)),no,no,no,1: material
+M153,PETG-GR,no,1,G153-01,3DJake,PROGRAFEN PET-G GRAPHENE STRONG,no,no,no,no,1: material
+M153,PETG-GR,no,2,G153-02,3DJake,PET-G PROGRAFEN GRAPHENE LIGHT,no,no,no,no,1: material
+M154,PA12-AF,no,1,G154-01,Fillamentum,Nylon AF80 Aramid,no,no,no,no,1: material
+M155,PLA-GR,no,1,G155-01,3DJake,PLA PROGRAFEN GRAPHENE LIGHT,no,no,no,no,1: material
+M155,PLA-GR,no,2,G155-02,3DJake,PLA PROGRAFEN GRAPHENE STRONG,no,no,no,no,1: material
+M156,PA6/66-CF,no,1,G156-01,eSUN,ePA CF,no,no,no,no,1: material
+M157,TPU-EC,no,1,G157-01,Recreus,CONDUCTIVE FILAFLEX,no,no,no,no,1: material
+M157,TPU-EC,no,2,G157-02,NinjaTek,Eel,no,no,no,no,1: material
+M158,PLA-CE,no,1,G158-01,Fiberlogy,PLA MINERAL,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,1,G043-01,Bambu Lab,TPU 85A,yes (2 question(s)),no,no,yes,1: material
+M159,TPU 85A class and softer,no,2,G039-06,Spectrum,THE FILAMENT TPU 87A,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,3,G039-07,Spectrum,S-Flex 85A,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,4,G039-09,Spectrum,THE FILAMENT TPU 82A,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,5,G039-15,Extrudr,FLEX SEMISOFT,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,6,G039-54,The Filament,TPU 87A,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,7,G039-56,The Filament,TPU 82A,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,8,G039-64,FormFutura,ReForm rTPU 85A,yes (1 question(s)),no,no,no,1: material
+M159,TPU 85A class and softer,no,9,G039-26,colorFabb,TPU85A,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,10,G039-28,colorFabb,varioShore 85A,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,11,G039-32,NinjaTek,NinjaFlex,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,12,G039-33,Recreus,70A,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,13,G039-38,Essentium,TPU 80A-Z,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,14,G039-41,Recreus,60A,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,15,G039-43,Recreus,82A,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,16,G039-48,eSUN,eFlex,no,no,no,no,1: material
+M159,TPU 85A class and softer,no,17,G039-67,Siraya Tech,Flex TPU 85A,no,no,no,no,1: material
+M160,TPU 90A class,yes,1,G039-03,Polymaker,PolyFlex TPU90,yes (2 question(s)),no,no,no,2: product
+M160,TPU 90A class,yes,2,G039-20,Eryone,TPU 90A,yes (2 question(s)),no,no,no,2: product
+M160,TPU 90A class,yes,3,G042-01,Bambu Lab,TPU 90A,yes (2 question(s)),no,yes,yes,priced
+M160,TPU 90A class,yes,4,G039-04,Spectrum,S-Flex 90A,yes (1 question(s)),no,no,no,2: product
+M160,TPU 90A class,yes,5,G039-11,Polymaker,Polymaker PolyFlex TPU90,yes (1 question(s)),no,no,no,2: product
+M160,TPU 90A class,yes,6,G039-62,FormFutura,ReForm rTPU 90A,yes (1 question(s)),no,no,no,2: product
+M160,TPU 90A class,yes,7,G039-70,Kingroon,TPU 90A,yes (1 question(s)),no,no,no,2: product
+M160,TPU 90A class,yes,8,G167-09,Nanovia,Flex,yes (1 question(s)),no,no,no,2: product
+M160,TPU 90A class,yes,9,G039-18,SUNLU,TPU 90A,no,no,no,no,2: product
+M160,TPU 90A class,yes,10,G039-25,colorFabb,varioShore TPU,no,no,no,no,2: product
+M160,TPU 90A class,yes,11,G039-30,Fillamentum,Flexfill TPU 92A,no,no,no,no,2: product
+M160,TPU 90A class,yes,12,G039-60,colorFabb,varioShore Prosthetic TPU,no,no,no,no,2: product
+M160,TPU 90A class,yes,13,G039-63,FormFutura,Python Flex TPU 90A,no,no,no,no,2: product
+M161,TPU 95A class,yes,1,G039-01,Polymaker,PolyFlex TPU95,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,2,G039-10,Polymaker,PolyFlex TPU95-HF,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,3,G039-12,Polymaker,Polymaker PolyFlex TPU95 HF,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,4,G039-19,SUNLU,TPU 95A,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,5,G039-21,Eryone,Hyper Speed TPU,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,6,G039-22,Flashforge,TPU95A,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,7,G039-27,colorFabb,TPU95A,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,8,G039-50,QIDI,TPU95A-HF,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,9,G039-61,Eryone,Standard TPU,yes (2 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,10,G039-02,iSANMATE,TPU,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,11,G039-05,Spectrum,THE FILAMENT TPU 95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,12,G039-13,Polymaker,Polymaker PolyFlex TPU95,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,13,G039-31,NinjaTek,Cheetah,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,14,G039-35,Prusa Research,Prusament TPU 95A by Prusa Polymers,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,15,G039-36,Raise3D,Premium TPU-95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,16,G039-37,eSUN,TPU 95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,17,G039-40,Recreus,95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,18,G039-42,Recreus,RECIFLEX,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,19,G039-46,FormFutura,ReForm rTPU 95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,20,G039-49,SIDDAMENT,TPU 95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,21,G039-51,SUNLU,TPU,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,22,G039-52,MatterHackers,Build Series TPU,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,23,G039-53,The Filament,TPU 95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,24,G039-55,Anycubic,TPU,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,25,G039-57,MatterHackers,TPU,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,26,G039-58,eSUN,TPU HS,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,27,G039-59,Essentium,TPU 95A-Z,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,28,G039-65,3DJake,TPU A95,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,29,G039-66,Siraya Tech,Flex TPU 95A,yes (1 question(s)),no,no,no,2: product
+M161,TPU 95A class,yes,30,G041-01,Bambu Lab,TPU 95A HF,yes (1 question(s)),no,yes,yes,priced
+M162,TPU harder than 95A,yes,1,G039-08,Spectrum,S-Flex 98A,yes (1 question(s)),no,no,no,2: product
+M162,TPU harder than 95A,yes,2,G039-14,Extrudr,FLEX MEDIUM MATT,yes (1 question(s)),no,no,no,2: product
+M162,TPU harder than 95A,yes,3,G039-16,Extrudr,FLEX HARD,yes (1 question(s)),no,no,no,2: product
+M162,TPU harder than 95A,yes,4,G039-17,Extrudr,FLEX MEDIUM,yes (1 question(s)),no,no,no,2: product
+M162,TPU harder than 95A,yes,5,G039-45,Nanovia,TPU 70D,yes (1 question(s)),no,no,no,2: product
+M162,TPU harder than 95A,yes,6,G039-68,Siraya Tech,Flex TPU 64D,yes (1 question(s)),no,no,no,2: product
+M162,TPU harder than 95A,yes,7,G040-01,Bambu Lab,TPU for AMS,yes (1 question(s)),no,yes,yes,priced
+M162,TPU harder than 95A,yes,8,G039-23,Flashforge,TPU 64D,no,no,no,no,2: product
+M162,TPU harder than 95A,yes,9,G039-24,Fabru / purefil,Thermoplastic polyurethane (TPU),no,no,no,no,2: product
+M162,TPU harder than 95A,yes,10,G039-29,Fillamentum,Flexfill TPU 98A,no,no,no,no,2: product
+M162,TPU harder than 95A,yes,11,G039-34,BigRep,TPU 98A,no,no,no,no,2: product
+M162,TPU harder than 95A,yes,12,G039-39,NinjaTek,Armadillo,no,no,no,no,2: product
+M162,TPU harder than 95A,yes,13,G039-44,eSUN,TPU-64D,no,no,no,no,2: product
+M162,TPU harder than 95A,yes,14,G039-47,FormFutura,Python Flex,no,no,no,no,2: product
+M162,TPU harder than 95A,yes,15,G162-01,Copper3D,MD Flex,no,no,no,no,2: product
+M164,"Nylon, maker-undisclosed polyamide",no,1,G164-09,CreatBot,Ultra PA,yes (2 question(s)),no,no,no,1: material
+M164,"Nylon, maker-undisclosed polyamide",no,2,G164-07,Nanovia,PA Food Industry,yes (1 question(s)),yes,no,no,1: material
+M164,"Nylon, maker-undisclosed polyamide",no,3,G164-02,colorFabb,PA Blue Metal Detectable,no,no,no,no,1: material
+M164,"Nylon, maker-undisclosed polyamide",no,4,G164-05,UltiMaker,MAKERBOT SPECIALTY NYLON,no,no,no,no,1: material
+M164,"Nylon, maker-undisclosed polyamide",no,5,G164-06,colorFabb,PA NEAT,no,no,no,no,1: material
+M165,"Nylon-CF, maker-undisclosed polyamide",no,1,G165-01,colorFabb,PA-CF low warp,no,no,no,no,1: material
+M166,"Nylon-GF, maker-undisclosed polyamide",no,1,G166-01,Markforged,Onyx GF,no,no,no,no,1: material
+M167,"TPE, maker-undisclosed elastomer",no,1,G167-01,Nanovia,TPE 22D,yes (1 question(s)),no,no,no,1: material
+M167,"TPE, maker-undisclosed elastomer",no,2,G167-08,Nanovia,Flex VX,yes (1 question(s)),no,no,no,1: material
+M167,"TPE, maker-undisclosed elastomer",no,3,G167-07,Nanovia,Flex B4C,yes (1 question(s)),yes,no,no,1: material
+M167,"TPE, maker-undisclosed elastomer",no,4,G167-12,Nanovia,ISTROFLEX,yes (1 question(s)),yes,no,no,1: material
+M168,PLA blend,no,1,G001-134,Spectrum,GreenyHT,yes (2 question(s)),no,no,no,1: material
+M168,PLA blend,no,2,G168-05,Spectrum,Greeny Pro,yes (2 question(s)),no,no,no,1: material
+M168,PLA blend,no,3,G001-66,Fabru,GreenTEC Pro,yes (1 question(s)),no,no,no,1: material
+M168,PLA blend,no,4,G168-03,Extrudr,GREENTEC PRO,yes (1 question(s)),no,no,no,1: material
+M168,PLA blend,no,5,G168-04,Extrudr,GREENTEC,yes (1 question(s)),no,no,no,1: material
+M168,PLA blend,no,6,G168-01,BigRep,PRO HT,no,no,no,no,1: material
+M168,PLA blend,no,7,G168-02,3DJake,niceBIO,no,no,no,no,1: material
+M169,PLA blend-CF,no,1,G169-01,Extrudr,GREENTEC PRO CF,yes (1 question(s)),no,no,no,1: material
+M169,PLA blend-CF,no,2,G169-02,BigRep,HI-TEMP CF,no,no,no,no,1: material
+M170,TPS,no,1,G167-02,Fillamentum,Flexfill TPE 90A,no,no,no,no,1: material
+M170,TPS,no,2,G167-10,eSUN,TPE 83A,no,no,no,no,1: material
+M170,TPS,no,3,G167-11,Fillamentum,Flexfill TPE 96A,no,no,no,no,1: material
+M170,TPS,no,4,G170-01,Fabru,Thermoplastic styrene block copolymer elastomer (TPS),no,no,no,no,1: material
+M170,TPS,no,5,G170-02,BASF Forward AM,Ultrafuse TPS 90A,no,no,no,no,1: material
+M174,SBC,no,1,G174-01,FormFutura,Crystal Flex,no,no,no,no,1: material
+M175,TPV,no,1,G167-13,Fabru,Thermoplastic vulcanizate (TPV),no,no,no,no,1: material
