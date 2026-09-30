@@ -524,45 +524,10 @@ h3.sec:first-child { margin-top: 0; }
 }
 .banner.assumption { background: var(--unknown-bg); color: var(--unknown); border-color: var(--unknown); }
 
-/* ---------------------------------------------------------------- Ashby lens, before D107
-   The axis picks, option cards and guide-line card of the chart before D107 (.ashby-axes, .ashby-options, .opt-group,
-   .index-card) are no longer drawn; .opt-help, .axis-swap, the notices, #plot, the key and .legend-note still are. */
-.ashby-axes {
-  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px;
-  padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
-}
-.axis-pick { flex: 1 1 400px; min-width: 0; }
-.axis-pick label { display: block; font-size: var(--t-small); font-weight: 600; color: var(--ink-2); margin-bottom: 5px; }
-.axis-row { display: flex; gap: 8px; align-items: stretch; }
-.axis-row select { flex: 1 1 auto; }
-.axis-row .segmented { flex: 0 0 auto; }
+/* ---------------------------------------------------------------- Ashby lens: what every view shares
+   The swap button, the menus' help lines, the notices, the plot, the key under it and the folded notes. */
 .axis-swap { flex: 0 0 auto; margin-bottom: 1px; padding-block: 7px; }
-
-.ashby-axes select, .ashby-options select {
-  padding: 7px 9px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius);
-  background: var(--bg); color: var(--ink); min-width: 0; width: 100%;
-}
-
-.ashby-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-bottom: 14px; }
-.opt-group {
-  display: flex; flex-direction: column; gap: 6px; min-width: 0;
-  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 10px 12px 12px;
-}
-.opt-group h3 {
-  margin: 0 0 2px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3);
-}
 .opt-help { margin: 0; font-size: var(--t-label); color: var(--ink-3); line-height: 1.45; }
-.opt-check { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: var(--t-small); color: var(--ink); cursor: pointer; }
-.opt-check input { margin: 0; }
-.opt-check:has(input:disabled) { color: var(--ink-3); cursor: default; }
-.plot-data-state {
-  display: flex; align-items: center; gap: 7px; min-height: 24px; margin-top: 6px;
-  font-size: var(--t-small); color: var(--ink-2);
-}
-.plot-data-state::before {
-  content: ''; width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%;
-  background: var(--border-strong);
-}
 .ashby-notices { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .ashby-notices:empty { display: none; }
 .ashby-notices .banner { margin-bottom: 0; }
@@ -576,7 +541,6 @@ h3.sec:first-child { margin-top: 0; }
   border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
   font-size: var(--t-label); color: var(--ink-2);
 }
-.ashby-key .key-head { font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
 .ashby-key .key-item { display: inline-flex; align-items: center; gap: 6px; }
 .ashby-key .key-note { color: var(--ink-3); }
 .key-glyph { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; stroke: currentColor; }
@@ -584,21 +548,6 @@ h3.sec:first-child { margin-top: 0; }
 .legend-note { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
 .legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
 #index-card + .legend-note { margin-top: 12px; line-height: 1.55; }
-
-.index-card {
-  border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px;
-  background: var(--surface); font-size: 13px; margin-top: 12px;
-}
-.index-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-.index-card h4 { margin: 0 0 4px; font-size: 13px; }
-.index-card .formula { font-family: var(--mono); font-size: 13px; color: var(--accent); }
-.index-card ul { margin: 8px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 12.5px; }
-.index-move { margin-top: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.index-move label { font-size: 12px; font-weight: 600; }
-.index-move input[type="range"] { flex: 1; min-width: 160px; }
-.index-move .formula { font-size: 12px; }
-.index-of { color: var(--ink-3); font-size: 12px; }
-.index-fix { margin-top: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
 /* ---------------------------------------------------------------- Ashby decision workspace (D107 to D111)
    The question in one bar, the controls as three rows (Draw, Also, Line) with More the one menu, opening over the chart
@@ -655,7 +604,6 @@ h3.sec:first-child { margin-top: 0; }
 .ws-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px; font-size: var(--t-small); }
 .ws-row + .ws-row { border-top: 1px solid var(--border); }
 .ws-row-label { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); width: 3.4em; flex: 0 0 auto; }
-.ws-row-note { color: var(--ink-3); font-size: var(--t-label); }
 .ws-row-sep { width: 1px; align-self: stretch; background: var(--border); margin: 0 2px; }
 .ws-row-end { margin-left: auto; }
 .ws-views button { padding-block: 3px; }
@@ -701,7 +649,6 @@ h3.sec:first-child { margin-top: 0; }
   font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-top: 1px solid var(--border);
   background: var(--unknown-bg); border-left: 3px solid var(--unknown);
 }
-.ws-note-quiet { background: var(--surface); border-left-color: var(--border-strong); color: var(--ink-2); padding: 3px 10px; }
 .ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
 .ws-menu-panel h4:first-child { margin-top: 0; }
 .ws-menu-item[aria-pressed="true"] { font-weight: 650; }
@@ -726,7 +673,6 @@ h3.sec:first-child { margin-top: 0; }
 .ws-pill .icon-btn { min-height: 20px; padding: 0 6px; }
 
 .ws-line { box-shadow: inset 3px 0 0 var(--accent); }
-.ws-line-name { font-size: var(--t-label); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
 .ws-line-m { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
 .ws-line-m input { width: 96px; padding: 2px 6px; font: inherit; font-family: var(--mono); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
 .ws-line-slider { flex: 1 1 120px; min-width: 90px; }
@@ -737,7 +683,6 @@ h3.sec:first-child { margin-top: 0; }
 
 .ws-summary { font-size: var(--t-small); color: var(--ink-2); }
 .ws-count { color: var(--ink); }
-.ws-focus { margin-left: 8px; }
 
 .ws-results {
   min-width: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
@@ -909,9 +854,6 @@ table.cov td.mat { padding: 0 10px 0 0; white-space: nowrap; font-size: 12px; }
   .search input { width: 140px; }
 }
 /* The pre-D107 option cards, one under another (no longer drawn). */
-@media (max-width: 732px) {
-  .ashby-options { grid-template-columns: minmax(0, 1fr); }
-}
 /* A phone. The top bar is two rows: the search with Filters, Save / share and the theme as icons, then the
    missing-data switch with Use estimates. The title goes (the browser tab carries it). It was three or four rows, which
    with the tabs, the status bar and the shortlist left the results about 350 px of an 844 px screen. */
