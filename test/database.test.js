@@ -56,10 +56,11 @@ test('every product value equals its measurement, and a material\'s headline is 
   assert.ok(checked >= 3000, `only ${checked} product values`);
 });
 
-test('a derived coverage row speaks only where no stored row does, and only for what the records prove', () => {
-  // m48 moved 541 templated "Evidence recorded" rows out of coverage.csv. The build reports those pairs from the
-  // material's own records instead. A stored row is a judgement and always wins; a derived one must never invent a
-  // pair, contradict a stored status, or carry an identifier that is not in the tables.
+test('a derived coverage row speaks only where no stored row does, and only for what the records show', () => {
+  // m48 moved 541 templated "Evidence recorded" rows out of coverage.csv, and m233 145 templated Gaps (D74, D114). The
+  // build reports those pairs from the material's own records instead, evidence and absence. A stored row is a judgement
+  // and always wins; a derived one must never invent a pair, contradict a stored status, or carry an identifier that is
+  // not in the tables.
   const stored = db.coverage.filter((c) => !c.derived);
   const derived = db.coverage.filter((c) => c.derived);
   assert.ok(derived.length > 400, `only ${derived.length} derived coverage rows`);
@@ -67,16 +68,31 @@ test('a derived coverage row speaks only where no stored row does, and only for 
   const storedPairs = new Set(stored.filter((c) => c.status !== 'Superseded').map((c) => `${c.materialId} | ${c.domain}`));
   for (const c of derived) {
     assert.ok(!storedPairs.has(`${c.materialId} | ${c.domain}`), `${c.id} speaks for a pair a stored row already speaks for`);
-    assert.equal(c.status, 'Evidence recorded');
+    assert.ok(['Evidence recorded', 'Gap', 'Limited comparability'].includes(c.status), `${c.id} derives "${c.status}"`);
     assert.equal(c.manufacturerCount, null, `${c.id} quotes a manufacturer count, which only a stored Grades row does`);
     assert.match(c.id, /^derived-M\d{3}-[a-z0-9-]+$/);
     assert.ok(c.finding && c.finding.length > 20, `${c.id} has no finding worth reading`);
   }
-  // Every derived row must be provable by the same rule the validator checks stored rows with.
+  // Every derived row must agree with the same rule the validator checks stored rows with: evidence only with records,
+  // a gap only without, and a limited price only where the price is converted from a foreign listing (D113).
   const byId = new Map(db.materials.map((m) => [m.id, m]));
-  for (const c of derived) {
-    const data = domainData(db, byId.get(c.materialId));
-    assert.ok((data[c.domain] ?? []).length > 0, `${c.id} claims evidence the coverage rules cannot see`);
+  for (const c of derived.filter((x) => x.domain !== 'Sparse properties')) {
+    const m = byId.get(c.materialId);
+    const has = (domainData(db, m)[c.domain] ?? []).length > 0;
+    if (c.status === 'Evidence recorded') assert.ok(has, `${c.id} claims evidence the coverage rules cannot see`);
+    else assert.ok(!has && !m.familyEntry, `${c.id} says "${c.status}" beside records of its own, or on a family entry`);
+    if (c.status === 'Limited comparability') assert.ok(c.domain === 'Canadian price' && m.headline.priceCADkg?.converted, `${c.id} is limited without a converted price`);
+    // A price gap beside listings that give no price (out of stock) names them, rather than saying there are none.
+    if (c.domain === 'Canadian price' && c.status === 'Gap') {
+      const listed = db.prices.filter((p) => p.materialId === m.id && !p.quarantined);
+      assert.ok(listed.every((p) => c.finding.includes(p.id)) && (listed.length > 0) !== c.finding.startsWith('No listing'), `${c.id}: "${c.finding}"`);
+    }
+  }
+  // The rarely published properties a derived row names are exactly the ones the material's own products leave out.
+  for (const c of derived.filter((x) => x.domain === 'Sparse properties' && x.status === 'Gap')) {
+    const published = new Set(db.measurements.filter((m) => m.materialId === c.materialId && (m.numeric || m.qualitative) && !m.quarantined).map((m) => m.property));
+    const named = c.finding.replace(/^Not published by its own products: /, '').replace(/\.$/, '').split(', ');
+    assert.deepEqual(named.filter((p) => published.has(p)), [], `${c.id} names a property the material publishes`);
   }
   // No derived row may carry an ID any record cites: nothing in the tables points at one.
   const ids = new Set(derived.map((c) => c.id));

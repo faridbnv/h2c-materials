@@ -159,7 +159,7 @@ The database is a set of CSV files in `data/tables` you can open in any editor. 
 | `fx_rates` | one Bank of Canada rate for one currency on one day, which a foreign listing is compared at (D113) |
 | `headlines` | a pin: the measurement that is one product's value where the rule would choose another, with a reason. Normally empty |
 | `polymers` | what the estimate model knows about each polymer: crystallinity, melting point, water uptake, neat density |
-| `coverage` | what was looked for and not found, so a blank is a recorded absence, not an oversight |
+| `coverage` | a reviewer's judgement about one kind of a material's data: a conflict, a limitation, a gap closed. Whether a material has records of a kind, or none, the build works out itself (D74, D114) |
 
 How they fit together. Crow's feet mark the "many" end: one material has many grades, one grade has many
 measurements, one measurement is published in exactly one source.

@@ -233,9 +233,9 @@ the maker's words (D85). STYX PA6 has thirteen such statements, Q03433 to Q03445
 `material_links.csv` records what the material cites, in order: printing, h2c-status, use, durability, safety.
 STYX PA6 added none: it joined a material that had its citations, and it has no profile of its own.
 
-Then `coverage.csv`, but **only for what a reader could not work out**: a gap, a conflict, a comparability
-limitation, a judgement. The build reports the domains the material's own records prove, and says what proves them
-(D74). Do not write a row saying the material has measurements; it has them or it does not.
+Then `coverage.csv`, but **only for what a reader could not work out**: a conflict, a comparability limitation, a
+judgement. The build reports each domain's evidence or its absence from the material's own records, and says what it
+found (D74, D114). Do not write a row saying the material has measurements, or has none; it has them or it does not.
 
 ---
 

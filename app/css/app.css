@@ -986,6 +986,9 @@ button.chip[disabled] { opacity: .5; cursor: default; }
 .sw.partial { background: var(--indet-bg); color: var(--indet); }
 .sw.gap { background: var(--unknown-bg); color: var(--unknown); }
 .sw.bad { background: var(--fail-bg); color: var(--fail); }
+.sw.none { background: var(--surface-2); color: var(--ink-3); }
+.cov-other { margin-top: 14px; max-width: 90ch; font-size: var(--t-small); color: var(--ink-2); line-height: 1.55; }
+.cov-other .sw { display: inline-grid; width: 18px; height: 18px; margin-right: 6px; vertical-align: -3px; border-radius: 4px; place-items: center; font-size: 11px; font-weight: 700; }
 
 .cov-scroll { overflow: auto; border: 1px solid var(--border); border-radius: var(--radius); }
 table.cov2 { border-collapse: collapse; width: 100%; font-size: var(--t-small); }

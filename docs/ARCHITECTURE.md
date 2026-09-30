@@ -101,7 +101,7 @@ base64-encoded). The plotting library is still most of what the file weighs: 4.3
 | `compile.js` | Assemble the relational runtime database. A material's headline starts missing, with its related evidence and implied bounds (from printed values only, D55); products.js fills each one its products publish comparably. |
 | `products.js` | Every product's own value per headline and its print recipe, chosen by rule, every material's spread across its products, and the material headline that spread gives (D83; re-center phases 1 and 4). Where a product is silent, its twin's (same material and formulation key, D89), then for the print gate its material's guide row (D88), each so read labelled. Every product's decision states (`states`, D99): as printed and dry, each annealing schedule, conditioned, each holding only its own values, with the conditions each value admitted unstated. Its twins (`twins`). Checks the pins in `headlines.csv`. The engine judges the products. |
 | `gates.js` | A gate across several print profiles (within beats partial beats exceeds beats unknown), for a material and for a product. |
-| `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data; compile derives coverage rows from it (D74), and validation checks the stored rows against it. |
+| `coverage-rules.js` | Define, once, what counts as a material's own mechanical, thermal, print, environmental and price data, and which rarely published properties it lacks; compile derives coverage rows from it, evidence and absence (D74, D114), and validation checks the stored rows against it. |
 | `pipeline.js` | The stages every caller runs (the build, the snapshot, the audit, the trace, the tests): compile, the estimate stage, validate. `estimates: false` builds the core database alone, and it must validate. |
 | `build-cache.js` | The result of `buildDatabase` stored in `.cache/build/` under a SHA-256 of everything it depends on, so the callers that compile the same tables run the estimate stage once (below, "Scale"). |
 | `estimate/` | The estimate stage, applied to the compiled database as an overlay (D58): one calibrated Gaussian model per headline over every observation, converted to the headline, configured by `build/mappings/estimate-model.json` (conversions, limits, the fit's judgements) and the tables it reads (`polymers.csv`, a material's Estimate identity and Variant class, Shore hardness measurements; D43, D53, D60), following printing physics (D56) and bounded by what the material's own printed data prove (D55); the screening back-test that decides which evidence may screen (D48); estimated nozzle and bed windows, which decide nothing. `model.js` configuration and shared names, `numerics.js`, `observations.js` conversion kinds and the snapshot, `conversions.js`, `gaussian.js` kernel, fit and prediction, `solver.js` the kernel solved block by chemical group (D79), `calibration.js`, `bounds.js` ranges and their limits, `screening.js`, `print.js`, `validate.js` its checks and report section, `index.js` the stage. `grades.js` predicts every active grade at its own row and calibrates those ranges at grade level (D81); a grade estimate decides nothing. |
@@ -458,10 +458,11 @@ Compile also derives, each tagged with its origin so the interface can tell them
 - **What a material's headline values represent**, and the sentence describing its price sample. Both were columns
   of `materials.csv` until m45: the first is now one of three sentences chosen by Scope and whether any of its
   products publishes a comparable value, the second counts the observations compile already counts (D70).
-- **Coverage rows for the domains a material's own records prove**, one per (material, domain) pair no stored row
-  speaks for, marked `derived` and naming what proves it: the measurement count, the profile IDs, the price
-  observations. A stored row is somebody's judgement and always wins. 541 templated rows that only restated the
-  records left the table for the audit record when this began (D74).
+- **Coverage rows for what a material's own records show**, one per (material, domain) pair no stored row speaks
+  for, marked `derived`: evidence, naming what proves it (the measurement count, the profile IDs, the price
+  observations), or its absence, naming what is missing, and for price a converted price as limited (D113). A stored
+  row is somebody's judgement and always wins. 541 templated "Evidence recorded" rows left the table when this began
+  (D74), and 145 templated Gap rows when absence was derived too (D114).
 - **A print summary** per material: the widest published nozzle, bed and chamber window across its
   profiles, with the number of profiles behind each. It answers "what do I set it to", which was otherwise only in
   free text one tab deep. Where the chamber is answered in words, the strongest statement across the

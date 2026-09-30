@@ -137,7 +137,7 @@ npm run sql --silent -- "select measurementid, materialid, property, raw_value f
   where data_status = 'Unresolved unit / layout'"
 ```
 
-## 4. Eight conflicts nobody has been able to resolve
+## 4. Seven conflicts nobody has been able to resolve
 
 `coverage.csv`, status `Conflict` or `Quarantined`. Each names what is needed:
 
@@ -146,14 +146,14 @@ npm run sql --silent -- "select measurementid, materialid, property, raw_value f
 | C01409 | PLA-GF | The iSANMATE sheet's glass-fibre heading contradicts its carbon-fibre description. iSANMATE's own Formnext announcement sides with glass fibre (m208), but no composition declaration states the filler. Needs one, or ash / TGA on purchased filament. |
 | C01106 | PCTG | See V001540 above. |
 | C01108 | PLA-CF | A third impact row repeats the XY label and states no notch. Notch recorded as Not published; nothing inferred. |
-| C01110 | ABS | A retailer listing (CA0069) for PLA Pure was attached to ABS. Quarantined and excluded from pricing. |
 | C01411 | nGen / Amphora | colorFabb's nGen page and its printing guide name Eastman AM3300; its sheet v2.0 names HT3300 (re-read by m208). colorFabb to settle. |
 | C01412 | PLA Silk | eSUN's Silk Rainbow page labels the sheet's moulded-bar figures Z and XY (m208). eSUN to say how the bars were made. |
 | C01413 | TPU harder than 95A | Extrudr's FLEX MEDIUM MATT page prints 420 % and 34 MPa where the sheet prints the flagged 6.9 % and 470 N/mm² (m208). |
 | C01414 | PAHT-CE | LEHVOSS's compound sheet prints 5,5 GPa and 1,40 g/cm³, the 3D4Makers filament sheet 6 GPa and 1,49 (m208). |
 
-C01136 (Fiberon PET-GF15's chamber) is resolved: Polymaker's wiki prints room temperature and recommends an enclosure
-"for best results" (C01410, m208).
+C01110 (ABS: a PLA Pure listing, CA0069, filed under ABS) is resolved: the listing is filed under PLA Pure (G001-183)
+since m233, once the price pass gave that grade listings of its own. C01136 (Fiberon PET-GF15's chamber) is resolved:
+Polymaker's wiki prints room temperature and recommends an enclosure "for best results" (C01410, m208).
 
 ```bash
 npm run sql --silent -- "select coverageid, materialid, domain, finding from coverage where status in ('Conflict','Quarantined')"

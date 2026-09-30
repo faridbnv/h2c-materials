@@ -72,12 +72,51 @@ export const DERIVED_FINDING = {
   'Canadian price': (m, ids) => `${ids.length} in-stock regular-price observation(s), before tax/shipping.`,
 };
 
+/**
+ * The finding a derived row carries where the records show nothing of a domain (D114): what is missing, counted from the
+ * same rule, so a material with no stored row reads as a gap exactly as one with a stored Gap does, not as a blank.
+ */
+export const DERIVED_ABSENT = {
+  'H2C status': (m) => (m.h2cStatus ? `H2C status "${m.h2cStatus}" is recorded with no document cited behind it.` : 'No H2C status recorded.'),
+  'Print setup': () => 'No print profile of its own products publishes a nozzle, bed, chamber or drying setting.',
+  Mechanical: () => 'Its own products publish no mechanical value.',
+  Thermal: () => 'Its own products publish no thermal value.',
+  'Moisture / environmental': (m, db) => `No exposure, solubility or moisture record from its own sources.${(db.polymerEvidence ?? []).some((e) => e.materialId === m.id)
+    ? ' Its base polymer\'s published behaviour is shown instead, labelled polymer-level.' : ''}`,
+  'Canadian price': (m, db) => {
+    const listed = db.prices.filter((p) => p.materialId === m.id && !p.quarantined);
+    if (!listed.length) return 'No listing of its own products in the sampled shops, Canadian or foreign.';
+    const why = listed.every((p) => p.stock !== 'In stock') ? 'out of stock' : 'without a regular price the sample can use';
+    return `No price: ${listed.length === 1 ? 'the one listing' : listed.length === 2 ? 'both listings' : `all ${listed.length} listings`} of its own products in the sampled shops (${listed.map((p) => p.id).join(', ')}) ${listed.length === 1 ? 'is' : 'are'} ${why}.`;
+  },
+};
+
+/**
+ * The properties almost no data sheet publishes for a filament, the "Sparse properties" domain. Which of them a
+ * material's own products leave unpublished is derived from its measurements (D114); three are not properties the
+ * registry holds yet, so no filament publishes them here.
+ */
+export const SPARSE_PROPERTIES = ['Compression strength', 'Coefficient of thermal expansion', 'Thermal conductivity', 'Fracture toughness',
+  'Fatigue life', 'Creep compliance', 'Coefficient of friction'];
+
+/**
+ * A material priced only from foreign listings has no Canadian price, and is not unpriced either (D113): its price
+ * coverage is limited, and says from what.
+ */
+const convertedPrice = (m) => {
+  const c = m.headline?.priceCADkg?.known ? m.headline.priceCADkg.converted : null;
+  if (!c) return null;
+  const whose = c.products ? `the foreign listings of ${c.products === 1 ? 'one of its products' : `${c.products} of its products`}` : 'its foreign listings';
+  return `No Canadian listing in the sample: priced from ${whose}, in ${c.currencies.join(' and ')}, converted at the Bank of Canada rate of ${c.rateDate} (D113).`;
+};
+
 /** The id of a derived row. Not a C##### key: nothing in the tables has this identifier, and nothing may cite it. */
 export const derivedId = (materialId, domain) => `derived-${materialId}-${domain.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 
 /**
- * Coverage rows the build derives: one per (material, domain) the build can prove and no stored row speaks for.
- * A stored row always wins, because it is a judgement somebody made and this is only a restatement of the records.
+ * Coverage rows the build derives: one per (material, domain) no stored row speaks for, saying what the records show,
+ * evidence or its absence (D74, D114). A stored row always wins, because it is a judgement somebody made and this is only
+ * a restatement of the records.
  */
 export function derivedCoverage(db) {
   const stored = new Set(db.coverage.filter((c) => c.status !== 'Superseded').map((c) => `${c.materialId}\u0000${c.domain}`));
@@ -85,13 +124,24 @@ export function derivedCoverage(db) {
   for (const material of db.materials) {
     const data = domainData(db, material);
     for (const domain of Object.keys(DERIVED_FINDING)) {
+      if (stored.has(`${material.id}\u0000${domain}`)) continue;
       const ids = data[domain] ?? [];
-      if (!ids.length || stored.has(`${material.id}\u0000${domain}`)) continue;
-      out.push({
-        id: derivedId(material.id, domain), materialId: material.id, domain, status: 'Evidence recorded',
-        manufacturerCount: null, finding: DERIVED_FINDING[domain](material, ids), derived: true,
-      });
+      const row = (status, finding) => out.push({ id: derivedId(material.id, domain), materialId: material.id, domain, status, manufacturerCount: null, finding, derived: true });
+      if (ids.length) { row('Evidence recorded', DERIVED_FINDING[domain](material, ids)); continue; }
+      // Absence is a restatement of the records too (D114), except for a family entry, which owns no product and whose
+      // stored rows say Not applicable where it had findings.
+      if (material.familyEntry || !DERIVED_ABSENT[domain]) continue;
+      const converted = domain === 'Canadian price' && convertedPrice(material);
+      if (converted) row('Limited comparability', converted);
+      else row('Gap', DERIVED_ABSENT[domain](material, db));
     }
+    // The rarely published properties: a Gap naming the ones its own products do not publish.
+    if (material.familyEntry || stored.has(`${material.id}\u0000Sparse properties`)) continue;
+    const published = new Set(db.measurements.filter((m) => m.materialId === material.id && (m.numeric || m.qualitative) && !m.quarantined).map((m) => m.property));
+    const missing = SPARSE_PROPERTIES.filter((p) => !published.has(p));
+    out.push({ id: derivedId(material.id, 'Sparse properties'), materialId: material.id, domain: 'Sparse properties', manufacturerCount: null, derived: true,
+      ...(missing.length ? { status: 'Gap', finding: `Not published by its own products: ${missing.join(', ')}.` }
+        : { status: 'Evidence recorded', finding: `Its own products publish every rarely published property: ${SPARSE_PROPERTIES.join(', ')}.` }) });
   }
   return out;
 }

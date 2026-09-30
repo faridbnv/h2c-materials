@@ -242,8 +242,8 @@ the sources answer only in words is shown in words. How many materials publish e
 
 `buy` answers "where do I get it". The price observations carry a retailer URL, and this picks one:
 in stock first, then the observation behind the headline, then whatever carries a price. A quarantined observation,
-such as CA0069 (a PLA Pure listing once filed under ABS), is never the buy link or the evidence of
-stock.
+such as CA0098 (a second record of a Spectrum PA6 Neat listing already filed under G049-01), is never the buy link or
+the evidence of stock.
 
 **Neither is evidence about the material.** `print` is a machine setting recovered from free text
 and `buy` is a market observation on a single day. They are shown because they decide whether
@@ -666,7 +666,7 @@ product it is about (`coverage.csv` GradeID, m213), and a conflict about one pro
 Coverage is terminal: it reports gaps and never feeds candidate selection. It still must describe
 the records truthfully. `build/src/coverage-rules.js` defines what counts as own data for Mechanical,
 Thermal, Print setup, Moisture / environmental and Canadian price coverage. The same definitions
-drive both the coverage rows the build derives (D74) and validation, so a row cannot say `Gap` beside its own data,
+drive both the coverage rows the build derives, evidence and absence (D74, D114), and validation, so a row cannot say `Gap` beside its own data,
 claim `Evidence recorded` on another material's family notes, or quote the wrong manufacturer count.
 
 An environment category is a **verdict** category where its findings reduce to resistant, limited or not resistant,
@@ -808,7 +808,7 @@ The figures are not repeated here: [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) gives th
 - The measured headlines the honest hold-outs flag as far from their prediction (EST-OUTLIER) are products carrying a
   filler the model has no covariate for; each is accepted with its reason, and OPEN-PROBLEMS §6 says which were
   re-read.
-- The build derives a coverage row for each domain a material's own records prove (D74), and checks a stored row's
+- The build derives a coverage row for each domain a material's own records prove or show nothing for (D74, D114), and checks a stored row's
   "Gap" or "Evidence recorded" against the records for mechanical, thermal, print setup, environmental and price data,
   and a Grades row's manufacturer count against its products (m32); the other coverage findings are prose a reviewer
   wrote, and the Post-processing / application domain cannot be derived (OPEN-PROBLEMS §7).

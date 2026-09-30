@@ -31,5 +31,5 @@ NOT MEASURED FOR THIS MATERIAL
 Flexural stress at conventional deflection · Izod strength · Compression strength · Interlayer adhesion strength · Fatigue life · Tear strength · Abrasion loss · Compression set · Poisson's ratio
 Absent from the sampled sources. Not zero, and not a low value.
 COVERAGE
-Sparse properties — Gap. Not published in sampled selected-grade evidence: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction
 Mechanical — Evidence recorded. 1199 mechanical measurement(s) of this material's own grades. See specimen, direction, moisture, preparation and standard before comparing.
+Sparse properties — Gap. Not published by its own products: Compression strength, Coefficient of thermal expansion, Thermal conductivity, Fracture toughness, Fatigue life, Creep compliance, Coefficient of friction.

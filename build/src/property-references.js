@@ -11,7 +11,10 @@ import { issue } from './rules.js';
 
 export const CODE_PROPERTY_NAMES = {
   'HDT': 'compile.js (test load), estimate/ (heat-deflection conversions), typed-values via m08',
-  'Fatigue life': 'compile.js (fatigue record)',
+  'Fatigue life': 'compile.js (fatigue record), coverage-rules.js (the rarely published properties, D114)',
+  'Compression strength': 'coverage-rules.js (the rarely published properties, D114)',
+  'Coefficient of thermal expansion': 'coverage-rules.js (the rarely published properties, D114)',
+  'Thermal conductivity': 'coverage-rules.js (the rarely published properties, D114)',
   'Melting temperature': 'estimate/ (melting-point bound and covariate), lint-rules.js (MEAS-PHYSICS-ORDER)',
   'Glass transition temperature': 'estimate/ (amorphous bound), lint-rules.js (MEAS-PHYSICS-ORDER)',
   'Vicat softening temperature': 'estimate/ (HDT conversion), lint-rules.js (MEAS-PHYSICS-ORDER)',

@@ -1,0 +1,15 @@
+{
+ "before": "a7f6cf7c06e7",
+ "after": "b8d13dc62ff6",
+ "questions": 15,
+ "evaluations": 18195,
+ "verdictChanges": 0,
+ "transitions": {},
+ "screenChanges": {},
+ "newPasses": 0,
+ "appeared": 0,
+ "vanished": 0,
+ "changes": [],
+ "appearedRows": [],
+ "vanishedRows": []
+}

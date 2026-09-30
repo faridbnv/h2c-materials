@@ -17,13 +17,15 @@ const STATE = {
   'Gap': 'gap',
   'Conflict': 'bad', 'Quarantined': 'bad',
 };
-const MARK = { ok: '✓', partial: '◐', gap: '–', bad: '✕' };
-const WORD = { ok: 'Evidence recorded', partial: 'Limited or partial', gap: 'Gap, nothing recorded', bad: 'Conflict or quarantined' };
+const MARK = { ok: '✓', partial: '◐', gap: '–', bad: '✕', none: '' };
+// Since D114 the build derives a gap as it derives evidence, so a blank cell is only a domain nobody assessed: the
+// Application column, whose rows are judgements the records cannot restate (D74).
+const WORD = { ok: 'Evidence recorded', partial: 'Limited or partial', gap: 'Gap, nothing recorded', bad: 'Conflict or quarantined', none: 'Not assessed' };
 
 const SHORT = {
   'Identity': 'Identity', 'H2C status': 'H2C', 'Print setup': 'Printing', 'Mechanical': 'Mechanical',
   'Thermal': 'Thermal', 'Moisture / environmental': 'Environment', 'Post-processing / application': 'Application',
-  // Canadian listings only: a product priced from a foreign listing leaves this gap open (D113).
+  // A Canadian listing is recorded; a price converted from a foreign listing only is limited (D113, D114).
   'Canadian price': 'CA price',
 };
 
@@ -107,12 +109,33 @@ export function renderCoverage(host, state, actions) {
         </tbody>
       </table>
     </div>
+    ${otherConflicts(materials, db)}
     ${sparseNote(materials, db, n)}`;
 
   // A cell opens the material at its Coverage tab, where the record behind the mark is, and so does a material named
   // under the table; the name in the grid opens the Overview.
   host.querySelectorAll('[data-open]').forEach((e) => e.addEventListener('click', () =>
     actions.openMaterial(e.dataset.open, e.dataset.domain ? 'Coverage' : 'Overview')));
+}
+
+/**
+ * Conflicts and quarantines recorded in a domain the grid has no column for (a composition, a source that contradicts
+ * itself, a measurement that could not be parsed). The legend promises ✕ for a conflict, so one the grid cannot show is
+ * named under it rather than left for the drawer alone.
+ */
+function otherConflicts(materials, db) {
+  const shown = new Set([...GRID, SPARSE]);
+  const on = new Set(materials.map((m) => m.id));
+  const byMaterial = new Map();
+  for (const c of db.coverage) {
+    if (!on.has(c.materialId) || shown.has(c.domain) || STATE[c.status] !== 'bad') continue;
+    if (!byMaterial.has(c.materialId)) byMaterial.set(c.materialId, []);
+    byMaterial.get(c.materialId).push(`${c.domain.toLowerCase()}${c.status === 'Quarantined' ? ', quarantined' : ''}`);
+  }
+  if (!byMaterial.size) return '';
+  const names = new Map(materials.map((m) => [m.id, m.name]));
+  const list = [...byMaterial].map(([id, what]) => `<button class="link-btn" data-open="${esc(id)}" data-domain="Coverage">${esc(names.get(id))}</button> (${esc(what.join('; '))})`).join(', ');
+  return `<p class="cov-other"><span class="sw bad" aria-hidden="true">✕</span> Also recorded as a conflict, in a domain these columns do not show: ${list}. Each material's Coverage tab has the record.</p>`;
 }
 
 /**

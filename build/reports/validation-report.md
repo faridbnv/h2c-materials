@@ -21,11 +21,11 @@ Database snapshot 2026-09-21 · build 2026-09-30
 | evidence | 625 |
 | prices | 357 |
 | sources | 1828 |
-| coverage | 949 |
+| coverage | 805 |
 | knowHow | 4665 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 338 |
-| coverageDerived | 707 |
+| coverageDerived | 1144 |
 
 ## Headline coverage
 

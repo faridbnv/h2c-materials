@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { readCsv } from '../build/src/csv.js';
 import { storeBytes } from '../scripts/data/source-store.mjs';
 import { shopifyCatalogueOffers, jsonLdOffers, amazonOffers, shopMeta, massKg, isOneSeventyFive } from '../scripts/lib/offers.mjs';
-import { guard, rehearse, priceRow, sourceRow } from '../scripts/ingest/prices.mjs';
+import { guard, rehearse, priceRow, sourceRow, writePrices } from '../scripts/ingest/prices.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CATALOGUE_URL = 'https://fixture-shop.invalid/products.json?limit=250&page=1';
@@ -106,13 +106,14 @@ test('a row the offer does not back is refused, by code', () => {
   assert.deepEqual(codes(other), ['APPLY-PRICE-GRADE']);
 });
 
-// The rehearsal needs a material that still has a Canadian-price gap, which the pass keeps closing: it takes the first
-// one the tables hold, and a made-up listing of one of its products.
-test('the rehearsal writes the listing and supersedes the material\'s Canadian-price gap, and the core build passes', () => {
+// The rehearsal needs a material without a Canadian price, which the pass keeps pricing: it takes the first one the
+// tables hold, and a made-up listing of one of its products. Its gap is derived (D114), so it closes by itself.
+test('the rehearsal writes a listing for a material without a Canadian price, and the core build passes', () => {
   const table = (n) => readCsv(join(root, 'data/tables', `${n}.csv`)).records.map((r) => r.values);
-  const gaps = new Set(table('coverage').filter((c) => c.Domain === 'Canadian price' && c.Status === 'Gap').map((c) => c.MaterialID));
-  const g = table('grades').find((x) => gaps.has(x.MaterialID) && x.Role === 'procurement' && x.Status === 'active' && /^[A-Za-z]/.test(x.Manufacturer));
-  assert.ok(g, 'no material with a Canadian-price gap is left to rehearse on');
+  const markets = new Map(readCsv(join(root, 'schema/vocab/markets.csv')).records.map((r) => [r.values.Value, r.values.Canadian]));
+  const priced = new Set(table('prices').filter((p) => markets.get(p.Market) === 'yes' && p['Headline sample'] === 'TRUE' && p.Quarantined !== 'TRUE').map((p) => p.MaterialID));
+  const g = table('grades').find((x) => !priced.has(x.MaterialID) && x.Role === 'procurement' && x.Status === 'active' && /^[A-Za-z]/.test(x.Manufacturer));
+  assert.ok(g, 'no material without a Canadian price is left to rehearse on');
   const bytes = Buffer.from(JSON.stringify({ products: [{ id: 21, title: `${g.Manufacturer} ${g['Product name']} Filament 1.75mm, 1kg`, handle: 'fixture-gap', vendor: g.Manufacturer, product_type: 'Filament', body_html: '',
     variants: [{ id: 211, title: 'Black', sku: 'FX-GAP', price: '44.00', compare_at_price: null, available: true }] }] }));
   const sha = storeBytes(bytes).sha;
@@ -124,5 +125,19 @@ test('the rehearsal writes the listing and supersedes the material\'s Canadian-p
   const r = rehearse([p], { migration: 'test', date: '2026-09-30' });
   assert.deepEqual([r.gate, r.lint.filter((f) => f.level === 'error'), r.build], [[], [], []]);
   assert.ok(r.log.some((l) => new RegExp(`^price CA\\d{4} ${g.GradeID} 44 CAD / 1 kg`).test(l)), r.log.join('\n'));
-  assert.ok(r.log.some((l) => new RegExp(`^coverage C\\d{5} \\(Canadian price of ${g.MaterialID}\\)`).test(l)), r.log.join('\n'));
+});
+
+// A reviewer's stored Gap is a judgement the build does not restate, so a Canadian listing supersedes it in the same
+// write (m141's pattern); otherwise COVERAGE-UNTRUE would stop the build beside the new price.
+test('a stored Canadian-price gap is superseded by the write that prices the material', () => {
+  const tables = { sources: [], prices: [], coverage: [{ CoverageID: 'C09990', MaterialID: grade.MaterialID, GradeID: 'Not applicable', Domain: 'Canadian price', Status: 'Gap', 'Manufacturer count': 'Not applicable', Finding: 'A reviewer found no listing.' }] };
+  const key = { sources: 'SourceID', prices: 'PriceID', coverage: 'CoverageID' };
+  const t = {
+    rows: (n) => tables[n], find: (n, id) => tables[n].find((r) => r[key[n]] === id), append: (n, r) => tables[n].push(r),
+    set: (n, id, column, value, { expect }) => { const r = t.find(n, id); assert.equal(r[column], expect); r[column] = value; },
+  };
+  const log = writePrices(t, [proposal()], { migration: 'test', date: '2026-09-30' });
+  assert.ok(log.includes(`coverage C09991 (Canadian price of ${grade.MaterialID})`), log.join('\n'));
+  assert.deepEqual(tables.coverage.map((c) => [c.CoverageID, c.Status]), [['C09990', 'Superseded'], ['C09991', 'Resolved']]);
+  assert.match(tables.coverage[0].Finding, /^Superseded by C09991 \(2026-09-30; was "Gap"\): A reviewer found no listing\.$/);
 });

@@ -416,8 +416,9 @@ export function writePrices(t, proposals, { migration, date }) {
       if (isCanadianMarket(r.Market) && r['Headline sample'] === 'TRUE') canadianMaterials.add(r.MaterialID);
     }
   }
-  // A material that gains a Canadian price no longer has the gap its coverage row stated: the row is superseded by one
-  // that says what is true now, never edited in place (m141's pattern, D72).
+  // A material that gains a Canadian price closes its derived gap by itself (D114), but a reviewer's stored Gap is a
+  // judgement the build does not restate: it is superseded by a row that says what is true now, never edited in place
+  // (m141's pattern, D72).
   for (const materialId of canadianMaterials) {
     const gaps = t.rows('coverage').filter((c) => c.MaterialID === materialId && c.Domain === 'Canadian price' && c.Status === 'Gap');
     if (!gaps.length) continue;

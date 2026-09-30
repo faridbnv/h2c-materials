@@ -83,7 +83,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D71 | How a source was classed and how it was reached are states, not sentences | A source's kind and whether it was retrieved are values from fixed lists, with the particulars in notes. | In force |
 | D72 | A record may leave a table only where the build derives it, and only through a ledger | Records are never deleted, except one the build now derives, and then only with a ledger row naming the migration and where it went. | In force |
 | D73 | A reviewed fact belongs in the row, and "not enough data" is not a defect to review | A reviewer's conclusion is written into the data row, and an estimate that is wide only because data is thin is reported, not reviewed. | In force; amended by D83: EST-WIDE reads a usable value of any of the material's products, not of its representative grade |
-| D74 | A coverage row is a judgement; that a material has records is derived | The build works out which kinds of data each material has; stored coverage rows are kept only for human judgements. | In force |
+| D74 | A coverage row is a judgement; that a material has records is derived | The build works out which kinds of data each material has; stored coverage rows are kept only for human judgements. | In force; extended by D114 (absence is derived too, and a converted price is limited price coverage) |
 | D75 | A generated SQLite file for asking questions, with the schema's types in it | The build writes a SQLite copy of the tables for asking questions, with missing values as empty beside their reason, and nothing reads it back. | In force |
 | D76 | The standards a measurement names are a typed list, and a fragment is not a standard | The standards a measurement names are a checked list beside the source's wording, and a garbled fragment is never read as a standard. | In force; the fragment rows it counted were re-read, the last by m101 (2026-09-21), but for twenty whose sheets print the fragment themselves (OPEN-PROBLEMS §1) |
 | D77 | The spread search sees a sample; the model still sees everything | To stay fast, one step of the estimate fit uses a fixed sample of at most 400 values; every other step uses all the data. | In force; extended by D79 (the block solve) |
@@ -123,6 +123,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D111 | Every view of the Ashby lens is laid out, sized, framed and labelled by one rule | Switching between Material typicals, Material ranges and Products no longer moves anything: the list stays beside the chart, the chart keeps its place and size, the legend sits in one place, the axes are framed on what is drawn and labelled with plain numbers, and what the typicals view says about itself is said the way the other views say it. | In force; it amends D110; amended by D112 (Material typicals drawn as one dot per material) |
 | D112 | Material typicals is one dot per material, which says what it stands for and where its passing products are | The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those. | In force; it amends D111 |
 | D113 | A price may come from a foreign listing, converted at one Bank of Canada rate, and it lists nothing in Canada | A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one. | In force; it amends D19 (a foreign listing prices a product but is never an offer here) and D83 (a converted price is one of a material's products' prices) |
+| D114 | Absence is derived too: the coverage page says the same thing for the same records | Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited. | In force; it extends D74 |
 
 <!-- end index -->
 
@@ -1857,6 +1858,7 @@ Reversing either brings back a review file doing a row's job, and a reviewer's s
 ## D74. A coverage row is a judgement; that a material has records is derived
 
 > **In plain words:** The build works out which kinds of data each material has; stored coverage rows are kept only for human judgements.
+> **Status:** in force; extended by D114 (absence is derived too, and a converted price is limited price coverage).
 
 *Extends D39 and D47 to the table D39 created.*
 
@@ -3597,6 +3599,43 @@ The contract follows that research's 04-PRICES, cut to what the pass needs. Buil
 `test/prices.test.js` checks the arithmetic on made-up listings (a USD half-kilogram spool at the rate in force, a EUR
 price with its stated VAT, a rate not printed, a missing rate, a Canadian price beside a converted one), and
 `test/database.test.js` that no foreign listing is a buy link and that every product priced from one says so.
+
+
+## D114. Absence is derived too: the coverage page says the same thing for the same records
+
+> **In plain words:** Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited.
+> **Status:** In force; it extends D74.
+
+*Found on 2026-09-30, when the owner asked whether the coverage page was correct after the price pass. Every cell agreed
+with the records (no gap beside data, no evidence claimed without it), but the page said one thing two ways. Built by
+Claude (an agent); the record is [the coverage check](audits/2026-09-30-coverage-check/README.md).*
+
+- **The same absence read "Gap" or blank.** D74 derived a row only where the records prove evidence. Stored Gap rows
+  stood on some of the first workbook's materials, 63 of them the one templated sentence "Insufficient grade-specific
+  evidence in sampled sources. Shared family notes may be available; no numerical substitution."; a material added
+  since had none, so the same absence showed "–" on one material and a blank, which the legend did not explain, on the
+  next: neither PC-GF nor PC-ASA has a price, and PC-GF's cell read "–", PC-ASA's blank. 221 cells were blank that way.
+- **The build derives absence as it derives evidence.** For each domain `coverage-rules.js` defines (H2C status, print
+  setup, mechanical, thermal, environmental, price), a pair no stored row speaks for and the records show nothing for
+  gets a derived Gap naming what is missing. A stored row still wins. A family entry gets none: it owns no product. The
+  Application domain stays stored only (D74), so a blank cell now means one thing: not assessed.
+- **Price coverage says how a material is priced.** A Canadian listing is recorded (✓); a price converted from a
+  foreign listing only is "Limited comparability" (◐), naming the currencies and the rate date (D113); no price is a Gap,
+  which names any listing of the material's that is out of stock. 11 of the 25 templated price Gaps had read "–" beside
+  a converted price.
+- **The rarely published properties are derived from the measurements.** One templated list stood on 82 materials and
+  none on the rest, and five of the lists named six properties the material's own products publish (the fatigue life
+  of ASA, PC, PA12 and PC-ABS, the thermal conductivity of PC and PC-PBT). Each material's list is now what its
+  measurements leave out.
+- **145 templated rows left through the removal ledger** (D72), 63 Gaps in derived domains and 82 rarely-published
+  lists, kept verbatim in the audit folder. The build's derived rows replace each with the same status, or a truer one.
+- **Two more things the page now says.** A conflict recorded in a domain the grid has no column for (a composition, a
+  source contradicting itself) is named under the grid, since the legend promises ✕ for a conflict. And C01110, the
+  quarantine of a PLA Pure listing filed under ABS, which showed ABS's price as a conflict beside ABS's own listings,
+  is resolved: the listing is filed under PLA Pure (G001-183) since m233.
+
+`test/database.test.js` checks that every derived row agrees with the same rule the validator applies: evidence only
+with records, a gap only without, a limited price only where the price is converted.
 
 ---
 

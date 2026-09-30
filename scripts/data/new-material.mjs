@@ -82,7 +82,7 @@ try {
     `measurements, from the source: npm run data:new -- measurements --like <a row of the same source> --set Property=... --set "Raw value=..."`,
     `a print profile: npm run data:new -- profiles --material ${id} --set GradeID=... --set SourceID=...`,
     `citations: rows in data/tables/material_links.csv (printing, h2c-status, use, durability, safety)`,
-    `coverage: a row in data/tables/coverage.csv per gap, conflict or judgement; the build reports the domains its own records prove (D74)`,
+    `coverage: a row in data/tables/coverage.csv only for a conflict or judgement; the build reports each domain's evidence or its absence from the records (D74, D114)`,
     `then: npm run verify, and read the diff of build/snapshot`,
   ].filter(Boolean);
   for (const line of todo) console.log(`  - ${line}`);

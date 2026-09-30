@@ -144,7 +144,8 @@ npm run ingest:prices -- apply --batch p01 --dry-run
   priced in USD (ca.polymaker.com) is a USD storefront; a shop that shows a Canadian visitor a converted CAD price is
   recorded in its own currency.
 - **A batch is a migration** (`scripts/migrate/mNNN-batch-pNN.mjs` calls `applyPriceBatch`). A material that gains a
-  Canadian price has its Canadian-price Gap superseded in the same write, so the rehearsal's core build passes.
+  Canadian price closes its derived price gap by itself (D114); a reviewer's stored Canadian-price Gap is superseded in
+  the same write, so the rehearsal's core build passes.
 
 ## Keep the private source backup current
 

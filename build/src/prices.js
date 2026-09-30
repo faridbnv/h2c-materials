@@ -76,8 +76,8 @@ export function compilePrices(rows, fxRows, issues) {
       displayedPrice: num(r['Displayed price']), currency, market: r.Market,
       taxShipping: r['Tax / shipping'], basis: r['Regular price basis'], url: r.URL,
       sourceId: r.SourceID, accessDate: r['Access date'], notes: r.Notes,
-      // A wrong-product or duplicate listing (CA0069, a PLA Pure spool filed under ABS) stays as an audit trail and
-      // nothing else; the Regular price basis says why.
+      // A wrong-product or duplicate listing (CA0098, a second record of a Spectrum PA6 Neat listing) stays as an audit
+      // trail and nothing else; the Regular price basis says why.
       quarantined: parseBoolean(r.Quarantined) === true,
       // Said only where it is so, and a Canadian listing in CAD carries none of it.
       ...(foreign ? { foreign: true } : {}),
