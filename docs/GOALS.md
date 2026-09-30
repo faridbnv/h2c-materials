@@ -84,6 +84,11 @@ Evidence for C6/C9/C10/C11/C13 was refreshed after the 2026-09-28
 [source backup and gap closure](audits/2026-09-28-gap-closing/RESPONSE.md), without changing the scores.
 Counts describe that build and, for the private full-text index, this checkout; they are not CI cache counts.
 
+After the [gap-fill tranche](audits/2026-09-29-gap-fill-implementation/README.md) of 2026-09-29, again without changing
+a score: a nozzle verdict for 1,008 of 1,128 products and a bed verdict for 954; a drying schedule for 462 products (443
+before); 663 material values from products and 148 estimated (659 and 150 before); 3,468 facts one step from an answer.
+Two answers moved, both to FAIL on a published value.
+
 ## Decided on 2026-09-25
 
 Each becomes an entry in [DECISIONS.md](DECISIONS.md) in the change that builds it, not before, so DECISIONS never
@@ -282,6 +287,24 @@ the chart, and the reader's zoom, list and place kept through every press (D109)
 mark's details in place of the list (D110); every view laid out, sized, framed and labelled by one rule (D111); and
 Material typicals drawn as one dot per material that points to Material ranges (D112). None of these moved a verdict,
 ranking or count. The team trial that would re-score C7 has not been run ([the record](audits/2026-09-29-ashby-makeover/README.md)).
+
+## Decided on 2026-09-29, the gap-fill tranche
+
+The owner asked for the reviewed gap-fill research of 2026-09-28 (the packages GAP-FILL-PLAN-2026-09-28 and
+GAP-FILL-RESEARCH-2026-09-28, with their implementation handoff of 2026-09-29) to be finished, putting only its
+defensible, useful improvements into the tool: on a branch of the latest main in a separate checkout, committed
+locally and not pushed. GOALS steps 2 and 5, C3/C6/C9/C10; step 6 only if its prices passed their own gate. It is a
+bounded exception to the import pause, not its end, and adds no product, material, identity or estimate rule.
+
+- **A fact is recorded from the document already held where that document prints it.** The research read most of its
+  facts on newer copies of pages the database had registered; where the registered page prints the same line, the fact
+  is recorded from it (m225) and the copy stays in the research package. 25 values, one column correction and eleven
+  drying schedules entered so.
+- **b40** takes nine exact-product pages the research saved and the database did not hold, staged from its copies by
+  digest, each for its product's drying schedule and, for Recreus Conductive Filaflex, its nozzle and bed (m226).
+- **Held**: the two findings the research held, Spectrum GreenyHT's contested identity, and every price. After the
+  plan's own rules, eight comparable offers remained, all foreign, and the currency contract they need was not built
+  for them; price still waits, as decided for phase 6 ([OPEN-PROBLEMS §21](OPEN-PROBLEMS.md)).
 
 ## Working rules
 

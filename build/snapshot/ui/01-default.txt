@@ -26,7 +26,7 @@ A jig or a fixture. Screens for stiffness of at least 5 GPa on a product the H2C
 Flexible component
 A gasket, a strap or a phone case. Screens for stretch of at least 100% before breaking, on a product the H2C can print.
 153 materials, 136 of them in H2C scope
-11212 measurements, each traceable to a source
+11237 measurements, each traceable to a source
 145 have a density, 100 a modulus, 33 a Canadian price
 The gaps are the point. Where a property was never published this tool shows the gap rather than a guess, so a material is never ranked on a number nobody measured.
 What this database cannot answer
@@ -330,7 +330,7 @@ Nylon / Polyamide
  — ☆
 PA6/66-CF
 Nylon / Polyamide
- not tested 1,240 — 140* 10.6* 155* — ☆
+ not tested 1,240 — 84 7.42 155* — ☆
 PA612
 Nylon / Polyamide
  not tested 1,060* 2.4* 62* 100* 135* — ☆
@@ -490,7 +490,7 @@ PCTG-CF
 Copolyesters
  not tested 1,280
 1,280–1,280 · 2
- — 70* 5* 77
+ — 39* 9* 77
 76–78 · 2
  — ☆
 PCTG-GF
@@ -1027,7 +1027,7 @@ TPE, maker-undisclosed elastomer
 Flexible Elastomers
  not tested 1,125
 1,000–1,250 · 2
- 0.06* 11.5* — n/a — ☆
+ 0.06* 11.5* 300* n/a — ☆
 TPI
 Industrial High-Temperature
  not tested 1,300 2.95 74 6 237 — ☆

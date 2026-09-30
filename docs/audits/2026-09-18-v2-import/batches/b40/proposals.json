@@ -1,0 +1,65 @@
+[
+  {
+    "finding": "GF-PL001-0023",
+    "gid": "G126-02",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-3793d04515ce",
+    "sha": "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+    "settings": "drying: Drying temperature 60 °C; Drying time 6 h"
+  },
+  {
+    "finding": "GF-RB036-0001",
+    "gid": "G014-18",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-5f1378a7bff2",
+    "sha": "5f1378a7bff2d92648da8cdf95c700e3e6c9ac835820dbbdeeadc1e9d0182d28",
+    "settings": "drying: Drying temperature 50 °C; Drying time 4 h"
+  },
+  {
+    "finding": "GF-RB036-0002",
+    "gid": "G018-07",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-af22746e0274",
+    "sha": "af22746e0274d91610d3c4ba5130184ee1af5a8822f105ddcfbf261549a78f8c",
+    "settings": "drying: Drying temperature 50 °C; Drying time 0–6 h"
+  },
+  {
+    "finding": "GF-RB036-0005",
+    "gid": "G039-15",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-c415150859a4",
+    "sha": "c415150859a43500c560940ad5be1b6ed9069cb5e944f828b5edda84e9cc79b9",
+    "settings": "drying: Drying temperature 60 °C; Drying time 12 h"
+  },
+  {
+    "finding": "GF-RB036-0006",
+    "gid": "G039-16",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-245381f760f8",
+    "sha": "245381f760f896df6f09ffa2589fa6520d421c927ad893a6ff5c442328f29839",
+    "settings": "drying: Drying temperature 60 °C; Drying time 12 h"
+  },
+  {
+    "finding": "GF-RB036-0007",
+    "gid": "G039-17",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-ca0239ac2a92",
+    "sha": "ca0239ac2a92ec04ebb7711ba307dcccc87bec3df6c64417eb9a124fd0b588ed",
+    "settings": "drying: Drying temperature 60 °C; Drying time 12 h"
+  },
+  {
+    "finding": "GF-RB036-0009",
+    "gid": "G152-01",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-2cccd500d85c",
+    "sha": "2cccd500d85c030430a812fcacc90b2b88f1ad76459066fcd2ec5ae62c662234",
+    "settings": "drying: Drying temperature 50 °C; Drying time 4 h"
+  },
+  {
+    "finding": "GF-RB036-0010",
+    "gid": "G169-01",
+    "sourceId": "R-EXTRUDR-PRINT-20260929-463457967aab",
+    "sha": "463457967aab73c4a6f8c599b28f492d9fbed676861bbd966c4624389353cd28",
+    "settings": "drying: Drying temperature 60 °C; Drying time 0–4 h"
+  },
+  {
+    "finding": "GF-PL001-0026",
+    "gid": "G157-01",
+    "sourceId": "R-RECREUS-PRINT-20260929-5fe4f7191bfc",
+    "sha": "5fe4f7191bfc5d58ac31c67233bd532c726099f9ebc3bdbb95d39340c1153726",
+    "settings": "nozzle: 250°C (0.4mm nozzle, 0.2mm layer, 0.38mm line width, 4.0 mm³/s) | nozzle-diameter: 0.4mm | bed: Small parts: No heating (room temperature); Large parts: 50-55°C | drying: Filament Drying (CRUCIAL): Temperature: 55°C; Minimum time: 1 hour"
+  }
+]

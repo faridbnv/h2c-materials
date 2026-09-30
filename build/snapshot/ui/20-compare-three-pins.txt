@@ -55,8 +55,8 @@ ABS-AF
 ABS-CF
 29
 27.3–46 · 3
-6.09
-273
+6.05
+274
 all 153 candidates
 Strength across layers MPa
 ABS
@@ -78,9 +78,9 @@ ABS-AF
 ABS-CF
 1.9
 1.8–2 · 2
-0.332
+0.488
 log scale
-1,580
+1,790
 all 153 candidates
 Notched impact, Charpy kJ/m²
 ABS

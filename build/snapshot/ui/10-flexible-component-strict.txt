@@ -1,7 +1,7 @@
 COUNT 6 shown PASS
-STATUS ☑ PASS 6 | ☐ UNKNOWN 110 | ☐ FAIL 37
+STATUS ☑ PASS 6 | ☐ UNKNOWN 109 | ☐ FAIL 38
 6 of the 153 materials meet these requirements
-Flexible component template · 110 more could not be checked, left out under Confirmed only
+Flexible component template · 109 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Printable on the H2C

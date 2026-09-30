@@ -1,0 +1,189 @@
+{
+ "before": "125a0a09b72a",
+ "after": "26424edd53e5",
+ "questions": 15,
+ "evaluations": 18195,
+ "verdictChanges": 2,
+ "transitions": {
+  "default/material/UNKNOWN→FAIL": 1,
+  "default/product/UNKNOWN→FAIL": 1
+ },
+ "screenChanges": {},
+ "newPasses": 0,
+ "appeared": 0,
+ "vanished": 0,
+ "changes": [
+  {
+   "question": "Flexible component",
+   "lane": "default",
+   "level": "material",
+   "id": "M156",
+   "verdict": "FAIL",
+   "screened": false,
+   "before": "UNKNOWN",
+   "after": "FAIL",
+   "screenedBefore": false,
+   "screenedAfter": false
+  },
+  {
+   "question": "Flexible component",
+   "lane": "default",
+   "level": "product",
+   "id": "G156-01",
+   "state": {
+    "id": "as-printed",
+    "treatment": null,
+    "moisture": "dry"
+   },
+   "verdict": "FAIL",
+   "results": [
+    {
+     "criterion": "H2C-relevant scope",
+     "status": "PASS",
+     "reason": "In scope for the H2C",
+     "constraint": {
+      "kind": "gate",
+      "gate": "scope",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "Build material",
+     "status": "PASS",
+     "reason": "Recorded as a build material",
+     "constraint": {
+      "kind": "facet",
+      "facet": "supportMaterial",
+      "equals": false,
+      "__group": "Manufacturing"
+     }
+    },
+    {
+     "criterion": "Nozzle temperature within H2C baseline",
+     "status": "PASS",
+     "reason": "Needs up to 300 °C, within the H2C's 350 °C",
+     "constraint": {
+      "kind": "gate",
+      "gate": "nozzle",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "Bed temperature within H2C baseline",
+     "status": "PASS",
+     "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+     "constraint": {
+      "kind": "gate",
+      "gate": "bed",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "Chamber temperature within H2C baseline",
+     "status": "UNKNOWN",
+     "reason": "No numeric requirement published",
+     "constraint": {
+      "kind": "gate",
+      "gate": "chamber",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "elongationXY >= 100",
+     "status": "FAIL",
+     "reason": "Published 7.42 % (XY); specimen form, moisture state and treatment not stated, admitted for screening",
+     "constraint": {
+      "kind": "numeric",
+      "property": "elongationXY",
+      "operator": ">=",
+      "value": 100,
+      "mandatory": true,
+      "__group": "Mechanical"
+     },
+     "measurementId": "V011521",
+     "observed": 7.42,
+     "unit": "%",
+     "closeToLimit": false,
+     "admitted": [
+      "specimen",
+      "moisture",
+      "treatment"
+     ]
+    }
+   ],
+   "before": "UNKNOWN",
+   "after": "FAIL",
+   "screenedBefore": null,
+   "screenedAfter": null,
+   "beforeResults": [
+    {
+     "criterion": "H2C-relevant scope",
+     "status": "PASS",
+     "reason": "In scope for the H2C",
+     "constraint": {
+      "kind": "gate",
+      "gate": "scope",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "Build material",
+     "status": "PASS",
+     "reason": "Recorded as a build material",
+     "constraint": {
+      "kind": "facet",
+      "facet": "supportMaterial",
+      "equals": false,
+      "__group": "Manufacturing"
+     }
+    },
+    {
+     "criterion": "Nozzle temperature within H2C baseline",
+     "status": "PASS",
+     "reason": "Needs up to 300 °C, within the H2C's 350 °C",
+     "constraint": {
+      "kind": "gate",
+      "gate": "nozzle",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "Bed temperature within H2C baseline",
+     "status": "PASS",
+     "reason": "Needs up to 80 °C, within the H2C's 120 °C",
+     "constraint": {
+      "kind": "gate",
+      "gate": "bed",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "Chamber temperature within H2C baseline",
+     "status": "UNKNOWN",
+     "reason": "No numeric requirement published",
+     "constraint": {
+      "kind": "gate",
+      "gate": "chamber",
+      "__group": "Compatibility"
+     }
+    },
+    {
+     "criterion": "elongationXY >= 100",
+     "status": "UNKNOWN",
+     "reason": "Not published in the sampled sources",
+     "constraint": {
+      "kind": "numeric",
+      "property": "elongationXY",
+      "operator": ">=",
+      "value": 100,
+      "mandatory": true,
+      "__group": "Mechanical"
+     },
+     "missing": "not-published"
+    }
+   ]
+  }
+ ],
+ "appearedRows": [],
+ "vanishedRows": []
+}

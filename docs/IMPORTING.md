@@ -14,7 +14,10 @@ package's saved pages entered as witnesses from their copies (`ingest:witness --
 authorized b38 (the held Recreus PET-G 2023 sheet) and b39 (maker-site witnesses for the frozen chamber targets),
 bounded by [GOALS](GOALS.md#decided-on-2026-09-28-for-source-backup-and-targeted-gap-closure). Both batches are
 complete; their exact scope and remaining handoffs are in the [gap-closing response](audits/2026-09-28-gap-closing/RESPONSE.md).
-The general import pause remains. What follows is the procedure for an authorized batch.
+On 2026-09-29 the owner asked for the gap-fill research of 2026-09-28 to be finished (GOALS, "the gap-fill tranche"):
+batch b40 took nine exact-product pages its research saved, staged from those copies by digest, for one print setting
+each; facts the research found on pages already registered were recorded from those pages by a migration, not
+imported again. The general import pause remains. What follows is the procedure for an authorized batch.
 
 The public corpus is larger than this database, and `docs/audits/2026-09-18-v2-import/` is the record of bringing it
 in. A document never enters by hand: it travels the pipeline, and `ingest:apply` refuses a batch that has not.

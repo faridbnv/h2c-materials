@@ -1,0 +1,498 @@
+{
+ "from": "GAP-FILL-RESEARCH-2026-09-28/baseline/evidence/scenario-baseline.json",
+ "sha256": "4e319a92206deac9323ff594791c8d46f5126eea768f45525894fb146d0aee4c",
+ "frozenAgainstRelease": "03663e0b6e97",
+ "questions": [
+  {
+   "id": "Outdoor structural part",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false,
+     "__group": "Manufacturing"
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 100,
+     "mandatory": true,
+     "__group": "Thermal"
+    },
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 3,
+     "mandatory": true,
+     "__group": "Mechanical"
+    },
+    {
+     "kind": "numeric",
+     "property": "density",
+     "operator": "<=",
+     "value": 1500,
+     "mandatory": true,
+     "__group": "Mechanical"
+    },
+    {
+     "kind": "numeric",
+     "property": "priceCADkg",
+     "operator": "<=",
+     "value": 100,
+     "mandatory": false,
+     "__group": "Cost"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "Indoor prototype",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false,
+     "__group": "Manufacturing"
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "numeric",
+     "property": "priceCADkg",
+     "operator": "<=",
+     "value": 45,
+     "mandatory": false,
+     "__group": "Cost"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "Lightweight structure",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false,
+     "__group": "Manufacturing"
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "numeric",
+     "property": "density",
+     "operator": "<=",
+     "value": 1250,
+     "mandatory": true,
+     "__group": "Mechanical"
+    },
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 2.5,
+     "mandatory": true,
+     "__group": "Mechanical"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "Warm environment",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false,
+     "__group": "Manufacturing"
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 80,
+     "mandatory": true,
+     "__group": "Thermal"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "High-stiffness fixture",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false,
+     "__group": "Manufacturing"
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 5,
+     "mandatory": true,
+     "__group": "Mechanical"
+    },
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 90,
+     "mandatory": false,
+     "__group": "Thermal"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "Flexible component",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false,
+     "__group": "Manufacturing"
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber",
+     "__group": "Compatibility"
+    },
+    {
+     "kind": "numeric",
+     "property": "elongationXY",
+     "operator": ">=",
+     "value": 100,
+     "mandatory": true,
+     "__group": "Mechanical"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "S01",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false
+    },
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 100
+    },
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 3
+    },
+    {
+     "kind": "numeric",
+     "property": "density",
+     "operator": "<=",
+     "value": 1500
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "S03",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 4
+    },
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 80
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "S04",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 100
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "S05",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 6
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "S06",
+   "lane": "default",
+   "constraints": [
+    {
+     "kind": "environment",
+     "category": "acid"
+    }
+   ],
+   "policy": {}
+  },
+  {
+   "id": "S01:{\"unknownPolicy\":\"strict\",\"anneal\":true}",
+   "lane": "state-variant",
+   "constraints": [
+    {
+     "kind": "gate",
+     "gate": "scope"
+    },
+    {
+     "kind": "facet",
+     "facet": "supportMaterial",
+     "equals": false
+    },
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 100
+    },
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 3
+    },
+    {
+     "kind": "numeric",
+     "property": "density",
+     "operator": "<=",
+     "value": 1500
+    },
+    {
+     "kind": "gate",
+     "gate": "nozzle"
+    },
+    {
+     "kind": "gate",
+     "gate": "bed"
+    },
+    {
+     "kind": "gate",
+     "gate": "chamber"
+    }
+   ],
+   "policy": {
+    "unknownPolicy": "strict",
+    "anneal": true
+   }
+  },
+  {
+   "id": "S03:{\"unknownPolicy\":\"strict\",\"anneal\":true}",
+   "lane": "state-variant",
+   "constraints": [
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 4
+    },
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 80
+    }
+   ],
+   "policy": {
+    "unknownPolicy": "strict",
+    "anneal": true
+   }
+  },
+  {
+   "id": "S04:{\"unknownPolicy\":\"strict\",\"anneal\":true}",
+   "lane": "state-variant",
+   "constraints": [
+    {
+     "kind": "numeric",
+     "property": "hdt045",
+     "operator": ">=",
+     "value": 100
+    }
+   ],
+   "policy": {
+    "unknownPolicy": "strict",
+    "anneal": true
+   }
+  },
+  {
+   "id": "S05:{\"unknownPolicy\":\"strict\",\"moisture\":\"conditioned\"}",
+   "lane": "state-variant",
+   "constraints": [
+    {
+     "kind": "numeric",
+     "property": "tensileModulusXY",
+     "operator": ">=",
+     "value": 6
+    }
+   ],
+   "policy": {
+    "unknownPolicy": "strict",
+    "moisture": "conditioned"
+   }
+  }
+ ]
+}

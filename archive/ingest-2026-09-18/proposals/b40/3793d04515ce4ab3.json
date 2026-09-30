@@ -1,0 +1,1575 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-30"
+  },
+  "document": {
+    "sha256": "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b",
+    "url": "https://extrudr.com/en/at/products/flex-medium-esd/",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": "Extrudr",
+    "docKey": "https://extrudr.com/en/at/products/flex-medium-esd/#witness-for=source:R-EXTRUDR-flex-medium-esd-TDS-en"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "ESD formulation",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "sheet: tpu",
+      "filler: esd"
+    ],
+    "materialId": "M126",
+    "materialName": "TPU-ESD",
+    "estimateIdentity": "TPU",
+    "confidence": 0.8,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "elastomer",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-PRINT-20260929-3793d04515ce",
+      "Publisher": "Extrudr",
+      "Title": "FLEX MEDIUM ESD – Electrostatic Resistant TPU Filament for 3D Printing | Extrudr",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-29",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The exact product's page, saved by the gap-fill research of 2026-09-28 and staged from that copy by digest (b40). Only the print setting its profile names was taken; the page's other statements are unread here. Reviewed by Claude, an agent.",
+      "Citation role": "cited",
+      "URL": "https://extrudr.com/en/at/products/flex-medium-esd/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G126-02",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "3793d04515ce4ab373637d40f326b9386b4aece37a341db3ed9ca03b3bbd508b"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Data Sheets"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29"
+    }
+  },
+  "grades": [
+    {
+      "key": "G126-02",
+      "row": {
+        "GradeID": "G126-02",
+        "MaterialID": "M126",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "FLEX MEDIUM ESD",
+        "Shared formulation key": "R-EXTRUDR-flex-medium-esd-TDS-en",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-PRINT-20260929-3793d04515ce",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "Existing product G126-02; no grade, identity or shared formulation is created or changed."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "26 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "26",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Tensile strength at yield ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength at yield  ISO 527-1  26 MPa  Typical"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "26 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "26",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "26",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Tensile stress at break ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile stress at break  ISO 527-1  26 MPa  Good"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "450 %",
+        "Raw unit": "%",
+        "Raw numeric": "450",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "450",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Elongation at break ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break  ISO 527-1  450 %  Outstanding"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "130-145 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "130",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "145",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "130",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "145",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "VST/B50 ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Vicat softening temp. (VST/B50) ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp. (VST/B50)  ISO 306  130–145 °C  -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "155-165 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "155",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "165",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "155",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "165",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 3146-C",
+        "Standards": "ISO 3146",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Melting point (Tm) ISO 3146-C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting point (Tm)  ISO 3146-C  155–165 °C  -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "-30 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "-30",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "-30",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Tg DSC ISO 11357-1",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Glass transition temp. (Tg) ISO 11357-1 (DSC)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temp. (Tg)  ISO 11357-1 (DSC)  -30 °C  -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "50-70 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "50",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "70",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "50",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "70",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Test temperature °C": "210",
+        "Standard / load": "MFR — 210°C/2.16 kg 210°C/2.16 kg ISO 1133-1",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Melt flow rate (MFR) — 210°C/2.16 kg ISO 1133-1 (210°C/2.16 kg)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow rate (MFR) — 210°C/2.16 kg  ISO 1133-1 (210°C/2.16 kg)  50–70 g/10 min  -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.2 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1200",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183-1",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Density ISO 1183-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  ISO 1183-1  1.2 g/cm³  -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.8-1.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.8",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.2",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1.2",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 294-4",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Mould shrinkage ISO 294-4",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Mould shrinkage  ISO 294-4  0.8–1.2 %  -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Property": "Surface resistivity",
+        "Raw value": "120-190 Ω",
+        "Raw unit": "Ω",
+        "Raw numeric": "120",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "190",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "120",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "190",
+        "Normalized unit": "Ω",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Locator": "p. 1: Specific surface resistance -",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Specific surface resistance  -  120–190 Ω  -"
+      },
+      "confidence": 0.8,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220–250 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "50 °C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "50",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "required No",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "60 °C",
+        "Drying state": "stated",
+        "Drying °C": "60",
+        "Drying hours": "Not published",
+        "Nozzle material": "required No",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "< 50"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "60–100 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "3.2 mm³/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 220–250 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "gradeKey": "G126-02",
+      "row": {
+        "MaterialID": "M126",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Drying temperature 60 °C; Drying time 6 h",
+        "Drying state": "stated",
+        "Drying °C": "60",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-PRINT-20260929-3793d04515ce",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Settings, Drying (drying only; the page's nozzle and build plate rows agree with P0393, from the sheet)",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Drying temperature 60 °C / Drying time 6 h"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "finding": "GF-PL001-0023",
+        "note": "Page text re-read in full; the pinned lines stand in the exact product's own print-settings section. Typed cells are the build's parsers' reading of the raw words, as for every other profile."
+      },
+      "id": "print-G126-02"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "220–250 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 220–250 °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "50 °C",
+      "fromBelow": false,
+      "line": "Build plate temperature 50 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "< 50",
+      "fromBelow": false,
+      "line": "Speed < 50"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "60–100 %",
+      "fromBelow": false,
+      "line": "Cooling fan 60–100 %"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed chamber",
+      "raw": "required No",
+      "fromBelow": false,
+      "line": "Enclosed chamber required No"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened nozzle",
+      "raw": "required No",
+      "fromBelow": false,
+      "line": "Hardened nozzle required No"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max. volumetric flow rate",
+      "raw": "3.2 mm³/s",
+      "fromBelow": false,
+      "line": "Max. volumetric flow rate 3.2 mm³/s"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying temperature",
+      "raw": "60 °C",
+      "fromBelow": false,
+      "line": "Drying temperature 60 °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FD3D GmbH 2026. All rights reserved.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FREE SHIPPING ON 5+ ITEMS (inside EU) •",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3d Print Hub",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "B2B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: 9010241142996",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "64,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "black | 1.75 mm | 0.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "64,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU FLEX Medium ESD is a filament specially developed for electronics-adjacent applications, combining the flexibility of TPU with genuine electrostatic dischar",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "An electrostatic resistance of 0.7–0.9 MΩ effectively dissipates static electricity, protecting sensitive electronic components from damage.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Yes. FLEX Medium ESD is a hygroscopic material and should be dried before printing to achieve optimal print quality. We recommend drying for 6 hours at 60°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Store FLEX Medium ESD in a dry room at room temperature (18–27°C / 65–80°F). Stored neatly, it is protected from dust and sunlight.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "When stored correctly, FLEX Medium ESD has a shelf life of 2 years.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reviews (0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA NX2 MATT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "25,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "39,00 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "25,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "44,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "29,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UP TO 1000 MM/S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "24,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "34,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "29,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "24,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended settings for printers with a 0.4 mm nozzle. Max. 50% layer height. Optimal settings may vary between printers and are also dependent on environmenta",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Tensile modulus (Young's modulus)  ISO 527-1  ~150  Typical",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    },
+    {
+      "page": 1,
+      "text": "Thermal decomposition temp.  -  > 250 °C  -",
+      "reason": "the sheet publishes no value for \"Thermal decomposition temp.-\" in this row: its value column prints \"-\""
+    },
+    {
+      "page": 1,
+      "text": "CLTE — flow direction  -  1.5 cm/cm/°C  Typical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Water absorption (saturation, 23°C)  -  0.8 %  -",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Abrasion resistance  -  25 mm³  -",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Tensile modulus (Young's modulus) - ISO 527-1",
+      "reason": "the line names Tensile modulus and states no value in a unit the database keeps it in (GPa)"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+    "note": "Registered for G126-02's drying (GF-PL001-0023); no measurement is taken from the page."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      },
+      "row": {
+        "MaterialID": "M126",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "Home Filaments FLEX Medium ESD",
+        "Shared formulation key": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-FLEX-MEDIUM-ESD",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Data Sheets"
+      }
+    }
+  ]
+}

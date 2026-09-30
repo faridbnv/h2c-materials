@@ -1,0 +1,847 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-30"
+  },
+  "document": {
+    "sha256": "5fe4f7191bfc5d58ac31c67233bd532c726099f9ebc3bdbb95d39340c1153726",
+    "url": "https://recreus.com/en/products/filaflex-conductivo",
+    "pages": 1,
+    "provider": "Recreus",
+    "manufacturer": "Recreus",
+    "docKey": "https://recreus.com/en/products/filaflex-conductivo#witness-for=source:R-RECREUS-Conductive-Filaflex"
+  },
+  "nameUnsupported": {
+    "read": "Email",
+    "listed": "CONDUCTIVE FILAFLEX"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: filaflex"
+    ],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "\"filaflex\" names a family, not a polymer: Recreus's elastomer line is a TPU except its SEBS grade: a ruling"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-RECREUS-PRINT-20260929-5fe4f7191bfc",
+      "Publisher": "Recreus",
+      "Title": "Conductive Filaflex TPU Filament Electrically Conductive - Recreus",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-29",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The exact product's page, saved by the gap-fill research of 2026-09-28 and staged from that copy by digest (b40). Only the print setting its profile names was taken; the page's other statements are unread here. Reviewed by Claude, an agent.",
+      "Citation role": "cited",
+      "URL": "https://recreus.com/en/products/filaflex-conductivo",
+      "Locator": "Document / product page",
+      "Applicable grades": "G157-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5fe4f7191bfc5d58ac31c67233bd532c726099f9ebc3bdbb95d39340c1153726"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Login"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29"
+    }
+  },
+  "grades": [
+    {
+      "key": "G157-01",
+      "row": {
+        "GradeID": "G157-01",
+        "MaterialID": "M157",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "CONDUCTIVE FILAFLEX",
+        "Shared formulation key": "R-RECREUS-Conductive-Filaflex",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-PRINT-20260929-5fe4f7191bfc",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "Existing product G157-01; no grade, identity or shared formulation is created or changed."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-filaflex-conductivo",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "External Perimeter  50%  26.32 mm/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "External Perimeter  50%  25.86 mm/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "External Perimeter  50%  25.64 mm/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30%"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "External Perimeter  50%  25.51 mm/s"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "30%"
+        },
+        {
+          "Topic": "Adhesion / release",
+          "Text": "Always 0%"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Line Type  Percentage  Speed External Perimeter  50%  26.32 mm/s"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "gradeKey": "G157-01",
+      "row": {
+        "MaterialID": "M157",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "250°C (0.4mm nozzle, 0.2mm layer, 0.38mm line width, 4.0 mm³/s)",
+        "Nozzle state": "range",
+        "Nozzle min °C": "250",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "Small parts: No heating (room temperature); Large parts: 50-55°C",
+        "Bed state": "range",
+        "Bed min °C": "50",
+        "Bed max °C": "55",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Filament Drying (CRUCIAL): Temperature: 55°C; Minimum time: 1 hour",
+        "Drying state": "stated",
+        "Drying °C": "55",
+        "Drying hours": "1",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "0.4mm",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-RECREUS-PRINT-20260929-5fe4f7191bfc",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Complete Technical Printing Guide: 1. Material Preparation; 3. Basic Parameters, 0.4mm row; 6. Bed Temperature Settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle  Layer Height  Line Width  Volumetric Speed  Temperature / 0.4mm  0.2mm  0.38mm  4.0 mm³/s  250°C | 0.4mm  0.2mm  0.38mm  4.0 mm³/s  250°C | Bed Temperature: / Small parts: No heating (room temperature) / Large parts: 50-55°C | Filament Drying (CRUCIAL): / 📏 Temperature: 55°C / ⏱️ Minimum time: 1 hour"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "finding": "GF-PL001-0026",
+        "note": "Page text re-read in full; the pinned lines stand in the exact product's own print-settings section. Typed cells are the build's parsers' reading of the raw words, as for every other profile."
+      },
+      "id": "print-G157-01"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "External Perimeter  50%  26.32 mm/s",
+      "fromBelow": true,
+      "line": "Line Type  Percentage  Speed External Perimeter  50%  26.32 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30%",
+      "fromBelow": false,
+      "line": "First Layer  30%  15.79 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "External Perimeter  50%  25.86 mm/s",
+      "fromBelow": true,
+      "line": "Line Type  Percentage  Speed External Perimeter  50%  25.86 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30%",
+      "fromBelow": false,
+      "line": "First Layer  30%  15.52 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "External Perimeter  50%  25.64 mm/s",
+      "fromBelow": true,
+      "line": "Line Type  Percentage  Speed External Perimeter  50%  25.64 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30%",
+      "fromBelow": false,
+      "line": "First Layer  30%  15.38 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "External Perimeter  50%  25.51 mm/s",
+      "fromBelow": true,
+      "line": "Line Type  Percentage  Speed External Perimeter  50%  25.51 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First Layer",
+      "raw": "30%",
+      "fromBelow": false,
+      "line": "First Layer  30%  15.31 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Adhesion / release",
+      "label": "First layer",
+      "raw": "Always 0%",
+      "fromBelow": false,
+      "line": "First layer: Always 0%"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Go to Filaflex 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Go to Filaflex 2.20mm on Bambulab",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "STEP BY STEP GUIDE P1S/P1P & X1/X1C/X1E",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "STEP BY STEP GUIDE P2S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "STEP BY STEP GUIDE H2S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "STEP BY STEP GUIDE H2D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Go to Filaflex 2.20mm on Prusa",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Go to Filaments 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 95A 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 82A 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 70A 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 60A 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 95 Foamy 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex Foamy 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reciflex 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Go to Hotend 2.20mm + Filament Bundle",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hotend PS2/H2S/H2D 2.20mm BUNDLE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hotend P1S/P1P 2.20mm BUNDLE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hotend X1/X1C/X1E BUNDLE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hotend Prusa Coreone 2.20mm BUNDLE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 60A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 70A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FIlaflex 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 95 Foamy",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 60A Pellet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 70A Pellet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 82A Pellet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 95A Pellet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Filaflex 95 Foamy Pellet",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PP3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hotends 2.20mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Models",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Join Our Newsletter and get 10% off in your first order",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "€74,90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Regular price €74,90 EUR",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Regular price €74,90 EUR Sale price €74,90 EUR",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "€74,90",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Conductive Filaflex TPU is a groundbreaking material in the world of flexible 3D printing, featuring a unique combination of electrical conductivity and flexibi",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "With its optimal hardness level, Conductive Filaflex ensures exceptional compatibility with 90% of market-available 3D printers, eliminating the need for specia",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Wide Compatibility: Works with 90% of 3D printers",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "🌡️ 1. Material Preparation",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "📏 Temperature: 55°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "⏱️ Minimum time: 1 hour",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "⚡ 2. Understanding Print Speed",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "⚙️ 3. Basic Parameters",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.4mm  0.2mm  0.38mm  4.0 mm³/s  250°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.6mm  0.3mm  0.58mm  9.0 mm³/s  250°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.8mm  0.4mm  0.78mm  16.0 mm³/s  252°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.0mm  0.5mm  0.98mm  25.0 mm³/s  255°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "🚀 4. Speed Settings",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.4mm Nozzle (Volumetric Speed: 4.0 mm³/s)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Internal Perimeters  75%  39.47 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Infill  100%  52.63 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Top/Bottom  60%  31.58 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.6mm Nozzle (Volumetric Speed: 9.0 mm³/s)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Internal Perimeters  75%  38.79 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Infill  100%  51.72 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Top/Bottom  60%  31.03 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.8mm Nozzle (Volumetric Speed: 16.0 mm³/s)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Internal Perimeters  75%  38.46 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Infill  100%  51.28 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Top/Bottom  60%  30.77 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.0mm Nozzle (Volumetric Speed: 25.0 mm³/s)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Internal Perimeters  75%  38.27 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Infill  100%  51.02 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Top/Bottom  60%  30.61 mm/s",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "↩️ 5. Retraction Settings",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "🚀 IMPORTANT: Set travel speed to the maximum your machine allows (200-500mm/s). Faster movements reduce filament oozing time, minimizing stringing.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.4mm  1.5-2.0mm  20mm/s  0.2mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.6mm  1.5-2.0mm  20mm/s  0.2mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "0.8mm  1.5-2.0mm  20mm/s  0.2mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "1.0mm  1.5-2.0mm  20mm/s  0.2mm",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "🌡️ 6. Bed Temperature Settings",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Large parts: 50-55°C",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "❄️ 7. Cooling Settings",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "General: 0% (fan off)",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Layers < 10 seconds: 40% fan",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "🔧 8. Troubleshooting Guide",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Irregular extrusion  1. Dry the filament 2. Check extruder 3. Reduce speed",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Poor adhesion  1. Dry the filament 2. Use adhesive 3. Adjust first layer",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Stringing  1. Dry the filament 2. Adjust retraction 3. Increase travel speed 4. Check temperature",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "✨ 9. Best Practices",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "⚠️ PLEASE NOTE: These printing parameters are initial recommendations based on our experience. They may need adjustment depending on your specific 3D printer, e",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "P1S / P1P Download Filaflex profiles X1 / X1C / X1E Download Filaflex profiles A1 / A1 Mini Download Filaflex profiles P2S Download Filaflex profiles H2S Downlo",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "MK4 / MK4S Download Filaflex profiles CoreOne / CoreOne+ / CoreOneL Download Filaflex profiles Prusa XL Download Filaflex profiles",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Beyond Design: How Fornice Objects Is Transforming 3D Perception with Filaflex 95 Foamy",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Designer Chiara Ravaioli redefines 3D printing with her Jali Bag using Filaflex 95 Foamy—soft, elegant, and unexpectedly tactile. A must-read story on flexible ",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Discover how G-Tac leverages Filaflex for flexible 3D printed solutions in defense, industry, and food sectors—innovating with versatile, high-performance mater",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "The Perfect Flexibility for Custom Orthopedics 3D printing has revolutionized the field of medicine and orthopedics, offering innovative and personalized soluti",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "3D Models",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Recreus technical filaments for 3D printing",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Call us: +34 865 777 966",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Recreus Industries S.L.",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+    "note": "Registered for G157-01's nozzle, nozzle-diameter, bed, drying (GF-PL001-0026); no measurement is taken from the page."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "Email",
+        "Shared formulation key": "R-RECREUS-filaflex-conductivo",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-filaflex-conductivo",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Login"
+      }
+    }
+  ]
+}

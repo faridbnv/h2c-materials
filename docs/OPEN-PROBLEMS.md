@@ -314,7 +314,10 @@ each class it named across the whole table (the record: `sweep/README.md`). Stil
   in-plane strength by the rule (the second query): QIDI PEBA 95A's 9.17 MPa stress at 100 % (V008146) states its
   direction, so it is comparable and decides; Fiberlogy FiberFlex Aero's and Siraya Tech Flex TPU 95A's and 85A's
   state none and are counted apart (D84). They need a property that carries its elongation, which is a design
-  decision, not a re-read.
+  decision, not a re-read. Nanovia Flex V0's page (R-NANOVIA-Flex) prints three of the kind and none is recorded:
+  "Tensile resistance 27 MPa", "Resistance at 100% elongation 7 MPa" and "at 300% elongation 10 MPa", all to "VDE282
+  part 10", a cable-insulation test the standards vocabulary does not hold. The gap-fill research held the first
+  (GF-RB043-0008) for the same reason, and the tranche of 2026-09-29 kept it held.
 
 ```sql
 select measurementid, property, raw_value, data_status, locator from measurements
@@ -325,11 +328,15 @@ where measurementid in (select measurementid from measurements where property li
   and (locator like '%stress at %0\%%' escape '\' or locator like '%@ %\% Strain%' escape '\'));
 ```
 
-- **Nobufil's printed column was never transcribed.** Thirteen Nobufil sheets (3DJake copies) print one table with
-  two value columns, "FDM H" and "Injection". The reader took only the rows with one value, which stand in the
-  Injection column (m128 marks them moulded); the tensile, elongation and Izod rows that carry both a printed and a
-  moulded value were never read, so the printed values these sheets exist to give are missing. It is a
-  several-values layout (a transcription of both columns per row), not a correction.
+- **Nobufil's printed column was never transcribed on twelve of its thirteen sheets.** Thirteen Nobufil sheets
+  (3DJake copies) print one table with two value columns, "FDM H" and "Injection". The reader took only the rows with
+  one value, which stand in the Injection column (m128 marks them moulded); the tensile, elongation and Izod rows that
+  carry both a printed and a moulded value were never read, so the printed values these sheets exist to give are
+  missing. It is a several-values layout (a transcription of both columns per row), not a correction. The gap-fill
+  tranche (m225, 2026-09-29) transcribed PCTG CF's both columns, read on its page image, and found its one-value HDT
+  row under FDM H, not Injection (V008864, corrected); the other twelve sheets' HDT rows stand under Injection, as
+  m128 has them. None of them says what H is, so a printed value records "Stated, not a usable direction" and decides
+  only as published (D84).
 
 ```bash
 grep -l "FDM H[^I]" .cache/text/*.json | wc -l     # the sheets ("FDM H" alone also finds FDM HIPS); their rows:
@@ -844,8 +851,8 @@ and counts exact product states. It leaves these, each with where it is counted:
   "comparable" (printed, stated direction, dry or unstated); telling a sheet's method apart from its material is a data
   and rules question, not the chart's. The second query lists a material's products by stiffness with their standards.
 - **Cost is Canadian and thin.** The cost goal uses each product's own CAD/kg price; foreign-currency observations and a
-  dated conversion wait for the gap-fill plan, and most products have no price, so the constrained H2C beam ranks none by
-  cost and lists its 14 unpriced product states. The first query counts the products with a listing.
+  dated conversion were deferred by the gap-fill tranche (§21), and most products have no price, so the constrained H2C
+  beam ranks none by cost and lists its 14 unpriced product states. The first query counts the products with a listing.
 - **Estimated context is not offered under Confirmed only.** The plan allowed it there as a display layer; it was left
   out so that Confirmed only stays measured evidence alone everywhere on the page (D107). Under Include uncertain it is
   drawn only while estimates are on, and never for a conditioned question.
@@ -864,6 +871,50 @@ and counts exact product states. It leaves these, each with where it is counted:
 npm run sql --silent -- "select count(distinct gradeid) products_with_a_listing, currency from prices where quarantined = 0 group by currency"
 npm run sql --silent -- "select gradeid, normalized_value, standard_load, specimen_type from measurements where materialid = 'M001' and property = 'Tensile modulus' and direction = 'XY' order by normalized_value limit 8"
 node docs/audits/2026-09-29-ashby-makeover/tools/probe.mjs
+```
+
+## 21. What the gap-fill tranche leaves open
+
+The tranche of 2026-09-29 (GOALS; [the record](audits/2026-09-29-gap-fill-implementation/README.md)) took 45 of the
+research package's 51 technical findings, and one fact found on re-reading. What it did not take, and what it found:
+
+- **Two findings are held, as the research held them.** Nanovia Flex V0's "Tensile resistance 27 MPa VDE282 part 10"
+  (§11) has no faithful property or standard. Extrudr FLEX HARD CF's drying (G129-02) disagrees with itself: its page's
+  FAQ says "drying for 6 hours at 60°C", the settings table under it "Drying time 12 h", and Extrudr's catalogue 6 h. A
+  question for Extrudr; nothing is averaged.
+- **Spectrum GreenyHT's identity is contested** (G001-134, a PLA blend since m223, D106). m223 filed it from Spectrum's
+  category page; Spectrum's current shop data calls it "Bio-Based Copolyester (PLA-Free)" (the research's
+  GF-PL001-0027, saved as `products.json`). Its SKU does not match the variant, so neither reading settles it. It stays
+  a PLA blend until the owner or Spectrum says otherwise.
+- **Prices were not admitted.** Of the 133 targetable materials, the research's 56 regular-offer candidates come to
+  eight that a comparison could use: an in-stock offer whose tax can be separated, for an in-scope material with no
+  price. All eight are EUR or JPY, so each needs the currency, market and tax contract of the plan's 04-PRICES (a
+  schema, a frozen exchange rate, derived CAD-equivalent values, and "Canadian" wording across the page kept apart from
+  a relative price), and none has the rendered selected-offer capture the research could not make. The other 27 are
+  Bambu Lab Canada refreshes of materials already priced, which GOALS leaves to the refresh routine that comes with the
+  team layer (phase 6, decision 3). Every target's outcome is in the record's PRICES.csv.
+- **A published bound shows as its number.** A lower bound ("> 300 %") is a product's value with an open interval,
+  and the build keeps it one (V011516), but the key-number cards and the products table draw it as "300 %*", with the
+  not-comparable mark and no "more than". It was so before the tranche: four materials' hints and 46 product values are
+  bounds (the first query lists the bound measurements); the tranche adds one of each.
+- **Extrudr's product pages print newer tables than its sheets.** The pages b39 registered for DuraPro ABS CF and
+  DuraPro PC/PBT CF (and the FLEX Medium Matt page) print property tables that differ from the sheets the database holds
+  (DuraPro ABS CF's tensile modulus: 4000 MPa on the page, 2850 MPa on its sheet). They were read for chamber words and
+  drying only. Whether a page is a newer formulation or a newer test wants Extrudr's word before either is recorded.
+- **The HTML reader drops a table's heading row on Nanovia's pages.** "Test performed at 50mm/min on ISO 3167 A test
+  specimens" heads the tensile rows in the bytes of R-NANOVIA-PA-Food-Industry and is not in its cached text, so its
+  tensile rows (V011205, V011512, V011513) carry Specimen / print parameters "Not published". The specimen is still
+  unstated (an ISO 3167 A bar may be printed or moulded).
+- **The estimate model recalibrated.** No rule changed, but the rows it learns from did, so 129 estimated headline
+  cells of 50 materials, and 762 products' estimates, moved (`build/snapshot/headlines.csv`). Two moved a screen in Explore with estimates: PA6 (M049) is now
+  screened from Flexible component (its elongation's plausible top 65.1 % against 100 %), and PET (M066) from Warm
+  environment (the top of its heat deflection's screening range 79.9 °C against 80 °C, from 80.1). Neither is a verdict.
+- **Reviews are agents'.** The research's review was by another AI model; the re-read here is Claude's (an agent). No
+  person has spot-checked these values, and no H2C print test stands behind a recipe.
+
+```bash
+npm run sql --silent -- "select measurementid, gradeid, property, raw_value from measurements where operator = '>' and data_status not like 'Retired%' and materialid in (select materialid from materials where scope != 'Family entry') limit 20"
+npm run sql --silent -- "select sourceid, url from sources where sourceid like 'R-EXTRUDR-PRINT-%' or sourceid = 'D-EXTRUDR-FLEX-MEDIUM-MATT-PAGE'"
 ```
 
 ---

@@ -1,0 +1,1965 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-30"
+  },
+  "document": {
+    "sha256": "af22746e0274d91610d3c4ba5130184ee1af5a8822f105ddcfbf261549a78f8c",
+    "url": "https://extrudr.com/en/at/products/pla-basic-cf/",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": "Extrudr",
+    "docKey": "https://extrudr.com/en/at/products/pla-basic-cf/#witness-for=source:R-EXTRUDR-pla-basic-cf-TDS-en"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "PLA",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "name: pla",
+      "filler: cf"
+    ],
+    "materialId": "M018",
+    "materialName": "PLA-CF",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-PRINT-20260929-af22746e0274",
+      "Publisher": "Extrudr",
+      "Title": "PLA Basic CF – Carbon Fiber PLA for Technical Prints | Extrudr",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-29",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The exact product's page, saved by the gap-fill research of 2026-09-28 and staged from that copy by digest (b40). Only the print setting its profile names was taken; the page's other statements are unread here. Reviewed by Claude, an agent.",
+      "Citation role": "cited",
+      "URL": "https://extrudr.com/en/at/products/pla-basic-cf/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G018-07",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "af22746e0274d91610d3c4ba5130184ee1af5a8822f105ddcfbf261549a78f8c"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Data Sheets"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29"
+    }
+  },
+  "grades": [
+    {
+      "key": "G018-07",
+      "row": {
+        "GradeID": "G018-07",
+        "MaterialID": "M018",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "PLA BASIC CF",
+        "Shared formulation key": "R-EXTRUDR-pla-basic-cf-TDS-en",
+        "Composition / filler": "PLA Basic CF combines the user-friendly nature of PLA with the enhanced stiffness and technical appearance of carbon fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-PRINT-20260929-af22746e0274",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "Existing product G018-07; no grade, identity or shared formulation is created or changed."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "5600 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "5600",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "5.6",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Tensile modulus (Young's modulus) ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (Young's modulus)  ISO 527-1  5600 MPa  Outstanding"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "55 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Tensile strength at yield ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength at yield  ISO 527-1  55 MPa  Good"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "55 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "55",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "55",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Tensile stress at break ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile stress at break  ISO 527-1  55 MPa  Excellent"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "3 %",
+        "Raw unit": "%",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Elongation at break ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break  ISO 527-1  3 %  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "4800 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "4800",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "4.8",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Flexural modulus ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural modulus  ISO 178  4800 MPa  Outstanding"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "100 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "100",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "100",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Flexural strength ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural strength  ISO 178  100 MPa  Excellent"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "5 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "+23°C ISO 179-1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Charpy notched impact strength (+23°C) ISO 179-1eA",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy notched impact strength (+23°C)  ISO 179-1eA  5 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "3 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-30°C",
+        "Test temperature °C": "-30",
+        "Standard / load": "-30°C ISO 179-1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Charpy notched impact strength (-30°C) ISO 179-1eA",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy notched impact strength (-30°C)  ISO 179-1eA  3 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "12 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "12",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "12",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "+23°C ISO 179-1eU",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Charpy unnotched impact strength (+23°C) ISO 179-1eU",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy unnotched impact strength (+23°C)  ISO 179-1eU  12 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "10 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "10",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "10",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-30°C",
+        "Test temperature °C": "-30",
+        "Standard / load": "-30°C ISO 179-1eU",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Charpy unnotched impact strength (-30°C) ISO 179-1eU",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy unnotched impact strength (-30°C)  ISO 179-1eU  10 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "61 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "61",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "61",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa ISO 75-1",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Heat deflection temp. (HDT/B) — 0.45 MPa ISO 75-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temp. (HDT/B) — 0.45 MPa  ISO 75-1  61 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "57 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "57",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "57",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1.8 MPa ISO 75-1",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Heat deflection temp. (HDT/A) — 1.8 MPa ISO 75-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temp. (HDT/A) — 1.8 MPa  ISO 75-1  57 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "VST/B50 ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Vicat softening temp. (VST/B50) ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp. (VST/B50)  ISO 306  60 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "155 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "155",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "155",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 3146-C",
+        "Standards": "ISO 3146",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Melting point (Tm) ISO 3146-C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting point (Tm)  ISO 3146-C  155 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Tg DSC ISO 11357-1",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Glass transition temp. (Tg) ISO 11357-1 (DSC)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temp. (Tg)  ISO 11357-1 (DSC)  60 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "5 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Test temperature °C": "210",
+        "Standard / load": "MFR — 210°C/2.16 kg 210°C/2.16 kg ISO 1133-1",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Melt flow rate (MFR) — 210°C/2.16 kg ISO 1133-1 (210°C/2.16 kg)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow rate (MFR) — 210°C/2.16 kg  ISO 1133-1 (210°C/2.16 kg)  5 g/10 min  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.26 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.26",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1260",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183-1",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Density ISO 1183-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  ISO 1183-1  1.26 g/cm³  -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.2 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 294-4",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Locator": "p. 1: Mould shrinkage ISO 294-4",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Mould shrinkage  ISO 294-4  0.2 %  Excellent"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "200–230 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "200",
+        "Nozzle max °C": "230",
+        "Nozzle requirement": "required",
+        "Bed °C": "20–60 °C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "required No",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "50 °C",
+        "Drying state": "stated",
+        "Drying °C": "50",
+        "Drying hours": "Not published",
+        "Nozzle material": "required Yes",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Hardened nozzle required Yes",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "20–200 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "30–100 %"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "21 mm³/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 200–230 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "gradeKey": "G018-07",
+      "row": {
+        "MaterialID": "M018",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Drying temperature 50 °C; Drying time 0–6 h",
+        "Drying state": "stated",
+        "Drying °C": "50",
+        "Drying hours": "6",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-PRINT-20260929-af22746e0274",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Settings, Drying (drying only; the page's nozzle and build plate rows agree with P0374, from the sheet)",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Drying temperature 50 °C / Drying time 0–6 h"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "finding": "GF-RB036-0002",
+        "note": "Page text re-read in full; the pinned lines stand in the exact product's own print-settings section. Typed cells are the build's parsers' reading of the raw words, as for every other profile."
+      },
+      "id": "print-G018-07"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "200–230 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 200–230 °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "20–60 °C",
+      "fromBelow": false,
+      "line": "Build plate temperature 20–60 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "20–200 mm/s",
+      "fromBelow": false,
+      "line": "Speed 20–200 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "30–100 %",
+      "fromBelow": false,
+      "line": "Cooling fan 30–100 %"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed chamber",
+      "raw": "required No",
+      "fromBelow": false,
+      "line": "Enclosed chamber required No"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened nozzle",
+      "raw": "required Yes",
+      "fromBelow": false,
+      "line": "Hardened nozzle required Yes"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Max. volumetric flow rate",
+      "raw": "21 mm³/s",
+      "fromBelow": false,
+      "line": "Max. volumetric flow rate 21 mm³/s"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying temperature",
+      "raw": "50 °C",
+      "fromBelow": false,
+      "line": "Drying temperature 50 °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FD3D GmbH 2026. All rights reserved.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FREE SHIPPING ON 5+ ITEMS (inside EU) •",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3d Print Hub",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "B2B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: 9010241066971",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "41,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "black | 1.75 mm | 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "41,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "As with all carbon-fiber-reinforced materials, the abrasive content will gradually wear down a standard brass nozzle. We recommend a hardened nozzle (e.g., hard",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Store PLA Basic CF in a dry room at room temperature (18–27°C / 65–80°F). Stored neatly, it is protected from dust and sunlight.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "When stored correctly, PLA Basic CF has a shelf life of 2 years.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reviews (0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA NX2 MATT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "25,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "39,00 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "25,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "44,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "29,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UP TO 1000 MM/S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "24,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "34,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "29,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "34,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended settings for printers with a 0.4 mm nozzle. Max. 50% layer height. Optimal settings may vary between printers and are also dependent on environmenta",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Melt volume rate (MVR) — 235°C/5.0 kg  -  22 cm³/10 min  Excellent",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Thermal decomposition temp.  -  240 °C  Typical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CLTE — flow direction  -  0.45 cm/cm/°C  Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Water absorption (saturation, 23°C)  -  0.7 %  -",
+      "reason": "the upper end of a range: a window, not a result"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+    "note": "Registered for G018-07's drying (GF-RB036-0002); no measurement is taken from the page."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      },
+      "row": {
+        "MaterialID": "M018",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "Home Filaments PLA Basic CF",
+        "Shared formulation key": "R-EXTRUDR-PLA-BASIC-CF",
+        "Composition / filler": "CARBON FIBER REINFORCED (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-PLA-BASIC-CF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Data Sheets"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "purpose": "The latest-main baseline the gap-fill tranche was reconciled against (GOALS, decided on 2026-09-29, the gap-fill tranche).",
+  "repository": "https://github.com/faridbnv/h2c-materials.git",
+  "checkout": "a fresh clone, separate from the owner's working checkout",
+  "baseCommit": "758cf5244192e78273787dd5808ebbc2fd381cf6",
+  "remoteMainAtStart": "758cf5244192e78273787dd5808ebbc2fd381cf6 (git ls-remote --heads origin main, 2026-09-30T00:03:50Z UTC = 2026-09-29 17:04 PDT)",
+  "branch": "claude/gap-fill-implementation, from that commit, with no upstream",
+  "release": "125a0a09b72a",
+  "releaseDigest": "125a0a09b72a9d00537b77240eeed5a3e430903c4e33ac41cd6012e5c3207ecf",
+  "releaseInputs": {
+    "data": "93bc3babf95b793eb79f67687d37cebf0376bd2c32729637d77fc6e3a1adfb31",
+    "dependencies": "9f2421e6b50856eb637b7c4e8b0c731af311d6f68aa8dda0ced7adf652d1ac63",
+    "engine": "4494ce49adec79f4d5ed57b7431e965a91303e03b514638d0e68c333c4143689",
+    "rules": "3b002f1782135102e01c874596eef7870ea6cdd3df4abd9e2f93ad2d3c628de9",
+    "schema": "ff6473454fc695aad75eae706a43e339975f526017185f2a8db1ea3434a6c67c"
+  },
+  "dataManifestSha256": "59052bfd09463a8d2f93833f91f959eea8d9c4897b31d4190877d5a9ce55bdde",
+  "researchBaseline": {
+    "commit": "509f6efc32fd09a08cee27ceae11800e01deb7c4",
+    "release": "03663e0b6e97",
+    "note": "The research package read this commit. The nine commits between it and the base change the interface, engine and docs (the Ashby lens, D107 to D112); none changes data/ or schema/ (git diff --stat 509f6ef..758cf52 -- data schema is empty), so every research identity reconciles by its stable ID."
+  },
+  "counts": {
+    "materials": 175,
+    "h2cRelevant": 136,
+    "familyEntries": 22,
+    "retiredDuplicates": {
+      "measurements": 299,
+      "evidence": 16
+    },
+    "excluded": 17,
+    "grades": 1163,
+    "measurements": 11212,
+    "numericMeasurements": 11037,
+    "quarantined": 18,
+    "profiles": 1305,
+    "evidence": 625,
+    "prices": 104,
+    "sources": 1739,
+    "coverage": 922,
+    "knowHow": 4665,
+    "polymerEnvironment": 353,
+    "polymerEvidence": 338,
+    "coverageDerived": 696
+  },
+  "headlineCoverage": {
+    "density": 145,
+    "tensileModulusXY": 100,
+    "tensileStrengthXY": 103,
+    "tensileStrengthZ": 49,
+    "elongationXY": 99,
+    "charpyNotched": 39,
+    "izodNotched": 26,
+    "hdt045": 99,
+    "glassTransition": 82,
+    "priceCADkg": 33
+  },
+  "sourceCache": "2,290 of 2,414 registered and ledger digests present (restored from the private store by digest); 124 absent, as in the owner's checkout; 12 not recorded",
+  "verify": {
+    "verify:fast cold": "156.6 s (over the 90 s budget, cold, as recorded in OPEN-PROBLEMS 19)",
+    "verify:fast warm (inside npm run verify)": "56.8 s, within budget",
+    "npm run verify": "pass: 435 + 186 tests, 69 interface views, 300 rendered scenarios (8 min 6 s)"
+  },
+  "rebasedOnto": {
+    "commit": "daa88047708009f9bea5fc35ebba1204d87c0dae",
+    "seen": "remote main advanced during the work (git ls-remote, 2026-09-29 evening PDT)",
+    "change": "\"Remove the Ashby style rules nothing draws any more\": app/css/app.css only. The release digest does not read the stylesheet, so the base release stays 125a0a09b72a and every before-count here holds; the gates were run again on the rebased branch."
+  }
+}

@@ -418,7 +418,7 @@ Copolyesters
 2 of 2
  1,280
 1,280–1,280 · 2
- — 70* 5* 77
+ — 39* 9* 77
 76–78 · 2
  — ☆
 PCTG-GF
@@ -817,7 +817,7 @@ Flexible Elastomers
 4 of 4
  1,125
 1,000–1,250 · 2
- 0.06* 11.5* — n/a — ☆
+ 0.06* 11.5* 300* n/a — ☆
 TPU 85A class and softer
 Flexible Elastomers
  PASS

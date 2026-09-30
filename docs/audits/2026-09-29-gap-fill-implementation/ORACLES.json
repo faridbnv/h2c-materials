@@ -1,0 +1,62 @@
+{
+ "status": "PASS",
+ "release": "26424edd53e5",
+ "by": "Claude (claude-opus-5-5), an agent; expectations written from the cited pages",
+ "checks": [
+  {
+   "name": "Flex VX glass transition is -32 °C, as the page prints it, with no specimen or direction",
+   "source": "R-NANOVIA-Flex-VX p. 1 \"Tg -32 °C\"",
+   "status": "PASS"
+  },
+  {
+   "name": "ISTROFLEX elongation \"> 300 %\" is a lower bound, never a point value",
+   "source": "R-NANOVIA-ISTROFLEX p. 1 \"Elong. at break > 300 % ISO 527\"",
+   "status": "PASS"
+  },
+  {
+   "name": "PA Food Industry: 4,0 % is the strain at the ultimate strength, not an elongation at break; the strength is 83 MPa",
+   "source": "R-NANOVIA-PA-Food-Industry p. 1",
+   "status": "PASS"
+  },
+  {
+   "name": "Flex V0's \"Tensile resistance 27 MPa VDE282 part 10\" is held: no value of 27 is recorded for it",
+   "source": "R-NANOVIA-Flex p. 1; GF-RB043-0008",
+   "status": "PASS"
+  },
+  {
+   "name": "FLEX HARD CF's drying is held: its page prints 6 h in one place and 12 h in another, and the catalogue 6 h",
+   "source": "GF-RB036-0008",
+   "status": "PASS"
+  },
+  {
+   "name": "Nobufil PCTG CF: the FDM H column is printed and states no usable direction; the Injection column is moulded",
+   "source": "R-3DJAKE-3DJAKE-PCTG-CF-tech-data p. 1 (page image)",
+   "status": "PASS"
+  },
+  {
+   "name": "Conductive Filaflex: the page's 0.4 mm row (250 °C) and bed (50-55 °C for large parts) are within the H2C; its chamber stays unknown",
+   "source": "R-RECREUS-PRINT-20260929-5fe4f7191bfc",
+   "status": "PASS"
+  },
+  {
+   "name": "A drying-only profile reads no nozzle, bed or chamber, and fills no gate",
+   "source": "b40 and m225",
+   "status": "PASS"
+  },
+  {
+   "name": "eSUN PA-CF: XY and Z values are comparable by their stated direction; the Izod values name no notch and decide no impact headline",
+   "source": "S-ESUN-PRINT-20260928-333834d1b9db p. 1",
+   "status": "PASS"
+  },
+  {
+   "name": "The frozen replay moved two answers, both to FAIL on a published value, and made no new PASS",
+   "source": "FROZEN-REPLAY.json",
+   "status": "PASS"
+  },
+  {
+   "name": "Every source the tranche cites still hashes to its recorded digest",
+   "source": "sources.csv",
+   "status": "PASS"
+  }
+ ]
+}

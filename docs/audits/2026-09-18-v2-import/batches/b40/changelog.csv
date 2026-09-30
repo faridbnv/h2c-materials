@@ -1,0 +1,98 @@
+table,record,action,field,before,after
+measurements,V008864,Edited,Specimen type,Raw material value,Printed specimen
+measurements,V008864,Edited,Specimen / print parameters,Not published,Source column: FDM H (the sheet does not say what H is)
+measurements,V008864,Edited,Notes,"Added 2026-09-20 (m90-batch-b19): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Method and load from the label (m111): the sheet prints ""HDT A"", which ISO 75 defines as 1.8 MPa (D65). Corrected 2026-09-21 (m128-specimens-the-sheet-states) against the source: the table is headed ""Properties FDM H Injection Method"", and this row's one value stands in the Injection column (page image): an injection-moulded bar.","Added 2026-09-20 (m90-batch-b19): re-read from the source document, page 1 (SHA-256 recorded in sources.csv). Method and load from the label (m111): the sheet prints ""HDT A"", which ISO 75 defines as 1.8 MPa (D65). Corrected 2026-09-21 (m128-specimens-the-sheet-states) against the source: the table is headed ""Properties FDM H Injection Method"", and this row's one value stands in the Injection column (page image): an injection-moulded bar. Corrected 2026-09-29 (m225-gap-fill-registered-sources) against the source: the page image prints 72 under ""FDM H"", not under ""Injection"" as m128 read it (GF-PL001-0020). The load stays 1.8 MPa, from the label ""HDT A"" (D65)."
+measurements,V011512,Added,,,
+measurements,V011513,Added,,,
+measurements,V011514,Added,,,
+measurements,V011515,Added,,,
+measurements,V011516,Added,,,
+measurements,V011517,Added,,,
+measurements,V011518,Added,,,
+measurements,V011519,Added,,,
+measurements,V011520,Added,,,
+measurements,V011521,Added,,,
+measurements,V011522,Added,,,
+measurements,V011523,Added,,,
+measurements,V011524,Added,,,
+measurements,V011525,Added,,,
+measurements,V011526,Added,,,
+measurements,V011527,Added,,,
+measurements,V011528,Added,,,
+measurements,V011529,Added,,,
+measurements,V011530,Added,,,
+measurements,V011531,Added,,,
+measurements,V011532,Added,,,
+measurements,V011533,Added,,,
+measurements,V011534,Added,,,
+measurements,V011535,Added,,,
+measurements,V011536,Added,,,
+profiles,P1161,Edited,Drying,Not published,Dehydrate for 4h at 50°C prior to printing after prolonged exposure to humidity.
+profiles,P1161,Edited,Drying state,unknown,stated
+profiles,P1161,Edited,Drying °C,Not applicable,50
+profiles,P1161,Edited,Drying hours,Not applicable,4
+profiles,P1161,Edited,Locator,p. 1: Recommended printing settings: Extrusion temperature,p. 1: Recommended printing settings: Extrusion temperature; p. 1: Application recommendations (drying)
+profiles,P1172,Edited,Drying,Not published,Dehydrate for 6 h at 100 °C prior to printing.
+profiles,P1172,Edited,Drying state,unknown,stated
+profiles,P1172,Edited,Drying °C,Not applicable,100
+profiles,P1172,Edited,Drying hours,Not applicable,6
+profiles,P1172,Edited,Locator,p. 1: Recommended printing settings; p. 1: Nozzle note,p. 1: Recommended printing settings; p. 1: Nozzle note; p. 1: Application recommendations (drying)
+profiles,P1183,Edited,Drying,Not published,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.
+profiles,P1183,Edited,Drying state,unknown,stated
+profiles,P1183,Edited,Drying °C,Not applicable,60
+profiles,P1183,Edited,Drying hours,Not applicable,4
+profiles,P1183,Edited,Locator,p. 1: Recommended printing settings; p. 1: Nozzle note,p. 1: Recommended printing settings; p. 1: Nozzle note; p. 1: Application recommendations (drying)
+profiles,P1184,Edited,Drying,Not published,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.
+profiles,P1184,Edited,Drying state,unknown,stated
+profiles,P1184,Edited,Drying °C,Not applicable,60
+profiles,P1184,Edited,Drying hours,Not applicable,4
+profiles,P1184,Edited,Locator,p. 1: Recommended printing settings,p. 1: Recommended printing settings; p. 1: Application recommendations (drying)
+profiles,P1186,Edited,Drying,Not published,Dehydrate for 6 h at 100 °C prior to printing after prolonged exposure to humidity.
+profiles,P1186,Edited,Drying state,unknown,stated
+profiles,P1186,Edited,Drying °C,Not applicable,100
+profiles,P1186,Edited,Drying hours,Not applicable,6
+profiles,P1186,Edited,Locator,p. 1: Recommended printing settings,p. 1: Recommended printing settings; p. 1: Application recommendations (drying)
+profiles,P1191,Edited,Drying,Not published,Dehydrate for 4h at 60°C prior to printing after prolonged exposure to humidity.
+profiles,P1191,Edited,Drying state,unknown,stated
+profiles,P1191,Edited,Drying °C,Not applicable,60
+profiles,P1191,Edited,Drying hours,Not applicable,4
+profiles,P1191,Edited,Locator,p. 1: Recommended printing settings,p. 1: Recommended printing settings; p. 1: Application recommendations (drying)
+profiles,P1287,Edited,Drying,Not published,Dry at70℃/>12h
+profiles,P1287,Edited,Drying state,unknown,stated
+profiles,P1287,Edited,Drying °C,Not applicable,70
+profiles,P1287,Edited,Drying hours,Not applicable,12
+profiles,P1287,Edited,Locator,p. 1: Exact-product chamber guidance: enclosed-chamber printing,p. 1: Exact-product chamber guidance: enclosed-chamber printing; p. 1: Printing Recommendation (drying)
+profiles,P1291,Edited,Drying,Not published,Drying temperature 60 °C; Drying time 10 h
+profiles,P1291,Edited,Drying state,unknown,stated
+profiles,P1291,Edited,Drying °C,Not applicable,60
+profiles,P1291,Edited,Drying hours,Not applicable,10
+profiles,P1291,Edited,Locator,p. 1: Exact-product chamber guidance: Enclosed chamber required Yes,"p. 1: Exact-product chamber guidance: Enclosed chamber required Yes; p. 1: Print Settings, Drying"
+profiles,P1297,Edited,Drying,Not published,Drying temperature 65 °C; Drying time 8–12 h
+profiles,P1297,Edited,Drying state,unknown,stated
+profiles,P1297,Edited,Drying °C,Not applicable,65
+profiles,P1297,Edited,Drying hours,Not applicable,12
+profiles,P1297,Edited,Locator,p. 1: Exact-product chamber guidance: Enclosed chamber required Yes,"p. 1: Exact-product chamber guidance: Enclosed chamber required Yes; p. 1: Print Settings, Drying"
+profiles,P1306,Added,,,
+profiles,P1307,Added,,,
+profiles,P1308,Added,,,
+profiles,P1309,Added,,,
+profiles,P1310,Added,,,
+profiles,P1311,Added,,,
+profiles,P1312,Added,,,
+profiles,P1313,Added,,,
+profiles,P1314,Added,,,
+profiles,P1315,Added,,,
+profiles,P1316,Added,,,
+sources,D-EXTRUDR-FLEX-MEDIUM-MATT-PAGE,Edited,Source note,"The maker's own page, found by the research package of 2026-09-26 while re-reading a recorded conflict; consulted to confirm or explain it, and no value is transcribed from it.","The maker's own page, found by the research package of 2026-09-26 while re-reading a recorded conflict; consulted to confirm or explain it, and no value is transcribed from it. Cited from 2026-09-29 (m225-gap-fill-registered-sources): a profile of G039-14 takes its drying from this page (GF-RB036-0004)."
+sources,D-EXTRUDR-FLEX-MEDIUM-MATT-PAGE,Edited,Citation role,corroboration,cited
+sources,S-ESUN-PRINT-20260928-c7b961702f53,Edited,Source note,Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted.,Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent. Consulted for the existing product recipe; no new numeric or affirmative gate fact accepted. Cited from 2026-09-29 (m225-gap-fill-registered-sources): a profile of G150-02 takes its drying and AMS advice from this page (GF-PL001-0025).
+sources,S-ESUN-PRINT-20260928-c7b961702f53,Edited,Citation role,corroboration,cited
+sources,R-EXTRUDR-PRINT-20260929-245381f760f8,Added,,,
+sources,R-EXTRUDR-PRINT-20260929-2cccd500d85c,Added,,,
+sources,R-EXTRUDR-PRINT-20260929-3793d04515ce,Added,,,
+sources,R-EXTRUDR-PRINT-20260929-463457967aab,Added,,,
+sources,R-EXTRUDR-PRINT-20260929-5f1378a7bff2,Added,,,
+sources,R-RECREUS-PRINT-20260929-5fe4f7191bfc,Added,,,
+sources,R-EXTRUDR-PRINT-20260929-af22746e0274,Added,,,
+sources,R-EXTRUDR-PRINT-20260929-c415150859a4,Added,,,
+sources,R-EXTRUDR-PRINT-20260929-ca0239ac2a92,Added,,,

@@ -1,0 +1,1982 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-09-30"
+  },
+  "document": {
+    "sha256": "5f1378a7bff2d92648da8cdf95c700e3e6c9ac835820dbbdeeadc1e9d0182d28",
+    "url": "https://extrudr.com/en/at/products/wood/",
+    "pages": 1,
+    "provider": "Extrudr",
+    "manufacturer": "Extrudr",
+    "docKey": "https://extrudr.com/en/at/products/wood/#witness-for=source:R-EXTRUDR-wood-TDS-en"
+  },
+  "identity": {
+    "polymer": "PLA",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "particle-filled",
+    "finish": "Wood",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "variant: wood (Wood)",
+      "ruling R138: PLA"
+    ],
+    "materialId": "M014",
+    "materialName": "PLA Wood",
+    "estimateIdentity": "PLA",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "amorphous",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-EXTRUDR-PRINT-20260929-5f1378a7bff2",
+      "Publisher": "Extrudr",
+      "Title": "WOOD Filament – Wood-Fibre-Reinforced 3D Printing Filament | Extrudr",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-29",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "The exact product's page, saved by the gap-fill research of 2026-09-28 and staged from that copy by digest (b40). Only the print setting its profile names was taken; the page's other statements are unread here. Reviewed by Claude, an agent.",
+      "Citation role": "cited",
+      "URL": "https://extrudr.com/en/at/products/wood/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G014-18",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "5f1378a7bff2d92648da8cdf95c700e3e6c9ac835820dbbdeeadc1e9d0182d28"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Data Sheets"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29"
+    }
+  },
+  "grades": [
+    {
+      "key": "G014-18",
+      "row": {
+        "GradeID": "G014-18",
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "WOOD",
+        "Shared formulation key": "R-EXTRUDR-wood-TDS-en",
+        "Composition / filler": "wood-fibre-reinforced plastic is characterised by exceptional processing properties. In addition, the raw material is approved (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-PRINT-20260929-5f1378a7bff2",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "Existing product G014-18; no grade, identity or shared formulation is created or changed."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "3200 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3200",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Tensile modulus (Young's modulus) ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile modulus (Young's modulus)  ISO 527-1  3200 MPa  Excellent"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Tensile yield strength",
+        "Raw value": "35 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Tensile strength at yield ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile strength at yield  ISO 527-1  35 MPa  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Tensile break strength",
+        "Raw value": "35 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "35",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "35",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Tensile stress at break ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile stress at break  ISO 527-1  35 MPa  Very Good"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Elongation at break",
+        "Raw value": "2 %",
+        "Raw unit": "%",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527-1",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Elongation at break ISO 527-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Elongation at break  ISO 527-1  2 %  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "3400 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "3400",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "3.4",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Flexural modulus ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural modulus  ISO 178  3400 MPa  Excellent"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Flexural strength",
+        "Raw value": "43 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "43",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "43",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "MPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Flexural strength ISO 178",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural strength  ISO 178  43 MPa  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m07",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "2.5 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "2.5",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2.5",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "+23°C ISO 179-1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Charpy notched impact strength (+23°C) ISO 179-1eA",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy notched impact strength (+23°C)  ISO 179-1eA  2.5 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m08",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "2 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "2",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "2",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-30°C",
+        "Test temperature °C": "-30",
+        "Standard / load": "-30°C ISO 179-1eA",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Notched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Charpy notched impact strength (-30°C) ISO 179-1eA",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy notched impact strength (-30°C)  ISO 179-1eA  2 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m09",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "16 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "16",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "16",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "23°C",
+        "Test temperature °C": "23",
+        "Standard / load": "+23°C ISO 179-1eU",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Charpy unnotched impact strength (+23°C) ISO 179-1eU",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy unnotched impact strength (+23°C)  ISO 179-1eU  16 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m10",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Charpy strength",
+        "Raw value": "13 kJ/m²",
+        "Raw unit": "kJ/m²",
+        "Raw numeric": "13",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "13",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kJ/m²",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "-30°C",
+        "Test temperature °C": "-30",
+        "Standard / load": "-30°C ISO 179-1eU",
+        "Standards": "ISO 179",
+        "Test load MPa": "Not applicable",
+        "Notch": "Unnotched",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Charpy unnotched impact strength (-30°C) ISO 179-1eU",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Charpy unnotched impact strength (-30°C)  ISO 179-1eU  13 kJ/m²  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m11",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "49 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "49",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "49",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "0.45 MPa ISO 75-1",
+        "Standards": "ISO 75",
+        "Test load MPa": "0.45",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Heat deflection temp. (HDT/B) — 0.45 MPa ISO 75-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temp. (HDT/B) — 0.45 MPa  ISO 75-1  49 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m12",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "HDT",
+        "Raw value": "46 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "46",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "46",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "1.8 MPa ISO 75-1",
+        "Standards": "ISO 75",
+        "Test load MPa": "1.8",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Heat deflection temp. (HDT/A) — 1.8 MPa ISO 75-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Heat deflection temp. (HDT/A) — 1.8 MPa  ISO 75-1  46 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m13",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Vicat softening temperature",
+        "Raw value": "48 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "48",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "48",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "VST/B50 ISO 306",
+        "Standards": "ISO 306",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Vicat softening temp. (VST/B50) ISO 306",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Vicat softening temp. (VST/B50)  ISO 306  48 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m14",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Melting temperature",
+        "Raw value": "150-170 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "150",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "170",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "150",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "170",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 3146-C",
+        "Standards": "ISO 3146",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Melting point (Tm) ISO 3146-C",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melting point (Tm)  ISO 3146-C  150–170 °C  -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m15",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Glass transition temperature",
+        "Raw value": "60 °C",
+        "Raw unit": "°C",
+        "Raw numeric": "60",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "60",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "°C",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Tg DSC ISO 11357-1",
+        "Standards": "ISO 11357",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Glass transition temp. (Tg) ISO 11357-1 (DSC)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Glass transition temp. (Tg)  ISO 11357-1 (DSC)  60 °C  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m16",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Melt mass-flow rate",
+        "Raw value": "22 g/10 min",
+        "Raw unit": "g/10 min",
+        "Raw numeric": "22",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "22",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "g/10 min",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "210°C",
+        "Test temperature °C": "210",
+        "Standard / load": "MFR — 210°C/2.16 kg 210°C/2.16 kg ISO 1133-1",
+        "Standards": "ISO 1133",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Melt flow rate (MFR) — 210°C/2.16 kg ISO 1133-1 (210°C/2.16 kg)",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Melt flow rate (MFR) — 210°C/2.16 kg  ISO 1133-1 (210°C/2.16 kg)  22 g/10 min  Typical"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m17",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.23 g/cm³",
+        "Raw unit": "g/cm³",
+        "Raw numeric": "1.23",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1230",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183-1",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Density ISO 1183-1",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density  ISO 1183-1  1.23 g/cm³  -"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "id": "m18",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Property": "Mould shrinkage",
+        "Raw value": "0.3 %",
+        "Raw unit": "%",
+        "Raw numeric": "0.3",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1",
+        "Normalized value": "0.3",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "%",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 294-4",
+        "Standards": "ISO 294",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Locator": "p. 1: Mould shrinkage ISO 294-4",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Mould shrinkage  ISO 294-4  0.3 %  Excellent"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "170–190 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "170",
+        "Nozzle max °C": "190",
+        "Nozzle requirement": "required",
+        "Bed °C": "20–60 °C",
+        "Bed state": "range",
+        "Bed min °C": "20",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "required No",
+        "Enclosure state": "recommended",
+        "Plate": "Not published",
+        "Drying": "50 °C",
+        "Drying state": "stated",
+        "Drying °C": "50",
+        "Drying hours": "Not published",
+        "Nozzle material": "required No",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "40–60 mm/s"
+        },
+        {
+          "Topic": "Cooling",
+          "Text": "50–80 %"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle temperature 170–190 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      }
+    },
+    {
+      "gradeKey": "G014-18",
+      "row": {
+        "MaterialID": "M014",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "Not published",
+        "Nozzle state": "unknown",
+        "Nozzle min °C": "Not applicable",
+        "Nozzle max °C": "Not applicable",
+        "Nozzle requirement": "unknown",
+        "Bed °C": "Not published",
+        "Bed state": "unknown",
+        "Bed min °C": "Not applicable",
+        "Bed max °C": "Not applicable",
+        "Bed requirement": "unknown",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Drying temperature 50 °C; Drying time 4 h",
+        "Drying state": "stated",
+        "Drying °C": "50",
+        "Drying hours": "4",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-EXTRUDR-PRINT-20260929-5f1378a7bff2",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Print Settings, Drying (drying only; the page's nozzle and build plate rows agree with P1025, from the sheet)",
+        "Parse review": "Not applicable"
+      },
+      "notes": [],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Drying temperature 50 °C / Drying time 4 h"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "finding": "GF-RB036-0001",
+        "note": "Page text re-read in full; the pinned lines stand in the exact product's own print-settings section. Typed cells are the build's parsers' reading of the raw words, as for every other profile."
+      },
+      "id": "print-G014-18"
+    }
+  ],
+  "evidence": [],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle temperature",
+      "raw": "170–190 °C",
+      "fromBelow": false,
+      "line": "Nozzle temperature 170–190 °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Build plate temperature",
+      "raw": "20–60 °C",
+      "fromBelow": false,
+      "line": "Build plate temperature 20–60 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Speed",
+      "raw": "40–60 mm/s",
+      "fromBelow": false,
+      "line": "Speed 40–60 mm/s"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Cooling",
+      "label": "Cooling fan",
+      "raw": "50–80 %",
+      "fromBelow": false,
+      "line": "Cooling fan 50–80 %"
+    },
+    {
+      "page": 1,
+      "field": "enclosure",
+      "topic": "",
+      "label": "Enclosed chamber",
+      "raw": "required No",
+      "fromBelow": false,
+      "line": "Enclosed chamber required No"
+    },
+    {
+      "page": 1,
+      "field": "nozzle-material",
+      "topic": "",
+      "label": "Hardened nozzle",
+      "raw": "required No",
+      "fromBelow": false,
+      "line": "Hardened nozzle required No"
+    },
+    {
+      "page": 1,
+      "field": "drying",
+      "topic": "",
+      "label": "Drying temperature",
+      "raw": "50 °C",
+      "fromBelow": false,
+      "line": "Drying temperature 50 °C"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "FD3D GmbH 2026. All rights reserved.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "FREE SHIPPING ON 5+ ITEMS (inside EU) •",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3d Print Hub",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "B2B",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SKU: 9010241366033",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "44,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "nature | 1.75 mm | 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "44,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Only 49 left in stock",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "BIODEGRADABLE (EN 13432)",
+      "reason": "properties.csv carries no property for \"BIODEGRADABLE (\""
+    },
+    {
+      "page": 1,
+      "text": "Made from renewable raw material and compliant with EN 13432, a genuinely sustainable choice.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Reviews (0)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PLA NX2 MATT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "25,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "39,00 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "25,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "44,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "29,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "UP TO 1000 MM/S",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "24,98 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "34,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.8 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "View available options for 10 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "29,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.75 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.85 mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0.75 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2 kg",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "34,99 €",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Recommended settings for printers with a 0.4 mm nozzle. Max. 50% layer height. Optimal settings may vary between printers and are also dependent on environmenta",
+      "reason": "in the printing guide, naming no setting the lexicon knows"
+    },
+    {
+      "page": 1,
+      "text": "Melt volume rate (MVR) — 235°C/5.0 kg  -  25 cm³/10 min  Excellent",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 1,
+      "text": "Thermal decomposition temp.  -  240 °C  Typical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "CLTE — flow direction  -  0.65 cm/cm/°C  Very Good",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Water absorption (saturation, 23°C)  -  1 %  Outstanding",
+      "reason": "the upper end of a range: a window, not a result"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+    "note": "Registered for G014-18's drying (GF-RB036-0001); no measurement is taken from the page."
+  },
+  "newMaterial": null,
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Claude (claude-opus-5-5, agent reviewer), 2026-09-29",
+        "note": "An automatic reading of a product page. Only the pinned print setting below is in this tranche."
+      },
+      "row": {
+        "MaterialID": "M014",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Extrudr",
+        "Product name": "Home Filaments WOOD",
+        "Shared formulation key": "R-EXTRUDR-WOOD",
+        "Composition / filler": "WOOD comes from Extrudr's BIO design range and is made from renewable raw materials such as lignin and other biopolymers. Reinforced with real spruce fiber, it  (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-EXTRUDR-WOOD",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Data Sheets"
+      }
+    }
+  ]
+}
