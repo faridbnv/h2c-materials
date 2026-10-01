@@ -1,0 +1,883 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/application-more-packet.json",
+  "input_sha256": "b1e62b8548b442249f9cd199d0c5528c7a6d075aa7fab558ba2d6c4fa0a8d52f",
+  "reviewed_at_utc": "2026-10-01T03:19:25.612379+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 18,
+  "source_faithful_operations": 18,
+  "operations": [
+    {
+      "OperationID": "APP-MORE-1",
+      "verdict": "APPROVE",
+      "GradeID": "G164-03",
+      "MaterialID": "M055",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+      "source_sha256": "27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc",
+      "source_original_path": ".cache/sources/by-sha/27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc.pdf",
+      "Locator": "p. 1: FEAUTURES, fourth bullet",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "Ideal for heat dissipation applications"
+      ],
+      "raw_finding": "Ideal for heat dissipation applications",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own ThermaTech PA feature is intended use only; injection-moulding material-property context is retained.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-2",
+      "verdict": "APPROVE",
+      "GradeID": "G134-01",
+      "MaterialID": "M134",
+      "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+      "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+      "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+      "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 1",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "Orthopedics and rehabilitation: orthoses, orthopedic insoles"
+      ],
+      "raw_finding": "Orthopedics and rehabilitation: orthoses, orthopedic insoles",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-3",
+      "verdict": "APPROVE",
+      "GradeID": "G134-01",
+      "MaterialID": "M134",
+      "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+      "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+      "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+      "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 2",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "Sports and recreation: grips, protective gear, helmet components, sports accessories"
+      ],
+      "raw_finding": "Sports and recreation: grips, protective gear, helmet components, sports accessories",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-4",
+      "verdict": "APPROVE",
+      "GradeID": "G134-01",
+      "MaterialID": "M134",
+      "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+      "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+      "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+      "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 3",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "Drones and RC models: shock absorbers, landing gear components"
+      ],
+      "raw_finding": "Drones and RC models: shock absorbers, landing gear components",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-5",
+      "verdict": "APPROVE",
+      "GradeID": "G134-01",
+      "MaterialID": "M134",
+      "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+      "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+      "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+      "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 4",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "Automotive: gaskets, bumpers, vibration dampers"
+      ],
+      "raw_finding": "Automotive: gaskets, bumpers, vibration dampers",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-6",
+      "verdict": "APPROVE",
+      "GradeID": "G134-01",
+      "MaterialID": "M134",
+      "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+      "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+      "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+      "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 5",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "Footwear: insoles, soles"
+      ],
+      "raw_finding": "Footwear: insoles, soles",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-7",
+      "verdict": "APPROVE",
+      "GradeID": "G096-02",
+      "MaterialID": "M096",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+      "source_sha256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06",
+      "source_original_path": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf",
+      "Locator": "p. 1: Description, final intended-use and exclusions paragraph",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "This material can be used for production of electrical and electronic equipment."
+      ],
+      "raw_finding": "This material can be used for production of electrical and electronic equipment.",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Fluorodur Description p.1 directly prints electronics use plus distinct food-contact and medical exclusions; none relaxed or broadened.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-8",
+      "verdict": "APPROVE",
+      "GradeID": "G096-02",
+      "MaterialID": "M096",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+      "source_sha256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06",
+      "source_original_path": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf",
+      "Locator": "p. 1: Description, final intended-use and exclusions paragraph",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "The usage for food contact application is not recommended."
+      ],
+      "raw_finding": "The usage for food contact application is not recommended.",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Fluorodur Description p.1 directly prints electronics use plus distinct food-contact and medical exclusions; none relaxed or broadened.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade.",
+      "applied_corrections_verified": [
+        {
+          "field": "Topic",
+          "old": "Pitfalls",
+          "new": "Pitfalls and limitations",
+          "reason": "Pitfalls is absent from schema/vocab/environment-topics.csv. Existing exact vocabulary keeps it in category know-how."
+        }
+      ]
+    },
+    {
+      "OperationID": "APP-MORE-9",
+      "verdict": "APPROVE",
+      "GradeID": "G096-02",
+      "MaterialID": "M096",
+      "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+      "source_sha256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06",
+      "source_original_path": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf",
+      "Locator": "p. 1: Description, final intended-use and exclusions paragraph",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "The material should not be used for medical applications."
+      ],
+      "raw_finding": "The material should not be used for medical applications.",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Fluorodur Description p.1 directly prints electronics use plus distinct food-contact and medical exclusions; none relaxed or broadened.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade.",
+      "applied_corrections_verified": [
+        {
+          "field": "Topic",
+          "old": "Pitfalls",
+          "new": "Pitfalls and limitations",
+          "reason": "Pitfalls is absent from schema/vocab/environment-topics.csv. Existing exact vocabulary keeps it in category know-how."
+        }
+      ]
+    },
+    {
+      "OperationID": "APP-MORE-10",
+      "verdict": "APPROVE",
+      "GradeID": "G167-13",
+      "MaterialID": "M175",
+      "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+      "source_sha256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+      "source_original_path": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf",
+      "Locator": "p. 1: General, intended-use sentence 1; optical reading",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original SHA verified, layout extraction reviewed, visual original page image /private/tmp/h2c-fabru-tpv.png independently reread to restore ligatures",
+      "source_wording": [
+        "Thanks to its excellent resistance to weathering, UV radiation, ozone, and numerous chemicals, TPV is particularly suitable for seals, cable ducts, and flexible connectors."
+      ],
+      "raw_finding": "Thanks to its excellent resistance to weathering, UV radiation, ozone, and numerous chemicals, TPV is particularly suitable for seals, cable ducts, and flexible connectors.",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Supplier-specific TPV narrative associated with registered route is record-tier only; filename 98A versus printed Shore A 92 remains unresolved and no hardness/service transfer occurs.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-11",
+      "verdict": "APPROVE",
+      "GradeID": "G167-13",
+      "MaterialID": "M175",
+      "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+      "source_sha256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+      "source_original_path": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf",
+      "Locator": "p. 1: General, intended-use sentence 2; optical reading",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original SHA verified, layout extraction reviewed, visual original page image /private/tmp/h2c-fabru-tpv.png independently reread to restore ligatures",
+      "source_wording": [
+        "The material also finds versatile applications in industry and household appliances where permanent elasticity and dimensional stability are required."
+      ],
+      "raw_finding": "The material also finds versatile applications in industry and household appliances where permanent elasticity and dimensional stability are required.",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Supplier-specific TPV narrative associated with registered route is record-tier only; filename 98A versus printed Shore A 92 remains unresolved and no hardness/service transfer occurs.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-12",
+      "verdict": "APPROVE",
+      "GradeID": "G167-13",
+      "MaterialID": "M175",
+      "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+      "source_sha256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+      "source_original_path": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf",
+      "Locator": "p. 1: General, intended-use sentence 3; optical reading",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original SHA verified, layout extraction reviewed, visual original page image /private/tmp/h2c-fabru-tpv.png independently reread to restore ligatures",
+      "source_wording": [
+        "Whether for durable sealing profiles, ergonomic handles, or protective components \u2013 this TPV impresses with its versatility and technical excellence."
+      ],
+      "raw_finding": "Whether for durable sealing profiles, ergonomic handles, or protective components \u2013 this TPV impresses with its versatility and technical excellence.",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Supplier-specific TPV narrative associated with registered route is record-tier only; filename 98A versus printed Shore A 92 remains unresolved and no hardness/service transfer occurs.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-13",
+      "verdict": "APPROVE",
+      "GradeID": "G084-02",
+      "MaterialID": "M084",
+      "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+      "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+      "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+      "Locator": "p. 1: Application, Vial rack example title and caption",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+      "source_wording": [
+        "Vial rack",
+        "Example of a custom laboratory equipment"
+      ],
+      "raw_finding": "Vial rack \u2014 Example of a custom laboratory equipment",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-14",
+      "verdict": "APPROVE",
+      "GradeID": "G084-02",
+      "MaterialID": "M084",
+      "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+      "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+      "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+      "Locator": "p. 1: Application, Pipette holder example title and caption",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+      "source_wording": [
+        "Pipette holder",
+        "Example of a custom laboratory equipment"
+      ],
+      "raw_finding": "Pipette holder \u2014 Example of a custom laboratory equipment",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-15",
+      "verdict": "APPROVE",
+      "GradeID": "G084-02",
+      "MaterialID": "M084",
+      "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+      "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+      "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+      "Locator": "p. 1: Application, Pill packer bottle example title and caption",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+      "source_wording": [
+        "Pill packer bottle",
+        "Chemically resistant part made by Squinn"
+      ],
+      "raw_finding": "Pill packer bottle \u2014 Chemically resistant part made by Squinn",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-16",
+      "verdict": "APPROVE",
+      "GradeID": "G084-02",
+      "MaterialID": "M084",
+      "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+      "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+      "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+      "Locator": "p. 1: Application, Mechanical component example title and caption",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+      "source_wording": [
+        "Mechanical component",
+        "Part of a Prusa printer"
+      ],
+      "raw_finding": "Mechanical component \u2014 Part of a Prusa printer",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-17",
+      "verdict": "APPROVE",
+      "GradeID": "G084-02",
+      "MaterialID": "M084",
+      "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+      "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+      "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+      "Locator": "p. 1: Application, Exhaust pipes example title and caption",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+      "source_wording": [
+        "Exhaust pipes",
+        "Example of a large, yet dimensionally stable print by rekmajml"
+      ],
+      "raw_finding": "Exhaust pipes \u2014 Example of a large, yet dimensionally stable print by rekmajml",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+    },
+    {
+      "OperationID": "APP-MORE-18",
+      "verdict": "APPROVE",
+      "GradeID": "G084-02",
+      "MaterialID": "M084",
+      "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+      "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+      "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+      "Locator": "p. 1: Beginners tips & tricks, Postprocessing",
+      "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+      "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+      "source_wording": [
+        "PP can be postprocessed with sandpaper, razor blades, and a variety of other instruments. Wet sanding is recommended (due to airborne particles) but not necessary as the material doesn\u2019t deform under the heat caused by friction."
+      ],
+      "raw_finding": "PP can be postprocessed with sandpaper, razor blades, and a variety of other instruments. Wet sanding is recommended (due to airborne particles) but not necessary as the material doesn\u2019t deform under the heat caused by friction.",
+      "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+      "qualifier_and_lane_notes": "Exact page Beginners tips & tricks / Postprocessing paragraph; wet sanding recommendation and its stated airborne-particle rationale retained. No tool grit, water quantity, sanding duration, part temperature or measured result inferred. Once Topic corrected it remains know-how.",
+      "corrections": [],
+      "expected_requirement_delta": 0,
+      "duplicate_check": "No existing exact or context-equivalent record found on this grade.",
+      "applied_corrections_verified": [
+        {
+          "field": "Topic",
+          "old": "Sanding / bonding",
+          "new": "Surface finish",
+          "reason": "Sanding / bonding maps to post-processing, while attachKnowHow routes only category know-how. Surface finish is the existing know-how topic covering printed surface and finishing it."
+        }
+      ]
+    }
+  ],
+  "source_reading_batches": [
+    [
+      "G164-03",
+      "G134-01",
+      "G096-02",
+      "G084-02",
+      "G167-13"
+    ]
+  ],
+  "originals_reread": 5,
+  "source_custody": "Original SHA256 verified against immutable packet and current registered source; current grade and source-row guards verified. No derived text used as sole source. TPV optical ligatures independently read.",
+  "required_corrections": [],
+  "optional_wording_clarification": "APP-MORE-18 Exposure opening may say Maker postprocessing guidance only instead of Maker intended-use claim only; current limits are faithful either way.",
+  "scope_limits": [
+    "No manual Application coverage judgment is approved by this facts packet.",
+    "Prusa Application/Published observation records reflect published examples only; do not count them as tested suitability or chemical/heat performance.",
+    "TPV hardness discrepancy remains an explicit hold; narrative use claims do not resolve it.",
+    "No canonical edits, new source admission or Git mutation performed.",
+    "Final schema/build/guard idempotence and scenario replay are injector responsibilities; never weaken checks."
+  ],
+  "history": [
+    {
+      "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+      "input_path": "external-campaign/research/application-more-packet.json",
+      "input_sha256": "e6f148ababbdd164e54ebe1437c110bb7958f54b77271cd05bae43d14db0b108",
+      "reviewed_at_utc": "2026-10-01T03:19:25.612379+00:00",
+      "overall_verdict": "REQUIRES_TOPIC_CORRECTIONS",
+      "approved_operations": 15,
+      "source_faithful_operations": 18,
+      "operations": [
+        {
+          "OperationID": "APP-MORE-1",
+          "verdict": "APPROVE",
+          "GradeID": "G164-03",
+          "MaterialID": "M055",
+          "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+          "source_sha256": "27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc",
+          "source_original_path": ".cache/sources/by-sha/27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc.pdf",
+          "Locator": "p. 1: FEAUTURES, fourth bullet",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "Ideal for heat dissipation applications"
+          ],
+          "raw_finding": "Ideal for heat dissipation applications",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own ThermaTech PA feature is intended use only; injection-moulding material-property context is retained.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-2",
+          "verdict": "APPROVE",
+          "GradeID": "G134-01",
+          "MaterialID": "M134",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+          "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 1",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "Orthopedics and rehabilitation: orthoses, orthopedic insoles"
+          ],
+          "raw_finding": "Orthopedics and rehabilitation: orthoses, orthopedic insoles",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-3",
+          "verdict": "APPROVE",
+          "GradeID": "G134-01",
+          "MaterialID": "M134",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+          "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 2",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "Sports and recreation: grips, protective gear, helmet components, sports accessories"
+          ],
+          "raw_finding": "Sports and recreation: grips, protective gear, helmet components, sports accessories",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-4",
+          "verdict": "APPROVE",
+          "GradeID": "G134-01",
+          "MaterialID": "M134",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+          "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 3",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "Drones and RC models: shock absorbers, landing gear components"
+          ],
+          "raw_finding": "Drones and RC models: shock absorbers, landing gear components",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-5",
+          "verdict": "APPROVE",
+          "GradeID": "G134-01",
+          "MaterialID": "M134",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+          "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 4",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "Automotive: gaskets, bumpers, vibration dampers"
+          ],
+          "raw_finding": "Automotive: gaskets, bumpers, vibration dampers",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-6",
+          "verdict": "APPROVE",
+          "GradeID": "G134-01",
+          "MaterialID": "M134",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "source_sha256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+          "source_original_path": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 5",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "Footwear: insoles, soles"
+          ],
+          "raw_finding": "Footwear: insoles, soles",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Own FiberFlex Aero use bullet; foaming changes properties, no exact print state or medical/protective validation is implied.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-7",
+          "verdict": "APPROVE",
+          "GradeID": "G096-02",
+          "MaterialID": "M096",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+          "source_sha256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06",
+          "source_original_path": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf",
+          "Locator": "p. 1: Description, final intended-use and exclusions paragraph",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "This material can be used for production of electrical and electronic equipment."
+          ],
+          "raw_finding": "This material can be used for production of electrical and electronic equipment.",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Fluorodur Description p.1 directly prints electronics use plus distinct food-contact and medical exclusions; none relaxed or broadened.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-8",
+          "verdict": "CORRECT_TOPIC_BEFORE_ADMISSION",
+          "GradeID": "G096-02",
+          "MaterialID": "M096",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+          "source_sha256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06",
+          "source_original_path": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf",
+          "Locator": "p. 1: Description, final intended-use and exclusions paragraph",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "The usage for food contact application is not recommended."
+          ],
+          "raw_finding": "The usage for food contact application is not recommended.",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Fluorodur Description p.1 directly prints electronics use plus distinct food-contact and medical exclusions; none relaxed or broadened.",
+          "corrections": [
+            {
+              "field": "Topic",
+              "old": "Pitfalls",
+              "new": "Pitfalls and limitations",
+              "reason": "Pitfalls is absent from schema/vocab/environment-topics.csv. Existing exact vocabulary keeps it in category know-how."
+            }
+          ],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-9",
+          "verdict": "CORRECT_TOPIC_BEFORE_ADMISSION",
+          "GradeID": "G096-02",
+          "MaterialID": "M096",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+          "source_sha256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06",
+          "source_original_path": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf",
+          "Locator": "p. 1: Description, final intended-use and exclusions paragraph",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "The material should not be used for medical applications."
+          ],
+          "raw_finding": "The material should not be used for medical applications.",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Fluorodur Description p.1 directly prints electronics use plus distinct food-contact and medical exclusions; none relaxed or broadened.",
+          "corrections": [
+            {
+              "field": "Topic",
+              "old": "Pitfalls",
+              "new": "Pitfalls and limitations",
+              "reason": "Pitfalls is absent from schema/vocab/environment-topics.csv. Existing exact vocabulary keeps it in category know-how."
+            }
+          ],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-10",
+          "verdict": "APPROVE",
+          "GradeID": "G167-13",
+          "MaterialID": "M175",
+          "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+          "source_sha256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+          "source_original_path": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf",
+          "Locator": "p. 1: General, intended-use sentence 1; optical reading",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original SHA verified, layout extraction reviewed, visual original page image /private/tmp/h2c-fabru-tpv.png independently reread to restore ligatures",
+          "source_wording": [
+            "Thanks to its excellent resistance to weathering, UV radiation, ozone, and numerous chemicals, TPV is particularly suitable for seals, cable ducts, and flexible connectors."
+          ],
+          "raw_finding": "Thanks to its excellent resistance to weathering, UV radiation, ozone, and numerous chemicals, TPV is particularly suitable for seals, cable ducts, and flexible connectors.",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Supplier-specific TPV narrative associated with registered route is record-tier only; filename 98A versus printed Shore A 92 remains unresolved and no hardness/service transfer occurs.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-11",
+          "verdict": "APPROVE",
+          "GradeID": "G167-13",
+          "MaterialID": "M175",
+          "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+          "source_sha256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+          "source_original_path": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf",
+          "Locator": "p. 1: General, intended-use sentence 2; optical reading",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original SHA verified, layout extraction reviewed, visual original page image /private/tmp/h2c-fabru-tpv.png independently reread to restore ligatures",
+          "source_wording": [
+            "The material also finds versatile applications in industry and household appliances where permanent elasticity and dimensional stability are required."
+          ],
+          "raw_finding": "The material also finds versatile applications in industry and household appliances where permanent elasticity and dimensional stability are required.",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Supplier-specific TPV narrative associated with registered route is record-tier only; filename 98A versus printed Shore A 92 remains unresolved and no hardness/service transfer occurs.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-12",
+          "verdict": "APPROVE",
+          "GradeID": "G167-13",
+          "MaterialID": "M175",
+          "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+          "source_sha256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+          "source_original_path": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf",
+          "Locator": "p. 1: General, intended-use sentence 3; optical reading",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original SHA verified, layout extraction reviewed, visual original page image /private/tmp/h2c-fabru-tpv.png independently reread to restore ligatures",
+          "source_wording": [
+            "Whether for durable sealing profiles, ergonomic handles, or protective components \u2013 this TPV impresses with its versatility and technical excellence."
+          ],
+          "raw_finding": "Whether for durable sealing profiles, ergonomic handles, or protective components \u2013 this TPV impresses with its versatility and technical excellence.",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Maker-use statement retained as narrative; no selection, certification or printed-service validation established. Supplier-specific TPV narrative associated with registered route is record-tier only; filename 98A versus printed Shore A 92 remains unresolved and no hardness/service transfer occurs.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-13",
+          "verdict": "APPROVE",
+          "GradeID": "G084-02",
+          "MaterialID": "M084",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+          "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+          "Locator": "p. 1: Application, Vial rack example title and caption",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+          "source_wording": [
+            "Vial rack",
+            "Example of a custom laboratory equipment"
+          ],
+          "raw_finding": "Vial rack \u2014 Example of a custom laboratory equipment",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-14",
+          "verdict": "APPROVE",
+          "GradeID": "G084-02",
+          "MaterialID": "M084",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+          "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+          "Locator": "p. 1: Application, Pipette holder example title and caption",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+          "source_wording": [
+            "Pipette holder",
+            "Example of a custom laboratory equipment"
+          ],
+          "raw_finding": "Pipette holder \u2014 Example of a custom laboratory equipment",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-15",
+          "verdict": "APPROVE",
+          "GradeID": "G084-02",
+          "MaterialID": "M084",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+          "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+          "Locator": "p. 1: Application, Pill packer bottle example title and caption",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+          "source_wording": [
+            "Pill packer bottle",
+            "Chemically resistant part made by Squinn"
+          ],
+          "raw_finding": "Pill packer bottle \u2014 Chemically resistant part made by Squinn",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-16",
+          "verdict": "APPROVE",
+          "GradeID": "G084-02",
+          "MaterialID": "M084",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+          "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+          "Locator": "p. 1: Application, Mechanical component example title and caption",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+          "source_wording": [
+            "Mechanical component",
+            "Part of a Prusa printer"
+          ],
+          "raw_finding": "Mechanical component \u2014 Part of a Prusa printer",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-17",
+          "verdict": "APPROVE",
+          "GradeID": "G084-02",
+          "MaterialID": "M084",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+          "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+          "Locator": "p. 1: Application, Exhaust pipes example title and caption",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Original HTML hash and corresponding Application content-item h3/title + item-text caption + illustration linkage independently reread. Editorial separator is explicitly disclosed.",
+          "source_wording": [
+            "Exhaust pipes",
+            "Example of a large, yet dimensionally stable print by rekmajml"
+          ],
+          "raw_finding": "Exhaust pipes \u2014 Example of a large, yet dimensionally stable print by rekmajml",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Published observation is limited to maker-published illustrated example title/caption under this exact PP Glass Fiber page. Not independent testing, measured chemical resistance, laboratory approval, exhaust service proof or suitability. Application category is not filterable.",
+          "corrections": [],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        },
+        {
+          "OperationID": "APP-MORE-18",
+          "verdict": "CORRECT_TOPIC_BEFORE_ADMISSION",
+          "GradeID": "G084-02",
+          "MaterialID": "M084",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "source_sha256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+          "source_original_path": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+          "Locator": "p. 1: Beginners tips & tricks, Postprocessing",
+          "grade_guard_check": "Current grade equals ExpectedGrade and belongs to proposed MaterialID. Registered source equals packet RegisteredSource and explicitly applies to this GradeID. Original identity/section matches; TPV unresolved hardness qualifier is retained.",
+          "original_reread_method": "Fresh original extraction and relevant section/context independently reread",
+          "source_wording": [
+            "PP can be postprocessed with sandpaper, razor blades, and a variety of other instruments. Wet sanding is recommended (due to airborne particles) but not necessary as the material doesn\u2019t deform under the heat caused by friction."
+          ],
+          "raw_finding": "PP can be postprocessed with sandpaper, razor blades, and a variety of other instruments. Wet sanding is recommended (due to airborne particles) but not necessary as the material doesn\u2019t deform under the heat caused by friction.",
+          "source_fact_verdict": "APPROVE_WITH_STATED_LIMITS",
+          "qualifier_and_lane_notes": "Exact page Beginners tips & tricks / Postprocessing paragraph; wet sanding recommendation and its stated airborne-particle rationale retained. No tool grit, water quantity, sanding duration, part temperature or measured result inferred. Once Topic corrected it remains know-how.",
+          "corrections": [
+            {
+              "field": "Topic",
+              "old": "Sanding / bonding",
+              "new": "Surface finish",
+              "reason": "Sanding / bonding maps to post-processing, while attachKnowHow routes only category know-how. Surface finish is the existing know-how topic covering printed surface and finishing it."
+            }
+          ],
+          "expected_requirement_delta": 0,
+          "duplicate_check": "No existing exact or context-equivalent record found on this grade."
+        }
+      ],
+      "source_reading_batches": [
+        [
+          "G164-03",
+          "G134-01",
+          "G096-02",
+          "G084-02",
+          "G167-13"
+        ]
+      ],
+      "originals_reread": 5,
+      "source_custody": "Original SHA256 verified against immutable packet and current registered source; current grade and source-row guards verified. No derived text used as sole source. TPV optical ligatures independently read.",
+      "required_corrections": [
+        "APP-MORE-8 and APP-MORE-9 Topic Pitfalls \u2192 Pitfalls and limitations.",
+        "APP-MORE-18 Topic Sanding / bonding \u2192 Surface finish if preserving the proposed Makers' know-how lane. Freeze and resubmit corrected packet."
+      ],
+      "optional_wording_clarification": "APP-MORE-18 Exposure opening may say Maker postprocessing guidance only instead of Maker intended-use claim only; current limits are faithful either way.",
+      "scope_limits": [
+        "No manual Application coverage judgment is approved by this facts packet.",
+        "Prusa Application/Published observation records reflect published examples only; do not count them as tested suitability or chemical/heat performance.",
+        "TPV hardness discrepancy remains an explicit hold; narrative use claims do not resolve it.",
+        "No canonical edits, new source admission or Git mutation performed.",
+        "Final schema/build/guard idempotence and scenario replay are injector responsibilities; never weaken checks."
+      ],
+      "review_signature_sha256": "98b45d3012e8ad5d84fe159114bf05e8923863beeeafb1d7742bd1d25b23bcbf"
+    }
+  ],
+  "signed_at_utc": "2026-10-01T03:25:41.248088+00:00",
+  "correction_attestation": "Restored only APP-MORE-8/9 Topic Pitfalls and APP-MORE-18 Topic Sanding / bonding in a copy of corrected input and serialized with original ASCII/indent/newline convention. Restored packet byte hash equals original reviewed e6f148ab\u2026 exactly; all other contents unchanged.",
+  "review_signature_sha256": "9f77402295a7dab6e1740cb5f018b02f77589f34e8064a3e5cb78dbc367458cf",
+  "Public_copy_note": "Absolute custody paths replaced with relative cache/campaign labels only; signed original report retained externally. Approved packet bytes are unchanged."
+}

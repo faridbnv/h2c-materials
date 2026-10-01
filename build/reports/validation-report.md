@@ -18,13 +18,13 @@ Database snapshot 2026-09-21 · build 2026-09-30
 | numericMeasurements | 11062 |
 | quarantined | 18 |
 | profiles | 1316 |
-| evidence | 632 |
+| evidence | 676 |
 | prices | 357 |
 | sources | 1828 |
-| coverage | 827 |
-| knowHow | 4692 |
+| coverage | 834 |
+| knowHow | 4666 |
 | polymerEnvironment | 353 |
-| polymerEvidence | 332 |
+| polymerEvidence | 326 |
 | coverageDerived | 1144 |
 
 ## Headline coverage
@@ -89,7 +89,7 @@ among them, so it can only show evidence and must never be offered as a hard con
 | water-solubility | verdict | 42 | 41 | 34 | 34 |
 | flammability | verdict | 42 | 36 | 34 | 13 |
 | food-contact | indicator | 2 | 0 | 2 | 0 |
-| uv-outdoor | verdict | 9 | 0 | 7 | 22 |
+| uv-outdoor | verdict | 48 | 0 | 23 | 16 |
 | moisture | verdict | 12 | 0 | 10 | 18 |
 | creep | indicator | 2 | 0 | 2 | 0 |
 | fatigue | indicator | 5 | 0 | 5 | 0 |
@@ -97,7 +97,7 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 ## Polymer-level behaviour
 
-353 rows of published base-polymer behaviour, attached as 332 inferred records to 81 materials
+353 rows of published base-polymer behaviour, attached as 326 inferred records to 79 materials
 with no grade-level record in the category (D64). A record is shown in the drawer, counted apart in the filter rail, may screen a
 material out under inference where the polymer is attacked or dissolved, and never passes a requirement.
 
@@ -110,7 +110,7 @@ material out under inference where the polymer is attacked or dissolved, and nev
 | moisture | 2 | 2 | 18 | 0 |
 | oil-grease | 20 | 78 | 50 | 0 |
 | organic-solvent | 23 | 87 | 56 | 18 |
-| uv-outdoor | 8 | 8 | 22 | 1 |
+| uv-outdoor | 8 | 8 | 16 | 1 |
 | water-solubility | 15 | 18 | 34 | 1 |
 
 ## Estimates

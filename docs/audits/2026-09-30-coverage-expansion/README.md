@@ -92,3 +92,41 @@ an opaque environment-variable destination; the explicit existing private destin
 was authorized after inspection. The in-app browser rejects file URLs, so additional
 interactive desktop inspection was unavailable; repository headless browser checks
 passed. This is a verified tranche, not completion of the all-catalogue campaign.
+
+## Application examples and environmental source recovery
+
+m238 adds eighteen original statements across five products: thirteen maker claims or
+finishing instructions, and five bounded Prusament PP-CF illustrated application examples.
+m239 records their five Application assessments, four Reviewed with limitations and one
+Evidence recorded. In-scope Application now has 42 Evidence recorded, 21 Reviewed with
+limitations, 26 Gap and 47 not assessed. Evidence presence never establishes suitability.
+
+m240 refiles thirty-nine existing exact-product UV statements into Durability, keeping
+each raw statement and ID. Comparisons, UV-stability Yes/No labels, colour scope and
+missing test conditions remain explicit; all compile as narrative. m241 supersedes two
+stale environmental gaps with Reviewed with limitations after their facts were admitted.
+The seven exposure categories (acid, alkali, organic solvent, oil/grease, UV/outdoor,
+moisture and hydrolysis) now have product/material records for 58 of 136 materials,
+against 49 at the frozen baseline. UV records cover 23 materials, against six; hydrolysis
+remains six, against zero. These are record-presence counts, not environmental approval.
+
+The independent reviewer checked all eighteen statements, seven judgments and released
+UV operations. Replay caught an unsupported Insublend/HIPS identity: Q04265 was restored
+to its original know-how lane and held, and its earlier forty-operation packet stays in
+the external package. The product's own page never names HIPS. Its newly fetched safety
+sheet is a promising identity lead, not an admitted source in this tranche. The final
+environmental replay moves zero answers or screens over 58,224 evaluations (48 category
+and policy questions). The withdrawn interim replay had removed thirteen HIPS UV
+inference screens, without a pass; it is preserved in the external package. The frozen
+fifteen-question replay still moves zero answers or screens over 18,195 evaluations.
+
+The clause-locator migration repair is a separate tested commit. Canonical formatting,
+schema and lint pass; all four data migrations rerun with zero writes. Full verification
+passes on the final held-record state, including 69 interface views and 300 rendered
+scenarios. verify:fast is within 90 seconds. The compiled diff contains 323 intended
+paths, covering admitted evidence, coverage, counts and removed know-how classifications;
+no measurement, profile, estimate rule or product identity changes in this tranche.
+The only changed UI baseline is PLA's maker-limitation count after the UV refiles.
+Private originals and derivatives are exported after the tranche; known absent originals
+remain absent. The catalogue-wide campaign continues, with remaining judgments and
+product research still pending; source qualification is not a completed product search.

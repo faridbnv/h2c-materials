@@ -1,0 +1,212 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/application-more-assessments-packet.json",
+  "input_sha256": "49ce1f0d0bd0fcdb67788d2a0b5d73caff15c21a14eee0a26a1fd9183e113c1a",
+  "signed_at_utc": "2026-10-01T03:31:37.970510+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 5,
+  "operations": [
+    {
+      "FindingID": "CE-APP-M055",
+      "MaterialID": "M055",
+      "GradeID": "G164-03",
+      "verdict": "APPROVE",
+      "judgment": "Reviewed with limitations",
+      "EvidenceIDs": [
+        "Q05342"
+      ],
+      "SourceIDs": [
+        "S-SPECTRUM-en-tds-spectrum-thermatech-pa"
+      ],
+      "source_custody": [
+        {
+          "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+          "SHA256": "27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc",
+          "OriginalPath": ".cache/sources/by-sha/27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc.pdf"
+        }
+      ],
+      "reread_scope": "Original relevant pages/sections independently reread in signed APPLICATION-MORE facts review; custody and unchanged source rows freshly verified for this coverage packet. TPV restored glyphs were independently optically read.",
+      "coverage_guard_check": "Current expected old coverage rows match exactly; append names one exact product and limitations. Supersede preserves history; no already-admitted judgment altered.",
+      "superseded_CoverageIDs": [
+        "C00608"
+      ],
+      "source_and_status_reason": "Own-grade maker intended-use/limitation statements support Reviewed with limitations, not application suitability. Source-specific injection-moulding, foaming/certification or TPV-hardness caveats retained where relevant.",
+      "approved_append": {
+        "MaterialID": "M055",
+        "GradeID": "G164-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: ThermaTech PA (G164-03) application/finishing assessment from S-SPECTRUM-en-tds-spectrum-thermatech-pa, Q05342. Maker heat-dissipation intended-use claim; sheet mechanical numbers name injection moulding. No printed thermal-conductivity service qualification. Other products remain separately bounded."
+      },
+      "requirement_screening_effect": "No direct pass/fail criterion added; manual coverage label describes evidence scope only."
+    },
+    {
+      "FindingID": "CE-APP-M134",
+      "MaterialID": "M134",
+      "GradeID": "G134-01",
+      "verdict": "APPROVE",
+      "judgment": "Reviewed with limitations",
+      "EvidenceIDs": [
+        "Q05343",
+        "Q05344",
+        "Q05345",
+        "Q05346",
+        "Q05347"
+      ],
+      "SourceIDs": [
+        "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751"
+      ],
+      "source_custody": [
+        {
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "SHA256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995",
+          "OriginalPath": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html"
+        }
+      ],
+      "reread_scope": "Original relevant pages/sections independently reread in signed APPLICATION-MORE facts review; custody and unchanged source rows freshly verified for this coverage packet. TPV restored glyphs were independently optically read.",
+      "coverage_guard_check": "Current expected old coverage rows match exactly; append names one exact product and limitations. Supersede preserves history; no already-admitted judgment altered.",
+      "superseded_CoverageIDs": [],
+      "source_and_status_reason": "Own-grade maker intended-use/limitation statements support Reviewed with limitations, not application suitability. Source-specific injection-moulding, foaming/certification or TPV-hardness caveats retained where relevant.",
+      "approved_append": {
+        "MaterialID": "M134",
+        "GradeID": "G134-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FiberFlex Aero (G134-01) application/finishing assessment from R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751, Q05343, Q05344, Q05345, Q05346, Q05347. Maker application bullets only, including orthopaedic/protective uses; no medical or protective-equipment certification and no qualification of a particular foaming state. Other products remain separately bounded."
+      },
+      "requirement_screening_effect": "No direct pass/fail criterion added; manual coverage label describes evidence scope only."
+    },
+    {
+      "FindingID": "CE-APP-M096",
+      "MaterialID": "M096",
+      "GradeID": "G096-02",
+      "verdict": "APPROVE",
+      "judgment": "Reviewed with limitations",
+      "EvidenceIDs": [
+        "Q05348",
+        "Q05349",
+        "Q05350"
+      ],
+      "SourceIDs": [
+        "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI"
+      ],
+      "source_custody": [
+        {
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+          "SHA256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06",
+          "OriginalPath": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf"
+        }
+      ],
+      "reread_scope": "Original relevant pages/sections independently reread in signed APPLICATION-MORE facts review; custody and unchanged source rows freshly verified for this coverage packet. TPV restored glyphs were independently optically read.",
+      "coverage_guard_check": "Current expected old coverage rows match exactly; append names one exact product and limitations. Supersede preserves history; no already-admitted judgment altered.",
+      "superseded_CoverageIDs": [
+        "C01021"
+      ],
+      "source_and_status_reason": "Own-grade maker intended-use/limitation statements support Reviewed with limitations, not application suitability. Source-specific injection-moulding, foaming/certification or TPV-hardness caveats retained where relevant.",
+      "approved_append": {
+        "MaterialID": "M096",
+        "GradeID": "G096-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fluorodur (G096-02) application/finishing assessment from R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI, Q05348, Q05349, Q05350. Maker electrical/electronic intended-use claim, with explicit exclusion of food contact and medical uses. No printed service qualification. Other products remain separately bounded."
+      },
+      "requirement_screening_effect": "No direct pass/fail criterion added; manual coverage label describes evidence scope only."
+    },
+    {
+      "FindingID": "CE-APP-M084",
+      "MaterialID": "M084",
+      "GradeID": "G084-02",
+      "verdict": "APPROVE",
+      "judgment": "Evidence recorded",
+      "EvidenceIDs": [
+        "Q05354",
+        "Q05355",
+        "Q05356",
+        "Q05357",
+        "Q05358",
+        "Q05359"
+      ],
+      "SourceIDs": [
+        "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392"
+      ],
+      "source_custody": [
+        {
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "SHA256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e",
+          "OriginalPath": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html"
+        }
+      ],
+      "reread_scope": "Original relevant pages/sections independently reread in signed APPLICATION-MORE facts review; custody and unchanged source rows freshly verified for this coverage packet. TPV restored glyphs were independently optically read.",
+      "coverage_guard_check": "Current expected old coverage rows match exactly; append names one exact product and limitations. Supersede preserves history; no already-admitted judgment altered.",
+      "superseded_CoverageIDs": [
+        "C00903"
+      ],
+      "source_and_status_reason": "Own-grade published Application illustrated title/caption examples support evidence-presence status. The text explicitly disclaims measured chemical/load/exhaust/laboratory qualification and suitability; know-how postprocessing remains separately marked.",
+      "approved_append": {
+        "MaterialID": "M084",
+        "GradeID": "G084-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Prusament PP Glass Fiber by Prusa Polymers (G084-02) application/finishing assessment from S-PRUSA-RESEARCH-PRINT-20260928-190a89598392, Q05354, Q05355, Q05356, Q05357, Q05358, Q05359. Maker-published illustrated Application examples and explicit postprocessing guidance are recorded; no measured chemical, load, exhaust or laboratory qualification, or suitability inference. Other products remain separately bounded."
+      },
+      "requirement_screening_effect": "No direct pass/fail criterion added; manual coverage label describes evidence scope only."
+    },
+    {
+      "FindingID": "CE-APP-M175",
+      "MaterialID": "M175",
+      "GradeID": "G167-13",
+      "verdict": "APPROVE",
+      "judgment": "Reviewed with limitations",
+      "EvidenceIDs": [
+        "Q05351",
+        "Q05352",
+        "Q05353"
+      ],
+      "SourceIDs": [
+        "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil"
+      ],
+      "source_custody": [
+        {
+          "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+          "SHA256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd",
+          "OriginalPath": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf"
+        }
+      ],
+      "reread_scope": "Original relevant pages/sections independently reread in signed APPLICATION-MORE facts review; custody and unchanged source rows freshly verified for this coverage packet. TPV restored glyphs were independently optically read.",
+      "coverage_guard_check": "Current expected old coverage rows match exactly; append names one exact product and limitations. Supersede preserves history; no already-admitted judgment altered.",
+      "superseded_CoverageIDs": [],
+      "source_and_status_reason": "Own-grade maker intended-use/limitation statements support Reviewed with limitations, not application suitability. Source-specific injection-moulding, foaming/certification or TPV-hardness caveats retained where relevant.",
+      "approved_append": {
+        "MaterialID": "M175",
+        "GradeID": "G167-13",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Thermoplastic vulcanizate (TPV) (G167-13) application/finishing assessment from R-FABRU-10255-Material-data-sheet-TPV-98A-purefil, Q05351, Q05352, Q05353. Maker intended uses for seals/connectors/handles, not suitability evidence. TPV route names98A while originalpage states92; hardness identity remains unresolved. Other products remain separately bounded."
+      },
+      "requirement_screening_effect": "No direct pass/fail criterion added; manual coverage label describes evidence scope only."
+    }
+  ],
+  "source_reading_batches": [
+    [
+      "G164-03",
+      "G134-01",
+      "G096-02",
+      "G084-02",
+      "G167-13"
+    ]
+  ],
+  "facts_review_input_sha256": "b1e62b8548b442249f9cd199d0c5528c7a6d075aa7fab558ba2d6c4fa0a8d52f",
+  "scope_limits": [
+    "Only these five exact-product bounded manual Application judgments approved, not all campaign targets.",
+    "M084 Evidence recorded reflects published illustrated examples with scope, never measured service/suitability. Sanding know-how is not by itself converted into application validation.",
+    "Four maker-only judgments remain Reviewed with limitations; no medical/protective, printed heat-dissipation or hardness qualification inferred.",
+    "Frozen canonical facts equal signed operations; migration idempotence identity fix is separately tested by injector. No schema/check weakening approved.",
+    "No canonical files or Git state changed."
+  ],
+  "review_signature_sha256": "b511ab667edd9ce90d918fefe1e600f2d25bf6163e9a3e66126edc3a093afc2e"
+}

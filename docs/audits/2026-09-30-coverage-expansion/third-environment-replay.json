@@ -1,0 +1,9 @@
+{
+  "before_commit": "8369e02",
+  "baseline_core": true,
+  "baseline_basis": "Committed tables rebuilt without estimates. Environment constraints read evidence/polymer context; no measurements, profiles or headline changes in this tranche.",
+  "questions": 48,
+  "evaluations": 58224,
+  "answer_changes": 0,
+  "changes": []
+}

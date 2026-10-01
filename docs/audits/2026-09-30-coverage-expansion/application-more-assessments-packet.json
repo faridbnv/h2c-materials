@@ -1,0 +1,598 @@
+{
+  "PacketID": "APPLICATION-MORE-5",
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M055",
+      "ExpectedGrade": {
+        "GradeID": "G164-03",
+        "MaterialID": "M055",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Spectrum",
+        "Product name": "ThermaTech PA",
+        "Shared formulation key": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+        "Composition / filler": "The sheet declares the load: \"Incorporates ceramic filler\". Its density of 1300 kg/m\u00b3 is above what an unfilled polyamide reaches (about 1150 kg/m\u00b3); recorded as a Variant under D57 (R095). \"Spectrum ThermaTech PA is an advanced polyamide (PA6/6) based filament with boron nitride ceramic filler\" (D-3DIGITAL-THERMATECH-PA-LISTING, p. 1)",
+        "Variant": "declared dense filler",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under PA66 on 2026-09-28 (m223-what-the-makers-say-it-is), moved from Nylon, polymer not stated: PA66 (inferred from two retailers and its melting range), \"Spectrum ThermaTech PA is an advanced polyamide (PA6/6) based filament with boron nitride ceramic filler\" (D-3DIGITAL-THERMATECH-PA-LISTING, p. 1). Filed under PA66 by the owner's ruling of 2026-09-28 on the best evidence: two retailers name it PA6/6 (3Digital, and 3DJake, D-3DJAKE-THERMATECH-PA-LISTING), and Spectrum's safety data sheet gives a melting range of 225 to 265 \u00b0C (D-SPECTRUM-THERMATECH-PA-SDS), which reaches a PA66's. Inferred, not settled: Spectrum names no polyamide, and PA6/6 may also mean a PA6/66 copolymer. Its ceramic load stays a declared dense filler, so its values do not pull PA66's. Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05342",
+          "MaterialID": "M055",
+          "GradeID": "G164-03",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Ideal for heat dissipation applications",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. Separate material-properties table names injection moulding; no printed thermal-conductivity qualification follows.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+          "Locator": "p. 1: FEAUTURES, fourth bullet"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-SPECTRUM-en-tds-spectrum-thermatech-pa",
+            "Publisher": "Spectrum",
+            "Title": "TECHNICAL DATA SHEET ThermaTech PA",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://spectrumfilaments.com/wp-content/uploads/2024/11/en_tds_spectrum_thermatech_pa.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G164-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc"
+          },
+          "OriginalPath": ".cache/sources/by-sha/27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc.pdf",
+          "TextPath": ".cache/text/27fb63eeafcc72e65db89461f0e1693c51315985f053dbeb2575f3c7893a2cbc.json"
+        }
+      ],
+      "Judgment": "Reviewed with limitations",
+      "Limitations": "Maker heat-dissipation intended-use claim; sheet mechanical numbers name injection moulding. No printed thermal-conductivity service qualification."
+    },
+    {
+      "FindingID": "CE-APP-M134",
+      "ExpectedGrade": {
+        "GradeID": "G134-01",
+        "MaterialID": "M134",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "FiberFlex Aero",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-FIBERFLEX-AERO-TDS-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05343",
+          "MaterialID": "M134",
+          "GradeID": "G134-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Orthopedics and rehabilitation: orthoses, orthopedic insoles",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. No medical approval or protective-equipment certification implied. Foaming recipe changes properties; uses do not establish any particular print state.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 1"
+        },
+        {
+          "EvidenceID": "Q05344",
+          "MaterialID": "M134",
+          "GradeID": "G134-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Sports and recreation: grips, protective gear, helmet components, sports accessories",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. No medical approval or protective-equipment certification implied. Foaming recipe changes properties; uses do not establish any particular print state.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 2"
+        },
+        {
+          "EvidenceID": "Q05345",
+          "MaterialID": "M134",
+          "GradeID": "G134-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Drones and RC models: shock absorbers, landing gear components",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. No medical approval or protective-equipment certification implied. Foaming recipe changes properties; uses do not establish any particular print state.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 3"
+        },
+        {
+          "EvidenceID": "Q05346",
+          "MaterialID": "M134",
+          "GradeID": "G134-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Automotive: gaskets, bumpers, vibration dampers",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. No medical approval or protective-equipment certification implied. Foaming recipe changes properties; uses do not establish any particular print state.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 4"
+        },
+        {
+          "EvidenceID": "Q05347",
+          "MaterialID": "M134",
+          "GradeID": "G134-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Footwear: insoles, soles",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. No medical approval or protective-equipment certification implied. Foaming recipe changes properties; uses do not establish any particular print state.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+          "Locator": "p. 1: Description, Where is FiberFlex Aero best suited?, bullet 5"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751",
+            "Publisher": "Fiberlogy",
+            "Title": "FiberFlex Aero - Fiberlogy",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-28",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+            "Citation role": "cited",
+            "URL": "https://fiberlogy.com/en/filaments/flex-en/fiberflex-aero-en/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G134-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995"
+          },
+          "OriginalPath": ".cache/sources/by-sha/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.html",
+          "TextPath": ".cache/text/8d6a2f7e675183aa885fcd03bdc1bed15443b4a2bc72a95a779c495a5a561995.json"
+        }
+      ],
+      "Judgment": "Reviewed with limitations",
+      "Limitations": "Maker application bullets only, including orthopaedic/protective uses; no medical or protective-equipment certification and no qualification of a particular foaming state."
+    },
+    {
+      "FindingID": "CE-APP-M096",
+      "ExpectedGrade": {
+        "GradeID": "G096-02",
+        "MaterialID": "M096",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fillamentum",
+        "Product name": "Fluorodur",
+        "Shared formulation key": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05348",
+          "MaterialID": "M096",
+          "GradeID": "G096-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This material can be used for production of electrical and electronic equipment.",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+          "Locator": "p. 1: Description, final intended-use and exclusions paragraph"
+        },
+        {
+          "EvidenceID": "Q05349",
+          "MaterialID": "M096",
+          "GradeID": "G096-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "The usage for food contact application is not recommended.",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+          "Locator": "p. 1: Description, final intended-use and exclusions paragraph"
+        },
+        {
+          "EvidenceID": "Q05350",
+          "MaterialID": "M096",
+          "GradeID": "G096-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "The material should not be used for medical applications.",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+          "Locator": "p. 1: Description, final intended-use and exclusions paragraph"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI",
+            "Publisher": "Fillamentum",
+            "Title": "Physical properties Typical Value Test Method Test Condition",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://fillamentum.com/wp-content/uploads/2021/01/Technical-Data-Sheet_Fluorodur_EN_09122020_FI.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G096-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.pdf",
+          "TextPath": ".cache/text/c29bc1a8feb876495514ad8707c90d890a291dd32bfeee84e6ee71fac3feae06.json"
+        }
+      ],
+      "Judgment": "Reviewed with limitations",
+      "Limitations": "Maker electrical/electronic intended-use claim, with explicit exclusion of food contact and medical uses. No printed service qualification."
+    },
+    {
+      "FindingID": "CE-APP-M084",
+      "ExpectedGrade": {
+        "GradeID": "G084-02",
+        "MaterialID": "M084",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Prusa Research",
+        "Product name": "Prusament PP Glass Fiber by Prusa Polymers",
+        "Shared formulation key": "S-PVB-512923fd-tds-pp-glass-fiber-en",
+        "Composition / filler": "Prusament PP Glass Fiber by Prusa Polymers (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PVB-512923fd-tds-pp-glass-fiber-en",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05354",
+          "MaterialID": "M084",
+          "GradeID": "G084-02",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "Vial rack \u2014 Example of a custom laboratory equipment",
+          "Exposure / conditions": "Maker-published illustrated example; title and caption joined by an editorial separator. No dimensions, load, chemical agent, duration, protocol or qualification published for the example. No suitability or selection pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "Locator": "p. 1: Application, Vial rack example title and caption"
+        },
+        {
+          "EvidenceID": "Q05355",
+          "MaterialID": "M084",
+          "GradeID": "G084-02",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "Pipette holder \u2014 Example of a custom laboratory equipment",
+          "Exposure / conditions": "Maker-published illustrated example; title and caption joined by an editorial separator. No dimensions, load, chemical agent, duration, protocol or qualification published for the example. No suitability or selection pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "Locator": "p. 1: Application, Pipette holder example title and caption"
+        },
+        {
+          "EvidenceID": "Q05356",
+          "MaterialID": "M084",
+          "GradeID": "G084-02",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "Pill packer bottle \u2014 Chemically resistant part made by Squinn",
+          "Exposure / conditions": "Maker-published illustrated example; title and caption joined by an editorial separator. No dimensions, load, chemical agent, duration, protocol or qualification published for the example. No suitability or selection pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "Locator": "p. 1: Application, Pill packer bottle example title and caption"
+        },
+        {
+          "EvidenceID": "Q05357",
+          "MaterialID": "M084",
+          "GradeID": "G084-02",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "Mechanical component \u2014 Part of a Prusa printer",
+          "Exposure / conditions": "Maker-published illustrated example; title and caption joined by an editorial separator. No dimensions, load, chemical agent, duration, protocol or qualification published for the example. No suitability or selection pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "Locator": "p. 1: Application, Mechanical component example title and caption"
+        },
+        {
+          "EvidenceID": "Q05358",
+          "MaterialID": "M084",
+          "GradeID": "G084-02",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "Exhaust pipes \u2014 Example of a large, yet dimensionally stable print by rekmajml",
+          "Exposure / conditions": "Maker-published illustrated example; title and caption joined by an editorial separator. No dimensions, load, chemical agent, duration, protocol or qualification published for the example. No suitability or selection pass established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "Locator": "p. 1: Application, Exhaust pipes example title and caption"
+        },
+        {
+          "EvidenceID": "Q05359",
+          "MaterialID": "M084",
+          "GradeID": "G084-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "PP can be postprocessed with sandpaper, razor blades, and a variety of other instruments. Wet sanding is recommended (due to airborne particles) but not necessary as the material doesn\u2019t deform under the heat caused by friction.",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. Product-page PP postprocessing guidance; tool grit, water quantity, part temperature, sanding duration and measured result not published.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+          "Locator": "p. 1: Beginners tips & tricks, Postprocessing"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PRUSA-RESEARCH-PRINT-20260928-190a89598392",
+            "Publisher": "Prusa Research",
+            "Title": "Prusament PP Glass Fiber | Prusament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-28",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Bounded exact-product print-guidance search. Retrieved original bytes preserved separately from earlier revisions. Context from neighbouring products is excluded. Review by Codex AI agent.",
+            "Citation role": "cited",
+            "URL": "https://prusament.com/materials/prusament-pp-glass-fiber/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G084-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e"
+          },
+          "OriginalPath": ".cache/sources/by-sha/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.html",
+          "TextPath": ".cache/text/190a89598392b5ab58ab7b43f65745dccdc57f956a2b33e210ca3f6ca6f1889e.json"
+        }
+      ],
+      "Judgment": "Evidence recorded",
+      "Limitations": "Maker-published illustrated Application examples and explicit postprocessing guidance are recorded; no measured chemical, load, exhaust or laboratory qualification, or suitability inference."
+    },
+    {
+      "FindingID": "CE-APP-M175",
+      "ExpectedGrade": {
+        "GradeID": "G167-13",
+        "MaterialID": "M175",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "Thermoplastic vulcanizate (TPV)",
+        "Shared formulation key": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+        "Composition / filler": "TPV is a high-quality thermoplastic vulcanizate specially developed for demanding technical applications, with a Shore A hardness of 92 (p. 1, as the sheet states it) \"TPV is a high-quality thermoplas+c vulcanizate\" (R-FABRU-10255-Material-data-sheet-TPV-98A-purefil, p. 1)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Flammability (UL 94) V0 (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence Filed under TPV on 2026-09-28 (m223-what-the-makers-say-it-is), moved from TPE, polymer not stated: thermoplastic vulcanizate, \"TPV is a high-quality thermoplas+c vulcanizate\" (R-FABRU-10255-Material-data-sheet-TPV-98A-purefil, p. 1). Its own sheet names its class, a thermoplastic vulcanizate (ISO 18064 TPV), as purefil's TPS 40D sheet names a styrenic block copolymer: a material of its own, TPV, as TPS is (R196). The text layer draws the \"ti\" ligature as \"+\". Read by an AI agent (claude-opus-5.5), not a person.",
+        "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05351",
+          "MaterialID": "M175",
+          "GradeID": "G167-13",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Thanks to its excellent resistance to weathering, UV radiation, ozone, and numerous chemicals, TPV is particularly suitable for seals, cable ducts, and flexible connectors.",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. Product route names TPV 98A but page states Shore A 92; hardness identity remains unresolved, no hardness or service-performance claim transferred. Ligatures recovered from visual page reading.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+          "Locator": "p. 1: General, intended-use sentence 1; optical reading"
+        },
+        {
+          "EvidenceID": "Q05352",
+          "MaterialID": "M175",
+          "GradeID": "G167-13",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "The material also finds versatile applications in industry and household appliances where permanent elasticity and dimensional stability are required.",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. Product route names TPV 98A but page states Shore A 92; hardness identity remains unresolved, no hardness or service-performance claim transferred. Ligatures recovered from visual page reading.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+          "Locator": "p. 1: General, intended-use sentence 2; optical reading"
+        },
+        {
+          "EvidenceID": "Q05353",
+          "MaterialID": "M175",
+          "GradeID": "G167-13",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Whether for durable sealing profiles, ergonomic handles, or protective components \u2013 this TPV impresses with its versatility and technical excellence.",
+          "Exposure / conditions": "Maker intended-use claim only; no suitability, printed-part qualification, certificate, performance retention or screening pass established. Product route names TPV 98A but page states Shore A 92; hardness identity remains unresolved, no hardness or service-performance claim transferred. Ligatures recovered from visual page reading.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+          "Locator": "p. 1: General, intended-use sentence 3; optical reading"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-10255-Material-data-sheet-TPV-98A-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Thermoplas+c vulcanizate (TPV)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/10255%2FMaterial-data-sheet-TPV-98A-purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G167-13",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd"
+          },
+          "OriginalPath": ".cache/sources/by-sha/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.pdf",
+          "TextPath": ".cache/text/35d64426d3c54f2f0864c94c2cae443b7aab5eaec12c673a78fb26c6955389fd.json"
+        }
+      ],
+      "Judgment": "Reviewed with limitations",
+      "Limitations": "Maker intended uses for seals/connectors/handles, not suitability evidence. TPV route names98A while originalpage states92; hardness identity remains unresolved."
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M055",
+      "append": {
+        "MaterialID": "M055",
+        "GradeID": "G164-03",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: ThermaTech PA (G164-03) application/finishing assessment from S-SPECTRUM-en-tds-spectrum-thermatech-pa, Q05342. Maker heat-dissipation intended-use claim; sheet mechanical numbers name injection moulding. No printed thermal-conductivity service qualification. Other products remain separately bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00608",
+          "MaterialID": "M055",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M134",
+      "append": {
+        "MaterialID": "M134",
+        "GradeID": "G134-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: FiberFlex Aero (G134-01) application/finishing assessment from R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751, Q05343, Q05344, Q05345, Q05346, Q05347. Maker application bullets only, including orthopaedic/protective uses; no medical or protective-equipment certification and no qualification of a particular foaming state. Other products remain separately bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M096",
+      "append": {
+        "MaterialID": "M096",
+        "GradeID": "G096-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Fluorodur (G096-02) application/finishing assessment from R-FILLAMENTUM-Technical-Data-Sheet-Fluorodur-EN-09122020-FI, Q05348, Q05349, Q05350. Maker electrical/electronic intended-use claim, with explicit exclusion of food contact and medical uses. No printed service qualification. Other products remain separately bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C01021",
+          "MaterialID": "M096",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M084",
+      "append": {
+        "MaterialID": "M084",
+        "GradeID": "G084-02",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Prusament PP Glass Fiber by Prusa Polymers (G084-02) application/finishing assessment from S-PRUSA-RESEARCH-PRINT-20260928-190a89598392, Q05354, Q05355, Q05356, Q05357, Q05358, Q05359. Maker-published illustrated Application examples and explicit postprocessing guidance are recorded; no measured chemical, load, exhaust or laboratory qualification, or suitability inference. Other products remain separately bounded."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00903",
+          "MaterialID": "M084",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M175",
+      "append": {
+        "MaterialID": "M175",
+        "GradeID": "G167-13",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Thermoplastic vulcanizate (TPV) (G167-13) application/finishing assessment from R-FABRU-10255-Material-data-sheet-TPV-98A-purefil, Q05351, Q05352, Q05353. Maker intended uses for seals/connectors/handles, not suitability evidence. TPV route names98A while originalpage states92; hardness identity remains unresolved. Other products remain separately bounded."
+      },
+      "supersede": []
+    }
+  ],
+  "SourceReadingBatches": [
+    [
+      "G164-03",
+      "G134-01",
+      "G096-02",
+      "G084-02",
+      "G167-13"
+    ]
+  ]
+}

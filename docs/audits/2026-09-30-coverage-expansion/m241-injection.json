@@ -1,0 +1,15 @@
+{
+  "migration": "m241-environment-bound-assessments",
+  "packet": "fa35e47ba22c76da030c87aea87f0ca1d0b96616448fe1b07b71de934f2a0bb7",
+  "written": 2,
+  "records": [
+    {
+      "finding": "CE-ENV-M025",
+      "coverageId": "C01519"
+    },
+    {
+      "finding": "CE-ENV-M037",
+      "coverageId": "C01520"
+    }
+  ]
+}

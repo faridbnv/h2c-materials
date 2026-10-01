@@ -12,10 +12,10 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1050 | 45 | 0 | 33 | 1128 |
-| Materials | 134 | 10 | 0 | 9 | 153 |
+| Products | 1050 | 46 | 1 | 31 | 1128 |
+| Materials | 136 | 10 | 0 | 7 | 153 |
 
-4692 statements; 1326 sources read for know-how; 216 makers' sites searched.
+4666 statements; 1326 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".
@@ -115,6 +115,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PVA (M075) | — | collected | 1 of 11 | 9 / 8 / 11 | Yousu (ysfilament.com) |
 | PVDF (M096) | — | collected | 1 of 3 | 2 / 2 / 2 | Filament2Print (filament2print.com) |
 | PVDF-ESD (M120) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
+| TPC / TPEE (M046) | — | collected | 1 of 11 | 4 / 4 / 4 | FormFutura (formfutura.com) |
 | TPC-ESD (M114) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | TPI (M121) | — | sheet-silent | 1 of 1 | 1 / 1 / 1 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | BVOH (M076) | — | collected | 0 of 4 | 2 / 2 / 3 | — |
@@ -143,7 +144,6 @@ documents were read and give none of one is listed under "Recipe silent".
 | Support for PA/PET (M080) | — | collected | 0 of 3 | 1 / 1 / 3 | — |
 | Support for PLA (M077) | — | collected | 0 of 2 | 0 / 0 / 2 | — |
 | Support for PLA/PETG (M078) | — | collected | 0 of 1 | 0 / 0 / 1 | — |
-| TPC / TPEE (M046) | — | collected | 0 of 11 | 4 / 4 / 4 | — |
 | TPU-EC (M157) | — | collected | 0 of 2 | 1 / 0 / 1 | — |
 | TPU-LW (M150) | — | collected | 0 of 4 | 3 / 0 / 3 | — |
 
@@ -157,6 +157,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | Filament2Print | filament2print.com | 2 | G014-16 COFFEE; G096-03 KOLTRON |
 | 3DJake | no address held | 1 | G027-34 ABS |
 | Elegoo | no address held | 1 | G001-129 PLA |
+| FormFutura | formfutura.com | 1 | G046-07 FlexiFil |
 | Recreus | recreus.com | 1 | G020-70 PET-G |
 | Spectrum | spectrumfilaments.com | 1 | G001-31 PLA |
 | colorFabb | downloads.colorfabb.com, colorfabb.com | 1 | G066-04 PET ULTRA HIGH SPEED |

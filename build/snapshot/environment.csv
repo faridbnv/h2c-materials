@@ -61,6 +61,10 @@ M001,organic-solvent,Q00024,G005-01,own,limited,yes,
 M001,organic-solvent,Q00384,G006-01,own,limited,yes,
 M001,organic-solvent,Q00389,G007-01,own,limited,yes,
 M001,uv-outdoor,Q00275,Not applicable,own,narrative,,
+M001,uv-outdoor,Q00648,G001-110,own,narrative,,
+M001,uv-outdoor,Q00928,G001-179,own,narrative,,
+M001,uv-outdoor,Q01008,G001-33,own,narrative,,
+M001,uv-outdoor,Q01083,G001-56,own,narrative,,
 M001,water-solubility,Q00007,G002-01,own,insoluble,,
 M001,water-solubility,Q00014,G003-01,own,insoluble,,
 M001,water-solubility,Q00021,G005-01,own,insoluble,,
@@ -177,6 +181,7 @@ M020,organic-solvent,Q00083,G020-13,own,narrative,,
 M020,organic-solvent,Q00088,G021-01,own,limited,yes,
 M020,organic-solvent,Q00096,G023-01,own,limited,yes,
 M020,organic-solvent,Q00419,G022-01,own,limited,yes,
+M020,uv-outdoor,Q01835,G020-28,own,narrative,,
 M020,water-solubility,Q00085,G021-01,own,insoluble,,
 M020,water-solubility,Q00093,G023-01,own,insoluble,,
 M020,water-solubility,Q00416,G022-01,own,insoluble,,
@@ -190,6 +195,7 @@ M025,acid,M025-acid,,polymer,limited,,no
 M025,alkali,M025-alkali,,polymer,limited,,no
 M025,oil-grease,M025-oil-grease,,polymer,limited,,no
 M025,organic-solvent,M025-organic-solvent,,polymer,limited,,no
+M025,uv-outdoor,Q02081,G025-03,own,narrative,,
 M025,water-solubility,M025-water-solubility,,polymer,resistant,,no
 M026,acid,Q00107,G026-02,own,resistant,,
 M026,acid,Q00108,G026-02,own,limited,,
@@ -231,12 +237,22 @@ M031,oil-grease,Q00125,G031-01,own,limited,yes,
 M031,oil-grease,Q00350,Not applicable,own,narrative,,
 M031,organic-solvent,Q00124,G031-01,own,limited,yes,
 M031,uv-outdoor,Q00287,Not applicable,own,narrative,,
+M031,uv-outdoor,Q02445,G031-01,own,narrative,,
+M031,uv-outdoor,Q02467,G031-07,own,narrative,,
+M031,uv-outdoor,Q02526,G031-22,own,narrative,,
+M031,uv-outdoor,Q02527,G031-22,own,narrative,,
+M031,uv-outdoor,Q02530,G031-23,own,narrative,,
+M031,uv-outdoor,Q02551,G031-28,own,narrative,,
+M031,uv-outdoor,Q02553,G031-28,own,narrative,,
+M031,uv-outdoor,Q02573,G031-42,own,narrative,,
+M031,uv-outdoor,Q05157,G031-37,own,narrative,,
 M031,water-solubility,Q00121,G031-01,own,insoluble,,
 M032,acid,Q00129,G032-01,own,resistant,,
 M032,alkali,Q00130,G032-01,own,resistant,,
 M032,flammability,Q00133,G032-01,own,flammable,,
 M032,oil-grease,Q00132,G032-01,own,limited,yes,
 M032,organic-solvent,Q00131,G032-01,own,limited,yes,
+M032,uv-outdoor,Q02582,G032-01,own,narrative,,
 M032,water-solubility,Q00128,G032-01,own,insoluble,,
 M033,acid,Q00136,G033-01,own,resistant,,
 M033,alkali,Q00137,G033-01,own,resistant,,
@@ -244,11 +260,18 @@ M033,flammability,Q00140,G033-01,own,flammable,,
 M033,flammability,Q00480,G033-02,own,narrative,,
 M033,oil-grease,Q00139,G033-01,own,limited,yes,
 M033,organic-solvent,Q00138,G033-01,own,limited,yes,
+M033,uv-outdoor,Q02632,G033-05,own,narrative,,
+M033,uv-outdoor,Q02640,G033-06,own,narrative,,
+M033,uv-outdoor,Q02646,G033-09,own,narrative,,
+M033,uv-outdoor,Q02648,G033-09,own,narrative,,
+M033,uv-outdoor,Q02669,G033-12,own,narrative,,
 M033,water-solubility,Q00135,G033-01,own,insoluble,,
 M034,acid,M034-acid,,polymer,limited,,no
 M034,alkali,M034-alkali,,polymer,resistant,,no
 M034,oil-grease,M034-oil-grease,,polymer,limited,,no
 M034,organic-solvent,M034-organic-solvent,,polymer,not-resistant,,yes
+M034,uv-outdoor,Q02724,G034-03,own,narrative,,
+M034,uv-outdoor,Q02735,G034-05,own,narrative,,
 M034,water-solubility,M034-water-solubility,,polymer,resistant,,no
 M035,acid,Q00143,G035-01,own,not-resistant,,
 M035,acid,Q05243,G035-02,own,limited,,
@@ -282,6 +305,7 @@ M037,alkali,M037-alkali,,polymer,not-resistant,,yes
 M037,hydrolysis,M037-hydrolysis,,polymer,limited,,no
 M037,oil-grease,M037-oil-grease,,polymer,limited,,no
 M037,organic-solvent,M037-organic-solvent,,polymer,limited,,no
+M037,uv-outdoor,Q02874,G037-07,own,narrative,,
 M038,acid,M038-acid,,polymer,resistant,,no
 M038,alkali,M038-alkali,,polymer,not-resistant,,yes
 M038,hydrolysis,M038-hydrolysis,,polymer,limited,,no
@@ -300,7 +324,9 @@ M046,alkali,M046-alkali,,polymer,limited,,no
 M046,hydrolysis,M046-hydrolysis,,polymer,limited,,no
 M046,oil-grease,M046-oil-grease,,polymer,limited,,no
 M046,organic-solvent,M046-organic-solvent,,polymer,limited,,no
-M046,uv-outdoor,M046-uv-outdoor,,polymer,limited,,no
+M046,uv-outdoor,Q03392,G046-05,own,narrative,,
+M046,uv-outdoor,Q03401,G046-06,own,narrative,,
+M046,uv-outdoor,Q03404,G046-07,own,narrative,,
 M046,water-solubility,M046-water-solubility,,polymer,resistant,,no
 M047,moisture,Q00299,Not applicable,own,narrative,,
 M048,acid,Q00179,G048-01,own,not-resistant,,
@@ -321,6 +347,7 @@ M050,flammability,Q00190,G050-01,own,flammable,,
 M050,hydrolysis,M050-hydrolysis,,polymer,not-resistant,,yes
 M050,oil-grease,Q00189,G050-01,own,limited,yes,
 M050,organic-solvent,Q00188,G050-01,own,limited,yes,
+M050,uv-outdoor,Q03515,G050-09,own,narrative,,
 M050,water-solubility,Q00185,G050-01,own,insoluble,,
 M051,acid,Q00216,G051-03,own,not-resistant,,
 M051,acid,Q00217,G051-03,own,not-resistant,,
@@ -413,7 +440,7 @@ M066,alkali,M066-alkali,,polymer,not-resistant,,yes
 M066,hydrolysis,M066-hydrolysis,,polymer,not-resistant,,yes
 M066,oil-grease,M066-oil-grease,,polymer,resistant,,no
 M066,organic-solvent,M066-organic-solvent,,polymer,limited,,no
-M066,uv-outdoor,M066-uv-outdoor,,polymer,resistant,,no
+M066,uv-outdoor,Q03834,G066-07,own,narrative,,
 M067,acid,Q00453,G067-01,own,not-resistant,,
 M067,alkali,Q00454,G067-01,own,not-resistant,,
 M067,flammability,Q00225,G067-01,own,flammable,,
@@ -515,6 +542,7 @@ M083,acid,M083-acid,,polymer,limited,,no
 M083,alkali,M083-alkali,,polymer,limited,,no
 M083,oil-grease,M083-oil-grease,,polymer,limited,,no
 M083,organic-solvent,M083-organic-solvent,,polymer,limited,,no
+M083,uv-outdoor,Q04340,G083-04,own,narrative,,
 M083,water-solubility,M083-water-solubility,,polymer,resistant,,no
 M084,acid,M084-acid,,polymer,limited,,no
 M084,alkali,M084-alkali,,polymer,limited,,no
@@ -540,6 +568,7 @@ M086,organic-solvent,Q00262,G086-01,own,narrative,,
 M086,organic-solvent,Q00263,G086-01,own,narrative,,
 M086,organic-solvent,Q00264,G086-01,own,narrative,,
 M086,organic-solvent,Q00266,G086-01,own,narrative,,
+M086,uv-outdoor,Q04376,G086-02,own,narrative,,
 M087,acid,M087-acid,,polymer,limited,,no
 M087,alkali,M087-alkali,,polymer,not-resistant,,yes
 M087,flammability,M087-flammability,,polymer,not-resistant,,yes
@@ -625,6 +654,7 @@ M113,acid,M113-acid,,polymer,limited,,no
 M113,alkali,M113-alkali,,polymer,resistant,,no
 M113,oil-grease,M113-oil-grease,,polymer,limited,,no
 M113,organic-solvent,M113-organic-solvent,,polymer,not-resistant,,yes
+M113,uv-outdoor,Q04752,G113-02,own,narrative,,
 M113,water-solubility,M113-water-solubility,,polymer,resistant,,no
 M114,acid,M114-acid,,polymer,limited,,no
 M114,alkali,M114-alkali,,polymer,limited,,no
@@ -660,7 +690,7 @@ M129,alkali,M129-alkali,,polymer,not-resistant,,yes
 M129,hydrolysis,M129-hydrolysis,,polymer,limited,,no
 M129,oil-grease,M129-oil-grease,,polymer,limited,,no
 M129,organic-solvent,M129-organic-solvent,,polymer,not-resistant,,yes
-M129,uv-outdoor,M129-uv-outdoor,,polymer,limited,,no
+M129,uv-outdoor,Q04796,G129-02,own,narrative,,
 M129,water-solubility,M129-water-solubility,,polymer,resistant,,no
 M138,acid,M138-acid,,polymer,limited,,no
 M138,alkali,M138-alkali,,polymer,limited,,no
@@ -721,7 +751,7 @@ M159,flammability,Q00164,G043-01,own,flammable,,
 M159,hydrolysis,Q02929,G039-07,own,narrative,,
 M159,oil-grease,Q00446,G043-01,own,limited,yes,
 M159,organic-solvent,Q00445,G043-01,own,limited,yes,
-M159,uv-outdoor,M159-uv-outdoor,,polymer,limited,,no
+M159,uv-outdoor,Q02959,G039-15,own,narrative,,
 M159,water-solubility,Q00442,G043-01,own,insoluble,,
 M160,acid,Q00165,G039-03,own,not-resistant,,
 M160,acid,Q00166,G039-03,own,not-resistant,,
@@ -737,7 +767,7 @@ M160,oil-grease,Q00170,G039-03,own,no-data,,
 M160,oil-grease,Q00441,G042-01,own,limited,yes,
 M160,organic-solvent,Q00169,G039-03,own,no-data,,
 M160,organic-solvent,Q00440,G042-01,own,limited,yes,
-M160,uv-outdoor,M160-uv-outdoor,,polymer,limited,,no
+M160,uv-outdoor,Q03190,G039-63,own,narrative,,
 M160,water-solubility,Q00437,G042-01,own,insoluble,,
 M161,acid,Q00149,G039-01,own,not-resistant,,
 M161,acid,Q00150,G039-01,own,not-resistant,,
@@ -763,5 +793,8 @@ M162,flammability,Q00155,G040-01,own,flammable,,
 M162,hydrolysis,Q02936,G039-08,own,narrative,,
 M162,oil-grease,Q00436,G040-01,own,limited,yes,
 M162,organic-solvent,Q00435,G040-01,own,limited,yes,
-M162,uv-outdoor,M162-uv-outdoor,,polymer,limited,,no
+M162,uv-outdoor,Q02967,G039-16,own,narrative,,
+M162,uv-outdoor,Q02975,G039-17,own,narrative,,
+M162,uv-outdoor,Q03002,G039-23,own,narrative,,
+M162,uv-outdoor,Q03114,G039-45,own,narrative,,
 M162,water-solubility,Q00432,G040-01,own,insoluble,,

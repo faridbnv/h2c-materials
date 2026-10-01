@@ -958,3 +958,23 @@ materials in scope, 30 of them converted from USD or EUR, and 214 products. What
 npm run sql --silent -- "select currency, count(*) listings, count(distinct gradeid) products from prices where quarantined = 0 group by currency"
 node docs/audits/2026-09-30-price-pass/outcomes.mjs
 ```
+
+## 23. Insublend's current HIPS home needs reconciliation
+
+The coverage campaign independently reread R-NANOVIA-Insublend and found no HIPS identity
+in its own product description: HIPS appears in navigation and the related-product footer.
+G081-06 still belongs to HIPS (M081). Its UV statement Q04265 remains in maker know-how,
+held from environmental refiling until ownership is reconciled. Refilling it there would
+remove the HIPS family's polymer-level UV screen for twelve products, although all would
+remain UNKNOWN. That effect was reproduced and withdrawn before admission.
+
+The maker's exact Insublend safety sheet is fetched for campaign review. It names mPPE
+and a PPE/PS/elastomer mixture, a lead for existing PPE-PS (M130). It also contradicts
+itself about food contact. Neither the new source, an identity correction nor a food-contact
+qualification has been admitted in this tranche. The external campaign retains the
+digest, original, independent review and release conditions.
+
+```bash
+npm run sql --silent -- "select gradeid, materialid, product_name, composition_filler from grades where gradeid = 'G081-06'"
+npm run sql --silent -- "select evidenceid, gradeid, domain, topic, finding from evidence where evidenceid = 'Q04265'"
+```

@@ -1,0 +1,242 @@
+{
+  "basis": "All raw statements independently reread from originals in the signed ENV40 review. These checks ensure original wording and identity survive compile; environment replay separately checks decisions.",
+  "checks": [
+    {
+      "evidence": "Q00648",
+      "grade": "G001-110",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q00928",
+      "grade": "G001-179",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q01008",
+      "grade": "G001-33",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q01083",
+      "grade": "G001-56",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q01835",
+      "grade": "G020-28",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02081",
+      "grade": "G025-03",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02445",
+      "grade": "G031-01",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02467",
+      "grade": "G031-07",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02526",
+      "grade": "G031-22",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02527",
+      "grade": "G031-22",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02530",
+      "grade": "G031-23",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02551",
+      "grade": "G031-28",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02553",
+      "grade": "G031-28",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02573",
+      "grade": "G031-42",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02582",
+      "grade": "G032-01",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02632",
+      "grade": "G033-05",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02640",
+      "grade": "G033-06",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02646",
+      "grade": "G033-09",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02648",
+      "grade": "G033-09",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02669",
+      "grade": "G033-12",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02724",
+      "grade": "G034-03",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02735",
+      "grade": "G034-05",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02874",
+      "grade": "G037-07",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02959",
+      "grade": "G039-15",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02967",
+      "grade": "G039-16",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q02975",
+      "grade": "G039-17",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03002",
+      "grade": "G039-23",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03114",
+      "grade": "G039-45",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03190",
+      "grade": "G039-63",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03392",
+      "grade": "G046-05",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03401",
+      "grade": "G046-06",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03404",
+      "grade": "G046-07",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03515",
+      "grade": "G050-09",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q03834",
+      "grade": "G066-07",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q04340",
+      "grade": "G083-04",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q04376",
+      "grade": "G086-02",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q04752",
+      "grade": "G113-02",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q04796",
+      "grade": "G129-02",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    },
+    {
+      "evidence": "Q05157",
+      "grade": "G031-37",
+      "verdict": "narrative",
+      "raw_wording_unchanged": true
+    }
+  ],
+  "held": [
+    "Q04265: source identity under review"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/environment-bound-assessments-packet.json",
+  "input_sha256": "fa35e47ba22c76da030c87aea87f0ca1d0b96616448fe1b07b71de934f2a0bb7",
+  "signed_at_utc": "2026-10-01T03:46:07.383356+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 2,
+  "source_reading_batches": [
+    {
+      "batch": "ENV-ASSESS-1",
+      "products": [
+        "G025-03",
+        "G037-07"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "FindingID": "CE-ENV-M025",
+      "MaterialID": "M025",
+      "GradeID": "G025-03",
+      "verdict": "APPROVE",
+      "basis_evidence_ids": [
+        "Q02081"
+      ],
+      "SourceID": "R-NANOVIA-PETG-GF-UV",
+      "source_sha256": "3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74",
+      "OriginalPath": ".cache/sources/by-sha/3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74.html",
+      "locator": "Original HTML own product Description and Advantages before Application recommendations/Related products",
+      "original_reread": "Fresh visible-text extraction from SHA-verified original HTML; own-product paragraph, feature statement and surrounding mechanical/thermal/handling context independently reread.",
+      "guards": "Full current ExpectedGrade, ExistingEvidence, RegisteredSource and superseded Coverage rows equal frozen packet; original bytes SHA matches registered digest. Append equals ProposedCoverage.",
+      "supersedes": [
+        "C00308"
+      ],
+      "status_review": "Reviewed with limitations is warranted by exact-product manufacturer narrative already admitted to Durability/UV. Prior material Gap says no own exposure/moisture record and is stale.",
+      "scope_review": "Explicit missing UV spectrum/irradiance, duration/temperature, specimen and retention retained. Other products/categories remain separately assessed; no broader material suitability or service validation.",
+      "specific_limits": [
+        "Original introduction says PETG is natively waterproof and resistant to temperatures up to 80 \u00b0C. These are separate maker descriptors; neither the evidence nor this coverage judgment proves tested hot-water performance at 80 \u00b0C.",
+        "Water handling/drying instructions and independently listed mechanical coupons do not establish hydrolysis or moisture-service test performance."
+      ]
+    },
+    {
+      "FindingID": "CE-ENV-M037",
+      "MaterialID": "M037",
+      "GradeID": "G037-07",
+      "verdict": "APPROVE",
+      "basis_evidence_ids": [
+        "Q02874"
+      ],
+      "SourceID": "R-NANOVIA-PC-CF",
+      "source_sha256": "16aefd709012210eb2d50ef8b71cf022c1174eea11446e0af7e85ae009e3467a",
+      "OriginalPath": ".cache/sources/by-sha/16aefd709012210eb2d50ef8b71cf022c1174eea11446e0af7e85ae009e3467a.html",
+      "locator": "Original HTML own product Description and Advantages before Application recommendations/Related products",
+      "original_reread": "Fresh visible-text extraction from SHA-verified original HTML; own-product paragraph, feature statement and surrounding mechanical/thermal/handling context independently reread.",
+      "guards": "Full current ExpectedGrade, ExistingEvidence, RegisteredSource and superseded Coverage rows equal frozen packet; original bytes SHA matches registered digest. Append equals ProposedCoverage.",
+      "supersedes": [
+        "C00428"
+      ],
+      "status_review": "Reviewed with limitations is warranted by exact-product manufacturer narrative already admitted to Durability/UV. Prior material Gap says no own exposure/moisture record and is stale.",
+      "scope_review": "Explicit missing UV spectrum/irradiance, duration/temperature, specimen and retention retained. Other products/categories remain separately assessed; no broader material suitability or service validation.",
+      "specific_limits": [
+        "Preserve comparative added-fibre increased UV resistance and native-polycarbonate sensitivity; no absolute Resistant verdict or quantified retention is established.",
+        "This own G037-07 source does not resolve the separate iSANMATE G037-03 raw-PC context issue."
+      ]
+    }
+  ],
+  "scope_limits": [
+    "Coverage status correction only after source-faithful environmental facts admitted.",
+    "No new deciding environmental verdict or direct selection pass from these judgments. Replay/count/explain any changes in coverage and scenario answers from the surrounding fact admission.",
+    "Superseded rows remain historical, with newly allocated coverage IDs recorded by the serialized injector."
+  ],
+  "review_signature_sha256": "f3051b73eb2d5ddd723016f9abe5456df45cc88ca7df85d47bef97c14d0328b7"
+}

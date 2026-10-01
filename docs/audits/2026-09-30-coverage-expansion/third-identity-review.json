@@ -1,0 +1,50 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "docs/audits/2026-09-30-coverage-expansion/third-environment-replay.json",
+  "input_sha256": "02378708daba4835ed022cedab59df836ecb21ab680c3385321a9dcd81414f3b",
+  "signed_at_utc": "2026-10-01T04:07:00.270005+00:00",
+  "overall_verdict": "HOLD_Q04265_ENVIRONMENTAL_REFILING_PENDING_IDENTITY",
+  "replay_integrity": {
+    "evaluations": 58224,
+    "answer_changes": 13,
+    "scope": "One M081 material plus all twelve active M081 grades; UV/outdoor exploration inference on only. All remain UNKNOWN; screen changes true to false.",
+    "affected_ids": [
+      "M081",
+      "G081-01",
+      "G081-02",
+      "G081-03",
+      "G081-04",
+      "G081-05",
+      "G081-06",
+      "G081-07",
+      "G081-08",
+      "G081-09",
+      "G081-10",
+      "G081-11",
+      "G081-12"
+    ],
+    "engine_contract": "D64/Data-model attaches polymer context only to materials without own category records; D98 labels other products context. Observed material-wide polymer suppression is consistent with current contract, but depends on valid product/material identity."
+  },
+  "source_review": {
+    "SourceID": "R-NANOVIA-Insublend",
+    "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+    "OriginalPath": ".cache/sources/by-sha/3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7.html",
+    "GradeID": "G081-06",
+    "EvidenceID": "Q04265",
+    "exact_own_claim": "UV and oxydation resistant",
+    "locator": "Own Nanovia Insublend Advantages",
+    "custody": "Registered source and original SHA verified; complete own product description, category/breadcrumb, documentation, Advantages, safety and Related products reread.",
+    "identity_basis": {
+      "own_breadcrumb": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance",
+      "own_category": "Categories: 3D printing filament, Material, Specific",
+      "own_description": "Engineered for outdoor electrical equipment, Nanovia Insublend filament allows for the creation of insulating and weatherproof 3D prints.",
+      "HIPS_occurrences": "HIPS occurs in general navigation and Related products Nanovia HIPS : Soluble support, not as the Insublend composition or polymer identity.",
+      "current_grade_material": "M081 HIPS, Composition / filler Not published, Variant Not applicable",
+      "conclusion": "Cached own original supports exact Insublend UV wording, but supplies no defensible basis for classifying Insublend as HIPS. This review does not identify the actual polymer or prove a different polymer."
+    }
+  },
+  "known_problem_check": "Searched docs/OPEN-PROBLEMS.md for Insublend/Insulblend/G081-06/M081; no specific existing identity entry found. Historical import b14 and later family-based traces repeat assignment, not independent source proof.",
+  "required_action": "Hold environmental refile Q04265 or resolve G081-06 material identity from original source-backed evidence before release. Do not assign a new polymer by resemblance or infer from physical/thermal values. Keep source-specific raw statement and historical row.",
+  "review_history_note": "Prior ENV-bound approval established exact product/source/raw claim custody and current grade guards. It did not independently substantiate the inherited HIPS material assignment. This focused replay review withdraws release approval for Q04265 until identity is supported, while unrelated reviewed operations remain approved.",
+  "review_signature_sha256": "7c4dc70913dd97e910ec549bde00c91c052ea7c61f5e57663d9b0f90e8c64fc1"
+}

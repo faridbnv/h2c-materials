@@ -1,0 +1,153 @@
+table,record,action,field,before,after
+coverage,C00308,Edited,Status,Gap,Superseded
+coverage,C00308,Edited,Finding,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade.","Superseded by C01519: No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+coverage,C00428,Edited,Status,Gap,Superseded
+coverage,C00428,Edited,Finding,"No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade.","Superseded by C01520: No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+coverage,C00608,Edited,Status,Gap,Superseded
+coverage,C00608,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01514: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C00903,Edited,Status,Gap,Superseded
+coverage,C00903,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01517: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C01021,Edited,Status,Gap,Superseded
+coverage,C01021,Edited,Finding,Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.,Superseded by C01516: Insufficient grade-specific evidence in sampled sources. Shared family notes may be available; no numerical substitution.
+coverage,C01514,Added,,,
+coverage,C01515,Added,,,
+coverage,C01516,Added,,,
+coverage,C01517,Added,,,
+coverage,C01518,Added,,,
+coverage,C01519,Added,,,
+coverage,C01520,Added,,,
+evidence,Q00648,Edited,Domain,Makers' know-how,Durability
+evidence,Q00648,Edited,Topic,Benefits,UV
+evidence,Q00648,Edited,Exposure / conditions,Not applicable,"Comparative improved claim; UV comparator, protocol and result not published. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q00928,Edited,Domain,Makers' know-how,Durability
+evidence,Q00928,Edited,Topic,Pitfalls and limitations,UV
+evidence,Q00928,Edited,Exposure / conditions,Not applicable,"PLX source sentence also names acetone, acids and alcohols. No concentration, exposure duration, specimen or measured response for those chemical/UV claims. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q01008,Edited,Domain,Makers' know-how,Durability
+evidence,Q01008,Edited,Topic,Benefits,UV
+evidence,Q01008,Edited,Exposure / conditions,Not applicable,"Comparative improved claim; UV comparator, protocol and result not published. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q01083,Edited,Domain,Makers' know-how,Durability
+evidence,Q01083,Edited,Topic,Pitfalls and limitations,UV
+evidence,Q01083,Edited,Exposure / conditions,Not applicable,"Own PLA+ claim compares UV resistance with standard PLA; no absolute exposure verdict or protocol stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q01835,Edited,Domain,Makers' know-how,Durability
+evidence,Q01835,Edited,Topic,Pitfalls and limitations,UV
+evidence,Q01835,Edited,Exposure / conditions,Not applicable,"Other properties table: UV stability No; method and conditions absent. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02081,Edited,Domain,Makers' know-how,Durability
+evidence,Q02081,Edited,Topic,Benefits,UV
+evidence,Q02081,Edited,Exposure / conditions,Not applicable,"PETG GF UV feature claim; description also states resistance to water/temperature up to 80 °C and UV-resistant additives. Duration and hydrolysis protocol not stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02445,Edited,Domain,Makers' know-how,Durability
+evidence,Q02445,Edited,Topic,Benefits,UV / weather
+evidence,Q02445,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02467,Edited,Domain,Makers' know-how,Durability
+evidence,Q02467,Edited,Topic,Benefits,UV / weather
+evidence,Q02467,Edited,Exposure / conditions,Not applicable,"The source also prints a p.2 LI911 WEATHERABILITY TEST / ΔE table. Its time unit, protocol, specimen and relationship to this filament are not stated; it is not a qualified filament weathering test. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02526,Edited,Domain,Makers' know-how,Durability
+evidence,Q02526,Edited,Topic,Benefits,UV
+evidence,Q02526,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02527,Edited,Domain,Makers' know-how,Durability
+evidence,Q02527,Edited,Topic,Benefits,UV
+evidence,Q02527,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02530,Edited,Domain,Makers' know-how,Durability
+evidence,Q02530,Edited,Topic,Benefits,UV / weather
+evidence,Q02530,Edited,Exposure / conditions,Not applicable,"Cover marketing tagline; service temperature and outdoor lifetime not stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02551,Edited,Domain,Makers' know-how,Durability
+evidence,Q02551,Edited,Topic,Benefits,UV
+evidence,Q02551,Edited,Exposure / conditions,Not applicable,"PRO Series ASA description attributes claimed stability to UV inhibitor; specific exposure protocol and guaranteed lifetime not stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02553,Edited,Domain,Makers' know-how,Durability
+evidence,Q02553,Edited,Topic,Benefits,UV
+evidence,Q02553,Edited,Exposure / conditions,Not applicable,"Comparative unmatched claim without benchmark. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02573,Edited,Domain,Makers' know-how,Durability
+evidence,Q02573,Edited,Topic,Benefits,UV / weather
+evidence,Q02573,Edited,Exposure / conditions,Not applicable,"ReForm rApollo feature claim, updated23-8-2024. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02582,Edited,Domain,Makers' know-how,Durability
+evidence,Q02582,Edited,Topic,Benefits,UV
+evidence,Q02582,Edited,Exposure / conditions,Not applicable,"ASA Aero water/temperature/UV narrative does not qualify a particular foaming state or hydrolysis performance. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02632,Edited,Domain,Makers' know-how,Durability
+evidence,Q02632,Edited,Topic,Benefits,UV / weather
+evidence,Q02632,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02640,Edited,Domain,Makers' know-how,Durability
+evidence,Q02640,Edited,Topic,Benefits,UV / weather
+evidence,Q02640,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02646,Edited,Domain,Makers' know-how,Durability
+evidence,Q02646,Edited,Topic,Benefits,UV / weather
+evidence,Q02646,Edited,Exposure / conditions,Not applicable,"ASA CF10 feature claim, separate from Other properties UV stability Yes label. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02648,Edited,Domain,Makers' know-how,Durability
+evidence,Q02648,Edited,Topic,Benefits,UV
+evidence,Q02648,Edited,Exposure / conditions,Not applicable,"Other properties table: UV stability Yes; method and conditions absent. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02669,Edited,Domain,Makers' know-how,Durability
+evidence,Q02669,Edited,Topic,Benefits,UV / weather
+evidence,Q02669,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02724,Edited,Domain,Makers' know-how,Durability
+evidence,Q02724,Edited,Topic,Benefits,UV / weather
+evidence,Q02724,Edited,Exposure / conditions,Not applicable,"IPCON ASA GF Main Features bullet combines UV/weather/water/heat descriptors and other features; no exposure test stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02735,Edited,Domain,Makers' know-how,Durability
+evidence,Q02735,Edited,Topic,Benefits,UV / weather
+evidence,Q02735,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02874,Edited,Domain,Makers' know-how,Durability
+evidence,Q02874,Edited,Topic,Benefits,UV
+evidence,Q02874,Edited,Exposure / conditions,Not applicable,"Nanovia PC CF sentence attributes increased UV resistance to added fibres, comparing native PC sensitivity. No quantitative comparison stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02959,Edited,Domain,Makers' know-how,Durability
+evidence,Q02959,Edited,Topic,Benefits,UV
+evidence,Q02959,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02967,Edited,Domain,Makers' know-how,Durability
+evidence,Q02967,Edited,Topic,Benefits,UV
+evidence,Q02967,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q02975,Edited,Domain,Makers' know-how,Durability
+evidence,Q02975,Edited,Topic,Benefits,UV
+evidence,Q02975,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03002,Edited,Domain,Makers' know-how,Durability
+evidence,Q03002,Edited,Topic,Benefits,UV
+evidence,Q03002,Edited,Exposure / conditions,Not applicable,"TPU64D source feature line combines UV stabilization, oil/grease, elasticity and hardness. No agent concentrations or measured UV test stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03114,Edited,Domain,Makers' know-how,Durability
+evidence,Q03114,Edited,Topic,Benefits,UV
+evidence,Q03114,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03190,Edited,Domain,Makers' know-how,Durability
+evidence,Q03190,Edited,Topic,Benefits,UV
+evidence,Q03190,Edited,Exposure / conditions,Not applicable,"Python Flex TPU90A description combines chemical and UV claims without named chemicals or UV protocol. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03392,Edited,Domain,Makers' know-how,Durability
+evidence,Q03392,Edited,Topic,Benefits,UV
+evidence,Q03392,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03401,Edited,Domain,Makers' know-how,Durability
+evidence,Q03401,Edited,Topic,Benefits,UV
+evidence,Q03401,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03404,Edited,Domain,Makers' know-how,Durability
+evidence,Q03404,Edited,Topic,Benefits,UV
+evidence,Q03404,Edited,Exposure / conditions,Not applicable,"FlexiFil source combines mechanical/chemical/UV/extreme-temperature claims without specified chemical agents or temperature. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03515,Edited,Domain,Makers' know-how,Durability
+evidence,Q03515,Edited,Topic,Benefits,UV
+evidence,Q03515,Edited,Exposure / conditions,Not applicable,"Fishy Filaments0rCA table: UV stability Yes; method and conditions absent. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q03834,Edited,Domain,Makers' know-how,Durability
+evidence,Q03834,Edited,Topic,Benefits,UV
+evidence,Q03834,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q04340,Edited,Domain,Makers' know-how,Durability
+evidence,Q04340,Edited,Topic,Benefits,UV
+evidence,Q04340,Edited,Exposure / conditions,Not applicable,"Nanovia PP CF description attributes UV resistance to added carbon fibres. No unfilled PP performance inferred. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q04376,Edited,Domain,Makers' know-how,Durability
+evidence,Q04376,Edited,Topic,Pitfalls and limitations,UV
+evidence,Q04376,Edited,Exposure / conditions,Not applicable,"OBC905 Other properties table: UV stability No; method and conditions absent. Mechanical coupon settings are not UV test conditions. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q04752,Edited,Domain,Makers' know-how,Durability
+evidence,Q04752,Edited,Topic,Benefits,UV / weather
+evidence,Q04752,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q04796,Edited,Domain,Makers' know-how,Durability
+evidence,Q04796,Edited,Topic,Benefits,UV
+evidence,Q04796,Edited,Exposure / conditions,Not applicable,"Maker qualitative feature claim. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q05157,Edited,Domain,Makers' know-how,Durability
+evidence,Q05157,Edited,Topic,Benefits,UV / weather
+evidence,Q05157,Edited,Exposure / conditions,Not applicable,"3DJAKE own-brand ASA Black listing tagline; black color scope only. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established."
+evidence,Q05342,Added,,,
+evidence,Q05343,Added,,,
+evidence,Q05344,Added,,,
+evidence,Q05345,Added,,,
+evidence,Q05346,Added,,,
+evidence,Q05347,Added,,,
+evidence,Q05348,Added,,,
+evidence,Q05349,Added,,,
+evidence,Q05350,Added,,,
+evidence,Q05351,Added,,,
+evidence,Q05352,Added,,,
+evidence,Q05353,Added,,,
+evidence,Q05354,Added,,,
+evidence,Q05355,Added,,,
+evidence,Q05356,Added,,,
+evidence,Q05357,Added,,,
+evidence,Q05358,Added,,,
+evidence,Q05359,Added,,,

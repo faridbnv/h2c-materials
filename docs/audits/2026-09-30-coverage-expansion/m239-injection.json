@@ -1,0 +1,27 @@
+{
+  "migration": "m239-application-more-assessments",
+  "packet": "49ce1f0d0bd0fcdb67788d2a0b5d73caff15c21a14eee0a26a1fd9183e113c1a",
+  "written": 5,
+  "records": [
+    {
+      "finding": "CE-APP-M055",
+      "coverageId": "C01514"
+    },
+    {
+      "finding": "CE-APP-M134",
+      "coverageId": "C01515"
+    },
+    {
+      "finding": "CE-APP-M096",
+      "coverageId": "C01516"
+    },
+    {
+      "finding": "CE-APP-M084",
+      "coverageId": "C01517"
+    },
+    {
+      "finding": "CE-APP-M175",
+      "coverageId": "C01518"
+    }
+  ]
+}

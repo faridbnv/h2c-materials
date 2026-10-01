@@ -1,0 +1,185 @@
+{
+  "PacketID": "ENVIRONMENT-BOUND-ASSESSMENTS-2",
+  "Findings": [
+    {
+      "FindingID": "CE-ENV-M025",
+      "ExpectedGrade": {
+        "GradeID": "G025-03",
+        "MaterialID": "M025",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PETG GF UV",
+        "Shared formulation key": "R-NANOVIA-PETG-GF-UV",
+        "Composition / filler": "Nanovia PETG GF UV : Glass fiber reinforced quantity (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PETG-GF-UV",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02081",
+          "MaterialID": "M025",
+          "GradeID": "G025-03",
+          "Domain": "Durability",
+          "Topic": "UV",
+          "Finding": "UV and water resistant",
+          "Exposure / conditions": "PETG GF UV feature claim; description also states resistance to water/temperature up to 80 \u00b0C and UV-resistant additives. Duration and hydrolysis protocol not stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-PETG-GF-UV",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-PETG-GF-UV",
+            "Publisher": "Nanovia",
+            "Title": "Store",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/ref/nanovia-petg-gf-uv/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G025-03",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74"
+          },
+          "OriginalPath": ".cache/sources/by-sha/3c82c10ca4321b4c84389935249e8772e8831757d83ce835eb383fc6e36d4c74.html"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M025",
+        "GradeID": "G025-03",
+        "Domain": "Moisture / environmental",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia PETG GF UV (G025-03) has its own bounded UV claim (Q02081, R-NANOVIA-PETG-GF-UV). PETG GF UV feature claim; description also states resistance to water/temperature up to 80 \u00b0C and UV-resistant additives. Duration and hydrolysis protocol not stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established. Other environmental categories/products remain separately assessed; no category-wide suitability established."
+      }
+    },
+    {
+      "FindingID": "CE-ENV-M037",
+      "ExpectedGrade": {
+        "GradeID": "G037-07",
+        "MaterialID": "M037",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PC CF",
+        "Shared formulation key": "R-NANOVIA-PC-CF",
+        "Composition / filler": "Nanovia PC CF : Carbon fiber reinforced quantity (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-PC-CF",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02874",
+          "MaterialID": "M037",
+          "GradeID": "G037-07",
+          "Domain": "Durability",
+          "Topic": "UV",
+          "Finding": "These added fibres also increase the material\u2019s UV resistance, native polycarbonate being sensitive to it.",
+          "Exposure / conditions": "Nanovia PC CF sentence attributes increased UV resistance to added fibres, comparing native PC sensitivity. No quantitative comparison stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-PC-CF",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-PC-CF",
+            "Publisher": "Nanovia",
+            "Title": "Store",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/ref/nanovia-pc-cf/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G037-07",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "16aefd709012210eb2d50ef8b71cf022c1174eea11446e0af7e85ae009e3467a"
+          },
+          "OriginalPath": ".cache/sources/by-sha/16aefd709012210eb2d50ef8b71cf022c1174eea11446e0af7e85ae009e3467a.html"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M037",
+        "GradeID": "G037-07",
+        "Domain": "Moisture / environmental",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia PC CF (G037-07) has its own bounded UV claim (Q02874, R-NANOVIA-PC-CF). Nanovia PC CF sentence attributes increased UV resistance to added fibres, comparing native PC sensitivity. No quantitative comparison stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established. Other environmental categories/products remain separately assessed; no category-wide suitability established."
+      }
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-ENV-M025",
+      "append": {
+        "MaterialID": "M025",
+        "GradeID": "G025-03",
+        "Domain": "Moisture / environmental",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia PETG GF UV (G025-03) has its own bounded UV claim (Q02081, R-NANOVIA-PETG-GF-UV). PETG GF UV feature claim; description also states resistance to water/temperature up to 80 \u00b0C and UV-resistant additives. Duration and hydrolysis protocol not stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established. Other environmental categories/products remain separately assessed; no category-wide suitability established."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00308",
+          "MaterialID": "M025",
+          "GradeID": "Not applicable",
+          "Domain": "Moisture / environmental",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-ENV-M037",
+      "append": {
+        "MaterialID": "M037",
+        "GradeID": "G037-07",
+        "Domain": "Moisture / environmental",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia PC CF (G037-07) has its own bounded UV claim (Q02874, R-NANOVIA-PC-CF). Nanovia PC CF sentence attributes increased UV resistance to added fibres, comparing native PC sensitivity. No quantitative comparison stated. UV spectrum/irradiance, exposure duration/temperature, specimen and measured property retention are not published for this claim. No verified outdoor lifetime or printed service qualification established. Other environmental categories/products remain separately assessed; no category-wide suitability established."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00428",
+          "MaterialID": "M037",
+          "GradeID": "Not applicable",
+          "Domain": "Moisture / environmental",
+          "Status": "Gap",
+          "Manufacturer count": "Not applicable",
+          "Finding": "No exposure, solubility or moisture record from this material's own sources. Records cited for its family are context, not evidence for this grade."
+        }
+      ]
+    }
+  ]
+}
