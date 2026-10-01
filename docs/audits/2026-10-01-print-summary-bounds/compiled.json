@@ -1,0 +1,36 @@
+{
+  "release": "cfd60c1fecb5",
+  "canonicalDataUnchanged": true,
+  "measurementEstimateModelUnchanged": true,
+  "measurementsUnchanged": true,
+  "gradeStatesHeadlinesPrintUnchanged": true,
+  "printEstimateRecalibration": "Automatic; incomplete source windows removed as peers, no new published measurement.",
+  "changedSummaries": [
+    {
+      "id": "M001",
+      "nozzle": {
+        "min": null,
+        "max": 260,
+        "profiles": 234
+      },
+      "chamber": {
+        "min": 0,
+        "max": 60,
+        "profiles": 24
+      }
+    },
+    {
+      "id": "M054",
+      "nozzle": {
+        "min": 250,
+        "max": 285,
+        "profiles": 4
+      },
+      "chamber": {
+        "min": null,
+        "max": 120,
+        "profiles": 1
+      }
+    }
+  ]
+}

@@ -155,13 +155,13 @@ function compileProfiles(rows, noteRows, issues) {
  * 104 price observations and were never rendered anywhere at all, so a user who decided on a
  * material had no route to buying it.
  */
-function printSummary(profiles) {
+export function printSummary(profiles) {
   const pick = (axis) => {
     const ranges = profiles.map((p) => p[axis]).filter((t) => t.state === 'range' && t.max !== null);
     if (!ranges.length) return null;
     // The widest published window across this material's grades, so the table never implies a
     // tighter requirement than the sources support.
-    const min = Math.min(...ranges.map((r) => r.min ?? r.max));
+    const min = ranges.some((r) => r.min === null) ? null : Math.min(...ranges.map((r) => r.min));
     const max = Math.max(...ranges.map((r) => r.max));
     return { min, max, profiles: ranges.length };
   };

@@ -152,6 +152,7 @@ const columnClass = (c) => (c.kind === 'headline' || c.kind === 'price' || c.kin
 
 /** Display form of a print window. A zero lower bound is how the build records "ambient". */
 export const printRange = (r) => (!r ? null
+  : r.min === null ? `upper bound ${fmtNumber(r.max)}`
   : r.min === r.max ? fmtNumber(r.max)
   : r.min === 0 ? `up to ${fmtNumber(r.max)}`
   : `${fmtNumber(r.min)}\u2013${fmtNumber(r.max)}`);
@@ -531,7 +532,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     ...(m.print?.chamberEstimate ? [`chamber ~${m.print.chamberEstimate.lo}-${m.print.chamberEstimate.hi} C (research band: ${m.print.chamberEstimate.basis}; decides nothing)`] : []),
   ].join(' | ');
   const why = (list) => list.map((r) => `${describeConstraint(r.constraint)}: ${r.reason}`).join(' | ');
-  const range = (r) => (r ? `${r.min}-${r.max}` : '');
+  const range = (r) => (r ? r.min === null ? `upper bound ${fmtNumber(r.max)}` : `${r.min}-${r.max}` : '');
 
   const header = [
     '# H2C Material Selector export',

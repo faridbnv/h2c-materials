@@ -1,0 +1,45 @@
+{
+  "overall_verdict": "APPROVE_CODE_PENDING_FULL_QA",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T20:31:48.423155+00:00",
+  "baseline_commit": "981263e061d009b2c517b0e2cf116f156fda63ea",
+  "git_diff_sha256": "2a20db6b4db6fa34ab70666cc4dd6cbf17b06e23eeae8fde1e480575be067cd8",
+  "new_test_not_in_tracked_git_diff": true,
+  "file_sha256": {
+    "app/js/ui/detail.js": "f73f54efd808a0d020ed12d4d6cfe23a29f50e6f0dbfb617a178b14991df92da",
+    "app/js/ui/table.js": "dec91da37fbe50487e62c0d476f974c6f118282544f4b366db1f2b723fa18efd",
+    "build/src/compile.js": "263c7674a8931fe31fb5c6f629294d9492cdafd3773482cfacbe33a5a3a71d74",
+    "build/src/estimate/print.js": "a15d55498e1bd9a6bbf378e3f5f2edd0fddf33f6684e30ffaffe9188fead9e9b",
+    "test/database.test.js": "5493a8de990b0872be87669d5bfe32f99dc4abb4494469be3819e5a72b69f676",
+    "test/print-summary-bounds.test.js": "5d955376120eeabdf2c6c22c1e0297f6a87004a26621188dddc11d1261c0c103"
+  },
+  "source_basis": {
+    "original_sha256": "941cb5b0f2b9208e4db0a9c6c578e0283db7a3a86767f3f44f7de92c28790ffe",
+    "locator": "PAHT9825 own FFF guide p1, Build plate temperature:<80C; actual source-owned profile P1322",
+    "ruling": "Upper endpoint80 with unknown lower endpoint is not a published80C point setting or complete peer window."
+  },
+  "code_findings": [
+    "Material union preserves missing lower endpoint whenever any included finite-upper source range lacks a lower endpoint. Other finite endpoints retain existing wide-union policy; canonical raw strict bound remains visible in own Printing profile.",
+    "Summary table, drawer Overview and CSV display upper bound80 with no fabricated lower endpoint or equality/less-than-or-equal claim.",
+    "Calibration peer and fibre-offset pools require finite lower and upper endpoints. A published incomplete window remains present and is not replaced with a inferred complete estimate.",
+    "Product profiles, recipe gates, selection engine, scenario criteria, schemas and canonical data are unchanged.",
+    "Prior database test that mirrored bad null-coalescing is replaced with explicit no-invented-lower invariant while retaining existing finite bounds and gate-precedence assertions. Four source-grounded tests exercise exact80upper-only, mixed union, peer exclusion/own-preservation and offset exclusion; no check weakened."
+  ],
+  "independent_checks": {
+    "targeted_tests": {
+      "count": 4,
+      "pass": 4,
+      "exit": 0
+    },
+    "git_diff_check_exit": 0,
+    "actual_renderer_csv_receipt": "external-campaign/evidence/source-bound-independent-render.json",
+    "actual_renderer_csv_receipt_sha256": "13515f3c212a5619903940609eca72e306b02a3d3ac486d0a3e44df6866d6d5a",
+    "render_scope": "Actual source-qualified campaign M147 profile compiled through isolated reviewed modules into memory only. Real renderDrawer Overview and toCSV retain upperbound/no fabricated lower endpoint; not a full rebuilt release or browser-layout claim."
+  },
+  "limitations": [
+    "Full baseline-isolated verify/build:diff and subsequent full campaign rebuild/replay/browser QA still required before release approval.",
+    "Existing lower-only profile summary behavior intentionally out of scope; no new bound parser/condition/model branch.",
+    "Automatic print estimate field changes resulting from excluded incomplete peers must be separately reported; do not describe them as new published evidence or answer-deciding values."
+  ],
+  "review_signature_sha256": "1bc9d3b9c7ce2c2fab50ab41b1dee2a4f8b506d5bbdbd32e9cf3d5b168212c73"
+}

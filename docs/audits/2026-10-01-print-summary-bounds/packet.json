@@ -1,0 +1,44 @@
+{
+  "Kind": "Source-bound compiler repair",
+  "GOALS_steps": [
+    2,
+    5
+  ],
+  "Scorecard": [
+    "C3",
+    "C9",
+    "C12",
+    "C13",
+    "C15"
+  ],
+  "ExpectedCommit": "981263e061d009b2c517b0e2cf116f156fda63ea",
+  "Files": [
+    {
+      "File": "app/js/ui/detail.js",
+      "SHA256": "f73f54efd808a0d020ed12d4d6cfe23a29f50e6f0dbfb617a178b14991df92da"
+    },
+    {
+      "File": "app/js/ui/table.js",
+      "SHA256": "dec91da37fbe50487e62c0d476f974c6f118282544f4b366db1f2b723fa18efd"
+    },
+    {
+      "File": "build/src/compile.js",
+      "SHA256": "263c7674a8931fe31fb5c6f629294d9492cdafd3773482cfacbe33a5a3a71d74"
+    },
+    {
+      "File": "build/src/estimate/print.js",
+      "SHA256": "a15d55498e1bd9a6bbf378e3f5f2edd0fddf33f6684e30ffaffe9188fead9e9b"
+    },
+    {
+      "File": "test/database.test.js",
+      "SHA256": "5493a8de990b0872be87669d5bfe32f99dc4abb4494469be3819e5a72b69f676"
+    },
+    {
+      "File": "test/print-summary-bounds.test.js",
+      "SHA256": "5d955376120eeabdf2c6c22c1e0297f6a87004a26621188dddc11d1261c0c103"
+    }
+  ],
+  "NoCanonicalDataChanged": true,
+  "Rule": "An absent lower endpoint remains absent in material summaries. Incomplete published windows cannot supply estimate midpoints or numeric endpoints and cannot be replaced by an estimate. Upper-bound labels retain the limitation; individual raw strict/source conditions and all product gate logic remain unchanged. Lower-only summary behavior remains out of scope.",
+  "Tests": "4 focused source-bound cases plus compiled material invariant; full verification required."
+}

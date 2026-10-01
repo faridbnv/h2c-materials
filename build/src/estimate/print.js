@@ -20,6 +20,8 @@ import { median } from './numerics.js';
 const FIBRE = new Set(['carbon-fibre', 'glass-fibre']);
 const MELT_MARGIN = 5;
 const MIN_WIDTH = 15;
+// An upper-only source is published evidence, but cannot supply a numeric peer midpoint/window.
+const completeWindow = (r) => r && Number.isFinite(r.min) && Number.isFinite(r.max);
 
 /**
  * @param materials compiled materials with `print.nozzleC` and `print.bedC` set
@@ -35,7 +37,7 @@ export function attachPrintEstimates(materials, model) {
   for (const m of pool) { const id = identityOf(m); if (!byIdentity.has(id)) byIdentity.set(id, []); byIdentity.get(id).push(m); }
   for (const ms of byIdentity.values()) {
     for (const [axis, key] of [['nozzle', 'nozzleC'], ['bed', 'bedC']]) {
-      const plain = ms.filter((m) => !fibre(m) && m.print[key]), filled = ms.filter((m) => fibre(m) && m.print[key]);
+      const plain = ms.filter((m) => !fibre(m) && completeWindow(m.print[key])), filled = ms.filter((m) => fibre(m) && completeWindow(m.print[key]));
       if (!plain.length || !filled.length) continue;
       const mid = (xs) => median(xs.map((m) => (m.print[key].min + m.print[key].max) / 2));
       offsets[axis].push(mid(filled) - mid(plain));
@@ -48,11 +50,11 @@ export function attachPrintEstimates(materials, model) {
     const info = model.identities[identityOf(m)];
     for (const [axis, key, out] of [['nozzle', 'nozzleC', 'nozzleEstimate'], ['bed', 'bedC', 'bedEstimate']]) {
       if (m.print[key]) continue;
-      let peers = pool.filter((p) => p !== m && identityOf(p) === identityOf(m) && p.print[key]);
+      let peers = pool.filter((p) => p !== m && identityOf(p) === identityOf(m) && completeWindow(p.print[key]));
       let scope = `${identityOf(m)}`;
       if (!peers.length) {
         peers = pool.filter((p) => p !== m && model.identities[identityOf(p)].group === info.group
-          && model.identities[identityOf(p)].morphology === info.morphology && p.print[key]);
+          && model.identities[identityOf(p)].morphology === info.morphology && completeWindow(p.print[key]));
         scope = info.group;
       }
       if (peers.length < (scope === identityOf(m) ? 1 : 2)) continue;

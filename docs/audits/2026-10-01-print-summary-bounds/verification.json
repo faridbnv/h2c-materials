@@ -1,0 +1,32 @@
+{
+  "release": "cfd60c1fecb5",
+  "parent_commit": "981263e061d009b2c517b0e2cf116f156fda63ea",
+  "full_verify_exit": 0,
+  "full_verify_seconds": 266.36,
+  "verify_fast_inside_full_seconds": 50.2,
+  "unit_tests": 454,
+  "import_tests": 194,
+  "native_interface_views": 69,
+  "rendered_scenarios": 300,
+  "rendered_readings": 2592,
+  "rendered_seconds": 51.6,
+  "compiled_difference_paths": 57,
+  "canonical_data_unchanged": true,
+  "ui_baseline_changes": 0,
+  "independent_review": "AI; no human review",
+  "source_custody": "No new original or canonical source change; current campaign private backup is unchanged by code repair.",
+  "logs": [
+    {
+      "name": "bounds-fix-verify-full.log",
+      "sha256": "c9674876cea606363778146b680a229671453893d2819e2682f101deedf905a0"
+    },
+    {
+      "name": "bounds-fix-build-diff.log",
+      "sha256": "335c368096dc72d14e69aeb32d8aa4d4403afc71ef294f9b7bb22e8049c8a71f"
+    },
+    {
+      "name": "bounds-fix-ui-write.log",
+      "sha256": "432216e51f2281a7f3ed0b7b2f12e77fc9d18b4d7d83a5ea805609c3d8691c96"
+    }
+  ]
+}

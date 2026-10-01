@@ -205,7 +205,9 @@ test('a material is printable where one of its products is: each gate is the bes
       const ranges = own.map((p) => p[axis]).filter((t) => t.state === 'range' && t.max !== null);
       const window = m.print[`${axis}C`];
       if (!ranges.length) { assert.equal(window, null, `${m.name} ${axis} window`); continue; }
-      assert.deepEqual([window.min, window.max], [Math.min(...ranges.map((r) => r.min ?? r.max)), Math.max(...ranges.map((r) => r.max))], `${m.name} ${axis} window`);
+      if (ranges.some((r) => r.min === null)) assert.equal(window.min, null, `${m.name} ${axis}: no lower endpoint may be invented`);
+      else assert.equal(window.min, Math.min(...ranges.map((r) => r.min)), `${m.name} ${axis} lower end`);
+      assert.equal(window.max, Math.max(...ranges.map((r) => r.max)), `${m.name} ${axis} upper end`);
     }
   }
   assert.ok(mixed > 0, 'no material has a printable product beside one that is not, so the rule is untested');

@@ -1,0 +1,78 @@
+{
+  "overall_verdict": "APPROVE",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T20:38:57.536940+00:00",
+  "release": "cfd60c1fecb5",
+  "parent_commit": "981263e061d009b2c517b0e2cf116f156fda63ea",
+  "input_packet_sha256": "07aa935e8f99130824b6a6e5da903dd33736b1e02cb8af0922a6c925dbbe91ae",
+  "prior_code_review": {
+    "path": "external-campaign/reviews/SOURCE-BOUND-COMPILER-REVIEW.json",
+    "sha256": "af26160a04d2fcd897b8ae9e2f1fe169aa6314faa427840dd0177e2e6717aded",
+    "six_code_file_hashes_unchanged": true
+  },
+  "inputs": {
+    "code-audit/packet.json": "07aa935e8f99130824b6a6e5da903dd33736b1e02cb8af0922a6c925dbbe91ae",
+    "code-audit/compiled.json": "e3e9311fb76f80fc495818cf88eb0623b0865cf027269e7907dffa19fc1e5d13",
+    "code-audit/verification.json": "2617e60fa0c54490b69c0f41075bae8ef93a144767bb2d1a24988eeadfd7cd1a"
+  },
+  "log_sha256": {
+    "bounds-fix-verify-full.log": "c9674876cea606363778146b680a229671453893d2819e2682f101deedf905a0",
+    "bounds-fix-build-diff.log": "335c368096dc72d14e69aeb32d8aa4d4403afc71ef294f9b7bb22e8049c8a71f",
+    "bounds-fix-ui-write.log": "432216e51f2281a7f3ed0b7b2f12e77fc9d18b4d7d83a5ea805609c3d8691c96"
+  },
+  "qa": {
+    "verify_exit": 0,
+    "full_seconds": 266.36,
+    "verify_fast_seconds": 50.2,
+    "unit_tests": 454,
+    "import_tests": 194,
+    "native_views": 69,
+    "changed_native_baselines": 0,
+    "rendered_scenarios": 300,
+    "rendered_readings": 2592,
+    "rendered_seconds": 51.6,
+    "scale_repro_audit_snapshot": "passed"
+  },
+  "independent_release_comparison": {
+    "canonical_data_git_diff": "empty",
+    "compiled_equal_to_ninth": [
+      "measurements",
+      "grades including all product print/state/headline lanes",
+      "profiles",
+      "sources",
+      "prices",
+      "evidence",
+      "knowHow",
+      "coverage",
+      "polymers",
+      "meta.estimateModel"
+    ],
+    "all_material_changed_keys": [
+      "print"
+    ],
+    "affected_materials": [
+      "M001",
+      "M054",
+      "M155"
+    ],
+    "source_bounded_summary_inputs": {
+      "M001nozzle": [
+        "P0390",
+        "P0564",
+        "P0785"
+      ],
+      "M054chamber": [
+        "P0141"
+      ]
+    },
+    "compiled_difference_paths": 57,
+    "interpretation": "Two existing incomplete source ranges retain minnull in summaries. Complete peer filtering also recalibrates labelled nondeciding nozzle estimates/peer metadata; no new measurements or gate/selection verdict changes."
+  },
+  "release_scope": "Approve separate local compiler/display/print-estimate-input correction on clean ninth baseline. No source admission/canonical edits. Root campaign cherry-pick/rebuild changes still require its own source-grounded replay/fullQA/release approval.",
+  "limitations": [
+    "Existing lower-only summary behavior remains outside this repair.",
+    "Incomplete published source bounds stay distinct from complete calibration windows; display upperbound does not assert equality or a new process setpoint.",
+    "Full nativeQA is automated, not human review."
+  ],
+  "review_signature_sha256": "e8614e4047c174b99fa20c05bff8976c7f500a9765d1fd52a15350c79a8bef5b"
+}

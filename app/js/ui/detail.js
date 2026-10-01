@@ -13,6 +13,7 @@ import { evidenceSummary } from '../engine/coverage.js';
 
 /** A temperature window, or nothing if none was published. A zero floor is the build's "ambient". */
 const range = (r) => (!r ? null
+  : r.min === null ? `upper bound ${fmtNumber(r.max)} °C (lower bound not published)`
   : r.min === r.max ? `${fmtNumber(r.max)} °C`
   : r.min === 0 ? `up to ${fmtNumber(r.max)} °C`
   : `${fmtNumber(r.min)}–${fmtNumber(r.max)} °C`);
