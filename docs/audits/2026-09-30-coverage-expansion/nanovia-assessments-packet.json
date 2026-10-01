@@ -1,0 +1,383 @@
+{
+  "PacketID": "NANOVIA-APPLICATION-AND-FOOD-CONFLICT",
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M081",
+      "ExpectedGrade": {
+        "GradeID": "G081-10",
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "HIPS",
+        "Shared formulation key": "R-NANOVIA-HIPS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-HIPS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05410",
+          "MaterialID": "M081",
+          "GradeID": "G081-10",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "HIPS after 24h submersion in limonene",
+          "Exposure / conditions": "Own-page illustrated exposure caption only: 24 h submersion in limonene. Concentration, temperature, geometry and moisture state not published. Caption does not state complete dissolution, removal efficiency or a transferable procedure; no visual-result or service qualification inferred.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "R-NANOVIA-HIPS",
+          "Locator": "p. 1: Application recommendations, figure caption"
+        },
+        {
+          "EvidenceID": "Q05411",
+          "MaterialID": "M081",
+          "GradeID": "G081-10",
+          "Domain": "Makers' know-how",
+          "Topic": "Supports and removal",
+          "Finding": "Nanovia HIPS used as a support material can be removed manually or dissolved using limonene.",
+          "Exposure / conditions": "Own maker support-removal instruction; no quantified manual force, solvent concentration, immersion temperature or complete-removal time. Limonene subfact already recorded; the explicit manual-removal alternative adds scope rather than an independent duplicate test.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-HIPS",
+          "Locator": "p. 1: Application recommendations, Post treatment support removal"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-HIPS",
+            "Publisher": "Nanovia",
+            "Title": "Store",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/ref/nanovia-hips/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G081-10",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51"
+          },
+          "OriginalPath": ".cache/sources/by-sha/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.html",
+          "TextPath": ".cache/text/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia HIPS (G081-10) has an own-page caption reporting 24 h submersion in limonene (Q05410) and manual-or-limonene support-removal guidance (Q05411), R-NANOVIA-HIPS. The caption establishes reported exposure only: no complete dissolution, removal efficiency or transferable removal time is stated. Concentration, temperature and geometry are not published. Maker support/raft use remains bounded; no functional-application suitability or other HIPS product is qualified. Insublend no longer belongs to HIPS."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M130-INSUBLEND",
+      "ExpectedGrade": {
+        "GradeID": "G081-06",
+        "MaterialID": "M130",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Insublend",
+        "Shared formulation key": "R-NANOVIA-Insublend",
+        "Composition / filler": "Polyphenylene ether resin. Mixture of poly(2,6-dimethyl-1,4-phenyleneoxide), polystyrene and elastomer. SDS p. 1 \u00a73.2: merged 65\u201390% aggregate for PPO, polystyrene and poly(butadiene-styrene); individual PPE:PS ratio not published. Aromatic phosphate ester 5\u201322%, additives 0.1\u20135%, carbon black 0\u20132%. Source R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c; no shared formulation with another PPE-PS grade.",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-Insublend",
+        "Source locator": "Official product page; mixture identity and composition from R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c, p. 1 \u00a7\u00a71.1/3.2",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04262",
+          "MaterialID": "M130",
+          "GradeID": "G081-06",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Engineered for outdoor electrical equipment, Nanovia Insublend filament allows for the creation of insulating and weatherproof 3D prints.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-Insublend",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q04263",
+          "MaterialID": "M130",
+          "GradeID": "G081-06",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Nanovia Insulblend is perfect for electronics (board supports, connectors\u2026), prototypes and industrial use.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-Insublend",
+          "Locator": "p. 1"
+        },
+        {
+          "EvidenceID": "Q05378",
+          "MaterialID": "M130",
+          "GradeID": "G081-06",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Plastic ingredient for home electronics, electronic materials, automotive materials, industrial materials.",
+          "Exposure / conditions": "Own-product maker intended-use claim; no component, load, lifetime, medical, food or printed-part service qualification.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+          "Locator": "p. 1: 1.2 identified uses (English column; French corroborates scope)"
+        },
+        {
+          "EvidenceID": "Q05379",
+          "MaterialID": "M130",
+          "GradeID": "G081-06",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "Restriction of use: Do not use INSUBLEND for medical containers, parts of in-vivo or which contact with mucosa, body fluid, blood. Equipments and parts for food contact and drinking fluids. Toys which contact with mouth.",
+          "Exposure / conditions": "Full source restriction retained. Section 7.2 contradicts this on food contact; unresolved vendor clarification needed. No food or medical approval follows.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+          "Locator": "p. 1: 1.2 restriction of use (English column; French corroborates scope)"
+        },
+        {
+          "EvidenceID": "Q05380",
+          "MaterialID": "M130",
+          "GradeID": "G081-06",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "The product is approved for food contact.",
+          "Exposure / conditions": "Unresolved internal contradiction: section 1.2 prohibits food/drinking-fluid contact and mouth-contact toys. Both English and French repeat the disagreement. No verified certificate or food-contact qualification; do not use this isolated claim for suitability.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+          "Locator": "p. 2: 7.2 storage, conflicting food sentence (English column; French corroborates scope)"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-Insublend",
+            "Publisher": "Nanovia",
+            "Title": "Store",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/en/ref/nanovia-insublend/",
+            "Locator": "Document / product page",
+            "Applicable grades": "G081-06",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7"
+          },
+          "OriginalPath": ".cache/sources/by-sha/3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7.html",
+          "TextPath": ".cache/text/3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7.json"
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+            "Publisher": "Nanovia",
+            "Title": "MSDS / FDS INSUBLEND",
+            "Revision": "Updated: September 2023",
+            "Publication date": "2023-09",
+            "Access date": "2026-09-30",
+            "Source class": "Manufacturer SDS",
+            "Source note": "Exact-product witnessed SDS. Own mixture identity and use restrictions; contains unresolved food-contact contradiction between sections 1.2 and 7.2. Composition 65\u201390% is a merged aggregate for PPO, PS and poly(butadiene-styrene), not individual PPO loading. No certification, emission approval or tested service property admitted. Independent AI review; no human review.",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/media/nanovia-insublend-msds.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G081-06",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534"
+          },
+          "OriginalPath": ".cache/sources/by-sha/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+          "TextPath": ".cache/text/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia Insublend (G081-06), now filed under PPE-PS from its own SDS, has maker-intended electrical/industrial uses (Q04262/Q04263/Q05378) and explicit use restrictions (Q05379/Q05380). These are claims, not printed-part application validation or suitability. The SDS contradicts itself on food contact; medical, food and mouth-contact use remain unqualified. This scoped judgment complements the retained THERMAX PPE/PS judgment C01506; no formulation, resin approval or measured value transfers between products."
+      }
+    },
+    {
+      "FindingID": "CE-CONFLICT-INSUBLEND-FOOD",
+      "ExpectedGrade": {
+        "GradeID": "G081-06",
+        "MaterialID": "M130",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Insublend",
+        "Shared formulation key": "R-NANOVIA-Insublend",
+        "Composition / filler": "Polyphenylene ether resin. Mixture of poly(2,6-dimethyl-1,4-phenyleneoxide), polystyrene and elastomer. SDS p. 1 \u00a73.2: merged 65\u201390% aggregate for PPO, polystyrene and poly(butadiene-styrene); individual PPE:PS ratio not published. Aromatic phosphate ester 5\u201322%, additives 0.1\u20135%, carbon black 0\u20132%. Source R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c; no shared formulation with another PPE-PS grade.",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-Insublend",
+        "Source locator": "Official product page; mixture identity and composition from R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c, p. 1 \u00a7\u00a71.1/3.2",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05379",
+          "MaterialID": "M130",
+          "GradeID": "G081-06",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "Restriction of use: Do not use INSUBLEND for medical containers, parts of in-vivo or which contact with mucosa, body fluid, blood. Equipments and parts for food contact and drinking fluids. Toys which contact with mouth.",
+          "Exposure / conditions": "Full source restriction retained. Section 7.2 contradicts this on food contact; unresolved vendor clarification needed. No food or medical approval follows.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+          "Locator": "p. 1: 1.2 restriction of use (English column; French corroborates scope)"
+        },
+        {
+          "EvidenceID": "Q05380",
+          "MaterialID": "M130",
+          "GradeID": "G081-06",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "The product is approved for food contact.",
+          "Exposure / conditions": "Unresolved internal contradiction: section 1.2 prohibits food/drinking-fluid contact and mouth-contact toys. Both English and French repeat the disagreement. No verified certificate or food-contact qualification; do not use this isolated claim for suitability.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+          "Locator": "p. 2: 7.2 storage, conflicting food sentence (English column; French corroborates scope)"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+            "Publisher": "Nanovia",
+            "Title": "MSDS / FDS INSUBLEND",
+            "Revision": "Updated: September 2023",
+            "Publication date": "2023-09",
+            "Access date": "2026-09-30",
+            "Source class": "Manufacturer SDS",
+            "Source note": "Exact-product witnessed SDS. Own mixture identity and use restrictions; contains unresolved food-contact contradiction between sections 1.2 and 7.2. Composition 65\u201390% is a merged aggregate for PPO, PS and poly(butadiene-styrene), not individual PPO loading. No certification, emission approval or tested service property admitted. Independent AI review; no human review.",
+            "Citation role": "cited",
+            "URL": "https://nanovia.tech/media/nanovia-insublend-msds.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G081-06",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534"
+          },
+          "OriginalPath": ".cache/sources/by-sha/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+          "TextPath": ".cache/text/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Source conflict",
+        "Status": "Conflict",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Insublend SDS September 2023 (R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c) \u00a71.2 prohibits food/drinking-fluid contact and mouth-contact toys, while \u00a77.2 says the product is approved for food contact. Both English and French repeat this internal disagreement (Q05379/Q05380). Retain both statements; vendor clarification and applicable certificate/test scope are needed. No food-contact suitability or approval is established."
+      }
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M081",
+      "append": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia HIPS (G081-10) has an own-page caption reporting 24 h submersion in limonene (Q05410) and manual-or-limonene support-removal guidance (Q05411), R-NANOVIA-HIPS. The caption establishes reported exposure only: no complete dissolution, removal efficiency or transferable removal time is stated. Concentration, temperature and geometry are not published. Maker support/raft use remains bounded; no functional-application suitability or other HIPS product is qualified. Insublend no longer belongs to HIPS."
+      },
+      "supersede": [
+        {
+          "CoverageID": "C00873",
+          "MaterialID": "M081",
+          "GradeID": "Not applicable",
+          "Domain": "Post-processing / application",
+          "Status": "Evidence recorded",
+          "Manufacturer count": "Not applicable",
+          "Finding": "Evidence-specific finishing and use notes. Missing individual methods are not inferred."
+        }
+      ]
+    },
+    {
+      "FindingID": "CE-APP-M130-INSUBLEND",
+      "append": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Nanovia Insublend (G081-06), now filed under PPE-PS from its own SDS, has maker-intended electrical/industrial uses (Q04262/Q04263/Q05378) and explicit use restrictions (Q05379/Q05380). These are claims, not printed-part application validation or suitability. The SDS contradicts itself on food contact; medical, food and mouth-contact use remain unqualified. This scoped judgment complements the retained THERMAX PPE/PS judgment C01506; no formulation, resin approval or measured value transfers between products."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-CONFLICT-INSUBLEND-FOOD",
+      "append": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Source conflict",
+        "Status": "Conflict",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Insublend SDS September 2023 (R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c) \u00a71.2 prohibits food/drinking-fluid contact and mouth-contact toys, while \u00a77.2 says the product is approved for food contact. Both English and French repeat this internal disagreement (Q05379/Q05380). Retain both statements; vendor clarification and applicable certificate/test scope are needed. No food-contact suitability or approval is established."
+      },
+      "supersede": []
+    }
+  ],
+  "MakerBatches": [
+    {
+      "Manufacturer": "Nanovia",
+      "GradeIDs": [
+        "G081-06",
+        "G081-10"
+      ],
+      "Products": 2
+    }
+  ],
+  "RetainedCoverage": [
+    {
+      "CoverageID": "C01506",
+      "MaterialID": "M130",
+      "GradeID": "G130-01",
+      "Domain": "Post-processing / application",
+      "Status": "Reviewed with limitations",
+      "Manufacturer count": "Not applicable",
+      "Finding": "Reviewed 2026-09-30: 3DXTECH THERMAX PPE/PS (G130-01) has source-backed maker application, support/removal or finishing statements (Q05317; XP-thermax-ppe-ps-1; ThermaX PPE+PS description, final sentence). Maker claims or named finishing options only; no demonstrated application validation, suitability or screening pass. Other products of the material remain individually bounded. The source attributes UL94 V0 to the base resin; no printed-part certificate is established."
+    }
+  ]
+}

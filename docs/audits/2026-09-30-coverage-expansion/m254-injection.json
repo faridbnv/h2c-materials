@@ -1,0 +1,19 @@
+{
+  "migration": "m254-nanovia-scoped-assessments",
+  "packet": "0aa3f6567436d3ede591bd0b06f74011daa04c337055250602ae5321e7f508d0",
+  "written": 3,
+  "records": [
+    {
+      "finding": "CE-APP-M081",
+      "coverageId": "C01538"
+    },
+    {
+      "finding": "CE-APP-M130-INSUBLEND",
+      "coverageId": "C01539"
+    },
+    {
+      "finding": "CE-CONFLICT-INSUBLEND-FOOD",
+      "coverageId": "C01540"
+    }
+  ]
+}

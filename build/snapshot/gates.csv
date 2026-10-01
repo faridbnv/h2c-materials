@@ -128,7 +128,7 @@ M126,TPU-ESD,within,within,within,within,no-special-concern,required
 M127,PEEK-GF,excluded,unknown,unknown,unknown,requires-hardened,unknown
 M128,PC-ABS-CF,within,unknown,unknown,unknown,requires-hardened,unknown
 M129,TPU-CF,within,within,within,within,requires-hardened,required
-M130,PPE-PS,within,unknown,unknown,unknown,unknown,unknown
+M130,PPE-PS,within,within,exceeds,exceeds,unknown,required
 M131,PC-PBT-CF,within,within,within,unknown,requires-hardened,required
 M132,PBT-GF,within,within,within,partial,requires-hardened,required
 M133,PBAT,within,within,within,within,unknown,required

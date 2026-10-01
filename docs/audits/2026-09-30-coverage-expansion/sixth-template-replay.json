@@ -1,0 +1,1493 @@
+{
+  "beforeRelease": "26090eb64dc7",
+  "afterRelease": "8d6f1c698f0b",
+  "templates": 6,
+  "modes": [
+    "Strict",
+    "Strict, annealing permitted",
+    "Explore",
+    "Explore with estimates"
+  ],
+  "evaluations": 30744,
+  "answer_changes": 8,
+  "changes": [
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "material",
+      "id": "M066",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "status": "PASS",
+            "criterion": "H2C-relevant scope",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "PASS",
+            "criterion": "Build material",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "status": "PASS",
+            "criterion": "Nozzle temperature within H2C baseline",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "PASS",
+            "criterion": "Bed temperature within H2C baseline",
+            "reason": "Needs up to 90 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "UNKNOWN",
+            "criterion": "Chamber temperature within H2C baseline",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "UNKNOWN",
+            "estimated": true,
+            "estimate": {
+              "kind": "model",
+              "strength": "this-material",
+              "precision": "good",
+              "unit": "°C",
+              "sharedWith": null,
+              "centre": 56.8,
+              "lo": 47.9,
+              "hi": 66.1,
+              "plausible": {
+                "lo": 41.9,
+                "hi": 73.3
+              },
+              "levels": {
+                "likely": 0.8,
+                "plausible": 0.95
+              },
+              "ownShare": 0.96,
+              "evidence": [
+                {
+                  "kind": "HDT 1.8 amorphous",
+                  "gradeId": "G066-01",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V001762",
+                      "gradeId": "G066-01",
+                      "property": "HDT",
+                      "direction": "unknown",
+                      "value": 65.7,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 71.8,
+                  "conversion": "Amorphous bars soften over a narrow range near Tg, so the two loads sit close",
+                  "conflict": false
+                },
+                {
+                  "kind": "Vicat amorphous",
+                  "gradeId": "G066-01",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V001763",
+                      "gradeId": "G066-01",
+                      "property": "Vicat softening temperature",
+                      "direction": "unknown",
+                      "value": 65.9,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 61.8,
+                  "conversion": "Vicat softening sits a little above HDT at 0.45 MPa for amorphous polymers",
+                  "conflict": false
+                },
+                {
+                  "kind": "Tg amorphous",
+                  "gradeId": "G066-01",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V001764",
+                      "gradeId": "G066-01",
+                      "property": "Glass transition temperature",
+                      "direction": "unknown",
+                      "value": 70,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 64.1,
+                  "conversion": "An amorphous bar deflects at 0.45 MPa near its glass transition",
+                  "conflict": false
+                },
+                {
+                  "kind": "Tg amorphous",
+                  "gradeId": "G066-07",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V007617",
+                      "gradeId": "G066-07",
+                      "property": "Glass transition temperature",
+                      "direction": "not-applicable",
+                      "value": 70,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 64.1,
+                  "conversion": "An amorphous bar deflects at 0.45 MPa near its glass transition",
+                  "conflict": false
+                }
+              ],
+              "family": "PET",
+              "bounds": [
+                {
+                  "side": "upper",
+                  "value": 252,
+                  "sd": 6,
+                  "why": "melting point 252 °C: A semicrystalline bar cannot hold its shape above its melting point."
+                },
+                {
+                  "side": "upper",
+                  "value": 70.9,
+                  "sd": 6,
+                  "why": "its own Vicat 65.9 °C + 5 °C: Vicat softening (a 10 N needle, 1 mm penetration) is reached at or above HDT at 0.45 MPa for an unfilled bar; the highest Vicat the material's own grades publish caps its unfilled heat deflection estimate softly (BVOH's estimate reached 158 °C against its own Vicat of 90 °C). No melting-point margin is applied below the melting point itself: PVDF publishes 158 °C, 12 °C under its melting point."
+                },
+                {
+                  "side": "upper",
+                  "value": 80,
+                  "sd": 8,
+                  "why": "glass transition 70 °C + 10 °C: An amorphous matrix softens at its glass transition; fibres carry a bar only a little further."
+                },
+                {
+                  "side": "lower",
+                  "value": 45,
+                  "sd": 5,
+                  "why": "45 °C floor: Heat deflection is measured by heating a loaded bar from room temperature (ISO 75, ASTM D648). A bar soft enough to deflect near room temperature has no meaningful HDT, and no filament in the snapshot measures below 48 °C even at 1.8 MPa. A soft floor, so a PE or BVOH estimate cannot reach below freezing."
+                }
+              ],
+              "basis": "its products' related measurements, with the family model",
+              "method": "Gaussian model of every observation in the snapshot, each converted to this headline; 80% and 95% ranges calibrated by predicting 82 hidden measured headlines",
+              "canScreen": true,
+              "screenRange": {
+                "lo": 41.9,
+                "hi": 79.9
+              },
+              "screenBasis": "its top screens a minimum requirement: this-material estimates, 6 of 63 true values lay above the plausible range; its top is taken at the 99.88% point, wider than the plausible range, so that at 90% confidence at most 10% of true values lie above it; its bottom screens a maximum requirement: this-material estimates, 1 of 63 true values lay below the plausible range; its bottom is taken at the 2.5% point so that at 90% confidence at most 10% of true values lie below it.",
+              "screenLimit": null
+            },
+            "plausible": "FAIL",
+            "screened": true,
+            "vetoedBy": [],
+            "criterion": "hdt045 >= 80",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "missing": "not-published",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            }
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "status": "PASS",
+            "criterion": "H2C-relevant scope",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "PASS",
+            "criterion": "Build material",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "status": "PASS",
+            "criterion": "Nozzle temperature within H2C baseline",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "PASS",
+            "criterion": "Bed temperature within H2C baseline",
+            "reason": "Needs up to 90 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "UNKNOWN",
+            "criterion": "Chamber temperature within H2C baseline",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "status": "UNKNOWN",
+            "estimated": true,
+            "estimate": {
+              "kind": "model",
+              "strength": "this-material",
+              "precision": "good",
+              "unit": "°C",
+              "sharedWith": null,
+              "centre": 57,
+              "lo": 48,
+              "hi": 66.1,
+              "plausible": {
+                "lo": 42.1,
+                "hi": 73.1
+              },
+              "levels": {
+                "likely": 0.8,
+                "plausible": 0.95
+              },
+              "ownShare": 0.96,
+              "evidence": [
+                {
+                  "kind": "HDT 1.8 amorphous",
+                  "gradeId": "G066-01",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V001762",
+                      "gradeId": "G066-01",
+                      "property": "HDT",
+                      "direction": "unknown",
+                      "value": 65.7,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 71.8,
+                  "conversion": "Amorphous bars soften over a narrow range near Tg, so the two loads sit close",
+                  "conflict": false
+                },
+                {
+                  "kind": "Vicat amorphous",
+                  "gradeId": "G066-01",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V001763",
+                      "gradeId": "G066-01",
+                      "property": "Vicat softening temperature",
+                      "direction": "unknown",
+                      "value": 65.9,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 61.8,
+                  "conversion": "Vicat softening sits a little above HDT at 0.45 MPa for amorphous polymers",
+                  "conflict": false
+                },
+                {
+                  "kind": "Tg amorphous",
+                  "gradeId": "G066-01",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V001764",
+                      "gradeId": "G066-01",
+                      "property": "Glass transition temperature",
+                      "direction": "unknown",
+                      "value": 70,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 64.1,
+                  "conversion": "An amorphous bar deflects at 0.45 MPa near its glass transition",
+                  "conflict": false
+                },
+                {
+                  "kind": "Tg amorphous",
+                  "gradeId": "G066-07",
+                  "sameGrade": false,
+                  "items": [
+                    {
+                      "measurementId": "V007617",
+                      "gradeId": "G066-07",
+                      "property": "Glass transition temperature",
+                      "direction": "not-applicable",
+                      "value": 70,
+                      "unit": "°C"
+                    }
+                  ],
+                  "converted": 64.1,
+                  "conversion": "An amorphous bar deflects at 0.45 MPa near its glass transition",
+                  "conflict": false
+                }
+              ],
+              "family": "PET",
+              "bounds": [
+                {
+                  "side": "upper",
+                  "value": 252,
+                  "sd": 6,
+                  "why": "melting point 252 °C: A semicrystalline bar cannot hold its shape above its melting point."
+                },
+                {
+                  "side": "upper",
+                  "value": 70.9,
+                  "sd": 6,
+                  "why": "its own Vicat 65.9 °C + 5 °C: Vicat softening (a 10 N needle, 1 mm penetration) is reached at or above HDT at 0.45 MPa for an unfilled bar; the highest Vicat the material's own grades publish caps its unfilled heat deflection estimate softly (BVOH's estimate reached 158 °C against its own Vicat of 90 °C). No melting-point margin is applied below the melting point itself: PVDF publishes 158 °C, 12 °C under its melting point."
+                },
+                {
+                  "side": "upper",
+                  "value": 80,
+                  "sd": 8,
+                  "why": "glass transition 70 °C + 10 °C: An amorphous matrix softens at its glass transition; fibres carry a bar only a little further."
+                },
+                {
+                  "side": "lower",
+                  "value": 45,
+                  "sd": 5,
+                  "why": "45 °C floor: Heat deflection is measured by heating a loaded bar from room temperature (ISO 75, ASTM D648). A bar soft enough to deflect near room temperature has no meaningful HDT, and no filament in the snapshot measures below 48 °C even at 1.8 MPa. A soft floor, so a PE or BVOH estimate cannot reach below freezing."
+                }
+              ],
+              "basis": "its products' related measurements, with the family model",
+              "method": "Gaussian model of every observation in the snapshot, each converted to this headline; 80% and 95% ranges calibrated by predicting 82 hidden measured headlines",
+              "canScreen": true,
+              "screenRange": {
+                "lo": 42.1,
+                "hi": 80.1
+              },
+              "screenBasis": "its top screens a minimum requirement: this-material estimates, 6 of 63 true values lay above the plausible range; its top is taken at the 99.88% point, wider than the plausible range, so that at 90% confidence at most 10% of true values lie above it; its bottom screens a maximum requirement: this-material estimates, 1 of 63 true values lay below the plausible range; its bottom is taken at the 2.5% point so that at 90% confidence at most 10% of true values lie below it.",
+              "screenLimit": null
+            },
+            "plausible": "FAIL",
+            "screened": false,
+            "vetoedBy": [],
+            "criterion": "hdt045 >= 80",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "missing": "not-published",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "product",
+      "id": "G066-01",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 90 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": true,
+            "missing": "not-published"
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 90 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": false,
+            "missing": "not-published"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "product",
+      "id": "G066-02",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 270 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs at least 50 °C, which the H2C's 120 °C reaches",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": true,
+            "missing": "not-published"
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 270 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs at least 50 °C, which the H2C's 120 °C reaches",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "The source says an enclosure is not needed, so no heated chamber is required",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": false,
+            "missing": "not-published"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "product",
+      "id": "G066-03",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": true,
+            "missing": "not-published"
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": false,
+            "missing": "not-published"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "product",
+      "id": "G066-04",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 320 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": true,
+            "missing": "not-published"
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 320 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": false,
+            "missing": "not-published"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "product",
+      "id": "G066-05",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": true,
+            "missing": "not-published"
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 260 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 60 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": false,
+            "missing": "not-published"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "product",
+      "id": "G066-06",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 250 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 85 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": true,
+            "missing": "not-published"
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 250 °C, within the H2C's 350 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "PASS",
+            "reason": "Needs up to 85 °C, within the H2C's 120 °C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No numeric requirement published",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": false,
+            "missing": "not-published"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "level": "product",
+      "id": "G066-07",
+      "before": {
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No print profile recorded for this product",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No print profile recorded for this product",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No print profile recorded for this product",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 47.9 to 66.1 °C (plausibly 41.9 to 73.3), which cannot meet this requirement. Screened out; not measured",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": true,
+            "missing": "not-published"
+          }
+        ]
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "H2C-relevant scope",
+            "status": "PASS",
+            "reason": "In scope for the H2C",
+            "constraint": {
+              "kind": "gate",
+              "gate": "scope",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Build material",
+            "status": "PASS",
+            "reason": "Recorded as a build material",
+            "constraint": {
+              "kind": "facet",
+              "facet": "supportMaterial",
+              "equals": false,
+              "__group": "Manufacturing"
+            }
+          },
+          {
+            "criterion": "Nozzle temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No print profile recorded for this product",
+            "constraint": {
+              "kind": "gate",
+              "gate": "nozzle",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Bed temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No print profile recorded for this product",
+            "constraint": {
+              "kind": "gate",
+              "gate": "bed",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "Chamber temperature within H2C baseline",
+            "status": "UNKNOWN",
+            "reason": "No print profile recorded for this product",
+            "constraint": {
+              "kind": "gate",
+              "gate": "chamber",
+              "__group": "Compatibility"
+            }
+          },
+          {
+            "criterion": "hdt045 >= 80",
+            "status": "UNKNOWN",
+            "reason": "Not published. Estimated 48 to 66.1 °C would fail, but the range it may screen on, 42.1 to 80.1 °C, could still meet it",
+            "constraint": {
+              "kind": "numeric",
+              "property": "hdt045",
+              "operator": ">=",
+              "value": 80,
+              "mandatory": true,
+              "__group": "Thermal"
+            },
+            "estimated": true,
+            "screened": false,
+            "missing": "not-published"
+          }
+        ]
+      }
+    }
+  ]
+}

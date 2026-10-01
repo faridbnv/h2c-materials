@@ -1,0 +1,23 @@
+{
+  "migration": "m256-insublend-published-properties",
+  "packet": "cf877c524f69366146f0b31143222d4df09f3f613cbe22504e59d7c75644b374",
+  "written": 4,
+  "records": [
+    {
+      "finding": "CE-INSUBLEND-Glass-transition-temperature",
+      "measurementId": "V011537"
+    },
+    {
+      "finding": "CE-INSUBLEND-HDT",
+      "measurementId": "V011538"
+    },
+    {
+      "finding": "CE-INSUBLEND-Water-absorption",
+      "measurementId": "V011539"
+    },
+    {
+      "finding": "CE-INSUBLEND-Dielectric-strength",
+      "measurementId": "V011540"
+    }
+  ]
+}

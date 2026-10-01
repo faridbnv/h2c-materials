@@ -1,0 +1,90 @@
+{
+  "input_path": "external-campaign/research/document-reads-packet.json",
+  "input_sha256": "6fb8dd9abdbda09457e4819f484fa038c342dac7ea4edfb9ca95b5afc6d35a39",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T05:22:44.642883+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 3,
+  "source_reading_batches": [
+    {
+      "maker": "Siraya Tech",
+      "GradeIDs": [
+        "G151-01"
+      ],
+      "distinct_products": 1,
+      "documents": 2
+    },
+    {
+      "maker": "Nanovia",
+      "GradeIDs": [
+        "G081-06"
+      ],
+      "distinct_products": 1,
+      "documents": 1
+    }
+  ],
+  "guard_checks": {
+    "all_full_expected_sources_match_current_registered_rows": true,
+    "all_three_original_sha256_verified_fresh": true,
+    "no_existing_read_markers_for_these_sources": true,
+    "all_markers_scope_document": true,
+    "NoSearchExhaustionClaim": true
+  },
+  "operations": [
+    {
+      "operation_id": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "verdict": "APPROVE",
+      "original_path": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "original_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "Proposed": {
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Scope": "document",
+        "Read on": "2026-09-30",
+        "Read by": "m255: Codex AI injector and independent AI /root/coverage_reviewer; all original source pages/body candidates reread, no human review"
+      },
+      "reread_scope": "Full original visible guide/blog body and all body candidates; source qualification and c01 operation rereads, plus fresh complete visible-text extraction/read in this review. Navigation and unrelated shop products excluded from exact grade evidence.",
+      "reason": "Document-level marker faithfully records full held-source reading and clearly identifies AI readers. No site-search exhaustion or performance qualification follows."
+    },
+    {
+      "operation_id": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+      "verdict": "APPROVE",
+      "original_path": ".cache/sources/by-sha/73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee.html",
+      "original_sha256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee",
+      "Proposed": {
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+        "Scope": "document",
+        "Read on": "2026-09-30",
+        "Read by": "m255: Codex AI injector and independent AI /root/coverage_reviewer; all original source pages/body candidates reread, no human review"
+      },
+      "reread_scope": "Full original visible guide/blog body and all body candidates; source qualification and c01 operation rereads, plus fresh complete visible-text extraction/read in this review. Navigation and unrelated shop products excluded from exact grade evidence.",
+      "reason": "Document-level marker faithfully records full held-source reading and clearly identifies AI readers. No site-search exhaustion or performance qualification follows."
+    },
+    {
+      "operation_id": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "verdict": "APPROVE",
+      "original_path": ".cache/sources/by-sha/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+      "original_sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "Proposed": {
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Scope": "document",
+        "Read on": "2026-09-30",
+        "Read by": "m255: Codex AI injector and independent AI /root/coverage_reviewer; all original source pages/body candidates reread, no human review"
+      },
+      "reread_scope": "All four bilingual SDS pages, \u00a7\u00a71\u201316 and END OF MSDS/FDS; fresh complete raw extraction, pp1\u20132 visual review for identity/composition/use-conflict operations, full pp3\u20134 properties/stability/ecology/disposal/regulatory/disclaimer text read.",
+      "reason": "Document-level marker faithfully records full held-source reading and clearly identifies AI readers. No site-search exhaustion or performance qualification follows."
+    }
+  ],
+  "required_corrections": [],
+  "limitations": [
+    "Markers assert full reading of held document bodies/pages only. They do not assert all published facts admitted, complete maker-site research, fulfilled search targets, qualified service performance, certification validation or settled conflicts.",
+    "Siraya guide internal temperature/speed/AMS statements remain conflicting; blog scaling/application prose remains maker-bounded.",
+    "Nanovia SDS all four bilingual pages were read; conflicting food statements and aggregate composition interpretation remain explicit."
+  ],
+  "release_conditions": [
+    "Recheck full registered source guards and absence of conflicting existing reading markers before serialized append.",
+    "Record only document scope; do not change to maker-site search or claim public-source exhaustion.",
+    "Verify provenance-only compiled impact separately from facts and coverage judgments."
+  ],
+  "canonical_mutations": "None; external review only.",
+  "review_signature_sha256": "dbed5eb69d4a9f061a7621929676fbe46f275c61ad539c1e3285688d68284a9e"
+}

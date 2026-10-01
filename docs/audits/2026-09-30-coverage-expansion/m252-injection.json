@@ -1,0 +1,19 @@
+{
+  "migration": "m252-hips-scoped-finishing",
+  "packet": "7f027258f6e2c5f5eea6d1fc480664fbc618b9fd373dac473db70749a210d6ef",
+  "written": 2,
+  "records": [
+    {
+      "operation": "HIPS-FINISH-caption",
+      "table": "evidence",
+      "id": "Q05410",
+      "kind": "append"
+    },
+    {
+      "operation": "HIPS-FINISH-method",
+      "table": "evidence",
+      "id": "Q05411",
+      "kind": "append"
+    }
+  ]
+}

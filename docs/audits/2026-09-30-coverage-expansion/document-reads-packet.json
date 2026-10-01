@@ -1,0 +1,84 @@
+{
+  "PacketID": "NEW-CAMPAIGN-DOCUMENT-READS",
+  "Readings": [
+    {
+      "ExpectedSource": {
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Publisher": "Siraya Tech",
+        "Title": "Fibreheart TPU-GF Filament User Guide",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-30",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact-product campaign witness staged by digest through the import pipeline. Narrative claims, handling/finishing guidance and unresolved internal temperature/AMS statements only; no mechanical measurement, rewritten recipe or compatibility verdict admitted. Independent AI review required; no human review.",
+        "Citation role": "cited",
+        "URL": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-user-guide",
+        "Locator": "Document / product page",
+        "Applicable grades": "G151-01",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79"
+      },
+      "Proposed": {
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Scope": "document",
+        "Read on": "2026-09-30",
+        "Read by": "m255: Codex AI injector and independent AI /root/coverage_reviewer; all original source pages/body candidates reread, no human review"
+      },
+      "Basis": "Both c01 operation/source reviews for full guide/blog bodies; c02 operation and SDS source review for all four bilingual pages. Full-source reading is distinct from service qualification."
+    },
+    {
+      "ExpectedSource": {
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+        "Publisher": "Siraya Tech",
+        "Title": "Stiff Yet Flexible: Engineering Robotic Shock Absorbers with Siraya Tech TPU-GF",
+        "Revision": "Not published",
+        "Publication date": "2026-08-11",
+        "Access date": "2026-09-30",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Exact-product campaign witness staged by digest through the import pipeline. Narrative claims, handling/finishing guidance and unresolved internal temperature/AMS statements only; no mechanical measurement, rewritten recipe or compatibility verdict admitted. Independent AI review required; no human review.",
+        "Citation role": "cited",
+        "URL": "https://siraya.tech/blogs/news/stiff-yet-flexible-engineering-robotic-shock-absorbers-with-siraya-tech-tpu-gf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G151-01",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee"
+      },
+      "Proposed": {
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+        "Scope": "document",
+        "Read on": "2026-09-30",
+        "Read by": "m255: Codex AI injector and independent AI /root/coverage_reviewer; all original source pages/body candidates reread, no human review"
+      },
+      "Basis": "Both c01 operation/source reviews for full guide/blog bodies; c02 operation and SDS source review for all four bilingual pages. Full-source reading is distinct from service qualification."
+    },
+    {
+      "ExpectedSource": {
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Publisher": "Nanovia",
+        "Title": "MSDS / FDS INSUBLEND",
+        "Revision": "Updated: September 2023",
+        "Publication date": "2023-09",
+        "Access date": "2026-09-30",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact-product witnessed SDS. Own mixture identity and use restrictions; contains unresolved food-contact contradiction between sections 1.2 and 7.2. Composition 65\u201390% is a merged aggregate for PPO, PS and poly(butadiene-styrene), not individual PPO loading. No certification, emission approval or tested service property admitted. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-insublend-msds.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G081-06",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534"
+      },
+      "Proposed": {
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Scope": "document",
+        "Read on": "2026-09-30",
+        "Read by": "m255: Codex AI injector and independent AI /root/coverage_reviewer; all original source pages/body candidates reread, no human review"
+      },
+      "Basis": "Both c01 operation/source reviews for full guide/blog bodies; c02 operation and SDS source review for all four bilingual pages. Full-source reading is distinct from service qualification."
+    }
+  ],
+  "NoSearchExhaustionClaim": true
+}

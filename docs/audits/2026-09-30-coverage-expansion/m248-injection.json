@@ -1,0 +1,14 @@
+{
+  "migration": "m248-batch-c02-insublend-sds",
+  "packet": "a2a5016c5d521430f4afba71b561ac8f8d8426e273ad2a8041ca185bc2c349b1",
+  "log": [
+    "source R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+    "evidence Q05378 Good for",
+    "evidence Q05379 Pitfalls and limitations",
+    "evidence Q05380 Pitfalls and limitations",
+    "evidence Q05381 Odour and emissions",
+    "evidence Q05382 Odour and emissions"
+  ],
+  "written": true,
+  "applied": 1
+}

@@ -1,0 +1,70 @@
+{
+  "input_path": "external-campaign/research/application-esun-isanmate-packet.json",
+  "input_sha256": "53be0f1fa3a870d58d039af23a4927acef93c8054d07277a8984ad80724e4080",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T04:55:17.502636+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 2,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "eSUN",
+      "GradeIDs": [
+        "G156-01"
+      ],
+      "Products": 1
+    },
+    {
+      "Manufacturer": "iSANMATE",
+      "GradeIDs": [
+        "G039-02"
+      ],
+      "Products": 1
+    }
+  ],
+  "original_reread_scope": "Each SHA-256-verified original p. 1 freshly raw-extracted and visually rendered/reread. Exact use wording, product heading, context and current canonical grade/evidence/source guards compared.",
+  "guard_checks": {
+    "full_expected_grades_match_current": true,
+    "full_existing_evidence_rows_match_current": true,
+    "full_registered_sources_match_current": true,
+    "both_original_sha256_verified": true,
+    "prior_live_or_historical_application_coverage_for_both_materials": 0,
+    "append_equals_proposed_coverage": true
+  },
+  "operations": [
+    {
+      "operation_id": "CE-APP-M156",
+      "verdict": "APPROVE",
+      "MaterialID": "M156",
+      "GradeID": "G156-01",
+      "EvidenceID": "Q05028",
+      "SourceID": "S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0",
+      "original_path": ".cache/sources/by-sha/d6f8837bda6707616fccc2514fa13319af3d30313ffed03ddfddb39a28bc6ea1.pdf",
+      "original_sha256": "d6f8837bda6707616fccc2514fa13319af3d30313ffed03ddfddb39a28bc6ea1",
+      "locator": "p. 1 introductory product description / intended-use paragraph",
+      "raw_basis": "Self-lubricating wear resistance makes it suitable for printing gears",
+      "approved_status": "Reviewed with limitations",
+      "reason": "Exact product maker use claim in existing know-how justifies bounded manual review, not application validation or demonstrated finishing procedure. Coverage text retains that limit and creates no suitability/screening pass.",
+      "identity_check": "Original Nov. 2021 Version 4.0 is ePA-CF, based on nylon 6/66 copolymer with 20% carbon fiber. Legacy SourceID spelling S-PEBA does not establish PEBA identity.",
+      "limitations": "No published product application test, load, lifetime, component qualification or finishing outcome inferred; other products remain individually bounded."
+    },
+    {
+      "operation_id": "CE-APP-M161",
+      "verdict": "APPROVE",
+      "MaterialID": "M161",
+      "GradeID": "G039-02",
+      "EvidenceID": "Q02902",
+      "SourceID": "I-TPU-TDS",
+      "original_path": ".cache/sources/by-sha/e97956b414caf60da28b4b720f37c1366734dcc46423c0c7bb43bf1ba8a98b94.pdf",
+      "original_sha256": "e97956b414caf60da28b4b720f37c1366734dcc46423c0c7bb43bf1ba8a98b94",
+      "locator": "p. 1 introductory product description / intended-use paragraph",
+      "raw_basis": "It is commonly applied in field such as functional prototypes, guides, sleeves, and protective cases.",
+      "approved_status": "Reviewed with limitations",
+      "reason": "Exact product maker use claim in existing know-how justifies bounded manual review, not application validation or demonstrated finishing procedure. Coverage text retains that limit and creates no suitability/screening pass.",
+      "identity_check": "Original iSANMATE TPU heading and own FFF/FDM paragraph support G039-02 identity, with guides/sleeves/protective cases and functional prototypes stated as common uses.",
+      "limitations": "No published product application test, load, lifetime, component qualification or finishing outcome inferred; other products remain individually bounded."
+    }
+  ],
+  "required_corrections": [],
+  "canonical_mutations": "None; report written only to external campaign reviews.",
+  "review_signature_sha256": "e0b0b90ea9d8a81f1d4bb8fa4c3de7f9b2ab4412080fdff7af084fcf7e16ae9e"
+}

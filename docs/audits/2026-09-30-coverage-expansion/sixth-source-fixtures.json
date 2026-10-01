@@ -1,0 +1,686 @@
+{
+  "fixtureBasis": "Independent expected literal values, conditions and restrictions reread from source originals; engine execution verifies the resulting behavior, rather than supplying its correctness oracle.",
+  "beforeRelease": "26090eb64dc7",
+  "afterRelease": "8d6f1c698f0b",
+  "cases": [
+    {
+      "case": "SDS identity corrected while published 67 MPa modulus remains flagged",
+      "source": "Insublend SDS §§1.1/3.2 plus original own HTML mechanical table",
+      "stableGradeID": "G081-06",
+      "material": "M130"
+    },
+    {
+      "case": "Four original numeric cells retain missing specimen/state/method conditions",
+      "values": {
+        "Tg": 140,
+        "DTUL": 114,
+        "moistureAbsorption": 0.1,
+        "dielectricStrength": 29
+      },
+      "HDTload": null
+    },
+    {
+      "case": "Contradictory food sentences coexist; HIPS caption does not establish complete removal",
+      "records": [
+        "Q05379",
+        "Q05380",
+        "Q05410"
+      ]
+    },
+    {
+      "case": "27 original agent/result pairs retain limits and create no environmental pass",
+      "usableForRequirement": false
+    },
+    {
+      "case": "Original 114 °C unknown-load DTUL and 140 °C Tg thresholds under default/opt-in and dry/humid modes",
+      "questions": 16,
+      "changes": 6
+    }
+  ],
+  "answers": [
+    {
+      "question": "hdt045-113-comparable-dry",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 113",
+          "status": "UNKNOWN",
+          "reason": "Published 114 °C without stating the test load, so it is not compared (include values published that way to use it)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 113,
+            "mandatory": true
+          },
+          "missing": "not-comparable",
+          "asPublished": {
+            "value": 114,
+            "caveat": "load-not-stated",
+            "measurementId": "V011538"
+          }
+        }
+      ]
+    },
+    {
+      "question": "hdt045-115-comparable-dry",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 115",
+          "status": "UNKNOWN",
+          "reason": "Published 114 °C without stating the test load, so it is not compared (include values published that way to use it)",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 115,
+            "mandatory": true
+          },
+          "missing": "not-comparable",
+          "asPublished": {
+            "value": 114,
+            "caveat": "load-not-stated",
+            "measurementId": "V011538"
+          }
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-139-comparable-dry",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 139",
+          "status": "PASS",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 139,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-141-comparable-dry",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 141",
+          "status": "FAIL",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 141,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "hdt045-113-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 113",
+          "status": "PASS",
+          "reason": "Published 114 °C, its test load not stated (counted because values published that way are included); specimen form, moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 113,
+            "mandatory": true
+          },
+          "measurementId": "V011538",
+          "observed": 114,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "hdt045-115-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 115",
+          "status": "FAIL",
+          "reason": "Published 114 °C, its test load not stated (counted because values published that way are included); specimen form, moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 115,
+            "mandatory": true
+          },
+          "measurementId": "V011538",
+          "observed": 114,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-139-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 139",
+          "status": "PASS",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 139,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-141-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 141",
+          "status": "FAIL",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 141,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "hdt045-113-comparable-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 113",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011538: 114 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 113,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 114,
+              "measurementId": "V011538"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    },
+    {
+      "question": "hdt045-115-comparable-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 115",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011538: 114 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 115,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 114,
+              "measurementId": "V011538"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-139-comparable-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 139",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011537: 140 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 139,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 140,
+              "measurementId": "V011537"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-141-comparable-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 141",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011537: 140 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 141,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 140,
+              "measurementId": "V011537"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    },
+    {
+      "question": "hdt045-113-as-published-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 113",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011538: 114 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 113,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 114,
+              "measurementId": "V011538"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    },
+    {
+      "question": "hdt045-115-as-published-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "hdt045 >= 115",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011538: 114 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 115,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 114,
+              "measurementId": "V011538"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-139-as-published-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 139",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011537: 140 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 139,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 140,
+              "measurementId": "V011537"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-141-as-published-conditioned",
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "beforeMaterial": "M081",
+      "afterMaterial": "M130",
+      "results": [
+        {
+          "criterion": "glassTransition >= 141",
+          "status": "UNKNOWN",
+          "reason": "Published only dry or with moisture unstated (V011537: 140 °C); this scenario asks about the conditioned state, and no conditioned value is inferred from a dry one",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 141,
+            "mandatory": true
+          },
+          "elsewhere": [
+            {
+              "stateId": "as-printed",
+              "treatment": null,
+              "moisture": "dry",
+              "value": 140,
+              "measurementId": "V011537"
+            }
+          ],
+          "missing": "other-state"
+        }
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "question": "glassTransition-139-comparable-dry",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "results": [
+        {
+          "criterion": "glassTransition >= 139",
+          "status": "PASS",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 139,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-141-comparable-dry",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "results": [
+        {
+          "criterion": "glassTransition >= 141",
+          "status": "FAIL",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 141,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "hdt045-113-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "results": [
+        {
+          "criterion": "hdt045 >= 113",
+          "status": "PASS",
+          "reason": "Published 114 °C, its test load not stated (counted because values published that way are included); specimen form, moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 113,
+            "mandatory": true
+          },
+          "measurementId": "V011538",
+          "observed": 114,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "hdt045-115-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "results": [
+        {
+          "criterion": "hdt045 >= 115",
+          "status": "FAIL",
+          "reason": "Published 114 °C, its test load not stated (counted because values published that way are included); specimen form, moisture state and treatment not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "hdt045",
+            "operator": ">=",
+            "value": 115,
+            "mandatory": true
+          },
+          "measurementId": "V011538",
+          "observed": 114,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture",
+            "treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-139-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "PASS",
+      "results": [
+        {
+          "criterion": "glassTransition >= 139",
+          "status": "PASS",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 139,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    },
+    {
+      "question": "glassTransition-141-as-published-dry",
+      "before": "UNKNOWN",
+      "after": "FAIL",
+      "results": [
+        {
+          "criterion": "glassTransition >= 141",
+          "status": "FAIL",
+          "reason": "Published 140 °C; specimen form and moisture state not stated, admitted for screening",
+          "constraint": {
+            "kind": "numeric",
+            "property": "glassTransition",
+            "operator": ">=",
+            "value": 141,
+            "mandatory": true
+          },
+          "measurementId": "V011537",
+          "observed": 140,
+          "unit": "°C",
+          "closeToLimit": false,
+          "admitted": [
+            "specimen",
+            "moisture"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T04:54:14.146834+00:00",
+  "overall_verdict": "APPROVE",
+  "source_reading_batches": [
+    {
+      "maker": "Nanovia",
+      "GradeIDs": [
+        "G081-06"
+      ],
+      "distinct_products": 1
+    }
+  ],
+  "canonical_mutations": "None; read-only canonical tables, source originals and moveGrade implementation.",
+  "input_path": "external-campaign/research/insublend-identity-packet.json",
+  "input_sha256": "fba6edc973dbeabfec60cdc2f0216ae3de3df21e6c0a3fc812c3c301ba9e3daa",
+  "approved_operations": 1,
+  "operations": [
+    {
+      "operation_id": "move-G081-06-M081-to-M130",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "old_MaterialID": "M081",
+      "new_MaterialID": "M130",
+      "changed_grade_fields": [
+        "MaterialID",
+        "Composition / filler",
+        "Source locator"
+      ],
+      "SourceID_preserved": "R-NANOVIA-Insublend",
+      "formulation_key_preserved": "R-NANOVIA-Insublend",
+      "source_basis": [
+        {
+          "sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+          "original_path": ".cache/sources/by-sha/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+          "locator": "p. 1 \u00a7\u00a71.1/3.2",
+          "scope": "mPPE; Polyphenylene ether resin; mixture PPO, PS and elastomer. Visually merged 65\u201390% cell spans PPO + PS + poly(butadiene-styrene), not individual PPO loading. Individual ratios unpublished."
+        },
+        {
+          "sha256": "b73cf563ca9f2bc94719977563775135498698b1a90f74eaa02f33ec429b8321",
+          "original_path": ".cache/sources/by-sha/b73cf563ca9f2bc94719977563775135498698b1a90f74eaa02f33ec429b8321.pdf",
+          "locator": "p. 1 title and [Polyphenylene Ether + Polystyrene] header",
+          "scope": "Existing M130 broad PPE-PS material home, not shared THERMAX formulation or transferable exact grade values."
+        },
+        {
+          "sha256": "ecab3886bb11babece3fcedaa6ca887da2f881f818c1c0fdd63f3fef5671f73e",
+          "original_path": ".cache/sources/by-sha/ecab3886bb11babece3fcedaa6ca887da2f881f818c1c0fdd63f3fef5671f73e.pdf",
+          "locator": "p. 1 NORYL 731 / Polyphenylene Ether + PS",
+          "scope": "Corroborates existing broad blend context only; NORYL use approvals and molded values do not transfer to Insublend."
+        }
+      ],
+      "reason": "Source resolves unsupported HIPS filing to existing PPE-PS blend material without new catalogue identity or constituent-ratio/model invention."
+    }
+  ],
+  "guard_checks": {
+    "ExpectedGrade_matches_current_full_grade": true,
+    "ExpectedMaterials_match_current_M081_M130": true,
+    "ExpectedHistoricalSource_matches_current_full_source": true,
+    "owned_records_complete_against_current_tables": {
+      "measurements": 3,
+      "profiles": 1,
+      "evidence": 7,
+      "prices": 0
+    },
+    "expected_printing_links": 0,
+    "new_source_and_five_pending_findings_match_approved_c02": true,
+    "only_three_grade_fields_change": true,
+    "helper_inspected": "scripts/data/records.mjs moveGrade: grade, measurements, profiles, evidence, prices and owned printing links follow; IDs stay."
+  },
+  "custody": {
+    "SDS_original_sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+    "cache_and_private_original_hashes_verified": true,
+    "SDS_pages_1_2_visually_reread": true,
+    "M130_context_originals_fresh_hash_verified_and_page_1_raw_reread": true
+  },
+  "release_conditions": [
+    "c02 source and all five exact narrative rows must first be admitted; identity packet is approval of the subsequent guarded move, not source admission.",
+    "Recheck full grade, materials, historical source, every old owned row and all five admitted rows immediately before serialized move.",
+    "Use existing moveGrade contract; preserve every grade/record ID, old source revision/digest and separate formulation key. Refuse changed expected values.",
+    "Keep Q04265 environmental refile held until identity has been injected and a separate environmental operation independently reviewed.",
+    "Run required build, record/compiled diffs, scenario replay and verification after ownership correction; distinguish automatic estimate recalibration from new published evidence."
+  ],
+  "limitations": [
+    "65\u201390% is one aggregate for PPO/PS/poly(butadiene-styrene); no individual PPO loading or PPE:PS ratio released. Other additive ranges remain own raw disclosure.",
+    "Broad existing M130 membership does not establish identical formulation, NORYL certification, THERMAX properties or printed-product qualification.",
+    "Old page-derived measurements/profiles and legacy Certification claims field are preserved by this ownership operation, not revalidated as new published claims. In particular historical navigation-contaminated certification prose is not certified by this review.",
+    "SDS food-contact contradiction remains unresolved; no food/medical pass. M081/M130 coverage and answer effects require fresh downstream review; no unaffected-answer promise."
+  ],
+  "review_signature_sha256": "ccfcb1e080b1b3aa5f6bc61fc3a185d507a1ba216be37a9f46080df064031532"
+}

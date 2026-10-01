@@ -1,0 +1,115 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T04:54:14.146834+00:00",
+  "overall_verdict": "APPROVE",
+  "source_reading_batches": [
+    {
+      "maker": "Nanovia",
+      "GradeIDs": [
+        "G081-06"
+      ],
+      "distinct_products": 1
+    }
+  ],
+  "canonical_mutations": "None; read-only canonical tables, source originals and moveGrade implementation.",
+  "input_path": "external-campaign/research/insublend-c02-packet.json",
+  "input_sha256": "a2a5016c5d521430f4afba71b561ac8f8d8426e273ad2a8041ca185bc2c349b1",
+  "approved_operations": 6,
+  "approved_sources": 1,
+  "approved_findings": 5,
+  "proposal_path": "external-campaign/ingest/proposals/c02/afadf4eb9e7c453a.json",
+  "proposal_sha256": "9f632e722e6c003c34d50a3bb698586ab040bd5559a2b315d42511d8603b36db",
+  "original_custody": {
+    "original_path": ".cache/sources/by-sha/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+    "private_original_path": "external-campaign/private-originals/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+    "sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+    "both_original_hashes_verified": true,
+    "reread_scope": "Fresh raw extraction pages 1\u20132 plus visual reread of both original bilingual pages; product identity, merged component table, all five proposed quotes and surrounding contradictory/restrictive paragraphs. No third-party summary substituted."
+  },
+  "operations": [
+    {
+      "operation_id": "c02-source",
+      "verdict": "APPROVE",
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "locator": "p. 1 document heading, update date, \u00a7\u00a71.1/1.3; original witnessed URL",
+      "reason": "Nanovia INSUBLEND own bilingual September 2023 SDS; metadata and exact G081-06 ownership supported; original digest and history preserved."
+    },
+    {
+      "operation_id": "insublend-1",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "original_sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "locator": "p. 1: 1.2 identified uses (English column; French corroborates scope)",
+      "raw_finding": "Plastic ingredient for home electronics, electronic materials, automotive materials, industrial materials.",
+      "limits_preserved": "Own-product maker intended-use claim; no component, load, lifetime, medical, food or printed-part service qualification.",
+      "reason": "Exact English original clause reread, French scope corroborated. Manufacturer narrative retained in know-how, with no measurement, certification or suitability inference."
+    },
+    {
+      "operation_id": "insublend-2",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "original_sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "locator": "p. 1: 1.2 restriction of use (English column; French corroborates scope)",
+      "raw_finding": "Restriction of use: Do not use INSUBLEND for medical containers, parts of in-vivo or which contact with mucosa, body fluid, blood. Equipments and parts for food contact and drinking fluids. Toys which contact with mouth.",
+      "limits_preserved": "Full source restriction retained. Section 7.2 contradicts this on food contact; unresolved vendor clarification needed. No food or medical approval follows.",
+      "reason": "Exact English original clause reread, French scope corroborated. Manufacturer narrative retained in know-how, with no measurement, certification or suitability inference."
+    },
+    {
+      "operation_id": "insublend-3",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "original_sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "locator": "p. 2: 7.2 storage, conflicting food sentence (English column; French corroborates scope)",
+      "raw_finding": "The product is approved for food contact.",
+      "limits_preserved": "Unresolved internal contradiction: section 1.2 prohibits food/drinking-fluid contact and mouth-contact toys. Both English and French repeat the disagreement. No verified certificate or food-contact qualification; do not use this isolated claim for suitability.",
+      "reason": "Exact English original clause reread, French scope corroborated. Manufacturer narrative retained in know-how, with no measurement, certification or suitability inference."
+    },
+    {
+      "operation_id": "insublend-4",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "original_sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "locator": "p. 2: 7.1 protective equipment and emergency procedures (English column; French corroborates scope)",
+      "raw_finding": "Ensure adequate ventilated place. Avoid fumes and dust.",
+      "limits_preserved": "Maker processing precautions; no measured printer emissions, exposure limits or validated ventilation performance.",
+      "reason": "Exact English original clause reread, French scope corroborated. Manufacturer narrative retained in know-how, with no measurement, certification or suitability inference."
+    },
+    {
+      "operation_id": "insublend-5",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "original_sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "locator": "p. 2: 8.1 control parameter (English column; French corroborates scope)",
+      "raw_finding": "Gases are generated from melted resin but administrative level and allowable limit are not established.",
+      "limits_preserved": "Own gas-limit statement; nearby numeric dust references are not emitted-gas measurements or printed-product safety proof.",
+      "reason": "Exact English original clause reread, French scope corroborated. Manufacturer narrative retained in know-how, with no measurement, certification or suitability inference."
+    }
+  ],
+  "guard_checks": {
+    "ExpectedGrades_matches_current_full_grade": true,
+    "packet_source_equals_proposal_source": true,
+    "packet_findings_equal_proposal_findings": true,
+    "identity_packet_pending_source_and_five_rows_equal_c02_operations": true,
+    "accepted_identity_resolves_existing_grade_only": true,
+    "automatic_measurement_rejected": true,
+    "profiles_measurements_headlines_coverage_admitted": 0,
+    "new_material": false
+  },
+  "release_conditions": [
+    "Apply only through isolated c02 witness/import pipeline after this independent operation review.",
+    "Importer must resolve the existing G081-06 without creating a grade or overwriting its old page SourceID; separate guarded identity migration depends on that unchanged grade.",
+    "Retain both conflicting food statements and explicit unresolved vendor handoff; isolated approval wording must not establish food suitability."
+  ],
+  "limitations": [
+    "Maker intended uses provide bounded claims only; no printed-part application validation.",
+    "Ventilation/gas wording states precautions and unstated allowable gas limits; nearby dust numbers do not establish emitted-gas measurements or validated exposure safety.",
+    "No numeric density, processing profile or material-model change released by this packet."
+  ],
+  "review_signature_sha256": "1f75db4c0a4edbd67957faad6b21c80eabdf31dbab368eeb4d0e8f1b7d982f91"
+}

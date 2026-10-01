@@ -959,24 +959,32 @@ npm run sql --silent -- "select currency, count(*) listings, count(distinct grad
 node docs/audits/2026-09-30-price-pass/outcomes.mjs
 ```
 
-## 23. Insublend's current HIPS home needs reconciliation
+## 23. Insublend's source contradictions remain after its identity correction
 
-The coverage campaign independently reread R-NANOVIA-Insublend and found no HIPS identity
-in its own product description: HIPS appears in navigation and the related-product footer.
-G081-06 still belongs to HIPS (M081). Its UV statement Q04265 remains in maker know-how,
-held from environmental refiling until ownership is reconciled. Refilling it there would
-remove the HIPS family's polymer-level UV screen for twelve products, although all would
-remain UNKNOWN. That effect was reproduced and withdrawn before admission.
+The exact Insublend SDS admitted by m248 names mPPE and a PPE/PS/elastomer mixture.
+Migration m249 moved G081-06 from HIPS (M081) to existing PPE-PS (M130), preserving its
+GradeID and all owned records. The merged 65–90% composition is an aggregate, not an
+individual PPO percentage. No formulation or value transfers to another PPE-PS product.
+Q04265 is now recorded under the correct material's UV category by m251; unrelated HIPS
+products retain their own polymer context. The earlier ownership and UV-admission hold is resolved.
 
-The maker's exact Insublend safety sheet is fetched for campaign review. It names mPPE
-and a PPE/PS/elastomer mixture, a lead for existing PPE-PS (M130). It also contradicts
-itself about food contact. Neither the new source, an identity correction nor a food-contact
-qualification has been admitted in this tranche. The external campaign retains the
-digest, original, independent review and release conditions.
+The SDS's sections 1.2 and 7.2 contradict each other on food contact in both languages.
+Q05379/Q05380 and the scoped Conflict finding retain both claims; maker clarification and
+an applicable certificate are needed, and no food or medical suitability follows. The own
+product chemical table is headed 20 °C yet includes boiling water; actual exposure temperature
+cannot be inferred. Its Tributyl phosphate result cell reads “Phosphate”, which is not a
+rating. This page clause remains held for source clarification. Duration, specimen and
+quantitative retention are absent throughout that chemical table.
+
+The own-page elongation row cites ISO 178; volume and surface resistivity print ambiguous
+“10.10^15 Ohms”. No corrected test label, exponent or volume-resistivity unit is inferred.
+Tensile modulus V007544 remains physically implausible as already flagged by m127, and
+continues to back no product value or estimate. Newly found official datasheets are separate
+revision leads, not permission to overwrite the registered page's digest or raw words.
 
 ```bash
 npm run sql --silent -- "select gradeid, materialid, product_name, composition_filler from grades where gradeid = 'G081-06'"
-npm run sql --silent -- "select evidenceid, gradeid, domain, topic, finding from evidence where evidenceid = 'Q04265'"
+npm run sql --silent -- "select evidenceid, gradeid, domain, topic, finding from evidence where evidenceid in ('Q04265','Q05379','Q05380')"
 ```
 
 ## 24. Siraya TPU-GF guide conflicts and a bounded drying schedule

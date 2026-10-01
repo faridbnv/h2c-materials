@@ -42,9 +42,9 @@ ABS-AF
 ABS-CF
 4.1
 2.7–5.21 · 3
-0.00149
+0.0015
 log scale
-20.2
+20
 all 153 candidates
 Strength MPa
 ABS
@@ -114,7 +114,7 @@ ABS-AF
 ABS-CF
 78
 76–95 · 3
-41.9
+42.1
 300
 all 153 candidates
 Glass transition °C

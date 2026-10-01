@@ -1,0 +1,16 @@
+{
+  "fixture": "Disposable copy; canonical files untouched",
+  "results": [
+    {
+      "case": "Source-backed identity and sixteen owned records rerun",
+      "written": 0,
+      "unchanged": true
+    },
+    {
+      "case": "A source measurement left on the former material",
+      "record": "V007543",
+      "refused": true,
+      "unchanged": true
+    }
+  ]
+}

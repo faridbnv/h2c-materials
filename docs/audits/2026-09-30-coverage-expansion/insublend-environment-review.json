@@ -1,0 +1,689 @@
+{
+  "input_path": "external-campaign/research/insublend-environment-packet.json",
+  "input_sha256": "5b93f795d2681c186c8d46ae3839c4d0e4b7a308cf77ae9d416310c56b6d9fdb",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T05:08:44.816962+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 28,
+  "approved_new_agent_result_pairs": 27,
+  "approved_same_ID_refiles": 1,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "Nanovia",
+      "GradeIDs": [
+        "G081-06"
+      ],
+      "Products": 1
+    }
+  ],
+  "source_custody": {
+    "SourceID": "R-NANOVIA-Insublend",
+    "sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+    "original_path": ".cache/sources/by-sha/3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7.html",
+    "original_sha256_verified": true,
+    "reread_scope": "Fresh visible HTML extraction from hash-verified original, all 37 chemical-table rows including headers (28 agent/result rows), surrounding Chemical resistance at 20 \u00b0C heading, whole own-product description/advantages/application recommendations; page navigation and related products excluded as ownership evidence."
+  },
+  "guard_checks": {
+    "all_expected_grades_equal_approved_identity_ProposedGrade": true,
+    "full_current_grade_matches_post_identity_ExpectedGrade": true,
+    "c02_source_now_admitted_matches_full_reviewed_row": true,
+    "five_c02_findings_now_admitted_under_M130": [
+      "Q05378",
+      "Q05379",
+      "Q05380",
+      "Q05381",
+      "Q05382"
+    ],
+    "all_full_registered_sources_match_current": true,
+    "all_27_raw_cell_pairs_header_groups_locators_match_original": true,
+    "all_27_new_clauses_not_exact_duplicates_of_current_own_records": true,
+    "current_Q04265_equals_full_expected_post_move_row": true,
+    "classifier_narrative": 28,
+    "classifier_usable_evidence": 0
+  },
+  "operations": [
+    {
+      "operation_id": "INSUBLEND-CHEM-2",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 3 (Boiling water); original agent | Resistance cells",
+      "raw_finding": "Boiling water | Excellent",
+      "domain": "Durability",
+      "topic": "Moisture",
+      "compiled_category": "moisture",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass. Source row says Boiling water under the 20 \u00b0C heading; actual exposure temperature unresolved, vendor clarification needed.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Boiling water",
+        "Excellent"
+      ],
+      "original_table_group": "Acids"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-3",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 4 (Hydrochloric acid (solution at 50%)); original agent | Resistance cells",
+      "raw_finding": "Hydrochloric acid (solution at 50%) | Excellent",
+      "domain": "Durability",
+      "topic": "Acid resistance",
+      "compiled_category": "acid",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Hydrochloric acid (solution at 50%)",
+        "Excellent"
+      ],
+      "original_table_group": "Acids"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-4",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 5 (Sulphuric Acid (solution at 50%)); original agent | Resistance cells",
+      "raw_finding": "Sulphuric Acid (solution at 50%) | Excellent",
+      "domain": "Durability",
+      "topic": "Acid resistance",
+      "compiled_category": "acid",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Sulphuric Acid (solution at 50%)",
+        "Excellent"
+      ],
+      "original_table_group": "Acids"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-5",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 6 (Nitric acid (solution at 50%)); original agent | Resistance cells",
+      "raw_finding": "Nitric acid (solution at 50%) | Excellent",
+      "domain": "Durability",
+      "topic": "Acid resistance",
+      "compiled_category": "acid",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Nitric acid (solution at 50%)",
+        "Excellent"
+      ],
+      "original_table_group": "Acids"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-6",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 7 (Phosphoric acid (solution at 60%)); original agent | Resistance cells",
+      "raw_finding": "Phosphoric acid (solution at 60%) | Excellent",
+      "domain": "Durability",
+      "topic": "Acid resistance",
+      "compiled_category": "acid",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Phosphoric acid (solution at 60%)",
+        "Excellent"
+      ],
+      "original_table_group": "Acids"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-7",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 8 (Acetic acid); original agent | Resistance cells",
+      "raw_finding": "Acetic acid | Excellent",
+      "domain": "Durability",
+      "topic": "Acid resistance",
+      "compiled_category": "acid",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Acetic acid",
+        "Excellent"
+      ],
+      "original_table_group": "Acids"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-9",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 10 (Isopropyl); original agent | Resistance cells",
+      "raw_finding": "Isopropyl | Good",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass. Alcohols header retained; do not infer a more precise chemical/CAS identity from Isopropyl alone.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Isopropyl",
+        "Good"
+      ],
+      "original_table_group": "Alcohols"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-10",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 11 (Methanol); original agent | Resistance cells",
+      "raw_finding": "Methanol | Excellent",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Methanol",
+        "Excellent"
+      ],
+      "original_table_group": "Alcohols"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-11",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 12 (Ethanol); original agent | Resistance cells",
+      "raw_finding": "Ethanol | Excellent",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Ethanol",
+        "Excellent"
+      ],
+      "original_table_group": "Alcohols"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-13",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 14 (Brine (satured NaCl)); original agent | Resistance cells",
+      "raw_finding": "Brine (satured NaCl) | Excellent",
+      "domain": "Makers' know-how",
+      "topic": "Benefits",
+      "compiled_category": "know-how",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass. Aqueous ionic-salt category has no exact current screening topic; retained as bounded maker know-how rather than relabelled as an organic solvent.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Brine (satured NaCl)",
+        "Excellent"
+      ],
+      "original_table_group": "Ionic aqueous solution"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-14",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 15 (Ammonium phosphate); original agent | Resistance cells",
+      "raw_finding": "Ammonium phosphate | Excellent",
+      "domain": "Makers' know-how",
+      "topic": "Benefits",
+      "compiled_category": "know-how",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass. Aqueous ionic-salt category has no exact current screening topic; retained as bounded maker know-how rather than relabelled as an organic solvent.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Ammonium phosphate",
+        "Excellent"
+      ],
+      "original_table_group": "Ionic aqueous solution"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-16",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 17 (Ammonia (solution at 10% NH3)); original agent | Resistance cells",
+      "raw_finding": "Ammonia (solution at 10% NH3) | Excellent",
+      "domain": "Durability",
+      "topic": "Alkali resistance",
+      "compiled_category": "alkali",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Ammonia (solution at 10% NH3)",
+        "Excellent"
+      ],
+      "original_table_group": "Bases"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-17",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 18 (Caustic soda (solution with 10% NaOH)); original agent | Resistance cells",
+      "raw_finding": "Caustic soda (solution with 10% NaOH) | Excellent",
+      "domain": "Durability",
+      "topic": "Alkali resistance",
+      "compiled_category": "alkali",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Caustic soda (solution with 10% NaOH)",
+        "Excellent"
+      ],
+      "original_table_group": "Bases"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-19",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 20 (Acetone); original agent | Resistance cells",
+      "raw_finding": "Acetone | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Acetone",
+        "Weak"
+      ],
+      "original_table_group": "Cetones"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-20",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 21 (MethylEthylKetone); original agent | Resistance cells",
+      "raw_finding": "MethylEthylKetone | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "MethylEthylKetone",
+        "Weak"
+      ],
+      "original_table_group": "Cetones"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-22",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 23 (Toluene); original agent | Resistance cells",
+      "raw_finding": "Toluene | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Toluene",
+        "Weak"
+      ],
+      "original_table_group": "Aromatics"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-23",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 24 (Xylene); original agent | Resistance cells",
+      "raw_finding": "Xylene | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Xylene",
+        "Weak"
+      ],
+      "original_table_group": "Aromatics"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-25",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 26 (Cyclohexane and n-Hexane); original agent | Resistance cells",
+      "raw_finding": "Cyclohexane and n-Hexane | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass. Source prints one joint row; it is not two independently reported tests.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Cyclohexane and n-Hexane",
+        "Weak"
+      ],
+      "original_table_group": "Hydrocarbons"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-26",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 27 (n-Heptane); original agent | Resistance cells",
+      "raw_finding": "n-Heptane | Moderate",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "n-Heptane",
+        "Moderate"
+      ],
+      "original_table_group": "Hydrocarbons"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-27",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 28 (Liquid paraffin); original agent | Resistance cells",
+      "raw_finding": "Liquid paraffin | Moderate",
+      "domain": "Durability",
+      "topic": "Oil and grease resistance",
+      "compiled_category": "oil-grease",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Liquid paraffin",
+        "Moderate"
+      ],
+      "original_table_group": "Hydrocarbons"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-28",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 29 (Diesel fuel); original agent | Resistance cells",
+      "raw_finding": "Diesel fuel | Moderate",
+      "domain": "Durability",
+      "topic": "Oil and grease resistance",
+      "compiled_category": "oil-grease",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Diesel fuel",
+        "Moderate"
+      ],
+      "original_table_group": "Hydrocarbons"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-29",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 30 (Kerosene); original agent | Resistance cells",
+      "raw_finding": "Kerosene | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Kerosene",
+        "Weak"
+      ],
+      "original_table_group": "Hydrocarbons"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-30",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 31 (Lubrifiants); original agent | Resistance cells",
+      "raw_finding": "Lubrifiants | Moderate",
+      "domain": "Durability",
+      "topic": "Oil and grease resistance",
+      "compiled_category": "oil-grease",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Lubrifiants",
+        "Moderate"
+      ],
+      "original_table_group": "Hydrocarbons"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-31",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 32 (Greases); original agent | Resistance cells",
+      "raw_finding": "Greases | Weak",
+      "domain": "Durability",
+      "topic": "Oil and grease resistance",
+      "compiled_category": "oil-grease",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Greases",
+        "Weak"
+      ],
+      "original_table_group": "Hydrocarbons"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-33",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 34 (Carbon tetrachloride); original agent | Resistance cells",
+      "raw_finding": "Carbon tetrachloride | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Carbon tetrachloride",
+        "Weak"
+      ],
+      "original_table_group": "Solvants"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-34",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 35 (Chloroform); original agent | Resistance cells",
+      "raw_finding": "Chloroform | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Chloroform",
+        "Weak"
+      ],
+      "original_table_group": "Solvants"
+    },
+    {
+      "operation_id": "INSUBLEND-CHEM-36",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1: Chemical resistance at 20 \u00b0C; row 37 (Ethyl acetate); original agent | Resistance cells",
+      "raw_finding": "Ethyl acetate | Weak",
+      "domain": "Durability",
+      "topic": "Organic-solvent resistance",
+      "compiled_category": "organic-solvent",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product table headed Chemical resistance at 20 \u00b0C. Agent and concentration are only as printed in this row; concentration otherwise not stated. Duration, specimen, conditioning, result method and quantitative retention are not stated. Raw agent/result cell pair preserved; no universal chemical-class or service qualification, no measured value or requirement pass.",
+      "reason": "Literal agent and result cells independently reread and preserved together; exact own-product scope, published concentration/heading and absence of conditions kept. Category is a bounded display grouping only.",
+      "original_cells": [
+        "Ethyl acetate",
+        "Weak"
+      ],
+      "original_table_group": "Solvants"
+    },
+    {
+      "operation_id": "INSUBLEND-UV-OWNERSHIP-RELEASE",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "SourceID": "R-NANOVIA-Insublend",
+      "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "p. 1",
+      "raw_finding": "UV and oxydation resistant",
+      "domain": "Durability",
+      "topic": "UV",
+      "compiled_category": "uv-outdoor",
+      "classifier_verdict": "narrative",
+      "isUsableEvidence": false,
+      "limits_preserved": "Own product UV and oxidation maker claim, after source-backed PPE-PS identity correction. No exposure spectrum, intensity, duration, specimen, conditions or measured retention published; no service qualification or requirement pass.",
+      "reason": "Same Q04265/raw wording retained; source-backed identity move restores exact Insublend ownership before UV filing. Full own clause is narrative, not a shortened resistant verdict.",
+      "EvidenceID": "Q04265",
+      "changed_fields": [
+        "Domain",
+        "Topic",
+        "Exposure / conditions"
+      ]
+    }
+  ],
+  "holds": [
+    {
+      "Agent": "Tributyl phosphate",
+      "RawResult": "Phosphate",
+      "Locator": "p. 1: Chemical resistance at 20 \u00b0C; table row 36",
+      "Outcome": "conflicting",
+      "ReleaseCondition": "Maker clarification of non-rating cell Phosphate; do not infer another result.",
+      "independent_verdict": "HOLD",
+      "reason": "Original table row 36 literally prints Tributyl phosphate | Phosphate; result is not a resistance rating. No replacement or universal verdict inferred."
+    }
+  ],
+  "required_corrections": [],
+  "release_conditions": [
+    "Recheck full post-identity grade/source/evidence guards before serialized injection; prior c02 + ownership admission are satisfied at review time.",
+    "Keep agent and raw result joined; never replace an isolated Good/Excellent/Weak/Moderate token with an unqualified class verdict.",
+    "Preserve missing conditions and boiling-water temperature contradiction. Keep ionic aqueous-salt observations in know-how because the current environmental topics have no exact salt category.",
+    "Replay relevant frozen and supplemental environmental scenarios; own narratives can suppress material polymer context under D64 even though none directly decides PASS/FAIL. Review M081 and M130 effects, not merely product row counts."
+  ],
+  "limitations": [
+    "Chemical-category mapping is current UI grouping, not an agent-specific requirement interface. Kerosene retains its literal agent name in the organic hydrocarbon-solvent group; diesel/paraffin/lubricant/grease rows retain literal names in oil/grease grouping. No cross-agent or category-wide performance inferred.",
+    "20 \u00b0C table heading is reproduced, but Boiling water exposure temperature remains internally unresolved. Duration, specimen, conditioning, quantitative retention and rating protocol are absent.",
+    "UV advantage is an own Insublend narrative; separate storage section also advises out-of-direct-sunlight storage. Neither establishes weathering or colour-retention tests.",
+    "Source wording appears in a product page, not a verified test certificate. All findings remain Manufacturer statement; no measurements or approvals introduced."
+  ],
+  "canonical_mutations": "None; external report only.",
+  "review_signature_sha256": "6ee2bad120877d904c475f2a0882bd0827f5d230d1d153c5deeb73ffc747dae1"
+}

@@ -1,0 +1,149 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/environment-last-packet.json",
+  "input_sha256": "ec6740180ee691bcdc82afbdc583ca18a3275e279c8b26e69d47b23ce6026641",
+  "signed_at_utc": "2026-10-01T04:46:05.381399+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 5,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "The Filament",
+      "GradeIDs": [
+        "G031-43"
+      ],
+      "Products": 1
+    },
+    {
+      "Manufacturer": "iSANMATE",
+      "GradeIDs": [
+        "G034-02"
+      ],
+      "Products": 1
+    },
+    {
+      "Manufacturer": "Polymaker",
+      "GradeIDs": [
+        "G039-03",
+        "G039-11"
+      ],
+      "Products": 2
+    }
+  ],
+  "operations": [
+    {
+      "OperationID": "UV-REMAINING-Q02575",
+      "EvidenceID": "Q02575",
+      "GradeID": "G031-43",
+      "verdict": "APPROVE",
+      "SourceID": "R-3DJAKE-EN-TDS-The-Filament-ASA",
+      "source_sha256": "08c5bdb3f12cbcddc40f0c69be767a76dcc58acaf13b537cffa492940c44ff5d",
+      "OriginalPath": ".cache/sources/by-sha/08c5bdb3f12cbcddc40f0c69be767a76dcc58acaf13b537cffa492940c44ff5d.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "resistance to external exposure, changing weather conditions & UV resistance",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02717",
+      "EvidenceID": "Q02717",
+      "GradeID": "G034-02",
+      "verdict": "APPROVE",
+      "SourceID": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+      "source_sha256": "6173ede40cc31227ccfeec0425635d5d10e930d78cf597ff88b89450cb5a23ac",
+      "OriginalPath": ".cache/sources/by-sha/6173ede40cc31227ccfeec0425635d5d10e930d78cf597ff88b89450cb5a23ac.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "It is resistant to ultraviolet rays and does not fade or yellow.",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Own ASA Glass Fiber title/body consistently glass. Unrelated held PETG carbon/glass conflict not transferred. Nearby 10x ASA/ABS sentence not extracted as numeric ratio."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02908",
+      "EvidenceID": "Q02908",
+      "GradeID": "G039-03",
+      "verdict": "APPROVE",
+      "SourceID": "S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2",
+      "source_sha256": "9bbb82b1305b7044afdbb4f8d200b637f3207e8ad8095d32fbfc558cb2768577",
+      "OriginalPath": ".cache/sources/by-sha/9bbb82b1305b7044afdbb4f8d200b637f3207e8ad8095d32fbfc558cb2768577.pdf",
+      "Locator": "p. 6",
+      "raw_finding": "It also have the ability to resist ultra-violet (UV) light or sunlight.",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Same-ID refiling preserves original have/has grammar and source revisions/grade. Repeated historical TPU90 claim is not new unique knowledge; mechanical coupons are not UV test conditions."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02909",
+      "EvidenceID": "Q02909",
+      "GradeID": "G039-03",
+      "verdict": "APPROVE",
+      "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-V4-2",
+      "source_sha256": "3549885db399b83b4c83da7e1ed2eb6bdbf678658efd9f7bcd68f31d1f9722ca",
+      "OriginalPath": ".cache/sources/by-sha/3549885db399b83b4c83da7e1ed2eb6bdbf678658efd9f7bcd68f31d1f9722ca.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "It also has the ability to resist ultra-violet (UV) light or sunlight.",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Same-ID refiling preserves original have/has grammar and source revisions/grade. Repeated historical TPU90 claim is not new unique knowledge; mechanical coupons are not UV test conditions."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02946",
+      "EvidenceID": "Q02946",
+      "GradeID": "G039-11",
+      "verdict": "APPROVE",
+      "SourceID": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+      "source_sha256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e",
+      "OriginalPath": ".cache/sources/by-sha/4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "It also has the ability to resist ultra-violet (UV) light or sunlight.",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Same-ID refiling preserves original have/has grammar and source revisions/grade. Repeated historical TPU90 claim is not new unique knowledge; mechanical coupons are not UV test conditions."
+      ]
+    }
+  ],
+  "scope_limits": [
+    "Full own-product qualitative text retained; no exposure protocol or service qualification from unrelated mechanical specimens.",
+    "Current classifier confirmed all uv-outdoor narrative and unusable for direct PASS/FAIL.",
+    "Own records can suppress inherited polymer context/change inference screens; replay/count/explain answers.",
+    "Source-custody/relevant original reading does not establish universal absence or independently validate maker performance."
+  ],
+  "review_signature_sha256": "f462a0273d5be73ce9c59bd00a344d96123fa1528d8ff69d949c2239bbc5bddf"
+}

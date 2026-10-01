@@ -1,0 +1,86 @@
+
+> h2c-fdm-material-selector@1.0.0 data:diff
+> node scripts/data/diff.mjs
+
+table,record,action,field,before,after
+coverage,C00873,Edited,Status,Evidence recorded,Superseded
+coverage,C00873,Edited,Finding,Evidence-specific finishing and use notes. Missing individual methods are not inferred.,Superseded by C01538: Evidence-specific finishing and use notes. Missing individual methods are not inferred.
+coverage,C01536,Added,,,
+coverage,C01537,Added,,,
+coverage,C01538,Added,,,
+coverage,C01539,Added,,,
+coverage,C01540,Added,,,
+evidence,Q02575,Edited,Domain,Makers' know-how,Durability
+evidence,Q02575,Edited,Topic,Benefits,UV
+evidence,Q02575,Edited,Exposure / conditions,Not applicable,"Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass."
+evidence,Q02717,Edited,Domain,Makers' know-how,Durability
+evidence,Q02717,Edited,Topic,Benefits,UV
+evidence,Q02717,Edited,Exposure / conditions,Not applicable,"Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass."
+evidence,Q02908,Edited,Domain,Makers' know-how,Durability
+evidence,Q02908,Edited,Topic,Benefits,UV
+evidence,Q02908,Edited,Exposure / conditions,Not applicable,"Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass."
+evidence,Q02909,Edited,Domain,Makers' know-how,Durability
+evidence,Q02909,Edited,Topic,Benefits,UV
+evidence,Q02909,Edited,Exposure / conditions,Not applicable,"Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass."
+evidence,Q02946,Edited,Domain,Makers' know-how,Durability
+evidence,Q02946,Edited,Topic,Benefits,UV
+evidence,Q02946,Edited,Exposure / conditions,Not applicable,"Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass."
+evidence,Q04261,Edited,MaterialID,M081,M130
+evidence,Q04262,Edited,MaterialID,M081,M130
+evidence,Q04263,Edited,MaterialID,M081,M130
+evidence,Q04264,Edited,MaterialID,M081,M130
+evidence,Q04265,Edited,MaterialID,M081,M130
+evidence,Q04265,Edited,Domain,Makers' know-how,Durability
+evidence,Q04265,Edited,Topic,Benefits,UV
+evidence,Q04265,Edited,Exposure / conditions,Not applicable,"Own product UV and oxidation maker claim, after source-backed PPE-PS identity correction. No exposure spectrum, intensity, duration, specimen, conditions or measured retention published; no service qualification or requirement pass."
+evidence,Q04266,Edited,MaterialID,M081,M130
+evidence,Q04267,Edited,MaterialID,M081,M130
+evidence,Q05378,Added,,,
+evidence,Q05379,Added,,,
+evidence,Q05380,Added,,,
+evidence,Q05381,Added,,,
+evidence,Q05382,Added,,,
+evidence,Q05383,Added,,,
+evidence,Q05384,Added,,,
+evidence,Q05385,Added,,,
+evidence,Q05386,Added,,,
+evidence,Q05387,Added,,,
+evidence,Q05388,Added,,,
+evidence,Q05389,Added,,,
+evidence,Q05390,Added,,,
+evidence,Q05391,Added,,,
+evidence,Q05392,Added,,,
+evidence,Q05393,Added,,,
+evidence,Q05394,Added,,,
+evidence,Q05395,Added,,,
+evidence,Q05396,Added,,,
+evidence,Q05397,Added,,,
+evidence,Q05398,Added,,,
+evidence,Q05399,Added,,,
+evidence,Q05400,Added,,,
+evidence,Q05401,Added,,,
+evidence,Q05402,Added,,,
+evidence,Q05403,Added,,,
+evidence,Q05404,Added,,,
+evidence,Q05405,Added,,,
+evidence,Q05406,Added,,,
+evidence,Q05407,Added,,,
+evidence,Q05408,Added,,,
+evidence,Q05409,Added,,,
+evidence,Q05410,Added,,,
+evidence,Q05411,Added,,,
+grades,G081-06,Edited,MaterialID,M081,M130
+grades,G081-06,Edited,Composition / filler,Not published,"Polyphenylene ether resin. Mixture of poly(2,6-dimethyl-1,4-phenyleneoxide), polystyrene and elastomer. SDS p. 1 §3.2: merged 65–90% aggregate for PPO, polystyrene and poly(butadiene-styrene); individual PPE:PS ratio not published. Aromatic phosphate ester 5–22%, additives 0.1–5%, carbon black 0–2%. Source R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c; no shared formulation with another PPE-PS grade."
+grades,G081-06,Edited,Source locator,TDS / official product page,"Official product page; mixture identity and composition from R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c, p. 1 §§1.1/3.2"
+know_how_reads,R-SIRAYA-COVERAGE-20260930-c2563ad36bc5 | document,Added,,,
+know_how_reads,R-SIRAYA-COVERAGE-20260930-73328d4145ba | document,Added,,,
+know_how_reads,R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c | document,Added,,,
+measurements,V007543,Edited,MaterialID,M081,M130
+measurements,V007544,Edited,MaterialID,M081,M130
+measurements,V007545,Edited,MaterialID,M081,M130
+measurements,V011537,Added,,,
+measurements,V011538,Added,,,
+measurements,V011539,Added,,,
+measurements,V011540,Added,,,
+profiles,P0721,Edited,MaterialID,M081,M130
+sources,R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c,Added,,,

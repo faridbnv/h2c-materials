@@ -1,0 +1,335 @@
+{
+  "input_path": "external-campaign/research/insublend-properties-packet.json",
+  "input_sha256": "cf877c524f69366146f0b31143222d4df09f3f613cbe22504e59d7c75644b374",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T05:35:47.901378+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 4,
+  "holds_reviewed": 8,
+  "source_reading_batches": [
+    {
+      "maker": "Nanovia",
+      "GradeIDs": [
+        "G081-06"
+      ],
+      "distinct_products": 1
+    }
+  ],
+  "source_custody": {
+    "SourceID": "R-NANOVIA-Insublend",
+    "original_path": ".cache/sources/by-sha/3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7.html",
+    "original_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+    "original_digest_verified": true,
+    "reread_scope": "Fresh read of own HTML product Properties table cells, Mechanical/Thermal/Electric headings, adjacent documentation and surrounding product page scope. All four released rows and eight held rows independently compared with original table markup. No report, snippet, search excerpt or another revision substituted."
+  },
+  "guard_checks": {
+    "full_expected_grade_matches_current": true,
+    "full_expected_source_matches_current": true,
+    "complete_expected_existing_measurement_inventory_matches_current": true,
+    "existing_measurement_ids": [
+      "V007543",
+      "V007544",
+      "V007545"
+    ],
+    "all_4_released_and_8_held_raw_rows_exact": true,
+    "all_4_properties_registered_and_normalized_units_allowed": true,
+    "raw_numeric_times_conversion_matches_normalized": true,
+    "normalizedRawValue_and_unitsKnown_independent_reconciliation": [
+      {
+        "property": "Glass transition temperature",
+        "normalized": 140,
+        "unit": "\u00b0C"
+      },
+      {
+        "property": "HDT",
+        "normalized": 114,
+        "unit": "\u00b0C"
+      },
+      {
+        "property": "Water absorption",
+        "normalized": 0.1,
+        "unit": "%"
+      },
+      {
+        "property": "Dielectric strength",
+        "normalized": 29,
+        "unit": "kV/mm"
+      }
+    ],
+    "readStandards_results": [
+      [],
+      [],
+      [],
+      [
+        "IEC 60243"
+      ]
+    ],
+    "frequency_dielectric_and_tracking_properties_not_currently_registered": true
+  },
+  "operations": [
+    {
+      "operation_id": "CE-INSUBLEND-Glass-transition-temperature",
+      "verdict": "APPROVE",
+      "raw_cells": [
+        "Tg",
+        "140",
+        "\u00b0C",
+        ""
+      ],
+      "property": "Glass transition temperature",
+      "raw_value": "140",
+      "raw_unit": "\u00b0C",
+      "normalized_value": "140",
+      "normalized_unit": "\u00b0C",
+      "standards": "Not published",
+      "locator": "p. 1: own product Properties, Tg",
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "limitations": "No DSC or other method, heating rate, specimen or state stated; do not imply measured printed-part service temperature.",
+      "reason": "Exact own-product numeric/unit cells and property mapping are source-faithful. Conversion factor 1; unstated method, specimen, conditions and applicable load are retained explicitly."
+    },
+    {
+      "operation_id": "CE-INSUBLEND-HDT",
+      "verdict": "APPROVE",
+      "raw_cells": [
+        "DTUL",
+        "114",
+        "\u00b0C",
+        ""
+      ],
+      "property": "HDT",
+      "raw_value": "114",
+      "raw_unit": "\u00b0C",
+      "normalized_value": "114",
+      "normalized_unit": "\u00b0C",
+      "standards": "Not published",
+      "locator": "p. 1: own product Properties, DTUL",
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "limitations": "DTUL label retained. Load and method not stated. Existing headline policy may display 114 \u00b0C as-published with load-not-stated caveat; it is excluded from comparable screening and can be used only when the user opts into as-published values. It does not establish either 0.45 MPa or 1.8 MPa test.",
+      "reason": "Exact own-product numeric/unit cells and property mapping are source-faithful. Conversion factor 1; unstated method, specimen, conditions and applicable load are retained explicitly."
+    },
+    {
+      "operation_id": "CE-INSUBLEND-Water-absorption",
+      "verdict": "APPROVE",
+      "raw_cells": [
+        "Moisure absorption",
+        "0.10",
+        "%",
+        ""
+      ],
+      "property": "Water absorption",
+      "raw_value": "0.10",
+      "raw_unit": "%",
+      "normalized_value": "0.10",
+      "normalized_unit": "%",
+      "standards": "Not published",
+      "locator": "p. 1: own product Properties, Moisure absorption",
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "limitations": "Source misspells Moisure absorption. Moisture uptake value only; no immersion duration, equilibrium, humidity, method or temperature stated. Not moisture-service or hydrolysis performance.",
+      "reason": "Exact own-product numeric/unit cells and property mapping are source-faithful. Conversion factor 1; unstated method, specimen, conditions and applicable load are retained explicitly."
+    },
+    {
+      "operation_id": "CE-INSUBLEND-Dielectric-strength",
+      "verdict": "APPROVE",
+      "raw_cells": [
+        "Dielectric strength",
+        "29",
+        "KV / mm",
+        "IEC60243"
+      ],
+      "property": "Dielectric strength",
+      "raw_value": "29",
+      "raw_unit": "KV / mm",
+      "normalized_value": "29",
+      "normalized_unit": "kV/mm",
+      "standards": "IEC 60243",
+      "locator": "p. 1: own product Properties, Dielectric strength",
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "limitations": "Thickness, test medium, electrodes, specimen preparation, conditioning and temperature not stated; not printed-product certification.",
+      "reason": "Exact own-product numeric/unit cells and property mapping are source-faithful. Conversion factor 1; unstated method, specimen, conditions and applicable load are retained explicitly."
+    }
+  ],
+  "holds": [
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-1",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "Elong. at break",
+        "20",
+        "%",
+        "ISO 178"
+      ],
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Mechanical properties",
+      "outcome": "conflicting",
+      "release_condition": "Maker clarify tensile vs flexural elongation label/test method before any headline or estimate use.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    },
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-2",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "Volume Resistivity",
+        "10.10^15",
+        "Ohms",
+        "IEC60093"
+      ],
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Electric properties",
+      "outcome": "conflicting",
+      "release_condition": "Clarify number notation and volume-resistivity unit; no guessed exponent or Ohms-to-Ohm.cm conversion.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    },
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-3",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "Surface Resistivity",
+        "10.10^15",
+        "Ohms",
+        "IEC60093"
+      ],
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Electric properties",
+      "outcome": "conflicting",
+      "release_condition": "Clarify ambiguous number notation before numerical admission.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    },
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-4",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "Dielectric Constant",
+        "100",
+        "Hz : 2.9",
+        "IEC60250"
+      ],
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Electric properties",
+      "outcome": "context only",
+      "release_condition": "Frequency-specific dielectric property has no current registered property/condition contract; retain source locator.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    },
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-5",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "",
+        "1",
+        "MHz : 2.9",
+        "IEC60250"
+      ],
+      "inherited_context_label": "Dielectric Constant",
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Electric properties",
+      "outcome": "context only",
+      "release_condition": "Frequency-specific dielectric property has no current registered property/condition contract; retain source locator.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    },
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-6",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "Dissipation Factor",
+        "100",
+        "Hz : 0.0003",
+        "IEC60250"
+      ],
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Electric properties",
+      "outcome": "context only",
+      "release_condition": "Frequency-specific dielectric property has no current registered property/condition contract.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    },
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-7",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "",
+        "1",
+        "MHz : 0.0004",
+        "IEC60250"
+      ],
+      "inherited_context_label": "Dissipation Factor",
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Electric properties",
+      "outcome": "context only",
+      "release_condition": "Frequency-specific dielectric property has no current registered property/condition contract.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    },
+    {
+      "hold_id": "INSUBLEND-PROPERTY-HOLD-8",
+      "verdict": "HOLD_CONFIRMED",
+      "raw_cells": [
+        "Tracking resistance",
+        "190",
+        "V",
+        "IEC60112"
+      ],
+      "source_sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own product Electric properties",
+      "outcome": "context only",
+      "release_condition": "No current registered property; preserve raw source, no inferred comparative tracking index.",
+      "reason": "Literal raw original row re-read; ambiguity or missing registered condition/property contract remains. No number, standard correction, inferred tracking index or missing frequency silently admitted."
+    }
+  ],
+  "correction_history": [
+    {
+      "input_sha256": "417e29b2c6c9c700f45c106bc69de581d03a2d4a80b80d105271e2152c75c245",
+      "verdict": "CORRECTION_REQUIRED",
+      "corrections": [
+        "Two 1 MHz continuation first cells must remain blank, with inherited property label held in separate ContextLabel.",
+        "DTUL strict headline-exclusion note inaccurately described existing as-published policy."
+      ]
+    },
+    {
+      "input_sha256": "5871d93935ded8c744c1e422c8bf00a9a50231eb2af9e4166f688d14da21d1bc",
+      "verdict": "NOT_RELEASED",
+      "corrections": [
+        "Continuation raw cells corrected; DTUL wording still required actual screening-policy description."
+      ]
+    },
+    {
+      "input_sha256": "cf877c524f69366146f0b31143222d4df09f3f613cbe22504e59d7c75644b374",
+      "verdict": "APPROVE",
+      "attestation": "Exact prior-hash reconstruction confirms final changes are only two continuation hold cells plus separate ContextLabel, and DTUL Notes/Limitations description. All deciding numeric/raw/property/unit fields remain unchanged."
+    }
+  ],
+  "DTUL_behavior_receipt": {
+    "code": "build/src/products.js assess() and ruleValue()",
+    "read_only_source_grounded_fixture": {
+      "property": "HDT",
+      "value": 114,
+      "unit": "\u00b0C",
+      "specimen": "not-stated",
+      "thermal": {
+        "loadStated": false,
+        "loadMPa": null
+      }
+    },
+    "assessment": {
+      "level": "as-published",
+      "caveat": "load-not-stated"
+    },
+    "candidate": {
+      "value": 114,
+      "level": "as-published",
+      "measurementId": "SOURCE-REVIEW-DTUL",
+      "caveat": "load-not-stated"
+    },
+    "meaning": "Existing policy may display and explicitly opt-in to an unknown-load value; this is not comparable-load evidence. Neither 0.45 MPa nor 1.8 MPa test is established. Frozen final wording now accurately says this. No code change requested."
+  },
+  "release_conditions": [
+    "Recheck full source/grade/existing-measurement guards and allocate IDs only during serialized injection.",
+    "Preserve every missing state and source spelling; do not infer DSC, ISO75, ASTM D648, immersion duration, printed specimen or electrical certification.",
+    "Verify and explicitly report actual default and as-published opt-in answer changes, particularly DTUL and Tg; distinguish own newly published readings from automatic estimate recalibration.",
+    "Keep all eight holds unreleased until their named condition is met; new official TDS leads require separate original retrieval/hash/review before resolving any conflicting standard or notation."
+  ],
+  "limitations": [
+    "Page-only product claims with specimen/method/state largely unspecified; values do not establish tested printed-product service limits.",
+    "Moisture absorption is uptake only, not hydrolysis resistance or moisture-service performance.",
+    "Additional source Warping 0.5 / 0.7 % remains outside this frozen numeric packet; no shrinkage meaning, procedure or geometric-direction interpretation endorsed here."
+  ],
+  "required_corrections": [],
+  "canonical_mutations": "None; external review only.",
+  "review_signature_sha256": "87eb6b94d25ef1ede3848aef4dde271a02b005c6cf173fbe43a8eec16be098a3"
+}

@@ -1,0 +1,129 @@
+{
+  "PacketID": "NANOVIA-HIPS-RECOVERED-FINISHING",
+  "Operations": [
+    {
+      "OperationID": "HIPS-FINISH-caption",
+      "Kind": "append",
+      "Table": "evidence",
+      "ExpectedGrade": {
+        "GradeID": "G081-10",
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "HIPS",
+        "Shared formulation key": "R-NANOVIA-HIPS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-HIPS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "R-NANOVIA-HIPS",
+          "Publisher": "Nanovia",
+          "Title": "Store",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-21",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://nanovia.tech/en/ref/nanovia-hips/",
+          "Locator": "Document / product page",
+          "Applicable grades": "G081-10",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51"
+        },
+        "OriginalPath": ".cache/sources/by-sha/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.html",
+        "TextPath": ".cache/text/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.json"
+      },
+      "Proposed": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Post-processing",
+        "Topic": "Post-processing",
+        "Finding": "HIPS after 24h submersion in limonene",
+        "Exposure / conditions": "Own-page illustrated exposure caption only: 24 h submersion in limonene. Concentration, temperature, geometry and moisture state not published. Caption does not state complete dissolution, removal efficiency or a transferable procedure; no visual-result or service qualification inferred.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-NANOVIA-HIPS",
+        "Locator": "p. 1: Application recommendations, figure caption"
+      }
+    },
+    {
+      "OperationID": "HIPS-FINISH-method",
+      "Kind": "append",
+      "Table": "evidence",
+      "ExpectedGrade": {
+        "GradeID": "G081-10",
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "HIPS",
+        "Shared formulation key": "R-NANOVIA-HIPS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-HIPS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "R-NANOVIA-HIPS",
+          "Publisher": "Nanovia",
+          "Title": "Store",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-21",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://nanovia.tech/en/ref/nanovia-hips/",
+          "Locator": "Document / product page",
+          "Applicable grades": "G081-10",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51"
+        },
+        "OriginalPath": ".cache/sources/by-sha/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.html",
+        "TextPath": ".cache/text/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.json"
+      },
+      "Proposed": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Makers' know-how",
+        "Topic": "Supports and removal",
+        "Finding": "Nanovia HIPS used as a support material can be removed manually or dissolved using limonene.",
+        "Exposure / conditions": "Own maker support-removal instruction; no quantified manual force, solvent concentration, immersion temperature or complete-removal time. Limonene subfact already recorded; the explicit manual-removal alternative adds scope rather than an independent duplicate test.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-HIPS",
+        "Locator": "p. 1: Application recommendations, Post treatment support removal"
+      }
+    }
+  ],
+  "MakerBatches": [
+    {
+      "Manufacturer": "Nanovia",
+      "GradeIDs": [
+        "G081-10"
+      ],
+      "Products": 1
+    }
+  ],
+  "NoNewDocumentAdmission": true
+}

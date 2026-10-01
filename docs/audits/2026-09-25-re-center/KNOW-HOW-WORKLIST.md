@@ -15,7 +15,7 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 | Products | 1049 | 47 | 1 | 31 | 1128 |
 | Materials | 136 | 10 | 0 | 7 | 153 |
 
-4660 statements; 1326 sources read for know-how; 216 makers' sites searched.
+4662 statements; 1329 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".
@@ -47,7 +47,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 6 / 5 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ABS-AF (M106) | Indoor prototype; Warm environment | collected | 0 of 3 | 0 / 1 / 1 | — |
 | CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 5 | 2 / 2 / 3 | — |
-| HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 7 / 10 | — |
+| HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 11 | 5 / 7 / 9 | — |
 | OBC (M086) | Flexible component; Indoor prototype | collected | 0 of 2 | 1 / 1 / 1 | — |
 | PA6 (M049) | Indoor prototype; Warm environment | collected | 0 of 9 | 3 / 2 / 8 | — |
 | PA612-CF (M059) | Indoor prototype; Warm environment | collected | 0 of 3 | 1 / 0 / 0 | — |
@@ -136,6 +136,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | PLA-GR (M155) | — | collected | 0 of 2 | 2 / 2 / 2 | — |
 | PLA-PHB (M146) | — | collected | 0 of 1 | 1 / 0 / 1 | — |
 | POM / Acetal (M087) | — | collected | 0 of 4 | 2 / 2 / 3 | — |
+| PPE-PS (M130) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PPS (M072) | — | collected | 0 of 2 | 0 / 0 / 1 | — |
 | PPSU (M102) | — | collected | 0 of 4 | 2 / 3 / 3 | — |
 | PVC (M135) | — | collected | 0 of 2 | 1 / 1 / 1 | — |

@@ -1,0 +1,15 @@
+{
+  "migration": "m253-application-esun-isanmate",
+  "packet": "53be0f1fa3a870d58d039af23a4927acef93c8054d07277a8984ad80724e4080",
+  "written": 2,
+  "records": [
+    {
+      "finding": "CE-APP-M156",
+      "coverageId": "C01536"
+    },
+    {
+      "finding": "CE-APP-M161",
+      "coverageId": "C01537"
+    }
+  ]
+}

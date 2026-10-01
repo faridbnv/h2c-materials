@@ -1,0 +1,964 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+    "url": "https://nanovia.tech/media/nanovia-insublend-msds.pdf",
+    "pages": 4,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/media/nanovia-insublend-msds.pdf#witness-for=source:R-NANOVIA-Insublend"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"INSUBLEND Nom commercial: INSUBLEND\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "Publisher": "Nanovia",
+      "Title": "MSDS / FDS INSUBLEND",
+      "Revision": "Updated: September 2023",
+      "Publication date": "2023-09",
+      "Access date": "2026-09-30",
+      "Source class": "Manufacturer SDS",
+      "Source note": "Exact-product witnessed SDS. Own mixture identity and use restrictions; contains unresolved food-contact contradiction between sections 1.2 and 7.2. Composition 65–90% is a merged aggregate for PPO, PS and poly(butadiene-styrene), not individual PPO loading. No certification, emission approval or tested service property admitted. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/media/nanovia-insublend-msds.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G081-06",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "MSDS / FDS INSUBLEND"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent release review pending; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G081-06",
+      "row": {
+        "GradeID": "G081-06",
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Insublend",
+        "Shared formulation key": "R-NANOVIA-Insublend",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Resolve existing exact product only. Separate guarded identity correction follows source admission; no grade is created."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.05-1.10 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.05",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "1.1",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1050",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "1100",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "Not published",
+        "Standards": "Not published",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-msds",
+        "Locator": "p. 3: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 3,
+        "text": "Density 1.05-1.10 g/cm3. Densité 1.05-1.10 g/cm3."
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Automatic reading rejected; only reviewed own-source narrative operations may enter."
+      }
+    }
+  ],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "insublend-1",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "Plastic ingredient for home electronics, electronic materials, automotive materials, industrial materials.",
+        "Exposure / conditions": "Own-product maker intended-use claim; no component, load, lifetime, medical, food or printed-part service qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Locator": "p. 1: 1.2 identified uses (English column; French corroborates scope)"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Plastic ingredient for home electronics, electronic materials, automotive materials, industrial materials."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "visual": true,
+        "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+      }
+    },
+    {
+      "id": "insublend-2",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Restriction of use: Do not use INSUBLEND for medical containers, parts of in-vivo or which contact with mucosa, body fluid, blood. Equipments and parts for food contact and drinking fluids. Toys which contact with mouth.",
+        "Exposure / conditions": "Full source restriction retained. Section 7.2 contradicts this on food contact; unresolved vendor clarification needed. No food or medical approval follows.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Locator": "p. 1: 1.2 restriction of use (English column; French corroborates scope)"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Restriction of use: Do not use INSUBLEND for medical containers, parts of in-vivo or which contact with mucosa, body fluid, blood. Equipments and parts for food contact and drinking fluids. Toys which contact with mouth."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "visual": true,
+        "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+      }
+    },
+    {
+      "id": "insublend-3",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "The product is approved for food contact.",
+        "Exposure / conditions": "Unresolved internal contradiction: section 1.2 prohibits food/drinking-fluid contact and mouth-contact toys. Both English and French repeat the disagreement. No verified certificate or food-contact qualification; do not use this isolated claim for suitability.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Locator": "p. 2: 7.2 storage, conflicting food sentence (English column; French corroborates scope)"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "The product is approved for food contact."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "visual": true,
+        "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+      }
+    },
+    {
+      "id": "insublend-4",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Odour and emissions",
+        "Finding": "Ensure adequate ventilated place. Avoid fumes and dust.",
+        "Exposure / conditions": "Maker processing precautions; no measured printer emissions, exposure limits or validated ventilation performance.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Locator": "p. 2: 7.1 protective equipment and emergency procedures (English column; French corroborates scope)"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Ensure adequate ventilated place. Avoid fumes and dust."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "visual": true,
+        "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+      }
+    },
+    {
+      "id": "insublend-5",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Odour and emissions",
+        "Finding": "Gases are generated from melted resin but administrative level and allowable limit are not established.",
+        "Exposure / conditions": "Own gas-limit statement; nearby numeric dust references are not emitted-gas measurements or printed-product safety proof.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Locator": "p. 2: 8.1 control parameter (English column; French corroborates scope)"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Gases are generated from melted resin but administrative level and allowable limit are not established."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "visual": true,
+        "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Updated: September 2023 - Appliance (CE) n° 1907/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 1 : COMPANY / PRODUCT IDENTIFICATION SECTION 1 : ENTREPRISE / PRODUIT IDENTIFICATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.1 PRODUCT ID 1.2 IDENTIFICATION DU PRODUIT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.2 RELEVANT IDENTIFIED USES OF THE SUBSTANCE OR MIXTURE AND USES 1.2 UTILISATIONS IDENTIFIEES PERTINENTES DU MELANGE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "General Use: 3D PRINTING Application: IMPRESSION 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Substance/Preparation Use: 3D Filament Material / FDM",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.3 COMPANY 1.3 SOCIETE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Adress : ZA Saint-Paul – 22540 LOUARGAT – France Adresse : ZA Saint-Paul – 22540 LOUARGAT – France",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tel : +33 (0)2 96 43 36 90 Tel : +33 (0)2 96 43 36 90",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fax : +33 (0)2 96 43 32 26 Fax : +33 (0)2 96 43 32 26",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1.4 EMERGENCY PHONE NUMBERS 1.4 NUMEROS D’URGENCE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "France ORFILA +33 (0)1 45 42 59 59 France ORFILA +33 (0)1 45 42 59 59",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Belgium Centre Anti-poisons +32 02/264 96 36 Belgique Centre Anti-poisons +32 02/264 96 36",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 2: HAZARD IDENTIFICATION SECTION 2: IDENTIFICATION DES DANGERS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.1 SUBSTANCE CLASSIFICATION FOLLOWING EUROPEAN REGULATION RULES 2.1 CLASSIFICATION CONFORMEMENT AUX DIRECTIVES UE 67/548/CEE OU",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(CE) N° 1272/2008 [UE-GHS/CLP] 1999/45/CE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.2 LABEL NONE 2.2 ETIQUETTE AUCUNE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 3 COMPONENTS INFORMATION SECTION 3 INFORMATIONS SUR LES COMPOSANTS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.1 SUBSTANCES : Not relevant. No substances fulfill the criteria set out in 3.1 SUBSTANCES : Aucune substance ne correspond à l’annexe II, Partie A de la",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Annex II, Part A of the REACH Regulation (EC) No 1907/2006. réglementation REACH (EC) No 1907/2006.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3.2 MIXTURES 3.2 MELANGES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Mixture of poly(2,6-dimethyl-1,4-phenyleneoxide), polystyrene and elastomer. Mélange de poly(2,6-dimethyl-1,4-phenyleneoxide), polystyrène et elastomère.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Poly(2,6-dimethyl-1,4-phenyleneoxide) 251134-01-4 209-400-1 Poly(2,6-dimethyl-1,4-phenyleneoxide) 251134-01-4 209-400-1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Polystyrene 65-90 9003-53-6 202-851-5 Polystyrene 65-90 9003-53-6 202-851-5",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Poly(butadiene-styrene) 9003-55-8 Registered Poly(butadiene-styrene) 9003-55-8 Enregistré",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Aromatic phosphate ester 5-22 Trade secret Ester phosphate aromatique 5-22 Secret Comm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Additives 0.1-5 Trade secret Registered Additifs 0.1-5 Secret Comm Enregistré",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Carbon Black 0-2 C 215-609 Noir de carbone 0-2 C 215-609",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "SECTION 4: FIRST AID SECTION 4: PREMIERS SECOURS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.1 FIRST AID 4.1 PREMIERS SECOURS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "for at least 30 minutes. Do not attempt to remove plastic material with solvent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "abondamment à l’eau durant 30 minutes. Ne pas tenter d’enlever le plastique",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "or water, holding the eyelids apart, for 15 minutes. Remove eye lens. Consult an",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "ophthalmologist. oculaire ou de l’eau en gardant les paupières ouvertes pendant au moins 15",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4.2 MOST IMPORTANT SYMPTOMS AND EFFECTS, BOTH ACUTE AND DELAYED 4.2 SYMPTOMES ET EFFETS AIGUS OU CHRONIQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Updated: September 2023 - Appliance (CE) n° 1907/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SECTION 5: MEASURES AGAINST FIRE SECTION 5: MESURES EN CAS D’INCENDIE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5.1 EXTINGUISHING MEDIA 5.1 MOYENS D’EXTINCTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(CO2) / Water spray or water mist / Foam carbone (CO2) / eau pulvérisée ou brouillard / Mousse",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5.2 SPECIAL HAZARDS ARISING FROM THE SUBSTANCE OR MIXTURE 5.2 DANGERS PARTICULIERS RESULTANT DE LA SUBSTANCE OU DU MELANGE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Réactions dangereuses: En cas de feu, il se forme du dioxyde carbone (CO2), du",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "dioxide (CO2). General measures: Do not breathe fumes",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5.3 ADVICE FOR FIREFIGHTERS 5.3 CONSEILS AUX POMPIERS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SECTION 6: MEASURES IN CASE OF ACCIDENTAL RELEASE SECTION 6: MESURES EN CAS DE DIPSERSION ACCIDENTELLE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SEE ALSO THE SECTIONS 7 AND 8. VOIR AUSSI SECTIONS 7 ET 8..",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.1 PERSONAL PRECAUTIONS, PROTECTIVE EQUIPMENT AND EMERGENCY 6.1 PRECAUTIONS INDIVIDUELLES, EQUIPEMENT DE PROTECTION ET",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.2 PRECAUTIONS FOR ENVIRONMENTAL PROTECTION 6.2 PRECAUTIONS POUR LA PROTECTION DE L’ENVIRONNEMENT.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.3. METHODS AND MATERIALS FOR CONTAINMENT AND CLEANING 6.3. METHODES ET MATERIEL DE CONFINEMENT ET DE NETTOYAGE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "disposal. For more information, see “Section 13”. étiquetés. Pour plus d'informations, consulter la section 13",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "6.4. REFERENCE TO OTHER SECTIONS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "See also SECTION 13. 6.4. REFERENCE AUX AUTRES SECTIONS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Voir aussi SECTION 13.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SECTION 7: HANDLING AND STORAGE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7.1. PROTECTIVE EQUIPMENT AND EMERGENCY PROCEDURES SECTION 7: MANIPULATION ET STOCKAGE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7.1. EQUIPEMENTS DE PROTECTION ET PROCEDURES D’URGENCE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7.2. CONDITIONS FOR SAFE STORAGE, INCLUDING ANY INCOMPATIBILITIES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7.2. CONDITIONS DE STOCKAGE ET EVENTUELLES INCOMPATIBILITES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "be stored according to the requirements of Regulation (EC) No 2023/2006.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2023/2006. La contamination par d’autres substances, plus particulièrement les",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "7.3. FINAL USE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "See TDS / 3D Printing. 7.3. UTLISATION FINALE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Voir fiche technique / Impression 3D.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "SECTION 8 : EXPOSURE CONTROLS / STAFF PROTECTION SECTION 8 : EXPOSURE CONTROLS / STAFF PROTECTION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8.1. CONTROL PARAMETER 8.1. PARAMETRES DE CONTROLE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "OSHA PEL 15mg/m3 (total dust) OSHA PEL 15mg/m3 (poussière totale)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "5 mg/m3 (breathable fraction) 5 mg/m3 (fraction respirable)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "ACGIH 10 mg/m3 (inhalable particle) ACGIH 10 mg/m3 (particules inhalables)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "TLV-TWA (2010) 3 mg/m3 (breathable particle) TLV-TWA (2010) 3 mg/m3 (particules respirables)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8.2. MESURES D’EXPOSITION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "8.2. EXPOSURE CONTROL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "lors de la manipulation de la substance fondue (EN 407).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "substance (EN 407).",
+      "reason": "properties.csv carries no property for \"substance (\""
+    },
+    {
+      "page": 2,
+      "text": "chimique (selon EN 14605 en cas de projection de matières fondues ou EN ISO",
+      "reason": "properties.csv carries no property for \"chimique (selon\""
+    },
+    {
+      "page": 2,
+      "text": "EN 14605 in case of melt splashes or EN ISO 13982 in case of dust ). 13982 en cas de poussière s).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Updated: September 2023 - Appliance (CE) n° 1907/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SECTION 9 : PHYSICAL AND CHEMICAL PROPERTIES SECTION 9 : PROPRIETES PHYSIQUES ET CHIMIQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "9.1. BASIC PHYSICAL AND CHEMICAL PROPERTIES INFORMATION 9.1. PROPRIETES PHYSIQUES ET CHIMIQUES ESSENTIELLES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Decomposition: > 400°C Décomposition: > 400°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Ingnition: > 400°C Auto inflammation > 400°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Flash point: > 450°C Point éclair: > 450°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Melting point ~260 °C: Point de fusion: ~260 °C:",
+      "reason": "the upper end of a range: a window, not a result"
+    },
+    {
+      "page": 3,
+      "text": "9.2. OTHER INFORMATION 9.2. AUTRE INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SECTION 10 : STABILITY / REACTIVITY SECTION 10 : STABILITE / REACTIVITE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10.1. REACTIVITY 10.1. REACTIVITE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10.2. CHEMICAL STABILITY 10.2. STABILITE CHIMIQUE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10.3. POSSIBLE SIDE REACTIONS 10.3. REACTIONS SECONDAIRES POSSIBLES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10.4. CONDITIONS TO AVOID 10.4. CONDITIONS A EVITER",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Avoid temperature above +300°C. Eviter les températures supérieures à +300°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10.5. INCOMPATIBLE MATERIALS 10.5. MATIERES INCOMPATIBLES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "10.6. HAZARDOUS DECOMPOSITION PRODUCTS 10.6. PRODUITS DANGEREUX DE DECOMPOSITION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "In case of fire: see section 5. En cas de feu: voir section5.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SECTION 11: TOXICOLOGICAL INFORMATION SECTION 11: INFORMATIONS TOXICOLOGIQUES",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "This material contains carbon black at a maximum rate of 2%. Ce matériau contient du noir de carbone au taux maximum de 2%.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Resin & additives > 76% Cannot be classified Cannot be classified Résine & additifs > 76% N’est pas classé N’est pas classé",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Arom. Phosphate < 22% Not classified Not classified Phosphate Arom. < 22% Non classé Non classé",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Carbon black < 2% Not classified Not classified Noir de carbone < 2% Non classé Non classé",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "SECTION 12: ECOLOGICAL INFORMATION SECTION 12: ENVIRONNEMENT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "This material contains aromatic phosphate listed EINECS as EC-N° 425-220-8.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "According to EC regulation N° 1272/2008 Annex VI Table 3.2, the substance is 425-220-8 . Selon le règlement CE N ° 1272/2008 Annexe VI Table 3.2 , la",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "classified as Aquatic Chronic Category 4, R53 “may cause long term adverse substance est classée comme toxique aquatique de Catégorie 4 , R53 \" peut",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "25% in the material. Therefore, the classification is also “cannot be classified”. phosphate aromatique est inférieur à 25 % dans le matériau. Par conséquent, l",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Resin & additives > 76% Cannot be classified Cannot be classified",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Résine & additifs > 76% N’est pas classé N’est pas classé",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Arom. Phosphate < 22% Not classified Category 4 – R53",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Carbon black < 2% Not classified Not classified Phosphate Arom. < 22% Non classé Catégorie 4 – R53",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "Cannot be classified Noir de carbone < 2% Non classé Non classé",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 3,
+      "text": "3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Updated: September 2023 - Appliance (CE) n° 1907/2006",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 13: ELIMINATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 13: DISPOSAL",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 14: INFORMATIONS RELATIVES AU TRANSPORT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 14: TRANSPORT AND SHIPPING INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ONU LABELS: NONE SECTION 15: INFORMATION REGLEMENTAIRE",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 15: REGULATORY INFORMATION",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(EC) 1272/2008 Annex VI Table 3.1 Aromatic phosphate Ester: (EC) 1272/2008 Annexe VI Table 3.1 Aromatic phosphate Ester:",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Aquatic Chronic 4 Toxicité Aquatique Chronique 4",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(EC) 1272/2008 Annex VI Table 3.2 Aromatic phosphate Ester: R53 (EC) 1272/2008 Annexe VI Table 3.2 Aromatic phosphate Ester: R53",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "(EC) N° 1272/2008 (CLP) Not Applicable (EC) N° 1272/2008 (CLP) Non Applicable",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SVHC (REACH) Dose <0.1% SVHC (REACH) Dose <0.1%",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "ELV (2000/53/EC) Dose < limit value ELV (2000/53/EC) Dose < valeur limite",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "RoHS (2002/95/EC) Dose < limit value RoHS (2002/95/EC) Dose < valeur limite",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "SECTION 16 : OTHER INFORMATION SECTION 16 : AUTRES INFORMATIONS",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "Regulation (EC) No 1907/2006 of the European Parliament and of the Council of au règlement (CE) n ° 1907/2006 du Parlement européen et du Conseil du 18",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "18 December 2006 concerning the registration, evaluation and authorization of Décembre 2006 concernant l'enregistrement, l'évaluation et l'autorisation des",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "END OF MSDS – 4 pages - FIN DE LA FDS – 4 pages -",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 4,
+      "text": "4",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent release review pending; no human review",
+    "note": "Own original identity, use restrictions, contradictory food sentences and processing precautions visually reread; independent operation gate required."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Automatic reading rejected; only reviewed own-source narrative operations may enter."
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "INSUBLEND Nom commercial: INSUBLEND",
+        "Shared formulation key": "R-NANOVIA-nanovia-insublend-msds",
+        "Composition / filler": "This material contains carbon black at a maximum rate of 2%. Ce matériau contient du noir de carbone au taux maximum de 2%. (p. 3, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Annex II, Part A of the REACH Regulation (EC) No 1907/2006. réglementation REACH (EC) No 1907/2006. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-nanovia-insublend-msds",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "MSDS / FDS INSUBLEND"
+      }
+    }
+  ],
+  "newMaterial": null
+}

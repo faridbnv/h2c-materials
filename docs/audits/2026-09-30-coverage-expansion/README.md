@@ -198,3 +198,69 @@ verify:fast takes 46.8 seconds; UI baselines need no change. The record diff has
 78 changes and the compiled diff 204 intended paths, with no catalogue, profile,
 measurement or estimate-rule change. The private export now holds 2,381 originals and
 2,781 derivatives; 124 known absent inventory entries remain.
+
+## Source-backed identity and bounded properties (2026-10-01)
+
+The sixth tranche comprises Nanovia (Insublend and HIPS), The Filament, iSANMATE,
+Polymaker and eSUN; every maker batch remains within twelve products. m248 admits
+Insublend's exact SDS through the isolated witness/import ledger. m249 moves its
+stable G081-06 and all sixteen then-owned records from HIPS to existing PPE-PS,
+using the SDS's disclosed mixture. Its 65–90% composition is an aggregate, not
+individual PPO loading. No grade, catalogue entry, formulation twin or estimate rule
+is added. The already flagged 67 MPa tensile modulus remains excluded.
+
+m250 refiles five remaining bounded UV clauses; m251 records twenty-seven literal
+Insublend chemical agent/result pairs and releases its own UV clause under the corrected
+identity. None of these qualitative clauses passes an environmental requirement.
+The boiling-water/20 °C inconsistency and the page's non-rating “Phosphate” cell
+remain unresolved. m252 records a HIPS exposure caption and manual-or-limonene removal
+instruction without inventing complete dissolution, removal efficiency or a transferable
+time. m253/m254 add exact-product Application judgments, narrow the generic HIPS finding,
+and preserve the Insublend SDS food-contact contradiction as a Conflict. Distinct
+THERMAX and Insublend limitations coexist; the material-level duplicate-status lint
+is accepted with that reviewed product-scope reason. m255 records three full-document
+read markers, never maker-site exhaustion.
+
+m256 records four independently reviewed own-page numeric cells: Tg 140 °C, DTUL
+114 °C, moisture absorption 0.10%, dielectric strength 29 kV/mm to IEC 60243.
+Specimen and states remain unstated; no DSC method, load, immersion duration or electrical
+certification is invented. Unknown-load DTUL is excluded from comparable screening and
+may be used only in the existing as-published opt-in mode. Elongation's conflicting
+standard and resistivity notation/units remain held. Frequency-specific dielectric
+and tracking rows remain source context without an invented property contract.
+Two separately fetched official datasheets and a HIPS article are staged for the next
+reviewed tranche; their different raw statements have not overwritten this page.
+
+Application now has 43 Evidence recorded, 37 Reviewed with limitations, 26 Gap and
+30 unassessed material cells. Environmental record presence covers 61 of 136 materials,
+UV 26 and hydrolysis six. Know-how has 4,662 active statements and 1,329 documents
+read. Presence and maker claims are not suitability or service qualification.
+
+The frozen fifteen-question replay moves three material answers (M130 FAIL to UNKNOWN)
+from including correctly identified Insublend's unresolved stiffness; no product verdict
+moves there. Supplemental environmental replay moves one Insublend UV screen, with its
+verdict still UNKNOWN, and leaves unrelated HIPS context intact. Sixteen independent
+thermal questions move six product answers: Tg thresholds in both modes and DTUL only
+in opt-in mode; conditioned values stay UNKNOWN. The production template portfolio
+(24 questions, 30,744 evaluations) moves eight screens, all in Warm environment with
+estimates: PET and its seven products stay UNKNOWN but are no longer screened out.
+The existing model recalibrates after identity/property changes: 61 material/headline
+estimate entries change, including PET's HDT screening upper end 79.9 to 80.1 °C across
+the 80 °C threshold. These are automatic estimates, separately labelled, not new PET
+measurements or manually narrowed ranges. The independent AI changed-answer review
+rereads the deciding originals and reports these distinctions; no human review is implied.
+
+Every migration immediately reran with zero writes after its own injection. Old packets
+correctly stop after later identity or owned-record population changes. Disposable
+identity and numeric fixtures confirm moved expectations stop without writes. Five
+source-grounded fixtures retain raw values, missing conditions, food contradiction,
+HIPS caption scope and all twenty-seven non-deciding chemical pairs.
+
+Canonical gates and complete verification pass, including import/scale/reproducibility,
+69 interface views and 300 rendered scenarios with 2,592 readings (53.3 seconds).
+The warm fast run takes 27.0 seconds. Initial sandbox-only browser and loopback fixtures
+could not start; native-access runs pass without weakening checks. Ten intentional UI
+baselines change, with no laptop/tablet/phone layout failures. The compiled diff has
+1,635 paths, mostly estimate recalibration and the documented identity/record changes.
+The private export holds 2,382 originals and 2,782 derivatives; 124 previously absent
+inventory entries remain. All-catalogue product research remains unfinished.

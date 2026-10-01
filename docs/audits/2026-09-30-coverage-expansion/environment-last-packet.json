@@ -1,0 +1,390 @@
+{
+  "PacketID": "ENVIRONMENT-LAST",
+  "Operations": [
+    {
+      "OperationID": "UV-REMAINING-Q02575",
+      "Kind": "edit",
+      "Table": "evidence",
+      "Expected": {
+        "EvidenceID": "Q02575",
+        "MaterialID": "M031",
+        "GradeID": "G031-43",
+        "Domain": "Makers' know-how",
+        "Topic": "Benefits",
+        "Finding": "resistance to external exposure, changing weather conditions & UV resistance",
+        "Exposure / conditions": "Not applicable",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-3DJAKE-EN-TDS-The-Filament-ASA",
+        "Locator": "p. 1"
+      },
+      "Proposed": {
+        "EvidenceID": "Q02575",
+        "MaterialID": "M031",
+        "GradeID": "G031-43",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "resistance to external exposure, changing weather conditions & UV resistance",
+        "Exposure / conditions": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-3DJAKE-EN-TDS-The-Filament-ASA",
+        "Locator": "p. 1"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G031-43",
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "The Filament",
+        "Product name": "ASA",
+        "Shared formulation key": "S-SPECTRUM-en-tds-the-filament-asa",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-3DJAKE-EN-TDS-The-Filament-ASA",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "R-3DJAKE-EN-TDS-The-Filament-ASA",
+          "Publisher": "The Filament",
+          "Title": "TECHNICAL DATA SHEET THE FILAMENT ASA",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-21",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is The Filament's.",
+          "Citation role": "cited",
+          "URL": "https://3d.nice-cdn.com/upload/file/EN_TDS_The_Filament_ASA.pdf",
+          "Locator": "Document / product page",
+          "Applicable grades": "G031-43",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "08c5bdb3f12cbcddc40f0c69be767a76dcc58acaf13b537cffa492940c44ff5d"
+        },
+        "OriginalPath": ".cache/sources/by-sha/08c5bdb3f12cbcddc40f0c69be767a76dcc58acaf13b537cffa492940c44ff5d.pdf",
+        "TextPath": ".cache/text/08c5bdb3f12cbcddc40f0c69be767a76dcc58acaf13b537cffa492940c44ff5d.json"
+      }
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02717",
+      "Kind": "edit",
+      "Table": "evidence",
+      "Expected": {
+        "EvidenceID": "Q02717",
+        "MaterialID": "M034",
+        "GradeID": "G034-02",
+        "Domain": "Makers' know-how",
+        "Topic": "Benefits",
+        "Finding": "It is resistant to ultraviolet rays and does not fade or yellow.",
+        "Exposure / conditions": "Not applicable",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+        "Locator": "p. 1"
+      },
+      "Proposed": {
+        "EvidenceID": "Q02717",
+        "MaterialID": "M034",
+        "GradeID": "G034-02",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "It is resistant to ultraviolet rays and does not fade or yellow.",
+        "Exposure / conditions": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+        "Locator": "p. 1"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G034-02",
+        "MaterialID": "M034",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "ASA Glass Fiber",
+        "Shared formulation key": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "I-ASA-Glass-Fiber-Technical-Data-Sheet",
+          "Publisher": "iSANMATE",
+          "Title": "ASA Glass Fiber",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-10",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://www.isanmate.com/wp-content/uploads/2025/08/ASA-Glass-Fiber-Technical-Data-Sheet.pdf",
+          "Locator": "Document / product page",
+          "Applicable grades": "G034-02",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "6173ede40cc31227ccfeec0425635d5d10e930d78cf597ff88b89450cb5a23ac"
+        },
+        "OriginalPath": ".cache/sources/by-sha/6173ede40cc31227ccfeec0425635d5d10e930d78cf597ff88b89450cb5a23ac.pdf",
+        "TextPath": ".cache/text/6173ede40cc31227ccfeec0425635d5d10e930d78cf597ff88b89450cb5a23ac.json"
+      }
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02908",
+      "Kind": "edit",
+      "Table": "evidence",
+      "Expected": {
+        "EvidenceID": "Q02908",
+        "MaterialID": "M160",
+        "GradeID": "G039-03",
+        "Domain": "Makers' know-how",
+        "Topic": "Benefits",
+        "Finding": "It also have the ability to resist ultra-violet (UV) light or sunlight.",
+        "Exposure / conditions": "Not applicable",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2",
+        "Locator": "p. 6"
+      },
+      "Proposed": {
+        "EvidenceID": "Q02908",
+        "MaterialID": "M160",
+        "GradeID": "G039-03",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "It also have the ability to resist ultra-violet (UV) light or sunlight.",
+        "Exposure / conditions": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2",
+        "Locator": "p. 6"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G039-03",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyFlex TPU90",
+        "Shared formulation key": "S-POLYCN-PolyFlex-TPU90-TDS-V5-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence. Re-filed 2026-09-13 from G044-02: Polymaker PolyFlex TPU90 is a TPU",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-V5-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "S-POLYCN-PolyFlex-TPU90-PIS-EN-V1-2",
+          "Publisher": "Polymaker",
+          "Title": "PolyFlex\u2122 TPU90",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-19",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://3d.nice-cdn.com/upload/file/PolyFlex_TPU90_PIS_EN_V1.2.pdf",
+          "Locator": "Document / product page",
+          "Applicable grades": "G039-03",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "9bbb82b1305b7044afdbb4f8d200b637f3207e8ad8095d32fbfc558cb2768577"
+        },
+        "OriginalPath": ".cache/sources/by-sha/9bbb82b1305b7044afdbb4f8d200b637f3207e8ad8095d32fbfc558cb2768577.pdf",
+        "TextPath": ".cache/text/9bbb82b1305b7044afdbb4f8d200b637f3207e8ad8095d32fbfc558cb2768577.json"
+      }
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02909",
+      "Kind": "edit",
+      "Table": "evidence",
+      "Expected": {
+        "EvidenceID": "Q02909",
+        "MaterialID": "M160",
+        "GradeID": "G039-03",
+        "Domain": "Makers' know-how",
+        "Topic": "Benefits",
+        "Finding": "It also has the ability to resist ultra-violet (UV) light or sunlight.",
+        "Exposure / conditions": "Not applicable",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-V4-2",
+        "Locator": "p. 1"
+      },
+      "Proposed": {
+        "EvidenceID": "Q02909",
+        "MaterialID": "M160",
+        "GradeID": "G039-03",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "It also has the ability to resist ultra-violet (UV) light or sunlight.",
+        "Exposure / conditions": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-V4-2",
+        "Locator": "p. 1"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G039-03",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "PolyFlex TPU90",
+        "Shared formulation key": "S-POLYCN-PolyFlex-TPU90-TDS-V5-1",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence. Re-filed 2026-09-13 from G044-02: Polymaker PolyFlex TPU90 is a TPU",
+        "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-V5-1",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "S-POLYCN-PolyFlex-TPU90-TDS-V4-2",
+          "Publisher": "Polymaker",
+          "Title": "Sep. 2020 Technical Data Sheet Version 4.2 PolyFlex\u2122 TPU90",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-19",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://3d.nice-cdn.com/upload/file/PolyFlex_TPU90_TDS_V4.2.pdf",
+          "Locator": "Document / product page",
+          "Applicable grades": "G039-03",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "3549885db399b83b4c83da7e1ed2eb6bdbf678658efd9f7bcd68f31d1f9722ca"
+        },
+        "OriginalPath": ".cache/sources/by-sha/3549885db399b83b4c83da7e1ed2eb6bdbf678658efd9f7bcd68f31d1f9722ca.pdf",
+        "TextPath": ".cache/text/3549885db399b83b4c83da7e1ed2eb6bdbf678658efd9f7bcd68f31d1f9722ca.json"
+      }
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02946",
+      "Kind": "edit",
+      "Table": "evidence",
+      "Expected": {
+        "EvidenceID": "Q02946",
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Domain": "Makers' know-how",
+        "Topic": "Benefits",
+        "Finding": "It also has the ability to resist ultra-violet (UV) light or sunlight.",
+        "Exposure / conditions": "Not applicable",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+        "Locator": "p. 1"
+      },
+      "Proposed": {
+        "EvidenceID": "Q02946",
+        "MaterialID": "M160",
+        "GradeID": "G039-11",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "It also has the ability to resist ultra-violet (UV) light or sunlight.",
+        "Exposure / conditions": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+        "Locator": "p. 1"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G039-11",
+        "MaterialID": "M160",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Polymaker",
+        "Product name": "Polymaker PolyFlex TPU90",
+        "Shared formulation key": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "S-POLYCN-TDS-Polymaker-PolyFlex-TPU90-V5-6-2025-12-11-EN",
+          "Publisher": "Polymaker",
+          "Title": "PolyFlex\u2122 TPU90 Technical Data Sheet",
+          "Revision": "V5.6",
+          "Publication date": "Not published",
+          "Access date": "2026-09-19",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://polymaker.com/wp-content/uploads/TDS_Polymaker_PolyFlex-TPU90_V5.6_2025-12-11_EN.pdf",
+          "Locator": "Document / product page",
+          "Applicable grades": "G039-11",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e"
+        },
+        "OriginalPath": ".cache/sources/by-sha/4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e.pdf",
+        "TextPath": ".cache/text/4261f18380c4de748640dd2905e428a3dc067e7f6e34d133be0483bfb3f5388e.json"
+      }
+    }
+  ],
+  "MakerBatches": [
+    {
+      "Manufacturer": "The Filament",
+      "GradeIDs": [
+        "G031-43"
+      ],
+      "Products": 1
+    },
+    {
+      "Manufacturer": "iSANMATE",
+      "GradeIDs": [
+        "G034-02"
+      ],
+      "Products": 1
+    },
+    {
+      "Manufacturer": "Polymaker",
+      "GradeIDs": [
+        "G039-03",
+        "G039-11"
+      ],
+      "Products": 2
+    }
+  ],
+  "NoNewDocumentAdmission": true
+}

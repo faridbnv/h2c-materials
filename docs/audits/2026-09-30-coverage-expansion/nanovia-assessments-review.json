@@ -1,0 +1,116 @@
+{
+  "input_path": "external-campaign/research/nanovia-assessments-packet.json",
+  "input_sha256": "0aa3f6567436d3ede591bd0b06f74011daa04c337055250602ae5321e7f508d0",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T05:22:44.642883+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 3,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "Nanovia",
+      "GradeIDs": [
+        "G081-06",
+        "G081-10"
+      ],
+      "Products": 2
+    }
+  ],
+  "original_reread_scope": "Original HIPS own HTML figure caption and post-treatment clause; original Insublend own HTML electrical/industrial paragraph; exact SDS pages 1\u20132 English/French restrictions, food sentence and mixture identity. Original digests freshly verified and exact basis wording reread, not review summaries.",
+  "guard_checks": {
+    "all_full_expected_grades_match_current": true,
+    "all_existing_evidence_rows_match_current": true,
+    "all_full_registered_sources_match_current": true,
+    "all_basis_quotes_reproduced_from_originals": true,
+    "superseded_C00873_matches_current_full_row": true,
+    "retained_C01506_matches_current_full_row": true,
+    "all_append_operations_equal_frozen_ProposedCoverage": true
+  },
+  "operations": [
+    {
+      "operation_id": "CE-APP-M081",
+      "verdict": "APPROVE",
+      "MaterialID": "M081",
+      "GradeID": "G081-10",
+      "domain": "Post-processing / application",
+      "status": "Evidence recorded",
+      "basis_evidence_ids": [
+        "Q05410",
+        "Q05411"
+      ],
+      "basis_originals": [
+        {
+          "SourceID": "R-NANOVIA-HIPS",
+          "original_path": ".cache/sources/by-sha/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.html",
+          "sha256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51"
+        }
+      ],
+      "superseded_coverage_ids": [
+        "C00873"
+      ],
+      "reason": "APPROVE Evidence recorded: Q05410 is an admitted own-product Published observation in Post-processing recording a specific finishing exposure, and Q05411 is explicit support-removal guidance. The frozen judgment accurately says exposure only and explicitly excludes a complete or transferable removal result. This is a sourced manual presence judgment, not a finishing validation or suitability judgment."
+    },
+    {
+      "operation_id": "CE-APP-M130-INSUBLEND",
+      "verdict": "APPROVE",
+      "MaterialID": "M130",
+      "GradeID": "G081-06",
+      "domain": "Post-processing / application",
+      "status": "Reviewed with limitations",
+      "basis_evidence_ids": [
+        "Q04262",
+        "Q04263",
+        "Q05378",
+        "Q05379",
+        "Q05380"
+      ],
+      "basis_originals": [
+        {
+          "SourceID": "R-NANOVIA-Insublend",
+          "original_path": ".cache/sources/by-sha/3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7.html",
+          "sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7"
+        },
+        {
+          "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+          "original_path": ".cache/sources/by-sha/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+          "sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534"
+        }
+      ],
+      "superseded_coverage_ids": [],
+      "reason": "APPROVE Reviewed with limitations: own maker electrical/industrial uses and restrictions are exact G081-06 claims with no printed application validation; corrected M130 identity is current. New scoped judgment complements rather than replaces valid THERMAX C01506."
+    },
+    {
+      "operation_id": "CE-CONFLICT-INSUBLEND-FOOD",
+      "verdict": "APPROVE",
+      "MaterialID": "M130",
+      "GradeID": "G081-06",
+      "domain": "Source conflict",
+      "status": "Conflict",
+      "basis_evidence_ids": [
+        "Q05379",
+        "Q05380"
+      ],
+      "basis_originals": [
+        {
+          "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+          "original_path": ".cache/sources/by-sha/afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534.pdf",
+          "sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534"
+        }
+      ],
+      "superseded_coverage_ids": [],
+      "reason": "APPROVE Conflict: exact same SDS \u00a71.2 restriction and \u00a77.2 approval sentence contradict food-contact scope; both languages repeat it. Frozen judgment preserves uncertainty and vendor/certificate-scope handoff."
+    }
+  ],
+  "required_corrections": [],
+  "limitations": [
+    "Evidence recorded describes presence of exact-product finishing evidence only. HIPS reported submersion caption establishes exposure, not disappearance, efficiency or validated removal time; the maker instruction remains know-how.",
+    "Insublend RWL does not inherit THERMAX use validation, properties or resin approvals. C01506 stays; its formulation scope is separate.",
+    "Food Source conflict reports a reproduced internal disagreement; neither statement establishes food suitability, and no recency or language preference resolves it."
+  ],
+  "release_conditions": [
+    "Recheck all frozen row guards immediately before serialized append/supersede.",
+    "Supersede only C00873; retain separate C01506. Keep Q05410 caption scope and Q05411 maker instruction distinction explicit in coverage tooltip/drawer.",
+    "Coverage changes require the normal record/compiled diffs, rendered coverage inspection and answer replay; no qualification or selection pass added."
+  ],
+  "canonical_mutations": "None; external review only.",
+  "review_signature_sha256": "156ec17414e016e838f662664ddac84fdfb4f998a931f1e5240743b490d0214c"
+}

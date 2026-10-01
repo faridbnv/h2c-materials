@@ -1,0 +1,192 @@
+{
+  "PacketID": "INSUBLEND-C02-SOURCE",
+  "Batch": "c02",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G081-06",
+      "MaterialID": "M081",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "Insublend",
+      "Shared formulation key": "R-NANOVIA-Insublend",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-Insublend",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "Documents": [
+    {
+      "File": "afadf4eb9e7c453a.json",
+      "ProposalSHA256": "9f632e722e6c003c34d50a3bb698586ab040bd5559a2b315d42511d8603b36db",
+      "OriginalSHA256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "Source": {
+        "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+        "Publisher": "Nanovia",
+        "Title": "MSDS / FDS INSUBLEND",
+        "Revision": "Updated: September 2023",
+        "Publication date": "2023-09",
+        "Access date": "2026-09-30",
+        "Source class": "Manufacturer SDS",
+        "Source note": "Exact-product witnessed SDS. Own mixture identity and use restrictions; contains unresolved food-contact contradiction between sections 1.2 and 7.2. Composition 65–90% is a merged aggregate for PPO, PS and poly(butadiene-styrene), not individual PPO loading. No certification, emission approval or tested service property admitted. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/media/nanovia-insublend-msds.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G081-06",
+        "Access state": "retrieved",
+        "Access note": "Not applicable",
+        "SHA256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "insublend-1",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "Plastic ingredient for home electronics, electronic materials, automotive materials, industrial materials.",
+            "Exposure / conditions": "Own-product maker intended-use claim; no component, load, lifetime, medical, food or printed-part service qualification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+            "Locator": "p. 1: 1.2 identified uses (English column; French corroborates scope)"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Plastic ingredient for home electronics, electronic materials, automotive materials, industrial materials."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent release review pending; no human review",
+            "visual": true,
+            "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+          }
+        },
+        {
+          "id": "insublend-2",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "Restriction of use: Do not use INSUBLEND for medical containers, parts of in-vivo or which contact with mucosa, body fluid, blood. Equipments and parts for food contact and drinking fluids. Toys which contact with mouth.",
+            "Exposure / conditions": "Full source restriction retained. Section 7.2 contradicts this on food contact; unresolved vendor clarification needed. No food or medical approval follows.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+            "Locator": "p. 1: 1.2 restriction of use (English column; French corroborates scope)"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Restriction of use: Do not use INSUBLEND for medical containers, parts of in-vivo or which contact with mucosa, body fluid, blood. Equipments and parts for food contact and drinking fluids. Toys which contact with mouth."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent release review pending; no human review",
+            "visual": true,
+            "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+          }
+        },
+        {
+          "id": "insublend-3",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Pitfalls and limitations",
+            "Finding": "The product is approved for food contact.",
+            "Exposure / conditions": "Unresolved internal contradiction: section 1.2 prohibits food/drinking-fluid contact and mouth-contact toys. Both English and French repeat the disagreement. No verified certificate or food-contact qualification; do not use this isolated claim for suitability.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+            "Locator": "p. 2: 7.2 storage, conflicting food sentence (English column; French corroborates scope)"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "The product is approved for food contact."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent release review pending; no human review",
+            "visual": true,
+            "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+          }
+        },
+        {
+          "id": "insublend-4",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Odour and emissions",
+            "Finding": "Ensure adequate ventilated place. Avoid fumes and dust.",
+            "Exposure / conditions": "Maker processing precautions; no measured printer emissions, exposure limits or validated ventilation performance.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+            "Locator": "p. 2: 7.1 protective equipment and emergency procedures (English column; French corroborates scope)"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Ensure adequate ventilated place. Avoid fumes and dust."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent release review pending; no human review",
+            "visual": true,
+            "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+          }
+        },
+        {
+          "id": "insublend-5",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Odour and emissions",
+            "Finding": "Gases are generated from melted resin but administrative level and allowable limit are not established.",
+            "Exposure / conditions": "Own gas-limit statement; nearby numeric dust references are not emitted-gas measurements or printed-product safety proof.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+            "Locator": "p. 2: 8.1 control parameter (English column; French corroborates scope)"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "Gases are generated from melted resin but administrative level and allowable limit are not established."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent release review pending; no human review",
+            "visual": true,
+            "note": "Original bilingual page visually re-read; independent signed operation-packet release required."
+          }
+        }
+      ],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 1,
+        "profiles": 0,
+        "evidence": 0
+      }
+    }
+  ],
+  "AdmissionRequiresIndependentReview": true
+}

@@ -1,0 +1,37 @@
+{
+  "migration": "m250-environment-final-qualified-claims",
+  "packet": "ec6740180ee691bcdc82afbdc583ca18a3275e279c8b26e69d47b23ce6026641",
+  "written": 5,
+  "records": [
+    {
+      "operation": "UV-REMAINING-Q02575",
+      "table": "evidence",
+      "id": "Q02575",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02717",
+      "table": "evidence",
+      "id": "Q02717",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02908",
+      "table": "evidence",
+      "id": "Q02908",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02909",
+      "table": "evidence",
+      "id": "Q02909",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02946",
+      "table": "evidence",
+      "id": "Q02946",
+      "kind": "edit"
+    }
+  ]
+}

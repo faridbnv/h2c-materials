@@ -1,0 +1,94 @@
+{
+  "input_path": "external-campaign/research/hips-finishing-packet.json",
+  "input_sha256": "7f027258f6e2c5f5eea6d1fc480664fbc618b9fd373dac473db70749a210d6ef",
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T05:15:38.943659+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 2,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "Nanovia",
+      "GradeIDs": [
+        "G081-10"
+      ],
+      "Products": 1
+    }
+  ],
+  "source_custody": {
+    "SourceID": "R-NANOVIA-HIPS",
+    "original_path": ".cache/sources/by-sha/6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51.html",
+    "original_sha256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51",
+    "original_hash_verified": true,
+    "reread_scope": "Own original HTML heading/product description, printed-properties context, Application recommendations figure/figcaption HTML, Post treatment list, health/safety and section boundary before Related products. No image-pixel outcome inferred; image bytes were not independently retrieved or inspected."
+  },
+  "guard_checks": {
+    "full_expected_grades_match_current_G081_10": true,
+    "full_registered_source_matches_current": true,
+    "both_full_raw_findings_match_original_visible_text": true,
+    "caption_is_literal_figcaption_in_own_product_application_section": true,
+    "manual_or_limonene_clause_is_own_Post_treatment_list_before_related_footer": true,
+    "current_owned_evidence_reviewed": [
+      "Q04276",
+      "Q04277",
+      "Q04278",
+      "Q04279",
+      "Q04280",
+      "Q04281",
+      "Q04282"
+    ],
+    "current_M081_Post_processing_records": 0
+  },
+  "operations": [
+    {
+      "operation_id": "HIPS-FINISH-caption",
+      "verdict": "APPROVE",
+      "GradeID": "G081-10",
+      "MaterialID": "M081",
+      "SourceID": "R-NANOVIA-HIPS",
+      "original_sha256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51",
+      "locator": "p. 1: Application recommendations, figure caption",
+      "raw_finding": "HIPS after 24h submersion in limonene",
+      "evidence_type": "Published observation",
+      "domain": "Post-processing",
+      "topic": "Post-processing",
+      "limits_preserved": "Own-page illustrated exposure caption only: 24 h submersion in limonene. Concentration, temperature, geometry and moisture state not published. Caption does not state complete dissolution, removal efficiency or a transferable procedure; no visual-result or service qualification inferred.",
+      "reason": "Exact own-page caption faithfully records illustrated exposure only."
+    },
+    {
+      "operation_id": "HIPS-FINISH-method",
+      "verdict": "APPROVE",
+      "GradeID": "G081-10",
+      "MaterialID": "M081",
+      "SourceID": "R-NANOVIA-HIPS",
+      "original_sha256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51",
+      "locator": "p. 1: Application recommendations, Post treatment support removal",
+      "raw_finding": "Nanovia HIPS used as a support material can be removed manually or dissolved using limonene.",
+      "evidence_type": "Manufacturer statement",
+      "domain": "Makers' know-how",
+      "topic": "Supports and removal",
+      "limits_preserved": "Own maker support-removal instruction; no quantified manual force, solvent concentration, immersion temperature or complete-removal time. Limonene subfact already recorded; the explicit manual-removal alternative adds scope rather than an independent duplicate test.",
+      "reason": "Exact own-page instruction adds explicit manual-removal alternative; limonene repetition acknowledged."
+    }
+  ],
+  "required_corrections": [],
+  "duplication_and_yield": {
+    "limonene_dissolution_subfact": "Already in Q04279 and Q04282; this aspect is corroborating repetition, not independent new dissolution evidence.",
+    "new_useful_content": [
+      "Exact illustrated exposure caption records 24 h submersion as printed, without claiming dissolution completion.",
+      "Source instruction explicitly allows manual removal as an alternative to dissolution. Existing easy removal from bed statement does not establish this manual support-removal instruction."
+    ],
+    "counting_limit": "Two new atomic clauses, not two independent tests and not an additional unique limonene-solubility fact."
+  },
+  "limitations": [
+    "The caption is a maker-published illustrated exposure observation, not a transferable 24 h complete-removal schedule. Solvent concentration, temperature, geometry, moisture state, efficiency and disappearance are unstated.",
+    "Published observation classification applies only to the printed caption; no conclusion from uninspected image pixels is admitted.",
+    "Manual-or-limonene removal instruction remains Manufacturer statement in know-how. No suitability/selection pass, load/lifetime or quantitative manual force inferred.",
+    "Any later manual Application/finishing coverage judgment needs its own frozen review; this operation approval alone does not sign a coverage status."
+  ],
+  "release_conditions": [
+    "Recheck full current grade and registered source and absence of existing identical clauses immediately before serialized append.",
+    "Retain proposed limits and exact wording. Do not infer outcome completeness from the 24 h caption or treat a repeated limonene subfact as new research yield."
+  ],
+  "canonical_mutations": "None; external review report only.",
+  "review_signature_sha256": "ad609857ce4e15e7e2d3adc24efe7f7ea05fd96412278580b7f5d9fc123b72e7"
+}

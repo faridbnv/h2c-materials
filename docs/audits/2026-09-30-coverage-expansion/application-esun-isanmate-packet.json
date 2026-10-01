@@ -1,0 +1,183 @@
+{
+  "PacketID": "APPLICATION-ESUN-ISANMATE",
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M156",
+      "ExpectedGrade": {
+        "GradeID": "G156-01",
+        "MaterialID": "M156",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "eSUN",
+        "Product name": "ePA CF",
+        "Shared formulation key": "S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0",
+        "Composition / filler": "Developed based on nylon 6/66 copolymer, adding 20% carbon fiber greatly enhances the strength, rigidity and tough- (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05028",
+          "MaterialID": "M156",
+          "GradeID": "G156-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Self-lubricating wear resistance makes it suitable for printing gears",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0",
+            "Publisher": "eSUN",
+            "Title": "Technical Data Sheet",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by 3DJake / 3DJAKE; the sheet is eSUN's.",
+            "Citation role": "cited",
+            "URL": "https://3d.nice-cdn.com/upload/file/eSUN_ePA-CF-Filament_TDS_V4.0.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G156-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "d6f8837bda6707616fccc2514fa13319af3d30313ffed03ddfddb39a28bc6ea1"
+          },
+          "OriginalPath": ".cache/sources/by-sha/d6f8837bda6707616fccc2514fa13319af3d30313ffed03ddfddb39a28bc6ea1.pdf",
+          "TextPath": ".cache/text/d6f8837bda6707616fccc2514fa13319af3d30313ffed03ddfddb39a28bc6ea1.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M156",
+        "GradeID": "G156-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: eSUN ePA CF (G156-01) has maker good for statements (Q05028, S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded."
+      }
+    },
+    {
+      "FindingID": "CE-APP-M161",
+      "ExpectedGrade": {
+        "GradeID": "G039-02",
+        "MaterialID": "M161",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "iSANMATE",
+        "Product name": "TPU",
+        "Shared formulation key": "I-TPU-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "I-TPU-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q02902",
+          "MaterialID": "M161",
+          "GradeID": "G039-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "It is commonly applied in field such as functional prototypes, guides, sleeves, and protective cases.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "I-TPU-TDS",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "I-TPU-TDS",
+            "Publisher": "iSANMATE",
+            "Title": "TPU",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-10",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://www.isanmate.com/wp-content/uploads/2022/09/TPU_TDS.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G039-02",
+            "Access state": "retrieved-copy",
+            "Access note": "Retrieved; user-supplied local copy re-verified 2026-09-11 (SHA256 match confirms identical to originally cited document)",
+            "SHA256": "e97956b414caf60da28b4b720f37c1366734dcc46423c0c7bb43bf1ba8a98b94"
+          },
+          "OriginalPath": ".cache/sources/by-sha/e97956b414caf60da28b4b720f37c1366734dcc46423c0c7bb43bf1ba8a98b94.pdf",
+          "TextPath": ".cache/text/e97956b414caf60da28b4b720f37c1366734dcc46423c0c7bb43bf1ba8a98b94.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M161",
+        "GradeID": "G039-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: iSANMATE TPU (G039-02) has maker good for statements (Q02902, I-TPU-TDS, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded."
+      }
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M156",
+      "append": {
+        "MaterialID": "M156",
+        "GradeID": "G156-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: eSUN ePA CF (G156-01) has maker good for statements (Q05028, S-PEBA-eSUN-ePA-CF-Filament-TDS-V4-0, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M161",
+      "append": {
+        "MaterialID": "M161",
+        "GradeID": "G039-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: iSANMATE TPU (G039-02) has maker good for statements (Q02902, I-TPU-TDS, p. 1). These remain maker claims in know-how, without application validation or a demonstrated finishing process; no suitability or screening pass follows. Other products remain individually bounded."
+      },
+      "supersede": []
+    }
+  ],
+  "MakerBatches": [
+    {
+      "Manufacturer": "eSUN",
+      "GradeIDs": [
+        "G156-01"
+      ],
+      "Products": 1
+    },
+    {
+      "Manufacturer": "iSANMATE",
+      "GradeIDs": [
+        "G039-02"
+      ],
+      "Products": 1
+    }
+  ]
+}
