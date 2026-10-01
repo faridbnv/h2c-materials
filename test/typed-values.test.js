@@ -63,7 +63,32 @@ test('a test temperature is typed and checked the same way, and a wording with n
   // The compiled measurement carries it only where the source states one.
   const { db } = run(() => {});
   const stated = db.measurements.filter((m) => m.testTemperatureC != null);
-  assert.ok(stated.length > 1000 && stated.every((m) => m.testTemperatureC === readTestTemperature(m.testTemperature)));
+  assert.ok(stated.length > 1000);
+  const canonical = new Map(base.Properties.rows.map((r) => [r.MeasurementID, r]));
+  for (const m of stated) {
+    const r = canonical.get(m.id);
+    assert.equal(m.testTemperatureC, Number(r['Test temperature °C']), m.id);
+    if (m.testTemperatureC !== readTestTemperature(m.testTemperature)) {
+      assert.ok(r['Parse review'] && r['Parse review'] !== 'Not applicable',
+        `${m.id}: a raw/parser exception needs an explicit review`);
+    }
+  }
+  // A reviewed source spelling keeps its typed value; removing the review restores the guard.
+  const reviewed = run((wb) => {
+    const r = wb.Properties.rows.find((x) => x.MeasurementID === cold.MeasurementID);
+    r['Test temperature'] = '150℃';
+    r['Test temperature °C'] = '150';
+    r['Parse review'] = 'Source Celsius glyph transcribed as150°C; no other condition inferred.';
+  });
+  assert.deepEqual(reviewed.mismatches, []);
+  assert.equal(reviewed.db.measurements.find((m) => m.id === cold.MeasurementID).testTemperatureC, 150);
+  const unreviewed = run((wb) => {
+    const r = wb.Properties.rows.find((x) => x.MeasurementID === cold.MeasurementID);
+    r['Test temperature'] = '150℃';
+    r['Test temperature °C'] = '150';
+    r['Parse review'] = 'Not applicable';
+  });
+  assert.deepEqual(unreviewed.mismatches, [`measurements ${cold.MeasurementID}: Test temperature °C is 150 but the parser reads "150℃" as Not published; correct the typed value, or explain it in Parse review`]);
 });
 
 test('the annealing schedule is a typed pair the wording checks: three spellings of one schedule are one state', async () => {

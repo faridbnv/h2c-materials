@@ -1,0 +1,56 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T15:20:21.201139+00:00",
+  "overall_verdict": "APPROVE",
+  "scope": "Separate test-only correction for existingD95 exclusion and explicitParse review contract; eighth-tranche data remains separately reviewed and uncommitted.",
+  "input_files": [
+    {
+      "path": "test/products.test.js",
+      "sha256": "12372689e043d3cfccce0c5666b78412e2f8206eed289c2a7f8040434151cb0e"
+    },
+    {
+      "path": "test/typed-values.test.js",
+      "sha256": "ef88e68cb82c842a07f602f1e9e4f5ba7f4dddb8631c856d965515795757fced"
+    }
+  ],
+  "git_diff_sha256": "5c926b9bab884701991408a69f3c973c83849bcc64b1acae0545d7c025224061",
+  "per_file": [
+    {
+      "path": "test/products.test.js",
+      "verdict": "APPROVE",
+      "reason": "Universal off-recipe exclusion from every product headline and material implied bound remains unchanged. Only companion-record assumption is scoped to original14colorFabb2-column fixtures; explicit synthetic unpaired off-recipe value is excluded with empty or own-only companion set. A known printed recipe in source guidance can establish contradictoryoff-recipe specimen even when that same document contains no in-recipe measured counterpart; no measurement is invented to satisfy a test.",
+      "retained_guards": [
+        "all off-recipe IDs excluded from product headlines",
+        "all off-recipe IDs excluded from material implied bounds",
+        "14 original colorFabb paired source fixtures still require samegrade/source/property printed companion"
+      ]
+    },
+    {
+      "path": "test/typed-values.test.js",
+      "verdict": "APPROVE",
+      "reason": "Compiled temperature must equal canonical stored typed value for all>1000stated records. Raw-parser disagreement requires explicitParse review, as production contract already permits. Synthetic Unicode150℃ reviewed input preserves150; identicalunreviewed input produces precisePARSE-MISMATCH. Existing negative coldtyped/raw mismatch remains.",
+      "retained_guards": [
+        "unreviewed typed mismatch fails",
+        "unreviewed raw text edit fails",
+        "typed state mismatch guards retained",
+        "canonical compiled typed temperature equality for entire stated population"
+      ]
+    }
+  ],
+  "independent_validation": {
+    "command": "node --test test/products.test.js test/typed-values.test.js",
+    "passed": 34,
+    "failed": 0,
+    "skipped": 0,
+    "duration_ms": 3467.353041,
+    "production_app_compiler_schema_diff": "None observed undergitdiff build/src app/js schema"
+  },
+  "limitations": [
+    "TestParse review is a provenance guard, not independent verification of raw fact; deciding source values require separate original reread and approved operation packet.",
+    "Fixed14source-fixture count describes frozen original corpus; future deliberate source expansions should revise fixture scope rather than waive universal exclusion.",
+    "Full baseline-isolated verification and separate test-fix commit remain root release gates.",
+    "No product/model/selection/schema change approved by this report."
+  ],
+  "canonical_mutations": false,
+  "review_signature_sha256": "8595d11a6ad2fd91bc8d1983e1928e3c6a96f0acc7d698df7aa3694c49b7ac10"
+}

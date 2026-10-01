@@ -61,7 +61,7 @@ test('no product value is in another direction than its headline\'s, or a moulde
   }
 });
 
-test('a bar printed off its product\'s recipe backs no product value or bound, and stands beside the recipe\'s own value (D95)', () => {
+test('a bar printed off its product\'s recipe backs no product value or bound (D95)', () => {
   const off = db.measurements.filter((m) => m.specimenForm === 'off-recipe');
   assert.ok(off.length, 'the unfoamed columns of colorFabb\'s lightweight PETs are recorded');
   const offIds = new Set(off.map((m) => m.id));
@@ -69,10 +69,26 @@ test('a bar printed off its product\'s recipe backs no product value or bound, a
   for (const mat of db.materials) {
     for (const [key, h] of Object.entries(mat.headline ?? {})) for (const b of h?.impliedBounds ?? []) assert.ok(!offIds.has(b.measurementId), `${mat.id} ${key} is bounded by ${b.measurementId}`);
   }
-  // Recorded beside the value the product is meant to be printed at: the same product, source and property, printed.
-  for (const m of off) {
+  // The original colorFabb two-column fixtures publish both recipes in one source.
+  // A source-condition defect can establish an off-recipe specimen without an in-recipe
+  // value in that document; a separately published edition is never fabricated as its twin.
+  const pairedSources = new Set(['R-COLORFABB-TDS-LW-PET', 'R-COLORFABB-TDS-LW-PET-FLEX',
+    'D-COLORFABB-LW-PET-NATURAL-PAGE', 'D-COLORFABB-LW-PET-FLEX-NATURAL-PAGE']);
+  const paired = off.filter((m) => pairedSources.has(m.sourceId));
+  assert.equal(paired.length, 14, 'the original two-column source fixtures remain covered');
+  for (const m of paired) {
     assert.ok(db.measurements.some((x) => x.gradeId === m.gradeId && x.sourceId === m.sourceId && x.property === m.property && x.specimenForm === 'printed'),
       `${m.id} (${m.gradeId} ${m.property}) has no value of the product's own recipe beside it`);
+  }
+});
+
+test('an off-recipe value with no in-recipe counterpart is excluded independently of companion records', () => {
+  const m = { id: 'V999999', numeric: true, dataStatus: 'Published value', property: 'Tensile modulus',
+    unit: 'GPa', value: 3, implausible: false, specimenType: "Printed off the product's recipe",
+    specimenForm: 'off-recipe', direction: 'XY', moistureState: 'not-stated', postProcessingState: 'not-stated' };
+  for (const own of [[], [m]]) {
+    assert.deepEqual(assess(m, defs.get('tensileModulusXY'), own),
+      { excluded: 'printed at a setting the product is not meant for (D95)' });
   }
 });
 

@@ -1,0 +1,14 @@
+{
+  "baseline_commit": "983607f0782d332e5b70d673a3acf46e856ddb29",
+  "scope": "Isolated baseline checkout with only two test changes; no eighth-tranche data",
+  "full_verify_exit": 0,
+  "full_seconds": 236.89,
+  "interface_views": 69,
+  "rendered_scenarios": 300,
+  "readings": 2592,
+  "log_sha256": "2e7e69f97cf2cc9e6853a0b7f5dab3ce65418f1876f10dff0a38c6222ffbab98",
+  "targeted_tests": 34,
+  "human_review": false,
+  "compiled_difference_paths": 0,
+  "build_diff_log_sha256": "90cc5f1e82644ff460957f7c784bc0659cbf6d46b8ec7faaaf66518e398267d0"
+}
