@@ -1,0 +1,22 @@
+{
+  "$comment": "Contract for data/tables/page_context.csv. Checked by build/src/schema.js; applied by build/src/compile.js (D116).",
+  "title": "Page context",
+  "description": "What a source page states once for the values printed on it: a heading such as \"Mechanical properties (dry state)\" or \"printed, non-injection moulded specimens\", a footnote such as \"all specimens annealed at 80 °C for 12 h\", a block standard or a test temperature. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page and scope; a page no row names states nothing (D116).",
+  "primaryKey": "PageContextID",
+  "fields": [
+    { "name": "PageContextID", "type": "string", "role": "canonical", "description": "Stable ID, PC#####.", "constraints": { "required": true, "unique": true, "pattern": "^PC\\d{5}$" } },
+    { "name": "SourceID", "type": "string", "role": "canonical", "description": "The source whose page states it.", "reference": { "table": "sources", "field": "SourceID" }, "constraints": { "required": true } },
+    { "name": "Page", "type": "integer", "role": "canonical", "description": "The page, as measurements' locators number it (\"p. 2\").", "constraints": { "required": true, "minimum": 1 } },
+    { "name": "Applies to", "type": "string", "role": "canonical", "description": "Which of the page's values the statement covers.", "vocabulary": "context-scopes", "constraints": { "required": true } },
+    { "name": "Statement", "type": "string", "role": "raw", "description": "The page's own words, quoted.", "constraints": { "required": true } },
+    { "name": "Specimen type", "type": "string", "role": "canonical", "description": "The specimen form the page states, or Not published.", "vocabulary": "specimen-types", "missing": ["Not published"], "constraints": { "required": true } },
+    { "name": "Moisture state", "type": "string", "role": "canonical", "description": "dry, conditioned, or not-stated where the page says nothing about moisture.", "vocabulary": "moisture-states", "constraints": { "required": true } },
+    { "name": "Post-processing state", "type": "string", "role": "canonical", "description": "as-printed, annealed, or not-stated where the page says nothing about treatment.", "vocabulary": "post-processing-states", "constraints": { "required": true } },
+    { "name": "Anneal °C", "type": "number", "role": "canonical", "description": "The annealing temperature the page states. Not published: annealed, temperature not stated. Not applicable: not annealed.", "missing": ["Not published", "Not applicable"], "constraints": { "required": true } },
+    { "name": "Anneal h", "type": "number", "role": "canonical", "description": "The annealing time in hours the page states, with the same missing states as Anneal °C.", "missing": ["Not published", "Not applicable"], "constraints": { "required": true } },
+    { "name": "Standard", "type": "string", "role": "canonical", "description": "The standard the page prints once for these rows, at family level (ISO 527, ASTM D638), or Not published.", "missing": ["Not published"], "constraints": { "required": true } },
+    { "name": "Test temperature °C", "type": "number", "role": "canonical", "description": "The test temperature the page states for these rows, or Not published.", "missing": ["Not published"], "constraints": { "required": true } },
+    { "name": "Locator", "type": "string", "role": "canonical", "description": "Where on the page: the heading, footnote or line quoted.", "constraints": { "required": true } },
+    { "name": "Reviewed by", "type": "string", "role": "editorial", "description": "Who read the page, and when: a person, or an agent named as one.", "constraints": { "required": true } }
+  ]
+}

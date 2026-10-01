@@ -26,6 +26,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | [materials](#materials) | MaterialID | One row per selection identity: a filament material, a family entry, or an excluded material. Headline values are selected in headlines.csv and read from the measurements they cite. |
 | [measurements](#measurements) | MeasurementID | One row per published observation of one property of one exact grade, with the raw value, its conditions, and the normalized value in the canonical unit. |
 | [method](#method) | Topic | Method rules in words. The Scope / Snapshot row sets the database snapshot date. |
+| [page_context](#page_context) | PageContextID | What a source page states once for the values printed on it: a heading such as "Mechanical properties (dry state)" or "printed, non-injection moulded specimens", a footnote such as "all specimens annealed at 80 °C for 12 h", a block standard or a test temperature. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page and scope; a page no row names states nothing (D116). |
 | [plausibility_windows](#plausibility_windows) | WindowID | One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser. |
 | [polymer_environment](#polymer_environment) | PolymerEnvironmentID | The published environmental behaviour of a base polymer (a polymers.csv identity), one row per polymer, category and agent, from a resin producer's or handbook reference. The build attaches it, marked polymer-level and inferred, to every material whose Estimate identity is that polymer and that has no grade-level evidence record in the category. It is shown, it may screen a material out under inference, and it never passes one (D64). |
 | [polymers](#polymers) | PolymerID | The polymer identities the estimate model knows: what a material's base polymer (or a blend) is, as physical facts the model uses where a material publishes none. One row per identity; materials.csv Estimate identity names it. A material whose identity has no row is not estimated, and the build says so. |
@@ -304,6 +305,27 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Topic | key | string | yes |  | `^.+$` | Rule topic; unique. |
 | Definition / rule | prose | string | yes |  |  | The rule. |
 
+### page_context
+
+`data/tables/page_context.csv` (Page context). What a source page states once for the values printed on it: a heading such as "Mechanical properties (dry state)" or "printed, non-injection moulded specimens", a footnote such as "all specimens annealed at 80 °C for 12 h", a block standard or a test temperature. A measurement on that page whose own row states nothing for a field inherits it; a row that states the opposite is flagged (CONTEXT-ROW-CONTRADICTS-PAGE). One row per page and scope; a page no row names states nothing (D116).
+
+| Column | Role | Type | Required | May be | Points to / values | Description |
+|---|---|---|---|---|---|---|
+| PageContextID | canonical | string | yes |  | `^PC\d{5}$` | Stable ID, PC#####. |
+| SourceID | canonical | string | yes |  | → sources.SourceID | The source whose page states it. |
+| Page | canonical | integer | yes |  |  | The page, as measurements' locators number it ("p. 2"). |
+| Applies to | canonical | string | yes |  | [context-scopes](#vocab-context-scopes) | Which of the page's values the statement covers. |
+| Statement | raw | string | yes |  |  | The page's own words, quoted. |
+| Specimen type | canonical | string | yes | Not published | [specimen-types](#vocab-specimen-types) | The specimen form the page states, or Not published. |
+| Moisture state | canonical | string | yes |  | [moisture-states](#vocab-moisture-states) | dry, conditioned, or not-stated where the page says nothing about moisture. |
+| Post-processing state | canonical | string | yes |  | [post-processing-states](#vocab-post-processing-states) | as-printed, annealed, or not-stated where the page says nothing about treatment. |
+| Anneal °C | canonical | number | yes | Not published, Not applicable |  | The annealing temperature the page states. Not published: annealed, temperature not stated. Not applicable: not annealed. |
+| Anneal h | canonical | number | yes | Not published, Not applicable |  | The annealing time in hours the page states, with the same missing states as Anneal °C. |
+| Standard | canonical | string | yes | Not published |  | The standard the page prints once for these rows, at family level (ISO 527, ASTM D638), or Not published. |
+| Test temperature °C | canonical | number | yes | Not published |  | The test temperature the page states for these rows, or Not published. |
+| Locator | canonical | string | yes |  |  | Where on the page: the heading, footnote or line quoted. |
+| Reviewed by | editorial | string | yes |  |  | Who read the page, and when: a person, or an agent named as one. |
+
 ### plausibility_windows
 
 `data/tables/plausibility_windows.csv` (Plausibility windows). One row per property and class of material: the range a published value can credibly fall in. Outside the hard bounds a value is impossible and is refused as it is read; outside the soft bounds it is surprising and a person looks at it. These windows judge an observation on its way in. They are not the estimate model's bounds, which judge a prediction on its way out (build/mappings/estimate-model.json) and are deliberately looser.
@@ -573,6 +595,20 @@ lists the missing states a column accepts instead of a value; a blank required c
 | register | Records scope, ownership, availability or prices in a catalogue rather than property values. |
 | provenance | Where earlier records came from; kept as history. |
 | not-retrieved | Could not be retrieved; nothing was entered from it. |
+
+<a id="vocab-context-scopes"></a>
+### context-scopes
+
+`schema/vocab/context-scopes.csv`, used by page_context.Applies to.
+
+| Value | Meaning |
+|---|---|
+| all | Every value printed on the page. |
+| tensile | Tensile rows: modulus, strengths and elongations of the tensile test. |
+| flexural | Flexural rows: flexural modulus and strength. |
+| impact | Impact rows: Charpy, Izod and other impact strengths. |
+| thermal | Thermal rows: heat deflection, Vicat, glass transition, melting and service temperatures. |
+| physical | Physical rows: density, melt flow, water absorption and other non-mechanical properties. |
 
 <a id="vocab-coverage-domains"></a>
 ### coverage-domains
@@ -1123,7 +1159,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-moisture-states"></a>
 ### moisture-states
 
-`schema/vocab/moisture-states.csv`, used by measurements.Moisture state.
+`schema/vocab/moisture-states.csv`, used by measurements.Moisture state, page_context.Moisture state.
 
 | Value | Meaning |
 |---|---|
@@ -1182,7 +1218,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-post-processing-states"></a>
 ### post-processing-states
 
-`schema/vocab/post-processing-states.csv`, used by measurements.Post-processing state.
+`schema/vocab/post-processing-states.csv`, used by measurements.Post-processing state, page_context.Post-processing state.
 
 | Value | Meaning |
 |---|---|
@@ -1316,7 +1352,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 <a id="vocab-specimen-types"></a>
 ### specimen-types
 
-`schema/vocab/specimen-types.csv`, used by measurements.Specimen type.
+`schema/vocab/specimen-types.csv`, used by measurements.Specimen type, page_context.Specimen type.
 
 | Value | Meaning | Form |
 |---|---|---|

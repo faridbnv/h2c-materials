@@ -137,6 +137,9 @@ test('a printing setting is read by its own label, wherever the page puts it', (
   // "Abrasion resistance" is a measured property (ISO 4649), not a statement about the nozzle.
   assert.equal(readSetting({ text: 'Abrasion Resistance 30 mm3 ISO 4649' }), null);
   assert.equal(readSetting({ text: 'Tensile strength 55 MPa' }), null);
+  // SUNLU's "Print Platform Temp." is the bed (the data audit of 2026-10-01, RC8): it starts with neither the bed's name nor the nozzle's.
+  const platform = readSetting({ text: 'Print Platform Temp. 50-60℃' });
+  assert.deepEqual([platform?.field, platform?.raw], ['bed', '50-60℃']);
 });
 
 test("a setting's value stops where the next column begins", () => {

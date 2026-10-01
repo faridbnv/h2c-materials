@@ -1,0 +1,126 @@
+#!/usr/bin/env node
+// What the cached sheet says around each value, against what the row records (the data audit of 2026-10-01, RC3, RC4,
+// RC8). The numbers are faithful; what went wrong was the context around them: a direction, notch, bound sign or test
+// temperature printed on the value's own line and not recorded; a heading or footnote stated once per page and never
+// recorded (D116); a print setting printed under a label the import did not know. This reads the text cache, so it
+// runs where the cache is (a contributor's checkout) and says so where it is not (CI).
+//
+//   npm run audit:context                      findings against the baseline; exit 1 on a new or stale one
+//   npm run audit:context -- --list            every finding, accepted or not
+//   npm run audit:context -- --accept CODE "reason"
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { loadTables } from '../../build/src/load.js';
+import { cacheDir, cachedText } from '../lib/pdf-text.mjs';
+import { indexPageContext, contextFor, scopeOf, pageOf } from '../../build/src/page-context.js';
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
+const BASELINE = join(root, 'data/review/context-witness-accepted.csv');
+const args = process.argv.slice(2);
+if (!existsSync(cacheDir('text'))) { console.log('audit:context skipped: no text cache (.cache/text) in this checkout'); process.exit(0); }
+
+const t = loadTables(join(root, 'data'));
+const rows = (sheet) => t[sheet].rows;
+const sha = new Map(rows('Sources').map((s) => [s.SourceID, s.SHA256]));
+const textCache = new Map();
+const pagesOf = (sourceId) => {
+  const h = sha.get(sourceId); if (!h || !/^[0-9a-f]{64}$/.test(h)) return null;
+  if (!textCache.has(h)) { const c = cachedText(h); textCache.set(h, c ? c.pages.map((p) => ({ page: p.page, lines: p.lines.map((l) => String(l.text ?? '').replace(/\s+/g, ' ').replace(/(\d)\s*([.,])\s*(\d)/g, '$1$2$3')) })) : null); }
+  return textCache.get(h);
+};
+const NA = (v) => v == null || v === '' || v === 'Not applicable' || /^Not published/.test(v);
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const findings = [];
+const add = (code, record, field, message) => findings.push({ code, record, field, message });
+
+// ---- each value's own line
+const live = rows('Properties').filter((r) => /^Published value/.test(r['Data status']) && !/implausible/.test(r['Data status']) && !NA(r['Normalized value']));
+for (const r of live) {
+  const pages = pagesOf(r.SourceID); const pg = pageOf(r.Locator); if (!pages || pg == null) continue;
+  const page = pages.find((p) => p.page === pg); if (!page) continue;
+  const tok = String(r['Raw value'] ?? '').match(/\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:[.,]\d+)?/)?.[0]; if (!tok) continue;
+  const re = new RegExp(`(^|[^0-9.,])(${esc(tok)}|${esc(tok.replace('.', ','))})(?![0-9]|[.,][0-9])`);
+  const words = String(r.Locator).replace(/^[^:]*:/, '').toLowerCase().split(/[^a-z]+/).filter((w) => w.length >= 4);
+  const score = (l) => words.filter((w) => l.toLowerCase().includes(w)).length;
+  let best = null;
+  page.lines.forEach((l, i) => { if (!re.test(l)) return; const own = /[a-z]{3,}/i.test(l.replace(re, '')); const ctx = own ? l : `${[page.lines[i - 1] ?? '', page.lines[i + 1] ?? ''].sort((a, b) => score(b) - score(a))[0]} ${l}`; const s = score(ctx) + (own ? 0.5 : 0); if (!best || s > best.s) best = { s, ctx, line: l }; });
+  if (!best || best.s < 1) continue;
+  const ctx = best.ctx, lc = ctx.toLowerCase(), id = r.MeasurementID, q = `"${ctx.slice(0, 110)}"`;
+  const sign = best.line.match(new RegExp(`([<>≤≥＜＞]|(?:^|[\\s(])(?:max\\.|min\\.|up to|over|above|below))\\s*${esc(tok)}(?![0-9])`, 'i'));
+  if (sign && (NA(r.Operator) || r.Operator === '=')) add('CONTEXT-BOUND-SIGN', id, 'Operator', `the line prints "${sign[0].trim()}"; Operator is "${r.Operator}" — ${q}`);
+  if (!/temperature|transition|melting|crystalli|vicat|hdt|softening/i.test(r.Property) && /(^|[^0-9a-z])[-−]\s?(10|20|30|40)\s*(°|℃|˚)?\s*c\b|@\s*[-−]\s?\d{2}/i.test(ctx) && !/75-1,\s*-2/i.test(ctx) && NA(r['Test temperature °C'])) add('CONTEXT-TEST-TEMPERATURE', id, 'Test temperature °C', `the line states a sub-zero test temperature; none is recorded — ${q}`);
+  const mech = /Tensile|Flexural|Elongation|Charpy|Izod|Impact|HDT|modulus/i.test(r.Property);
+  const both = /\bxy\b|x\s*-\s*y/i.test(ctx) && /\(\s*z\s*\)|\bzx\b|\bxz\b|z\s*-\s*x/i.test(ctx);
+  const onLine = /\(\s*x\s*[-–]?\s*y\s*\)|\bx\s*-\s*y\b|\bxy\b|\bhorizontal\b/i.test(ctx) ? 'XY' : /\(\s*z\s*\)|\bz[- ]?direction\b|\bvertical\b|\(\s*z\s*[-–]\s*x\s*\)|\bzx\b|\bxz\b/i.test(ctx) ? 'Z' : null;
+  const rec = /^(XY|Horizontal)/i.test(r.Direction) ? 'XY' : /^(Z|ZX|XZ|Vertical)/i.test(r.Direction) ? 'Z' : null;
+  if (mech && onLine && !both && rec && onLine !== rec) add('CONTEXT-DIRECTION', id, 'Direction', `the line says ${onLine}; Direction is ${r.Direction} — ${q}`);
+  if (mech && onLine && !both && !rec && /Unstated|Not published|Not applicable/.test(r.Direction)) add('CONTEXT-DIRECTION', id, 'Direction', `the line says ${onLine}; Direction is ${r.Direction} — ${q}`);
+  // A standard printed on the value's own line that the row does not name (or names another family's).
+  const lineStd = [...new Set([...ctx.matchAll(/\b(ISO|ASTM|DIN|GB\/T)\s?-?\s?([A-Z]?\s?(\d{2,5}))(?![\d.,]*\s*(?:-|–)\s*\d)/gi)].filter((x) => x[3] !== tok).map((x) => ({ name: `${x[1].toUpperCase()} ${x[2].replace(/\s/g, '').toUpperCase()}`, digits: x[3] })))];
+  const rowDigits = new Set(String(r.Standards ?? '').match(/\d{2,5}/g) ?? []);
+  if (lineStd.length && NA(r.Standards)) add('CONTEXT-STANDARD', id, 'Standards', `the line names ${lineStd.map((x) => x.name).join(', ')}; Standards is ${r.Standards} — ${q}`);
+  else if (lineStd.length && !NA(r.Standards) && !lineStd.some((x) => rowDigits.has(x.digits))) add('CONTEXT-STANDARD', id, 'Standards', `the line names ${lineStd.map((x) => x.name).join(', ')}; Standards is ${r.Standards} — ${q}`);
+  if (/Izod|Charpy|Impact/i.test(r.Property)) {
+    const un = /un-?notch/i.test(lc); const no = /(^|[^n])notch(ed)?\b/i.test(lc.replace(/un-?notch(ed)?/gi, ''));
+    if ((un && !no && r.Notch === 'Notched') || (no && !un && r.Notch === 'Unnotched')) add('CONTEXT-NOTCH', id, 'Notch', `the line says ${un ? 'unnotched' : 'notched'}; Notch is ${r.Notch} — ${q}`);
+  }
+}
+
+// ---- what a page states once, with no page_context row to carry it (D116)
+const pageIndex = indexPageContext(rows('Page context'));
+const byPage = new Map();
+for (const r of live) { const pg = pageOf(r.Locator); if (pg == null) continue; const k = `${r.SourceID}\u0000${pg}`; if (!byPage.has(k)) byPage.set(k, []); byPage.get(k).push(r); }
+const STATEMENTS = [
+  ['Specimen type', /non-?injection mou?lded|printed specimens?|printed samples?|3d[- ]printed (test )?(specimens?|samples?|parts?)|specimens? (were )?printed|typical material properties\s*[–-]\s*3d printed/, (r) => /^Not published|Raw material value/.test(r['Specimen type'])],
+  ['Moisture state', /\(dry state\)|dry state|\bdry,|dry as mou?lded|\(dry\)|in dry condition|conditioned at|\bconditioned\b/, (r) => r['Moisture state'] === 'not-stated'],
+  ['Post-processing state', /(all )?(specimens?|samples?) (were )?annealed|annealed at \d+|after annealing|退火/, (r) => r['Post-processing state'] === 'not-stated'],
+];
+for (const [k, list] of byPage) {
+  const [sourceId, pg] = k.split('\u0000'); const page = pagesOf(sourceId)?.find((p) => p.page === Number(pg)); if (!page) continue;
+  const text = page.lines.join(' ').toLowerCase();
+  for (const [field, said, silent] of STATEMENTS) {
+    const m = text.match(said); if (!m || (field === 'Post-processing state' && /without (having to )?anneal/.test(text))) continue;
+    const open = list.filter((r) => /Tensile|Flexural|Elongation|Impact|Charpy|Izod|HDT|modulus/i.test(r.Property) && silent(r) && !contextFor(pageIndex, r).some((c) => c[field] && !/^Not published|not-stated/.test(c[field])));
+    if (open.length) add('CONTEXT-PAGE-UNRECORDED', `${sourceId} p. ${pg}`, field, `the page says "${m[0]}"; ${open.length} of its rows (${open.slice(0, 4).map((r) => r.MeasurementID).join(', ')}${open.length > 4 ? ', …' : ''}) record nothing, and no page_context row carries it`);
+  }
+}
+
+// ---- print settings a sheet prints and its profile does not hold
+const LABEL = { Bed: /(?:platform temp|print platform|bed temp(?:erature)?|heated bed|hot ?bed temp|build plate temp(?:erature)?|plate temp|底板温度|热床)[^0-9]{0,40}?(\d{2,3})\s*(?:-|–|~|to)\s*(\d{2,3})\s*(?:°|℃|˚|c\b)/i, Nozzle: /(?:nozzle temp(?:erature)?|print(?:ing)? temp(?:erature)?|extru(?:der|sion) temp(?:erature)?|喷嘴温度|打印温度)[^0-9]{0,40}?(\d{3})\s*(?:-|–|~|to)\s*(\d{3})\s*(?:°|℃|˚|c\b)/i };
+const profilesByGrade = new Map(); for (const r of rows('Print setup')) { if (!profilesByGrade.has(r.GradeID)) profilesByGrade.set(r.GradeID, []); profilesByGrade.get(r.GradeID).push(r); }
+for (const r of rows('Print setup')) {
+  const pages = pagesOf(r.SourceID); if (!pages) continue;
+  const text = pages.map((p) => p.lines.join(' ')).join(' ');
+  for (const [axis, re] of Object.entries(LABEL)) {
+    if (r[`${axis} state`] === 'range') continue;
+    const m = text.match(re); if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, `${axis} °C`, `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r[`${axis} °C`]}${profilesByGrade.get(r.GradeID).some((p) => p[`${axis} state`] === 'range') ? ' (another profile of the product holds a window)' : ' (no profile of the product holds one)'}`);
+  }
+  // "Hardened Nozzle no" printed on the profile's own sheet against a typed TRUE, or the reverse.
+  const hn = text.match(/hardened nozzle\s*[:\-]?\s*(no|yes|not (?:required|necessary)|required|recommended)\b/i);
+  if (hn) { const says = /^(no|not)/i.test(hn[1]) ? 'FALSE' : 'TRUE'; if (r['Hardened nozzle'] !== says && r['Hardened nozzle'] !== 'Not published') add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its own sheet prints "${hn[0]}"; the profile holds ${r['Hardened nozzle']}`); }
+}
+
+// ---- the baseline
+const key = (f) => `${f.code}\u0000${f.record}\u0000${f.field}`;
+const parse = (text) => text.trim().split('\n').slice(1).filter(Boolean).map((l) => { const m = l.match(/^([^,]*),([^,]*),([^,]*),"?(.*?)"?,([^,]*)$/); return m ? { code: m[1], record: m[2], field: m[3], reason: m[4].replace(/""/g, '"'), accepted: m[5] } : null; }).filter(Boolean);
+const accepted = existsSync(BASELINE) ? parse(readFileSync(BASELINE, 'utf8')) : [];
+const acceptAt = args.indexOf('--accept');
+if (acceptAt >= 0) {
+  const [code, reason] = [args[acceptAt + 1], args[acceptAt + 2]];
+  if (!code || !reason) { console.error('usage: npm run audit:context -- --accept CODE "reason"'); process.exit(2); }
+  const have = new Set(accepted.map(key)); const date = new Date().toISOString().slice(0, 10);
+  for (const f of findings.filter((x) => x.code === code && !have.has(key(x)))) accepted.push({ code: f.code, record: f.record, field: f.field, reason, accepted: date });
+  const q = (s) => `"${String(s).replace(/"/g, '""')}"`;
+  writeFileSync(BASELINE, ['Code,Record,Field,Reason,Accepted', ...accepted.sort((a, b) => key(a).localeCompare(key(b))).map((a) => [a.code, a.record, a.field, q(a.reason), a.accepted].join(','))].join('\n') + '\n');
+  console.log(`accepted ${findings.filter((x) => x.code === code).length} ${code} finding(s)`);
+  process.exit(0);
+}
+const have = new Set(accepted.map(key)); const now = new Set(findings.map(key));
+const fresh = findings.filter((f) => !have.has(key(f))); const stale = accepted.filter((a) => !now.has(key(a)));
+if (args.includes('--list')) for (const f of findings) console.log(`${have.has(key(f)) ? 'accepted' : 'NEW     '} ${f.code.padEnd(26)} ${f.record} [${f.field}] ${f.message.slice(0, 160)}`);
+else for (const f of fresh) console.log(`NEW ${f.code.padEnd(26)} ${f.record} [${f.field}] ${f.message.slice(0, 160)}`);
+for (const a of stale) console.log(`STALE ${a.code} ${a.record} [${a.field}]: the finding no longer occurs; remove its acceptance`);
+const by = {}; findings.forEach((f) => (by[f.code] = (by[f.code] ?? 0) + 1));
+console.log(`audit:context: ${findings.length} finding(s): ${findings.length - fresh.length} accepted, ${fresh.length} new ${JSON.stringify(by)}, ${stale.length} stale`);
+process.exit(fresh.length || stale.length ? 1 : 0);

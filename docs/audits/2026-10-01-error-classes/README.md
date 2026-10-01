@@ -14,7 +14,9 @@ records are its regression cases, not its work list.
 | RC6 | Impossible pairs a sheet prints (notched above unnotched; flexural strength above 8 % of modulus) | MEAS-PHYSICS-NOTCH, MEAS-PHYSICS-FLEX-STRAIN | Guard in; 4 under review |
 | RC7 | Impact unit and standard disagree (ASTM D256 printed in kJ/m²) | IMPACT-UNIT-STANDARD | Guard in; 30 under review |
 | RC9 | A filler in the product's name its material does not have | FILING-FILLER-WORD | Guard in; 1 under review |
-| RC3, RC4, RC8 | Page context lost; rows misaligned; print-setting labels unread | page context (D116), `audit:context` | Next |
+| RC3 | A page's heading or footnote not carried to its rows | `page_context.csv` inherited by compile (D116); CONTEXT-ROW-CONTRADICTS-PAGE; `audit:context` CONTEXT-PAGE-UNRECORDED | Mechanism in; 103 pages under review |
+| RC4 | A direction, notch or standard taken from the neighbouring row | `audit:context` CONTEXT-DIRECTION, -NOTCH, -STANDARD | Guard in; 111 under review |
+| RC8 | Print settings under labels the import did not read | lexicon ("Print Platform Temp."); `audit:context` CONTEXT-PROFILE-SETTING | Guard in; 143 under review |
 
 Findings of the new lint rules are accepted with the reason "Open in the error-class sweep" until each is re-read;
 the stale-acceptance check makes every one of them come back out as it is fixed or given its own reason.
@@ -28,3 +30,14 @@ the stale-acceptance check makes every one of them come back out as it is fixed 
   P0184); 147 reviews scoped (109 to their columns, 38 "Fields: none.").
 - Compiled diff: 94 paths, all print windows, gate reasons and print estimates; no gate verdict, headline or template
   answer moved (`build/snapshot` unchanged, 69 interface views unchanged, 300 rendered scenarios agree).
+
+## Phase 1b: the guards for RC3, RC4 and RC8
+
+- `page_context.csv` (schema, `context-scopes` vocabulary), `build/src/page-context.js` and its use in
+  `compile.js` (D116); CONTEXT-ROW-CONTRADICTS-PAGE in `lint-rules.js`; `test/page-context.test.js`.
+- `scripts/audit/context-witness.mjs`, `npm run audit:context`, in `verify` after `audit-data`; its baseline is
+  `data/review/context-witness-accepted.csv`. 364 findings, each accepted as open in the sweep.
+- The importer reads "Print Platform Temp." as the bed (`scripts/ingest/lexicon/setting-labels.csv`).
+- Regression cases caught by a guard: 46 of 54. Not guarded, fixed directly: two room-temperature test temperatures
+  (they decide nothing), one block standard printed above its rows, one film's MD/TD direction, two enclosure and
+  chamber statements, and two rows whose value line the check did not locate.

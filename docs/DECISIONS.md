@@ -125,6 +125,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D113 | A price may come from a foreign listing, converted at one Bank of Canada rate, and it lists nothing in Canada | A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one. | In force; it amends D19 (a foreign listing prices a product but is never an offer here) and D83 (a converted price is one of a material's products' prices) |
 | D114 | Absence is derived too: the coverage page says the same thing for the same records | Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited. | In force; it extends D74 |
 | D115 | A Parse review explains the columns it names; a typed endpoint is a number its cell states | A note that explains why one typed value differs from what the parser reads now names that column, and silences the check for that column alone. A typed temperature must be a number its own cell prints, and an open bound ("> 80 °C") stays open, whatever any note says. | In force; it narrows the Parse review of m08 |
+| D116 | What a page states once, its values inherit | A data sheet often says something once for a whole table, such as "all specimens annealed at 80 °C" or "printed specimens, dry". That statement is now recorded once per page, and every value on the page that says nothing for itself inherits it; a value that says the opposite keeps its own words and is flagged. | In force |
 
 <!-- end index -->
 
@@ -3738,3 +3739,27 @@ cause RC1, with RC2). Built by Claude (an agent); the record is [the error-class
   directions (`cdb795a` did it for the lower end), so "at least 80 °C" is shown as that, and no estimate replaces it.
 - **Effect.** No gate verdict moved: every corrected window lies within the H2C either way. Nine profiles' windows,
   six materials' summary windows and the print estimates they fed changed.
+
+## D116. What a page states once, its values inherit
+
+> **In plain words:** A data sheet often says something once for a whole table, such as "all specimens annealed at 80 °C" or "printed specimens, dry". That statement is now recorded once per page, and every value on the page that says nothing for itself inherits it; a value that says the opposite keeps its own words and is flagged.
+> **Status:** In force.
+
+*Approved by the owner on 2026-10-01 after the data audit (external package `PM-TRIAL-2026-10-01/data-audit`, root
+cause RC3, the largest). Built by Claude (an agent); the record is [the error-class sweep](audits/2026-10-01-error-classes/README.md).*
+
+- **The import read rows one by one.** A heading ("Mechanical properties (dry state)", "printed, non-injection
+  moulded"), a footnote ("all specimens were annealed …", an annealing asterisk), a block standard or a test
+  temperature applies to many rows and is printed on none of them. Those rows recorded "not stated", so an annealed
+  value was admitted for screening as printed, and a printed bar filed as raw material dropped out of comparisons.
+  17 such rows were confirmed in the audit's re-read, of 54 confirmed errors.
+- **`page_context.csv`.** One row per source page and scope (all, tensile, flexural, impact, thermal, physical): the
+  page's words, and the specimen type, moisture state, treatment with its schedule, standard and test temperature it
+  states. `compile.js` gives each measurement on that page what its own row leaves unstated, and records which
+  page_context row gave it (`pageContext`). The row's own words are never rewritten.
+- **A contradiction is flagged, not resolved.** A row that states the opposite of its page (as printed on an
+  "all annealed" page) keeps its own reading; CONTEXT-ROW-CONTRADICTS-PAGE asks for a re-read.
+- **Finding the pages.** `npm run audit:context` (in verify, where the text cache is) lists every page whose text
+  states such a thing while its rows record nothing and no page_context row carries it (CONTEXT-PAGE-UNRECORDED),
+  and the value-line checks beside it (direction, notch, bound sign, sub-zero test temperature, standard, a print
+  setting a profile does not hold).

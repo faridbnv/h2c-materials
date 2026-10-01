@@ -23,6 +23,7 @@ import { aggregateGate } from './gates.js';
 import { attachProducts, TEST_TEMPERATURE_TOLERANCE_C } from './products.js';
 import { compilePolymerEnvironment, attachPolymerEnvironment } from './polymer-environment.js';
 import { attachKnowHow } from './know-how.js';
+import { indexPageContext, contextFor, inheritPageContext } from './page-context.js';
 import { compilePrices, priceSample, convertedFrom, priceSampleMeta } from './prices.js';
 
 const num = (cell) => { const p = parseValue(cell); return p.known ? p.value : null; };
@@ -31,8 +32,10 @@ export { TEMP_WINDOW } from './recipe.js';
 
 // ---------------------------------------------------------------------------- measurements
 
-function compileMeasurements(rows, fatigueRows, issues) {
+function compileMeasurements(rows, fatigueRows, issues, pageContextRows = []) {
   const fatigueById = new Map(fatigueRows.map((f) => [f.MeasurementID, f]));
+  // What each source page states once for its values (D116): inherited where a row states nothing.
+  const pageContext = indexPageContext(pageContextRows);
   return rows.map((r) => {
     const status = DATA_STATUS[r['Data status']] ?? null;
     if (!status) issues.push({ level: 'error', code: 'DATA-STATUS-UNKNOWN', where: `Properties row ${r.__row}`, message: `Unknown Data status "${r['Data status']}"` });
@@ -101,6 +104,7 @@ function compileMeasurements(rows, fatigueRows, issues) {
         loadRatioR: num(f?.['Load ratio R']), runOut: f?.['Run-out'] ?? 'Not applicable',
       };
     }
+    inheritPageContext(m, r, contextFor(pageContext, r));
     return m;
   });
 }
@@ -545,7 +549,7 @@ export function compile(wb, { snapshot, build }) {
     measurements: wb.Properties.rows.filter((r) => isRetiredDuplicate(r['Data status'])).length,
     evidence: wb['Use & durability'].rows.filter((r) => isRetiredDuplicate(r['Evidence type'])).length,
   };
-  const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues);
+  const measurements = compileMeasurements(wb.Properties.rows.filter((r) => !isRetiredDuplicate(r['Data status'])), wb['Fatigue tests'].rows, issues, wb['Page context']?.rows ?? []);
 
   const profiles = compileProfiles(wb['Print setup'].rows, wb['Print setup notes'].rows, issues);
   const retiredGrades = new Set(grades.filter((g) => g.retired).map((g) => g.id));

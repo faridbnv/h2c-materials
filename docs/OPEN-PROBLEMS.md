@@ -1078,7 +1078,9 @@ one mechanism at a time. RC1 and RC2 are removed (D115). Under review, each acce
 until it is re-read: 54 product pairs that print one table with no formulation key (GRADE-VALUES-TWIN), 30 impact
 values whose unit disagrees with their standard (IMPACT-UNIT-STANDARD), one notched-above-unnotched pair and three
 flexural pairs (MEAS-PHYSICS-NOTCH, -FLEX-STRAIN), and one filled product filed as unfilled (FILING-FILLER-WORD). Not
-yet started: page context (RC3), row alignment (RC4) and unread print-setting labels (RC8).
+under review from `npm run audit:context` (RC3, RC4, RC8, D116): 103 pages whose heading or footnote no
+page_context row carries, 36 directions, 72 standards, 3 notches, 4 bound signs and 3 sub-zero test temperatures on
+values' own lines, and 143 print settings a profile's own sheet prints and the profile does not hold.
 
 ```sh
 npm run data:lint

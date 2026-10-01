@@ -60,9 +60,12 @@ const { tables: schemas } = loadSchemas(join(root, 'schema'));
 const versions = new Map();
 const version = (side, name) => {
   const key = side + ':' + name;
-  if (!versions.has(key)) versions.set(key, side === 'from'
-    ? execFileSync('git', ['show', frozen.BaselineCommit + ':data/tables/' + name + '.csv'], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
-    : readFileSync(join(root, 'data/tables', name + '.csv'), 'utf8'));
+  // A table added after the baseline (page_context.csv, D116) was empty there: its header alone.
+  const atBaseline = () => {
+    try { return execFileSync('git', ['show', frozen.BaselineCommit + ':data/tables/' + name + '.csv'], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] }); }
+    catch { return readFileSync(join(root, 'data/tables', name + '.csv'), 'utf8').split('\n')[0] + '\n'; }
+  };
+  if (!versions.has(key)) versions.set(key, side === 'from' ? atBaseline() : readFileSync(join(root, 'data/tables', name + '.csv'), 'utf8'));
   return versions.get(key);
 };
 const changes = diffTables(schemas, version);

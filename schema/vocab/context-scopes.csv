@@ -1,0 +1,7 @@
+Value,Meaning
+all,Every value printed on the page.
+tensile,"Tensile rows: modulus, strengths and elongations of the tensile test."
+flexural,Flexural rows: flexural modulus and strength.
+impact,"Impact rows: Charpy, Izod and other impact strengths."
+thermal,"Thermal rows: heat deflection, Vicat, glass transition, melting and service temperatures."
+physical,"Physical rows: density, melt flow, water absorption and other non-mechanical properties."

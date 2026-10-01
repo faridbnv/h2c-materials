@@ -113,6 +113,13 @@ export const RULES = {
   'AUDIT-REFERENCE-INTERVAL': r('error', 'audit', 'A reference envelope has a non-numeric or inverted interval.', 'Correct reference.csv.'),
   'AUDIT-REVIEW-FINDING': r('error', 'audit', 'A per-record build finding (an outlier, an imprecise estimate beside a published value, a reinforced material below its sibling, a material with no measurements) is neither fixed nor accepted with a reason.', 'Fix it, or accept it: npm run data:lint -- --accept CODE "reason".'),
   'AUDIT-REVIEW-STALE': r('error', 'audit', 'An accepted build finding no longer occurs.', 'Remove its row from data/review/accepted-findings.csv.'),
+  'CONTEXT-DIRECTION': r('warn', 'audit', 'A value\'s own line on its cached page names a build direction (X-Y, Z, Orientation XZ) its row does not record or contradicts (scripts/audit/context-witness.mjs, RC4).', 'Re-read the page and correct the row, or accept with the reason: npm run audit:context -- --accept CODE "reason".'),
+  'CONTEXT-NOTCH': r('warn', 'audit', 'A value\'s own line says notched or unnotched and its row says the other (RC4).', 'Re-read the page and correct Notch, or accept with the reason.'),
+  'CONTEXT-BOUND-SIGN': r('warn', 'audit', 'A value\'s own line prints a bound sign (<, >, ≤, up to) its row\'s Operator does not carry (RC2).', 'Carry the sign in Operator, or accept with the reason.'),
+  'CONTEXT-TEST-TEMPERATURE': r('warn', 'audit', 'A value\'s own line states a sub-zero test temperature its row does not record, so a low-temperature result reads as a room-temperature one (RC3).', 'Record Test temperature and Test temperature °C, or accept with the reason.'),
+  'CONTEXT-STANDARD': r('warn', 'audit', 'A value\'s own line names a standard its row does not name, or a different one (RC3, RC4).', 'Re-read the page and correct Standard / load and Standards, or accept with the reason.'),
+  'CONTEXT-PAGE-UNRECORDED': r('warn', 'audit', 'A page states once a specimen form, moisture state or treatment for its values, its rows record nothing, and no page_context row carries it (D116, RC3).', 'Add the page\'s page_context row, or correct the rows, or accept with the reason.'),
+  'CONTEXT-PROFILE-SETTING': r('warn', 'audit', 'A profile\'s own sheet prints a print setting (a bed or nozzle window, "Hardened Nozzle no") the profile does not hold or contradicts (RC8).', 'Re-read the sheet and correct the profile, or accept with the reason.'),
   'AUDIT-SOURCE-SCOPE': r('error', 'audit', 'A record uses a grade its source does not list under Applicable grades.', 'Add the grade to the source scope, or cite the right source.'),
 
   // ---- runtime contract (build/src/contract.js) ---------------------------------------------------------
