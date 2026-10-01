@@ -27,7 +27,7 @@
          It carries its own label and its own consequence: the meaning used to live only in a
          tooltip and in a monospace line at the far corner of the screen that read like a log. -->
     <div class="mode-group">
-      <span class="mode-label" id="mode-label"><span class="mode-label-long">Candidate confidence</span><span class="mode-label-short">Confidence</span></span>
+      <span class="mode-label" id="mode-label"><span class="mode-label-long">Materials with missing data</span><span class="mode-label-short">Missing data</span></span>
       <div class="segmented" role="group" aria-labelledby="mode-label">
         <button id="mode-strict" aria-pressed="true" title="Show only materials confirmed to meet every requirement.">Confirmed only</button>
         <button id="mode-explore" aria-pressed="false" title="Also show materials that may qualify but still need verification. Estimates and a base polymer's published behaviour can screen out clear mismatches.">Include uncertain</button>
@@ -41,9 +41,9 @@
     <div class="est-group">
       <div class="est-line">
         <label class="est-toggle" id="est-toggle">
-          <input type="checkbox" id="use-estimates" aria-describedby="est-reason"><span>Use estimates and polymer data</span></label>
+          <input type="checkbox" id="use-estimates" aria-describedby="est-reason"><span>Let estimates rule out materials</span></label>
         <button type="button" class="mark info-mark" aria-label="What estimates and polymer data are" aria-haspopup="dialog" aria-expanded="false"
-          data-explain-head="Use estimates and polymer data"
+          data-explain-head="Let estimates rule out materials"
           data-explain="Use inference where a material publishes nothing. An estimate is a calibrated likely range for a missing number, built from the material's own related measurements and its polymer family. Polymer data is the base polymer's published behaviour in chemicals and other exposure, from a resin producer's reference, used only where the material has no record of its own. Neither ever passes a material. An estimate screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement; polymer data screens one out only where the reference reports the polymer attacked or dissolved. Both are used only under Include uncertain; Confirmed only uses the material's own evidence alone."
           title="Use inference where a material publishes nothing. An estimate is a calibrated likely range for a missing number, built from the material's own related measurements and its polymer family. Polymer data is the base polymer's published behaviour in chemicals and other exposure, from a resin producer's reference, used only where the material has no record of its own. Neither ever passes a material. An estimate screens one out only when its plausible range wholly fails and none of the material's own measurements could meet the requirement; polymer data screens one out only where the reference reports the polymer attacked or dissolved. Both are used only under Include uncertain; Confirmed only uses the material's own evidence alone.">?</button>
       </div>

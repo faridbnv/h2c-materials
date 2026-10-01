@@ -6,7 +6,7 @@
 import { AXIS_DEFS } from './axes.js';
 import { renderValue, esc, fmtNumber, estimateDisplay, chip, wireEvidence, explainButton, missingText, missingLabel, scrollTable, markTableOverflow } from './format.js';
 import { prop, describeConstraint, gateVerdict, estimateTitle, POLICY_CONTROL, policyLabel } from './labels.js';
-import { productGates } from '../engine/products.js';
+import { productGates, hardenedShare, hardenedWords } from '../engine/products.js';
 import { indexById, rankingFor } from '../engine/indices.js';
 
 const BASELINE_NAMES = ['PLA', 'PETG', 'ABS', 'ASA', 'PC'];
@@ -262,7 +262,7 @@ export function renderCompare(host, state, actions) {
         const words = (fn) => (passing.length ? [...new Set(gatesOf.map(fn))].join(' / ') : fn(m.gates));
         return `<tr><td class="name">${esc(m.name)}${passing.length ? `<span class="row-sub">${passing.length} passing product${passing.length === 1 ? '' : 's'}</span>` : ''}</td>
         ${['nozzle', 'bed', 'chamber'].map((g) => `<td>${axis(g)}</td>`).join('')}
-        <td>${esc(words((x) => ABRASION_WORD[x.abrasive] ?? 'not recorded'))}</td><td>${esc(words((x) => (x.drying === 'required' ? 'guidance published' : 'not recorded')))}</td></tr>`;
+        <td>${esc(passing.length ? words((x) => ABRASION_WORD[x.abrasive] ?? 'not recorded') : (m.gates.abrasive === 'requires-hardened' && hardenedWords(hardenedShare(db.grades.filter((g) => g.materialId === m.id)))) || (ABRASION_WORD[m.gates.abrasive] ?? 'not recorded'))}</td><td>${esc(words((x) => (x.drying === 'required' ? 'guidance published' : 'not recorded')))}</td></tr>`;
       }).join('')}</tbody></table>`)}
 
     <h3 class="sec">Evidence completeness</h3>

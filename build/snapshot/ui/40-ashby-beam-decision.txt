@@ -15,7 +15,7 @@ Cross-section area free, its proportions fixed; length fixed
 ASKED
 As printed, dry
 H2C scope and print gates
-Stiffness at least 3 GPa
+Stiffness (tensile modulus, XY) at least 3 GPa
 Density at most 1250 kg/m³
 Change in Filters
 DRAW
@@ -42,13 +42,13 @@ M =
 8 products from 5 materials above the line
 ↑
 Density
-Stiffness
-Strength
-Strength across layers
-Stretch before breaking
+Stiffness (tensile modulus, XY)
+Strength (tensile, XY; yield or break)
+Strength across layers (tensile, Z)
+Stretch before breaking (elongation, XY)
 Notched impact, Charpy
 Notched impact, Izod
-Heat resistance
+Heat deflection (HDT, 0.45 MPa)
 Glass transition
 Price
 Material cost per volume
@@ -58,13 +58,13 @@ Log
 ⇄
 →
 Density
-Stiffness
-Strength
-Strength across layers
-Stretch before breaking
+Stiffness (tensile modulus, XY)
+Strength (tensile, XY; yield or break)
+Strength across layers (tensile, Z)
+Stretch before breaking (elongation, XY)
 Notched impact, Charpy
 Notched impact, Izod
-Heat resistance
+Heat deflection (HDT, 0.45 MPa)
 Glass transition
 Price
 Material cost per volume
@@ -103,9 +103,9 @@ PLA
 High-Performance Engineering
 Other families
 Density (kg/m³) · log
-Stiffness (GPa) · log
+Stiffness (tensile modulus, XY) (GPa) · log
 Density at most 1250 kg/m³
-Stiffness at least 3 GPa
+Stiffness (tensile modulus, XY) at least 3 GPa
 better: above the line ↖
 Carbon fibre
 Glass fibre
@@ -119,38 +119,38 @@ Drawn: 15 products from 9 materials, each meeting every requirement.
 READING THIS CHART
 Ranking
 M = E^(1/2) / ρ
-Each material by the median M of its passing products.
+Each material by the median M of its passing products, in GPa^½/(Mg/m³); n is how many products it rests on.
 1
 PPA-CF
-0.00231
+2.31 GPa^½/(Mg/m³) n=1
 ⤢
 ☆
 best: 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN)
 1 product drawn
 2
 PP-CF
-0.00225 0.98×
+2.25 GPa^½/(Mg/m³) n=1 0.98×
 ⤢
 ☆
 best: 3DXTECH CarbonX CF PP
 1 product drawn
 3
 ASA-CF
-0.002 0.87×
+2 GPa^½/(Mg/m³) n=3 0.87×
 ⤢
 ☆
 best: 3DXTECH CarbonX CF ASA
 3 products drawn
 4
 PA6-CF
-0.00176 0.76×
+1.76 GPa^½/(Mg/m³) n=4 0.76×
 ⤢
 ☆
 best: Eryone PA6-CF
 4 products drawn
 5
 ABS-GF
-0.00173 0.75×
+1.73 GPa^½/(Mg/m³) n=2 0.75×
 ⤢
 ☆
 best: 3DXTECH FibreX ABS+GF10 Glass Fiber ABS
@@ -158,28 +158,28 @@ best: 3DXTECH FibreX ABS+GF10 Glass Fiber ABS
 line · M 0.00173
 6
 PLA
-0.00164 0.71×
+1.64 GPa^½/(Mg/m³) n=1 0.71×
 ⤢
 ☆
 best: Nanovia PLA EF 3D850
 1 product drawn
 7
 PLA-CF
-0.0016 0.69×
+1.6 GPa^½/(Mg/m³) n=1 0.69×
 ⤢
 ☆
 best: QIDI PLA-CF
 1 product drawn
 8
 Nylon, maker-undisclosed polyamide
-0.00151 0.65×
+1.51 GPa^½/(Mg/m³) n=1 0.65×
 ⤢
 ☆
 best: CreatBot Ultra PA
 1 product drawn
 9
 PAHT
-0.00147 0.64×
+1.47 GPa^½/(Mg/m³) n=1 0.64×
 ⤢
 ☆
 best: LEHVOSS LUVOCOM 3F PAHT 9825 NT

@@ -170,7 +170,7 @@ export function renderActive(state, actions) {
       ${soft.length ? `<span class="pill-group"><span class="pill-label" title="Reported on each material; never removes or reorders one">tracked only</span>${soft.map((c) => pill(c, cs.indexOf(c))).join('')}</span>` : ''}
     </div>
     ${stateLine}
-    ${printable ? '' : `<p class="state-line research-line"><b>Research mode:</b> whether the H2C can print a product is not checked, so a pass here says nothing about printing it. <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></p>`}
+    ${printable ? '' : `<p class="state-line research-line"><b>Print checks off:</b> whether the H2C can print a product is not checked, so a pass here says nothing about printing it. <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></p>`}
     <details class="answer-notes">
       <summary>${template ? `<b>Not checked by this template:</b> ${esc(firstSentence(template.notChecked))}` : '<b>What this database cannot answer</b>'}</summary>
       ${template ? `<p class="not-checked">${esc(template.notChecked)}</p>` : ''}

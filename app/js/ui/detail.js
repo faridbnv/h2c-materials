@@ -10,6 +10,7 @@ import { renderWhy } from './explain.js';
 import { materialName, describeConstraint, gateVerdict, CHAMBER_GUIDANCE, ESTIMATE_STRENGTH, ESTIMATE_PRECISION, screenRangeText, POLICY_LABELS } from './labels.js';
 import { REGISTRY, propertiesInDomain, propertyApplies } from './registry.js';
 import { evidenceSummary } from '../engine/coverage.js';
+import { hardenedShare, hardenedWords } from '../engine/products.js';
 
 /** A temperature window, or nothing if none was published. A zero floor is the build's "ambient". */
 const range = (r) => (!r ? null
@@ -393,7 +394,7 @@ function polymerSection(poly, c) {
       published behaviour of the neat ${esc(poly[0].polymerId)} resin is shown instead, from a resin producer's or handbook reference. It is not a test of
       this grade: fillers, pigments and printing change it. It never passes a requirement${screens.length
         ? `; where the reference reports the polymer attacked or dissolved (${screens.map((p) => p.categoryLabel.toLowerCase()).join(', ')}), it screens this material
-      out of that requirement with "Use estimates and polymer data" on, and the SCREENED chip brings it back`
+      out of that requirement with "Let estimates rule out materials" on, and the SCREENED chip brings it back`
         : ', and none of these can screen it out'}.</div>`
     + poly.map((p) => `
       <h4 class="block-title">${esc(p.categoryLabel)}: ${esc(verdictWords(p.verdict))} <span class="chip chip-neutral chip-small">polymer-level</span> ${tag(p.id, 'Inferred record')}</h4>
@@ -982,6 +983,9 @@ function tabBody(tab, c) {
     // By product (D83): whether the H2C can print a material is whether it can print its products, each on its own
     // settings. The windows below are the material's recorded range, kept as a guide; the counts are what decide.
     const byProduct = productPrintCounts(grades);
+    // The material's hardened-nozzle gate is any product's; the line says how many (PM-03).
+    const hard = hardenedShare(grades);
+    const someHard = m.gates.abrasive === 'requires-hardened' && hard.total > 1 && hard.need < hard.total;
     const print = `
       <h3 class="sec">Can the H2C print it?</h3>
       ${byProduct}
@@ -990,13 +994,16 @@ function tabBody(tab, c) {
         ${gateLine(m.gates.bed, 'Bed temperature, across its products', range(m.print?.bedC), windowEstimate(m.print?.bedEstimate, 'Bed', showEstimates))}
         ${gateLine(m.gates.chamber, 'Chamber temperature, across its products', range(m.print?.chamberC), chamberExtra)}
         <div class="fact">
-          ${m.gates.abrasive === 'requires-hardened'
+          ${someHard ? `<span class="chip chip-need">Some products</span>`
+            : m.gates.abrasive === 'requires-hardened'
             // A requirement is not an ambiguity. The half-filled marker meant "we are not sure"
             // while the sentence next to it meant "you need one".
             ? '<span class="chip chip-need">Required</span>'
             : m.gates.abrasive === 'no-special-concern' ? '<span class="chip chip-PASS">Any nozzle</span>'
             : '<span class="chip chip-UNKNOWN">Not recorded</span>'}
-          <div><b>Hardened nozzle</b><br><span class="fact-why">${m.gates.abrasive === 'requires-hardened'
+          <div><b>Hardened nozzle</b><br><span class="fact-why">${someHard
+            ? esc(`${hardenedWords(hard)[0].toUpperCase()}${hardenedWords(hard).slice(1)}: ${hard.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${hard.need > 4 ? ', …' : ''}. The others state no such need, or say nothing; each product's Printing card says which.`)
+            : m.gates.abrasive === 'requires-hardened'
             ? 'Abrasive. A brass nozzle will wear out.' : m.gates.abrasive === 'no-special-concern'
             ? 'The source states no special nozzle concern.' : 'No abrasion guidance in the sampled sources.'}</span></div></div>
         <div class="fact">

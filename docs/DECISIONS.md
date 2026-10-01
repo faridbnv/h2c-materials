@@ -126,6 +126,8 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D114 | Absence is derived too: the coverage page says the same thing for the same records | Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited. | In force; it extends D74 |
 | D115 | A Parse review explains the columns it names; a typed endpoint is a number its cell states | A note that explains why one typed value differs from what the parser reads now names that column, and silences the check for that column alone. A typed temperature must be a number its own cell prints, and an open bound ("> 80 °C") stays open, whatever any note says. | In force; it narrows the Parse review of m08 |
 | D116 | What a page states once, its values inherit | A data sheet often says something once for a whole table, such as "all specimens annealed at 80 °C" or "printed specimens, dry". That statement is now recorded once per page, and every value on the page that says nothing for itself inherits it; a value that says the opposite keeps its own words and is flagged. | In force |
+| D117 | A row says how many products pass, and shows the passing products' own values | A material's row now says "PASS · 7 of 200 products" instead of a bare PASS, shows the range of the products that pass beside the range of all of them, says when a pass rests on a declared variant or on a value with no test direction or treatment stated, splits an UNKNOWN into how many products measure below and how many publish nothing, and gives every material-level fact (a hardened nozzle, a typical value's state) the count of products it is true of. | In force; it amends D83 (how a material's verdict is shown, not how it is decided) |
+| D118 | "Official Bambu product" passes Bambu Lab's own spools | The requirement "Official Bambu product" used to pass every product of a material Bambu sells, so a third-party PLA passed it because Bambu sells a PLA. It now passes only products Bambu Lab makes; the others of that material are "Officially listed family". | In force |
 
 <!-- end index -->
 
@@ -3763,3 +3765,41 @@ cause RC3, the largest). Built by Claude (an agent); the record is [the error-cl
   states such a thing while its rows record nothing and no page_context row carries it (CONTEXT-PAGE-UNRECORDED),
   and the value-line checks beside it (direction, notch, bound sign, sub-zero test temperature, standard, a print
   setting a profile does not hold).
+
+## D117. A row says how many products pass, and shows the passing products' own values
+
+> **In plain words:** A material's row now says "PASS · 7 of 200 products" instead of a bare PASS, shows the range of the products that pass beside the range of all of them, says when a pass rests on a declared variant or on a value with no test direction or treatment stated, splits an UNKNOWN into how many products measure below and how many publish nothing, and gives every material-level fact (a hardened nozzle, a typical value's state) the count of products it is true of.
+> **Status:** In force; it amends D83 (how a material's verdict is shown, not how it is decided).
+
+*Approved by the owner on 2026-10-01 after the PM trial (external package `PM-TRIAL-2026-10-01`, findings PM-01 to
+PM-03, PM-05 to PM-09, PM-11, PM-13). Built by Claude (an agent); the record is
+[the error-class sweep](audits/2026-10-01-error-classes/README.md).*
+
+- **What the trial found.** All nine confident wrong answers its engineers drew came from one shape: a row that
+  mixed a material-level fact with product-level ones. "PASS" beside a typical value that fails the requirement,
+  "hardened nozzle: required" for a material most of whose products need none, "Resists water" for a requirement that
+  only asks that a filament not dissolve.
+- **The verdict is unchanged; what it says is not.** D83 decides (a material passes when one product passes); the row
+  now says how many do (`shareMark`), the requirement cells show the passing products' own range with all products'
+  range under it, and a pass carried by a declared variant only, or by an admitted value whose direction or treatment
+  the sheet does not state, says so (`variantMark`, `caveatMark`). A typical value that includes annealed or
+  conditioned values carries a badge (the owner declined restricting typicals to as-printed values). An UNKNOWN says
+  "likely fails: n measured below, m unpublished"; its chip text is unchanged.
+- **Names that say what is measured** (m275): "Heat deflection (HDT, 0.45 MPa)", "Stiffness (tensile modulus, XY)",
+  "Strength across layers (tensile, Z)"; "Does not dissolve in water"; "Materials with missing data" and "Let
+  estimates rule out materials" for the two policy switches; "In the H2C's scope" and "Print checks off". The
+  ranking shows each value with its unit and the number of products behind it.
+
+## D118. "Official Bambu product" passes Bambu Lab's own spools
+
+> **In plain words:** The requirement "Official Bambu product" used to pass every product of a material Bambu sells, so a third-party PLA passed it because Bambu sells a PLA. It now passes only products Bambu Lab makes; the others of that material are "Officially listed family".
+> **Status:** In force.
+
+*Approved by the owner on 2026-10-01 (the PM trial's finding that the status gate was read as "made by Bambu").
+Built by Claude (an agent).*
+
+- `h2cStatusOf` (`app/js/engine/constraints.js`) judges each product: its maker Bambu Lab, Official Bambu product;
+  another maker's product of a material whose status is Official, Officially listed family. Every other status is the
+  material's, as before. `schema/vocab/h2c-status.csv` says so.
+- A selection saved before this release is asked again under the new meaning; the release note it opens with already
+  says its answers may differ.

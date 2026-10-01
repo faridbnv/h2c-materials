@@ -20,9 +20,14 @@ export const prop = (key) => PROPERTY[key] ?? { short: key, plain: key, technica
  * tab said missing data was set to "leave it out" or "keep it" and its button offered to "keep materials with missing
  * data visible": three names for one switch. Every sentence that names the mode takes it from here.
  */
-export const POLICY_CONTROL = 'Candidate confidence';
+// "Candidate confidence" read as a statistical confidence; the switch decides whether materials with missing data are
+// listed (the PM trial of 2026-10-01, PM-09).
+export const POLICY_CONTROL = 'Materials with missing data';
 /** The same label where a phone has no room for the long one. The control is never left unlabelled. */
-export const POLICY_CONTROL_SHORT = 'Confidence';
+export const POLICY_CONTROL_SHORT = 'Missing data';
+/** An environment requirement in words. Water solubility is not water resistance: a nylon does not dissolve in water and
+ * still takes it up, so it reads "Does not dissolve in water" (the PM trial, PM-11). */
+export const envRequirement = (category) => (category === 'water-solubility' ? 'Does not dissolve in water' : `Resists ${envNoun(category)}`);
 export const POLICY_LABELS = { strict: 'Confirmed only', exploration: 'Include uncertain' };
 export const policyLabel = (policy) => POLICY_LABELS[policy] ?? POLICY_LABELS.strict;
 
@@ -30,7 +35,7 @@ export const policyLabel = (policy) => POLICY_LABELS[policy] ?? POLICY_LABELS.st
 export const GATE = {
   // "Printable on an H2C" was a promise this criterion never tested: it only reads the research
   // scope list, not temperatures, nozzles or feed paths.
-  scope: { plain: 'In the H2C research scope', hint: 'leaves out materials the database places outside the printer\'s envelope; it does not check print settings' },
+  scope: { plain: 'In the H2C\'s scope', hint: 'leaves out materials the database places outside the printer\'s envelope; it does not check print settings' },
   nozzle: { plain: 'Nozzle temperature the H2C reaches', hint: 'the H2C reaches 350 °C' },
   bed: { plain: 'Bed temperature the H2C reaches', hint: 'the H2C reaches 120 °C' },
   chamber: { plain: 'Chamber temperature the H2C reaches', hint: 'the H2C reaches 65 °C' },
@@ -143,7 +148,7 @@ export function describeConstraint(c) {
       if (c.facet === 'polymer') return `Polymer: ${[...new Set((c.in ?? []).map((x) => x.split(' › ').pop()))].join(' or ')}`;
       return `Reinforcement: ${(c.in ?? []).map((x) => x.replace(/-/g, ' ')).join(' or ')}`;
     case 'environment':
-      return `Resists ${envNoun(c.category)}`;
+      return envRequirement(c.category);
     case 'treatment': return 'Annealing at the schedule its sheet states';
     case 'evidence': {
       const bits = [];

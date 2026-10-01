@@ -1,6 +1,6 @@
 Value,Meaning
 Conditional,"Usable on the H2C with conditions, not validated by Bambu; the Printing tab says which."
 Exceeds H2C limits,"Bambu does not list it, and its typical processing needs more than the H2C reaches (Method: H2C / Hardware baseline): the industrial high-temperature polymers. It describes the printer, not the candidate set; exclusion is Scope's alone."
-Official Bambu product,Sold by Bambu for this printer.
+Official Bambu product,Sold by Bambu for this printer. On a material it says Bambu sells a product of it; as a requirement it passes Bambu Lab's own spools only (D118).
 Officially listed family,"Bambu lists this family for the H2C, but not necessarily every brand of it."
 Theoretical,"Not listed by Bambu; judged printable on the H2C from its typical processing requirements, with no Bambu validation."

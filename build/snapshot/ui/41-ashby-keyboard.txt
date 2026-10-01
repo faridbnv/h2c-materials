@@ -4,7 +4,7 @@ INSPECTOR
 PPA-CF · G070-05 · PASS
 STATE
 As printed; dry
-STIFFNESS
+STIFFNESS (TENSILE MODULUS, XY)
 8.2 GPa this state's own value (V003215); moisture, treatment not stated, admitted for screening; to ISO 527
 DENSITY
 1,240 kg/m³ this state's own value (V003213); to ISO 1183

@@ -11,7 +11,7 @@ import { renderValue, chip, esc, fmtNumber, fmtRange, wireEvidence, explainButto
 import { prop, materialName, describeConstraint, screenedByKind, screenedChip, CHAMBER_GUIDANCE, POLICY_CONTROL, POLICY_LABELS, policyLabel } from './labels.js';
 import { exportHeadlines, tableHeadlines } from './registry.js';
 import { INDICES, indexById, rankingFor, indexValue } from '../engine/indices.js';
-import { productView, stateOf } from '../engine/products.js';
+import { productView, stateOf, hardenedShare, hardenedWords } from '../engine/products.js';
 import { matchingProducts } from '../engine/search.js';
 
 /** Materials a printer owner already has a feel for, offered as the comparison anchor. */
@@ -169,7 +169,7 @@ export function shareMark(e) {
   if (!c) return '';
   const judged = c.pass + c.fail;
   const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
-  const text = judged ? `${c.pass} of ${judged}` : 'none judged';
+  const text = judged ? `${c.pass} of ${judged} product${judged === 1 ? '' : 's'}` : 'none judged';
   const title = judged
     ? `${plural(c.pass, 'product')} of the ${plural(judged, 'product')} that could be judged meet${c.pass === 1 ? 's' : ''} every requirement together.`
       + `${c.untested ? ` ${c.untested} more publish${c.untested === 1 ? 'es' : ''} too little to judge; they do not count against the material.` : ''}`
@@ -178,6 +178,56 @@ export function shareMark(e) {
       + ' The material\'s Products tab lists each and why.'
     : `None of its ${plural(c.products, 'product')} publishes enough to judge against these requirements.`;
   return ` ${explainButton(text, title, { cls: 'share', head: 'Products that pass', action: 'products', id: e.materialId })}`;
+}
+
+/**
+ * What an UNKNOWN rests on (the PM trial, PM-02): every product that could be measured fails, and the rest publish
+ * nothing ("likely fails"), or nothing is published at all. D100 keeps both unresolved; a reader is told which.
+ */
+/** A pass carried only by declared Variants (a foamed or densely filled grade) says so (PM-01, D57). */
+export function variantMark(m, e) {
+  if (e?.verdict !== 'PASS') return '';
+  const passing = (e.products ?? []).filter((p) => p.verdict === 'PASS');
+  const variants = passing.filter((p) => p.variant);
+  if (!passing.length || variants.length < passing.length) return '';
+  return `<span class="row-sub via-variant" title="Every product that passes is a declared variant of this material (D57); the material's other products do not.">via ${variants.length === 1 ? 'a declared variant' : 'declared variants'} (${[...new Set(variants.map((p) => p.variant))].join(', ')})</span>`;
+}
+
+/** A pass that rests only on values published without their test direction or load says so (PM-05, D84). */
+export function caveatMark(e) {
+  if (e?.verdict !== 'PASS') return '';
+  const passing = (e.products ?? []).filter((p) => p.verdict === 'PASS');
+  const loose = (p) => (p.results ?? []).some((r) => r.status === 'PASS' && r.caveat);
+  if (!passing.length || !passing.every(loose)) return '';
+  const what = [...new Set(passing.flatMap((p) => p.results.filter((r) => r.caveat).map((r) => (r.caveat === 'load-not-stated' ? 'load' : 'direction'))))].join(' or ');
+  return `<span class="row-sub on-caveat" title="Every passing product passes on a value its sheet publishes without its test ${what}; it counts because values published that way are included.">on values without a test ${what}</span>`;
+}
+
+/** A typical value measured after annealing or conditioning, under a header that judges as printed and dry (PM-06). */
+export function typicalStateMark(h, measurementState) {
+  const st = measurementState(h?.typical?.measurementId);
+  if (!st) return '';
+  const words = [st.annealed ? 'annealed' : null, st.conditioned ? 'conditioned' : null].filter(Boolean).join(', ');
+  return words ? `<span class="row-sub typical-state" title="The typical value shown is a measurement taken ${words}; the verdict judges each product as printed and dry unless you allow otherwise.">typical: ${words}</span>` : '';
+}
+
+export function unknownMark(e) {
+  const c = e?.counts;
+  if (!c || e.verdict !== 'UNKNOWN') return '';
+  if (c.fail && !c.pass) return `<span class="row-sub likely-fails" title="Every product that publishes the value misses the limit; the material stays unresolved only because ${c.untested} product${c.untested === 1 ? '' : 's'} publish${c.untested === 1 ? 'es' : ''} nothing to judge (D100).">likely fails: ${c.fail} measured below, ${c.untested} unpublished</span>`;
+  if (!c.fail && !c.pass) return `<span class="row-sub not-published">nothing published to judge</span>`;
+  return '';
+}
+
+/**
+ * The passing products' own values for one requirement (the PM trial, PM-01): a material passes when one product does,
+ * so its row says what the passing products measure, not the median of every product.
+ */
+export function passingValues(e, key) {
+  const obs = (e?.products ?? []).filter((p) => p.verdict === 'PASS')
+    .flatMap((p) => (p.results ?? []).filter((r) => r.constraint?.kind === 'numeric' && r.constraint.property === key && Number.isFinite(r.observed)).map((r) => r.observed));
+  if (!obs.length) return null;
+  return { min: Math.min(...obs), max: Math.max(...obs), n: obs.length };
 }
 
 export function renderTable(host, state, actions) {
@@ -206,6 +256,8 @@ export function renderTable(host, state, actions) {
   const cells = (m, e, { ghost = false } = {}) => {
     // This row's results on one property: the thresholds its number must not be rounded across, and whether it is close.
     const on = (key) => (e?.results ?? []).filter((r) => r.constraint?.kind === 'numeric' && r.constraint.property === key);
+    // The state of a typical value's measurement, for the disclosure under it (PM-06).
+    const measurementState = (id) => { if (!id) return null; state.measurementById ??= new Map(state.db.measurements.map((x) => [x.id, x])); const x = state.measurementById.get(id); return x ? { annealed: x.postProcessingState === 'annealed', conditioned: x.moistureState === 'conditioned' } : null; };
     return COLUMNS.map((c) => {
       if (c.kind === 'name') {
         // Family sits under the name rather than in its own column: it repeated the name outright
@@ -240,7 +292,7 @@ export function renderTable(host, state, actions) {
         const scr = e?.screened ? screenedChip(e) : null;
         return ghost
           ? `<td class="state">${explainButton('baseline', 'Reference only. Not a candidate and not counted.', { cls: 'chip chip-neutral', head: 'Reference row' })}</td>`
-          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: 'chip chip-screened', head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}</td>`
+          : tested ? `<td class="state">${chip(e.verdict)}${scr ? ` ${explainButton('screened', scr.text, { cls: 'chip chip-screened', head: scr.head, action: scr.action, id: m.id })}` : ''}${shareMark(e)}${variantMark(m, e)}${caveatMark(e)}${unknownMark(e)}</td>`
           : `<td class="state"><span class="chip chip-neutral" title="No requirement is set, so nothing has been tested">not tested</span></td>`;
       }
       if (c.kind === 'pin') {
@@ -282,7 +334,11 @@ export function renderTable(host, state, actions) {
       if (c.kind === 'needs') {
         const bits = [];
         if (m.gates.abrasive === 'requires-hardened') {
-          bits.push(explainButton('hardened nozzle', 'Carbon or glass filled. A brass nozzle will wear out.', { cls: 'need', head: 'Hardened nozzle', action: 'printing', id: m.id }));
+          const share = hardenedShare(state.ctx?.productsByMaterial?.get(m.id));
+          const some = share.total && share.need < share.total;
+          bits.push(explainButton(some ? `hardened nozzle: ${share.need} of ${share.total}` : 'hardened nozzle',
+            some ? `${hardenedWords(share)}: ${share.needing.slice(0, 4).map((g) => `${g.manufacturer} ${g.product}`).join(', ')}${share.need > 4 ? ', …' : ''}. The others state no such need, or say nothing.` : 'Carbon, glass or metal filled. A brass nozzle will wear out.',
+            { cls: 'need', head: 'Hardened nozzle', action: 'printing', id: m.id }));
         }
         if (m.gates.drying === 'required') {
           bits.push(explainButton('drying guidance', 'A source gives a drying schedule. The Printing tab has its wording, and whether it is a requirement or a recommendation.',
@@ -317,7 +373,15 @@ export function renderTable(host, state, actions) {
         const oos = m.buy.anyInStock ? '' : explainButton('out of stock', notStocked, { cls: 'oos', head: 'Out of stock' });
         return `<td class="num">${nested ? inner : ''}${nested ? link('', ' buy-arrow') : link(inner)}${oos}</td>`;
       }
-      return `<td class="num">${renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id })}</td>`;
+      const all = renderValue(m.headline[c.key], { compact: true, estimates: state.ctx?.showEstimates, results: on(c.key), materialId: m.id }) + typicalStateMark(m.headline[c.key], measurementState);
+      // A material that passes a requirement on some of its products shows those products' values first, and every
+      // product's typical and range under it, labelled (PM-01).
+      const pass = tested && e?.verdict === 'PASS' && on(c.key).length ? passingValues(e, c.key) : null;
+      if (pass) {
+        const words = pass.min === pass.max ? fmtNumber(pass.min) : `${fmtNumber(pass.min)}\u2013${fmtNumber(pass.max)}`;
+        return `<td class="num"><span class="passing-values" title="${esc(`The value of each product that passes, for this requirement (${pass.n} product${pass.n === 1 ? '' : 's'}). Under it: every product of the material.`)}">passing: ${words}</span><span class="row-sub all-products">all products: ${all}</span></td>`;
+      }
+      return `<td class="num">${all}</td>`;
     }).join('');
   };
 

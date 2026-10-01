@@ -139,6 +139,24 @@ export function indexOrientation(index, xKey, yKey) {
   return null;
 }
 
+/**
+ * M in the units an Ashby-trained engineer checks by hand (the PM trial of 2026-10-01, PM-13). The index is computed
+ * from the headline units (E in GPa, σ in MPa, ρ in kg/m³, Cm in CAD/kg), which put E/ρ near 0.003; a mass index is
+ * shown per Mg/m³ (×1000), so E/ρ reads in MJ/kg and σ/ρ in kJ/kg, as the textbooks print them.
+ */
+export const INDEX_UNITS = {
+  'tie-stiffness': { scale: 1000, unit: 'MJ/kg' },
+  'beam-stiffness': { scale: 1000, unit: 'GPa^½/(Mg/m³)' },
+  'panel-stiffness': { scale: 1000, unit: 'GPa^⅓/(Mg/m³)' },
+  'tie-strength': { scale: 1000, unit: 'kJ/kg' },
+  'beam-strength': { scale: 1000, unit: 'MPa^⅔/(Mg/m³)' },
+  'panel-strength': { scale: 1000, unit: 'MPa^½/(Mg/m³)' },
+  'beam-stiffness-cost': { scale: 1, unit: 'GPa^½·m³/CAD' },
+  'tie-strength-cost': { scale: 1, unit: 'MPa·m³/CAD' },
+};
+/** An index value in its display units: { value, unit }. */
+export const indexDisplay = (index, value) => { const u = INDEX_UNITS[index?.id] ?? { scale: 1, unit: '' }; return { value: value == null ? null : value * u.scale, unit: u.unit }; };
+
 export const indexById = (id) => INDICES.find((i) => i.id === id) ?? null;
 
 

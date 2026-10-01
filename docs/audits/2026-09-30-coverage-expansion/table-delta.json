@@ -20,6 +20,13 @@
     "edited_existing": 8,
     "removed": 0
   },
+  "headline_definitions": {
+    "baseline": 10,
+    "current": 10,
+    "added": 0,
+    "edited_existing": 5,
+    "removed": 0
+  },
   "know_how_reads": {
     "baseline": 1542,
     "current": 1545,

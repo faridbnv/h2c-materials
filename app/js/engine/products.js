@@ -191,6 +191,24 @@ export function productGates(material, grade) {
 }
 
 /**
+ * How many of a material's products state that they need a hardened nozzle, that they do not, or nothing. A material's
+ * own gate is the union (any product that needs one), which read as "PLA needs a hardened nozzle" because six
+ * metal-filled grades of 250 profiles do (the PM trial of 2026-10-01, PM-03); a reader is told the share instead.
+ */
+export function hardenedShare(grades) {
+  const products = (grades ?? []).filter((g) => !/-R\d+$/.test(g.id) && !g.retired);
+  const need = products.filter((g) => g.print?.hardenedNozzle === true);
+  return { need: need.length, notNeeded: products.filter((g) => g.print?.hardenedNozzle === false).length, total: products.length, needing: need };
+}
+
+/** "6 of 200 products" style words for a hardened-nozzle share, or null where no product states one. */
+export function hardenedWords(share) {
+  if (!share?.need) return null;
+  if (share.need === share.total) return share.total === 1 ? 'its product needs one' : `all ${share.total} products need one`;
+  return `${share.need} of ${share.total} products need one`;
+}
+
+/**
  * The material with one product's values, recipe and offers. It keeps the material's ID, facets and scope, which are
  * the material's; a criterion that reads records (environment, offers, conflicts, exact-grade evidence) reads the
  * product's own through `product`, never its siblings' (D98).

@@ -11,7 +11,7 @@
 import { availability } from '../engine/coverage.js';
 import { runSelection } from '../engine/constraints.js';
 import { esc, priceSampleWords } from './format.js';
-import { prop, envLabel, envNoun, GATE } from './labels.js';
+import { prop, envLabel, envNoun, envRequirement, GATE } from './labels.js';
 import { numericFilters, nonNegativeKeys, headlineDef } from './registry.js';
 import { PRINTABLE, asksPrintable } from './templates.js';
 
@@ -77,7 +77,7 @@ export function renderFilters(host, state, actions) {
   const printable = asksPrintable(cs);
   parts.push(`<div class="rail-pinned">
     <label class="toggle"><input type="checkbox" data-gate="scope" ${scopeOn ? 'checked' : ''}>
-      <span>In the H2C research scope only</span></label>
+      <span>In the H2C's scope only</span></label>
     <div class="avail">Hides the ${outOfScope} materials the database places outside the printer's envelope.</div>
     <label class="toggle printable"><input type="checkbox" data-printable ${printable ? 'checked' : ''}>
       <span>Printable on the H2C</span></label>
@@ -290,7 +290,7 @@ function body(group, materials, cs, db, ctx = {}) {
       // Materials covered only by their base polymer's published behaviour are counted apart: shown, never passing (D64).
       const polymer = v.polymerMaterials ? `<span class="caveat">${v.polymerMaterials} more from the base polymer, shown but never passing</span>` : '';
       out.push(`<div class="control" data-active="${on}">
-        <label><input type="checkbox" data-env="${esc(key)}" ${on ? 'checked' : ''}> Resists ${esc(envNoun(key))}</label>
+        <label><input type="checkbox" data-env="${esc(key)}" ${on ? 'checked' : ''}> ${esc(envRequirement(key))}</label>
         <div class="avail">${v.usable} records state a verdict, across ${v.materials} materials${polymer}</div>
       </div>`);
     }

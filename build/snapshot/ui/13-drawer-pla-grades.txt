@@ -2,13 +2,13 @@ Across its 200 products: the spread of their values, and what their makers say
 ACROSS ITS PRODUCTS
 Property Typical Range Products Set apart
 Density kg/m³ 1,240 1,170–1,329 146 of 182 17 variants (800–4,000)
-Stiffness GPa 2.58 0.433–4.24 43 of 182 37 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
-Strength MPa 45.3 26–70.7 60 of 182 46 without direction or load (30–71); 12 variants (12.6–65)
-Strength across layers MPa 31.5 14.3–43.5 30 of 182 1 variant (14.5–14.5)
-Stretch before breaking % 6.3 1.2–65 56 of 182 39 without direction or load (2.9–84); 11 variants (2.4–40)
+Stiffness (tensile modulus, XY) GPa 2.58 0.433–4.24 43 of 182 37 without direction or load (1.44–4.78); 9 variants (0.715–4.73)
+Strength (tensile, XY; yield or break) MPa 45.3 26–70.7 60 of 182 46 without direction or load (30–71); 12 variants (12.6–65)
+Strength across layers (tensile, Z) MPa 31.5 14.3–43.5 30 of 182 1 variant (14.5–14.5)
+Stretch before breaking (elongation, XY) % 6.3 1.2–65 56 of 182 39 without direction or load (2.9–84); 11 variants (2.4–40)
 Notched impact, Charpy kJ/m² 17.1 4.94–72.3 10 of 182 21 without direction or load (1.8–29.8); 4 variants (1.8–2.97)
 Notched impact, Izod kJ/m² 5 4.5–6.5 6 of 182 7 without direction or load (3.9–5); 4 variants (5.5–18.1)
-Heat resistance °C 55 50–135 68 of 182 28 without direction or load (53–108); 6 variants (55–89)
+Heat deflection (HDT, 0.45 MPa) °C 55 50–135 68 of 182 28 without direction or load (53–108); 6 variants (55–89)
 Glass transition °C 59 54–67.5 64 of 182 6 variants (55–62.4)
 Price CAD/kg 33.3 18–80 27 of 182 2 variants (23–65)
 Typical is the median of the products that publish the value comparably; the range is theirs. Different products, not the uncertainty of one.
@@ -46,11 +46,11 @@ Drying
 45 °C for 4 h
 Density
 1,240 kg/m³
-Stiffness
+Stiffness (tensile modulus, XY)
 2.87 GPa
-Strength
+Strength (tensile, XY; yield or break)
 56 MPa
-Stretch before breaking
+Stretch before breaking (elongation, XY)
 8 %
 Glass transition
 55 °C
@@ -75,6 +75,6 @@ Drying
 not published
 Density
 1,220 kg/m³
-Stiffness
+Stiffness (tensile modulus, XY)
 2.27 GPa
-Strength
+Strength (tensile, XY; yield or break)

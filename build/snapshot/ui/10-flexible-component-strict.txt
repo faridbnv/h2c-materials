@@ -6,11 +6,11 @@ Why the rest were excluded
 Clear requirements
 Printable on the H2C
 ×
-In the H2C research scope
+In the H2C's scope
 ×
 A build material, not a support
 ×
-Stretch before breaking at least 100 %
+Stretch before breaking (elongation, XY) at least 100 %
 ×
 Each product is judged as printed, dry, and must be printable on the H2C. Allow annealing: 1 more pass
 Not checked by this template: Stretch before breaking is not spring-back, softness or sealing
@@ -41,47 +41,55 @@ PC
 ≈ close to the limit
 ¤ converted
 n/a not applicable
-Material ▲ Result Density kg/m³ Stiffness GPa Strength MPa Stretch % Heat °C Price CAD/kg Shortlist
+Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
 OBC
 Polyolefins
  PASS
-1 of 1
+1 of 1 product
  905
 905–905 · 2
- — 14 700 n/a — ☆
+ — 14 passing: 700
+all products: 700
+ n/a — ☆
 PA6/66
 Nylon / Polyamide
  PASS
-1 of 4
+1 of 4 products
  1,120
 1,100–1,120 · 7
  2.22
 1.98–2.7 · 3
+typical: annealed
  63.6
 55–78 · 4
- 13.8
+ passing: 100
+all products: 13.8
 9.9–100 · 4
  111
 102–140 · 5
+typical: annealed
  40
 39–90.7 · 3
 ↗ ☆
 PBAT
 PVB / Specialty Polymers
  PASS
-1 of 1
- 1,250 0.006 27 400 90 — ☆
+1 of 1 product
+ 1,250 0.006 27 passing: 400
+all products: 400
+ 90 — ☆
 TPU 85A class and softer
 Flexible Elastomers
  PASS
-1 of 1
+1 of 1 product
  1,180
 1,070–1,210 · 13
  0.0159
 0.0068–0.025 · 2
  12
 6.2–30 · 3
- 585
+ passing: 700
+all products: 585
 560–700 · 3
  n/a 58
 50–158 · 3
@@ -89,14 +97,15 @@ Flexible Elastomers
 TPU 90A class
 Flexible Elastomers
  PASS
-3 of 3
+3 of 3 products
  1,210
 1,120–1,240 · 10
  0.0162
 0.0053–0.027 · 2
  26.9
 12.5–30 · 4
- 618
+ passing: 574–650
+all products: 618
 574–1,000 · 4
  n/a 75
 54–96 · 2
@@ -104,14 +113,15 @@ Flexible Elastomers
 TPU 95A class
 Flexible Elastomers
  PASS
-9 of 9
+9 of 9 products
  1,210
 1,000–1,240 · 26
  0.027
 0.006–0.065 · 7
  27.3
 17–31.8 · 11
- 499
+ passing: 265–900
+all products: 499
 265–900 · 10
  n/a 83
 54–112 · 2

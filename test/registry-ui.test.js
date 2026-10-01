@@ -18,6 +18,16 @@ const legacy = JSON.parse(readFileSync(join(root, 'test/fixtures/legacy-constant
 // label and hint, since a product with only a foreign listing now has a converted price.
 legacy.PROPERTY.priceCADkg = { ...legacy.PROPERTY.priceCADkg, technical: 'Median retail price, CAD/kg',
   hint: 'sampled listings; Canadian where one exists, else a foreign one converted at the Bank of Canada rate; not live' };
+// The PM trial of 2026-10-01 (PM-07, PM-08, m275): the plain names say what is measured.
+Object.assign(legacy.PROPERTY.hdt045, { short: 'HDT 0.45', plain: 'Heat deflection (HDT, 0.45 MPa)', hint: 'temperature at which a bar bends under a light 0.45 MPa load; a screening number, not a service temperature' });
+Object.assign(legacy.PROPERTY.tensileModulusXY, { short: 'Stiffness XY', plain: 'Stiffness (tensile modulus, XY)' });
+Object.assign(legacy.PROPERTY.tensileStrengthXY, { short: 'Strength XY', plain: 'Strength (tensile, XY; yield or break)' });
+Object.assign(legacy.PROPERTY.elongationXY, { plain: 'Stretch before breaking (elongation, XY)' });
+for (const c of legacy.PROPERTIES_COLUMNS) {
+  const p = legacy.PROPERTY[c.key];
+  if (['tensileModulusXY', 'tensileStrengthXY', 'hdt045'].includes(c.key)) Object.assign(c, { label: p.short, title: `${p.technical} — ${p.hint}` });
+}
+legacy.CSV_HEADERS = legacy.CSV_HEADERS.map((h) => (h === 'Heat resistance C' ? 'HDT 0.45 MPa C' : h));
 const db = JSON.parse(readFileSync(join(root, 'dist/db.json'), 'utf8'));
 
 // The lists were hardcoded for six headlines. A headline added since (D92) is a registry row they never had: it reaches
@@ -61,7 +71,8 @@ test('the drawer uses the shared labels and the shared property domains (D46 cor
   // "high means tough", which the shared label exists to contradict.
   const head = REGISTRY.headlines.map((h) => [h.labels.plain, h.key, h.labels.hint]);
   const changed = head.filter((row, i) => JSON.stringify(row) !== JSON.stringify(legacy.DETAIL_HEAD[i])).map((r) => r[1]);
-  assert.deepEqual(changed, ['elongationXY', 'priceCADkg']);
+  // m275 renamed four (PM-07, PM-08): stiffness, strength, stretch and heat deflection say what is measured.
+  assert.deepEqual(changed, ['tensileModulusXY', 'tensileStrengthXY', 'elongationXY', 'hdt045', 'priceCADkg']);
   // The tabs gain the properties coverage already counted as mechanical or thermal and they omitted.
   const gained = (now, before) => now.filter((p) => !before.includes(p));
   assert.deepEqual(legacy.DETAIL_MECHANICAL.filter((p) => !propertiesInDomain('mechanical').includes(p)), []);

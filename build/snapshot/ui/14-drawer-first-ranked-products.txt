@@ -16,13 +16,13 @@ Drying
 not published
 Density
 1,240 kg/m³
-Stiffness
+Stiffness (tensile modulus, XY)
 8.2 GPa
-Strength
+Strength (tensile, XY; yield or break)
 87 MPa
-Stretch before breaking
+Stretch before breaking (elongation, XY)
 1.9 %
-Heat resistance
+Heat deflection (HDT, 0.45 MPa)
 240 °C
 Glass transition
 125 °C

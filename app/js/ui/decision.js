@@ -7,7 +7,7 @@
 // layer of its own, drawn by its chip under Also (unsettled products follow Candidate confidence until theirs is
 // pressed), counted apart and never ranked, counted on a line or put on a front.
 
-import { indexById, INDICES, selectionLine, PRICE_CAVEAT } from '../engine/indices.js';
+import { indexById, INDICES, selectionLine, PRICE_CAVEAT, indexDisplay } from '../engine/indices.js';
 import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '../engine/workspace.js';
 import { buildFamilyColors, esc, fmtNumber, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL } from './format.js';
 import { AXIS_DEFS } from './axes.js';
@@ -105,7 +105,7 @@ export function questionStrip(state, ws) {
       <span class="ws-label">Asked</span>
       <span class="ws-asked-list">${asked.map((a) => `<span>${esc(a)}</span>`).join('')}${cs.length ? '' : '<span class="ws-asked-none">no requirement yet, so nothing is screened</span>'}</span>
       <button type="button" class="link-btn" data-edit-req data-focus="edit-req" title="The filter rail holds every requirement; the chart draws them">Change in Filters</button>
-      ${printable ? '' : '<span class="ws-research"><b class="warn-text">Research mode:</b> printability not checked <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></span>'}
+      ${printable ? '' : '<span class="ws-research"><b class="warn-text">Print checks off:</b> printability not checked <button type="button" class="btn btn-sm" data-act="printable">Check printability</button></span>'}
     </div>
   </section>`;
 }
@@ -368,14 +368,14 @@ export function resultsPanel(state, ws, { view = 'decision', drawn = null } = {}
       const rel = r.place > 1 ? (r.value / first.value).toFixed(2) : null;
       items.push(materialItem(r.materialId, {
         place: `<span class="ws-place">${r.place}</span>`,
-        value: `<span class="formula ws-median" title="The median M of ${plural(r.products, 'passing product')}${rel ? `; ${rel} × ${esc(nameOfMaterial(state, first.materialId))}'s` : ''}">${sig(r.value)}${rel ? ` <span class="ws-rel">${rel}×</span>` : ''}</span>`,
+        value: `<span class="formula ws-median" title="The median M of ${plural(r.products, 'passing product')} (best ${esc(best ? `${best.manufacturer} ${best.product}` : 'product')}: ${sig(indexDisplay(index, r.best?.value).value)} ${esc(indexDisplay(index, 1).unit)})${rel ? `; ${rel} × ${esc(nameOfMaterial(state, first.materialId))}'s` : ''}">${sig(indexDisplay(index, r.value).value)} <span class="ws-unit">${esc(indexDisplay(index, 1).unit)}</span> <span class="ws-n">n=${r.products}</span>${rel ? ` <span class="ws-rel">${rel}×</span>` : ''}</span>`,
         best: best ? `<div class="ws-sub ws-best">best: <button type="button" class="link-btn" data-inspect="${esc(bestKey)}" title="${esc(stateWords(parseState(r.best.stateId)))} · M ${sig(r.best.value)}">${esc(`${best.manufacturer} ${best.product}`)}</button></div>` : '',
       }));
     }
     if (!lineDrawn && ws.ranking.order.length) items.push(`<li class="ws-line-mark" aria-label="The chart's line, M = ${sig(lineHere)}"><span>line · M ${sig(lineHere)}</span></li>`);
     const unranked = ws.ranking.unranked;
     body = `<div class="ws-list-head"><h3>Ranking <span class="formula">M = ${esc(formulaText(index))}</span></h3>
-      <p class="fine" title="Each material by the median M of its passing products, in the states they pass in, best first; its best product named. The × is relative to the first: M's own units depend on the formula.">Each material by the median M of its passing products.</p></div>
+      <p class="fine" title="Each material by the median M of its passing products, in the states they pass in, best first; its best product named. The × is relative to the first.">Each material by the median M of its passing products, in ${esc(indexDisplay(index, 1).unit)}; n is how many products it rests on.</p></div>
       ${ws.ranking.order.length ? `<ol class="ws-rank">${items.join('')}</ol>` : `<p class="fine">${tested && !state.rows.some((r) => r.evaluation.verdict === 'PASS')
         ? 'No material meets every requirement in the state asked, so nothing ranks. Unsettled products, under Also, draws those that could not be settled; Why excluded says what held them.'
         : `No ${tested ? 'material that passes' : 'material'} has a product that publishes what ${esc(formulaText(index))} needs in the state it is judged in.`}</p>`}

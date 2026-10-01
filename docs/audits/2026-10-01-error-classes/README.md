@@ -41,3 +41,15 @@ the stale-acceptance check makes every one of them come back out as it is fixed 
 - Regression cases caught by a guard: 46 of 54. Not guarded, fixed directly: two room-temperature test temperatures
   (they decide nothing), one block standard printed above its rows, one film's MD/TD direction, two enclosure and
   chamber statements, and two rows whose value line the check did not locate.
+
+## The PM trial's findings (D117, D118), committed before Phase 2
+
+- `app/js/ui/table.js`: the share ("PASS · 7 of 200 products"), the passing products' range above all products',
+  `variantMark`, `caveatMark`, `typicalStateMark`, `unknownMark`, and "hardened nozzle: N of M" in Needs. The drawer and
+  Compare say how many products need a hardened nozzle (`hardenedShare`).
+- `app/js/engine/constraints.js`: `h2cStatusOf` judges "Official Bambu product" per product (D118); a numeric pass
+  carries the caveat of the value it rests on.
+- Names: m275 (headline labels), `labels.js`, `filters.js`, `index.html`, `start.js`, `decision.js`; ranking values with
+  units and n (`indices.js`).
+- Not built: a scenario warning naming D118 (the release note says answers may differ), a glossary popover (PM-20),
+  and the split counts in the empty-result explanation.

@@ -1,7 +1,7 @@
 COUNT 90 shown PASS + UNKNOWN
 STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 23
-Requirements: In the H2C research scope; A build material, not a support; Nozzle temperature the H2C reaches; Bed temperature the H2C reaches; Chamber temperature the H2C reaches; Heat resistance at least 100 °C; Stiffness at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
-Template: Outdoor structural part. Candidate confidence: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Release <id>, database snapshot 2026-09-21, build <date>. A material's values are its products' spread; check the exact product in its Products tab before you buy or print.
+Requirements: In the H2C's scope; A build material, not a support; Nozzle temperature the H2C reaches; Bed temperature the H2C reaches; Chamber temperature the H2C reaches; Heat deflection (HDT, 0.45 MPa) at least 100 °C; Stiffness (tensile modulus, XY) at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
+Template: Outdoor structural part. Materials with missing data: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Release <id>, database snapshot 2026-09-21, build <date>. A material's values are its products' spread; check the exact product in its Products tab before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
 ABS
 UNKNOWN
@@ -17,7 +17,7 @@ ABS
 ASA
 PC
 Print summary
-Each track spans all 153 candidate materials in the database, their estimated ranges included: the numbers under it are the lowest and highest, so a bar's length is where a material sits among them. Where the candidates span more than a hundredfold (here stiffness and stretch before breaking) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude. An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so. A * value is a measurement that is not comparable, drawn as a tick, not a bar; select it for why.
+Each track spans all 153 candidate materials in the database, their estimated ranges included: the numbers under it are the lowest and highest, so a bar's length is where a material sits among them. Where the candidates span more than a hundredfold (here stiffness (tensile modulus, xy) and stretch before breaking (elongation, xy)) the track is marked log scale: each tenfold step takes the same length, so a bar reads as a place among the orders of magnitude. An upright line is a requirement, named beside the property, dashed if it is only tracked; a track widens past the candidates to show one, or marks one far past them at its end, and says so. A * value is a measurement that is not comparable, drawn as a tick, not a bar; select it for why.
 Density kg/m³
 Density at most 1500 kg/m³
 ABS
@@ -32,8 +32,8 @@ ABS-CF
 520
 7,190
 all 153 candidates
-Stiffness GPa
-Stiffness at least 3 GPa
+Stiffness (tensile modulus, XY) GPa
+Stiffness (tensile modulus, XY) at least 3 GPa
 ABS
 2.2
 1.77–2.38 · 11
@@ -46,7 +46,7 @@ ABS-CF
 log scale
 20
 all 153 candidates
-Strength MPa
+Strength (tensile, XY; yield or break) MPa
 ABS
 34.9
 15.7–45 · 17
@@ -58,7 +58,7 @@ ABS-CF
 6.05
 274
 all 153 candidates
-Strength across layers MPa
+Strength across layers (tensile, Z) MPa
 ABS
 28
 21.9–33 · 9
@@ -69,7 +69,7 @@ Not published
 7.5
 60.7
 all 153 candidates
-Stretch before breaking %
+Stretch before breaking (elongation, XY) %
 ABS
 10
 3.9–40 · 16
@@ -104,8 +104,8 @@ ABS-CF
 2.5
 250
 widened to a value shown
-Heat resistance °C
-Heat resistance at least 100 °C
+Heat deflection (HDT, 0.45 MPa) °C
+Heat deflection (HDT, 0.45 MPa) at least 100 °C
 ABS
 94
 78.9–104 · 21
@@ -146,8 +146,8 @@ PROCESS REQUIREMENTS
 Where a material has products that pass, each gate is theirs: their own recipes against the H2C, which is what passed them. The line under it is the material's window across every recorded product, context that no product need match (F09).
 Material Nozzle within H2C Bed within H2C Chamber within H2C Hardened nozzle Drying
 ABS yes yes yes not needed guidance published
-ABS-AF yes yes yes required guidance published
-ABS-CF yes yes part of the window required guidance published
+ABS-AF yes yes yes 2 of 3 products need one guidance published
+ABS-CF yes yes part of the window 9 of 11 products need one guidance published
 EVIDENCE COMPLETENESS
 Material Measured Estimated Grades Measurements
 ABS 10 of 10 — 57 599

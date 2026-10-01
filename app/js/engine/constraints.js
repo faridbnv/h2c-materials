@@ -192,6 +192,9 @@ function evaluateNumeric(material, c, ctx = {}) {
     measurementId: h.measurementId, gradeId: h.gradeId, sourceId: h.sourceId,
     direction: h.direction,
     ...(h.admitted?.length ? { admitted: h.admitted } : {}),
+    // A pass on a value published without its test direction or load, counted because the reader admitted those (D84):
+    // the row says so (the PM trial of 2026-10-01, PM-05).
+    ...(h.caveat ? { caveat: h.caveat } : {}),
   };
 }
 
@@ -236,6 +239,15 @@ export const TREATMENT = { kind: 'treatment', mandatory: true, __group: 'Manufac
 
 const GATE_LABEL = { nozzle: 'Nozzle temperature', bed: 'Bed temperature', chamber: 'Chamber temperature' };
 
+/** A product's H2C status (D118): Bambu Lab's own spool is an official Bambu product; another maker's spool of a family
+ * Bambu sells is of an officially listed family; every other status is the family's. */
+export function h2cStatusOf(material) {
+  const p = material.product;
+  if (!p) return material.h2cStatus;
+  if (/^bambu( lab)?$/i.test(String(p.manufacturer ?? '').trim())) return 'Official Bambu product';
+  return material.h2cStatus === 'Official Bambu product' ? 'Officially listed family' : material.h2cStatus;
+}
+
 function evaluateGate(material, c) {
   if (c.gate === 'scope') {
     const excluded = material.excluded;
@@ -250,11 +262,17 @@ function evaluateGate(material, c) {
     };
   }
   if (c.gate === 'h2cStatus') {
-    const ok = (c.in ?? []).includes(material.h2cStatus);
+    // "Official Bambu product" is a product's, not its family's (D118): Bambu Lab's own spool is one; another maker's
+    // spool of a family Bambu sells is of an officially listed family. Judged on a material without a product (a family
+    // entry, a material screen with no products), the material's recorded status stands.
+    const status = h2cStatusOf(material);
+    const ok = (c.in ?? []).includes(status);
     return {
       status: ok ? STATUS.PASS : STATUS.FAIL,
       criterion: `H2C status in ${(c.in ?? []).join(', ')}`,
-      reason: `Recorded status is "${material.h2cStatus}"`,
+      reason: material.product && status !== material.h2cStatus
+        ? `${material.product.manufacturer} ${material.product.product} is not Bambu Lab's own spool; its family is "${material.h2cStatus}", which makes it "${status}"`
+        : `Recorded status is "${status}"`,
     };
   }
   // The nozzle question is about hardware the user lacks, not hardware they have. A hardened
@@ -638,6 +656,8 @@ function productEntry(x) {
     gradeId: x.grade.id, verdict: x.e.verdict, screened: x.e.screened, failedBy: x.e.failedBy,
     state: stateRef(x.state), results: x.e.results.map(productResult),
     ...(admitted.length ? { admitted } : {}),
+    // A declared variant (a foamed or densely filled grade, D57) is named, so a pass it alone carries can say so.
+    ...(x.grade.variant ? { variant: x.grade.variant } : {}),
     ...(x.tries.length > 1 ? { states: x.tries.map((t) => ({ ...stateRef(t.state), verdict: t.e.verdict })) } : {}),
   };
 }
@@ -645,7 +665,7 @@ function productEntry(x) {
 /** One requirement's answer for one product, with the records it cites and nothing the material's rows repeat. */
 const productResult = (r) => {
   const out = { criterion: r.criterion, status: r.status, reason: r.reason, constraint: r.constraint };
-  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished']) if (r[k] !== undefined) out[k] = r[k];
+  for (const k of ['measurementId', 'evidenceIds', 'priceIds', 'contextIds', 'observed', 'unit', 'closeToLimit', 'estimated', 'screened', 'polymer', 'admitted', 'treatment', 'elsewhere', 'missing', 'asPublished', 'caveat']) if (r[k] !== undefined) out[k] = r[k];
   return out;
 };
 
