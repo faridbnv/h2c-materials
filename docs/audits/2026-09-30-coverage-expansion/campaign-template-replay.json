@@ -1,0 +1,585 @@
+{
+  "before_release": "b8d13dc62ff6",
+  "after_release": "784aaac91d99",
+  "question_modes": 24,
+  "evaluations": 30744,
+  "answer_changes": 36,
+  "changes": [
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Strict, annealing permitted\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"M153\"]",
+        "level": "material",
+        "id": "M153",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Indoor prototype\",\"Explore with estimates\",\"G153-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G153-02",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Strict\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Strict\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Strict\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Strict, annealing permitted\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Explore\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Explore\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Explore\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Explore with estimates\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Explore with estimates\",\"M147\"]",
+        "level": "material",
+        "id": "M147",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Lightweight structure\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      },
+      "after": {
+        "key": "[\"Lightweight structure\",\"Explore with estimates\",\"G147-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G147-01",
+        "verdict": "PASS",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"M066\"]",
+        "level": "material",
+        "id": "M066",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"M066\"]",
+        "level": "material",
+        "id": "M066",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-01",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-01\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-01",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-02",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-02\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-02",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-03\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-03",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-03\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-03",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-04\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-04",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-04\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-04",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-05\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-05",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-05\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-05",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-06",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-06",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    },
+    {
+      "before": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-07\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-07",
+        "verdict": "UNKNOWN",
+        "screened": true
+      },
+      "after": {
+        "key": "[\"Warm environment\",\"Explore with estimates\",\"G066-07\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G066-07",
+        "verdict": "UNKNOWN",
+        "screened": false
+      }
+    }
+  ]
+}

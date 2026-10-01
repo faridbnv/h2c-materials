@@ -64,14 +64,14 @@ Each line is scored 1 to 5, where 5 means as good as it needs to be. It is re-sc
 | C3 | Evidence store, decision tier (values with their conditions) | 3 | 3 | 3 | A deciding value must be a number its evidence line prints, in one role (D97), and decides only in the state it was measured in (D99); no person has measured the error rate. The pre-gap-closure sample drew 32 of 310 deciding values (SPOT-CHECK-DECISIVE.md); the gap-closing response lists the additional agent re-reads awaiting a person |
 | C4 | Comparability (how comparable each value is, the user chooses how strict) | 2 | 4 | 4 | Comparable and as published on every headline, and each value's state; a verdict names what it admitted unstated |
 | C5 | Material summary (range and typical value across products) | 1 | 4 | 4 | Every material is its products' spread, variants and twins placed by rule |
-| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | A product passes on its own records (D98), in a state it can be made in (D99), and a material is unknown while any product is (D100): no false confirmation in the acceptance portfolio. Gap closure moved 64 product/question answers and 21 material/question answers; the current 3,468 facts one step from an answer are listed in [SCENARIO-GAPS.md](audits/2026-09-27-v2.1-review/SCENARIO-GAPS.md). The frozen research worklist and its unresolved handoffs are separate |
+| C6 | Screening (pass / fail / unknown, explained, nearest miss) | 3 | 4 | 4 | Product/state-owned evidence decides (D98–D100); the current [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) and frozen replay show answer changes. The v2.1 audit's scenario-gap count describes that release; rerun its generator after data changes. Application judgments and narrative claims never create passes |
 | C7 | Rank and trade-offs (goal ordering, material ranges, Pareto, compare) | 2 | 3 | 3 | One ranking across the table, the chart and the export (D102); since 2026-09-29 the chart draws and counts exact product states (D107), its controls and views reworked after the owner used it (D108 to D112), not re-scored; untested with the team (TEAM-TRIAL.md) |
 | C8 | Drill down to products (which pass, by maker; search by maker or product) | 2 | 4 | 4 | Passing products first, in the drawer's first view on a laptop; a product can be chosen, with its state, and its decision brief written (D103) |
-| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks each product's nozzle, bed and chamber against the H2C (D101), from its own recipe, its twin's, then Bambu's guide, labelled: chamber has a verdict for 752 of 1,128 products (24 a window the H2C partly reaches), nozzle 1,008; annealing is a state with its schedule. 376 products' chamber is still unknown ([print.csv](../build/snapshot/print.csv)) |
-| C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | 4,665 statements on 1,045 products in the maker's words, every gap stated; 45 products left sheet-silent, each with a question for the owner or the maker ([worklist](audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md)) |
-| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | The facts no row holds and every cached page's text in `dist/h2c.sqlite`, stamped with its release and never mixing two (D105); the full-text index built in the gap-fill tranche's checkout holds 1,588 of 1,722 retrieved sources and says so (OPEN-PROBLEMS §19). Private source bytes and text are not shipped to CI or Pages |
+| C9 | Printability and treatment (each product's own recipe against the H2C) | 2 | 4 | 4 | Every template asks nozzle, bed and chamber against the H2C, from own evidence, permitted twin, then labelled Bambu guide (D101). Current known/unknown counts are generated in [campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) and [print.csv](../build/snapshot/print.csv); drying and bounded windows retain source limits, and annealing remains a repeatable state |
+| C10 | Makers' know-how (in the panel, gaps visible) | 1 | 4 | 4 | Current statement/product counts are in [counts.md](../build/snapshot/counts.md), with silent recipes/products in the generated [worklist](audits/2026-09-25-re-center/KNOW-HOW-WORKLIST.md). Literal claims now show their recorded scope/conditions separately; no suitability verdict follows |
+| C11 | The record (everything published, searchable, never deciding) | 1 | 4 | 4 | Unmapped facts and cached page text in release-stamped dist/h2c.sqlite (D105). The local full-text index remains partial; the dated current custody/index receipt and limitations are in OPEN-PROBLEMS §19. Private originals/text are not shipped to CI or Pages |
 | C12 | Estimates (a marked hint where nothing is published) | 3, over-built | 3 | 3 | Estimated only where no product publishes (148 material cells, `build/snapshot/counts.md`); the special cases went with the representative grade |
-| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | After gap closure, `verify:fast` 58.5 s warm and 106.7 s cold: the warm run meets the 90 s budget; the cold overrun is recorded for the owner's chosen performance follow-up (OPEN-PROBLEMS §19). A save is one transaction, a fetch bounded and resumable (D104); a decision is traced from the command line (D105). A product still takes the pipeline, which stays paused except for named exceptions |
+| C13 | Data operations (a product in minutes, verify in about a minute) | 2 | 3 | 4 | Latest committed data warm checks: 27.48 s and 51.57 s, within 90 s, with complete browser QA; [receipts](audits/2026-09-30-coverage-expansion/STATUS.md). The historical 106.7 s cold overrun remains an explicit follow-up (OPEN-PROBLEMS §19). Campaign docs are generated and checked in verify:fast; imports stay paused outside named exceptions |
 | C14 | Team layer (shared scenarios, approved list, own tests); later | 1 | 1 | 2 | A chosen product keeps its state, release, note and the team's own test results with the scenario, and its brief is written (D103); no shared list, account or server, as decided |
 | C15 | Engineering hygiene (checks guard decisions, docs short and current) | 2 | 3 | 4 | An independent acceptance portfolio (46 expectations) and seven metamorphic relations guard the decisions; a release is its content (D96); `verify` fails without Chrome; `npm run doctor` and three routes start a reader. The audit record is still long |
 | C16 | Price (a CAD/kg for each material, each product's own where it has one) | – | – | – | Added with the price pass of 2026-09-30, not yet scored; price was 33 materials and 38 products until then. Now 101 of 136 materials and 214 of 1,077 products priced, 30 materials from a converted foreign listing (D113); 35 unpriced with why (OPEN-PROBLEMS §22); a snapshot of two days, with no refresh routine |
@@ -83,7 +83,7 @@ on the team trial ([TEAM-TRIAL.md](audits/2026-09-27-v2.1-review/TEAM-TRIAL.md))
 
 Evidence for C6/C9/C10/C11/C13 was refreshed after the 2026-09-28
 [source backup and gap closure](audits/2026-09-28-gap-closing/RESPONSE.md), without changing the scores.
-Counts describe that build and, for the private full-text index, this checkout; they are not CI cache counts.
+The score values remain dated 2026-09-28. Their explanatory links now point to current generated evidence; older refresh paragraphs below are historical, not current campaign totals. Private full-text figures describe a dated local cache, not CI.
 
 The table's counts were refreshed on 2026-09-30 from the build after the
 [gap-fill tranche](audits/2026-09-29-gap-fill-implementation/README.md), again without changing a score: it gave a nozzle
@@ -354,6 +354,19 @@ Every target keeps a final evidenced outcome, including unresolved, inaccessible
 ones. A bounded search never proves universal absence. Local commits require the repository's complete checks.
 The external campaign package is `COVERAGE-EXPANSION-2026-09-30` beside the owner's two gap-fill packages;
 public audit reports must contain no private source originals or machine-specific source-store paths.
+
+## Authorized on 2026-10-01: document and publish completed campaign work
+
+The owner asked for coherent, current repository documentation of everything completed and remaining,
+then a push to main. This lifts the original campaign's local-only publication boundary for the already
+reviewed work and its documentation. It does not mark the campaign complete, expand the catalogue,
+reopen the general import pause, authorize messages/testing, or change the evidence/selection contract.
+
+[Current status](audits/2026-09-30-coverage-expansion/STATUS.md) is generated from the build, the frozen
+1213-target inventory and approved committed task outcomes, and checked in verify:fast. It separates
+UI marks, manual material assessments and joined product passes. The historical audit packets and
+failed/corrected review receipts remain intact. The [effort/value recommendation](audits/2026-09-30-coverage-expansion/EFFORT-AND-VALUE.md)
+is an estimate for the owner, not an automatic change to the all-target plan or a new spending authority.
 
 ## Working rules
 

@@ -1,0 +1,29 @@
+# Estimated value and effort of finishing the campaign
+
+Planning judgment for the owner on 2026-10-01, based on the current repository and campaign receipts. These are estimates, not measured productivity, token usage or a research-result guarantee. The approved all-target scope remains in GOALS until the owner changes it. The recommendation does not change the existing authorized campaign scope.
+
+## Material assessments: finish the remaining 61
+
+Recommended: finish all 136 material assessments. The additional benefit is a complete, independently source-checked review of every material's Application judgment, explicit product/sibling limits and a consistent explanation of what is actually known. The UI already has no blank Application cells; the remaining 61 tasks review historical judgments. The value is mainly better trust and discoverability, with a smaller chance of source-backed corrections or finishing/use evidence. Expect many already-recorded, limited or gap outcomes. A completed judgment never establishes product suitability or creates a selection pass.
+
+Budget **8–16 active agent-hours and 0.5–1.2 million total model tokens** for the 61 remaining assessments, including source reads, bounded independent review, guarded amendments where needed and coherent verified commits. This assumes existing originals are available, shared documents are read once and only the exact relevant pages/operations are passed to reviewers. Large multi-product materials need explicit limits rather than a silent claim to have reviewed every sibling. Search or custody surprises may exceed the estimate.
+
+Start with a **12-hour/0.8 million-token allocation**, inspect yield after each five maker batches, and report before exceeding it. That is a proposed budget checkpoint, not permission to drop targets or mark unfinished work complete. Confidence: medium-low.
+
+## Product passes: prefer a targeted first tranche to a 100% quota
+
+A research pass is a disposition of all assigned product questions, not a new measurement and not a product that passes selection. Currently 21 of 1077 passes are complete; 13 ended conflicting and 8 context only. Those passes did produce useful print recipes and source corrections, but the outcome labels show how often useful public evidence still leaves a handoff. They were selected targets, so their yield cannot be projected directly to the other 1056.
+
+For all 1056 remaining passes, estimate **150–350 active agent-hours and 12–30 million total model tokens**, including source reading/search, review, injection and verification work. That is roughly 9–20 active minutes and 11–28 thousand tokens per product after maker/document reuse. It is not elapsed clock time and excludes the owner's testing/vendor work. A difficult tail can exceed the range: the 20-minute initial manual-search cap alone would allow 352 hours; a 10-minute extension on every target would add 176 hours, before review. Search caps are ceilings, not targets.
+
+The additional benefit should concentrate in missing print/drying/treatment gates, source/identity corrections and usable exact-product properties near actual selection thresholds. I would budget on a **low-confidence 5–15% of the remaining products** yielding a decision-relevant new fact or important correction (about 50–160 products), with more yielding only helpful guidance or a documented gap. That is a planning assumption to test, not an observed rate or a forecast of how many selection answers will change. A new fact may change several questions, none, or narrow a pass to an honest failure. Published exposure conditions, humid/annealed test states and printed certification will remain sparse even after 100% of searches are finished. Public research cannot manufacture those tests.
+
+Recommended first allocation: **100–150 additional priority product passes, 20–40 active hours and 1.5–3 million total tokens**, then reassess. Prioritize products one defensible print/property fact from a useful answer, unresolved identity/condition defects, and products the team is likely to buy or test. Use the existing scenario-gap queue for ranking; do not prioritize row volume. This would bring completed product passes to 121–171 of 1077 (about 11–16%), not 100%.
+
+The proposed stopping/reassessment trigger is five maker batches with no admitted deciding fact, important correction or useful exact-product guidance, or most outcomes repeating vendor/test-needed limitations. Record every assigned target honestly; lowering search depth is permitted by the plan, dropping targets or changing its 100% completion requirement needs the owner's direction. If full catalogue accountability is essential, the 100% product campaign is justified; if the goal is materially better selection soon, the targeted allocation is the better return.
+
+## Keep token use proportional to the evidence
+
+These token estimates combine researcher and reviewer input, source/tool text, output and reasoning allowance. Provider accounting, cached input and model choice can change reported totals; no historical token/hour rate or dollar forecast is claimed. Keep a compact source/question packet per maker batch, reuse originals and prior searches, avoid copying entire source registries into each review, and combine up to five reviewed batches per verified tranche. Measure actual tokens and active time going forward; report useful admitted findings, corrected answers and unresolved handoffs after each five-batch checkpoint.
+
+The near-term recommendation is therefore **finish material assessment, then run the targeted product tranche**: approximately **28–56 active hours and 2.0–4.2 million tokens** combined. Finishing both campaigns would instead be roughly **158–366 active hours and 12.5–31.2 million tokens**, with substantial diminishing returns. 100% refers to documented worklist outcomes; it never promises 100% evidence coverage.

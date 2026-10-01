@@ -1,0 +1,51 @@
+{
+  "coverage": {
+    "baseline": 805,
+    "current": 885,
+    "added": 80,
+    "edited_existing": 17,
+    "removed": 0
+  },
+  "evidence": {
+    "baseline": 5306,
+    "current": 5485,
+    "added": 179,
+    "edited_existing": 83,
+    "removed": 0
+  },
+  "grades": {
+    "baseline": 1163,
+    "current": 1163,
+    "added": 0,
+    "edited_existing": 8,
+    "removed": 0
+  },
+  "know_how_reads": {
+    "baseline": 1542,
+    "current": 1545,
+    "added": 3,
+    "edited_existing": 0,
+    "removed": 0
+  },
+  "measurements": {
+    "baseline": 11536,
+    "current": 11543,
+    "added": 7,
+    "edited_existing": 4,
+    "removed": 0
+  },
+  "profiles": {
+    "baseline": 1316,
+    "current": 1323,
+    "added": 7,
+    "edited_existing": 3,
+    "removed": 0
+  },
+  "sources": {
+    "baseline": 1828,
+    "current": 1846,
+    "added": 18,
+    "edited_existing": 4,
+    "removed": 0
+  }
+}

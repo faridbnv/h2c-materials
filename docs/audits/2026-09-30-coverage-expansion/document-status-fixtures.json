@@ -1,0 +1,27 @@
+{
+  "cases": 5,
+  "results": [
+    {
+      "case": "Current generated status passes",
+      "passed": true
+    },
+    {
+      "case": "Stale status is rejected",
+      "rejected": true
+    },
+    {
+      "case": "Duplicate target cannot inflate completion",
+      "rejected": true
+    },
+    {
+      "case": "Out-of-scope closure cannot inflate completion",
+      "rejected": true
+    },
+    {
+      "case": "Packet no longer pinned by its approved review is rejected",
+      "rejected": true
+    }
+  ],
+  "rootDataAndStatusUnchanged": true,
+  "checkerWritesNothingInCheckMode": true
+}

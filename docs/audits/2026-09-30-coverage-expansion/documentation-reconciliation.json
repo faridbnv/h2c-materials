@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-01",
+  "implementation_head": "955a51b02ce7139c5f61b105c533fa167a08c3f0",
+  "data_release": "784aaac91d99",
+  "authority": "Owner requested coherent repository documentation and push to main; campaign remains incomplete.",
+  "documented_queries": {
+    "shell_SQL_count": 34,
+    "errors": 0,
+    "basis": "npm run sql rebuilt stale SQLite to release 784aaac91d99 before all documented queries were re-run read-only. Query results are private diagnostics; canonical rows unchanged."
+  },
+  "local_source_custody": {
+    "registered_sources": 1846,
+    "verified_originals": 1710,
+    "absent_originals": 124,
+    "digest_not_recorded": 12,
+    "private_backup_originals": 2397,
+    "private_backup_derivatives": 2800,
+    "retrieved_source_rows": 1840,
+    "retrieved_rows_with_text": 1626,
+    "retrieved_rows_without_text": 214,
+    "basis": "Dated local cache counts; CI/fresh clones differ, and local export does not confirm cloud upload."
+  },
+  "worklist": {
+    "material_total": 136,
+    "material_done": 75,
+    "material_pending": 61,
+    "products_total": 1077,
+    "products_done": 21,
+    "products_pending": 1056,
+    "targets_total": 1213,
+    "completed": 96,
+    "pending": 1117
+  },
+  "new_current_documents": [
+    "STATUS.md",
+    "STATUS.json",
+    "task-status.csv",
+    "remaining-targets.csv",
+    "frozen-targets.json",
+    "completed-outcomes.json",
+    "EFFORT-AND-VALUE.md"
+  ],
+  "protection": "verify:fast checks the generated status/inventories against current built data, scoped targets, canonical record diff and pinned approved packets. Pages checkout includes baseline/commit history for this check.",
+  "limitations": "No new evidence research or canonical data change in this documentation request. Historical audits and source-review limitations retained; time/token estimates are planning assumptions.",
+  "link_check": {
+    "files_checked": 12,
+    "missing": []
+  },
+  "warm_verify_fast_seconds": 30.22,
+  "warm_budget_enforced": true,
+  "full_verification": {
+    "passed": true,
+    "elapsed_seconds": 257.89,
+    "unit_tests": 454,
+    "import_tests": 194,
+    "rendered_views": 69,
+    "rendered_scenarios": 300,
+    "scenario_readings": 2592,
+    "source_to_page_errors": 0,
+    "reproducible_build": true,
+    "snapshot_current": true
+  },
+  "compiled_diff": {
+    "differences": 0,
+    "release_unchanged": "784aaac91d99"
+  },
+  "document_checker_fixtures": {
+    "cases": 5,
+    "passed": true,
+    "receipt": "document-status-fixtures.json"
+  },
+  "publication": {
+    "authorized_date": "2026-10-01",
+    "target": "origin/main",
+    "scope": "Reviewed implementation through 955a51b plus this documentation commit; full research campaign remains incomplete."
+  },
+  "verification_log_digests": {
+    "build": "8da1c16b7077731ef4fe2d15e0c13377e744f8dad1ec24bcdfee42403d635d57",
+    "snapshot": "3358cd22650cfa43d7c0b055bf270d1419c4b82b33ff4f423de879b3ba581d2e",
+    "verify-fast": "dd1f5aaf4c66ce17e027fcfd0fed2e0fd44229acd070e3f249beb918c9a1023e",
+    "verify-full": "fd91a15842b7970f992680440ea7115deb36ac11148915bde288095ab56d77bb",
+    "build-diff": "1787c53ef4f7f8c1db8a56bf1c38935c3f63a5cd39e9f386a60ba4a82bf1854d"
+  },
+  "log_custody": "Full command logs retained privately in external campaign/evidence/documentation-reconciliation; SHA-256 recorded here."
+}

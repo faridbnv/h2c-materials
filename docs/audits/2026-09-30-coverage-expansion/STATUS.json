@@ -1,0 +1,178 @@
+{
+  "dataRelease": "784aaac91d99",
+  "latestCompletedDataCommit": "955a51b02ce7139c5f61b105c533fa167a08c3f0",
+  "frozenBaselineCommit": "39bb48735fda2c32756c803ea2de198a9b199ff3",
+  "materialAssessments": {
+    "total": 136,
+    "completed": 75,
+    "remaining": 61
+  },
+  "productPasses": {
+    "total": 1077,
+    "completed": 21,
+    "remaining": 1056
+  },
+  "applicationCells": {
+    "Evidence recorded": 45,
+    "Reviewed with limitations": 57,
+    "Gap": 34,
+    "Unassessed": 0
+  },
+  "environmentalRecordPresence": {
+    "scope": "Seven exposure categories; exact grade records only, not polymer context or approvals",
+    "materials": 64,
+    "byCategory": {
+      "acid": 43,
+      "alkali": 42,
+      "organic-solvent": 46,
+      "oil-grease": 44,
+      "uv-outdoor": 28,
+      "moisture": 12,
+      "hydrolysis": 6
+    }
+  },
+  "allCataloguePrintGates": {
+    "products": 1128,
+    "nozzleKnown": 1010,
+    "chamberKnown": 755,
+    "chamberUnknown": 373,
+    "dryingRequired": 467
+  },
+  "databaseCounts": {
+    "materials": 175,
+    "h2cRelevant": 136,
+    "familyEntries": 22,
+    "retiredDuplicates": {
+      "measurements": 299,
+      "evidence": 17
+    },
+    "excluded": 17,
+    "grades": 1163,
+    "measurements": 11244,
+    "numericMeasurements": 11069,
+    "quarantined": 18,
+    "profiles": 1323,
+    "evidence": 770,
+    "prices": 357,
+    "sources": 1846,
+    "coverage": 885,
+    "knowHow": 4698,
+    "polymerEnvironment": 353,
+    "polymerEvidence": 325,
+    "coverageDerived": 1144
+  },
+  "canonicalTableDelta": {
+    "coverage": {
+      "baseline": 805,
+      "current": 885,
+      "added": 80,
+      "edited_existing": 17,
+      "removed": 0
+    },
+    "evidence": {
+      "baseline": 5306,
+      "current": 5485,
+      "added": 179,
+      "edited_existing": 83,
+      "removed": 0
+    },
+    "grades": {
+      "baseline": 1163,
+      "current": 1163,
+      "added": 0,
+      "edited_existing": 8,
+      "removed": 0
+    },
+    "know_how_reads": {
+      "baseline": 1542,
+      "current": 1545,
+      "added": 3,
+      "edited_existing": 0,
+      "removed": 0
+    },
+    "measurements": {
+      "baseline": 11536,
+      "current": 11543,
+      "added": 7,
+      "edited_existing": 4,
+      "removed": 0
+    },
+    "profiles": {
+      "baseline": 1316,
+      "current": 1323,
+      "added": 7,
+      "edited_existing": 3,
+      "removed": 0
+    },
+    "sources": {
+      "baseline": 1828,
+      "current": 1846,
+      "added": 18,
+      "edited_existing": 4,
+      "removed": 0
+    }
+  },
+  "commits": [
+    {
+      "hash": "b43aad18666fa8206ff25662d33f5e2f931ddb8e",
+      "subject": "Recover five source-backed application coverage judgments"
+    },
+    {
+      "hash": "8369e02ad3ff7962d2bcea58b4c34d9729c28980",
+      "subject": "Recover bounded application and hydrolysis statements from verified originals"
+    },
+    {
+      "hash": "ef186783355085777b21ede687e9c04c8f7cfec2",
+      "subject": "Handle distinct source clauses sharing a paragraph locator"
+    },
+    {
+      "hash": "a98282b3cd565cda8bbe5aecc4313b336b01c5ad",
+      "subject": "Recover scoped application examples and bounded UV statements"
+    },
+    {
+      "hash": "3258e600db4490f75d986b584f8c64608067897b",
+      "subject": "Assess fourteen application gaps and correct certification ownership"
+    },
+    {
+      "hash": "b728b9fce2fbb854a8aaa2f7e1693f1d6436d1a0",
+      "subject": "Admit bounded TPU-GF guidance and scoped UV observations"
+    },
+    {
+      "hash": "87b7b09631fcd5a3500e19a10643369386f43a84",
+      "subject": "Reconcile Insublend identity and admit bounded coverage evidence"
+    },
+    {
+      "hash": "aea89121e8fa070025cbd2a4ed7f3a9630c1e852",
+      "subject": "Record bounded applications and preserve separate Nanovia originals"
+    },
+    {
+      "hash": "983607f0782d332e5b70d673a3acf46e856ddb29",
+      "subject": "Show recorded qualifier notes beside maker statements"
+    },
+    {
+      "hash": "be85521971257acb797c91f426f5da725efb75ac",
+      "subject": "Test off-recipe evidence and reviewed literal temperature conditions"
+    },
+    {
+      "hash": "ae107a145932a3f90a86f36b0e4f062af09e6fb4",
+      "subject": "Admit separate PCL methods and bounded product coverage"
+    },
+    {
+      "hash": "981263e061d009b2c517b0e2cf116f156fda63ea",
+      "subject": "Correct COC source text and graphene TDS publisher attribution"
+    },
+    {
+      "hash": "cdb795addfc724759a22299315bc6873b6d0b743",
+      "subject": "Preserve missing lower print bounds in summaries and calibration"
+    },
+    {
+      "hash": "661728a5f6e670ff5885cc996fb969e82e81bc59",
+      "subject": "Admit bounded product guidance and seventeen reviewed research outcomes"
+    },
+    {
+      "hash": "955a51b02ce7139c5f61b105c533fa167a08c3f0",
+      "subject": "Assess the remaining nine blank Application coverage cells"
+    }
+  ],
+  "completionMeaning": "Final evidenced bounded outcome, not resolved evidence, universal absence, product suitability or a selection PASS. Material judgments never close joined product passes."
+}

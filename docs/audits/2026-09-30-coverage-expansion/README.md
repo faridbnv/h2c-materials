@@ -2,7 +2,14 @@
 
 GOALS steps 2 and 5; C3/C6/C9/C10/C13. The owner approved a bounded existing-catalogue
 campaign, ending in verified local commits, with one injector and independent AI review.
-No push, catalogue expansion, exposure-specific screening or physical testing is implied.
+The implementation initially ended in local commits. On 2026-10-01 the owner separately authorized
+reconciling the repository documentation and pushing the completed work to main. Catalogue expansion,
+exposure-specific screening, manufacturer messaging and physical testing remain outside scope.
+
+**Read [STATUS.md](STATUS.md) for the current counts, completed commits and every remaining target.**
+The sections below are the historical tranche record: their “now” counts describe that tranche's
+release, not today's build. [EFFORT-AND-VALUE.md](EFFORT-AND-VALUE.md) gives estimates and a proposed
+allocation; it does not change the approved all-target campaign. The [documentation reconciliation](DOCUMENTATION-RECONCILIATION.md) records the freshness checks and publication boundary.
 
 ## First twelve products
 

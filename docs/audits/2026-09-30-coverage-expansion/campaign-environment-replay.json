@@ -1,0 +1,69 @@
+{
+  "before_commit": "39bb487",
+  "baseline_core": false,
+  "baseline_basis": "Frozen compiled database of the named committed baseline. Environment replay compares verdicts/screens; source-level changes are reviewed separately.",
+  "questions": 48,
+  "evaluations": 58224,
+  "answer_changes": 1,
+  "changes": [
+    {
+      "before": {
+        "key": "[\"uv-outdoor\",\"exploration\",true,\"G081-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G081-06",
+        "category": "uv-outdoor",
+        "policy": "exploration",
+        "infer": true,
+        "state": {
+          "id": "as-printed",
+          "treatment": null,
+          "moisture": "dry"
+        },
+        "verdict": "UNKNOWN",
+        "screened": true,
+        "results": [
+          {
+            "criterion": "UV and outdoor evidence",
+            "status": "UNKNOWN",
+            "reason": "No evidence record for this material. Its base polymer HIPS is published as not resistant (not resistant to UV / outdoor weathering, unstabilised; R-BASF-POLYSTYRENE-STYROLUX), the neat resin's behaviour and not a test of this grade, so never enough to pass. Screened out; not tested on this product",
+            "constraint": {
+              "kind": "environment",
+              "category": "uv-outdoor"
+            },
+            "screened": true,
+            "polymer": true
+          }
+        ]
+      },
+      "after": {
+        "key": "[\"uv-outdoor\",\"exploration\",true,\"G081-06\",{\"id\":\"as-printed\",\"treatment\":null,\"moisture\":\"dry\"}]",
+        "level": "product",
+        "id": "G081-06",
+        "category": "uv-outdoor",
+        "policy": "exploration",
+        "infer": true,
+        "state": {
+          "id": "as-printed",
+          "treatment": null,
+          "moisture": "dry"
+        },
+        "verdict": "UNKNOWN",
+        "screened": false,
+        "results": [
+          {
+            "criterion": "UV and outdoor evidence",
+            "status": "UNKNOWN",
+            "reason": "Records exist but none state a verdict",
+            "constraint": {
+              "kind": "environment",
+              "category": "uv-outdoor"
+            },
+            "evidenceIds": [
+              "Q04265"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

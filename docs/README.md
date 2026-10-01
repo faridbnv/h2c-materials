@@ -19,6 +19,8 @@ going to question a number.
 | [DATA-DICTIONARY.md](DATA-DICTIONARY.md) | What does this column mean, what may it hold, and where does it point? (generated) |
 | [RULES.md](RULES.md) | What does this error or warning code mean, and how do I fix it? (generated) |
 | [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md) | What is known to be wrong or missing right now, and what would fix each? |
+| [Coverage campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) | What was completed, every pending material/product target, and the next bounded work |
+| [Campaign value and effort](audits/2026-09-30-coverage-expansion/EFFORT-AND-VALUE.md) | What finishing each workstream is likely to buy, and proposed time/token budgets |
 | [audits/](audits/) | Where did this fail its users or its evidence, and what happened to each finding? |
 | [background/](background/) | What was this built from? |
 
@@ -45,9 +47,10 @@ Three places, in the order to try them.
 3. **[audits/](audits/).** Each audit pass in its own dated folder: the report as it was delivered, and the outcome
    of every finding. The [version 2.1 review](audits/2026-09-27-v2.1-review/REVIEW.md) holds the plan built
    on `v2` and merged to `main`; what is decided from it is in [GOALS.md](GOALS.md), and what was done, and what waits
-   on people, in its [response](audits/2026-09-27-v2.1-review/RESPONSE.md). The latest work is
-   [source backup and targeted gap closure](audits/2026-09-28-gap-closing/RESPONSE.md): every frozen target has an
-   outcome, and unresolved facts and additional state variants have explicit follow-ups.
+   on people, in its [response](audits/2026-09-27-v2.1-review/RESPONSE.md). The source-backup and targeted-gap campaign of 2026-09-28 has an
+   [outcome for each of its frozen targets](audits/2026-09-28-gap-closing/RESPONSE.md). The broader
+   [coverage-expansion campaign](audits/2026-09-30-coverage-expansion/STATUS.md) remains incomplete;
+   its material assessments and joined product passes are counted separately.
 
 Where the interface is the way it is because a first-time user hit it, the audit says so. Where it
 is the way it is because of what the data can and cannot support, DECISIONS says so. If neither

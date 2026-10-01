@@ -14,6 +14,12 @@ What the database holds (materials, products, measurements, sources) is counted 
 [build/snapshot/counts.md](build/snapshot/counts.md); what the tool is for, and the rules a change is judged by, are in
 [docs/GOALS.md](docs/GOALS.md).
 
+**Coverage campaign status:** [completed work and exact remaining targets](docs/audits/2026-09-30-coverage-expansion/STATUS.md).
+The campaign is incomplete: filled coverage cells do not mean all products have been researched.
+[Estimated benefit and effort](docs/audits/2026-09-30-coverage-expansion/EFFORT-AND-VALUE.md) distinguishes completing
+material judgments from researching every product. After a build, `npm run audit:coverage-status` refreshes its
+status and task inventories; `verify:fast` refuses stale campaign documentation.
+
 ---
 
 ## Quick start

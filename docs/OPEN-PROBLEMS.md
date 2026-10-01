@@ -1,8 +1,12 @@
 # Open problems
 
-What is known to be wrong or missing in this database, as of 2026-09-30. What it holds is counted in
+What is known to be wrong or missing in this database, reconciled on 2026-10-01. What it holds is counted in
 [build/snapshot/counts.md](../build/snapshot/counts.md). It is here so that nobody has to rediscover it, and so that
 a reader can tell a gap that is being worked on from one nobody has noticed.
+
+The current campaign inventory is [STATUS.md](audits/2026-09-30-coverage-expansion/STATUS.md),
+with every remaining target and its stopping rule retained in the repository. Dated audit findings below
+remain historical where explicitly labelled; their SQL queries reproduce the current records.
 
 Everything below is derived from the data, not remembered. Each item gives the command that re-derives its figure,
 so a stale number here is findable rather than believable. `npm run sql` rewrites its file first when it is not of the
@@ -137,7 +141,7 @@ npm run sql --silent -- "select measurementid, materialid, property, raw_value f
   where data_status = 'Unresolved unit / layout'"
 ```
 
-## 4. Seven conflicts nobody has been able to resolve
+## 4. Unresolved recorded conflicts
 
 `coverage.csv`, status `Conflict` or `Quarantined`. Each names what is needed:
 
@@ -150,6 +154,7 @@ npm run sql --silent -- "select measurementid, materialid, property, raw_value f
 | C01412 | PLA Silk | eSUN's Silk Rainbow page labels the sheet's moulded-bar figures Z and XY (m208). eSUN to say how the bars were made. |
 | C01413 | TPU harder than 95A | Extrudr's FLEX MEDIUM MATT page prints 420 % and 34 MPa where the sheet prints the flagged 6.9 % and 470 N/mm² (m208). |
 | C01414 | PAHT-CE | LEHVOSS's compound sheet prints 5,5 GPa and 1,40 g/cm³, the 3D4Makers filament sheet 6 GPa and 1,49 (m208). |
+| C01540 | PPE/PS blend, Insublend | The own SDS prohibits food/drinking-fluid contact in §1.2 but says approved for food contact in §7.2, in both languages. Both statements remain; maker clarification and certificate/test scope needed (§23). |
 
 C01110 (ABS: a PLA Pure listing, CA0069, filed under ABS) is resolved: the listing is filed under PLA Pure (G001-183)
 since m233, once the price pass gave that grade listings of its own. C01136 (Fiberon PET-GF15's chamber) is resolved:
@@ -216,8 +221,9 @@ more data narrows them, a review does not (D73).
 - **The `Post-processing / application` coverage domain cannot be derived.** Its Gap rows distinguish grade-specific
   evidence from family notes a material owns, and no rule over evidence domains expresses that: some materials say
   Gap there truthfully, beside records of their own. Its rows stay stored where the other seven domains' were
-  derived (D74): 119 on 2026-09-27 (45 Evidence recorded, 37 Gap, 21 Not applicable, 16 Superseded), which the
-  query below counts again.
+  derived (D74). The current in-scope marks and unfinished campaign assessments are generated in
+  [STATUS.md](audits/2026-09-30-coverage-expansion/STATUS.md). The query below counts raw rows across the entire
+  catalogue, including superseded and out-of-scope findings; it therefore differs from the 136-cell UI.
 - **A list column loses its missing state in SQLite.** `Standards` and `Units` are TEXT and hold `Not published`
   inline, where a number column gets a `_state` sibling and a NULL. Harmless today, because no vocabulary value
   collides with a missing-state word, but it is an inconsistency in the query layer (D75).
@@ -487,9 +493,10 @@ was chosen by an agent and none by a person; a sample of 50 was read against the
   and half the maker's range, was dropped: Raise3D's brass-nozzle abrasion sentence (11 rows) and Nanovia's
   air-extraction sentence (19 rows). Narrower templates were kept or dropped by each reader's judgement (Polymaker's and
   QIDI's dry-box sentences kept, SIDDAMENT's support and oven sentences dropped).
-- **Not read for know-how:** non-English text, retailers' pages fetched as witnesses (3DJake, filament2print,
-  shop3d), and the makers' safety data sheets. The nozzle-wear statements now show in the panel, but the typed
-  Hardened nozzle column that gates a product (§12) is still unread.
+- **That original know-how pass excluded** non-English text, retailer witnesses and makers' safety data sheets.
+  Later bounded campaigns reread selected originals in those lanes, including Insublend's SDS, without claiming
+  the rest of that population was reviewed. A wear statement does not establish a typed hardened-nozzle
+  requirement; unresolved product-specific gate questions remain in the current worklist (§27).
 
 ```bash
 npm run sql --silent -- "select topic, count(*) from evidence where domain = 'Makers'' know-how' group by 1 order by 2 desc"
@@ -792,17 +799,19 @@ narrower and more honest, and leave these, each with where it is counted:
 - **Not executed:** the team's task trial (GOALS C7), a person's source spot-check (C3), screen-reader and other-browser
   checks, and a print on the H2C. The page and the engine are checked against each other and against the portfolio; none
   of that is a person using it.
-- **One source's cached file is not the document its digest names**, and 135 more cannot be re-read here: the file
-  cached for R-KIMYA-PEBA-S-TDS hashes to another digest, 123 registered sources have no bytes in this checkout's cache
-  and 12 record no digest (`npm run data:sources -- --manifest`, D104). The private store now backs up all 2,267
-  available originals and 2,712 derived files, but contains none of those 123 missing originals. The Kimya digest
-  was not found in the ledger and its dated targeted retrieval returned HTTP 404; no source was overwritten.
-  `docs/audits/2026-09-28-gap-closing/RESTORE-COUNTS.json` proves an empty-cache restore, with that deliberately
-  excluded mismatch becoming one additional absence. The missing originals still need an owner-held copy or a
-  separately reviewed retrieval; local backup success does not prove cloud upload completion.
-- **The full-text index is partial** (1,588 of 1,722 retrieved sources in the checkout that built the gap-fill tranche of 2026-09-29; `v_sources_without_text` names
-  the rest, D105). Its test checks only that `.cache/text` exists, so in a fresh worktree where `npm run test:ingest`
-  has written one fixture's text there, `npm test` fails it; point `H2C_DOCUMENT_CACHE` at the full cache.
+- **124 registered sources have no hash-verified original here, and 12 record no digest.** The formerly mismatched
+  R-KIMYA-PEBA-S-TDS remains an absence after the controlled restore; no wrong bytes are accepted. The current
+  campaign checkout verifies 1710 of 1846 registered originals. The private backup contains 2397 originals including
+  ledger-only documents, and 2800 derivatives; it cannot supply the 124 absent entries. These are the local
+  2026-10-01 custody counts, not a cloud-upload confirmation or a claim about every clone. Original recovery or
+  a separately reviewed revision is still needed; never overwrite the recorded digest to make a cache match.
+- **The full-text index is partial**: the refreshed local SQLite of release 784aaac91d99 indexes 1626 of 1840
+  retrieved source rows; 214 lack text, as re-derived by the query below. Cached bytes and indexed text are different
+  populations. The source/index receipt in the campaign's documentation reconciliation records this dated checkout.
+  Fresh clones/CI without private originals legitimately have a smaller index; restore verified originals and their
+  derivatives before source rereads. The existing test's partial-cache limitation remains: a fixture-created
+  .cache/text is not a complete source library. Never query an old SQLite directly after a data change; npm run sql
+  rebuilds it when its inputs/release are stale.
 - **What F14 and F13 left** (D104, D105): `ingest:fetch --refetch --recheck` still overwrites an applied document's
   digest rather than recording a new revision; `audit:sources` has its own unbounded fetch; the reader was not split
   into adapters; and a traced decision does not report its rank. The source bundle now preserves the cached text's
@@ -1036,4 +1045,28 @@ Prografen's exact Strong/Light pages add recipes and bounded uses. Their semi-tr
 ```sh
 npm run sql --silent -- "select profileid, gradeid, nozzle_c, bed_c, drying from profiles where profileid in ('P0184','P1321','P1322','P1323')"
 npm run sql --silent -- "select evidenceid, gradeid, topic, finding, exposure_conditions from evidence where evidenceid in ('Q05452','Q05460','Q05471','Q05483','Q05484','Q05485')"
+```
+
+## 27. The coverage-expansion campaign remains incomplete
+
+The current [generated campaign status](audits/2026-09-30-coverage-expansion/STATUS.md) and
+[remaining targets](audits/2026-09-30-coverage-expansion/remaining-targets.csv) distinguish material assessments
+from joined product research. No blank Application cells remain, but a filled mark can be a documented gap or
+reviewed limitation and can still await this campaign's manual assessment. Each assigned product pass includes
+applications/finishing, all frozen environmental categories, print/drying/treatment/moisture gaps, missing
+properties/comparison conditions, prior price outcomes and source/identity conflicts.
+
+Legacy 3DXTECH ESD-TPC 90A must not inherit current ESD-TPU90A/60D claims. PC/ASA, ESD-PVDF, ESD-PPS and CarbonX
+PC/ABS retain their prior exact-identity/vendor handoffs. A new bounded environmental-question search found
+shared official support/download/article leads; those are provisional, not source admissions or completed
+product passes. Frozen-targets.json retains prior reviewed route outcomes so they need not be repeated.
+
+Scope/condition clarifications, positive Waltek sample activities, Siraya coupled foaming states, conflicting
+recipes/colour/certification claims, unknown service exposures and missing source originals retain the release
+conditions in §§19 and 23–26 and the per-tranche packets. Physical tests, vendor clarification and human source/
+team checks remain separate from catalogue research. The original plan's all-target finish criteria are not met.
+
+```sh
+npm run build
+npm run audit:coverage-status -- --check
 ```

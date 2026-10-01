@@ -223,6 +223,9 @@ each retrieved source whose text is not in it (D105).
             chamberGuidance,             // what a source says about the chamber in words, or null
             chamberEstimate,             // a research band where nothing better exists; decides nothing
             nozzleEstimate, bedEstimate }, // a window inferred from peers where none is published; decides nothing
+// A published upper-only nozzle/bed window keeps min=null; it never becomes an exact setting.
+// The drawer/CSV labels it an upper bound with the missing lower endpoint explicit.
+// Incomplete windows cannot calibrate peer/fibre-offset print estimates (2026-10-01 bound correction).
   buy:    { … } | null,                  // the best sampled Canadian offer (a foreign listing is never one, D113)
   gates:  { scope, nozzle, bed, chamber, abrasive, drying },
   profileIds: [], printingEvidence: [],  // its profiles; its printing citations (material_links.csv)
