@@ -124,6 +124,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D112 | Material typicals is one dot per material, which says what it stands for and where its passing products are | The Material typicals view draws each material as a single dot at its typical datasheet value, with no box or whiskers around it, and the dot says it is the whole material and how many of its products pass, pointing to Material ranges for those. | In force; it amends D111 |
 | D113 | A price may come from a foreign listing, converted at one Bank of Canada rate, and it lists nothing in Canada | A product that no Canadian shop in the sample sells can be priced from its maker's or a seller's foreign listing, in USD or EUR, converted to CAD at one frozen Bank of Canada rate and marked as converted; it never counts as listed or in stock in Canada, and a Canadian price always wins over a converted one. | In force; it amends D19 (a foreign listing prices a product but is never an offer here) and D83 (a converted price is one of a material's products' prices) |
 | D114 | Absence is derived too: the coverage page says the same thing for the same records | Where a material has no records of a kind, the build now says so itself, as it already said where it had them; the coverage page therefore shows a gap the same way for every material, and a price read only from a foreign listing as limited. | In force; it extends D74 |
+| D115 | A Parse review explains the columns it names; a typed endpoint is a number its cell states | A note that explains why one typed value differs from what the parser reads now names that column, and silences the check for that column alone. A typed temperature must be a number its own cell prints, and an open bound ("> 80 °C") stays open, whatever any note says. | In force; it narrows the Parse review of m08 |
 
 <!-- end index -->
 
@@ -3712,3 +3713,28 @@ answers rather than failing.
 | Unreviewed build warnings | Outliers, wide estimates and unstated loads were summed into warnings, so a new one never failed verify | `lint.test.js`, `audit:data` (D57) |
 | A missing state read as the first | `stateOf` returned a product's dry, as-printed state for a conditioned state it does not publish, so 78 materials ranked a conditioned question on dry stiffness | `workspace.test.js` T03, `workspace-acceptance.test.js` A01 (D107) |
 | A container matched a control's selector | The workspace's root carried `data-view`, which the view buttons' click handler selected, so every click anywhere in the Ashby lens redrew it and took keyboard focus away | `ui-probe.mjs` (the Ashby keyboard view), D107 |
+
+## D115. A Parse review explains the columns it names; a typed endpoint is a number its cell states
+
+> **In plain words:** A note that explains why one typed value differs from what the parser reads now names that column, and silences the check for that column alone. A typed temperature must be a number its own cell prints, and an open bound ("> 80 °C") stays open, whatever any note says.
+> **Status:** In force; it narrows the Parse review of m08.
+
+*Found on 2026-10-01 by the owner's PM trial and data audit (external package `PM-TRIAL-2026-10-01/data-audit`, root
+cause RC1, with RC2). Built by Claude (an agent); the record is [the error-class sweep](audits/2026-10-01-error-classes/README.md).*
+
+- **A review muted its whole row.** m08 (2026-09-14) stored each process window as the smallest and largest number in
+  its cell. Eleven Spectrum and Fiberon cells had swallowed the storage paragraph printed beside them, so a bed minimum
+  became 3 °C ("for **3**D printers"), 24 °C ("a shelf life of **24** months") and a nozzle minimum 250 °C ("up to
+  **250** mm/s"). m102 corrected the cells' words and added a review saying so; the review then silenced every typed
+  check of the row, so the old windows stayed. Open bounds were typed the same way: "> 80 °C" as 80–80.
+- **A review names its columns.** It opens with `Fields: <typed columns>.` (or `Fields: none.`), and PARSE-MISMATCH is
+  silenced for those columns only. PARSE-REVIEW-SCOPE stops the build on a review that names none, or a column its row
+  does not have. m274 scoped the 147 existing reviews to exactly the columns each still explains (109; 38 explain none)
+  after correcting the nine windows the audit re-read.
+- **Two checks no review can silence.** PARSE-TEXT-BOUNDS: a typed nozzle, bed or chamber endpoint is a number its own
+  cell states (a tolerance's ends, a Fahrenheit reading and room temperature allowed). OPEN-BOUND-WINDOW: an at-least
+  or up-to window is never typed as a single point. The parser now reads "> 80 °C recommended" as an open bound too.
+- **An open window is published evidence.** A material's summary window keeps a missing end missing in both
+  directions (`cdb795a` did it for the lower end), so "at least 80 °C" is shown as that, and no estimate replaces it.
+- **Effect.** No gate verdict moved: every corrected window lies within the H2C either way. Nine profiles' windows,
+  six materials' summary windows and the print estimates they fed changed.

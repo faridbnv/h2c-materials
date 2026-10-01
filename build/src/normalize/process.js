@@ -60,6 +60,7 @@ const NON_HEATED_RE = /\bnon-?heated\s+chambers?\b/i;
 // "65˚C+" (Polymaker ABS Max's chamber), "140 ºC +" and LEHVOSS's "> 120 °C" are at-least values: a lower end, with no
 // upper end published.
 const AT_LEAST_RE = /^(?:(\d+(?:\.\d+)?)\s*[^\d\s+]{0,3}\s*\+|(?:>|≥|>=)\s*(\d+(?:\.\d+)?)\s*[^\d\s]{0,3})$/;
+const AT_LEAST_LEAD_RE = /^(?:>|≥|>=)\s*(\d+(?:\.\d+)?)()\s*[^\d\s]{0,3}\s+[^\d]*$/;
 const AMBIENT_RE = /\b(room\s*temp\w*|ambient(\s+temperature)?)\b/i;
 const UP_TO_RE = /\bup\s+to\s+(\d+(?:\.\d+)?)/i;
 
@@ -83,7 +84,8 @@ export function parseTemperature(raw, opts = {}) {
   if (OFF_RE.test(s) || NON_HEATED_RE.test(s)) {
     return { text, state: PROCESS_STATE.NOT_REQUIRED, requirement: REQUIREMENT.NONE, min: null, max: null };
   }
-  const atLeast = s.match(AT_LEAST_RE);
+  // "> 80 °C recommended" and "≥ 90 °C for large parts": an at-least value followed by words, still an open bound.
+  const atLeast = s.match(AT_LEAST_RE) ?? s.match(AT_LEAST_LEAD_RE);
   if (atLeast) {
     const [lo, hi] = opts.plausible || [0, 500];
     const min = Number(atLeast[1] ?? atLeast[2]);

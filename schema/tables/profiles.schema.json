@@ -439,7 +439,7 @@
       "name": "Parse review",
       "type": "string",
       "role": "editorial",
-      "description": "Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build.",
+      "description": "Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. It opens with \"Fields: <the typed columns it explains>.\" (or \"Fields: none.\") and silences the parser check for those columns only (D115). A typed value that differs without a review naming its column stops the build, and a typed temperature endpoint its own cell does not state stops it whatever the review says.",
       "constraints": {
         "required": true
       }

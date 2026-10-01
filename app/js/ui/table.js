@@ -93,7 +93,7 @@ export function sortValue(row, col, showEstimates = false) {
     return { value: centre, estimated: centre !== null };
   }
   if (col.kind === 'print') {
-    const published = m.print?.[col.key]?.max;
+    const published = m.print?.[col.key]?.max ?? m.print?.[col.key]?.min;
     if (Number.isFinite(published)) return { value: published, estimated: false };
     // The same estimates the cells show: a nozzle or bed window, or a chamber band where no chamber window is published.
     const est = !showEstimates ? null
@@ -152,6 +152,8 @@ const columnClass = (c) => (c.kind === 'headline' || c.kind === 'price' || c.kin
 
 /** Display form of a print window. A zero lower bound is how the build records "ambient". */
 export const printRange = (r) => (!r ? null
+  : r.min === null && r.max === null ? 'open-ended'
+  : r.max === null ? `at least ${fmtNumber(r.min)}`
   : r.min === null ? `upper bound ${fmtNumber(r.max)}`
   : r.min === r.max ? fmtNumber(r.max)
   : r.min === 0 ? `up to ${fmtNumber(r.max)}`
@@ -532,7 +534,7 @@ export function toCSV(rows, meta, { scenario, useEstimates = false, ranking = nu
     ...(m.print?.chamberEstimate ? [`chamber ~${m.print.chamberEstimate.lo}-${m.print.chamberEstimate.hi} C (research band: ${m.print.chamberEstimate.basis}; decides nothing)`] : []),
   ].join(' | ');
   const why = (list) => list.map((r) => `${describeConstraint(r.constraint)}: ${r.reason}`).join(' | ');
-  const range = (r) => (r ? r.min === null ? `upper bound ${fmtNumber(r.max)}` : `${r.min}-${r.max}` : '');
+  const range = (r) => (r ? r.max === null ? `at least ${fmtNumber(r.min)}` : r.min === null ? `upper bound ${fmtNumber(r.max)}` : `${r.min}-${r.max}` : '');
 
   const header = [
     '# H2C Material Selector export',

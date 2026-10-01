@@ -157,12 +157,14 @@ function compileProfiles(rows, noteRows, issues) {
  */
 export function printSummary(profiles) {
   const pick = (axis) => {
-    const ranges = profiles.map((p) => p[axis]).filter((t) => t.state === 'range' && t.max !== null);
+    // An open window is published evidence too: "> 80 °C" is a lower bound with no upper one, "up to 60 °C" the reverse
+    // (data audit 2026-10-01, RC2). The summary keeps the missing end missing rather than inventing it.
+    const ranges = profiles.map((p) => p[axis]).filter((t) => t.state === 'range' && (t.max !== null || t.min !== null));
     if (!ranges.length) return null;
     // The widest published window across this material's grades, so the table never implies a
     // tighter requirement than the sources support.
     const min = ranges.some((r) => r.min === null) ? null : Math.min(...ranges.map((r) => r.min));
-    const max = Math.max(...ranges.map((r) => r.max));
+    const max = ranges.some((r) => r.max === null) ? null : Math.max(...ranges.map((r) => r.max));
     return { min, max, profiles: ranges.length };
   };
   return { nozzleC: pick('nozzle'), bedC: pick('bed'), chamberC: pick('chamber'), chamberGuidance: chamberGuidance(profiles) };

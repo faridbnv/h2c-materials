@@ -292,7 +292,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | SourceID | canonical | string | yes |  | → sources.SourceID | Source of the value. |
 | Locator | raw | string | yes |  |  | Where in the source. |
 | Notes | prose | string | yes |  |  | Review notes. |
-| Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build. |
+| Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. It opens with "Fields: <the typed columns it explains>." (or "Fields: none.") and silences the parser check for those columns only (D115). A typed value that differs without a review naming its column stops the build, and a typed temperature endpoint its own cell does not state stops it whatever the review says. |
 
 ### method
 
@@ -420,7 +420,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | Nozzle size / material | raw | string | yes |  |  | The nozzle sizes and materials the guide lists, as printed; parsed by the build for whether a hardened nozzle is needed. |
 | Hardened nozzle | canonical | boolean | yes | Not published |  | Whether the guide says a hardened nozzle is needed: TRUE where it lists hardened steel alone, FALSE for any nozzle, Not published where it settles neither. |
 | Locator | raw | string | yes |  |  | The page, the column heading and the row labels each cell was read under. |
-| Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build. |
+| Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. It opens with "Fields: <the typed columns it explains>." (or "Fields: none.") and silences the parser check for those columns only (D115). A typed value that differs without a review naming its column stops the build, and a typed temperature endpoint its own cell does not state stops it whatever the review says. |
 
 ### print_guide_materials
 
@@ -489,7 +489,7 @@ lists the missing states a column accepts instead of a value; a blank required c
 | SourceID | canonical | string | yes |  | → sources.SourceID | Source of the profile. |
 | H2C SourceID | editorial | list (";") | yes |  | list of → sources.SourceID | Sources for the H2C-specific assessment. |
 | Locator | raw | string | yes |  |  | Where in the source. |
-| Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. A typed value that differs without a review stops the build. |
+| Parse review | editorial | string | yes |  |  | Why a typed value differs from the parser reading of the raw text, when it does; otherwise Not applicable. It opens with "Fields: <the typed columns it explains>." (or "Fields: none.") and silences the parser check for those columns only (D115). A typed value that differs without a review naming its column stops the build, and a typed temperature endpoint its own cell does not state stops it whatever the review says. |
 
 ### properties
 

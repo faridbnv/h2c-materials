@@ -29,7 +29,7 @@ test('the stored values reproduce every parser reading today', () => {
 
 test('a typed value that disagrees with the raw text stops the build', () => {
   const { mismatches } = run((wb) => { profile(wb, fixture.ProfileID)['Nozzle max °C'] = String(nozzleMax + 40); });
-  assert.deepEqual(mismatches, [`profiles ${fixture.ProfileID}: Nozzle max is ${nozzleMax + 40} but the parser reads the raw text as ${nozzleMax}; correct the typed value, or explain it in Parse review`]);
+  assert.deepEqual(mismatches, [`profiles ${fixture.ProfileID}: Nozzle max °C is ${nozzleMax + 40} but the parser reads the raw text as ${nozzleMax}; correct the typed value, or explain it in Parse review`]);
 });
 
 test('a raw text edit the typed value does not follow stops the build too', () => {
@@ -38,8 +38,10 @@ test('a raw text edit the typed value does not follow stops the build too', () =
 });
 
 test('a reviewed correction is accepted and decides the gate', () => {
+  // The cell states 360 after a clause the parser cuts off; the review names the column it explains (D115).
   const { db, mismatches } = run((wb) => {
-    Object.assign(profile(wb, fixture.ProfileID), { 'Nozzle max °C': '360', 'Parse review': 'The data sheet table reads a maximum of 360 °C; the PDF text layer drops the 3.' });
+    const p = profile(wb, fixture.ProfileID);
+    Object.assign(p, { 'Nozzle °C': `${p['Nozzle °C']} drying 360`, 'Nozzle max °C': '360', 'Parse review': 'Fields: Nozzle max °C. The sheet\'s table prints a maximum of 360 °C after its drying note.' });
   });
   assert.deepEqual(mismatches, []);
   const p = db.profiles.find((x) => x.id === fixture.ProfileID);
@@ -78,7 +80,7 @@ test('a test temperature is typed and checked the same way, and a wording with n
     const r = wb.Properties.rows.find((x) => x.MeasurementID === cold.MeasurementID);
     r['Test temperature'] = '150℃';
     r['Test temperature °C'] = '150';
-    r['Parse review'] = 'Source Celsius glyph transcribed as150°C; no other condition inferred.';
+    r['Parse review'] = 'Fields: Test temperature °C. Source Celsius glyph transcribed as150°C; no other condition inferred.';
   });
   assert.deepEqual(reviewed.mismatches, []);
   assert.equal(reviewed.db.measurements.find((m) => m.id === cold.MeasurementID).testTemperatureC, 150);
@@ -177,4 +179,35 @@ test('an at-least window is never within the chamber by its upper end', () => {
     const expected = p.chamber.min > 65 ? /^exceeds/ : /^partial$/;
     assert.match(p.gates.chamber.verdict, expected, `${p.id}: ${p.chamber.text}`);
   }
+});
+
+test('a Parse review silences only the columns it names (D115)', () => {
+  const noteOnDrying = 'Fields: Drying °C. The sheet prints the drying temperature without its unit.';
+  const { mismatches } = run((wb) => { Object.assign(profile(wb, fixture.ProfileID), { 'Nozzle max °C': String(nozzleMax + 40), 'Parse review': noteOnDrying }); });
+  assert.ok(mismatches.some((m) => m.startsWith(`profiles ${fixture.ProfileID}: Nozzle max °C is ${nozzleMax + 40}`)), mismatches.join(' | '));
+});
+
+test('a review that names no columns, or a column its row lacks, stops the build (PARSE-REVIEW-SCOPE)', () => {
+  const codes = (edit) => { const wb = structuredClone(base); edit(wb); return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).issues.filter((i) => i.code === 'PARSE-REVIEW-SCOPE').map((i) => i.where); };
+  assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'The sheet says so.'; }), [`profiles ${fixture.ProfileID}`]);
+  assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'Fields: Bed width. The sheet says so.'; }), [`profiles ${fixture.ProfileID}`]);
+  assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'Fields: none. A note about the sheet.'; }), []);
+});
+
+test('a typed endpoint its cell does not state, and an open bound typed as a point, stop the build whatever a review says', () => {
+  const issuesOf = (edit, code) => { const wb = structuredClone(base); edit(wb); return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).issues.filter((i) => i.code === code).map((i) => i.message); };
+  // The data audit's case: a bed minimum of 3 read from "for 3D printers", behind a review about another column.
+  const bounds = issuesOf((wb) => { Object.assign(profile(wb, fixture.ProfileID), { 'Bed °C': '90 - 110°C', 'Bed state': 'range', 'Bed min °C': '3', 'Bed max °C': '110', 'Bed requirement': 'required', 'Parse review': 'Fields: Bed min °C. Reviewed.' }); }, 'PARSE-TEXT-BOUNDS');
+  assert.deepEqual(bounds, ['Bed min °C is 3, a number "90 - 110°C" does not state']);
+  const open = issuesOf((wb) => { Object.assign(profile(wb, fixture.ProfileID), { 'Bed °C': '> 80 °C recommended', 'Bed state': 'range', 'Bed min °C': '80', 'Bed max °C': '80', 'Bed requirement': 'required', 'Parse review': 'Fields: Bed max °C. Reviewed.' }); }, 'OPEN-BOUND-WINDOW');
+  assert.deepEqual(open, ['Bed "> 80 °C recommended" is an open bound, but its typed window is the single point 80']);
+});
+
+test('an at-least window followed by words stays open', async () => {
+  const { parseTemperature } = await import('../build/src/normalize/process.js');
+  for (const text of ['> 80 °C recommended', '≥ 90 °C for large parts', '>80°C']) {
+    const p = parseTemperature(text, { plausible: [0, 250] });
+    assert.deepEqual([p.min, p.max, p.openHigh], [Number(text.match(/\d+/)[0]), null, true], text);
+  }
+  assert.deepEqual(['min', 'max'].map((k) => parseTemperature('90 - 110°C', { plausible: [0, 250] })[k]), [90, 110]);
 });

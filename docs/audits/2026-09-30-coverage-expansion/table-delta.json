@@ -31,14 +31,21 @@
     "baseline": 11536,
     "current": 11543,
     "added": 7,
-    "edited_existing": 4,
+    "edited_existing": 24,
+    "removed": 0
+  },
+  "print_guide": {
+    "baseline": 33,
+    "current": 33,
+    "added": 0,
+    "edited_existing": 20,
     "removed": 0
   },
   "profiles": {
     "baseline": 1316,
     "current": 1323,
     "added": 7,
-    "edited_existing": 3,
+    "edited_existing": 107,
     "removed": 0
   },
   "sources": {

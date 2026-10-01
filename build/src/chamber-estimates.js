@@ -59,7 +59,7 @@ export function attachChamberEstimates(materials, bands) {
       if (m.excluded) { issues.push({ level: 'error', code: 'CHAMBER-BAND', where: 'chamber_bands.csv', message: `"${name}" is outside the H2C scope and must not carry a band` }); continue; }
 
       const guidance = m.print?.chamberGuidance?.state;
-      const reason = m.print?.chamberC ? `publishes ${m.print.chamberC.min}-${m.print.chamberC.max} °C`
+      const reason = m.print?.chamberC ? `publishes ${m.print.chamberC.max === null ? `at least ${m.print.chamberC.min}` : m.print.chamberC.min === null ? `up to ${m.print.chamberC.max}` : `${m.print.chamberC.min}-${m.print.chamberC.max}`} °C`
         : guidance === 'not-required' ? 'a source says no heated chamber is needed'
         : null;
       if (reason) { superseded.push({ material: name, band: `${band.lo}-${band.hi} °C`, reason }); continue; }

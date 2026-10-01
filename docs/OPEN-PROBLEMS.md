@@ -1070,3 +1070,17 @@ team checks remain separate from catalogue research. The original plan's all-tar
 npm run build
 npm run audit:coverage-status -- --check
 ```
+
+## 28. What the error-class sweep leaves open
+
+The sweep of 2026-10-01 ([record](audits/2026-10-01-error-classes/README.md)) removes the data audit's error classes
+one mechanism at a time. RC1 and RC2 are removed (D115). Under review, each accepted as "Open in the error-class sweep"
+until it is re-read: 54 product pairs that print one table with no formulation key (GRADE-VALUES-TWIN), 30 impact
+values whose unit disagrees with their standard (IMPACT-UNIT-STANDARD), one notched-above-unnotched pair and three
+flexural pairs (MEAS-PHYSICS-NOTCH, -FLEX-STRAIN), and one filled product filed as unfilled (FILING-FILLER-WORD). Not
+yet started: page context (RC3), row alignment (RC4) and unread print-setting labels (RC8).
+
+```sh
+npm run data:lint
+```
+

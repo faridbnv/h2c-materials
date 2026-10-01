@@ -202,12 +202,14 @@ test('a material is printable where one of its products is: each gate is the bes
       const verdicts = own.map((p) => p.gates[axis].verdict);
       assert.equal(m.gates[axis].verdict, PRECEDENCE.find((v) => verdicts.includes(v)) ?? 'unknown', `${m.name} ${axis}`);
       if (verdicts.includes('within') && verdicts.some((v) => v !== 'within')) mixed++;
-      const ranges = own.map((p) => p[axis]).filter((t) => t.state === 'range' && t.max !== null);
+      // An open window ("> 80 °C", "up to 60 °C") is published too, and its missing end stays missing (RC2).
+      const ranges = own.map((p) => p[axis]).filter((t) => t.state === 'range' && (t.max !== null || t.min !== null));
       const window = m.print[`${axis}C`];
       if (!ranges.length) { assert.equal(window, null, `${m.name} ${axis} window`); continue; }
       if (ranges.some((r) => r.min === null)) assert.equal(window.min, null, `${m.name} ${axis}: no lower endpoint may be invented`);
       else assert.equal(window.min, Math.min(...ranges.map((r) => r.min)), `${m.name} ${axis} lower end`);
-      assert.equal(window.max, Math.max(...ranges.map((r) => r.max)), `${m.name} ${axis} upper end`);
+      if (ranges.some((r) => r.max === null)) assert.equal(window.max, null, `${m.name} ${axis}: no upper endpoint may be invented`);
+      else assert.equal(window.max, Math.max(...ranges.map((r) => r.max)), `${m.name} ${axis} upper end`);
     }
   }
   assert.ok(mixed > 0, 'no material has a printable product beside one that is not, so the rule is untested');

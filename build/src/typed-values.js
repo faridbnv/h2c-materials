@@ -71,7 +71,46 @@ export function profileCellsFromParsed({ nozzle, bed, chamber, enclosure, drying
 /** The typed test load of a measurement: a number, Not published (load unstated) or Not applicable. */
 export const loadCellFromParsed = (h) => (h ? cell(h.loadMPa, NP) : NA);
 
-const reviewed = (r) => r['Parse review'] != null && r['Parse review'] !== NA;
+// A Parse review explains the typed columns it names, and only those (D115). It opens with "Fields: Bed min °C, Bed max °C."
+// and then says why; "Fields: none." marks a note that silences nothing. A review used to silence every typed check
+// of its row, so a note written about one column hid stale values in the others (the data audit of 2026-10-01: a bed
+// minimum of 3 °C read from "for 3D printers" and 24 °C from "a shelf life of 24 months" survived that way).
+const REVIEW_FIELDS_RE = /^Fields:\s*([^.]*)\.\s*/;
+export const PROFILE_REVIEW_COLUMNS = PROFILE_TYPED_COLUMNS.flatMap((g) => g.columns).filter((c) => c !== 'Parse review');
+export const MEASUREMENT_REVIEW_COLUMNS = [...MEASUREMENT_TYPED_COLUMNS.flatMap((g) => g.columns).filter((c) => c !== 'Parse review'), 'Anneal °C', 'Anneal h'];
+
+/** The columns a Parse review explains: null when there is no review, undefined when it names none. */
+export function reviewFields(r) {
+  const t = r['Parse review'];
+  if (t == null || t === NA) return null;
+  const m = String(t).match(REVIEW_FIELDS_RE);
+  if (!m) return undefined;
+  return new Set(m[1].split(',').map((x) => x.trim()).filter((x) => x && x.toLowerCase() !== 'none'));
+}
+const explains = (r, column) => reviewFields(r)?.has(column) ?? false;
+
+/** A Parse review must name the typed columns it explains, and only columns its row has. */
+export function checkReviewScope(r, issues, where, columns) {
+  const fields = reviewFields(r);
+  if (fields === undefined) {
+    issues.push({ level: 'error', code: 'PARSE-REVIEW-SCOPE', where, message: 'Parse review names no columns; open it with "Fields: <the typed columns it explains>." or "Fields: none."' });
+    return;
+  }
+  for (const c of fields ?? []) {
+    if (!columns.includes(c)) issues.push({ level: 'error', code: 'PARSE-REVIEW-SCOPE', where, message: `Parse review names "${c}", which is not a typed column of this row (${columns.join(', ')})` });
+  }
+}
+
+// The numbers a process cell states, and the endpoints its wording implies: the ends of a tolerance ("270 ± 10"), a
+// Fahrenheit reading in Celsius, and room temperature where the cell says so.
+function statedNumbers(text) {
+  const t = String(text ?? '');
+  const out = (t.match(/\d+(?:\.\d+)?/g) ?? []).map(Number);
+  for (const x of [...out]) out.push(Math.round((x - 32) * 5 / 9));
+  for (const m of t.matchAll(/(\d+(?:\.\d+)?)\s*[°º˚∞]?\s*[CF℃]?\s*(?:±|\+\/-|\+-)\s*(\d+(?:\.\d+)?)/g)) out.push(Number(m[1]) - Number(m[2]), Number(m[1]) + Number(m[2]));
+  if (/room|ambient|\bRT\b/i.test(t)) out.push(20, 23, 25);
+  return out;
+}
 
 /**
  * Overlay the stored typed values on the parsers' output for a profile, and report every difference a
@@ -80,15 +119,26 @@ const reviewed = (r) => r['Parse review'] != null && r['Parse review'] !== NA;
  * unchanged wherever the two agree.
  */
 export function applyProfileTyped(r, parsed, issues, where = `profiles ${r.ProfileID}`) {
-  const mismatch = (field, stored, read) => {
-    if (reviewed(r)) return;
-    issues.push({ level: 'error', code: 'PARSE-MISMATCH', where, message: `${field} is ${stored ?? 'empty'} but the parser reads the raw text as ${read ?? 'nothing'}; correct the typed value, or explain it in Parse review` });
+  checkReviewScope(r, issues, where, PROFILE_REVIEW_COLUMNS);
+  const mismatch = (column, stored, read) => {
+    if (explains(r, column)) return;
+    issues.push({ level: 'error', code: 'PARSE-MISMATCH', where, message: `${column} is ${stored ?? 'empty'} but the parser reads the raw text as ${read ?? 'nothing'}; correct the typed value, or explain it in Parse review` });
   };
+  const COLUMN = { state: 'state', min: 'min °C', max: 'max °C', requirement: 'requirement' };
   const out = {};
-  for (const { axis, label } of TEMPERATURE_AXES) {
+  for (const { axis, label, raw } of TEMPERATURE_AXES) {
     const p = parsed[axis];
     const typed = { state: r[`${label} state`], min: value(r[`${label} min °C`]), max: value(r[`${label} max °C`]), requirement: r[`${label} requirement`] };
-    for (const k of ['state', 'min', 'max', 'requirement']) if (typed[k] !== p[k]) mismatch(`${label} ${k}`, typed[k], p[k]);
+    for (const k of ['state', 'min', 'max', 'requirement']) if (typed[k] !== p[k]) mismatch(`${label} ${COLUMN[k]}`, typed[k], p[k]);
+    // A typed endpoint is a number its own cell states, whatever a review says (D115).
+    const stated = statedNumbers(r[raw]);
+    for (const k of ['min', 'max']) {
+      if (typed[k] != null && !stated.some((x) => Math.abs(x - typed[k]) < 0.5)) issues.push({ level: 'error', code: 'PARSE-TEXT-BOUNDS', where, message: `${label} ${COLUMN[k]} is ${typed[k]}, a number "${r[raw]}" does not state` });
+    }
+    // An open bound keeps its other end open: "> 80 °C" is at least 80, not 80 exactly.
+    if ((p.openHigh && typed.max != null && typed.max === typed.min) || (p.openLow && typed.min != null && typed.min === typed.max)) {
+      issues.push({ level: 'error', code: 'OPEN-BOUND-WINDOW', where, message: `${label} "${r[raw]}" is an open bound, but its typed window is the single point ${typed.min}` });
+    }
     out[axis] = { ...p, ...typed };
   }
   const e = parsed.enclosure;
@@ -97,7 +147,7 @@ export function applyProfileTyped(r, parsed, issues, where = `profiles ${r.Profi
 
   const d = parsed.drying;
   const drying = { state: r['Drying state'], tempC: value(r['Drying °C']), hours: value(r['Drying hours']) };
-  for (const k of ['state', 'tempC', 'hours']) if (drying[k] !== d[k]) mismatch(`Drying ${k}`, drying[k], d[k]);
+  for (const [k, column] of [['state', 'Drying state'], ['tempC', 'Drying °C'], ['hours', 'Drying hours']]) if (drying[k] !== d[k]) mismatch(column, drying[k], d[k]);
   out.drying = { ...d, ...drying, required: drying.state === 'stated' ? true : null };
 
   const a = parsed.abrasion;
@@ -117,7 +167,7 @@ export function applyAnnealTyped(r, parsed, issues) {
   const stateCell = (v, annealed) => (v != null ? String(v) : annealed ? NP : NA);
   for (const [k, column] of [['tempC', 'Anneal °C'], ['hours', 'Anneal h']]) {
     const expected = stateCell(read[k], !!parsed);
-    if (r[column] !== expected && typed[k] !== read[k] && !reviewed(r)) {
+    if (r[column] !== expected && typed[k] !== read[k] && !explains(r, column)) {
       issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `${column} is ${r[column] ?? 'empty'} but the parser reads "${r['Post-processing']}" as ${expected}; correct the typed value, or explain it in Parse review` });
     }
   }
@@ -131,10 +181,10 @@ export function applyAnnealTyped(r, parsed, issues) {
  * unless Parse review explains it.
  */
 export function applyStateTyped(r, issues) {
-  if (reviewed(r)) return;
+  checkReviewScope(r, issues, `measurements ${r.MeasurementID}`, MEASUREMENT_REVIEW_COLUMNS);
   for (const { typed, raw, read } of MEASUREMENT_STATES) {
     const expected = read(r[raw]);
-    if (expected != null && r[typed] !== expected) {
+    if (expected != null && r[typed] !== expected && !explains(r, typed)) {
       issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `${typed} is ${r[typed] ?? 'empty'} but the source's words "${r[raw]}" read as ${expected}; correct the typed value, or explain it in Parse review` });
     }
   }
@@ -147,7 +197,7 @@ export function applyStateTyped(r, issues) {
 export function applyStandardsTyped(r, issues) {
   const stored = r.Standards === NP ? [] : String(r.Standards ?? '').split(';').map((x) => x.trim()).filter(Boolean);
   const read = readStandards(r['Standard / load']);
-  if (stored.join('; ') !== read.join('; ') && !reviewed(r)) {
+  if (stored.join('; ') !== read.join('; ') && !explains(r, 'Standards')) {
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Standards is ${stored.join('; ') || NP} but the parser reads "${r['Standard / load']}" as ${read.join('; ') || 'no standard'}; correct the typed value, or explain it in Parse review` });
   }
   return stored;
@@ -156,7 +206,7 @@ export function applyStandardsTyped(r, issues) {
 /** Overlay the stored test load on the HDT parser's reading. */
 export function applyLoadTyped(r, h, issues) {
   const load = value(r['Test load MPa']);
-  if (load !== h.loadMPa && !reviewed(r)) {
+  if (load !== h.loadMPa && !explains(r, 'Test load MPa')) {
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Test load MPa is ${load ?? 'Not published'} but the parser reads "${r['Standard / load']}" as ${h.loadMPa ?? 'no stated load'}; correct the typed value, or explain it in Parse review` });
   }
   return load === h.loadMPa ? h : { ...h, loadMPa: load, loadStated: load !== null, label: load === null ? 'load not stated' : `${load} MPa (reviewed)` };
@@ -172,7 +222,7 @@ export const testTemperatureCell = (text) => cell(readTestTemperature(text), NP)
 export function applyTestTemperatureTyped(r, issues) {
   const stored = value(r['Test temperature °C']);
   const read = readTestTemperature(r['Test temperature']);
-  if (stored !== read && !reviewed(r)) {
+  if (stored !== read && !explains(r, 'Test temperature °C')) {
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where: `measurements ${r.MeasurementID}`, message: `Test temperature °C is ${r['Test temperature °C'] ?? 'empty'} but the parser reads "${r['Test temperature']}" as ${read ?? NP}; correct the typed value, or explain it in Parse review` });
   }
   return stored;

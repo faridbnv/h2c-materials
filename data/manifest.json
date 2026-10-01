@@ -11,7 +11,7 @@
     },
     "profiles": {
       "rows": 1323,
-      "sha256": "2d9a5895e7d91c08c0c8b7a441825d9c140fe25a911018bf18cd3ecb740d565e"
+      "sha256": "dbda154799e48cbcba6143f0e8eec1115663d9c51c8a680e940d0bbbff7abff4"
     },
     "profile_notes": {
       "rows": 2061,
@@ -19,7 +19,7 @@
     },
     "measurements": {
       "rows": 11543,
-      "sha256": "8d32541b40b6cea6f1dae7b9ba56ae0af241dd34c98d5dc0562b628577beed34"
+      "sha256": "e929ebcdff4289f7f26b0b031359938a37462f168a75220ea6f9a0b3bfc4bbff"
     },
     "fatigue_tests": {
       "rows": 42,
@@ -39,7 +39,7 @@
     },
     "print_guide": {
       "rows": 33,
-      "sha256": "b46ad25ee402effbef2b6b0dd95cae51c5962424e164121da49ca48c877f1f20"
+      "sha256": "2de3350ceabe0481c690bde48ea1fcf538779f743f2eee0f88a742c325f73d74"
     },
     "prices": {
       "rows": 357,

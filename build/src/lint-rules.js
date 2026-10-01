@@ -21,6 +21,11 @@ export const LINT_RULES = {
   'MEAS-PHYSICS-Z-ABOVE-XY': 'One grade, source and state publish a Z result clearly above its XY result (strength or impact above, stiffness more than 15 % above); layer bonds make Z the weak direction, so the labels may be swapped.',
   'MEAS-PHYSICS-ORDER': 'Two values of one grade, source and test state that physics orders the other way round. A window cannot see this: a sheet\'s glass transition, heat deflection, Vicat and melting point are four numbers in one unit and one range, so a swapped pair is individually ordinary and jointly impossible. A Vicat whose own words name the heavy load (50 N, method B) is not ordered against the glass transition, because that needle sinks into a glassy bar once it yields. Re-read the rows and correct whichever is on the wrong line.',
   'MEAS-PHYSICS-WINDOW': 'A value outside what its polymer can do (data/tables/plausibility_windows.csv). Beyond a hard bound it is impossible and the row is a defect: re-read the sheet, and if the sheet really prints it, flag it Published value (physically implausible) with the reason (D55). Beyond a soft bound it is surprising: check it, and accept it with what makes it credible.',
+  'MEAS-PHYSICS-NOTCH': 'One grade, source, direction and state publish a notched impact above the unnotched one; a notch only concentrates stress, so the labels, the units or the sheet are wrong (data audit 2026-10-01, RC6). Re-read the sheet; if it really prints this, flag the pair Published value (physically implausible).',
+  'MEAS-PHYSICS-FLEX-STRAIN': 'A flexural strength above 8 % of its flexural modulus, for a rigid polymer: the outer fibre would have strained past where ISO 178 and ASTM D790 stop, so one of the two is another quantity or a misprint (data audit 2026-10-01, RC6).',
+  'IMPACT-UNIT-STANDARD': 'An impact value whose unit is not the one its standard reports: ASTM D256 gives J/m (energy per width), ISO 179 and ISO 180 give kJ/m² (energy per area). Re-read which the sheet means; the two cannot be converted without the specimen geometry (data audit 2026-10-01, RC7).',
+  'GRADE-VALUES-TWIN': 'Two active grades share at least 80 % of at least five published values with no Shared formulation key between them: one table printed under two products (a reseller, a rebrand, a second-language sheet). Record it as R053 says (one formulation key, the values once) or accept with why the two are separate products (data audit 2026-10-01, RC5).',
+  'FILING-FILLER-WORD': 'A product name names a filler or polymer its material does not have (CF, GF, metal, wood, ESD; PETG under PLA), and no Variant explains it. File the product under the material it is, or set its Variant (data audit 2026-10-01, RC9).',
   'MEAS-PHYSICS-STRAIN': 'One grade, source, direction and state publish a strain at break below stress / modulus; a thermoplastic softens before it breaks, so the modulus basis (secant, flexural) or a value is suspect.',
   'GRADE-PRODUCT-DUPLICATE': 'Two active grades name the same product of the same manufacturer; one product has one grade. Retire the copy, or say what distinguishes them in Product name.',
   'FORMULATION-KEY-SPANS-MATERIALS': 'One Shared formulation key on active grades of more than one material. The estimate model reads a key as one product and predicts it once, so two materials cannot both own it (D12, D44); file the product under the material it is.',
@@ -444,6 +449,54 @@ export function lintData(tables, schemas) {
     for (const family of [...new Set(candidates.map((m) => m.Family))].filter((f) => !named.has(f)).sort()) {
       add('HEADLINE-FAMILY-UNLISTED', 'headline_definitions', `${h.HeadlineKey} | ${family}`, 'Applies to', `${family} has candidate materials and is not named`);
     }
+  }
+  // ---- the data audit of 2026-10-01 (PM-TRIAL-2026-10-01/data-audit, RC5, RC6, RC7, RC9)
+  // A notch only concentrates stress: notched impact above unnotched, on one specimen form, direction and state, is a
+  // swapped label, a unit or a sheet error. Extrudr's DURAPRO ASA CF prints notched Izod 100 beside unnotched 20 kJ/m².
+  // A flexural strength is the outer-fibre stress at break or at the conventional deflection; above 8 % of the
+  // flexural modulus a rigid bar would have strained past where the test stops (MatterHackers' PLA: 73 MPa beside 350).
+  for (const rows of groups.values()) {
+    const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
+    for (const property of ['Izod impact strength', 'Charpy strength']) {
+      for (const n of of(property, (r) => r.Notch === 'Notched')) {
+        for (const u of of(property, (r) => r.Notch === 'Unnotched' && r['Normalized unit'] === n['Normalized unit'] && r.Direction === n.Direction && r['Test temperature °C'] === n['Test temperature °C'] && sameSpecimen(n, r))) {
+          if (num(n) > num(u) * 1.05) add('MEAS-PHYSICS-NOTCH', 'measurements', n.MeasurementID, 'Normalized value', `${property} notched ${num(n)} > unnotched ${num(u)} ${u['Normalized unit']} (${u.MeasurementID})`);
+        }
+      }
+    }
+    for (const m of of('Flexural modulus', (r) => !elastomers.has(r.MaterialID))) {
+      for (const f of of('Flexural strength', (r) => r.Direction === m.Direction && sameSpecimen(m, r))) {
+        if (num(f) / (num(m) * 1000) > 0.08) add('MEAS-PHYSICS-FLEX-STRAIN', 'measurements', m.MeasurementID, 'Normalized value', `flexural strength ${num(f)} MPa is ${((100 * num(f)) / (num(m) * 1000)).toFixed(0)} % of flexural modulus ${num(m)} GPa (${f.MeasurementID})`);
+      }
+    }
+  }
+  // The unit a standard reports. The raw unit is the sheet's own; "kj/m²" beside ASTM D256 is the Extrudr template.
+  for (const r of active.filter((x) => /Izod|Charpy|Impact/i.test(x.Property))) {
+    const std = String(r['Standard / load'] ?? '') + ' ' + String(r.Standards ?? ''); const unit = String(r['Raw unit'] ?? r['Normalized unit'] ?? '');
+    const astm = /D\s?256/i.test(std), iso = /ISO\s?1(79|80)/i.test(std);
+    if ((astm && !iso && /kJ/i.test(unit)) || (iso && !astm && /J\/m(?![²2])/i.test(unit) && !/kJ/i.test(unit))) add('IMPACT-UNIT-STANDARD', 'measurements', r.MeasurementID, 'Raw unit', `${unit} beside ${std.trim().slice(0, 60)}`);
+  }
+  // One table under two products. The cross-source twin check above keys on the conditions too, so two copies of one
+  // sheet recorded with different direction or state words escape it; this one keys on the values alone, per grade.
+  const values = new Map();
+  for (const r of active) { if (!values.has(r.GradeID)) values.set(r.GradeID, new Set()); values.get(r.GradeID).add(`${r.Property}=${num(r)} ${r['Normalized unit']}`); }
+  const gradeRow = new Map((tables.grades?.rows ?? []).map((g) => [g.GradeID, g]));
+  const valueGrades = new Map();
+  for (const [g, vs] of values) { if (vs.size < 5 || gradeRow.get(g)?.Status !== 'active') continue; for (const v of vs) { if (!valueGrades.has(v)) valueGrades.set(v, []); valueGrades.get(v).push(g); } }
+  const pairShared = new Map();
+  for (const gs of valueGrades.values()) { if (gs.length < 2 || gs.length > 60) continue; for (let i = 0; i < gs.length; i++) for (let j = i + 1; j < gs.length; j++) { const k = [gs[i], gs[j]].sort().join(' | '); pairShared.set(k, (pairShared.get(k) ?? 0) + 1); } }
+  for (const [k, shared] of pairShared) {
+    const [a, b] = k.split(' | '); const smaller = Math.min(values.get(a).size, values.get(b).size);
+    const ka = gradeRow.get(a)?.['Shared formulation key'], kb = gradeRow.get(b)?.['Shared formulation key'];
+    if (shared >= 5 && shared >= 0.8 * smaller && !(ka && ka === kb)) add('GRADE-VALUES-TWIN', 'grades', k, 'Shared formulation key', `${shared} of ${smaller} values identical (${gradeRow.get(a)?.Manufacturer} ${gradeRow.get(a)?.['Product name']} / ${gradeRow.get(b)?.Manufacturer} ${gradeRow.get(b)?.['Product name']})`);
+  }
+  // A filler or polymer in the product's name that its material does not have.
+  const FILLER_WORDS = [[/\b(cf|carbon)\b/i, /carbon|\bcf\b/], [/\b(gf|glass)\b/i, /glass|\bgf\b/], [/\besd\b|antistatic|conductive/i, /esd|static|conduct/], [/\b(steel|copper|bronze|brass|iron|tungsten|metal)\b/i, /metal|steel|copper|bronze|iron|sinter/], [/\b(wood|bamboo|cork)\b/i, /wood|natural/], [/\bpetg\b/i, /petg|copolyester|\bpet\b/], [/\bpla\b/i, /pla/]];
+  const materialRow = new Map((tables.materials?.rows ?? []).map((m) => [m.MaterialID, m]));
+  for (const g of (tables.grades?.rows ?? []).filter((x) => x.Status === 'active' && (!x.Variant || x.Variant === 'Not applicable'))) {
+    const m = materialRow.get(g.MaterialID); if (!m) continue;
+    const mat = `${m['Original name']} ${m.Family} ${m['Modifier / filler']} ${m['Base polymer']} ${m['Variant class']}`.toLowerCase();
+    for (const [word, owns] of FILLER_WORDS) if (word.test(g['Product name'] ?? '') && !owns.test(mat)) add('FILING-FILLER-WORD', 'grades', g.GradeID, 'MaterialID', `"${g['Product name']}" names ${String(g['Product name']).match(word)[0]}; filed under ${m['Original name']} (${m['Modifier / filler']})`);
   }
   return findings;
 }
