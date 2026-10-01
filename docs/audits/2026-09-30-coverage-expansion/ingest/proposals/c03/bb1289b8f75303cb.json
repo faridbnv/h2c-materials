@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+    "url": "https://nanovia.tech/en/nanovia-hips-as-a-soluble-support-material-for-3d-printing/",
+    "pages": 1,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/en/nanovia-hips-as-a-soluble-support-material-for-3d-printing/#witness-for=source:R-NANOVIA-HIPS"
+  },
+  "identity": {
+    "polymer": "HIPS",
+    "modifier": "Unfilled / unspecified",
+    "variantClass": "",
+    "finish": "",
+    "family": "Styrenics",
+    "hardness": null,
+    "support": true,
+    "signals": [
+      "name: hips",
+      "support chemistry: HIPS (R076)"
+    ],
+    "materialId": "M081",
+    "materialName": "HIPS",
+    "estimateIdentity": "HIPS",
+    "confidence": 1,
+    "needsRuling": false,
+    "reasons": []
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "unfilled"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "Publisher": "Nanovia",
+      "Title": "Nanovia HIPS as a soluble support material for 3D printing",
+      "Revision": "Not published",
+      "Publication date": "2023-04-06",
+      "Access date": "2026-09-30",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Separate witnessed own-source edition, original digest retained. Chronology/formulation continuity not inferred. Narrative scope and unresolved cross-source differences retained; no numeric, profile, certificate or suitability operation admitted. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/en/nanovia-hips-as-a-soluble-support-material-for-3d-printing/",
+      "Locator": "Document / product page",
+      "Applicable grades": "G081-10;G083-04",
+      "Access state": "retrieved",
+      "Access note": "Saved during bounded campaign search on 2026-09-30; staged from hash-verified private original, never refetched over an applied digest.",
+      "SHA256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Store"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent operation review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G081-10",
+      "row": {
+        "GradeID": "G081-10",
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "HIPS",
+        "Shared formulation key": "R-NANOVIA-HIPS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Resolve existing exact product only; no new grade, material, identity, formulation or source-row overwrite."
+      }
+    },
+    {
+      "key": "G083-04",
+      "row": {
+        "GradeID": "G083-04",
+        "MaterialID": "M083",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "PP CF",
+        "Shared formulation key": "R-NANOVIA-PP-CF",
+        "Composition / filler": "Nanovia PP CF : Carbon fiber reinforced Starting at : 79,38 &euro; ex. VAT / kg Thanks to polypropylene’s close to zero water absorption rate, high chemical res (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Resolve existing exact product only; no new grade, material, identity, formulation or source-row overwrite."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "c03-bb1289b8-1",
+      "gradeKey": "G081-10",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Application",
+        "Topic": "Application",
+        "Finding": "Nanovia PP CF, despite the added cabron fibres, still has a tendency to unstick from the printing surface. By adding a soluble HIPS raft and supports the polypropylene is held in place.",
+        "Exposure / conditions": "Own pictured Nanovia HIPS raft/PP-CF support demonstration; links identify G081-10 and G083-04. No adhesion force, geometry, printer conditions, interface strength or load qualification. One shared fact recorded on HIPS; affected PP-CF question also linked in campaign packet.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Locator": "p. 1: Opening pictured raft caption"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nanovia PP CF, despite the added cabron fibres, still has a tendency to unstick from the printing surface. By adding a soluble HIPS raft and supports the polypropylene is held in place."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-bb1289b8-2",
+      "gradeKey": "G081-10",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Makers' know-how",
+        "Topic": "Supports and removal",
+        "Finding": "Supports in 3D printing need to be removed manually a posteriori, which may leave marks and can take time for more complex structures.",
+        "Exposure / conditions": "General removal limitation in own HIPS article; no measured force/time or assurance on this exact geometry.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Locator": "p. 1: Opening manual-removal limitation"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Supports in 3D printing need to be removed manually a posteriori, which may leave marks and can take time for more complex structures."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-bb1289b8-3",
+      "gradeKey": "G081-10",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "High Impact Polystyrene (HIPS), as its name indicates, has a very high shock resistance. This resistance also makes it suited as a base 3D printing material, especially for press tools.",
+        "Exposure / conditions": "General HIPS declarative maker context within own article; no exact-product press-tool load, impact/lifetime test or qualified use. Not a material suitability pass.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Locator": "p. 1: General HIPS use paragraph"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "High Impact Polystyrene (HIPS), as its name indicates, has a very high shock resistance. This resistance also makes it suited as a base 3D printing material, especially for press tools."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-bb1289b8-4",
+      "gradeKey": "G081-10",
+      "row": {
+        "MaterialID": "M081",
+        "GradeID": "G081-10",
+        "Domain": "Makers' know-how",
+        "Topic": "Supports and removal",
+        "Finding": "When submerged in limonene, HIPS completely dissolves in about 24 hours, and doesn’t leave any residue.",
+        "Exposure / conditions": "Declarative general HIPS maker claim, not a described exact-product removal test. Approximate24hours; concentration, temperature, geometry and protocol missing. Does not turn prior exposure-only caption into a transferable complete-removal guarantee.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Locator": "p. 1: Limonene dissolution paragraph"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "When submerged in limonene, HIPS completely dissolves in about 24 hours, and doesn’t leave any residue."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-bb1289b8-6",
+      "gradeKey": "G083-04",
+      "row": {
+        "MaterialID": "M083",
+        "GradeID": "G083-04",
+        "Domain": "Application",
+        "Topic": "Application",
+        "Finding": "Nanovia PP CF V-Slot real connectors after limonene submesion",
+        "Exposure / conditions": "Own pictured exact Nanovia PP-CF connector exposure caption; no performance result, immersion time, concentration, temperature, geometry or retained strength inferred. Not a chemical-service or functional-load qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Locator": "p. 1: PP-CF connector figure caption"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nanovia PP CF V-Slot real connectors after limonene submesion"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Nanovia HIPS as a soluble support material for 3D printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Supports in 3D printing need to be removed manually a posteriori, which may leave marks and can take time for more complex structures.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "High Impact Polystyrene (HIPS), as its name indicates, has a very high shock resistance. This resistance also makes it suited as a base 3D printing material, es",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HIPS has a 3D printing temperature, mechanical and thermal properties close to ABS/ASA. This similar temperature makes it so when printing these two there is no",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "L’HIPS after 24h of submersion in limonene",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HIPS is a thermoplastic that is soluble in limonene (C 10 H 16 ). Limonene is a natural hydrocarbon that’s extracted from citrus zest. Unlike PVA, HIPS is not s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HIPS and limonene are compatable with most 3D printing materials.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nanovia HIPS 3D printer filament",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "22540 LOUARGAT",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "+33 (0) 296 43 36 90",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "&copy; 2026 Copyright Nanovia",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent operation review required; no human review",
+    "note": "All automatic measurements/profiles rejected. Original source raw statements scoped; independent operation review required."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      },
+      "row": {
+        "MaterialID": "M081",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "HIPS",
+        "Shared formulation key": "R-NANOVIA-HIPS-bb1289",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-HIPS-bb1289",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Store"
+      }
+    }
+  ],
+  "newMaterial": null
+}

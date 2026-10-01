@@ -1,0 +1,25 @@
+{
+  "migration": "m259-batch-c03-nanovia-original-revisions",
+  "packet": "d6f3ea4db610ffc9cf827dc6b3051c262a23f203c93e0f8a51116fd15a3a14a9",
+  "log": [
+    "source R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+    "evidence Q05412 Good for",
+    "evidence Q05413 Printing advice",
+    "evidence Q05414 Printing advice",
+    "evidence Q05415 Acid resistance",
+    "evidence Q05416 Organic-solvent resistance",
+    "evidence Q05417 Organic-solvent resistance",
+    "source R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+    "evidence Q05418 Printing advice",
+    "evidence Q05419 Printing advice",
+    "evidence Q05420 Odour and emissions",
+    "source R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+    "evidence Q05421 Application",
+    "evidence Q05422 Supports and removal",
+    "evidence Q05423 Good for",
+    "evidence Q05424 Supports and removal",
+    "evidence Q05425 Application"
+  ],
+  "written": true,
+  "applied": 3
+}

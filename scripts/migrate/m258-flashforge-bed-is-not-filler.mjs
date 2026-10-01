@@ -1,0 +1,20 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {join} from 'node:path';
+import {openTables,projectRoot} from '../data/table-io.mjs';
+import {locate} from '../data/source-store.mjs';
+const migration='m258-flashforge-bed-is-not-filler',at=join(projectRoot,'docs/audits/2026-09-30-coverage-expansion');
+const bytes=readFileSync(join(at,'flashforge-composition-packet.json')),hash=createHash('sha256').update(bytes).digest('hex'),review=JSON.parse(readFileSync(join(at,'flashforge-composition-review.json')));
+if(hash!=='a7241bfa93d69e99f68a3ef90f7a9f7f4caa6fa21d385c27fac4bff20d9ceed9'||review.input_sha256!==hash||review.overall_verdict!=='APPROVE')throw Error(`${migration}: changed or unreviewed packet`);
+const p=JSON.parse(bytes),t=openTables();
+const agrees=(row,expected)=>row&&Object.entries(expected).every(([k,v])=>row[k]===v);
+const check=(row,expected,name)=>{if(!agrees(row,expected))throw Error(`${migration}: ${name} moved`);};
+const g=t.get('grades',p.ExpectedGrade.GradeID),c=t.get('coverage',p.ExpectedCoverage.CoverageID);
+if(!agrees(g,p.ProposedGrade))check(g,p.ExpectedGrade,g.GradeID);
+if(!agrees(c,p.ProposedCoverage))check(c,p.ExpectedCoverage,c.CoverageID);
+check(t.get('sources',p.ExpectedSource.SourceID),p.ExpectedSource,p.ExpectedSource.SourceID);
+const original=locate(p.ExpectedSource.SHA256,p.ExpectedSource.SourceID);
+if(original.bytes!=='present'||createHash('sha256').update(readFileSync(original.path)).digest('hex')!==p.ExpectedSource.SHA256)throw Error(`${migration}: original missing or changed`);
+for(const o of p.Operations){const v=t.get(o.Table,o.Key)[o.Field];if(v!==o.ExpectedOldValue&&v!==o.NewValue)throw Error(`${migration}: ${o.Key} moved`);}
+let written=0;for(const o of p.Operations){if(t.get(o.Table,o.Key)[o.Field]===o.NewValue)continue;t.set(o.Table,o.Key,o.Field,o.NewValue,{expect:o.ExpectedOldValue});written++;}t.save();
+console.log(JSON.stringify({migration,packet:hash,written},null,2));

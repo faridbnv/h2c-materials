@@ -1,0 +1,93 @@
+{
+  "PacketID": "FLASHFORGE-TPU64D-COMPOSITION-EXTRACTION-CORRECTION",
+  "ExpectedGrade": {
+    "GradeID": "G039-23",
+    "MaterialID": "M162",
+    "Role": "procurement",
+    "Status": "active",
+    "Manufacturer": "Flashforge",
+    "Product name": "TPU 64D",
+    "Shared formulation key": "D-FLASH-TPU-64D-TDS-EN",
+    "Composition / filler": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+    "Variant": "Not applicable",
+    "Colour caveat": "Properties may vary by colour; use TDS scope",
+    "Availability": "Not published",
+    "Certification claims": "Not published",
+    "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+    "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+    "Source locator": "TDS / official product page",
+    "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+  },
+  "ExpectedSource": {
+    "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+    "Publisher": "Flashforge",
+    "Title": "Technical Data Sheet TPU 64D Filament",
+    "Revision": "Not published",
+    "Publication date": "Not published",
+    "Access date": "2026-09-19",
+    "Source class": "Manufacturer TDS",
+    "Source note": "Not applicable",
+    "Citation role": "cited",
+    "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/TPU_64D_TDS_EN.pdf",
+    "Locator": "Document / product page",
+    "Applicable grades": "G039-23",
+    "Access state": "retrieved",
+    "Access note": "Not applicable",
+    "SHA256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282"
+  },
+  "ProposedGrade": {
+    "GradeID": "G039-23",
+    "MaterialID": "M162",
+    "Role": "procurement",
+    "Status": "active",
+    "Manufacturer": "Flashforge",
+    "Product name": "TPU 64D",
+    "Shared formulation key": "D-FLASH-TPU-64D-TDS-EN",
+    "Composition / filler": "Not published",
+    "Variant": "Not applicable",
+    "Colour caveat": "Properties may vary by colour; use TDS scope",
+    "Availability": "Not published",
+    "Certification claims": "Not published",
+    "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+    "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+    "Source locator": "TDS / official product page",
+    "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+  },
+  "OriginalPath": ".cache/sources/by-sha/fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282.pdf",
+  "SourceBasis": "Own TDS p.2 Recommended Printing Conditions: Build Surface Material = Tempered glass, BuildTak, Carbon fiber plate. This is bed-surface advice, not filament filler. p.1 describes TPU64D but publishes no filler composition. Own TDS p.3 prints the model-drying schedule; OPEN-PROBLEMS retains its unresolved thermal-feasibility concern. Coverage wording explicitly retains that limitation without changing status.",
+  "Limitations": "No unfilled assertion, zero filler content, new material identity, grade move, specimen correction or model change. Printer-bed Carbon fiber plate does not mean carbon fibre filament.",
+  "ExpectedCoverage": {
+    "CoverageID": "C01543",
+    "MaterialID": "M162",
+    "GradeID": "G039-23",
+    "Domain": "Post-processing / application",
+    "Status": "Evidence recorded",
+    "Manufacturer count": "Not applicable",
+    "Finding": "Reviewed 2026-10-01: Flashforge TPU 64D (G039-23) has product-specific post-processing evidence (Q05077, D-FLASH-TPU-64D-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct."
+  },
+  "ProposedCoverage": {
+    "CoverageID": "C01543",
+    "MaterialID": "M162",
+    "GradeID": "G039-23",
+    "Domain": "Post-processing / application",
+    "Status": "Evidence recorded",
+    "Manufacturer count": "Not applicable",
+    "Finding": "Reviewed 2026-10-01: Flashforge TPU 64D (G039-23) has product-specific post-processing evidence (Q05077, D-FLASH-TPU-64D-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct. The published 120\u2013130 \u00b0C / 6\u20138 h model-drying recommendation is already recorded as questionable in OPEN-PROBLEMS; thermal feasibility and strength improvement are not established. Evidence recorded means sourced finishing guidance exists, not a validated safe treatment."
+  },
+  "Operations": [
+    {
+      "Table": "grades",
+      "Key": "G039-23",
+      "Field": "Composition / filler",
+      "ExpectedOldValue": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+      "NewValue": "Not published"
+    },
+    {
+      "Table": "coverage",
+      "Key": "C01543",
+      "Field": "Finding",
+      "ExpectedOldValue": "Reviewed 2026-10-01: Flashforge TPU 64D (G039-23) has product-specific post-processing evidence (Q05077, D-FLASH-TPU-64D-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct.",
+      "NewValue": "Reviewed 2026-10-01: Flashforge TPU 64D (G039-23) has product-specific post-processing evidence (Q05077, D-FLASH-TPU-64D-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct. The published 120\u2013130 \u00b0C / 6\u20138 h model-drying recommendation is already recorded as questionable in OPEN-PROBLEMS; thermal feasibility and strength improvement are not established. Evidence recorded means sourced finishing guidance exists, not a validated safe treatment."
+    }
+  ]
+}

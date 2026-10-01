@@ -1,0 +1,1126 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+    "url": "https://nanovia.tech/wp-content/media/pdf/nanovia-insublend-fiche-technique.pdf",
+    "pages": 2,
+    "provider": "Nanovia",
+    "manufacturer": "Nanovia",
+    "docKey": "https://nanovia.tech/wp-content/media/pdf/nanovia-insublend-fiche-technique.pdf#witness-for=source:R-NANOVIA-Insublend"
+  },
+  "identity": {
+    "polymer": "",
+    "modifier": "",
+    "variantClass": "",
+    "finish": "",
+    "family": "",
+    "hardness": null,
+    "support": false,
+    "signals": [],
+    "materialId": null,
+    "materialName": null,
+    "estimateIdentity": "",
+    "confidence": 1,
+    "needsRuling": true,
+    "reasons": [
+      "no base polymer in \"Type Chemical Resistance\""
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "any"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "Publisher": "Nanovia",
+      "Title": "INSUBLEND — halogen free thermoplastic alloy with insulation properties",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-30",
+      "Source class": "Manufacturer TDS",
+      "Source note": "Separate witnessed own-source edition, original digest retained. Chronology/formulation continuity not inferred. Narrative scope and unresolved cross-source differences retained; no numeric, profile, certificate or suitability operation admitted. Independent AI review; no human review.",
+      "Citation role": "cited",
+      "URL": "https://nanovia.tech/wp-content/media/pdf/nanovia-insublend-fiche-technique.pdf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G081-06",
+      "Access state": "retrieved",
+      "Access note": "Saved during bounded campaign search on 2026-09-30; staged from hash-verified private original, never refetched over an applied digest.",
+      "SHA256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Chemical resistance @ 20°C"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent operation review required; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G081-06",
+      "row": {
+        "GradeID": "G081-06",
+        "MaterialID": "M130",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Insublend",
+        "Shared formulation key": "R-NANOVIA-Insublend",
+        "Composition / filler": "Polyphenylene ether resin. Mixture of poly(2,6-dimethyl-1,4-phenyleneoxide), polystyrene and elastomer. SDS p. 1 §3.2: merged 65–90% aggregate for PPO, polystyrene and poly(butadiene-styrene); individual PPE:PS ratio not published. Aromatic phosphate ester 5–22%, additives 0.1–5%, carbon black 0–2%. Source R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c; no shared formulation with another PPE-PS grade.",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Source locator": "Official product page; mixture identity and composition from R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c, p. 1 §§1.1/3.2",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Resolve existing exact product only; no new grade, material, identity, formulation or source-row overwrite."
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "m01",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.08 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.08",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1080",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Locator": "p. 1: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Density 1.08 g/cm3 (ISO 1183)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      }
+    },
+    {
+      "id": "m02",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "67 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "67",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.067",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Locator": "p. 1: Tensile Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tensile Modulus 67 MPa (ISO 527)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      }
+    },
+    {
+      "id": "m03",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2430 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2430",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.43",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Locator": "p. 1: Flexural Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Flexural Modulus 2430 MPa (ISO 178)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      }
+    },
+    {
+      "id": "m04",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Density",
+        "Raw value": "1.08 g/cm3",
+        "Raw unit": "g/cm3",
+        "Raw numeric": "1.08",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "1000",
+        "Normalized value": "1080",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "kg/m³",
+        "Data status": "Published value",
+        "Specimen type": "Not published (density specimen form not explicitly established)",
+        "Direction": "Not applicable",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 1183",
+        "Standards": "ISO 1183",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Locator": "p. 2: Density",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Density 1.08 g/cm3 (ISO 1183)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      }
+    },
+    {
+      "id": "m05",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Tensile modulus",
+        "Raw value": "67 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "67",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "0.067",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 527",
+        "Standards": "ISO 527",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Locator": "p. 2: Tensile Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Tensile Modulus 67 MPa (ISO 527)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      }
+    },
+    {
+      "id": "m06",
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Property": "Flexural modulus",
+        "Raw value": "2430 MPa",
+        "Raw unit": "MPa",
+        "Raw numeric": "2430",
+        "Raw uncertainty ±": "Not applicable",
+        "Raw upper bound": "Not applicable",
+        "Operator": "=",
+        "Conversion factor": "0.001",
+        "Normalized value": "2.43",
+        "Normalized uncertainty ±": "Not applicable",
+        "Normalized upper bound": "Not applicable",
+        "Normalized unit": "GPa",
+        "Data status": "Published value",
+        "Specimen type": "Not published (do not assume printed)",
+        "Direction": "Unstated",
+        "Moisture condition": "Not published",
+        "Moisture state": "not-stated",
+        "Post-processing": "Not published",
+        "Post-processing state": "not-stated",
+        "Anneal °C": "Not applicable",
+        "Anneal h": "Not applicable",
+        "Test temperature": "Not published",
+        "Test temperature °C": "Not published",
+        "Standard / load": "ISO 178",
+        "Standards": "ISO 178",
+        "Test load MPa": "Not applicable",
+        "Notch": "Not applicable",
+        "Specimen / print parameters": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Locator": "p. 2: Flexural Modulus",
+        "Notes": "Not applicable",
+        "Parse review": "Not applicable"
+      },
+      "evidence": {
+        "page": 2,
+        "text": "Flexural Modulus 2430 MPa (ISO 178)"
+      },
+      "confidence": 1,
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "260 - 280 °C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "260",
+        "Nozzle max °C": "280",
+        "Nozzle requirement": "required",
+        "Bed °C": "130 - 150 °C",
+        "Bed state": "range",
+        "Bed min °C": "130",
+        "Bed max °C": "150",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Not published",
+        "Hardened nozzle": "Not published",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "50 - 70 mm/s"
+        }
+      ],
+      "editorial": [],
+      "evidence": {
+        "page": 1,
+        "text": "Extrusion Temp. 260 - 280 °C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "c03-19c4810b-1",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "commonly used in automotives (Li & MH batteries, connectors, electrical materials ...) and outdoor products (solar panels connections...).",
+        "Exposure / conditions": "Own electrical applications paragraph; maker claimed uses only, no automotive/battery/solar service protocol or qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Locator": "p. 1: Applications paragraph"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "commonly used in automotives (Li & MH batteries, connectors, electrical materials ...) and outdoor products (solar panels connections...)."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-19c4810b-2",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "A heating plate is necessary during printing (between 100 and 140°C) and the filament is extruded at a temperature range from 260 to 280°C.",
+        "Exposure / conditions": "Internal conflict: own Properties table prints Plate Temp. 130–150 °C. Existing page profile P0721 retained; neither paragraph priority nor unprinted chronology settles the range.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Locator": "p. 1: Applications paragraph, conflicting bed range"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "A heating plate is necessary during printing (between 100 and 140°C) and the filament is extruded at a temperature range from 260 to 280°C."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-19c4810b-3",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Nozzle 0.5 (>0.4) mm",
+        "Exposure / conditions": "Own recommendation retains 0.5 mm and strict >0.4 mm wording; not a hardened-nozzle claim, not converted to >=0.4 or a profile scalar.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Locator": "p. 1: 3D Printing table, Nozzle"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle 0.5 (>0.4) mm"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-19c4810b-4",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Durability",
+        "Topic": "Acid resistance",
+        "Finding": "Acetic Acid ( 50% solution) | Excellent",
+        "Exposure / conditions": "Own chemical table @20 °C, exact printed concentration50%. Duration, specimen, conditioning, method and quantitative retention not stated. Original page omits this concentration; do not add it retroactively or qualify the acid class.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Locator": "p. 1: Chemical resistance @20°C, Acetic Acid agent/result"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Acetic Acid ( 50% solution) | Excellent"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-19c4810b-5",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Durability",
+        "Topic": "Organic-solvent resistance",
+        "Finding": "Kerosene | Moderate",
+        "Exposure / conditions": "Own chemical table @20 °C. Contradicts own HTML and other separately witnessed sheet Kerosene | Weak. Concentration, duration, specimen, conditioning and quantitative retention not stated; no preferred revision or universal solvent verdict.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Locator": "p. 1: Chemical resistance @20°C, Kerosene agent/result"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Kerosene | Moderate"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    },
+    {
+      "id": "c03-19c4810b-6",
+      "gradeKey": "G081-06",
+      "row": {
+        "MaterialID": "M130",
+        "GradeID": "G081-06",
+        "Domain": "Durability",
+        "Topic": "Organic-solvent resistance",
+        "Finding": "Tributyl Phosphate | Poor",
+        "Exposure / conditions": "Own chemical table @20 °C. Exact agent/result; concentration, duration, specimen, conditioning and quantitative retention not stated. Separately sourced rating does not silently correct the HTML non-rating Phosphate cell; no universal solvent verdict.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Locator": "p. 1: Chemical resistance @20°C, Tributyl Phosphate agent/result"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Tributyl Phosphate | Poor"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "visual": true,
+        "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Extrusion Temp",
+      "raw": "260 - 280 °C",
+      "fromBelow": false,
+      "line": "Extrusion Temp. 260 - 280 °C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Plate Temp",
+      "raw": "130 - 150 °C",
+      "fromBelow": false,
+      "line": "Plate Temp. 130 - 150 °C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "50 - 70 mm/s",
+      "fromBelow": false,
+      "line": "Printing Speed 50 - 70 mm/s"
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Chemical resistance @ 20°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hydrochloric Acid ( 50% solution) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "HALOGEN FREE THERMOPLASTIC ALLOY WITH INSULATION Sulfuric Acid ( 50% solution) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Acids Nitric Acid ( 50% solution) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Phosphoric Acid ( 60% solution) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Acetic Acid ( 50% solution) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "(UL 94 V-0 CERTIFICATION).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Ammonia ( NH3 10% solution) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Sodium Hydroxyde (NaOH 10 % solution) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "halogen free INSUBLEND is certified non-flammable V-0 (@1.6 mm with",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "a 5VA index @ 2.5mm*) and flame retardant according to UL 94",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "majority of 3D printers onto the market. A heating plate is necessary",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "during printing (between 100 and 140°C) and the filament is extruded at a",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "temperature range from 260 to 280°C.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "*UL 94 is a Standard for Safety of Flammability of Plastic Materials for",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Parts in Devices and Appliances testing. UL 94 is a plastics flammability",
+      "reason": "properties.csv carries no property for \"Parts in Devices and Appliances testing.\""
+    },
+    {
+      "page": 1,
+      "text": "standard. V-0 classification= burning stops within 10 seconds on a vertical",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Spool L1 L2 D1 D2 D3",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "500 g 55 45 200 105 52",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "3D PRINTING",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "750 g 55 45 200 105 52",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "1.0 kg 67 59 200 105 52",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "2.5 kg 100 90 300 210 52",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle 0.5 (>0.4) mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter 1.75 or 2.85 mm +/- 50μm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2.60 @ Ø 1.75 7.00 @ Ø 2.85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Other spools are available on request (up to 25 kg).",
+      "reason": "in the column beside the storage note, naming no property and value together"
+    },
+    {
+      "page": 1,
+      "text": "Elong. @ Break 20 % (ISO 527)",
+      "reason": "properties.csv carries no property for \"Elong. @ Break\""
+    },
+    {
+      "page": 1,
+      "text": "Moisture Abs. 0.10 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Shinkage 0.5 / 0.7 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tg 140 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "DTUL 114 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Flammability (halogen V 0 UL 94 @ 1.6mm",
+      "reason": "properties.csv carries no property for \"Flammability (halogen\""
+    },
+    {
+      "page": 1,
+      "text": "free material) 5 VA UL 94 @ 2.5 mm",
+      "reason": "properties.csv carries no property for \"free material)\""
+    },
+    {
+      "page": 1,
+      "text": "Dielectric Constant 100 Hz : 2.9 1 MHz : 2.9 (IEC60250)",
+      "reason": "the line names Relative permittivity and states no value in a unit the database keeps it in (Dimensionless)"
+    },
+    {
+      "page": 1,
+      "text": "Dissipation Factor 100 Hz : 0.0003 1 MHz : 0.0004 (IEC60250)",
+      "reason": "properties.csv carries no property for \"Dissipation Factor\""
+    },
+    {
+      "page": 1,
+      "text": "Dielectric strength 29 KV / mm (IEC60243)",
+      "reason": "the line names Dielectric strength and states no value in a unit the database keeps it in (kV/mm)"
+    },
+    {
+      "page": 1,
+      "text": "Volume Resistivity 10.1015 Ohms (IEC60093)",
+      "reason": "the line names Volume resistivity and states no value in a unit the database keeps it in (Ω·cm)"
+    },
+    {
+      "page": 1,
+      "text": "(IEC60112)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tracking resistance 190 V",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Surface Resistivity 10.1015 Ohms (IEC60093)",
+      "reason": "the line names Surface resistivity and states no value in a unit the database keeps it in (Ω)"
+    },
+    {
+      "page": 2,
+      "text": "Résistance chimique @ 20°C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Acide Chlorhydrique (solution à 50%) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Acide Sulfurique (solution à 50%) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "APPLICATIONS ELECTRIQUES (CERTIFICATION UL 94 V-0). Acides Acide nitrique (solution à 50%) Excellent",
+      "reason": "properties.csv carries no property for \"APPLICATIONS ELECTRIQUES (CERTIFICATION\""
+    },
+    {
+      "page": 2,
+      "text": "Acide phosphorique (solution à 60%) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Acide Acétique (solution à 50%) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Ammoniaque (solution 10% NH3) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "soude (solution à 10% de NaOH) Excellent",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "sans halogène, est certifié ininflammable V-0 (@ 1,6 mm avec un indice",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "de 5VA @ 2.5mm *) et retardateur de flamme selon la certification UL 94",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "standards, INSUBLEND estc utilisable par la majorité des imprimantes 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "sur le marché. Un plateau chauffant est nécessaire (entre 100 et 140 ° C)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "et le filament est extrudé sur une plage de température allant de 260 à",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "280 ° C. * UL 94 est une norme de sécurité de l'inflammabilité des matières",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "plastiques dans les tests des dispositifs et des appareils électroménagers. UL 94 est",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "une norme en matière plastique d'inflammabilité. V-0 classification = combustion",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "s'arrête dans les 10 secondes sur un spécimen vertical avec coulures non",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Bobines L1 L2 D1 D2 D3",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "IMPRESSION 3D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "500 g 55 45 200 105 52",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "T° Extrusion 260 - 280 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "750 g 55 45 200 105 52",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "T° Plateau 130 - 150 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "1.0 kg 67 59 200 105 52",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Buse 0.5 (>0.4) mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "2.5 kg 100 90 300 210 52",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Vitesse d’impression 50 - 70 mm/s",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Diamètre 1.75 or 2.85 mm +/- 50μm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Masse linéique (g/m) 2.60 @ Ø 1.75 7.00 @ Ø 2.85",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "formats jusqu’à 25kg disponibles sur demande.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Elong. @ Break 20 % (ISO 527)",
+      "reason": "properties.csv carries no property for \"Elong. @ Break\""
+    },
+    {
+      "page": 2,
+      "text": "Moisture Abs. 0.10 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Shinkage 0.5 / 0.7 %",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Tg 140 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "DTUL 114 °C",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Inflammabilité V 0 UL 94 @ 1.6mm",
+      "reason": "properties.csv carries no property for \"Inflammabilité\""
+    },
+    {
+      "page": 2,
+      "text": "5 VA UL 94 @ 2.5 mm",
+      "reason": "properties.csv carries no property for \"5 VA\""
+    },
+    {
+      "page": 2,
+      "text": "Const. Diélectrique 100 Hz : 2.9 1 MHz : 2.9 (IEC60250)",
+      "reason": "properties.csv carries no property for \"Const. Diélectrique\""
+    },
+    {
+      "page": 2,
+      "text": "Facteur dissipation 100 Hz : 0.0003 1 MHz : 0.0004 (IEC60250)",
+      "reason": "properties.csv carries no property for \"Facteur dissipation\""
+    },
+    {
+      "page": 2,
+      "text": "(IEC60243)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Force Diélectrique 29 KV / mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "(IEC60093)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Résistivité volumique 10.1015 Ohms",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Résistivité surfaçique 10.1015 Ohms (IEC60093)",
+      "reason": "properties.csv carries no property for \"Résistivité surfaçique\""
+    },
+    {
+      "page": 2,
+      "text": "(IEC60112)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 2,
+      "text": "Résistance de fuite 190 V",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent operation review required; no human review",
+    "note": "All automatic measurements/profiles rejected. Original source raw statements scoped; independent operation review required."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent operation review required; no human review",
+        "note": "Automatic reading rejected; only independently approved bounded source operations may enter."
+      },
+      "row": {
+        "MaterialID": "",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Nanovia",
+        "Product name": "Type Chemical Resistance",
+        "Shared formulation key": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "(UL 94 V-0 CERTIFICATION). (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-NANOVIA-nanovia-insublend-fiche-technique",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Chemical resistance @ 20°C"
+      }
+    }
+  ],
+  "newMaterial": null
+}

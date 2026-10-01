@@ -1,6 +1,6 @@
 # Validation report
 
-Database snapshot 2026-09-21 · build 2026-09-30
+Database snapshot 2026-09-21 · build 2026-10-01
 
 **No errors.**
 
@@ -18,11 +18,11 @@ Database snapshot 2026-09-21 · build 2026-09-30
 | numericMeasurements | 11066 |
 | quarantined | 18 |
 | profiles | 1316 |
-| evidence | 732 |
+| evidence | 737 |
 | prices | 357 |
-| sources | 1831 |
-| coverage | 854 |
-| knowHow | 4662 |
+| sources | 1834 |
+| coverage | 859 |
+| knowHow | 4671 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 326 |
 | coverageDerived | 1144 |
@@ -82,9 +82,9 @@ among them, so it can only show evidence and must never be offered as a hard con
 
 | Category | Kind | Records | With a verdict | Materials | From the base polymer |
 |---|---|---:|---:|---:|---:|
-| acid | verdict | 132 | 120 | 42 | 52 |
+| acid | verdict | 133 | 120 | 42 | 52 |
 | alkali | verdict | 65 | 62 | 41 | 52 |
-| organic-solvent | verdict | 76 | 45 | 44 | 56 |
+| organic-solvent | verdict | 78 | 45 | 44 | 56 |
 | oil-grease | verdict | 61 | 45 | 43 | 50 |
 | water-solubility | verdict | 42 | 41 | 34 | 34 |
 | flammability | verdict | 42 | 36 | 34 | 13 |

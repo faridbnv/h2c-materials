@@ -264,3 +264,44 @@ baselines change, with no laptop/tablet/phone layout failures. The compiled diff
 1,635 paths, mostly estimate recalibration and the documented identity/record changes.
 The private export holds 2,382 originals and 2,782 derivatives; 124 previously absent
 inventory entries remain. All-catalogue product research remains unfinished.
+
+## Seventh tranche: exact use scope and separate originals (2026-10-01)
+
+m257 adds five source-grounded Application judgments: Fiberlogy PETG+PTFE,
+Flashforge PBT-GF and TPU64D, Fabru SAN and Recreus Conductive Filaflex. The two
+Flashforge part-drying statements are recorded evidence, with the known questionable
+TPU model schedule explicitly retained; the other three are limited maker/context
+claims. m258 removes printer-bed surfaces wrongly stored as TPU composition. m260
+retains that exact advice in the existing printing profile's Plate field and locator.
+Neither changes identity, printability thresholds or suitability.
+
+m259 admits three witnessed Nanovia originals and fourteen reviewed statements: nine
+maker-guidance clauses, three literal chemical agent/result narratives and two pictured
+HIPS/PP-CF application observations. A duplicated generic compatibility clause was
+omitted. Separate originals retain conflicting bed, drying, kerosene and tributyl
+phosphate wording; chronology and formulation continuity are unknown. About 24-hour
+complete/no-residue removal is a general maker claim; the pictured examples establish
+no transferable service, strength or chemical qualification.
+
+Application cells now show 45 Evidence recorded, 40 Reviewed with limitations,
+26 Gap and 25 unassessed. Five independent literal-source fixtures pass. Guarded
+migrations immediately rerun with zero writes; a disposable changed-composition
+fixture stops without writes. This tranche moves zero answers across the frozen
+fifteen questions (18,195 evaluations), forty-eight environmental questions
+(58,224 evaluations) and twenty-four production-template modes (30,744 evaluations).
+The separate cumulative report retains the previously reviewed three material changes.
+
+Independent review found that the existing compiled know-how lane drops canonical
+qualifier notes; OPEN-PROBLEMS section25 reproduces this display limitation. Raw
+quotes remain maker statements outside selection, while qualifier notes are presently
+available in tables and audit packets. A separate tested display fix follows this
+data tranche. No human review or interactive drawer inspection is implied.
+
+Canonical formatting, schema/lint, snapshot, fast and complete verification pass.
+Warm verify:fast takes 49.8 seconds; full verification takes 240.8 seconds and includes
+69 interface views and300 rendered scenarios with2,592 readings (49.8 seconds). UI baselines
+need no changes and laptop/tablet/phone checks report no layout failures. The private
+export contains 2,385 originals and2,785 derivatives, with three newly copied originals;
+124 known absent inventory entries remain. The compiled diff has 44 intentional paths. The release is f697953e97e5. Joined
+all-product research remains unfinished; these assessments finish only their named
+material Application questions.

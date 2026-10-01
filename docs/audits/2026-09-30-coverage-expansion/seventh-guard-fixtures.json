@@ -1,0 +1,16 @@
+{
+  "fixture": "Disposable copy; canonical files untouched",
+  "results": [
+    {
+      "case": "Source-backed TPU composition correction rerun",
+      "written": 0,
+      "unchanged": true
+    },
+    {
+      "case": "Changed admitted TPU composition",
+      "record": "G039-23",
+      "refused": true,
+      "unchanged": true
+    }
+  ]
+}

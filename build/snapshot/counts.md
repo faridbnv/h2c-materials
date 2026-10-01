@@ -21,7 +21,7 @@ rather than repeat a number.
 | Material values from products | 663 | headline cells of in-scope materials |
 | Material values estimated | 148 | where no product publishes (D43) |
 | Print profiles | 1,316 |  |
-| Evidence records | 732 | exposure, flammability, post-processing and the rest |
-| Know-how statements | 4,662 | the makers' words, shown in the panel only (D85) |
+| Evidence records | 737 | exposure, flammability, post-processing and the rest |
+| Know-how statements | 4,671 | the makers' words, shown in the panel only (D85) |
 | Price observations | 357 | sampled 2026-09-30 |
-| Sources | 1,831 |  |
+| Sources | 1,834 |  |

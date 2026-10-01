@@ -1,0 +1,237 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T09:04:56.632454+00:00",
+  "input_path": "external-campaign/research/nanovia-c03-packet.json",
+  "input_sha256": "d6f3ea4db610ffc9cf827dc6b3051c262a23f203c93e0f8a51116fd15a3a14a9",
+  "overall_verdict": "APPROVE",
+  "approved_evidence_operations": 14,
+  "approved_source_rows": 3,
+  "source_reading_batches": [
+    {
+      "maker": "Nanovia",
+      "GradeIDs": [
+        "G081-06",
+        "G081-10",
+        "G083-04"
+      ],
+      "distinct_products": 3
+    }
+  ],
+  "documents": [
+    {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "verdict": "APPROVE_SOURCE_ROW",
+      "proposal_path": "external-campaign/ingest/proposals/c03/19c4810bdc29c526.json",
+      "proposal_sha256": "7007754c5dcda8f58781d3b7275d6af84767c833f1e6be9ca2e84cef87bb51a1",
+      "original": ".cache/sources/by-sha/19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991.pdf",
+      "original_sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "ApplicableGrades": "G081-06",
+      "reread_scope": "All pages of PDF independently re-read; deciding p1 legacy and p2 bilingual columns visually re-read"
+    },
+    {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "verdict": "APPROVE_SOURCE_ROW",
+      "proposal_path": "external-campaign/ingest/proposals/c03/1d6a8af9c7d8541d.json",
+      "proposal_sha256": "ebedf59ac5809cb02f972d96f0906b52ae7e8788b3bb210ae90d0938fd5215e0",
+      "original": ".cache/sources/by-sha/1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa.pdf",
+      "original_sha256": "1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa",
+      "ApplicableGrades": "G081-06",
+      "reread_scope": "All pages of PDF independently re-read; deciding p1 legacy and p2 bilingual columns visually re-read"
+    },
+    {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "verdict": "APPROVE_SOURCE_ROW",
+      "proposal_path": "external-campaign/ingest/proposals/c03/bb1289b8f75303cb.json",
+      "proposal_sha256": "b4a036cf99ecfdaed25051a4b8e4bb1f73d71567fe295b147236efc8ae0d6eb8",
+      "original": ".cache/sources/by-sha/bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669.html",
+      "original_sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+      "ApplicableGrades": "G081-10;G083-04",
+      "reread_scope": "Complete own article visible text and figure/link markup re-read; external photo pixels not fetched or used to infer a result"
+    }
+  ],
+  "per_operation": [
+    {
+      "id": "c03-19c4810b-1",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "original_sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "locator": "p. 1: Applications paragraph",
+      "raw_finding": "commonly used in automotives (Li & MH batteries, connectors, electrical materials ...) and outdoor products (solar panels connections...).",
+      "reason": "Own Applications clause preserves automotive/battery/connector/solar examples as maker claims; no service qualification.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-19c4810b-2",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "original_sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "locator": "p. 1: Applications paragraph, conflicting bed range",
+      "raw_finding": "A heating plate is necessary during printing (between 100 and 140°C) and the filament is extruded at a temperature range from 260 to 280°C.",
+      "reason": "Own Applications paragraph 100–140°C bed conflicts with own table 130–150°C; full 260–280°C nozzle clause retained as narrative, no profile replacement.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-19c4810b-3",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "original_sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "locator": "p. 1: 3D Printing table, Nozzle",
+      "raw_finding": "Nozzle 0.5 (>0.4) mm",
+      "reason": "Own Nozzle table literal cells 0.5 (>0.4) mm preserved; strict > bound not changed into >=0.4 or profile scalar.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-19c4810b-4",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "original_sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "locator": "p. 1: Chemical resistance @20°C, Acetic Acid agent/result",
+      "raw_finding": "Acetic Acid ( 50% solution) | Excellent",
+      "reason": "Own 20°C chemical table literal Acetic Acid (50% solution) Excellent pair preserves concentration; no class verdict or retrofit to other source.",
+      "environment_classification": "narrative; isUsableEvidence false; no category PASS/FAIL"
+    },
+    {
+      "id": "c03-19c4810b-5",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "original_sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "locator": "p. 1: Chemical resistance @20°C, Kerosene agent/result",
+      "raw_finding": "Kerosene | Moderate",
+      "reason": "Own 20°C chemical table Kerosene Moderate retained against distinct HTML/three-page Weak; no revision preference.",
+      "environment_classification": "narrative; isUsableEvidence false; no category PASS/FAIL"
+    },
+    {
+      "id": "c03-19c4810b-6",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "original_sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "locator": "p. 1: Chemical resistance @20°C, Tributyl Phosphate agent/result",
+      "raw_finding": "Tributyl Phosphate | Poor",
+      "reason": "Own 20°C chemical table Tributyl Phosphate Poor literal pair preserved. Three-page English Weak/French Faible and old HTML non-rating Phosphate remain distinct unresolved source wording; no silent correction.",
+      "environment_classification": "narrative; isUsableEvidence false; no category PASS/FAIL"
+    },
+    {
+      "id": "c03-1d6a8af9-1",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "original_sha256": "1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa",
+      "locator": "p. 2: Storage drying bullet; French p1 corroborates",
+      "raw_finding": "In order to guarantee good printing conditions dehydrate Nanovia Insublend at 60°c for 4 hours or longer, when the spools has been exposed to moisture for an extended period.",
+      "reason": "Own p2 Storage bullet preserves moisture-exposure condition and 4 hours or longer at60°C. Current HTML/profile80°C/4h remains unresolved, no new profile or service-moisture result.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-1d6a8af9-2",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "original_sha256": "1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa",
+      "locator": "p. 2: Printing retraction bullet; French p1 corroborates",
+      "raw_finding": "For a better print quality, desactivate the retraction option on your 3D printer",
+      "reason": "Own p2 Printing bullet keeps source desactivate spelling; qualitative retraction advice without numeric optimization/test claim.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-1d6a8af9-3",
+      "verdict": "APPROVE",
+      "GradeID": "G081-06",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "original_sha256": "1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa",
+      "locator": "p. 2: Printing health and safety",
+      "raw_finding": "We recommend printing Nanovia Insublend in a room equipped with air extraction or by using appropriate breathing equipment. Whilst printing Nanovia Insublend produces a VOC derivative of styrene.",
+      "reason": "Own p2 English Printing precaution retains VOC derivative of styrene claim; French p1 generic COV and unmeasured emissions/ventilation limits remain explicit.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-bb1289b8-1",
+      "verdict": "APPROVE",
+      "GradeID": "G081-10",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "original_sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+      "locator": "p. 1: Opening pictured raft caption",
+      "raw_finding": "Nanovia PP CF, despite the added cabron fibres, still has a tendency to unstick from the printing surface. By adding a soluble HIPS raft and supports the polypropylene is held in place.",
+      "reason": "Own HTML figcaption describes pictured HIPS raft/PP-CF support example. Product links/title identify own HIPS and PP-CF. Published observation bounded to reported example, no adhesion force/performance qualification; shared fact recorded once.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-bb1289b8-2",
+      "verdict": "APPROVE",
+      "GradeID": "G081-10",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "original_sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+      "locator": "p. 1: Opening manual-removal limitation",
+      "raw_finding": "Supports in 3D printing need to be removed manually a posteriori, which may leave marks and can take time for more complex structures.",
+      "reason": "Own opening paragraph general support-removal difficulty remains maker context; no quantified time/force.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-bb1289b8-3",
+      "verdict": "APPROVE",
+      "GradeID": "G081-10",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "original_sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+      "locator": "p. 1: General HIPS use paragraph",
+      "raw_finding": "High Impact Polystyrene (HIPS), as its name indicates, has a very high shock resistance. This resistance also makes it suited as a base 3D printing material, especially for press tools.",
+      "reason": "Own HIPS paragraph general high-impact/press-tool claims remain maker context; no exact printed-product load/lifetime qualification.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-bb1289b8-4",
+      "verdict": "APPROVE",
+      "GradeID": "G081-10",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "original_sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+      "locator": "p. 1: Limonene dissolution paragraph",
+      "raw_finding": "When submerged in limonene, HIPS completely dissolves in about 24 hours, and doesn’t leave any residue.",
+      "reason": "Own limonene paragraph about24hours/noresidue statement is Manufacturer statement, not a reported product test or guarantee. Missing conditions retained; does not upgrade older exposure-only caption.",
+      "environment_classification": "No suitability or environmental decision pass"
+    },
+    {
+      "id": "c03-bb1289b8-6",
+      "verdict": "APPROVE",
+      "GradeID": "G083-04",
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "original_sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+      "locator": "p. 1: PP-CF connector figure caption",
+      "raw_finding": "Nanovia PP CF V-Slot real connectors after limonene submesion",
+      "reason": "Own figcaption links Nanovia PP CF and names V-Slot real connectors after limonene submesion. Published observation is caption-only reported exposure example with no retained strength/time/geometry/service result.",
+      "environment_classification": "No suitability or environmental decision pass"
+    }
+  ],
+  "required_corrections": [],
+  "guard_and_pipeline_checks": [
+    "Full three ExpectedGrade rows match current canonical rows.",
+    "Proposal byte digests, source rows and all15 serialized evidence proposals match frozen packet; source digests recomputed.",
+    "Every automatic numeric/profile row rejected; no headlines/coverage/newMaterial operations accepted.",
+    "Applicable grades are exact own product identities. Existing-product matching in apply.mjs preserves existing grade fields, including source identity; the proposal grade SourceID is not an overwrite operation.",
+    "Bilingual proposal automatic ABS identity and legacy unidentified parser identity are not admitted identities; explicit existing G081-06 resolves to independently reviewed SDS PPE-PS material M130.",
+    "Three chemical full-agent/result findings classify narrative and are unusable for requirement PASS/FAIL."
+  ],
+  "unresolved_conflicts": [
+    "Kerosene Moderate versus Weak across originals.",
+    "Tributyl Phosphate Poor versus Weak across English editions, with old HTML Phosphate non-rating retained.",
+    "Acetic50% concentration only in this edition; unknown concentration in other editions.",
+    "Legacy bed paragraph100–140°C versus own table130–150°C.",
+    "60°C4hours-or-longer moisture-triggered drying versus current80°C4h profile.",
+    "Legacy EnglishGasoline versus FrenchGas-oil identity differs and is excluded from this admission.",
+    "No chronology or formulation continuity assumed; UL/medical/food certifications not validated by these originals."
+  ],
+  "duplicate_scope": "Removed generic compatibility c03-bb1289b8-5, already supported by Q04282. Omission recorded explicitly in frozen packet. Shared raft fact still recorded once with both campaign question links.",
+  "canonical_mutations": "None; external review report only.",
+  "review_history": [
+    {
+      "input_sha256": "81927519c797f16e8df7ab230cf96a100b8df27a059ce4cb1a2e19c05c4a510f",
+      "review_signature_sha256": "02ae123fb6e8c9b053306cb7df9a5fc790e20219658ce38f7ff38c97166d735e",
+      "verdict": "APPROVE15_EVIDENCE_PLUS3_SOURCES",
+      "change": "Removed only c03-bb1289b8-5 overlapping Q04282 before admission. Reconstructing the old proposal and packet by reinserting the exact removed row recovered prior SHA256 values byte-exactly. Remaining14 operations and3source rows unchanged; only article proposal digest and new DuplicateOmissions metadata additionally changed."
+    }
+  ],
+  "review_signature_sha256": "e70ce28e35c27c697ca485c38ec54d64ce31f20eea7f62fb35be1c4bff9dd7a6"
+}

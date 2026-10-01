@@ -1,0 +1,461 @@
+{
+  "PacketID": "APPLICATION-REUSED-ORIGINALS-FOUR-MAKERS",
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M109",
+      "MaterialID": "M109",
+      "ActiveGradeIDs": [
+        "G109-01",
+        "G109-02"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05221",
+          "MaterialID": "M109",
+          "GradeID": "G109-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "This material is designed for applications requiring low friction, increased wear resistance, and mechanical durability.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "OriginalPath": ".cache/sources/by-sha/cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d.html",
+          "TextPath": ".cache/text/cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d.json",
+          "RegisteredSource": {
+            "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+            "Publisher": "Fiberlogy",
+            "Title": "PETG+PTFE Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-26",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "The maker's own product page, searched for what it says about the product (the makers' sites, research package of 2026-09-26); what it says is the maker's marketing text.",
+            "Citation role": "cited",
+            "URL": "https://fiberlogy.com/en/product/petgptfe-filament/",
+            "Locator": "Product page",
+            "Applicable grades": "G109-02",
+            "Access state": "retrieved",
+            "Access note": "Fetched from its URL on 2026-09-26 by the Codex research agents (research package of 2026-09-26) and staged from their saved copy by digest (ingest:witness --from); not fetched again.",
+            "SHA256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d"
+          }
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M109",
+        "GradeID": "G109-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fiberlogy PETG+PTFE (G109-02), own page D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE, publishes low-friction/sliding-part, guide and low- or moderate-load gear claims (Q05221 and own Description). No friction test, applied load, wear-life protocol or product application validation is stated. Retain maker claims in know-how; no suitability pass, finishing validation or transfer to G109-01 follows."
+      },
+      "PrimaryReview": "Original bytes hash-checked and own source full text reread by Codex AI injector on 2026-10-01; no human review",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS",
+      "ExpectedGrade": {
+        "GradeID": "G109-02",
+        "MaterialID": "M109",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fiberlogy",
+        "Product name": "PETG+PTFE",
+        "Shared formulation key": "R-FIBERLOGY-FIBERLOGY-PETGPTFE-TDS",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FIBERLOGY-FIBERLOGY-PETGPTFE-TDS",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    },
+    {
+      "FindingID": "CE-APP-M132",
+      "MaterialID": "M132",
+      "ActiveGradeIDs": [
+        "G132-01"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05068",
+          "MaterialID": "M132",
+          "GradeID": "G132-01",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to dry the model in the oven at 80-100\u00b0C for 1-3 hours to increase the strength of the model.",
+          "Exposure / conditions": "Drying the printed part in an oven, to increase its strength: 80-100\u00b0C for 1-3 hours",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FLASH-PBT-GF-TDS-EN",
+          "Locator": "p. 3: Post-processing note"
+        }
+      ],
+      "Sources": [
+        {
+          "OriginalPath": ".cache/sources/by-sha/6e235a57855189776b852101b8c76a7acd6fc7e4a7ba918abf9468e10623d1ce.pdf",
+          "TextPath": ".cache/text/6e235a57855189776b852101b8c76a7acd6fc7e4a7ba918abf9468e10623d1ce.json",
+          "RegisteredSource": {
+            "SourceID": "D-FLASH-PBT-GF-TDS-EN",
+            "Publisher": "Flashforge",
+            "Title": "Technical Data Sheet PBT-GF Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/PBT_GF_TDS_EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G132-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "6e235a57855189776b852101b8c76a7acd6fc7e4a7ba918abf9468e10623d1ce"
+          }
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M132",
+        "GradeID": "G132-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Flashforge PBT-GF (G132-01) has product-specific post-processing evidence (Q05068, D-FLASH-PBT-GF-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct."
+      },
+      "PrimaryReview": "Original bytes hash-checked and own source full text reread by Codex AI injector on 2026-10-01; no human review",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS",
+      "ExpectedGrade": {
+        "GradeID": "G132-01",
+        "MaterialID": "M132",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "PBT-GF",
+        "Shared formulation key": "D-FLASH-PBT-GF-TDS-EN",
+        "Composition / filler": "PBT-GF is a polyester modified material containing 5-10% glass fiber, characterized by (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-PBT-GF-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    },
+    {
+      "FindingID": "CE-APP-M162",
+      "MaterialID": "M162",
+      "ActiveGradeIDs": [
+        "G039-08",
+        "G039-14",
+        "G039-16",
+        "G039-17",
+        "G039-23",
+        "G039-24",
+        "G039-29",
+        "G039-34",
+        "G039-39",
+        "G039-44",
+        "G039-45",
+        "G039-47",
+        "G039-68",
+        "G040-01",
+        "G162-01"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05077",
+          "MaterialID": "M162",
+          "GradeID": "G039-23",
+          "Domain": "Post-processing",
+          "Topic": "Post-processing",
+          "Finding": "After the printing process, it is recommended to dry the model in the oven at 120-130\u00b0C for 6-8 hours to increase the strength of the model.",
+          "Exposure / conditions": "Drying the printed part in an oven, to increase its strength: 120-130\u00b0C for 6-8 hours",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+          "Locator": "p. 3: Post-processing note"
+        }
+      ],
+      "Sources": [
+        {
+          "OriginalPath": ".cache/sources/by-sha/fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282.pdf",
+          "TextPath": ".cache/text/fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282.json",
+          "RegisteredSource": {
+            "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+            "Publisher": "Flashforge",
+            "Title": "Technical Data Sheet TPU 64D Filament",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-19",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://after-support.flashforge.jp/uploads/datasheet/tds/TPU_64D_TDS_EN.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G039-23",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282"
+          }
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M162",
+        "GradeID": "G039-23",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Flashforge TPU 64D (G039-23) has product-specific post-processing evidence (Q05077, D-FLASH-TPU-64D-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct."
+      },
+      "PrimaryReview": "Original bytes hash-checked and own source full text reread by Codex AI injector on 2026-10-01; no human review",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS",
+      "ExpectedGrade": {
+        "GradeID": "G039-23",
+        "MaterialID": "M162",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Flashforge",
+        "Product name": "TPU 64D",
+        "Shared formulation key": "D-FLASH-TPU-64D-TDS-EN",
+        "Composition / filler": "Build Surface Material Tempered glass, BuildTak, Carbon fiber plate (p. 2, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    },
+    {
+      "FindingID": "CE-APP-M136",
+      "MaterialID": "M136",
+      "ActiveGradeIDs": [
+        "G136-01",
+        "G136-02"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q04827",
+          "MaterialID": "M136",
+          "GradeID": "G136-02",
+          "Domain": "Makers' know-how",
+          "Topic": "Pitfalls and limitations",
+          "Finding": "SAN is not suitable for snap connections and should only be screwed.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "OriginalPath": ".cache/sources/by-sha/b51d5846db4b33967058547e32db82306a34da6c6b10c1d3dbdec8c0012c9293.pdf",
+          "TextPath": ".cache/text/b51d5846db4b33967058547e32db82306a34da6c6b10c1d3dbdec8c0012c9293.json",
+          "RegisteredSource": {
+            "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+            "Publisher": "Fabru / purefil",
+            "Title": "Styrol-Acrylnitril (SAN)",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-20",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Not applicable",
+            "Citation role": "cited",
+            "URL": "https://cdn02.plentyone.com/pvdtyofq45f2/propertyItems/3542%2FMaterial+data+sheet+SAN+purefil.pdf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G136-02",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "b51d5846db4b33967058547e32db82306a34da6c6b10c1d3dbdec8c0012c9293"
+          }
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M136",
+        "GradeID": "G136-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru purefil SAN (G136-02), R-FABRU-3542-Material-data-sheet-SAN-purefil p. 1, gives SAN-level snap-connection and high-impact/outdoor limitations (Q04827 and General paragraph). The sheet mixes base-polymer description with filament processing data; no printed-product application test or quantified service exposure is stated. Family context only, no snap-fit, dishwasher, food-contact or outdoor qualification; G136-01 remains separately bounded."
+      },
+      "PrimaryReview": "Original bytes hash-checked and own source full text reread by Codex AI injector on 2026-10-01; no human review",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS",
+      "ExpectedGrade": {
+        "GradeID": "G136-02",
+        "MaterialID": "M136",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Fabru",
+        "Product name": "Styrol-Acrylnitril (SAN)",
+        "Shared formulation key": "R-FABRU-PUREFIL-787-Materialdatenblatt-SAN-purefil",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "European Regulation No. 10/2011 on plastic materials for food contact. (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    },
+    {
+      "FindingID": "CE-APP-M157",
+      "MaterialID": "M157",
+      "ActiveGradeIDs": [
+        "G157-01",
+        "G157-02"
+      ],
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05046",
+          "MaterialID": "M157",
+          "GradeID": "G157-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Good for",
+          "Finding": "Conductive Filaflex TPU is a flexible, electrically conductive filament developed for the production of conductive components and wearable electronic devices.",
+          "Exposure / conditions": "Not applicable",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-RECREUS-Conductive-Filaflex",
+          "Locator": "p. 1"
+        }
+      ],
+      "Sources": [
+        {
+          "OriginalPath": ".cache/sources/by-sha/e293fe439b6c6ee722de137dc1b2034fd2bab1eede0b9dc1533585d611093622.pdf",
+          "TextPath": ".cache/text/e293fe439b6c6ee722de137dc1b2034fd2bab1eede0b9dc1533585d611093622.json",
+          "RegisteredSource": {
+            "SourceID": "R-RECREUS-Conductive-Filaflex",
+            "Publisher": "Recreus",
+            "Title": "TECHNICAL DATA SHEET CONDUCTIVE FILAFLEX",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-21",
+            "Source class": "Manufacturer TDS",
+            "Source note": "Hosted by Recreus / Filaflex; the sheet is Recreus's.",
+            "Citation role": "cited",
+            "URL": "https://drive.google.com/file/d/1_w1FZYEmrnXfXOFryucufdSwE49g4fiY/view",
+            "Locator": "Document / product page",
+            "Applicable grades": "G157-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "e293fe439b6c6ee722de137dc1b2034fd2bab1eede0b9dc1533585d611093622"
+          }
+        }
+      ],
+      "ExpectedCoverage": [],
+      "ProposedCoverage": {
+        "MaterialID": "M157",
+        "GradeID": "G157-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Recreus Conductive Filaflex (G157-01), own TDS R-RECREUS-Conductive-Filaflex pp. 1/4, states conductive/wearable uses (Q05046), restricts use to low-current applications and requires circuit-resistance calculation and verification. No allowable current, circuit validation, skin-contact or medical certification is supplied. Maker claims remain bounded guidance, not an application suitability pass; G157-02 is not covered."
+      },
+      "PrimaryReview": "Original bytes hash-checked and own source full text reread by Codex AI injector on 2026-10-01; no human review",
+      "IndependentReview": "PENDING_FROZEN_OPERATIONS",
+      "ExpectedGrade": {
+        "GradeID": "G157-01",
+        "MaterialID": "M157",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Recreus",
+        "Product name": "CONDUCTIVE FILAFLEX",
+        "Shared formulation key": "R-RECREUS-Conductive-Filaflex",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-RECREUS-Conductive-Filaflex",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      }
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M109",
+      "append": {
+        "MaterialID": "M109",
+        "GradeID": "G109-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fiberlogy PETG+PTFE (G109-02), own page D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE, publishes low-friction/sliding-part, guide and low- or moderate-load gear claims (Q05221 and own Description). No friction test, applied load, wear-life protocol or product application validation is stated. Retain maker claims in know-how; no suitability pass, finishing validation or transfer to G109-01 follows."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M132",
+      "append": {
+        "MaterialID": "M132",
+        "GradeID": "G132-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Flashforge PBT-GF (G132-01) has product-specific post-processing evidence (Q05068, D-FLASH-PBT-GF-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M162",
+      "append": {
+        "MaterialID": "M162",
+        "GradeID": "G039-23",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Flashforge TPU 64D (G039-23) has product-specific post-processing evidence (Q05077, D-FLASH-TPU-64D-TDS-EN, p. 3: Post-processing note). Evidence scope is this product and the stated conditions; it does not establish suitability or cover every product of the material. Recommended treatment and measured specimen preparation remain distinct."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M136",
+      "append": {
+        "MaterialID": "M136",
+        "GradeID": "G136-02",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Fabru purefil SAN (G136-02), R-FABRU-3542-Material-data-sheet-SAN-purefil p. 1, gives SAN-level snap-connection and high-impact/outdoor limitations (Q04827 and General paragraph). The sheet mixes base-polymer description with filament processing data; no printed-product application test or quantified service exposure is stated. Family context only, no snap-fit, dishwasher, food-contact or outdoor qualification; G136-01 remains separately bounded."
+      },
+      "supersede": []
+    },
+    {
+      "FindingID": "CE-APP-M157",
+      "append": {
+        "MaterialID": "M157",
+        "GradeID": "G157-01",
+        "Domain": "Post-processing / application",
+        "Status": "Reviewed with limitations",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-10-01: Recreus Conductive Filaflex (G157-01), own TDS R-RECREUS-Conductive-Filaflex pp. 1/4, states conductive/wearable uses (Q05046), restricts use to low-current applications and requires circuit-resistance calculation and verification. No allowable current, circuit validation, skin-contact or medical certification is supplied. Maker claims remain bounded guidance, not an application suitability pass; G157-02 is not covered."
+      },
+      "supersede": []
+    }
+  ],
+  "NoNewSourceAdmission": true,
+  "ExpectedDecisionDelta": "No suitability passes from coverage judgments; check engine/rendered verification."
+}

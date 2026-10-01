@@ -1,0 +1,43 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T08:50:51.443566+00:00",
+  "input_path": "external-campaign/research/flashforge-composition-packet.json",
+  "input_sha256": "a7241bfa93d69e99f68a3ef90f7a9f7f4caa6fa21d385c27fac4bff20d9ceed9",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 2,
+  "source": {
+    "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+    "original": ".cache/sources/by-sha/fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282.pdf",
+    "sha256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282",
+    "reread_scope": "Full four-page own TPU64D TDS extracted text reread; p2 recommended-print table visually reread. p3 model-treatment note previously visually reread in independent Application review; full p3 reread now.",
+    "ownership": "Own Flashforge TPU64D G039-23/M162; applicable grade and full source guard match."
+  },
+  "per_operation": [
+    {
+      "Table": "grades",
+      "Key": "G039-23",
+      "Field": "Composition / filler",
+      "verdict": "APPROVE",
+      "locator": "p2 Recommended Printing Conditions, Build Surface Material row; p1 Description",
+      "raw_basis": "Build Surface Material | Tempered glass, BuildTak, Carbon fiber plate",
+      "reason": "The label and table layout describe build-platform surfaces, not filament filler. Source does not publish filler composition. Not published is correct; neither unfilled nor zero filler is inferred. Unchanged generic no harmful additives statement does not quantify filler."
+    },
+    {
+      "Table": "coverage",
+      "Key": "C01543",
+      "Field": "Finding",
+      "verdict": "APPROVE",
+      "locator": "p3 Cautions, third paragraph; docs/OPEN-PROBLEMS.md lines433–435",
+      "raw_basis": "After the printing process, it is recommended to dry the model in the oven at 120-130°C for 6-8 hours to increase the strength of the model.",
+      "reason": "Added wording faithfully retains a sourced recommendation while making the existing unresolved thermal-feasibility/source-template concern explicit. No measured improvement or validated safe anneal is established. Evidence recorded remains a presence judgment; status does not change. The prior p3 wet-filament 90–100°C/at least12h instruction remains distinct."
+    }
+  ],
+  "guards": "Full current grade/source/coverage Expected rows match; only stated two fields differ between expected and proposed. Grade identity, formulation, evidence raw wording and coverage status preserved.",
+  "required_corrections": [],
+  "limitations": [
+    "Thermal feasibility unresolved; no new safe-treatment judgment.",
+    "No measured strength increase, annealed specimen identity or new material model inferred."
+  ],
+  "canonical_mutations": "None; external review report only.",
+  "review_signature_sha256": "56e2a6cc324e344547fafe93c55a5681383a5a94857faa8de59e76b78fe431ee"
+}

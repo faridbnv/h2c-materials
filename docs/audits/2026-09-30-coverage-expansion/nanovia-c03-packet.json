@@ -1,0 +1,549 @@
+{
+  "PacketID": "NANOVIA-C03-SEPARATE-ORIGINAL-REVISIONS",
+  "Batch": "c03",
+  "ExpectedGrades": [
+    {
+      "GradeID": "G081-06",
+      "MaterialID": "M130",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "Insublend",
+      "Shared formulation key": "R-NANOVIA-Insublend",
+      "Composition / filler": "Polyphenylene ether resin. Mixture of poly(2,6-dimethyl-1,4-phenyleneoxide), polystyrene and elastomer. SDS p. 1 §3.2: merged 65–90% aggregate for PPO, polystyrene and poly(butadiene-styrene); individual PPE:PS ratio not published. Aromatic phosphate ester 5–22%, additives 0.1–5%, carbon black 0–2%. Source R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c; no shared formulation with another PPE-PS grade.",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Home / 3D printing filament / Material / Specific / Nanovia Insublend : High voltage & UL94 V0 fire resistance 3D printing filament Sintering Metallic Ceramic M (p. 1, as printed; a typical value, not a certificate: verify grade, thickness and certificate)",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-Insublend",
+      "Source locator": "Official product page; mixture identity and composition from R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c, p. 1 §§1.1/3.2",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G081-10",
+      "MaterialID": "M081",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "HIPS",
+      "Shared formulation key": "R-NANOVIA-HIPS",
+      "Composition / filler": "Not published",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-HIPS",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    },
+    {
+      "GradeID": "G083-04",
+      "MaterialID": "M083",
+      "Role": "procurement",
+      "Status": "active",
+      "Manufacturer": "Nanovia",
+      "Product name": "PP CF",
+      "Shared formulation key": "R-NANOVIA-PP-CF",
+      "Composition / filler": "Nanovia PP CF : Carbon fiber reinforced Starting at : 79,38 &euro; ex. VAT / kg Thanks to polypropylene’s close to zero water absorption rate, high chemical res (p. 1, as the sheet states it)",
+      "Variant": "Not applicable",
+      "Colour caveat": "Properties may vary by colour; use TDS scope",
+      "Availability": "Not published",
+      "Certification claims": "Not published",
+      "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+      "SourceID": "R-NANOVIA-PP-CF",
+      "Source locator": "TDS / official product page",
+      "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+    }
+  ],
+  "Documents": [
+    {
+      "File": "19c4810bdc29c526.json",
+      "ProposalSHA256": "7007754c5dcda8f58781d3b7275d6af84767c833f1e6be9ca2e84cef87bb51a1",
+      "OriginalSHA256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991",
+      "Source": {
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+        "Publisher": "Nanovia",
+        "Title": "INSUBLEND — halogen free thermoplastic alloy with insulation properties",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-30",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Separate witnessed own-source edition, original digest retained. Chronology/formulation continuity not inferred. Narrative scope and unresolved cross-source differences retained; no numeric, profile, certificate or suitability operation admitted. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/wp-content/media/pdf/nanovia-insublend-fiche-technique.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G081-06",
+        "Access state": "retrieved",
+        "Access note": "Saved during bounded campaign search on 2026-09-30; staged from hash-verified private original, never refetched over an applied digest.",
+        "SHA256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c03-19c4810b-1",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "commonly used in automotives (Li & MH batteries, connectors, electrical materials ...) and outdoor products (solar panels connections...).",
+            "Exposure / conditions": "Own electrical applications paragraph; maker claimed uses only, no automotive/battery/solar service protocol or qualification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+            "Locator": "p. 1: Applications paragraph"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "commonly used in automotives (Li & MH batteries, connectors, electrical materials ...) and outdoor products (solar panels connections...)."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-19c4810b-2",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "A heating plate is necessary during printing (between 100 and 140°C) and the filament is extruded at a temperature range from 260 to 280°C.",
+            "Exposure / conditions": "Internal conflict: own Properties table prints Plate Temp. 130–150 °C. Existing page profile P0721 retained; neither paragraph priority nor unprinted chronology settles the range.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+            "Locator": "p. 1: Applications paragraph, conflicting bed range"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "A heating plate is necessary during printing (between 100 and 140°C) and the filament is extruded at a temperature range from 260 to 280°C."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-19c4810b-3",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "Nozzle 0.5 (>0.4) mm",
+            "Exposure / conditions": "Own recommendation retains 0.5 mm and strict >0.4 mm wording; not a hardened-nozzle claim, not converted to >=0.4 or a profile scalar.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+            "Locator": "p. 1: 3D Printing table, Nozzle"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Nozzle 0.5 (>0.4) mm"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-19c4810b-4",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Durability",
+            "Topic": "Acid resistance",
+            "Finding": "Acetic Acid ( 50% solution) | Excellent",
+            "Exposure / conditions": "Own chemical table @20 °C, exact printed concentration50%. Duration, specimen, conditioning, method and quantitative retention not stated. Original page omits this concentration; do not add it retroactively or qualify the acid class.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+            "Locator": "p. 1: Chemical resistance @20°C, Acetic Acid agent/result"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Acetic Acid ( 50% solution) | Excellent"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-19c4810b-5",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Kerosene | Moderate",
+            "Exposure / conditions": "Own chemical table @20 °C. Contradicts own HTML and other separately witnessed sheet Kerosene | Weak. Concentration, duration, specimen, conditioning and quantitative retention not stated; no preferred revision or universal solvent verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+            "Locator": "p. 1: Chemical resistance @20°C, Kerosene agent/result"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Kerosene | Moderate"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-19c4810b-6",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Durability",
+            "Topic": "Organic-solvent resistance",
+            "Finding": "Tributyl Phosphate | Poor",
+            "Exposure / conditions": "Own chemical table @20 °C. Exact agent/result; concentration, duration, specimen, conditioning and quantitative retention not stated. Separately sourced rating does not silently correct the HTML non-rating Phosphate cell; no universal solvent verdict.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+            "Locator": "p. 1: Chemical resistance @20°C, Tributyl Phosphate agent/result"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Tributyl Phosphate | Poor"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        }
+      ],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 6,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "1d6a8af9c7d8541d.json",
+      "ProposalSHA256": "ebedf59ac5809cb02f972d96f0906b52ae7e8788b3bb210ae90d0938fd5215e0",
+      "OriginalSHA256": "1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa",
+      "Source": {
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+        "Publisher": "Nanovia",
+        "Title": "Nanovia Insublend — Non-flammable UL94 V0",
+        "Revision": "Not published",
+        "Publication date": "Not published",
+        "Access date": "2026-09-30",
+        "Source class": "Manufacturer TDS",
+        "Source note": "Separate witnessed own-source edition, original digest retained. Chronology/formulation continuity not inferred. Narrative scope and unresolved cross-source differences retained; no numeric, profile, certificate or suitability operation admitted. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/wp-content/media/pdf/nanovia-insublend-tds.pdf",
+        "Locator": "Document / product page",
+        "Applicable grades": "G081-06",
+        "Access state": "retrieved",
+        "Access note": "Saved during bounded campaign search on 2026-09-30; staged from hash-verified private original, never refetched over an applied digest.",
+        "SHA256": "1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c03-1d6a8af9-1",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "In order to guarantee good printing conditions dehydrate Nanovia Insublend at 60°c for 4 hours or longer, when the spools has been exposed to moisture for an extended period.",
+            "Exposure / conditions": "Own drying instruction, conditional on prolonged moisture exposure, lower bound4hours. Conflicts with current page/profile80 °C/4h. No replacement, narrowed time or service-moisture/hydrolysis result inferred.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+            "Locator": "p. 2: Storage drying bullet; French p1 corroborates"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "In order to guarantee good printing conditions dehydrate Nanovia Insublend at 60°c for 4 hours or longer, when the spools has been exposed to moisture for an extended period."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-1d6a8af9-2",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Printing advice",
+            "Finding": "For a better print quality, desactivate the retraction option on your 3D printer",
+            "Exposure / conditions": "Own printing advice; no printer/nozzle/path or quantified result. Preserve source spelling; not universally proven optimal settings.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+            "Locator": "p. 2: Printing retraction bullet; French p1 corroborates"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "For a better print quality, desactivate the retraction option on your 3D printer"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-1d6a8af9-3",
+          "gradeKey": "G081-06",
+          "row": {
+            "MaterialID": "M130",
+            "GradeID": "G081-06",
+            "Domain": "Makers' know-how",
+            "Topic": "Odour and emissions",
+            "Finding": "We recommend printing Nanovia Insublend in a room equipped with air extraction or by using appropriate breathing equipment. Whilst printing Nanovia Insublend produces a VOC derivative of styrene.",
+            "Exposure / conditions": "English own processing precaution; French p1 names generic COV only. No measured emissions, airborne concentration, validated ventilation or gas-limit qualification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+            "Locator": "p. 2: Printing health and safety"
+          },
+          "evidence": {
+            "page": 2,
+            "text": "We recommend printing Nanovia Insublend in a room equipped with air extraction or by using appropriate breathing equipment. Whilst printing Nanovia Insublend produces a VOC derivative of styrene."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        }
+      ],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 1,
+        "evidence": 0
+      }
+    },
+    {
+      "File": "bb1289b8f75303cb.json",
+      "ProposalSHA256": "b4a036cf99ecfdaed25051a4b8e4bb1f73d71567fe295b147236efc8ae0d6eb8",
+      "OriginalSHA256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669",
+      "Source": {
+        "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+        "Publisher": "Nanovia",
+        "Title": "Nanovia HIPS as a soluble support material for 3D printing",
+        "Revision": "Not published",
+        "Publication date": "2023-04-06",
+        "Access date": "2026-09-30",
+        "Source class": "Manufacturer product page or guide",
+        "Source note": "Separate witnessed own-source edition, original digest retained. Chronology/formulation continuity not inferred. Narrative scope and unresolved cross-source differences retained; no numeric, profile, certificate or suitability operation admitted. Independent AI review; no human review.",
+        "Citation role": "cited",
+        "URL": "https://nanovia.tech/en/nanovia-hips-as-a-soluble-support-material-for-3d-printing/",
+        "Locator": "Document / product page",
+        "Applicable grades": "G081-10;G083-04",
+        "Access state": "retrieved",
+        "Access note": "Saved during bounded campaign search on 2026-09-30; staged from hash-verified private original, never refetched over an applied digest.",
+        "SHA256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669"
+      },
+      "ProposedEvidence": [
+        {
+          "id": "c03-bb1289b8-1",
+          "gradeKey": "G081-10",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-10",
+            "Domain": "Application",
+            "Topic": "Application",
+            "Finding": "Nanovia PP CF, despite the added cabron fibres, still has a tendency to unstick from the printing surface. By adding a soluble HIPS raft and supports the polypropylene is held in place.",
+            "Exposure / conditions": "Own pictured Nanovia HIPS raft/PP-CF support demonstration; links identify G081-10 and G083-04. No adhesion force, geometry, printer conditions, interface strength or load qualification. One shared fact recorded on HIPS; affected PP-CF question also linked in campaign packet.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+            "Locator": "p. 1: Opening pictured raft caption"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Nanovia PP CF, despite the added cabron fibres, still has a tendency to unstick from the printing surface. By adding a soluble HIPS raft and supports the polypropylene is held in place."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-bb1289b8-2",
+          "gradeKey": "G081-10",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-10",
+            "Domain": "Makers' know-how",
+            "Topic": "Supports and removal",
+            "Finding": "Supports in 3D printing need to be removed manually a posteriori, which may leave marks and can take time for more complex structures.",
+            "Exposure / conditions": "General removal limitation in own HIPS article; no measured force/time or assurance on this exact geometry.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+            "Locator": "p. 1: Opening manual-removal limitation"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Supports in 3D printing need to be removed manually a posteriori, which may leave marks and can take time for more complex structures."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-bb1289b8-3",
+          "gradeKey": "G081-10",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-10",
+            "Domain": "Makers' know-how",
+            "Topic": "Good for",
+            "Finding": "High Impact Polystyrene (HIPS), as its name indicates, has a very high shock resistance. This resistance also makes it suited as a base 3D printing material, especially for press tools.",
+            "Exposure / conditions": "General HIPS declarative maker context within own article; no exact-product press-tool load, impact/lifetime test or qualified use. Not a material suitability pass.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+            "Locator": "p. 1: General HIPS use paragraph"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "High Impact Polystyrene (HIPS), as its name indicates, has a very high shock resistance. This resistance also makes it suited as a base 3D printing material, especially for press tools."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-bb1289b8-4",
+          "gradeKey": "G081-10",
+          "row": {
+            "MaterialID": "M081",
+            "GradeID": "G081-10",
+            "Domain": "Makers' know-how",
+            "Topic": "Supports and removal",
+            "Finding": "When submerged in limonene, HIPS completely dissolves in about 24 hours, and doesn’t leave any residue.",
+            "Exposure / conditions": "Declarative general HIPS maker claim, not a described exact-product removal test. Approximate24hours; concentration, temperature, geometry and protocol missing. Does not turn prior exposure-only caption into a transferable complete-removal guarantee.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Manufacturer statement",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+            "Locator": "p. 1: Limonene dissolution paragraph"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "When submerged in limonene, HIPS completely dissolves in about 24 hours, and doesn’t leave any residue."
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        },
+        {
+          "id": "c03-bb1289b8-6",
+          "gradeKey": "G083-04",
+          "row": {
+            "MaterialID": "M083",
+            "GradeID": "G083-04",
+            "Domain": "Application",
+            "Topic": "Application",
+            "Finding": "Nanovia PP CF V-Slot real connectors after limonene submesion",
+            "Exposure / conditions": "Own pictured exact Nanovia PP-CF connector exposure caption; no performance result, immersion time, concentration, temperature, geometry or retained strength inferred. Not a chemical-service or functional-load qualification.",
+            "Rating 1–5": "Not published",
+            "RubricID": "Not applicable",
+            "Evidence type": "Published observation",
+            "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+            "Locator": "p. 1: PP-CF connector figure caption"
+          },
+          "evidence": {
+            "page": 1,
+            "text": "Nanovia PP CF V-Slot real connectors after limonene submesion"
+          },
+          "review": {
+            "status": "accepted",
+            "by": "Codex AI injector; independent operation review required; no human review",
+            "visual": true,
+            "note": "Exact source own-column/caption raw wording reread, full original independently qualified; separate signed operation review required."
+          }
+        }
+      ],
+      "ProposedProfiles": [],
+      "AutomaticRowsRejected": {
+        "measurements": 0,
+        "profiles": 0,
+        "evidence": 0
+      }
+    }
+  ],
+  "AdmissionRequiresIndependentReview": true,
+  "SharedQuestionLinks": [
+    {
+      "GradeIDs": [
+        "G081-10",
+        "G083-04"
+      ],
+      "Question": "Own pictured raft/support and connector-after-limonene examples",
+      "Rule": "Shared caption read once; no duplicate HIPS raft fact to increase counts."
+    }
+  ],
+  "NoSourceChronologyInference": true,
+  "DuplicateOmissions": [
+    {
+      "operation": "c03-bb1289b8-5",
+      "existing": "Q04282",
+      "reason": "Generic HIPS/limonene compatibility is already recorded. Retain source provenance and packet omission; do not duplicate statement to increase counts."
+    }
+  ]
+}

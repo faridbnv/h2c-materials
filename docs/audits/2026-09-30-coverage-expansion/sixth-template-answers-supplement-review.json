@@ -1,0 +1,174 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T08:47:14.305146+00:00",
+  "overall_verdict": "APPROVE",
+  "inputs": [
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sixth-replay.json",
+      "sha256": "65a91e58fcea6bb7bc0e82baa3102ca0db714279c4071d79174be4b8d426ade5"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sixth-environment-replay.json",
+      "sha256": "6a9e2a2669ce2e95cf151c3dbc1cdbc48ab86ba7a9c5d8440f90f1d9d7037b52"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sixth-source-fixtures.json",
+      "sha256": "bb7bc7cc553261f58c8e23c1883068a9bda13d477d6cb81a7a38c785f8bdc0f2"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/sixth-template-replay.json",
+      "sha256": "f5a7eaf55f14eb3194471257719caade0b423a93c124591516620cffac198aaa"
+    }
+  ],
+  "original_basis": [
+    {
+      "SourceID": "R-NANOVIA-INSUBLEND-SDS-202309-afadf4eb9e7c",
+      "sha256": "afadf4eb9e7c453ae37c42e998f3e1ce95562af1688ff963bf500b2c389f8534",
+      "locator": "pp1–2 §§1.1/3.2 and conflicting §§1.2/7.2",
+      "scope": "Own mPPE/PPE+PS+elastomer identity, aggregate loading; no food qualification."
+    },
+    {
+      "SourceID": "R-NANOVIA-Insublend",
+      "sha256": "3c4f70a472d232bf7338dd07b6a602ba47bd15088acc3a23309a56d9e636a7f7",
+      "locator": "Own property tables, advantage UV clause and chemical table",
+      "scope": "Freshly reread raw Tg140, DTUL114 no load, moisture0.10%, dielectric29kV/mmIEC60243; physically implausible67MPa remains flagged; narratives retain agents/results together."
+    },
+    {
+      "SourceID": "R-NANOVIA-HIPS",
+      "sha256": "6427a8158620553cfa93800add099342634df7a6e2c2561205846e5100d68d51",
+      "locator": "Application recommendations own caption and post-treatment instruction",
+      "scope": "Q05410 reported24h exposure only, Q05411 maker manual/limonene guidance, no complete-removal result."
+    }
+  ],
+  "changed_answer_groups": [
+    {
+      "receipt": "sixth-replay.json",
+      "verdict": "APPROVE",
+      "evaluations": 18195,
+      "questions": 15,
+      "answer_changes": 3,
+      "scope": "M130 material aggregation only; no product verdict change in frozen receipt.",
+      "explanation": "S03 requires stiffness4GPa plus HDT80°C; S05 stiffness6GPa; strict/anneal S03 repeats those thresholds. THERMAX remains FAIL from own2.25GPa. Correctly reassigned Insublend adds an UNKNOWN product because published67MPa modulus is flagged and backs nothing. Therefore M130 cannot remain FAIL for every product; it becomes UNKNOWN, never PASS.",
+      "read_only_reproduction": "Before26090eb64dc7 frozen tranche6-db and after8d6f1c698f0b selection API reproduce all three transitions with unchanged THERMAX fail and exact missing-load Insublend explanation."
+    },
+    {
+      "receipt": "sixth-environment-replay.json",
+      "verdict": "APPROVE",
+      "questions": 48,
+      "evaluations": 58224,
+      "answer_changes": 1,
+      "scope": "G081-06 UV exploration/infer screen removed; verdict remains UNKNOWN.",
+      "explanation": "Old HIPS polymer-level UV failure cannot follow Insublend after its own SDS identifies PPE-PS blend. Own Q04265 full UV/oxidation narrative correctly remains non-deciding. Unrelated actual HIPS products remain screened in this bounded replay; no material-wide HIPS suppression was released.",
+      "limitations": "Record existence is not product resistance proof; no exposure spectrum/intensity/duration/specimen or retention test supplied."
+    },
+    {
+      "receipt": "sixth-source-fixtures.json",
+      "verdict": "APPROVE",
+      "questions": 16,
+      "product_answer_changes": 6,
+      "explanation": "Default comparable unknown-load DTUL remains UNKNOWN at113/115°C. Explicit as-published dry-mode opt-in compares114 and givesPASS113/FAIL115 with load/specimen/moisture/treatment caveats. Dry-mode Tg140 givesPASS139/FAIL141 under both policies with unstated specimen/moisture admissions. All eight conditioned questions remainUNKNOWN; no conditioned property inferred.",
+      "source_grounded_expected_values": {
+        "Tg": 140,
+        "DTUL": 114,
+        "HDT_load": null,
+        "moisture_absorption_percent": 0.1,
+        "dielectric_strength_kV_mm": 29
+      },
+      "no_application_or_environment_PASS": "Food conflict, support-use claims,24hcaption and27chemicalagent/resultnarratives create no selection passes."
+    },
+    {
+      "receipt": "sixth-template-replay.json",
+      "verdict": "APPROVE",
+      "templates": 6,
+      "modes": 4,
+      "questions": 24,
+      "evaluations": 30744,
+      "answer_changes": 8,
+      "changed_ids": [
+        "M066",
+        "G066-01",
+        "G066-02",
+        "G066-03",
+        "G066-04",
+        "G066-05",
+        "G066-06",
+        "G066-07"
+      ],
+      "template": "Warm environment",
+      "mode": "Explore with estimates",
+      "transition": "UNKNOWN screened → UNKNOWN unscreened for M066 and G066-01 through G066-07",
+      "explanation": "Automatic PET hdt045 screening upper bound changed 79.9°C to 80.1°C across the 80°C minimum. The estimate now cannot defend exclusion. No PET measurement was added or changed, and the result does not become PASS. Other gate criteria in every changed answer are identical.",
+      "retained_limitations": "HDT 0.45 MPa remains not published; estimated likely and plausible ranges remain labelled estimates. Existing related HDT 1.8, Vicat and Tg observations are converted model inputs rather than a published 0.45 MPa value. Missing chamber/profile requirements remain UNKNOWN where present.",
+      "read_only_checks": {
+        "before_after_PET_measurements_identical": true,
+        "engine_source_worktree_changes": "No changes shown by git status for build/src/estimate, products.js or chemical.js."
+      }
+    }
+  ],
+  "automatic_estimate_recalibration": {
+    "verdict": "SEPARATE_FROM_PUBLISHED_EVIDENCE",
+    "comparison_before": "external-campaign/baseline/tranche6-db.json release26090eb64dc7",
+    "comparison_after": "dist/db.json release8d6f1c698f0b",
+    "changed_material_headline_estimate_entries": 61,
+    "compared_fields": [
+      "centre",
+      "lo",
+      "hi",
+      "screenRange"
+    ],
+    "M130_hdt045_example": {
+      "material": "M130",
+      "property": "hdt045",
+      "before": {
+        "centre": 120,
+        "lo": 114,
+        "hi": 127,
+        "screenRange": {
+          "lo": 112,
+          "hi": 139
+        }
+      },
+      "after": {
+        "centre": 122,
+        "lo": 114,
+        "hi": 133,
+        "screenRange": {
+          "lo": 112,
+          "hi": 156
+        }
+      }
+    },
+    "explanation": "Existing estimate engine recalibrates globally after identity/new observations. M130 modeledHDTcentre122°C and convertedTg evidence134°C are inferred model quantities, not newly published InsublendDTUL114/Tg140. Report these changes separately; fixed-scenario answer counts do not imply every model range is unchanged.",
+    "M066_hdt045_example": {
+      "before": {
+        "centre": 56.8,
+        "lo": 47.9,
+        "hi": 66.1,
+        "screenRange": {
+          "lo": 41.9,
+          "hi": 79.9
+        }
+      },
+      "after": {
+        "centre": 57,
+        "lo": 48,
+        "hi": 66.1,
+        "screenRange": {
+          "lo": 42.1,
+          "hi": 80.1
+        }
+      },
+      "source_status": "No new PET source or published value; automatic recalibration of the existing model only."
+    }
+  },
+  "required_corrections": [],
+  "verification_scope": "Independent source/condition and changed-answer review plus read-only subset engine reproduction. Does not substitute fullverify/browser300scenario gates.",
+  "canonical_mutations": "None; external review report only.",
+  "review_history": [
+    {
+      "previous_signature_sha256": "b9998853199e8231a1e911efc8b33b9710846e75a2cafbc8875794e6197673bc",
+      "scope": "Initial approval of three receipts retained. Added full production-template portfolio receipt and its eight estimate-only screen changes."
+    }
+  ],
+  "review_signature_sha256": "669f86254b8b10d26b90d0273f2d75d9b340b9b65a8c5726904ccad9e528f2ae"
+}

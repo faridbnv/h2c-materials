@@ -1,0 +1,44 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T09:09:23.196180+00:00",
+  "input_path": "external-campaign/research/flashforge-plate-packet.json",
+  "input_sha256": "4b0c18aeb2e653a50ef8adb970aa8588c951ce6ef5ad66b75e834cf4976629bd",
+  "overall_verdict": "APPROVE",
+  "approved_profile_correction": 1,
+  "source": {
+    "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+    "original": ".cache/sources/by-sha/fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282.pdf",
+    "sha256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282",
+    "locator": "p. 2: Recommended printing settings, Build Surface Material row",
+    "raw_label": "Build Surface Material",
+    "raw_value": "Tempered glass, BuildTak, Carbon fiber plate",
+    "reread": "Own p2 extracted directly from freshly hash-verified original; table visually independently read during preceding composition review, with unchanged original bytes."
+  },
+  "per_operation": [
+    {
+      "Key": "P0487",
+      "Table": "profiles",
+      "Field": "Plate",
+      "verdict": "APPROVE",
+      "old": "Not published",
+      "new": "Tempered glass, BuildTak, Carbon fiber plate",
+      "reason": "Correct raw profile field for exact maker build-surface recommendation, not composition/filler."
+    },
+    {
+      "Key": "P0487",
+      "Table": "profiles",
+      "Field": "Locator",
+      "verdict": "APPROVE",
+      "reason": "Appends p2 Build Surface Material locator; preserves other source locators."
+    }
+  ],
+  "guards": "Full current profile/source Expected rows match. Only Plate and Locator differ; exact GradeID G039-23/MaterialID M162 unchanged.",
+  "limitations": [
+    "Maker recommended plate materials only; no tested adhesion/geometry/interface protocol.",
+    "No H2C compatibility, safe treatment, carbon-filled filament or new identity inferred.",
+    "Existing unrelated profile fields are guards, not validated anew by this review."
+  ],
+  "required_corrections": [],
+  "canonical_mutations": "None; external review report only.",
+  "review_signature_sha256": "842253d9948196d08cd9ac06cd148049cd57055ba142b9293478ac2598d3ee2e"
+}

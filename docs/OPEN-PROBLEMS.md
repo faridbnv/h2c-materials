@@ -980,11 +980,11 @@ The own-page elongation row cites ISO 178; volume and surface resistivity print 
 “10.10^15 Ohms”. No corrected test label, exponent or volume-resistivity unit is inferred.
 Tensile modulus V007544 remains physically implausible as already flagged by m127, and
 continues to back no product value or estimate. Newly found official datasheets are separate
-revision leads, not permission to overwrite the registered page's digest or raw words.
+revision leads, not permission to overwrite the registered page's digest or raw words. The separate originals were admitted by m259 without a chronology claim: legacy sheet Q05413 states a 100–140 °C bed in its Applications paragraph but 130–150 °C in its table; Q05418 recommends moisture-triggered drying at 60 °C for four hours or longer, against the page/profile's 80 °C for four hours. Neither an intersection nor a guessed scalar resolves these. Q05416 preserves Kerosene “Moderate” against the other originals' “Weak”; Q05417 preserves Tributyl Phosphate “Poor” against the bilingual sheet's “Weak” and the page's non-rating cell. Missing exposure methods and unknown formulation/revision continuity require maker clarification or testing; no category-level pass follows.
 
 ```bash
 npm run sql --silent -- "select gradeid, materialid, product_name, composition_filler from grades where gradeid = 'G081-06'"
-npm run sql --silent -- "select evidenceid, gradeid, domain, topic, finding from evidence where evidenceid in ('Q04265','Q05379','Q05380')"
+npm run sql --silent -- "select evidenceid, gradeid, domain, topic, finding from evidence where evidenceid in ('Q04265','Q05379','Q05380','Q05413','Q05416','Q05417','Q05418')"
 ```
 
 ## 24. Siraya TPU-GF guide conflicts and a bounded drying schedule
@@ -1005,4 +1005,20 @@ robotic payloads, and the guide's sanding advice is not a verified safety assess
 
 ```sh
 npm run sql --silent -- "select evidenceid, topic, finding, exposure_conditions from evidence where gradeid = 'G151-01' and evidenceid in ('Q05364','Q05370','Q05371','Q05372','Q05373','Q05374')"
+```
+
+## 25. Maker-statement qualifier notes are not displayed
+
+`build/src/know-how.js` copies maker statements into `db.knowHow` without their
+canonical `Exposure / conditions` field, and the product drawer shows only the quote
+and source. The narrative stays outside selection, but readers miss its recorded
+scope, missing conditions and conflict notes. For example Q05424's general HIPS
+24-hour/no-residue claim has an explicit qualification that it is not a described
+exact-product removal test. The canonical note is retained; the compiled lane drops it.
+This needs a separate compiler/rendering fix, preserving raw wording and the
+non-deciding lane. Do not claim these qualifier notes are already visible.
+
+```sh
+npm run sql --silent -- "select evidenceid, finding, exposure_conditions from evidence where evidenceid = 'Q05424'"
+node --input-type=module -e 'import {readFileSync} from "node:fs"; const db=JSON.parse(readFileSync("dist/db.json")); console.log(db.knowHow.find(r=>r.id==="Q05424"));'
 ```

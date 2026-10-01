@@ -1,0 +1,18 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {join} from 'node:path';
+import {openTables,projectRoot} from '../data/table-io.mjs';
+import {locate} from '../data/source-store.mjs';
+const migration='m260-flashforge-bed-advice-own-lane',at=join(projectRoot,'docs/audits/2026-09-30-coverage-expansion');
+const bytes=readFileSync(join(at,'flashforge-plate-packet.json')),hash=createHash('sha256').update(bytes).digest('hex'),review=JSON.parse(readFileSync(join(at,'flashforge-plate-review.json')));
+if(hash!=='4b0c18aeb2e653a50ef8adb970aa8588c951ce6ef5ad66b75e834cf4976629bd'||review.input_sha256!==hash||review.overall_verdict!=='APPROVE')throw Error(`${migration}: changed or unreviewed packet`);
+const p=JSON.parse(bytes),t=openTables();
+const agrees=(row,expected)=>row&&Object.entries(expected).every(([k,v])=>row[k]===v);
+const check=(row,expected,name)=>{if(!agrees(row,expected))throw Error(`${migration}: ${name} moved`);};
+const row=t.get('profiles',p.ExpectedProfile.ProfileID);
+if(!agrees(row,p.ProposedProfile))check(row,p.ExpectedProfile,row.ProfileID);
+check(t.get('sources',p.ExpectedSource.SourceID),p.ExpectedSource,p.ExpectedSource.SourceID);
+const original=locate(p.ExpectedSource.SHA256,p.ExpectedSource.SourceID);
+if(original.bytes!=='present'||createHash('sha256').update(readFileSync(original.path)).digest('hex')!==p.ExpectedSource.SHA256)throw Error(`${migration}: original missing or changed`);
+let written=0;for(const field of ['Plate','Locator']){if(row[field]===p.ProposedProfile[field])continue;t.set('profiles',row.ProfileID,field,p.ProposedProfile[field],{expect:p.ExpectedProfile[field]});written++;}t.save();
+console.log(JSON.stringify({migration,packet:hash,written},null,2));

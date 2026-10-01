@@ -1,0 +1,14 @@
+{
+  "beforeRelease": "8d6f1c698f0b",
+  "afterRelease": "f697953e97e5",
+  "templates": 6,
+  "modes": [
+    "Strict",
+    "Strict, annealing permitted",
+    "Explore",
+    "Explore with estimates"
+  ],
+  "evaluations": 30744,
+  "answer_changes": 0,
+  "changes": []
+}

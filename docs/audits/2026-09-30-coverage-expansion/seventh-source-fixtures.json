@@ -1,0 +1,28 @@
+{
+  "basis": "Independent literal source expectations and signed source review; no engine output used to invent expected facts.",
+  "release": "f697953e97e5",
+  "cases": [
+    {
+      "case": "TPU 64D p2 bed surfaces do not establish p1 composition; own advice retained",
+      "grade": "G039-23"
+    },
+    {
+      "case": "Three original chemical pairs retain exact agent/rating and cannot pass a category requirement"
+    },
+    {
+      "case": "Distinct conflicting bed/drying clauses remain narratives; no profile replacement"
+    },
+    {
+      "case": "Own pictured HIPS/PP-CF examples distinguish observation from general about24hour/noresidue claim"
+    },
+    {
+      "case": "Five reviewed judgments match compiled coverage contract; claims remain limited",
+      "counts": {
+        "Evidence recorded": 45,
+        "Gap": 26,
+        "Reviewed with limitations": 40,
+        "Unassessed": 25
+      }
+    }
+  ]
+}

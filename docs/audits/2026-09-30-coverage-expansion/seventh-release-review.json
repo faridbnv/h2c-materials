@@ -1,0 +1,159 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T09:18:24.739018+00:00",
+  "overall_verdict": "APPROVE_WITH_DISPLAY_LIMITATION",
+  "release_before": "8d6f1c698f0b",
+  "release_after": "f697953e97e5",
+  "inputs": [
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/seventh-source-fixtures.json",
+      "sha256": "e4be65a81056995474ad19a72819e50c2f775b353eba641cfee615d1f8e2ffb3"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/seventh-tranche-scenario-replay.json",
+      "sha256": "f03b8cc6bccb17bd36f6f13648f9478ef26f2df28d0c0bc176cc3c49615e2081"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/seventh-environment-replay.json",
+      "sha256": "ffef531ce419daf431f2ed699800ceeb8c99d6608386298bae2209720d66ff0a"
+    },
+    {
+      "path": "docs/audits/2026-09-30-coverage-expansion/seventh-template-replay.json",
+      "sha256": "2f1366b407e4bdacf3ae32a74bba2c5ef5db259e57bb8d730817e803b812d7e4"
+    }
+  ],
+  "supporting_signed_reviews": [
+    {
+      "path": "external-campaign/reviews/APPLICATION-FOUR-MAKERS-OPERATIONS.json",
+      "sha256": "469a8d0f6e276f9739a9b26b57f2817a62e4841a0d8ed9a8739de162e5d484a4"
+    },
+    {
+      "path": "external-campaign/reviews/FLASHFORGE-COMPOSITION-OPERATIONS.json",
+      "sha256": "a3e3ad9d12e3611d0d445edeb96747ffe8a239c521f02a5030176a18f750daae"
+    },
+    {
+      "path": "external-campaign/reviews/FLASHFORGE-PLATE-OPERATIONS.json",
+      "sha256": "da603097b9858a247afae7851d705aaa9ef04105791ebac6fdee830bf6911318"
+    },
+    {
+      "path": "external-campaign/reviews/NANOVIA-C03-OPERATIONS.json",
+      "sha256": "894ab331770916b59bd51ee4e81457ddcb98e14a04471875666e41df26a9af90"
+    }
+  ],
+  "original_custody": [
+    {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-19c4810bdc29",
+      "original": ".cache/sources/by-sha/19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991.pdf",
+      "sha256": "19c4810bdc29c5261f0faf37bdf31d5cc39c858f07b9623d01bef21d4dca9991"
+    },
+    {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-1d6a8af9c7d8",
+      "original": ".cache/sources/by-sha/1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa.pdf",
+      "sha256": "1d6a8af9c7d8541d4062bec442413206465b4bffd41da5a4e4a61035292a5bfa"
+    },
+    {
+      "SourceID": "R-NANOVIA-COVERAGE-20261001-bb1289b8f753",
+      "original": ".cache/sources/by-sha/bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669.html",
+      "sha256": "bb1289b8f75303cb8490cfdfdd507700e2efda7be79ff96a96509720daa55669"
+    }
+  ],
+  "source_fixture_review": [
+    {
+      "case": 1,
+      "verdict": "APPROVE",
+      "expectation": "Own Flashforge TPU64D p2 Build Surface Material literal value survives in P0487.Plate with exact locator; G039-23 composition Not published. No unfilled or H2C compatibility inferred."
+    },
+    {
+      "case": 2,
+      "verdict": "APPROVE",
+      "expectation": "Q05415–17 exact acetic50%|Excellent, kerosene|Moderate and tributylphosphate|Poor full agent/result pairs remain narrative and cannot pass/fail a category;20°C and missing conditions retained."
+    },
+    {
+      "case": 3,
+      "verdict": "APPROVE_WITH_DISPLAY_LIMITATION",
+      "expectation": "Q05413 conflicting bed paragraph100–140 versus table130–150 and Q05418dry60°C4hours-or-longer versus prior80°C4h stay narrative; P0721 unchanged. Canonical qualifier notes are not compiled in know-how."
+    },
+    {
+      "case": 4,
+      "verdict": "APPROVE_WITH_DISPLAY_LIMITATION",
+      "expectation": "Q05421raft/HIPS and Q05425PP-CF connector are caption-scoped Published observations; Q05424general about24h/noresidue stays maker statement, not exact test or guarantee. Observation exposure notes survive compiled evidence; maker qualifier note omitted compiled know-how."
+    },
+    {
+      "case": 5,
+      "verdict": "APPROVE",
+      "expectation": "C01541–45 exactfive manual judgments retain two Evidence recorded for finishing-guidance presence, three RWL maker/base context. TPU64D questionable treatment limitation explicitly retained. No selection input.",
+      "counts": {
+        "Evidence recorded": 45,
+        "Gap": 26,
+        "Reviewed with limitations": 40,
+        "Unassessed": 25
+      }
+    }
+  ],
+  "canonical_and_compiled_checks": {
+    "admitted_clause_ids": [
+      "Q05412",
+      "Q05413",
+      "Q05414",
+      "Q05415",
+      "Q05416",
+      "Q05417",
+      "Q05418",
+      "Q05419",
+      "Q05420",
+      "Q05421",
+      "Q05422",
+      "Q05423",
+      "Q05424",
+      "Q05425"
+    ],
+    "clauses": 14,
+    "durability_narratives": 3,
+    "application_observations": 2,
+    "know_how": 9,
+    "source_rows": 3,
+    "remaining_operations_match_final_packet": true,
+    "P0721_unchanged": true,
+    "measurements_unchanged": true,
+    "estimate_model_metadata_unchanged": true,
+    "engine_input_digest_unchanged": true,
+    "five_manual_app_ids": [
+      "C01541",
+      "C01542",
+      "C01543",
+      "C01544",
+      "C01545"
+    ]
+  },
+  "replays": [
+    {
+      "receipt": "seventh-tranche-scenario-replay.json",
+      "questions": 15,
+      "evaluations": 18195,
+      "answer_changes": 0
+    },
+    {
+      "receipt": "seventh-environment-replay.json",
+      "questions": 48,
+      "evaluations": 58224,
+      "answer_changes": 0
+    },
+    {
+      "receipt": "seventh-template-replay.json",
+      "questions": 24,
+      "evaluations": 30744,
+      "answer_changes": 0
+    }
+  ],
+  "display_limitation": {
+    "compile_route": "build/src/know-how.js:78–83 attachKnowHow maps evidence to id/materialId/gradeId/topic/text/sourceId/locator and omits exposure.",
+    "render_route": "app/js/ui/detail.js:789 maker quotes render only text/source, without conditions.",
+    "reproduction": "Q05424 Exposure / conditions retained in data/tables/evidence.csv but dist/db.json knowHow.find(k=>k.id===Q05424) has no exposure/conditions field. Allnine new know-how rows have the same omission.",
+    "effect": "Qualifiers are retained canonically and in audit but not rendered by compiled know-how. No false engine PASS; full raw general maker wording remains. No broad assertion that all new qualifier notes render is approved.",
+    "accepted_follow_up": "Parent accepted documented known limitation for bounded seventh data commit and will add OPEN-PROBLEMS reproduction, then separate tested compiler/render fix before further data admission."
+  },
+  "required_data_corrections": [],
+  "verification_scope": "Independent original-backed expectations and literal canonical-to-compiled checks, with signed original reviews reused. Inspected replay receipts and unchanged numeric/profile/model/engine inputs. Did not repeat all browser/scenario evaluations; fullverify remains parent release gate.",
+  "canonical_mutations": "None; external review report only.",
+  "review_signature_sha256": "8a1cefb40c49d904a6929e4d52a603d30adc49918827bb04564159239502b5a0"
+}

@@ -1,0 +1,138 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "reviewed_at_utc": "2026-10-01T08:47:14.328275+00:00",
+  "input_path": "external-campaign/research/application-four-makers-packet.json",
+  "input_sha256": "0a41e54bccb25cc9836ccba15e1bbe2b4319c633ae8a356f3bc099f27ff570e6",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 5,
+  "source_reading_batches": [
+    {
+      "maker": "Fiberlogy",
+      "GradeIDs": [
+        "G109-02"
+      ]
+    },
+    {
+      "maker": "Flashforge",
+      "GradeIDs": [
+        "G132-01",
+        "G039-23"
+      ]
+    },
+    {
+      "maker": "Fabru",
+      "GradeIDs": [
+        "G136-02"
+      ]
+    },
+    {
+      "maker": "Recreus",
+      "GradeIDs": [
+        "G157-01"
+      ]
+    }
+  ],
+  "per_operation": [
+    {
+      "FindingID": "CE-APP-M109",
+      "MaterialID": "M109",
+      "GradeID": "G109-02",
+      "verdict": "APPROVE",
+      "status": "Reviewed with limitations",
+      "source": {
+        "SourceID": "D-FIBERLOGY-PETGPTFE-FILAMENT-PAGE",
+        "original": ".cache/sources/by-sha/cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d.html",
+        "sha256": "cb0ac48f25aa7c3b2fbffee55e3621b2ab008d0fc94229b4588c9d793e5d9f8d",
+        "locator": "Own full product HTML Description and intended-use paragraph"
+      },
+      "basis_evidence_ids": [
+        "Q05221"
+      ],
+      "reason": "Maker lists sliding parts/guides and low- or moderate-load gears. Low friction/wear/durability are intended-use claims without protocol or service validation. RWL appropriate; no transfer to other product.",
+      "guards": "Current full grade/evidence/source rows match Expected; active GradeID set and absence of current Application judgment match frozen packet."
+    },
+    {
+      "FindingID": "CE-APP-M132",
+      "MaterialID": "M132",
+      "GradeID": "G132-01",
+      "verdict": "APPROVE",
+      "status": "Evidence recorded",
+      "source": {
+        "SourceID": "D-FLASH-PBT-GF-TDS-EN",
+        "original": ".cache/sources/by-sha/6e235a57855189776b852101b8c76a7acd6fc7e4a7ba918abf9468e10623d1ce.pdf",
+        "sha256": "6e235a57855189776b852101b8c76a7acd6fc7e4a7ba918abf9468e10623d1ce",
+        "locator": "All four PDF pages reread; p.3 Printing note and separate Post-processing note visually reread"
+      },
+      "basis_evidence_ids": [
+        "Q05068"
+      ],
+      "reason": "Own printed-model oven recommendation 80–100°C for 1–3 h is explicit finishing guidance. Wet-filament drying at 80°C for at least 12 h is a separate instruction. Evidence recorded denotes recorded exact-product guidance, not demonstrated strength gain or application qualification; specimen preparation p.2 remains distinct.",
+      "guards": "Current full grade/evidence/source rows match Expected; active GradeID set and absence of current Application judgment match frozen packet."
+    },
+    {
+      "FindingID": "CE-APP-M162",
+      "MaterialID": "M162",
+      "GradeID": "G039-23",
+      "verdict": "APPROVE",
+      "status": "Evidence recorded",
+      "source": {
+        "SourceID": "D-FLASH-TPU-64D-TDS-EN",
+        "original": ".cache/sources/by-sha/fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282.pdf",
+        "sha256": "fec4a0619b2ccb3f974d3f519b9a1ed7cfa74b9a5ccb650a0a5420ca619f4282",
+        "locator": "All four PDF pages reread; p.3 Printing note and separate Post-processing note visually reread"
+      },
+      "basis_evidence_ids": [
+        "Q05077"
+      ],
+      "reason": "Own printed-model oven recommendation 120–130°C for 6–8 h is explicit finishing guidance. Wet-filament drying at 90–100°C for at least 12 h is separate. Evidence recorded denotes recorded exact-product guidance, not a measured before/after strength effect. Other fourteen product grades are not covered.",
+      "guards": "Current full grade/evidence/source rows match Expected; active GradeID set and absence of current Application judgment match frozen packet."
+    },
+    {
+      "FindingID": "CE-APP-M136",
+      "MaterialID": "M136",
+      "GradeID": "G136-02",
+      "verdict": "APPROVE",
+      "status": "Reviewed with limitations",
+      "source": {
+        "SourceID": "R-FABRU-3542-Material-data-sheet-SAN-purefil",
+        "original": ".cache/sources/by-sha/b51d5846db4b33967058547e32db82306a34da6c6b10c1d3dbdec8c0012c9293.pdf",
+        "sha256": "b51d5846db4b33967058547e32db82306a34da6c6b10c1d3dbdec8c0012c9293",
+        "locator": "Entire one-page PDF; General and Processing data paragraphs"
+      },
+      "basis_evidence_ids": [
+        "Q04827"
+      ],
+      "reason": "Snap-connection/high-impact/outdoor limits are SAN base-polymer context within this filament sheet. RWL correctly distinguishes context from printed-product tests and supplies no food/dishwasher/outdoor/snap-fit qualification.",
+      "guards": "Current full grade/evidence/source rows match Expected; active GradeID set and absence of current Application judgment match frozen packet."
+    },
+    {
+      "FindingID": "CE-APP-M157",
+      "MaterialID": "M157",
+      "GradeID": "G157-01",
+      "verdict": "APPROVE",
+      "status": "Reviewed with limitations",
+      "source": {
+        "SourceID": "R-RECREUS-Conductive-Filaflex",
+        "original": ".cache/sources/by-sha/e293fe439b6c6ee722de137dc1b2034fd2bab1eede0b9dc1533585d611093622.pdf",
+        "sha256": "e293fe439b6c6ee722de137dc1b2034fd2bab1eede0b9dc1533585d611093622",
+        "locator": "All four PDF pages; p.1 Description/Application and p.4 Electrical Guidelines/Disclaimer"
+      },
+      "basis_evidence_ids": [
+        "Q05046"
+      ],
+      "reason": "Conductive/wearable intended uses are constrained to low-current applications with circuit resistance calculation and verification. No numeric allowable current or validated medical/skin-contact certification is supplied; RWL correct, only G157-01.",
+      "guards": "Current full grade/evidence/source rows match Expected; active GradeID set and absence of current Application judgment match frozen packet."
+    }
+  ],
+  "required_corrections": [],
+  "nonblocking_integrity_follow_up": [
+    {
+      "GradeID": "G039-23",
+      "field": "Composition / filler",
+      "finding": "Unchanged guard contains Build Surface Material Tempered glass, BuildTak, Carbon fiber plate, a build-surface instruction rather than product filler. This approval does not endorse that existing extraction; correct in a separate source-grounded integrity packet."
+    }
+  ],
+  "coverage_contract": "Two exact-product explicit post-processing schedules qualify as recorded finishing guidance under existing Application/Post-processing coverage contract. Three maker/base-context application judgments remain Reviewed with limitations. None creates selection PASS or validates applications.",
+  "canonical_mutations": "None; external review report only.",
+  "review_signature_sha256": "65d2220093adece64ddc267692aa87983da6e72d5b45db9cbc20df1e837dc86e"
+}

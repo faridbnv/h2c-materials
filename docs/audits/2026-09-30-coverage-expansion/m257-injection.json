@@ -1,0 +1,27 @@
+{
+  "migration": "m257-application-four-maker-originals",
+  "packet": "0a41e54bccb25cc9836ccba15e1bbe2b4319c633ae8a356f3bc099f27ff570e6",
+  "written": 5,
+  "records": [
+    {
+      "finding": "CE-APP-M109",
+      "coverageId": "C01541"
+    },
+    {
+      "finding": "CE-APP-M132",
+      "coverageId": "C01542"
+    },
+    {
+      "finding": "CE-APP-M162",
+      "coverageId": "C01543"
+    },
+    {
+      "finding": "CE-APP-M136",
+      "coverageId": "C01544"
+    },
+    {
+      "finding": "CE-APP-M157",
+      "coverageId": "C01545"
+    }
+  ]
+}
