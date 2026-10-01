@@ -1,5 +1,5 @@
-COUNT 90 shown PASS + UNKNOWN
-STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 23
+COUNT 89 shown PASS + UNKNOWN
+STATUS ☑ PASS 6 | ☑ UNKNOWN 107 | ☐ FAIL 40 | ☐ SCREENED 24
 Requirements: In the H2C's scope; A build material, not a support; Nozzle temperature the H2C reaches; Bed temperature the H2C reaches; Chamber temperature the H2C reaches; Heat deflection (HDT, 0.45 MPa) at least 100 °C; Stiffness (tensile modulus, XY) at least 3 GPa; Density at most 1500 kg/m³. Tracked only: Price at most 100 CAD/kg.
 Template: Outdoor structural part. Materials with missing data: Include uncertain, estimates and polymer data on (they never pass a material and may screen one out). Release <id>, database snapshot 2026-09-21, build <date>. A material's values are its products' spread; check the exact product in its Products tab before you buy or print.
 Shortlisted 3, with each one's result against the requirements above:
@@ -42,9 +42,9 @@ ABS-AF
 ABS-CF
 4.1
 2.7–5.21 · 3
-0.0015
+0.00149
 log scale
-20
+19.8
 all 153 candidates
 Strength (tensile, XY; yield or break) MPa
 ABS
@@ -55,8 +55,8 @@ ABS-AF
 ABS-CF
 29
 27.3–46 · 3
-6.05
-274
+5.98
+280
 all 153 candidates
 Strength across layers (tensile, Z) MPa
 ABS
@@ -74,13 +74,13 @@ ABS
 10
 3.9–40 · 16
 ABS-AF
-~2–16†
+~3–17†
 ABS-CF
 1.9
 1.8–2 · 2
-0.488
+0.506
 log scale
-1,790
+1,570
 all 153 candidates
 Notched impact, Charpy kJ/m²
 ABS
@@ -100,21 +100,21 @@ ABS
 ABS-AF
 Not published
 ABS-CF
-250*
+45*
 2.5
-250
-widened to a value shown
+47
+all 153 candidates
 Heat deflection (HDT, 0.45 MPa) °C
 Heat deflection (HDT, 0.45 MPa) at least 100 °C
 ABS
-94
-78.9–104 · 21
+93.5
+78.9–104 · 22
 ABS-AF
 88
 ABS-CF
 78
 76–95 · 3
-42.1
+41.9
 300
 all 153 candidates
 Glass transition °C

@@ -13,10 +13,15 @@
 
 // The spellings that are one standard family. A bare "D 638" is ASTM's, which is how several sheets print it.
 const BODIES = [
-  { body: 'ISO', re: /\bISO\s*-?\s*(\d+)/gi },
+  // "ISO-R 75" and "ISO/R 75" are the ISO Recommendation the standard grew from: the same test family.
+  { body: 'ISO', re: /\bISO\s*[-\/]?\s*(?:R\s*)?(\d+)/gi },
   { body: 'ASTM', re: /\bASTM\s*-?\s*([A-Z])\s*-?\s*(\d+)/gi },
   { body: 'GB/T', re: /\bGB\s*\/?\s*T\s*-?\s*(\d+(?:\.\d+)?)/gi },
   { body: 'IEC', re: /\bIEC\s*-?\s*(\d+)/gi },
+  // The German plastics and rubber standards (DIN 53504 tensile, 53505 Shore hardness, 53479 density …), printed on
+  // Extrudr, colorFabb, Fillamentum and Spectrum sheets and left unread until 2026-10-01 (the data audit, RC3/RC4). A
+  // "DIN EN ISO 527" is ISO 527, which the ISO pattern reads; only DIN's own five-digit numbers are DIN's.
+  { body: 'DIN', re: /\bDIN\s*(5\d)\.?(\d{3})\b/gi, join: true },
   // ASTM's designations printed without the body, as "D 638" or "D638" at a word boundary.
   { body: 'ASTM', re: /(?:^|[^A-Za-z0-9/])([DE])\s*-?\s*(\d{3,4})\b/g, bare: true },
 ];
@@ -37,12 +42,12 @@ export function readStandards(raw) {
   if (!text || text === 'Not published') return [];
   const found = [];
   const at = new Map();
-  for (const { body, re, bare } of BODIES) {
+  for (const { body, re, bare, join } of BODIES) {
     re.lastIndex = 0;
     for (let m = re.exec(text); m; m = re.exec(text)) {
       // A bare "D 638" inside "ASTM D638" is the same match; the ASTM pattern already took it.
       if (bare && /ASTM\s*-?\s*$/i.test(text.slice(0, m.index + m[0].indexOf(m[1])))) continue;
-      let number = body === 'ASTM' ? `${m[1].toUpperCase()}${m[2]}` : m[1];
+      let number = body === 'ASTM' ? `${m[1].toUpperCase()}${m[2]}` : join ? `${m[1]}${m[2]}` : m[1];
       if (body === 'GB/T' && GB_PARENT.has(number)) number = number.split('.')[0];
       const name = `${body} ${number}`;
       if (!at.has(name)) { at.set(name, m.index); found.push(name); }

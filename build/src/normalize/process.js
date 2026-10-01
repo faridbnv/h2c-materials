@@ -49,6 +49,9 @@ export const REQUIREMENT = {
 // Yousu and 3D-Fuel print the bed as "None needed (or 50-70°C if applicable)": not required, with the window if one is used.
 const NOT_REQUIRED_RE = /^(not\s+(required|necessary|needed)|none\s+needed|for printing not necessary)\b/i;
 const RECOMMENDED_RE = /^recommended\b/i;
+// Polymaker marks the whole window after its numbers: "70 – 80 (recommended) (˚C)", "70-80 (˚C)(Recommended)". A bracket
+// holding a number as well ("230~260 ℃ (recommended: 240℃)") recommends a point inside a window, which stays required.
+const RECOMMENDED_MARK_RE = /\(\s*recommended\s*\)/i;
 const NO_SETPOINT_RE = /^no\s+setpoint\b/i;
 // BASF prints a lone dash in its "Build Chamber Temperature" row: no setpoint given, the same statement as NO_SETPOINT.
 const DASH_RE = /^-$/;
@@ -99,7 +102,7 @@ export function parseTemperature(raw, opts = {}) {
 
   let requirement = REQUIREMENT.REQUIRED;
   if (NOT_REQUIRED_RE.test(s)) requirement = REQUIREMENT.NONE;
-  else if (RECOMMENDED_RE.test(s)) requirement = REQUIREMENT.RECOMMENDED;
+  else if (RECOMMENDED_RE.test(s) || RECOMMENDED_MARK_RE.test(s)) requirement = REQUIREMENT.RECOMMENDED;
 
   const ambient = AMBIENT_RE.test(s);
   const [lo, hi] = opts.plausible || [0, 500];
@@ -237,6 +240,9 @@ export function parseEnclosure(raw) {
   // A table with a column headed "Enclosed Space" answers it in one word, and "no" is the whole answer. Polymaker's
   // "Closure chamber" row answers "No Needed" on some sheets, and PEBA's prose says a filament "does not require sealed
   // printing", and 3D-Fuel's that its Pro PCTG "typically doesn’t require an enclosure".
+  // A question the row answers: Extrudr's product pages print "Enclosed chamber required No" (or "Yes").
+  const answer = text.match(/\b(?:required|recommended|needed|necessary)\s*[:?]?\s*(yes|no)\s*$/i);
+  if (answer) return { text, state: /^no$/i.test(answer[1]) ? 'not-needed' : 'recommended' };
   if (/\bnot\s+(necessary|needed|required)\b|^no\s+(enclosure|needed)\b|^(no|none)$|\bdoes\s+not\s+require\b|\bdoesn[’']t\s+require\b/i.test(text)) return { text, state: 'not-needed' };
   // Eryone's "Sealed printing" row says whether the filament prints open: "Supports open/closed printing", "Open
   // printing", "enclosed printing/open printing", "supports open printing, and the sealing effect is better if it is

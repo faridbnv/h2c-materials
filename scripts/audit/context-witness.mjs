@@ -50,6 +50,9 @@ for (const r of live) {
   const sign = best.line.match(new RegExp(`([<>≤≥＜＞]|(?:^|[\\s(])(?:max\\.|min\\.|up to|over|above|below))\\s*${esc(tok)}(?![0-9])`, 'i'));
   if (sign && (NA(r.Operator) || r.Operator === '=')) add('CONTEXT-BOUND-SIGN', id, 'Operator', `the line prints "${sign[0].trim()}"; Operator is "${r.Operator}" — ${q}`);
   if (!/temperature|transition|melting|crystalli|vicat|hdt|softening/i.test(r.Property) && /(^|[^0-9a-z])[-−]\s?(10|20|30|40)\s*(°|℃|˚)?\s*c\b|@\s*[-−]\s?\d{2}/i.test(ctx) && !/75-1,\s*-2/i.test(ctx) && NA(r['Test temperature °C'])) add('CONTEXT-TEST-TEMPERATURE', id, 'Test temperature °C', `the line states a sub-zero test temperature; none is recorded — ${q}`);
+  // An impact value is defined at its test temperature (D92); a line that prints one ("@23° C", "(+23°C)", "at 23 °C")
+  // and a row that records none lose it (the data audit's R10).
+  if (/Izod|Charpy|Impact/i.test(r.Property) && NA(r['Test temperature °C']) && /(?:@|\bat\b|\(\s*\+?)\s*-?\d{1,2}\s*(?:°|℃|˚)\s*c?\b/i.test(ctx)) add('CONTEXT-TEST-TEMPERATURE', id, 'Test temperature °C', `the line states a test temperature; none is recorded — ${q}`);
   const mech = /Tensile|Flexural|Elongation|Charpy|Izod|Impact|HDT|modulus/i.test(r.Property);
   const both = /\bxy\b|x\s*-\s*y/i.test(ctx) && /\(\s*z\s*\)|\bzx\b|\bxz\b|z\s*-\s*x/i.test(ctx);
   const onLine = /\(\s*x\s*[-–]?\s*y\s*\)|\bx\s*-\s*y\b|\bxy\b|\bhorizontal\b/i.test(ctx) ? 'XY' : /\(\s*z\s*\)|\bz[- ]?direction\b|\bvertical\b|\(\s*z\s*[-–]\s*x\s*\)|\bzx\b|\bxz\b/i.test(ctx) ? 'Z' : null;
@@ -57,7 +60,8 @@ for (const r of live) {
   if (mech && onLine && !both && rec && onLine !== rec) add('CONTEXT-DIRECTION', id, 'Direction', `the line says ${onLine}; Direction is ${r.Direction} — ${q}`);
   if (mech && onLine && !both && !rec && /Unstated|Not published|Not applicable/.test(r.Direction)) add('CONTEXT-DIRECTION', id, 'Direction', `the line says ${onLine}; Direction is ${r.Direction} — ${q}`);
   // A standard printed on the value's own line that the row does not name (or names another family's).
-  const lineStd = [...new Set([...ctx.matchAll(/\b(ISO|ASTM|DIN|GB\/T)\s?-?\s?([A-Z]?\s?(\d{2,5}))(?![\d.,]*\s*(?:-|–)\s*\d)/gi)].filter((x) => x[3] !== tok).map((x) => ({ name: `${x[1].toUpperCase()} ${x[2].replace(/\s/g, '').toUpperCase()}`, digits: x[3] })))];
+  // DIN prints its five digits with a point ("DIN 53.504").
+  const lineStd = [...new Set([...ctx.matchAll(/\b(ISO|ASTM|DIN|GB\/T)\s?-?\s?([A-Z]?\s?(\d{2}\.\d{3}|\d{2,5}))(?![\d.,]*\s*(?:-|–)\s*\d)/gi)].filter((x) => x[3] !== tok).map((x) => ({ name: `${x[1].toUpperCase()} ${x[2].replace(/[\s.]/g, '').toUpperCase()}`, digits: x[3].replace('.', '') })))];
   const rowDigits = new Set(String(r.Standards ?? '').match(/\d{2,5}/g) ?? []);
   if (lineStd.length && NA(r.Standards)) add('CONTEXT-STANDARD', id, 'Standards', `the line names ${lineStd.map((x) => x.name).join(', ')}; Standards is ${r.Standards} — ${q}`);
   else if (lineStd.length && !NA(r.Standards) && !lineStd.some((x) => rowDigits.has(x.digits))) add('CONTEXT-STANDARD', id, 'Standards', `the line names ${lineStd.map((x) => x.name).join(', ')}; Standards is ${r.Standards} — ${q}`);
@@ -71,17 +75,28 @@ for (const r of live) {
 const pageIndex = indexPageContext(rows('Page context'));
 const byPage = new Map();
 for (const r of live) { const pg = pageOf(r.Locator); if (pg == null) continue; const k = `${r.SourceID}\u0000${pg}`; if (!byPage.has(k)) byPage.set(k, []); byPage.get(k).push(r); }
+// A statement about the test, not about storage, marketing or a link: "3D printed parts" sells the filament, "store in a
+// dry place" and "conditioned at room temperature for 24h" (no humidity) say nothing about a value's moisture, and an
+// "after annealing" in a sentence about warping is advice. The readers of the 2026-10-01 sweep found half the first
+// version's statements were such.
 const STATEMENTS = [
-  ['Specimen type', /non-?injection mou?lded|printed specimens?|printed samples?|3d[- ]printed (test )?(specimens?|samples?|parts?)|specimens? (were )?printed|typical material properties\s*[–-]\s*3d printed/, (r) => /^Not published|Raw material value/.test(r['Specimen type'])],
-  ['Moisture state', /\(dry state\)|dry state|\bdry,|dry as mou?lded|\(dry\)|in dry condition|conditioned at|\bconditioned\b/, (r) => r['Moisture state'] === 'not-stated'],
-  ['Post-processing state', /(all )?(specimens?|samples?) (were )?annealed|annealed at \d+|after annealing|退火/, (r) => r['Post-processing state'] === 'not-stated'],
+  ['Specimen type', /non-?injection mou?lded|printed specimens?|printed samples?|3d[- ]printed (test )?(specimens?|samples?)\b(?! at \d+ different angles)|specimens? (were )?printed|typical material properties\s*[–-]\s*3d printed/, (r) => /^Not published|Raw material value/.test(r['Specimen type'])],
+  ['Moisture state', /\(dry state\)|dry state|\bdry,? @ ?\d+ ?mm\/min|\(dry, at \d+|dry as mou?lded|\(dry\)|in dry condition|conditioned (?:at|in)[^.]{0,40}(?:% ?r\.?h|humidity|standard climate)|\(conditioned\b/, (r) => r['Moisture state'] === 'not-stated'],
+  ['Post-processing state', /(all )?(specimens?|samples?) (were )?annealed|annealed at \d+|\(after annealing\)|退火/, (r) => r['Post-processing state'] === 'not-stated'],
 ];
+const ADVICE = /\b(store|stored|storage|keep|transport|ensure the filament)\b[^.]{0,60}$/;
 for (const [k, list] of byPage) {
   const [sourceId, pg] = k.split('\u0000'); const page = pagesOf(sourceId)?.find((p) => p.page === Number(pg)); if (!page) continue;
   const text = page.lines.join(' ').toLowerCase();
   for (const [field, said, silent] of STATEMENTS) {
     const m = text.match(said); if (!m || (field === 'Post-processing state' && /without (having to )?anneal/.test(text))) continue;
-    const open = list.filter((r) => /Tensile|Flexural|Elongation|Impact|Charpy|Izod|HDT|modulus/i.test(r.Property) && silent(r) && !contextFor(pageIndex, r).some((c) => c[field] && !/^Not published|not-stated/.test(c[field])));
+    if (ADVICE.test(text.slice(Math.max(0, m.index - 80), m.index))) continue;
+    // A page_context row for this field anywhere on the page means a reader read the statement and scoped it (D116):
+    // the rows outside its scope are outside the table it heads.
+    const scoped = (pageIndex.get(`${sourceId}\u0000${Number(pg)}`) ?? []).some((c) => c[field] && !/^Not published|not-stated/.test(c[field]));
+    if (scoped) continue;
+    // A moisture statement qualifies the mechanical tests; a heat deflection bar is tested as moulded or printed.
+    const open = list.filter((r) => (field === 'Moisture state' ? /Tensile|Flexural|Elongation|Impact|Charpy|Izod|modulus/i : /Tensile|Flexural|Elongation|Impact|Charpy|Izod|HDT|modulus/i).test(r.Property) && silent(r) && !contextFor(pageIndex, r).some((c) => c[field] && !/^Not published|not-stated/.test(c[field])));
     if (open.length) add('CONTEXT-PAGE-UNRECORDED', `${sourceId} p. ${pg}`, field, `the page says "${m[0]}"; ${open.length} of its rows (${open.slice(0, 4).map((r) => r.MeasurementID).join(', ')}${open.length > 4 ? ', …' : ''}) record nothing, and no page_context row carries it`);
   }
 }
@@ -90,15 +105,35 @@ for (const [k, list] of byPage) {
 const LABEL = { Bed: /(?:platform temp|print platform|bed temp(?:erature)?|heated bed|hot ?bed temp|build plate temp(?:erature)?|plate temp|底板温度|热床)[^0-9]{0,40}?(\d{2,3})\s*(?:-|–|~|to)\s*(\d{2,3})\s*(?:°|℃|˚|c\b)/i, Nozzle: /(?:nozzle temp(?:erature)?|print(?:ing)? temp(?:erature)?|extru(?:der|sion) temp(?:erature)?|喷嘴温度|打印温度)[^0-9]{0,40}?(\d{3})\s*(?:-|–|~|to)\s*(\d{3})\s*(?:°|℃|˚|c\b)/i };
 const profilesByGrade = new Map(); for (const r of rows('Print setup')) { if (!profilesByGrade.has(r.GradeID)) profilesByGrade.set(r.GradeID, []); profilesByGrade.get(r.GradeID).push(r); }
 for (const r of rows('Print setup')) {
+  // A profile that records how a sheet's test bars were printed holds no guidance by design (m170).
+  if (/not printing guidance/.test(r.Locator)) continue;
   const pages = pagesOf(r.SourceID); if (!pages) continue;
   const text = pages.map((p) => p.lines.join(' ')).join(' ');
   for (const [axis, re] of Object.entries(LABEL)) {
     if (r[`${axis} state`] === 'range') continue;
     const m = text.match(re); if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, `${axis} °C`, `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r[`${axis} °C`]}${profilesByGrade.get(r.GradeID).some((p) => p[`${axis} state`] === 'range') ? ' (another profile of the product holds a window)' : ' (no profile of the product holds one)'}`);
   }
+  // A chamber window, an enclosure ask or a drying schedule its own sheet prints, where the profile holds nothing (the
+  // data audit's R50–R52: "Recommended environmental temperature 70 – 80", "it is recommended to use an enclosure",
+  // "Drying conditions: 70°C / 4 hours").
+  if (r['Chamber state'] === 'unknown') {
+    const m = text.match(/(?:chamber|environment(?:al)?|ambient|enclosure)\s*temp(?:erature)?\.?[^0-9]{0,30}?(\d{2,3})\s*(?:-|–|~|to)\s*(\d{2,3})\s*(?:\(|°|℃|˚|c\b)/i);
+    if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Chamber °C', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r['Chamber °C']}`);
+  }
+  if (r['Enclosure state'] === 'unknown' && !/^(recommended|range|enclosed|required)$/.test(r['Chamber state'])) {
+    // A question the sheet answers ("Enclosed chamber required No") is read with its answer.
+    const m = text.match(/recommended to (?:use|print (?:with|in)) an? (?:enclosure|enclosed (?:printer|chamber))|enclosed (?:chamber|printer|space)\s*(?:required|recommended)?\s*[:\-]?\s*(?:required|recommended|yes|no)\b|requires? an? enclosure/i);
+    if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Enclosure', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r.Enclosure}`);
+  }
+  if (r['Drying state'] === 'unknown' || /^Not published$/.test(r.Drying)) {
+    const m = text.match(/dry(?:ing)?(?: conditions?| temp(?:erature)?\.?(?: and time)?)?\s*[:\-]?\s*(\d{2,3})\s*(?:°|℃|˚)\s*c?\s*[\/,x×]?\s*(?:for\s*)?(\d{1,2})\s*(?:-\s*\d{1,2}\s*)?(?:h|hours?|hrs?)\b/i);
+    if (m) add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Drying', `its own sheet prints "${m[0].slice(0, 70)}"; the profile holds ${r.Drying}`);
+  }
   // "Hardened Nozzle no" printed on the profile's own sheet against a typed TRUE, or the reverse.
-  const hn = text.match(/hardened nozzle\s*[:\-]?\s*(no|yes|not (?:required|necessary)|required|recommended)\b/i);
-  if (hn) { const says = /^(no|not)/i.test(hn[1]) ? 'FALSE' : 'TRUE'; if (r['Hardened nozzle'] !== says && r['Hardened nozzle'] !== 'Not published') add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its own sheet prints "${hn[0]}"; the profile holds ${r['Hardened nozzle']}`); }
+  // A sheet may ask the question and answer it ("Ruby or hardened nozzle recommended No"), or deny it ("no hardened nozzle
+  // required").
+  const hn = text.match(/(\bno\s+)?hardened nozzle\s*(?:(?:recommended|required)\s*\??\s*[:\-]?\s*(no|yes)\b|[:\-]?\s*(no|yes|not (?:required|necessary)|required|recommended)\b)/i);
+  if (hn) { const says = hn[1] || /^(no|not)/i.test(hn[2] ?? hn[3]) ? 'FALSE' : 'TRUE'; if (r['Hardened nozzle'] !== says && r['Hardened nozzle'] !== 'Not published') add('CONTEXT-PROFILE-SETTING', r.ProfileID, 'Hardened nozzle', `its own sheet prints "${hn[0]}"; the profile holds ${r['Hardened nozzle']}`); }
 }
 
 // ---- the baseline

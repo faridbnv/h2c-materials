@@ -73,7 +73,7 @@ all products: 3.91
  3
 1.64–15.5 · 5
  101
-86–110 · 7
+86–110 · 8
  65
 40–122 · 5
 ↗ ☆
@@ -97,20 +97,18 @@ Nylon / Polyamide
  PASS
 1 of 2 products
  passing: 1,210
-all products: 1,210
-1,140–1,250 · 3
+all products: 1,175
+1,140–1,210 · 2
  passing: 3.33
-all products: 3.1
-3–3.33 · 3
- 65
-63–69.2 · 3
- 8.5
-4.5–9.77 · 3
+all products: 3.16
+3–3.33 · 2
+ 66.1
+63–69.2 · 2
+ 9.13
+8.5–9.77 · 2
  85
 79–91 · 2
- 107
-107–107 · 2
-¤ ☆
+ 107¤ ☆
 PA6-CF
 Nylon / Polyamide
  PASS
@@ -163,10 +161,10 @@ all products: 1,200
 all products: 3.1
  82.1 3.6* 80* — ☆
 PETG PASS
-1 of 49 products
+1 of 50 products
  passing: 1,250
 all products: 1,270
-1,180–1,350 · 56
+1,180–1,350 · 57
  passing: 2.78
 all products: 1.65
 0.5–3.5 · 17
@@ -176,15 +174,15 @@ all products: 1.65
 4.1–90 · 23
 typical: annealed
  70
-63–80 · 32
+63–80 · 33
  26
 20–66 · 14
 ↗ ☆
 PLA PASS
-11 of 62 products
+11 of 63 products
  passing: 800–1,240
 all products: 1,240
-1,170–1,329 · 146
+1,170–1,329 · 150
  passing: 2.53–4.16
 all products: 2.58
 0.433–4.24 · 43
@@ -194,7 +192,7 @@ typical: annealed
  6.3
 1.2–65 · 56
  55
-50–135 · 68
+50–135 · 69
  33.3
 18–80 · 27
 ↗ ☆

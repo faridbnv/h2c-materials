@@ -8,7 +8,7 @@ import { loadTables, snapshotDate } from '../build/src/load.js';
 import { loadSchemas } from '../build/src/schema.js';
 import { compile } from '../build/src/compile.js';
 import { lintData } from '../build/src/lint-rules.js';
-import { pageOf, scopeOf } from '../build/src/page-context.js';
+import { pageOf, scopeOf, specimenApplies } from '../build/src/page-context.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = loadTables(join(root, 'data'));
@@ -44,4 +44,11 @@ test('a row that states the opposite of its page keeps its words and is flagged'
   tables.page_context.rows.push(pageRow({ SourceID: printed.SourceID, Page: String(pageOf(printed.Locator)), 'Post-processing state': 'annealed', 'Anneal °C': 'Not published', 'Anneal h': 'Not published' }));
   const findings = lintData(tables, loadSchemas(join(root, 'schema'))).filter((f) => f.code === 'CONTEXT-ROW-CONTRADICTS-PAGE');
   assert.ok(findings.some((f) => f.record === printed.MeasurementID && f.field === 'Post-processing state'), JSON.stringify(findings.slice(0, 2)));
+});
+
+test('a page\'s specimen statement does not speak for a melt flow rate, which is measured on the melt', () => {
+  assert.equal(specimenApplies('Melt mass-flow rate'), false);
+  assert.equal(specimenApplies('Melt volume-flow rate'), false);
+  assert.equal(specimenApplies('Tensile modulus'), true);
+  assert.equal(specimenApplies('Density'), true);
 });

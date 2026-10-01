@@ -120,7 +120,9 @@ function statedNumbers(text) {
  */
 export function applyProfileTyped(r, parsed, issues, where = `profiles ${r.ProfileID}`) {
   checkReviewScope(r, issues, where, PROFILE_REVIEW_COLUMNS);
+  const differs = new Set();
   const mismatch = (column, stored, read) => {
+    differs.add(column);
     if (explains(r, column)) return;
     issues.push({ level: 'error', code: 'PARSE-MISMATCH', where, message: `${column} is ${stored ?? 'empty'} but the parser reads the raw text as ${read ?? 'nothing'}; correct the typed value, or explain it in Parse review` });
   };
@@ -154,6 +156,11 @@ export function applyProfileTyped(r, parsed, issues, where = `profiles ${r.Profi
   const hardened = bool(r['Hardened nozzle']);
   if (hardened !== a.requiresHardened) mismatch('Hardened nozzle', hardened, a.requiresHardened);
   out.abrasion = { ...a, requiresHardened: hardened, state: hardened == null ? a.state : 'stated' };
+  // A review that explains a difference the parser no longer makes would silence the next one (a parser that learns a
+  // spelling, or an edit to the cell, leaves it behind).
+  for (const c of reviewFields(r) ?? []) {
+    if (PROFILE_REVIEW_COLUMNS.includes(c) && !differs.has(c)) issues.push({ level: 'error', code: 'PARSE-REVIEW-STALE', where, message: `Parse review explains ${c}, which agrees with the parser's reading; take it out of the review's Fields` });
+  }
   return out;
 }
 

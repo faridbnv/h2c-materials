@@ -98,7 +98,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D86 | A maker's product line is a product, TPU is read by hardness, and a product moves by its MaterialID | Bambu's one-product lines became products of their real material, TPU is split by Shore hardness, and a product moves between materials keeping its identifiers. | Amended by D106 (m223): the "hardness not stated" class is a family entry, and a TPU that states no rating waits for its maker's |
 | D87 | A family's "polymer not stated" home, and sintering filaments are recorded, never candidates | Products whose sheets name only a family get a labelled "polymer not stated" material, and metal and ceramic sintering filaments are recorded but never candidates. | Amended in phase 5, part 5 (m146): exclusion is recorded in Scope alone; amended by D106 (m223): a product is searched beyond its sheet before it enters a home, the homes say the maker does not disclose the polymer, and the PLA family's are named PLA blend |
 | D88 | Where a product's own sheet is silent, a printer maker's guide decides its print gate, labelled as the guide's | Where a product's own sheet says nothing about a part of how to print it, Bambu Lab's Filament Guide for its material type answers instead, always labelled as the guide's; the product's own sheet always wins, and the guide cannot settle a chamber it gives no temperature for. | Amended by D90 (for the nine types the guide asks an enclosure for, its enclosure is the H2C's heated chamber); amended on 2026-09-27 (m209): the revision read is the one Bambu Lab's guide page links (B-GUIDE, eighteen types) |
-| D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force |
+| D89 | A twin reads its sibling's values and print recipe where its own are silent | A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range. | In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table) |
 | D90 | Where Bambu Lab's guide asks for an enclosure, the H2C's heated chamber meets it | For the nine material types Bambu Lab's Filament Guide says to print in an enclosure, a product whose own sheet says nothing about the chamber counts as printable in the H2C's heated chamber, labelled as the guide's; a maker's own chamber statement always wins, even one the H2C cannot reach. | In force; it amends D88; extended by D93 (a maker's own "enclosure needed" or "recommended", with no temperature, reads the same for the nine types); extended on 2026-09-27 to ASA-CF and PC FR, the two types the guide Bambu Lab links also asks an enclosure for (m209) |
 | D91 | A tensile value labelled only by a ±45° raster is an XY value | A test bar a data sheet describes only by its ±45° print pattern is read as printed flat (XY), because that is how makers usually print their XY bars; where the sheet names its own XY bar beside it, the ±45° one stays apart. | In force; it supersedes the reading of a ±45° raster that m33 and lane 4 (m155) applied, for tensile values a sheet labels by that raster alone; extended by m199 (2026-09-27): the ±45° tab's "Ultimate strength" is each of twelve Nanovia products' XY tensile strength |
 | D92 | Three more selectable properties: the layer strength, the notched Charpy impact strength and the glass transition | You can now require a strength across the layers, a notched impact strength and a glass transition; each product's value is chosen by the same rule as the others, and a value measured another way (another test, unit, notch, direction or temperature) is shown but never compared. | Amended by D94 (notched Izod is a second impact filter; the Charpy headline no longer shows an Izod value as its nearest evidence); extended in phase 6, final round (m191): an XZ or ZX tensile bar its sheet shows or says stood upright is recorded Z, and counts |
@@ -128,6 +128,7 @@ decision superseded, amended, narrowed or extended it. The index below collects 
 | D116 | What a page states once, its values inherit | A data sheet often says something once for a whole table, such as "all specimens annealed at 80 °C" or "printed specimens, dry". That statement is now recorded once per page, and every value on the page that says nothing for itself inherits it; a value that says the opposite keeps its own words and is flagged. | In force |
 | D117 | A row says how many products pass, and shows the passing products' own values | A material's row now says "PASS · 7 of 200 products" instead of a bare PASS, shows the range of the products that pass beside the range of all of them, says when a pass rests on a declared variant or on a value with no test direction or treatment stated, splits an UNKNOWN into how many products measure below and how many publish nothing, and gives every material-level fact (a hardened nozzle, a typical value's state) the count of products it is true of. | In force; it amends D83 (how a material's verdict is shown, not how it is decided) |
 | D118 | "Official Bambu product" passes Bambu Lab's own spools | The requirement "Official Bambu product" used to pass every product of a material Bambu sells, so a third-party PLA passed it because Bambu sells a PLA. It now passes only products Bambu Lab makes; the others of that material are "Officially listed family". | In force |
+| D119 | What the error-class sweep changed in the rules | Clearing the data audit's error classes changed a few rules: products of one material that print one table share one formulation key even when two makers sell them, and each reads its own maker's sheet first; a review note that no longer explains anything stops the build; a page's statement about specimens never covers a melt flow rate; and the readers learned the spellings the sheets used that they could not read. | In force; it amends D89 and D115 |
 
 <!-- end index -->
 
@@ -2564,6 +2565,7 @@ on the parts their sheets leave out.
 ## D89. A twin reads its sibling's values and print recipe where its own are silent
 
 > **In plain words:** A product whose sheet prints the same table as a sibling of the same material shows the sibling's values and print recipe where its own are missing, labelled "same sheet as …", and counts as a product in its material's range.
+> **Status:** In force; amended by D119 (a twin reads its own maker's sheet before another maker's reprint of the table).
 
 *Decided by the owner on 2026-09-25 (docs/GOALS.md, phase 6, decision 2). Built in re-center phase 6, lane 2 (the
 owner's decisions).*
@@ -3803,3 +3805,28 @@ Built by Claude (an agent).*
   material's, as before. `schema/vocab/h2c-status.csv` says so.
 - A selection saved before this release is asked again under the new meaning; the release note it opens with already
   says its answers may differ.
+
+## D119. What the error-class sweep changed in the rules
+
+> **In plain words:** Clearing the data audit's error classes changed a few rules: products of one material that print one table share one formulation key even when two makers sell them, and each reads its own maker's sheet first; a review note that no longer explains anything stops the build; a page's statement about specimens never covers a melt flow rate; and the readers learned the spellings the sheets used that they could not read.
+> **Status:** In force; it amends D89 and D115.
+
+*Built by Claude (an agent) in the sweep the owner approved on 2026-10-01; the record is
+[the error-class sweep](audits/2026-10-01-error-classes/README.md).*
+
+- **Twins (R053, m281).** Two grades of one material that print at least 80 % of at least five values identically
+  are one table under two names (GRADE-VALUES-TWIN), whether one maker prints it twice (EASY and R PET-G), one
+  product has two sheets (a revision, a language) or another maker reprints it (3DJake's PCTG, Spectrum's tough
+  PLA). They now share one formulation key, so the estimate model counts the table once (D12) and each product reads
+  the other's values where its own sheet is silent (D89). GRADE-KEY-PRODUCTS no longer flags a key whose products are
+  linked twin by twin. A product reads a twin of its own maker before another maker's reprint. A key still never
+  spans two materials (R166): 13 such pairs are accepted with that reason.
+- **Reviews (D115).** PARSE-REVIEW-STALE: a print profile's Parse review that names a column agreeing with the parser
+  stops the build, because it would silence the next difference in that column.
+- **Page statements (D116).** A page's specimen statement does not reach a melt flow rate, which is measured on the
+  melt.
+- **Readers.** ISO 75's method letter in "HDT/A", "HDT-A" and "ISO 75: Method A", a stated load outranking a
+  mislabelled letter ("Method A (0.45 MPa)"); "ISO-R 75"; DIN's five-digit standards ("DIN 53.504"); test temperatures
+  printed "℃", "@23° C", "+24°C"; a window marked "(recommended)" after its numbers; an answered question ("Enclosed
+  chamber required No"); a build chamber up to 250 °C. Each was a spelling sheets print that a reader left unread.
+

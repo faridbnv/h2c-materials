@@ -9,21 +9,34 @@ G001-07,M001,Huracan PLA,annealed:x:x,tensileModulusXY,2.95,V002785,2.95,
 G001-07,M001,Huracan PLA,annealed:x:x,tensileStrengthXY,42,V002784,42,
 G001-14,M001,FlameGuard PLA,annealed:x:x,hdt045,90,V003031,55,
 G001-16,M001,PLA Pro,as-printed,hdt045,,,75,
-G001-16,M001,PLA Pro,as-printed,tensileModulusXY,,,2.865,
-G001-16,M001,PLA Pro,as-printed,tensileStrengthXY,,,40,
+G001-16,M001,PLA Pro,as-printed,tensileModulusXY,2.865,V008744,2.865,twin G001-115
+G001-16,M001,PLA Pro,as-printed,tensileStrengthXY,40,V008745,40,twin G001-115
 G001-16,M001,PLA Pro,annealed:110:0.3333,hdt045,75,V003114,75,
 G001-16,M001,PLA Pro,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.865,
 G001-16,M001,PLA Pro,annealed:110:0.3333,tensileStrengthXY,40,V003108,40,
+G001-16,M001,PLA Pro,annealed:110:0.25,tensileModulusXY,2.87,V005535,2.865,twin G001-55
+G001-16,M001,PLA Pro,annealed:110:0.25,tensileStrengthXY,40,V005534,40,twin G001-55
+G001-16,M001,PLA Pro,annealed:x:x,hdt045,75,V005539,75,twin G001-55
 G001-21,M001,Polymaker HT PLA,annealed:x:x,charpyNotched,4.67,V003827,4.94,
 G001-29,M001,Polymaker HT PLA Pro,annealed:x:x,charpyNotched,10.1,V003915,,
 G001-29,M001,Polymaker HT PLA Pro,annealed:x:x,tensileModulusXY,2.53,V003913,2.27,
 G001-29,M001,Polymaker HT PLA Pro,annealed:x:x,tensileStrengthZ,25,V003914,26.8,
 G001-55,M001,IMPACT PLA,as-printed,hdt045,,,75,
-G001-55,M001,IMPACT PLA,as-printed,tensileModulusXY,,,2.87,
-G001-55,M001,IMPACT PLA,as-printed,tensileStrengthXY,,,40,
+G001-55,M001,IMPACT PLA,as-printed,tensileModulusXY,2.865,V008744,2.87,twin G001-115
+G001-55,M001,IMPACT PLA,as-printed,tensileStrengthXY,40,V008745,40,twin G001-115
 G001-55,M001,IMPACT PLA,annealed:110:0.25,tensileModulusXY,2.87,V005535,2.87,
 G001-55,M001,IMPACT PLA,annealed:110:0.25,tensileStrengthXY,40,V005534,40,
 G001-55,M001,IMPACT PLA,annealed:x:x,hdt045,75,V005539,75,
+G001-55,M001,IMPACT PLA,annealed:110:0.3333,hdt045,75,V003114,75,twin G001-16
+G001-55,M001,IMPACT PLA,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.87,twin G001-16
+G001-55,M001,IMPACT PLA,annealed:110:0.3333,tensileStrengthXY,40,V003108,40,twin G001-16
+G001-115,M001,Tough PLA,as-printed,hdt045,,,75,
+G001-115,M001,Tough PLA,annealed:110:0.3333,hdt045,75,V003114,75,twin G001-16
+G001-115,M001,Tough PLA,annealed:110:0.3333,tensileModulusXY,2.865,V003109,2.865,twin G001-16
+G001-115,M001,Tough PLA,annealed:110:0.3333,tensileStrengthXY,40,V003108,40,twin G001-16
+G001-115,M001,Tough PLA,annealed:110:0.25,tensileModulusXY,2.87,V005535,2.865,twin G001-55
+G001-115,M001,Tough PLA,annealed:110:0.25,tensileStrengthXY,40,V005534,40,twin G001-55
+G001-115,M001,Tough PLA,annealed:x:x,hdt045,75,V005539,75,twin G001-55
 G002-01,M001,PLA Basic,as-printed,charpyNotched,,,7.9,
 G002-01,M001,PLA Basic,as-printed,elongationXY,,,12.2,
 G002-01,M001,PLA Basic,as-printed,hdt045,,,57,
@@ -211,6 +224,7 @@ G019-01,M019,Polymaker HT PLA GF,annealed:x:x,tensileStrengthZ,22.46,V000368,23.
 G020-05,M020,PET-G FR V0,annealed:x:x,hdt045,63,V002684,63,
 G020-09,M020,PET-G MATT,as-printed,hdt045,,,80,
 G020-09,M020,PET-G MATT,annealed:x:x,hdt045,80,V002964,80,
+G020-67,M020,PET-G VO,annealed:x:x,hdt045,63,V002684,63,twin G020-05
 G022-01,M020,PETG HF,as-printed,charpyNotched,,,6.2,
 G022-01,M020,PETG HF,as-printed,elongationXY,,,8.6,
 G022-01,M020,PETG HF,as-printed,hdt045,,,69,
@@ -295,6 +309,7 @@ G031-01,M031,ASA,annealed:80:12,hdt045,100,V000618,100,
 G031-01,M031,ASA,annealed:80:12,tensileModulusXY,2.45,V000620,2.45,
 G031-01,M031,ASA,annealed:80:12,tensileStrengthXY,37,V000622,37,
 G031-01,M031,ASA,annealed:80:12,tensileStrengthZ,31,V000623,31,
+G031-23,M031,Ultrafuse ASA,conditioned,charpyNotched,8.6,V007801,,
 G031-23,M031,Ultrafuse ASA,conditioned,elongationXY,5.2,V007797,,
 G031-23,M031,Ultrafuse ASA,conditioned,tensileModulusXY,2.12,V007798,,
 G032-01,M032,ASA Aero,as-printed,charpyNotched,,,8.2,
@@ -426,11 +441,13 @@ G051-03,M051,PolyMide PA6 GF,annealed:80:6+conditioned,elongationXY,19.4,V001195
 G051-03,M051,PolyMide PA6 GF,annealed:80:6+conditioned,tensileModulusXY,2.053,V001191,4.431,
 G051-03,M051,PolyMide PA6 GF,annealed:80:6+conditioned,tensileStrengthXY,50.8,V001193,84.5,
 G051-03,M051,PolyMide PA6 GF,annealed:80:6+conditioned,tensileStrengthZ,44.4,V001194,61.4,
+G051-09,M051,FIBERON PA6 GF25,as-printed,charpyNotched,,,10,
 G051-09,M051,FIBERON PA6 GF25,as-printed,elongationXY,,,2.4,
 G051-09,M051,FIBERON PA6 GF25,as-printed,hdt045,,,191,
 G051-09,M051,FIBERON PA6 GF25,as-printed,tensileModulusXY,,,5.3569,
 G051-09,M051,FIBERON PA6 GF25,as-printed,tensileStrengthXY,,,80.1,
 G051-09,M051,FIBERON PA6 GF25,as-printed,tensileStrengthZ,,,60.7,
+G051-09,M051,FIBERON PA6 GF25,annealed:100:16,charpyNotched,10,V006472,10,
 G051-09,M051,FIBERON PA6 GF25,annealed:100:16,elongationXY,2.4,V006466,2.4,
 G051-09,M051,FIBERON PA6 GF25,annealed:100:16,hdt045,191,V006461,191,
 G051-09,M051,FIBERON PA6 GF25,annealed:100:16,tensileModulusXY,5.3569,V006462,5.3569,
@@ -505,6 +522,8 @@ G059-01,M059,Fiberon PA612-CF15,annealed:100:16+conditioned,tensileStrengthXY,83
 G059-01,M059,Fiberon PA612-CF15,annealed:100:16+conditioned,tensileStrengthZ,35.6,V001071,48.3,
 G059-02,M059,PA612-CF,as-printed,elongationXY,,,3.16,
 G059-02,M059,PA612-CF,as-printed,tensileStrengthXY,,,83.34,
+G059-02,M059,PA612-CF,as-printed,tensileStrengthZ,,,38.61,
+G059-02,M059,PA612-CF,annealed:100:8,tensileStrengthZ,38.61,V009358,38.61,
 G059-02,M059,PA612-CF,annealed:x:x,elongationXY,3.16,V009355,3.16,
 G059-02,M059,PA612-CF,annealed:x:x,tensileStrengthXY,83.34,V009353,83.34,
 G059-03,M059,Industrial PA12 CF+,as-printed,elongationXY,,,3.5,
@@ -586,6 +605,16 @@ G068-04,M068,Industrial PET GF,annealed:100:8,elongationXY,2.56,V006927,2.56,
 G068-04,M068,Industrial PET GF,annealed:100:8,tensileModulusXY,4.13,V006923,4.13,
 G068-04,M068,Industrial PET GF,annealed:100:8,tensileStrengthXY,71,V006925,71,
 G068-04,M068,Industrial PET GF,annealed:100:8,tensileStrengthZ,34,V006926,34,
+G068-05,M068,PET-GF,as-printed,charpyNotched,,,6.56,
+G068-05,M068,PET-GF,as-printed,elongationXY,,,2.56,
+G068-05,M068,PET-GF,as-printed,hdt045,,,120.3,
+G068-05,M068,PET-GF,as-printed,tensileStrengthXY,,,70.86,
+G068-05,M068,PET-GF,as-printed,tensileStrengthZ,,,33.95,
+G068-05,M068,PET-GF,annealed:100:8,charpyNotched,6.56,V008159,6.56,
+G068-05,M068,PET-GF,annealed:100:8,elongationXY,2.56,V008156,2.56,
+G068-05,M068,PET-GF,annealed:100:8,hdt045,120.3,V008154,120.3,
+G068-05,M068,PET-GF,annealed:100:8,tensileStrengthXY,70.86,V008155,70.86,
+G068-05,M068,PET-GF,annealed:100:8,tensileStrengthZ,33.95,V008160,33.95,
 G069-01,M069,PPA Pure Resin,annealed:x:x,hdt045,131,V001289,103,
 G069-02,M069,Fibreheart PPA,conditioned,hdt045,61,V002551,81,
 G070-02,M070,Fibreheart PPA-CF,annealed:x:x,elongationXY,1.6,V002559,2,

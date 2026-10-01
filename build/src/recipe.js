@@ -6,7 +6,8 @@ import { parseTemperature, withinH2C, parseAbrasion, parseDrying, parseEnclosure
 import { applyProfileTyped } from './typed-values.js';
 
 // Plausibility windows keep a stray number in a sentence from being read as a temperature.
-export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 200] };
+// An industrial printer's build chamber reaches 250 °C (Kumovis R1 for PEEK: "Build chamber temperature 160 - 230 °C").
+export const TEMP_WINDOW = { nozzle: [100, 500], bed: [0, 250], chamber: [0, 250] };
 
 /**
  * A row's recipe: nozzle, bed and chamber windows, enclosure, drying and hardened nozzle, and the gates. `where` names

@@ -1073,16 +1073,34 @@ npm run audit:coverage-status -- --check
 
 ## 28. What the error-class sweep leaves open
 
-The sweep of 2026-10-01 ([record](audits/2026-10-01-error-classes/README.md)) removes the data audit's error classes
-one mechanism at a time. RC1 and RC2 are removed (D115). Under review, each accepted as "Open in the error-class sweep"
-until it is re-read: 54 product pairs that print one table with no formulation key (GRADE-VALUES-TWIN), 30 impact
-values whose unit disagrees with their standard (IMPACT-UNIT-STANDARD), one notched-above-unnotched pair and three
-flexural pairs (MEAS-PHYSICS-NOTCH, -FLEX-STRAIN), and one filled product filed as unfilled (FILING-FILLER-WORD). Not
-under review from `npm run audit:context` (RC3, RC4, RC8, D116): 103 pages whose heading or footnote no
-page_context row carries, 36 directions, 72 standards, 3 notches, 4 bound signs and 3 sub-zero test temperatures on
-values' own lines, and 143 print settings a profile's own sheet prints and the profile does not hold.
+The sweep of 2026-10-01 ([record](audits/2026-10-01-error-classes/README.md)) removed the data audit's nine error
+classes and left each guard at zero unreviewed findings (D115, D116, D119). What it found and did not settle:
+
+- **One product, two grades.** Nine products have a grade per sheet revision or language, now under one key (m281)
+  but still counted twice in their material's spread: PolyLite PC and its Transparent sheet (G035-02, G035-10), Fabru's
+  HDPE GF20, ASA and PLA in German and English (G138-01/02, G031-12/26, G001-57/68), PolyLite ASA V5.3 and Polymaker ASA
+  V6.0 (G031-02/06), Extrudr PLA NX2 and NX2 MATT (G001-110/33), nGen and nGen Amphora AM3300 (G092-01/02), 3DXSTAT
+  ESD-Ultem Rev 3.0 and 3.1 (G123-01/02), PolyMax PC-FR V5.1 and V5.5 (G035-08, G036-02). Retiring the copy is the
+  owner's call: it drops that grade's own listings and profiles from view.
+- **Filing questions the twins raised.** FiberFlex Aero (G134-01) is filed as CPE-LW from its sheet's boilerplate
+  ("CPE ANTIBAC filament") while its values are FiberFlex 40D's elastomer table and its maker's page calls it "from the
+  elastomer family". Spectrum's PA6 CS20 FR V0 and pa6 neat bk print LEHVOSS LUVOCOM 3F PAHT tables value for value and
+  sit under PA6-CE and PA6 while the LUVOCOM grades sit under PAHT-CE. 13 cross-material twin pairs are accepted (R166).
+- **The import's fibre sentence.** 209 profiles hold "Use abrasion-resistant nozzle; verify minimum orifice …" in their
+  raw Abrasion column (`scripts/ingest/propose.mjs`, ABRASIVE), the register's rule for a fibre-filled filament, not the
+  sheet's words; the engine says "a source states it needs an abrasion-resistant nozzle" for them. Two whose sheets say
+  the opposite were corrected (m282); the rule belongs in `method.csv`, shown as a rule.
+- **Values never transcribed**, seen while re-reading: Raise3D Industrial PET-CF's table (5,731 / 3,270 MPa, 73 / 34
+  MPa, 7.75 kJ/m²; only its prose "over 6 GPa" is recorded), BASF PET CF15's 63.2 MPa tensile strength, the 3D-printed
+  sections of colorFabb LW-PLA and LW-PLA-HT, and Stratasys PA6/66-GF30 FR's XZ heat deflections (185 and 153 °C).
+  `npm run audit:sources` finds such values; the import pause keeps them out until it is lifted.
+- **Guard precision.** `audit:context` keeps 53 accepted findings where it matched a neighbouring line or a statement
+  that does not speak for the rows it flagged; IMPACT-UNIT-STANDARD keeps 28, each a sheet that prints kJ/m² beside ASTM
+  D256. PARSE-REVIEW-STALE checks print profiles only; a measurement's scoped review is not yet checked for staleness.
+- **Not yet measured.** The fresh random re-read that says how much the sweep removed (the audit's 6.3 % of deciding
+  measurements and 11.5 % of print profiles) is the next step.
 
 ```sh
-npm run data:lint
+npm run data:lint && npm run audit:context
+npm run sql -- "select gradeid, product_name, shared_formulation_key from grades where status = 'active' and shared_formulation_key in (select shared_formulation_key from grades where status = 'active' group by shared_formulation_key having count(*) > 1) order by shared_formulation_key"
 ```
-

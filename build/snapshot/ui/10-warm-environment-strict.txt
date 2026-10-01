@@ -1,7 +1,7 @@
 COUNT 33 shown PASS
-STATUS ☑ PASS 33 | ☐ UNKNOWN 93 | ☐ FAIL 27
+STATUS ☑ PASS 33 | ☐ UNKNOWN 92 | ☐ FAIL 28
 33 of the 153 materials meet these requirements
-Warm environment template · 93 more could not be checked, left out under Confirmed only
+Warm environment template · 92 more could not be checked, left out under Confirmed only
 Why the rest were excluded
 Clear requirements
 Printable on the H2C
@@ -43,7 +43,7 @@ PC
 n/a not applicable
 Material ▲ Result Density kg/m³ Stiffness XY GPa Strength XY MPa Stretch % HDT 0.45 °C Price CAD/kg Shortlist
 ABS PASS
-16 of 19 products
+17 of 20 products
  1,050
 1,020–1,150 · 42
 typical: annealed
@@ -55,8 +55,8 @@ typical: annealed
  10
 3.9–40 · 16
  passing: 85–104
-all products: 94
-78.9–104 · 21
+all products: 93.5
+78.9–104 · 22
  40
 24.5–70.7 · 9
 ↗ ☆
@@ -101,23 +101,23 @@ all products: 93.5
 82–100 · 8
  39↗ ☆
 ASA PASS
-15 of 16 products
+17 of 18 products
  1,070
 1,040–1,150 · 35
  2.25
 0.943–2.45 · 10
  38.6
 30.2–45 · 11
- 6.5
-1.9–11 · 11
+ 6.25
+1.9–11 · 12
  passing: 82–103
 all products: 95
-82–103 · 18
+82–103 · 20
  39.5
 30.8–70.7 · 5
 ↗ ☆
 ASA-CF PASS
-6 of 6 products
+7 of 7 products
  1,095
 1,020–1,170 · 14
  3.91
@@ -128,7 +128,7 @@ ASA-CF PASS
 1.64–15.5 · 5
  passing: 86–103
 all products: 101
-86–110 · 7
+86–110 · 8
  65
 40–122 · 5
 ↗ ☆
@@ -332,28 +332,28 @@ all products: 90
 PC
 Polycarbonate
  PASS
-6 of 11 products
+6 of 10 products
  1,200
-1,150–1,230 · 19
- 2.18
-1.8–2.63 · 11
- 62
-40–69.1 · 13
+1,150–1,230 · 18
+ 2.15
+1.8–2.5 · 10
 typical: annealed
+ 61
+40–69.1 · 12
  7
-3.2–25 · 12
+3.2–25 · 11
  passing: 101–144
 all products: 114
-101–144 · 11
+101–144 · 12
  51
 39–72 · 5
 ↗ ☆
 PC-ABS
 Polymer Blends
  PASS
-1 of 4 products
+1 of 5 products
  1,140
-1,070–1,210 · 10
+1,070–1,210 · 11
  1.84
 0.8–2.2 · 4
  41.7
@@ -421,13 +421,14 @@ typical: annealed
  passing: 81.6–200
 all products: 120
 81.6–200 · 3
+typical: annealed
  69.5
 41–98 · 2
 ↗ ☆
 PLA PASS
-7 of 67 products
+7 of 68 products
  1,240
-1,170–1,329 · 146
+1,170–1,329 · 150
  2.58
 0.433–4.24 · 43
 typical: annealed
@@ -437,7 +438,7 @@ typical: annealed
 1.2–65 · 56
  passing: 80–135
 all products: 55
-50–135 · 68
+50–135 · 69
  33.3
 18–80 · 27
 ↗ ☆

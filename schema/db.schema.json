@@ -645,6 +645,18 @@
           },
           "fatigue": {
             "type": "object"
+          },
+          "pageContext": {
+            "type": "object",
+            "description": "What the row inherited from its page (page_context.csv, D116): for each field it states nothing of its own, the PageContextID that gave it. Absent where the row inherited nothing.",
+            "additionalProperties": false,
+            "properties": {
+              "specimenType": { "type": "string", "pattern": "^PC\\d{5}$" },
+              "moistureState": { "type": "string", "pattern": "^PC\\d{5}$" },
+              "postProcessingState": { "type": "string", "pattern": "^PC\\d{5}$" },
+              "standards": { "type": "string", "pattern": "^PC\\d{5}$" },
+              "testTemperatureC": { "type": "string", "pattern": "^PC\\d{5}$" }
+            }
           }
         }
       }

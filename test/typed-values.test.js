@@ -55,9 +55,12 @@ test('an HDT test load is typed and checked the same way', () => {
   assert.ok(mismatches.some((m) => m.startsWith(`measurements ${hdt.MeasurementID}: Test load MPa is 1.8`)), mismatches.join(' | '));
 });
 
+const r0 = (canonical, m) => canonical.get(m.id);
 test('a test temperature is typed and checked the same way, and a wording with no number states none (m175)', async () => {
   const { readTestTemperature } = await import('../build/src/normalize/thermal.js');
   assert.deepEqual(['23°C', '23 °C', '-30°C', '21.5 °C', 'Room temperature', 'Not published'].map(readTestTemperature), [23, 23, -30, 21.5, null, null]);
+  // The spellings the 2026-10-01 sweep found unread on impact lines (m284).
+  assert.deepEqual(['150℃', '23° C (73° F)', '+24°C', '21.5˚C', '@23° C'].map(readTestTemperature), [150, 23, 24, 21.5, 23]);
   const cold = base.Properties.rows.find((r) => r['Test temperature'] === '-30°C' && r['Parse review'] === 'Not applicable');
   assert.equal(cold['Test temperature °C'], '-30');
   const { mismatches } = run((wb) => { wb.Properties.rows.find((r) => r.MeasurementID === cold.MeasurementID)['Test temperature °C'] = '23'; });
@@ -68,6 +71,8 @@ test('a test temperature is typed and checked the same way, and a wording with n
   assert.ok(stated.length > 1000);
   const canonical = new Map(base.Properties.rows.map((r) => [r.MeasurementID, r]));
   for (const m of stated) {
+    // A row that states none inherits the one its page states once (D116), and says which page_context row gave it.
+    if (m.pageContext?.testTemperatureC) { assert.equal(r0(canonical, m)['Test temperature °C'], 'Not published', m.id); continue; }
     const r = canonical.get(m.id);
     assert.equal(m.testTemperatureC, Number(r['Test temperature °C']), m.id);
     if (m.testTemperatureC !== readTestTemperature(m.testTemperature)) {
@@ -78,19 +83,19 @@ test('a test temperature is typed and checked the same way, and a wording with n
   // A reviewed source spelling keeps its typed value; removing the review restores the guard.
   const reviewed = run((wb) => {
     const r = wb.Properties.rows.find((x) => x.MeasurementID === cold.MeasurementID);
-    r['Test temperature'] = '150℃';
+    r['Test temperature'] = '150 deg C';
     r['Test temperature °C'] = '150';
-    r['Parse review'] = 'Fields: Test temperature °C. Source Celsius glyph transcribed as150°C; no other condition inferred.';
+    r['Parse review'] = 'Fields: Test temperature °C. The source spells the degree "deg C"; 150 °C, no other condition inferred.';
   });
   assert.deepEqual(reviewed.mismatches, []);
   assert.equal(reviewed.db.measurements.find((m) => m.id === cold.MeasurementID).testTemperatureC, 150);
   const unreviewed = run((wb) => {
     const r = wb.Properties.rows.find((x) => x.MeasurementID === cold.MeasurementID);
-    r['Test temperature'] = '150℃';
+    r['Test temperature'] = '150 deg C';
     r['Test temperature °C'] = '150';
     r['Parse review'] = 'Not applicable';
   });
-  assert.deepEqual(unreviewed.mismatches, [`measurements ${cold.MeasurementID}: Test temperature °C is 150 but the parser reads "150℃" as Not published; correct the typed value, or explain it in Parse review`]);
+  assert.deepEqual(unreviewed.mismatches, [`measurements ${cold.MeasurementID}: Test temperature °C is 150 but the parser reads "150 deg C" as Not published; correct the typed value, or explain it in Parse review`]);
 });
 
 test('the annealing schedule is a typed pair the wording checks: three spellings of one schedule are one state', async () => {
@@ -148,6 +153,10 @@ test('the standards a row names are a typed list the source\'s words check', asy
   assert.deepEqual(readStandards('GB/T 1040.4, 50 mm/min'), ['GB/T 1040'], 'a sub-part is the same test as its parent');
   // A method named where a standard would go is recorded only when no standard is named beside it.
   assert.deepEqual(readStandards('DSC, 10 °C/min'), ['DSC']);
+  // DIN's own five-digit numbers, with or without the point, and ISO's Recommendation spelling (the 2026-10-01 sweep).
+  assert.deepEqual(readStandards('Tensile Strength DIN 53.504'), ['DIN 53504']);
+  assert.deepEqual(readStandards('DIN 53505 Shore A'), ['DIN 53505']);
+  assert.deepEqual(readStandards('HDT-A ISO-R 75 Method A'), ['ISO 75']);
   assert.deepEqual(readStandards('ISO 11357-1-3, DSC 10 °C/min'), ['ISO 11357']);
   // Nothing is inferred: a condition the sheet prints instead of a standard names none.
   for (const text of ['210 °C, 2.16 kg', 'Not published', 'Study staircase method; run-out 1,000,000 cycles', 'Equilibrium water absorption']) {
@@ -191,6 +200,13 @@ test('a review that names no columns, or a column its row lacks, stops the build
   const codes = (edit) => { const wb = structuredClone(base); edit(wb); return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).issues.filter((i) => i.code === 'PARSE-REVIEW-SCOPE').map((i) => i.where); };
   assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'The sheet says so.'; }), [`profiles ${fixture.ProfileID}`]);
   assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'Fields: Bed width. The sheet says so.'; }), [`profiles ${fixture.ProfileID}`]);
+  assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'Fields: none. A note about the sheet.'; }), []);
+});
+
+test('a review that explains a difference the parser no longer makes stops the build (PARSE-REVIEW-STALE)', () => {
+  const codes = (edit) => { const wb = structuredClone(base); edit(wb); return compile(wb, { snapshot: snapshotDate(wb.Method.rows), build: 'test' }).issues.filter((i) => i.code === 'PARSE-REVIEW-STALE').map((i) => i.message); };
+  // The fixture's typed values agree with its parsers, so a review naming one of its columns explains nothing.
+  assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'Fields: Nozzle max °C. Reviewed.'; }), ["Parse review explains Nozzle max °C, which agrees with the parser's reading; take it out of the review's Fields"]);
   assert.deepEqual(codes((wb) => { profile(wb, fixture.ProfileID)['Parse review'] = 'Fields: none. A note about the sheet.'; }), []);
 });
 

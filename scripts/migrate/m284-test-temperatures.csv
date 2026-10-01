@@ -1,0 +1,23 @@
+id,source,expect,value,quote
+V004107,R-EXTRUDR-pctg-TDS-en,Not published,23 °C,Notched impact strength ISO 180 kj/m² 94 @ 23 °C Hardened Nozzle no
+V006663,R-3D4MAKERS-TDS-PEKK-A-Filament-3D4Makers,Not published,+24°C,Charpynotchedimpactstrenght5.5kJ/m2(+24°C) ISO179/1eA
+V007508,S-PET-tds-aquasolve-pva,Not published,23° C (73° F),Impact strength 1.6 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V007761,R-NANOVIA-PP-CF,Not published,23 °C,Charpy (notched) 3.5 kJ/m 2 ISO 179-1eA at 23 °C
+V009220,R-NANOVIA-PLA-XRS,Not published,23 °C,Charpy notched 1.8 kJ/m 2 ISO 179-1eU at 23 °C
+V009221,R-NANOVIA-PLA-XRS,Not published,23 °C,Charpy full 12 kJ/m 2 ISO 179-1eA at 23 °C
+V009524,S-PET-TDS-ABSpro-Flame-Retardant,Not published,23° C (73° F),"Impact strength 12,5 KJ/m² ISO 180/A Izod Notched @23° C (73° F)"
+V009550,S-PET-TDS-ABSpro,Not published,23° C (73° F),Impact strength 39 KJ/m² ISO 180/A Izod Notched @23° C (73° F)
+V009559,S-PET-TDS-EasyFil-ABS,Not published,23° C (73° F),Impact strength 36 KJ/m² ISO 180/A Izod Notched @23° C (73° F)
+V009631,S-PET-TDS-Tough-PLA,Not published,23° C (73° F),Impact strength 29.8 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009639,S-PET-TDS-MetalFil-Classic-Copper,Not published,23° C (73° F),Impact strength 9.3 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009702,S-PET-TDS-EasyFil-HIPS,Not published,23° C (73° F),Impact strength 15 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009748,S-PET-TDS-STYX-12,Not published,23° C (73° F),Impact strength 14 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009759,S-PET-TDS-StoneFil,Not published,23° C (73° F),Impact strength 2.9 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009765,S-PET-TDS-ApolloX,Not published,23° C (73° F),Impact strength 18 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009776,S-PET-TDS-MetalFil-Ancient-Bronze,Not published,23° C (73° F),Impact strength 11.3 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009794,S-PET-TDS-ClearScent-ABS,Not published,23° C (73° F),Impact strength 17 KJ/m² ISO 180/A Izod Notched @23° C (73° F)
+V009833,S-PET-TDS-CarbonFil,Not published,23° C (73° F),Impact strength 5 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V009840,S-PET-TDS-Premium-ABS,Not published,23° C (73° F),Impact strength 29 KJ/m² ISO 180/A Izod Notched @23° C (73° F)
+V010312,S-PET-TDS-Atlas-Support,Not published,23° C (73° F),Impact strength 1.7 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V010417,S-PET-TDS-Pegasus-PP-GF,Not published,23° C (73° F),Impact strength 3.56 KJ/m² ISO 179 Charpy Notched @23° C (73° F)
+V010443,S-PET-TDS-ReForm-rTitan,Not published,23° C (73° F),Impact strength 58 KJ/m² ISO 179 Charpy Notched @23° C (73° F)

@@ -28,6 +28,9 @@ export function scopeOf(property) {
   return 'physical';
 }
 
+/** Whether a page's specimen statement speaks for a property: a melt flow rate is measured on the melt, not a specimen. */
+export const specimenApplies = (property) => !/^Melt (mass|volume)-flow rate/i.test(String(property ?? ''));
+
 /** An index of page_context rows by source and page. */
 export function indexPageContext(rows) {
   const byPage = new Map();
@@ -80,7 +83,7 @@ export function inheritPageContext(m, r, contexts) {
   const inherited = {};
   for (const c of contexts) {
     const page = pageStates(c);
-    if (!own.specimen && page.specimen && !inherited.specimenType) {
+    if (!own.specimen && page.specimen && !inherited.specimenType && specimenApplies(r.Property)) {
       m.specimenType = page.specimen; m.specimenForm = specimenForm(page.specimen); inherited.specimenType = c.PageContextID;
     }
     if (!own.moisture && page.moisture && !inherited.moistureState) {
@@ -91,7 +94,7 @@ export function inheritPageContext(m, r, contexts) {
       if (page.anneal) m.anneal = page.anneal;
     }
     if (!own.standard && page.standard && !inherited.standards) {
-      m.standards = [page.standard]; inherited.standards = c.PageContextID;
+      m.standards = page.standard.split(';').map((x) => x.trim()).filter(Boolean); inherited.standards = c.PageContextID;
     }
     if (own.testTemperature == null && page.testTemperature != null && !inherited.testTemperatureC) {
       m.testTemperatureC = page.testTemperature; inherited.testTemperatureC = c.PageContextID;

@@ -1,0 +1,119 @@
+id,column,expect,value,source,quote,cards
+P1305,Bed °C,Not published,90-130°C,S-SPECTRUM-PRINT-20260928-fd0f508a9a5c,Bed temperature [°C] 90-130°C,F3-046
+P1305,Nozzle °C,Not published,270-320°C,S-SPECTRUM-PRINT-20260928-fd0f508a9a5c,Nozzle temperature [°C] 270-320°C,F3-046
+P1285,Nozzle °C,Not published,280 – 310°C,S-IPCON-PRINT-20260928-2dbb3874b5e9,Nozzle Temperature 280 – 310°C,F3-047
+P1306,Bed °C,Not published,40-60℃,S-ESUN-PRINT-20260928-c7b961702f53,40-60℃,F5-049
+P1306,Nozzle °C,Not published,210-270℃/410-518℉,S-ESUN-PRINT-20260928-c7b961702f53,210-270℃/410-518℉,F5-049
+P1310,Nozzle °C,Not published,220–250 °C,R-EXTRUDR-PRINT-20260929-3793d04515ce,Nozzle temperature 220–250 °,F1-050
+P1316,Bed °C,Not published,50–90 °C,R-EXTRUDR-PRINT-20260929-ca0239ac2a92,Build plate temperature 50–90 °C,F5-052
+P1316,Nozzle °C,Not published,230–250 °C,R-EXTRUDR-PRINT-20260929-ca0239ac2a92,Nozzle temperature 230–250 °C,F5-052
+P1308,Nozzle °C,Not published,230–260 °C,R-EXTRUDR-PRINT-20260929-245381f760f8,Nozzle temperature 230–260 °C,F3-052
+P1308,Bed °C,Not published,50–90 °C,R-EXTRUDR-PRINT-20260929-245381f760f8,Build plate temperature 50–90 °C,F3-052
+P1309,Nozzle °C,Not published,180–240 °C,R-EXTRUDR-PRINT-20260929-2cccd500d85c,Nozzle temperature 180–240 °C,F3-053
+P1309,Bed °C,Not published,20–60 °C,R-EXTRUDR-PRINT-20260929-2cccd500d85c,Build plate temperature 20–60 °C,F3-053
+P0573,Nozzle °C,Not published,255-290°C,S-SPECTRUM-EN-TDS-Spectrum-PA12-CF15,Nozzle temperature - standard speed 255-290°C,F1-059
+P0048,Nozzle °C,Not published,250-270 °C,S-PCGF-TDS-1,Print temperature 250-270 °C,F1-061
+P0768,Bed °C,Not published,60-70℃,R-SUNLU-PA6-GF-TDS,Print Platform Temp. 60-70℃,F1-062
+P1220,Nozzle °C,Not published,210-240°C,S-SPECTRUM-en-tds-spectrum-pla-silk-93646a,Nozzle temperature 210-240°C,F1-064
+P0860,Bed °C,Not published,45-60℃,R-3DJAKE-3DJAKE-14-TDS-hyper-PLA-CF-EN,Hot Bed Temperature 45-60℃,F1-065
+P1302,Nozzle °C,Not published,210-235°C,R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751,Printing temperature: 210-235°C,F2-067
+P1302,Bed °C,Not published,30-70°C,R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751,Bed temperature: 30-70°C,F2-067
+P1302,Drying,Not published,60°C / 4 hours,R-FIBERLOGY-PRINT-20260928-8d6a2f7e6751,Drying conditions: 60°C / 4 hours,F2-067
+P1298,Bed °C,Not published,100-110℃,S-ESUN-PRINT-20260928-84a9e8286c29,Bed Temperature(°C) 100-110℃,F1-068
+P1298,Nozzle °C,Not published,240-270℃,S-ESUN-PRINT-20260928-84a9e8286c29,240-270℃/464-518℉,F4-068
+P0878,Bed °C,Not published,± 35-60˚C,R-3DJAKE-3DJAKE-TDS-ecoPLA-Silk-Rainbow-v1-1,recommended temperature is ± 35-60˚C,F1-069
+P0828,Bed °C,Not published,± 35-60˚C,R-3DJAKE-3DJAKE-TDS-magicPLA,recommended temperature is ± 35-60˚C,F1-070
+P0763,Bed °C,Not published,30-50℃,R-SUNLU-TDS-EASY-PA,Print Platform Temp. 30-50℃,F1-071
+P1287,Bed °C,Not published,60-90℃,S-ESUN-PRINT-20260928-333834d1b9db,Bed Temperature(°C) 60-90℃,F1-072
+P1287,Nozzle °C,Not published,260-300℃,S-ESUN-PRINT-20260928-333834d1b9db,260-300℃/500-572℉,F4-072
+P1283,Nozzle °C,Not published,280 – 310°C,D-IPCON-PRINT-20260928-01990cc2eb5c,Nozzle Temperature 280 – 310°,F2-047
+P1283,Drying,Not published,100 – 140 °C / 10 – 14 h,D-IPCON-PRINT-20260928-01990cc2eb5c,Dry at 100 – 140 °C for 10 – 14 h,F2-047
+P1283,Abrasion / clogging,Not published,Hardened Steel Nozzle Recommended,D-IPCON-PRINT-20260928-01990cc2eb5c,Hardened Steel Nozzle Recommended,F2-047
+P1283,Bed °C,Not published,100 – 120°C,D-IPCON-PRINT-20260928-01990cc2eb5c,Bed Temperature 100 – 120°C,F4-048
+P0707,Nozzle °C,Not published,265 - 290 °C,R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,nozzle temperature: 265 - 290 °,F2-048
+P0707,Bed °C,Not published,> 50 °C,R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,print bed temperature: > 50 °C,F2-048
+P1297,Nozzle °C,Not published,265–295 °C,R-EXTRUDR-PRINT-20260928-83ec5c0b3125,Nozzle temperature 265–295 °C,F3-050
+P0888,Bed °C,Not published,160 - 250 °C,R-FILAMENT2PRINT-Other-3b8e77,Print bed temperature 160 - 250 °C,F2-050
+P0888,Chamber °C,Not published,160 - 230 °C,R-FILAMENT2PRINT-Other-3b8e77,Build chamber temperature 160 - 230 °C,F2-050
+P1314,Bed °C,Not published,20–60 °C,R-EXTRUDR-PRINT-20260929-af22746e0274,Build plate temperature 20–60 °C,F3-051
+P1314,Nozzle °C,Not published,200–230 °C,R-EXTRUDR-PRINT-20260929-af22746e0274,Nozzle temperature 200–230 °C,F3-051
+P1301,Nozzle °C,Not published,260–290 °C,R-EXTRUDR-PRINT-20260928-8ac1c5367674,Nozzle temperature 260–290 °,F2-053
+P1290,Bed °C,Not published,90-110C,X-3DXTECH-PRINT-20260928-4c7905791366,90-110C,F5-055
+P1290,Nozzle °C,Not published,245-265C,X-3DXTECH-PRINT-20260928-4c7905791366,245-265C,F5-055
+P1296,Nozzle °C,Not published,250–270°C,R-FIBERLOGY-PRINT-20260928-7bb43c8e086b,Printing temperature: 250–270°C,F2-058
+P1296,Bed °C,Not published,100°C,R-FIBERLOGY-PRINT-20260928-7bb43c8e086b,Bed temperature: 100°C,F2-058
+P1296,Drying,Not published,60°C / 4 hours,R-FIBERLOGY-PRINT-20260928-7bb43c8e086b,Drying conditions: 60°C / 4 hours,F2-058
+P0808,Bed °C,Not published,90-100℃,R-SUNLU-High-Speed-ABS-TDS,Print Platform Temp. 90-100℃,F2-061
+P1292,Nozzle °C,Not published,265-285C,X-3DXTECH-PRINT-20260928-5a8d5a8251f9,Extruder Temp 265-285C,F3-062
+P1292,Bed °C,Not published,90-110C,X-3DXTECH-PRINT-20260928-5a8d5a8251f9,Bed Temp 90-110C,F3-062
+P1292,Drying,Not published,90C for 4 hours,X-3DXTECH-PRINT-20260928-5a8d5a8251f9,90C for 4 hours,F2-062
+P1205,Nozzle °C,Not published,185-215°C,S-SPECTRUM-en-tds-spectrum-safeguard-pla,Nozzle temperature - standard speed 185-215°C,F2-063
+P1205,Bed °C,Not published,0-45°C,S-SPECTRUM-en-tds-spectrum-safeguard-pla,Bed temperature 0-45°C,F2-063
+P0810,Bed °C,Not published,100-110℃,R-SUNLU-PC-TDS,Print Platform Temp. 100-110℃,F2-065
+P1293,Nozzle °C,Not published,215–195 °C,R-FILLAMENTUM-PRINT-20260928-5f11a7e57e06,Printing temperature: 215–195 °C,F2-066
+P1293,Bed °C,Not published,90–105 °C,R-FILLAMENTUM-PRINT-20260928-5f11a7e57e06,Hotbed temperature: 90–105 °C,F5-067
+P1289,Bed °C,Not published,100-110C,X-3DXTECH-PRINT-20260928-46680bcd53a9,100-110C,F5-068
+P1289,Nozzle °C,Not published,220-240C,X-3DXTECH-PRINT-20260928-46680bcd53a9,220-240C,F5-068
+P1289,Drying,Not published,80C for 4 hours,X-3DXTECH-PRINT-20260928-46680bcd53a9,80C for 4 hours,F2-068
+P1289,Abrasion / clogging,Not published,Hardened Steel with .4mm diameter minimum,X-3DXTECH-PRINT-20260928-46680bcd53a9,Hardened Steel with .4mm diameter minimum,F2-068
+P0824,Bed °C,Not published,± 35-60˚C,R-3DJAKE-3DJAKE-TDS-ecoPLA-Sparkling-0,If you have a heated bed the recommended temperature is ± 35-60˚C.,F2-069
+P0949,Bed °C,Not published,± 60-90˚C,R-3DJAKE-Technical-Data-Sheet-TPU-A95-V2,If you have a heated bed the recommended temperature is ± 60-90˚C.,F2-070
+P0963,Bed °C,Not published,± 60-100˚C,R-3DJAKE-Technical-Data-Sheet-ASA-V2,If you have a heated bed the recommended temperature is ± 60-100˚C.,F2-071
+P0127,Nozzle °C,Not published,380-400°C,X-THERMAX-PEI-1010-TDS-v4,Extrusion Temp: 380-400°C,F2-074
+P0127,Bed °C,Not published,130-140°C,X-THERMAX-PEI-1010-TDS-v4,Bed Temp: 130-140°C,F2-074
+P1286,Bed °C,Not published,70-80℃,R-CREATBOT-PRINT-20260928-3148a159f1e5,Print Bed Temperature 70-80℃,F5-048
+P1286,Nozzle °C,Not published,280-300℃,R-CREATBOT-PRINT-20260928-3148a159f1e5,Nozzle Temperature 280-300℃,F5-048
+P1291,Bed °C,Not published,100–110 °C,R-EXTRUDR-PRINT-20260928-526b472f69cc,Build plate temperature 100–110 °C,F3-049
+P1291,Nozzle °C,Not published,220–250 °C,R-EXTRUDR-PRINT-20260928-526b472f69cc,Nozzle temperature 220–250 °C,F4-053
+P1207,Nozzle °C,Not published,190 - 220 °C,D-BIGREP-PLX-PAGE,Nozzle Temperature 190 - 220 °C,F3-056
+P1304,Nozzle °C,Not published,240-270°C,D-SIRAYA-TECH-PRINT-20260928-fc27f63b931a,Nozzle Temperature 240-270°C,F5-057
+P1304,Bed °C,Not published,40-60°C,D-SIRAYA-TECH-PRINT-20260928-fc27f63b931a,Build Plate Temperature 40-60°C,F5-057
+P1129,Nozzle °C,Not published,230 - 280 °C,S-PET-formfutura-tds-apollox2024,Nozzle temperature 230 - 280 °C,F3-059
+P1303,Nozzle °C,Not published,255–270°C,R-FIBERLOGY-PRINT-20260928-dff2ce2ac494,Printing temperature: 255–270°C,F3-060
+P1303,Bed °C,Not published,110°C,R-FIBERLOGY-PRINT-20260928-dff2ce2ac494,Bed temperature: 110°C,F3-060
+P0786,Bed °C,Not published,60-70℃,R-SUNLU-High-Speed-Matte-PETG-TDS,Print Platform Temp. 60-70℃,F3-061
+P0778,Bed °C,Not published,50-60℃,R-SUNLU-PVB-TDS,Print Platform Temp. 50-60℃,F3-063
+P1295,Bed °C,Not published,110-120C,X-3DXTECH-PRINT-20260928-7b969da511c0,110-120C,F5-064
+P1295,Nozzle °C,Not published,280-310C,X-3DXTECH-PRINT-20260928-7b969da511c0,Wide processing range of 280-310C,F5-064
+P1266,Bed °C,Not published,80-100°C,S-SPECTRUM-en-tds-spectrum-pp-42aa71,Bed temperature 80-100°C,F3-067
+P1266,Nozzle °C,Not published,245-280°C,S-SPECTRUM-en-tds-spectrum-pp-42aa71,Nozzle temperature 245-280°C,F4-067
+P0792,Bed °C,Not published,50-60℃,R-SUNLU-PLA-Carbon-Fiber,Print Platform Temp. 50-60℃,F3-069
+P0821,Bed °C,Not published,± 35-60˚C,R-3DJAKE-3DJAKE-TDS-ecoPLA-Wood-v1-1,recommended temperature is ± 35-60˚C.,F3-070
+P0771,Bed °C,Not published,50-60℃,R-SUNLU-SUNLU-PLA-Vivid-Yellow,Print Platform Temp. 50-60℃,F3-071
+P0122,Nozzle °C,Not published,255-275°C,X-FLUORX-PVDF-TDS-v3,Extrusion Temp: 255-275°C,F3-074
+P0122,Bed °C,Not published,70-110 °C,X-FLUORX-PVDF-TDS-v3,Bed Temp: 70-110 °C,F3-074
+P0131,Bed °C,Not published,130-150°C,X-THERMAX-PPSU-TDS-v3,Bed Temp: 130-150°C,F3-075
+P0131,Nozzle °C,Not published,390-410°C,X-THERMAX-PPSU-TDS-v3,Extrusion Temp: 390-410°C,F3-075
+P0129,Bed °C,Not published,120-140°C,X-THERMAX-PSU-TDS-v3,Bed Temp: 120-140°C,F3-076
+P0129,Nozzle °C,Not published,360-375°C,X-THERMAX-PSU-TDS-v3,Extrusion Temp: 360-375°C,F3-076
+P1288,Nozzle °C,Not published,240-270°C,S-SPECTRUM-PRINT-20260928-3741c527491c,240-270°C,F5-047
+P1288,Bed °C,Not published,80-100°C,S-SPECTRUM-PRINT-20260928-3741c527491c,80-100°C,F5-047
+P1311,Nozzle °C,Not published,225–250 °C,R-EXTRUDR-PRINT-20260929-463457967aab,Nozzle temperature 225–250 °C,F5-050
+P1311,Bed °C,Not published,20–90 °C,R-EXTRUDR-PRINT-20260929-463457967aab,Build plate temperature 20–90 °C,F5-050
+P1315,Nozzle °C,Not published,220–250 °C,R-EXTRUDR-PRINT-20260929-c415150859a4,Nozzle temperature 220–250 °C,F5-051
+P1315,Bed °C,Not published,50–90 °C,R-EXTRUDR-PRINT-20260929-c415150859a4,Build plate temperature 50–90 °C,F5-051
+P1307,Nozzle °C,Not published,220–250 °C,D-EXTRUDR-FLEX-MEDIUM-MATT-PAGE,Nozzle temperature 220–250 °C,F4-052
+P1312,Nozzle °C,Not published,170–190 °C,R-EXTRUDR-PRINT-20260929-5f1378a7bff2,Nozzle temperature 170–190 °C,F5-054
+P1312,Bed °C,Not published,20–60 °C,R-EXTRUDR-PRINT-20260929-5f1378a7bff2,Build plate temperature 20–60 °C,F5-054
+P1294,Nozzle °C,Not published,255–270°C,R-FIBERLOGY-PRINT-20260928-78dc0a4f3640,Printing temperature: 255–270°C,F4-059
+P1257,Nozzle °C,Not published,250-280 °C,R-FABRU-PUREFIL-3494-Material-data-sheet-PA6-GF10-purefil,250-280 °C,F4-060
+P0551,Nozzle °C,Not published,270-290°C,S-SPECTRUM-EN-TDS-Spectrum-PC-CF-3,Nozzle temperature - standard speed 270-290°C,F4-061
+P0765,Bed °C,Not published,60-70℃,R-SUNLU-PA12-CF-TDS,Print Platform Temp. 60-70℃,F4-062
+P0802,Bed °C,Not published,50-70℃,R-SUNLU-Silk-PLA-Four-Color-TDS-fc0f1921-f20b-4dee-8742-08d11bddaea8,Print Platform Temp. 50-70℃,F4-063
+P0773,Bed °C,Not published,50-60℃,R-SUNLU-PLA-Galaxy-TDS,Print Platform Temp. 50-60℃,F4-064
+P0781,Bed °C,Not published,100-110℃,R-SUNLU-PC-ABS-TDS,Print Platform Temp. 100-110℃,F4-065
+P0788,Bed °C,Not published,80-100℃,R-SUNLU-SUNLU-ABS-Blue,Print Platform Temp. 80-100℃,F4-069
+P0851,Bed °C,Not published,± 35-60˚C,R-3DJAKE-3DJAKE-TDS-ecoPLA-Silk-v1-1,the recommended temperature is ± 35-60˚C.,F4-070
+P0862,Bed °C,Not published,± 35-60˚C,R-3DJAKE-3DJAKE-TDS-ecoPLA-v1-4,the recommended temperature is ± 35-60˚C.,F4-071
+P0091,Bed °C,Not published,110 - 130°C,X-THERMAX-PPS-TDS-v3,Bed Temp: 110 - 130°C,F5-073
+P0091,Nozzle °C,Not published,335-345°C,X-THERMAX-PPS-TDS-v3,Extrusion Temp: 335-345°C,F5-073
+P0123,Bed °C,Not published,130-140°C,X-Themax-PEEK-TDS-v3,Bed Temp: 130-140°C,F5-074
+P0123,Nozzle °C,Not published,380-400°C,X-Themax-PEEK-TDS-v3,Extrusion Temp: 380-400°C,F5-074
+P0720,Nozzle °C,Not published,240-265°C,S-SPECTRUM-EN-TDS-Spectrum-PETG-Premium-High-Speed,Nozzle temperature - standard speed 240-265°C,F5-060
+P0801,Bed °C,Not published,50-70℃,R-SUNLU-PA6-CF-TDS,Print Platform Temp. 50-70℃,F5-062
+P1202,Nozzle °C,Not published,190-220°C,S-SPECTRUM-en-tds-spectrum-pla-thermoactive,Nozzle temperature 190-220°C,F5-065
+P0767,Bed °C,Not published,50-60℃,R-SUNLU-PLA-0,50-60℃,F5-069
+P0853,Bed °C,Not published,± 35-60˚C,R-3DJAKE-3DJAKE-TDS-mysteryPLA-v1-1,the recommended temperature is ± 35-60˚C.,F5-070
+P0794,Bed °C,Not published,50-60℃,R-SUNLU-High-Speed-PLA,Print Platform Temp. 50-60℃,F5-071
+P1299,Nozzle °C,Not published,190–210°C,R-FIBERLOGY-PRINT-20260928-8542185b8c6b,Printing temperature: 190–210°C,F5-072
+P1299,Bed °C,Not published,60°C,R-FIBERLOGY-PRINT-20260928-8542185b8c6b,Bed temperature: 60°C,F5-072

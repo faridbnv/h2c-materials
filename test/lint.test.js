@@ -156,6 +156,17 @@ test('one product has one grade, and one formulation key names one product of on
   assert.deepEqual(withValues(twin, [{ MeasurementID: 'V1', GradeID: 'G1-01' }]), []);
   // And the shape the rule exists for is unchanged: two grades that each carry values under one key.
   assert.deepEqual(withValues(twin, [{ MeasurementID: 'V1', GradeID: 'G1-01' }, { MeasurementID: 'V2', GradeID: 'G1-02' }]), ['GRADE-KEY-PRODUCTS G1-01 | G1-02']);
+
+  // Two products whose sheets print one table (GRADE-VALUES-TWIN) are one formulation, and one key says so (R053, m281);
+  // without the key the twin rule asks for it.
+  const v = (id, gradeId, property, value) => ({ MeasurementID: id, GradeID: gradeId, Property: property, 'Normalized value': String(value), 'Normalized unit': 'MPa', 'Data status': 'Published value' });
+  const table = (gradeId) => [['Tensile modulus', 2100], ['Tensile strength (endpoint unspecified)', 47], ['Flexural modulus', 2300], ['Flexural strength', 71], ['Elongation at break', 8]].map(([p, x], i) => v(`${gradeId}-${i}`, gradeId, p, x));
+  const lintAll = (rows, measurements) => lintData(
+    { grades: { header: Object.keys(rows[0]), rows }, measurements: { header: Object.keys(measurements[0]), rows: measurements } },
+    { grades: { primaryKey: 'GradeID', fields: [] }, measurements: { primaryKey: 'MeasurementID', fields: [] } },
+  ).filter((f) => /^GRADE-/.test(f.code)).map((f) => `${f.code} ${f.record}`);
+  assert.deepEqual(lintAll(twin, [...table('G1-01'), ...table('G1-02')]), []);
+  assert.deepEqual(lintAll([grade({}), grade({ GradeID: 'G1-02', 'Product name': 'PETG GF', 'Shared formulation key': 'S-OTHER' })], [...table('G1-01'), ...table('G1-02')]), ['GRADE-VALUES-TWIN G1-01 | G1-02']);
 });
 
 test('two sources that publish the same sheet are one document registered twice', () => {

@@ -94,3 +94,12 @@ ISO 8302,Thermal conductivity by the guarded hot plate.
 ISO 845,Apparent density of cellular plastics and rubbers; the test a foaming filament's sheet cites for the density its print reaches.
 ISO 868,Indentation hardness by durometer (Shore).
 TGA,"Thermogravimetric analysis, where the source names the method but no standard; a decomposition temperature is measured this way and several sheets print ""TGA, 20 °C/min"" where a standard would go, as they print ""DSC"" for a melting point."
+DIN 53452,"Flexural test of plastics (withdrawn, replaced by ISO 178)."
+DIN 53453,"Impact test of plastics (withdrawn, replaced by ISO 179)."
+DIN 53455,"Tensile test of plastics (withdrawn, replaced by ISO 527)."
+DIN 53457,"Modulus of elasticity of plastics (withdrawn, replaced by ISO 527 and ISO 178)."
+DIN 53479,Density of plastics and elastomers.
+DIN 53504,Tensile stress-strain properties of rubber.
+DIN 53505,Shore A and Shore D hardness.
+DIN 53515,Tear strength of rubber (angle test piece).
+DIN 53516,Abrasion resistance of rubber.

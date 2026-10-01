@@ -5,7 +5,7 @@
 // A finding has the one shape rules.js issue() builds: { level, code, table, record, field, where, message }. The
 // acceptance baseline is keyed on code + table + record + field.
 
-import { indexPageContext, contextFor, rowStates, pageStates } from './page-context.js';
+import { indexPageContext, contextFor, rowStates, pageStates, specimenApplies } from './page-context.js';
 import { DATA_STATUS } from './normalize/values.js';
 
 export const LINT_RULES = {
@@ -80,6 +80,27 @@ export const isTitle = (title) => {
 const TEXT_TABLES = ['materials', 'grades', 'profiles', 'profile_notes', 'measurements', 'evidence', 'prices', 'sources', 'coverage', 'method', 'reference', 'reference_envelopes', 'properties', 'headline_definitions', 'polymer_environment', 'print_guide', 'print_guide_materials', 'fx_rates'];
 
 /** tables: { name: { header, rows } } as plain objects (CSV values); schemas: from loadSchemas. */
+/**
+ * Pairs of active grades that print one table: at least five published values, at least 80 % of the smaller set
+ * identical (property, value and unit). A value more than 60 grades print is a family's typical number, not a table.
+ * Returns "a | b" (sorted) to { shared, smaller }.
+ */
+export function valueTwins(active, gradeRows) {
+  const status = new Map(gradeRows.map((g) => [g.GradeID, g.Status]));
+  const values = new Map();
+  for (const r of active) { if (!values.has(r.GradeID)) values.set(r.GradeID, new Set()); values.get(r.GradeID).add(`${r.Property}=${Number(r['Normalized value'])} ${r['Normalized unit']}`); }
+  const valueGrades = new Map();
+  for (const [g, vs] of values) { if (vs.size < 5 || status.get(g) !== 'active') continue; for (const v of vs) { if (!valueGrades.has(v)) valueGrades.set(v, []); valueGrades.get(v).push(g); } }
+  const pairShared = new Map();
+  for (const gs of valueGrades.values()) { if (gs.length < 2 || gs.length > 60) continue; for (let i = 0; i < gs.length; i++) for (let j = i + 1; j < gs.length; j++) { const k = [gs[i], gs[j]].sort().join(' | '); pairShared.set(k, (pairShared.get(k) ?? 0) + 1); } }
+  const out = new Map();
+  for (const [k, shared] of pairShared) {
+    const [a, b] = k.split(' | '); const smaller = Math.min(values.get(a).size, values.get(b).size);
+    if (shared >= 5 && shared >= 0.8 * smaller) out.set(k, { shared, smaller });
+  }
+  return out;
+}
+
 export function lintData(tables, schemas) {
   const findings = [];
   // The shape issue() builds (rules.js), written here because the catalogue reads LINT_RULES from this file.
@@ -183,6 +204,7 @@ export function lintData(tables, schemas) {
     groups.get(k).push(r);
   }
   const num = (r) => Number(r['Normalized value']);
+  const twinPairs = valueTwins(active, tables.grades?.rows ?? []);
   for (const rows of groups.values()) {
     const of = (property, pred = () => true) => rows.filter((r) => r.Property === property && pred(r));
     const load = (r) => Number(r['Test load MPa']);
@@ -274,7 +296,15 @@ export function lintData(tables, schemas) {
     // values under one key, where the model would read two products' measurements as one product's.
     const withValues = knowsValues ? gs.filter((g) => measured.has(g.GradeID)) : gs;
     const products = [...new Set(withValues.map((g) => productKey(g['Product name'])))];
-    if (materials.length === 1 && products.length > 1) add('GRADE-KEY-PRODUCTS', 'grades', withValues.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${withValues.map((g) => g['Product name']).join(', ')}`);
+    // Products whose sheets print one table (GRADE-VALUES-TWIN, linked pair by pair) are one formulation, as the key
+    // says (R053).
+    const reached = new Set(withValues.slice(0, 1).map((g) => g.GradeID));
+    for (let grew = true; grew;) {
+      grew = false;
+      for (const g of withValues) if (!reached.has(g.GradeID) && [...reached].some((x) => twinPairs.has([x, g.GradeID].sort().join(' | ')))) { reached.add(g.GradeID); grew = true; }
+    }
+    const oneTable = reached.size === withValues.length;
+    if (materials.length === 1 && products.length > 1 && !oneTable) add('GRADE-KEY-PRODUCTS', 'grades', withValues.map((g) => g.GradeID).join(' | '), 'Shared formulation key', `${k} is on ${withValues.map((g) => g['Product name']).join(', ')}`);
   }
 
   // A value outside what its polymer can do. The windows are a table, keyed on the property, the unit, how the
@@ -480,17 +510,11 @@ export function lintData(tables, schemas) {
   }
   // One table under two products. The cross-source twin check above keys on the conditions too, so two copies of one
   // sheet recorded with different direction or state words escape it; this one keys on the values alone, per grade.
-  const values = new Map();
-  for (const r of active) { if (!values.has(r.GradeID)) values.set(r.GradeID, new Set()); values.get(r.GradeID).add(`${r.Property}=${num(r)} ${r['Normalized unit']}`); }
   const gradeRow = new Map((tables.grades?.rows ?? []).map((g) => [g.GradeID, g]));
-  const valueGrades = new Map();
-  for (const [g, vs] of values) { if (vs.size < 5 || gradeRow.get(g)?.Status !== 'active') continue; for (const v of vs) { if (!valueGrades.has(v)) valueGrades.set(v, []); valueGrades.get(v).push(g); } }
-  const pairShared = new Map();
-  for (const gs of valueGrades.values()) { if (gs.length < 2 || gs.length > 60) continue; for (let i = 0; i < gs.length; i++) for (let j = i + 1; j < gs.length; j++) { const k = [gs[i], gs[j]].sort().join(' | '); pairShared.set(k, (pairShared.get(k) ?? 0) + 1); } }
-  for (const [k, shared] of pairShared) {
-    const [a, b] = k.split(' | '); const smaller = Math.min(values.get(a).size, values.get(b).size);
+  for (const [k, { shared, smaller }] of twinPairs) {
+    const [a, b] = k.split(' | ');
     const ka = gradeRow.get(a)?.['Shared formulation key'], kb = gradeRow.get(b)?.['Shared formulation key'];
-    if (shared >= 5 && shared >= 0.8 * smaller && !(ka && ka === kb)) add('GRADE-VALUES-TWIN', 'grades', k, 'Shared formulation key', `${shared} of ${smaller} values identical (${gradeRow.get(a)?.Manufacturer} ${gradeRow.get(a)?.['Product name']} / ${gradeRow.get(b)?.Manufacturer} ${gradeRow.get(b)?.['Product name']})`);
+    if (!(ka && ka === kb)) add('GRADE-VALUES-TWIN', 'grades', k, 'Shared formulation key', `${shared} of ${smaller} values identical (${gradeRow.get(a)?.Manufacturer} ${gradeRow.get(a)?.['Product name']} / ${gradeRow.get(b)?.Manufacturer} ${gradeRow.get(b)?.['Product name']})`);
   }
   // A filler or polymer in the product's name that its material does not have.
   const FILLER_WORDS = [[/\b(cf|carbon)\b/i, /carbon|\bcf\b/], [/\b(gf|glass)\b/i, /glass|\bgf\b/], [/\besd\b|antistatic|conductive/i, /esd|static|conduct/], [/\b(steel|copper|bronze|brass|iron|tungsten|metal)\b/i, /metal|steel|copper|bronze|iron|sinter/], [/\b(wood|bamboo|cork)\b/i, /wood|natural/], [/\bpetg\b/i, /petg|copolyester|\bpet\b/], [/\bpla\b/i, /pla/]];
@@ -507,6 +531,7 @@ export function lintData(tables, schemas) {
       for (const c of contextFor(pageIndex, r)) {
         const own = rowStates(r), page = pageStates(c);
         for (const [field, label] of [['specimen', 'Specimen type'], ['moisture', 'Moisture state'], ['treatment', 'Post-processing state']]) {
+          if (field === 'specimen' && !specimenApplies(r.Property)) continue;
           if (own[field] && page[field] && own[field] !== page[field]) add('CONTEXT-ROW-CONTRADICTS-PAGE', 'measurements', r.MeasurementID, label, `the row says ${own[field]}; p. ${c.Page} of ${c.SourceID} says ${page[field]} (${c.PageContextID}: "${String(c.Statement).slice(0, 80)}")`);
         }
       }

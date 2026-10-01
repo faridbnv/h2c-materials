@@ -1,0 +1,54 @@
+id,column,expect,value,quote
+P0277,Drying,Not published,75°C/6H,Drying temp. and time 75°C/6H
+P0279,Drying,Not published,70°C/7H,Drying temp. and time 70°C/7H
+P0282,Chamber °C,Not published,Recommended environmental temperature 40 - 60 (˚C),Recommended environmental temperature 40 - 60 (˚C)
+P0283,Chamber °C,Not published,Recommended environmental temperature 40 - 60 (˚C),Recommended environmental temperature 40 - 60 (˚C)
+P0287,Drying,Not published,55˚C for 6h,Drying temp. and time 55˚C for 6h
+P0291,Drying,Not published,70°C/8H,Drying temp. and time 70°C/8H
+P0297,Drying,Not published,60°C/6H,Drying temp. and time 60°C/6H
+P0299,Drying,Not published,55°C/6H,Drying temp. and time 55°C/6H
+P0308,Drying,Not published,75°C/6H,Drying temp. and time 75°C/6H
+P0313,Enclosure,Not published,It is recommended to use an enclosure,recommended to use an enclosure
+P0318,Drying,Not published,55°C/6H,Drying temp. and time 55°C/6H
+P0321,Drying,Not published,70°C/8H,Drying temp. and time 70°C/8H
+P0326,Drying,Not published,55°C/6H,Drying temp. and time 55°C/6H
+P0328,Drying,Not published,100°C/8H,Drying temp. and time 100°C/8H
+P0330,Drying,Not published,55˚C for 6h,Drying temp. and time 55˚C for 6h
+P0332,Drying,Not published,60°C/6H,Drying temp. and time 60°C/6H
+P0334,Drying,Not published,70°C/8H,Drying temp. and time 70°C/8H
+P0337,Drying,Not published,55°C/6H,Drying temp. and time 55°C/6H
+P0339,Drying,Not published,70°C/6H,Drying temp. and time 70°C/6H
+P0341,Drying,Not published,55˚C for 6h,Drying temp. and time 55˚C for 6h
+P0343,Drying,Not published,55°C/6H,Drying temp. and time 55°C/6H
+P0345,Enclosure,Not published,it is recommended to use an enclosure,recommended to use an enclosure
+P0345,Drying,Not published,75°C/6H,Drying temp. and time 75°C/6H
+P0350,Drying,Not published,55°C/6H,Drying temp. and time 55°C/6H
+P0353,Drying,Not published,75°C/6H,Drying temp. and time 75°C/6H
+P0357,Drying,Not published,70°C/6H,Drying temp. and time 70°C/6H
+P0359,Drying,Not published,65°C/6H,Drying temp. and time 65°C/6H
+P0402,Chamber °C,Not published,Enclosed-chamber printing with a chamber temperature of 90–100 °C,Enclosed-chamber printing with a chamber temperature of 90–100 °C
+P0544,Drying,Not published,65 °C/3H,Drying temp. and time 65 °C/3H
+P0547,Drying,Not published,100°C/10H,Drying temp. and time 100°C/10H
+P0548,Drying,Not published,100°C/10H,Drying temp. and time 100°C/10H
+P0559,Drying,Not published,100 °C/10H,Drying temp. and time 100 °C/10H
+P0562,Drying,Not published,100 °C/10H,Drying temp. and time 100 °C/10H
+P0568,Drying,Not published,100 °C/10H,Drying temp. and time 100 °C/10H
+P0570,Drying,Not published,90 °C/6H,Drying temp. and time 90 °C/6H
+P0576,Drying,Not published,100 °C/10H,Drying temp. and time 100 °C/10H
+P0837,Chamber °C,Not published,160 - 230 °C,Build chamber temperature 160 - 230 °C
+P0911,Chamber °C,Not published,Recommended environmental temperature 20 - 50 (˚C),Recommended environmental temperature | 20 - 50
+P0996,Drying,Not published,50°C/12H,Drying temp. and time 50°C/12H
+P1203,Drying,Not published,55°C/6H,Drying temp. and time 55°C/6H
+P1248,Chamber °C,Not published,a certain ambient temperature (40-70°C) is required during printing,a certain ambient temperature （ 40-70°C ） is required during printing
+P1254,Drying,Not published,"65℃, 8H","Drying conditions 65℃, 8H"
+P1294,Drying,Not published,80°C / 4 hours,Drying conditions: 80°C / 4 hours
+P1299,Drying,Not published,50°C / 6 hours,Drying conditions: 50°C / 6 hours
+P1307,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1308,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1309,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1310,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1311,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1312,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1314,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1315,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No
+P1316,Enclosure,Not published,Enclosed chamber required No,Enclosed chamber required No

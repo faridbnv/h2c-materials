@@ -79,6 +79,9 @@ test('enclosure wording separates "not needed" from "recommended"', () => {
   for (const t of ['recommended for larger prints', 'recommended', 'Yes', 'active heated (60-80°C)', 'for larger components']) {
     assert.equal(parseEnclosure(t).state, 'recommended', t);
   }
+  // A question the row answers (Extrudr's product pages, the 2026-10-01 sweep).
+  assert.equal(parseEnclosure('Enclosed chamber required No').state, 'not-needed');
+  assert.equal(parseEnclosure('Enclosed chamber required Yes').state, 'recommended');
   assert.equal(parseEnclosure('Not published').state, 'unknown');
   // A comparison table may answer with a drawn mark: Bambu Lab's guide ticks or crosses "Print with Enclosure" (D88).
   assert.equal(parseEnclosure('✓').state, 'recommended');
@@ -312,4 +315,19 @@ test('a ±45° raster is its own orientation, comparable only with itself (C-06)
   assert.equal(d.mapped, true);
   assert.equal(d.canonical, 'raster-45');
   assert.equal(directionsComparable('raster-45', 'XY'), false);
+});
+
+test('the error-class sweep of 2026-10-01: the spellings the readers found unread', () => {
+  // ISO 75's method letter in its slash, hyphen and "Method" spellings, and a stated load outranking a mislabelled letter.
+  for (const [text, load] of [['HDT/A D3418', 1.8], ['HDT-A ISO-R 75 Method A', 1.8], ['HDT/B', 0.45], ['ISO 75：Method B', 0.45], ['ISO 75: Method A (0.45 MPa)', 0.45]]) {
+    assert.equal(parseHdtStandard(text).loadMPa, load, text);
+  }
+  assert.equal(parseHdtStandard('HDT-A ISO-R 75 Method A').standard, 'ISO 75');
+  // Polymaker's "(recommended)" after a window recommends the window; a recommended point inside one does not.
+  assert.equal(parseTemperature('70 – 80 (recommended) (˚C)').requirement, REQUIREMENT.RECOMMENDED);
+  assert.equal(parseTemperature('70-80 (˚C)(Recommended)').requirement, REQUIREMENT.RECOMMENDED);
+  assert.equal(parseTemperature('230~260 ℃ (recommended: 240℃)').requirement, REQUIREMENT.REQUIRED);
+  // An industrial build chamber is read whole, not cut at 200 °C into a single point.
+  const kumovis = parseTemperature('160 - 230 °C', { plausible: [0, 250] });
+  assert.deepEqual([kumovis.min, kumovis.max], [160, 230]);
 });

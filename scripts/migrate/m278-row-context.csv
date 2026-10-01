@@ -1,0 +1,204 @@
+id,column,expect,value,source,quote,cards
+V005865,Notch,Unnotched,Notched,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,"Izod Impact Strength Izod Notch, ISO 179 40 J/m | Mechanical Properties – Injection Molded*",F1-007
+V005865,Specimen type,Not published (do not assume printed),Raw material value,R-COLORFABB-TDS-E-ColorFabb-nGen-FLEX,"Izod Impact Strength Izod Notch, ISO 179 40 J/m | Mechanical Properties – Injection Molded*",F1-007
+V009654,Test temperature,Not published,23° C,S-PET-TDS-ReForm-rPET,Izod Notched @23° C (73° F) | Izod Notched @23° C (73° F),F1-015
+V009654,Test temperature °C,Not published,23,S-PET-TDS-ReForm-rPET,Izod Notched @23° C (73° F) | Izod Notched @23° C (73° F),F1-015
+V009771,Test temperature,Not published,23° C,S-PET-TDS-Volcano-PLA,Charpy Notched @23° C (73° F) | Charpy Notched @23° C (73° F),F1-023
+V009771,Test temperature °C,Not published,23,S-PET-TDS-Volcano-PLA,Charpy Notched @23° C (73° F) | Charpy Notched @23° C (73° F),F1-023
+V007432,Standards,Not published,ASTM D648,R-ULTIMAKER-MAKERBOT-MakerBot-Precision-ASA-3-092020,"Heat Deflection (ASTM 648,66 psi) 204°F 96°C",F1-030
+V007432,Standard / load,66 psi 204°F ASTM 648,66 psi 204°F ASTM 648; ASTM D648,R-ULTIMAKER-MAKERBOT-MakerBot-Precision-ASA-3-092020,"Heat Deflection (ASTM 648,66 psi) 204°F 96°C",F1-030
+V001248,Standard / load,Not published,"ISO 179, GB/T 1043",S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,"ISO 179, GB/T 1043 | ISO 179, GB/T 1043",F2-001
+V001248,Standards,Not published,ISO 179; GB/T 1043,S-POLYCN-TDS-FIBERON-PA612-ESD-V1-0-EN-1,"ISO 179, GB/T 1043 | ISO 179, GB/T 1043",F2-001
+V004149,Test temperature,Not published,-30°C,R-EXTRUDR-durapro-asa-TDS-en,Unnotched impact strength ASTM D256 kj/m² 29 @ -30°C | Unnotched impact strength ASTM D256 kj/m² 29 @ -30°C,F2-008
+V004149,Test temperature °C,Not published,-30,R-EXTRUDR-durapro-asa-TDS-en,Unnotched impact strength ASTM D256 kj/m² 29 @ -30°C | Unnotched impact strength ASTM D256 kj/m² 29 @ -30°C,F2-008
+V004148,Test temperature,Not published,23°C,R-EXTRUDR-durapro-asa-TDS-en,Notched impact strength ASTM D256 kj/m² 140 @ 23°C | Notched impact strength ASTM D256 kj/m² 140 @ 23°C,F2-008
+V004148,Test temperature °C,Not published,23,R-EXTRUDR-durapro-asa-TDS-en,Notched impact strength ASTM D256 kj/m² 140 @ 23°C | Notched impact strength ASTM D256 kj/m² 140 @ 23°C,F2-008
+V007824,Test temperature,Not published,@23° C,S-PET-tds-hdglass,Izod Notched @23° C (73° F) | Izod Notched @23° C (73° F),F2-017
+V007824,Test temperature °C,Not published,23,S-PET-tds-hdglass,Izod Notched @23° C (73° F) | Izod Notched @23° C (73° F),F2-017
+V005879,Notch,Unnotched,Notched,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,"Izod Impact Strength Izod Notch, ISO 179 107 J/m | Mechanical Properties – Injection Molded*",F2-018
+V005879,Specimen type,Not published (do not assume printed),Raw material value,R-COLORFABB-TDS-E-ColorFabb-PETG-Economy,"Izod Impact Strength Izod Notch, ISO 179 107 J/m | Mechanical Properties – Injection Molded*",F2-018
+V007439,Standards,Not published,ISO 527; ISO 3167,R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,"dry, @50 mm/min ISO 527 ISO 3167 A",F2-021
+V007439,Standard / load,Not published,"ISO 527, ISO 3167",R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,"dry, @50 mm/min ISO 527 ISO 3167 A",F2-021
+V007440,Standards,Not published,ISO 527; ISO 3167,R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,"dry, @50 mm/min ISO 527 ISO 3167 A",F2-021
+V007440,Standard / load,Not published,"ISO 527, ISO 3167",R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,"dry, @50 mm/min ISO 527 ISO 3167 A",F2-021
+V007441,Standards,Not published,ISO 527; ISO 3167,R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,"dry, @1 mm/min ISO 527 ISO 3167 A",F2-021
+V007441,Standard / load,Not published,"ISO 527, ISO 3167",R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,"dry, @1 mm/min ISO 527 ISO 3167 A",F2-021
+V007442,Standards,Not published,ISO 179,R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,dry ISO 179 1eU 80x10x4mm,F2-021
+V007442,Standard / load,Not published,ISO 179,R-3D4MAKERS-LUVOCOM-3F-PAHT-CF-9742-BK-EN-TDS,dry ISO 179 1eU 80x10x4mm,F2-021
+V010036,Raw unit,kj/m²,J/m,R-EXTRUDR-biofusion-TDS-en,Impact resistance ASTM D256 kj/m² 12 J/m,F2-023
+V007799,Direction,Unstated,XZ,R-BASF-ExtendedTDS-Ultrafuse-ASA-V2-1,Flexural Strength ISO 178 TBD 67.4 MPa 44.0 MPa,F2-024
+V008743,Standard / load,D792,D1238,R-MATTERHACKERS-PRO-SERIES-8AWUF9,Melting Point 165-180°C | Melting Point 165-180°C,F2-025
+V008743,Standards,ASTM D792,ASTM D1238,R-MATTERHACKERS-PRO-SERIES-8AWUF9,Melting Point 165-180°C | Melting Point 165-180°C,F2-025
+V008744,Standard / load,D1238,D638,R-MATTERHACKERS-PRO-SERIES-8AWUF9,"Tensile Modulus 2,865 MPa | Tensile Modulus 2,865 MPa",F2-025
+V008744,Standards,ASTM D1238,ASTM D638,R-MATTERHACKERS-PRO-SERIES-8AWUF9,"Tensile Modulus 2,865 MPa | Tensile Modulus 2,865 MPa",F2-025
+V008746,Standard / load,HDT A D256,HDT/A D3418,R-MATTERHACKERS-PRO-SERIES-8AWUF9,Heat deflection temp. HDT/A 75-80°C | Heat deflection temp. HDT/A 75-80°C,F2-025
+V008746,Standards,ASTM D256,ASTM D3418,R-MATTERHACKERS-PRO-SERIES-8AWUF9,Heat deflection temp. HDT/A 75-80°C | Heat deflection temp. HDT/A 75-80°C,F2-025
+V008747,Standard / load,D3418,D790,R-MATTERHACKERS-PRO-SERIES-8AWUF9,Flexural Strength 73 MPa | Flexural Strength 73 MPa,F2-025
+V008747,Standards,ASTM D3418,ASTM D790,R-MATTERHACKERS-PRO-SERIES-8AWUF9,Flexural Strength 73 MPa | Flexural Strength 73 MPa,F2-025
+V005132,Standard / load,2 D256,D256,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f94f65,Charpy Impact strenght D256 kJ/m2 | 4mm，23℃ | 4mm，23℃,F2-033
+V005132,Test temperature,Not published,23℃,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f94f65,Charpy Impact strenght D256 kJ/m2 | 4mm，23℃ | 4mm，23℃,F2-033
+V005132,Test temperature °C,Not published,23,R-ERYONE-file-manager-downLoad-path-file-manage-3828-20250903-eryone--f94f65,Charpy Impact strenght D256 kJ/m2 | 4mm，23℃ | 4mm，23℃,F2-033
+V009518,Test temperature,Not published,@23° C,S-PET-TDS-High-Gloss-PLA,"Impact strength 2,6 KJ/m² ISO 179 1eA Charpy @23° C (73° F) | Impact strength 2,6 KJ/m² ISO 179 1eA Charpy @23° C (73° F)",F2-026
+V009518,Test temperature °C,Not published,23,S-PET-TDS-High-Gloss-PLA,"Impact strength 2,6 KJ/m² ISO 179 1eA Charpy @23° C (73° F) | Impact strength 2,6 KJ/m² ISO 179 1eA Charpy @23° C (73° F)",F2-026
+V009189,Direction,Unstated,XZ,R-FILAMENT2PRINT-Other-3b8e77,"5mm/min, Orientation XZ DIN EN ISO 527-2 2)",F3-002
+V009190,Direction,Unstated,ZX,R-FILAMENT2PRINT-Other-3b8e77,"Tensile strength 5mm/min, Orientation ZX 71,0 MPa DIN EN ISO 527-2 3)",F3-002
+V009191,Direction,Unstated,XY,R-FILAMENT2PRINT-Other-3b8e77,"5mm/min, Orientation XY DIN EN ISO 527-2 4)",F3-002
+V009192,Direction,Unstated,XZ,R-FILAMENT2PRINT-Other-3b8e77,"Modulus of elasticity 5mm/min, Orientation XZ 19963,0 MPa DIN EN ISO 527-2 5)",F3-002
+V009194,Direction,Unstated,XZ,R-FILAMENT2PRINT-Other-3b8e77,"5mm/min, Orientation XZ DIN EN ISO 527-2 8)",F3-002
+V009195,Direction,Unstated,ZX,R-FILAMENT2PRINT-Other-3b8e77,"Elongation at yield (tensile test) 5mm/min, Orientation ZX 3,7 % DIN EN ISO 527-2 9)",F3-002
+V009196,Direction,Unstated,XY,R-FILAMENT2PRINT-Other-3b8e77,"5mm/min, Orientation XY DIN EN ISO 527-2 10)",F3-002
+V009197,Direction,Unstated,ZX,R-FILAMENT2PRINT-Other-3b8e77,"Elongation at break (tensile test) 5mm/min, Orientation ZX 3,8 % DIN EN ISO 527-2 12)",F3-002
+V009198,Notch,Not published,Unnotched,R-FILAMENT2PRINT-Other-3b8e77,"max. 7,5J - 23°C DIN EN ISO 179-1eU 13)",F3-002
+V009884,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,"Tensile Strength Dry, @50 mm/min ISO 527 | Tensile Strength Dry, @50 mm/min ISO 527",F3-005
+V009884,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,"Tensile Strength Dry, @50 mm/min ISO 527 | Tensile Strength Dry, @50 mm/min ISO 527",F3-005
+V009885,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,"Elongation Dry, @50 mm/min ISO 527 | Elongation Dry, @50 mm/min ISO 527",F3-005
+V009885,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,"Elongation Dry, @50 mm/min ISO 527 | Elongation Dry, @50 mm/min ISO 527",F3-005
+V009886,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,"Modulus of Elasticity Dry , @1 mm/min ISO 527 | Modulus of Elasticity Dry , @1 mm/min ISO 527",F3-005
+V009886,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,"Modulus of Elasticity Dry , @1 mm/min ISO 527 | Modulus of Elasticity Dry , @1 mm/min ISO 527",F3-005
+V009887,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,"Flexural Strength Dry , @10 mm/min ISO 178 | Flexural Strength Dry , @10 mm/min ISO 178",F3-005
+V009887,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,"Flexural Strength Dry , @10 mm/min ISO 178 | Flexural Strength Dry , @10 mm/min ISO 178",F3-005
+V009888,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,"Flexural Modulus Dry , @2 mm/min ISO 178 | Flexural Modulus Dry , @2 mm/min ISO 178",F3-005
+V009888,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,"Flexural Modulus Dry , @2 mm/min ISO 178 | Flexural Modulus Dry , @2 mm/min ISO 178",F3-005
+V009889,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,Charpy Impact Strength Dry ISO 179 1eU | Charpy Impact Strength Dry ISO 179 1eU,F3-005
+V009889,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,Charpy Impact Strength Dry ISO 179 1eU | Charpy Impact Strength Dry ISO 179 1eU,F3-005
+V009890,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,Dry ISO 179 1eA MPTS ISO 3167 A kJ/m 10 | Dry ISO 179 1eA MPTS ISO 3167 A kJ/m 10,F3-005
+V009890,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,Dry ISO 179 1eA MPTS ISO 3167 A kJ/m 10 | Dry ISO 179 1eA MPTS ISO 3167 A kJ/m 10,F3-005
+V009895,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,Charpy Impact Strength [X-Y] Dry ISO 179 1eU | Charpy Impact Strength [X-Y] Dry ISO 179 1eU,F3-005
+V009895,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,Charpy Impact Strength [X-Y] Dry ISO 179 1eU | Charpy Impact Strength [X-Y] Dry ISO 179 1eU,F3-005
+V009896,Moisture state,not-stated,dry,I-PLA-PA12-CF-TDS,Charpy Impact Strength [Z] Dry ISO 179 1eU | Charpy Impact Strength [Z] Dry ISO 179 1eU,F3-005
+V009896,Moisture condition,Not published,Dry,I-PLA-PA12-CF-TDS,Charpy Impact Strength [Z] Dry ISO 179 1eU | Charpy Impact Strength [Z] Dry ISO 179 1eU,F3-005
+V009611,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Tensile strength dry, @50 mm/min ISO 527 | Tensile strength dry, @50 mm/min ISO 527",F3-008
+V009611,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Tensile strength dry, @50 mm/min ISO 527 | Tensile strength dry, @50 mm/min ISO 527",F3-008
+V009612,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 | Elongation at maximum force dry, @50 mm/min ISO 527",F3-008
+V009612,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 | Elongation at maximum force dry, @50 mm/min ISO 527",F3-008
+V009613,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 | Modulus of elasticity dry, @1 mm/min ISO 527",F3-008
+V009613,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 | Modulus of elasticity dry, @1 mm/min ISO 527",F3-008
+V009614,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Flexural strength dry, @10 mm/min ISO 178 | Flexural strength dry, @10 mm/min ISO 178",F3-008
+V009614,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Flexural strength dry, @10 mm/min ISO 178 | Flexural strength dry, @10 mm/min ISO 178",F3-008
+V009615,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Flexural modulus dry, @2 mm/min ISO 178 | Flexural modulus dry, @2 mm/min ISO 178",F3-008
+V009615,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,"Flexural modulus dry, @2 mm/min ISO 178 | Flexural modulus dry, @2 mm/min ISO 178",F3-008
+V009616,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm | Charpy impact strength dry ISO 179 1eU 80x10x4mm,F3-008
+V009616,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PP-CF-9928-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm | Charpy impact strength dry ISO 179 1eU 80x10x4mm,F3-008
+V009730,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,"Tensile strength dry, @50 mm/min ISO 527 | Tensile strength dry, @50 mm/min ISO 527",F3-009
+V009730,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,"Tensile strength dry, @50 mm/min ISO 527 | Tensile strength dry, @50 mm/min ISO 527",F3-009
+V009731,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 | Elongation at maximum force dry, @50 mm/min ISO 527",F3-009
+V009731,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 | Elongation at maximum force dry, @50 mm/min ISO 527",F3-009
+V009732,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 | Modulus of elasticity dry, @1 mm/min ISO 527",F3-009
+V009732,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 | Modulus of elasticity dry, @1 mm/min ISO 527",F3-009
+V009733,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm | Charpy impact strength dry ISO 179 1eU 80x10x4mm,F3-009
+V009733,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-9936-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm | Charpy impact strength dry ISO 179 1eU 80x10x4mm,F3-009
+V009990,Direction,Unstated,XY,D-SIRAYA-siraya-tech-fibreheart-flex-tpu-85a-tds,Tested on X/Y axis,F3-010
+V006914,Moisture state,not-stated,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Tensile strength dry, @50 mm/min ISO 527 | Tensile strength dry, @50 mm/min ISO 527",F3-018
+V006914,Moisture condition,Not published,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Tensile strength dry, @50 mm/min ISO 527 | Tensile strength dry, @50 mm/min ISO 527",F3-018
+V006915,Moisture state,not-stated,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Elongation at maximum force dry, @50 mm/min ISO 527 | Elongation at maximum force dry, @50 mm/min ISO 527",F3-018
+V006915,Moisture condition,Not published,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Elongation at maximum force dry, @50 mm/min ISO 527 | Elongation at maximum force dry, @50 mm/min ISO 527",F3-018
+V006916,Moisture state,not-stated,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Elongation at break dry, @50 mm/min ISO 527 | Elongation at break dry, @50 mm/min ISO 527",F3-018
+V006916,Moisture condition,Not published,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Elongation at break dry, @50 mm/min ISO 527 | Elongation at break dry, @50 mm/min ISO 527",F3-018
+V006917,Moisture state,not-stated,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Modulus of elasticity dry, @1 mm/min ISO 527 | Modulus of elasticity dry, @1 mm/min ISO 527",F3-018
+V006917,Moisture condition,Not published,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PEI-50236-GY-Filament-3D-printing,"Modulus of elasticity dry, @1 mm/min ISO 527 | Modulus of elasticity dry, @1 mm/min ISO 527",F3-018
+V009911,Moisture state,not-stated,dry,I-PLA-PLA-CF-TDS,"Elongation dry, @50mm/min ISO 527 | Elongation dry, @50mm/min ISO 527",F3-021
+V009911,Moisture condition,Not published,dry,I-PLA-PLA-CF-TDS,"Elongation dry, @50mm/min ISO 527 | Elongation dry, @50mm/min ISO 527",F3-021
+V009912,Moisture state,not-stated,dry,I-PLA-PLA-CF-TDS,"Modulus of Elasticity dry, @1 mm/min ISO 527 | Modulus of Elasticity dry, @1 mm/min ISO 527",F3-021
+V009912,Moisture condition,Not published,dry,I-PLA-PLA-CF-TDS,"Modulus of Elasticity dry, @1 mm/min ISO 527 | Modulus of Elasticity dry, @1 mm/min ISO 527",F3-021
+V009913,Moisture state,not-stated,dry,I-PLA-PLA-CF-TDS,"dry, @10mm/min ISO 178 ISO 3167 A MPa 200 | dry, @10mm/min ISO 178 ISO 3167 A MPa 200",F3-021
+V009913,Moisture condition,Not published,dry,I-PLA-PLA-CF-TDS,"dry, @10mm/min ISO 178 ISO 3167 A MPa 200 | dry, @10mm/min ISO 178 ISO 3167 A MPa 200",F3-021
+V009914,Moisture state,not-stated,dry,I-PLA-PLA-CF-TDS,"Flexural Modulus dry, @2 mm/min ISO 178 | Flexural Modulus dry, @2 mm/min ISO 178",F3-021
+V009914,Moisture condition,Not published,dry,I-PLA-PLA-CF-TDS,"Flexural Modulus dry, @2 mm/min ISO 178 | Flexural Modulus dry, @2 mm/min ISO 178",F3-021
+V009915,Moisture state,not-stated,dry,I-PLA-PLA-CF-TDS,dry ISO 179 1eU 80x10x4mm kJ/m 13 | dry ISO 179 1eU 80x10x4mm kJ/m 13,F3-021
+V009915,Moisture condition,Not published,dry,I-PLA-PLA-CF-TDS,dry ISO 179 1eU 80x10x4mm kJ/m 13 | dry ISO 179 1eU 80x10x4mm kJ/m 13,F3-021
+V009916,Moisture state,not-stated,dry,I-PLA-PLA-CF-TDS,dry ISO 179 1eA 80x10x4mm kJ/m 3 | dry ISO 179 1eA 80x10x4mm kJ/m 3,F3-021
+V009916,Moisture condition,Not published,dry,I-PLA-PLA-CF-TDS,dry ISO 179 1eA 80x10x4mm kJ/m 3 | dry ISO 179 1eA 80x10x4mm kJ/m 3,F3-021
+V007693,Direction,Unstated,XY,R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4,Flexural Strength ISO 178 108 MPa 145 MPa 19.7 MPa,F3-023
+V007695,Direction,Unstated,XY,R-BASF-ExtendedTDS-Ultrafuse-PET-CF15-V1-4,Flexural Elongation at Break ISO 178 3.7 % 2.8 % 0.9 %,F3-023
+V011163,Standards,Not published,ASTM D648,R-ULTIMAKER-MakerBot-Nylon-092020,"Heat Deflection (ASTM 648, 66 psi) 196°F 91°C",F3-029
+V011163,Standard / load,66 psi 196°F ASTM 648,66 psi 196°F ASTM 648; ASTM D648,R-ULTIMAKER-MakerBot-Nylon-092020,"Heat Deflection (ASTM 648, 66 psi) 196°F 91°C",F3-029
+V002741,Direction,Unstated,Along flow,S-SPECTRUM-en-tds-spectrum-sflex-90a,Tensile Strength (Machine Direction) 35 MPa DIN 53504,F3-030
+V009129,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-ecoPLA-Silk-Rainbow-v1-1,"(Printed, non-injection molded)",F3-033
+V009130,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-ecoPLA-Silk-Rainbow-v1-1,"(Printed, non-injection molded)",F3-033
+V009131,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-ecoPLA-Silk-Rainbow-v1-1,"(Printed, non-injection molded)",F3-033
+V008801,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-ecoPLA-Sparkling-0,"(Printed, non-injection molded)",F3-034
+V008802,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-ecoPLA-Sparkling-0,"(Printed, non-injection molded)",F3-034
+V008803,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-ecoPLA-Sparkling-0,"(Printed, non-injection molded)",F3-034
+V007190,Operator,=,>,D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,tensile modulus and strength of over 6 GPa and 80 MPa respectively. | tensile modulus and strength of over 6 GPa and 80 MPa respectively.,F3-039
+V007190,Standard / load,80 MPa,Not published,D-RAISE3D-Raise3D-Industrial-PET-CF-TDS-V4-0,tensile modulus and strength of over 6 GPa and 80 MPa respectively. | tensile modulus and strength of over 6 GPa and 80 MPa respectively.,F3-039
+V003912,Direction,XY,Z,S-POLYCN-TDS-Polymaker-HT-PLA-Pro-V1-4-2026-7-17-EN,Unnotched charpy impact strength (Z) 10.3±2.1 kJ/m,F4-002
+V008959,Direction,Unstated,XZ,R-FILAMENT2PRINT-Tecafil-PEKK,"Tensile strength 5mm/min, Orientation XZ 89,5 MPa",F4-003
+V008961,Direction,Unstated,ZX,R-FILAMENT2PRINT-Tecafil-PEKK,"Modulus of elasticity 5mm/min, Orientation ZX 2997,7 MPa",F4-003
+V008963,Direction,Unstated,XZ,R-FILAMENT2PRINT-Tecafil-PEKK,"Elongation at yield (tensile test) 5mm/min, Orientation XZ 5,4 %",F4-003
+V008958,Direction,Unstated,XY,R-FILAMENT2PRINT-Tecafil-PEKK,"5mm/min, Orientation XY DIN EN ISO 527-2 1)",F4-003
+V008960,Direction,Unstated,XY,R-FILAMENT2PRINT-Tecafil-PEKK,"5mm/min, Orientation XY DIN EN ISO 527-2 4)",F4-003
+V008962,Direction,Unstated,XY,R-FILAMENT2PRINT-Tecafil-PEKK,"5mm/min, Orientation XY DIN EN ISO 527-2 7)",F4-003
+V008965,Direction,Unstated,XZ,R-FILAMENT2PRINT-Tecafil-PEKK,"5mm/min, Orientation XZ DIN EN ISO 527-2 11)",F4-003
+V003894,Direction,Z,XY,S-POLYCN-TDS-Polymaker-PolyMax-PC-FR-V5-5-2026-01-06-EN,"Low temp. impact strength (X-Y) ISO 179-1 / 1eA:2010, -30°C 7.5 ± 1.6 kJ/m | Low temp. impact strength (X-Y) ISO 179-1 / 1eA:2010, -30°C 7.5 ± 1.6 kJ/m",F4-004
+V003894,Standard / load,Z N/A Low temp. impact strength X-Y -30°C ISO 179-1 / 1eA:2010,"ISO 179-1 / 1eA:2010, -30°C",S-POLYCN-TDS-Polymaker-PolyMax-PC-FR-V5-5-2026-01-06-EN,"Low temp. impact strength (X-Y) ISO 179-1 / 1eA:2010, -30°C 7.5 ± 1.6 kJ/m | Low temp. impact strength (X-Y) ISO 179-1 / 1eA:2010, -30°C 7.5 ± 1.6 kJ/m",F4-004
+V004271,Test temperature,Not published,-30°C,R-EXTRUDR-durapro-abs-TDS-en,Unnotched impact strength ASTM D256 kj/m² 90 / -30°C | Unnotched impact strength ASTM D256 kj/m² 90 / -30°C,F4-007
+V004271,Test temperature °C,Not published,-30,R-EXTRUDR-durapro-abs-TDS-en,Unnotched impact strength ASTM D256 kj/m² 90 / -30°C | Unnotched impact strength ASTM D256 kj/m² 90 / -30°C,F4-007
+V004270,Test temperature,Not published,23°C,R-EXTRUDR-durapro-abs-TDS-en,Notched impact strength ASTM D256 kj/m² 220 / 23°C | Notched impact strength ASTM D256 kj/m² 220 / 23°C,F4-007
+V004270,Test temperature °C,Not published,23,R-EXTRUDR-durapro-abs-TDS-en,Notched impact strength ASTM D256 kj/m² 220 / 23°C | Notched impact strength ASTM D256 kj/m² 220 / 23°C,F4-007
+V006673,Test temperature,Not published,23C,R-NINJATEK-Cheetah-TDS,"Impact Strength (notched Izod, 23C) ASTM D256 9.1 ft.lbf/in | Impact Strength (notched Izod, 23C) ASTM D256 9.1 ft.lbf/in",F4-012
+V006673,Test temperature °C,Not published,23,R-NINJATEK-Cheetah-TDS,"Impact Strength (notched Izod, 23C) ASTM D256 9.1 ft.lbf/in | Impact Strength (notched Izod, 23C) ASTM D256 9.1 ft.lbf/in",F4-012
+V009740,Moisture state,not-stated,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,"Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 55 | Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 55",F4-021
+V009740,Moisture condition,Not published,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,"Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 55 | Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 55",F4-021
+V009741,Moisture state,not-stated,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,"Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 1,2 | Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 1,2",F4-021
+V009741,Moisture condition,Not published,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,"Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 1,2 | Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 1,2",F4-021
+V009742,Moisture state,not-stated,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,"Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 6 | Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 6",F4-021
+V009742,Moisture condition,Not published,dry,R-3D4MAKERS-TDS-LUVOCOM-3F-PAHT-KK-50056-BK-FR-Filament-3D4Makers,"Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 6 | Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 6",F4-021
+V007402,Test temperature,Not published,23 °C,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,Notched @ 23 °C | Notched @ 23 °C,F4-022
+V007402,Test temperature °C,Not published,23,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,Notched @ 23 °C | Notched @ 23 °C,F4-022
+V007403,Standard / load,ASTM D648,ASTM D648 @0.455 MPa,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,@0.455 MPa/@ 1.82 MPa,F4-022
+V007412,Notch,Not published,Notched,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,Notched @ 23 °C | Notched @ 23 °C | Notched @ 23 °C,F4-023
+V007412,Test temperature,Not published,23 °C,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,Notched @ 23 °C | Notched @ 23 °C | Notched @ 23 °C,F4-023
+V007412,Test temperature °C,Not published,23,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,Notched @ 23 °C | Notched @ 23 °C | Notched @ 23 °C,F4-023
+V007413,Standard / load,ISO 75,ISO 75 @0.455 MPa,R-3D-FUEL-3D-Fuel-Pro-PCTG-TDS-9-2-25,@0.455 MPa/@ 1.82 MPa,F4-023
+V008995,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-mysteryPLA-v1-1,"(Printed, non-injection molded)",F4-034
+V008996,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-mysteryPLA-v1-1,"(Printed, non-injection molded)",F4-034
+V008997,Specimen type,Raw material value,Printed specimen,R-3DJAKE-3DJAKE-TDS-mysteryPLA-v1-1,"(Printed, non-injection molded)",F4-034
+V008876,Direction,Unstated,ZX,R-FILAMENT2PRINT-PEEK-EV-Nat,"Tensile strength 5mm/min, Orientation ZX 92,3 MPa DIN EN ISO 527-2 3)",F5-003
+V008878,Direction,Unstated,ZX,R-FILAMENT2PRINT-PEEK-EV-Nat,"Modulus of elasticity 5mm/min, Orientation ZX 3668,3 MPa DIN EN ISO 527-2 6)",F5-003
+V008880,Direction,Unstated,XZ,R-FILAMENT2PRINT-PEEK-EV-Nat,"Elongation at yield (tensile test) 5mm/min, Orientation XZ 5,9 % DIN EN ISO 527-2 8)",F5-003
+V008882,Direction,Unstated,XZ,R-FILAMENT2PRINT-PEEK-EV-Nat,"Elongation at break (tensile test) 5mm/min, Orientation XZ 30,7 % DIN EN ISO 527-2 11)",F5-003
+V008875,Direction,Unstated,XY,R-FILAMENT2PRINT-PEEK-EV-Nat,"5mm/min, Orientation XY DIN EN ISO 527-2 1)",F5-003
+V008877,Direction,Unstated,XY,R-FILAMENT2PRINT-PEEK-EV-Nat,"5mm/min, Orientation XY DIN EN ISO 527-2 4)",F5-003
+V008879,Direction,Unstated,XY,R-FILAMENT2PRINT-PEEK-EV-Nat,"5mm/min, Orientation XY DIN EN ISO 527-2 7)",F5-003
+V008886,Standards,Not published,ISO 75,R-FILAMENT2PRINT-PEEK-EV-Nat,Deflection temperature HDT-A 162 °C ISO-R 75 Method A 3),F5-003
+V008886,Standard / load,HDT A,HDT A; ISO 75,R-FILAMENT2PRINT-PEEK-EV-Nat,Deflection temperature HDT-A 162 °C ISO-R 75 Method A 3),F5-003
+V009600,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,"Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 145 | Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 145",F5-007
+V009600,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,"Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 145 | Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 145",F5-007
+V009601,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 3,4 | Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 3,4",F5-007
+V009601,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 3,4 | Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 3,4",F5-007
+V009602,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10 | Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10",F5-007
+V009602,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10 | Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10",F5-007
+V009603,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 90 | Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 90,F5-007
+V009603,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PEEK-CF-9676-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 90 | Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 90,F5-007
+V009823,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,"Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 120 | Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 120",F5-009
+V009823,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,"Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 120 | Tensile strength dry, @50 mm/min ISO 527 MPTS ISO 3167 A MPa 120",F5-009
+V009824,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 2 | Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 2",F5-009
+V009824,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,"Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 2 | Elongation at maximum force dry, @50 mm/min ISO 527 MPTS ISO 3167 A % 2",F5-009
+V009825,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10,5 | Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10,5",F5-009
+V009825,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,"Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10,5 | Modulus of elasticity dry, @1 mm/min ISO 527 MPTS ISO 3167 A GPa 10,5",F5-009
+V009826,Moisture state,not-stated,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 35 | Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 35,F5-009
+V009826,Moisture condition,Not published,dry,S-PET-TDS-LUVOCOM-3F-PAHT-CF-9891-BK,Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 35 | Charpy impact strength dry ISO 179 1eU 80x10x4mm kJ/m² 35,F5-009
+V004095,Test temperature,Not published,-30°C,R-EXTRUDR-durapro-asa-cf-TDS-en,Unnotched impact strength ASTM D256 kj/m² 20 @ -30°C | Unnotched impact strength ASTM D256 kj/m² 20 @ -30°C,F5-010
+V004095,Test temperature °C,Not published,-30,R-EXTRUDR-durapro-asa-cf-TDS-en,Unnotched impact strength ASTM D256 kj/m² 20 @ -30°C | Unnotched impact strength ASTM D256 kj/m² 20 @ -30°C,F5-010
+V004094,Test temperature,Not published,23°C,R-EXTRUDR-durapro-asa-cf-TDS-en,Notched impact strength ASTM D256 kj/m² 100 @ 23°C | Notched impact strength ASTM D256 kj/m² 100 @ 23°C,F5-010
+V004094,Test temperature °C,Not published,23,R-EXTRUDR-durapro-asa-cf-TDS-en,Notched impact strength ASTM D256 kj/m² 100 @ 23°C | Notched impact strength ASTM D256 kj/m² 100 @ 23°C,F5-010
+V000748,Standards,Not published,GB/T 1043,S-PCGF-TDS-1,Impact strength (XY) 50±3 kJ/m^2 GB/T1043 | Impact strength (XY) 50±3 kJ/m^2 GB/T1043,F5-013
+V000748,Standard / load,Not published,GB/T1043,S-PCGF-TDS-1,Impact strength (XY) 50±3 kJ/m^2 GB/T1043 | Impact strength (XY) 50±3 kJ/m^2 GB/T1043,F5-013
+V000749,Standards,Not published,GB/T 1043,S-PCGF-TDS-1,Impact strength (Z) 15±2 kJ/m^2 GB/T1043 | Impact strength (Z) 15±2 kJ/m^2 GB/T1043,F5-013
+V000749,Standard / load,Not published,GB/T1043,S-PCGF-TDS-1,Impact strength (Z) 15±2 kJ/m^2 GB/T1043 | Impact strength (Z) 15±2 kJ/m^2 GB/T1043,F5-013
+V007174,Test temperature,Not published,23C,R-NINJATEK-Armadillo-TDS,"Impact Strength (notched Izod, 23C) ASTM D256 1.41 ft.lbf/in 3.0 kJ/m | Impact Strength (notched Izod, 23C) ASTM D256 1.41 ft.lbf/in 3.0 kJ/m",F5-016
+V007174,Test temperature °C,Not published,23,R-NINJATEK-Armadillo-TDS,"Impact Strength (notched Izod, 23C) ASTM D256 1.41 ft.lbf/in 3.0 kJ/m | Impact Strength (notched Izod, 23C) ASTM D256 1.41 ft.lbf/in 3.0 kJ/m",F5-016
+V007630,Moisture state,not-stated,conditioned,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,6) conditioned | 6) conditioned | Flexural Elongation at Break ISO 178 No break 3.6 % 4.0 %,F5-021
+V007630,Moisture condition,Not published,Conditioned,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,6) conditioned | 6) conditioned | Flexural Elongation at Break ISO 178 No break 3.6 % 4.0 %,F5-021
+V007630,Direction,Unstated,XZ,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,6) conditioned | 6) conditioned | Flexural Elongation at Break ISO 178 No break 3.6 % 4.0 %,F5-021
+V007631,Moisture state,not-stated,dry,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,7) dry | 7) dry | Flexural Elongation at Break ISO 178 2.4 % 2.8 % 1.8 %,F5-021
+V007631,Moisture condition,Not published,Dry,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,7) dry | 7) dry | Flexural Elongation at Break ISO 178 2.4 % 2.8 % 1.8 %,F5-021
+V007631,Direction,Unstated,XY,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,7) dry | 7) dry | Flexural Elongation at Break ISO 178 2.4 % 2.8 % 1.8 %,F5-021
+V007628,Direction,Unstated,XY,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,Flexural Modulus ISO 178 6063 MPa 6260 MPa 2190 MPa,F5-021
+V007629,Direction,Unstated,XY,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,Flexural Modulus dry ISO 178 8258 MPa 7669 MPa 2715 MPa,F5-021
+V007627,Direction,Unstated,ZX,R-BASF-ExtendedTDS-Ultrafuse-PAHT-CF15-V1-5,Flexural Strength dry ISO 178 50.8 MPa,F5-021
+V008914,Standards,Not published,ASTM D256,R-MATTERHACKERS-PRO-SERIES-XKjoeP,"Izod Impact Strength, Notched 175 J/m 3.2mm Sample ASTM256",F5-031
+V008914,Standard / load,ASTM256,ASTM256; ASTM D256,R-MATTERHACKERS-PRO-SERIES-XKjoeP,"Izod Impact Strength, Notched 175 J/m 3.2mm Sample ASTM256",F5-031
+V009856,Standards,Not published,ASTM D3418,I-PLA-PLA-Silk-Dual-Color-TDS,ASTM 3418 145- 160 ºC,F5-032
+V009856,Standard / load,ASTM 3418,ASTM 3418; ASTM D3418,I-PLA-PLA-Silk-Dual-Color-TDS,ASTM 3418 145- 160 ºC,F5-032
+V009317,Operator,=,>,D-RAISE3D-Raise3D-Premium-ABS-TDS-V7-2,"Decomposition temperature (°C) TGA, 20 °C/min > 380",F5-033
