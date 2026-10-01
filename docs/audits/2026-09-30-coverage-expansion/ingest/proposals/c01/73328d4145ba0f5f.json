@@ -1,0 +1,537 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee",
+    "url": "https://siraya.tech/blogs/news/stiff-yet-flexible-engineering-robotic-shock-absorbers-with-siraya-tech-tpu-gf",
+    "pages": 1,
+    "provider": "Siraya Tech",
+    "manufacturer": "Siraya Tech",
+    "docKey": "https://siraya.tech/blogs/news/stiff-yet-flexible-engineering-robotic-shock-absorbers-with-siraya-tech-tpu-gf#witness-for=source:D-SIRAYA-fibreheart-tpu-gf-filament-tds"
+  },
+  "nameUnsupported": {
+    "read": "Resin",
+    "listed": "Fibreheart TPU GF"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpu",
+      "filler: cf (from the sheet, not the name)"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.85,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet's own title is \"Resin\", which names the polymer the filament is made from rather than Siraya Tech's product; the product's own name is not printed on the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+      "Publisher": "Siraya Tech",
+      "Title": "Stiff Yet Flexible: Engineering Robotic Shock Absorbers with Siraya Tech TPU-GF",
+      "Revision": "Not published",
+      "Publication date": "2026-08-11",
+      "Access date": "2026-09-30",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact-product campaign witness staged by digest through the import pipeline. Narrative claims, handling/finishing guidance and unresolved internal temperature/AMS statements only; no mechanical measurement, rewritten recipe or compatibility verdict admitted. Independent AI review required; no human review.",
+      "Citation role": "cited",
+      "URL": "https://siraya.tech/blogs/news/stiff-yet-flexible-engineering-robotic-shock-absorbers-with-siraya-tech-tpu-gf",
+      "Locator": "Document / product page",
+      "Applicable grades": "G151-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Prime Day Sales"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent release review pending; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G151-01",
+      "row": {
+        "GradeID": "G151-01",
+        "MaterialID": "M151",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Fibreheart TPU GF",
+        "Shared formulation key": "D-SIRAYA-fibreheart-tpu-gf-filament-tds",
+        "Composition / filler": "Material Ther moplast ic Polyu re than e + 15 % short cut glass fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Resolve existing exact product only; no grade row, identity or formulation key change."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [],
+  "evidence": [
+    {
+      "id": "campaign-1",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Application",
+        "Topic": "Application",
+        "Finding": "To demonstrate the unique properties of TPU-GF, we looked at a common pain point in the RC community: front-end collisions. We tested a fantastic Tamiya TT02 Flex Bumper model specifically engineered for high-speed kinetic impacts.",
+        "Exposure / conditions": "Maker-reported illustrated RC-bumper demonstration only; impact load/speed, geometry, specimen conditions and test protocol not published. No quantitative impact qualification or transfer to robotics.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+        "Locator": "p. 1: Real-World Testing, Tamiya TT02 Flex Bumper; text line 247"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "To demonstrate the unique properties of TPU-GF, we looked at a common pain point in the RC community: front-end collisions. We tested a fantastic Tamiya TT02 Flex Bumper model specifically engineered for high-speed kinetic impacts."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-2",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Application",
+        "Topic": "Application",
+        "Finding": "Printed in Siraya Tech TPU-GF, the bumper maintains its structural rigidity to protect the chassis during static loading, while flexing on heavy impacts to dissipate kinetic energy before snapping back into shape.",
+        "Exposure / conditions": "Maker-reported behaviour of this bumper; no measured load, impact speed, cycle life or protocol. No scale-up or industrial payload qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+        "Locator": "p. 1: 3D Model Showcase, TPU-GF bumper observation; text line 250"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Printed in Siraya Tech TPU-GF, the bumper maintains its structural rigidity to protect the chassis during static loading, while flexing on heavy impacts to dissipate kinetic energy before snapping back into shape."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Call us +13234128788",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D FDM printing Tips Support WC Aug 11, 2026",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0 comments",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Traditionally, 3D printing forced a compromise: print in PLA or Carbon Fiber Nylon and risk snapping on impact, or print in standard TPU and end up with a part ",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "To demonstrate the unique properties of TPU-GF, we looked at a common pain point in the RC community: front-end collisions. We tested a fantastic Tamiya TT02 Fl",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Model Showcase",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tamiya TT02 TPU Flex Bumper",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Thanks to the 15% glass fiber reinforcement in Siraya Tech TPU-GF, the scaled-up print maintained its structural stiffness while shock-absorbing resistance scal",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tested extensively on machines like the Qidi Plus 5 , yielding flawless bridging and zero jams even on scaled-up parts.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Optimized high-speed profiles developed specifically for machines like the Bambu Lab X1C, P1S, and A1 series.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bambu Lab X1C, P1S, and A1",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Fully compatible with dual-extrusion systems like the Snapmaker J1 and Artisan series for multi-material structural prints.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "15% Glass Fiber Reinforced TPU Filament for High-Impact Functional Prototyping.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Tags: 3d fdm printing tips , 3d filament types , 3d printing",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "100% free, Unsubscribe any time!",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Siraya Tech: Maker of Performance UV Resins for 3D printing and Platinum Silicone Crafting superior products for your projects.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent release review pending; no human review",
+    "note": "Proposed source/body reread; independent packet gate required; all automatic rows rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Automatic reading retained; only independently released pinned operations may enter."
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Resin",
+        "Shared formulation key": "D-SIRAYA-stiff-yet-flexible-engineering-robotic-shock-absorbers-with-siraya-tech-tpu-gf",
+        "Composition / filler": "Thanks to the 15% glass fiber reinforcement in Siraya Tech TPU-GF, the scaled-up print maintained its structural stiffness while shock-absorbing resistance scal (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-SIRAYA-stiff-yet-flexible-engineering-robotic-shock-absorbers-with-siraya-tech-tpu-gf",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Prime Day Sales"
+      }
+    }
+  ],
+  "newMaterial": null
+}

@@ -1,0 +1,1060 @@
+{
+  "version": 1,
+  "generated": {
+    "tool": "propose.mjs",
+    "date": "2026-10-01"
+  },
+  "document": {
+    "sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+    "url": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-user-guide",
+    "pages": 1,
+    "provider": "Siraya Tech",
+    "manufacturer": "Siraya Tech",
+    "docKey": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-user-guide#witness-for=source:D-SIRAYA-fibreheart-tpu-gf-filament-tds"
+  },
+  "nameUnsupported": {
+    "read": "Resin",
+    "listed": "Fibreheart TPU GF"
+  },
+  "identity": {
+    "polymer": "TPU",
+    "modifier": "Carbon fibre",
+    "variantClass": "",
+    "finish": "",
+    "family": "Flexible Elastomers",
+    "hardness": null,
+    "support": false,
+    "signals": [
+      "title: tpu",
+      "filler: cf (from the sheet, not the name)"
+    ],
+    "materialId": "M129",
+    "materialName": "TPU-CF",
+    "estimateIdentity": "TPU",
+    "confidence": 0.85,
+    "needsRuling": true,
+    "reasons": [
+      "the sheet's own title is \"Resin\", which names the polymer the filament is made from rather than Siraya Tech's product; the product's own name is not printed on the sheet"
+    ]
+  },
+  "window": {
+    "matrix": "high-temp",
+    "fill": "fibre"
+  },
+  "source": {
+    "row": {
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "Publisher": "Siraya Tech",
+      "Title": "Fibreheart TPU-GF Filament User Guide",
+      "Revision": "Not published",
+      "Publication date": "Not published",
+      "Access date": "2026-09-30",
+      "Source class": "Manufacturer product page or guide",
+      "Source note": "Exact-product campaign witness staged by digest through the import pipeline. Narrative claims, handling/finishing guidance and unresolved internal temperature/AMS statements only; no mechanical measurement, rewritten recipe or compatibility verdict admitted. Independent AI review required; no human review.",
+      "Citation role": "cited",
+      "URL": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-user-guide",
+      "Locator": "Document / product page",
+      "Applicable grades": "G151-01",
+      "Access state": "retrieved",
+      "Access note": "Not applicable",
+      "SHA256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79"
+    },
+    "evidence": {
+      "page": 1,
+      "text": "Prime Day Sales"
+    },
+    "review": {
+      "status": "accepted",
+      "by": "Codex AI injector; independent release review pending; no human review"
+    }
+  },
+  "grades": [
+    {
+      "key": "G151-01",
+      "row": {
+        "GradeID": "G151-01",
+        "MaterialID": "M151",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Fibreheart TPU GF",
+        "Shared formulation key": "D-SIRAYA-fibreheart-tpu-gf-filament-tds",
+        "Composition / filler": "Material Ther moplast ic Polyu re than e + 15 % short cut glass fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Resolve existing exact product only; no grade row, identity or formulation key change."
+      }
+    }
+  ],
+  "measurements": [],
+  "profiles": [
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "220 - 250°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "220",
+        "Nozzle max °C": "250",
+        "Nozzle requirement": "required",
+        "Bed °C": "40 - 60°C",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-SIRAYA-fibreheart-tpu-gf-filament-user-guide",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Printing Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 80mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-100mm/s"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.2mm"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temperature: 220 - 250°C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Automatic reading retained; only independently released pinned operations may enter."
+      }
+    },
+    {
+      "gradeKey": "main",
+      "row": {
+        "MaterialID": "M129",
+        "GradeID": "",
+        "Profile": "Manufacturer published guidance",
+        "Nozzle °C": "240-270°C",
+        "Nozzle state": "range",
+        "Nozzle min °C": "240",
+        "Nozzle max °C": "270",
+        "Nozzle requirement": "required",
+        "Bed °C": "40 - 60°C",
+        "Bed state": "range",
+        "Bed min °C": "40",
+        "Bed max °C": "60",
+        "Bed requirement": "required",
+        "Chamber °C": "Not published",
+        "Chamber state": "unknown",
+        "Chamber min °C": "Not applicable",
+        "Chamber max °C": "Not applicable",
+        "Chamber requirement": "unknown",
+        "Enclosure": "Not published",
+        "Enclosure state": "unknown",
+        "Plate": "Not published",
+        "Drying": "Not published",
+        "Drying state": "unknown",
+        "Drying °C": "Not applicable",
+        "Drying hours": "Not applicable",
+        "Nozzle material": "Not published",
+        "Nozzle diameter": "Not published",
+        "Abrasion / clogging": "Use abrasion-resistant nozzle; verify minimum orifice. Fibre concentration and length are grade-specific.",
+        "Hardened nozzle": "TRUE",
+        "H2C left": "Verify exact grade/nozzle; no blanket approval",
+        "H2C right": "Verify exact grade/nozzle; no blanket approval",
+        "AMS 2 Pro": "Not verified for every grade",
+        "AMS HT": "Not verified for every grade",
+        "AMS published": "Not published",
+        "Support pairing": "Not published",
+        "Failure modes": "Not published",
+        "SourceID": "D-SIRAYA-fibreheart-tpu-gf-filament-user-guide",
+        "H2C SourceID": "H2C-WIKI",
+        "Locator": "p. 1: Recommended printing settings: Nozzle Temperature",
+        "Parse review": "Not applicable"
+      },
+      "notes": [
+        {
+          "Topic": "Speed",
+          "Text": "30 - 80mm/s"
+        },
+        {
+          "Topic": "Speed",
+          "Text": "30-100mm/s"
+        },
+        {
+          "Topic": "Layer height",
+          "Text": "0.2mm"
+        }
+      ],
+      "editorial": [
+        "Abrasion / clogging"
+      ],
+      "evidence": {
+        "page": 1,
+        "text": "Bed Temperature: 40 - 60°C"
+      },
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Automatic reading retained; only independently released pinned operations may enter."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "campaign-1",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Good for",
+        "Finding": "This addition significantly enhances stiffness, impact strength, and dimensional stability, making it the ultimate choice for printing heavy-duty engineering components that require a unique blend of elasticity and extreme structural integrity.",
+        "Exposure / conditions": "Maker intended-use and comparative performance claim; no application-specific load, impact protocol or service qualification.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 1. Introduction; text line 240"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "This addition significantly enhances stiffness, impact strength, and dimensional stability, making it the ultimate choice for printing heavy-duty engineering components that require a unique blend of elasticity and extreme structural integrity."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-2",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Moisture sensitivity",
+        "Finding": "Dry Before Use (Essential): Glass fiber creates microscopic channels that can trap moisture. Wet TPU-GF will result in severe oozing and brittle parts.",
+        "Exposure / conditions": "Moisture-handling/print-quality claim; no moisture-service or hydrolysis test.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 3. Before Printing, Dry Before Use; text line 253"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Dry Before Use (Essential): Glass fiber creates microscopic channels that can trap moisture. Wet TPU-GF will result in severe oozing and brittle parts."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-3",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Method: Dry at 50-60°C for 6+ hours before printing.",
+        "Exposure / conditions": "Published drying range 50–60 °C and lower-bound 6+ hours preserved. Current scalar drying columns cannot faithfully express both; no narrowed temperature/time or typed drying profile is admitted.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 3. Before Printing, Method; text line 254"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Method: Dry at 50-60°C for 6+ hours before printing."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-4",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Nozzle wear",
+        "Finding": "Nozzle Check : The standard brass nozzle is not compatible. The glass fibers will erode brass nozzles rapidly, ruining both the nozzle and your print accuracy. Install an abrasion-resistant nozzle (Hardened Steel, etc.) before loading this filament.",
+        "Exposure / conditions": "Own-product abrasion/nozzle instruction; no quantitative wear-life test.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 3. Before Printing, Nozzle Check; text line 255"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Check : The standard brass nozzle is not compatible. The glass fibers will erode brass nozzles rapidly, ruining both the nozzle and your print accuracy. Install an abrasion-resistant nozzle (Hardened Steel, etc.) before loading this filament."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-5",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Supports and removal",
+        "Finding": "Support Removal: Supports may be stiffer than standard TPU. Use pliers. The interface usually separates cleanly due to the fiber content.",
+        "Exposure / conditions": "Maker support-removal advice, no measured removal-force result.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 5. Post-Processing, Support Removal; text line 272"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Support Removal: Supports may be stiffer than standard TPU. Use pliers. The interface usually separates cleanly due to the fiber content."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-6",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Safety Hazard: Unlike pure plastic, sanding this material produces dust containing micro-glass particles .",
+        "Exposure / conditions": "Maker sanding-dust warning, no exposure measurement; processing safety is separate from service performance.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 5. Post-Processing, Safety Hazard; text line 274"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Safety Hazard: Unlike pure plastic, sanding this material produces dust containing micro-glass particles ."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-7",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Protection: You MUST wear a dust mask (N95 or better) and safety goggles if sanding, drilling, or machining the parts to prevent inhalation of glass dust or eye irritation.",
+        "Exposure / conditions": "Maker protective-equipment guidance, not a certified printed-part safety assessment.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 5. Post-Processing, Protection; text line 275"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Protection: You MUST wear a dust mask (N95 or better) and safety goggles if sanding, drilling, or machining the parts to prevent inhalation of glass dust or eye irritation."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-8",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Surface finish",
+        "Finding": "Wet Sanding: Highly recommended to keep dust particles trapped in water rather than airborne.",
+        "Exposure / conditions": "Maker finishing guidance; grit, duration and achieved surface properties not stated.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 5. Post-Processing, Wet Sanding; text line 276"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Wet Sanding: Highly recommended to keep dust particles trapped in water rather than airborne."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-9",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Printing Temperature: 220 - 250°C",
+        "Exposure / conditions": "Internal conflict: section 4 prints Nozzle Temperature 240–270 °C. Both source statements retained; no replacement or reconciled recipe window admitted.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 2. Specifications, Printing Temperature; text line 248"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Printing Temperature: 220 - 250°C"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-10",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Nozzle Temperature: 240-270°C. Glass fiber improves thermal conductivity, so the material melts efficiently. Start at 240°C .",
+        "Exposure / conditions": "Internal conflict: section 2 prints Printing Temperature 220–250 °C. Existing TDS recipe 240–270 °C retained; vendor clarification needed, no recency-based resolution.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 4. Printing Recommendations, Nozzle Temperature; text line 258"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Nozzle Temperature: 240-270°C. Glass fiber improves thermal conductivity, so the material melts efficiently. Start at 240°C ."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-11",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "AMS Compatibility: Compatible with Bambu Lab AMS (Original) and AMS Lite. NOT compatible with AMS 2.",
+        "Exposure / conditions": "Conflicts with section 4 Hardware & AMS Usage naming AMS/AMS Lite/AMS2 and While compatible wear warning. Bare AMS2 is not mapped to AMS2 Pro or AMS HT; no compatibility pass follows.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 2. Specifications, AMS Compatibility; text line 251"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "AMS Compatibility: Compatible with Bambu Lab AMS (Original) and AMS Lite. NOT compatible with AMS 2."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-12",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Printing advice",
+        "Finding": "Hardware & AMS Usage: AMS / AMS Lite/AMS 2",
+        "Exposure / conditions": "This heading names AMS2, whereas section2 says NOT compatible with AMS2. Keep ambiguity and device-name scope; no new typed compatibility verdict.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 4. Hardware & AMS Usage heading; text line 266"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Hardware & AMS Usage: AMS / AMS Lite/AMS 2"
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    },
+    {
+      "id": "campaign-13",
+      "gradeKey": "G151-01",
+      "row": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Makers' know-how",
+        "Topic": "Pitfalls and limitations",
+        "Finding": "Wear Warning: Glass fiber is abrasive. While compatible, extensive use may accelerate wear on the AMS internal plastic filament paths and feeder gears. Monitor your AMS components over time.",
+        "Exposure / conditions": "Maker warns about abrasion of AMS paths/gears. This While compatible sentence conflicts with section2 AMS2 exclusion; no tested wear life or device approval.",
+        "Rating 1–5": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Manufacturer statement",
+        "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+        "Locator": "p. 1: 4. Hardware & AMS Usage, Wear Warning; text line 268"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Wear Warning: Glass fiber is abrasive. While compatible, extensive use may accelerate wear on the AMS internal plastic filament paths and feeder gears. Monitor your AMS components over time."
+      },
+      "review": {
+        "status": "accepted",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Original body line read; independent signed operation-packet release required before application."
+      }
+    }
+  ],
+  "headlines": [],
+  "coverage": [],
+  "settings": [
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Printing Temperature",
+      "raw": "220 - 250°C",
+      "fromBelow": false,
+      "line": "Printing Temperature: 220 - 250°C"
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "40 - 60°C",
+      "fromBelow": false,
+      "line": "Bed Temperature: 40 - 60°C"
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Printing Speed",
+      "raw": "30 - 80mm/s",
+      "fromBelow": false,
+      "line": "Printing Speed: 30 - 80mm/s"
+    },
+    {
+      "page": 1,
+      "field": "nozzle",
+      "topic": "",
+      "label": "Nozzle Temperature",
+      "raw": "240-270°C",
+      "fromBelow": false,
+      "line": "Nozzle Temperature: 240-270°C. Glass fiber improves thermal conductivity, so the material melts efficiently. Start at 240°C ."
+    },
+    {
+      "page": 1,
+      "field": "bed",
+      "topic": "",
+      "label": "Bed Temperature",
+      "raw": "40-60°C",
+      "fromBelow": false,
+      "line": "Bed Temperature: 40-60°C. For textured PEI plates, the lower end (45°C) often works well as the material releases easily when cool."
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Speed",
+      "label": "Print Speed",
+      "raw": "30-100mm/s",
+      "fromBelow": false,
+      "line": "Print Speed: 30-100mm/s. The added stiffness allows for faster printing than unreinforced TPU."
+    },
+    {
+      "page": 1,
+      "field": "note",
+      "topic": "Layer height",
+      "label": "Layer Height",
+      "raw": "0.2mm",
+      "fromBelow": false,
+      "line": "Layer Height: 0.2mm is standard. Avoid very low layer heights (<0.1mm) as fibers can cause clogging in restricted flows."
+    }
+  ],
+  "skipped": [
+    {
+      "page": 1,
+      "text": "Call us +13234128788",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Rebound 55A Elastic",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Save up to 140 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Saving up to 300 USD",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 80A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air HR 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU 64D",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "TPU Air 65A to 82A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA Air 70A to 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 85A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "PEBA 95A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 25A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 15A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Defiant 10A",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "A4 NFEP Film 2.0",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "V5 Test model",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3D Resin and Silicone Tips",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "1. Introduction",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Siraya Tech Flex TPU-GF is built upon our robust TPU 64D formula, reinforced with 15% Glass Fiber.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "2. Specifications",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Material: TPU + 15% Glass Fiber (GF)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Base Shore Hardness: >64D (Perceived hardness is higher due to GF reinforcement)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Diameter: 1.75mm",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Weight: 1kg spool",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Nozzle Requirement: Hardened Steel / Ruby / Tungsten Carbide (0.4mm or larger)",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "AMS Compatibility: Compatible with Bambu Lab AMS (Original) and AMS Lite. NOT compatible with AMS 2.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "3. Before Printing: Preparation",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Method: Dry at 50-60°C for 6+ hours before printing.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "4. Printing Recommendations",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Direct Drive: 0.8mm - 1.5mm @ 25-35mm/s.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Bowden: 2.0mm - 4.0mm (tune carefully).",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Cooling: Low to Medium (20-50%). High cooling can reduce layer adhesion, which is critical for reinforced parts.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Hardware & AMS Usage: AMS / AMS Lite/AMS 2",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "5. Post-Processing & Safety",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Protection: You MUST wear a dust mask (N95 or better) and safety goggles if sanding, drilling, or machining the parts to prevent inhalation of glass dust or eye",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "6. Troubleshooting",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "7. Support",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "Siraya Tech: Maker of Performance UV Resins for 3D printing and Platinum Silicone Crafting superior products for your projects.",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    },
+    {
+      "page": 1,
+      "text": "© 2026 Siraya Tech ALL RIGHTS RESERVED",
+      "reason": "no property and value this line states together"
+    }
+  ],
+  "review": {
+    "status": "reviewed",
+    "by": "Codex AI injector; independent release review pending; no human review",
+    "note": "Proposed source/body reread; independent packet gate required; all automatic rows rejected."
+  },
+  "discardedAutomaticGrades": [
+    {
+      "key": "main",
+      "review": {
+        "status": "rejected",
+        "by": "Codex AI injector; independent release review pending; no human review",
+        "note": "Automatic reading retained; only independently released pinned operations may enter."
+      },
+      "row": {
+        "MaterialID": "M129",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Resin",
+        "Shared formulation key": "D-SIRAYA-fibreheart-tpu-gf-filament-user-guide",
+        "Composition / filler": "Siraya Tech Flex TPU-GF is built upon our robust TPU 64D formula, reinforced with 15% Glass Fiber. (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-SIRAYA-fibreheart-tpu-gf-filament-user-guide",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "evidence": {
+        "page": 1,
+        "text": "Prime Day Sales"
+      }
+    }
+  ],
+  "newMaterial": null
+}

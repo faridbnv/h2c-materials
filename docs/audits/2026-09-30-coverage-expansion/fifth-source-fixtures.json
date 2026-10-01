@@ -1,0 +1,41 @@
+{
+  "fixtureBasis": "Expected wording and conditions were independently reread from original source paragraphs/tables; no numerical inference or engine parity oracle.",
+  "cases": [
+    {
+      "case": "Own guide drying temperature range and lower-bound duration",
+      "raw": "Method: Dry at 50-60°C for 6+ hours before printing.",
+      "typedProfileNotInvented": true
+    },
+    {
+      "case": "measurements unchanged from committed baseline",
+      "unchanged": true
+    },
+    {
+      "case": "profiles unchanged from committed baseline",
+      "unchanged": true
+    },
+    {
+      "case": "Original contradictory temperature and AMS2 statements coexist",
+      "rawConflictPreserved": true,
+      "typedVerdictNotReplaced": true
+    },
+    {
+      "case": "ASA exposure observation retains independent original-grounded coupon scope",
+      "source": "R-STRATASYS-mds-fdm-asa-0826a p.14",
+      "naturalOnly": true,
+      "rawResultRows": [
+        "No UV Exposure 4,430 30.5 4,420 30.5 2.8 - 264 1.82",
+        "UV Exposure 4,390 30.3 4,290 29.5 2.3 -3.00 283 1.95"
+      ],
+      "usableForRequirement": false
+    },
+    {
+      "case": "SUNLU positive UV statements retain their own source yellowing caveat",
+      "records": [
+        "Q02474",
+        "Q02549",
+        "Q02982"
+      ]
+    }
+  ]
+}

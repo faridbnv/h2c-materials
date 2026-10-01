@@ -1,0 +1,25 @@
+{
+  "migration": "m244-batch-c01-siraya-guidance",
+  "packet": "8c113cb7ed1e97b0ac476edcb3104873bdc79fe9c122385c22087947d315b087",
+  "log": [
+    "source R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+    "evidence Q05360 Application",
+    "evidence Q05361 Application",
+    "source R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+    "evidence Q05362 Good for",
+    "evidence Q05363 Moisture sensitivity",
+    "evidence Q05364 Printing advice",
+    "evidence Q05365 Nozzle wear",
+    "evidence Q05366 Supports and removal",
+    "evidence Q05367 Pitfalls and limitations",
+    "evidence Q05368 Pitfalls and limitations",
+    "evidence Q05369 Surface finish",
+    "evidence Q05370 Printing advice",
+    "evidence Q05371 Printing advice",
+    "evidence Q05372 Pitfalls and limitations",
+    "evidence Q05373 Printing advice",
+    "evidence Q05374 Pitfalls and limitations"
+  ],
+  "written": true,
+  "applied": 2
+}

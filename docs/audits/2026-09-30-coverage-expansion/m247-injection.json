@@ -1,0 +1,11 @@
+{
+  "migration": "m247-application-siraya",
+  "packet": "ed1c5bcbe894872919be31728bb87ba5d46976316f3334942d593730e6154472",
+  "written": 1,
+  "records": [
+    {
+      "finding": "CE-APP-M151",
+      "coverageId": "C01535"
+    }
+  ]
+}

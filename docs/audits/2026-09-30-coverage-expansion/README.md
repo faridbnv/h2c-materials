@@ -157,3 +157,44 @@ changes and the compiled diff twenty intended paths. Frozen replay moved zero ve
 or screens across fifteen questions and 18,195 evaluations. The existing private
 backup was checked and exported again; no new document entered in this tranche.
 All-catalogue research and the remaining source admissions continue.
+
+## Witnessed guidance and scoped UV observations
+
+m244 admits two Siraya TPU-GF witnesses through the import pipeline and an isolated
+campaign ledger, with fifteen reviewed statements. The guide's 50–60 °C / 6+ h drying
+instruction remains raw guidance; no scalar recipe was invented. Both internal nozzle
+temperature and AMS2 contradictions remain visible. The blog's two reported RC-bumper
+observations have no published load, impact speed, test protocol or service lifetime;
+its claimed robotics scale-up does not become a qualification. Existing TDS revisions
+and typed profiles remain unchanged. m247 records this bounded Application evidence.
+
+m245 adds three Stratasys ASA UV observations from its existing original: the complete
+Natural-colour F900/T16/ZX coupon protocol and both original control/exposure rows,
+including their units. The tested 1,000-hour QUV cycle is no outdoor-life guarantee.
+No weathered result becomes a default mechanical headline. m246 refiles nineteen
+existing UV clauses with stable IDs and unchanged raw wording. It retains the three
+SUNLU yellowing/storage warnings and distinguishes the general ASA-versus-ABS claim
+from Stratasys' separately tested Natural ASA coupons. All compile as narrative.
+
+These operations form five maker batches (Siraya, Stratasys, Spectrum, SUNLU and QIDI),
+eighteen products in total; no maker batch exceeds twelve. Each new statement, refile
+and judgment received independent AI review. Application now has 43 Evidence recorded,
+35 Reviewed with limitations, 26 Gap and 32 not assessed. Exposure records cover 60
+of 136 materials; UV records cover 25, hydrolysis six. Record presence is not approval.
+The active know-how count falls from 4,666 to 4,660 because nineteen UV clauses move
+lanes while thirteen guide statements enter. A formerly sole UV know-how clause is now
+correctly shown in environmental evidence; its remaining own application wording is
+retained as a follow-up lead, not a count-restoring duplicate.
+
+Pipeline rehearsal passed, and all four migrations immediately reran with zero records
+written. A disposable fixture proves changed admitted conflict wording stops m244.
+Six original-grounded fixtures check the raw drying bounds, contradictory instructions,
+ASA coupon scope/results, SUNLU caveats and unchanged measurement/profile tables.
+The first replay used stale compiled data; its invalid receipt stays in the external
+package. The rebuilt replay moves zero verdicts/screens across 18,195 frozen and
+58,224 supplemental environmental evaluations. Canonical gates and full verification
+pass, including 69 interface views and 300 scenarios with 2,592 rendered readings.
+verify:fast takes 46.8 seconds; UI baselines need no change. The record diff has
+78 changes and the compiled diff 204 intended paths, with no catalogue, profile,
+measurement or estimate-rule change. The private export now holds 2,381 originals and
+2,781 derivatives; 124 known absent inventory entries remain.

@@ -18,11 +18,11 @@ Database snapshot 2026-09-21 · build 2026-09-30
 | numericMeasurements | 11062 |
 | quarantined | 18 |
 | profiles | 1316 |
-| evidence | 676 |
+| evidence | 700 |
 | prices | 357 |
-| sources | 1828 |
-| coverage | 848 |
-| knowHow | 4666 |
+| sources | 1830 |
+| coverage | 849 |
+| knowHow | 4660 |
 | polymerEnvironment | 353 |
 | polymerEvidence | 326 |
 | coverageDerived | 1144 |
@@ -89,7 +89,7 @@ among them, so it can only show evidence and must never be offered as a hard con
 | water-solubility | verdict | 42 | 41 | 34 | 34 |
 | flammability | verdict | 42 | 36 | 34 | 13 |
 | food-contact | indicator | 2 | 0 | 2 | 0 |
-| uv-outdoor | verdict | 48 | 0 | 23 | 16 |
+| uv-outdoor | verdict | 70 | 0 | 25 | 16 |
 | moisture | verdict | 12 | 0 | 10 | 18 |
 | creep | indicator | 2 | 0 | 2 | 0 |
 | fatigue | indicator | 5 | 0 | 5 | 0 |

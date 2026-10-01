@@ -1,0 +1,25 @@
+{
+  "migration": "m245-stratasys-uv-observations",
+  "packet": "1f878e4b8c0476b35a1c70206c4566aa5f55d67f2492a1fcd4ce473dde922786",
+  "written": 3,
+  "records": [
+    {
+      "operation": "ASA-UV-1",
+      "table": "evidence",
+      "id": "Q05375",
+      "kind": "append"
+    },
+    {
+      "operation": "ASA-UV-2",
+      "table": "evidence",
+      "id": "Q05376",
+      "kind": "append"
+    },
+    {
+      "operation": "ASA-UV-3",
+      "table": "evidence",
+      "id": "Q05377",
+      "kind": "append"
+    }
+  ]
+}

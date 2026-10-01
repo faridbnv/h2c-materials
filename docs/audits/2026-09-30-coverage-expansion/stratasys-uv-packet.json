@@ -1,0 +1,176 @@
+{
+  "PacketID": "STRATASYS-ASA-UV-COUPONS",
+  "Operations": [
+    {
+      "OperationID": "ASA-UV-1",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M031",
+        "GradeID": "G031-33",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "Natural color ASA coupons were built on the F900 using the T16 tip with 0.254 mm (0.010 in.) layer height. The coupons were then tested before and after UV exposure. Ten ASTM D638 upright (ZX) coupons were tested in tensile after UV exposure and an additional 10 ASTM D638 ZX coupons were the control (no UV Exposure). The UV exposed samples were cycled in the QUV chamber per ASTM G154 (Standard Practice for Operating Fluorescent Ultraviolet (UV) Lamp Apparatus for Exposure of Non-Metallic Materials) for 1000 hours, alternating for 8 hours at 60 \u00b0C (140 \u00b0F) and 4 hours at 50 \u00b0C (122 \u00b0F) with humidity and condensation. The increase in stress in break is from the control samples. For more information see the Impact of UV Exposure on FDM Materials white paper.",
+        "Exposure / conditions": "ASA Natural colour only; F900, T16 tip, 0.254 mm layers; upright ZX, ASTM D638. Ten UV-exposed and ten no-exposure control coupons. QUV per ASTM G154, 1000 hours, alternating 8 hours at 60 \u00b0C and 4 hours at 50 \u00b0C with humidity and condensation. UV lamp spectrum/irradiance not stated. No other colour, printer, orientation or outdoor lifetime qualification; no screening verdict or default mechanical headline derived.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Locator": "p. 14: UV Aging, full test-conditions paragraph"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G031-33",
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "ASA",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+          "Publisher": "Stratasys",
+          "Title": "MATERIAL DATA SHEET ASA",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-21",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/asa/mds_fdm_asa_0826a.pdf?v=4a575c",
+          "Locator": "Document / product page",
+          "Applicable grades": "G031-33",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f"
+        },
+        "OriginalPath": ".cache/sources/by-sha/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.pdf",
+        "TextPath": ".cache/text/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.json"
+      }
+    },
+    {
+      "OperationID": "ASA-UV-2",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M031",
+        "GradeID": "G031-33",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "No UV Exposure 4,430 30.5 4,420 30.5 2.8 - 264 1.82",
+        "Exposure / conditions": "ASA Natural colour only; F900, T16 tip, 0.254 mm layers; upright ZX, ASTM D638. Ten UV-exposed and ten no-exposure control coupons. QUV per ASTM G154, 1000 hours, alternating 8 hours at 60 \u00b0C and 4 hours at 50 \u00b0C with humidity and condensation. UV lamp spectrum/irradiance not stated. No other colour, printer, orientation or outdoor lifetime qualification; no screening verdict or default mechanical headline derived. Table columns in order: Yield Strength (psi, MPa), Stress at Break (psi, MPa), Elongation at Break (%), Increase in Stress at Break (%), Modulus (ksi, GPa). Raw signed -3.00 under the published Increase heading is retained; no recalculated percentage.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Locator": "p. 14: Table 8, ASA (Natural), No UV Exposure row"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G031-33",
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "ASA",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+          "Publisher": "Stratasys",
+          "Title": "MATERIAL DATA SHEET ASA",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-21",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/asa/mds_fdm_asa_0826a.pdf?v=4a575c",
+          "Locator": "Document / product page",
+          "Applicable grades": "G031-33",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f"
+        },
+        "OriginalPath": ".cache/sources/by-sha/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.pdf",
+        "TextPath": ".cache/text/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.json"
+      }
+    },
+    {
+      "OperationID": "ASA-UV-3",
+      "Kind": "append",
+      "Table": "evidence",
+      "Proposed": {
+        "MaterialID": "M031",
+        "GradeID": "G031-33",
+        "Domain": "Durability",
+        "Topic": "UV",
+        "Finding": "UV Exposure 4,390 30.3 4,290 29.5 2.3 -3.00 283 1.95",
+        "Exposure / conditions": "ASA Natural colour only; F900, T16 tip, 0.254 mm layers; upright ZX, ASTM D638. Ten UV-exposed and ten no-exposure control coupons. QUV per ASTM G154, 1000 hours, alternating 8 hours at 60 \u00b0C and 4 hours at 50 \u00b0C with humidity and condensation. UV lamp spectrum/irradiance not stated. No other colour, printer, orientation or outdoor lifetime qualification; no screening verdict or default mechanical headline derived. Table columns in order: Yield Strength (psi, MPa), Stress at Break (psi, MPa), Elongation at Break (%), Increase in Stress at Break (%), Modulus (ksi, GPa). Raw signed -3.00 under the published Increase heading is retained; no recalculated percentage.",
+        "Rating 1\u20135": "Not published",
+        "RubricID": "Not applicable",
+        "Evidence type": "Published observation",
+        "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Locator": "p. 14: Table 8, ASA (Natural), UV Exposure row"
+      },
+      "ExpectedGrade": {
+        "GradeID": "G031-33",
+        "MaterialID": "M031",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Stratasys",
+        "Product name": "ASA",
+        "Shared formulation key": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Composition / filler": "Not published",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "Source": {
+        "RegisteredSource": {
+          "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+          "Publisher": "Stratasys",
+          "Title": "MATERIAL DATA SHEET ASA",
+          "Revision": "Not published",
+          "Publication date": "Not published",
+          "Access date": "2026-09-21",
+          "Source class": "Manufacturer TDS",
+          "Source note": "Not applicable",
+          "Citation role": "cited",
+          "URL": "https://www.stratasys.com/siteassets/materials/materials-catalog/fdm-materials/asa/mds_fdm_asa_0826a.pdf?v=4a575c",
+          "Locator": "Document / product page",
+          "Applicable grades": "G031-33",
+          "Access state": "retrieved",
+          "Access note": "Not applicable",
+          "SHA256": "adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f"
+        },
+        "OriginalPath": ".cache/sources/by-sha/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.pdf",
+        "TextPath": ".cache/text/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/application-siraya-packet.json",
+  "input_sha256": "ed1c5bcbe894872919be31728bb87ba5d46976316f3334942d593730e6154472",
+  "signed_at_utc": "2026-10-01T04:47:06.133140+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 1,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "Siraya Tech",
+      "GradeIDs": [
+        "G151-01"
+      ],
+      "Products": 1
+    }
+  ],
+  "operations": [
+    {
+      "FindingID": "CE-APP-M151",
+      "MaterialID": "M151",
+      "GradeID": "G151-01",
+      "verdict": "APPROVE",
+      "status": "Evidence recorded",
+      "basis_evidence_ids": [
+        "Q05360",
+        "Q05361",
+        "Q05369"
+      ],
+      "status_review": "Admitted own-product maker-published specific Tamiya TT02 bumper demonstration/behaviour observations support exact bounded application evidence. Wet-sanding guidance is separately maker know-how and cannot alone create Evidence recorded.",
+      "source_reviews": [
+        {
+          "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+          "source_sha256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee",
+          "OriginalPath": ".cache/sources/by-sha/73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee.html",
+          "basis_evidence_ids": [
+            "Q05360",
+            "Q05361"
+          ],
+          "original_reread": "Fresh SHA-verified own HTML body and application/finishing section context independently reread. Full current registered source and admitted evidence rows equal packet."
+        },
+        {
+          "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+          "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+          "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+          "basis_evidence_ids": [
+            "Q05369"
+          ],
+          "original_reread": "Fresh SHA-verified own HTML body and application/finishing section context independently reread. Full current registered source and admitted evidence rows equal packet."
+        }
+      ],
+      "guard_review": "Full current ExpectedGrade, all three ExistingEvidence rows and both RegisteredSource rows equal frozen packet. No current non-superseded Application assessment; proposed append equals finding proposal.",
+      "limitations_review": "Text attributes reported illustrated bumper observation to maker; limits impact load/speed, actual test geometry/protocol/service life and achieved finish; no robotics scale-up or suitability qualification. Internal nozzle-temperature and AMS2 conflicts remain unresolved."
+    }
+  ],
+  "scope_limits": [
+    "Evidence recorded describes recorded own application observation, not an independently measured or validated service outcome.",
+    "No new selection pass, tested service life, measured impact result or printer/AMS compatibility arises from this judgment.",
+    "Exact-grade glass-fibre identity and older source title/body conflict remain explicit; no older source digest or profile replaced.",
+    "Coverage/tooltips/drawers must retain wording and maker attribution; replay/count/explain any answer/coverage changes."
+  ],
+  "review_signature_sha256": "feaaee24805f1c9790fa3b7bce3ad1b1effb02eced25302f60a5fb4257950ce3"
+}

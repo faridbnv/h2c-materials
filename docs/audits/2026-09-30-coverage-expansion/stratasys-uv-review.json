@@ -1,0 +1,83 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/stratasys-uv-packet.json",
+  "input_sha256": "1f878e4b8c0476b35a1c70206c4566aa5f55d67f2492a1fcd4ce473dde922786",
+  "signed_at_utc": "2026-10-01T03:48:59.093343+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 3,
+  "source_reading_batches": [
+    {
+      "batch": "ASA-UV-1",
+      "products": [
+        "G031-33"
+      ],
+      "original_reading_scope": "Fresh original p.14 pdftotext layout extraction plus independent visual reread of p.14 UV Aging paragraph and Table 8 rendering; original SHA and source registration rechecked."
+    }
+  ],
+  "operations": [
+    {
+      "OperationID": "ASA-UV-1",
+      "verdict": "APPROVE",
+      "GradeID": "G031-33",
+      "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+      "source_sha256": "adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f",
+      "OriginalPath": ".cache/sources/by-sha/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.pdf",
+      "Locator": "p. 14: UV Aging, full test-conditions paragraph",
+      "raw_finding": "Natural color ASA coupons were built on the F900 using the T16 tip with 0.254 mm (0.010 in.) layer height. The coupons were then tested before and after UV exposure. Ten ASTM D638 upright (ZX) coupons were tested in tensile after UV exposure and an additional 10 ASTM D638 ZX coupons were the control (no UV Exposure). The UV exposed samples were cycled in the QUV chamber per ASTM G154 (Standard Practice for Operating Fluorescent Ultraviolet (UV) Lamp Apparatus for Exposure of Non-Metallic Materials) for 1000 hours, alternating for 8 hours at 60 \u00b0C (140 \u00b0F) and 4 hours at 50 \u00b0C (122 \u00b0F) with humidity and condensation. The increase in stress in break is from the control samples. For more information see the Impact of UV Exposure on FDM Materials white paper.",
+      "source_fidelity": "Entire published UV Aging paragraph matches original p.14 after line-wrap whitespace normalization; source typo \u201cincrease in stress in break\u201d retained.",
+      "condition_review": "ASA Natural only; F900/T16/0.254 mm layers; ASTM D638 upright ZX; ten UV coupons and ten separate no-UV control coupons; QUV ASTM G154 1000 hours, 8 h 60 \u00b0C and 4 h 50 \u00b0C with humidity/condensation. Spectrum/irradiance absent. Common study description does not turn the no-UV control into an exposed specimen.",
+      "unit_review": "Table 8 headings and units independently visually reread: Yield Strength psi/MPa, Stress at Break psi/MPa, Elongation %, Increase in Stress at Break %, Modulus ksi/GPa. Control dash and negative UV sign preserved without recalculated retention.",
+      "guard_review": "Full current grade and registered source equal packet; original SHA verified. No duplicate raw finding already recorded on G031-33.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      }
+    },
+    {
+      "OperationID": "ASA-UV-2",
+      "verdict": "APPROVE",
+      "GradeID": "G031-33",
+      "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+      "source_sha256": "adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f",
+      "OriginalPath": ".cache/sources/by-sha/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.pdf",
+      "Locator": "p. 14: Table 8, ASA (Natural), No UV Exposure row",
+      "raw_finding": "No UV Exposure 4,430 30.5 4,420 30.5 2.8 - 264 1.82",
+      "source_fidelity": "Exact No UV Exposure control row verified visually and by original text extraction: 4430 psi/30.5 MPa yield, 4420 psi/30.5 MPa break, 2.8% elongation, dash for Increase, 264 ksi/1.82 GPa modulus.",
+      "condition_review": "ASA Natural only; F900/T16/0.254 mm layers; ASTM D638 upright ZX; ten UV coupons and ten separate no-UV control coupons; QUV ASTM G154 1000 hours, 8 h 60 \u00b0C and 4 h 50 \u00b0C with humidity/condensation. Spectrum/irradiance absent. Common study description does not turn the no-UV control into an exposed specimen.",
+      "unit_review": "Table 8 headings and units independently visually reread: Yield Strength psi/MPa, Stress at Break psi/MPa, Elongation %, Increase in Stress at Break %, Modulus ksi/GPa. Control dash and negative UV sign preserved without recalculated retention.",
+      "guard_review": "Full current grade and registered source equal packet; original SHA verified. No duplicate raw finding already recorded on G031-33.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      }
+    },
+    {
+      "OperationID": "ASA-UV-3",
+      "verdict": "APPROVE",
+      "GradeID": "G031-33",
+      "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+      "source_sha256": "adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f",
+      "OriginalPath": ".cache/sources/by-sha/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.pdf",
+      "Locator": "p. 14: Table 8, ASA (Natural), UV Exposure row",
+      "raw_finding": "UV Exposure 4,390 30.3 4,290 29.5 2.3 -3.00 283 1.95",
+      "source_fidelity": "Exact UV Exposure row verified visually and by original text extraction: 4390 psi/30.3 MPa yield, 4290 psi/29.5 MPa break, 2.3% elongation, printed -3.00% under Increase in Stress at Break, 283 ksi/1.95 GPa modulus.",
+      "condition_review": "ASA Natural only; F900/T16/0.254 mm layers; ASTM D638 upright ZX; ten UV coupons and ten separate no-UV control coupons; QUV ASTM G154 1000 hours, 8 h 60 \u00b0C and 4 h 50 \u00b0C with humidity/condensation. Spectrum/irradiance absent. Common study description does not turn the no-UV control into an exposed specimen.",
+      "unit_review": "Table 8 headings and units independently visually reread: Yield Strength psi/MPa, Stress at Break psi/MPa, Elongation %, Increase in Stress at Break %, Modulus ksi/GPa. Control dash and negative UV sign preserved without recalculated retention.",
+      "guard_review": "Full current grade and registered source equal packet; original SHA verified. No duplicate raw finding already recorded on G031-33.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      }
+    }
+  ],
+  "scope_limits": [
+    "Published coupon observations only; no transfer to other colours/printers/orientations, outdoor lifetime or universal ASA/product suitability.",
+    "No default mechanical headline, synthetic Resistant verdict or recalculated retention created.",
+    "Referenced Impact of UV Exposure white paper was not retrieved/reread for this packet; no claim from that unreviewed document admitted.",
+    "All three findings tested with current normalize/chemical.js remain narrative and unusable as direct deciding environmental verdicts. Replay/count/explain any category record presence or inherited-context changes after admission."
+  ],
+  "review_signature_sha256": "9a24b30a0fc12ff30ff8aafe306f52f40f1d9baf845c6c72b038ef1a92f3d688"
+}

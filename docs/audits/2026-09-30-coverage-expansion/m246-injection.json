@@ -1,0 +1,121 @@
+{
+  "migration": "m246-environment-next-claims",
+  "packet": "36ff1ce6d1c8957937801cbd3110030e6b9160921b7e48222bfad7006a4b46e5",
+  "written": 19,
+  "records": [
+    {
+      "operation": "UV-REMAINING-Q00576",
+      "table": "evidence",
+      "id": "Q00576",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q01772",
+      "table": "evidence",
+      "id": "Q01772",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02450",
+      "table": "evidence",
+      "id": "Q02450",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02474",
+      "table": "evidence",
+      "id": "Q02474",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02496",
+      "table": "evidence",
+      "id": "Q02496",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02536",
+      "table": "evidence",
+      "id": "Q02536",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02549",
+      "table": "evidence",
+      "id": "Q02549",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02564",
+      "table": "evidence",
+      "id": "Q02564",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02600",
+      "table": "evidence",
+      "id": "Q02600",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02621",
+      "table": "evidence",
+      "id": "Q02621",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02623",
+      "table": "evidence",
+      "id": "Q02623",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02707",
+      "table": "evidence",
+      "id": "Q02707",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02709",
+      "table": "evidence",
+      "id": "Q02709",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02858",
+      "table": "evidence",
+      "id": "Q02858",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q02982",
+      "table": "evidence",
+      "id": "Q02982",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q04358",
+      "table": "evidence",
+      "id": "Q04358",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q04648",
+      "table": "evidence",
+      "id": "Q04648",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q04739",
+      "table": "evidence",
+      "id": "Q04739",
+      "kind": "edit"
+    },
+    {
+      "operation": "UV-REMAINING-Q04789",
+      "table": "evidence",
+      "id": "Q04789",
+      "kind": "edit"
+    }
+  ]
+}

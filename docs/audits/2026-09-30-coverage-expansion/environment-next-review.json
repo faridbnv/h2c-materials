@@ -1,0 +1,467 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/environment-next-packet.json",
+  "input_sha256": "36ff1ce6d1c8957937801cbd3110030e6b9160921b7e48222bfad7006a4b46e5",
+  "signed_at_utc": "2026-10-01T04:46:05.379075+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_operations": 19,
+  "source_reading_batches": [
+    {
+      "Manufacturer": "Spectrum",
+      "GradeIDs": [
+        "G001-06",
+        "G020-09",
+        "G031-03",
+        "G031-15",
+        "G033-04",
+        "G034-01",
+        "G037-02",
+        "G085-01",
+        "G105-01",
+        "G113-01",
+        "G129-01"
+      ],
+      "Products": 11
+    },
+    {
+      "Manufacturer": "SUNLU",
+      "GradeIDs": [
+        "G031-08",
+        "G031-27",
+        "G039-18"
+      ],
+      "Products": 3
+    },
+    {
+      "Manufacturer": "QIDI",
+      "GradeIDs": [
+        "G031-25",
+        "G032-04"
+      ],
+      "Products": 2
+    },
+    {
+      "Manufacturer": "Stratasys",
+      "GradeIDs": [
+        "G031-33"
+      ],
+      "Products": 1
+    }
+  ],
+  "operations": [
+    {
+      "OperationID": "UV-REMAINING-Q00576",
+      "EvidenceID": "Q00576",
+      "GradeID": "G001-06",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-pla-matt",
+      "source_sha256": "4452c7c18116240731d19344d0f2b634df1d8dbf72c08dee58b913373a7d93b3",
+      "OriginalPath": ".cache/sources/by-sha/4452c7c18116240731d19344d0f2b634df1d8dbf72c08dee58b913373a7d93b3.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV stabilization",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q01772",
+      "EvidenceID": "Q01772",
+      "GradeID": "G020-09",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-petg-matt",
+      "source_sha256": "948680b68ccfc2b13df7784a6f608888a7321df11a5ac32275fa821cb7020892",
+      "OriginalPath": ".cache/sources/by-sha/948680b68ccfc2b13df7784a6f608888a7321df11a5ac32275fa821cb7020892.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV stabilization",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02450",
+      "EvidenceID": "Q02450",
+      "GradeID": "G031-03",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asa-275",
+      "source_sha256": "4a4c4479cf013c15c7f227d70317281980af5e95aaf522571979d6006a31af93",
+      "OriginalPath": ".cache/sources/by-sha/4a4c4479cf013c15c7f227d70317281980af5e95aaf522571979d6006a31af93.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "resistance to UV radiation",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02474",
+      "EvidenceID": "Q02474",
+      "GradeID": "G031-08",
+      "verdict": "APPROVE",
+      "SourceID": "R-SUNLU-7d61617c-7540-4ae2-88d3-a0d206e5d801",
+      "source_sha256": "921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033",
+      "OriginalPath": ".cache/sources/by-sha/921b543c6ecc75c46ce2b1a5f4ea256c468db90c9f75e8ee74e2c56cd002c033.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV-, rain-, and heat-resistant, suitable for outdoor use",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass. The same source warns that the product may yellow under ultraviolet light and should be stored away from direct sunlight; the UV claim does not establish colour stability or an outdoor service life.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Fresh original full document reread confirms product-may-yellow ultraviolet warning and store-away-from-direct-sunlight advice on last page. Both positive feature claim and limitation retained; no unconditional colour stability or outdoor service life."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02496",
+      "EvidenceID": "Q02496",
+      "GradeID": "G031-15",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-flameguard-asa-275",
+      "source_sha256": "51bc223b4e238a9bc9294f7db02241a43eefa51d4469230c172e6a55b4ce6b92",
+      "OriginalPath": ".cache/sources/by-sha/51bc223b4e238a9bc9294f7db02241a43eefa51d4469230c172e6a55b4ce6b92.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "Excellent resistance to outdoor exposure",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02536",
+      "EvidenceID": "Q02536",
+      "GradeID": "G031-25",
+      "verdict": "APPROVE",
+      "SourceID": "R-QIDI-ASA",
+      "source_sha256": "a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4",
+      "OriginalPath": ".cache/sources/by-sha/a25213876b47e652fe09ed983f6130faa28e316ad76362637ccc395792bafdf4.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "QIDI ASA can resist material degradation, aging and color fading which are caused by UV.",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02549",
+      "EvidenceID": "Q02549",
+      "GradeID": "G031-27",
+      "verdict": "APPROVE",
+      "SourceID": "R-SUNLU-SUNLU-ASA-Purple",
+      "source_sha256": "6583a1213249a42f1ca9ac915924e636bf8a44da19514cfda8aa121f112b39ac",
+      "OriginalPath": ".cache/sources/by-sha/6583a1213249a42f1ca9ac915924e636bf8a44da19514cfda8aa121f112b39ac.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV/rain/heat resistant, suitable for outdoor use",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass. The same source warns that the product may yellow under ultraviolet light and should be stored away from direct sunlight; the UV claim does not establish colour stability or an outdoor service life.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Fresh original full document reread confirms product-may-yellow ultraviolet warning and store-away-from-direct-sunlight advice on last page. Both positive feature claim and limitation retained; no unconditional colour stability or outdoor service life.",
+        "Purple filename is retained history; own sheet says Multiple colors, not a qualified all-colour/purple-only performance test."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02564",
+      "EvidenceID": "Q02564",
+      "GradeID": "G031-33",
+      "verdict": "APPROVE",
+      "SourceID": "R-STRATASYS-mds-fdm-asa-0826a",
+      "source_sha256": "adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f",
+      "OriginalPath": ".cache/sources/by-sha/adfd8bd0e8378ce2f7b93eeed48173353042027b5275dcf7e1131bfa8da7e49f.pdf",
+      "Locator": "p. 2",
+      "raw_finding": "It is similar to ABS (acrylonitrile butadiene styrene) but exhibits better UV resistance, mechanical properties and aesthetics than ABS.",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "General ASA-versus-ABS comparison; no tested ABS comparator or comparison protocol identified. The same source separately reports p. 14 Natural ASA F900/T16/ZX coupons, ASTM G154 1000 h, with control/exposed results; that study does not establish this ABS comparison or all colours. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Corrected note confines missing comparator/protocol to general ASA-vs-ABS claim, acknowledging distinct p14 Natural/F900/T16/ZX ASTM G1541000h study. No all-colour/comparison validation."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02600",
+      "EvidenceID": "Q02600",
+      "GradeID": "G032-04",
+      "verdict": "APPROVE",
+      "SourceID": "R-QIDI-ASA-AERO",
+      "source_sha256": "446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c",
+      "OriginalPath": ".cache/sources/by-sha/446c853fea6a7e4f1e01a4b1b7939f27e8f6e3b98768fc007e418ec8ef402c1c.pdf",
+      "Locator": "p. 2",
+      "raw_finding": "Meanwhile, ASA-Aero retains the original UV aging resistance and high heat resistance of ASA material, which is suitable for long-term use in high-temperature outdoor environments.",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Foaming-product narrative lacks tested foaming/printing state, exposure duration or temperature validating long-term/high-temperature phrase."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02621",
+      "EvidenceID": "Q02621",
+      "GradeID": "G033-04",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asax-cf10",
+      "source_sha256": "52a4ad4d7a612cf679dfb0c532bc33a8f195e15ba03868e4e65626c7942ca531",
+      "OriginalPath": ".cache/sources/by-sha/52a4ad4d7a612cf679dfb0c532bc33a8f195e15ba03868e4e65626c7942ca531.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "excellent resistance to outdoor exposure",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02623",
+      "EvidenceID": "Q02623",
+      "GradeID": "G033-04",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asax-cf10",
+      "source_sha256": "52a4ad4d7a612cf679dfb0c532bc33a8f195e15ba03868e4e65626c7942ca531",
+      "OriginalPath": ".cache/sources/by-sha/52a4ad4d7a612cf679dfb0c532bc33a8f195e15ba03868e4e65626c7942ca531.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV resistance",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02707",
+      "EvidenceID": "Q02707",
+      "GradeID": "G034-01",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asax-x-gf10",
+      "source_sha256": "f4f34b14a45646ed848481f9f4aa287fe3c00a893d7daa6451b33b0542205bfe",
+      "OriginalPath": ".cache/sources/by-sha/f4f34b14a45646ed848481f9f4aa287fe3c00a893d7daa6451b33b0542205bfe.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "excellent resistance to outdoor exposure",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02709",
+      "EvidenceID": "Q02709",
+      "GradeID": "G034-01",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asax-x-gf10",
+      "source_sha256": "f4f34b14a45646ed848481f9f4aa287fe3c00a893d7daa6451b33b0542205bfe",
+      "OriginalPath": ".cache/sources/by-sha/f4f34b14a45646ed848481f9f4aa287fe3c00a893d7daa6451b33b0542205bfe.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV resistance",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02858",
+      "EvidenceID": "Q02858",
+      "GradeID": "G037-02",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-PC-CF-3",
+      "source_sha256": "2767cd6b49968c12e8383a5499994f2112553aa6472d5bdb02f3e64cb9bcb914",
+      "OriginalPath": ".cache/sources/by-sha/2767cd6b49968c12e8383a5499994f2112553aa6472d5bdb02f3e64cb9bcb914.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "good UV resistance",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Full good UV resistance retained; not shortened to Good to create synthetic resistant verdict."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q02982",
+      "EvidenceID": "Q02982",
+      "GradeID": "G039-18",
+      "verdict": "APPROVE",
+      "SourceID": "R-SUNLU-c7dd1bd8-a2c5-4908-bc1c-479ca23cbd3b",
+      "source_sha256": "1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9",
+      "OriginalPath": ".cache/sources/by-sha/1ec4d5c2bee6bfc2d7bc7b600cc80447fcdcec70391a4c77be4d8a1b402efda9.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV-resistant",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass. The same source warns that the product may yellow under ultraviolet light and should be stored away from direct sunlight; the UV claim does not establish colour stability or an outdoor service life.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": [
+        "Fresh original full document reread confirms product-may-yellow ultraviolet warning and store-away-from-direct-sunlight advice on last page. Both positive feature claim and limitation retained; no unconditional colour stability or outdoor service life."
+      ]
+    },
+    {
+      "OperationID": "UV-REMAINING-Q04358",
+      "EvidenceID": "Q04358",
+      "GradeID": "G085-01",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-EN-TDS-Spectrum-HDPE",
+      "source_sha256": "b2a8c0258f535a5db03a3ee471328b11681db7bcd12aefbf9d5ccce7449324e0",
+      "OriginalPath": ".cache/sources/by-sha/b2a8c0258f535a5db03a3ee471328b11681db7bcd12aefbf9d5ccce7449324e0.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV-stable and weather-resistant",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q04648",
+      "EvidenceID": "Q04648",
+      "GradeID": "G105-01",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asa-conductive",
+      "source_sha256": "1fba88b90bf4990299ebc527ee590dc6d4bcdc2f07191bd9bb7cdbd2001ea0dc",
+      "OriginalPath": ".cache/sources/by-sha/1fba88b90bf4990299ebc527ee590dc6d4bcdc2f07191bd9bb7cdbd2001ea0dc.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV and weather resistance",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q04739",
+      "EvidenceID": "Q04739",
+      "GradeID": "G113-01",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-asa-kevlar",
+      "source_sha256": "f96ac4bf4e31ba151c4d7d3a5eb00c6714cb7ee619d0aa5981e12f8d1b4a8e5b",
+      "OriginalPath": ".cache/sources/by-sha/f96ac4bf4e31ba151c4d7d3a5eb00c6714cb7ee619d0aa5981e12f8d1b4a8e5b.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "UV resistance",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    },
+    {
+      "OperationID": "UV-REMAINING-Q04789",
+      "EvidenceID": "Q04789",
+      "GradeID": "G129-01",
+      "verdict": "APPROVE",
+      "SourceID": "S-SPECTRUM-en-tds-spectrum-sflex-carbon",
+      "source_sha256": "fb659024de011cf6a2db084eecdef03330a2f75db79f30315237c83403d1d90e",
+      "OriginalPath": ".cache/sources/by-sha/fb659024de011cf6a2db084eecdef03330a2f75db79f30315237c83403d1d90e.pdf",
+      "Locator": "p. 1",
+      "raw_finding": "Resistance to UV radiation",
+      "original_reread_scope": "Fresh original relevant page/own paragraph and adjacent features independently reread; relevant document UV/warning context additionally scanned, SUNLU last-page warnings read; exact registered-source SHA freshly checked.",
+      "conditions_review": "Maker exact-product qualitative UV statement. Exposure protocol, UV spectrum/intensity, duration, specimen and measured retention are not stated; colour scope and comparative/raw wording remain as printed. No service qualification or requirement pass.",
+      "guard_review": "Full current Expected evidence/ExpectedGrade/RegisteredSource match packet. IDs/raw/source revision/rating preserved; only Domain/Topic/Exposure changes.",
+      "classification_check": {
+        "category": "uv-outdoor",
+        "finding_verdict": "narrative",
+        "usable_deciding_verdict": false
+      },
+      "specific_limits": []
+    }
+  ],
+  "scope_limits": [
+    "Full own-product qualitative text retained; no exposure protocol or service qualification from unrelated mechanical specimens.",
+    "Current classifier confirmed all uv-outdoor narrative and unusable for direct PASS/FAIL.",
+    "Own records can suppress inherited polymer context/change inference screens; replay/count/explain answers.",
+    "Source-custody/relevant original reading does not establish universal absence or independently validate maker performance."
+  ],
+  "history": [
+    {
+      "input_sha256": "c5768a3fab801222aa79c33c6479f9e88c25d09700093b6013d4e62d5e7373c7",
+      "overall_verdict": "REQUEST_CORRECTION",
+      "approved_operations": 18,
+      "reason": "Q02564 note failed to acknowledge scoped p14 UV coupon study; restrict missing protocol to ABS comparison."
+    },
+    {
+      "input_sha256": "688181d00a63d4f2760d6b38723d787c91f07a8caa618d46cf4ca4e1171f55fb",
+      "overall_verdict": "INTERMEDIATE_NOT_RELEASED",
+      "reason": "Q02564 corrected. Primary full-document reread found three SUNLU yellowing/storage warnings; final notes must retain them."
+    }
+  ],
+  "revision_attestation": "Reverting only three SUNLU Exposure notes recreates intermediate688\u2026 SHA; reverting Q02564 note then recreates originalc576\u2026 SHA. All other operation fields unchanged.",
+  "review_signature_sha256": "25de82fec01f5e1bab6bf4a4ee056c68dc64a095d411085c37ae41db66e6884c"
+}

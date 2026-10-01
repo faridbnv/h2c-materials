@@ -1,0 +1,145 @@
+{
+  "PacketID": "APPLICATION-SIRAYA",
+  "Findings": [
+    {
+      "FindingID": "CE-APP-M151",
+      "ExpectedGrade": {
+        "GradeID": "G151-01",
+        "MaterialID": "M151",
+        "Role": "procurement",
+        "Status": "active",
+        "Manufacturer": "Siraya Tech",
+        "Product name": "Fibreheart TPU GF",
+        "Shared formulation key": "D-SIRAYA-fibreheart-tpu-gf-filament-tds",
+        "Composition / filler": "Material Ther moplast ic Polyu re than e + 15 % short cut glass fiber (p. 1, as the sheet states it)",
+        "Variant": "Not applicable",
+        "Colour caveat": "Properties may vary by colour; use TDS scope",
+        "Availability": "Not published",
+        "Certification claims": "Not published",
+        "Selected-grade rationale": "Documented commercial formulation; traceable manufacturer evidence",
+        "SourceID": "D-SIRAYA-fibreheart-tpu-gf-filament-tds",
+        "Source locator": "TDS / official product page",
+        "Diameter compatibility": "Check 1.75 mm variant; diameter is not part tolerance"
+      },
+      "ExistingEvidence": [
+        {
+          "EvidenceID": "Q05360",
+          "MaterialID": "M151",
+          "GradeID": "G151-01",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "To demonstrate the unique properties of TPU-GF, we looked at a common pain point in the RC community: front-end collisions. We tested a fantastic Tamiya TT02 Flex Bumper model specifically engineered for high-speed kinetic impacts.",
+          "Exposure / conditions": "Maker-reported illustrated RC-bumper demonstration only; impact load/speed, geometry, specimen conditions and test protocol not published. No quantitative impact qualification or transfer to robotics.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+          "Locator": "p. 1: Real-World Testing, Tamiya TT02 Flex Bumper; text line 247"
+        },
+        {
+          "EvidenceID": "Q05361",
+          "MaterialID": "M151",
+          "GradeID": "G151-01",
+          "Domain": "Application",
+          "Topic": "Application",
+          "Finding": "Printed in Siraya Tech TPU-GF, the bumper maintains its structural rigidity to protect the chassis during static loading, while flexing on heavy impacts to dissipate kinetic energy before snapping back into shape.",
+          "Exposure / conditions": "Maker-reported behaviour of this bumper; no measured load, impact speed, cycle life or protocol. No scale-up or industrial payload qualification.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Published observation",
+          "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+          "Locator": "p. 1: 3D Model Showcase, TPU-GF bumper observation; text line 250"
+        },
+        {
+          "EvidenceID": "Q05369",
+          "MaterialID": "M151",
+          "GradeID": "G151-01",
+          "Domain": "Makers' know-how",
+          "Topic": "Surface finish",
+          "Finding": "Wet Sanding: Highly recommended to keep dust particles trapped in water rather than airborne.",
+          "Exposure / conditions": "Maker finishing guidance; grit, duration and achieved surface properties not stated.",
+          "Rating 1\u20135": "Not published",
+          "RubricID": "Not applicable",
+          "Evidence type": "Manufacturer statement",
+          "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+          "Locator": "p. 1: 5. Post-Processing, Wet Sanding; text line 276"
+        }
+      ],
+      "Sources": [
+        {
+          "RegisteredSource": {
+            "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+            "Publisher": "Siraya Tech",
+            "Title": "Stiff Yet Flexible: Engineering Robotic Shock Absorbers with Siraya Tech TPU-GF",
+            "Revision": "Not published",
+            "Publication date": "2026-08-11",
+            "Access date": "2026-09-30",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Exact-product campaign witness staged by digest through the import pipeline. Narrative claims, handling/finishing guidance and unresolved internal temperature/AMS statements only; no mechanical measurement, rewritten recipe or compatibility verdict admitted. Independent AI review required; no human review.",
+            "Citation role": "cited",
+            "URL": "https://siraya.tech/blogs/news/stiff-yet-flexible-engineering-robotic-shock-absorbers-with-siraya-tech-tpu-gf",
+            "Locator": "Document / product page",
+            "Applicable grades": "G151-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee"
+          },
+          "OriginalPath": ".cache/sources/by-sha/73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee.html",
+          "TextPath": ".cache/text/73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee.json"
+        },
+        {
+          "RegisteredSource": {
+            "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+            "Publisher": "Siraya Tech",
+            "Title": "Fibreheart TPU-GF Filament User Guide",
+            "Revision": "Not published",
+            "Publication date": "Not published",
+            "Access date": "2026-09-30",
+            "Source class": "Manufacturer product page or guide",
+            "Source note": "Exact-product campaign witness staged by digest through the import pipeline. Narrative claims, handling/finishing guidance and unresolved internal temperature/AMS statements only; no mechanical measurement, rewritten recipe or compatibility verdict admitted. Independent AI review required; no human review.",
+            "Citation role": "cited",
+            "URL": "https://siraya.tech/pages/fibreheart-tpu-gf-filament-user-guide",
+            "Locator": "Document / product page",
+            "Applicable grades": "G151-01",
+            "Access state": "retrieved",
+            "Access note": "Not applicable",
+            "SHA256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79"
+          },
+          "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+          "TextPath": ".cache/text/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.json"
+        }
+      ],
+      "ProposedCoverage": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Siraya Tech Fibreheart TPU GF (G151-01) has maker-reported illustrated Tamiya TT02 bumper observations (Q05360/Q05361, R-SIRAYA-COVERAGE-20260930-73328d4145ba) and wet-sanding guidance (Q05369, R-SIRAYA-COVERAGE-20260930-c2563ad36bc5). Evidence is limited to the reported bumper and processing advice. Impact load/speed, geometry, protocol, service life and achieved finish are not published; robotics scale-up and application suitability are not established. Internal temperature and AMS2 contradictions remain unresolved."
+      }
+    }
+  ],
+  "Operations": [
+    {
+      "FindingID": "CE-APP-M151",
+      "append": {
+        "MaterialID": "M151",
+        "GradeID": "G151-01",
+        "Domain": "Post-processing / application",
+        "Status": "Evidence recorded",
+        "Manufacturer count": "Not applicable",
+        "Finding": "Reviewed 2026-09-30: Siraya Tech Fibreheart TPU GF (G151-01) has maker-reported illustrated Tamiya TT02 bumper observations (Q05360/Q05361, R-SIRAYA-COVERAGE-20260930-73328d4145ba) and wet-sanding guidance (Q05369, R-SIRAYA-COVERAGE-20260930-c2563ad36bc5). Evidence is limited to the reported bumper and processing advice. Impact load/speed, geometry, protocol, service life and achieved finish are not published; robotics scale-up and application suitability are not established. Internal temperature and AMS2 contradictions remain unresolved."
+      },
+      "supersede": []
+    }
+  ],
+  "MakerBatches": [
+    {
+      "Manufacturer": "Siraya Tech",
+      "GradeIDs": [
+        "G151-01"
+      ],
+      "Products": 1
+    }
+  ]
+}

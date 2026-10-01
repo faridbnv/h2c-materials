@@ -978,3 +978,23 @@ digest, original, independent review and release conditions.
 npm run sql --silent -- "select gradeid, materialid, product_name, composition_filler from grades where gradeid = 'G081-06'"
 npm run sql --silent -- "select evidenceid, gradeid, domain, topic, finding from evidence where evidenceid = 'Q04265'"
 ```
+
+## 24. Siraya TPU-GF guide conflicts and a bounded drying schedule
+
+The witnessed own-product guide R-SIRAYA-COVERAGE-20260930-c2563ad36bc5 prints
+220–250 °C in Specifications and 240–270 °C in Printing Recommendations. It excludes
+AMS2 in Specifications, then names AMS/AMS Lite/AMS2 in the usage heading and says
+“While compatible” in its wear warning. Q05370–Q05374 preserve these statements and
+their disagreement; neither recency nor an intersection establishes the intended recipe
+or a particular AMS2 Pro/AMS HT verdict. Vendor clarification is needed.
+
+Q05364 records “Dry at 50-60°C for 6+ hours before printing.” Current scalar profile
+columns cannot carry both the temperature range and a lower-bound duration faithfully.
+No narrowed scalar temperature/time or profile was invented; the raw schedule remains
+available in maker guidance. Resolving this requires a faithful data contract or a maker
+clarification, not a guessed setting. The reported RC-bumper observations do not qualify
+robotic payloads, and the guide's sanding advice is not a verified safety assessment.
+
+```sh
+npm run sql --silent -- "select evidenceid, topic, finding, exposure_conditions from evidence where gradeid = 'G151-01' and evidenceid in ('Q05364','Q05370','Q05371','Q05372','Q05373','Q05374')"
+```

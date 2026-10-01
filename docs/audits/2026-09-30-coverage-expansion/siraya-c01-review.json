@@ -1,0 +1,296 @@
+{
+  "reviewer": "Independent AI agent /root/coverage_reviewer; no human review",
+  "input_path": "external-campaign/research/siraya-c01-packet.json",
+  "input_sha256": "8c113cb7ed1e97b0ac476edcb3104873bdc79fe9c122385c22087947d315b087",
+  "signed_at_utc": "2026-10-01T04:36:44.870069+00:00",
+  "overall_verdict": "APPROVE",
+  "approved_source_rows": 2,
+  "approved_finding_operations": 15,
+  "source_reading_batches": [
+    {
+      "batch": "SIRAYA-C01",
+      "products": [
+        "G151-01"
+      ],
+      "originals": 2
+    }
+  ],
+  "documents": [
+    {
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "verdict": "APPROVE",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "proposal_path": "external-campaign/ingest/proposals/c01/c2563ad36bc5d820.json",
+      "proposal_sha256": "28e9e3cb0982fb17bbe91432a78fef792f1c295804376c4301252740e071e7f9",
+      "source_row_guard": "Full source row equals frozen proposal; original/private bytes hashes agree; new SourceID not previously registered. Title from actual own content; exact official URL, correct digest/access/date/scope and cited retrieved state.",
+      "identity_review": "Guide title/Introduction/Specifications name own TPU-GF, 15% Glass Fiber. Exact existing G151-01/M151 identity retained.",
+      "automatic_artifacts": "Wrong automatic Resin/TPU-CF identity retained as rejected extraction history; automatic grades discarded; both automatic guide profiles rejected. Accepted grade key resolves existing own product without canonical identity/formulation/profile changes."
+    },
+    {
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+      "verdict": "APPROVE",
+      "OriginalPath": ".cache/sources/by-sha/73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee.html",
+      "source_sha256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee",
+      "proposal_path": "external-campaign/ingest/proposals/c01/73328d4145ba0f5f.json",
+      "proposal_sha256": "fdade3795d8254ced4a03bc63a0e481f593dd613295aabe8e380802bd7912b32",
+      "source_row_guard": "Full source row equals frozen proposal; original/private bytes hashes agree; new SourceID not previously registered. Title from actual own content; exact official URL, correct digest/access/date/scope and cited retrieved state.",
+      "identity_review": "Blog own TPU-GF RC-bumper demonstration; adjacent 15% glass-fiber context binds exact GF product. Visible Aug 11, 2026 and original JSON-LD datePublished agree.",
+      "automatic_artifacts": "Wrong automatic Resin/TPU-CF identity retained as rejected extraction history; automatic grades discarded; both automatic guide profiles rejected. Accepted grade key resolves existing own product without canonical identity/formulation/profile changes."
+    }
+  ],
+  "operations": [
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-1",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 1. Introduction; text line 240",
+      "raw_finding": "This addition significantly enhances stiffness, impact strength, and dimensional stability, making it the ultimate choice for printing heavy-duty engineering components that require a unique blend of elasticity and extreme structural integrity.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker intended-use and comparative performance claim; no application-specific load, impact protocol or service qualification.",
+      "additional_limits": [],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-2",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 3. Before Printing, Dry Before Use; text line 253",
+      "raw_finding": "Dry Before Use (Essential): Glass fiber creates microscopic channels that can trap moisture. Wet TPU-GF will result in severe oozing and brittle parts.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Moisture-handling/print-quality claim; no moisture-service or hydrolysis test.",
+      "additional_limits": [],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-3",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 3. Before Printing, Method; text line 254",
+      "raw_finding": "Method: Dry at 50-60\u00b0C for 6+ hours before printing.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Published drying range 50\u201360 \u00b0C and lower-bound 6+ hours preserved. Current scalar drying columns cannot faithfully express both; no narrowed temperature/time or typed drying profile is admitted.",
+      "additional_limits": [
+        "Full 50\u201360 \u00b0C window and 6+ lower bound retained as narrative; no scalar narrowed drying temperature/time or derived profile."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-4",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 3. Before Printing, Nozzle Check; text line 255",
+      "raw_finding": "Nozzle Check : The standard brass nozzle is not compatible. The glass fibers will erode brass nozzles rapidly, ruining both the nozzle and your print accuracy. Install an abrasion-resistant nozzle (Hardened Steel, etc.) before loading this filament.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Own-product abrasion/nozzle instruction; no quantitative wear-life test.",
+      "additional_limits": [],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-5",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 5. Post-Processing, Support Removal; text line 272",
+      "raw_finding": "Support Removal: Supports may be stiffer than standard TPU. Use pliers. The interface usually separates cleanly due to the fiber content.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker support-removal advice, no measured removal-force result.",
+      "additional_limits": [],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-6",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 5. Post-Processing, Safety Hazard; text line 274",
+      "raw_finding": "Safety Hazard: Unlike pure plastic, sanding this material produces dust containing micro-glass particles .",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker sanding-dust warning, no exposure measurement; processing safety is separate from service performance.",
+      "additional_limits": [],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-7",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 5. Post-Processing, Protection; text line 275",
+      "raw_finding": "Protection: You MUST wear a dust mask (N95 or better) and safety goggles if sanding, drilling, or machining the parts to prevent inhalation of glass dust or eye irritation.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker protective-equipment guidance, not a certified printed-part safety assessment.",
+      "additional_limits": [],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-8",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 5. Post-Processing, Wet Sanding; text line 276",
+      "raw_finding": "Wet Sanding: Highly recommended to keep dust particles trapped in water rather than airborne.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker finishing guidance; grit, duration and achieved surface properties not stated.",
+      "additional_limits": [],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-9",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 2. Specifications, Printing Temperature; text line 248",
+      "raw_finding": "Printing Temperature: 220 - 250\u00b0C",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Internal conflict: section 4 prints Nozzle Temperature 240\u2013270 \u00b0C. Both source statements retained; no replacement or reconciled recipe window admitted.",
+      "additional_limits": [
+        "Guide \u00a72 220\u2013250 versus \u00a74 240\u2013270 conflict preserved. Existing own TDS recipe unchanged; no interval intersection, average or recency resolution."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-10",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 4. Printing Recommendations, Nozzle Temperature; text line 258",
+      "raw_finding": "Nozzle Temperature: 240-270\u00b0C. Glass fiber improves thermal conductivity, so the material melts efficiently. Start at 240\u00b0C .",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Internal conflict: section 2 prints Printing Temperature 220\u2013250 \u00b0C. Existing TDS recipe 240\u2013270 \u00b0C retained; vendor clarification needed, no recency-based resolution.",
+      "additional_limits": [
+        "Guide \u00a72 220\u2013250 versus \u00a74 240\u2013270 conflict preserved. Existing own TDS recipe unchanged; no interval intersection, average or recency resolution."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-11",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 2. Specifications, AMS Compatibility; text line 251",
+      "raw_finding": "AMS Compatibility: Compatible with Bambu Lab AMS (Original) and AMS Lite. NOT compatible with AMS 2.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Conflicts with section 4 Hardware & AMS Usage naming AMS/AMS Lite/AMS2 and While compatible wear warning. Bare AMS2 is not mapped to AMS2 Pro or AMS HT; no compatibility pass follows.",
+      "additional_limits": [
+        "Guide \u00a72 excludes bare AMS2 while \u00a74 heading and While compatible warning name it; no AMS2 Pro/HT mapping or typed compatibility verdict."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-12",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 4. Hardware & AMS Usage heading; text line 266",
+      "raw_finding": "Hardware & AMS Usage: AMS / AMS Lite/AMS 2",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "This heading names AMS2, whereas section2 says NOT compatible with AMS2. Keep ambiguity and device-name scope; no new typed compatibility verdict.",
+      "additional_limits": [
+        "Guide \u00a72 excludes bare AMS2 while \u00a74 heading and While compatible warning name it; no AMS2 Pro/HT mapping or typed compatibility verdict."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5/campaign-13",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-c2563ad36bc5",
+      "source_sha256": "c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79",
+      "OriginalPath": ".cache/sources/by-sha/c2563ad36bc5d820b9ff55f4bf839d3a58444ab43196b4a564729a27cd255c79.html",
+      "Locator": "p. 1: 4. Hardware & AMS Usage, Wear Warning; text line 268",
+      "raw_finding": "Wear Warning: Glass fiber is abrasive. While compatible, extensive use may accelerate wear on the AMS internal plastic filament paths and feeder gears. Monitor your AMS components over time.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker warns about abrasion of AMS paths/gears. This While compatible sentence conflicts with section2 AMS2 exclusion; no tested wear life or device approval.",
+      "additional_limits": [
+        "Guide \u00a72 excludes bare AMS2 while \u00a74 heading and While compatible warning name it; no AMS2 Pro/HT mapping or typed compatibility verdict.",
+        "Warning subclauses repeat historical Q04984/Q04985. This row preserves complete new guide context with its internal AMS exclusion plus monitor instruction; repeated subfacts are not new unique knowledge yield. No duplicate suitability proof."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-73328d4145ba/campaign-1",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+      "source_sha256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee",
+      "OriginalPath": ".cache/sources/by-sha/73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee.html",
+      "Locator": "p. 1: Real-World Testing, Tamiya TT02 Flex Bumper; text line 247",
+      "raw_finding": "To demonstrate the unique properties of TPU-GF, we looked at a common pain point in the RC community: front-end collisions. We tested a fantastic Tamiya TT02 Flex Bumper model specifically engineered for high-speed kinetic impacts.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker-reported illustrated RC-bumper demonstration only; impact load/speed, geometry, specimen conditions and test protocol not published. No quantitative impact qualification or transfer to robotics.",
+      "additional_limits": [
+        "Maker-published illustrated RC-bumper observation; no measured force, impact speed, cycle life, protocol, robotics scale-up or finished service qualification. Source attribution remains explicitly maker reported."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    },
+    {
+      "operation_key": "R-SIRAYA-COVERAGE-20260930-73328d4145ba/campaign-2",
+      "verdict": "APPROVE",
+      "GradeID": "G151-01",
+      "MaterialID": "M151",
+      "SourceID": "R-SIRAYA-COVERAGE-20260930-73328d4145ba",
+      "source_sha256": "73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee",
+      "OriginalPath": ".cache/sources/by-sha/73328d4145ba0f5f1cde0e9544c940d6966e289adbcfa29643fb5782563b49ee.html",
+      "Locator": "p. 1: 3D Model Showcase, TPU-GF bumper observation; text line 250",
+      "raw_finding": "Printed in Siraya Tech TPU-GF, the bumper maintains its structural rigidity to protect the chassis during static loading, while flexing on heavy impacts to dissipate kinetic energy before snapping back into shape.",
+      "raw_fidelity": "Independent fresh original own-body visible text reread matches full wording; whitespace around inline HTML colon/period boundaries normalized for check only. Exact derived text locator independently verified.",
+      "conditions_review": "Maker-reported behaviour of this bumper; no measured load, impact speed, cycle life or protocol. No scale-up or industrial payload qualification.",
+      "additional_limits": [
+        "Maker-published illustrated RC-bumper observation; no measured force, impact speed, cycle life, protocol, robotics scale-up or finished service qualification. Source attribution remains explicitly maker reported."
+      ],
+      "lane_review": "Two own application observations stay Application/Published observation; all13 guide rows stay Makers' know-how/Manufacturer statement. No new measurement, estimate, profile or gate."
+    }
+  ],
+  "guard_review": "Packet expected full current grade matches canonical G151-01. Both proposal byte digests match frozen values; source rows/evidence arrays are exactly equal to packet. Accepted grade rows preserve existing formulation/identity while carrying new source reference only for importer resolution. No repository writes or source admission performed by reviewer.",
+  "identity_caveat": "Prior TDS title says carbon fiber but its own body says TPU+15% glass fiber. New originals explicitly GF and retain existing GF ownership without editing older source title/digest or asserting old numbers are newly validated.",
+  "scope_limits": [
+    "Approval covers exact frozen source rows and15 findings only, not automatic extraction artifacts or source admission outcome.",
+    "Source.evidence Prime Day Sales is an uninformative automatic navigation line retained in proposal audit; actual source row title, product ownership and admission facts were independently checked against own body. Do not count it as product evidence.",
+    "Drying and internal temperature/AMS conflicts remain unresolved narrative; no profile/gate/value recalibration is authorized by these operations.",
+    "Repeat guide wear-warning subfacts must not inflate unique useful-finding totals.",
+    "Retain new source revisions separately, allocate IDs only during serialized injection, run required guards/idempotence/source backup and verification gates before local commit."
+  ],
+  "review_signature_sha256": "8737fffea658bb34ad3f29a430b50842c73b686439cd8ec9fdb89c9090a922f2"
+}

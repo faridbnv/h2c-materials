@@ -1,0 +1,16 @@
+{
+  "fixture": "Disposable copy; canonical files untouched",
+  "results": [
+    {
+      "case": "Two witnessed source proposals rerun",
+      "written": 0,
+      "unchanged": true
+    },
+    {
+      "case": "Previously applied raw conflict clause changed",
+      "record": "Q05372",
+      "refused": true,
+      "unchanged": true
+    }
+  ]
+}

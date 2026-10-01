@@ -12,10 +12,10 @@ fetched (registered in `sources.csv`); a statement it finds goes in `evidence.cs
 
 | | Collected | Sheet silent | Searched, nothing published | No document read | All |
 |---|---:|---:|---:|---:|---:|
-| Products | 1050 | 46 | 1 | 31 | 1128 |
+| Products | 1049 | 47 | 1 | 31 | 1128 |
 | Materials | 136 | 10 | 0 | 7 | 153 |
 
-4666 statements; 1326 sources read for know-how; 216 makers' sites searched.
+4660 statements; 1326 sources read for know-how; 216 makers' sites searched.
 A material is collected when any of its products is, so a collected material can still have silent products: they are
 listed under it below. The print recipe's chamber, drying and annealing have the same states; a product whose
 documents were read and give none of one is listed under "Recipe silent".
@@ -41,11 +41,11 @@ documents were read and give none of one is listed under "Recipe silent".
 | ABS (M027) | Indoor prototype; Warm environment | collected | 4 of 57 | 27 / 35 / 47 | 3DJake (no address held); 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com); Yousu (ysfilament.com) |
 | ABS-ESD (M030) | Indoor prototype; Warm environment | collected | 2 of 11 | 6 / 4 / 7 | 3DXTECH (3dxtech.com, trinity3ds.com); MatterHackers (matterhackers.com) |
 | PETG (M020) | Indoor prototype; Lightweight structure | collected | 2 of 76 | 33 / 37 / 55 | 3DXTECH (3dxtech.com, trinity3ds.com); Recreus (recreus.com) |
+| ASA (M031) | Indoor prototype; Warm environment | collected | 1 of 43 | 19 / 19 / 35 | SUNLU (media.sunlu.com) |
 | PA12-CF (M053) | Indoor prototype; Warm environment | collected | 1 of 16 | 7 / 6 / 10 | MatterHackers (matterhackers.com) |
 | PC (M035) | Indoor prototype; Warm environment | collected | 1 of 24 | 8 / 9 / 14 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | PC-ABS (M094) | Indoor prototype; Warm environment | collected | 1 of 13 | 6 / 5 / 10 | 3DXTECH (3dxtech.com, trinity3ds.com) |
 | ABS-AF (M106) | Indoor prototype; Warm environment | collected | 0 of 3 | 0 / 1 / 1 | — |
-| ASA (M031) | Indoor prototype; Warm environment | collected | 0 of 43 | 19 / 19 / 35 | — |
 | CPE (M089) | Indoor prototype; Warm environment | collected | 0 of 5 | 2 / 2 / 3 | — |
 | HIPS (M081) | Indoor prototype; Warm environment | collected | 0 of 12 | 5 / 7 / 10 | — |
 | OBC (M086) | Flexible component; Indoor prototype | collected | 0 of 2 | 1 / 1 / 1 | — |
@@ -159,6 +159,7 @@ documents were read and give none of one is listed under "Recipe silent".
 | Elegoo | no address held | 1 | G001-129 PLA |
 | FormFutura | formfutura.com | 1 | G046-07 FlexiFil |
 | Recreus | recreus.com | 1 | G020-70 PET-G |
+| SUNLU | media.sunlu.com | 1 | G031-27 Self-restraint ASA (ASA) |
 | Spectrum | spectrumfilaments.com | 1 | G001-31 PLA |
 | colorFabb | downloads.colorfabb.com, colorfabb.com | 1 | G066-04 PET ULTRA HIGH SPEED |
 | iSANMATE | isanmate.com | 1 | G149-01 Capa 6500 Polycaprolactone |
